@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "app": "fluegel-angeln / angelschein-lernmodul",
+    "status": "SEED/DEMO CONTENT ONLY - DN-11 (start Angelschein module) has NOT been properly scoped or built yet. These 6 questions exist purely to prove the new multi-module architecture (DN-39) actually works end-to-end with a second exam type, not as a real Angelschein content batch. Do not treat this as representative coverage.",
+    "version": "0.1-seed",
+    "generated": "2026-08-04",
+    "description": "Original, non-catalog MCQs for the German Angelschein (fishing licence) exam. Seed batch only.",
+    "exam_type": "angelschein",
+    "locales": ["de", "en"],
+    "canonical_locale": "de",
+    "legal_review_status": "NOT legally reviewed",
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  "questions": [
+    {
+      "id": "angel-01",
+      "topic": "Tierschutz und Waidgerechtigkeit",
+      "topic_code": "tierschutz",
+      "exam_type": "angelschein",
+      "region_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "§1 TierSchG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": { "question": "Was verlangt der Grundsatz der 'Waidgerechtigkeit' beim Angeln vor allem?", "options": {
+          "a": "Möglichst viele Fische in kurzer Zeit zu fangen", "b": "Dem gefangenen Fisch unnötige Schmerzen und Leiden zu ersparen und ihn zügig fachgerecht zu betäuben und zu töten oder schonend zurückzusetzen", "c": "Nur mit der teuersten verfügbaren Ausrüstung zu fischen", "d": "Ausschließlich nachts zu angeln" } },
+        "en": { "question": "What does the principle of 'Waidgerechtigkeit' (fair/ethical angling practice) primarily require?", "options": {
+          "a": "Catching as many fish as possible in the shortest time", "b": "Sparing the caught fish unnecessary pain and suffering, and either stunning and killing it quickly and properly or releasing it gently", "c": "Only fishing with the most expensive equipment available", "d": "Only fishing at night" } }
+      },
+      "explanation": { "de": "Das Tierschutzgesetz verbietet, einem Tier ohne vernünftigen Grund Schmerzen zuzufügen; beim Angeln bedeutet das eine schnelle, fachgerechte Tötung oder ein schonendes Zurücksetzen.", "en": "The Animal Welfare Act prohibits causing an animal pain without reasonable cause; in angling this means a quick, proper kill or a gentle release." }
+    },
+    {
+      "id": "angel-02",
+      "topic": "Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeit",
+      "exam_type": "angelschein",
+      "region_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Landesfischereigesetze (Schonzeiten-/Mindestmaß-Verordnungen)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": { "question": "Was müssen Sie tun, wenn Sie einen Fisch fangen, der die vorgeschriebene Schonzeit hat oder das Mindestmaß nicht erreicht?", "options": {
+          "a": "Ihn trotzdem behalten, wenn niemand zusieht", "b": "Ihn für spätere Zwecke einfrieren", "c": "Ihn unverzüglich und schonend zurücksetzen", "d": "Ihn an einen anderen Angler verschenken" } },
+        "en": { "question": "What must you do if you catch a fish that is under its legal minimum size or within its closed season?", "options": {
+          "a": "Keep it anyway if nobody is watching", "b": "Freeze it for later", "c": "Release it immediately and gently", "d": "Give it away to another angler" } }
+      },
+      "explanation": { "de": "Schonzeiten und Mindestmaße dienen dem Bestandsschutz; unterschrittene/geschonte Fische müssen sofort und schonend zurückgesetzt werden.", "en": "Closed seasons and minimum sizes protect fish stocks; undersized or protected-season fish must be released immediately and gently." }
+    },
+    {
+      "id": "angel-03",
+      "topic": "Geräte und Methoden",
+      "topic_code": "geraete",
+      "exam_type": "angelschein",
+      "region_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Landesfischereigesetze (verbotene Fangmethoden)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["a"],
+      "text": {
+        "de": { "question": "Welche der folgenden Fangmethoden ist in Deutschland für den Angelschein-Inhaber generell verboten?", "options": {
+          "a": "Elektrofischen (Fang mittels Strom) ohne behördliche Sondererlaubnis", "b": "Angeln mit der Spinnrute", "c": "Angeln mit lebendem Köderfisch, sofern landesrechtlich erlaubt", "d": "Nachtangeln an dafür freigegebenen Gewässern" } },
+        "en": { "question": "Which of the following fishing methods is generally prohibited for licence holders in Germany?", "options": {
+          "a": "Electrofishing (catching fish using electric current) without a special official permit", "b": "Spin fishing with a rod", "c": "Fishing with live bait fish, where permitted under state law", "d": "Night fishing at waters where it's explicitly allowed" } }
+      },
+      "explanation": { "de": "Elektrofischen ist stark reguliert und Privatpersonen ohne behördliche Sondererlaubnis grundsätzlich untersagt, da es Fischbestände massiv schädigen kann.", "en": "Electrofishing is heavily regulated and generally prohibited for private individuals without a special official permit, since it can severely harm fish stocks." }
+    },
+    {
+      "id": "angel-04",
+      "topic": "Gewässerordnung und Angelschein",
+      "topic_code": "gewaesser",
+      "exam_type": "angelschein",
+      "region_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Landesfischereigesetze; Fischereischeinpflicht",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": { "question": "Reicht der gültige Fischereischein (Angelschein) allein aus, um an einem beliebigen Gewässer in Deutschland zu angeln?", "options": {
+          "a": "Ja, der Fischereischein allein berechtigt überall zum Angeln", "b": "Nein, zusätzlich wird meist ein Erlaubnisschein (Angelkarte) des jeweiligen Gewässerbewirtschafters oder -pächters benötigt", "c": "Nein, man braucht stattdessen nur eine Angelkarte, der Fischereischein ist unnötig", "d": "Ja, sofern man volljährig ist" } },
+        "en": { "question": "Is a valid fishing licence (Fischereischein) alone enough to fish in any body of water in Germany?", "options": {
+          "a": "Yes, the fishing licence alone permits fishing anywhere", "b": "No, you also typically need a separate permit (Angelkarte) from whoever manages or leases that specific water", "c": "No, you only need the permit and the licence itself is unnecessary", "d": "Yes, as long as you are an adult" } }
+      },
+      "explanation": { "de": "Der Fischereischein ist die persönliche Berechtigung zum Angeln allgemein; das Recht, an einem konkreten Gewässer zu angeln, wird separat über eine Angelkarte des Bewirtschafters erworben.", "en": "The fishing licence is the general personal qualification to fish; the right to fish a specific water is acquired separately via a permit from that water's manager." }
+    },
+    {
+      "id": "angel-05",
+      "topic": "Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeit",
+      "exam_type": "angelschein",
+      "region_scope": ["NRW"],
+      "grundstoff": true,
+      "legal_basis": "Landesfischereiverordnung NRW (regionale Schonzeit, Beispiel)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": { "question": "Warum können sich Schonzeiten und Mindestmaße für dieselbe Fischart zwischen zwei Bundesländern unterscheiden?", "options": {
+          "a": "Das ist nicht der Fall, sie sind bundesweit gesetzlich einheitlich festgelegt", "b": "Fischereirecht ist überwiegend Landesrecht, jedes Bundesland regelt Schonzeiten/Mindestmaße eigenständig in seiner Landesfischereiverordnung", "c": "Nur der Deutsche Anglerverband legt sie fest, unabhängig vom Bundesland", "d": "Sie hängen ausschließlich vom jeweiligen Gewässerpächter ab, nicht vom Bundesland" } },
+        "en": { "question": "Why can closed seasons and minimum sizes for the same fish species differ between German states?", "options": {
+          "a": "They don't - these are set uniformly by federal law nationwide", "b": "Fisheries law is mostly state law - each Bundesland sets its own closed seasons/minimum sizes in its state fisheries regulation", "c": "Only a national angling association sets them, regardless of state", "d": "They depend solely on the individual water's leaseholder, not the state" } }
+      },
+      "explanation": { "de": "Anders als das bundesweit einheitliche Straßenverkehrsrecht ist das Fischereirecht in Deutschland Ländersache - Schonzeiten und Mindestmaße variieren daher je nach Bundesland (dieses Beispiel: Nordrhein-Westfalen).", "en": "Unlike traffic law (uniform nationwide), fisheries law in Germany is a state matter - closed seasons and minimum sizes vary by Bundesland (this example: North Rhine-Westphalia)." }
+    },
+    {
+      "id": "angel-06",
+      "topic": "Geräte und Methoden",
+      "topic_code": "geraete",
+      "exam_type": "angelschein",
+      "region_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Tierschutzrechtliche Grundsätze (Hälterung, waidgerechtes Töten)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["d"],
+      "text": {
+        "de": { "question": "Was ist beim Betäuben und Töten eines zum Verzehr entnommenen Fisches tierschutzrechtlich zu beachten?", "options": {
+          "a": "Ein Ersticken-Lassen an Land ist ausreichend und üblich", "b": "Der Fisch darf lebend mehrere Stunden gehältert werden, bevor er getötet wird", "c": "Betäuben ist nur bei Speisefischen über einer bestimmten Größe vorgeschrieben", "d": "Der Fisch muss unverzüglich sicher betäubt (z. B. durch einen gezielten Schlag) und anschließend fachgerecht getötet werden" } },
+        "en": { "question": "What does animal welfare law require when stunning and killing a fish kept for consumption?", "options": {
+          "a": "Letting it suffocate on land is sufficient and common practice", "b": "The fish may be kept alive for several hours before being killed", "c": "Stunning is only required for food fish above a certain size", "d": "The fish must be stunned immediately and reliably (e.g. by a targeted blow) and then killed properly" } }
+      },
+      "explanation": { "de": "Waidgerechtes Handeln verlangt, vermeidbares Leiden zu verhindern - Ersticken-Lassen gilt als tierschutzwidrig, ein schneller, sicherer Betäubungsschlag mit anschließender fachgerechter Tötung ist Standard.", "en": "Ethical angling practice requires avoiding unnecessary suffering - letting a fish suffocate is considered a welfare violation; a quick, reliable stunning blow followed by proper killing is the standard." }
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "app": "fluegel-angeln / angelschein-lernmodul",
+    "status": "SEED/DEMO CONTENT ONLY - DN-11 (start Angelschein module) has NOT been properly scoped or built yet. These 6 questions exist purely to prove the new multi-module architecture (DN-39) actually works end-to-end with a second exam type, not as a real Angelschein content batch. Do not treat this as representative coverage.",
+    "version": "0.1-seed",
+    "generated": "2026-08-04",
+    "description": "Original, non-catalog MCQs for the German Angelschein (fishing licence) exam. Seed batch only.",
+    "exam_type": "angelschein",
+    "canonical_locale": "de",
+    "legal_review_status": "NOT legally reviewed",
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "locales": [
+      "de",
+      "en"
+    ],
+    "total_questions": 6
+  },
+  "questions": [
+    {
+      "id": "angel-01",
+      "topic": "Tierschutz und Waidgerechtigkeit",
+      "topic_code": "tierschutz",
+      "exam_type": "angelschein",
+      "grundstoff": true,
+      "legal_basis": "§1 TierSchG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "region_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "angel-02",
+      "topic": "Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeit",
+      "exam_type": "angelschein",
+      "grundstoff": true,
+      "legal_basis": "Landesfischereigesetze (Schonzeiten-/Mindestmaß-Verordnungen)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "region_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "angel-03",
+      "topic": "Geräte und Methoden",
+      "topic_code": "geraete",
+      "exam_type": "angelschein",
+      "grundstoff": true,
+      "legal_basis": "Landesfischereigesetze (verbotene Fangmethoden)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "region_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "angel-04",
+      "topic": "Gewässerordnung und Angelschein",
+      "topic_code": "gewaesser",
+      "exam_type": "angelschein",
+      "grundstoff": true,
+      "legal_basis": "Landesfischereigesetze; Fischereischeinpflicht",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "region_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "angel-05",
+      "topic": "Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeit",
+      "exam_type": "angelschein",
+      "grundstoff": true,
+      "legal_basis": "Landesfischereiverordnung NRW (regionale Schonzeit, Beispiel)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "region_scope": [
+        "NRW"
+      ]
+    },
+    {
+      "id": "angel-06",
+      "topic": "Geräte und Methoden",
+      "topic_code": "geraete",
+      "exam_type": "angelschein",
+      "grundstoff": true,
+      "legal_basis": "Tierschutzrechtliche Grundsätze (Hälterung, waidgerechtes Töten)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "region_scope": [
+        "ALL"
+      ]
+    }
+  ]
+}

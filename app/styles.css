@@ -1,0 +1,596 @@
+:root {
+  --bg: #0b1220;
+  --card: #141c2e;
+  --card-hover: #1b2540;
+  --border: #23304d;
+  --text: #eef1f8;
+  --text-dim: #9aa5bd;
+  /* #4c8dff (the old value) only hits 3.2:1 contrast with white text -
+     darkened per the accessibility audit so every solid-fill + white-text
+     use (reveal button, active language toggle) clears WCAG 1.4.3 (4.5:1). */
+  --accent: #3968d8;
+  --accent-dim: #2c4a86;
+  --amber: #e2a63d;
+  --amber-bg: #3a2c10;
+  --green: #3fbf76;
+  --correct-bg: #103a26;
+  --red: #e2593d;
+  --header-bg: rgba(11, 18, 32, 0.92);
+  --badge-topic-text: #cfe0ff;
+  --badge-neutral-bg: #24304a;
+  --focus-ring: #7ab0ff;
+  --radius: 12px;
+  font-size: 16px;
+}
+
+/* Light theme - toggled via [data-theme="light"] on <html>. Colors re-tuned
+   (not just inverted) so contrast and the amber/green distinction both hold
+   up on a white background too - see UX review re: color-only signalling. */
+[data-theme="light"] {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --card-hover: #eef2fb;
+  --border: #d7deec;
+  --text: #1a2233;
+  --text-dim: #5b6478;
+  --accent: #2f6fed;
+  --accent-dim: #dce8ff;
+  --amber: #92610a;
+  --amber-bg: #fdf1da;
+  /* #17874f (the old value) hits only 4.08:1 against --correct-bg for the
+     bold ~12.5px correct-mark text, just under the 4.5:1 threshold for text
+     that size/weight - darkened per the accessibility audit. */
+  --green: #0f6b3d;
+  --correct-bg: #e5f7ed;
+  --red: #b8402a;
+  --header-bg: rgba(245, 247, 251, 0.92);
+  --badge-topic-text: #1e3a8a;
+  --badge-neutral-bg: #dde3ee;
+  --focus-ring: #1e4fd6;
+}
+
+* { box-sizing: border-box; }
+
+/* Explicit focus style - the app previously relied entirely on each
+   browser's unstyled default outline. Verified in Chromium this happened to
+   look fine (its "auto" outline paints as an inverted-color ring), but nothing
+   pinned that down, and this app is mostly used on mobile Safari, whose
+   default focus ring behaves differently and wasn't verifiable in this
+   environment. Defined once so it's consistent and guaranteed everywhere. */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--header-bg);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px 10px;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 1.15rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* Replaced the old two-button DE/EN toggle with a <select> once the app grew
+   to 7 languages - a button row stops being usable (or even fitting on a
+   phone screen) well before 7 options, a native select scales to any count
+   and comes with built-in keyboard/screen-reader support for free.
+   Option labels are each language's own endonym ("Українська," "العربية,"
+   not "UK"/"AR" 2-letter codes) - a UX review found the codes were only
+   decodable by someone already fluent in Latin-script abbreviations, which
+   defeats the point for the very languages (Arabic/Chinese/Hindi) added to
+   reach readers who may not be. A flags-only picker was considered and
+   rejected: flags represent countries, not languages (Arabic has no single
+   flag; English/Chinese are spoken across many), so it trades a literacy
+   problem for an accuracy problem. The 🌐 icon is a decorative, non-
+   language-specific hint that this control is a language switcher, not a
+   substitute for the endonym text. */
+.lang-select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 999px;
+  padding-inline-start: 12px;
+  flex-shrink: 0;
+}
+
+.lang-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.lang-select {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  padding: 12px 14px 12px 2px;
+  min-height: 44px;
+  max-width: 120px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.filters button {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text-dim);
+  padding: 12px 14px;
+  min-height: 44px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.filters button.active {
+  border-color: var(--accent);
+  /* was hardcoded "white" - broke in light theme where --accent-dim is a
+     pale background (~1.2:1 contrast). Reuses the same theme-aware token
+     the topic badge already uses for text-on-accent-dim. */
+  color: var(--badge-topic-text);
+  background: var(--accent-dim);
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+  padding-bottom: 64px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.q-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.q-card:hover, .q-card:focus-visible {
+  background: var(--card-hover);
+}
+
+.q-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.badge.topic { background: var(--accent-dim); color: var(--badge-topic-text); }
+.badge.points { background: var(--badge-neutral-bg); color: var(--text-dim); }
+.badge.high-stakes { background: var(--amber-bg); color: var(--amber); }
+
+.q-card-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.q-card-id {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  /* logical property (not margin-left) so this still pushes to the trailing
+     edge of the row under dir="rtl" (Arabic), not just physical left. */
+  margin-inline-start: auto;
+}
+
+.empty {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 40px 0;
+  font-size: 0.9rem;
+}
+
+/* Detail view */
+.detail {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  overflow-y: auto;
+  z-index: 20;
+}
+
+.detail-header {
+  position: sticky;
+  top: 0;
+  background: var(--header-bg);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 12px 16px;
+  min-height: 44px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.detail-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+
+.detail-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.detail-question {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 0 0 18px;
+}
+
+.image-note {
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  margin-bottom: 18px;
+}
+
+/* [hidden] and a same-specificity class rule can tie in the cascade -
+   this makes sure hidden always wins regardless of what class is present. */
+.image-note[hidden], .image-illustration[hidden] {
+  display: none;
+}
+
+.image-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 18px;
+}
+
+.image-illustration .q-illustration {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  display: block;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.option .key {
+  font-weight: 700;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  width: 1.2em;
+}
+
+.option.correct {
+  border-color: var(--green);
+  background: var(--correct-bg);
+}
+
+.option.correct .key { color: var(--green); }
+
+/* Correct answer is never signalled by color alone - this text+checkmark
+   is the primary signal; color is a secondary reinforcement only. */
+.correct-mark {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.reveal-btn {
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+.reveal-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.explanation {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.explanation strong { color: var(--text); }
+
+.legal-cite {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 14px;
+}
+
+.progress-bar {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin: 4px 0 14px;
+}
+
+.install-hint {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-align: center;
+  padding: 8px 16px 0;
+}
+
+/* Exam mode (DN-29) ------------------------------------------------- */
+
+.exam-start-btn {
+  border: 1px solid var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.exam-start-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.module-switch-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.exam-modal,
+.exam-view {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: var(--bg);
+  overflow-y: auto;
+}
+
+/* [hidden] and a class rule have equal CSS specificity, so source order
+   would otherwise let this class win and show the modal/view even while
+   the [hidden] attribute is set - same pattern already noted for
+   .image-note/.image-illustration above. Force it explicitly. */
+.exam-modal[hidden],
+.exam-view[hidden] {
+  display: none;
+}
+
+.exam-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.exam-modal-card {
+  max-width: 440px;
+  width: 100%;
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+}
+
+.exam-modal-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+}
+
+.exam-modal-card p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: 0 0 18px;
+}
+
+.exam-mode-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--border);
+  background: var(--badge-neutral-bg, transparent);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.exam-mode-btn:hover,
+.exam-mode-btn:focus-visible {
+  border-color: var(--accent);
+}
+
+.exam-mode-btn strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.95rem;
+}
+
+.exam-timer {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: var(--badge-neutral-bg, transparent);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.exam-timer.low-time {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+.options .option.exam-selected {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.exam-results-pass {
+  color: var(--green);
+}
+
+.exam-results-fail {
+  color: var(--amber);
+}
+
+.exam-results-summary-box {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin: 12px 0 20px;
+}
+
+.exam-review-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.exam-review-item .q-card-text {
+  margin-bottom: 8px;
+}
+
+.exam-review-item .your-answer {
+  color: var(--amber);
+}
+
+.exam-review-item .right-answer {
+  color: var(--green);
+}

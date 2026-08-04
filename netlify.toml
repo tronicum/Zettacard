@@ -1,0 +1,41 @@
+[build]
+  # No build step from Netlify's perspective - app/ is a flat static PWA.
+  # The data/ tree under app/ IS a build artifact, but it's generated ahead
+  # of time by data/build_modules.py (run from the repo root, not by
+  # Netlify) since it derives from the editable master content files, not
+  # from anything Netlify needs to compile. Publish app/ as-is.
+  publish = "app"
+  command = "true"
+
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    # Never let a CDN/browser cache the service worker itself - it needs to
+    # be re-fetched on every load so updates (new CACHE_NAME) actually take
+    # effect instead of being stuck on a stale cached worker indefinitely.
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    # DN-39: content lives under data/<exam_type>/{core.json,locales/*.json}
+    # + data/modules.json, not one flat data.json. All of it changes with
+    # every content round (versioned via each module's meta.version) - keep
+    # it revalidating rather than aggressively cached, since the service
+    # worker's own runtime cache already handles offline use per visitor.
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    # Sign/diagram SVGs are content-addressed by filename, not hashed, but
+    # change rarely - a short cache is a reasonable middle ground.
+    Cache-Control = "public, max-age=3600"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  # Single-page app fallback - not strictly needed today (there's no
+  # client-side router with deep-linkable routes yet) but harmless and
+  # future-proofs against a 404 if that changes.
