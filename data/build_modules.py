@@ -107,10 +107,20 @@ def main():
         os.path.join(HERE, "angelschein_seed.json"), "angelschein", ang_locales)
     print(f"angelschein: {ang_count} questions, locale gaps: {ang_missing}")
 
+    moto_locales = ["de", "en"]
+    moto_count, moto_missing = split_module(
+        os.path.join(HERE, "motorrad_pilot.json"), "motorrad", moto_locales)
+    print(f"motorrad: {moto_count} questions, locale gaps: {moto_missing}")
+
+    lkw_locales = ["de", "en"]
+    lkw_count, lkw_missing = split_module(
+        os.path.join(HERE, "lkw_pilot.json"), "lkw", lkw_locales)
+    print(f"lkw: {lkw_count} questions, locale gaps: {lkw_missing}")
+
     # Sanity: every core question must resolve in at least its canonical
     # locale, and every core question's scope field must be present -
     # otherwise the app would silently render a blank question.
-    for exam_type in ("fuehrerschein", "angelschein"):
+    for exam_type in ("fuehrerschein", "angelschein", "motorrad", "lkw"):
         core = json.load(open(os.path.join(APP_DATA, exam_type, "core.json"), encoding="utf-8"))
         for q in core["questions"]:
             if not any(sf in q for sf in SCOPE_FIELDS):
