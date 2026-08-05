@@ -720,6 +720,15 @@ async function selectModuleAndScope(examType, scopeCode) {
   closeModulePicker();
   history.replaceState({ view: "list" }, "");
   render();
+
+  // DN-43: if this module has an intro wizard and this device hasn't seen
+  // it yet for this exam_type, show it now (first real study session in
+  // the module) rather than dropping the user straight into a raw question
+  // list with no orientation.
+  const mod = state.pendingModule;
+  if (mod && mod.intro && !hasSeenIntro(examType)) {
+    openModuleIntro(mod);
+  }
 }
 
 // Minimal standalone strings (not folded into UI_STRINGS/EXAM_STRINGS since
@@ -739,6 +748,105 @@ const MODULE_PICKER_STRINGS = {
   es: { chooseModule: "¿Para qué examen estás estudiando?", back: "← Atrás", changeExam: "Cambiar de examen" },
   it: { chooseModule: "Per quale esame stai studiando?", back: "← Indietro", changeExam: "Cambia esame" },
 };
+
+// --- Module intro wizard (DN-43) ----------------------------------------
+// A short, skippable walkthrough of what a module actually covers, shown
+// once per device before a user's first study session in a module that
+// has one (see modules_manifest.json's optional "intro" block), and
+// reopenable any time via the header "About this module" button. DE/EN
+// only for now, same scope decision as sign alt text (DN-28) - falls back
+// to English for every other UI language rather than showing nothing.
+const MODULE_INTRO_STRINGS = {
+  de: { next: "Weiter", back: "← Zurück", skip: "Überspringen", start: "Los geht's", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "Über dieses Modul" },
+  en: { next: "Next", back: "← Back", skip: "Skip", start: "Let's start", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "About this module" },
+};
+function introStrings(lang) {
+  return MODULE_INTRO_STRINGS[lang] || MODULE_INTRO_STRINGS.en;
+}
+
+function hasSeenIntro(examType) {
+  try {
+    return localStorage.getItem(`dn-intro-seen-${examType}`) === "1";
+  } catch (e) {
+    return false;
+  }
+}
+
+function markIntroSeen(examType) {
+  try {
+    localStorage.setItem(`dn-intro-seen-${examType}`, "1");
+  } catch (e) { /* non-fatal */ }
+}
+
+function openModuleIntro(mod) {
+  state.introModule = mod;
+  state.introStepIndex = 0;
+  el("#module-intro").hidden = false;
+  history.pushState({ view: "module-intro" }, "");
+  renderModuleIntro();
+  setInertBehindDialog(true);
+  el("#module-intro-title").focus();
+}
+
+function closeModuleIntro() {
+  markIntroSeen(state.introModule.exam_type);
+  el("#module-intro").hidden = true;
+  setInertBehindDialog(false);
+}
+
+function renderModuleIntro() {
+  const mod = state.introModule;
+  const steps = mod.intro.steps;
+  const i = state.introStepIndex;
+  const step = steps[i];
+  const lang = state.lang;
+  const content = step[lang] || step.en || step.de;
+  const S = introStrings(lang);
+
+  el("#module-intro-title").textContent = content.title;
+  el("#module-intro-body").textContent = content.body;
+
+  const dots = el("#module-intro-dots");
+  dots.innerHTML = "";
+  steps.forEach((_, idx) => {
+    const dot = document.createElement("span");
+    dot.className = "dot" + (idx === i ? " active" : "");
+    dots.appendChild(dot);
+  });
+
+  const backBtn = el("#module-intro-back");
+  backBtn.textContent = S.back;
+  backBtn.disabled = i === 0;
+
+  el("#module-intro-skip").textContent = S.skip;
+  el("#module-intro-skip").hidden = i === steps.length - 1;
+
+  const nextBtn = el("#module-intro-next");
+  nextBtn.innerHTML = `<strong>${i === steps.length - 1 ? S.start : S.next}</strong>`;
+}
+
+function wireModuleIntroControls() {
+  el("#module-intro-back").addEventListener("click", () => {
+    if (state.introStepIndex > 0) {
+      state.introStepIndex -= 1;
+      renderModuleIntro();
+    }
+  });
+  el("#module-intro-next").addEventListener("click", () => {
+    const steps = state.introModule.intro.steps;
+    if (state.introStepIndex < steps.length - 1) {
+      state.introStepIndex += 1;
+      renderModuleIntro();
+    } else {
+      history.back();
+    }
+  });
+  el("#module-intro-skip").addEventListener("click", () => history.back());
+  el("#module-info-btn").addEventListener("click", () => {
+    const mod = moduleManifestFor(state.examType);
+    if (mod && mod.intro) openModuleIntro(mod);
+  });
+}
 
 // --- Exam mode (DN-29) --------------------------------------------------
 // Reverses the original Sprint-1 "no exam mode" boundary, with explicit PO
@@ -1065,6 +1173,13 @@ function render() {
     moduleBtn.textContent = MP.changeExam;
   }
 
+  // DN-43: the "About this module" info button only makes sense once a
+  // module is active and that module actually has an intro wizard defined.
+  const infoBtn = el("#module-info-btn");
+  infoBtn.hidden = !(moduleMod && moduleMod.intro);
+  infoBtn.title = introStrings(state.lang).aboutBtn;
+  infoBtn.setAttribute("aria-label", introStrings(state.lang).aboutBtn);
+
   ["lang-select", "detail-lang-select"].forEach((id) => {
     el("#" + id).value = state.lang;
     el("#" + id).setAttribute("aria-label", LANG_PICKER_LABEL[state.lang] || "Language");
@@ -1298,6 +1413,7 @@ function wireStaticControls() {
   el("#detail-lang-select").addEventListener("change", (e) => setLang(e.target.value));
   el("#module-switch-btn").addEventListener("click", openModulePicker);
   el("#module-picker-cancel").addEventListener("click", () => history.back());
+  wireModuleIntroControls();
 
   const toggleTheme = () => setTheme(currentTheme() === "light" ? "dark" : "light");
   el("#theme-toggle").addEventListener("click", toggleTheme);
@@ -1314,6 +1430,7 @@ function wireStaticControls() {
     if (state.detailIndex !== null) closeDetail();
     if (!el("#exam-picker").hidden) closeExamPicker();
     if (!el("#exam-view").hidden || !el("#exam-results").hidden) exitExam();
+    if (!el("#module-intro").hidden) closeModuleIntro();
     if (!el("#module-picker").hidden) {
       // On first-ever visit the module picker is mandatory (no content is
       // loaded yet) - a back gesture there shouldn't leave the app in a

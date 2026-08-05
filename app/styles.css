@@ -541,6 +541,49 @@ main {
   font-size: 0.95rem;
 }
 
+/* Module intro wizard (DN-43) */
+.intro-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 4px 0 18px;
+}
+
+.intro-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.intro-dots .dot.active {
+  background: var(--accent);
+}
+
+.intro-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.intro-nav .back-btn {
+  flex: 0 0 auto;
+}
+
+.intro-nav .intro-next-btn {
+  flex: 1 1 auto;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.intro-nav .intro-next-btn strong {
+  margin-bottom: 0;
+}
+
+#module-intro-back[disabled] {
+  visibility: hidden;
+}
+
 .exam-timer {
   font-variant-numeric: tabular-nums;
   font-weight: 700;

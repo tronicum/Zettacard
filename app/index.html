@@ -28,6 +28,7 @@
         <div class="subtitle" id="app-subtitle"></div>
       </div>
       <div style="display:flex; gap:8px; align-items:center;">
+        <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
         <button class="module-switch-btn" id="module-switch-btn"></button>
         <button class="exam-start-btn" id="exam-start-btn"></button>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme"></button>
@@ -106,6 +107,24 @@
       <h2 id="module-picker-title" tabindex="-1"></h2>
       <div id="module-picker-body"></div>
       <button class="back-btn" id="module-picker-cancel"></button>
+    </div>
+  </div>
+
+  <!-- Module intro wizard (DN-43): a short, skippable walkthrough of what a
+       module actually covers, shown once per device before a user's first
+       study session in a module that has one (see modules_manifest.json's
+       optional "intro" block), and reopenable any time via the header "ⓘ"
+       button. Step content is built entirely in JS (renderModuleIntro). -->
+  <div class="exam-modal" id="module-intro" hidden role="dialog" aria-modal="true" aria-labelledby="module-intro-title">
+    <div class="exam-modal-card">
+      <h2 id="module-intro-title" tabindex="-1"></h2>
+      <p id="module-intro-body"></p>
+      <div class="intro-dots" id="module-intro-dots" aria-hidden="true"></div>
+      <div class="intro-nav">
+        <button class="back-btn" id="module-intro-back"></button>
+        <button class="back-btn" id="module-intro-skip"></button>
+        <button class="exam-mode-btn intro-next-btn" id="module-intro-next"></button>
+      </div>
     </div>
   </div>
 
