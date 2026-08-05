@@ -1,6 +1,6 @@
 {
   "meta": {
-    "app": "drivenow / it-sicherheit-lernmodul",
+    "app": "Zettacard / it-sicherheit-lernmodul",
     "version": "0.1",
     "generated": "2026-08-05",
     "description": "Original MCQs for a workplace IT-security / cyber-hygiene awareness module aimed at general employees (no IT-specialist or audit-level detail). Content is independently phrased and grounded in publicly available guidance: BSI IT-Grundschutz-Kompendium Bausteine (e.g. ORP.3, ORP.4, CON.3, DER.2.1, OPS.1.2.4, SYS.3.2.1) and BSI consumer/employee phishing guidance, ISO/IEC 27001:2022 Annex A control themes described conceptually (not a certification-exam simulation), and the EU NIS2 Directive's general employee-relevant obligations (Art. 21(2)(g) cyber hygiene practices and training; Art. 23 incident reporting timelines). This is a fully independent exam module from Fuehrerschein (Klasse B), Motorrad and Angelschein - separate content pool, separate exam simulation. Locales: de (canonical), en (reviewed translation) for this first round.",
@@ -9,13 +9,23 @@
     "point_system": "2-5 points per question, matching this app's existing style",
     "pass_rule_note": "Provisional: same generic mechanics as this app's other modules (30 questions per simulation run, max 10 error points, auto-fail on 2+ wrong high_stakes) used as a placeholder pending a real workplace-training design pass - see legal_review_status.",
     "legal_review_status": "NOT legally reviewed - verify BSI/ISO/NIS2 references and currency before production/commercial use",
-    "total_questions": 20,
+    "total_questions": 40,
     "license": "CC BY-NC-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
     "locales": [
       "de",
-      "en"
+      "en",
+      "uk",
+      "pl",
+      "ar",
+      "zh",
+      "hi",
+      "tr",
+      "fr",
+      "ru",
+      "es",
+      "it"
     ]
   },
   "questions": [
@@ -348,6 +358,346 @@
       "topic_code": "meldepflicht_it",
       "grundstoff": true,
       "legal_basis": "ISO/IEC 27001:2022, Anhang A, Control 5.24 (Planung und Vorbereitung des Managements von Informationssicherheitsvorfällen)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-zugriffsschutz-05",
+      "topic": "Zugriffsschutz",
+      "topic_code": "zugriffsschutz",
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein ORP.4 (Identitäts- und Berechtigungsmanagement); ISO/IEC 27001:2022, Anhang A, Control 5.18 (Zugangsrechte)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-zugriffsschutz-06",
+      "topic": "Zugriffsschutz",
+      "topic_code": "zugriffsschutz",
+      "grundstoff": true,
+      "legal_basis": "ISO/IEC 27001:2022, Anhang A, Control 5.18 (Zugangsrechte)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-zugriffsschutz-07",
+      "topic": "Zugriffsschutz",
+      "topic_code": "zugriffsschutz",
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein ORP.4 (Identitäts- und Berechtigungsmanagement)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-zugriffsschutz-08",
+      "topic": "Zugriffsschutz",
+      "topic_code": "zugriffsschutz",
+      "grundstoff": true,
+      "legal_basis": "ISO/IEC 27001:2022, Anhang A, Control 7.7 (Clear Desk und Clear Screen)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-phishing-05",
+      "topic": "Phishing",
+      "topic_code": "phishing",
+      "grundstoff": true,
+      "legal_basis": "BSI, Verbraucherinformation \"Wie erkenne ich Phishing in E-Mails und auf Webseiten?\" (bsi.bund.de)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-phishing-06",
+      "topic": "Phishing",
+      "topic_code": "phishing",
+      "grundstoff": true,
+      "legal_basis": "BSI, Verbraucherinformation \"Wie erkenne ich Phishing in E-Mails und auf Webseiten?\" (bsi.bund.de)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-phishing-07",
+      "topic": "Phishing",
+      "topic_code": "phishing",
+      "grundstoff": true,
+      "legal_basis": "BSI, Verbraucherinformation \"Wie schütze ich mich vor Phishing?\" (bsi.bund.de)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-phishing-08",
+      "topic": "Phishing",
+      "topic_code": "phishing",
+      "grundstoff": true,
+      "legal_basis": "BSI, Verbraucherinformation \"Wie erkenne ich Phishing in E-Mails und auf Webseiten?\" (bsi.bund.de)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-datensicherung-05",
+      "topic": "Datensicherung und Geräteumgang",
+      "topic_code": "datensicherung",
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein CON.3 (Datensicherungskonzept)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-datensicherung-06",
+      "topic": "Datensicherung und Geräteumgang",
+      "topic_code": "datensicherung",
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein CON.3 (Datensicherungskonzept)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-datensicherung-07",
+      "topic": "Datensicherung und Geräteumgang",
+      "topic_code": "datensicherung",
+      "grundstoff": true,
+      "legal_basis": "ISO/IEC 27001:2022, Anhang A, Control 7.10 (Speichermedien)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-datensicherung-08",
+      "topic": "Datensicherung und Geräteumgang",
+      "topic_code": "datensicherung",
+      "grundstoff": true,
+      "legal_basis": "ISO/IEC 27001:2022, Anhang A, Control 7.14 (Sichere Entsorgung oder Wiederverwendung von Geräten)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-mobil_homeoffice-05",
+      "topic": "Mobile Geräte und Homeoffice",
+      "topic_code": "mobil_homeoffice",
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein OPS.1.2.4 (Telearbeit); ISO/IEC 27001:2022, Anhang A, Control 8.1 (Endgeräte der Benutzer)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-mobil_homeoffice-06",
+      "topic": "Mobile Geräte und Homeoffice",
+      "topic_code": "mobil_homeoffice",
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein SYS.3.2.1 (Allgemeine Smartphones und Tablets)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-mobil_homeoffice-07",
+      "topic": "Mobile Geräte und Homeoffice",
+      "topic_code": "mobil_homeoffice",
+      "grundstoff": true,
+      "legal_basis": "ISO/IEC 27001:2022, Anhang A, Control 8.1 (Endgeräte der Benutzer)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-mobil_homeoffice-08",
+      "topic": "Mobile Geräte und Homeoffice",
+      "topic_code": "mobil_homeoffice",
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein OPS.1.2.4 (Telearbeit)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-meldepflicht_it-05",
+      "topic": "Meldepflicht bei IT-Sicherheitsvorfällen",
+      "topic_code": "meldepflicht_it",
+      "grundstoff": true,
+      "legal_basis": "EU-Richtlinie (NIS2), Art. 23 Abs. 4 (Gestuftes Meldeverfahren: Frühwarnung, Meldung, Abschlussbericht)",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-meldepflicht_it-06",
+      "topic": "Meldepflicht bei IT-Sicherheitsvorfällen",
+      "topic_code": "meldepflicht_it",
+      "grundstoff": true,
+      "legal_basis": "EU-Richtlinie (NIS2), Art. 23 Abs. 3 (Definition eines erheblichen Sicherheitsvorfalls)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-meldepflicht_it-07",
+      "topic": "Meldepflicht bei IT-Sicherheitsvorfällen",
+      "topic_code": "meldepflicht_it",
+      "grundstoff": true,
+      "legal_basis": "ISO/IEC 27001:2022, Anhang A, Control 5.28 (Sammlung von Beweismitteln)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "it_sicherheit-meldepflicht_it-08",
+      "topic": "Meldepflicht bei IT-Sicherheitsvorfällen",
+      "topic_code": "meldepflicht_it",
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein DER.2.1 (Behandlung von Sicherheitsvorfällen); ISO/IEC 27001:2022, Anhang A, Control 5.26 (Reaktion auf Informationssicherheitsvorfälle)",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",

@@ -198,5 +198,205 @@
       "d": "Skip any review entirely as long as no customer sees the content directly"
     },
     "explanation": "Generative AI can be very useful at work, but it does not replace one's own professional and legal responsibility. Outputs can be factually wrong ('hallucinations'), contain unintended bias, or raise data-protection concerns if confidential information was accidentally entered - so a critical review before further use is good workplace practice."
+  },
+  "ki_act-grundlagen-05": {
+    "question": "A company develops and uses an AI system exclusively for national military defence purposes. Does the AI Act apply to it?",
+    "options": {
+      "a": "No - under Art. 2(3), the AI Act does not apply to AI systems placed on the market, put into service or used exclusively for military, defence or national security purposes",
+      "b": "Yes, without restriction - military use is expressly listed as its own high-risk area in Annex III",
+      "c": "No, but only if the system has additionally been officially certified by NATO",
+      "d": "Yes, but at least the transparency obligations under Art. 50 still fully apply regardless"
+    },
+    "explanation": "Art. 2(3) fully excludes AI systems intended exclusively for military, defence or national security purposes from the Regulation's scope, regardless of which type of entity operates them. There is no separate NATO certification for this, and the transparency obligations also do not apply in this case."
+  },
+  "ki_act-grundlagen-06": {
+    "question": "A research team develops and tests a new AI model purely for scientific research purposes, before it is ever placed on the market or put into service. How is this classified under the AI Act?",
+    "options": {
+      "a": "Such research, testing and development activity prior to being placed on the market or put into service generally falls outside the scope of the Regulation",
+      "b": "Even pure research must first undergo a full conformity assessment as if it were a high-risk system",
+      "c": "The exemption only applies if the research is carried out at a public university, not in the private sector",
+      "d": "The exemption continues to apply unchanged once the model is subsequently made available to real users on the market"
+    },
+    "explanation": "Art. 2(8) excludes research, testing and development activity regarding AI systems or models prior to their being placed on the market or put into service from the scope of the Regulation. The exemption is not limited to public institutions, but it ends once the system is actually made available on the market or put into service - from that point the regular obligations apply."
+  },
+  "ki_act-grundlagen-07": {
+    "question": "According to the definition in Art. 3(3) of the AI Act, who counts as a 'provider' of an AI system?",
+    "options": {
+      "a": "Only a natural person who personally writes the program code for an AI system",
+      "b": "Any natural or legal person, public authority, agency or other body that develops an AI system or has one developed, and places it on the market or puts it into service under its own name or trademark - whether for payment or free of charge",
+      "c": "Exclusively companies established outside the EU that export AI systems into the EU",
+      "d": "Any company that merely uses a finished AI tool built by a third party within its own operations, without passing it on further"
+    },
+    "explanation": "The provider definition is deliberately broad and does not depend on where the company is established or whether payment is involved, but on whether someone develops (or has developed) an AI system and places it on the market or puts it into service under its own name or trademark. Option d instead describes more the role of a deployer, who merely uses a system built by someone else."
+  },
+  "ki_act-grundlagen-08": {
+    "question": "Besides the list in Annex III, there is a second, independent way an AI system can become high-risk. Which one is it?",
+    "options": {
+      "a": "When the AI system is itself a product, or is a safety component of a product, that is covered by the EU product safety legislation listed in Annex I (e.g. machinery, medical devices), and that product requires third-party conformity assessment",
+      "b": "When the company deploying the AI has more than 500 employees",
+      "c": "When the AI system is deployed simultaneously in more than three EU member states",
+      "d": "When the AI system is offered publicly and free of charge on the internet"
+    },
+    "explanation": "Art. 6(1) opens up, alongside the application-based classification via Annex III, a second, product-based route: if the AI system is itself a product or a safety component of a product that already falls under existing EU product safety legislation (Annex I, e.g. the Machinery Regulation, the Medical Devices Regulation) and requires third-party conformity assessment there, the AI system is likewise considered high-risk."
+  },
+  "ki_act-ki_kompetenz-05": {
+    "question": "How does Art. 3(56) of the AI Act define the term 'AI literacy'?",
+    "options": {
+      "a": "As the skills, knowledge and understanding that allow providers, deployers and affected persons to make an informed deployment of AI systems and to gain awareness of the opportunities and risks of AI and the harm it can cause",
+      "b": "As a formal certification that may only be awarded by state-accredited testing bodies",
+      "c": "As purely technical knowledge of programming languages, relevant only to IT specialists",
+      "d": "As a legal obligation to document a fixed minimum number of training hours every year"
+    },
+    "explanation": "The definition in Art. 3(56) is deliberately broad: it is not about a specific certification or pure programming knowledge, but about skills, knowledge and understanding that enable informed decisions when dealing with AI and create awareness of opportunities, risks and possible harm."
+  },
+  "ki_act-ki_kompetenz-06": {
+    "question": "According to Recital 20 of the AI Act, who should AI literacy ultimately also benefit - beyond the providers' and deployers' own staff?",
+    "options": {
+      "a": "Exclusively senior management, so they can make sound investment decisions",
+      "b": "Also persons affected by AI-assisted decisions, so they can understand how decisions taken with the assistance of AI affect them",
+      "c": "Exclusively national market surveillance authorities that monitor compliance with the Regulation",
+      "d": "Only external software developers who are contracted to train new AI models"
+    },
+    "explanation": "Recital 20 of the AI Act makes clear that AI literacy should not only serve providers and deployers themselves, but should also give affected persons the knowledge necessary to understand how decisions taken with the assistance of AI will have an impact on them."
+  },
+  "ki_act-ki_kompetenz-07": {
+    "question": "Does Art. 4 of the AI Act require a specific, legally prescribed training format (e.g. a certified exam) for AI literacy?",
+    "options": {
+      "a": "No - the wording obliges providers and deployers to take appropriate measures 'to their best extent'; Art. 4 does not prescribe any particular format or certification",
+      "b": "Yes, it must necessarily be a multi-day in-person training with an external certificate",
+      "c": "Yes, only a state-recognised e-learning course satisfies the requirements of Art. 4",
+      "d": "Yes, but only for companies that also provide high-risk AI systems"
+    },
+    "explanation": "Art. 4 of the AI Act is phrased as a best-efforts obligation ('to their best extent'), not as an obligation of result with a prescribed format. The law leaves open what the concrete measures look like - as long as they are appropriate and take into account prior knowledge, context, and the groups of people affected."
+  },
+  "ki_act-ki_kompetenz-08": {
+    "question": "A company only uses a minimal-risk AI system (e.g. an AI-based spell checker), but no high-risk system. Does it still need to comply with Art. 4 of the AI Act on AI literacy?",
+    "options": {
+      "a": "Yes - the AI literacy obligation applies to providers and deployers regardless of the risk class of the AI system they actually deploy, not only to high-risk systems",
+      "b": "No, Art. 4 applies exclusively to providers and deployers of high-risk AI systems under Annex III",
+      "c": "No, the obligation only kicks in once the company has more than 50 different AI applications in use",
+      "d": "No, for minimal-risk systems only the transparency obligation under Art. 50 applies, not Art. 4"
+    },
+    "explanation": "Art. 4 of the AI Act is not limited to high-risk systems but applies to 'AI systems' generally. A company therefore cannot argue that it only uses low-risk tools to exempt itself from the AI literacy obligation - a common but incorrect assumption with real compliance risk."
+  },
+  "ki_act-verbotene_praktiken-05": {
+    "question": "An authority wants to use an AI system that predicts a person's risk of committing a future crime based solely on profiling and personality traits, in order to derive measures from this. How is this assessed under the AI Act?",
+    "options": {
+      "a": "Such AI-based 'predictive policing', which bases the crime prediction solely on profiling or personality traits, counts as one of the prohibited practices under Art. 5(1)(d)",
+      "b": "This is permitted as long as an official formally signs off on the measure suggested by the AI at the end",
+      "c": "This is an ordinary high-risk system that may be freely used after a conformity assessment",
+      "d": "This is generally permissible, because supporting a human assessment of concrete criminal offences based on objective, verifiable facts is generally prohibited"
+    },
+    "explanation": "Art. 5(1)(d) of the AI Act prohibits risk assessments or predictions of a person's criminal propensity based solely on profiling or personality traits. What remains permissible, however, is AI support for a human assessment based on objective, verifiable facts directly linked to concrete criminal conduct - that is the narrow exception, not the default rule."
+  },
+  "ki_act-verbotene_praktiken-06": {
+    "question": "A provider wants to build a facial recognition database by automatically and indiscriminately collecting facial images from the open internet and from CCTV footage. How does the AI Act classify this?",
+    "options": {
+      "a": "The untargeted scraping of facial images from the internet or from CCTV footage to create or expand facial recognition databases counts as a prohibited practice under Art. 5(1)(e)",
+      "b": "This is permitted as long as the collected images are subsequently stored pseudonymously",
+      "c": "This is only prohibited for images of minors, and generally permitted for adults",
+      "d": "This does not fall under the AI Act at all, since it formally constitutes a database rather than a standalone AI system"
+    },
+    "explanation": "Art. 5(1)(e) of the AI Act specifically prohibits the untargeted collection of facial images from the internet or CCTV footage to create or expand facial recognition databases - regardless of pseudonymisation or the age of the people depicted. The underlying collection and processing logic falls under the AI Act, even if the end result is formally 'just' a database."
+  },
+  "ki_act-verbotene_praktiken-07": {
+    "question": "A school wants to use an AI system that uses camera and microphone input to detect and evaluate students' emotions during lessons - not for medical or safety reasons. How is this assessed under the AI Act?",
+    "options": {
+      "a": "Using emotion recognition in educational institutions outside of medical or safety-related reasons counts as one of the prohibited practices under Art. 5(1)(f)",
+      "b": "This is always permitted as long as the school discloses the emotion recognition in line with Art. 50 of the AI Act",
+      "c": "This is only prohibited if the collected results are later published",
+      "d": "This is only prohibited in the workplace, while it is generally permitted in educational institutions"
+    },
+    "explanation": "Art. 5(1)(f) of the AI Act prohibits the use of emotion recognition systems both in the workplace and in educational institutions, unless there are medical or safety-related reasons (e.g. detecting fatigue in safety-critical activities). Mere disclosure under Art. 50 of the AI Act is not sufficient here - the ban applies regardless of whether transparent information is provided."
+  },
+  "ki_act-verbotene_praktiken-08": {
+    "question": "A company wants to use an AI system that automatically infers a person's presumed sexual orientation, political opinion, or religious belief from biometric data (e.g. facial or voice recognition). How is this classified?",
+    "options": {
+      "a": "Such biometric categorisation to infer particularly sensitive attributes such as sexual orientation, political opinion, or religious belief counts as a prohibited practice under Art. 5(1)(g)",
+      "b": "This is permitted as long as the affected person has previously accepted a general privacy notice",
+      "c": "This is generally permitted if it is done exclusively for marketing purposes",
+      "d": "This is only prohibited if the inferred attributes are subsequently resold to third parties"
+    },
+    "explanation": "Art. 5(1)(g) of the AI Act prohibits biometric categorisation of natural persons in order to deduce their race, political opinions, trade union membership, religious or philosophical beliefs, sex life, or sexual orientation. An accepted privacy notice or a marketing purpose does not change this - narrow exceptions exist only for lawful labelling/filtering of datasets or biometric categorisation by law enforcement authorities."
+  },
+  "ki_act-transparenzpflichten-05": {
+    "question": "Your company uses a generative AI system that automatically produces image and text content. What does Art. 50(2) of the AI Act require from the provider of such a system in this regard?",
+    "options": {
+      "a": "The provider must ensure that the generated outputs are marked in a machine-readable format and detectable as artificially generated or manipulated, as far as this is technically feasible",
+      "b": "The provider must have every generated piece of content approved by a national supervisory authority before publication",
+      "c": "There is no marking obligation as long as the content is not used commercially",
+      "d": "The marking obligation only applies to video content, not to text or images"
+    },
+    "explanation": "Art. 50(2) of the AI Act obliges providers of AI systems that generate synthetic image, audio, video, or text content to ensure that these outputs are marked in a machine-readable format and detectable as artificially generated or manipulated, as far as this is technically feasible - regardless of prior approval by authorities or commercial use."
+  },
+  "ki_act-transparenzpflichten-06": {
+    "question": "Does the obligation under Art. 50(1) of the AI Act to inform persons that they are interacting with an AI system apply without any exception to every system?",
+    "options": {
+      "a": "No - among other things, the obligation does not apply to AI systems legally authorised to detect, prevent, investigate or prosecute criminal offences, subject to appropriate safeguards for the rights of third parties - unless the system is available for the public to report a criminal offence",
+      "b": "Yes, there is no exception whatsoever - every AI system must always identify itself in every case",
+      "c": "No, the obligation generally does not apply to any public authority, regardless of the purpose of use",
+      "d": "No, the obligation only applies to AI systems that are offered for a fee"
+    },
+    "explanation": "Art. 50(1) of the AI Act provides a limited exception for AI systems legally authorised to detect, prevent, investigate or prosecute criminal offences, subject to appropriate safeguards for the rights of third parties. However, this exception does not apply where the system is available for the public to report a criminal offence - there, the information obligation still applies. There is no blanket exemption for all public authorities."
+  },
+  "ki_act-transparenzpflichten-07": {
+    "question": "A newsroom uses generative AI to create and publish a text on a matter of public interest. However, the text undergoes editorial revision before publication, and a person bears editorial responsibility for it. Must it still be disclosed that AI was involved?",
+    "options": {
+      "a": "No - if such a text undergoes a process of human review or editorial control and a person holds editorial responsibility for it, the disclosure obligation under Art. 50(4), second subparagraph, does not apply",
+      "b": "Yes, under the AI Act every use of generative AI in journalistic texts must be disclosed without exception",
+      "c": "No, because journalistic content is generally fully excluded from the scope of the AI Act",
+      "d": "Yes, but only if the published text is longer than 1,000 words"
+    },
+    "explanation": "Art. 50(4), second subparagraph, of the AI Act generally provides for a disclosure obligation for AI-generated or manipulated text published on matters of public interest. This obligation does not apply, however, where the content has undergone a process of human review or editorial control and a natural or legal person holds editorial responsibility for the publication."
+  },
+  "ki_act-transparenzpflichten-08": {
+    "question": "Your company uses a high-risk AI system that also falls under the transparency obligations of Art. 50 of the AI Act (e.g. because it interacts directly with people). Do the obligations under Art. 50 and the high-risk obligations under Chapter III mutually exclude each other?",
+    "options": {
+      "a": "No - Art. 50(6) clarifies that the transparency obligations do not affect the requirements under Chapter III; both sets of obligations can apply side by side and must be met cumulatively",
+      "b": "Yes, once a system counts as a high-risk system, the Chapter III obligations automatically replace all transparency obligations under Art. 50",
+      "c": "Yes, Art. 50 generally only applies to minimal-risk systems, never to high-risk systems",
+      "d": "No, but only the stricter of the two sets of obligations needs to be met, not both at the same time"
+    },
+    "explanation": "Art. 50(6) of the AI Act expressly clarifies that the transparency obligations of paragraphs 1 to 4 do not affect the requirements and obligations under Chapter III (high-risk systems). A high-risk system that also falls within the scope of Art. 50 must therefore fulfil both sets of obligations cumulatively, not just one of them."
+  },
+  "ki_act-ki_am_arbeitsplatz-05": {
+    "question": "A company wants to introduce a high-risk AI system for evaluating employee performance. What does Art. 26(7) of the AI Act require from an employer acting as deployer before the system is used at the workplace?",
+    "options": {
+      "a": "The employer must inform the workers' representatives and the affected employees that they will be subject to the use of the high-risk AI system, before it is put into service or used",
+      "b": "It is sufficient to provide the information retroactively after the first three months of use have passed",
+      "c": "Information is only required if more than 50 employees are affected by the deployment",
+      "d": "It is sufficient to mention the system in the company's general privacy notice, without specifically informing the employees"
+    },
+    "explanation": "Art. 26(7) of the AI Act obliges employers who, as deployers, use a high-risk AI system at the workplace to inform the workers' representatives and the affected employees in advance - not only afterwards, regardless of company size, and not merely in a general privacy notice."
+  },
+  "ki_act-ki_am_arbeitsplatz-06": {
+    "question": "Which of the following applications is explicitly listed under Annex III point 4 of the AI Act as a high-risk area for 'employment, workers management and access to self-employment'?",
+    "options": {
+      "a": "AI software that automatically allocates tasks to employees or continuously monitors and evaluates their performance and behaviour",
+      "b": "An AI-based canteen app that suggests vegetarian menu options to employees",
+      "c": "AI that automatically corrects spelling mistakes in employees' internal emails",
+      "d": "An AI-based time-tracking app that exclusively logs attendance, without any evaluation of performance"
+    },
+    "explanation": "Annex III point 4(b) of the AI Act explicitly names AI systems that make decisions on working conditions, promotion or termination, allocate tasks based on individual behaviour or personal traits, or continuously monitor and evaluate the performance and behaviour of employees. Purely administrative tools without an evaluative function (canteen app, spell checker, plain attendance logging) do not fall under this."
+  },
+  "ki_act-ki_am_arbeitsplatz-07": {
+    "question": "A high-risk AI system for pre-screening job applications is to be used within a company. What must the system itself, according to Art. 14(4) of the AI Act, technically enable for the persons assigned to human oversight?",
+    "options": {
+      "a": "It must be designed so that the overseeing person can monitor its operation, correctly interpret its output, decide against using it or ignore, override or reverse the output, and interrupt its operation via a 'stop' button or similar procedure",
+      "b": "It must be designed so that it can only be shut down remotely by the manufacturer, not by the deploying company",
+      "c": "It is sufficient for a person to spot-check the system logs once a year",
+      "d": "It must be designed so that the system's decisions can never be reversed, in order to prevent subsequent manipulation"
+    },
+    "explanation": "Art. 14(4) of the AI Act requires high-risk AI systems to be designed so that the person assigned to oversight understands the system's capacities and limitations, can correctly interpret its outputs, can decide against using it or ignore, override or reverse the output, and can interrupt its operation via a 'stop' button or a similar procedure. An annual spot-check or a shutdown capability held exclusively by the manufacturer does not meet this requirement."
+  },
+  "ki_act-ki_am_arbeitsplatz-08": {
+    "question": "An AI system, without any human involvement, makes the final decision to reject a job applicant, based solely on an automated evaluation of her application documents. What additional right can the applicant assert independently of the AI Act?",
+    "options": {
+      "a": "The right under Art. 22 GDPR not to be subject to a decision based solely on automated processing that produces legal effects or similarly significantly affects her, subject to the exceptions set out there",
+      "b": "A right to immediate hiring, regardless of the substantive outcome of the application",
+      "c": "The right to have the AI software's manufacturer disclose the complete source code to her",
+      "d": "There is no additional right, because the AI Act fully displaces the GDPR in employment matters"
+    },
+    "explanation": "The AI Act primarily regulates risks arising from the AI system itself and does not replace the GDPR. In parallel, Art. 22 GDPR grants affected persons the right not to be subject solely to an automated decision that produces legal effects or similarly significantly affects them - such as a fully automated job rejection without any human involvement, subject to the narrow exceptions specified in the law."
   }
 }

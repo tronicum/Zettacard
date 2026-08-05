@@ -198,5 +198,205 @@
       "d": "Die im Unternehmen festgelegten Meldewege nutzen (z. B. IT-Support, Sicherheitsbeauftragte oder Führungskraft) oder im Zweifel bei der eigenen Führungskraft nachfragen"
     },
     "explanation": "Ein vorbereitetes Meldeverfahren mit klar zuständigen Stellen sorgt dafür, dass ein Vorfall schnell bei den richtigen Personen ankommt, die geeignete Gegenmaßnahmen einleiten können. Ein öffentlicher Chatkanal oder gar soziale Medien sind ungeeignet und können den Vorfall zusätzlich öffentlich machen oder Angreifer warnen. Abwarten verzögert die Reaktion unnötig; im Zweifel ist die eigene Führungskraft immer ein sinnvoller erster Ansprechpartner, um den richtigen Meldeweg zu finden."
+  },
+  "it_sicherheit-zugriffsschutz-05": {
+    "question": "Warum sollen Beschäftigte nur die Zugriffsrechte erhalten, die sie für ihre konkrete Aufgabe tatsächlich benötigen (\"Minimalprinzip\")?",
+    "options": {
+      "a": "Damit weniger Passwörter verwaltet werden müssen",
+      "b": "Damit im Falle eines kompromittierten Kontos oder eines Fehlers der mögliche Schaden auf das Nötigste begrenzt bleibt",
+      "c": "Damit die IT-Abteilung weniger Support-Anfragen bearbeiten muss",
+      "d": "Damit alle Beschäftigten gleich viele Rechte besitzen und niemand benachteiligt wird"
+    },
+    "explanation": "Das Minimalprinzip (Least-Privilege) begrenzt den Schaden, den ein gestohlenes Konto oder eine versehentliche Fehlbedienung anrichten kann, weil nur auf die tatsächlich benötigten Systeme und Daten zugegriffen werden kann. Es geht nicht um Passwortanzahl, Supportaufwand oder formale Gleichbehandlung, sondern um die Begrenzung des Risikos entlang der jeweiligen Aufgabe."
+  },
+  "it_sicherheit-zugriffsschutz-06": {
+    "question": "Eine Kollegin wechselt intern in eine andere Abteilung mit anderen Aufgaben. Was sollte in Bezug auf ihre bisherigen Systemzugriffe geschehen?",
+    "options": {
+      "a": "Nichts, da sie ja weiterhin im selben Unternehmen arbeitet",
+      "b": "Die bisherigen Zugriffe bleiben zusätzlich zu den neuen bestehen, damit sie flexibel aushelfen kann",
+      "c": "Die nicht mehr benötigten Zugriffsrechte werden entzogen und die Berechtigungen an die neue Rolle angepasst",
+      "d": "Nur das Passwort wird geändert, die Rechte bleiben unverändert"
+    },
+    "explanation": "Berechtigungen sollen dem aktuellen Aufgabenbereich entsprechen; bei einem Rollenwechsel müssen nicht mehr benötigte Zugriffsrechte entzogen und neue, passende Rechte vergeben werden. Andernfalls sammeln sich über die Zeit unnötige, überflüssige Berechtigungen an (\"Rechteinflation\"), die das Risiko im Falle eines kompromittierten Kontos unnötig erhöhen. Ein reiner Passwortwechsel ändert daran nichts."
+  },
+  "it_sicherheit-zugriffsschutz-07": {
+    "question": "Sie müssen sich viele unterschiedliche Passwörter für dienstliche Systeme merken. Welche Vorgehensweise ist am sinnvollsten?",
+    "options": {
+      "a": "Einen von der IT freigegebenen Passwort-Manager verwenden, statt Passwörter mehrfach zu verwenden oder ungeschützt zu notieren",
+      "b": "Für alle Systeme dasselbe leicht zu merkende Passwort verwenden",
+      "c": "Die Passwörter auf einem Klebezettel am Monitor notieren, damit man sie schnell findet",
+      "d": "Die Passwörter in einer unverschlüsselten Textdatei auf dem Desktop speichern"
+    },
+    "explanation": "Ein freigegebener Passwort-Manager erlaubt es, für jedes System ein langes, einzigartiges Passwort zu nutzen, ohne sich alle einzeln merken zu müssen, und schützt die gespeicherten Zugangsdaten selbst durch Verschlüsselung. Passwort-Wiederverwendung bedeutet, dass ein einziges Datenleck alle betroffenen Konten gefährdet; Klebezettel und unverschlüsselte Dateien sind für jeden mit physischem oder digitalem Zugang sofort einsehbar."
+  },
+  "it_sicherheit-zugriffsschutz-08": {
+    "question": "Sie verlassen abends Ihren Arbeitsplatz im Großraumbüro nach Feierabend. Was entspricht der Clear-Desk-Grundregel?",
+    "options": {
+      "a": "Nur den Bildschirm sperren, Unterlagen können offen liegen bleiben",
+      "b": "Vertrauliche Unterlagen dürfen offen liegen bleiben, solange die Bürotür abgeschlossen ist",
+      "c": "Nur besonders als \"geheim\" gekennzeichnete Dokumente müssen weggeräumt werden",
+      "d": "Vertrauliche Unterlagen und Datenträger wegschließen und den Schreibtisch aufgeräumt hinterlassen"
+    },
+    "explanation": "Der Clear-Desk-Grundsatz verlangt, vertrauliche Papierunterlagen und Datenträger bei Abwesenheit wegzuschließen, damit sie für Unbefugte - etwa Reinigungspersonal, Besucher oder andere Beschäftigte ohne Berechtigung - nicht frei zugänglich sind. Eine abgeschlossene Bürotür allein schützt nicht vor allen Personen mit Zutritt zum Gebäude oder Raum, und die Regel gilt für vertrauliche Unterlagen allgemein, nicht nur für explizit als \"geheim\" markierte."
+  },
+  "it_sicherheit-phishing-05": {
+    "question": "Sie erhalten eine E-Mail mit einem unerwarteten Rechnungsanhang, der Sie auffordert, eine \"Bearbeitung von Makros\" oder \"Inhalt aktivieren\" zuzulassen, um die Rechnung anzuzeigen. Wie reagieren Sie am sinnvollsten?",
+    "options": {
+      "a": "Die Bearbeitung von Makros erlauben, sonst lässt sich die Rechnung nicht öffnen",
+      "b": "Den Anhang öffnen, aber erst nach einem Neustart des Rechners",
+      "c": "Makros nicht aktivieren und die E-Mail bei Unsicherheit über die üblichen Meldewege prüfen lassen",
+      "d": "Den Anhang an einen privaten Kollegen weiterleiten, damit er ihn zuerst öffnet"
+    },
+    "explanation": "Die Aufforderung, Makros zu aktivieren, ist ein bekanntes Angriffsmuster: Erst durch das Aktivieren wird in der Datei enthaltener Schadcode ausgeführt, der ohne diese Zustimmung inaktiv bliebe. Ein Neustart des Rechners ändert daran nichts, und das Weiterleiten an einen Kollegen verlagert das Risiko nur, statt es zu beseitigen. Bei Unsicherheit über Absender oder Inhalt sollte die E-Mail über die üblichen internen Meldewege geprüft werden, bevor irgendetwas geöffnet oder aktiviert wird."
+  },
+  "it_sicherheit-phishing-06": {
+    "question": "Was unterscheidet \"Spear-Phishing\" von einer klassischen, breit gestreuten Phishing-Kampagne?",
+    "options": {
+      "a": "Spear-Phishing wird ausschließlich per Telefon durchgeführt, nie per E-Mail",
+      "b": "Spear-Phishing ist auf eine bestimmte Person oder Organisation zugeschnitten und nutzt gezielt recherchierte, glaubwürdige Details",
+      "c": "Spear-Phishing verzichtet komplett auf Links oder Anhänge",
+      "d": "Spear-Phishing betrifft ausschließlich private E-Mail-Konten, niemals dienstliche"
+    },
+    "explanation": "Beim Spear-Phishing recherchieren Angreifer gezielt Informationen über eine Person oder Organisation - etwa Namen von Vorgesetzten, laufende Projekte oder interne Abläufe -, um eine Nachricht besonders glaubwürdig und individuell wirken zu lassen. Das macht diese Angriffe schwerer zu erkennen als generische Massen-Phishing-Mails. Weder Kommunikationskanal noch Verzicht auf Links/Anhänge noch die Beschränkung auf private Konten sind das entscheidende Merkmal."
+  },
+  "it_sicherheit-phishing-07": {
+    "question": "Sie erhalten eine SMS, die angeblich von einem Paketdienst stammt und einen Link zur \"Zollgebühr-Zahlung\" enthält, obwohl Sie kein Paket erwarten. Wie ordnen Sie diesen Vorfall ein und wie reagieren Sie?",
+    "options": {
+      "a": "Es handelt sich vermutlich um \"Smishing\" (Phishing per SMS); den Link nicht anklicken und die Sendung stattdessen direkt über die offizielle Webseite oder App des Paketdienstes prüfen",
+      "b": "SMS-Nachrichten können generell nicht gefälscht werden, daher ist der Link sicher",
+      "c": "Da es sich um eine private SMS handelt, betrifft das Thema nicht die Arbeit und kann ignoriert werden",
+      "d": "Den Link anklicken, aber keine Zahlungsdaten eingeben, um zu sehen, ob es sich um eine echte Sendung handelt"
+    },
+    "explanation": "Phishing beschränkt sich nicht auf E-Mails: \"Smishing\" nutzt SMS-Nachrichten mit demselben Grundprinzip aus Dringlichkeit und einem manipulierten Link. Auch der Absendername einer SMS lässt sich fälschen. Sicherer ist es, den angeblichen Anlass unabhängig über die offizielle Webseite oder App zu prüfen, statt dem Link zu folgen. Das Thema ist auch für Beschäftigte relevant, da dieselben Muster auch dienstliche Geräte oder Kontaktinformationen betreffen können, und selbst das bloße Anklicken eines präparierten Links kann bereits ein Risiko darstellen."
+  },
+  "it_sicherheit-phishing-08": {
+    "question": "Eine E-Mail scheint von \"support@ihre-firma-online.de\" zu stammen, obwohl die tatsächliche Firmendomain \"ihrefirma.de\" lautet. Wie ist diese leicht abweichende Absenderdomain am ehesten einzuordnen?",
+    "options": {
+      "a": "Als unbedeutender Tippfehler ohne sicherheitsrelevante Bedeutung",
+      "b": "Als mögliches Anzeichen für eine gefälschte, zum Verwechseln ähnliche Domain (\"Typosquatting\"), die zur Täuschung genutzt wird",
+      "c": "Als Bestätigung, dass die Nachricht garantiert von der eigenen IT-Abteilung stammt",
+      "d": "Als reine Geschmacksfrage des jeweiligen Absenders bei der Wahl der Domain"
+    },
+    "explanation": "Angreifer registrieren gezielt Domains, die der echten Firmendomain zum Verwechseln ähnlich sehen (z. B. zusätzliche Wörter, vertauschte Buchstaben oder andere Endungen), um Vertrauen vorzutäuschen. Eine solche Abweichung ist ein ernstzunehmendes Warnsignal und keine Belanglosigkeit oder reine Geschmacksfrage. Die tatsächliche Absenderadresse sollte bei Auffälligkeiten genau geprüft und im Zweifel über einen unabhängigen Kanal nachgefragt werden, statt automatisch von Echtheit auszugehen."
+  },
+  "it_sicherheit-datensicherung-05": {
+    "question": "Warum reicht es gegen Ransomware nicht aus, ein Backup direkt auf demselben, permanent verbundenen Netzlaufwerk zu speichern wie die Originaldaten?",
+    "options": {
+      "a": "Weil Netzlaufwerke technisch grundsätzlich langsamer sind als lokale Festplatten",
+      "b": "Weil auf Netzlaufwerken generell keine Backups gespeichert werden dürfen",
+      "c": "Weil Ransomware bei einem permanent verbundenen Laufwerk auch die dort liegende Sicherungskopie mitverschlüsseln kann",
+      "d": "Weil Netzlaufwerke ausschließlich für die Speicherung von E-Mails vorgesehen sind"
+    },
+    "explanation": "Ransomware verschlüsselt in der Regel alle erreichbaren Laufwerke, einschließlich dauerhaft verbundener Netzlaufwerke - eine Sicherungskopie dort bietet dann keinen echten Schutz mehr, da sie ebenfalls betroffen sein kann. Ein wirksames Backup-Konzept sieht daher mindestens eine Kopie vor, die getrennt (offline oder zeitversetzt) vom Produktivsystem aufbewahrt wird, damit sie von einem Angriff auf das Hauptsystem nicht miterfasst wird."
+  },
+  "it_sicherheit-datensicherung-06": {
+    "question": "Ein Backup wird planmäßig jede Nacht automatisch erstellt. Warum reicht das allein noch nicht aus, um sich auf die Datensicherung wirklich verlassen zu können?",
+    "options": {
+      "a": "Weil regelmäßig geprüft werden muss, ob sich aus dem Backup tatsächlich Daten erfolgreich wiederherstellen lassen",
+      "b": "Weil ein Backup grundsätzlich nur einmal pro Jahr erstellt werden sollte",
+      "c": "Weil automatische Backups technisch nie fehlschlagen können",
+      "d": "Weil ein erstelltes Backup nur für maximal 24 Stunden gültig bleibt"
+    },
+    "explanation": "Ein Backup-Lauf kann fehlschlagen oder eine beschädigte, unvollständige Kopie erzeugen, ohne dass dies sofort auffällt. Nur ein regelmäßiger Wiederherstellungstest zeigt verlässlich, ob im Ernstfall tatsächlich Daten zurückgespielt werden können. Die Häufigkeit der Sicherung selbst richtet sich nach dem Bedarf und ist nicht auf ein Mal pro Jahr begrenzt, automatische Prozesse können durchaus fehlschlagen, und ein Backup verliert nicht nach 24 Stunden automatisch seine Gültigkeit."
+  },
+  "it_sicherheit-datensicherung-07": {
+    "question": "Sie möchten vertrauliche Firmendaten auf einem externen USB-Datenträger transportieren. Was ist die wichtigste Schutzmaßnahme dafür?",
+    "options": {
+      "a": "Den Datenträger mit einem auffälligen Aufkleber \"vertraulich\" versehen, damit niemand ihn verlegt",
+      "b": "Den Datenträger verschlüsseln, damit die Daten bei Verlust oder Diebstahl nicht ohne Weiteres lesbar sind",
+      "c": "Den Datenträger möglichst klein und unauffällig wählen, damit er nicht auffällt",
+      "d": "Die Dateien vor dem Kopieren einfach umbenennen, damit ihr Inhalt nicht sofort erkennbar ist"
+    },
+    "explanation": "Wechseldatenträger gehen leicht verloren oder werden gestohlen; ohne Verschlüsselung sind die darauf gespeicherten Daten dann für jeden mit physischem Zugriff sofort lesbar. Verschlüsselung sorgt dafür, dass die Daten auch im Verlustfall geschützt bleiben, sofern der Schlüssel bzw. das Passwort geheim bleibt. Ein Aufkleber, eine unauffällige Bauform oder umbenannte Dateien bieten dagegen keinen echten technischen Schutz vor unbefugtem Lesen."
+  },
+  "it_sicherheit-datensicherung-08": {
+    "question": "Ein alter Firmenlaptop soll ausgemustert und entsorgt werden. Was ist im Hinblick auf die darauf gespeicherten Daten der richtige Umgang?",
+    "options": {
+      "a": "Nur die sichtbaren Dateien im Papierkorb löschen und diesen leeren",
+      "b": "Den Laptop unverändert an einen gemeinnützigen Zweitmarkt weitergeben, um Ressourcen zu sparen",
+      "c": "Die Festplatte ausbauen und im Hausmüll entsorgen",
+      "d": "Die Daten durch die zuständige IT-Stelle sicher und unwiederherstellbar löschen (oder den Datenträger fachgerecht vernichten) lassen, bevor das Gerät weitergegeben oder entsorgt wird"
+    },
+    "explanation": "Einfaches Löschen im Papierkorb oder Formatieren entfernt Dateien meist nur aus dem sichtbaren Verzeichnis, während die eigentlichen Daten mit geeigneten Mitteln oft wiederherstellbar bleiben. Vor Weitergabe oder Entsorgung müssen Datenträger daher sicher gelöscht (z. B. durch mehrfaches Überschreiben) oder physisch zerstört werden, damit vertrauliche Firmendaten nicht in falsche Hände geraten. Das Wegwerfen im Hausmüll ist zudem aus Umwelt- und Entsorgungsgründen unzulässig."
+  },
+  "it_sicherheit-mobil_homeoffice-05": {
+    "question": "Warum ist die Festplattenverschlüsselung auf einem Laptop, der für Homeoffice und dienstliche Reisen genutzt wird, besonders wichtig?",
+    "options": {
+      "a": "Weil sie den Laptop automatisch schneller startet",
+      "b": "Weil sie im Falle von Diebstahl oder Verlust verhindert, dass Unbefugte ohne Weiteres auf die gespeicherten Daten zugreifen können",
+      "c": "Weil sie ausschließlich für Geräte vorgeschrieben ist, die niemals das Büro verlassen",
+      "d": "Weil sie ein Anmeldepasswort vollständig überflüssig macht"
+    },
+    "explanation": "Geräte, die außerhalb des Büros genutzt werden, sind einem höheren Risiko von Diebstahl oder Verlust ausgesetzt - etwa im Zug, im Auto oder unterwegs beim Kunden. Ohne Festplattenverschlüsselung lässt sich die eingebaute Festplatte oft ausbauen und die Daten direkt auslesen, unabhängig vom Anmeldepasswort des Betriebssystems. Verschlüsselung und Anmeldepasswort ergänzen sich, ersetzen sich aber nicht gegenseitig, und die Startgeschwindigkeit hat damit nichts zu tun."
+  },
+  "it_sicherheit-mobil_homeoffice-06": {
+    "question": "Warum sollte auf einem dienstlich genutzten Smartphone eine kurze automatische Displaysperre (z. B. nach 30 Sekunden Inaktivität) aktiviert sein?",
+    "options": {
+      "a": "Damit das Gerät bei kurzem Liegenlassen oder Verlust nicht sofort ungeschützt zugänglich ist",
+      "b": "Damit der Akku des Geräts länger hält",
+      "c": "Damit Anrufe automatisch stummgeschaltet werden",
+      "d": "Weil eine Displaysperre gesetzlich nur für Diensthandys der Geschäftsführung vorgeschrieben ist"
+    },
+    "explanation": "Ein kurzes Sperrintervall verkleinert das Zeitfenster, in dem ein kurz liegen gelassenes oder verlorenes Gerät ohne Authentifizierung genutzt werden kann, etwa um auf E-Mails, Kontakte oder Firmen-Apps zuzugreifen. Akkulaufzeit und Anrufeinstellungen stehen damit in keinem sicherheitsrelevanten Zusammenhang, und die Regel gilt sinnvollerweise für alle dienstlich genutzten Geräte, nicht nur für bestimmte Personengruppen."
+  },
+  "it_sicherheit-mobil_homeoffice-07": {
+    "question": "Sie nutzen für dienstliche Zwecke gelegentlich Ihr privates Smartphone (\"Bring Your Own Device\"). Was ist dabei aus Sicherheitssicht am wichtigsten zu beachten?",
+    "options": {
+      "a": "Private und dienstliche Daten möglichst vermischt in denselben Apps zu speichern, damit nichts verloren geht",
+      "b": "Es reicht aus, dass das Gerät irgendein Passwort besitzt, unabhängig von weiteren Vorgaben",
+      "c": "Die betrieblichen Vorgaben zu BYOD (z. B. Mindestschutzmaßnahmen, Trennung dienstlicher Daten, Fernlöschungsmöglichkeit) einzuhalten, bevor das Gerät dienstlich genutzt wird",
+      "d": "BYOD-Regeln sind rein freiwillig und müssen nicht eingehalten werden, solange das Gerät privat bezahlt wurde"
+    },
+    "explanation": "Werden private Geräte dienstlich genutzt, müssen dieselben Schutzziele wie bei Firmengeräten erreicht werden - etwa durch Mindestanforderungen an Verschlüsselung, Bildschirmsperre, getrennte Bereiche für dienstliche Daten und die Möglichkeit, im Verlustfall dienstliche Daten aus der Ferne zu löschen. Eine Vermischung von privaten und dienstlichen Daten erschwert genau diesen Schutz, und ein beliebiges Passwort allein oder die private Finanzierung des Geräts befreien nicht von den geltenden betrieblichen Vorgaben."
+  },
+  "it_sicherheit-mobil_homeoffice-08": {
+    "question": "Sie nehmen von zu Hause aus an einer dienstlichen Videokonferenz teil, bei der vertrauliche Inhalte besprochen werden. Worauf sollten Sie besonders achten?",
+    "options": {
+      "a": "Der Bildschirm kann problemlos für Mitbewohner sichtbar bleiben, solange niemand aktiv mitliest",
+      "b": "Darauf, dass Mitbewohner, Familienmitglieder oder Geräte mit Sprachassistenten die vertraulichen Inhalte nicht mithören oder mitsehen können",
+      "c": "Nur darauf, dass die Internetverbindung schnell genug für Video ist",
+      "d": "Es genügt, die Kamera auszuschalten, das Mikrofon ist dabei ohne Bedeutung"
+    },
+    "explanation": "Im häuslichen Umfeld können auch Personen mitbekommen, was am Bildschirm zu sehen oder über das Mikrofon zu hören ist, etwa Familienmitglieder oder Besucher, ebenso können in der Nähe befindliche Sprachassistenten unbeabsichtigt mithören. Ein ruhiger, abgeschirmter Ort und bewusster Umgang mit Bildschirm und Mikrofon schützen die Vertraulichkeit. Die reine Verbindungsgeschwindigkeit betrifft die Qualität, nicht die Vertraulichkeit, und ein ausgeschaltetes Mikrofon ist für gesprochene vertrauliche Inhalte mindestens genauso wichtig wie die Kamera."
+  },
+  "it_sicherheit-meldepflicht_it-05": {
+    "question": "Wie ist das gestufte Meldeverfahren der NIS2-Richtlinie für einen erheblichen Sicherheitsvorfall zeitlich grob aufgebaut?",
+    "options": {
+      "a": "Eine einzige, vollständige Meldung genügt, spätestens ein Jahr nach dem Vorfall",
+      "b": "Eine Frühwarnung innerhalb von 24 Stunden, eine ausführlichere Meldung innerhalb von 72 Stunden, gefolgt von einem Abschlussbericht spätestens einen Monat nach der Meldung",
+      "c": "Nur ein Abschlussbericht, der innerhalb von 24 Stunden nach dem Vorfall vollständig fertiggestellt sein muss",
+      "d": "Eine Meldung ist erst erforderlich, wenn ein Vorfall bereits öffentlich bekannt geworden ist"
+    },
+    "explanation": "Die NIS2-Richtlinie sieht ein gestuftes Verfahren vor: eine Frühwarnung binnen 24 Stunden ab Kenntnisnahme, eine ausführlichere Meldung binnen 72 Stunden, und einen Abschlussbericht spätestens einen Monat nach dieser Meldung. Diese Stufung erlaubt eine schnelle erste Reaktion, auch wenn noch nicht alle Details bekannt sind. Eine einmalige Meldung nach einem Jahr, ein sofort vollständiger Bericht innerhalb von 24 Stunden oder das Abwarten öffentlicher Bekanntheit entsprechen nicht dem tatsächlichen Verfahren."
+  },
+  "it_sicherheit-meldepflicht_it-06": {
+    "question": "Nach welchem Grundgedanken bestimmt die NIS2-Richtlinie, ob ein Sicherheitsvorfall als \"erheblich\" gilt und damit der Meldepflicht unterliegt?",
+    "options": {
+      "a": "Ob der Vorfall eine schwerwiegende Betriebsstörung oder einen finanziellen Schaden verursacht (oder verursachen kann), oder ob andere Personen oder Organisationen erheblich geschädigt werden (oder werden können)",
+      "b": "Ob der Vorfall ausschließlich die IT-Abteilung selbst betrifft, unabhängig vom tatsächlichen Ausmaß",
+      "c": "Ob der Vorfall länger als eine Arbeitswoche andauert, unabhängig von seinen Auswirkungen",
+      "d": "Ob der Vorfall zufällig während der Kernarbeitszeit auftritt"
+    },
+    "explanation": "Ein Vorfall gilt nach NIS2 insbesondere dann als erheblich, wenn er eine schwerwiegende Betriebsstörung oder einen finanziellen Schaden für die betroffene Organisation verursacht oder verursachen kann, oder wenn dadurch andere natürliche oder juristische Personen erheblich geschädigt werden oder werden können. Weder die reine Betroffenheit der IT-Abteilung noch die Dauer oder Tageszeit des Vorfalls sind für sich genommen das entscheidende Kriterium - maßgeblich ist das tatsächliche oder mögliche Ausmaß der Auswirkungen."
+  },
+  "it_sicherheit-meldepflicht_it-07": {
+    "question": "Sie vermuten einen laufenden Sicherheitsvorfall auf Ihrem Firmenrechner. Warum sollten Sie das Gerät nicht eigenmächtig neu starten oder komplett herunterfahren, bevor Sie den Vorfall gemeldet haben?",
+    "options": {
+      "a": "Weil ein Neustart grundsätzlich mehr Strom verbraucht als der laufende Betrieb",
+      "b": "Weil ein Neustart automatisch alle Firmendaten auf dem Gerät löscht",
+      "c": "Weil dadurch flüchtige Spuren (z. B. im Arbeitsspeicher) verloren gehen können, die für die spätere Untersuchung des Vorfalls wichtig sind",
+      "d": "Weil ein Neustart den Vorfall automatisch behebt und eine Meldung dadurch überflüssig wird"
+    },
+    "explanation": "Manche wichtigen Spuren eines Vorfalls - etwa aktive Netzwerkverbindungen oder Prozesse im Arbeitsspeicher - gehen bei einem Neustart oder Herunterfahren verloren und lassen sich danach nicht mehr rekonstruieren. Für eine spätere Ursachenklärung ist es daher wichtig, das System möglichst unverändert zu lassen und den Vorfall zunächst zu melden, damit die zuständige Stelle über das weitere Vorgehen entscheiden kann. Ein Neustart löscht keine Firmendaten automatisch und behebt auch keinen zugrunde liegenden Sicherheitsvorfall."
+  },
+  "it_sicherheit-meldepflicht_it-08": {
+    "question": "Welche Angaben sind bei der Meldung eines vermuteten IT-Sicherheitsvorfalls an die zuständige interne Stelle besonders hilfreich?",
+    "options": {
+      "a": "Ausschließlich der eigene Name, weitere Angaben verzögern die Meldung nur unnötig",
+      "b": "Eine möglichst kurze Meldung ohne Zeitangabe, damit sie schnell verschickt werden kann",
+      "c": "Nur eine grobe Vermutung darüber, wer für den Vorfall verantwortlich sein könnte",
+      "d": "Möglichst genaue Angaben zu Zeitpunkt, beobachteten Auffälligkeiten und betroffenen Systemen oder Daten"
+    },
+    "explanation": "Konkrete Angaben zu Zeitpunkt, beobachtetem Verhalten (z. B. ungewöhnliche Pop-ups, unerklärliche Dateiänderungen) und den betroffenen Systemen oder Daten helfen der zuständigen Stelle, den Vorfall schnell einzuordnen, das Ausmaß abzuschätzen und geeignete Gegenmaßnahmen einzuleiten. Der eigene Name allein reicht dafür nicht aus, eine Meldung ohne Zeitangabe erschwert die zeitliche Einordnung, und Vermutungen über eine \"Schuldfrage\" sind für die technische Bearbeitung des Vorfalls nicht der entscheidende Punkt."
   }
 }

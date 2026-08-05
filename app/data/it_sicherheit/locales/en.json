@@ -198,5 +198,205 @@
       "d": "Use the company's established reporting channels (e.g. IT support, security officer, or line manager), or ask your own manager if in doubt"
     },
     "explanation": "A prepared reporting process with clearly responsible contacts ensures an incident reaches the right people quickly, so appropriate countermeasures can be taken. A public chat channel or social media are unsuitable and could additionally make the incident public or tip off attackers. Waiting delays the response unnecessarily; when in doubt, your own manager is always a sensible first point of contact for finding the correct reporting channel."
+  },
+  "it_sicherheit-zugriffsschutz-05": {
+    "question": "Why should employees only receive the access rights they actually need for their specific task (the \"least privilege\" principle)?",
+    "options": {
+      "a": "So that fewer passwords need to be managed",
+      "b": "So that if an account is compromised or a mistake happens, the possible damage stays limited to what's necessary",
+      "c": "So that the IT department has fewer support requests to handle",
+      "d": "So that all employees hold exactly the same amount of rights and no one is disadvantaged"
+    },
+    "explanation": "The least-privilege principle limits the damage a stolen account or an accidental mistake can cause, because access is restricted to only the systems and data actually needed. It is not about the number of passwords, support workload, or formal equal treatment, but about limiting risk according to each person's actual task."
+  },
+  "it_sicherheit-zugriffsschutz-06": {
+    "question": "A colleague moves internally to a different department with different tasks. What should happen to her previous system access?",
+    "options": {
+      "a": "Nothing, since she is still working for the same company",
+      "b": "The previous access stays in place in addition to the new access, so she can flexibly help out",
+      "c": "Access rights that are no longer needed are withdrawn and permissions are adjusted to match the new role",
+      "d": "Only the password is changed, the rights themselves stay the same"
+    },
+    "explanation": "Permissions should match a person's current responsibilities; when someone changes roles, access rights that are no longer required must be withdrawn and new, appropriate rights granted. Otherwise unnecessary, excessive permissions accumulate over time (\"privilege creep\"), needlessly increasing the risk if the account is ever compromised. Simply changing the password does not address this."
+  },
+  "it_sicherheit-zugriffsschutz-07": {
+    "question": "You need to remember many different passwords for work systems. What is the most sensible approach?",
+    "options": {
+      "a": "Use a password manager approved by IT, instead of reusing passwords or writing them down unprotected",
+      "b": "Use the same easy-to-remember password for every system",
+      "c": "Write the passwords on a sticky note on the monitor so they're quick to find",
+      "d": "Store the passwords in an unencrypted text file on the desktop"
+    },
+    "explanation": "An approved password manager makes it possible to use a long, unique password for every system without having to memorise each one individually, and it protects the stored credentials itself through encryption. Reusing passwords means a single data breach endangers every affected account; sticky notes and unencrypted files are immediately visible to anyone with physical or digital access."
+  },
+  "it_sicherheit-zugriffsschutz-08": {
+    "question": "You leave your desk in an open-plan office at the end of the day. What does the clear-desk principle require?",
+    "options": {
+      "a": "Only locking the screen, documents can be left lying out",
+      "b": "Confidential documents may stay out in the open as long as the office door is locked",
+      "c": "Only documents specifically marked \"secret\" need to be put away",
+      "d": "Locking away confidential documents and storage media and leaving the desk tidy"
+    },
+    "explanation": "The clear-desk principle requires locking away confidential paper documents and storage media whenever you are away, so they are not freely accessible to unauthorised people - such as cleaning staff, visitors, or other employees without the right permissions. A locked office door alone does not protect against everyone with access to the building or room, and the rule applies to confidential documents in general, not only ones explicitly marked \"secret\"."
+  },
+  "it_sicherheit-phishing-05": {
+    "question": "You receive an email with an unexpected invoice attachment asking you to allow \"macros\" or \"enable content\" in order to view the invoice. What is the most sensible response?",
+    "options": {
+      "a": "Allow the macros, otherwise the invoice can't be opened",
+      "b": "Open the attachment, but only after restarting the computer first",
+      "c": "Do not enable macros, and have the email checked through the usual reporting channels if unsure",
+      "d": "Forward the attachment to a colleague privately so they open it first"
+    },
+    "explanation": "The request to enable macros is a well-known attack pattern: only enabling them executes malicious code contained in the file, which would otherwise remain inactive. Restarting the computer changes nothing, and forwarding it to a colleague only shifts the risk instead of removing it. If there is any doubt about the sender or content, the email should be checked through the usual internal reporting channels before anything is opened or enabled."
+  },
+  "it_sicherheit-phishing-06": {
+    "question": "What distinguishes \"spear phishing\" from a classic, broadly scattered phishing campaign?",
+    "options": {
+      "a": "Spear phishing is carried out exclusively by phone, never by email",
+      "b": "Spear phishing is tailored to a specific person or organisation and uses deliberately researched, credible details",
+      "c": "Spear phishing never uses links or attachments at all",
+      "d": "Spear phishing only ever targets private email accounts, never work accounts"
+    },
+    "explanation": "In spear phishing, attackers deliberately research information about a person or organisation - such as managers' names, ongoing projects, or internal processes - to make a message appear especially credible and personally relevant. This makes such attacks harder to spot than generic mass phishing emails. Neither the communication channel, the absence of links/attachments, nor a restriction to private accounts is the defining feature."
+  },
+  "it_sicherheit-phishing-07": {
+    "question": "You receive an SMS that supposedly comes from a parcel delivery service, with a link for a \"customs fee payment\", even though you're not expecting a parcel. How do you classify this and how do you respond?",
+    "options": {
+      "a": "This is likely \"smishing\" (phishing via SMS); do not click the link, and instead check the shipment directly via the delivery service's official website or app",
+      "b": "SMS messages can generally not be faked, so the link is safe",
+      "c": "Since it's a private text message, this topic has nothing to do with work and can be ignored",
+      "d": "Click the link, but don't enter any payment details, just to see if it's a real shipment"
+    },
+    "explanation": "Phishing is not limited to email: \"smishing\" uses text messages with the same underlying pattern of urgency and a manipulated link. An SMS sender name can also be spoofed. It is safer to check the supposed situation independently via the official website or app rather than following the link. This is also relevant for employees, since the same patterns can affect work devices or contact details, and merely clicking a manipulated link can already carry risk."
+  },
+  "it_sicherheit-phishing-08": {
+    "question": "An email appears to come from \"support@your-company-online.com\", even though the actual company domain is \"yourcompany.com\". How should this slightly different sender domain most likely be interpreted?",
+    "options": {
+      "a": "As an insignificant typo with no security relevance",
+      "b": "As a possible sign of a fake, deceptively similar domain (\"typosquatting\") used to mislead the recipient",
+      "c": "As confirmation that the message is guaranteed to come from your own IT department",
+      "d": "As simply a stylistic choice of domain made by the actual sender"
+    },
+    "explanation": "Attackers deliberately register domains that closely resemble the real company domain (e.g. extra words, swapped letters, or different endings) to create false trust. Such a discrepancy is a serious warning sign, not a trivial detail or a matter of taste. If something looks off, the actual sender address should be checked carefully and, if in doubt, verified through an independent channel rather than assuming it is genuine."
+  },
+  "it_sicherheit-datensicherung-05": {
+    "question": "Why is it not enough, as protection against ransomware, to store a backup directly on the same permanently connected network drive as the original data?",
+    "options": {
+      "a": "Because network drives are technically always slower than local hard drives",
+      "b": "Because backups are generally not allowed to be stored on network drives",
+      "c": "Because ransomware can also encrypt a permanently connected backup drive along with the original data",
+      "d": "Because network drives are exclusively meant for storing emails"
+    },
+    "explanation": "Ransomware typically encrypts every reachable drive, including permanently connected network drives - a backup stored there then offers no real protection, since it can be affected as well. An effective backup concept therefore includes at least one copy kept separate (offline or with a time gap) from the production system, so it is not caught up in an attack on the main system."
+  },
+  "it_sicherheit-datensicherung-06": {
+    "question": "A backup is automatically created every night as scheduled. Why is that alone not yet enough to genuinely rely on the data backup?",
+    "options": {
+      "a": "Because it must be checked regularly whether data can actually be successfully restored from the backup",
+      "b": "Because a backup should generally only be created once a year",
+      "c": "Because automatic backups can technically never fail",
+      "d": "Because a completed backup only remains valid for a maximum of 24 hours"
+    },
+    "explanation": "A backup run can fail or produce a corrupted, incomplete copy without this being immediately noticed. Only a regular restore test reliably shows whether data can actually be recovered in an emergency. The backup frequency itself depends on need and isn't limited to once a year, automated processes can indeed fail, and a backup does not automatically become invalid after 24 hours."
+  },
+  "it_sicherheit-datensicherung-07": {
+    "question": "You want to transport confidential company data on an external USB storage device. What is the most important protective measure for this?",
+    "options": {
+      "a": "Put a noticeable \"confidential\" sticker on the device so it doesn't get misplaced",
+      "b": "Encrypt the storage device, so the data cannot easily be read if it is lost or stolen",
+      "c": "Choose a device that is as small and inconspicuous as possible so it doesn't stand out",
+      "d": "Simply rename the files before copying them so their content isn't immediately obvious"
+    },
+    "explanation": "Removable storage media are easily lost or stolen; without encryption, the data on them is then immediately readable by anyone with physical access. Encryption ensures the data stays protected even if the device is lost, as long as the key or password remains secret. A sticker, an inconspicuous form factor, or renamed files, by contrast, provide no real technical protection against unauthorised reading."
+  },
+  "it_sicherheit-datensicherung-08": {
+    "question": "An old company laptop is to be decommissioned and disposed of. What is the correct approach regarding the data stored on it?",
+    "options": {
+      "a": "Just delete the visible files in the recycle bin and empty it",
+      "b": "Pass the laptop on unchanged to a charity second-hand market to save resources",
+      "c": "Remove the hard drive and throw it out with household waste",
+      "d": "Have the responsible IT department securely and irrecoverably erase the data (or have the storage medium properly destroyed) before the device is passed on or disposed of"
+    },
+    "explanation": "Simply deleting files in the recycle bin or formatting a drive usually only removes files from the visible directory, while the actual data often remains recoverable with suitable tools. Before a device is passed on or disposed of, its storage media must therefore be securely erased (e.g. by overwriting multiple times) or physically destroyed, so confidential company data does not end up in the wrong hands. Throwing it out with household waste is also not permitted for environmental and disposal reasons."
+  },
+  "it_sicherheit-mobil_homeoffice-05": {
+    "question": "Why is full-disk encryption on a laptop used for home-office work and business travel especially important?",
+    "options": {
+      "a": "Because it automatically makes the laptop boot faster",
+      "b": "Because if the device is stolen or lost, it prevents unauthorised people from simply accessing the stored data",
+      "c": "Because it is only required for devices that never leave the office",
+      "d": "Because it makes a login password completely unnecessary"
+    },
+    "explanation": "Devices used outside the office face a higher risk of theft or loss - for example on a train, in a car, or while travelling to a client. Without full-disk encryption, the built-in drive can often be removed and the data read directly, regardless of the operating system's login password. Encryption and a login password complement each other but do not replace one another, and none of this has anything to do with boot speed."
+  },
+  "it_sicherheit-mobil_homeoffice-06": {
+    "question": "Why should a short automatic screen lock (e.g. after 30 seconds of inactivity) be enabled on a smartphone used for work?",
+    "options": {
+      "a": "So the device is not immediately unprotected and accessible if briefly left unattended or lost",
+      "b": "So the device's battery lasts longer",
+      "c": "So calls are automatically muted",
+      "d": "Because a screen lock is legally required only for phones used by senior management"
+    },
+    "explanation": "A short lock interval reduces the window in which a briefly unattended or lost device can be used without authentication, for example to access email, contacts, or company apps. Battery life and call settings have no security relevance here, and the rule sensibly applies to all devices used for work, not only to a specific group of people."
+  },
+  "it_sicherheit-mobil_homeoffice-07": {
+    "question": "You occasionally use your personal smartphone for work purposes (\"Bring Your Own Device\"). What is most important to consider here from a security perspective?",
+    "options": {
+      "a": "Mixing private and work data as much as possible within the same apps, so nothing gets lost",
+      "b": "It's enough that the device has some password, regardless of any further requirements",
+      "c": "Complying with the organisation's BYOD policy (e.g. minimum protective measures, separation of work data, remote-wipe capability) before using the device for work",
+      "d": "BYOD rules are purely voluntary and don't need to be followed as long as the device was privately purchased"
+    },
+    "explanation": "When personal devices are used for work, the same protection goals as for company devices must be achieved - for example through minimum requirements for encryption, screen lock, separated areas for work data, and the ability to remotely wipe work data if the device is lost. Mixing private and work data undermines exactly this protection, and neither an arbitrary password alone nor the fact that the device was privately purchased exempts anyone from the organisation's applicable rules."
+  },
+  "it_sicherheit-mobil_homeoffice-08": {
+    "question": "You join a work video conference from home where confidential matters are discussed. What should you pay particular attention to?",
+    "options": {
+      "a": "The screen can stay visible to housemates without any issue, as long as no one is actively reading along",
+      "b": "That housemates, family members, or devices with voice assistants cannot overhear or see the confidential content",
+      "c": "Only that the internet connection is fast enough for video",
+      "d": "It's enough to turn off the camera; the microphone doesn't matter in this context"
+    },
+    "explanation": "In a home environment, other people can also become aware of what's on screen or audible through the microphone - such as family members or visitors - and nearby voice-assistant devices could unintentionally pick up audio too. A quiet, shielded location and deliberate handling of screen and microphone protect confidentiality. Connection speed alone affects quality, not confidentiality, and muting the microphone is at least as important as the camera for spoken confidential content."
+  },
+  "it_sicherheit-meldepflicht_it-05": {
+    "question": "What does the staged reporting timeline of the NIS2 Directive for a significant security incident roughly look like?",
+    "options": {
+      "a": "A single, complete report is enough, no later than one year after the incident",
+      "b": "An early warning within 24 hours, a more detailed incident notification within 72 hours, followed by a final report no later than one month after the notification",
+      "c": "Only a final report, which must be fully completed within 24 hours of the incident",
+      "d": "A report is only required once an incident has already become publicly known"
+    },
+    "explanation": "NIS2 provides for a staged process: an early warning within 24 hours of becoming aware, a more detailed notification within 72 hours, and a final report no later than one month after that notification. This staging allows for a fast initial response even when not all details are yet known. A single report after one year, a fully complete report required within 24 hours, or waiting until an incident becomes public do not match the actual procedure."
+  },
+  "it_sicherheit-meldepflicht_it-06": {
+    "question": "What basic idea does the NIS2 Directive use to determine whether a security incident counts as \"significant\" and therefore falls under the reporting obligation?",
+    "options": {
+      "a": "Whether the incident causes (or is capable of causing) severe operational disruption or financial loss, or considerably damages (or is capable of damaging) other persons or organisations",
+      "b": "Whether the incident affects only the IT department itself, regardless of its actual scale",
+      "c": "Whether the incident lasts longer than one working week, regardless of its impact",
+      "d": "Whether the incident happens to occur during core working hours"
+    },
+    "explanation": "Under NIS2, an incident is in particular considered significant if it causes, or is capable of causing, severe operational disruption or financial loss to the affected organisation, or if it considerably damages, or is capable of damaging, other natural or legal persons. Neither the mere fact that the IT department is affected nor the duration or time of day of the incident is, on its own, the decisive criterion - what matters is the actual or potential scale of impact."
+  },
+  "it_sicherheit-meldepflicht_it-07": {
+    "question": "You suspect an ongoing security incident on your company computer. Why should you not restart or completely shut down the device on your own before reporting the incident?",
+    "options": {
+      "a": "Because restarting always uses more power than leaving the device running",
+      "b": "Because restarting automatically deletes all company data on the device",
+      "c": "Because doing so can lose volatile evidence (e.g. in memory) that is important for later investigating the incident",
+      "d": "Because restarting automatically fixes the incident, making a report unnecessary"
+    },
+    "explanation": "Some important traces of an incident - such as active network connections or processes in memory - are lost on restart or shutdown and cannot be reconstructed afterwards. For later root-cause analysis it is therefore important to leave the system as unchanged as possible and report the incident first, so the responsible team can decide on next steps. A restart does not automatically delete company data, nor does it fix any underlying security incident."
+  },
+  "it_sicherheit-meldepflicht_it-08": {
+    "question": "What information is particularly helpful when reporting a suspected IT security incident to the responsible internal contact?",
+    "options": {
+      "a": "Only your own name, since anything else just delays the report unnecessarily",
+      "b": "As short a report as possible, without any timing information, so it can be sent quickly",
+      "c": "Only a rough guess as to who might be responsible for the incident",
+      "d": "As precise details as possible about the time, the observed anomalies, and the affected systems or data"
+    },
+    "explanation": "Concrete details about the time, the observed behaviour (e.g. unusual pop-ups, unexplained file changes), and the affected systems or data help the responsible team quickly assess the incident, estimate its scope, and initiate suitable countermeasures. Your name alone is not sufficient, a report without timing information makes it harder to establish a timeline, and speculating about \"who is to blame\" is not the decisive point for the technical handling of the incident."
   }
 }

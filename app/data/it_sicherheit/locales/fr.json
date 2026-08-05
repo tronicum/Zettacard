@@ -1,0 +1,402 @@
+{
+  "it_sicherheit-zugriffsschutz-01": {
+    "question": "Quelle propriété rend un mot de passe fondamentalement plus résistant aux attaques automatisées par essais successifs ?",
+    "options": {
+      "a": "Il contient le nom du service, pour qu'on s'en souvienne plus facilement",
+      "b": "Il est long, unique pour ce seul compte et difficile à deviner",
+      "c": "Il est remplacé tous les trois jours par un mot de passe très similaire",
+      "d": "Il ne contient que des chiffres, car cela accélère la saisie"
+    },
+    "explanation": "La longueur et l'unicité sont les facteurs les plus importants contre les essais automatisés et contre le « credential stuffing », où des identifiants volés sur d'autres services sont testés ailleurs. Un mot de passe lié au poste de travail est facile à deviner, un changement fréquent vers un mot de passe très similaire n'apporte guère de gain de sécurité, et les mots de passe purement numériques offrent bien trop peu de combinaisons possibles."
+  },
+  "it_sicherheit-zugriffsschutz-02": {
+    "question": "Pourquoi l'authentification multifacteur (MFA) est-elle considérée comme nettement plus sûre qu'un simple mot de passe ?",
+    "options": {
+      "a": "Parce qu'elle rend le mot de passe superflu et qu'on n'a plus rien à retenir",
+      "b": "Parce qu'elle protège totalement le compte contre tous les types d'attaques",
+      "c": "Parce qu'un attaquant, même avec un mot de passe volé, aurait en plus besoin du second facteur",
+      "d": "Parce qu'elle n'est techniquement possible que pour les comptes administrateurs"
+    },
+    "explanation": "Le MFA combine quelque chose que l'on sait (mot de passe) avec quelque chose que l'on possède (par exemple une application ou un jeton) ou que l'on est. Un mot de passe volé seul ne suffit alors plus à un attaquant. Le MFA ne remplace pas le mot de passe, n'offre pas une protection complète contre tout type d'attaque et est aujourd'hui disponible pour pratiquement tous les comptes utilisateurs, pas seulement pour les administrateurs."
+  },
+  "it_sicherheit-zugriffsschutz-03": {
+    "question": "Un collègue vous demande d'utiliser brièvement son compte personnel avec son mot de passe, car son propre accès est actuellement bloqué. Comment devez-vous réagir ?",
+    "options": {
+      "a": "Refuser et informer plutôt le support informatique compétent ou la hiérarchie",
+      "b": "Accepter, tant que cela reste de courte durée",
+      "c": "Accepter, mais changer ensuite vous-même le mot de passe du collègue",
+      "d": "Accepter si la tâche est urgente et qu'aucun autre accès ne semble possible"
+    },
+    "explanation": "Les comptes sont personnels afin que les actions dans le système restent clairement attribuables à une personne (traçabilité). Si un compte est partagé, il devient impossible de déterminer ensuite qui a fait quoi - ce qui complique considérablement l'élucidation des incidents de sécurité. L'urgence ne justifie aucune exception ; la bonne démarche consiste à rétablir le véritable accès via le support informatique."
+  },
+  "it_sicherheit-zugriffsschutz-04": {
+    "question": "Vous quittez votre poste de travail pour une brève discussion dans le bureau voisin. Quelle est la bonne façon de traiter votre ordinateur déverrouillé ?",
+    "options": {
+      "a": "Ne rien faire, car il s'agit d'un bâtiment de bureaux interne",
+      "b": "Verrouiller l'écran avant de quitter le poste de travail",
+      "c": "Fermer uniquement le document ouvert, le reste peut rester ouvert",
+      "d": "Éteindre l'écran, cela suffit comme protection"
+    },
+    "explanation": "Un ordinateur déverrouillé permet à quiconque a brièvement accès à la pièce - y compris des visiteurs, du personnel de nettoyage ou des tiers non autorisés - d'accéder à tous les programmes et données ouverts. Un écran éteint ne change rien, car la session continue de fonctionner en arrière-plan. Le verrouillage de l'écran (par exemple via un raccourci clavier) est une mesure de base simple et efficace, quelle que soit la fiabilité apparente de l'environnement."
+  },
+  "it_sicherheit-phishing-01": {
+    "question": "Laquelle des caractéristiques suivantes est un signal d'alerte typique d'un e-mail de phishing ?",
+    "options": {
+      "a": "L'e-mail arrive pendant les heures de travail habituelles",
+      "b": "L'e-mail contient le logo de l'entreprise en pièce jointe",
+      "c": "L'e-mail crée une pression temporelle et exige une action immédiate et inhabituelle",
+      "d": "L'e-mail a été envoyé simultanément à plusieurs collègues"
+    },
+    "explanation": "Les attaquants misent délibérément sur une pression temporelle artificielle et une urgence émotionnelle, afin que le destinataire n'ait pas le temps de réfléchir calmement ou de se concerter, mais agisse immédiatement - par exemple en cliquant sur un lien ou en divulguant des données. Les logos, les horaires d'envoi habituels ou un cercle de destinataires plus large ne disent en soi rien sur l'authenticité d'un message, car les logos sont faciles à copier et les horaires d'envoi ainsi que les listes de destinataires peuvent être choisis librement."
+  },
+  "it_sicherheit-phishing-02": {
+    "question": "Vous recevez, apparemment de la direction, un e-mail vous demandant de virer de toute urgence et en toute confidentialité une somme importante vers un nouveau compte inconnu. Quelle est la bonne première étape ?",
+    "options": {
+      "a": "Exécuter immédiatement le virement, car les instructions de la direction ont priorité",
+      "b": "Vérifier personnellement la demande via un canal connu et indépendant (par exemple un appel téléphonique) avant toute action",
+      "c": "Répondre à l'e-mail et y demander une confirmation écrite",
+      "d": "Effectuer le virement, mais en envoyant un montant inférieur à celui demandé"
+    },
+    "explanation": "Ce schéma est souvent appelé « fraude au président » : les attaquants se font passer pour un dirigeant et exploitent l'autorité, la confidentialité et la pression temporelle pour contourner les contrôles. Répondre dans la même conversation par e-mail n'aide pas, car c'est précisément ce canal que l'attaquant contrôle. Ce qui compte, c'est la vérification via un canal de contact indépendant et déjà connu - par exemple un appel à un numéro de téléphone enregistré - avant tout paiement ou action."
+  },
+  "it_sicherheit-phishing-03": {
+    "question": "Un e-mail affiche un lien censé mener à la page de connexion connue de votre entreprise. Comment vérifier le plus judicieusement la fiabilité du lien sans cliquer dessus ?",
+    "options": {
+      "a": "Survoler le lien avec la souris (sans cliquer) et vérifier l'adresse de destination réelle dans la barre d'état",
+      "b": "Cliquer sur le lien et vérifier immédiatement si la page a l'air authentique",
+      "c": "Vérifier si l'e-mail est rédigé en français correct",
+      "d": "Vérifier le nom de l'expéditeur affiché dans le programme de messagerie"
+    },
+    "explanation": "Le texte du lien affiché peut différer arbitrairement de l'adresse de destination réelle ; seul le survol avec la souris révèle la véritable URL dans la barre d'état du navigateur ou du programme de messagerie. Cliquer comporte déjà un risque, car certaines pages falsifiées chargent automatiquement du code malveillant. Une langue sans faute n'est plus un critère fiable, car les textes de phishing paraissent aujourd'hui souvent très professionnels, et le nom d'expéditeur affiché est facile à falsifier sans correspondre à l'adresse d'expéditeur réelle."
+  },
+  "it_sicherheit-phishing-04": {
+    "question": "Vous avez cliqué sur un lien dans un e-mail suspect et y avez saisi par erreur vos identifiants. Quelle est la bonne réaction ?",
+    "options": {
+      "a": "Attendre de voir si quelque chose d'inhabituel apparaît sur le compte, et ne réagir qu'à ce moment-là",
+      "b": "Ne rien faire, car il s'agit probablement d'un cas isolé sans conséquence",
+      "c": "Changer le mot de passe dans les jours à venir, quand on aura le temps",
+      "d": "Changer immédiatement le mot de passe et signaler sans délai l'incident au service interne compétent (par exemple la sécurité informatique)"
+    },
+    "explanation": "Plus les identifiants compromis sont changés rapidement et l'incident signalé, plus la fenêtre de temps pendant laquelle un attaquant peut abuser des données volées reste réduite. Attendre, ne rien faire ou tarder augmente inutilement le risque, surtout si le même mot de passe est aussi utilisé pour d'autres systèmes. Le signalement au service compétent permet en outre de déclencher d'autres mesures de protection et d'avertir les autres collaborateurs."
+  },
+  "it_sicherheit-datensicherung-01": {
+    "question": "Pourquoi les sauvegardes régulières et planifiées sont-elles importantes, même si un appareil fonctionne techniquement de manière fiable ?",
+    "options": {
+      "a": "Parce que les sauvegardes remplacent la nécessité d'avoir des mots de passe",
+      "b": "Parce que les données peuvent aussi être perdues à cause d'une erreur de manipulation, d'une panne technique ou d'un logiciel malveillant comme un rançongiciel, indépendamment de la fiabilité actuelle de l'appareil",
+      "c": "Parce que les sauvegardes ne sont obligatoires que pour les appareils très anciens",
+      "d": "Parce que sans sauvegarde, la connexion internet devient plus lente"
+    },
+    "explanation": "Une sauvegarde protège contre des causes de perte de données très diverses : suppression accidentelle, pannes matérielles, mais aussi rançongiciels qui chiffrent les fichiers. La fiabilité passée d'un appareil ne préjuge en rien des pannes ou attaques futures. Les sauvegardes n'ont rien à voir avec les mots de passe ou la vitesse d'internet et sont utiles indépendamment de l'âge de l'appareil."
+  },
+  "it_sicherheit-datensicherung-02": {
+    "question": "Vous trouvez sur le parking de l'entreprise une clé USB sans marquage. Comment agir correctement ?",
+    "options": {
+      "a": "Brancher la clé sur un ordinateur de l'entreprise pour découvrir à qui elle appartient",
+      "b": "Emporter la clé et l'utiliser à titre privé, puisque personne ne la réclame",
+      "c": "Ne pas brancher la clé, mais la remettre au service informatique ou au personnel de sécurité",
+      "d": "Vérifier la clé sur un appareil privé avant de prendre une décision"
+    },
+    "explanation": "Les clés USB inconnues sont une porte d'entrée classique pour les logiciels malveillants : elles peuvent être préparées pour exécuter automatiquement du code malveillant dès le branchement, avant même l'ouverture d'un fichier. Cela vaut autant pour les ordinateurs de l'entreprise que pour les appareils privés. La démarche sûre consiste à ne pas examiner soi-même la trouvaille, mais à la remettre au service compétent, qui pourra la vérifier de manière contrôlée."
+  },
+  "it_sicherheit-datensicherung-03": {
+    "question": "Pourquoi devriez-vous installer rapidement les mises à jour de sécurité du système d'exploitation et des programmes sur votre appareil professionnel lorsque le système les propose ?",
+    "options": {
+      "a": "Parce que les mises à jour corrigent souvent des failles de sécurité rendues publiques, qui pourraient sinon être exploitées par des attaquants",
+      "b": "Parce que les mises à jour améliorent surtout le design de l'interface utilisateur",
+      "c": "Parce que les mises à jour augmentent exclusivement la vitesse de l'appareil",
+      "d": "Parce que les mises à jour ne sont pertinentes pour la sécurité que sur les appareils à usage privé"
+    },
+    "explanation": "Les failles de sécurité dans les systèmes d'exploitation et les applications sont continuellement découvertes et publiées ; les éditeurs les corrigent via des mises à jour. Si une mise à jour est repoussée, la faille reste ouverte, et les attaquants exploitent souvent précisément la période qui suit sa divulgation. L'aspect de l'interface ou la vitesse ne sont tout au plus que des effets secondaires, pas la véritable raison de sécurité, et la discipline de mise à jour vaut pour les appareils professionnels comme pour les appareils privés."
+  },
+  "it_sicherheit-datensicherung-04": {
+    "question": "Un collègue vous recommande un programme complémentaire gratuit et pratique trouvé sur internet pour votre ordinateur professionnel. Quelle est la démarche la plus judicieuse ?",
+    "options": {
+      "a": "Installer le programme immédiatement, puisqu'il est gratuit et n'engendre aucun coût",
+      "b": "Installer le programme, mais uniquement sur l'ordinateur, pas sur le téléphone professionnel",
+      "c": "Installer le programme, tant qu'il est téléchargé depuis un site web connu",
+      "d": "Demander avant l'installation au service informatique compétent si et comment le logiciel peut être autorisé"
+    },
+    "explanation": "Un logiciel non autorisé peut contenir des failles de sécurité, entrer en conflit avec d'autres programmes ou enfreindre les exigences de licence et de conformité - indépendamment du fait qu'il soit gratuit, du site web dont il provient ou du type d'appareil sur lequel il est installé. Le service informatique peut vérifier si un logiciel peut être utilisé de manière sûre et conforme, et proposer le cas échéant une alternative validée."
+  },
+  "it_sicherheit-mobil_homeoffice-01": {
+    "question": "Quelle mesure contribue le plus à sécuriser le Wi-Fi domestique pour le travail professionnel en télétravail ?",
+    "options": {
+      "a": "Configurer le nom (SSID) du Wi-Fi pour qu'il paraisse discret",
+      "b": "Utiliser un mot de passe Wi-Fi fort et individuel ainsi qu'un chiffrement actuel (par exemple WPA2/WPA3)",
+      "c": "N'activer le Wi-Fi que la journée et l'éteindre complètement la nuit",
+      "d": "Conserver sans modification les accès du routeur configurés en usine, pour éviter les erreurs"
+    },
+    "explanation": "Un mot de passe fort et individuel associé à un chiffrement moderne empêche des personnes non autorisées à portée de se connecter facilement au réseau et de lire ou manipuler le trafic de données. Un nom de réseau discret n'offre aucune protection technique, une désactivation temporaire ne résout pas le problème de fond, et les paramètres d'usine (mots de passe par défaut, SSID par défaut) sont souvent connus publiquement et donc particulièrement peu sûrs."
+  },
+  "it_sicherheit-mobil_homeoffice-02": {
+    "question": "Vous devez accéder brièvement à vos e-mails professionnels en déplacement et trouvez un Wi-Fi ouvert et non chiffré dans un café. Comment procéder le plus sûrement ?",
+    "options": {
+      "a": "Utiliser directement le Wi-Fi ouvert, car consulter des e-mails est peu critique",
+      "b": "Utiliser le Wi-Fi ouvert, mais changer d'abord son propre mot de passe",
+      "c": "Utiliser une connexion sécurisée à la place du Wi-Fi ouvert, par exemple les données mobiles ou un VPN d'entreprise",
+      "d": "Utiliser le Wi-Fi ouvert, tant que le site du café affiche un symbole de cadenas dans la barre d'adresse"
+    },
+    "explanation": "Dans les réseaux Wi-Fi ouverts et non chiffrés, le trafic de données peut être lu ou détourné par des tiers présents sur le même réseau, même si certains sites web sont eux-mêmes chiffrés (le symbole du cadenas ne concerne que cette connexion précise, pas l'ensemble du réseau). Les données mobiles ou un VPN d'entreprise établissent une connexion supplémentaire, sécurisée et chiffrée, nettement plus difficile à intercepter. Changer préalablement de mot de passe ne résout pas le risque réel."
+  },
+  "it_sicherheit-mobil_homeoffice-03": {
+    "question": "Vous travaillez dans le train sur un document confidentiel sur votre ordinateur portable. Que devez-vous prendre en compte pour vous protéger du regard indiscret ?",
+    "options": {
+      "a": "Faire attention à l'environnement et utiliser au besoin un filtre de confidentialité d'écran ou une position de siège protégée",
+      "b": "Simplement réduire le zoom du document pour qu'il ne soit pas lisible de loin",
+      "c": "N'anonymiser que le nom du fichier, le contenu lui-même étant peu critique",
+      "d": "Traiter en déplacement les documents confidentiels de la même manière que des informations librement accessibles"
+    },
+    "explanation": "Le « shoulder surfing » - la lecture indiscrète du contenu de l'écran par des personnes présentes à proximité - est un risque réel dans les environnements publics comme les trains ou les salles d'attente. Un filtre de confidentialité d'écran ou une position de siège habile réduisent efficacement ce risque. Un zoom réduit ne protège pas de manière fiable, le nom du fichier n'est pas l'objet réel à protéger, et le contenu confidentiel a toujours besoin d'une protection appropriée quel que soit le lieu, pas seulement au bureau."
+  },
+  "it_sicherheit-mobil_homeoffice-04": {
+    "question": "Vous êtes en déplacement professionnel et devez laisser brièvement votre ordinateur portable professionnel dans une voiture garée. Quelle est la manière la plus sûre de procéder ?",
+    "options": {
+      "a": "Laisser l'ordinateur portable bien visible sur le siège passager pour ne pas l'oublier",
+      "b": "Placer l'ordinateur portable dans le coffre non visible de l'extérieur et fermer le véhicule à clé, ou l'emporter avec soi si possible",
+      "c": "Cacher l'ordinateur portable sous une veste sur la banquette arrière, cela suffit comme protection",
+      "d": "Cela n'a pas d'importance, tant que l'ordinateur portable est protégé par un mot de passe utilisateur"
+    },
+    "explanation": "Des objets de valeur visibles dans une voiture augmentent considérablement le risque d'effraction ; un coffre non visible ou le fait d'emporter l'appareil réduisent nettement ce risque. Une veste comme écran visuel est peu fiable et ne protège pas contre une effraction ciblée. Un mot de passe utilisateur protège en partie les données de l'appareil en cas de vol, mais n'empêche pas la perte physique de l'appareil lui-même et ne remplace donc pas un rangement sécurisé."
+  },
+  "it_sicherheit-meldepflicht_it-01": {
+    "question": "Vous soupçonnez que votre ordinateur professionnel est infecté par un logiciel malveillant, sans en être totalement certain. Comment devriez-vous vous comporter ?",
+    "options": {
+      "a": "Attendre que des preuves claires soient disponibles, pour ne pas faire de fausse alerte",
+      "b": "Signaler immédiatement le soupçon au service interne compétent (par exemple la sécurité informatique ou le service d'assistance), même en cas d'incertitude",
+      "c": "Réinstaller soi-même l'ordinateur puis continuer à travailler normalement",
+      "d": "Demander d'abord aux collègues s'ils ont remarqué quelque chose de similaire, avant de signaler quoi que ce soit"
+    },
+    "explanation": "Une culture de signalement et de réaction efficace exige que même de simples soupçons soient signalés tôt, plutôt que d'attendre des preuves claires - plus un incident potentiel est connu rapidement, mieux on peut en contenir la propagation. Réinstaller soi-même l'ordinateur peut détruire des traces importantes nécessaires à l'élucidation de la cause. Interroger de manière informelle des collègues retarde également inutilement le signalement et ne remplace pas l'information du service compétent."
+  },
+  "it_sicherheit-meldepflicht_it-02": {
+    "question": "Pourquoi la directive européenne sur la sécurité des réseaux et des systèmes d'information (NIS2) fixe-t-elle des délais aussi courts pour le premier signalement d'un incident de sécurité important pour les organisations concernées (globalement : une alerte précoce en quelques heures, suivie d'un signalement plus détaillé) ?",
+    "options": {
+      "a": "Pour que les entreprises gagnent le plus de temps possible afin de dissimuler l'incident en interne",
+      "b": "Parce qu'une enquête technique complète n'est de toute façon jamais possible",
+      "c": "Pour que les autorités compétentes puissent réagir tôt et que d'autres organisations potentiellement concernées puissent être averties à temps",
+      "d": "Parce que les délais courts ne s'appliquent qu'aux prestataires informatiques, pas à leurs clients"
+    },
+    "explanation": "Les délais de signalement courts visent à garantir que les autorités et autres services concernés soient informés rapidement afin d'endiguer la propagation et de coordonner les contre-mesures - et non pour permettre une dissimulation interne. Un premier signalement précoce peut sciemment être encore incomplet et être complété plus tard ; c'est précisément le sens d'une procédure de signalement échelonnée. Les obligations de signalement s'adressent aux organisations concernées dans leur ensemble, pas seulement aux prestataires informatiques."
+  },
+  "it_sicherheit-meldepflicht_it-03": {
+    "question": "Pourquoi une bonne culture de sécurité exige-t-elle que les employés signalent un incident de sécurité présumé au lieu d'essayer de le résoudre eux-mêmes « discrètement » ?",
+    "options": {
+      "a": "Parce qu'une seule personne ne peut souvent pas appréhender toute l'ampleur et la cause d'un incident, et qu'agir de sa propre initiative peut effacer des traces ou aggraver le problème",
+      "b": "Parce qu'une résolution autonome enfreint fondamentalement le droit d'auteur",
+      "c": "Parce que c'est le seul moyen de réduire les coûts de sécurité informatique de l'entreprise",
+      "d": "Parce que sans signalement, les employés peuvent automatiquement être tenus personnellement responsables"
+    },
+    "explanation": "Un incident isolé peut faire partie d'un schéma plus large - par exemple une attaque touchant plusieurs systèmes. Quiconque tente de résoudre le problème seul et sans le signaler risque de détruire des traces importantes nécessaires à l'élucidation de la cause, et risque que l'incident continue à se propager sans être remarqué. Les alternatives citées (droit d'auteur, réduction des coûts, responsabilité personnelle automatique) ne décrivent pas la véritable raison de l'obligation de signalement."
+  },
+  "it_sicherheit-meldepflicht_it-04": {
+    "question": "Vous ne savez pas qui, dans l'entreprise, est responsable du signalement d'un incident de sécurité informatique présumé. Quelle est l'approche la plus judicieuse ?",
+    "options": {
+      "a": "Publier l'incident dans un canal de discussion interne public, pour que quelqu'un le voie",
+      "b": "Attendre que quelqu'un d'autre remarque par hasard le problème et le signale",
+      "c": "Décrire l'incident sur les réseaux sociaux pour attirer rapidement l'attention",
+      "d": "Utiliser les canaux de signalement définis dans l'entreprise (par exemple le support informatique, le responsable de la sécurité ou la hiérarchie) ou, en cas de doute, se renseigner auprès de sa propre hiérarchie"
+    },
+    "explanation": "Une procédure de signalement préparée avec des services clairement responsables garantit qu'un incident parvient rapidement aux bonnes personnes, qui peuvent engager des contre-mesures adaptées. Un canal de discussion public, voire les réseaux sociaux, sont inappropriés et peuvent en plus rendre l'incident public ou alerter l'attaquant. Attendre retarde inutilement la réaction ; en cas de doute, sa propre hiérarchie est toujours un premier interlocuteur judicieux pour trouver le bon canal de signalement."
+  },
+  "it_sicherheit-zugriffsschutz-05": {
+    "question": "Pourquoi les employés ne devraient-ils recevoir que les droits d'accès dont ils ont réellement besoin pour leur tâche concrète (« principe du moindre privilège ») ?",
+    "options": {
+      "a": "Pour qu'il y ait moins de mots de passe à gérer",
+      "b": "Pour qu'en cas de compte compromis ou d'erreur, le dommage possible reste limité au strict nécessaire",
+      "c": "Pour que le service informatique ait moins de demandes de support à traiter",
+      "d": "Pour que tous les employés possèdent les mêmes droits et que personne ne soit désavantagé"
+    },
+    "explanation": "Le principe du moindre privilège limite le dommage qu'un compte volé ou une erreur de manipulation accidentelle peut causer, car l'accès n'est possible qu'aux systèmes et données réellement nécessaires. Il ne s'agit pas du nombre de mots de passe, de la charge de support ou de l'égalité de traitement formelle, mais de la limitation du risque en fonction de la tâche concernée."
+  },
+  "it_sicherheit-zugriffsschutz-06": {
+    "question": "Une collègue change en interne pour un autre service avec d'autres missions. Que doit-il advenir de ses accès système précédents ?",
+    "options": {
+      "a": "Rien, puisqu'elle continue de travailler dans la même entreprise",
+      "b": "Les accès précédents subsistent en plus des nouveaux, pour qu'elle puisse aider de manière flexible",
+      "c": "Les droits d'accès qui ne sont plus nécessaires sont retirés et les autorisations sont adaptées au nouveau rôle",
+      "d": "Seul le mot de passe est changé, les droits restent inchangés"
+    },
+    "explanation": "Les autorisations doivent correspondre au domaine de tâches actuel ; en cas de changement de rôle, les droits d'accès qui ne sont plus nécessaires doivent être retirés et de nouveaux droits adaptés attribués. Sinon, des autorisations inutiles et superflues s'accumulent avec le temps (« inflation des droits »), ce qui augmente inutilement le risque en cas de compromission du compte. Un simple changement de mot de passe ne change rien à cela."
+  },
+  "it_sicherheit-zugriffsschutz-07": {
+    "question": "Vous devez retenir de nombreux mots de passe différents pour les systèmes professionnels. Quelle démarche est la plus judicieuse ?",
+    "options": {
+      "a": "Utiliser un gestionnaire de mots de passe approuvé par l'informatique, plutôt que de réutiliser des mots de passe ou de les noter sans protection",
+      "b": "Utiliser le même mot de passe facile à retenir pour tous les systèmes",
+      "c": "Noter les mots de passe sur un post-it collé sur l'écran, pour les retrouver rapidement",
+      "d": "Enregistrer les mots de passe dans un fichier texte non chiffré sur le bureau"
+    },
+    "explanation": "Un gestionnaire de mots de passe approuvé permet d'utiliser un mot de passe long et unique pour chaque système, sans avoir à tous les retenir individuellement, et protège les identifiants stockés eux-mêmes par chiffrement. La réutilisation de mots de passe signifie qu'une seule fuite de données met en danger tous les comptes concernés ; les post-it et fichiers non chiffrés sont immédiatement consultables par quiconque a un accès physique ou numérique."
+  },
+  "it_sicherheit-zugriffsschutz-08": {
+    "question": "Vous quittez le soir votre poste de travail dans un bureau paysager après la fin de la journée. Que correspond à la règle de base du bureau propre (« clean desk ») ?",
+    "options": {
+      "a": "Verrouiller uniquement l'écran, les documents peuvent rester en évidence",
+      "b": "Les documents confidentiels peuvent rester en évidence, tant que la porte du bureau est fermée à clé",
+      "c": "Seuls les documents explicitement marqués « secret » doivent être rangés",
+      "d": "Ranger sous clé les documents confidentiels et supports de données, et laisser le bureau bien rangé"
+    },
+    "explanation": "Le principe du bureau propre exige de ranger sous clé les documents papier confidentiels et les supports de données en cas d'absence, afin qu'ils ne soient pas librement accessibles à des personnes non autorisées - par exemple le personnel de nettoyage, des visiteurs ou d'autres employés non habilités. Une porte de bureau fermée à clé seule ne protège pas contre toutes les personnes ayant accès au bâtiment ou à la pièce, et la règle vaut pour les documents confidentiels en général, pas seulement pour ceux explicitement marqués « secret »."
+  },
+  "it_sicherheit-phishing-05": {
+    "question": "Vous recevez un e-mail avec une pièce jointe de facture inattendue, qui vous demande d'autoriser le « traitement des macros » ou d'« activer le contenu » pour afficher la facture. Comment réagir le plus judicieusement ?",
+    "options": {
+      "a": "Autoriser le traitement des macros, sinon la facture ne peut pas être ouverte",
+      "b": "Ouvrir la pièce jointe, mais seulement après un redémarrage de l'ordinateur",
+      "c": "Ne pas activer les macros et faire vérifier l'e-mail par les canaux de signalement habituels en cas d'incertitude",
+      "d": "Transférer la pièce jointe à un collègue en privé, pour qu'il l'ouvre en premier"
+    },
+    "explanation": "La demande d'activer des macros est un schéma d'attaque connu : ce n'est que par l'activation que le code malveillant contenu dans le fichier est exécuté, alors qu'il resterait inactif sans ce consentement. Un redémarrage de l'ordinateur ne change rien, et le transfert à un collègue ne fait que déplacer le risque au lieu de l'éliminer. En cas d'incertitude sur l'expéditeur ou le contenu, l'e-mail doit être vérifié par les canaux de signalement internes habituels avant d'ouvrir ou d'activer quoi que ce soit."
+  },
+  "it_sicherheit-phishing-06": {
+    "question": "Qu'est-ce qui distingue le « spear phishing » d'une campagne de phishing classique et largement diffusée ?",
+    "options": {
+      "a": "Le spear phishing se fait exclusivement par téléphone, jamais par e-mail",
+      "b": "Le spear phishing est adapté à une personne ou une organisation précise et utilise des détails crédibles spécifiquement recherchés",
+      "c": "Le spear phishing renonce totalement aux liens ou pièces jointes",
+      "d": "Le spear phishing ne concerne que les comptes de messagerie privés, jamais professionnels"
+    },
+    "explanation": "Dans le spear phishing, les attaquants recherchent spécifiquement des informations sur une personne ou une organisation - par exemple les noms des supérieurs, des projets en cours ou des processus internes - pour rendre un message particulièrement crédible et personnalisé. Cela rend ces attaques plus difficiles à reconnaître que les e-mails de phishing de masse génériques. Ni le canal de communication, ni l'absence de liens/pièces jointes, ni la limitation aux comptes privés ne constituent la caractéristique déterminante."
+  },
+  "it_sicherheit-phishing-07": {
+    "question": "Vous recevez un SMS censé provenir d'un service de livraison de colis, contenant un lien vers un « paiement de frais de douane », alors que vous n'attendez aucun colis. Comment classer cet incident et comment réagir ?",
+    "options": {
+      "a": "Il s'agit probablement de « smishing » (phishing par SMS) ; ne pas cliquer sur le lien et vérifier l'envoi directement via le site web ou l'application officielle du service de livraison",
+      "b": "Les SMS ne peuvent en général pas être falsifiés, donc le lien est sûr",
+      "c": "Comme il s'agit d'un SMS privé, le sujet ne concerne pas le travail et peut être ignoré",
+      "d": "Cliquer sur le lien, mais sans saisir de données de paiement, pour voir s'il s'agit d'un envoi réel"
+    },
+    "explanation": "Le phishing ne se limite pas aux e-mails : le « smishing » utilise des SMS avec le même principe de base d'urgence et un lien manipulé. Le nom d'expéditeur d'un SMS peut lui aussi être falsifié. Il est plus sûr de vérifier le motif prétendu de manière indépendante via le site web ou l'application officiels, plutôt que de suivre le lien. Le sujet concerne aussi les employés, car les mêmes schémas peuvent toucher des appareils professionnels ou des informations de contact, et le simple fait de cliquer sur un lien préparé peut déjà représenter un risque."
+  },
+  "it_sicherheit-phishing-08": {
+    "question": "Un e-mail semble provenir de « support@ihre-firma-online.de », alors que le domaine réel de l'entreprise est « ihrefirma.de ». Comment classer au mieux cette légère différence de domaine d'expéditeur ?",
+    "options": {
+      "a": "Comme une faute de frappe sans importance pour la sécurité",
+      "b": "Comme un signe possible d'un domaine falsifié, prêtant à confusion (« typosquatting »), utilisé pour tromper",
+      "c": "Comme la confirmation que le message provient à coup sûr de son propre service informatique",
+      "d": "Comme une simple question de goût de l'expéditeur concerné dans le choix du domaine"
+    },
+    "explanation": "Les attaquants enregistrent délibérément des domaines qui ressemblent à s'y méprendre au véritable domaine de l'entreprise (par exemple des mots supplémentaires, des lettres inversées ou d'autres extensions) pour simuler la confiance. Un tel écart est un signal d'alerte sérieux, pas un détail sans importance ou une question de goût. L'adresse d'expéditeur réelle devrait être vérifiée précisément en cas d'anomalie, et en cas de doute confirmée via un canal indépendant, plutôt que de supposer automatiquement son authenticité."
+  },
+  "it_sicherheit-datensicherung-05": {
+    "question": "Pourquoi ne suffit-il pas, contre les rançongiciels, de stocker une sauvegarde directement sur le même lecteur réseau connecté en permanence que les données originales ?",
+    "options": {
+      "a": "Parce que les lecteurs réseau sont techniquement toujours plus lents que les disques durs locaux",
+      "b": "Parce qu'il est en général interdit de stocker des sauvegardes sur des lecteurs réseau",
+      "c": "Parce qu'un rançongiciel peut aussi chiffrer la copie de sauvegarde qui s'y trouve, s'agissant d'un lecteur connecté en permanence",
+      "d": "Parce que les lecteurs réseau sont exclusivement destinés au stockage des e-mails"
+    },
+    "explanation": "Les rançongiciels chiffrent généralement tous les lecteurs accessibles, y compris les lecteurs réseau connectés en permanence - une copie de sauvegarde qui s'y trouve n'offre alors plus de véritable protection, car elle peut elle aussi être touchée. Un concept de sauvegarde efficace prévoit donc au moins une copie conservée séparément (hors ligne ou avec un décalage temporel) du système de production, afin qu'elle ne soit pas affectée par une attaque contre le système principal."
+  },
+  "it_sicherheit-datensicherung-06": {
+    "question": "Une sauvegarde est créée automatiquement chaque nuit selon un planning. Pourquoi cela ne suffit-il pas encore à lui seul pour pouvoir vraiment compter sur la sauvegarde des données ?",
+    "options": {
+      "a": "Parce qu'il faut vérifier régulièrement si des données peuvent effectivement être restaurées avec succès à partir de la sauvegarde",
+      "b": "Parce qu'une sauvegarde ne devrait fondamentalement être créée qu'une fois par an",
+      "c": "Parce que les sauvegardes automatiques ne peuvent techniquement jamais échouer",
+      "d": "Parce qu'une sauvegarde créée ne reste valable que 24 heures au maximum"
+    },
+    "explanation": "Une exécution de sauvegarde peut échouer ou produire une copie endommagée et incomplète, sans que cela soit immédiatement remarqué. Seul un test de restauration régulier montre de manière fiable si des données peuvent réellement être récupérées en cas de besoin. La fréquence de la sauvegarde elle-même dépend des besoins et n'est pas limitée à une fois par an, les processus automatiques peuvent tout à fait échouer, et une sauvegarde ne perd pas automatiquement sa validité après 24 heures."
+  },
+  "it_sicherheit-datensicherung-07": {
+    "question": "Vous souhaitez transporter des données confidentielles de l'entreprise sur une clé USB externe. Quelle est la mesure de protection la plus importante à cet effet ?",
+    "options": {
+      "a": "Munir la clé d'un autocollant visible « confidentiel », pour que personne ne l'égare",
+      "b": "Chiffrer la clé, afin que les données ne soient pas lisibles sans effort en cas de perte ou de vol",
+      "c": "Choisir une clé aussi petite et discrète que possible, pour qu'elle ne se remarque pas",
+      "d": "Simplement renommer les fichiers avant la copie, pour que leur contenu ne soit pas immédiatement reconnaissable"
+    },
+    "explanation": "Les supports de données amovibles se perdent ou sont volés facilement ; sans chiffrement, les données qui y sont stockées sont alors immédiatement lisibles par quiconque y a un accès physique. Le chiffrement garantit que les données restent protégées même en cas de perte, tant que la clé ou le mot de passe reste secret. Un autocollant, une forme discrète ou des fichiers renommés n'offrent en revanche aucune protection technique réelle contre une lecture non autorisée."
+  },
+  "it_sicherheit-datensicherung-08": {
+    "question": "Un vieil ordinateur portable de l'entreprise doit être mis hors service et éliminé. Quelle est la bonne façon de traiter les données qui y sont stockées ?",
+    "options": {
+      "a": "Ne supprimer que les fichiers visibles dans la corbeille et la vider",
+      "b": "Transmettre l'ordinateur portable sans modification à un marché d'occasion caritatif pour économiser des ressources",
+      "c": "Démonter le disque dur et le jeter avec les ordures ménagères",
+      "d": "Faire supprimer les données de manière sûre et irrécupérable par le service informatique compétent (ou faire détruire le support de manière professionnelle), avant que l'appareil soit transmis ou éliminé"
+    },
+    "explanation": "Une simple suppression dans la corbeille ou un formatage ne retire généralement les fichiers que du répertoire visible, tandis que les données elles-mêmes restent souvent récupérables avec des moyens appropriés. Avant toute transmission ou élimination, les supports de données doivent donc être effacés de manière sûre (par exemple par écrasement répété) ou détruits physiquement, afin que les données confidentielles de l'entreprise ne tombent pas entre de mauvaises mains. Jeter l'appareil avec les ordures ménagères est en outre inadmissible pour des raisons environnementales et d'élimination."
+  },
+  "it_sicherheit-mobil_homeoffice-05": {
+    "question": "Pourquoi le chiffrement du disque dur d'un ordinateur portable utilisé pour le télétravail et les déplacements professionnels est-il particulièrement important ?",
+    "options": {
+      "a": "Parce qu'il accélère automatiquement le démarrage de l'ordinateur portable",
+      "b": "Parce qu'en cas de vol ou de perte, il empêche des personnes non autorisées d'accéder facilement aux données stockées",
+      "c": "Parce qu'il n'est obligatoire que pour les appareils qui ne quittent jamais le bureau",
+      "d": "Parce qu'il rend totalement superflu un mot de passe de connexion"
+    },
+    "explanation": "Les appareils utilisés hors du bureau sont exposés à un risque accru de vol ou de perte - par exemple dans le train, en voiture ou en déplacement chez un client. Sans chiffrement du disque, le disque dur intégré peut souvent être démonté et les données lues directement, indépendamment du mot de passe de connexion du système d'exploitation. Le chiffrement et le mot de passe de connexion se complètent, mais ne se remplacent pas mutuellement, et la vitesse de démarrage n'a rien à voir avec cela."
+  },
+  "it_sicherheit-mobil_homeoffice-06": {
+    "question": "Pourquoi un verrouillage automatique rapide de l'écran (par exemple après 30 secondes d'inactivité) devrait-il être activé sur un smartphone à usage professionnel ?",
+    "options": {
+      "a": "Pour qu'en cas d'oubli bref ou de perte, l'appareil ne soit pas immédiatement accessible sans protection",
+      "b": "Pour que la batterie de l'appareil dure plus longtemps",
+      "c": "Pour que les appels soient automatiquement mis en sourdine",
+      "d": "Parce qu'un verrouillage d'écran n'est légalement obligatoire que pour les téléphones professionnels de la direction"
+    },
+    "explanation": "Un intervalle de verrouillage court réduit la fenêtre de temps pendant laquelle un appareil brièvement oublié ou perdu peut être utilisé sans authentification, par exemple pour accéder à des e-mails, des contacts ou des applications d'entreprise. L'autonomie de la batterie et les paramètres d'appel n'ont aucun rapport avec la sécurité, et la règle vaut logiquement pour tous les appareils à usage professionnel, pas seulement pour certains groupes de personnes."
+  },
+  "it_sicherheit-mobil_homeoffice-07": {
+    "question": "Vous utilisez occasionnellement votre smartphone personnel à des fins professionnelles (« Bring Your Own Device »). Qu'est-il le plus important de respecter du point de vue de la sécurité ?",
+    "options": {
+      "a": "Stocker les données privées et professionnelles autant que possible mélangées dans les mêmes applications, pour ne rien perdre",
+      "b": "Il suffit que l'appareil possède un mot de passe quelconque, indépendamment d'autres exigences",
+      "c": "Respecter les directives de l'entreprise en matière de BYOD (par exemple mesures de protection minimales, séparation des données professionnelles, possibilité d'effacement à distance), avant d'utiliser l'appareil à des fins professionnelles",
+      "d": "Les règles BYOD sont purement volontaires et n'ont pas besoin d'être respectées, tant que l'appareil a été payé à titre privé"
+    },
+    "explanation": "Si des appareils privés sont utilisés à des fins professionnelles, les mêmes objectifs de protection que pour les appareils de l'entreprise doivent être atteints - par exemple par des exigences minimales de chiffrement, de verrouillage d'écran, de zones séparées pour les données professionnelles et de possibilité d'effacer à distance les données professionnelles en cas de perte. Le mélange des données privées et professionnelles complique justement cette protection, et un mot de passe quelconque à lui seul ou le financement privé de l'appareil ne dispensent pas des directives d'entreprise en vigueur."
+  },
+  "it_sicherheit-mobil_homeoffice-08": {
+    "question": "Vous participez depuis chez vous à une visioconférence professionnelle où des contenus confidentiels sont discutés. À quoi devez-vous particulièrement veiller ?",
+    "options": {
+      "a": "L'écran peut sans problème rester visible pour les colocataires, tant que personne ne regarde activement",
+      "b": "À ce que les colocataires, membres de la famille ou appareils dotés d'assistants vocaux ne puissent ni entendre ni voir les contenus confidentiels",
+      "c": "Uniquement à ce que la connexion internet soit assez rapide pour la vidéo",
+      "d": "Il suffit d'éteindre la caméra, le microphone n'a pas d'importance"
+    },
+    "explanation": "Dans l'environnement domestique, d'autres personnes peuvent aussi remarquer ce qui est visible à l'écran ou audible par le microphone - par exemple des membres de la famille ou des visiteurs, et des assistants vocaux à proximité peuvent involontairement écouter. Un lieu calme et isolé ainsi qu'une gestion consciente de l'écran et du microphone protègent la confidentialité. La seule vitesse de connexion concerne la qualité, pas la confidentialité, et un microphone éteint est au moins aussi important pour les contenus confidentiels prononcés à voix haute que la caméra."
+  },
+  "it_sicherheit-meldepflicht_it-05": {
+    "question": "Comment se déroule approximativement dans le temps la procédure de signalement échelonnée de la directive NIS2 pour un incident de sécurité important ?",
+    "options": {
+      "a": "Un seul signalement complet suffit, au plus tard un an après l'incident",
+      "b": "Une alerte précoce dans les 24 heures, un signalement plus détaillé dans les 72 heures, suivi d'un rapport final au plus tard un mois après le signalement",
+      "c": "Seulement un rapport final, qui doit être entièrement terminé dans les 24 heures suivant l'incident",
+      "d": "Un signalement n'est nécessaire que lorsqu'un incident est déjà devenu public"
+    },
+    "explanation": "La directive NIS2 prévoit une procédure échelonnée : une alerte précoce dans les 24 heures suivant la connaissance des faits, un signalement plus détaillé dans les 72 heures, et un rapport final au plus tard un mois après ce signalement. Cet échelonnement permet une réaction rapide dès le début, même si tous les détails ne sont pas encore connus. Un signalement unique après un an, un rapport immédiatement complet dans les 24 heures ou l'attente d'une notoriété publique ne correspondent pas à la procédure réelle."
+  },
+  "it_sicherheit-meldepflicht_it-06": {
+    "question": "Selon quelle idée fondamentale la directive NIS2 détermine-t-elle si un incident de sécurité est considéré comme « important » et donc soumis à l'obligation de signalement ?",
+    "options": {
+      "a": "Si l'incident cause (ou peut causer) une perturbation grave de l'activité ou un dommage financier, ou si d'autres personnes ou organisations subissent (ou peuvent subir) un préjudice important",
+      "b": "Si l'incident concerne exclusivement le service informatique lui-même, indépendamment de l'ampleur réelle",
+      "c": "Si l'incident dure plus d'une semaine de travail, indépendamment de ses conséquences",
+      "d": "Si l'incident survient par hasard pendant les heures de travail principales"
+    },
+    "explanation": "Selon la NIS2, un incident est notamment considéré comme important lorsqu'il cause ou peut causer une perturbation grave de l'activité ou un dommage financier pour l'organisation concernée, ou lorsque d'autres personnes physiques ou morales en subissent ou peuvent en subir un préjudice important. Ni le fait que seul le service informatique soit concerné, ni la durée ou l'heure de la journée de l'incident ne constituent en soi le critère déterminant - ce qui compte, c'est l'ampleur réelle ou possible des conséquences."
+  },
+  "it_sicherheit-meldepflicht_it-07": {
+    "question": "Vous soupçonnez un incident de sécurité en cours sur votre ordinateur professionnel. Pourquoi ne devriez-vous pas redémarrer ou éteindre complètement l'appareil de votre propre initiative avant d'avoir signalé l'incident ?",
+    "options": {
+      "a": "Parce qu'un redémarrage consomme fondamentalement plus d'électricité que le fonctionnement continu",
+      "b": "Parce qu'un redémarrage supprime automatiquement toutes les données de l'entreprise sur l'appareil",
+      "c": "Parce que cela peut faire perdre des traces volatiles (par exemple en mémoire vive), importantes pour l'analyse ultérieure de l'incident",
+      "d": "Parce qu'un redémarrage résout automatiquement l'incident, rendant ainsi un signalement superflu"
+    },
+    "explanation": "Certaines traces importantes d'un incident - par exemple les connexions réseau actives ou les processus en mémoire vive - se perdent lors d'un redémarrage ou d'un arrêt et ne peuvent plus être reconstituées ensuite. Pour une élucidation ultérieure de la cause, il est donc important de laisser le système aussi inchangé que possible et de signaler d'abord l'incident, afin que le service compétent puisse décider de la marche à suivre. Un redémarrage ne supprime pas automatiquement les données de l'entreprise et ne résout pas non plus l'incident de sécurité sous-jacent."
+  },
+  "it_sicherheit-meldepflicht_it-08": {
+    "question": "Quelles informations sont particulièrement utiles lors du signalement d'un incident de sécurité informatique présumé au service interne compétent ?",
+    "options": {
+      "a": "Uniquement son propre nom, d'autres informations ne feraient que retarder inutilement le signalement",
+      "b": "Un signalement le plus court possible sans indication d'heure, pour qu'il puisse être envoyé rapidement",
+      "c": "Seulement une vague supposition sur qui pourrait être responsable de l'incident",
+      "d": "Des informations aussi précises que possible sur le moment, les anomalies observées et les systèmes ou données concernés"
+    },
+    "explanation": "Des informations concrètes sur le moment, le comportement observé (par exemple des fenêtres pop-up inhabituelles, des modifications de fichiers inexpliquées) et les systèmes ou données concernés aident le service compétent à classer rapidement l'incident, à en estimer l'ampleur et à engager des contre-mesures adaptées. Le seul nom ne suffit pas à cela, un signalement sans indication d'heure complique le classement chronologique, et des suppositions sur une « question de faute » ne sont pas le point déterminant pour le traitement technique de l'incident."
+  }
+}

@@ -198,5 +198,205 @@
       "d": "Auf jegliche Pruefung verzichten, solange kein Kunde die Inhalte direkt zu sehen bekommt"
     },
     "explanation": "Generative KI kann bei der Arbeit sehr nuetzlich sein, ersetzt aber nicht die eigene fachliche und rechtliche Verantwortung. Ergebnisse koennen sachlich falsch sein ('Halluzinationen'), unbewusste Verzerrungen enthalten oder datenschutzrechtlich problematisch sein, wenn versehentlich vertrauliche Informationen eingegeben wurden - deshalb gehoert eine kritische Pruefung vor der Weiterverwendung zur guten betrieblichen Praxis."
+  },
+  "ki_act-grundlagen-05": {
+    "question": "Ein KI-System wird ausschliesslich fuer militaerische Zwecke der nationalen Verteidigung entwickelt und eingesetzt. Gilt der AI Act dafuer?",
+    "options": {
+      "a": "Nein - der AI Act gilt nach Art. 2 Abs. 3 nicht fuer KI-Systeme, die ausschliesslich fuer militaerische, verteidigungsbezogene oder nationale Sicherheitszwecke in Verkehr gebracht, in Betrieb genommen oder genutzt werden",
+      "b": "Ja, uneingeschraenkt - militaerische Nutzung ist ausdruecklich als eigener Hochrisikobereich in Anhang III gelistet",
+      "c": "Nein, aber nur wenn das System zusaetzlich von der NATO offiziell zertifiziert wurde",
+      "d": "Ja, aber zumindest die Transparenzpflichten nach Art. 50 gelten dafuer trotzdem uneingeschraenkt weiter"
+    },
+    "explanation": "Art. 2 Abs. 3 KI-VO nimmt KI-Systeme, die ausschliesslich fuer militaerische, verteidigungsbezogene oder nationale Sicherheitszwecke bestimmt sind, vollstaendig vom Anwendungsbereich der Verordnung aus - unabhaengig davon, welche Art von Stelle sie betreibt. Es gibt hierfuer keine gesonderte NATO-Zertifizierung, und auch die Transparenzpflichten greifen in diesem Fall nicht."
+  },
+  "ki_act-grundlagen-06": {
+    "question": "Ein Forschungsteam entwickelt und testet ein neues KI-Modell ausschliesslich im Rahmen wissenschaftlicher Forschung, bevor es je auf den Markt gebracht oder in Betrieb genommen wird. Wie ist das nach dem AI Act einzuordnen?",
+    "options": {
+      "a": "Solche Forschungs-, Test- und Entwicklungstaetigkeiten vor Markteinfuehrung bzw. Inbetriebnahme fallen grundsaetzlich nicht unter die Verordnung",
+      "b": "Auch reine Forschung muss vorab eine vollstaendige Konformitaetsbewertung wie ein Hochrisikosystem durchlaufen",
+      "c": "Die Ausnahme gilt nur, wenn die Forschung an einer staatlichen Universitaet stattfindet, nicht in der Privatwirtschaft",
+      "d": "Die Ausnahme gilt unveraendert weiter, sobald das Modell anschliessend echten Nutzern am Markt bereitgestellt wird"
+    },
+    "explanation": "Art. 2 Abs. 8 KI-VO nimmt Forschungs-, Test- und Entwicklungstaetigkeiten zu KI-Systemen oder -Modellen vor deren Inverkehrbringen bzw. Inbetriebnahme vom Anwendungsbereich aus. Die Ausnahme ist nicht auf staatliche Einrichtungen beschraenkt, endet aber, sobald das System tatsaechlich am Markt bereitgestellt oder in Betrieb genommen wird - ab diesem Zeitpunkt gelten die regulaeren Pflichten."
+  },
+  "ki_act-grundlagen-07": {
+    "question": "Wer gilt nach der Definition in Art. 3 Nr. 3 KI-VO als 'Anbieter' (provider) eines KI-Systems?",
+    "options": {
+      "a": "Nur eine natuerliche Person, die persoenlich Programmiercode fuer ein KI-System schreibt",
+      "b": "Jede natuerliche oder juristische Person, Behoerde, Einrichtung oder sonstige Stelle, die ein KI-System entwickelt oder entwickeln laesst und es unter eigenem Namen oder eigener Marke in Verkehr bringt oder in Betrieb nimmt - entgeltlich oder unentgeltlich",
+      "c": "Ausschliesslich Unternehmen mit Sitz ausserhalb der EU, die KI-Systeme in die EU exportieren",
+      "d": "Jedes Unternehmen, das ein fertiges KI-Tool eines Dritten lediglich im eigenen Betrieb nutzt, ohne es weiterzugeben"
+    },
+    "explanation": "Die Anbieter-Definition ist bewusst weit gefasst und knuepft nicht an den Unternehmenssitz oder die Vergueltlichkeit an, sondern daran, dass jemand ein KI-System entwickelt (oder entwickeln laesst) und es unter eigenem Namen bzw. eigener Marke in Verkehr bringt oder in Betrieb nimmt. Option d beschreibt dagegen eher die Rolle eines Betreibers (deployer), der ein fremdes System lediglich nutzt."
+  },
+  "ki_act-grundlagen-08": {
+    "question": "Neben der Liste in Anhang III gibt es einen zweiten, unabhaengigen Weg, wie ein KI-System zum Hochrisikosystem werden kann. Welcher ist das?",
+    "options": {
+      "a": "Wenn das KI-System selbst ein Produkt ist oder als Sicherheitsbauteil in ein Produkt integriert ist, das unter die in Anhang I gelistete EU-Produktsicherheitsgesetzgebung faellt (z.B. Maschinen, Medizinprodukte) und dieses Produkt einer Konformitaetsbewertung durch Dritte bedarf",
+      "b": "Wenn das Unternehmen, das die KI einsetzt, mehr als 500 Mitarbeitende beschaeftigt",
+      "c": "Wenn das KI-System in mehr als drei EU-Mitgliedstaaten gleichzeitig eingesetzt wird",
+      "d": "Wenn das KI-System oeffentlich zugaenglich und kostenlos im Internet angeboten wird"
+    },
+    "explanation": "Art. 6 Abs. 1 KI-VO eroeffnet neben der anwendungsbasierten Einstufung ueber Anhang III einen zweiten, produktbasierten Weg: Ist das KI-System selbst ein Produkt oder Sicherheitsbauteil eines Produkts, das bereits unter bestehende EU-Produktsicherheitsvorschriften (Anhang I, z.B. Maschinenverordnung, Medizinprodukteverordnung) faellt und dort eine Konformitaetsbewertung durch Dritte erfordert, gilt das KI-System ebenfalls als Hochrisikosystem."
+  },
+  "ki_act-ki_kompetenz-05": {
+    "question": "Wie definiert Art. 3 Nr. 56 KI-VO den Begriff 'KI-Kompetenz' (AI literacy)?",
+    "options": {
+      "a": "Als Faehigkeiten, Kenntnisse und Verstaendnis, die es Anbietern, Betreibern und betroffenen Personen ermoeglichen, KI-Systeme informiert einzusetzen sowie sich der Chancen und Risiken von KI und moeglicher Schaeden bewusst zu werden",
+      "b": "Als formale Zertifizierung, die ausschliesslich durch staatlich akkreditierte Pruefstellen vergeben werden darf",
+      "c": "Als rein technisches Wissen ueber Programmiersprachen, das ausschliesslich IT-Fachpersonal betrifft",
+      "d": "Als gesetzliche Pflicht, jaehrlich eine festgelegte Mindestanzahl an Schulungsstunden zu dokumentieren"
+    },
+    "explanation": "Die Definition in Art. 3 Nr. 56 KI-VO ist bewusst breit gefasst: Es geht nicht um eine bestimmte Zertifizierung oder reines Programmierwissen, sondern um Faehigkeiten, Kenntnisse und Verstaendnis, die informierte Entscheidungen im Umgang mit KI ermoeglichen und ein Bewusstsein fuer Chancen, Risiken und moegliche Schaeden schaffen."
+  },
+  "ki_act-ki_kompetenz-06": {
+    "question": "Wem soll KI-Kompetenz laut Erwaegungsgrund 20 KI-VO letztlich auch zugutekommen - ueber die eigenen Beschaeftigten von Anbietern und Betreibern hinaus?",
+    "options": {
+      "a": "Ausschliesslich der Geschaeftsleitung, damit diese fundierte Investitionsentscheidungen treffen kann",
+      "b": "Auch von KI-gestuetzten Entscheidungen betroffenen Personen, damit sie nachvollziehen koennen, wie sich mit Hilfe von KI getroffene Entscheidungen auf sie auswirken",
+      "c": "Ausschliesslich den nationalen Marktueberwachungsbehoerden, die die Einhaltung der Verordnung kontrollieren",
+      "d": "Nur externen Softwareentwicklern, die im Auftrag neue KI-Modelle trainieren"
+    },
+    "explanation": "Erwaegungsgrund 20 KI-VO stellt klar, dass KI-Kompetenz nicht nur Anbietern und Betreibern selbst dienen soll, sondern auch betroffenen Personen die notwendigen Kenntnisse vermitteln soll, um zu verstehen, wie sich mit Hilfe von KI getroffene Entscheidungen auf sie auswirken."
+  },
+  "ki_act-ki_kompetenz-07": {
+    "question": "Verlangt Art. 4 KI-VO ein bestimmtes, gesetzlich vorgeschriebenes Schulungsformat (z.B. eine zertifizierte Pruefung) fuer KI-Kompetenz?",
+    "options": {
+      "a": "Nein - der Wortlaut verpflichtet Anbieter und Betreiber, 'nach besten Kraeften' angemessene Massnahmen zu ergreifen; ein bestimmtes Format oder eine Zertifizierung schreibt Art. 4 nicht vor",
+      "b": "Ja, es muss zwingend eine mehrtaegige Praesenzschulung mit externem Zertifikat sein",
+      "c": "Ja, nur ein staatlich anerkannter E-Learning-Kurs erfuellt die Anforderungen von Art. 4",
+      "d": "Ja, aber nur fuer Unternehmen, die zugleich auch Hochrisiko-KI-Systeme anbieten"
+    },
+    "explanation": "Art. 4 KI-VO ist als Bemuehenspflicht ('nach besten Kraeften') formuliert, nicht als Erfolgspflicht mit vorgeschriebenem Format. Das Gesetz laesst offen, wie die Massnahmen konkret aussehen - solange sie angemessen sind und Vorkenntnisse, Kontext und betroffene Personengruppen beruecksichtigen."
+  },
+  "ki_act-ki_kompetenz-08": {
+    "question": "Ein Unternehmen setzt ausschliesslich ein KI-System mit minimalem Risiko ein (z.B. eine KI-gestuetzte Rechtschreibpruefung), aber kein Hochrisikosystem. Muss es trotzdem Art. 4 KI-VO zur KI-Kompetenz beachten?",
+    "options": {
+      "a": "Ja - die Pflicht zur KI-Kompetenz gilt fuer Anbieter und Betreiber unabhaengig von der Risikoklasse des jeweils eingesetzten KI-Systems, nicht nur fuer Hochrisikosysteme",
+      "b": "Nein, Art. 4 gilt ausschliesslich fuer Anbieter und Betreiber von Hochrisiko-KI-Systemen nach Anhang III",
+      "c": "Nein, die Pflicht greift erst, sobald das Unternehmen mehr als 50 verschiedene KI-Anwendungen im Einsatz hat",
+      "d": "Nein, bei minimalem Risiko gilt ausschliesslich die Transparenzpflicht nach Art. 50, nicht Art. 4"
+    },
+    "explanation": "Art. 4 KI-VO ist nicht auf Hochrisikosysteme beschraenkt, sondern gilt fuer 'KI-Systeme' allgemein. Ein Unternehmen kann sich also nicht darauf berufen, nur risikoarme Tools einzusetzen, um sich von der Pflicht zur KI-Kompetenz zu befreien - ein verbreiteter, aber falscher Trugschluss mit echtem Compliance-Risiko."
+  },
+  "ki_act-verbotene_praktiken-05": {
+    "question": "Eine Behoerde moechte ein KI-System einsetzen, das bei Personen allein anhand von Profiling und Persoenlichkeitsmerkmalen das Risiko vorhersagt, in Zukunft eine Straftat zu begehen, um daraus Massnahmen abzuleiten. Wie ist das nach dem AI Act zu bewerten?",
+    "options": {
+      "a": "Ein solches KI-gestuetztes 'Predictive Policing', das die Straftatprognose allein auf Profiling oder Persoenlichkeitsmerkmale stuetzt, zaehlt zu den verbotenen Praktiken nach Art. 5 Abs. 1 lit. d)",
+      "b": "Das ist erlaubt, solange eine Amtsperson die von der KI vorgeschlagene Massnahme am Ende formal unterschreibt",
+      "c": "Das ist ein gewoehnliches Hochrisikosystem, das nach einer Konformitaetsbewertung frei eingesetzt werden darf",
+      "d": "Das ist grundsaetzlich zulaessig, weil eine unterstuetzende menschliche Bewertung konkreter Straftaten auf objektiven, ueberpruefbaren Fakten generell verboten ist"
+    },
+    "explanation": "Art. 5 Abs. 1 lit. d) KI-VO verbietet Risikobewertungen bzw. Prognosen zur Straffaelligkeit einer Person, die sich allein auf Profiling oder Persoenlichkeitsmerkmale stuetzen. Zulaessig bleibt dagegen die KI-gestuetzte Unterstuetzung einer menschlichen Bewertung, die auf objektiven, ueberpruefbaren Tatsachen mit direktem Bezug zu konkretem kriminellen Verhalten beruht - das ist die enge Ausnahme, nicht der Regelfall."
+  },
+  "ki_act-verbotene_praktiken-06": {
+    "question": "Ein Anbieter moechte eine Gesichtserkennungsdatenbank aufbauen, indem er automatisiert und ungezielt Gesichtsbilder aus dem offenen Internet sowie aus Videoueberwachungsaufnahmen sammelt. Wie ordnet der AI Act das ein?",
+    "options": {
+      "a": "Das ungezielte ('untargeted') Auslesen (Scraping) von Gesichtsbildern aus dem Internet oder aus Videoueberwachungsaufnahmen zum Aufbau oder zur Erweiterung von Gesichtserkennungsdatenbanken zaehlt zu den verbotenen Praktiken nach Art. 5 Abs. 1 lit. e)",
+      "b": "Das ist erlaubt, solange die gesammelten Bilder anschliessend pseudonymisiert gespeichert werden",
+      "c": "Das ist nur bei Bildern von Minderjaehrigen verboten, bei Erwachsenen grundsaetzlich zulaessig",
+      "d": "Das faellt gar nicht unter den AI Act, da es sich formal um eine Datenbank und kein eigenstaendiges KI-System handelt"
+    },
+    "explanation": "Art. 5 Abs. 1 lit. e) KI-VO verbietet gezielt das ungerichtete Sammeln von Gesichtsbildern aus dem Internet oder aus CCTV-Aufnahmen zum Aufbau oder zur Erweiterung von Gesichtserkennungsdatenbanken - unabhaengig von Pseudonymisierung oder dem Alter der abgebildeten Personen. Die dahinterstehende Sammel- und Verarbeitungslogik unterliegt dem AI Act, auch wenn das Ergebnis formal 'nur' eine Datenbank ist."
+  },
+  "ki_act-verbotene_praktiken-07": {
+    "question": "Eine Schule moechte ein KI-System einsetzen, das per Kamera und Mikrofon die Emotionen von Schuelerinnen und Schuelern waehrend des Unterrichts erkennt und auswertet - nicht aus medizinischen oder sicherheitsrelevanten Gruenden. Wie ist das nach dem AI Act zu bewerten?",
+    "options": {
+      "a": "Der Einsatz von Emotionserkennung in Bildungseinrichtungen ausserhalb medizinischer oder sicherheitsbezogener Gruende zaehlt zu den nach Art. 5 Abs. 1 lit. f) verbotenen Praktiken",
+      "b": "Das ist immer erlaubt, solange die Schule die Emotionserkennung gemaess Art. 50 KI-VO offenlegt",
+      "c": "Das ist nur verboten, wenn die erhobenen Ergebnisse spaeter veroeffentlicht werden",
+      "d": "Das ist ausschliesslich am Arbeitsplatz verboten, in Bildungseinrichtungen dagegen grundsaetzlich zulaessig"
+    },
+    "explanation": "Art. 5 Abs. 1 lit. f) KI-VO verbietet den Einsatz von Emotionserkennungssystemen sowohl am Arbeitsplatz als auch in Bildungseinrichtungen, ausser wenn medizinische oder sicherheitsbezogene Gruende vorliegen (z.B. Erkennung von Muedigkeit bei sicherheitskritischen Taetigkeiten). Eine blosse Offenlegung nach Art. 50 KI-VO reicht hier nicht aus - das Verbot greift unabhaengig davon, ob transparent informiert wird."
+  },
+  "ki_act-verbotene_praktiken-08": {
+    "question": "Ein Unternehmen moechte ein KI-System einsetzen, das anhand biometrischer Daten (z.B. Gesichts- oder Stimmerkennung) automatisiert auf die vermutete sexuelle Orientierung, politische Meinung oder religioese Ueberzeugung von Personen schliesst. Wie ist das einzuordnen?",
+    "options": {
+      "a": "Eine solche biometrische Kategorisierung zur Ableitung besonders sensibler Merkmale wie sexueller Orientierung, politischer Meinung oder religioeser Ueberzeugung zaehlt zu den verbotenen Praktiken nach Art. 5 Abs. 1 lit. g)",
+      "b": "Das ist erlaubt, solange die betroffene Person vorab eine allgemeine Datenschutzerklaerung akzeptiert hat",
+      "c": "Das ist grundsaetzlich zulaessig, wenn es ausschliesslich zu Marketingzwecken erfolgt",
+      "d": "Das ist nur verboten, wenn die abgeleiteten Merkmale anschliessend an Dritte weiterverkauft werden"
+    },
+    "explanation": "Art. 5 Abs. 1 lit. g) KI-VO verbietet die biometrische Kategorisierung natuerlicher Personen, um daraus Rueckschluesse auf Rasse, politische Meinung, Gewerkschaftszugehoerigkeit, religioese oder weltanschauliche Ueberzeugung, Sexualleben oder sexuelle Orientierung zu ziehen. Eine akzeptierte Datenschutzerklaerung oder ein Marketingzweck aendert daran nichts - Ausnahmen bestehen nur eng gefasst, etwa fuer die rechtmaessige Kennzeichnung/Filterung von Datensaetzen oder biometrische Kategorisierung durch Strafverfolgungsbehoerden."
+  },
+  "ki_act-transparenzpflichten-05": {
+    "question": "Ihr Unternehmen setzt ein generatives KI-System ein, das automatisiert Bild- und Textinhalte erzeugt. Was verlangt Art. 50 Abs. 2 KI-VO diesbezueglich vom Anbieter eines solchen Systems?",
+    "options": {
+      "a": "Der Anbieter muss sicherstellen, dass die erzeugten Inhalte in maschinenlesbarer Form gekennzeichnet und als kuenstlich erzeugt bzw. manipuliert erkennbar sind, soweit dies technisch machbar ist",
+      "b": "Der Anbieter muss jeden erzeugten Inhalt vor Veroeffentlichung durch eine nationale Aufsichtsbehoerde freigeben lassen",
+      "c": "Es besteht keine Kennzeichnungspflicht, solange die Inhalte nicht kommerziell verwendet werden",
+      "d": "Die Kennzeichnungspflicht gilt ausschliesslich fuer Videoinhalte, nicht fuer Text oder Bilder"
+    },
+    "explanation": "Art. 50 Abs. 2 KI-VO verpflichtet Anbieter von KI-Systemen, die synthetische Bild-, Audio-, Video- oder Textinhalte erzeugen, dafuer zu sorgen, dass diese Ausgaben in maschinenlesbarer Form gekennzeichnet und als kuenstlich erzeugt oder manipuliert erkennbar sind, soweit dies technisch machbar ist - unabhaengig von einer Vorabfreigabe durch Behoerden oder von kommerzieller Nutzung."
+  },
+  "ki_act-transparenzpflichten-06": {
+    "question": "Gilt die Pflicht aus Art. 50 Abs. 1 KI-VO, Personen darueber zu informieren, dass sie mit einem KI-System interagieren, ausnahmslos fuer jedes System?",
+    "options": {
+      "a": "Nein - die Pflicht gilt unter anderem nicht fuer gesetzlich zur Straftataufdeckung, -verhuetung, -untersuchung oder -verfolgung befugte KI-Systeme, vorbehaltlich angemessener Schutzvorkehrungen fuer Rechte Dritter - ausser das System steht der Oeffentlichkeit zur Anzeige einer Straftat zur Verfuegung",
+      "b": "Ja, es gibt keinerlei Ausnahme - jedes KI-System muss sich in jedem Fall stets zu erkennen geben",
+      "c": "Nein, die Pflicht entfaellt grundsaetzlich bei allen staatlichen Stellen, unabhaengig vom Verwendungszweck",
+      "d": "Nein, die Pflicht gilt nur fuer KI-Systeme, die kostenpflichtig angeboten werden"
+    },
+    "explanation": "Art. 50 Abs. 1 KI-VO sieht eine begrenzte Ausnahme fuer KI-Systeme vor, die gesetzlich zur Straftataufdeckung, -verhuetung, -untersuchung oder -verfolgung befugt sind, vorbehaltlich angemessener Schutzvorkehrungen fuer die Rechte Dritter. Diese Ausnahme greift jedoch nicht, wenn das System der Oeffentlichkeit zur Anzeige einer Straftat zur Verfuegung steht - dort bleibt die Informationspflicht bestehen. Ein pauschaler Ausschluss aller staatlichen Stellen besteht nicht."
+  },
+  "ki_act-transparenzpflichten-07": {
+    "question": "Eine Redaktion nutzt generative KI, um einen Text zu einem oeffentlich bedeutsamen Thema zu erstellen und zu veroeffentlichen. Der Text wird jedoch vor Veroeffentlichung redaktionell ueberarbeitet, und eine Person traegt die redaktionelle Verantwortung dafuer. Muss trotzdem offengelegt werden, dass KI beteiligt war?",
+    "options": {
+      "a": "Nein - durchlaeuft ein solcher Text einen Prozess menschlicher Ueberpruefung bzw. redaktioneller Kontrolle und traegt eine Person die redaktionelle Verantwortung dafuer, entfaellt die Offenlegungspflicht nach Art. 50 Abs. 4 UAbs. 2",
+      "b": "Ja, jede Nutzung generativer KI bei journalistischen Texten muss nach dem AI Act ausnahmslos offengelegt werden",
+      "c": "Nein, weil journalistische Inhalte generell vollstaendig vom Anwendungsbereich des AI Act ausgenommen sind",
+      "d": "Ja, aber nur wenn der veroeffentlichte Text laenger als 1.000 Woerter ist"
+    },
+    "explanation": "Art. 50 Abs. 4 UAbs. 2 KI-VO sieht fuer KI-generierte oder manipulierte Texte, die zu oeffentlich bedeutsamen Themen veroeffentlicht werden, grundsaetzlich eine Offenlegungspflicht vor. Diese entfaellt jedoch, wenn der Inhalt einen Prozess menschlicher Ueberpruefung bzw. redaktioneller Kontrolle durchlaufen hat und eine natuerliche oder juristische Person die redaktionelle Verantwortung fuer die Veroeffentlichung traegt."
+  },
+  "ki_act-transparenzpflichten-08": {
+    "question": "Ihr Unternehmen setzt ein Hochrisiko-KI-System ein, das zugleich auch unter die Transparenzpflichten des Art. 50 KI-VO faellt (z.B. weil es direkt mit Personen interagiert). Schliessen sich die Pflichten aus Art. 50 und die Pflichten fuer Hochrisikosysteme aus Kapitel III gegenseitig aus?",
+    "options": {
+      "a": "Nein - Art. 50 Abs. 6 stellt klar, dass die Transparenzpflichten die Anforderungen aus Kapitel III unberuehrt lassen; beide Pflichtenkreise koennen nebeneinander gelten und muessen kumulativ erfuellt werden",
+      "b": "Ja, sobald ein System als Hochrisikosystem gilt, ersetzen die Kapitel-III-Pflichten automatisch saemtliche Transparenzpflichten aus Art. 50",
+      "c": "Ja, Art. 50 gilt grundsaetzlich nur fuer Systeme mit minimalem Risiko, nie fuer Hochrisikosysteme",
+      "d": "Nein, aber es muss jeweils nur die strengere der beiden Pflichten erfuellt werden, nicht beide gleichzeitig"
+    },
+    "explanation": "Art. 50 Abs. 6 KI-VO stellt ausdruecklich klar, dass die Transparenzpflichten der Absaetze 1 bis 4 die Anforderungen und Pflichten aus Kapitel III (Hochrisikosysteme) unberuehrt lassen. Ein Hochrisikosystem, das gleichzeitig in den Anwendungsbereich des Art. 50 faellt, muss deshalb beide Pflichtenkreise kumulativ erfuellen, nicht nur einen davon."
+  },
+  "ki_act-ki_am_arbeitsplatz-05": {
+    "question": "Ein Unternehmen moechte ein Hochrisiko-KI-System zur Leistungsbewertung von Beschaeftigten einfuehren. Was verlangt Art. 26 Abs. 7 KI-VO von einem Arbeitgeber als Betreiber, bevor das System am Arbeitsplatz genutzt wird?",
+    "options": {
+      "a": "Der Arbeitgeber muss die Arbeitnehmervertretung und die betroffenen Beschaeftigten informieren, dass sie dem Einsatz des Hochrisiko-KI-Systems unterliegen werden, bevor es in Betrieb genommen bzw. genutzt wird",
+      "b": "Es genuegt, die Information erst nachtraeglich nach Ablauf der ersten drei Monate der Nutzung nachzureichen",
+      "c": "Eine Information ist nur erforderlich, wenn mehr als 50 Beschaeftigte vom Einsatz betroffen sind",
+      "d": "Es reicht aus, das System in der allgemeinen Datenschutzerklaerung des Unternehmens zu erwaehnen, ohne die Beschaeftigten gezielt zu informieren"
+    },
+    "explanation": "Art. 26 Abs. 7 KI-VO verpflichtet Arbeitgeber, die als Betreiber ein Hochrisiko-KI-System am Arbeitsplatz einsetzen, die Arbeitnehmervertretung und die betroffenen Beschaeftigten vorab zu informieren - nicht erst nachtraeglich, unabhaengig von der Betriebsgroesse, und nicht nur pauschal in einer allgemeinen Datenschutzerklaerung."
+  },
+  "ki_act-ki_am_arbeitsplatz-06": {
+    "question": "Welche der folgenden Anwendungen zaehlt laut Anhang III Nr. 4 KI-VO ausdruecklich zu den Hochrisikobereichen 'Beschaeftigung, Personalmanagement und Zugang zur Selbststaendigkeit'?",
+    "options": {
+      "a": "Eine KI-Software, die automatisiert Aufgaben auf Beschaeftigte verteilt oder deren Leistung und Verhalten laufend ueberwacht und bewertet",
+      "b": "Eine KI-gestuetzte Kantinen-App, die vegetarische Menuevorschlaege fuer Beschaeftigte macht",
+      "c": "Eine KI, die automatisch Rechtschreibfehler in internen E-Mails von Beschaeftigten korrigiert",
+      "d": "Eine KI-gestuetzte Zeiterfassungs-App, die ausschliesslich die Anwesenheit protokolliert, ohne jede Bewertung der Leistung"
+    },
+    "explanation": "Anhang III Nr. 4 lit. b) KI-VO nennt ausdruecklich KI-Systeme, die Entscheidungen ueber Arbeitsbedingungen, Befoerderung oder Kuendigung treffen, Aufgaben anhand individuellen Verhaltens oder persoenlicher Merkmale zuteilen oder Leistung und Verhalten von Beschaeftigten laufend ueberwachen und bewerten. Rein administrative Tools ohne Bewertungsfunktion (Kantinen-App, Rechtschreibpruefung, reine Anwesenheitserfassung) fallen nicht darunter."
+  },
+  "ki_act-ki_am_arbeitsplatz-07": {
+    "question": "Ein Hochrisiko-KI-System zur Vorauswahl von Bewerbungen soll im Betrieb eingesetzt werden. Was muss das System selbst laut Art. 14 Abs. 4 KI-VO den mit der menschlichen Aufsicht betrauten Personen technisch ermoeglichen?",
+    "options": {
+      "a": "Es muss so gestaltet sein, dass die aufsichtsfuehrende Person den Betrieb ueberwachen, Ergebnisse korrekt interpretieren, sich gegen die Nutzung entscheiden bzw. die Ausgabe ignorieren, ueberstimmen oder rueckgaengig machen und den Betrieb ueber eine 'Stopp-Taste' oder ein aehnliches Verfahren unterbrechen kann",
+      "b": "Es muss so gestaltet sein, dass es ausschliesslich vom Hersteller aus der Ferne abgeschaltet werden kann, nicht vom einsetzenden Unternehmen",
+      "c": "Es reicht aus, wenn eine Person einmal jaehrlich die Systemprotokolle stichprobenartig einsieht",
+      "d": "Es muss so gestaltet sein, dass Entscheidungen des Systems grundsaetzlich nicht mehr rueckgaengig gemacht werden koennen, um nachtraegliche Manipulation zu verhindern"
+    },
+    "explanation": "Art. 14 Abs. 4 KI-VO verlangt, dass Hochrisiko-KI-Systeme so gestaltet sind, dass die mit der Aufsicht betraute Person die Faehigkeiten und Grenzen des Systems versteht, dessen Ausgaben korrekt interpretieren kann, sich gegen eine Nutzung entscheiden oder die Ausgabe ignorieren, ueberstimmen oder rueckgaengig machen kann, und den Betrieb ueber eine 'Stopp-Taste' oder ein vergleichbares Verfahren unterbrechen kann. Eine jaehrliche Stichprobe oder eine ausschliesslich beim Hersteller liegende Abschaltmoeglichkeit erfuellt diese Anforderung nicht."
+  },
+  "ki_act-ki_am_arbeitsplatz-08": {
+    "question": "Ein KI-System trifft ohne jede menschliche Beteiligung die abschliessende Entscheidung, einer Bewerberin eine Absage zu erteilen, allein auf Basis einer automatisierten Bewertung ihrer Bewerbungsunterlagen. Welches zusaetzliche Recht kann die Bewerberin unabhaengig vom AI Act geltend machen?",
+    "options": {
+      "a": "Das Recht aus Art. 22 DSGVO, nicht einer ausschliesslich auf einer automatisierten Verarbeitung beruhenden Entscheidung mit rechtlicher oder aehnlich erheblicher Wirkung unterworfen zu werden, vorbehaltlich der dort genannten Ausnahmen",
+      "b": "Ein Recht auf sofortige Einstellung, unabhaengig vom inhaltlichen Ergebnis der Bewerbung",
+      "c": "Das Recht, dass der Hersteller der KI-Software ihr den vollstaendigen Quellcode offenlegen muss",
+      "d": "Es gibt kein zusaetzliches Recht, da der AI Act die DSGVO in Beschaeftigungsfragen vollstaendig verdraengt"
+    },
+    "explanation": "Der AI Act regelt in erster Linie Risiken, die vom KI-System selbst ausgehen, und ersetzt die DSGVO nicht. Parallel dazu gewaehrt Art. 22 DSGVO Betroffenen das Recht, nicht ausschliesslich einer automatisierten Entscheidung mit rechtlicher oder aehnlich erheblicher Wirkung unterworfen zu werden - etwa einer vollautomatisierten Bewerbungsabsage ohne jede menschliche Einbeziehung, vorbehaltlich der im Gesetz genannten engen Ausnahmen."
   }
 }

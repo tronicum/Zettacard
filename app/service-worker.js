@@ -1,4 +1,4 @@
-// drivenow — minimal offline-first service worker (Sprint 1)
+// Zettacard — minimal offline-first service worker (Sprint 1)
 // Precaches the app shell so it works after the first load with no network.
 //
 // DN-39: content is no longer one flat data.json - it's split by module and
@@ -51,7 +51,7 @@
 //     final else-branch below) is untouched - that content is genuinely
 //     immutable per filename once published, so cache-first there is still
 //     correct and keeps the app usable offline.
-const CACHE_NAME = "drivenow-v5";
+const CACHE_NAME = "zettacard-v6";
 const ASSETS = [
   "./",
   "index.html",

@@ -1,0 +1,902 @@
+{
+  "motorrad-fahrphysik-01": {
+    "question": "Normal hızda düz gidiyorsunuz ve sağa bir viraj almak istiyorsunuz. Motosikleti en etkili şekilde nasıl yatırırsınız?",
+    "options": {
+      "a": "Sadece vücut ağırlığınızı sağa kaydırırsınız, gidona dokunmazsınız",
+      "b": "Gidonun sağ ucuna kısa ve hafifçe bastırırsınız, bu da motosikletin sağa yatmasını sağlar",
+      "c": "Ön çatalı sağa döndürmek için gidonun sağ ucunu çekersiniz",
+      "d": "Motosikletin kendiliğinden yatması için arka frene kısaca basarsınız"
+    },
+    "explanation": "Normal ve daha yüksek hızlarda direksiyon, karşı direksiyon (countersteering) adı verilen yöntemle çalışır: virajın iç tarafındaki gidon ucuna (burada sağ) yapılan kısa, hafif bir baskı motosikletin tam o yöne yatmasını sağlar. Bu hızlarda sadece ağırlık aktarımı yeterli değildir ve yatışı başlatmak için fren yapmak tehlikeli ve kontrolsüzdür."
+  },
+  "motorrad-fahrphysik-02": {
+    "question": "Dar bir virajdan önce hızınızı ne zaman azaltmalısınız?",
+    "options": {
+      "a": "Viraja girmeden önce, böylece virajı sabit veya hafifçe artan bir hızla geçebilirsiniz",
+      "b": "Ancak virajın ortasında, hızın çok yüksek olduğunu fark ettiğinizde",
+      "c": "Sadece ön freni kullandığınız sürece yatışta fren yapmak sorun değildir",
+      "d": "Bunun bir önemi yok, çünkü modern motosikletler her yatış açısında aynı derecede iyi frenler"
+    },
+    "explanation": "Frenleme genel olarak virajdan önce tamamlanmış olmalıdır. Yatışta lastiklerin mevcut tutunması zaten yanal destek için kullanılmaktadır; ek frenleme ön tekerleğin kaymasına neden olabilir. İdeal olan, virajı sabit veya hafifçe artan bir hızla geçmektir."
+  },
+  "motorrad-fahrphysik-03": {
+    "question": "Kuru, tutunması iyi bir zeminde acil frenlemede neden ön fren, frenleme etkisinin büyük bölümünü sağlar?",
+    "options": {
+      "a": "Çünkü ön tekerlek her zaman daha büyük bir lastik çapına sahiptir",
+      "b": "Çünkü motosikletlerde arka fren yasal olarak yalnızca destekleyici işlev görebilir",
+      "c": "Çünkü frenlemede ağırlık öne kayar ve bu da ön tekerleğin yük ve tutunmasını belirgin şekilde artırır",
+      "d": "Çünkü frenlemede arka tekerlek otomatik olarak yerden kalkar"
+    },
+    "explanation": "Frenlemede yük dinamik olarak öne kayar. Bu nedenle ön tekerlek daha fazla yüklenir, daha fazla tutunmaya sahip olur ve artık hafiflemiş olan, sert frenlemede kolayca kilitlenebilen arka tekerlekten çok daha fazla frenleme kuvveti aktarabilir."
+  },
+  "motorrad-fahrphysik-04": {
+    "question": "Acil frenlemede motosikletteki kilitlenme önleyici fren sistemi (ABS) ne gibi bir avantaj sağlar?",
+    "options": {
+      "a": "Her zeminde fren mesafesini her zaman sıfıra indirir",
+      "b": "Her iki freni de kullanma zorunluluğunu ortadan kaldırır",
+      "c": "Dengeyi korumak için otomatik olarak motor gücünü artırır",
+      "d": "Tekerleklerin kilitlenmesini önler ve frenleme sırasında yönlendirilebilir ve stabil kalmayı sağlar"
+    },
+    "explanation": "ABS, aşırı frenleme nedeniyle bir tekerleğin kilitlenip kaymasını önler. Böylece motosiklet sert bir frenlemede bile stabil ve yönlendirilebilir kalır; bu özellikle kaygan zeminlerde veya panik durumlarında belirleyicidir. Her iki fren de aktif olarak kullanılmaya devam etmelidir."
+  },
+  "motorrad-fahrphysik-05": {
+    "question": "Çok düşük hızda, örneğin dönüş yaparken veya manevra sırasında, motosikleti stabil tutmaya en çok ne yardımcı olur?",
+    "options": {
+      "a": "Gidonu olabildiğince sıkı tutmak ve kolları tamamen germek",
+      "b": "Gitmek istediğiniz yöne uzağa bakmak, debriyajı hafifçe kaydırmak ve arka freni ayakla hassas şekilde ayarlamak",
+      "c": "Acil durumda dayanabilmek için ayakları sürekli ayak dayama yerlerinden çekmek",
+      "d": "Olabildiğince hızlı gitmek, çünkü motosiklet düşük hızda yüksek hıza göre her zaman daha az stabildir"
+    },
+    "explanation": "Düşük hızda tekerleklerin dengeleyici jiroskopik etkisi azdır, bu nedenle aktif denge gereklidir: istenen sürüş yönüne bakmak, debriyajı hassas şekilde kaydırmak ve arka freni dozajlı kullanmak motosikleti sakin ve kontrollü tutmaya yardımcı olur."
+  },
+  "motorrad-fahrphysik-06": {
+    "question": "Kısa bir gevşek çakıl veya mıcır bölümünden geçmeniz gerekiyor. En güvenli nasıl davranırsınız?",
+    "options": {
+      "a": "Bu bölümü olabildiğince hızlı geçmek için güçlü bir şekilde hızlanmak",
+      "b": "Ön tekerlek çakıla ulaşır ulaşmaz sert fren yapmak",
+      "c": "Hızı önceden azaltmak, motosikleti mümkün olduğunca dik tutmak, sakin ve rahat bir şekilde az direksiyon ve fren müdahalesiyle geçmek",
+      "d": "Lastiğin daha fazla yüzeyi zemine temas etsin diye mümkün olduğunca fazla yatmak"
+    },
+    "explanation": "Gevşek zeminde tutunma büyük ölçüde azalmış ve öngörülemezdir. Önceden hızını azaltan, dik kalan ve ani direksiyon veya fren hareketlerinden kaçınan kişi, motosiklete kendi dengesini bulma şansı tanır."
+  },
+  "motorrad-fahrphysik-07": {
+    "question": "Yağmurda yolda ıslak yapraklar var ve geniş, boyalı bir yol işaretinden geçmeniz gerekiyor. Neye hazırlıklı olmalısınız?",
+    "options": {
+      "a": "Her iki alan da son derece kaygan olabilir; bu bölgeleri mümkün olduğunca dik, frenlemeden veya direksiyon kırmadan geçmelisiniz",
+      "b": "Boyalı işaretler ıslakken normal asfalttan daha fazla tutunma sağlar çünkü boya pürüzlüdür",
+      "c": "Islak yapraklar ek bir lastik tabakası gibi davrandığı için tutunmayı artırır",
+      "d": "Bu tür yerler sadece araba sürücülerini ilgilendirir, motosikletler için yol yüzeyinin bir önemi yoktur"
+    },
+    "explanation": "Islak yapraklar ve ıslak yol işaretleri motosikletler için en sinsi zeminler arasındadır çünkü sürtünme orada büyük ölçüde azalır. Ön veya arka tekerleğin kaymasını önlemek için bu tür yerler mümkün olduğunca dik ve fren ya da direksiyon manevrası yapmadan geçilmelidir."
+  },
+  "motorrad-fahrphysik-08": {
+    "question": "Sürüş yönünüze göre çapraz uzanan tramvay raylarını geçmeniz gerekiyor. En güvenli şekilde nasıl geçersiniz?",
+    "options": {
+      "a": "Zaman kazanmak için raylar boyunca olabildiğince dar bir açıyla gitmek",
+      "b": "Mümkünse rotayı kısaca değiştirerek rayları olabildiğince dik, neredeyse dik açıyla geçmek",
+      "c": "Ön tekerlek raya ulaşır ulaşmaz güçlü şekilde hızlanmak",
+      "d": "Geçiş hızını ayarlamak için raylar üzerinde fren yapmak"
+    },
+    "explanation": "Raylar ve oluklar özellikle ıslakken son derece kaygandır. Sığ bir geçiş açısı, ön tekerleğin oluğa takılma veya kayma riskini artırır. Mümkün olduğunca dik, neredeyse dik açılı bir geçiş bu riski en aza indirir; raylar üzerinde doğrudan fren yapmaktan kaçınılmalıdır."
+  },
+  "motorrad-fahrphysik-09": {
+    "question": "Rögar kapakları ve yoldaki diğer metal kapaklar motosiklet sürücüleri için neden özel bir risk oluşturur?",
+    "options": {
+      "a": "Her zaman çevredeki yoldan daha yüksektedir ve bir sıçramaya neden olur",
+      "b": "Motosikletler için tehlikesizdir, çünkü ağırlıkları kırılmaya yetmez",
+      "c": "Metal yüzeyler ıslakken asfalttan belirgin şekilde daha az tutunma sağlar ve ani kaymaya yol açabilir",
+      "d": "Yalnızca kuru zeminde kaygandır"
+    },
+    "explanation": "Rögar kapakları gibi metal kapaklar ıslakken asfalttan çok daha kaygandır. Üzerinden geçerken fren yapan veya yatışta olan kişi ani kayma riskiyle karşı karşıyadır. Bu tür yerler mümkün olduğunca dik ve fren yapmadan veya sert direksiyon hareketi yapmadan geçilmelidir."
+  },
+  "motorrad-fahrphysik-10": {
+    "question": "Dönen tekerleklerin jiroskopik etkisi ile ilgili hangi ifade doğrudur?",
+    "options": {
+      "a": "Motosikletin çok düşük hızda özellikle kolayca devrilmesini sağlar",
+      "b": "Direksiyon hareketlerini tamamen gereksiz kılar, motosiklet kendini her pozisyonda kendiliğinden dengede tutar",
+      "c": "Sadece motor kapalıyken ortaya çıkar",
+      "d": "Hız arttıkça motosikleti giderek daha fazla stabilize eder, bu nedenle yüksek hızda yönü değiştirmek için aktif bir direksiyon dürtüsü (karşı direksiyon) gereklidir"
+    },
+    "explanation": "Dönen tekerlekler jiroskop gibi davranır: ne kadar hızlı dönerlerse, motosikleti mevcut konumunda o kadar güçlü stabilize ederler. Bu, yüksek hızda sürüşü daha sakin kılar, ancak aynı zamanda bu stabiliteyi aşıp yönü değiştirmek için bilinçli, kısa bir direksiyon dürtüsü (karşı direksiyon) gerektiği anlamına gelir."
+  },
+  "motorrad-fahrphysik-11": {
+    "question": "Örneğin bir köprüde veya yolun yanındaki bir orman boşluğunda güçlü, sağanak yan rüzgarda gidiyorsunuz. Doğru davranış nedir?",
+    "options": {
+      "a": "Rüzgarın motosikleti etkilemesi için daha az zamanı olsun diye olabildiğince hızlı gitmek",
+      "b": "Hızı azaltmak, gidonu gevşek ama güvenli tutmak ve açık alanlarda ani rüzgar sağanaklarına hazırlıklı olmak",
+      "c": "Gidonu olabildiğince sıkı tutmak ve kolları tamamen germek",
+      "d": "Rüzgar yönünden bağımsız olarak her zaman yolun sağ kenarına mümkün olduğunca yakın gitmek"
+    },
+    "explanation": "Sağanak yan rüzgar motosikleti aniden yana itebilir. Azaltılmış hız daha fazla tepki süresi sağlar, gevşek ama güvenli bir tutuş motosikletin kendi küçük düzeltici hareketlerini yapmasına izin verir ve köprülerde veya orman boşluklarında bir rüzgar sağanağı gelmeden önce buna hazırlıklı olunmalıdır."
+  },
+  "motorrad-fahrphysik-12": {
+    "question": "Otoyolda büyük bir kamyon sizi geçiyor ya da siz onu geçiyorsunuz. Neye hazırlıklı olmalısınız?",
+    "options": {
+      "a": "Özellikle aracın arkasını geçerken motosikleti kısaca yana çekebilecek veya itebilecek ani bir rüzgar veya emiş etkisine",
+      "b": "Hiçbir etkiye, çünkü büyük araçlar havayı daha çok sakinleştirir",
+      "c": "Bu etkinin sadece 30 km/s altındaki hızlarda ortaya çıkmasına",
+      "d": "Bu etkinin yalnızca karşı yönden gelen trafikte oluşmasına, aynı yönde geçişte asla oluşmamasına"
+    },
+    "explanation": "Büyük araçlar önde bir basınç dalgası ve arkada bir emiş oluşturur, bunlar geçiş sırasında motosikleti yanal olarak kaydırabilir. Gidonu sıkı ama gevşek tutmak, yeterli yanal mesafe ve bu etkiyi önceden beklemek, şaşırmadan güvenli tepki vermeye yardımcı olur."
+  },
+  "motorrad-fahrphysik-13": {
+    "question": "Bir motosiklet grubuyla gidiyorsunuz. Tek başına gitmeye kıyasla önünüzdeki motosiklete olan güvenlik mesafeniz nasıl olmalıdır?",
+    "options": {
+      "a": "Belirgin şekilde daha küçük olabilir, çünkü grup üyeleri birbirine alışkındır",
+      "b": "Tek başına ya da grup halinde gidilmesinden bağımsız olarak her zaman aynı büyüklüktedir",
+      "c": "Daha büyük olmalıdır, çünkü grubun önündeki trafik durumuna görüş daha kısıtlıdır ve diğer grup üyelerinin tepkilerine de hazırlıklı olunmalıdır",
+      "d": "Tüm sürücüler aynı hızda gittiği sürece istenildiği kadar azaltılabilir"
+    },
+    "explanation": "Grup içinde, grubun önündeki olası tehlikelere görüş daha kısıtlıdır ve öndeki bir sürücünün ani fren manevrası bir zincirleme reaksiyon gibi etki edebilir. Daha büyük bir güvenlik mesafesi, bu tür tepkilere yanıt vermek için daha fazla zaman tanır."
+  },
+  "motorrad-fahrphysik-14": {
+    "question": "Grup halinde sürüşte kademeli düzenin (örneğin bir motosiklet solda, sonraki şeritte sağda) ne gibi bir avantajı vardır?",
+    "options": {
+      "a": "Aynı şerit yarısında önde giden motosiklete olan mesafeyi hiçbir dezavantaj olmadan azaltmaya izin verir",
+      "b": "Daha fazla yanal mesafe ve daha iyi karşılıklı görünürlük sağlar, ayrıca her sürücüye kendi kaçınma alanını bırakır",
+      "c": "Yalnızca otoyolda izinlidir ve şehirlerarası yollarda yasaktır",
+      "d": "Tüm grup için şerit değişikliklerinde sinyal verme gerekliliğini ortadan kaldırır"
+    },
+    "explanation": "Kademeli düzen motosikletler arasındaki yanal mesafeyi artırır, karşılıklı görünürlüğü iyileştirir ve gerektiğinde her sürücüye kaçınma alanı bırakır. Aynı şerit yarısında gerçekten önde giden motosiklete olan mesafe yine de yeterince büyük kalmalıdır."
+  },
+  "motorrad-fahrphysik-15": {
+    "question": "Kuru bir zeminde acil frenlemede en kısa fren mesafesine nasıl ulaşılır?",
+    "options": {
+      "a": "Her iki freni aynı anda güçlü ama dozajlı bir şekilde kullanmak, ön frenin frenleme kuvvetinin büyük bölümünü sağlaması",
+      "b": "Sadece arka freni kullanmak, çünkü kilitlenen bir ön tekerlek kaçınılmaz olarak düşmeye yol açar",
+      "c": "Sadece ön freni kullanmak, arka frenden prensip olarak kaçınmak",
+      "d": "Önce debriyajı boşa alıp serbest yuvarlanmak, ancak sonra fren yapmak"
+    },
+    "explanation": "En kısa fren mesafesi, her iki fren aynı anda ve dozajlı olarak kullanıldığında elde edilir. Frenlemede ağırlık öne kaydığından, ön fren yavaşlamanın büyük bölümünü taşır, arka fren ise ek olarak destekler. Sadece bir freni kullanmak frenleme kuvvetini israf eder ve fren mesafesini gereksiz yere uzatır."
+  },
+  "motorrad-schutzausruestung-01": {
+    "question": "Motosiklet kullanırken uygun bir koruma kaskını kim takmalıdır?",
+    "options": {
+      "a": "Sadece sürücü, yolcular bundan muaftır",
+      "b": "Sadece yerleşim alanları dışındaki sürüşlerde",
+      "c": "Hem sürücü hem de tüm yolcular, kat edilen mesafeden bağımsız olarak",
+      "d": "Sadece 50 km/s üzerindeki hızlarda"
+    },
+    "explanation": "Kask takma zorunluluğu, motosiklet sürücüleri ve tüm yolcular için eşit şekilde, kat edilen mesafeden veya hızdan bağımsız olarak geçerlidir. Kısa sürüşlerde bile önemli bir kafa yaralanması riski vardır, bu nedenle bu zorunluluk istisnasız geçerlidir."
+  },
+  "motorrad-schutzausruestung-02": {
+    "question": "Koruma kaskının doğru takılmasıyla ilgili hangi ifade doğrudur?",
+    "options": {
+      "a": "Kaskı gevşek takmak yeterlidir, çene kayışının kapalı olması gerekmez",
+      "b": "Kask uygun şekilde oturmalı ve çene kayışı sıkıca kapatılmalıdır, böylece acil bir durumda kaymaz veya kaybolmaz",
+      "c": "Çok büyük bir kask, kafada kaldığı sürece sorun değildir",
+      "d": "Çene kayışı sadece konfor amaçlıdır ve güvenlikle ilgili bir işlevi yoktur"
+    },
+    "explanation": "Bir kask ancak doğru oturuyorsa ve çene kayışı sıkıca kapatılmışsa güvenilir bir şekilde koruma sağlar. Gevşek bir kask veya açık bir çene kayışı, düşme anında, korumaya en çok ihtiyaç duyulan anda kafadan kayabilir."
+  },
+  "motorrad-schutzausruestung-03": {
+    "question": "Koruma kaskınız düşme sırasında asfalta çarptı, ancak dıştan herhangi bir hasar görünmüyor. Nasıl davranmalısınız?",
+    "options": {
+      "a": "Yine de kaskı değiştirin, çünkü içteki koruyucu yapı görünür hasar olmadan da zarar görmüş olabilir ve etkisini kaybedebilir",
+      "b": "Dıştan hasarsız göründüğü sürece kaskı kullanmaya devam edin",
+      "c": "Kaskı sadece çene kayışında görünür bir çatlak varsa değiştirin",
+      "d": "Sadece kaskı yeniden boyatın, bu koruyucu etkiyi tamamen geri kazandırır"
+    },
+    "explanation": "Bir kaskın iç dolgu yapısı, darbe anında şekil değiştirerek enerjiyi emmek üzere tasarlanmıştır. Bu şekil değişikliği genellikle dıştan görünmez, ancak sonraki bir düşmede koruyucu etkiyi önemli ölçüde azaltır. Bu nedenle daha güçlü bir darbeden sonra kask prensip olarak değiştirilmelidir."
+  },
+  "motorrad-schutzausruestung-04": {
+    "question": "Deri veya aşınmaya dayanıklı kumaştan yapılmış özel motosiklet ceket ve pantolonlarına neden bu kadar büyük önem verilir?",
+    "options": {
+      "a": "Öncelikle aerodinamiği ve dolayısıyla azami hızı iyileştirirler",
+      "b": "Kısa sürüşlerde koruma kaskı ihtiyacını ortadan kaldırırlar",
+      "c": "Düşme sırasında cildi normal günlük giysilere göre asfaltta aşınmaya karşı çok daha uzun süre korurlar",
+      "d": "Yalnızca yağmura karşı koruma sağlarlar ve düşme sırasındaki yaralanmalar üzerinde hiçbir etkisi yoktur"
+    },
+    "explanation": "Otomobil yolcularının aksine, motosiklet sürücüsünün koruyucu bir kabini yoktur. Düşme ve yolda kayma sırasında aşınmaya dayanıklı deri veya özel kumaş, saniyenin bir kısmında aşınabilen kot pantolon gibi normal günlük giysilere göre çok daha uzun süre dayanır."
+  },
+  "motorrad-schutzausruestung-05": {
+    "question": "Motosiklet ceket ve pantolonlarındaki koruyucular (darbe emici malzemeden yastıklar) neye yarar?",
+    "options": {
+      "a": "Sadece giysinin oturmasını iyileştirirler",
+      "b": "Mevcut olduklarında koruma kaskı ihtiyacını ortadan kaldırırlar",
+      "c": "Öncelikle kışın ısı yalıtımına hizmet ederler",
+      "d": "Omuzlarda, dirseklerde, dizlerde ve sırtta düşme sırasındaki darbeyi yumuşatmalı ve enerjiyi daha iyi dağıtmalıdır"
+    },
+    "explanation": "Koruyucular darbe emici bir malzemeden yapılır ve omuzlar, dirsekler, dizler ve sırt gibi özellikle risk altındaki vücut bölgelerinde darbe enerjisini dağıtır ve yumuşatır. Kaskın yerini tutmazlar, diğer ekipmanların koruyucu etkisini tamamlarlar."
+  },
+  "motorrad-schutzausruestung-06": {
+    "question": "Normal ayakkabılar ve ince eldivenler yerine neden sağlam motosiklet botları ve eldivenleri önerilir?",
+    "options": {
+      "a": "Genellikle normal ayakkabılardan daha hafiftirler ve bu da hızlanmayı iyileştirir",
+      "b": "Bilekleri ve el bileklerini ek olarak korurlar ve vites koluna, fren koluna ve tutamaklara daha iyi tutunma sağlarlar",
+      "c": "Yasal olarak zorunludurlar ve bu nedenle pratik faydası olmayan sadece bir formalitedirler",
+      "d": "Öncelikle sürücünün dış görünümünü iyileştirirler"
+    },
+    "explanation": "Bilekler ve el bilekleri düşme sırasında özellikle yaralanma riski altındadır ve sağlam botlar ile eldivenler bunları korur. Ayrıca kumanda elemanlarına tutunmayı iyileştirir ve cildi sıyrıklardan ve soğuktan korurlar."
+  },
+  "motorrad-schutzausruestung-07": {
+    "question": "Açık renkli veya yansıtıcı giysiler ya da yansıtıcı bir kask motosiklet sürücüleri için ne fayda sağlar?",
+    "options": {
+      "a": "Sadece güneşte sıcaklık hissini iyileştirir",
+      "b": "Tamamen görsel niteliktedir ve güvenlik üzerinde hiçbir etkisi yoktur",
+      "c": "Diğer trafik katılımcıları tarafından zamanında fark edilme olasılığını artırır, özellikle alacakaranlıkta, yağmurda veya kötü görüşte",
+      "d": "Işıkları açık sürme zorunluluğunun yerini alır"
+    },
+    "explanation": "Motosiklet sürücüleri araçlarının dar genişliği nedeniyle zaten fark edilmesi daha zordur. Açık renkli ve yansıtıcı giysiler ile göze çarpan bir kask arka plandan daha iyi ayrışır ve özellikle alacakaranlıkta, yağmurda veya siste görünürlüğü belirgin şekilde iyileştirir - ancak ışık yakma zorunluluğunun yerini almazlar."
+  },
+  "motorrad-schutzausruestung-08": {
+    "question": "Araba sürücüleri motosiklet yönüne baksalar bile neden onları sıklıkla fark etmezler (sözde 'bakmasına rağmen görmeme')?",
+    "options": {
+      "a": "Bir motosiklet uzaktan bir arabaya göre görüş alanının çok daha küçük bir kısmını kaplar ve bu nedenle beyin tarafından daha kolay gözden kaçırılır veya hızı ve mesafesi yanlış değerlendirilir",
+      "b": "Motosikletler genellikle arabalardan daha hızlı gider ve bu nedenle fiziksel olarak fark edilmesi imkansızdır",
+      "c": "Motosiklet sürücülerinin yasal olarak görülme yükümlülüğü yoktur",
+      "d": "Bu olgu sadece acemi araba sürücülerini etkiler, deneyimli sürücüler bundan etkilenmez"
+    },
+    "explanation": "Bir motosiklet bir arabadan belirgin şekilde daha küçük bir siluete sahip olduğundan, uzaktan algılanması daha zordur. Beyin genellikle bir araba bekler ve daha küçük nesneyi gözden kaçırır ya da yaklaşma hızını olduğundan az tahmin eder. Bu olgu her yaştan dikkatli sürücülerde de ortaya çıkar ve motosiklet sürücülerinin kendi görünürlüklerine özellikle dikkat etmeleri gerekmesinin nedenidir."
+  },
+  "motorrad-schutzausruestung-09": {
+    "question": "Bir aracın dönmek için beklediği bir kavşağa yaklaşıyorsunuz. Daha iyi görülmek için şeridiniz içinde en mantıklı şekilde nasıl konumlanırsınız?",
+    "options": {
+      "a": "Trafik durumundan bağımsız olarak her zaman tam olarak şerit ortasında",
+      "b": "Bekleyen sürücünün görüş alanında mümkün olduğunca erken görünecek ve diğer araçlar veya kör nokta tarafından kapatılmayacak şekilde",
+      "c": "Karşı yöne mümkün olduğunca fazla yer bırakmak için yolun sağ kenarına mümkün olduğunca yakın",
+      "d": "Şerit içindeki konumun kendi görünürlüğünüz üzerinde hiçbir etkisi yoktur"
+    },
+    "explanation": "Kendi şeridiniz içindeki konum, bekleyen bir sürücünün motosikleti ne kadar erken ve ne kadar iyi fark ettiğini etkiler. Akıllıca bir sürüş çizgisi, park halindeki araçların, çalıların veya başka bir aracın kör noktasının arkasında kaybolmayı önler ve motosiklet sürücüsüne daha fazla tepki süresi ve görünürlük kazandırır."
+  },
+  "motorrad-schutzausruestung-10": {
+    "question": "Motosikletler gündüz vakti iyi görüş koşullarında da ışıkları açık mı sürmelidir?",
+    "options": {
+      "a": "Hayır, gündüz vakti aküyü korumak için ışıklar prensip olarak kapalı kalabilir",
+      "b": "Evet, motosikletler diğer trafik katılımcıları tarafından daha iyi görülebilmek için gündüz de sürekli kısa farla gitmelidir",
+      "c": "Sadece sokak aydınlatması açıksa",
+      "d": "Sadece yerleşim alanları dışında, yerleşim alanı içinde gündüz ışıkla gitmek yasaktır"
+    },
+    "explanation": "Motosikletler dar silüetleri nedeniyle daha kolay gözden kaçırıldığından, günün saatinden bağımsız olarak sürekli kısa farla gitmelidir. Bu, özellikle yoğun arka plan trafiği veya ters ışık olan durumlarda, algılanabilirliği önemli ölçüde iyileştirir."
+  },
+  "motorrad-schutzausruestung-11": {
+    "question": "Değişken, serin ve yağmurlu havada uzun bir sürüş için motosiklet kıyafeti seçerken özellikle neye dikkat edilmelidir?",
+    "options": {
+      "a": "Hareket özgürlüğü maksimum kalsın diye mümkün olduğunca ince, havadar giysiler",
+      "b": "Sadece moda unsurlarına, kısa mesafelerde işlevsellik ikincildir",
+      "c": "Kirlerin belli olmaması için mümkün olduğunca koyu renkli giysiler",
+      "d": "Rüzgar ve su geçirmez, nefes alabilir, gerektiğinde ayarlanabilen katmanlı giysiler ve yeterli ısı koruması"
+    },
+    "explanation": "Serin, değişken havada sürüş rüzgarı vücudu ek olarak soğutur. Rüzgar ve su geçirmez, nefes alabilir katmanlı giysi sistemi kuru ve sıcak tutar ve değişen koşullara uyum sağlar, bu da konsantrasyon yeteneğini ve dolayısıyla sürüş güvenliğini korur."
+  },
+  "motorrad-schutzausruestung-12": {
+    "question": "Araba kullanmaya kıyasla motosiklet kullanırken alkol tüketimi neden özellikle tehlikelidir?",
+    "options": {
+      "a": "Çünkü motosiklet kullanmak sürekli aktif denge gerektirir ve bu denge az miktarda alkolle bile bozulur, oysa bir araba kendiliğinden dengede kalır",
+      "b": "Çünkü motosikletlerde fren yoktur ve bu nedenle her bozulma hemen kazaya yol açar",
+      "c": "Çünkü motosiklet kullanırken alkol yasal olarak daha ağır cezalandırılır, ancak sürüş yeteneği üzerindeki etkisi araba kullanmaktan farklı değildir",
+      "d": "Çünkü motosiklet sürücüleri temel olarak alkolden etkilenmez, çünkü temiz hava etkisini nötrleştirir"
+    },
+    "explanation": "Bir araba dört tekerlek üzerinde kendiliğinden dengede durur, oysa bir motosiklet sürekli aktif olarak dengelenmelidir. Alkol tam olarak bunun için gereken yetenekleri - denge duygusu, tepki verme yeteneği ve koordinasyonu - az miktarlarda bile araba kullanmaya kıyasla çok daha güçlü şekilde bozar."
+  },
+  "motorrad-schutzausruestung-13": {
+    "question": "Aşırı yorgunluk motosiklet sürücüleri için neden özellikle risklidir?",
+    "options": {
+      "a": "Aşırı yorgunluk yalnızca trafikteki tepki yeteneğini etkiler, dengeyi asla",
+      "b": "Aşırı yorgunluk motosiklet sürücülerini araba sürücülerine göre temelde daha az etkiler, çünkü sürüş rüzgarı uyanık tutar",
+      "c": "Kısa bir mikro uyku veya konsantrasyon kaybı doğrudan denge kaybına ve dolayısıyla düşmeye yol açabilirken, bir araba kısa süreli dikkatsizlikte bile kendiliğinden yolda dik kalır",
+      "d": "Aşırı yorgunluk sadece gece sürüşlerinde önemlidir, gündüz artan bir risk yoktur"
+    },
+    "explanation": "Bir motosiklet sürekli aktif denge gerektirdiğinden, aşırı yorgunluktan kaynaklanan çok kısa bir dikkat veya bilinç kaybı bile ani düşmeye yol açabilir. Buna karşılık bir araba kısa süreli dikkatsizlikte bile yolda stabil kalır. Sürüş rüzgarı tek başına uyanık tutmaz ve aşırı yorgunluğa karşı korumaz."
+  },
+  "motorrad-schutzausruestung-14": {
+    "question": "Karanlıkta veya kötü görüşte neden koyu renkli (koyu) bir kask vizörü kullanmamalısınız?",
+    "options": {
+      "a": "Renkli bir vizör karanlıkta bile avantajlıdır çünkü kendi farınızdan kaynaklanan kamaşmayı önler",
+      "b": "Karanlıkta koyu renkli bir vizör ışık geçirgenliğini o kadar azaltır ki yol, engeller ve diğer trafik katılımcılarının görülmesi önemli ölçüde kötüleşir",
+      "c": "Vizörün renklendirilmesinin görüşe hiçbir etkisi yoktur, sadece bir moda meselesidir",
+      "d": "Karanlıkta gözleri korumak için renkli bir vizör yasal olarak zorunludur"
+    },
+    "explanation": "Koyu renkli bir vizör gündüz ışığında ve kamaşmada kullanım için tasarlanmıştır. Karanlıkta veya kötü görüşte çok az ışık geçirir, bu da yolun, engellerin ve diğer trafik katılımcılarının çok daha geç fark edilmesine yol açar - bu önemli bir güvenlik riskidir. Karanlıkta kaskta şeffaf veya sadece hafif renkli bir vizör bulunmalıdır."
+  },
+  "motorrad-schutzausruestung-15": {
+    "question": "Motosiklet kullanırken basit kot pantolon ve kapüşonlu sweatshirt gibi sıradan günlük kıyafetlerin tek koruyucu giysi olarak kullanılması neden önerilmez?",
+    "options": {
+      "a": "Bu tür kumaşlar, asfaltta kayarak düşmeye genellikle sadece saniyenin bir bölümü kadar dayanır, aşınıp cilt korumasız kalmadan önce",
+      "b": "Günlük kıyafetler yasal olarak yasaktır ve otomatik olarak sürücü belgesinin kaybına yol açar",
+      "c": "Günlük kıyafetler sertifikalı motosiklet kıyafetleriyle tam olarak aynı korumayı sağlar, ancak daha az konforludur",
+      "d": "Günlük kıyafetlerin tek dezavantajı yazın çok sıcak olmalarıdır"
+    },
+    "explanation": "Testler, kot pantolon gibi normal pamuklu kumaşların pürüzlü yol yüzeylerinde kayma sırasında son derece hızlı bir şekilde, genellikle saniyenin bir bölümünde aşındığını ve cildin korumasız kaldığını gösteriyor. Aşınmaya dayanıklı malzemelerden özel olarak geliştirilmiş motosiklet kıyafetleri ise buna karşılık çok daha uzun süre dayanır ve ciddi sıyrıklara karşı korur."
+  },
+  "motorrad-verkehrsverhalten-01": {
+    "question": "Motosiklet sürücüsü olarak şeridiniz içinde nasıl konumlanmalısınız?",
+    "options": {
+      "a": "Her zaman tam olarak şerit ortasında, çünkü zemin orada en tutunmalıdır",
+      "b": "Trafik durumuna göre kaydırılmış, iyi görebilmek ve görülebilmek için ve şeridin kaygan orta kısmından kaçınmak için",
+      "c": "Görüş ve yol durumundan bağımsız olarak mümkün olduğunca sağda",
+      "d": "Sollamayı kolaylaştırmak için her zaman şeridin sol kenarında"
+    },
+    "explanation": "Motosiklet sürücüleri, iyi bir çevresel görüş elde etmek ve diğerleri tarafından iyi görülebilmek için şerit içindeki konumlarını trafik durumuna göre uyarlamalıdır. Yolun ortası genellikle yağ ve lastik aşınma kalıntıları nedeniyle kaygandır ve bundan kaçınılmalıdır."
+  },
+  "motorrad-verkehrsverhalten-02": {
+    "question": "Motosikletinizle durmuş, tıkanık bir trafikte bekliyorsunuz. Şeritler arasında duran araçların yanından süzülerek geçebilir misiniz?",
+    "options": {
+      "a": "Evet, bu Almanya'da motosikletler için açıkça izinlidir",
+      "b": "Evet, yürüme hızı korunduğu sürece",
+      "c": "Hayır, motosiklet sürücüleri de şerit disiplinine uymalı ve araç sıraları arasından geçemez",
+      "d": "Evet, dış aynalara dokunulmadığı sürece"
+    },
+    "explanation": "Şeritler arasında süzülme (lane-splitting) Almanya'da izinli değildir. Motosiklet sürücüleri, diğer tüm sürücüler gibi, normal şerit disiplinine tabidir ve duran veya yavaş giden konvoyları yalnızca diğer araçlarla aynı koşullar altında geçebilir."
+  },
+  "motorrad-verkehrsverhalten-03": {
+    "question": "Yerleşim alanları dışında normal koşullarda önde giden araca olan güvenlik mesafesi için hangi pratik kural geçerlidir?",
+    "options": {
+      "a": "Metre cinsinden mesafe en az km/s cinsinden hız göstergesi değerinin yarısına karşılık gelmelidir",
+      "b": "Herhangi bir hızda bir araç boyu mesafe yeterlidir",
+      "c": "Motosikletler için mesafenin bir önemi yoktur, çünkü otomobillerden daha hızlı fren yaparlar",
+      "d": "Öndeki aracın plakasını hala okuyabiliyorsanız yeterlidir"
+    },
+    "explanation": "Bilinen 'yarı hız göstergesi' kuralı motosikletler için de yeterli güvenlik mesafesi için bir yönlendirme olarak geçerlidir, böylece acil frenleme durumunda yeterli tepki süresi ve fren mesafesi mevcut olur."
+  },
+  "motorrad-verkehrsverhalten-04": {
+    "question": "Motosikletinizle uzun bir tırı geçiyorsunuz. Çekiciyi geçtikten hemen sonra neye özellikle hazırlıklı olmalısınız?",
+    "options": {
+      "a": "Onu geçer geçmez kamyona doğru ani güçlü bir emişe",
+      "b": "Rüzgar gölgesinden çıkarken motosikleti yanal olarak kaydırabilecek kısa süreli bir yan rüzgar darbesine",
+      "c": "Motosikletin hızında otomatik bir düşüşe",
+      "d": "Özel bir şeye değil, çünkü kamyonlar önemli bir sürüş rüzgarı oluşturmaz"
+    },
+    "explanation": "Büyük araçları geçerken hava girdapları ve rüzgar gölgesi oluşur. Bu bölgeden çıkarken kısa bir yan rüzgar darbesi motosikleti şeritten çıkarabilir. Motosiklet sürücüleri gidonu sıkı ama gevşek tutmalı ve yeterli yanal mesafeyle geçiş yapmalıdır."
+  },
+  "motorrad-verkehrsverhalten-05": {
+    "question": "Motosiklet sürücüsü olarak, geçiş hakkına sahip olsanız bile kavşaklarda neden özellikle dikkatli olmalısınız?",
+    "options": {
+      "a": "Çünkü motosikletlerin otomobillere karşı temelde geçiş hakkı yoktur",
+      "b": "Çünkü motosikletler kavşaklarda düz giderken bile her zaman sinyal vermelidir",
+      "c": "Çünkü kavşaklar motosikletler için yasal olarak öncelikli yollar sayılır",
+      "d": "Çünkü diğer trafik katılımcıları bir motosikletin dar silüetini ve hızını sıklıkla yanlış değerlendirir veya basitçe fark etmez"
+    },
+    "explanation": "Aracın dar genişliği nedeniyle, bir motosikletin yaklaşma hızı diğer trafik katılımcıları tarafından sıklıkla yanlış değerlendirilir ve kolayca fark edilmez ('fark edilmeme' sorunu). Bu nedenle motosiklet sürücüleri kendi geçiş haklarına sahip olsalar bile fren yapmaya hazır kalmalı ve göz teması kurmaya çalışmalıdır."
+  },
+  "motorrad-verkehrsverhalten-06": {
+    "question": "Motosikletle bir kavşağa (döner kavşak) girerken özellikle neye dikkat edilmelidir?",
+    "options": {
+      "a": "Döner kavşak prensip olarak en dış sol kenardan geçilmelidir",
+      "b": "Döner kavşaktan çıkarken motosikletler için sinyal vermek gerekli değildir",
+      "c": "Şerit, arkadan gelen ve giren trafik tarafından iyi görülebilecek şekilde seçilmeli ve çıkış zamanında bildirilmelidir",
+      "d": "Motosikletler döner kavşakta prensip olarak diğer araçlardan daha hızlı gidebilir"
+    },
+    "explanation": "Döner kavşakta motosiklet sürücüleri iyi görülebilir bir konum seçmelidir, çünkü giren araçlar motosikletin dar genişliği nedeniyle onu kolayca fark etmeyebilir. Döner kavşaktan çıkış zamanında sinyalle bildirilmelidir."
+  },
+  "motorrad-verkehrsverhalten-07": {
+    "question": "Motosiklet sürücüsü olarak yağmurda özellikle neye dikkat etmelisiniz?",
+    "options": {
+      "a": "Yağmur motosikletler için yol tutunmasını pratikte değiştirmez",
+      "b": "Yol işaretleri, rögar kapakları ve derzler ıslakken diğer zeminden belirgin şekilde daha kaygan olabilir ve viraj alırken mümkün olduğunca üzerlerinden geçilmemelidir",
+      "c": "Yağmurda daha fazla lastik temas alanı elde etmek için prensip olarak artırılmış bir yatışla gidilmelidir",
+      "d": "Motosikletler otomobillerden daha hafif olduğu için ıslakken güvenlik mesafesi azaltılabilir"
+    },
+    "explanation": "Islak yol işaretleri, rögar kapakları, derzler ve düz zeminler belirgin şekilde daha az tutunma sağlar. Motosiklet sürücüleri kayma riskini önlemek için bu tür yerleri mümkün olduğunca dik konumda ve düşürülmüş hızla geçmelidir."
+  },
+  "motorrad-verkehrsverhalten-08": {
+    "question": "Karanlıkta motosiklette hız konusunda neden özel bir ölçülülük gereklidir?",
+    "options": {
+      "a": "Çünkü ancak kendi ışığınızla görülebilen mesafe içinde engellere zamanında tepki verilebilecek ve güvenli bir şekilde durulabilecek kadar hızlı gidilebilir (görüş mesafesine göre sürüş ilkesi)",
+      "b": "Çünkü motosikletler karanlıkta genel olarak 60 km/s hız sınırına uymalıdır",
+      "c": "Çünkü uzun far motosikletler için yasal olarak yasaktır",
+      "d": "Çünkü gece motosikletler için sağdan gitme zorunluluğu prensip olarak kalkar"
+    },
+    "explanation": "Görüş mesafesine göre sürüş ilkesine göre, ancak kendi aydınlatmanızla görülebilen mesafe içinde güvenli bir şekilde durulabilecek kadar hızlı gidilebilir. Karanlıkta bu mesafe gündüze göre belirgin şekilde daha kısadır, bu nedenle hız buna göre ayarlanmalıdır."
+  },
+  "motorrad-verkehrsverhalten-09": {
+    "question": "Motosikletinizde bir kişiyi yolcu olarak taşıyabilmeniz için hangi ön koşul karşılanmalıdır?",
+    "options": {
+      "a": "Sadece sürücünün kask takması yeterlidir",
+      "b": "Yolcu taşıma yalnızca otoyollarda izinlidir",
+      "c": "Motosiklet yolcu taşımak için onaylanmış olmalı ve koltuk ile ayak dayama yerleriyle donatılmış olmalıdır, ayrıca yolcu da uygun bir koruma kaskı takmalıdır",
+      "d": "Yolcu, sürücü ağırlığının en fazla yarısı kadar ağırlıkta olmalıdır"
+    },
+    "explanation": "Yolcu taşıma yalnızca araç bunun için tasarlanmış ve onaylanmışsa (koltuk, ayak dayama yerleri) ve yolcu bir koruma kaskı takıyorsa izinlidir. Bu koşullar olmadan yolcu taşımaya izin verilmez."
+  },
+  "motorrad-verkehrsverhalten-10": {
+    "question": "Motosikletinizin arkasına bir römork bağlayabilir misiniz?",
+    "options": {
+      "a": "Hayır, Almanya'da bir motosikletin arkasına römork bağlamak temelde yasaktır",
+      "b": "Sadece motosiklet üretici tarafından bunun için donatılmış ve onaylanmışsa ve buna karşılık gelen römork ağırlığı araç belgelerinde kayıtlıysa",
+      "c": "Evet, herhangi bir standart otomobil römorkuyla ek bir koşul olmadan",
+      "d": "Evet, ancak yalnızca otoyollarda ve motorlu taşıt yollarında"
+    },
+    "explanation": "Bir römork ancak araç bunun için teknik olarak tasarlanmış ve onaylanmışsa (örn. uygun bir çekme tertibatı) ve izin verilen römork ağırlığı ruhsatta kayıtlıysa motosikletin arkasına bağlanabilir. Bu kayıt olmadan römork çekmek yasal değildir."
+  },
+  "motorrad-verkehrsverhalten-11": {
+    "question": "Karşınızdan sola dönmek isteyen ve kavşakta bekleyen bir araba geliyor. Geçiş hakkınız olsa bile motosiklet sürücüsü olarak nasıl davranmalısınız?",
+    "options": {
+      "a": "Hızınızı koruyabilirsiniz, çünkü araba zaten beklemek zorundadır",
+      "b": "Kavşağı olabildiğince hızlı geçmek için hızlanmalısınız",
+      "c": "Araba sürücüsünün beklemesi için mutlaka korna çalmalısınız",
+      "d": "Hızınızı önceden azaltmalı, fren yapmaya hazır kalmalı ve mümkün olduğunca göz teması kurmaya çalışmalısınız, çünkü dönen araçlar motosikletlerin hızını ve mesafesini sıklıkla yanlış değerlendirir"
+    },
+    "explanation": "Sola dönen araçlar, dar silüetleri nedeniyle karşıdan gelen motosikletlerin yaklaşma hızını sıklıkla yanlış değerlendirir, bu da motosiklet sürücüleri için en yaygın kaza mekanizmalarından biridir. Önceden fren yapmaya hazır olmak ve göz teması kurmak güvenliği önemli ölçüde artırır."
+  },
+  "motorrad-verkehrsverhalten-12": {
+    "question": "Bir virajda yolda çakıl, yaprak veya tramvay rayları fark ediyorsunuz. Doğru davranış nedir?",
+    "options": {
+      "a": "Virajdan önce hızı azaltmak, yatışı mümkün olduğunca az tutmak ve kaygan bölgede ani direksiyon veya fren manevraları yapmamak",
+      "b": "Lastiklerin gevşek zeminde daha fazla yüzeye temas etmesi için yatışı artırmak",
+      "c": "Kaygan bölgedeyken sert fren yapmak",
+      "d": "Arkadan gelen trafiğe dikkat etmeden şerit değiştirmek"
+    },
+    "explanation": "Virajlardaki gevşek veya kaygan yol yüzeyleri lastik tutunmasını önemli ölçüde azaltır. Düşmeyi önlemek için hız önceden ayarlanmalı, daha dik gidilmeli ve ani direksiyon veya fren hareketlerinden kaçınılmalıdır."
+  },
+  "motorrad-verkehrsverhalten-13": {
+    "question": "Güçlü yan rüzgarda bir orman boşluğunun veya köprünün yanından geçiyorsunuz. Neye hazırlıklı olmalısınız?",
+    "options": {
+      "a": "Bu tür yerlerin motosikletler için rüzgar koşulları üzerinde hiçbir etkisi yoktur",
+      "b": "Motosikleti yanal olarak kaydırabilecek ani, kısa süreli bir rüzgar darbesine, bu nedenle gidon gevşek ama güvenli tutulmalı ve hız ayarlanmalıdır",
+      "c": "Bu tür bölgelerde rüzgar bölgesinden daha hızlı çıkmak için prensip olarak hızlanılmalıdır",
+      "d": "Motosikletin kendi kendine stabilize olması için gidon uçları bırakılmalıdır"
+    },
+    "explanation": "Orman boşluklarında, köprülerde veya arazi kesitlerinde motosikleti şeritten çıkarabilecek ani yan rüzgar darbeleri ortaya çıkabilir. Gidonu gevşek ama güvenli tutmak ve uygun, çok yüksek olmayan bir hız bu tür darbeleri dengelemeye yardımcı olur."
+  },
+  "motorrad-verkehrsverhalten-14": {
+    "question": "Motosikletlerde kask takma zorunluluğu ile ilgili hangi ifade doğrudur?",
+    "options": {
+      "a": "Kask takma zorunluluğu sadece yerleşim alanları dışında geçerlidir",
+      "b": "Sadece sürücü kask takmalıdır, yolcu bundan muaftır",
+      "c": "Motosikletin sürücüsü ve yolcusu sürüş sırasında uygun bir koruma kaskı takmalıdır",
+      "d": "50 km/s altındaki sürüşlerde kask takma zorunluluğu ortadan kalkar"
+    },
+    "explanation": "Motosikletle sürüş sırasında hem sürücü hem de yolcu, hızdan veya mesafeden bağımsız olarak uygun bir koruma kaskı takmalıdır."
+  },
+  "motorrad-verkehrsverhalten-15": {
+    "question": "Motosikletinizle kırmızı ışıkta bir arabanın arkasında duruyorsunuz. Nasıl konumlanmalısınız?",
+    "options": {
+      "a": "Arkadan gelen trafik için yer kazanmak amacıyla arabanın arkasına mümkün olduğunca yakın",
+      "b": "Yeterli mesafeyle ve hafifçe kaydırılmış olarak, böylece kaçınma imkanınız olur ve arabanın dikiz aynasında görülürsünüz",
+      "c": "Her zaman tam olarak arabanın arkasında ortada ve herhangi bir güvenlik mesafesi olmadan",
+      "d": "Prensip olarak ön tekerlek arabayla aynı hizada, yanda"
+    },
+    "explanation": "Hafif kaydırmayla yeterli bir mesafe, arkadan bir aracın çok geç fren yapması durumunda motosiklet sürücüsüne kaçınma imkanı verir ve öndeki aracın dikiz aynasında görünürlüğü artırır."
+  },
+  "motorrad-fahrerlaubnis-01": {
+    "question": "A1 sınıfı motosikletler için hangi teknik sınır değerler geçerlidir ve bu sınıf hangi yaştan itibaren alınabilir?",
+    "options": {
+      "a": "250 cm³'e kadar hacim, 20 kW'a kadar güç, minimum yaş 18",
+      "b": "125 cm³'e kadar hacim, 11 kW'a kadar güç, 0,1 kW/kg'a kadar güç/ağırlık oranı, minimum yaş 16",
+      "c": "50 cm³'e kadar hacim, 4 kW'a kadar güç, minimum yaş 15",
+      "d": "Hacim sınırı yok, 15 kW'a kadar güç, minimum yaş 17"
+    },
+    "explanation": "A1 sınıfı, 125 cm³'e kadar motor hacmine, en fazla 11 kW güce ve en fazla 0,1 kW/kg güç/ağırlık oranına sahip motosikletleri kapsar. Sürücü belgesi 16 yaşından itibaren alınabilir."
+  },
+  "motorrad-fahrerlaubnis-02": {
+    "question": "A2 sınıfı motosikletler için hangi kısıtlamalar geçerlidir?",
+    "options": {
+      "a": "Sadece 125 cm³'lük hacim sınırı geçerlidir, güç serbesttir",
+      "b": "Güç sınırlaması yoktur, sadece minimum yaş 21'dir",
+      "c": "Güç en fazla 35 kW olabilir, güç/ağırlık oranı en fazla 0,2 kW/kg olabilir ve motosiklet iki katından fazla güce sahip bir versiyondan türetilmemiş olmalıdır; minimum yaş 18'dir",
+      "d": "Güç en fazla 50 kW olabilir, minimum yaş 20'dir"
+    },
+    "explanation": "A2 sınıfı, en fazla 35 kW güce ve en fazla 0,2 kW/kg güç/ağırlık oranına sahip motosikletlere izin verir. Ayrıca araç, iki katından fazla çıkış gücüne sahip bir versiyondan kısılmış olmamalıdır. Minimum yaş 18'dir."
+  },
+  "motorrad-fahrerlaubnis-03": {
+    "question": "Daha önce A2 sınıfına sahip olmadan sınırsız A sınıfı hangi yaştan itibaren alınabilir (sözde doğrudan giriş)?",
+    "options": {
+      "a": "24 yaşından itibaren",
+      "b": "18 yaşından itibaren",
+      "c": "21 yaşından itibaren",
+      "d": "27 yaşından itibaren"
+    },
+    "explanation": "Daha önce A2 sınıfına sahip olmadan güç sınırsız A sınıfına doğrudan giriş, minimum 24 yaşından itibaren mümkündür."
+  },
+  "motorrad-fahrerlaubnis-04": {
+    "question": "En az iki yıldır A2 sınıfına sahip olan bir kişi, kademeli erişim yoluyla A sınıfını nasıl alabilir?",
+    "options": {
+      "a": "21. yaşın tamamlanmasıyla otomatik olarak, başka herhangi bir işlem gerekmeden",
+      "b": "20 yaşından itibaren öngörülen bir eğitim belgesi ile, yeniden teorik ve pratik sınava girmeye gerek kalmadan",
+      "c": "Sadece doğrudan girişte olduğu gibi tamamen yeni bir teorik ve pratik sınav ile",
+      "d": "Ancak A2 sınıfına en az beş yıl sahip olunduktan sonra"
+    },
+    "explanation": "En az iki yıldır A2 sınıfına sahip olan kişi, 20 yaşından itibaren öngörülen bir eğitimi belgeleyerek kademeli erişim yoluyla A sınıfını alabilir. Bu durumda yeniden sınav gerekmez."
+  },
+  "motorrad-fahrerlaubnis-05": {
+    "question": "B sınıfı ehliyette bulunan sözde 196 kodu ne sağlar?",
+    "options": {
+      "a": "Otomatik olarak herhangi bir ek koşul olmadan tüm motosiklet sınıflarını kullanma hakkı verir",
+      "b": "Sadece yan sepetli motosikletler için geçerlidir",
+      "c": "Belirli yaş ve sahip olma koşullarını karşılayan B sınıfı sahiplerine, ek bir eğitimden sonra ayrı bir A1 sınavına girmeden Almanya içinde 125 cm³'e kadar hafif motosikletler kullanma izni verir",
+      "d": "Avrupa yurtdışında da A2 sınıfının yerini tamamen alır"
+    },
+    "explanation": "196 kodu ile en az beş yıldır B sınıfına sahip olan ve minimum yaşı karşılayan B sınıfı sahipleri, zorunlu bir ek teorik ve pratik eğitimden sonra tam bir A1 sınavına girmeden Almanya içinde 125 cm³'e kadar motosiklet kullanabilir. Bu yetki yalnızca ulusal düzeyde geçerlidir."
+  },
+  "motorrad-fahrerlaubnis-06": {
+    "question": "A1, A2 ve A motosiklet sınıflarının birbirleriyle ilişkisi hakkında hangi ifade doğrudur?",
+    "options": {
+      "a": "A sınıfına sahip olan kişi A1 ve A2 sınıfı motosikletleri de kullanabilir",
+      "b": "A1, A2 ve A sınıfları her biri yalnızca kendi sınıfını kullanma hakkı verir",
+      "c": "A2 sınıfı otomatik olarak A sınıfını da kapsar",
+      "d": "A1 sınıfı otomatik olarak A2 sınıfını da kullanma hakkı verir"
+    },
+    "explanation": "Daha yüksek A sınıfı, daha düşük A1 ve A2 sınıflarını da kapsar. Tersine, A1 veya A2'ye sahip olmak otomatik olarak ilgili daha yüksek sınıfı kullanma hakkı vermez."
+  },
+  "motorrad-fahrerlaubnis-07": {
+    "question": "Bir motosikletin genel yol trafiğinde kullanılabilmesi için motosiklet lastiğinin minimum diş derinliği ne olmalıdır?",
+    "options": {
+      "a": "Tüm sırt yüzeyinde en az 3,0 mm",
+      "b": "Ana diş oluklarında en az 1,6 mm",
+      "c": "En az 0,5 mm, çünkü motosiklet lastikleri otomobil lastiklerinden daha az dişe ihtiyaç duyar",
+      "d": "Lastik görsel olarak sağlam göründüğü sürece yasal olarak bir minimum ölçü öngörülmemiştir"
+    },
+    "explanation": "Motosiklet lastikleri için, otomobil lastiklerinde olduğu gibi, yasal minimum diş derinliği 1,6 mm'dir. Motosikletler, otomobillerin aksine, ek tekerlekler yoluyla bir yedekliliğe sahip olmadığından, yeterli diş derinliği tutunma ve su tahliyesi açısından özellikle güvenlikle ilgilidir."
+  },
+  "motorrad-fahrerlaubnis-08": {
+    "question": "Güvenilir bir sonuç elde etmek için motosikletinizin lastik basıncını ne zaman kontrol etmelisiniz?",
+    "options": {
+      "a": "Tercihen uzun bir otoyol sürüşünden hemen sonra, lastikler hala sıcakken",
+      "b": "Lastik basıncı yalnızca yılda bir kez teknik muayenede kontrol edilmelidir",
+      "c": "Düzenli olarak ve lastikler soğukken, basınç üretici talimatlarına ve yük ile yolcuya göre ayarlanmalıdır",
+      "d": "Modern motosiklet lastikleri için lastik basıncının sürüş davranışı üzerinde bir önemi yoktur"
+    },
+    "explanation": "Lastik basıncı düzenli olarak soğuk durumdayken kontrol edilmelidir, çünkü sıcak lastikler ısınma nedeniyle daha yüksek basınç gösterir. Bagaj veya yolcu nedeniyle ek yük genellikle üretici bilgisine göre, özellikle arkada, daha yüksek bir hedef basınç gerektirir."
+  },
+  "motorrad-fahrerlaubnis-09": {
+    "question": "Zincirle çalışan bir motosiklette zincir gerginliğinin ve zincir yağlamasının düzenli kontrolü neden güvenlikle ilgilidir?",
+    "options": {
+      "a": "Yanlış zincir gerginliği sadece yakıt tüketimini etkiler",
+      "b": "Çok gevşek veya kuru bir zincir kopabilir veya atlayabilir, bu da arka tekerleği kilitleyebilir veya gövdeye zarar verebilir, bu da düşmeye yol açabilir",
+      "c": "Zincir yağlı olduğu sürece zincir gerginliğinin sürüş güvenliği üzerinde hiçbir etkisi yoktur",
+      "d": "Çok gergin bir zincir otomatik olarak motorun kullanım ömrünü uzatır"
+    },
+    "explanation": "Yetersiz gerilmiş veya kuru bir zincir daha hızlı aşınır, kopabilir veya dişliden atlayabilir. Bu, arka tekerleği kilitleyebilir veya motor gövdesine zarar verebilir ve böylece kontrol kaybına yol açabilir. Bu nedenle düzenli kontrol ve yağlama önemli bir güvenlik kontrolüdür."
+  },
+  "motorrad-fahrerlaubnis-10": {
+    "question": "Yola çıkmadan önce dikiz aynalarınızı nasıl ayarlamalısınız?",
+    "options": {
+      "a": "Mesafeyi tahmin edebilmek için kendi dirseğinizin bir kısmı aynada görünecek şekilde",
+      "b": "Motosikletlerde aynalar fabrikada sabitlendiğinden ayrı ayrı ayarlanması gerekmez",
+      "c": "Arkanızdaki yolu minimum kafa hareketiyle mümkün olduğunca geniş görebilecek şekilde, kör noktayı kontrol etmek için omuz üzerinden bakmak yine de gerekli kalır",
+      "d": "Sadece sol ayna ayarlanmalıdır, sağ ayna motosikletler için yasal olarak zorunlu değildir"
+    },
+    "explanation": "Aynalar, minimum kafa hareketiyle aracın arkasındaki mümkün olduğunca geniş bir alanı kapsayacak şekilde ayarlanmalıdır. Aynalar kör noktayı tamamen kapatamadığından, şerit değiştirmeden önce ek olarak omuz üzerinden bakmak gereklidir."
+  },
+  "motorrad-fahrerlaubnis-11": {
+    "question": "Motosikletle her sürüşten önce yapılan kısa görsel kontrolde en azından hangi alanlar kontrol edilmelidir?",
+    "options": {
+      "a": "Sadece yağ seviyesi, diğer tüm alanlar önemsizdir",
+      "b": "Sadece aydınlatma, çünkü en sık o arızalanır",
+      "c": "Sadece lastik basıncı, çünkü sürüş güvenliğini en çok o etkiler",
+      "d": "Lastikler ve tekerlekler, kumanda elemanları ve frenler, aydınlatma, yağ gibi sıvı seviyeleri, ayrıca şasi, ayaklık ve ek parçaların sağlam oturması"
+    },
+    "explanation": "Yola çıkmadan önce yapılan kısa bir tur, teknik arızaları erken tespit etmek için lastikleri, tekerlekleri, frenleri ve kumanda elemanlarını, aydınlatmayı, önemli sıvı seviyelerini ve şasi parçalarının, ayaklığın ve ek parçaların sağlam oturmasını kapsamalıdır."
+  },
+  "motorrad-fahrerlaubnis-12": {
+    "question": "Motosikletler gündüz vakti iyi görüş koşullarında da ışıkları açık mı sürmelidir?",
+    "options": {
+      "a": "Evet, motosikletler daha iyi fark edilmek için gündüz de temelde kısa farla gitmelidir",
+      "b": "Hayır, gündüz ışık motosikletler için zorunlu değildir ve sadece yağmurda önerilir",
+      "c": "Hayır, gündüz ışık sadece otoyollarda zorunludur",
+      "d": "Evet, ancak yalnızca uzun farla, maksimum görünürlük elde etmek için"
+    },
+    "explanation": "Otomobillerin aksine, motosikletlerde gündüz iyi görüş koşullarında bile kısa farla gitmek zorunludur, çünkü aracın dar genişliği trafikte fark edilmesini önemli ölçüde zorlaştırır."
+  },
+  "motorrad-fahrerlaubnis-13": {
+    "question": "Yola çıkmadan önce yan veya orta ayaklığın tamamen katlanmış olduğunu kontrol etmek neden güvenlikle ilgilidir?",
+    "options": {
+      "a": "Açık kalmış bir ayaklık sadece hız göstergesinin doğru gösterimini engeller",
+      "b": "Katlanmamış bir ayaklık yatışta veya virajlarda yola değebilir, bu da arka tekerleğin kalkmasına veya motosikletin düşmesine neden olabilir",
+      "c": "Açık kalmış bir ayaklığın yalnızca görsel etkisi vardır ve sürüş güvenliği üzerinde hiçbir etkisi yoktur",
+      "d": "Açık kalmış bir ayaklık yatışta lastik tutunmasını artırır"
+    },
+    "explanation": "Katlanmamış bir ayaklık virajlarda yatışta yola değebilir. Bu, arka tekerleğin kısa süreliğine kalkmasına veya motosikletin dengesiz hale gelip düşmesine neden olabilir, bu nedenle bu her sürüşten önce kontrol edilmelidir."
+  },
+  "motorrad-fahrerlaubnis-14": {
+    "question": "Akan trafiğe katılmadan önce neden düşük hızda ön ve arka freni test etmelisiniz?",
+    "options": {
+      "a": "Yakıt tüketiminin uygun olup olmadığını belirlemek için",
+      "b": "Çünkü fren testi yasal olarak sadece yılda bir kez teknik muayenede zorunludur ve sonrasında gerekli değildir",
+      "c": "Acil bir durumda onlara güvenmeden önce her iki frenin de hissedilir bir tepki verdiğini ve uygun bir baskı noktasına sahip olduğunu doğrulamak için",
+      "d": "Çünkü bu, fren balatalarını otomatik olarak yeniden ayarlar"
+    },
+    "explanation": "Düşük hızda kısa bir fren testi, ön ve arka frenin hissedilir şekilde tepki verip vermediğini ve güvenli bir baskı noktasına sahip olup olmadığını gösterir. Böylece, acil bir durumda çalışan bir frene güvenmeden önce arızalar tespit edilir."
+  },
+  "motorrad-fahrerlaubnis-15": {
+    "question": "A2 sınıfı için onaylanmış, gücü azaltılmış ('kısılmış') bir motosikletiniz var. Kendinizi daha güçlü hissettiğiniz anda kısıtlamayı kendiniz kaldırabilir misiniz?",
+    "options": {
+      "a": "Evet, kısıtlama yalnızca hukuki bir önemi olmayan saf bir fabrika ayarıdır",
+      "b": "Hayır, kısıtlamanın kaldırılması aracın izin verilen teknik verilerini değiştirir ve araç tam güçle tekrar kullanılabilmeden önce araç belgelerine uygun bir kayıtla profesyonel bir dönüşüm gerektirir",
+      "c": "Evet, kısıtlamanın kaldırılması 24 saat içinde geri alındığı sürece",
+      "d": "Hayır, bir kez kısıtlanmış bir motosikletin kısıtlaması prensip olarak asla tekrar kaldırılamaz"
+    },
+    "explanation": "Kısıtlama, aracın ilgili sınıf için işletme izninin bir parçasıdır. Kısıtlamanın kaldırılması, motosiklet tam güçle kullanılabilmeden önce profesyonelce yapılması ve araç belgelerine kaydedilmesi gereken teknik bir değişikliktir."
+  },
+  "motorrad-besondere_bedingungen-01": {
+    "question": "Karanlıkta motosiklet kullanmak diğer trafik katılımcıları için neden özellikle risklidir?",
+    "options": {
+      "a": "Çünkü motosikletler geceleri prensip olarak daha hızlı gidebilir",
+      "b": "Çünkü bir motosikletin dar ışık görüntüsü ve daha küçük konturu diğerleri tarafından daha kolay gözden kaçırılır veya mesafesi yanlış değerlendirilir",
+      "c": "Çünkü karanlıkta geçiş hakkı kuralları geçerli değildir",
+      "d": "Çünkü motosikletler geceleri ışık yakma zorunluluğundan muaftır"
+    },
+    "explanation": "Tek bir far ve dar bir siluet, diğer sürücülerin bir motosikletin mesafesini ve hızını doğru değerlendirmesini zorlaştırır. Bu, dönüş ve trafiğe katılma durumlarında sıklıkla tehlikeli durumlara yol açar. Yasal kurallar geceleri değişmez."
+  },
+  "motorrad-besondere_bedingungen-02": {
+    "question": "Kötü görüşte (örneğin alacakaranlık, sis) hızınızı nasıl ayarlamalısınız?",
+    "options": {
+      "a": "Her zaman görülebilir mesafe içinde durabilecek şekilde",
+      "b": "İzin verilen azami hıza uymak yeterlidir",
+      "c": "Hızlı gitmek tehlike bölgesindeki süreyi kısaltır ve bu nedenle daha güvenlidir",
+      "d": "Hız sadece yağmurda ayarlanmalıdır, siste değil"
+    },
+    "explanation": "Hız her zaman görülebilir mesafe içinde durulabilecek şekilde seçilmelidir. Azaltılmış görüşte bu mesafe, izin verilen hız sınırından bağımsız olarak önemli ölçüde kısalır."
+  },
+  "motorrad-besondere_bedingungen-03": {
+    "question": "Gece sürüşlerinde kask vizörü ve gözlük seçimi hakkında hangi ifade doğrudur?",
+    "options": {
+      "a": "Renkli vizörler karanlıkta görüşü iyileştirir",
+      "b": "Çizik bir vizörün ters ışıkta görüş üzerinde bir etkisi yoktur",
+      "c": "Şeffaf, temiz ve hasarsız bir vizör geceleri önemlidir, çünkü çizikler ve renklendirme karşı yönden gelen trafikten kaynaklanan kamaşma etkisini güçlendirir",
+      "d": "Geceleri daha iyi görmek için prensip olarak vizörsüz gidilmelidir"
+    },
+    "explanation": "Çizikler ve renklendirme ışığı dağıtır ve karşı yönden gelen trafiğin farlarından kaynaklanan kamaşmayı güçlendirir. Gece sürüşleri için şeffaf, sağlam bir vizör belirgin şekilde daha güvenlidir."
+  },
+  "motorrad-besondere_bedingungen-04": {
+    "question": "Alacakaranlıkta ve karanlıkta diğerleri için görünürlüğünüzü nasıl daha da artırabilirsiniz?",
+    "options": {
+      "a": "Yol manzarasından ayırt edilmemek için mümkün olduğunca koyu renkli giysiler giyerek",
+      "b": "Öngörülen aydınlatmaya ek olarak açık renkli veya yansıtıcı giysiler ile açık renkli bir kask giyerek",
+      "c": "Karşı yönden gelen trafikte bile uzun farı sürekli açık tutarak",
+      "d": "Rüzgar gölgesinde daha görünür olmak için öndeki araca özellikle yakın giderek"
+    },
+    "explanation": "Açık renkli ve yansıtıcı giysiler ile göze çarpan bir kask, diğer trafik katılımcıları tarafından erken fark edilme şansını artırır. Uzun far karşı yönden gelen trafikte söndürülmelidir ve çok yakın gitmek tehlikeli ve yasaktır."
+  },
+  "motorrad-besondere_bedingungen-05": {
+    "question": "Islak zeminde motosiklet sürücüleri için hangi yol bölümleri özellikle tehlikeli hale gelir?",
+    "options": {
+      "a": "Sadece işaretsiz yeni asfaltlanmış bölümler",
+      "b": "Yalnızca trafik ışıklı kavşaklar",
+      "c": "Yol işaretleri, rögar kapakları, drenaj ızgaraları ve tramvay rayları, çünkü ıslakken belirgin şekilde daha az tutunma sağlarlar",
+      "d": "Sadece sathı bozulmamış banketler"
+    },
+    "explanation": "Renkli işaretler, metal kapaklar ve raylar normal asfalttan daha kaygandır ve ıslakken ek olarak daha da kaygan hale gelir. Bu tür yerlerden yatışta mümkün olduğunca geçilmemelidir."
+  },
+  "motorrad-besondere_bedingungen-06": {
+    "question": "Yağmurda önünüzdeki araçlara neden daha fazla mesafe bırakmalısınız?",
+    "options": {
+      "a": "Çünkü ıslak zeminde fren mesafesi uzar ve sıçrayan su veya su tozu görüşü daha da kısıtlar",
+      "b": "Çünkü ıslak asfalt prensip olarak kurudan daha fazla tutunma sağlar",
+      "c": "Çünkü yağmurda motosikletlerin fren sistemi otomatik olarak devre dışı kalır",
+      "d": "Çünkü daha fazla mesafe motosikletin diğerleri için görünürlüğünü azaltır"
+    },
+    "explanation": "Islaklık lastik ile yol arasındaki sürtünmeyi azaltır, bu da fren mesafesini uzatır. Ayrıca kamyonlardan ve otomobillerden sıçrayan su görüşü kısıtlar, bu da daha büyük bir güvenlik mesafesi gerektirir."
+  },
+  "motorrad-besondere_bedingungen-07": {
+    "question": "Yağmurda gidiyorsunuz ve bir virajı geçmeniz gerekiyor. Nasıl davranmalısınız?",
+    "options": {
+      "a": "Mümkün olduğunca geç ve sert fren yapmak, ancak virajda daha hızlı gitmek",
+      "b": "Hızı virajdan önce azaltmak, yumuşak bir şekilde virajı almak ve virajda yatış ile ani direksiyon veya fren manevralarından kaçınmak",
+      "c": "Zaman kazanmak için kuru zemine kıyasla yatışı artırmak",
+      "d": "Sadece arka freni kullanmak, çünkü ıslakken sözde daha güvenilirdir"
+    },
+    "explanation": "Islakken tutunma sürtünmesi azaldığından, hız virajdan önce ayarlanmalıdır. Virajın kendisinde kaymayı önlemek için ani direksiyon veya fren hareketlerinden ve güçlü yatıştan kaçınılmalıdır."
+  },
+  "motorrad-besondere_bedingungen-08": {
+    "question": "Uzun bir kuraklıktan sonra tam da yağmurun başlangıcı motosiklet sürücüleri için neden özellikle sinsidir?",
+    "options": {
+      "a": "Çünkü ilk yağmur yolu hemen tamamen temizler ve daha tutunmalı hale getirir",
+      "b": "Çünkü yağmurun ilk dakikalarında motosikletler için genel olarak sürüş yasağı geçerlidir",
+      "c": "Çünkü yağ, lastik ve toz kalıntıları başlayan yağmurla birleşerek yıkanmadan önce özellikle kaygan bir film oluşturur",
+      "d": "Çünkü lastikler ilk yağmur damlalarında otomatik olarak diş derinliğinin bir kısmını kaybeder"
+    },
+    "explanation": "Kuraklık döneminde yolda yağ, lastik aşınma kalıntıları ve toz birikir. İlk yağmur bunları yıkanmadan önce çözer ve özellikle kaygan bir film oluşturur. Tutunma ancak sürekli yağmurdan sonra yeniden iyileşir."
+  },
+  "motorrad-besondere_bedingungen-09": {
+    "question": "Şiddetli yağmurda bir kamyonun arkasında gidiyorsunuz. Kamyonun kaldırdığı sıçrayan sudan özellikle ne tehlikesi doğar?",
+    "options": {
+      "a": "Kısa bir süre için vizör üzerinden görüşü neredeyse tamamen alabilir, bu nedenle daha büyük mesafe bırakmak veya dikkatli bir şekilde geçmek mantıklıdır",
+      "b": "Motosikletin ön camını temizlediği için görüşü iyileştirir",
+      "c": "Görüş üzerinde hiçbir etkisi yoktur, sadece lastik tutunmasını etkiler",
+      "d": "Yalnızca kuru zeminde ortaya çıkar"
+    },
+    "explanation": "Kamyonlar yağmurda büyük miktarda sıçrayan su kaldırır, bu da motosiklet sürücülerini kısa süreliğine kör edebilir veya görüşü ciddi şekilde kısıtlayabilir. Daha büyük mesafe ve öngörülü, kararlı bir geçiş bu riski azaltır."
+  },
+  "motorrad-besondere_bedingungen-10": {
+    "question": "Motosiklet lastikleri düşük sıcaklıklarda hareket başladıktan sonra tam tutunmayı ortaya çıkarmadan önce neden belirli bir süreye ihtiyaç duyar?",
+    "options": {
+      "a": "Çünkü soğuk lastikler prensip olarak sıcak olanlardan daha yüksek hava basıncına ihtiyaç duyar",
+      "b": "Çünkü kauçuk düşük sıcaklıkta daha serttir ve ancak hareket ve şekil değiştirme çalışması yoluyla optimal tutunma için gerekli çalışma sıcaklığına ulaşır",
+      "c": "Çünkü lastikler soğukta otomatik olarak daha derin bir diş kazanır",
+      "d": "Çünkü soğuk lastikler sadece otoyollarda daha düşük tutunmaya sahiptir"
+    },
+    "explanation": "Soğuk lastik kauçuğu daha serttir ve daha az tutunma sağlar. Lastik ancak sürüş sırasındaki şekil değiştirme çalışması yoluyla ısınır ve optimal tutunmasına ulaşır. Bu nedenle ilk dakikalarda güçlü yatışlardan ve sert frenlemeden kaçınılmalıdır."
+  },
+  "motorrad-besondere_bedingungen-11": {
+    "question": "Donma noktasına yakın sıcaklıklarda hangi noktalarda motosiklet sürücülerinin fark etmesi zor olan buzlanma özellikle kolayca oluşur?",
+    "options": {
+      "a": "Sadece şehir merkezindeki geniş, yoğun ana caddelerde",
+      "b": "Sadece doğrudan güneş ışığı alan yerlerde",
+      "c": "Köprülerde, gölgeli orman kesitlerinde ve ilk soğuyan ve genellikle şeffaf ve neredeyse görünmez şekilde donan nemli yerlerde",
+      "d": "Yalnızca sathı bozulmamış yollarda"
+    },
+    "explanation": "Köprüler her iki taraftan soğur ve bu nedenle çevredeki yoldan daha önce donar. Gölgeli, nemli yerler de daha hızlı soğur. Buzlanma orada genellikle neredeyse görünmezdir ve kolayca sadece ıslak bir yolla karıştırılabilir."
+  },
+  "motorrad-besondere_bedingungen-12": {
+    "question": "Soğuk, motosiklet sürücülerinin sürüş güvenliğini dolaylı olarak nasıl daha da olumsuz etkileyebilir?",
+    "options": {
+      "a": "Çünkü soğuk, uyuşmuş parmaklar debriyaj, fren ve gaz kolundaki hassasiyeti azaltır ve tepki süresini uzatabilir",
+      "b": "Çünkü soğuk stop lambasını otomatik olarak devre dışı bırakır",
+      "c": "Çünkü motosikletler soğukta prensip olarak daha düşük bir azami hıza ulaşabilir",
+      "d": "Çünkü soğuk hava vizör üzerinden görüşü iyileştirir"
+    },
+    "explanation": "Soğuk parmakların hareketliliğini ve ince motor becerilerini azaltır. Bu nedenle fren ve debriyajın dozajlı kullanımı zorlaşır, bu da kritik durumlarda tepki verme yeteneğini kısıtlar. Bu nedenle uygun, sıcak eldivenler önemlidir."
+  },
+  "motorrad-besondere_bedingungen-13": {
+    "question": "Soğuk bir kış sabahı motosikletinizle yola çıkıyorsunuz. İlk birkaç dakikada nasıl davranmalısınız?",
+    "options": {
+      "a": "Hemen tam yatışla ve yüksek hızla gitmek, aksi takdirde motor ısınmaz",
+      "b": "Dikkatli, ölçülü bir hızla ve az yatışla, lastikler, şasi ve konsantrasyonunuz koşullara uyum sağlayana kadar",
+      "c": "Frenleri korumak için mümkün olduğunca az kullanmak",
+      "d": "Doğrudan otoyola çıkmak, çünkü orada yol genellikle daha az karlıdır"
+    },
+    "explanation": "Soğuk lastikler ve muhtemelen henüz tam olarak ısınmamış vücut, sürüşün ilk dakikalarında özel dikkat gerektirir. Koşullar güvenli olduğu kanıtlanır kanıtlanmaz hız ve yatış kademeli olarak artırılmalıdır."
+  },
+  "motorrad-besondere_bedingungen-14": {
+    "question": "Sonbaharda yoldaki yapraklar, özellikle nemle birleştiğinde, motosiklet sürücüleri için neden tehlikelidir?",
+    "options": {
+      "a": "Çünkü ıslak yapraklar lastiklere ek destek verir",
+      "b": "Çünkü yapraklar prensip olarak yolu kaymaya karşı korur",
+      "c": "Çünkü ıslak yapraklar çok kaygan, sabuna benzer bir tabaka oluşturabilir ve özellikle virajlarda ve frenlemede çok az tutunma sağlar",
+      "d": "Çünkü kuru yapraklar fren etkisini iyileştirir"
+    },
+    "explanation": "Islak yapraklar neredeyse bir yağlayıcı tabaka gibi davranabilir ve tutunmayı büyük ölçüde azaltabilir. Özellikle virajlarda ve yapraklarla kaplı bölümlerde frenlerken belirgin şekilde azaltılmış hız ve yatışla gidilmelidir."
+  },
+  "motorrad-besondere_bedingungen-15": {
+    "question": "Bir yolcu taşıdığınızda motosikletinizin sürüş özelliklerinde temel olarak ne değişir?",
+    "options": {
+      "a": "Hiçbir şey, ek ağırlık ABS tarafından otomatik olarak dengelenir",
+      "b": "Ek ağırlık ve dağılımı nedeniyle ağırlık merkezi, hızlanma, frenleme ve viraj alma davranışı belirgin şekilde değişir",
+      "c": "Motosiklet sadece daha kolay kullanılır hale gelir, çünkü yolcu dengeyi iyileştirir",
+      "d": "Arka tekerlekteki ek ağırlık nedeniyle fren mesafesi kısalır"
+    },
+    "explanation": "Bir yolcu, motosikletin ağırlık merkezi konumunu ve toplam ağırlığını önemli ölçüde değiştirir. Hızlanma daha ağır hale gelir, fren mesafesi genellikle uzar ve viraj alma davranışı değişir. Sürücüler buna uyum sağlamalıdır."
+  },
+  "motorrad-besondere_bedingungen-16": {
+    "question": "Bir yolcunun yasal olarak taşınabilmesi için motosiklet hangi ön koşulu karşılamalıdır?",
+    "options": {
+      "a": "Yolcu için ikinci uygun bir koltuk ve ayak dayama yerlerine sahip olmalıdır",
+      "b": "Yolcunun sürücüye her iki eliyle tutunması yeterlidir",
+      "c": "İkinci bir koltuk yeterlidir, ayak dayama yerleri yasal olarak gerekli değildir",
+      "d": "Yolcunun koltuksuz bagaj taşıyıcısında gitmesi yeterlidir"
+    },
+    "explanation": "Bir yolcu taşımak için motosiklet, bunun için öngörülen bir koltuk ve yolcu için ayak dayama yerleriyle donatılmış olmalıdır. Bu donanım olmadan yolcu taşımaya izin verilmez."
+  },
+  "motorrad-besondere_bedingungen-17": {
+    "question": "Deneyimsiz bir yolcuyla ilk kez yola çıkmadan önce sürücünün görevi nedir?",
+    "options": {
+      "a": "Hiçbiri, yolcu doğru davranış hakkında kendisi bilgi edinmelidir",
+      "b": "Sadece yolcuya kaskın nerede olduğunu söylemelidir",
+      "c": "Yolcuyu uygun davranış konusunda bilgilendirmelidir, örneğin virajlarda birlikte yatmak, tutunmak, sakin oturmak ve ayak dayama yerlerini kullanmak",
+      "d": "Yolcuyu prensip olarak ancak yola çıktıktan sonra bilgilendirebilir"
+    },
+    "explanation": "Deneyimsiz bir yolcu, yanlış davranışıyla, örneğin virajlarda ters yöne yaslanarak veya ani hareketlerle sürüş stabilitesini önemli ölçüde bozabilir. Yola çıkmadan önce kısa bir bilgilendirme her ikisi için de güvenliği önemli ölçüde artırır."
+  },
+  "motorrad-besondere_bedingungen-18": {
+    "question": "Motosikletteki yolcu için de hangi ekipman zorunluluğu geçerlidir?",
+    "options": {
+      "a": "Yolcu da, sürücü gibi, uygun bir koruma kaskı takmalıdır",
+      "b": "Yolcunun kaska ihtiyacı yoktur, çünkü sürüş güvenliğinden yalnızca sürücü sorumludur",
+      "c": "Bir bisiklet kaskı yolcu için yeterlidir",
+      "d": "Yolcu için kask takma zorunluluğu sadece yerleşim alanları dışında geçerlidir"
+    },
+    "explanation": "Kask takma zorunluluğu sürücü ve yolcu için eşit şekilde geçerlidir, yol türünden bağımsız olarak. Karayolu trafiği için onaylanmış bir koruma kaskı gereklidir, bir bisiklet kaskı bu gereksinimi karşılamaz."
+  },
+  "motorrad-besondere_bedingungen-19": {
+    "question": "Bir yolcu motosikletin frenleme davranışını genellikle nasıl etkiler?",
+    "options": {
+      "a": "Fren mesafesi her zaman belirgin şekilde kısalır",
+      "b": "Daha yüksek toplam ağırlık nedeniyle fren mesafesi genellikle uzar, bu nedenle daha erken ve öngörülü frenlemek gerekir",
+      "c": "Frenleme davranışı her durumda değişmeden kalır",
+      "d": "Yolcu sadece ön freni etkiler, arka freni etkilemez"
+    },
+    "explanation": "Yolcunun ek ağırlığıyla fren mesafesi genellikle artar. Sürücüler bunu daha erken ve öngörülü frenleme ile daha büyük bir güvenlik mesafesiyle telafi etmelidir."
+  },
+  "motorrad-besondere_bedingungen-20": {
+    "question": "Yol düzensizlikleri, mıcır veya yol seviyesi farkı olan bir şantiyeden geçerken nasıl davranmalısınız?",
+    "options": {
+      "a": "Tehlikeli bölümü kısaltmak için mümkün olduğunca hızlı geçmek",
+      "b": "Kontrolü korumak için yol seviyesi farklarını geçerken sert fren yapmak",
+      "c": "Hızı belirgin şekilde azaltmak, gevşek bir üst gövdeyle dik gitmek ve mümkünse frenlemeyi engebeli bölümlerden önce tamamlamak",
+      "d": "Yolun ortasından kaçınmak ve her zaman şantiyenin en dış kenarından gitmek"
+    },
+    "explanation": "Düzensizlik, mıcır veya seviye farkı olan şantiye bölgelerinde hız azaltılmalı ve mümkün olduğunca dik gidilmelidir. Frenleme, engebeli bölümden önce tamamlanmalıdır, çünkü gevşek zeminde fren yapmak stabiliteyi tehlikeye atar."
+  },
+  "motorrad-besondere_bedingungen-21": {
+    "question": "İnşaat alanlarında veya yeni yamalanan yol kesimlerinde sıkça bulunan gevşek çakıl veya moloz neden motosikletler için özellikle kritiktir?",
+    "options": {
+      "a": "Lastik aşınmasını azalttığı için",
+      "b": "Lastik ile yol yüzeyi arasındaki gevşek malzeme küçük bilyalı rulmanlar gibi davranabildiği için, bu da frenlerken, hızlanırken ve viraj alırken tutuşu ciddi şekilde azaltır",
+      "c": "Sadece görüşü etkilediği, lastik tutuşunu etkilemediği için",
+      "d": "Hız 80 km/s üzerindeyse moloz motosikletler için tehlikesiz olduğu için"
+    },
+    "explanation": "Gevşek çakıl, lastik ile sert yol yüzeyi arasındaki doğrudan temas alanını önemli ölçüde azaltır. Bu nedenle özellikle frenleme, hızlanma veya direksiyon hareketlerinde tutuş belirgin şekilde düşer, bu da düşme riskini artırır."
+  },
+  "motorrad-besondere_bedingungen-22": {
+    "question": "Belirgin tekerlek izleri ve yol dalgalanmaları olan bir yol kesimine yaklaşıyorsunuz. Nasıl doğru davranılır?",
+    "options": {
+      "a": "Hızı ayarlamak, derin izlerden mümkün olduğunca kaçınacak şekilde bir yol izlemek ve direksiyon hareketlerini sakin ve kontrollü yapmak",
+      "b": "Motosikletin engebeleri atlaması için mümkün olduğunca hızlı geçmek",
+      "c": "En istikrarlı yönlendirmenin olduğu düşüncesiyle izin tam ortasından gitmek",
+      "d": "Titreşimlerden kaçınmak için elleri direksiyondan çekmek"
+    },
+    "explanation": "Tekerlek izleri ön tekerleği yanal olarak yönlendirebilir ve direksiyonu etkileyebilir. Ayarlanmış hız, dikkatli seçilmiş bir güzergah ve sakin direksiyon hareketleri motosiklet üzerindeki kontrolü korumaya yardımcı olur."
+  },
+  "motorrad-besondere_bedingungen-23": {
+    "question": "Şiddetli, sağanak şeklinde yan rüzgarda, örneğin açık yollarda veya köprülerde nasıl davranılmalıdır?",
+    "options": {
+      "a": "Rüzgara daha kısa süre maruz kalmak için mümkün olduğunca hızlı gitmek",
+      "b": "Hızı azaltmak, direksiyonu gevşek ama güvenli tutmak ve ani rüzgar sağanaklarına hazırlıklı olmak, özellikle ağaçlar, köprü ayakları veya kamyonlar tarafından sağlanan rüzgar korumasının bittiği yerlerde",
+      "c": "Rüzgar darbelerini tamamen bastırmak için direksiyonu olabildiğince sıkı ve sabit tutmak",
+      "d": "Diğer trafikten bağımsız olarak yalnızca yolun en sağ kenarında sürmek"
+    },
+    "explanation": "Sağanak şeklinde yan rüzgarda motosiklet aniden yana savrulabilir, özellikle rüzgar koruması (örneğin ağaçlar veya köprü ayakları) sona erdiğinde. Azaltılmış hız ve gevşek ama güvenli bir tutuş, rüzgar darbelerine sertçe karşı koymak yerine onları yumuşatmayı sağlar."
+  },
+  "motorrad-besondere_bedingungen-24": {
+    "question": "Geçen veya sollayan bir kamyonun oluşturduğu sözde basınç dalgası (baş dalgası) ne anlama gelir ve buna nasıl tepki verilmelidir?",
+    "options": {
+      "a": "Bu yalnızca kamyon şoförlerini ilgilendirir ve diğer araçları etkilemez",
+      "b": "Bu yalnızca yağmurda oluşur ve göz ardı edilebilir",
+      "c": "Bu, motosikleti yana itebilen veya emme etkisiyle çekebilen kısa süreli bir hava girdabıdır; sürücüler direksiyonu güvenle tutmalı ve kamyona yeterli yanal mesafe bırakmalıdır",
+      "d": "Daha hızlı gidilerek tamamen önlenebilir"
+    },
+    "explanation": "Kamyon gibi büyük araçlar geçerken bir basınç dalgası ve ardından bir emme etkisi oluşturur. Bu, motosikleti kısa süreliğine şeritten itebilir veya çekebilir. Güvenli bir tutuş, uygun hız ve daha büyük yanal mesafe buna karşı koymaya yardımcı olur."
+  },
+  "motorrad-besondere_bedingungen-25": {
+    "question": "Motosikletliler neden şiddetli yan rüzgarda bir kamyonu sollarken özellikle dikkatli olmalıdır?",
+    "options": {
+      "a": "Çünkü kamyonlar yan rüzgarda hızlarını temelde 30 km/s'ye düşürmek zorundadır",
+      "b": "Çünkü kamyonun sonunda rüzgar koruması aniden değişir ve motosiklet uyarı olmadan bir rüzgar sağanağına yakalanabilir",
+      "c": "Çünkü motosikletler sollarken otomatik olarak yan rüzgara karşı korunur",
+      "d": "Çünkü yan rüzgar yalnızca sollanırken önemlidir, sollarken değil"
+    },
+    "explanation": "Sollama sırasında kamyon geçici olarak yan rüzgara karşı koruma sağlar. Motosiklet aracın ön kısmına ulaştığı veya kamyonu geçtiği anda beklenmedik bir rüzgar sağanağı oluşabilir ve sürücü buna hazırlıklı olmalıdır."
+  },
+  "motorrad-besondere_bedingungen-26": {
+    "question": "Yorgunluk neden motosikletliler için, otomobil sürücülerinden bile daha tehlikelidir?",
+    "options": {
+      "a": "Çünkü motosikletler yorgunlukta otomatik olarak yavaşlar",
+      "b": "Çünkü motosiklet sürerken yorgunluğun önemli bir etkisi yoktur, çünkü araç kendiliğinden şeritte kalır",
+      "c": "Çünkü bir motosikletin dengesi aktif olarak korunmalıdır ve kısa süreli dikkat kaybı veya mikro uyku bile kontrol kaybına ve düşmeye yol açabilir",
+      "d": "Çünkü yorgunluk yalnızca gece sürüşlerinde ortaya çıkabilir"
+    },
+    "explanation": "Dört tekerlekli bir araçtan farklı olarak, bir motosiklet kendiliğinden dengede kalmaz. Kısa bir mikro uyku veya dikkat kaybı hemen denge kaybına ve düşmeye yol açabilir. Bu nedenle yorgunluk tek izli araçlar için özellikle risklidir."
+  },
+  "motorrad-besondere_bedingungen-27": {
+    "question": "Uzun bir sürüş sırasında ağır göz kapakları ve azalan konsantrasyon gibi ilk yorgunluk belirtilerini fark ediyorsunuz. Doğru olan nedir?",
+    "options": {
+      "a": "Mümkün olan en kısa sürede mola vermek, motosikletten inmek ve gerekirse hareket etmek veya dinlenmek, ardından yolculuğa devam etmek",
+      "b": "Hedefe daha hızlı ulaşmak ve yorgunluk evresini kısaltmak için hızı artırmak",
+      "c": "Kaskın vizörünü açıp devam etmek, çünkü temiz hava yorgunluğu tamamen giderir",
+      "d": "Kulaklıktan gelen müziğin sesini açmak ve mola vermeden devam etmek"
+    },
+    "explanation": "İlk yorgunluk belirtileri ciddiye alınmalıdır. Motosiklet sürmek aktif denge gerektirdiğinden, zamanında mola vermek, dikkat dağıtarak veya hızı artırarak yorgunluğu bastırmaya çalışmaktan çok daha güvenlidir."
+  },
+  "motorrad-besondere_bedingungen-28": {
+    "question": "Motosikletteki kilitlenme önleyici fren sistemi (ABS) hakkında hangi ifade doğrudur?",
+    "options": {
+      "a": "ABS, yol durumundan bağımsız olarak temelde her düşmeyi önler",
+      "b": "ABS, ani frenlemede tekerleklerin kilitlenmesini önler ve bu sayede genellikle frenleme mesafesini kısaltır, ancak koşullara uygun bir sürüş tarzının yerini tutmaz",
+      "c": "ABS yalnızca ıslak zeminde çalışır ve kuru zeminde etkisizdir",
+      "d": "ABS temelde virajlarda maksimum yatış açısını artırır"
+    },
+    "explanation": "ABS tekerleklerin kilitlenmesini önler ve ani frenlemelerde kontrolü korumaya yardımcı olur. Ancak lastik tutuşunun fiziksel sınırlarını ortadan kaldıramaz ve öngörülü, koşullara uygun bir sürüş tarzının yerini tutmaz."
+  },
+  "motorrad-besondere_bedingungen-29": {
+    "question": "ABS ve çekiş kontrolü hangi zeminlerde fiziksel sınırlarına ulaşabilir ve bu nedenle sürücüler bu sistemlere körü körüne güvenmemelidir?",
+    "options": {
+      "a": "Yalnızca orta hızda kuru asfaltta",
+      "b": "Yalnızca kesintisiz şerit işaretlemesi olan otoyollarda",
+      "c": "Buzlanma, gevşek çakıl, çamur veya dökülmüş yağ gibi çok az tutuşun olduğu zeminlerde, elektronik destekle bile neredeyse hiç tutuş olmayan yerlerde",
+      "d": "Yalnızca yolcuyla sürüşte, asla tek başına sürüşte"
+    },
+    "explanation": "ABS ve çekiş kontrolü yalnızca mevcut tutuşu en iyi şekilde kullanabilir, ancak ek bir tutuş oluşturamaz. Buzlanma, yağ veya gevşek çakıl gibi son derece kaygan zeminlerde, bu sistemlere rağmen düşme riski yüksek kalır."
+  },
+  "motorrad-besondere_bedingungen-30": {
+    "question": "Özel koşullarda hızlanırken, örneğin ıslak veya kaygan yolda, çekiş kontrolü nasıl bir rol oynar?",
+    "options": {
+      "a": "Hızlanma sırasında arka tekerleğin patinaj yapmasını algılayabilir ve gücü azaltabilir, ancak zemine uygun dikkatli gaz kullanımının yerini tutmaz",
+      "b": "Yol durumundan bağımsız olarak temelde her türlü tutuş kaybını önler",
+      "c": "Yalnızca pist kullanımı için önemlidir ve yol trafiğinde hiçbir işlevi yoktur",
+      "d": "Hızı ıslaklığa veya kayganlığa uyarlama gerekliliğini tamamen ortadan kaldırır"
+    },
+    "explanation": "Çekiş kontrolü, arka tekerleğin patinaj yapmasını algılamaya ve motor gücünü ayarlamaya yardımcı olur. Ancak lastik tutuşunun fiziksel sınırlarını aşamaz, bu nedenle dikkatli, duruma uygun bir sürüş tarzı hâlâ gereklidir."
+  }
+}

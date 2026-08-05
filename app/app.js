@@ -1,10 +1,10 @@
-// drivenow MVP — question browser (Sprint 1)
+// Zettacard MVP — question browser (Sprint 1)
 // Scope: click through all questions, switch language, reveal answer + explanation.
 // Explicitly OUT of scope: exam simulation, scoring, pass/fail, timers.
 
 const UI_STRINGS = {
   de: {
-    title: "drivenow — Lernkarten",
+    title: "Zettacard — Lernkarten",
     subtitle: (n) => `${n} Fragen · Lernkarten & Prüfungssimulation`,
     filterAll: "Alle",
     back: "← Liste",
@@ -23,7 +23,7 @@ const UI_STRINGS = {
     correctMark: "Richtig",
   },
   en: {
-    title: "drivenow — Flashcards",
+    title: "Zettacard — Flashcards",
     subtitle: (n) => `${n} questions · flashcards & exam simulation`,
     filterAll: "All",
     back: "← List",
@@ -42,7 +42,7 @@ const UI_STRINGS = {
     correctMark: "Correct",
   },
   uk: {
-    title: "drivenow — Картки для навчання",
+    title: "Zettacard — Картки для навчання",
     subtitle: (n) => `${n} питань · картки та симуляція іспиту`,
     filterAll: "Усі",
     back: "← Список",
@@ -61,7 +61,7 @@ const UI_STRINGS = {
     correctMark: "Правильно",
   },
   pl: {
-    title: "drivenow — Fiszki",
+    title: "Zettacard — Fiszki",
     subtitle: (n) => `${n} pytań · fiszki i symulacja egzaminu`,
     filterAll: "Wszystkie",
     back: "← Lista",
@@ -80,7 +80,7 @@ const UI_STRINGS = {
     correctMark: "Poprawnie",
   },
   ar: {
-    title: "drivenow — بطاقات تعليمية",
+    title: "Zettacard — بطاقات تعليمية",
     subtitle: (n) => `${n} سؤال · بطاقات تعليمية ومحاكاة امتحان`,
     filterAll: "الكل",
     back: "→ القائمة",
@@ -99,7 +99,7 @@ const UI_STRINGS = {
     correctMark: "صحيح",
   },
   zh: {
-    title: "drivenow — 学习卡片",
+    title: "Zettacard — 学习卡片",
     subtitle: (n) => `${n} 道题 · 学习卡片与模拟考试`,
     filterAll: "全部",
     back: "← 列表",
@@ -118,7 +118,7 @@ const UI_STRINGS = {
     correctMark: "正确",
   },
   hi: {
-    title: "drivenow — अभ्यास कार्ड",
+    title: "Zettacard — अभ्यास कार्ड",
     subtitle: (n) => `${n} प्रश्न · अभ्यास कार्ड और परीक्षा सिमुलेशन`,
     filterAll: "सभी",
     back: "← सूची",
@@ -137,7 +137,7 @@ const UI_STRINGS = {
     correctMark: "सही",
   },
   tr: {
-    title: "drivenow — Çalışma Kartları",
+    title: "Zettacard — Çalışma Kartları",
     subtitle: (n) => `${n} soru · çalışma kartları ve sınav simülasyonu`,
     filterAll: "Tümü",
     back: "← Liste",
@@ -156,7 +156,7 @@ const UI_STRINGS = {
     correctMark: "Doğru",
   },
   fr: {
-    title: "drivenow — Fiches d'apprentissage",
+    title: "Zettacard — Fiches d'apprentissage",
     subtitle: (n) => `${n} questions · fiches et simulation d'examen`,
     filterAll: "Toutes",
     back: "← Liste",
@@ -175,7 +175,7 @@ const UI_STRINGS = {
     correctMark: "Correct",
   },
   ru: {
-    title: "drivenow — Карточки для изучения",
+    title: "Zettacard — Карточки для изучения",
     subtitle: (n) => `${n} вопросов · карточки и симуляция экзамена`,
     filterAll: "Все",
     back: "← Список",
@@ -194,7 +194,7 @@ const UI_STRINGS = {
     correctMark: "Правильно",
   },
   es: {
-    title: "drivenow — Tarjetas de estudio",
+    title: "Zettacard — Tarjetas de estudio",
     subtitle: (n) => `${n} preguntas · tarjetas y simulación de examen`,
     filterAll: "Todas",
     back: "← Lista",
@@ -213,7 +213,7 @@ const UI_STRINGS = {
     correctMark: "Correcto",
   },
   it: {
-    title: "drivenow — Schede di studio",
+    title: "Zettacard — Schede di studio",
     subtitle: (n) => `${n} domande · schede e simulazione d'esame`,
     filterAll: "Tutte",
     back: "← Elenco",
@@ -1002,7 +1002,7 @@ function certificateHtmlDoc(record) {
   .disclaimer { margin-top: 40px; font-size: 0.75rem; color: #888; font-family: Arial, sans-serif; }
 </style></head>
 <body>
-  <h1>drivenow</h1>
+  <h1>Zettacard</h1>
   <div class="sub">Certificate of Completion</div>
   <div class="module">${escape(record.moduleLabel)}</div>
   <div class="scope">${escape(record.scopeLabel)}</div>
@@ -1017,14 +1017,14 @@ function credentialJsonDoc(record) {
     type: ["VerifiableCredential", "OpenBadgeCredential"],
     unverified: true,
     unverifiedReason: "Self-issued by a zero-backend static PWA with no signing authority - not cryptographically signed, not independently verifiable by a third party.",
-    issuer: { type: "Profile", name: "drivenow (self-issued, unverified)" },
+    issuer: { type: "Profile", name: "Zettacard (self-issued, unverified)" },
     validFrom: record.passedAt,
     credentialSubject: {
       type: "AchievementSubject",
       achievement: {
         type: "Achievement",
         name: `${record.moduleLabel} - ${record.scopeLabel}`,
-        description: `Passed an Exam Simulation for ${record.moduleLabel} (${record.scopeLabel}) in the drivenow app.`,
+        description: `Passed an Exam Simulation for ${record.moduleLabel} (${record.scopeLabel}) in the Zettacard app.`,
         criteria: { narrative: `${record.totalQuestions}-question simulated exam, ${record.errorPoints} error points, ${record.wrongHighStakes} wrong safety-critical answer(s).` },
       },
     },
@@ -1524,10 +1524,10 @@ function renderExamResults() {
     `;
     const record = state.exam.certRecord;
     el("#exam-results-cert-html").addEventListener("click", () => {
-      downloadTextFile(`drivenow-zertifikat-${record.id}.html`, certificateHtmlDoc(record), "text/html");
+      downloadTextFile(`zettacard-zertifikat-${record.id}.html`, certificateHtmlDoc(record), "text/html");
     });
     el("#exam-results-cert-json").addEventListener("click", () => {
-      downloadTextFile(`drivenow-credential-${record.id}.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
+      downloadTextFile(`zettacard-credential-${record.id}.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
   } else {
     certEl.innerHTML = "";

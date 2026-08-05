@@ -1,0 +1,902 @@
+{
+  "lkw-fahrdynamik-01": {
+    "question": "Tam yüklü bir kamyon aynı hızda neden bir binek araçtan çok daha uzun bir fren mesafesine ihtiyaç duyar?",
+    "options": {
+      "a": "Çünkü kamyonlara temelde binek araçlardan daha zayıf frenler takılır",
+      "b": "Çünkü kinetik enerji kütleyle birlikte artar ve durdurmak için daha fazla enerjinin yok edilmesi gerekir",
+      "c": "Çünkü kamyon lastikleri daha yumuşak kauçuktan yapılır",
+      "d": "Çünkü kamyon şoförlerinin yasal olarak daha yavaş tepki vermesi gerekir"
+    },
+    "explanation": "Bir aracın kinetik enerjisi kütlesiyle orantılı olarak artar. Ağır yüklü bir kamyon frenlerken bir binek araca göre kat kat fazla enerjiyi yok etmek zorundadır, bu yüzden teknik olarak iyi çalışan frenlere rağmen durma mesafesi belirgin şekilde daha uzundur."
+  },
+  "lkw-fahrdynamik-02": {
+    "question": "Bir kamyonun toplam durma mesafesi hangi iki bölümden oluşur?",
+    "options": {
+      "a": "Görüş mesafesi ve genel görüş mesafesi",
+      "b": "Ön fren mesafesi ve art fren mesafesi",
+      "c": "Tepki mesafesi ve fren mesafesi",
+      "d": "Direksiyon mesafesi ve serbest yuvarlanma mesafesi"
+    },
+    "explanation": "Durma mesafesi, tepki mesafesinden (sürücünün tepki verene kadar geçen mesafe) ve asıl fren mesafesinden (frene basıldığından durana kadar geçen mesafe) oluşur. Ağır araçlarda özellikle fren mesafesi binek araçlara göre belirgin şekilde daha uzundur."
+  },
+  "lkw-fahrdynamik-03": {
+    "question": "Kamyonların sağa dönüşlerinde bisikletliler ve yayalarla ağır kazalar neden özellikle sık meydana gelir?",
+    "options": {
+      "a": "Çünkü şoför kabininin çapraz sağ önü ve yanındaki alan sürücü tarafından neredeyse görülemez",
+      "b": "Çünkü kamyonlar dönüş yaparken yasal olarak binek araçlardan daha hızlı gidebilir",
+      "c": "Çünkü sağa dönüşte bisikletliler kamyonlara karşı her zaman öncelik hakkına sahiptir",
+      "d": "Çünkü kamyon aynaları yalnızca arka bölgeyi gösterir"
+    },
+    "explanation": "Kasa yüksekliği ve oturuş pozisyonu nedeniyle kabinin hemen yanında ve biraz önünde, aynalara rağmen bisikletlilerin ve yayaların neredeyse hiç görülemediği bir kör nokta oluşur. Bu tür dönüş kazaları kamyon trafiğindeki en tehlikeli kaza türlerinden biridir - özellikle yavaş, öngörülü dönüş ve aktif gözlem belirleyicidir."
+  },
+  "lkw-fahrdynamik-04": {
+    "question": "Bir kamyonun kör noktaları (no-zones) hakkında hangi ifade doğrudur?",
+    "options": {
+      "a": "Yalnızca aracın hemen arkasında olan tek bir önemli kör nokta vardır",
+      "b": "Modern ayna sistemleri kör noktaları tamamen ortadan kaldırır",
+      "c": "Kör noktalar yalnızca duran araçlarda, sürüş sırasında değil oluşur",
+      "d": "Kamyonun etrafında birkaç kör nokta vardır: önde, arkada ve her iki yanda"
+    },
+    "explanation": "Kamyonlarda tipik olarak dört kör nokta bölgesi bulunur: hemen önünde, aracın tam arkasında ve sağ ile sol yanları boyunca. Bu bölgelerdeki diğer trafik katılımcıları aynalara rağmen sürücü tarafından neredeyse hiç görülemez."
+  },
+  "lkw-fahrdynamik-05": {
+    "question": "Kamyonda \"savrulma eğrisi\" (Schleppkurve) kavramı neyi ifade eder?",
+    "options": {
+      "a": "Bir kamyonun hâlâ çıkabildiği azami eğim",
+      "b": "Arka aks(lar)ın viraj alırken ön akstan daha dar geçtiği alan",
+      "c": "Bir kamyonun ani frende çizdiği eğri",
+      "d": "Kamyonun sollarken bırakması gereken mesafe"
+    },
+    "explanation": "Dönüş sırasında kamyonun arka aksı, virajı ön akstan daha dar keser (off-tracking). Bu nedenle viraj içinde duran kişiler veya araçlar, çekici çoktan geçmiş olsa bile kasa arkası veya römork aksı tarafından çarpılabilir."
+  },
+  "lkw-fahrdynamik-06": {
+    "question": "Bir kamyon dar bir kavşakta neden genellikle birden fazla şeride ihtiyaç duyar?",
+    "options": {
+      "a": "Çünkü kamyonlar kavşakta tüm diğer araçlara karşı temelde önceliğe sahiptir",
+      "b": "Çünkü kavşak levhası bunu 3,5 tonun üzerindeki tüm araçlar için zorunlu kılar",
+      "c": "Çünkü uzun dingil mesafesi ve savrulma eğrisi tek bir dar şeritte geçişi imkânsız kılar",
+      "d": "Çünkü kamyonlar kavşakta her zaman geri geri gitmek zorundadır"
+    },
+    "explanation": "Uzun dingil mesafesi ve off-tracking nedeniyle bir kamyon dar bir kavşaktan geçerken genellikle yolun tüm genişliğini kullanmak zorunda kalır. Diğer trafik katılımcıları kamyona yeterli yer bırakmalı ve onun yanından kavşağa girmemelidir."
+  },
+  "lkw-fahrdynamik-07": {
+    "question": "Kamyonlarda dar virajlarda veya ani bir kaçınma manevrasında devrilme riski neden artar?",
+    "options": {
+      "a": "Çünkü kamyonlarda temelde binek araçlardan daha dar lastikler bulunur",
+      "b": "Çünkü yüksek ağırlık merkezi hızlı viraj alırken büyük bir devrilme momenti oluşturur",
+      "c": "Çünkü kamyon direksiyonları binek araç direksiyonlarından daha yavaş tepki verir",
+      "d": "Çünkü kamyonlarda seri üretimde hidrolik direksiyon bulunmaz"
+    },
+    "explanation": "Bir aracın ağırlık merkezi ne kadar yüksekse, viraj alırken veya kaçınma manevrasında dış tekerleklere etki eden devrilme momenti o kadar büyük olur. Yüksek kasalı veya yükü yüksekte olan kamyonlarda, binek araçlar için kritik olmayan bir hız bile devrilmeye yol açabilir."
+  },
+  "lkw-fahrdynamik-08": {
+    "question": "Modern kamyonlarda elektronik stabilite programının (ESP) işlevi nedir?",
+    "options": {
+      "a": "Yaklaşan savrulma veya devrilmeyi algılar ve aracı stabilize etmek için belirli tekerlekleri hedefli şekilde frenler",
+      "b": "Aracın her türlü aşırı yüklenmesini otomatik olarak önler",
+      "c": "Virajlara göre hızı ayarlama zorunluluğunun yerini alır",
+      "d": "Römork işletiminde debriyajı otomatik olarak kontrol eder"
+    },
+    "explanation": "ESP, sensörler aracılığıyla savrulma veya devrilmenin başlangıcı gibi dengesiz sürüş durumlarını algılar ve belirli tekerleklere hedefli fren müdahalesi ile motor müdahalesi yaparak aracı stabilize eder. Devrilme riskini önemli ölçüde azaltır ancak uygun sürüş davranışının yerini almaz."
+  },
+  "lkw-fahrdynamik-09": {
+    "question": "Kısmen yüklü bir tanker viraj alırken veya frenlerken neden özellikle devrilme tehlikesi altındadır?",
+    "options": {
+      "a": "Çünkü tanker araçların ağırlık merkezi temelde kasa üstü yapılardan daha düşüktür",
+      "b": "Çünkü sıvılar akslerin fren etkisini güçlendirir",
+      "c": "Çünkü tank içindeki sıvı ileri geri çalkalanabilir ve araç üzerinde ek, ani kuvvetler oluşturabilir",
+      "d": "Çünkü tanker araçların stabilite kontrolüne sahip olmasına izin verilmez"
+    },
+    "explanation": "Tam dolu olmayan bir tankta sıvı, direksiyon veya fren hareketlerinde çalkalanmaya başlayabilir (çalkalanma etkisi). Bunun sonucunda oluşan zaman gecikmeli yanal kuvvetler aracı dengesizleştirebilir ve orta düzeyde bir viraj hızında bile devrilmeye yol açabilir."
+  },
+  "lkw-fahrdynamik-10": {
+    "question": "Güçlü yan rüzgârda hangi araç yoldan savrulma veya devrilme açısından özellikle risklidir?",
+    "options": {
+      "a": "Alçak, tamamen yüklü bir damperli kamyon",
+      "b": "Büyük yan yüzeyli boş bir kasa üstü yapı veya branda örtülü çekici",
+      "c": "Özellikle kısa dingil mesafesine sahip bir araç",
+      "d": "Hız sabitleyicili bir araç"
+    },
+    "explanation": "Büyük ve yüksek yan yüzeyli araçlar - örneğin boş kasa üstü yapılar veya branda örtülü araçlar - rüzgâra büyük bir temas yüzeyi sunar ve aynı zamanda hafiftir, bu yüzden köprü geçişlerinde veya orman koridorlarında esen yan rüzgâr araçları ciddi şekilde savurabilir veya devirebilir."
+  },
+  "lkw-fahrdynamik-11": {
+    "question": "Bir kamyon şoförü alçak köprü veya geçitlerle kazaları önlemek için nasıl davranmalıdır?",
+    "options": {
+      "a": "Kamyonların temelde her köprünün altından geçtiğine güvenerek sezgisine güvenebilir",
+      "b": "Sadece sıradan bir binek araç navigasyon cihazına güvenebilir",
+      "c": "Yükseklik kısıtlamaları yalnızca römorklu araçlar için geçerlidir",
+      "d": "Aracının gerçek yüksekliğini bilmeli, güzergâhı önceden kontrol etmeli ve geçit yüksekliği uyarı levhalarına tutarlı şekilde dikkat etmelidir"
+    },
+    "explanation": "Kamyon şoförleri araçlarının tam yüksekliğini bilmeli, uygun kamyon navigasyonu kullanmalı ve yükseklik sınırlama levhalarını ciddiye almalıdır. Çok alçak bir köprüye çarpmak araçta ve altyapıda ağır hasara ve can güvenliğini tehdit eden kazalara yol açabilir."
+  },
+  "lkw-fahrdynamik-12": {
+    "question": "Trafik işaretiyle bildirilen bir genişlik kısıtlamasında kamyon şoförü özellikle neye dikkat etmelidir?",
+    "options": {
+      "a": "Dış aynalar ve yükün olası fazla genişliği dahil aracının gerçek toplam genişliğine",
+      "b": "Yalnızca şoför kabininin genişliğine, çünkü aynalar hesaba katılmaz",
+      "c": "Genişlik kısıtlamaları yalnızca otobüsleri ilgilendirir",
+      "d": "Karşıdan gelen trafik görünmüyorsa kısıtlamayı göz ardı edebilir"
+    },
+    "explanation": "Belirtilen azami genişlik, dış aynalar ve kasadan taşan yük dahil aracın toplam genişliğini ifade eder. Buna dikkat edilmezse dar yollarda karşıdan gelen trafik, trafik işaretleri veya sokak mobilyalarıyla çarpışma tehlikesi doğar."
+  },
+  "lkw-fahrdynamik-13": {
+    "question": "Daha yüksek dingil yüküne rağmen ağır ticari araçlarda su üstü kayması (aquaplaning) neden tehlikeli olabilir?",
+    "options": {
+      "a": "Çünkü ağır araçların yolla teması temelde binek araçlardan daha azdır",
+      "b": "Çünkü kamyon lastiklerinin diş deseni olmasına izin verilmez",
+      "c": "Çünkü yüksek hızda su tabakası yeterince hızlı itilemez ve lastikler, özellikle deseni aşınmışsa yolla temasını kaybedebilir",
+      "d": "Çünkü 3,5 tonun üzerindeki araçlarda su üstü kayması yasal olarak mümkün değildir"
+    },
+    "explanation": "Hız, su miktarı ve lastik deseni uygun değilse yüksek dingil yükü su üstü kayması riskini mutlaka azaltmaz. Çok yüksek hızda lastik ile yol arasında bir su takozu oluşabilir; bu da aracın yolla temasını kaybetmesine ve kontrol edilemez hale gelmesine yol açar - hız hava ve yol koşullarına uyarlanmalıdır."
+  },
+  "lkw-fahrdynamik-14": {
+    "question": "İzin verilen toplam kütlesi 3,5 tonu aşan motorlu araçlar, yerleşim yeri dışında saatte 50 km'den fazla hızla aynı şeritte art arda giderken en az kaç metre mesafe bırakmalıdır?",
+    "options": {
+      "a": "En az 20 metre",
+      "b": "En az 50 metre",
+      "c": "En az 100 metre",
+      "d": "Sürücünün takdirine bağlı bir mesafe"
+    },
+    "explanation": "İzin verilen toplam kütlesi 3,5 tonu aşan motorlu araçlar için yerleşim yeri dışında saatte 50 km'nin üzerindeki hızlarda öndeki araçla en az 50 metre mesafe bırakılması öngörülür. Bu, aracın kütlesinden kaynaklanan daha uzun fren mesafesini dengelemeyi ve konvoy halinde giderken arkadan çarpma kazalarını önlemeyi amaçlar."
+  },
+  "lkw-fahrdynamik-15": {
+    "question": "İzin verilen toplam kütlesi 3,5 tonu aşan kamyonlarda hız sınırlayıcı genellikle hangi azami hıza ayarlanır?",
+    "options": {
+      "a": "70 km/sa",
+      "b": "90 km/sa",
+      "c": "110 km/sa",
+      "d": "130 km/sa"
+    },
+    "explanation": "İzin verilen toplam kütlesi 3,5 tonu aşan kamyonlar, azami hızı teknik olarak 90 km/sa ile sınırlayan bir hız sınırlayıcı ile donatılmalıdır. Bu, kütle, fren mesafesi ve devrilme tehlikesi göz önüne alındığında özellikle riskli olacak aşırı hızları önlemeyi amaçlar."
+  },
+  "lkw-vorschriften-01": {
+    "question": "Kamyonlar genellikle hangi aralıklarla ana muayeneye (HU) girmelidir?",
+    "options": {
+      "a": "Yeni binek araçlarda olduğu gibi üç yılda bir",
+      "b": "Genellikle her yıl",
+      "c": "Yalnızca 100.000 km üzerinde kilometre yapıldığında",
+      "d": "Yalnızca ilk tescilde tek seferlik"
+    },
+    "explanation": "Kamyonlar ve diğer ticari amaçla kullanılan taşıtlar, daha yoğun kullanımları ve daha yüksek güvenlik gereklilikleri nedeniyle genellikle her yıl ana muayeneye girmelidir; bu, yeni binek araçlara göre çok daha sık bir aralıktır."
+  },
+  "lkw-vorschriften-02": {
+    "question": "Kamyon ve römorklarda ana muayeneler arasında yapılan ek güvenlik muayenesi (SP) neye hizmet eder?",
+    "options": {
+      "a": "Frenler, akslar ve römork bağlantısı gibi güvenlikle ilgili parçaları ara sırada kontrol etmeye",
+      "b": "Yalnızca motor egzoz değerlerini ölçmeye",
+      "c": "Yük miktarını belgelemeye",
+      "d": "Ana muayenenin yerini tamamen alır"
+    },
+    "explanation": "Güvenlik muayenesi, ticari araçlar ve römorklarda özellikle güvenlikle ilgili fren sistemi, akslar, lastikler ve römork bağlantısı gibi parçaların ek ve daha sık yapılan bir kontrolüdür; ana muayeneler arasında eksiklikleri erken tespit etmeyi amaçlar."
+  },
+  "lkw-vorschriften-03": {
+    "question": "Kamyon denetimlerinde dingil yükü tartıları neye hizmet eder?",
+    "options": {
+      "a": "Motor gücünü ölçmeye",
+      "b": "Lastik diş derinliğini kontrol etmeye",
+      "c": "İzin verilen dingil yükünün veya izin verilen toplam ağırlığın aşılıp aşılmadığını belirlemeye",
+      "d": "Yapılan hızı belirlemeye"
+    },
+    "explanation": "Trafik denetimlerindeki dingil yükü tartıları, her bir dingil üzerindeki gerçek ağırlığı ve aracın toplam ağırlığını ölçer. Böylece izin verilen dingil yükünün veya izin verilen toplam ağırlığın aşılıp aşılmadığı tespit edilebilir."
+  },
+  "lkw-vorschriften-04": {
+    "question": "Bir kamyonun önemli ölçüde aşırı yüklenmesinin sonuçları neler olabilir?",
+    "options": {
+      "a": "Yük düzgün bağlanmışsa hiçbir sonucu olmaz",
+      "b": "Başka bir etkisi olmayan yalnızca hafif bir uyarı",
+      "c": "Bir sonraki ana muayeneye kadar geçen bekleme süresinin kısalması",
+      "d": "Uzayan fren mesafesi, artan devrilme ve lastik hasarı riski ile yolculuğa devam etme yasağına kadar varan para cezaları"
+    },
+    "explanation": "Aşırı yükleme sürüş davranışını temelden değiştirir: fren mesafesi uzar, virajlarda devrilme riski artar, lastikler ve dingiller aşırı yüklenebilir. Denetimlerde, boyutuna göre, ağır para cezaları, ceza puanları ve aşırı durumlarda yük azaltılana kadar yolculuğa devam etme yasağı tehdidi vardır."
+  },
+  "lkw-vorschriften-05": {
+    "question": "Bir kamyonun yükünün usulüne uygun sabitlenmesinden kim sorumludur?",
+    "options": {
+      "a": "Yalnızca malın gönderen tarafı",
+      "b": "Öncelikle aracın sürücüsü, yükü kimin yüklediğinden bağımsız olarak",
+      "c": "Yalnızca sözleşme tarafı olarak nakliye şirketi",
+      "d": "Yük görsel olarak sorunsuz göründüğü sürece hiç kimse"
+    },
+    "explanation": "Başka kişiler yüklemeye katılmış olsa bile, sürücü yola çıkmadan önce yükün trafiğe uygun şekilde sabitlendiğini kontrol etmekle yükümlüdür. Yeterince sabitlenmemiş yük, sürüş stabilitesini ve diğer trafik katılımcılarını tehlikeye atar."
+  },
+  "lkw-vorschriften-06": {
+    "question": "Kamyondaki turuncu uyarı levhaları genellikle neyi gösterir?",
+    "options": {
+      "a": "Aracın 750 kg üzerinde bir römork çektiğini",
+      "b": "Aracın ağır yük taşımacılığı için özel izne sahip olduğunu",
+      "c": "Özel kuralların geçerli olduğu tehlikeli maddelerin taşındığını",
+      "d": "Kamyonun yalnızca uzun mesafe taşımacılığında kullanıldığını"
+    },
+    "explanation": "Turuncu uyarı levhaları tehlikeli madde taşıyan araçları işaret eder. Bu tür taşımalarda işaretleme, ekipman, sürücü niteliği ve davranış açısından özel kurallar (tehlikeli madde hukuku/ADR) geçerlidir, çünkü kazalarda tehlikeli maddelerin sızması gibi ek riskler söz konusudur."
+  },
+  "lkw-vorschriften-07": {
+    "question": "Almanya'da pazar ve resmi tatil sürüş yasağı temelde hangi araçlar için geçerlidir?",
+    "options": {
+      "a": "İzin verilen toplam ağırlıktan bağımsız olarak tüm motorlu araçlar için",
+      "b": "Yalnızca 750 kg üzerinde römork çeken araçlar için",
+      "c": "İzin verilen toplam kütlesi 7,5 tonu aşan kamyonlar ve kamyon kombinasyonları için",
+      "d": "Yalnızca tehlikeli madde taşıyan araçlar için"
+    },
+    "explanation": "İzin verilen toplam kütlesi 7,5 tonu aşan kamyonlar ve kamyon kombinasyonları, pazar günleri ve belirli resmi tatillerde saat 0 ile 22 arasında temelde trafiğe katılamaz. Amaç, yol ağını rahatlatmak ve bu günlerde gürültüyü azaltmaktır."
+  },
+  "lkw-vorschriften-08": {
+    "question": "Hangi taşımacılık türü tipik olarak pazar ve resmi tatil sürüş yasağından bir istisna kapsamındadır?",
+    "options": {
+      "a": "Özel bir inşaat projesi için yapı malzemesi taşımacılığı",
+      "b": "Taze süt gibi çabuk bozulan gıdaların taşınması",
+      "c": "Özel bir taşınma için mobilya taşımacılığı",
+      "d": "İnşaat araçlarının yeni bir şantiyeye taşınması"
+    },
+    "explanation": "Taze süt veya diğer çabuk bozulan gıdalar gibi çabuk bozulan malların taşınması ve bununla bağlantılı boş seferler için pazar ve resmi tatil sürüş yasağından istisnalar vardır, çünkü gecikme malı kullanılamaz hale getirir."
+  },
+  "lkw-vorschriften-09": {
+    "question": "Bir kamyonla çevre bölgesine girerken temelde neye dikkat edilmelidir?",
+    "options": {
+      "a": "Kamyon genellikle emisyon sınıfına uygun öngörülen ince toz plaketine ihtiyaç duyar",
+      "b": "Çevre bölgeleri temelde yalnızca binek araçlar için geçerlidir, kamyonlar için değil",
+      "c": "Plaket yalnızca 100 km'nin üzerindeki yolculuklarda gereklidir",
+      "d": "Çevre bölgelerinde kamyonlar plaketten bağımsız olarak genel olarak sürülemez"
+    },
+    "explanation": "Çevre bölgelerine genellikle yalnızca ön camında kirlilik sınıfına uygun öngörülen ince toz plaketi bulunan araçlar girebilir. Bu kamyonlar için de geçerlidir; gerekli plaketin bulunmaması para cezasıyla sonuçlanabilir."
+  },
+  "lkw-vorschriften-10": {
+    "question": "Polis ve Federal Kara Yolu Taşımacılığı Ofisi (BAG) bir kamyon denetiminde diğer şeylerin yanı sıra neyi kontrol edebilir?",
+    "options": {
+      "a": "Yalnızca aracın rengini",
+      "b": "Yalnızca sürücünün kişisel kıyafetini",
+      "c": "Yalnızca takılı lastiklerin markasını",
+      "d": "Ağırlık ve yük sabitlemesini, aracın teknik durumunu ve takograf verilerine göre sürüş ve dinlenme sürelerini"
+    },
+    "explanation": "Denetimlerde tipik olarak ağırlık ve dingil yükü, yük sabitlemesi, teknik durum (örn. frenler, lastikler) ve takograf üzerinden sürüş ve dinlenme sürelerine uyum kontrol edilir. İhlaller para cezalarına ve ağır durumlarda yolculuğa devam etme yasağına yol açabilir."
+  },
+  "lkw-vorschriften-11": {
+    "question": "Bir profesyonel şoför bir kamyon denetiminde genellikle hangi belgeleri gösterebilmelidir?",
+    "options": {
+      "a": "Yalnızca kimlik kartını",
+      "b": "Sürücü belgesini, araç belgelerini, sürücü niteliğinin kanıtını ve sürüş ve dinlenme sürelerine ilişkin kayıtları",
+      "c": "Başka bir kanıt olmaksızın yalnızca yük belgelerini",
+      "d": "Yolculuk Almanya içinde gerçekleşiyorsa hiçbir belge gerekmez"
+    },
+    "explanation": "Profesyonel şoförler denetimlerde diğerlerinin yanı sıra doğru sınıftaki geçerli sürücü belgesini, araç belgelerini, profesyonel şoför niteliği kanıtını ve sürüş ve dinlenme sürelerine ilişkin kayıtları (örn. takograf verileri) gösterebilmelidir."
+  },
+  "lkw-vorschriften-12": {
+    "question": "Bağlı bir römorkla yola çıkmadan önce mutlaka ne kontrol edilmelidir?",
+    "options": {
+      "a": "Yalnızca çekicinin lastik basıncı",
+      "b": "Yalnızca römorkun doğru renkte olup olmadığı",
+      "c": "Bağlantının tamamen kilitlenip kilitlenmediği ve kilit göstergesinin bunu onaylayıp onaylamadığı",
+      "d": "Bağlantı kontrolü yalnızca 100 km üzerindeki yolculuklarda öngörülür"
+    },
+    "explanation": "Römorkla her yolculuktan önce görsel kontrol ve kilit göstergesi ile bağlantının tamamen kilitlenip sabitlendiği kontrol edilmelidir. Doğru kilitlenmemiş bir bağlantı sürüş sırasında açılabilir ve römorkun kopmasına yol açabilir."
+  },
+  "lkw-vorschriften-13": {
+    "question": "Römorktaki emniyet halatı (kopma halatı) ne işe yarar?",
+    "options": {
+      "a": "Yalnızca aydınlatmanın elektrik beslemesine hizmet eder",
+      "b": "Bağlantının istenmeden çözülmesi durumunda römorkun frenini otomatik olarak devreye sokar",
+      "c": "Normal bir virajda römorku şerit içinde tutar",
+      "d": "Kısa mesafelerde normal römork bağlantısının yerini alır"
+    },
+    "explanation": "Römork istenmeden çekiciden ayrılırsa, emniyet halatı bir fren koluna çekerek römork frenini etkinleştirir ve böylece ayrılan römorku mümkün olduğunca kontrollü şekilde durdurur. Bu emniyet düzeneği bağlantıdan bağımsız olarak monte edilmelidir."
+  },
+  "lkw-vorschriften-14": {
+    "question": "Bir römork bağlanırken mekanik bağlantıya ek olarak hangi bağlantılar kurulmalı ve kontrol edilmelidir?",
+    "options": {
+      "a": "Yalnızca römork bağlantısının kendisi, modern römorklarda başka bağlantılara gerek yoktur",
+      "b": "Yalnızca yakıt hattı",
+      "c": "Yalnızca emniyet halatı, elektrik kabloları isteğe bağlıdır",
+      "d": "Aydınlatma için elektrik kabloları ile fren sistemi için basınçlı hava hatları, ardından işlev kontrolü yapılmalıdır"
+    },
+    "explanation": "Mekanik bağlantıya ek olarak sinyal lambaları, fren ve arka lambalar için elektrik kabloları ile besleme ve fren basıncı için basınçlı hava hatları bağlanmalıdır. Ardından yola çıkmadan önce römorkun aydınlatma ve frenlerinin gerçekten çalışıp çalışmadığı kontrol edilmelidir."
+  },
+  "lkw-vorschriften-15": {
+    "question": "Bir çekici-yarı römork kombinasyonu ani frende katlanmaya (jackknifing) başlarsa sürücü nasıl tepki vermelidir?",
+    "options": {
+      "a": "Fren gücünü kademeli olarak azaltmak, fren pedalından ayağını çekmek ve direksiyonu mümkün olduğunca sakin ve öngörülü şekilde düzeltmek",
+      "b": "Katlanmayı durdurmak için frene daha sert basmak",
+      "c": "Römorku doğrultmak için mümkün olduğunca hızlı ve güçlü ters yön vermek",
+      "d": "Sürüş sırasında bağlantıyı manuel olarak açmak"
+    },
+    "explanation": "Katlanma (jackknifing) genellikle frenleme sırasında çekicinin veya yarı römorkun tekerlekleri kilitlenip yanal tutunma kaybolduğunda meydana gelir. Ani ve güçlü ters yön verme veya daha da sert frenleme durumu genellikle kötüleştirir. Doğrusu, fren gücünü kademeli azaltıp sakin direksiyon yaparak tekerleklerin yeniden stabilize olmasını sağlamaktır."
+  },
+  "lkw-ladungssicherung-01": {
+    "question": "Sabitlenmemiş bir palet ani frende neden kendi ağırlığından çok daha büyük bir kuvvetle öne kayabilir?",
+    "options": {
+      "a": "Çünkü frenlerken yükün ağırlığı gerçekten artar",
+      "b": "Çünkü frenlerken yer çekiminin yanı sıra, fren şiddetine bağlı olarak ağırlığın kat kat fazlasına ulaşabilen bir yavaşlama kuvveti etkiler",
+      "c": "Çünkü ahşap paletler hareket halindeyken temelde hafifler",
+      "d": "Çünkü yük platformu frenlerken hafifçe öne eğilir"
+    },
+    "explanation": "Frenleme sırasında yük üzerine, yavaşlamaya bağlı olarak sürüş yönünde bir kütle kuvveti etkir. Şiddetli frenlemede bu kuvvet yükün ağırlığının kat kat fazlasına ulaşabilir. Sabitlenmemiş yük bu nedenle öne fırlatılır, durağan haldeyken tamamen sabit dursa bile."
+  },
+  "lkw-ladungssicherung-02": {
+    "question": "Şekil bağlantılı (formschlüssig) yük sabitlemesinden ne anlaşılır?",
+    "options": {
+      "a": "Yükün yalnızca yük ile kasa yüzeyi arasındaki sürtünme ile sabitlenmesi",
+      "b": "Yüke bir uyarı levhası takılması",
+      "c": "Yükün kasa duvarları, ön duvar veya diğer yük gibi sabit sınırlara boşluksuz şekilde yaslanacak biçimde yerleştirilmesi, kaymayacak şekilde",
+      "d": "Yola çıkmadan önce yükün tartılması"
+    },
+    "explanation": "Şekil bağlantısı, yükün sabit sınırlarla (duvarlar, dikmeler, diğer yük) öyle çevrilmesi demektir ki, kayma için pratikte hiç boşluk kalmaz. Bu, kuvvet bağlantılı sabitlemenin (örneğin bağlama kayışlarıyla) yanı sıra yük sabitlemenin iki temel yönteminden biridir."
+  },
+  "lkw-ladungssicherung-03": {
+    "question": "Kuvvet bağlantılı (kraftschlüssig) yük sabitlemesinden ne anlaşılır?",
+    "options": {
+      "a": "Yük, kayışlarla kasa yüzeyine öyle güçlü bastırılır ki oluşan sürtünme kuvveti kaymayı engeller",
+      "b": "Yük yalnızca kendi ağırlığıyla, başka hiçbir yardımcı araç olmadan tutulur",
+      "c": "Yük iki kasa duvarı arasında şekil bağlantılı olarak sıkıştırılır",
+      "d": "Yük bir GPS konumlandırma sistemiyle izlenir"
+    },
+    "explanation": "Kuvvet bağlantılı sabitlemede (aşağıya bağlama), kayışların gerilme kuvveti yükün kasa yüzeyine bastırma basıncını artırır. Bu, kaymaya karşı koyan sürtünme kuvvetini yükseltir. Etkinlik büyük ölçüde yük ile kasa yüzeyi arasındaki sürtünme katsayısına bağlıdır."
+  },
+  "lkw-ladungssicherung-04": {
+    "question": "Kaymaz matların (kaymayı önleyici malzemelerin) yük sabitlemedeki amacı nedir?",
+    "options": {
+      "a": "Bağlama kayışlarına duyulan ihtiyacı tamamen ortadan kaldırırlar",
+      "b": "Yükün ağırlığını azaltırlar",
+      "c": "Yalnızca kasa yüzeyini çiziklerden korumaya hizmet ederler",
+      "d": "Yük ile kasa yüzeyi arasındaki sürtünme katsayısını artırarak kuvvet bağlantılı sabitlemenin etkisini iyileştirirler"
+    },
+    "explanation": "Kaymaz matlar, yük ile kasa yüzeyi arasındaki sürtünme katsayısını önemli ölçüde artırır. Böylece aynı bağlama kuvvetinde daha yüksek bir sabitleme etkisi elde edilir. Ancak kayışlar veya şekil bağlantılı önlemlerle yapılan ek sabitlemenin yerini almazlar, onu tamamlarlar."
+  },
+  "lkw-ladungssicherung-05": {
+    "question": "İçtihada göre yeterli yük sabitlemesinden temelde kim sorumludur?",
+    "options": {
+      "a": "Yalnızca yükü yükleyen kişi",
+      "b": "Hem sürücü hem de yükleyen ya da işletmeci kendi yükümlülüklerini taşır ve birlikte sorumlu olabilirler",
+      "c": "Yalnızca araç işletmecisi, sürücünün hiçbir sorumluluğu yoktur",
+      "d": "Hiç kimse, çünkü yük sabitlemesi yasal olarak düzenlenmemiştir"
+    },
+    "explanation": "Sürücü, yola çıkmadan önce yük sabitlemesi dahil trafik güvenliğini kontrol etmekle yükümlüdür. Aynı zamanda yükleyen veya işletmeci de yükleme sırasında kendi özen yükümlülüğünü taşır. Bu nedenle ihlallerde, katkılarına göre birden fazla kişi sorumlu tutulabilir."
+  },
+  "lkw-ladungssicherung-06": {
+    "question": "Bir sürücü, bir yükleme firmasından önceden tamamen yüklenmiş bir kamyonu devralır. Denetimde yükün hatalı şekilde sabitlendiği ortaya çıkar. Sürücü buna rağmen sorumlu mudur?",
+    "options": {
+      "a": "Evet, sürücü yola çıkmadan önce yük sabitlemesini kendisi kontrol etmekle yükümlüdür ve fark edilebilir eksikliklerde yola çıkmamalıdır",
+      "b": "Hayır, yük bir üçüncü taraf tarafından yüklendiğinde sürücü her türlü sorumluluktan tamamen muaftır",
+      "c": "Hayır, sürücü yalnızca araçtaki teknik eksikliklerden sorumludur, asla yükten değil",
+      "d": "Evet, ama yalnızca yüklemeye bizzat fiziksel olarak yardım etmişse"
+    },
+    "explanation": "Bir üçüncü taraf yükü yüklemiş olsa bile, sürücü yola çıkmadan önce fark edilebilir sabitleme eksikliklerini kontrol etmelidir ve açıkça güvensiz bir yükle yola çıkmamalıdır. Yükleyicinin sorumluluğu, sürücüyü kendi özen yükümlülüğünden muaf tutmaz."
+  },
+  "lkw-ladungssicherung-07": {
+    "question": "Yük yeterince sabitlenmemiş ama henüz somut bir tehlike ortaya çıkmamışsa, denetimde hangi sonuçlar tehdit edebilir?",
+    "options": {
+      "a": "Hiçbir şey olmadığı sürece temelde hiçbir sonuç yoktur",
+      "b": "Yalnızca hukuki etkisi olmayan sözlü bir uyarı",
+      "c": "Bir uyarı veya para cezası ile gerekirse yük yeniden sabitlendikten sonra ancak yola devam etme emri",
+      "d": "En az bir yıl süreyle sürücü belgesinin otomatik olarak elinden alınması"
+    },
+    "explanation": "Fiili bir zarar oluşmadan bile, yetersiz yük sabitlemesi bir uyarı veya para cezasıyla cezalandırılabilir. Buna ek olarak, yük usulüne uygun şekilde sabitlenene kadar yola devam etme yasaklanabilir."
+  },
+  "lkw-ladungssicherung-08": {
+    "question": "Yeterince sabitlenmemiş bir yükün bu nedenle bir kazaya yol açması durumunda hangi sonuçlar ortaya çıkabilir?",
+    "options": {
+      "a": "Sigorta her durumda nedenden bağımsız olarak zararın tamamını üstlenir",
+      "b": "Sürücü ve gerekirse yükleyici cezai ve hukuki olarak sorumlu tutulabilir, diğer trafik katılımcıları ciddi şekilde tehlikeye girebilir veya yaralanabilir",
+      "c": "Yalnızca kendi kamyonu hasar gördüğü sürece hiçbir hukuki sonuç doğmaz",
+      "d": "Yalnızca nakliye şirketi sorumludur, sürücü temelde olaya dahil değildir"
+    },
+    "explanation": "Düşen veya kayan yük, diğer trafik katılımcılarının ciddi şekilde yaralanmasıyla sonuçlanan ağır kazalara neden olabilir. Yaşam ve sağlık tehlikesinin yanı sıra, sürücü ve yükleyici, örneğin taksirle yaralama veya tazminat talepleri nedeniyle cezai ve hukuki sonuçlarla karşı karşıya kalabilir."
+  },
+  "lkw-ladungssicherung-09": {
+    "question": "Yük platformundaki yükün doğru dağılımı dingil yükleri açısından neden önemlidir?",
+    "options": {
+      "a": "Çünkü dingil yükünün sürüş güvenliği üzerinde hiçbir etkisi yoktur",
+      "b": "Çünkü yalnızca toplam kütle önemlidir, dağılım hukuki açıdan önemsizdir",
+      "c": "Çünkü eşit olmayan dağılım, tek tek dingil yüklerinin aşılmasına ve direksiyon, fren ve sürüş stabilitesinin bozulmasına yol açabilir",
+      "d": "Çünkü eşit olmayan dağılım otomatik olarak yakıt tüketimini azaltır"
+    },
+    "explanation": "İzin verilen toplam ağırlığa uyulsa bile, elverişsiz yük dağılımı tek tek dingilleri aşırı yükleyebilir. Bu, direksiyon yeteneğini, fren mesafesini ve sürüş stabilitesini olumsuz etkiler ve teknik hasarlara ve artan kaza tehlikesine yol açabilir."
+  },
+  "lkw-ladungssicherung-10": {
+    "question": "Yükün çok geride bulunan ağırlık merkezi bir kamyonun sürüş davranışını genellikle nasıl etkiler?",
+    "options": {
+      "a": "Bu temelde ön aksın fren etkisini iyileştirir",
+      "b": "Bunun sürüş davranışı üzerinde hiçbir etkisi yoktur",
+      "c": "Bu yalnızca sürücü için konforu artırır",
+      "d": "Bu ön aksın yükünü hafifletebilir ve böylece direksiyon hassasiyetini ve yanal tutunmayı bozabilir"
+    },
+    "explanation": "Yükün ağırlık merkezi çok geride ise, ön aks hafifler. Bu nedenle direksiyon hassasiyeti düşer ve ön lastiklerin yanal tutunma kuvveti azalabilir, bu da özellikle viraj alırken ve kaçınma manevralarında tehlikeli olabilir."
+  },
+  "lkw-ladungssicherung-11": {
+    "question": "Ruloların, boruların veya yuvarlak malzemenin sabitlenmesinde neden özel dikkat gerekir?",
+    "options": {
+      "a": "Çünkü bu tür yükler genellikle diğer mallardan daha hafiftir",
+      "b": "Çünkü yuvarlak yük şekil bağlantılı sabitleme olmadan kolayca yuvarlanabilir, bu da takoz veya oluk gibi ek önlemler gerektirir",
+      "c": "Çünkü yuvarlak yük yasal olarak sabitlenmesi gerekmez",
+      "d": "Çünkü yuvarlak malzeme yalnızca römorklarda taşınabilir"
+    },
+    "explanation": "Boru veya bobin gibi silindirik yükler, yanal kuvvetlerde veya sarsıntılarda yuvarlanma eğilimindedir. Takoz, oluk veya diğer şekil bağlantılı önlemler olmadan, yük küçük bir kuvvet etkisiyle bile kontrolsüz şekilde hareket etmeye başlayabilir."
+  },
+  "lkw-ladungssicherung-12": {
+    "question": "Çelik kirişler veya ağaç gövdeleri gibi uzun yüklerin sabitlenmesinde özellikle neye dikkat edilmelidir?",
+    "options": {
+      "a": "Uzunlamasına ve enine yönde kaymaya karşı ve devrilmeye karşı yeterli sabitlemeye, çünkü uzun yük genellikle birden fazla dikme veya destek noktasının üzerinden taşar",
+      "b": "Yalnızca yükün renkli işaretlemesine",
+      "c": "Yükün gerektiğinde kayabilmesi için mümkün olduğunca gevşek durmasına",
+      "d": "Şoför kabininin iç sıcaklığına"
+    },
+    "explanation": "Kiriş veya gövde gibi uzun yükler genellikle birden fazla destek noktasında durur ve hem uzunlamasına kayabilir hem de yana devrilebilir. Dikkatli bir sabitleme her iki hareket yönünü ve malzemenin olası bükülmesini de göz önünde bulundurmalıdır."
+  },
+  "lkw-ladungssicherung-13": {
+    "question": "Kum veya çakıl gibi dökme malzemeler açık bir kamyonda nasıl taşınmalıdır?",
+    "options": {
+      "a": "Özel bir önlem olmadan, çünkü dökme malzeme kendiliğinden durur",
+      "b": "Yalnızca on kilometreden kısa yolculuklarda",
+      "c": "Sürüş sırasında dökülmeyi veya savrulmayı önlemek için uygun bir örtü (örn. branda) ile",
+      "d": "Yalnızca ek bir sabitleme olmadan açık çuvallarda"
+    },
+    "explanation": "Sabitlenmemiş dökme malzeme rüzgâr, sarsıntı veya frenleme nedeniyle dökülebilir veya savrulabilir ve diğer trafik katılımcılarını tehlikeye atabilir. Uygun bir örtü bunu önler ve birçok dökme malzeme için zorunludur."
+  },
+  "lkw-ladungssicherung-14": {
+    "question": "Birkaç kasa veya file kasanın üst üste istiflenmesinde neye dikkat edilmelidir?",
+    "options": {
+      "a": "Toplam yükseklik korunduğu sürece istiflerin nasıl yapıldığı önemli değildir",
+      "b": "Ağır ve stabil yük mümkün olduğunca alta yerleştirilmeli, istif yüksekliği alt katmanların stabilitesine ve taşıma kapasitesine uygun olmalı ve istif ayrıca devrilmeye karşı sabitlenmelidir",
+      "c": "Hafif kasalar taşıma sırasında zarar görmemesi için temelde en alta istiflenmelidir",
+      "d": "Kasalar yalnızca tek katman halinde taşınabilir, istifleme genel olarak yasaktır"
+    },
+    "explanation": "İstiflemede alt katman, üst katmanların ağırlığını taşıyabilecek kadar stabil ve taşıma kapasitesine sahip olmalıdır. Ayrıca tüm istif kaymaya ve devrilmeye karşı sabitlenmelidir, çünkü yüksek istifler viraj alırken veya fren yaparken özellikle devrilme tehlikesi altındadır."
+  },
+  "lkw-ladungssicherung-15": {
+    "question": "Bir sürücü mola sırasında yükün gözle görülür şekilde kaydığını fark ederse ne yapmalıdır?",
+    "options": {
+      "a": "Yük profesyonelce yeniden sabitlenene veya istiflenene kadar, gerekirse yardım alarak yolculuğa devam etmemek",
+      "b": "Zaten kaymış olan yükün genellikle daha fazla hareket etmeyeceği için dikkatli ve azaltılmış hızla varış noktasına kadar yolculuğa devam etmek",
+      "c": "Yalnızca kasa duvarlarını daha sıkı kilitleyip başka bir kontrol yapmadan yola devam etmek",
+      "d": "Yolculuk plana göre devam edecekse gözlemi göz ardı etmek"
+    },
+    "explanation": "Zaten kaymış olan yük, ilk sabitlemenin yetersiz olduğunu gösterir. Yolculuğa devam etmek, yükün daha fazla kaymasına veya düşmesine dair yüksek risk taşır. Yolculuğa ancak yük profesyonelce yeniden sabitlendikten sonra devam edilebilir."
+  },
+  "lkw-ladungssicherung-16": {
+    "question": "Bir sürücü uzun bir yolculuk sırasında yük sabitlemesini ne zaman kontrol etmelidir?",
+    "options": {
+      "a": "Yalnızca boşaltmadan hemen önce tüm yolculuğun sonunda",
+      "b": "Hiç kontrol etmemeli, çünkü yolculuk öncesi tek seferlik bir kontrol yasal olarak yeterlidir",
+      "c": "Yolculuktan önce ve kısa bir mesafeden sonra tekrar, ardından düzenli aralıklarla, özellikle sert frenden, kaçınma manevralarından veya engebeli yoldan sonra",
+      "d": "Yalnızca yağmurda, çünkü kuru yolun yük üzerinde hiçbir etkisi yoktur"
+    },
+    "explanation": "Yük kısa bir mesafeden sonra bile, örneğin sarsıntılar veya ilk frenden dolayı oturabilir veya kayabilir. Bu nedenle yola çıktıktan kısa süre sonra ve ardından düzenli olarak, özellikle olağandışı sürüş durumlarından sonra, sabitlemenin hâlâ etkili olup olmadığı kontrol edilmelidir."
+  },
+  "lkw-ladungssicherung-17": {
+    "question": "Aşağıya bağlamada bağlama kayışı doğru şekilde nasıl gerilmelidir?",
+    "options": {
+      "a": "Sarsıntılarda kopmaması için mümkün olduğunca gevşek",
+      "b": "Uygun bir gerdirme elemanıyla (örn. cırcır) üreticinin belirttiği veya yük için gerekli ön gerilme kuvvetine kadar, yükü veya kayışı hasar vermeden",
+      "c": "Yalnızca elle, herhangi bir teknik yardım olmadan, aşırı gerilmeyi kesinlikle önlemek için",
+      "d": "Rastgele, çünkü gerilme kuvvetinin sabitleme etkisi üzerinde hiçbir etkisi yoktur"
+    },
+    "explanation": "Kuvvet bağlantılı sabitlemenin etkinliği doğrudan ulaşılan ön gerilme kuvvetine bağlıdır. Cırcırlı bağlama kayışı, yükü hasar vermeden veya kayışı aşırı yüklemeden yeterli bastırma basıncı oluşturmak için uygun gerilme kuvvetiyle çekilmelidir."
+  },
+  "lkw-ladungssicherung-18": {
+    "question": "Bir paletin ortasına yerleştirilen tek bir bağlama kayışı yükü güvenle tutmak için neden genellikle yeterli değildir?",
+    "options": {
+      "a": "Çünkü tek bir kayış her zaman hemen kopar",
+      "b": "Çünkü kayış yasal olarak yalnızca 50 kg'dan az yükler için izin verilir",
+      "c": "Çünkü kayışlar temelde yalnızca yük işaretlemeye hizmet eder, sabitlemeye değil",
+      "d": "Çünkü tek bir kayış genellikle yeterli bastırma basıncı oluşturmaz ve yanal veya boyuna kaymayı güvenilir şekilde önlemez, bu nedenle genellikle uygun bir düzenlemede birden fazla kayış gereklidir"
+    },
+    "explanation": "Tek bir kayış genellikle paletin tüm yük yüzeyinde yeterli, eşit bir bastırma basıncı oluşturmaz ve genellikle yanal devrilme veya kaymaya karşı yeterince korumaz. Bu yüzden pratikte genellikle uygun bir açı ve mesafede birden fazla kayış kullanılır."
+  },
+  "lkw-ladungssicherung-19": {
+    "question": "Karayolu trafiğinde yeterli bir yük sabitlemesi temelde hangi kuvvetleri kapsamalıdır?",
+    "options": {
+      "a": "Yalnızca hızlanırken öne doğru oluşan kuvvetleri",
+      "b": "Frenlerken öne, viraj alırken yanal ve engebeli yolda dikey olarak yük üzerine etki edebilecek kuvvetleri",
+      "c": "Yalnızca yan rüzgârdan kaynaklanan kuvveti",
+      "d": "Yalnızca aracın durağan halindeki statik kuvvetleri"
+    },
+    "explanation": "Yük, karayolu trafiğindeki tipik yüklenmelere, frenleme, viraj alma, kaçınma manevraları ve engebeli yol dahil, dayanacak şekilde sabitlenmelidir. Bu yönlerden yalnızca birini dikkate alan bir sabitleme genellikle yetersizdir."
+  },
+  "lkw-ladungssicherung-20": {
+    "question": "Gerekli bağlama kuvvetini hesaplamadan önce yük ile kasa yüzeyi arasındaki sürtünme katsayısının bilinmesi neden iyidir?",
+    "options": {
+      "a": "Çünkü daha düşük bir sürtünme katsayısı, aynı sabitleme etkisini elde etmek için daha fazla bağlama kuvveti veya daha fazla/daha güçlü bağlama aracı gerektiği anlamına gelir",
+      "b": "Çünkü sürtünme katsayısı yalnızca kasa yüzeyinin renk seçimi için önemlidir",
+      "c": "Çünkü yüksek bir sürtünme katsayısı temelde her türlü sabitlemeyi gereksiz kılar",
+      "d": "Çünkü sürtünme katsayısı yalnızca yurt dışı seyahatlerinde rol oynar"
+    },
+    "explanation": "Sürtünme katsayısı, yalnızca sürtünme yoluyla ne kadar tutma kuvvetinin mevcut olduğunu belirler. Yüzeyler ne kadar pürüzsüzse, sürtünme kuvveti o kadar az olur ve yükü yeterince sabitlemek için bağlama araçları veya kaymaz altlıklar yoluyla o kadar fazla ek sabitleme gerekir."
+  },
+  "lkw-ladungssicherung-21": {
+    "question": "Birçok pratik yükleme durumunda hangi sabitleme önlemi kombinasyonu mantıklıdır?",
+    "options": {
+      "a": "Yalnızca şekil bağlantılı sabitleme, çünkü kuvvet bağlantılı yöntemler yasal olarak yasaktır",
+      "b": "Yalnızca kuvvet bağlantılı sabitleme, şekil bağlantılı önlemler gereksizdir",
+      "c": "Mümkün olduğunca şekil bağlantısının (örn. ön duvara veya diğer yüke yaslanma) kalan hareket olanakları için aşağıya bağlama gibi kuvvet bağlantılı önlemlerle tamamlanması",
+      "d": "Yükü bir kez tartmak yeterlidir, başka önlemlere gerek yoktur"
+    },
+    "explanation": "Pratikte tüm yükü sabit sınırlara karşı şekil bağlantılı olarak istiflemek genellikle mümkün değildir. Mümkün olduğunca şekil bağlantısı ve bağlama kayışlarıyla tamamlayıcı kuvvet bağlantılı sabitlemenin kombinasyonu, kalan hareket olanaklarını güvenilir şekilde kapatır."
+  },
+  "lkw-ladungssicherung-22": {
+    "question": "Yükün 'ani frende veya ani kaçınmada bile kayamayacak, devrilemeyecek, düşemeyecek veya önlenebilir gürültü çıkaramayacak' şekilde 'yüklenmesi ve sabitlenmesi' ilkesi ne anlama gelir?",
+    "options": {
+      "a": "Yükün yalnızca sakin, düzenli sürüşte sabitlenmesi gerektiği",
+      "b": "Yük sabitlemesinin, karayolu trafiğinde olağandışı ama öngörülebilir yüklenmelere bile dayanacak şekilde tasarlanması gerektiği",
+      "c": "Sabitlemenin yalnızca saatte 80 km üzerindeki yolculuklarda gerekli olduğu",
+      "d": "Sürüş sırasında gürültü oluşumunun hukuki açıdan tamamen önemsiz olduğu"
+    },
+    "explanation": "Bu ilke, yük sabitlemesinin yalnızca normal durum için değil, ani frenleme veya ani bir kaçınma manevrası gibi olağandışı ama karayolu trafiğinde gerçekçi durumları da dikkate alacak şekilde tasarlanması gerektiğini açıklar."
+  },
+  "lkw-ladungssicherung-23": {
+    "question": "Bağlama kayışları neden her kullanımdan önce çatlak, kesik veya aşırı aşınma gibi hasarlar açısından kontrol edilmelidir?",
+    "options": {
+      "a": "Çünkü hasarlı bir kayış yük altında kopabilir ve bu nedenle sabitleme etkisini aniden ve tamamen kaybedebilir",
+      "b": "Çünkü hasarlı kayışlar görsel olarak daha dikkat çekicidir ve bu nedenle denetimlerde daha kolay fark edilir",
+      "c": "Çünkü yeni kayışlar temelde eski, aşırı aşınmış kayışlardan daha az yük taşır",
+      "d": "Çünkü görsel kontrol yasal olarak yalnızca yeni araçlar için öngörülür"
+    },
+    "explanation": "Hasarlı bağlama kayışları taşıma kapasitelerinin bir kısmını kaybeder ve ani zorlanmalarda, örneğin ani frende, kopabilirler. Kullanımdan önce düzenli görsel kontrol, hasarlı kayışları zamanında elemeye yardımcı olur."
+  },
+  "lkw-ladungssicherung-24": {
+    "question": "Bir sürücü planlanan hareketten kısa süre önce aracındaki izin verilen bağlama noktalarının hasarlı olduğunu fark eder. Nasıl davranmalıdır?",
+    "options": {
+      "a": "Yine de yola çıkmalıdır, çünkü hasarlı bağlama noktaları yük sabitlemesini yalnızca hafifçe etkiler",
+      "b": "Yükü geçici olarak bant ile ek olarak sabitlemeli ve sonra yola çıkmalıdır",
+      "c": "Yük görsel olarak kasa yüzeyinde stabil durduğu sürece bağlama noktalarını göz ardı etmelidir",
+      "d": "Yolculuğa ancak sağlam bağlama noktaları mevcut olduğunda veya yük başka bir şekilde yeterince sabitlenebildiğinde başlamalıdır"
+    },
+    "explanation": "Hasarlı bağlama noktaları yük altında arızalanabilir ve böylece tüm sabitleme zincirini tehlikeye atabilir. Sürücü, yola çıkmadan önce yükün sağlam ve uygun araçlarla yeterince sabitlendiğinden emin olmakla sorumludur."
+  },
+  "lkw-ladungssicherung-25": {
+    "question": "Ağır, kompakt tekil mallarda (örn. bir makine) neden yalnızca yükün kendi ağırlığına güvenmek genellikle yeterli değildir?",
+    "options": {
+      "a": "Çünkü ağır yük temelde hiç taşınamaz",
+      "b": "Çünkü frenlerken veya viraj alırken etki eden atalet kuvvetleri, yeterli şekil bağlantısı veya yeterli bağlama kuvveti yoksa ağır cisimleri bile önemli ölçüde kaydırabilir",
+      "c": "Çünkü ağır yük yasal olarak her zaman ayrı bir römorkta taşınmalıdır",
+      "d": "Çünkü taşıma sırasında kendi ağırlığın temelde dengeye hiçbir etkisi yoktur"
+    },
+    "explanation": "Ek olarak şekil bağlantılı veya kuvvet bağlantılı sabitlenmezse, ağır yük bile güçlü yavaşlama kuvvetleri veya merkezkaç kuvvetlerinde harekete geçebilir. Yalnızca kendi ağırlık sürtünme oluşturur, ancak bu genellikle karayolu trafiğinde ortaya çıkan tüm kuvvetleri dengelemek için yeterli değildir."
+  },
+  "lkw-ladungssicherung-26": {
+    "question": "Ambalaj (örn. bir paletin folyoyla sarılması) yük sabitlemede ne rol oynar?",
+    "options": {
+      "a": "Ambalaj her türlü teknik yük sabitlemesinin yerini tamamen alır",
+      "b": "Ambalajın yükün stabilitesi üzerinde hiçbir etkisi yoktur",
+      "c": "Sağlam bir ambalaj (örn. sıkıca sarılmış streç folyo) tekil yükleme birimlerini bir arada tutabilir ve böylece diğer sabitleme önlemlerinin etkisini destekleyebilir, ancak bunların yerini tamamen almaz",
+      "d": "Ambalaj yalnızca hava koşullarından korumaya hizmet eder ve sabitlemeyle hiçbir ilgisi yoktur"
+    },
+    "explanation": "Sıkı bir ambalaj, tekil paket parçalarını daha stabil bir yükleme birimi haline getirebilir ve böylece birim içindeki tekil parçaların kaymasını azaltabilir. Ancak tüm yükleme biriminin kasa yüzeyine karşı gerekli sabitlemesinin, örneğin kayışlar veya sabit sınırlar aracılığıyla, yerini tamamen almaz."
+  },
+  "lkw-ladungssicherung-27": {
+    "question": "Bir sürücü yola çıkmadan önce yükle ilgili temelde neyi kontrol etmelidir?",
+    "options": {
+      "a": "Yalnızca yükün rengini, çünkü bu sürüş güvenliği için belirleyicidir",
+      "b": "İzin verilen toplam ağırlık ve dingil yüklerine uyulup uyulmadığını, yükün uzmanca dağıtılıp dağıtılmadığını ve kaymaya, devrilmeye ve düşmeye karşı sabitlenip sabitlenmediğini",
+      "c": "Yalnızca yakıt seviyesini, yükün kendisi yükleme personeli tarafından kontrol edilir ve sürücüyü ilgilendirmez",
+      "d": "Yükün yeterince reklam çıkartmalarıyla donatılıp donatılmadığını"
+    },
+    "explanation": "Yola çıkmadan önce yük sabitlemesinin kontrolü sürücünün temel görevlerindendir. Buna izin verilen ağırlıklara uyulması, uygun yük dağılımı ve kaymaya, devrilmeye veya düşmeye karşı etkili sabitleme dahildir."
+  },
+  "lkw-ladungssicherung-28": {
+    "question": "Hareket halindeki bir kamyondan düşen nispeten küçük bir cisim bile takip eden trafik katılımcıları için neden çok tehlikeli olabilir?",
+    "options": {
+      "a": "Çünkü düşen cisim yüksek sürüş hızında önemli bir çarpma enerjisine sahiptir ve takip eden araçlar için, özellikle motosikletliler veya binek araç yolcuları için, ani, neredeyse öngörülemez bir engel oluşturur",
+      "b": "Çünkü küçük cisimler temelde hiçbir zarar veremez",
+      "c": "Çünkü düşen cisimler yasa gereği otomatik olarak yerinde kalır ve yuvarlanamaz",
+      "d": "Çünkü takip eden araçlar yasal olarak en az 200 metre mesafe bırakmakla yükümlüdür"
+    },
+    "explanation": "Küçük cisimler bile yüksek hızda önemli kinetik enerjiye sahip olabilir ve takip eden araçlar için ani bir engel oluşturabilir. Özellikle iki tekerlekli araç sürücüleri için bu ciddi düşmelere yol açabilir, çünkü kaçınma çoğu zaman ancak sınırlı ölçüde mümkündür."
+  },
+  "lkw-ladungssicherung-29": {
+    "question": "Farklı ağırlık ve boyutlardaki paket birimlerinden oluşan karma yükte, yükleme sırasının dikkatli planlanması neden mantıklıdır?",
+    "options": {
+      "a": "Çünkü yükleme sırası yalnızca yükleme süresi için önemlidir, güvenlik için değil",
+      "b": "Çünkü hafif mallar temelde en alta, ağır mallar en üste istiflenmelidir",
+      "c": "Çünkü düşünülmüş bir düzenleme boşlukları önlemeye, ağırlık merkezini uygun tutmaya ve tekil paket birimleri arasında şekil bağlantılı sabitlemeye olanak sağlamaya yardımcı olur",
+      "d": "Çünkü karma yük yasal olarak temelde yasaktır"
+    },
+    "explanation": "Düşünülmüş bir yükleme sırası, yükün kayabileceği boşlukları azaltır ve ağır parçaların mümkün olduğunca alçak ve merkezi konumlandırılmasına olanak tanır. Böylece hem ağırlık merkezi uygun tutulabilir hem de paket birimleri arasındaki şekil bağlantılı sabitleme iyileştirilebilir."
+  },
+  "lkw-ladungssicherung-30": {
+    "question": "Bir sürücü yükün yeterince sabitlenip sabitlenmediğinden emin olmadığında en önemli temel kural nedir?",
+    "options": {
+      "a": "Sadece yola çıkmalı ve durumu sürüş sırasında gözlemlemelidir",
+      "b": "Şüphe durumunda, yola çıkmadan önce ek sabitleme önlemleri almalı veya uzman yardımı almalıdır, çünkü güvenlik her zaman zaman baskısından önce gelir",
+      "c": "Yük dıştan düzenli göründüğü sürece şüpheyi göz ardı etmelidir",
+      "d": "Kararı tamamen arkadan gelen trafiğe bırakmalıdır"
+    },
+    "explanation": "Yük sabitlemesiyle ilgili şüphe durumlarında güvenliğin her zaman zaman tasarrufundan önce geldiği ilkesi geçerlidir. Yeterli sabitleme konusunda şüphe varsa, sürücü önlenebilir bir riske girmek yerine ek önlemler almalı veya uzman yardımı almalıdır."
+  },
+  "lkw-lenkzeiten-01": {
+    "question": "Profesyonel şoförler için yasal sürüş ve dinlenme süresi kuralları hangi temel amacı güder?",
+    "options": {
+      "a": "Nakliye şirketlerinin taşımacılık maliyetlerini düşürmelidir",
+      "b": "Direksiyon başında aşırı yorgunluğu önlemeli ve böylece trafik güvenliğini artırmalıdır",
+      "c": "Yalnızca motorun kullanım ömrünü uzatmalıdır",
+      "d": "Yalnızca ticari araçların yüklenmesini düzenler"
+    },
+    "explanation": "Aşırı yorgunluk, profesyonel kara yolu taşımacılığında önemli bir kaza nedenidir. Sürüş ve dinlenme süresi kuralları, şoförlerin trafiğe güvenle katılabilecek kadar dinlenmiş olmasını sağlamayı amaçlar."
+  },
+  "lkw-lenkzeiten-02": {
+    "question": "Bir profesyonel şoförün günlük sürüş süresi genellikle en fazla ne kadar olabilir?",
+    "options": {
+      "a": "6 saat",
+      "b": "12 saat",
+      "c": "9 saat, haftada iki güne kadar uzatılabilir",
+      "d": "Hiçbir sınırlama olmadan 15 saat"
+    },
+    "explanation": "Günlük sürüş süresi temelde en fazla 9 saattir. Haftada en fazla iki gün 10 saate kadar uzatılabilir."
+  },
+  "lkw-lenkzeiten-03": {
+    "question": "Bir şoför en geç ne kadar kesintisiz sürüş süresinden sonra mola vermelidir?",
+    "options": {
+      "a": "4,5 saat sonra",
+      "b": "8 saat sonra",
+      "c": "2 saat sonra",
+      "d": "6,5 saat sonra"
+    },
+    "explanation": "Bir dinlenme süresi başlamıyorsa, en geç 4,5 saatlik sürüşten sonra en az 45 dakikalık bir mola verilmelidir."
+  },
+  "lkw-lenkzeiten-04": {
+    "question": "Öngörülen 45 dakikalık sürüş molası nasıl bölünebilir?",
+    "options": {
+      "a": "Rastgele olarak birer 5 dakikalık birkaç parçaya",
+      "b": "Yalnızca tek bir kesintisiz 45 dakikalık mola olarak, bölme asla izin verilmez",
+      "c": "22,5'er dakikalık iki parçaya",
+      "d": "En az 15 dakikalık ilk bir bölüme ve en az 30 dakikalık ikinci bir bölüme, bu sırayla"
+    },
+    "explanation": "Mola bölünebilir: önce en az 15 dakika, ardından en az 30 dakika, toplamda 4,5 saatlik sürüş süresi içinde en az 45 dakika olmak üzere."
+  },
+  "lkw-lenkzeiten-05": {
+    "question": "Bir profesyonel şoförün düzenli günlük dinlenme süresi en az ne kadar olmalıdır?",
+    "options": {
+      "a": "6 saat",
+      "b": "11 saat",
+      "c": "24 saat",
+      "d": "3 saat"
+    },
+    "explanation": "Düzenli günlük dinlenme süresi en az 11 kesintisiz saattir. Belirli günlerde kısaltılabilir."
+  },
+  "lkw-lenkzeiten-06": {
+    "question": "Günlük dinlenme süresi kısaltılmış günlük dinlenme süresi olarak kaç saate düşürülebilir?",
+    "options": {
+      "a": "5 saate",
+      "b": "11 saate, yani hiç düşürülemez",
+      "c": "En az 9 saate, ancak yalnızca iki haftalık dinlenme süresi arasında sınırlı sayıda günde",
+      "d": "2 saate, istenildiği kadar sık"
+    },
+    "explanation": "Günlük dinlenme süresi en az 9 saate kadar kısaltılabilir, ancak yalnızca iki haftalık dinlenme süresi arasında sınırlı sayıda günde."
+  },
+  "lkw-lenkzeiten-07": {
+    "question": "Sürüş ve dinlenme süresi kurallarının anlamı dahilinde haftalık dinlenme süresinden ne anlaşılır?",
+    "options": {
+      "a": "Şoförün günlük dinlenme sürelerine ek olarak haftada bir kez uyması gereken kesintisiz bir dinlenme aşaması",
+      "b": "Bir çalışma haftasının tüm öğle molalarının toplamı",
+      "c": "İsteğe bağlı, yasal olarak düzenlenmemiş bir dinlenme süresi",
+      "d": "Şoförün araç yıkamaya harcadığı süre"
+    },
+    "explanation": "Günlük dinlenme sürelerine ek olarak, şoför düzenli olarak birkaç çalışma gününden sonra iyileşmeye hizmet eden daha uzun, kesintisiz bir haftalık dinlenme süresine uymalıdır."
+  },
+  "lkw-lenkzeiten-08": {
+    "question": "İzin verilen azami haftalık sürüş süresi temelde nasıl sınırlandırılmıştır?",
+    "options": {
+      "a": "Haftalık bir üst sınır yoktur, yalnızca günlük vardır",
+      "b": "Haftada 56 saat, ayrıca iki ardışık hafta boyunca sınırlandırılmıştır",
+      "c": "Haftada 20 saat",
+      "d": "Haftada 100 saat"
+    },
+    "explanation": "Bir hafta içindeki sürüş süresi 56 saati geçmemelidir; ayrıca sürekli aşırı yüklenmeyi önlemek için iki ardışık hafta boyunca bir sınırlama uygulanır."
+  },
+  "lkw-lenkzeiten-09": {
+    "question": "Bir kamyonda takografın işlevi nedir?",
+    "options": {
+      "a": "Yalnızca motorun yakıt tüketimini ölçer",
+      "b": "Yalnızca navigasyon ve rota planlamasına hizmet eder",
+      "c": "Sürüş süresini, molaları, dinlenme sürelerini ve şoförün diğer faaliyetlerini kaydeder",
+      "d": "Yalnızca lastik basıncını izler"
+    },
+    "explanation": "Takograf, şoförün çeşitli faaliyetlerini otomatik olarak belgeler ve böylece sürüş ve dinlenme sürelerine uyumun kontrol edilmesini sağlar."
+  },
+  "lkw-lenkzeiten-10": {
+    "question": "Takograf genellikle hangi faaliyet türlerini birbirinden ayırır?",
+    "options": {
+      "a": "Sürüş süresi, hazır bekleme süresi, diğer işler ve dinlenme süresi/mola",
+      "b": "Yalnızca sürüş süresi ve motor durması",
+      "c": "Yalnızca kilometre olarak kat edilen mesafe",
+      "d": "Yalnızca sürüş sırasındaki dış sıcaklık"
+    },
+    "explanation": "Takograf, yasal gerekliliklere uyumun izlenebilmesi için sürüş süresi, hazır bekleme süresi, diğer işler ve dinlenme süresi ya da molayı birbirinden ayırır."
+  },
+  "lkw-lenkzeiten-11": {
+    "question": "Dijital takografta sürücü kartı nedir?",
+    "options": {
+      "a": "Ücretli yol geçişleri için bir kredi kartı",
+      "b": "Başka bir işlevi olmayan bir sürücü belgesi yerine geçen kart",
+      "c": "Sürüş süreleriyle ilgisi olmayan bir araç teşhis aracı",
+      "d": "İlgili şoförün faaliyetlerinin kaydedildiği kişiye özel bir çip kart"
+    },
+    "explanation": "Sürücü kartı kişiye özeldir ve tek bir şoförün sürüş, çalışma ve dinlenme sürelerini uzun bir dönem boyunca kaydeder."
+  },
+  "lkw-lenkzeiten-12": {
+    "question": "Eski analog takograf, dijital takograftan temelde nasıl farklıdır?",
+    "options": {
+      "a": "Analog takograf şoför faaliyetinin hiçbir şekilde kaydedilmesine ihtiyaç duymaz",
+      "b": "Analog takograf verileri bir diyagram diskine kaydederken, dijital takograf verileri elektronik olarak sürücü kartına ve toplu belleğe kaydeder",
+      "c": "Dijital takograf yalnızca binek araçlara monte edilebilir",
+      "d": "Hiçbir fark yoktur, her iki sistem de aynı şekilde çalışır"
+    },
+    "explanation": "Analog sistemler mekanik kayıt için bir diyagram diski kullanır, dijital sistemler ise verileri elektronik olarak ve şifrelenmiş şekilde sürücü kartına ve aracın toplu belleğine kaydeder."
+  },
+  "lkw-lenkzeiten-13": {
+    "question": "Takografda yapılan bir manipülasyonun sürücü ve şirket için sonuçları neler olabilir?",
+    "options": {
+      "a": "Ağır para cezaları, cezai kovuşturma ve profesyonel şoförlük hukuku anlamında güvenilirliğin kaybı",
+      "b": "Hiçbir sonuç, çünkü takograf yalnızca bir öneridir",
+      "c": "Başka bir etkisi olmayan yalnızca bir uyarı",
+      "d": "Yalnızca bir sonraki ana muayenenin süresinin uzatılması"
+    },
+    "explanation": "Takografda manipülasyon ağır bir kabahat ya da suçtur ve sürücüler ile işletmeciler için yüksek para cezalarına, cezai kovuşturmaya ve güvenilirliğin kaybına yol açabilir."
+  },
+  "lkw-lenkzeiten-14": {
+    "question": "İzin verilen sürüş sürelerinin aşılmasından özellikle hangi tehlike doğar?",
+    "options": {
+      "a": "Biraz daha yüksek bir yakıt faturası",
+      "b": "Yorgun sürücünün azalan dikkat, tepki verme yeteneği ve konsantrasyonu nedeniyle artan kaza riski",
+      "c": "Aracın lastiklerinin daha hızlı aşınması",
+      "d": "Takografın kullanım ömrünün kısalması"
+    },
+    "explanation": "Aşırı yorgunluk tepki verme yeteneğini ve konsantrasyonu önemli ölçüde bozar ve ağır kamyon kazalarının en sık nedenlerinden biridir. Tam da bu nedenle sürüş süresi sınırlamaları mevcuttur."
+  },
+  "lkw-lenkzeiten-15": {
+    "question": "Sürücünün takograf kayıtlarını usulüne uygun tutmasından kim sorumludur?",
+    "options": {
+      "a": "Yalnızca yetkili tescil makamı",
+      "b": "Hiç kimse, kayıt otomatik olarak sürücünün hiçbir sorumluluğu olmadan gerçekleşir",
+      "c": "Hem sürücünün kendisi hem de şirket, kayıtların usulüne uygun kullanımı ve saklanması konusunda kendi yükümlülüklerini taşır",
+      "d": "Yalnızca araç üreticisi"
+    },
+    "explanation": "Hem sürücü (doğru kullanım, kanıtları yanında bulundurma) hem de şirket (organizasyon, veri güvenliği, kontrol) takografla ilgili bağımsız yükümlülüklere sahiptir."
+  },
+  "lkw-lenkzeiten-16": {
+    "question": "Bir sürücü örneğin bir trafik sıkışıklığı veya acil bir müşteri randevusu nedeniyle sürüş süresini aşmak zorunda kalırsa ne yapmalıdır?",
+    "options": {
+      "a": "Sınırlama olmaksızın sürüş süresini aşmalı, çünkü dış koşullar her türlü aşımı haklı çıkarır",
+      "b": "Aşımı gizlemek için sürüş sırasında takografı manuel olarak dinlenme süresine geçirmeli",
+      "c": "Aşımın belgelenmemesi için kaydı kapatmalı",
+      "d": "Zamanında uygun bir mola veya dinlenme süresi planlamalı ve şüphe durumunda izin verilen sürüş süresini aşmak yerine yolculuğu kesmeli"
+    },
+    "explanation": "Zaman baskısı sürüş sürelerinin aşılmasını haklı çıkarmaz. Sürücü kurallara ve güvenliğe uymak için zamanında planlama yapmalı ve şüphe durumunda yolculuğu kesmelidir."
+  },
+  "lkw-lenkzeiten-17": {
+    "question": "Takograf faaliyet türü 'hazır bekleme süresi' altında ne kaydedilir?",
+    "options": {
+      "a": "Sürücünün çalışmasının gerekmediği ancak hazır bulunması gereken süreler, örneğin bir başka sürücü araç kullanırken veya yükleme-boşaltma beklerken",
+      "b": "Yalnızca direksiyon başındaki saf sürüş süresi",
+      "c": "Dinlenme sırasındaki özel alışveriş süresi",
+      "d": "Yalnızca aracın yıllık ana muayene süresi"
+    },
+    "explanation": "Hazır bekleme süresi, sürücünün aktif olarak çalışmadan hazır bulunması gereken bekleme sürelerini kapsar, örneğin üçüncü şahıslar tarafından yükleme veya boşaltma sırasında ya da hareket halindeki bir araçta yolcu olarak."
+  },
+  "lkw-lenkzeiten-18": {
+    "question": "Almanya'da 7,5 tonun üzerindeki kamyonlar için pazar ve resmi tatil sürüş yasağı temelde ne anlama gelir?",
+    "options": {
+      "a": "Haftanın her günü kamyonla her türlü yolculuğu yasaklar",
+      "b": "Yalnızca 3,5 ton altındaki araçlar için geçerlidir",
+      "c": "Pazar günleri ve belirli resmi tatillerde izin verilen toplam kütlesi 7,5 tonu aşan kamyonlar temelde trafiğe katılamaz",
+      "d": "Yalnızca yerleşim yerleri içindeki yolculukları ilgilendirir"
+    },
+    "explanation": "Pazar ve resmi tatil sürüş yasağı, izin verilen toplam kütlesi 7,5 tonu aşan kamyonlar ve kamyon kombinasyonlarının pazar günleri ve belirli resmi tatillerde trafiğe katılmasını, yükü azaltmak amacıyla temelde yasaklar."
+  },
+  "lkw-lenkzeiten-19": {
+    "question": "Aşağıdaki yüklerden hangisi pazar ve resmi tatil sürüş yasağından bir istisnaya tipik bir örnektir?",
+    "options": {
+      "a": "Pazartesi başlayacak bir şantiye için yapı malzemesi",
+      "b": "Taze meyve veya taze süt gibi çabuk bozulan gıdalar",
+      "c": "Özel bir taşınma için mobilya",
+      "d": "Özel bir aciliyet taşımayan bir inşaat projesi için yapı malzemesi"
+    },
+    "explanation": "Taze meyve, sebze veya süt gibi çabuk bozulan mallar için pazar ve resmi tatil sürüş yasağından tanınan istisnalar vardır, çünkü gecikme malın bozulmasına yol açar."
+  },
+  "lkw-lenkzeiten-20": {
+    "question": "Bir sürücü sırayla iki sürücüyle (çoklu sürücü işletimi) yolculuk yaptığında temelde ne geçerlidir?",
+    "options": {
+      "a": "Her sürücü, kendi bireysel sürüş, hazır bekleme ve dinlenme süresini kendi sürücü kartı aracılığıyla doğru şekilde kaydetmeye devam etmelidir",
+      "b": "İki sürücüden yalnızca biri sürücü kartına ihtiyaç duyar, süreler toplanır",
+      "c": "İki sürücü kullanıldığında sürüş süresi kuralları tamamen geçersiz olur",
+      "d": "İkinci sürücü hiçbir dinlenme süresi olmadan araçta istediği kadar uzun süre kalabilir"
+    },
+    "explanation": "Çoklu sürücü işletiminde bile sürüş ve dinlenme süresi kuralları her sürücü için bireysel olarak geçerlidir; her sürücünün kendi sürücü kartına ihtiyacı vardır ve kendi dinlenme sürelerine uymalıdır."
+  },
+  "lkw-lenkzeiten-21": {
+    "question": "Takograf kategorisi 'diğer işler' altına ne girer?",
+    "options": {
+      "a": "Yalnızca sürüş sırasında direksiyon başındaki süre",
+      "b": "Yalnızca araçtaki günlük dinlenme süresi",
+      "c": "Yükleme ve boşaltma, temizlik, teknik bakım veya taşımayla ilgili idari işler gibi faaliyetler",
+      "d": "Yalnızca sürücünün özel işleri"
+    },
+    "explanation": "Diğer işler, meslekle bağlantılı sürüş dışındaki faaliyetlerdir, örneğin yükleme ve boşaltma, araç bakımı veya idari görevler."
+  },
+  "lkw-lenkzeiten-22": {
+    "question": "Bir sürücü sürücü kartını kısa süreliğine kaybederse veya kart hasar görürse ne yapmalıdır?",
+    "options": {
+      "a": "Bu andan itibaren kariyerinin sonuna kadar hiçbir kamyon kullanamaz",
+      "b": "Herhangi bir belge tutmadan hemen yolculuğa devam etmelidir",
+      "c": "Bildirim yükümlülüğü yoktur, kayıp göz ardı edilebilir",
+      "d": "Kaybı veya hasarı bildirmeli, gerekirse bir çıktı almalı ve yedek kart alınana kadar yolculuğu geçerli kurallara uygun şekilde manuel olarak belgelemelidir"
+    },
+    "explanation": "Sürücü kartının kaybı veya hasarı durumunda, yedek kart verilene kadar sürüş ve dinlenme sürelerinin izlenebilir kalması için bildirim ve belgeleme yükümlülükleri vardır."
+  },
+  "lkw-lenkzeiten-23": {
+    "question": "Takograf verileri neden belirli bir süre saklanmalı ve düzenli olarak okunmalıdır?",
+    "options": {
+      "a": "Denetim makamları ve şirketin sürüş ve dinlenme süresi kurallarına uyumu geriye dönük olarak da izleyebilmesi için",
+      "b": "Çünkü aksi takdirde veriler otomatik olarak motor gücünü düşürür",
+      "c": "Yalnızca yakıt tüketimini hesaplamak için",
+      "d": "Yalnızca kat edilen mesafenin fotoğraflarını çekmek için"
+    },
+    "explanation": "Verilerin saklanması ve düzenli olarak okunması, makamların ve şirketin kurallara uyumu geriye dönük olarak da kontrol etmesini ve ihlalleri tespit etmesini sağlar."
+  },
+  "lkw-lenkzeiten-24": {
+    "question": "Bir dinlenme süresinin kurallar anlamında dinlenme süresi sayılması için temelde neye dikkat edilmelidir?",
+    "options": {
+      "a": "Herhangi bir etkisi olmadan kısa bir sürüşle her an kesintiye uğratılabilir",
+      "b": "Kesintisiz olmalı ve sürücü bu süre boyunca çalışmak zorunda kalmadan onu serbestçe kullanabilmelidir",
+      "c": "Kesinlikle araç dışında geçirilmelidir",
+      "d": "Yalnızca 24 saatten uzun sürerse sayılır"
+    },
+    "explanation": "Bir dinlenme süresi kesintisiz olmalı ve sürücünün bu süre üzerinde, çalışma zorunluluğu olmadan serbestçe tasarrufta bulunabilmesini sağlamalıdır."
+  },
+  "lkw-lenkzeiten-25": {
+    "question": "Bir sürücü dinlenme süresinin bir kısmını bir feribotta veya trende geçirirse temelde neye dikkat edilmelidir?",
+    "options": {
+      "a": "Böyle bir dinlenme süresi hiçbir koşulda kabul edilmez ve her zaman geçersiz sayılmalıdır",
+      "b": "Dinlenme süresi otomatik olarak iki katına çıkar",
+      "c": "Belirli koşullar altında, sürücünün uygun bir uyku kabinine veya kuşetine erişimi varsa, feribot veya trendeki dinlenme süresi sayılabilir",
+      "d": "Feribottaki süre her zaman tam sürüş süresi olarak sayılır"
+    },
+    "explanation": "Belirli koşullar altında, örneğin bir uyku kabinine erişim varsa, bir feribot veya tren yolculuğu sırasındaki dinlenme süresi sayılabilir; bu, kombine taşımacılık düzenlemelerini dikkate alır."
+  },
+  "lkw-lenkzeiten-26": {
+    "question": "Şirketin (işverenin) sürücülerinin sürüş ve dinlenme sürelerine uymasında hangi rolü vardır?",
+    "options": {
+      "a": "Şirketin hiçbir sorumluluğu yoktur, yalnızca sürücü her şeyden sorumludur",
+      "b": "Şirket, sürücünün kurallara uyabilmesi için çalışmayı organize etmelidir ve kayıtları kontrol etmekle yükümlüdür",
+      "c": "İşletme açısından gerekliyse şirket sürücüye sürüş sürelerini aşmasını talimat verebilir",
+      "d": "Şirket yalnızca takografın bakımından sorumludur, zaman planlamasından değil"
+    },
+    "explanation": "Şirket, sürüş ve dinlenme sürelerine uyulabilmesi için iş süreçlerini ve seyahat programlarını organize etmekle yükümlüdür ve kayıtları düzenli olarak kontrol etmelidir."
+  },
+  "lkw-lenkzeiten-27": {
+    "question": "Bir sürücü kısaltılmış haftalık dinlenme süresinden yararlanırsa temelde ne olur?",
+    "options": {
+      "a": "Kısaltma, belirli bir süre içinde başka bir dinlenme süresine eklenen eşdeğer bir dinlenme süresiyle telafi edilmelidir",
+      "b": "Kısaltılmış haftalık dinlenme süresi telafi edilmek zorunda değildir ve başka hiçbir sonucu yoktur",
+      "c": "Sürücü bu nedenle otomatik olarak sürücü belgesini kaybeder",
+      "d": "Haftalık dinlenme süresinin kısaltılmasına hiçbir koşulda izin verilmez"
+    },
+    "explanation": "Kısaltılmış haftalık dinlenme süresi, başka bir dinlenme süresine eklenen uygun bir telafi dinlenme süresiyle telafi edilmelidir, böylece toplam iyileşme sağlanır."
+  },
+  "lkw-lenkzeiten-28": {
+    "question": "Denetim makamları bir karayolu denetiminde sürüş ve dinlenme süreleriyle ilgili genellikle neye dikkat eder?",
+    "options": {
+      "a": "Yalnızca şoför kabininin temizliğine",
+      "b": "Yalnızca yük sabitleme planına",
+      "c": "Son günlerin takograf kayıtlarına ve manipülasyon belirtilerine ve sürücünün mevcut faaliyetine",
+      "d": "Yalnızca sürücü belgesinin geçerliliğine"
+    },
+    "explanation": "Karayolu denetimlerinde düzenli olarak son günlerin takograf verileri ve olası manipülasyon izleri kontrol edilerek sürüş ve dinlenme sürelerine ilişkin ihlaller tespit edilir."
+  },
+  "lkw-lenkzeiten-29": {
+    "question": "İki haftalık bir dönem içinde günlük sürüş süresi kaç kez 10 saate uzatılabilir?",
+    "options": {
+      "a": "Hiçbir sınırlama olmadan istenildiği kadar sık",
+      "b": "İki haftada yalnızca bir kez",
+      "c": "Hiç, bir uzatmaya asla izin verilmez",
+      "d": "Haftada en fazla iki gün, yani hafta içinde toplamda sınırlı"
+    },
+    "explanation": "Günlük sürüş süresinin 10 saate uzatılması, sürekli aşırı yüklenmeyi önlemek için haftada en fazla iki günle sınırlıdır."
+  },
+  "lkw-lenkzeiten-30": {
+    "question": "Bir profesyonel şoförün, takograf olmadan bile, sürüş ve dinlenme süresi kurallarının temellerini ezbere bilmesi neden mantıklıdır?",
+    "options": {
+      "a": "Çünkü takograf zaten yalnızca on yılda bir kontrol edilir",
+      "b": "Çünkü sürücü kendi sorumluluğunda sürüşünü ve molalarını planlamalı ve günlük hayatta bir mola veya dinlenmenin ne zaman gerekli olduğunu doğru şekilde değerlendirebilmelidir",
+      "c": "Çünkü kurallar zaten yalnızca yurt dışı yolculukları için geçerlidir",
+      "d": "Çünkü bu, aracın bakım aralıklarını uzatır"
+    },
+    "explanation": "Takograf uyumu izlese bile, sürücü kuralları anlamalıdır ki yolculukları ve molaları kendi başına ve öngörülü şekilde planlayabilsin ve ihlalleri baştan önleyebilsin."
+  }
+}

@@ -1,0 +1,402 @@
+{
+  "it_sicherheit-zugriffsschutz-01": {
+    "question": "Jaka cecha zasadniczo czyni hasło bardziej odpornym na zautomatyzowane ataki polegające na zgadywaniu?",
+    "options": {
+      "a": "Zawiera nazwę działu, dzięki czemu łatwiej je zapamiętać",
+      "b": "Jest długie, unikalne dla tego jednego konta i trudne do odgadnięcia",
+      "c": "Co trzy dni jest zastępowane bardzo podobnym hasłem",
+      "d": "Składa się wyłącznie z cyfr, ponieważ przyspiesza to wpisywanie"
+    },
+    "explanation": "Długość i unikalność to najważniejsze czynniki chroniące przed zautomatyzowanym zgadywaniem oraz tak zwanym credential stuffing, czyli wypróbowywaniem skradzionych danych logowania z innych usług. Hasło związane z miejscem pracy jest łatwe do odgadnięcia, częsta zmiana na bardzo podobne hasło niemal nie zwiększa bezpieczeństwa, a hasła czysto numeryczne mają zbyt mało możliwych kombinacji."
+  },
+  "it_sicherheit-zugriffsschutz-02": {
+    "question": "Dlaczego uwierzytelnianie wieloskładnikowe (MFA) uważane jest za znacznie bezpieczniejsze niż samo hasło?",
+    "options": {
+      "a": "Ponieważ czyni hasło zbędnym i nie trzeba już niczego zapamiętywać",
+      "b": "Ponieważ całkowicie chroni konto przed wszystkimi rodzajami ataków",
+      "c": "Ponieważ napastnik, nawet mając skradzione hasło, potrzebowałby dodatkowo drugiego składnika",
+      "d": "Ponieważ jest technicznie możliwe wyłącznie dla kont administratorów"
+    },
+    "explanation": "MFA łączy coś, co się wie (hasło), z czymś, co się posiada (np. aplikacją lub tokenem) lub czym się jest. Samo skradzione hasło nie wystarcza już napastnikowi. MFA nie zastępuje hasła, nie zapewnia pełnej ochrony przed każdym rodzajem ataku i jest dziś dostępne praktycznie dla każdego konta użytkownika, nie tylko administratorów."
+  },
+  "it_sicherheit-zugriffsschutz-03": {
+    "question": "Kolega prosi Cię o krótkie użyczenie jego osobistego konta wraz z hasłem, ponieważ jego dostęp jest właśnie zablokowany. Jak powinieneś zareagować?",
+    "options": {
+      "a": "Odmówić i zamiast tego poinformować odpowiedni dział wsparcia IT lub przełożonego",
+      "b": "Zgodzić się, o ile jest to tylko krótkotrwałe",
+      "c": "Zgodzić się, ale potem samodzielnie zmienić hasło kolegi",
+      "d": "Zgodzić się, jeśli zadanie jest pilne i nie widać innego dostępu"
+    },
+    "explanation": "Konta są przypisane do konkretnych osób, aby działania w systemie można było jednoznacznie przypisać danej osobie (identyfikowalność). Gdy konto jest współdzielone, później nie da się ustalić, kto co zrobił - utrudnia to również wyjaśnianie incydentów bezpieczeństwa. Pilność nie usprawiedliwia wyjątku; właściwą drogą jest przywrócenie własnego dostępu przez wsparcie IT."
+  },
+  "it_sicherheit-zugriffsschutz-04": {
+    "question": "Opuszczasz swoje stanowisko pracy na krótką rozmowę w sąsiednim biurze. Jak właściwie postąpić z odblokowanym komputerem?",
+    "options": {
+      "a": "Nic nie robić, ponieważ to wewnętrzny budynek biurowy",
+      "b": "Zablokować ekran przed opuszczeniem stanowiska pracy",
+      "c": "Zamknąć tylko otwarty dokument, reszta może pozostać otwarta",
+      "d": "Wyłączyć monitor, to wystarczy jako ochrona"
+    },
+    "explanation": "Odblokowany komputer pozwala każdemu, kto ma na chwilę dostęp do pomieszczenia - także gościom, personelowi sprzątającemu czy nieuprawnionym osobom trzecim - na dostęp do wszystkich otwartych programów i danych. Wyłączony monitor niczego nie zmienia, ponieważ sesja nadal działa w tle. Blokada ekranu (np. skrótem klawiszowym) to prosty, skuteczny środek podstawowy, niezależnie od tego, jak bezpieczne wydaje się otoczenie."
+  },
+  "it_sicherheit-phishing-01": {
+    "question": "Która z poniższych cech jest typowym sygnałem ostrzegawczym wiadomości phishingowej?",
+    "options": {
+      "a": "Wiadomość przychodzi w zwykłych godzinach pracy",
+      "b": "Wiadomość zawiera logo firmy w załączniku",
+      "c": "Wiadomość wywołuje presję czasu i wymaga natychmiastowego, nietypowego działania",
+      "d": "Wiadomość wysłano jednocześnie do kilku współpracowników"
+    },
+    "explanation": "Napastnicy celowo wykorzystują sztuczną presję czasu i emocjonalną pilność, aby odbiorca nie zastanawiał się spokojnie ani nie konsultował się z innymi, lecz działał natychmiast - np. kliknął w link lub ujawnił dane. Logo, zwykłe godziny wysyłki czy większe grono odbiorców same w sobie niczego nie mówią o autentyczności wiadomości, ponieważ logo łatwo skopiować, a godziny wysyłki i listy odbiorców można dowolnie ustalać."
+  },
+  "it_sicherheit-phishing-02": {
+    "question": "Otrzymujesz pozornie od zarządu wiadomość, która wzywa Cię do pilnego i poufnego przelania wysokiej kwoty na nowe, nieznane konto. Jaki jest właściwy pierwszy krok?",
+    "options": {
+      "a": "Natychmiast wykonać przelew, ponieważ polecenia zarządu mają pierwszeństwo",
+      "b": "Osobiście zweryfikować prośbę znanym, niezależnym kanałem (np. telefonicznie), zanim cokolwiek się wydarzy",
+      "c": "Odpowiedzieć na wiadomość i poprosić tam o pisemne potwierdzenie",
+      "d": "Wykonać przelew, ale wysłać mniejszą kwotę niż żądana"
+    },
+    "explanation": "Ten schemat jest często określany jako \"CEO fraud\": napastnicy podszywają się pod osobę z kierownictwa i wykorzystują autorytet, poufność i presję czasu, by ominąć mechanizmy kontroli. Odpowiedź w tej samej korespondencji e-mail nie pomaga, ponieważ to właśnie ten kanał kontroluje napastnik. Kluczowa jest weryfikacja przez niezależny, już znany kanał kontaktu - na przykład telefon pod zapisanym numerem - zanim dojdzie do jakiejkolwiek płatności czy działania."
+  },
+  "it_sicherheit-phishing-03": {
+    "question": "W e-mailu widoczny jest link, który rzekomo prowadzi do znanej strony logowania Twojej firmy. Jak najsensowniej sprawdzić, czy link jest wiarygodny, nie klikając w niego?",
+    "options": {
+      "a": "Najechać myszą na link (bez klikania) i sprawdzić rzeczywisty adres docelowy na pasku stanu",
+      "b": "Kliknąć link i od razu sprawdzić, czy strona wygląda autentycznie",
+      "c": "Sprawdzić, czy e-mail jest napisany poprawną polszczyzną",
+      "d": "Sprawdzić nazwę nadawcy wyświetlaną w programie pocztowym"
+    },
+    "explanation": "Wyświetlany tekst linku może dowolnie różnić się od rzeczywistego adresu docelowego; dopiero najechanie myszą pokazuje prawdziwy adres URL na pasku stanu przeglądarki lub programu pocztowego. Samo kliknięcie niesie już ryzyko, ponieważ niektóre podrobione strony automatycznie ładują szkodliwy kod. Bezbłędny język nie jest już wiarygodnym kryterium, ponieważ teksty phishingowe często wyglądają dziś bardzo profesjonalnie, a wyświetlana nazwa nadawcy jest łatwa do sfałszowania niezależnie od rzeczywistego adresu nadawcy."
+  },
+  "it_sicherheit-phishing-04": {
+    "question": "Kliknąłeś w link w podejrzanej wiadomości e-mail i przypadkowo wpisałeś tam swoje dane logowania. Jaka jest właściwa reakcja?",
+    "options": {
+      "a": "Poczekać, czy coś niezwykłego pojawi się na koncie, i dopiero wtedy zareagować",
+      "b": "Nic nie robić, ponieważ to prawdopodobnie nieszkodliwy pojedynczy przypadek",
+      "c": "Zmienić hasło w kolejnych dniach, gdy będzie na to czas",
+      "d": "Natychmiast zmienić hasło i niezwłocznie zgłosić incydent odpowiedniej wewnętrznej jednostce (np. bezpieczeństwu IT)"
+    },
+    "explanation": "Im szybciej zostaną zmienione skompromitowane dane logowania i zgłoszony incydent, tym mniejsze pozostaje okno czasowe, w którym napastnik może nadużyć skradzionych danych. Czekanie, bezczynność lub zwłoka niepotrzebnie zwiększają ryzyko, zwłaszcza gdy to samo hasło jest używane także w innych systemach. Zgłoszenie do odpowiedniej jednostki dodatkowo umożliwia podjęcie dalszych środków ochronnych i ostrzeżenie innych pracowników."
+  },
+  "it_sicherheit-datensicherung-01": {
+    "question": "Dlaczego regularne, zaplanowane kopie zapasowe danych są ważne, nawet gdy urządzenie działa technicznie niezawodnie?",
+    "options": {
+      "a": "Ponieważ kopie zapasowe zastępują konieczność stosowania haseł",
+      "b": "Ponieważ dane mogą zostać utracone także przez błędną obsługę, awarię techniczną lub złośliwe oprogramowanie, takie jak ransomware, niezależnie od dotychczasowej niezawodności urządzenia",
+      "c": "Ponieważ kopie zapasowe są obowiązkowe wyłącznie dla bardzo starych urządzeń",
+      "d": "Ponieważ bez kopii zapasowej połączenie internetowe staje się wolniejsze"
+    },
+    "explanation": "Kopia zapasowa chroni przed bardzo różnymi przyczynami utraty danych: przypadkowym usunięciem, awariami sprzętu, a także ransomware szyfrującym pliki. Dotychczasowa niezawodność urządzenia nic nie mówi o przyszłych awariach czy atakach. Kopie zapasowe nie mają nic wspólnego z hasłami czy szybkością internetu i mają sens niezależnie od wieku urządzenia."
+  },
+  "it_sicherheit-datensicherung-02": {
+    "question": "Na firmowym parkingu znajdujesz nieoznaczoną pamięć USB. Jak właściwie z nią postąpić?",
+    "options": {
+      "a": "Podłączyć pamięć do firmowego komputera, aby ustalić, do kogo należy",
+      "b": "Zabrać pamięć i używać jej prywatnie, skoro nikt jej nie szuka",
+      "c": "Nie podłączać pamięci, lecz przekazać ją działowi IT lub ochronie",
+      "d": "Sprawdzić pamięć na prywatnym urządzeniu, zanim podejmiesz decyzję"
+    },
+    "explanation": "Nieznane pamięci USB to klasyczna brama dla złośliwego oprogramowania: mogą być tak spreparowane, że po podłączeniu automatycznie wykonują szkodliwy kod, jeszcze zanim jakikolwiek plik zostanie otwarty. Dotyczy to zarówno komputerów firmowych, jak i urządzeń prywatnych. Bezpieczną drogą jest nie badać znaleziska samodzielnie, lecz przekazać je odpowiedniej jednostce, która może je kontrolowanie sprawdzić."
+  },
+  "it_sicherheit-datensicherung-03": {
+    "question": "Dlaczego aktualizacje bezpieczeństwa systemu operacyjnego i programów na urządzeniu służbowym należy instalować niezwłocznie, gdy system je oferuje?",
+    "options": {
+      "a": "Ponieważ aktualizacje często usuwają ujawnione luki bezpieczeństwa, które mogłyby zostać wykorzystane przez napastników",
+      "b": "Ponieważ aktualizacje głównie poprawiają wygląd interfejsu użytkownika",
+      "c": "Ponieważ aktualizacje wyłącznie zwiększają szybkość urządzenia",
+      "d": "Ponieważ aktualizacje są istotne dla bezpieczeństwa tylko w przypadku urządzeń prywatnych"
+    },
+    "explanation": "Luki bezpieczeństwa w systemach operacyjnych i aplikacjach są stale wykrywane i publikowane; producenci usuwają je za pomocą aktualizacji. Jeśli aktualizacja zostanie odłożona, luka pozostaje otwarta, a napastnicy często celowo wykorzystują właśnie okres tuż po jej ujawnieniu. Wygląd interfejsu czy szybkość to co najwyżej efekty uboczne, a nie właściwy powód bezpieczeństwa, a dyscyplina aktualizacji dotyczy urządzeń służbowych tak samo jak prywatnych."
+  },
+  "it_sicherheit-datensicherung-04": {
+    "question": "Kolega poleca Ci praktyczny, bezpłatny dodatkowy program z internetu na Twój komputer firmowy. Jak najsensowniej postąpić?",
+    "options": {
+      "a": "Zainstalować program od razu, ponieważ jest bezpłatny i nie generuje kosztów",
+      "b": "Zainstalować program, ale tylko na komputerze, nie na telefonie służbowym",
+      "c": "Zainstalować program, o ile pochodzi ze znanej strony internetowej",
+      "d": "Przed instalacją zapytać odpowiedni dział IT, czy i jak oprogramowanie może zostać dopuszczone"
+    },
+    "explanation": "Niezatwierdzone oprogramowanie może zawierać luki bezpieczeństwa, wchodzić w konflikt z innymi programami lub naruszać wymogi licencyjne i zgodności - niezależnie od tego, czy jest bezpłatne, z jakiej strony pochodzi czy na jakim typie urządzenia zostanie zainstalowane. Dział IT może sprawdzić, czy oprogramowanie może być używane bezpiecznie i zgodnie z zasadami, i w razie potrzeby zaproponować sprawdzoną alternatywę."
+  },
+  "it_sicherheit-mobil_homeoffice-01": {
+    "question": "Który środek najbardziej przyczynia się do zabezpieczenia domowej sieci WiFi na potrzeby pracy służbowej w domu?",
+    "options": {
+      "a": "Ustawienie nazwy (SSID) sieci WiFi tak, by brzmiała niepozornie",
+      "b": "Użycie silnego, indywidualnego hasła WiFi oraz aktualnego szyfrowania (np. WPA2/WPA3)",
+      "c": "Włączanie WiFi tylko w ciągu dnia i całkowite wyłączanie go w nocy",
+      "d": "Pozostawienie fabrycznego dostępu do routera bez zmian, aby uniknąć błędów"
+    },
+    "explanation": "Silne, indywidualne hasło wraz z nowoczesnym szyfrowaniem uniemożliwia osobom nieuprawnionym w zasięgu łatwe podłączenie się do sieci i odczytywanie lub manipulowanie ruchem danych. Niepozorna nazwa sieci nie daje technicznej ochrony, czasowe wyłączanie nie rozwiązuje podstawowego problemu, a fabryczne ustawienia (domyślne hasła, domyślny SSID) są często publicznie znane i dlatego szczególnie niebezpieczne."
+  },
+  "it_sicherheit-mobil_homeoffice-02": {
+    "question": "W drodze musisz na chwilę uzyskać dostęp do służbowej poczty i znajdujesz otwartą, nieszyfrowaną sieć WiFi w kawiarni. Jak postąpić najbezpieczniej?",
+    "options": {
+      "a": "Skorzystać bezpośrednio z otwartej sieci WiFi, ponieważ sprawdzanie poczty jest niekrytyczne",
+      "b": "Skorzystać z otwartej sieci WiFi, ale wcześniej zmienić własne hasło",
+      "c": "Zamiast otwartej sieci WiFi użyć zabezpieczonego połączenia, np. danych komórkowych lub firmowego VPN",
+      "d": "Skorzystać z otwartej sieci WiFi, o ile strona kawiarni pokazuje symbol kłódki w pasku adresu"
+    },
+    "explanation": "W otwartych, nieszyfrowanych sieciach WiFi ruch danych może być odczytywany lub przekierowywany przez osoby trzecie w tej samej sieci, nawet jeśli poszczególne strony są same w sobie szyfrowane (symbol kłódki dotyczy tylko tego jednego połączenia, a nie całej sieci). Dane komórkowe lub firmowy VPN tworzą dodatkowo zabezpieczone, szyfrowane połączenie, które jest znacznie trudniejsze do podsłuchania. Wcześniejsza zmiana hasła nie rozwiązuje właściwego ryzyka."
+  },
+  "it_sicherheit-mobil_homeoffice-03": {
+    "question": "Pracujesz w pociągu nad poufnym dokumentem na laptopie. Na co powinieneś zwrócić uwagę, chroniąc się przed podglądaniem?",
+    "options": {
+      "a": "Zwracać uwagę na otoczenie i w razie potrzeby użyć filtra prywatyzującego ekran lub zająć chronione miejsce",
+      "b": "Po prostu zmniejszyć powiększenie dokumentu, by nie dało się go odczytać z daleka",
+      "c": "Zanonimizować tylko nazwę pliku, sama treść jest niekrytyczna",
+      "d": "Traktować poufne dokumenty w podróży ogólnie tak samo jak informacje publicznie dostępne"
+    },
+    "explanation": "\"Shoulder surfing\" - podglądanie zawartości ekranu przez osoby postronne - to realne ryzyko w miejscach publicznych, takich jak pociągi czy poczekalnie. Filtr prywatyzujący ekran lub sprytnie wybrane miejsce skutecznie zmniejszają to ryzyko. Mniejsze powiększenie nie chroni niezawodnie, nazwa pliku nie jest właściwym przedmiotem ochrony, a poufne treści zawsze wymagają odpowiedniej ochrony niezależnie od miejsca, nie tylko w biurze."
+  },
+  "it_sicherheit-mobil_homeoffice-04": {
+    "question": "Jesteś w podróży służbowej i musisz na chwilę zostawić firmowego laptopa w zaparkowanym samochodzie. Jak postąpić z nim najbezpieczniej?",
+    "options": {
+      "a": "Zostawić laptopa dobrze widocznego na fotelu pasażera, żeby o nim nie zapomnieć",
+      "b": "Umieścić laptopa w niewidocznym z zewnątrz bagażniku i zamknąć pojazd, albo najlepiej zabrać go ze sobą",
+      "c": "Ukryć laptopa pod kurtką na tylnym siedzeniu, to wystarczy jako ochrona",
+      "d": "Nie ma to znaczenia, o ile laptop jest chroniony hasłem użytkownika"
+    },
+    "explanation": "Widoczne wartościowe przedmioty w samochodzie znacznie zwiększają ryzyko włamania; niewidoczny z zewnątrz bagażnik lub zabranie urządzenia ze sobą wyraźnie zmniejszają to ryzyko. Kurtka jako osłona wzrokowa jest niewiarygodna i nie chroni przed celowym włamaniem. Hasło użytkownika częściowo chroni dane na urządzeniu w razie kradzieży, ale nie zapobiega fizycznej utracie samego urządzenia i dlatego nie zastępuje bezpiecznego przechowywania."
+  },
+  "it_sicherheit-meldepflicht_it-01": {
+    "question": "Podejrzewasz, że Twój firmowy komputer jest zainfekowany złośliwym oprogramowaniem, ale nie jesteś do końca pewien. Jak powinieneś się zachować?",
+    "options": {
+      "a": "Poczekać, aż pojawią się jednoznaczne dowody, aby nie zgłaszać fałszywego alarmu",
+      "b": "Niezwłocznie zgłosić podejrzenie odpowiedniej wewnętrznej jednostce (np. bezpieczeństwu IT lub helpdeskowi), nawet przy niepewności",
+      "c": "Samodzielnie ponownie zainstalować system na komputerze i normalnie kontynuować pracę",
+      "d": "Najpierw zapytać współpracowników, czy zauważyli coś podobnego, zanim cokolwiek zostanie zgłoszone"
+    },
+    "explanation": "Funkcjonująca kultura zgłaszania i reagowania wymaga, aby zgłaszać nawet zwykłe podejrzenia wcześnie, zamiast czekać na jednoznaczne dowody - im wcześniej możliwy incydent staje się znany, tym lepiej można ograniczyć jego rozprzestrzenianie się. Samodzielne ponowne zainstalowanie systemu może zniszczyć ważne ślady potrzebne do wyjaśnienia przyczyny. Nieformalne pytanie współpracowników również niepotrzebnie opóźnia zgłoszenie i nie zastępuje poinformowania odpowiedniej jednostki."
+  },
+  "it_sicherheit-meldepflicht_it-02": {
+    "question": "Dlaczego unijna dyrektywa w sprawie bezpieczeństwa sieci i informacji (NIS2) ustala tak krótkie terminy pierwszego zgłoszenia poważnego incydentu bezpieczeństwa dla objętych nią organizacji (w skrócie: wczesne ostrzeżenie w ciągu godzin, po którym następuje bardziej szczegółowe zgłoszenie)?",
+    "options": {
+      "a": "Aby firmy zyskały jak najwięcej czasu na wewnętrzne zatajenie incydentu",
+      "b": "Ponieważ pełne dochodzenie techniczne i tak nigdy nie jest możliwe",
+      "c": "Aby odpowiednie organy mogły wcześnie zareagować, a inne potencjalnie dotknięte organizacje mogły zostać w porę ostrzeżone",
+      "d": "Ponieważ krótkie terminy dotyczą wyłącznie dostawców usług IT, a nie ich klientów"
+    },
+    "explanation": "Krótkie terminy zgłaszania mają zapewnić, by organy i inne zainteresowane podmioty zostały szybko poinformowane w celu ograniczenia rozprzestrzeniania się i skoordynowania przeciwdziałania - a nie umożliwienie wewnętrznego zatajenia. Pierwsze, wczesne zgłoszenie może celowo być jeszcze niepełne i jest uzupełniane później; na tym właśnie polega sens stopniowej procedury zgłaszania. Obowiązki zgłaszania dotyczą dotkniętych organizacji jako całości, nie tylko dostawców usług IT."
+  },
+  "it_sicherheit-meldepflicht_it-03": {
+    "question": "Dlaczego dobra kultura bezpieczeństwa wymaga, aby pracownicy zgłaszali podejrzewany incydent bezpieczeństwa, zamiast próbować rozwiązać go samodzielnie \"po cichu\"?",
+    "options": {
+      "a": "Ponieważ pojedyncza osoba często nie jest w stanie ogarnąć całego zakresu i przyczyny incydentu, a samowolne działanie może zatrzeć ślady lub pogorszyć problem",
+      "b": "Ponieważ samodzielne usuwanie zasadniczo narusza prawo autorskie",
+      "c": "Ponieważ tylko w ten sposób można obniżyć koszty bezpieczeństwa IT w firmie",
+      "d": "Ponieważ bez zgłoszenia pracownicy automatycznie mogą zostać pociągnięci do osobistej odpowiedzialności"
+    },
+    "explanation": "Pojedynczy incydent może być częścią większego wzorca - na przykład ataku obejmującego wiele systemów. Kto próbuje rozwiązać problem samodzielnie i bez zgłoszenia, może zniszczyć ważne ślady potrzebne do wyjaśnienia przyczyny i ryzykuje, że incydent niepostrzeżenie będzie się dalej rozprzestrzeniał. Wymienione alternatywy (prawo autorskie, obniżenie kosztów, automatyczna osobista odpowiedzialność) nie opisują właściwego powodu obowiązku zgłaszania."
+  },
+  "it_sicherheit-meldepflicht_it-04": {
+    "question": "Nie jesteś pewien, kto w firmie jest odpowiedzialny za zgłoszenie podejrzewanego incydentu bezpieczeństwa IT. Jakie jest najsensowniejsze podejście?",
+    "options": {
+      "a": "Opublikować incydent na publicznym wewnętrznym kanale czatu, żeby ktoś to zobaczył",
+      "b": "Poczekać, aż ktoś inny przypadkiem zauważy problem i go zgłosi",
+      "c": "Opisać incydent w mediach społecznościowych, żeby szybko zwrócić uwagę",
+      "d": "Skorzystać z ustalonych w firmie kanałów zgłaszania (np. wsparcie IT, pełnomocnik ds. bezpieczeństwa lub przełożony) albo w razie wątpliwości zapytać własnego przełożonego"
+    },
+    "explanation": "Przygotowana procedura zgłaszania z jasno określonymi odpowiedzialnymi jednostkami zapewnia, że incydent szybko dociera do właściwych osób, które mogą podjąć odpowiednie przeciwdziałanie. Publiczny kanał czatu lub media społecznościowe są nieodpowiednie i mogą dodatkowo upublicznić incydent lub ostrzec napastnika. Czekanie niepotrzebnie opóźnia reakcję; w razie wątpliwości własny przełożony jest zawsze rozsądnym pierwszym kontaktem, by znaleźć właściwą drogę zgłoszenia."
+  },
+  "it_sicherheit-zugriffsschutz-05": {
+    "question": "Dlaczego pracownicy powinni otrzymywać wyłącznie te uprawnienia dostępu, których faktycznie potrzebują do swojego konkretnego zadania (\"zasada minimalnych uprawnień\")?",
+    "options": {
+      "a": "Aby trzeba było zarządzać mniejszą liczbą haseł",
+      "b": "Aby w przypadku skompromitowanego konta lub błędu możliwa szkoda pozostała ograniczona do niezbędnego minimum",
+      "c": "Aby dział IT musiał obsługiwać mniej zgłoszeń wsparcia",
+      "d": "Aby wszyscy pracownicy mieli takie same uprawnienia i nikt nie był poszkodowany"
+    },
+    "explanation": "Zasada minimalnych uprawnień (least privilege) ogranicza szkodę, jaką może wyrządzić skradzione konto lub przypadkowy błąd, ponieważ dostęp możliwy jest wyłącznie do faktycznie potrzebnych systemów i danych. Nie chodzi o liczbę haseł, nakład wsparcia czy formalne równe traktowanie, lecz o ograniczenie ryzyka odpowiednio do danego zadania."
+  },
+  "it_sicherheit-zugriffsschutz-06": {
+    "question": "Koleżanka przechodzi wewnętrznie do innego działu z innymi obowiązkami. Co powinno się stać z jej dotychczasowymi dostępami do systemów?",
+    "options": {
+      "a": "Nic, ponieważ nadal pracuje w tej samej firmie",
+      "b": "Dotychczasowe dostępy pozostają dodatkowo obok nowych, aby mogła elastycznie pomagać",
+      "c": "Niepotrzebne już uprawnienia dostępu zostają odebrane, a uprawnienia dostosowane do nowej roli",
+      "d": "Zmienia się tylko hasło, uprawnienia pozostają bez zmian"
+    },
+    "explanation": "Uprawnienia powinny odpowiadać aktualnemu zakresowi obowiązków; przy zmianie roli niepotrzebne już uprawnienia dostępu muszą zostać odebrane, a nowe, odpowiednie uprawnienia nadane. W przeciwnym razie z czasem gromadzą się niepotrzebne, zbędne uprawnienia (\"inflacja uprawnień\"), co niepotrzebnie zwiększa ryzyko w razie skompromitowania konta. Sama zmiana hasła niczego tu nie zmienia."
+  },
+  "it_sicherheit-zugriffsschutz-07": {
+    "question": "Musisz zapamiętać wiele różnych haseł do systemów służbowych. Jakie postępowanie jest najsensowniejsze?",
+    "options": {
+      "a": "Używać menedżera haseł zatwierdzonego przez IT zamiast wielokrotnie używać haseł lub zapisywać je bez zabezpieczenia",
+      "b": "Używać tego samego, łatwego do zapamiętania hasła do wszystkich systemów",
+      "c": "Zapisać hasła na karteczce przyklejonej do monitora, aby szybko je znaleźć",
+      "d": "Przechowywać hasła w niezaszyfrowanym pliku tekstowym na pulpicie"
+    },
+    "explanation": "Zatwierdzony menedżer haseł pozwala używać dla każdego systemu długiego, unikalnego hasła bez konieczności zapamiętywania ich wszystkich osobno i chroni same przechowywane dane logowania szyfrowaniem. Ponowne używanie haseł oznacza, że jeden wyciek danych naraża wszystkie powiązane konta; karteczki i niezaszyfrowane pliki są od razu widoczne dla każdego z dostępem fizycznym lub cyfrowym."
+  },
+  "it_sicherheit-zugriffsschutz-08": {
+    "question": "Wieczorem opuszczasz swoje stanowisko pracy w otwartym biurze po zakończeniu dnia pracy. Co odpowiada podstawowej zasadzie \"czystego biurka\"?",
+    "options": {
+      "a": "Zablokować tylko ekran, dokumenty mogą pozostać otwarte",
+      "b": "Poufne dokumenty mogą pozostać otwarte, o ile drzwi biura są zamknięte",
+      "c": "Uprzątnąć trzeba tylko dokumenty specjalnie oznaczone jako \"tajne\"",
+      "d": "Zamknąć poufne dokumenty i nośniki danych na klucz oraz zostawić biurko posprzątane"
+    },
+    "explanation": "Zasada czystego biurka wymaga zamykania na klucz poufnych dokumentów papierowych i nośników danych podczas nieobecności, aby nie były swobodnie dostępne dla osób nieuprawnionych - na przykład personelu sprzątającego, gości czy innych pracowników bez odpowiednich uprawnień. Same zamknięte drzwi biura nie chronią przed wszystkimi osobami mającymi dostęp do budynku lub pomieszczenia, a zasada dotyczy poufnych dokumentów ogólnie, nie tylko wyraźnie oznaczonych jako \"tajne\"."
+  },
+  "it_sicherheit-phishing-05": {
+    "question": "Otrzymujesz e-mail z nieoczekiwanym załącznikiem z fakturą, który prosi o zezwolenie na \"przetwarzanie makr\" lub \"włączenie zawartości\", aby wyświetlić fakturę. Jak najsensowniej zareagować?",
+    "options": {
+      "a": "Zezwolić na przetwarzanie makr, inaczej nie da się otworzyć faktury",
+      "b": "Otworzyć załącznik, ale dopiero po ponownym uruchomieniu komputera",
+      "c": "Nie aktywować makr i przy niepewności zlecić sprawdzenie e-maila zwykłymi kanałami zgłaszania",
+      "d": "Przekazać załącznik prywatnemu koledze, żeby otworzył go najpierw"
+    },
+    "explanation": "Prośba o aktywowanie makr to znany schemat ataku: dopiero aktywacja powoduje wykonanie szkodliwego kodu zawartego w pliku, który bez tej zgody pozostałby nieaktywny. Ponowne uruchomienie komputera niczego nie zmienia, a przekazanie koledze tylko przenosi ryzyko, zamiast je usunąć. Przy niepewności co do nadawcy lub treści e-mail powinien zostać sprawdzony przez zwykłe wewnętrzne kanały zgłaszania, zanim cokolwiek zostanie otwarte lub aktywowane."
+  },
+  "it_sicherheit-phishing-06": {
+    "question": "Czym \"spear phishing\" różni się od klasycznej, szeroko zakrojonej kampanii phishingowej?",
+    "options": {
+      "a": "Spear phishing prowadzony jest wyłącznie telefonicznie, nigdy przez e-mail",
+      "b": "Spear phishing jest ukierunkowany na konkretną osobę lub organizację i wykorzystuje celowo zebrane, wiarygodne szczegóły",
+      "c": "Spear phishing całkowicie rezygnuje z linków lub załączników",
+      "d": "Spear phishing dotyczy wyłącznie prywatnych kont e-mail, nigdy służbowych"
+    },
+    "explanation": "W spear phishingu napastnicy celowo zbierają informacje o osobie lub organizacji - na przykład nazwiska przełożonych, bieżące projekty czy wewnętrzne procesy - aby wiadomość wyglądała szczególnie wiarygodnie i spersonalizowanie. To sprawia, że takie ataki są trudniejsze do rozpoznania niż ogólne masowe wiadomości phishingowe. Ani kanał komunikacji, ani rezygnacja z linków/załączników, ani ograniczenie do kont prywatnych nie są decydującą cechą."
+  },
+  "it_sicherheit-phishing-07": {
+    "question": "Otrzymujesz SMS, rzekomo od firmy kurierskiej, zawierający link do \"opłaty celnej\", mimo że nie spodziewasz się żadnej przesyłki. Jak zaklasyfikować ten przypadek i jak zareagować?",
+    "options": {
+      "a": "To prawdopodobnie \"smishing\" (phishing przez SMS); nie klikać linku, lecz sprawdzić przesyłkę bezpośrednio przez oficjalną stronę internetową lub aplikację firmy kurierskiej",
+      "b": "Wiadomości SMS generalnie nie da się sfałszować, więc link jest bezpieczny",
+      "c": "Ponieważ to prywatny SMS, temat nie dotyczy pracy i można go zignorować",
+      "d": "Kliknąć link, ale nie wpisywać danych płatniczych, aby sprawdzić, czy to prawdziwa przesyłka"
+    },
+    "explanation": "Phishing nie ogranicza się do e-maili: \"smishing\" wykorzystuje wiadomości SMS z tą samą podstawową zasadą pilności i zmanipulowanym linkiem. Nazwę nadawcy SMS-a również można sfałszować. Bezpieczniej jest niezależnie sprawdzić rzekomy powód przez oficjalną stronę internetową lub aplikację, zamiast podążać za linkiem. Temat jest istotny również dla pracowników, ponieważ te same schematy mogą dotyczyć również urządzeń służbowych lub danych kontaktowych, a już samo kliknięcie spreparowanego linku może stanowić ryzyko."
+  },
+  "it_sicherheit-phishing-08": {
+    "question": "E-mail wygląda, jakby pochodził od \"support@ihre-firma-online.de\", podczas gdy rzeczywista domena firmy to \"ihrefirma.de\". Jak najlepiej zaklasyfikować tę niewielką różnicę w domenie nadawcy?",
+    "options": {
+      "a": "Jako nieistotną literówkę bez znaczenia dla bezpieczeństwa",
+      "b": "Jako możliwą oznakę sfałszowanej, łudząco podobnej domeny (\"typosquatting\"), używanej do wprowadzenia w błąd",
+      "c": "Jako potwierdzenie, że wiadomość gwarantowanie pochodzi z własnego działu IT",
+      "d": "Jako czystą kwestię gustu danego nadawcy przy wyborze domeny"
+    },
+    "explanation": "Napastnicy celowo rejestrują domeny łudząco podobne do prawdziwej domeny firmy (np. dodatkowe słowa, przestawione litery lub inne końcówki), aby udawać zaufanie. Taka różnica to poważny sygnał ostrzegawczy, a nie błahostka czy kwestia gustu. Rzeczywisty adres nadawcy powinien być dokładnie sprawdzony przy podejrzanych oznakach, a w razie wątpliwości zweryfikowany niezależnym kanałem, zamiast automatycznie zakładać jego autentyczność."
+  },
+  "it_sicherheit-datensicherung-05": {
+    "question": "Dlaczego przeciwko ransomware nie wystarczy przechowywać kopii zapasowej bezpośrednio na tym samym, stale podłączonym dysku sieciowym co dane oryginalne?",
+    "options": {
+      "a": "Ponieważ dyski sieciowe są technicznie zawsze wolniejsze niż lokalne dyski twarde",
+      "b": "Ponieważ na dyskach sieciowych generalnie nie wolno przechowywać kopii zapasowych",
+      "c": "Ponieważ ransomware przy stale podłączonym dysku może zaszyfrować także znajdującą się tam kopię zapasową",
+      "d": "Ponieważ dyski sieciowe są przeznaczone wyłącznie do przechowywania e-maili"
+    },
+    "explanation": "Ransomware zazwyczaj szyfruje wszystkie osiągalne dyski, w tym stale podłączone dyski sieciowe - kopia zapasowa znajdująca się tam nie zapewnia już realnej ochrony, ponieważ również może zostać dotknięta. Skuteczna koncepcja kopii zapasowych przewiduje więc co najmniej jedną kopię przechowywaną oddzielnie (offline lub z opóźnieniem czasowym) od systemu produkcyjnego, aby nie została objęta atakiem na główny system."
+  },
+  "it_sicherheit-datensicherung-06": {
+    "question": "Kopia zapasowa jest automatycznie tworzona co noc zgodnie z harmonogramem. Dlaczego samo to nie wystarczy jeszcze, by naprawdę móc polegać na zabezpieczeniu danych?",
+    "options": {
+      "a": "Ponieważ trzeba regularnie sprawdzać, czy z kopii zapasowej rzeczywiście da się skutecznie odtworzyć dane",
+      "b": "Ponieważ kopię zapasową zasadniczo należy tworzyć tylko raz w roku",
+      "c": "Ponieważ automatyczne kopie zapasowe technicznie nigdy nie mogą się nie powieść",
+      "d": "Ponieważ utworzona kopia zapasowa zachowuje ważność tylko przez maksymalnie 24 godziny"
+    },
+    "explanation": "Wykonanie kopii zapasowej może się nie powieść lub wytworzyć uszkodzoną, niekompletną kopię, bez natychmiastowego zauważenia tego. Tylko regularny test odtwarzania wiarygodnie pokazuje, czy w razie potrzeby rzeczywiście da się przywrócić dane. Częstotliwość samego zabezpieczania zależy od potrzeb i nie jest ograniczona do jednego razu w roku, procesy automatyczne mogą się nie powieść, a kopia zapasowa nie traci automatycznie ważności po 24 godzinach."
+  },
+  "it_sicherheit-datensicherung-07": {
+    "question": "Chcesz przenieść poufne dane firmowe na zewnętrznym nośniku USB. Jaki jest najważniejszy środek ochrony w tym celu?",
+    "options": {
+      "a": "Oznaczyć nośnik rzucającą się w oczy naklejką \"poufne\", aby nikt go nie zgubił",
+      "b": "Zaszyfrować nośnik, aby dane w razie utraty lub kradzieży nie były łatwo odczytywalne",
+      "c": "Wybrać nośnik możliwie mały i niepozorny, aby nie rzucał się w oczy",
+      "d": "Po prostu przemianować pliki przed kopiowaniem, aby ich zawartość nie była od razu rozpoznawalna"
+    },
+    "explanation": "Wymienne nośniki danych łatwo się gubią lub zostają skradzione; bez szyfrowania zapisane na nich dane są wtedy od razu odczytywalne dla każdego z fizycznym dostępem. Szyfrowanie zapewnia, że dane pozostają chronione nawet w razie utraty, o ile klucz lub hasło pozostaje tajne. Naklejka, niepozorna forma czy przemianowane pliki natomiast nie zapewniają realnej technicznej ochrony przed nieuprawnionym odczytem."
+  },
+  "it_sicherheit-datensicherung-08": {
+    "question": "Stary laptop firmowy ma zostać wycofany z użytku i zutylizowany. Jak właściwie postąpić w odniesieniu do zapisanych na nim danych?",
+    "options": {
+      "a": "Usunąć tylko widoczne pliki w koszu i opróżnić go",
+      "b": "Przekazać laptopa bez zmian na charytatywny rynek wtórny, aby oszczędzać zasoby",
+      "c": "Wymontować dysk twardy i wyrzucić go do odpadów domowych",
+      "d": "Zlecić odpowiedniej jednostce IT bezpieczne i nieodwracalne usunięcie danych (lub fachowe zniszczenie nośnika), zanim urządzenie zostanie przekazane dalej lub zutylizowane"
+    },
+    "explanation": "Zwykłe usunięcie do kosza czy formatowanie usuwa pliki zazwyczaj tylko z widocznego katalogu, podczas gdy same dane odpowiednimi środkami często pozostają możliwe do odtworzenia. Przed przekazaniem dalej lub utylizacją nośniki danych muszą więc zostać bezpiecznie usunięte (np. przez wielokrotne nadpisanie) lub fizycznie zniszczone, aby poufne dane firmowe nie trafiły w niepowołane ręce. Wyrzucenie do odpadów domowych jest ponadto niedopuszczalne ze względów środowiskowych i utylizacyjnych."
+  },
+  "it_sicherheit-mobil_homeoffice-05": {
+    "question": "Dlaczego szyfrowanie dysku twardego na laptopie używanym do pracy zdalnej i podróży służbowych jest szczególnie ważne?",
+    "options": {
+      "a": "Ponieważ automatycznie przyspiesza uruchamianie laptopa",
+      "b": "Ponieważ w razie kradzieży lub utraty uniemożliwia osobom nieuprawnionym łatwy dostęp do zapisanych danych",
+      "c": "Ponieważ jest obowiązkowe wyłącznie dla urządzeń, które nigdy nie opuszczają biura",
+      "d": "Ponieważ całkowicie czyni zbędnym hasło logowania"
+    },
+    "explanation": "Urządzenia używane poza biurem są narażone na wyższe ryzyko kradzieży lub utraty - na przykład w pociągu, samochodzie czy w podróży do klienta. Bez szyfrowania dysku wbudowany dysk twardy można często wymontować i bezpośrednio odczytać dane, niezależnie od hasła logowania systemu operacyjnego. Szyfrowanie i hasło logowania uzupełniają się nawzajem, ale się nie zastępują, a szybkość uruchamiania nie ma z tym nic wspólnego."
+  },
+  "it_sicherheit-mobil_homeoffice-06": {
+    "question": "Dlaczego na smartfonie używanym służbowo powinna być aktywowana krótka automatyczna blokada ekranu (np. po 30 sekundach bezczynności)?",
+    "options": {
+      "a": "Aby przy krótkim odłożeniu urządzenia lub jego utracie nie było ono od razu niezabezpieczone i dostępne",
+      "b": "Aby akumulator urządzenia trwał dłużej",
+      "c": "Aby połączenia były automatycznie wyciszane",
+      "d": "Ponieważ blokada ekranu jest prawnie obowiązkowa tylko dla telefonów służbowych kierownictwa"
+    },
+    "explanation": "Krótki interwał blokady zmniejsza okno czasowe, w którym krótko odłożone lub utracone urządzenie może być używane bez uwierzytelnienia, na przykład w celu dostępu do e-maili, kontaktów czy aplikacji firmowych. Czas pracy akumulatora i ustawienia połączeń nie mają z tym żadnego związku bezpieczeństwa, a zasada sensownie obowiązuje wszystkie urządzenia używane służbowo, a nie tylko określone grupy osób."
+  },
+  "it_sicherheit-mobil_homeoffice-07": {
+    "question": "Używasz czasami do celów służbowych swojego prywatnego smartfona (\"Bring Your Own Device\"). Co jest tu z punktu widzenia bezpieczeństwa najważniejsze?",
+    "options": {
+      "a": "Przechowywać dane prywatne i służbowe możliwie zmieszane w tych samych aplikacjach, aby nic się nie zgubiło",
+      "b": "Wystarczy, że urządzenie ma jakiekolwiek hasło, niezależnie od dalszych wymagań",
+      "c": "Przestrzegać firmowych wytycznych BYOD (np. minimalnych środków ochrony, oddzielenia danych służbowych, możliwości zdalnego usunięcia danych), zanim urządzenie zostanie użyte służbowo",
+      "d": "Zasady BYOD są czysto dobrowolne i nie trzeba ich przestrzegać, dopóki urządzenie zostało opłacone prywatnie"
+    },
+    "explanation": "Jeśli urządzenia prywatne są używane służbowo, muszą zostać osiągnięte te same cele ochrony co w przypadku urządzeń firmowych - na przykład poprzez minimalne wymagania dotyczące szyfrowania, blokady ekranu, oddzielonych obszarów dla danych służbowych oraz możliwości zdalnego usunięcia danych służbowych w razie utraty. Mieszanie danych prywatnych i służbowych właśnie utrudnia tę ochronę, a samo dowolne hasło czy prywatne sfinansowanie urządzenia nie zwalniają z obowiązujących wytycznych firmowych."
+  },
+  "it_sicherheit-mobil_homeoffice-08": {
+    "question": "Bierzesz udział z domu w służbowej wideokonferencji, na której omawiane są poufne treści. Na co powinieneś szczególnie zwracać uwagę?",
+    "options": {
+      "a": "Ekran może bez problemu pozostać widoczny dla współlokatorów, o ile nikt aktywnie nie podgląda",
+      "b": "Na to, aby współlokatorzy, członkowie rodziny lub urządzenia z asystentami głosowymi nie mogli słyszeć ani widzieć poufnych treści",
+      "c": "Tylko na to, czy połączenie internetowe jest wystarczająco szybkie dla wideo",
+      "d": "Wystarczy wyłączyć kamerę, mikrofon nie ma przy tym znaczenia"
+    },
+    "explanation": "W środowisku domowym również inne osoby mogą zauważyć to, co widać na ekranie lub słychać przez mikrofon - na przykład członkowie rodziny czy goście, a znajdujące się w pobliżu asystenty głosowe mogą niezamierzenie podsłuchiwać. Spokojne, odizolowane miejsce oraz świadome obchodzenie się z ekranem i mikrofonem chronią poufność. Sama szybkość połączenia dotyczy jakości, a nie poufności, a wyłączony mikrofon jest przynajmniej tak samo ważny dla wypowiadanych poufnych treści jak kamera."
+  },
+  "it_sicherheit-meldepflicht_it-05": {
+    "question": "Jak w przybliżeniu wygląda czasowo stopniowana procedura zgłaszania dyrektywy NIS2 dla poważnego incydentu bezpieczeństwa?",
+    "options": {
+      "a": "Wystarczy jedno pełne zgłoszenie, najpóźniej rok po incydencie",
+      "b": "Wczesne ostrzeżenie w ciągu 24 godzin, bardziej szczegółowe zgłoszenie w ciągu 72 godzin, po którym następuje raport końcowy najpóźniej miesiąc po zgłoszeniu",
+      "c": "Tylko raport końcowy, który musi być w pełni gotowy w ciągu 24 godzin od incydentu",
+      "d": "Zgłoszenie jest konieczne dopiero wtedy, gdy incydent stał się już publicznie znany"
+    },
+    "explanation": "Dyrektywa NIS2 przewiduje stopniową procedurę: wczesne ostrzeżenie w ciągu 24 godzin od powzięcia wiedzy, bardziej szczegółowe zgłoszenie w ciągu 72 godzin oraz raport końcowy najpóźniej miesiąc po tym zgłoszeniu. Ta stopniowość umożliwia szybką pierwszą reakcję, nawet gdy nie wszystkie szczegóły są jeszcze znane. Jednorazowe zgłoszenie po roku, od razu pełny raport w ciągu 24 godzin czy oczekiwanie na publiczną znajomość incydentu nie odpowiadają rzeczywistej procedurze."
+  },
+  "it_sicherheit-meldepflicht_it-06": {
+    "question": "Według jakiej podstawowej zasady dyrektywa NIS2 określa, czy incydent bezpieczeństwa uznaje się za \"poważny\" i tym samym podlegający obowiązkowi zgłoszenia?",
+    "options": {
+      "a": "Czy incydent powoduje (lub może powodować) poważne zakłócenie działalności lub szkodę finansową, albo czy inne osoby lub organizacje zostają (lub mogą zostać) poważnie poszkodowane",
+      "b": "Czy incydent dotyczy wyłącznie samego działu IT, niezależnie od rzeczywistego zakresu",
+      "c": "Czy incydent trwa dłużej niż tydzień roboczy, niezależnie od jego skutków",
+      "d": "Czy incydent przypadkowo występuje w podstawowych godzinach pracy"
+    },
+    "explanation": "Zgodnie z NIS2 incydent uznaje się za poważny w szczególności wtedy, gdy powoduje lub może powodować poważne zakłócenie działalności lub szkodę finansową dla dotkniętej organizacji, albo gdy przez to inne osoby fizyczne lub prawne zostają lub mogą zostać poważnie poszkodowane. Ani samo dotknięcie działu IT, ani czas trwania czy pora dnia incydentu same w sobie nie są decydującym kryterium - decydujący jest rzeczywisty lub możliwy zakres skutków."
+  },
+  "it_sicherheit-meldepflicht_it-07": {
+    "question": "Podejrzewasz trwający incydent bezpieczeństwa na swoim komputerze firmowym. Dlaczego nie powinieneś samowolnie ponownie uruchamiać ani całkowicie wyłączać urządzenia, zanim zgłosisz incydent?",
+    "options": {
+      "a": "Ponieważ ponowne uruchomienie zasadniczo zużywa więcej prądu niż praca w trybie ciągłym",
+      "b": "Ponieważ ponowne uruchomienie automatycznie usuwa wszystkie dane firmowe na urządzeniu",
+      "c": "Ponieważ przez to mogą zostać utracone ulotne ślady (np. w pamięci operacyjnej), ważne dla późniejszego zbadania incydentu",
+      "d": "Ponieważ ponowne uruchomienie automatycznie usuwa incydent, przez co zgłoszenie staje się zbędne"
+    },
+    "explanation": "Niektóre ważne ślady incydentu - na przykład aktywne połączenia sieciowe czy procesy w pamięci operacyjnej - giną przy ponownym uruchomieniu lub wyłączeniu i nie da się ich później odtworzyć. Dla późniejszego wyjaśnienia przyczyny ważne jest więc pozostawienie systemu w możliwie niezmienionym stanie i najpierw zgłoszenie incydentu, aby odpowiednia jednostka mogła zdecydować o dalszym postępowaniu. Ponowne uruchomienie nie usuwa automatycznie danych firmowych ani nie usuwa leżącego u podstaw incydentu bezpieczeństwa."
+  },
+  "it_sicherheit-meldepflicht_it-08": {
+    "question": "Jakie informacje są szczególnie pomocne przy zgłaszaniu podejrzewanego incydentu bezpieczeństwa IT odpowiedniej wewnętrznej jednostce?",
+    "options": {
+      "a": "Wyłącznie własne nazwisko, dalsze informacje tylko niepotrzebnie opóźniają zgłoszenie",
+      "b": "Możliwie krótkie zgłoszenie bez podania czasu, aby można je było szybko wysłać",
+      "c": "Tylko ogólne przypuszczenie co do tego, kto mógłby być odpowiedzialny za incydent",
+      "d": "Możliwie dokładne informacje o czasie, zaobserwowanych nieprawidłowościach i dotkniętych systemach lub danych"
+    },
+    "explanation": "Konkretne informacje o czasie, zaobserwowanym zachowaniu (np. nietypowe okienka pop-up, niewyjaśnione zmiany plików) oraz dotkniętych systemach lub danych pomagają odpowiedniej jednostce szybko sklasyfikować incydent, oszacować zakres i podjąć odpowiednie przeciwdziałania. Samo nazwisko do tego nie wystarcza, zgłoszenie bez podania czasu utrudnia klasyfikację chronologiczną, a przypuszczenia co do \"winy\" nie są decydującym punktem dla technicznego opracowania incydentu."
+  }
+}

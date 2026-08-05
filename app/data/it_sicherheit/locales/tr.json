@@ -1,0 +1,402 @@
+{
+  "it_sicherheit-zugriffsschutz-01": {
+    "question": "Bir parolayı otomatik tahmin saldırılarına karşı temelde daha dirençli hale getiren özellik nedir?",
+    "options": {
+      "a": "Daha kolay hatırlanabilmesi için bölüm adını içerir",
+      "b": "Uzun, yalnızca bu hesaba özgü ve tahmin edilmesi zor",
+      "c": "Üç günde bir çok benzer bir parolayla değiştirilir",
+      "d": "Yazımı hızlandırdığı için yalnızca rakamlardan oluşur"
+    },
+    "explanation": "Uzunluk ve benzersizlik, otomatik deneme saldırılarına ve diğer hizmetlerden çalınan giriş bilgilerinin denendiği sözde credential stuffing'e karşı en önemli faktörlerdir. İş yeriyle ilgili bir parola tahmin edilmesi kolaydır, çok benzer bir parolaya sık sık geçiş yapmak neredeyse hiç güvenlik kazancı sağlamaz ve yalnızca sayısal parolaların olası kombinasyon sayısı çok azdır."
+  },
+  "it_sicherheit-zugriffsschutz-02": {
+    "question": "Çok faktörlü kimlik doğrulama (MFA) neden tek başına bir paroladan çok daha güvenli kabul edilir?",
+    "options": {
+      "a": "Parolayı gereksiz kıldığı ve artık hiçbir şeyi hatırlamak gerekmediği için",
+      "b": "Hesabı her türlü saldırıya karşı tamamen koruduğu için",
+      "c": "Bir saldırgan çalınmış bir parolaya sahip olsa bile ek olarak ikinci faktöre ihtiyaç duyacağı için",
+      "d": "Teknik olarak yalnızca yönetici hesapları için mümkün olduğu için"
+    },
+    "explanation": "MFA, bilinen bir şeyi (parola) sahip olunan bir şeyle (örneğin bir uygulama veya token) ya da kişinin kendisiyle ilgili bir özellikle birleştirir. Çalınmış bir parola tek başına artık bir saldırgana yetmez. MFA parolanın yerini almaz, her türlü saldırıya karşı tam koruma sağlamaz ve bugün neredeyse her kullanıcı hesabı için, yalnızca yöneticiler için değil, kullanılabilir durumdadır."
+  },
+  "it_sicherheit-zugriffsschutz-03": {
+    "question": "Bir meslektaşınız, kendi erişimi şu anda engellendiği için kısa süreliğine kişisel kullanıcı hesabını parolasıyla birlikte kullanmanızı istiyor. Nasıl tepki vermelisiniz?",
+    "options": {
+      "a": "Reddedip bunun yerine ilgili BT desteğini veya yöneticiyi bilgilendirmek",
+      "b": "Yalnızca kısa süreli olması koşuluyla kabul etmek",
+      "c": "Kabul edip sonrasında meslektaşın parolasını kendiniz değiştirmek",
+      "d": "Görev acil ise ve başka bir erişim mümkün görünmüyorsa kabul etmek"
+    },
+    "explanation": "Hesaplar kişiseldir, böylece sistemdeki eylemler her zaman açıkça bir kişiye atfedilebilir (izlenebilirlik). Bir hesap paylaşıldığında, sonradan kimin ne yaptığını belirlemek artık mümkün değildir - bu durum güvenlik olaylarının aydınlatılmasını da önemli ölçüde zorlaştırır. Aciliyet bir istisnayı haklı çıkarmaz; doğru yol, gerçek erişimi BT desteği aracılığıyla yeniden sağlamaktır."
+  },
+  "it_sicherheit-zugriffsschutz-04": {
+    "question": "Komşu ofiste kısa bir görüşme için çalışma yerinizi terk ediyorsunuz. Kilidi açık bilgisayarınızla doğru davranış nedir?",
+    "options": {
+      "a": "Hiçbir şey yapmamak, çünkü şirket içi bir ofis binasıdır",
+      "b": "Çalışma yerinizi terk etmeden önce ekranı kilitlemek",
+      "c": "Yalnızca açık olan belgeyi kapatmak, geri kalanı açık kalabilir",
+      "d": "Monitörü kapatmak, koruma olarak bu yeterlidir"
+    },
+    "explanation": "Kilidi açık bir bilgisayar, odaya kısa süreliğine erişimi olan herkesin - ziyaretçiler, temizlik personeli veya yetkisiz üçüncü şahıslar dahil - tüm açık programlara ve verilere erişmesine izin verir. Kapalı bir monitör hiçbir şeyi değiştirmez, çünkü oturum arka planda çalışmaya devam eder. Ekran kilidi (örneğin bir klavye kısayoluyla) ortamın ne kadar güvenilir görünmesinden bağımsız olarak basit ve etkili bir temel önlemdir."
+  },
+  "it_sicherheit-phishing-01": {
+    "question": "Aşağıdaki özelliklerden hangisi bir kimlik avı (phishing) e-postası için tipik bir uyarı işaretidir?",
+    "options": {
+      "a": "E-posta olağan çalışma saatlerinde gelir",
+      "b": "E-posta şirket logosunu ek olarak içerir",
+      "c": "E-posta zaman baskısı yaratır ve derhal, alışılmadık bir eylem talep eder",
+      "d": "E-posta aynı anda birden fazla meslektaşa gönderilmiştir"
+    },
+    "explanation": "Saldırganlar, alıcının sakin bir şekilde düşünmemesi veya danışmaması, bunun yerine hemen harekete geçmesi - örneğin bir bağlantıya tıklaması veya verileri açığa çıkarması - için bilinçli olarak yapay zaman baskısına ve duygusal aciliyete başvururlar. Logolar, olağan gönderim saatleri veya daha geniş bir alıcı çevresi, tek başına bir mesajın gerçekliği hakkında hiçbir şey söylemez, çünkü logolar kolayca kopyalanabilir ve gönderim saatleri ile alıcı listeleri keyfi olarak seçilebilir."
+  },
+  "it_sicherheit-phishing-02": {
+    "question": "Görünüşte yönetimden, acil ve gizli şekilde yeni, bilinmeyen bir hesaba yüksek bir tutar transfer etmenizi isteyen bir e-posta alıyorsunuz. Doğru ilk adım nedir?",
+    "options": {
+      "a": "Yönetimin talimatları öncelikli olduğu için transferi hemen gerçekleştirmek",
+      "b": "Herhangi bir şey yapmadan önce talebi bilinen, bağımsız bir kanal üzerinden (örneğin bir telefon görüşmesi) kişisel olarak doğrulamak",
+      "c": "E-postaya cevap vererek orada yazılı bir onay istemek",
+      "d": "Transferi gerçekleştirmek, ancak istenen tutardan daha küçük bir miktar göndermek"
+    },
+    "explanation": "Bu düzen genellikle \"CEO dolandırıcılığı\" olarak adlandırılır: saldırganlar bir yönetici gibi davranır ve kontrolleri atlatmak için otorite, gizlilik ve zaman baskısından yararlanır. Aynı e-posta yazışması içinde cevap vermek yardımcı olmaz, çünkü tam olarak bu kanalı saldırgan kontrol etmektedir. Herhangi bir ödeme veya eylemden önce bağımsız, zaten bilinen bir iletişim kanalı üzerinden - örneğin kayıtlı bir telefon numarasından arama yaparak - doğrulama yapmak belirleyicidir."
+  },
+  "it_sicherheit-phishing-03": {
+    "question": "Bir e-postada şirketinizin bilinen giriş sayfasına gittiği iddia edilen bir bağlantı gösteriliyor. Tıklamadan bağlantının güvenilir olup olmadığını en mantıklı şekilde nasıl kontrol edersiniz?",
+    "options": {
+      "a": "Fareyi bağlantının üzerine getirip (tıklamadan) durum çubuğunda gerçek hedef adresini kontrol etmek",
+      "b": "Bağlantıya tıklayıp sayfanın gerçek görünüp görünmediğine hemen bakmak",
+      "c": "E-postanın doğru bir Almanca ile yazılıp yazılmadığını kontrol etmek",
+      "d": "E-posta programında görüntülenen gönderen adını kontrol etmek"
+    },
+    "explanation": "Görüntülenen bağlantı metni, gerçek hedef adresten keyfi olarak farklılık gösterebilir; yalnızca fareyi üzerine getirmek, tarayıcının veya e-posta programının durum çubuğunda gerçek URL'yi gösterir. Tıklamak zaten bir risk taşır, çünkü bazı sahte sayfalar otomatik olarak zararlı kod yükler. Kusursuz dil artık güvenilir bir kriter değildir, çünkü kimlik avı metinleri bugün genellikle çok profesyonel görünmektedir ve görüntülenen gönderen adı, gerçek gönderen adresiyle uyuşmadan kolayca sahtelenebilir."
+  },
+  "it_sicherheit-phishing-04": {
+    "question": "Şüpheli bir e-postadaki bir bağlantıya tıkladınız ve orada yanlışlıkla giriş bilgilerinizi girdiniz. Doğru tepki nedir?",
+    "options": {
+      "a": "Hesapta olağan dışı bir şey görünüp görünmeyeceğini bekleyip ancak o zaman tepki vermek",
+      "b": "Hiçbir şey yapmamak, çünkü muhtemelen zararsız, tekil bir olaydır",
+      "c": "Zaman olduğunda önümüzdeki günlerde parolayı değiştirmek",
+      "d": "Parolayı hemen değiştirmek ve olayı derhal ilgili iç birime (örneğin BT güvenliğine) bildirmek"
+    },
+    "explanation": "Güvenliği ihlal edilmiş giriş bilgileri ne kadar hızlı değiştirilir ve olay bildirilirse, bir saldırganın çalınan verileri kötüye kullanabileceği zaman penceresi o kadar küçük kalır. Beklemek, hiçbir şey yapmamak veya geciktirmek, özellikle aynı parola başka sistemler için de kullanılıyorsa riski gereksiz yere artırır. İlgili birime bildirim yapmak ayrıca daha fazla koruma önlemi alınmasını ve diğer çalışanların uyarılmasını mümkün kılar."
+  },
+  "it_sicherheit-datensicherung-01": {
+    "question": "Bir cihaz teknik olarak güvenilir çalışsa bile düzenli, planlı veri yedeklemeleri (backup) neden önemlidir?",
+    "options": {
+      "a": "Çünkü yedeklemeler parola ihtiyacının yerini alır",
+      "b": "Çünkü veriler, cihazın mevcut güvenilirliğinden bağımsız olarak, hatalı kullanım, teknik arıza veya fidye yazılımı gibi zararlı yazılımlar nedeniyle de kaybedilebilir",
+      "c": "Çünkü yedeklemeler yalnızca çok eski cihazlar için zorunludur",
+      "d": "Çünkü yedekleme olmadan internet bağlantısı yavaşlar"
+    },
+    "explanation": "Bir yedekleme, veri kaybının çok farklı nedenlerine karşı koruma sağlar: yanlışlıkla silme, donanım arızaları, ama aynı zamanda dosyaları şifreleyen fidye yazılımları. Bir cihazın şimdiye kadarki güvenilirliği, gelecekteki arızalar veya saldırılar hakkında hiçbir şey söylemez. Yedeklemelerin parolalarla veya internet hızıyla hiçbir ilgisi yoktur ve cihazın yaşından bağımsız olarak anlamlıdır."
+  },
+  "it_sicherheit-datensicherung-02": {
+    "question": "Şirket otoparkında işaretsiz bir USB bellek buluyorsunuz. Bununla doğru davranış nedir?",
+    "options": {
+      "a": "Kime ait olduğunu öğrenmek için belleği şirket bilgisayarına takmak",
+      "b": "Belleği alıp kimse aramadığı için özel olarak kullanmak",
+      "c": "Belleği takmamak, bunun yerine BT departmanına veya güvenlik personeline teslim etmek",
+      "d": "Bir karar vermeden önce belleği kişisel bir cihazda kontrol etmek"
+    },
+    "explanation": "Bilinmeyen USB bellekler, zararlı yazılım için klasik bir giriş kapısıdır: herhangi bir dosya açılmadan önce bile, takıldığında otomatik olarak zararlı kod çalıştıracak şekilde hazırlanmış olabilirler. Bu, şirket bilgisayarları için olduğu kadar kişisel cihazlar için de geçerlidir. Güvenli yol, bulunan öğeyi kendiniz incelemek değil, kontrollü bir şekilde inceleyebilecek ilgili birime teslim etmektir."
+  },
+  "it_sicherheit-datensicherung-03": {
+    "question": "Sistem sunduğunda, iş cihazınızdaki işletim sistemi ve programlar için güvenlik güncellemelerini neden zaman geçirmeden yüklemelisiniz?",
+    "options": {
+      "a": "Çünkü güncellemeler, aksi takdirde saldırganlar tarafından istismar edilebilecek bilinen güvenlik açıklarını sıklıkla kapatır",
+      "b": "Çünkü güncellemeler esas olarak kullanıcı arayüzü tasarımını iyileştirir",
+      "c": "Çünkü güncellemeler yalnızca cihazın hızını artırır",
+      "d": "Çünkü güncellemeler yalnızca özel kullanılan cihazlarda güvenlik açısından önemlidir"
+    },
+    "explanation": "İşletim sistemlerindeki ve uygulamalardaki güvenlik açıkları sürekli olarak keşfedilir ve yayınlanır; üreticiler bunları güncellemelerle kapatır. Bir güncelleme ertelendiğinde açık kalır ve saldırganlar genellikle açığın bilinir hale gelmesinden hemen sonraki dönemi hedefli olarak kullanırlar. Arayüz tasarımı veya hız, en fazla yan etkilerdir, gerçek güvenlik nedeni değildir ve güncelleme disiplini kurumsal cihazlar için özel cihazlarda olduğu kadar geçerlidir."
+  },
+  "it_sicherheit-datensicherung-04": {
+    "question": "Bir meslektaşınız şirket bilgisayarınız için internetten pratik, ücretsiz bir ek program öneriyor. En mantıklı yaklaşım nedir?",
+    "options": {
+      "a": "Programı hemen kurmak, çünkü ücretsizdir ve masraf yaratmaz",
+      "b": "Programı yalnızca bilgisayara kurmak, iş telefonuna değil",
+      "c": "Bilinen bir web sitesinden indirildiği sürece programı kurmak",
+      "d": "Kurulumdan önce ilgili BT birimine yazılımın onaylanıp onaylanamayacağını veya nasıl onaylanabileceğini sormak"
+    },
+    "explanation": "Onaylanmamış yazılımlar, ücretsiz olup olmadığından, hangi web sitesinden geldiğinden veya hangi cihaz türüne kurulduğundan bağımsız olarak güvenlik açıkları içerebilir, diğer programlarla çakışabilir veya lisans ve uyumluluk gerekliliklerini ihlal edebilir. BT departmanı, bir yazılımın güvenli ve kurallara uygun şekilde kullanılıp kullanılamayacağını kontrol edebilir ve gerekirse test edilmiş bir alternatif sunabilir."
+  },
+  "it_sicherheit-mobil_homeoffice-01": {
+    "question": "Ev ofisinde iş amaçlı çalışma için ev Wi-Fi ağını güvence altına almaya en çok hangi önlem katkıda bulunur?",
+    "options": {
+      "a": "Wi-Fi'nin adını (SSID) dikkat çekmeyecek şekilde ayarlamak",
+      "b": "Güçlü, bireysel bir Wi-Fi parolası ve güncel bir şifreleme (örneğin WPA2/WPA3) kullanmak",
+      "c": "Wi-Fi'yi yalnızca gündüz açmak ve geceleri tamamen kapatmak",
+      "d": "Hataları önlemek için fabrika ayarlı yönlendirici erişimini değiştirmeden korumak"
+    },
+    "explanation": "Güçlü, bireysel bir parola ile modern şifreleme birlikte, menzil içindeki yetkisiz kişilerin ağa kolayca bağlanıp veri trafiğini okumasını veya değiştirmesini engeller. Dikkat çekmeyen bir ağ adı teknik koruma sağlamaz, geçici olarak kapatmak temel sorunu çözmez ve fabrika ayarları (varsayılan parolalar, varsayılan SSID) genellikle kamuya açık şekilde bilinir ve bu nedenle özellikle güvensizdir."
+  },
+  "it_sicherheit-mobil_homeoffice-02": {
+    "question": "Yolda kısa süreliğine iş e-postalarına erişmeniz gerekiyor ve bir kafede açık, şifrelenmemiş bir Wi-Fi buluyorsunuz. En güvenli şekilde nasıl davranırsınız?",
+    "options": {
+      "a": "E-posta kontrolü kritik olmadığı için açık Wi-Fi'yi doğrudan kullanmak",
+      "b": "Açık Wi-Fi'yi kullanmak ama önce kendi parolanızı değiştirmek",
+      "c": "Açık Wi-Fi yerine mobil veri veya şirket VPN'i gibi güvenli bir bağlantı kullanmak",
+      "d": "Kafenin web sitesi adres çubuğunda bir kilit simgesi gösterdiği sürece açık Wi-Fi'yi kullanmak"
+    },
+    "explanation": "Açık, şifrelenmemiş Wi-Fi ağlarında, tek tek web siteleri kendi başlarına şifreli olsa bile (kilit simgesi yalnızca o tek bağlantıyla ilgilidir, tüm ağla değil) aynı ağdaki üçüncü şahıslar veri trafiğini okuyabilir veya yönlendirebilir. Mobil veri veya şirket VPN'i, dinlenmesi çok daha zor olan ek olarak güvence altına alınmış, şifreli bir bağlantı kurar. Önceden parola değiştirmek gerçek riski ortadan kaldırmaz."
+  },
+  "it_sicherheit-mobil_homeoffice-03": {
+    "question": "Trende dizüstü bilgisayarınızda gizli bir belge üzerinde çalışıyorsunuz. Gözetlenmeye karşı korunmak için nelere dikkat etmelisiniz?",
+    "options": {
+      "a": "Çevreye dikkat etmek ve gerekirse bir ekran gizlilik filtresi veya korunaklı bir oturma konumu kullanmak",
+      "b": "Belgenin uzaktan okunamaması için sadece yakınlaştırmayı azaltmak",
+      "c": "Yalnızca dosya adını anonimleştirmek, içeriğin kendisi kritik değildir",
+      "d": "Yolda gizli belgeleri genel olarak halka açık bilgiler gibi ele almak"
+    },
+    "explanation": "\"Shoulder surfing\" - çevredeki kişiler tarafından ekran içeriğinin gözetlenmesi - trenler veya bekleme alanları gibi kamuya açık ortamlarda gerçek bir risktir. Bir ekran gizlilik filtresi veya akıllıca bir oturma konumu bu riski etkili bir şekilde azaltır. Daha küçük yakınlaştırma güvenilir bir koruma sağlamaz, dosya adı gerçek korunması gereken şey değildir ve gizli içerik, yalnızca ofiste değil, yerden bağımsız olarak her zaman uygun korumaya ihtiyaç duyar."
+  },
+  "it_sicherheit-mobil_homeoffice-04": {
+    "question": "İş seyahatindesiniz ve şirket dizüstü bilgisayarınızı kısa süreliğine park edilmiş bir arabada bırakmanız gerekiyor. Bununla en güvenli davranış nedir?",
+    "options": {
+      "a": "Unutulmaması için dizüstü bilgisayarı yolcu koltuğunda iyice görünür bırakmak",
+      "b": "Dizüstü bilgisayarı dışarıdan görünmeyen bagaja koyup aracı kilitlemek veya mümkünse tamamen yanınızda götürmek",
+      "c": "Dizüstü bilgisayarı arka koltukta bir ceketin altına saklamak, koruma olarak bu yeterlidir",
+      "d": "Dizüstü bilgisayar bir kullanıcı parolasıyla korunduğu sürece önemli değildir"
+    },
+    "explanation": "Arabada görünür değerli eşyalar hırsızlık riskini önemli ölçüde artırır; dışarıdan görünmeyen bir bagaj veya cihazı yanınızda götürmek bu riski belirgin şekilde azaltır. Görünürlük perdesi olarak bir ceket güvenilir değildir ve hedefli bir hırsızlığa karşı koruma sağlamaz. Bir kullanıcı parolası, hırsızlık durumunda cihazdaki verileri kısmen korur, ancak cihazın kendisinin fiziksel olarak kaybolmasını engellemez ve bu nedenle güvenli saklamanın yerini almaz."
+  },
+  "it_sicherheit-meldepflicht_it-01": {
+    "question": "Şirket bilgisayarınızın zararlı yazılımla enfekte olduğundan şüpheleniyorsunuz ama tam emin değilsiniz. Nasıl davranmalısınız?",
+    "options": {
+      "a": "Yanlış bir bildirimde bulunmamak için kesin kanıtlar olana kadar beklemek",
+      "b": "Belirsizlik durumunda bile şüpheyi derhal ilgili iç birime (örneğin BT güvenliği veya yardım masası) bildirmek",
+      "c": "Bilgisayarı kendiniz yeniden kurmak ve ardından normal şekilde çalışmaya devam etmek",
+      "d": "Herhangi bir şey bildirmeden önce meslektaşlara benzer bir şey fark edip etmediklerini sormak"
+    },
+    "explanation": "İşleyen bir bildirim ve tepki kültürü, kesin kanıtları beklemek yerine yalnızca şüphelerin bile erkenden bildirilmesini gerektirir - olası bir olay ne kadar erken bilinirse, yayılması o kadar iyi sınırlandırılabilir. Bilgisayarı kendiliğinden yeniden kurmak, nedenin aydınlatılması için önemli izleri yok edebilir. Meslektaşlara resmi olmayan şekilde sormak da bildirimi gereksiz yere geciktirir ve ilgili birimin bilgilendirilmesinin yerini almaz."
+  },
+  "it_sicherheit-meldepflicht_it-02": {
+    "question": "AB Ağ ve Bilgi Sistemleri Güvenliği Direktifi (NIS2), etkilenen kuruluşlar için önemli bir güvenlik olayının ilk bildirimi için neden bu kadar kısa süreler belirler (kabaca: saatler içinde erken bir uyarı, ardından daha ayrıntılı bir bildirim)?",
+    "options": {
+      "a": "Şirketlerin olayı iç kısımda gizlemek için mümkün olduğunca fazla zaman kazanması için",
+      "b": "Çünkü zaten tam bir teknik araştırma asla mümkün değildir",
+      "c": "Yetkili makamların erkenden tepki verebilmesi ve potansiyel olarak etkilenen diğer kuruluşların zamanında uyarılabilmesi için",
+      "d": "Çünkü kısa süreler yalnızca BT hizmet sağlayıcıları için geçerlidir, müşterileri için değil"
+    },
+    "explanation": "Kısa bildirim süreleri, yayılmayı sınırlamak ve karşı önlemleri koordine etmek için yetkililerin ve diğer ilgili kurumların hızla bilgilendirilmesini sağlamayı amaçlar - iç gizlemeyi mümkün kılmak için değil. İlk, erken bildirim bilinçli olarak henüz eksik olabilir ve daha sonra tamamlanır; kademeli bir bildirim prosedürünün amacı tam olarak budur. Bildirim yükümlülükleri, yalnızca BT hizmet sağlayıcılarına değil, etkilenen kuruluşların bütününe yöneliktir."
+  },
+  "it_sicherheit-meldepflicht_it-03": {
+    "question": "İyi bir güvenlik kültürü, çalışanların şüphelenilen bir güvenlik olayını \"sessizce\" kendi başlarına çözmeye çalışmak yerine bildirmesini neden gerektirir?",
+    "options": {
+      "a": "Çünkü tek bir kişi genellikle bir olayın tüm kapsamını ve nedenini kavrayamaz ve kendi başına hareket etmek izleri silebilir veya sorunu daha da kötüleştirebilir",
+      "b": "Çünkü kendi başına çözmek temel olarak telif hakkını ihlal eder",
+      "c": "Çünkü şirketin BT güvenlik maliyetlerini yalnızca bu şekilde azaltmak mümkündür",
+      "d": "Çünkü bildirim olmadan çalışanlar otomatik olarak kişisel olarak sorumlu tutulabilir"
+    },
+    "explanation": "Tek bir olay, örneğin birden fazla sistemi etkileyen bir saldırı gibi daha büyük bir örüntünün parçası olabilir. Sorunu tek başına ve bildirmeden çözmeye çalışan kişi, nedenin aydınlatılması için gerekli önemli izleri yok edebilir ve olayın fark edilmeden yayılmaya devam etmesi riskini alır. Belirtilen alternatifler (telif hakkı, maliyet azaltma, otomatik kişisel sorumluluk) bildirim yükümlülüğünün gerçek nedenini açıklamaz."
+  },
+  "it_sicherheit-meldepflicht_it-04": {
+    "question": "Şirkette şüpheli bir BT güvenlik olayını bildirmekten kimin sorumlu olduğundan emin değilsiniz. En mantıklı yaklaşım nedir?",
+    "options": {
+      "a": "Birinin görmesi için olayı herkese açık bir dahili sohbet kanalında paylaşmak",
+      "b": "Başka birinin sorunu tesadüfen fark edip bildirmesini beklemek",
+      "c": "Hızlıca dikkat çekmek için olayı sosyal medyada anlatmak",
+      "d": "Şirkette belirlenmiş bildirim kanallarını (örneğin BT desteği, güvenlik sorumlusu veya yönetici) kullanmak veya şüphe durumunda kendi yöneticinize sormak"
+    },
+    "explanation": "Açıkça sorumlu birimlerle hazırlanmış bir bildirim prosedürü, bir olayın hızlı bir şekilde uygun karşı önlemleri başlatabilecek doğru kişilere ulaşmasını sağlar. Herkese açık bir sohbet kanalı veya hatta sosyal medya uygun değildir ve olayı ayrıca kamuoyuna duyurabilir veya saldırganı uyarabilir. Beklemek tepkiyi gereksiz yere geciktirir; şüphe durumunda kendi yöneticiniz doğru bildirim yolunu bulmak için her zaman mantıklı bir ilk temas noktasıdır."
+  },
+  "it_sicherheit-zugriffsschutz-05": {
+    "question": "Çalışanlar neden yalnızca somut görevleri için gerçekten ihtiyaç duydukları erişim haklarını almalıdır (\"asgari yetki ilkesi\")?",
+    "options": {
+      "a": "Daha az parola yönetilmesi gerekmesi için",
+      "b": "Ele geçirilmiş bir hesap veya bir hata durumunda olası zararın en gerekli düzeyde sınırlı kalması için",
+      "c": "BT departmanının daha az destek talebi işlemesi için",
+      "d": "Tüm çalışanların eşit sayıda hakka sahip olması ve kimsenin dezavantajlı olmaması için"
+    },
+    "explanation": "Asgari yetki ilkesi (least privilege), yalnızca gerçekten ihtiyaç duyulan sistemlere ve verilere erişilebildiği için çalınan bir hesabın veya kazara yapılan bir hatanın verebileceği zararı sınırlar. Konu parola sayısı, destek yükü veya biçimsel eşit muamele değil, ilgili görev doğrultusunda riskin sınırlandırılmasıdır."
+  },
+  "it_sicherheit-zugriffsschutz-06": {
+    "question": "Bir meslektaş şirket içinde başka görevlere sahip başka bir departmana geçiyor. Önceki sistem erişimleri için ne yapılmalıdır?",
+    "options": {
+      "a": "Hiçbir şey, çünkü hâlâ aynı şirkette çalışıyor",
+      "b": "Önceki erişimler, esnek şekilde yardımcı olabilmesi için yenilere ek olarak korunur",
+      "c": "Artık ihtiyaç duyulmayan erişim hakları geri alınır ve yetkiler yeni role uyarlanır",
+      "d": "Yalnızca parola değiştirilir, haklar değişmeden kalır"
+    },
+    "explanation": "Yetkiler mevcut görev alanına uygun olmalıdır; bir rol değişikliğinde artık ihtiyaç duyulmayan erişim haklarının geri alınması ve yeni, uygun hakların verilmesi gerekir. Aksi takdirde zamanla gereksiz, fazladan yetkiler birikir (\"yetki enflasyonu\"), bu da hesabın ele geçirilmesi durumunda riski gereksiz yere artırır. Sadece bir parola değişikliği bu konuda hiçbir şeyi değiştirmez."
+  },
+  "it_sicherheit-zugriffsschutz-07": {
+    "question": "İş sistemleri için birçok farklı parolayı hatırlamanız gerekiyor. En mantıklı yaklaşım nedir?",
+    "options": {
+      "a": "Parolaları tekrar tekrar kullanmak veya korumasız not almak yerine BT tarafından onaylanmış bir parola yöneticisi kullanmak",
+      "b": "Tüm sistemler için aynı, hatırlaması kolay parolayı kullanmak",
+      "c": "Parolaları hızlıca bulabilmek için monitöre yapıştırılmış bir yapışkan nota yazmak",
+      "d": "Parolaları masaüstünde şifrelenmemiş bir metin dosyasında saklamak"
+    },
+    "explanation": "Onaylanmış bir parola yöneticisi, her sistem için hepsini tek tek hatırlamak zorunda kalmadan uzun, benzersiz bir parola kullanmaya olanak tanır ve saklanan giriş bilgilerinin kendisini şifrelemeyle korur. Parolaların tekrar kullanılması, tek bir veri sızıntısının etkilenen tüm hesapları tehlikeye atması anlamına gelir; yapışkan notlar ve şifrelenmemiş dosyalar fiziksel veya dijital erişimi olan herkes tarafından hemen görülebilir."
+  },
+  "it_sicherheit-zugriffsschutz-08": {
+    "question": "Akşam mesai bitiminden sonra açık ofisteki çalışma yerinizi terk ediyorsunuz. Temiz masa (\"clean desk\") temel kuralına karşılık gelen nedir?",
+    "options": {
+      "a": "Yalnızca ekranı kilitlemek, belgeler açıkta kalabilir",
+      "b": "Ofis kapısı kilitli olduğu sürece gizli belgeler açıkta kalabilir",
+      "c": "Yalnızca özellikle \"gizli\" olarak işaretlenmiş belgelerin kaldırılması gerekir",
+      "d": "Gizli belgeleri ve veri taşıyıcılarını kilit altına almak ve masayı düzenli bırakmak"
+    },
+    "explanation": "Temiz masa ilkesi, temizlik personeli, ziyaretçiler veya yetkisiz diğer çalışanlar gibi yetkisiz kişilere serbestçe erişilebilir olmaması için, yokluk durumunda gizli kağıt belgelerin ve veri taşıyıcılarının kilit altına alınmasını gerektirir. Kilitli bir ofis kapısı tek başına binaya veya odaya erişimi olan herkese karşı koruma sağlamaz ve kural, yalnızca açıkça \"gizli\" olarak işaretlenenler için değil, genel olarak gizli belgeler için geçerlidir."
+  },
+  "it_sicherheit-phishing-05": {
+    "question": "Faturayı görüntülemek için \"makro işlemeye\" veya \"içeriği etkinleştirmeye\" izin vermenizi isteyen beklenmedik bir fatura eki içeren bir e-posta alıyorsunuz. En mantıklı tepki nedir?",
+    "options": {
+      "a": "Makro işlemeye izin vermek, aksi takdirde fatura açılamaz",
+      "b": "Eki açmak ama yalnızca bilgisayarın yeniden başlatılmasından sonra",
+      "c": "Makroları etkinleştirmemek ve belirsizlik durumunda e-postayı olağan bildirim kanalları üzerinden kontrol ettirmek",
+      "d": "İlk önce açması için eki özel bir meslektaşa iletmek"
+    },
+    "explanation": "Makroları etkinleştirme talebi bilinen bir saldırı düzenidir: dosyada bulunan zararlı kod ancak etkinleştirmeyle çalıştırılır, bu onay olmadan etkisiz kalırdı. Bilgisayarı yeniden başlatmak hiçbir şeyi değiştirmez ve bir meslektaşa iletmek riski ortadan kaldırmak yerine yalnızca taşır. Gönderen veya içerik hakkında belirsizlik varsa, herhangi bir şey açılmadan veya etkinleştirilmeden önce e-posta olağan iç bildirim kanalları üzerinden kontrol edilmelidir."
+  },
+  "it_sicherheit-phishing-06": {
+    "question": "\"Hedefli kimlik avı\" (spear phishing), klasik, geniş çaplı bir kimlik avı kampanyasından neyle ayrılır?",
+    "options": {
+      "a": "Hedefli kimlik avı yalnızca telefonla yapılır, asla e-posta ile değil",
+      "b": "Hedefli kimlik avı belirli bir kişiye veya kuruluşa uyarlanmıştır ve özellikle araştırılmış, inandırıcı ayrıntılar kullanır",
+      "c": "Hedefli kimlik avı bağlantı veya eklerden tamamen vazgeçer",
+      "d": "Hedefli kimlik avı yalnızca özel e-posta hesaplarını etkiler, asla iş hesaplarını değil"
+    },
+    "explanation": "Hedefli kimlik avında saldırganlar, bir mesajı özellikle inandırıcı ve kişiselleştirilmiş göstermek için bir kişi veya kuruluş hakkında - örneğin yöneticilerin isimleri, devam eden projeler veya iç süreçler gibi - özellikle bilgi araştırır. Bu, bu tür saldırıları genel toplu kimlik avı e-postalarından daha zor tanınır hale getirir. Ne iletişim kanalı, ne bağlantı/ek eksikliği, ne de özel hesaplarla sınırlı olma belirleyici özelliktir."
+  },
+  "it_sicherheit-phishing-07": {
+    "question": "Hiçbir paket beklemiyor olmanıza rağmen, sözde bir kargo şirketinden gelen ve bir \"gümrük ücreti ödemesi\" bağlantısı içeren bir SMS alıyorsunuz. Bu durumu nasıl sınıflandırır ve nasıl tepki verirsiniz?",
+    "options": {
+      "a": "Bu muhtemelen \"smishing\" (SMS yoluyla kimlik avı) dır; bağlantıya tıklamayın ve bunun yerine gönderiyi doğrudan kargo şirketinin resmi web sitesi veya uygulaması üzerinden kontrol edin",
+      "b": "SMS mesajları genel olarak sahtelenemez, bu yüzden bağlantı güvenlidir",
+      "c": "Özel bir SMS olduğu için konu işle ilgili değildir ve göz ardı edilebilir",
+      "d": "Gerçek bir gönderi olup olmadığını görmek için bağlantıya tıklayın ama ödeme bilgisi girmeyin"
+    },
+    "explanation": "Kimlik avı e-postalarla sınırlı değildir: \"smishing\", aynı temel aciliyet ilkesi ve manipüle edilmiş bir bağlantı ile SMS mesajlarını kullanır. Bir SMS'in gönderen adı da sahtelenebilir. İddia edilen nedeni bağlantıyı takip etmek yerine resmi web sitesi veya uygulama üzerinden bağımsız olarak kontrol etmek daha güvenlidir. Konu çalışanlar için de önemlidir, çünkü aynı örüntüler iş cihazlarını veya iletişim bilgilerini de etkileyebilir ve hazırlanmış bir bağlantıya tıklamanın kendisi bile zaten bir risk oluşturabilir."
+  },
+  "it_sicherheit-phishing-08": {
+    "question": "Bir e-posta \"support@ihre-firma-online.de\" adresinden geliyormuş gibi görünüyor, oysa şirketin gerçek alan adı \"ihrefirma.de\". Gönderenin alan adındaki bu küçük farklılık en iyi şekilde nasıl sınıflandırılır?",
+    "options": {
+      "a": "Güvenlik açısından önemi olmayan önemsiz bir yazım hatası olarak",
+      "b": "Aldatmak için kullanılan, kafa karıştırıcı derecede benzer, sahte bir alan adının (\"typosquatting\") olası bir işareti olarak",
+      "c": "Mesajın kesinlikle kendi BT departmanından geldiğinin bir onayı olarak",
+      "d": "İlgili gönderenin alan adı seçiminde tamamen bir zevk meselesi olarak"
+    },
+    "explanation": "Saldırganlar, güveni taklit etmek için gerçek şirket alan adına kafa karıştırıcı derecede benzeyen alan adlarını (örneğin ek kelimeler, yer değiştirmiş harfler veya farklı uzantılar) bilinçli olarak kaydeder. Böyle bir sapma önemsiz bir şey veya zevk meselesi değil, ciddiye alınması gereken bir uyarı işaretidir. Şüpheli durumlarda gerçek gönderen adresi dikkatle kontrol edilmeli ve otomatik olarak gerçekliğinden emin olmak yerine şüphe durumunda bağımsız bir kanal üzerinden sorgulanmalıdır."
+  },
+  "it_sicherheit-datensicherung-05": {
+    "question": "Fidye yazılımına karşı, bir yedeği doğrudan orijinal verilerle aynı, sürekli bağlı olan ağ sürücüsünde saklamak neden yeterli değildir?",
+    "options": {
+      "a": "Çünkü ağ sürücüleri teknik olarak her zaman yerel sabit disklerden daha yavaştır",
+      "b": "Çünkü ağ sürücülerinde genel olarak yedek saklanmasına izin verilmez",
+      "c": "Çünkü fidye yazılımı, sürekli bağlı bir sürücüde orada bulunan yedek kopyayı da şifreleyebilir",
+      "d": "Çünkü ağ sürücüleri yalnızca e-posta depolamak için tasarlanmıştır"
+    },
+    "explanation": "Fidye yazılımları genellikle erişilebilen tüm sürücüleri, sürekli bağlı ağ sürücüleri dahil şifreler - oradaki bir yedek kopya da etkilenebileceği için artık gerçek bir koruma sağlamaz. Bu nedenle etkili bir yedekleme konsepti, ana sisteme yapılan bir saldırıdan etkilenmemesi için üretim sisteminden ayrı (çevrimdışı veya zaman farkıyla) tutulan en az bir kopya öngörür."
+  },
+  "it_sicherheit-datensicherung-06": {
+    "question": "Bir yedekleme planlandığı gibi her gece otomatik olarak oluşturuluyor. Bu tek başına neden veri yedeklemesine gerçekten güvenebilmek için hâlâ yeterli değildir?",
+    "options": {
+      "a": "Çünkü yedekten gerçekten başarılı bir şekilde veri geri yüklenip yüklenemeyeceğinin düzenli olarak kontrol edilmesi gerekir",
+      "b": "Çünkü bir yedekleme temelde yılda sadece bir kez oluşturulmalıdır",
+      "c": "Çünkü otomatik yedeklemeler teknik olarak asla başarısız olamaz",
+      "d": "Çünkü oluşturulan bir yedek en fazla 24 saat geçerli kalır"
+    },
+    "explanation": "Bir yedekleme işlemi başarısız olabilir veya bu hemen fark edilmeden hasarlı, eksik bir kopya oluşturabilir. Yalnızca düzenli bir geri yükleme testi, gerekirse verilerin gerçekten geri yüklenip yüklenemeyeceğini güvenilir şekilde gösterir. Yedeklemenin kendisinin sıklığı ihtiyaca göre belirlenir ve yılda bir kezle sınırlı değildir, otomatik süreçler gayet başarısız olabilir ve bir yedek 24 saat sonra otomatik olarak geçerliliğini yitirmez."
+  },
+  "it_sicherheit-datensicherung-07": {
+    "question": "Gizli şirket verilerini harici bir USB veri taşıyıcısında taşımak istiyorsunuz. Bunun için en önemli koruma önlemi nedir?",
+    "options": {
+      "a": "Kimse kaybetmesin diye veri taşıyıcısına göze çarpan bir \"gizli\" etiketi koymak",
+      "b": "Kaybolma veya çalınma durumunda verilerin sorunsuzca okunamaması için veri taşıyıcısını şifrelemek",
+      "c": "Dikkat çekmemesi için veri taşıyıcısını mümkün olduğunca küçük ve göze çarpmayan şekilde seçmek",
+      "d": "İçeriğinin hemen tanınamaması için kopyalamadan önce dosyaları basitçe yeniden adlandırmak"
+    },
+    "explanation": "Çıkarılabilir veri taşıyıcıları kolayca kaybolur veya çalınır; şifreleme olmadan üzerlerinde saklanan veriler o zaman fiziksel erişimi olan herkes tarafından hemen okunabilir. Şifreleme, anahtar veya parola gizli kaldığı sürece verilerin kaybolma durumunda bile korunmasını sağlar. Bir etiket, göze çarpmayan bir tasarım veya yeniden adlandırılmış dosyalar ise yetkisiz okumaya karşı gerçek bir teknik koruma sağlamaz."
+  },
+  "it_sicherheit-datensicherung-08": {
+    "question": "Eski bir şirket dizüstü bilgisayarı devre dışı bırakılıp elden çıkarılacak. Üzerinde saklanan veriler açısından doğru davranış nedir?",
+    "options": {
+      "a": "Yalnızca geri dönüşüm kutusundaki görünür dosyaları silmek ve kutuyu boşaltmak",
+      "b": "Kaynakları korumak için dizüstü bilgisayarı değiştirmeden hayır amaçlı ikinci el pazarına devretmek",
+      "c": "Sabit diski sökmek ve ev çöpüne atmak",
+      "d": "Cihaz devredilmeden veya elden çıkarılmadan önce, ilgili BT biriminin verileri güvenli ve geri döndürülemez şekilde silmesini (veya veri taşıyıcısını profesyonelce imha etmesini) sağlamak"
+    },
+    "explanation": "Geri dönüşüm kutusunda basit silme veya biçimlendirme genellikle dosyaları yalnızca görünür dizinden kaldırır, oysa verilerin kendisi uygun araçlarla sıklıkla geri getirilebilir kalır. Bu nedenle devretmeden veya elden çıkarmadan önce, gizli şirket verilerinin yanlış ellere düşmemesi için veri taşıyıcıları güvenli şekilde silinmeli (örneğin çoklu üzerine yazma yoluyla) veya fiziksel olarak imha edilmelidir. Ev çöpüne atmak ayrıca çevre ve elden çıkarma nedenleriyle de yasaktır."
+  },
+  "it_sicherheit-mobil_homeoffice-05": {
+    "question": "Ev ofisi ve iş seyahatleri için kullanılan bir dizüstü bilgisayarda sabit disk şifrelemesi neden özellikle önemlidir?",
+    "options": {
+      "a": "Çünkü dizüstü bilgisayarın otomatik olarak daha hızlı başlamasını sağlar",
+      "b": "Çünkü çalınma veya kaybolma durumunda yetkisiz kişilerin saklanan verilere kolayca erişmesini engeller",
+      "c": "Çünkü yalnızca ofisi asla terk etmeyen cihazlar için zorunludur",
+      "d": "Çünkü bir giriş parolasını tamamen gereksiz kılar"
+    },
+    "explanation": "Ofis dışında kullanılan cihazlar, örneğin trende, arabada veya bir müşteriye giderken daha yüksek bir çalınma veya kaybolma riskiyle karşı karşıyadır. Disk şifrelemesi olmadan, dahili sabit disk genellikle sökülebilir ve işletim sisteminin giriş parolasından bağımsız olarak veriler doğrudan okunabilir. Şifreleme ve giriş parolası birbirini tamamlar ama birbirinin yerini almaz ve başlangıç hızının bununla hiçbir ilgisi yoktur."
+  },
+  "it_sicherheit-mobil_homeoffice-06": {
+    "question": "İş amaçlı kullanılan bir akıllı telefonda neden kısa bir otomatik ekran kilidi (örneğin 30 saniye hareketsizlikten sonra) etkinleştirilmelidir?",
+    "options": {
+      "a": "Kısa süreliğine bırakılma veya kaybolma durumunda cihazın hemen korumasız erişilebilir olmaması için",
+      "b": "Cihazın pilinin daha uzun dayanması için",
+      "c": "Aramaların otomatik olarak sessize alınması için",
+      "d": "Ekran kilidi yasal olarak yalnızca yönetimin iş telefonları için zorunlu olduğu için"
+    },
+    "explanation": "Kısa bir kilitleme aralığı, kısa süreliğine bırakılan veya kaybolan bir cihazın örneğin e-postalara, kişilere veya şirket uygulamalarına erişmek için kimlik doğrulaması olmadan kullanılabileceği zaman penceresini küçültür. Pil ömrü ve arama ayarlarının güvenlikle hiçbir ilgisi yoktur ve kural, yalnızca belirli kişi gruplarına değil, iş amaçlı kullanılan tüm cihazlara mantıklı olarak uygulanır."
+  },
+  "it_sicherheit-mobil_homeoffice-07": {
+    "question": "İş amaçları için ara sıra kişisel akıllı telefonunuzu kullanıyorsunuz (\"Bring Your Own Device\"). Güvenlik açısından burada en önemli husus nedir?",
+    "options": {
+      "a": "Hiçbir şeyin kaybolmaması için özel ve iş verilerini aynı uygulamalarda mümkün olduğunca karışık saklamak",
+      "b": "Diğer gerekliliklerden bağımsız olarak, cihazın herhangi bir parolaya sahip olması yeterlidir",
+      "c": "Cihaz iş amaçlı kullanılmadan önce şirketin BYOD yönergelerine (örneğin asgari koruma önlemleri, iş verilerinin ayrılması, uzaktan silme imkânı) uymak",
+      "d": "BYOD kuralları tamamen isteğe bağlıdır ve cihaz özel olarak ödendiği sürece uyulması gerekmez"
+    },
+    "explanation": "Özel cihazlar iş amaçlı kullanıldığında, şirket cihazlarıyla aynı koruma hedeflerine ulaşılmalıdır - örneğin şifreleme, ekran kilidi, iş verileri için ayrılmış alanlar ve kaybolma durumunda iş verilerini uzaktan silme imkânı gibi asgari gereklilikler yoluyla. Özel ve iş verilerinin karıştırılması tam olarak bu korumayı zorlaştırır ve herhangi bir parola tek başına veya cihazın özel olarak finanse edilmesi, geçerli kurumsal yönergelerden muaf tutmaz."
+  },
+  "it_sicherheit-mobil_homeoffice-08": {
+    "question": "Gizli içeriklerin görüşüldüğü bir iş video konferansına evden katılıyorsunuz. Nelere özellikle dikkat etmelisiniz?",
+    "options": {
+      "a": "Kimse aktif olarak izlemediği sürece ekran ev arkadaşları için sorunsuz görünür kalabilir",
+      "b": "Ev arkadaşlarının, aile üyelerinin veya sesli asistanlı cihazların gizli içerikleri duyamaması veya görememesine",
+      "c": "Yalnızca internet bağlantısının video için yeterince hızlı olmasına",
+      "d": "Kamerayı kapatmak yeterlidir, mikrofonun bir önemi yoktur"
+    },
+    "explanation": "Ev ortamında, ekranda görülebilen veya mikrofon aracılığıyla duyulabilen şeyler diğer kişiler tarafından da fark edilebilir - örneğin aile üyeleri veya ziyaretçiler tarafından, ayrıca yakındaki sesli asistanlar da istemeden dinleyebilir. Sakin, izole bir yer ve ekran ile mikrofonun bilinçli kullanımı gizliliği korur. Bağlantı hızının kendisi kaliteyi ilgilendirir, gizliliği değil, ve sözlü gizli içerik için kapalı bir mikrofon en az kamera kadar önemlidir."
+  },
+  "it_sicherheit-meldepflicht_it-05": {
+    "question": "NIS2 direktifinin önemli bir güvenlik olayı için kademeli bildirim prosedürü zaman açısından kabaca nasıl yapılandırılmıştır?",
+    "options": {
+      "a": "Olaydan en geç bir yıl sonra tek, eksiksiz bir bildirim yeterlidir",
+      "b": "24 saat içinde erken bir uyarı, 72 saat içinde daha ayrıntılı bir bildirim, ardından bildirimden en geç bir ay sonra bir sonuç raporu",
+      "c": "Yalnızca olaydan sonraki 24 saat içinde tamamen bitirilmesi gereken bir sonuç raporu",
+      "d": "Bir bildirim yalnızca bir olay zaten kamuoyunda bilinir hale geldiğinde gereklidir"
+    },
+    "explanation": "NIS2 direktifi kademeli bir prosedür öngörür: öğrenilmesinden itibaren 24 saat içinde erken bir uyarı, 72 saat içinde daha ayrıntılı bir bildirim ve bu bildirimden en geç bir ay sonra bir sonuç raporu. Bu kademelendirme, tüm ayrıntılar henüz bilinmese bile hızlı bir ilk tepkiye olanak tanır. Bir yıl sonra tek bir bildirim, 24 saat içinde derhal tam bir rapor veya kamuoyunda bilinir hale gelmesini beklemek gerçek prosedüre karşılık gelmez."
+  },
+  "it_sicherheit-meldepflicht_it-06": {
+    "question": "NIS2 direktifi, bir güvenlik olayının \"önemli\" olarak kabul edilip edilmediğini ve dolayısıyla bildirim yükümlülüğüne tabi olup olmadığını hangi temel fikre göre belirler?",
+    "options": {
+      "a": "Olayın ciddi bir işletme kesintisine veya finansal zarara neden olup olmadığı (veya olabileceği), ya da başka kişi veya kuruluşların önemli ölçüde zarar görüp görmediği (veya görebileceği)",
+      "b": "Olayın gerçek kapsamından bağımsız olarak yalnızca BT departmanının kendisini etkileyip etkilemediği",
+      "c": "Olayın sonuçlarından bağımsız olarak bir iş haftasından uzun sürüp sürmediği",
+      "d": "Olayın tesadüfen ana çalışma saatlerinde meydana gelip gelmediği"
+    },
+    "explanation": "NIS2'ye göre bir olay, özellikle etkilenen kuruluş için ciddi bir işletme kesintisine veya finansal zarara neden olduğunda veya olabileceğinde, ya da bu nedenle diğer gerçek veya tüzel kişilerin önemli ölçüde zarar görmesi veya görebilmesi durumunda önemli kabul edilir. Ne yalnızca BT departmanının etkilenmesi ne de olayın süresi veya günün saati tek başına belirleyici kriterdir - belirleyici olan sonuçların gerçek veya olası kapsamıdır."
+  },
+  "it_sicherheit-meldepflicht_it-07": {
+    "question": "Şirket bilgisayarınızda devam eden bir güvenlik olayından şüpheleniyorsunuz. Olayı bildirmeden önce cihazı neden kendi başınıza yeniden başlatmamalı veya tamamen kapatmamalısınız?",
+    "options": {
+      "a": "Çünkü yeniden başlatma temelde sürekli çalışmadan daha fazla elektrik tüketir",
+      "b": "Çünkü yeniden başlatma cihazdaki tüm şirket verilerini otomatik olarak siler",
+      "c": "Çünkü bu, olayın sonraki incelenmesi için önemli olan uçucu izlerin (örneğin çalışma belleğinde) kaybolmasına neden olabilir",
+      "d": "Çünkü yeniden başlatma olayı otomatik olarak giderir, böylece bir bildirim gereksiz hale gelir"
+    },
+    "explanation": "Bir olayın bazı önemli izleri - örneğin aktif ağ bağlantıları veya çalışma belleğindeki işlemler - yeniden başlatma veya kapatma sırasında kaybolur ve sonradan yeniden oluşturulamaz. Bu nedenle nedenin sonradan aydınlatılması için sistemi mümkün olduğunca değiştirmeden bırakmak ve ilgili birimin sonraki adımlara nasıl karar vereceğine karar verebilmesi için önce olayı bildirmek önemlidir. Yeniden başlatma otomatik olarak şirket verilerini silmez ve altta yatan güvenlik olayını da gidermez."
+  },
+  "it_sicherheit-meldepflicht_it-08": {
+    "question": "Şüphelenilen bir BT güvenlik olayının ilgili iç birime bildirilmesinde hangi bilgiler özellikle yararlıdır?",
+    "options": {
+      "a": "Yalnızca kendi adı, diğer bilgiler bildirimi yalnızca gereksiz yere geciktirir",
+      "b": "Hızlıca gönderilebilmesi için zaman belirtmeden mümkün olduğunca kısa bir bildirim",
+      "c": "Olaydan kimin sorumlu olabileceğine dair yalnızca kaba bir tahmin",
+      "d": "Zaman, gözlemlenen anormallikler ve etkilenen sistemler veya veriler hakkında mümkün olduğunca kesin bilgiler"
+    },
+    "explanation": "Zaman, gözlemlenen davranış (örneğin olağan dışı açılır pencereler, açıklanamayan dosya değişiklikleri) ve etkilenen sistemler veya veriler hakkında somut bilgiler, ilgili birimin olayı hızla sınıflandırmasına, kapsamını tahmin etmesine ve uygun karşı önlemleri başlatmasına yardımcı olur. Yalnızca ad bunun için yeterli değildir, zaman belirtilmeden yapılan bir bildirim zamansal sınıflandırmayı zorlaştırır ve bir \"suç meselesi\" hakkındaki tahminler olayın teknik olarak işlenmesi için belirleyici nokta değildir."
+  }
+}

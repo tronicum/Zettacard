@@ -1,4 +1,4 @@
-# AGENTS.md — working agreement for anyone (human or AI) contributing to drivenow
+# AGENTS.md — working agreement for anyone (human or AI) contributing to Zettacard
 
 This file is the entry point for any agent — Claude, another model, or a human contributor — picking up work in this repo. Read this before touching anything.
 

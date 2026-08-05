@@ -102,26 +102,33 @@ def main():
         os.path.join(HERE, "pilot_questions.json"), "fuehrerschein", fs_locales)
     print(f"fuehrerschein: {fs_count} questions, locale gaps: {fs_missing}")
 
-    ang_locales = ["de", "en"]
+    # DN-48: full 12-locale coverage (2026-08-05) - angelschein/motorrad/lkw
+    # and all 4 DN-44 compliance modules were DE/EN-only pilots; translated
+    # into the same 10 additional languages fuehrerschein already carries,
+    # so every module now has full-parity locale coverage app-wide. Uses the
+    # same fs_locales list as fuehrerschein above (kept as a separate name
+    # per module for clarity/history, not because the actual language list
+    # differs - it doesn't, all modules are on the same 12 languages now).
+    ang_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
     ang_count, ang_missing = split_module(
         os.path.join(HERE, "angelschein_seed.json"), "angelschein", ang_locales)
     print(f"angelschein: {ang_count} questions, locale gaps: {ang_missing}")
 
-    moto_locales = ["de", "en"]
+    moto_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
     moto_count, moto_missing = split_module(
         os.path.join(HERE, "motorrad_pilot.json"), "motorrad", moto_locales)
     print(f"motorrad: {moto_count} questions, locale gaps: {moto_missing}")
 
-    lkw_locales = ["de", "en"]
+    lkw_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
     lkw_count, lkw_missing = split_module(
         os.path.join(HERE, "lkw_pilot.json"), "lkw", lkw_locales)
     print(f"lkw: {lkw_count} questions, locale gaps: {lkw_missing}")
 
-    # DN-44: 4 fully separate workplace-compliance modules, first pilot batch
-    # (20 questions each, DE/EN) - infra-first per PO decision, content is
-    # deliberately a first pilot batch like Angelschein's DN-11 was, not a
-    # full-scale batch yet.
-    compliance_locales = ["de", "en"]
+    # DN-44: 4 fully separate workplace-compliance modules. Originally a
+    # 20-question/DE-EN-only pilot batch; DN-48 (2026-08-05) scaled each to
+    # 40 questions (clearing the 30-question exam-mode threshold) and added
+    # the same 10 additional languages every other module now has.
+    compliance_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
     dsg_count, dsg_missing = split_module(
         os.path.join(HERE, "datenschutz_pilot.json"), "datenschutz", compliance_locales)
     print(f"datenschutz: {dsg_count} questions, locale gaps: {dsg_missing}")

@@ -1,0 +1,402 @@
+{
+  "ki_act-grundlagen-01": {
+    "question": "Quel est l'objectif fondamental du règlement européen sur l'IA (AI Act) ?",
+    "options": {
+      "a": "Il interdit de manière générale aux entreprises de l'UE d'utiliser l'intelligence artificielle",
+      "b": "Il encadre l'utilisation des systèmes d'IA selon une approche fondée sur le risque, afin de protéger les droits fondamentaux et la sécurité tout en permettant l'innovation",
+      "c": "Il fixe uniquement des normes techniques pour les développeurs de logiciels, sans aucun effet juridique pour les entreprises",
+      "d": "Il remplace entièrement le RGPD pour tout traitement de données impliquant de l'IA"
+    },
+    "explanation": "L'AI Act suit une approche fondée sur le risque : plus le risque qu'un système d'IA présente pour la sécurité ou les droits fondamentaux est élevé, plus les exigences sont strictes. Il n'existe pas d'interdiction générale de l'IA, et le règlement ne remplace pas non plus le RGPD - les deux s'appliquent en parallèle."
+  },
+  "ki_act-grundlagen-02": {
+    "question": "En combien de niveaux de risque fondamentaux l'AI Act classe-t-il les systèmes d'IA ?",
+    "options": {
+      "a": "En deux niveaux : autorisé et interdit",
+      "b": "En cinq niveaux, échelonnés selon le secteur",
+      "c": "En quatre niveaux : risque inacceptable, risque élevé, risque limité (obligations de transparence) et risque minimal",
+      "d": "En trois niveaux, déterminés uniquement par la taille de l'entreprise"
+    },
+    "explanation": "Le concept central de l'AI Act est la pyramide des risques : risque inacceptable (interdit), risque élevé (exigences strictes, par exemple pour la sélection de candidats ou l'évaluation de solvabilité), risque limité (principalement des obligations de transparence, par exemple les chatbots) et risque minimal (peu d'obligations, par exemple les filtres anti-spam ou l'IA de jeux vidéo)."
+  },
+  "ki_act-grundlagen-03": {
+    "question": "Selon la définition de l'article 3, paragraphe 1, quelle caractéristique est déterminante pour qu'un système soit un 'système d'IA' ?",
+    "options": {
+      "a": "C'est un système automatisé qui fonctionne avec un certain niveau d'autonomie et qui déduit, à partir des entrées reçues, des résultats tels que du contenu, des prédictions, des recommandations ou des décisions",
+      "b": "Il doit obligatoirement reposer sur des réseaux de neurones ou de l'IA générative, sinon il n'est pas considéré comme un système d'IA",
+      "c": "Il doit toujours fonctionner dans le cloud ; un logiciel installé localement ne relève jamais de cette définition",
+      "d": "Il doit être commercialisé par un humain en tant qu''IA', sinon le règlement ne s'applique pas"
+    },
+    "explanation": "La définition est délibérément neutre sur le plan technologique : ce qui compte, c'est la capacité à tirer des conclusions à partir de données d'entrée et à produire des résultats sur cette base - qu'il s'agisse d'un simple système de règles, d'apprentissage automatique ou d'un grand modèle de langage. Un ensemble de règles purement fixe et codé en dur, sans aucune forme d'inférence, n'en relève généralement pas."
+  },
+  "ki_act-grundlagen-04": {
+    "question": "Lequel des exemples suivants relève typiquement des 'systèmes d'IA à haut risque' au sens de l'AI Act ?",
+    "options": {
+      "a": "Une IA qui corrige automatiquement les fautes d'orthographe dans les e-mails",
+      "b": "Une fonction de recommandation de films basée sur l'IA dans une application de streaming",
+      "c": "Un chatbot IA répondant à des questions générales sur les produits dans le service client",
+      "d": "Un logiciel d'IA qui présélectionne les candidatures et participe à la décision d'inviter ou non à un entretien"
+    },
+    "explanation": "L'IA utilisée en ressources humaines pour aider à décider d'un recrutement, d'une promotion ou d'un licenciement est expressément mentionnée à l'annexe III de l'AI Act comme un domaine à haut risque, car elle peut avoir des effets significatifs sur les droits et les chances des individus. La correction orthographique, les recommandations de films et les chatbots simples sont, à l'inverse, considérés comme un risque minimal ou limité."
+  },
+  "ki_act-ki_kompetenz-01": {
+    "question": "Qui l'article 4 oblige-t-il à assurer une 'maîtrise de l'IA' (AI literacy) suffisante ?",
+    "options": {
+      "a": "Uniquement les fournisseurs (fabricants) de systèmes d'IA, et non les entreprises qui utilisent ces systèmes au quotidien",
+      "b": "Uniquement les grandes entreprises de plus de 250 salariés",
+      "c": "Aussi bien les fournisseurs que les déployeurs de systèmes d'IA - y compris les entreprises qui se contentent d'utiliser des outils d'IA prêts à l'emploi",
+      "d": "Exclusivement les services informatiques, car ce sont les seuls en contact technique avec les systèmes d'IA"
+    },
+    "explanation": "L'article 4 s'adresse expressément à la fois aux fournisseurs (qui développent ou mettent sur le marché des systèmes d'IA) et aux déployeurs, qui utilisent des systèmes d'IA sous leur propre responsabilité - par exemple une entreprise qui utilise un outil d'IA acheté dans son service client. Les deux groupes doivent veiller à ce que leur personnel dispose d'une maîtrise suffisante de l'IA."
+  },
+  "ki_act-ki_kompetenz-02": {
+    "question": "Pour quel cercle de personnes au sein d'une entreprise faut-il, selon l'article 4, assurer une maîtrise de l'IA ?",
+    "options": {
+      "a": "Uniquement pour les salariés en poste permanent, et non pour les prestataires externes ou les indépendants",
+      "b": "Pour toutes les personnes qui, pour le compte du fournisseur ou du déployeur, sont chargées du fonctionnement et de l'utilisation des systèmes d'IA - y compris les employés et autres personnes mandatées",
+      "c": "Uniquement pour la direction, car c'est elle qui porte la responsabilité finale",
+      "d": "Uniquement pour les personnes qui programment ou entraînent elles-mêmes des modèles d'IA"
+    },
+    "explanation": "Cette obligation est délibérément conçue de manière large et couvre non seulement les salariés permanents, mais toutes les personnes qui, pour le compte de l'entreprise, ont affaire à des systèmes d'IA - cela peut inclure des indépendants, des intérimaires ou des prestataires externes qui, par exemple, utilisent un outil d'IA en relation avec la clientèle."
+  },
+  "ki_act-ki_kompetenz-03": {
+    "question": "La formation à la maîtrise de l'IA prévue par l'article 4 doit-elle être identique pour tous les employés d'une entreprise ?",
+    "options": {
+      "a": "Non - l'étendue de la formation doit tenir compte des connaissances techniques préalables, de l'expérience, de la formation ainsi que du contexte concret d'utilisation propre à chaque personne",
+      "b": "Oui - le règlement impose un programme standard national unique, avec un contenu identique pour tous les rôles",
+      "c": "Oui - seule une formation obligatoire unique à l'échelle de l'entreprise, avec le même examen pour tous, satisfait aux exigences",
+      "d": "Non, le contenu de la formation est totalement libre et n'a pas besoin de traiter des risques ni de l'usage pratique"
+    },
+    "explanation": "L'article 4 exige expressément de tenir compte des connaissances préalables, de l'expérience, de la formation ainsi que du contexte dans lequel les systèmes d'IA seront utilisés - les formations devraient donc être adaptées au rôle spécifique de chacun. Une personne qui utilise seulement occasionnellement un assistant d'écriture IA a besoin d'un contenu différent de celui d'une personne qui prend des décisions assistées par l'IA dans un domaine à haut risque."
+  },
+  "ki_act-ki_kompetenz-04": {
+    "question": "Depuis quand l'obligation de maîtrise de l'IA prévue à l'article 4 s'applique-t-elle déjà en pratique ?",
+    "options": {
+      "a": "Seulement à partir du 2 août 2027, en même temps que les obligations les plus strictes relatives aux systèmes à haut risque",
+      "b": "Déjà depuis le 2 février 2025 - en même temps que l'interdiction de certaines pratiques d'IA prévue à l'article 5",
+      "c": "Seulement à partir du 2 août 2026, avec la plupart des obligations de transparence",
+      "d": "L'obligation ne s'applique que lorsqu'une entreprise utilise un système d'IA à haut risque figurant à l'annexe III"
+    },
+    "explanation": "En vertu de l'article 113, point a), le chapitre I (dont l'article 4, maîtrise de l'IA) et le chapitre II (article 5, pratiques interdites) s'appliquent déjà depuis le 2 février 2025 - bien avant la majeure partie du règlement, qui ne devient applicable qu'à partir du 2 août 2026. Une organisation qui a jusqu'ici négligé l'obligation de maîtrise de l'IA est donc déjà en retard, et non pas simplement confrontée à une échéance future."
+  },
+  "ki_act-verbotene_praktiken-01": {
+    "question": "Une entreprise envisage d'introduire un système d'IA qui évalue les employés en fonction de leur comportement social et de traits personnels, produisant sur cette base un 'score de confiance' général utilisé dans des contextes très différents (par exemple évaluation de performance, accès à des ressources). Comment cela est-il classé selon l'AI Act ?",
+    "options": {
+      "a": "Sans problème, tant que les employés donnent un accord informel",
+      "b": "Interdit seulement en Allemagne, expressément autorisé dans les autres États membres de l'UE",
+      "c": "Autorisé tant que le score n'est pas rendu public",
+      "d": "Une telle 'notation sociale' des personnes, s'étendant sur des contextes différents, relève des pratiques interdites par l'article 5 et ne peut être déployée nulle part dans l'UE"
+    },
+    "explanation": "La notation sociale - l'évaluation ou la classification de personnes physiques sur une période prolongée en fonction de leur comportement social ou de traits personnels, entraînant un traitement défavorable dans des contextes non liés - est l'une des 'lignes rouges' classiques de l'article 5 et est interdite dans toute l'UE, indépendamment du consentement individuel."
+  },
+  "ki_act-verbotene_praktiken-02": {
+    "question": "L'utilisation de l''identification biométrique à distance en temps réel' au moyen de systèmes d'IA dans des espaces accessibles au public à des fins répressives est en principe interdite par l'article 5. Cela vaut-il sans aucune exception ?",
+    "options": {
+      "a": "Oui, il n'existe absolument aucune exception - toute utilisation est interdite dans tous les cas",
+      "b": "Non, les entreprises de sécurité privées peuvent l'utiliser librement et sans aucune restriction",
+      "c": "Non, il existe des exceptions étroitement définies (par exemple la recherche ciblée de personnes disparues, la prévention d'une menace terroriste concrète), soumises à des conditions strictes et nécessitant généralement une autorisation judiciaire préalable",
+      "d": "Non, n'importe quelle entreprise peut l'utiliser dès lors qu'elle réalise préalablement une analyse d'impact relative à la protection des données"
+    },
+    "explanation": "Le règlement prévoit, pour l'identification biométrique à distance en temps réel dans des espaces accessibles au public à des fins répressives, des exceptions étroites et énumérées de manière exhaustive (par exemple la recherche d'enfants disparus, la prévention d'une menace terroriste concrète et actuelle), qui nécessitent en principe une autorisation judiciaire préalable ou une autorisation administrative indépendante. Pour les entreprises privées en dehors du cadre répressif, une telle utilisation reste en règle générale interdite de toute façon."
+  },
+  "ki_act-verbotene_praktiken-03": {
+    "question": "Une équipe marketing souhaite déployer un système d'IA qui utilise délibérément des stimuli subliminaux, imperceptibles pour les utilisateurs, afin de manipuler leur décision d'achat et de leur causer un préjudice important. Comment cela doit-il être évalué ?",
+    "options": {
+      "a": "Cela relève des pratiques manipulatrices ou trompeuses interdites par l'article 5, puisque des techniques subliminales sont délibérément employées pour altérer substantiellement le comportement, avec un risque de préjudice",
+      "b": "Il s'agit d'un marketing créatif légitime, tant que les conditions générales mentionnent une 'publicité personnalisée'",
+      "c": "Cela n'est interdit que pour la publicité ciblant les enfants ; c'est en principe autorisé pour les adultes",
+      "d": "Cela ne relève pas du tout de l'AI Act, puisqu'il s'agit de marketing et non d'un système à haut risque"
+    },
+    "explanation": "L'article 5 interdit l'utilisation de systèmes d'IA employant des techniques subliminales, manipulatrices ou trompeuses, au-delà de la conscience d'une personne, afin d'altérer substantiellement son comportement et de lui causer un préjudice important - que le public cible soit composé d'enfants ou d'adultes. Une mention dans les conditions générales n'y change rien, puisque la technique vise précisément une influence inconsciente."
+  },
+  "ki_act-verbotene_praktiken-04": {
+    "question": "Un système d'IA doit être délibérément conçu pour exploiter la vulnérabilité de personnes âgées ou de personnes en situation économique difficile, afin d'influencer leur comportement à leur détriment. Comment l'AI Act classe-t-il cela ?",
+    "options": {
+      "a": "Comme une pratique à haut risque, qui peut néanmoins être légalement utilisée après une évaluation de conformité",
+      "b": "Comme l'une des pratiques interdites par l'article 5, puisqu'elle exploite délibérément une vulnérabilité liée à l'âge, au handicap ou à la situation sociale/économique afin d'agir au détriment des personnes concernées",
+      "c": "Comme totalement inoffensif, tant qu'aucun préjudice financier ne survient",
+      "d": "Comme un cas relevant de l'obligation de transparence, pour lequel une simple mention 'Vous interagissez avec une IA' suffit"
+    },
+    "explanation": "L'exploitation délibérée de la vulnérabilité de certains groupes de personnes - par exemple en raison de l'âge, du handicap ou d'une situation sociale ou économique difficile - dans le but d'influencer leur comportement à leur détriment compte parmi les pratiques expressément interdites par l'article 5. Une évaluation de conformité ou une mention de transparence ne peut pas 'réparer' une telle interdiction, car les pratiques interdites ne peuvent en général pas être légalisées par des conditions supplémentaires."
+  },
+  "ki_act-transparenzpflichten-01": {
+    "question": "Votre entreprise utilise un chatbot qui répond automatiquement aux demandes des clients. Que requiert en principe l'article 50 dans ce cas ?",
+    "options": {
+      "a": "Le chatbot doit être entièrement désactivé dès qu'un client le demande",
+      "b": "Il n'existe aucune obligation, tant que le chatbot fonctionne techniquement sans erreur",
+      "c": "Les clients doivent être informés clairement et en temps utile qu'ils interagissent avec un système d'IA et non avec un être humain - sauf si cela est déjà évident",
+      "d": "Le chatbot ne peut être utilisé qu'après une évaluation de conformité équivalente à celle exigée pour les systèmes à haut risque"
+    },
+    "explanation": "L'article 50 exige, pour les systèmes destinés à interagir directement avec des personnes physiques, que les utilisateurs soient informés qu'ils interagissent avec un système d'IA - sauf si cela est évident pour une personne raisonnablement informée et attentive (par exemple des bots FAQ standards manifestement automatisés). Une évaluation de conformité à haut risque n'est pas nécessaire ici, car un simple chatbot n'est généralement pas un système à haut risque."
+  },
+  "ki_act-transparenzpflichten-02": {
+    "question": "Un collègue utilise un générateur d'images IA pour créer une vidéo d'apparence réaliste dans laquelle une personnalité connue semble tenir des propos qu'elle n'a jamais tenus ('deepfake'), et souhaite la diffuser en interne et en externe. Que s'applique en principe ici ?",
+    "options": {
+      "a": "La vidéo doit être signalée comme générée par IA ou manipulée, afin que les spectateurs puissent reconnaître que le contenu et les propos ne sont pas authentiques",
+      "b": "Une obligation d'étiquetage n'existe que pour un usage commercial en dehors de l'UE",
+      "c": "Les deepfakes sont fondamentalement interdits et ne peuvent en aucun cas être créés",
+      "d": "Il n'existe aucune obligation d'étiquetage tant qu'aucun profit financier n'est réalisé"
+    },
+    "explanation": "L'article 50 impose de signaler comme générés ou manipulés artificiellement les contenus d'image, d'audio ou de vidéo générés ou manipulés par IA qui font faussement apparaître comme authentiques des personnes, objets, lieux ou événements réels ('deepfakes'). Les deepfakes ne sont pas interdits en tant que tels, mais doivent être rendus transparents - contrairement, par exemple, à la notation sociale, ils ne constituent pas une 'ligne rouge' au sens de l'article 5, mais sont soumis à une obligation d'étiquetage."
+  },
+  "ki_act-transparenzpflichten-03": {
+    "question": "Un système d'IA de reconnaissance des émotions est utilisé sur le lieu de travail pour capter l'humeur des employés pendant les réunions. Qu'exige au minimum l'article 50 dans ce cas ?",
+    "options": {
+      "a": "Une telle utilisation est toujours interdite, quel que soit le contexte",
+      "b": "Les personnes concernées doivent être informées qu'un système de reconnaissance des émotions est utilisé",
+      "c": "Une mention dans la documentation informatique interne suffit, il n'est pas nécessaire d'informer les personnes concernées",
+      "d": "L'obligation d'information n'existe qu'à l'égard du comité d'entreprise, et non des employés individuels"
+    },
+    "explanation": "Pour les systèmes de reconnaissance des émotions ou de catégorisation biométrique, l'article 50 prévoit une obligation d'information à l'égard des personnes physiques exposées au système - elles doivent être informées de son fonctionnement. Cela ne remplace d'ailleurs pas d'éventuels droits de participation supplémentaires en droit du travail, tels que ceux du comité d'entreprise, mais s'y ajoute."
+  },
+  "ki_act-transparenzpflichten-04": {
+    "question": "Depuis quand les obligations générales de transparence de l'article 50 (notamment le signalement des chatbots, l'étiquetage des deepfakes) sont-elles applicables ?",
+    "options": {
+      "a": "Déjà depuis l'entrée en vigueur du règlement en août 2024",
+      "b": "Seulement à partir du 2 août 2027",
+      "c": "Déjà depuis le 2 février 2025, en même temps que les pratiques interdites",
+      "d": "À partir du 2 août 2026, avec la majeure partie des autres obligations du règlement"
+    },
+    "explanation": "Contrairement à l'obligation de maîtrise de l'IA (article 4) et aux pratiques interdites (article 5), qui s'appliquent déjà depuis le 2 février 2025, les obligations de transparence de l'article 50 ne prennent effet qu'à la date d'application générale du 2 août 2026 - en même temps que la majeure partie des autres obligations du règlement. Les entreprises devraient garder ces échéances distinctes à l'esprit."
+  },
+  "ki_act-ki_am_arbeitsplatz-01": {
+    "question": "Un collègue souhaite saisir des données clients confidentielles dans un chatbot IA accessible au public afin de se faire aider à rédiger une réponse. Que devrait-il d'abord considérer ?",
+    "options": {
+      "a": "Cela ne pose aucun problème, car les fournisseurs d'IA ne stockent en principe jamais les données saisies",
+      "b": "Les données personnelles ou confidentielles ne doivent en règle générale pas être saisies sans vérification préalable dans des outils d'IA externes, car cela peut violer les règles de protection des données et les politiques internes - indépendamment de l'AI Act, le RGPD s'applique ici en plus",
+      "c": "Cela est acceptable tant que le collègue en informe le client informellement après coup",
+      "d": "L'AI Act interdit en principe toute utilisation de chatbots IA externes sur le lieu de travail"
+    },
+    "explanation": "L'AI Act encadre avant tout les risques provenant du système d'IA lui-même, mais ne remplace pas le RGPD. Quiconque saisit des données personnelles ou confidentielles dans un outil d'IA externe peut, indépendamment de l'AI Act, enfreindre le droit de la protection des données et les politiques internes, par exemple parce que les données sont traitées sur des serveurs échappant au contrôle de l'entreprise. Les deux cadres juridiques - l'AI Act et le RGPD - doivent être respectés en parallèle."
+  },
+  "ki_act-ki_am_arbeitsplatz-02": {
+    "question": "Un système d'IA à haut risque assiste la présélection des candidatures. Un employé accepte sans vérification chaque suggestion de l'IA, estimant que 'l'IA a généralement raison de toute façon'. Comment ce comportement doit-il être évalué au regard des exigences de contrôle humain ?",
+    "options": {
+      "a": "Parfaitement acceptable, puisque c'est formellement l'IA qui a pris la décision",
+      "b": "Problématique uniquement si le candidat se plaint",
+      "c": "Problématique : le contrôle humain pour les systèmes à haut risque signifie examiner de manière critique les suggestions de l'IA et être en mesure de les justifier, plutôt que de les valider automatiquement",
+      "d": "Sans problème, car le fabricant de l'IA assume la responsabilité de toutes les décisions"
+    },
+    "explanation": "L'AI Act exige, pour les systèmes à haut risque, un contrôle humain effectif : la personne responsable doit être en mesure de comprendre les résultats de l'IA, de les remettre en question de manière critique et, en cas de doute, de les corriger ou de les rejeter (afin d'éviter le 'biais d'automatisation'). Accepter aveuglément les suggestions de l'IA contredit ce principe et peut, en définitive, conduire à des décisions discriminatoires, dont l'entreprise reste responsable."
+  },
+  "ki_act-ki_am_arbeitsplatz-03": {
+    "question": "Un cadre prend une décision de personnel défavorable sur la base d'une recommandation de l'IA, décision qui s'avère par la suite erronée et discriminatoire. Argument du cadre : 'C'est l'IA qui l'a suggéré, je n'ai fait que suivre.' Cet argument est-il juridiquement valable ?",
+    "options": {
+      "a": "Non - la responsabilité d'une décision reste en principe entre les mains de l'humain, ou de l'entreprise en tant que déployeur qui utilise le système d'IA ; 'c'est l'IA qui l'a dit' ne dispense pas de son propre devoir de diligence",
+      "b": "Oui - dès qu'un système d'IA formule une recommandation, la responsabilité juridique complète passe automatiquement au fabricant de l'IA",
+      "c": "Oui, mais uniquement si l'entreprise compte moins de 50 salariés",
+      "d": "Cela est juridiquement sans importance, car l'AI Act ne contient aucune disposition sur les responsabilités des déployeurs"
+    },
+    "explanation": "L'AI Act impose aux déployeurs de systèmes d'IA à haut risque des obligations propres, notamment un contrôle humain approprié et une utilisation conforme aux instructions du fournisseur. Ces obligations - et la responsabilité qui en résulte pour les décisions concrètes prises dans l'entreprise - restent en principe entre les mains de l'entreprise ou de la personne agissante, même si la recommandation sous-jacente provient de l'IA."
+  },
+  "ki_act-ki_am_arbeitsplatz-04": {
+    "question": "Quelle est une règle de conduite raisonnable et pratique pour l'utilisation d'assistants d'IA générative (par exemple pour la rédaction de textes) dans le travail quotidien ?",
+    "options": {
+      "a": "Toujours utiliser les textes générés par l'IA sans les modifier ni les vérifier, afin de gagner du temps",
+      "b": "Vérifier le contenu des résultats générés par l'IA avant de les utiliser, en particulier leur exactitude, leurs biais et les questions de protection des données - et, en cas de doute, comparer l'usage aux politiques internes applicables",
+      "c": "N'utiliser l'IA générative en principe qu'en dehors des heures de travail et sans aucun lien avec l'activité professionnelle",
+      "d": "Renoncer à toute vérification tant qu'aucun client ne voit directement le contenu"
+    },
+    "explanation": "L'IA générative peut être très utile au travail, mais elle ne remplace pas la responsabilité professionnelle et juridique propre à chacun. Les résultats peuvent être factuellement erronés ('hallucinations'), contenir des biais involontaires ou poser problème du point de vue de la protection des données si des informations confidentielles ont été saisies par mégarde - c'est pourquoi un examen critique avant toute utilisation ultérieure relève des bonnes pratiques professionnelles."
+  },
+  "ki_act-grundlagen-05": {
+    "question": "Un système d'IA est développé et utilisé exclusivement à des fins militaires de défense nationale. L'AI Act s'applique-t-il à ce système ?",
+    "options": {
+      "a": "Non - en vertu de l'article 2, paragraphe 3, l'AI Act ne s'applique pas aux systèmes d'IA mis sur le marché, mis en service ou utilisés exclusivement à des fins militaires, de défense ou de sécurité nationale",
+      "b": "Oui, sans restriction - l'usage militaire est expressément mentionné comme domaine à haut risque distinct à l'annexe III",
+      "c": "Non, mais uniquement si le système a en plus été officiellement certifié par l'OTAN",
+      "d": "Oui, mais au moins les obligations de transparence de l'article 50 continuent de s'appliquer intégralement malgré tout"
+    },
+    "explanation": "L'article 2, paragraphe 3, exclut entièrement du champ d'application du règlement les systèmes d'IA destinés exclusivement à des fins militaires, de défense ou de sécurité nationale - quel que soit le type d'entité qui les exploite. Il n'existe pas de certification OTAN distincte à cet effet, et les obligations de transparence ne s'appliquent pas non plus dans ce cas."
+  },
+  "ki_act-grundlagen-06": {
+    "question": "Une équipe de recherche développe et teste un nouveau modèle d'IA exclusivement dans le cadre de la recherche scientifique, avant qu'il ne soit jamais mis sur le marché ni mis en service. Comment cela est-il classé selon l'AI Act ?",
+    "options": {
+      "a": "De telles activités de recherche, de test et de développement préalables à la mise sur le marché ou à la mise en service ne relèvent en principe pas du champ d'application du règlement",
+      "b": "Même la recherche purement scientifique doit d'abord se soumettre à une évaluation de conformité complète, comme s'il s'agissait d'un système à haut risque",
+      "c": "L'exemption ne s'applique que si la recherche est menée dans une université publique, et non dans le secteur privé",
+      "d": "L'exemption continue de s'appliquer inchangée dès lors que le modèle est ensuite mis à la disposition d'utilisateurs réels sur le marché"
+    },
+    "explanation": "L'article 2, paragraphe 8, exclut du champ d'application les activités de recherche, de test et de développement portant sur des systèmes ou modèles d'IA avant leur mise sur le marché ou leur mise en service. L'exemption n'est pas limitée aux institutions publiques, mais elle prend fin dès que le système est effectivement mis à disposition sur le marché ou mis en service - à partir de ce moment, les obligations habituelles s'appliquent."
+  },
+  "ki_act-grundlagen-07": {
+    "question": "Qui est considéré comme 'fournisseur' d'un système d'IA selon la définition de l'article 3, paragraphe 3 ?",
+    "options": {
+      "a": "Uniquement une personne physique qui écrit personnellement le code informatique d'un système d'IA",
+      "b": "Toute personne physique ou morale, autorité publique, agence ou autre organisme qui développe un système d'IA ou le fait développer, et le met sur le marché ou le met en service sous son propre nom ou sa propre marque - à titre onéreux ou gratuit",
+      "c": "Exclusivement des entreprises établies en dehors de l'UE qui exportent des systèmes d'IA vers l'UE",
+      "d": "Toute entreprise qui se contente d'utiliser dans ses propres opérations un outil d'IA prêt à l'emploi conçu par un tiers, sans le transmettre plus loin"
+    },
+    "explanation": "La définition du fournisseur est délibérément large et ne dépend ni du lieu d'établissement de l'entreprise ni du caractère onéreux, mais du fait que quelqu'un développe (ou fait développer) un système d'IA et le met sur le marché ou en service sous son propre nom ou sa propre marque. L'option d décrit plutôt le rôle d'un déployeur, qui se contente d'utiliser le système d'un tiers."
+  },
+  "ki_act-grundlagen-08": {
+    "question": "Outre la liste de l'annexe III, il existe une seconde voie, indépendante, par laquelle un système d'IA peut devenir un système à haut risque. Laquelle ?",
+    "options": {
+      "a": "Lorsque le système d'IA est lui-même un produit, ou un composant de sécurité intégré à un produit couvert par la législation de l'Union sur la sécurité des produits énumérée à l'annexe I (par exemple des machines, des dispositifs médicaux), et que ce produit nécessite une évaluation de conformité par un tiers",
+      "b": "Lorsque l'entreprise qui déploie l'IA emploie plus de 500 salariés",
+      "c": "Lorsque le système d'IA est déployé simultanément dans plus de trois États membres de l'UE",
+      "d": "Lorsque le système d'IA est proposé publiquement et gratuitement sur Internet"
+    },
+    "explanation": "L'article 6, paragraphe 1, ouvre, à côté de la classification fondée sur l'usage via l'annexe III, une seconde voie fondée sur le produit : si le système d'IA est lui-même un produit ou un composant de sécurité d'un produit déjà couvert par la législation existante de l'Union sur la sécurité des produits (annexe I, par exemple le règlement sur les machines, le règlement sur les dispositifs médicaux) et nécessitant une évaluation de conformité par un tiers, le système d'IA est également considéré comme à haut risque."
+  },
+  "ki_act-ki_kompetenz-05": {
+    "question": "Comment l'article 3, paragraphe 56, définit-il la notion de 'maîtrise de l'IA' (AI literacy) ?",
+    "options": {
+      "a": "Comme les compétences, connaissances et compréhension permettant aux fournisseurs, déployeurs et personnes concernées de déployer les systèmes d'IA de manière éclairée et de prendre conscience des opportunités et des risques de l'IA ainsi que des préjudices possibles",
+      "b": "Comme une certification formelle, qui ne peut être délivrée que par des organismes d'essai accrédités par l'État",
+      "c": "Comme des connaissances purement techniques des langages de programmation, concernant exclusivement les spécialistes informatiques",
+      "d": "Comme une obligation légale de documenter chaque année un nombre minimal fixé d'heures de formation"
+    },
+    "explanation": "La définition de l'article 3, paragraphe 56, est délibérément large : il ne s'agit pas d'une certification particulière ni d'une pure connaissance de la programmation, mais de compétences, de connaissances et d'une compréhension permettant de prendre des décisions éclairées face à l'IA et de développer une conscience des opportunités, des risques et des préjudices possibles."
+  },
+  "ki_act-ki_kompetenz-06": {
+    "question": "Selon le considérant 20, à qui la maîtrise de l'IA doit-elle finalement aussi profiter, au-delà du propre personnel des fournisseurs et des déployeurs ?",
+    "options": {
+      "a": "Exclusivement à la direction, afin qu'elle puisse prendre des décisions d'investissement éclairées",
+      "b": "Également aux personnes concernées par des décisions assistées par l'IA, afin qu'elles puissent comprendre comment les décisions prises avec l'aide de l'IA les affectent",
+      "c": "Exclusivement aux autorités nationales de surveillance du marché, qui contrôlent le respect du règlement",
+      "d": "Uniquement aux développeurs de logiciels externes chargés d'entraîner de nouveaux modèles d'IA"
+    },
+    "explanation": "Le considérant 20 précise que la maîtrise de l'IA ne doit pas seulement servir les fournisseurs et les déployeurs eux-mêmes, mais aussi donner aux personnes concernées les connaissances nécessaires pour comprendre comment les décisions prises avec l'aide de l'IA les affectent."
+  },
+  "ki_act-ki_kompetenz-07": {
+    "question": "L'article 4 exige-t-il un format de formation spécifique, prescrit légalement (par exemple un examen certifié), pour la maîtrise de l'IA ?",
+    "options": {
+      "a": "Non - le texte oblige les fournisseurs et les déployeurs à prendre des mesures appropriées 'dans la mesure de leurs moyens' ; l'article 4 ne prescrit aucun format particulier ni aucune certification",
+      "b": "Oui, il doit obligatoirement s'agir d'une formation en présentiel de plusieurs jours avec un certificat externe",
+      "c": "Oui, seul un cours en ligne reconnu par l'État satisfait aux exigences de l'article 4",
+      "d": "Oui, mais uniquement pour les entreprises qui proposent également des systèmes d'IA à haut risque"
+    },
+    "explanation": "L'article 4 est formulé comme une obligation de moyens ('dans la mesure de leurs moyens'), et non comme une obligation de résultat avec un format prescrit. La loi laisse ouverte la forme concrète des mesures - pour autant qu'elles soient appropriées et tiennent compte des connaissances préalables, du contexte et des groupes de personnes concernés."
+  },
+  "ki_act-ki_kompetenz-08": {
+    "question": "Une entreprise n'utilise qu'un système d'IA à risque minimal (par exemple un correcteur orthographique basé sur l'IA), mais aucun système à haut risque. Doit-elle néanmoins respecter l'article 4 relatif à la maîtrise de l'IA ?",
+    "options": {
+      "a": "Oui - l'obligation de maîtrise de l'IA s'applique aux fournisseurs et aux déployeurs indépendamment de la classe de risque du système d'IA effectivement utilisé, et pas seulement aux systèmes à haut risque",
+      "b": "Non, l'article 4 ne s'applique qu'aux fournisseurs et déployeurs de systèmes d'IA à haut risque relevant de l'annexe III",
+      "c": "Non, l'obligation ne s'applique que si l'entreprise utilise plus de 50 applications d'IA différentes",
+      "d": "Non, en cas de risque minimal, seule l'obligation de transparence de l'article 50 s'applique, pas l'article 4"
+    },
+    "explanation": "L'article 4 ne se limite pas aux systèmes à haut risque, mais s'applique aux 'systèmes d'IA' en général. Une entreprise ne peut donc pas invoquer le fait qu'elle n'utilise que des outils à faible risque pour s'exonérer de l'obligation de maîtrise de l'IA - c'est une idée reçue répandue mais erronée, comportant un véritable risque de conformité."
+  },
+  "ki_act-verbotene_praktiken-05": {
+    "question": "Une autorité souhaite utiliser un système d'IA qui prédit, en se fondant uniquement sur le profilage et des traits de personnalité, le risque qu'une personne commette une infraction à l'avenir, afin d'en déduire des mesures. Comment cela est-il évalué selon l'AI Act ?",
+    "options": {
+      "a": "Une telle 'police prédictive' assistée par l'IA, qui fonde la prédiction d'infraction uniquement sur le profilage ou des traits de personnalité, relève des pratiques interdites par l'article 5, paragraphe 1, point d)",
+      "b": "Cela est autorisé tant qu'un agent officiel finit par signer formellement la mesure suggérée par l'IA",
+      "c": "Il s'agit d'un système à haut risque ordinaire, qui peut être utilisé librement après une évaluation de conformité",
+      "d": "Cela est généralement autorisé, car soutenir une évaluation humaine d'infractions concrètes fondée sur des faits objectifs et vérifiables est généralement interdit"
+    },
+    "explanation": "L'article 5, paragraphe 1, point d), interdit les évaluations de risque ou les prédictions relatives à la propension d'une personne à commettre une infraction, fondées uniquement sur le profilage ou des traits de personnalité. Reste en revanche autorisé le soutien apporté par l'IA à une évaluation humaine fondée sur des faits objectifs et vérifiables directement liés à un comportement criminel concret - c'est l'exception étroite, non la règle générale."
+  },
+  "ki_act-verbotene_praktiken-06": {
+    "question": "Un fournisseur souhaite constituer une base de données de reconnaissance faciale en collectant de manière automatisée et non ciblée des images de visages provenant de l'internet ouvert et d'enregistrements de vidéosurveillance. Comment l'AI Act classe-t-il cela ?",
+    "options": {
+      "a": "La collecte non ciblée ('untargeted') d'images de visages sur internet ou à partir d'enregistrements de vidéosurveillance, en vue de créer ou d'étendre des bases de données de reconnaissance faciale, relève des pratiques interdites par l'article 5, paragraphe 1, point e)",
+      "b": "Cela est autorisé tant que les images collectées sont ensuite stockées sous forme pseudonymisée",
+      "c": "Cela n'est interdit que pour les images de mineurs, et généralement autorisé pour les adultes",
+      "d": "Cela ne relève pas du tout de l'AI Act, puisqu'il s'agit formellement d'une base de données et non d'un système d'IA autonome"
+    },
+    "explanation": "L'article 5, paragraphe 1, point e), interdit spécifiquement la collecte non ciblée d'images de visages sur internet ou à partir d'enregistrements de vidéosurveillance, en vue de créer ou d'étendre des bases de données de reconnaissance faciale - indépendamment de la pseudonymisation ou de l'âge des personnes représentées. La logique de collecte et de traitement sous-jacente relève de l'AI Act, même si le résultat n'est formellement 'qu'une' base de données."
+  },
+  "ki_act-verbotene_praktiken-07": {
+    "question": "Une école souhaite utiliser un système d'IA qui, via caméra et microphone, reconnaît et analyse les émotions des élèves pendant les cours - non pour des raisons médicales ou de sécurité. Comment cela est-il évalué selon l'AI Act ?",
+    "options": {
+      "a": "L'utilisation de la reconnaissance des émotions dans les établissements d'enseignement, en dehors de raisons médicales ou de sécurité, relève des pratiques interdites par l'article 5, paragraphe 1, point f)",
+      "b": "Cela est toujours autorisé, tant que l'école divulgue la reconnaissance des émotions conformément à l'article 50",
+      "c": "Cela n'est interdit que si les résultats collectés sont ensuite publiés",
+      "d": "Cela n'est interdit que sur le lieu de travail, tandis que dans les établissements d'enseignement, c'est en principe autorisé"
+    },
+    "explanation": "L'article 5, paragraphe 1, point f), interdit l'utilisation de systèmes de reconnaissance des émotions aussi bien sur le lieu de travail que dans les établissements d'enseignement, sauf s'il existe des raisons médicales ou de sécurité (par exemple la détection de la fatigue lors d'activités critiques pour la sécurité). Une simple divulgation au titre de l'article 50 ne suffit pas ici - l'interdiction s'applique indépendamment du fait qu'une information transparente soit fournie ou non."
+  },
+  "ki_act-verbotene_praktiken-08": {
+    "question": "Une entreprise souhaite utiliser un système d'IA qui, à partir de données biométriques (par exemple reconnaissance faciale ou vocale), déduit automatiquement l'orientation sexuelle présumée, l'opinion politique ou la conviction religieuse des personnes. Comment cela est-il classé ?",
+    "options": {
+      "a": "Une telle catégorisation biométrique visant à déduire des caractéristiques particulièrement sensibles telles que l'orientation sexuelle, l'opinion politique ou la conviction religieuse relève des pratiques interdites par l'article 5, paragraphe 1, point g)",
+      "b": "Cela est autorisé tant que la personne concernée a préalablement accepté une déclaration de confidentialité générale",
+      "c": "Cela est généralement autorisé si cela est fait exclusivement à des fins de marketing",
+      "d": "Cela n'est interdit que si les caractéristiques déduites sont ensuite revendues à des tiers"
+    },
+    "explanation": "L'article 5, paragraphe 1, point g), interdit la catégorisation biométrique de personnes physiques afin d'en déduire la race, les opinions politiques, l'appartenance syndicale, les convictions religieuses ou philosophiques, la vie sexuelle ou l'orientation sexuelle. Une déclaration de confidentialité acceptée ou une finalité marketing n'y change rien - il n'existe que des exceptions étroitement définies, par exemple pour l'étiquetage/filtrage licite de jeux de données ou la catégorisation biométrique par les autorités répressives."
+  },
+  "ki_act-transparenzpflichten-05": {
+    "question": "Votre entreprise utilise un système d'IA générative qui produit automatiquement des contenus d'image et de texte. Que requiert à cet égard l'article 50, paragraphe 2, du fournisseur d'un tel système ?",
+    "options": {
+      "a": "Le fournisseur doit veiller à ce que les contenus générés soient marqués dans un format lisible par machine et reconnaissables comme générés ou manipulés artificiellement, dans la mesure où cela est techniquement réalisable",
+      "b": "Le fournisseur doit faire approuver chaque contenu généré par une autorité de surveillance nationale avant sa publication",
+      "c": "Il n'existe aucune obligation de marquage tant que les contenus ne sont pas utilisés à des fins commerciales",
+      "d": "L'obligation de marquage ne s'applique qu'aux contenus vidéo, et non au texte ou aux images"
+    },
+    "explanation": "L'article 50, paragraphe 2, oblige les fournisseurs de systèmes d'IA générant des contenus synthétiques d'image, d'audio, de vidéo ou de texte à veiller à ce que ces résultats soient marqués dans un format lisible par machine et reconnaissables comme générés ou manipulés artificiellement, dans la mesure où cela est techniquement réalisable - indépendamment d'une approbation préalable par les autorités ou d'un usage commercial."
+  },
+  "ki_act-transparenzpflichten-06": {
+    "question": "L'obligation prévue à l'article 50, paragraphe 1, d'informer les personnes qu'elles interagissent avec un système d'IA s'applique-t-elle sans exception à tout système ?",
+    "options": {
+      "a": "Non - l'obligation ne s'applique notamment pas aux systèmes d'IA légalement autorisés à détecter, prévenir, enquêter sur ou poursuivre des infractions pénales, sous réserve de garanties appropriées pour les droits des tiers - sauf si le système est mis à la disposition du public pour signaler une infraction",
+      "b": "Oui, il n'existe aucune exception - chaque système d'IA doit toujours se déclarer comme tel dans tous les cas",
+      "c": "Non, l'obligation ne s'applique en principe à aucune autorité publique, quelle que soit la finalité de l'utilisation",
+      "d": "Non, l'obligation ne s'applique qu'aux systèmes d'IA proposés contre paiement"
+    },
+    "explanation": "L'article 50, paragraphe 1, prévoit une exception limitée pour les systèmes d'IA légalement autorisés à détecter, prévenir, enquêter sur ou poursuivre des infractions pénales, sous réserve de garanties appropriées pour les droits des tiers. Toutefois, cette exception ne s'applique pas lorsque le système est mis à la disposition du public pour signaler une infraction - dans ce cas, l'obligation d'information subsiste. Il n'existe pas d'exemption générale pour toutes les autorités publiques."
+  },
+  "ki_act-transparenzpflichten-07": {
+    "question": "Une rédaction utilise l'IA générative pour créer et publier un texte sur un sujet d'intérêt public. Le texte fait toutefois l'objet d'une révision éditoriale avant publication, et une personne en assume la responsabilité éditoriale. Faut-il néanmoins divulguer que l'IA a été impliquée ?",
+    "options": {
+      "a": "Non - si un tel texte a fait l'objet d'un processus de révision humaine ou de contrôle éditorial et qu'une personne en assume la responsabilité éditoriale, l'obligation de divulgation prévue à l'article 50, paragraphe 4, second alinéa, ne s'applique pas",
+      "b": "Oui, selon l'AI Act, toute utilisation de l'IA générative dans des textes journalistiques doit être divulguée sans exception",
+      "c": "Non, car les contenus journalistiques sont en général entièrement exclus du champ d'application de l'AI Act",
+      "d": "Oui, mais seulement si le texte publié dépasse 1 000 mots"
+    },
+    "explanation": "L'article 50, paragraphe 4, second alinéa, prévoit en principe une obligation de divulgation pour les textes générés ou manipulés par IA publiés sur des sujets d'intérêt public. Cette obligation ne s'applique toutefois pas lorsque le contenu a fait l'objet d'un processus de révision humaine ou de contrôle éditorial et qu'une personne physique ou morale assume la responsabilité éditoriale de la publication."
+  },
+  "ki_act-transparenzpflichten-08": {
+    "question": "Votre entreprise utilise un système d'IA à haut risque qui relève en même temps des obligations de transparence de l'article 50 (par exemple parce qu'il interagit directement avec des personnes). Les obligations de l'article 50 et les obligations relatives aux systèmes à haut risque du chapitre III s'excluent-elles mutuellement ?",
+    "options": {
+      "a": "Non - l'article 50, paragraphe 6, précise que les obligations de transparence n'affectent pas les exigences du chapitre III ; les deux ensembles d'obligations peuvent s'appliquer parallèlement et doivent être remplis cumulativement",
+      "b": "Oui, dès qu'un système est considéré comme un système à haut risque, les obligations du chapitre III remplacent automatiquement toutes les obligations de transparence de l'article 50",
+      "c": "Oui, l'article 50 ne s'applique en principe qu'aux systèmes à risque minimal, jamais aux systèmes à haut risque",
+      "d": "Non, mais il suffit de remplir seulement la plus stricte des deux obligations, pas les deux à la fois"
+    },
+    "explanation": "L'article 50, paragraphe 6, précise expressément que les obligations de transparence des paragraphes 1 à 4 n'affectent pas les exigences et obligations du chapitre III (systèmes à haut risque). Un système à haut risque qui relève en même temps du champ d'application de l'article 50 doit donc remplir les deux ensembles d'obligations de manière cumulative, et non un seul d'entre eux."
+  },
+  "ki_act-ki_am_arbeitsplatz-05": {
+    "question": "Une entreprise souhaite introduire un système d'IA à haut risque pour évaluer la performance des employés. Que requiert l'article 26, paragraphe 7, d'un employeur agissant en tant que déployeur, avant que le système ne soit utilisé sur le lieu de travail ?",
+    "options": {
+      "a": "L'employeur doit informer les représentants des travailleurs et les employés concernés qu'ils seront soumis à l'utilisation du système d'IA à haut risque, avant sa mise en service ou son utilisation",
+      "b": "Il suffit de fournir l'information rétroactivement, après les trois premiers mois d'utilisation",
+      "c": "Une information n'est requise que si plus de 50 employés sont concernés par le déploiement",
+      "d": "Il suffit de mentionner le système dans la déclaration générale de confidentialité de l'entreprise, sans informer spécifiquement les employés"
+    },
+    "explanation": "L'article 26, paragraphe 7, oblige les employeurs qui, en tant que déployeurs, utilisent un système d'IA à haut risque sur le lieu de travail à informer au préalable les représentants des travailleurs et les employés concernés - non pas rétroactivement, quelle que soit la taille de l'entreprise, et non pas simplement de manière générale dans une déclaration générale de confidentialité."
+  },
+  "ki_act-ki_am_arbeitsplatz-06": {
+    "question": "Laquelle des applications suivantes est expressément citée à l'annexe III, point 4, comme relevant des domaines à haut risque 'emploi, gestion des travailleurs et accès à l'emploi indépendant' ?",
+    "options": {
+      "a": "Un logiciel d'IA qui répartit automatiquement les tâches entre les employés ou surveille et évalue en continu leur performance et leur comportement",
+      "b": "Une application de cantine basée sur l'IA qui propose aux employés des suggestions de menus végétariens",
+      "c": "Une IA qui corrige automatiquement les fautes d'orthographe dans les e-mails internes des employés",
+      "d": "Une application de suivi du temps basée sur l'IA qui enregistre exclusivement la présence, sans aucune évaluation de la performance"
+    },
+    "explanation": "L'annexe III, point 4, sous b), mentionne expressément les systèmes d'IA qui prennent des décisions concernant les conditions de travail, la promotion ou le licenciement, qui attribuent des tâches en fonction du comportement individuel ou de traits personnels, ou qui surveillent et évaluent en continu la performance et le comportement des employés. Les outils purement administratifs sans fonction d'évaluation (application de cantine, correction orthographique, simple enregistrement de présence) n'en relèvent pas."
+  },
+  "ki_act-ki_am_arbeitsplatz-07": {
+    "question": "Un système d'IA à haut risque destiné à la présélection des candidatures doit être utilisé dans une entreprise. Que doit techniquement permettre le système lui-même, selon l'article 14, paragraphe 4, aux personnes chargées du contrôle humain ?",
+    "options": {
+      "a": "Il doit être conçu de manière à ce que la personne exerçant la surveillance puisse contrôler son fonctionnement, interpréter correctement les résultats, décider de ne pas l'utiliser ou d'ignorer, d'annuler ou d'infirmer le résultat, et interrompre son fonctionnement au moyen d'un bouton 'stop' ou d'une procédure similaire",
+      "b": "Il doit être conçu de manière à ne pouvoir être désactivé à distance que par le fabricant, et non par l'entreprise qui l'utilise",
+      "c": "Il suffit qu'une personne consulte par échantillonnage les journaux du système une fois par an",
+      "d": "Il doit être conçu de manière à ce que les décisions du système ne puissent en principe jamais être annulées, afin d'empêcher toute manipulation ultérieure"
+    },
+    "explanation": "L'article 14, paragraphe 4, exige que les systèmes d'IA à haut risque soient conçus de manière à ce que la personne chargée de la surveillance comprenne les capacités et les limites du système, puisse en interpréter correctement les résultats, puisse décider de ne pas l'utiliser ou d'ignorer, d'annuler ou d'infirmer le résultat, et puisse interrompre son fonctionnement au moyen d'un bouton 'stop' ou d'une procédure similaire. Un contrôle annuel par échantillonnage ou une capacité de désactivation réservée exclusivement au fabricant ne satisfait pas à cette exigence."
+  },
+  "ki_act-ki_am_arbeitsplatz-08": {
+    "question": "Un système d'IA prend, sans aucune intervention humaine, la décision finale de rejeter la candidature d'une postulante, sur la seule base d'une évaluation automatisée de ses documents de candidature. Quel droit supplémentaire la candidate peut-elle faire valoir, indépendamment de l'AI Act ?",
+    "options": {
+      "a": "Le droit prévu par l'article 22 du RGPD de ne pas faire l'objet d'une décision fondée exclusivement sur un traitement automatisé produisant des effets juridiques ou l'affectant de manière significative de façon similaire, sous réserve des exceptions qui y sont prévues",
+      "b": "Un droit à une embauche immédiate, indépendamment du résultat matériel de la candidature",
+      "c": "Le droit d'exiger que le fabricant du logiciel d'IA lui divulgue le code source complet",
+      "d": "Aucun droit supplémentaire n'existe, car l'AI Act évince entièrement le RGPD en matière d'emploi"
+    },
+    "explanation": "L'AI Act encadre avant tout les risques provenant du système d'IA lui-même et ne remplace pas le RGPD. Parallèlement, l'article 22 du RGPD accorde aux personnes concernées le droit de ne pas faire l'objet exclusivement d'une décision automatisée produisant des effets juridiques ou les affectant de manière significative de façon similaire - comme un rejet de candidature entièrement automatisé sans aucune intervention humaine, sous réserve des exceptions étroites prévues par la loi."
+  }
+}

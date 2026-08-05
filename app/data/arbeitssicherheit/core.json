@@ -1,6 +1,6 @@
 {
   "meta": {
-    "app": "drivenow / arbeitssicherheit-lernmodul",
+    "app": "Zettacard / arbeitssicherheit-lernmodul",
     "version": "0.1",
     "generated": "2026-08-05",
     "description": "Original MCQs for a German workplace occupational-safety (Arbeitsschutz) training module aimed at employees in general office/workplace settings, covering Grundpflichten von Arbeitgeber und Beschäftigten, die Unterweisungspflicht, die Gefährdungsbeurteilung, persönliche Schutzausrüstung und Notfall-/Brandschutzgrundlagen, sowie Bildschirmarbeitsplätze. Content is independently written and grounded directly in primary public legal sources (ArbSchG, ArbStättV/ASR, ArbMedVV, DGUV Vorschrift 1 and DGUV-Informationen), NOT copied or paraphrased from any commercial compliance-training vendor's course material or question catalog. This is a fully independent exam module from Führerschein, Angelschein, Motorrad and LKW - separate content pool, separate exam simulation. Locales: de (canonical), en (reviewed translation) for this first pilot round.",
@@ -9,13 +9,23 @@
     "point_system": "2-5 points per question, matching this app's existing style",
     "pass_rule_note": "Provisional: same generic mechanics as this app's other modules (30 questions per simulation run, max 10 error points, auto-fail on 2+ wrong high_stakes) used as a placeholder pending a real workplace-training design pass - see legal_review_status.",
     "legal_review_status": "NOT legally reviewed - verify ArbSchG/DGUV citations and currency before production/commercial use",
-    "total_questions": 20,
+    "total_questions": 40,
     "license": "CC BY-NC-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
     "locales": [
       "de",
-      "en"
+      "en",
+      "uk",
+      "pl",
+      "ar",
+      "zh",
+      "hi",
+      "tr",
+      "fr",
+      "ru",
+      "es",
+      "it"
     ]
   },
   "questions": [
@@ -354,6 +364,346 @@
       "image_ref": null,
       "correct": [
         "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-grundpflichten-05",
+      "topic": "Grundpflichten",
+      "topic_code": "grundpflichten",
+      "grundstoff": true,
+      "legal_basis": "§17 Abs. 2 ArbSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-grundpflichten-06",
+      "topic": "Grundpflichten",
+      "topic_code": "grundpflichten",
+      "grundstoff": true,
+      "legal_basis": "§16 Abs. 2 ArbSchG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-grundpflichten-07",
+      "topic": "Grundpflichten",
+      "topic_code": "grundpflichten",
+      "grundstoff": true,
+      "legal_basis": "§7 ArbSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-grundpflichten-08",
+      "topic": "Grundpflichten",
+      "topic_code": "grundpflichten",
+      "grundstoff": true,
+      "legal_basis": "§13 Abs. 2 ArbSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-unterweisung-05",
+      "topic": "Unterweisung",
+      "topic_code": "unterweisung",
+      "grundstoff": true,
+      "legal_basis": "§12 Abs. 1 ArbSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-unterweisung-06",
+      "topic": "Unterweisung",
+      "topic_code": "unterweisung",
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 DGUV Vorschrift 1",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-unterweisung-07",
+      "topic": "Unterweisung",
+      "topic_code": "unterweisung",
+      "grundstoff": true,
+      "legal_basis": "§8 Abs. 2 ArbSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-unterweisung-08",
+      "topic": "Unterweisung",
+      "topic_code": "unterweisung",
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 1 DGUV Vorschrift 1",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-gefaehrdungsbeurteilung-05",
+      "topic": "Gefährdungsbeurteilung",
+      "topic_code": "gefaehrdungsbeurteilung",
+      "grundstoff": true,
+      "legal_basis": "§5 Abs. 2 ArbSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-gefaehrdungsbeurteilung-06",
+      "topic": "Gefährdungsbeurteilung",
+      "topic_code": "gefaehrdungsbeurteilung",
+      "grundstoff": true,
+      "legal_basis": "§6 Abs. 1 ArbSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-gefaehrdungsbeurteilung-07",
+      "topic": "Gefährdungsbeurteilung",
+      "topic_code": "gefaehrdungsbeurteilung",
+      "grundstoff": true,
+      "legal_basis": "§6 Abs. 2 ArbSchG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-gefaehrdungsbeurteilung-08",
+      "topic": "Gefährdungsbeurteilung",
+      "topic_code": "gefaehrdungsbeurteilung",
+      "grundstoff": true,
+      "legal_basis": "§3 Abs. 2 ArbStättV",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-psa_notfall-05",
+      "topic": "PSA und Notfall",
+      "topic_code": "psa_notfall",
+      "grundstoff": true,
+      "legal_basis": "§26 Abs. 1 DGUV Vorschrift 1",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-psa_notfall-06",
+      "topic": "PSA und Notfall",
+      "topic_code": "psa_notfall",
+      "grundstoff": true,
+      "legal_basis": "§2 Abs. 4 PSA-Benutzungsverordnung",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-psa_notfall-07",
+      "topic": "PSA und Notfall",
+      "topic_code": "psa_notfall",
+      "grundstoff": true,
+      "legal_basis": "ASR A1.3 (Sicherheits- und Gesundheitsschutzkennzeichnung)",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-psa_notfall-08",
+      "topic": "PSA und Notfall",
+      "topic_code": "psa_notfall",
+      "grundstoff": true,
+      "legal_basis": "ASR A2.2 (Maßnahmen gegen Brände, Arbeitsstättenverordnung)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-bildschirmarbeit-05",
+      "topic": "Bildschirmarbeit",
+      "topic_code": "bildschirmarbeit",
+      "grundstoff": true,
+      "legal_basis": "Arbeitsstättenverordnung (ArbStättV), Anhang Nr. 6 - Bildschirmarbeitsplätze (Software)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-bildschirmarbeit-06",
+      "topic": "Bildschirmarbeit",
+      "topic_code": "bildschirmarbeit",
+      "grundstoff": true,
+      "legal_basis": "Arbeitsstättenverordnung (ArbStättV), Anhang Nr. 6 - Bildschirmarbeitsplätze (Strahlung)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-bildschirmarbeit-07",
+      "topic": "Bildschirmarbeit",
+      "topic_code": "bildschirmarbeit",
+      "grundstoff": true,
+      "legal_basis": "ArbMedVV, Anhang Teil 4 - Angebotsvorsorge Bildschirmarbeit",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "arbeitssicherheit-bildschirmarbeit-08",
+      "topic": "Bildschirmarbeit",
+      "topic_code": "bildschirmarbeit",
+      "grundstoff": true,
+      "legal_basis": "Arbeitsstättenverordnung (ArbStättV), Anhang Nr. 6 - Bildschirmarbeitsplätze (Fußstütze/Manuskripthalter)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
       ],
       "class_scope": [
         "ALL"

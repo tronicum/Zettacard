@@ -1,0 +1,402 @@
+{
+  "ki_act-grundlagen-01": {
+    "question": "AB Yapay Zeka Yasası'nın (AI Act) temel amacı nedir?",
+    "options": {
+      "a": "AB'deki şirketlerin yapay zeka kullanmasını genel olarak yasaklar",
+      "b": "Temel hakları ve güvenliği korurken yeniliği de mümkün kılmak için yapay zeka sistemlerinin ele alınışını riske dayalı olarak düzenler",
+      "c": "Yalnızca yazılım geliştiricileri için, şirketler açısından hiçbir hukuki etkisi olmayan teknik standartlar belirler",
+      "d": "Yapay zekanın dahil olduğu her türlü veri işlemede GDPR'nin tamamen yerini alır"
+    },
+    "explanation": "Yapay Zeka Yasası riske dayalı bir yaklaşım izler: Bir yapay zeka sisteminin güvenlik veya temel haklar açısından oluşturduğu risk ne kadar büyükse, gereksinimler o kadar sıkı olur. Yapay zekaya genel bir yasak yoktur ve bu tüzük GDPR'nin yerini de almaz - her ikisi de paralel olarak uygulanır."
+  },
+  "ki_act-grundlagen-02": {
+    "question": "Yapay Zeka Yasası, yapay zeka sistemlerini kaç temel risk seviyesine ayırır?",
+    "options": {
+      "a": "İki seviyeye: izinli ve yasaklı",
+      "b": "Sektöre göre kademelendirilmiş beş seviyeye",
+      "c": "Dört seviyeye: kabul edilemez risk, yüksek risk, sınırlı risk (şeffaflık yükümlülükleri) ve minimal risk",
+      "d": "Yalnızca şirket büyüklüğüne dayanan üç seviyeye"
+    },
+    "explanation": "Yapay Zeka Yasası'nın merkezi kavramı risk piramididir: kabul edilemez risk (yasaklı), yüksek risk (örneğin aday seçimi veya kredi değerliliği değerlendirmesinde sıkı koşullar), sınırlı risk (ağırlıklı olarak şeffaflık yükümlülükleri, örneğin sohbet robotları) ve minimal risk (spam filtreleri veya video oyunu yapay zekası gibi neredeyse hiç yükümlülük olmayan durumlar)."
+  },
+  "ki_act-grundlagen-03": {
+    "question": "Madde 3(1)'deki tanıma göre, bir 'yapay zeka sistemi' için belirleyici özellik nedir?",
+    "options": {
+      "a": "Belirli derecede özerklikle çalışan ve girdilerden içerik, tahmin, öneri veya karar gibi çıktılar türeten (çıkarım yapan) makine tabanlı bir sistemdir",
+      "b": "Mutlaka sinir ağlarına veya üretken yapay zekaya dayanmalıdır, aksi takdirde yapay zeka sistemi sayılmaz",
+      "c": "Her zaman bulutta çalışmalıdır; yerel olarak kurulmuş yazılımlar bu tanıma asla girmez",
+      "d": "Bir insan tarafından 'yapay zeka' olarak pazarlanmalıdır, aksi takdirde tüzük uygulanmaz"
+    },
+    "explanation": "Tanım kasıtlı olarak teknoloji açısından tarafsızdır: Belirleyici olan, giriş verilerinden sonuç çıkarabilme ve buna dayanarak çıktı üretebilme yeteneğidir - arkasında basit bir kural sistemi, makine öğrenmesi veya büyük bir dil modeli olup olmadığına bakılmaksızın. Hiçbir çıkarım biçimi içermeyen, tamamen sabit şekilde programlanmış bir kural kümesi ise genellikle bu kapsama girmez."
+  },
+  "ki_act-grundlagen-04": {
+    "question": "Aşağıdaki örneklerden hangisi Yapay Zeka Yasası anlamında tipik olarak 'yüksek riskli yapay zeka sistemleri' arasında sayılır?",
+    "options": {
+      "a": "E-postalardaki yazım hatalarını otomatik düzelten bir yapay zeka",
+      "b": "Bir yayın akışı uygulamasında yapay zeka destekli film öneri özelliği",
+      "c": "Müşteri hizmetlerinde genel ürün sorularını yanıtlayan bir yapay zeka sohbet robotu",
+      "d": "Başvuru belgelerini ön eleyen ve mülakata çağrılma kararına ortak olan yapay zeka yazılımı"
+    },
+    "explanation": "İşe alım, terfi veya işten çıkarma kararlarına katılan insan kaynakları yapay zekası, bireylerin hak ve fırsatları üzerinde önemli etkileri olabileceği için Yapay Zeka Yasası'nın Ek III'ünde açıkça yüksek riskli alan olarak sayılmıştır. Yazım denetimi, film önerileri ve basit sohbet robotları ise minimal veya sınırlı risk olarak kabul edilir."
+  },
+  "ki_act-ki_kompetenz-01": {
+    "question": "Madde 4, yeterli 'yapay zeka okuryazarlığı' (AI literacy) sağlamakla kimi yükümlü kılar?",
+    "options": {
+      "a": "Yalnızca yapay zeka sistemlerinin sağlayıcılarını (üreticilerini), bu sistemleri günlük hayatta kullanan şirketleri değil",
+      "b": "Yalnızca 250'den fazla çalışanı olan büyük şirketleri",
+      "c": "Hem yapay zeka sistemlerinin sağlayıcılarını hem de dağıtıcılarını (deployer) - yani hazır yapay zeka araçlarını sadece kullanan şirketleri de",
+      "d": "Yalnızca BT departmanlarını, çünkü yapay zeka sistemleriyle teknik olarak yalnızca onlar temas eder"
+    },
+    "explanation": "Madde 4, hem sağlayıcıları (yapay zeka sistemleri geliştiren veya piyasaya süren) hem de kendi sorumlulukları altında yapay zeka sistemleri kullanan dağıtıcıları (deployer) - örneğin müşteri hizmetlerinde satın alınmış bir yapay zeka aracı kullanan bir şirketi - açıkça hedef alır. Her iki grup da personelinin yeterli yapay zeka okuryazarlığına sahip olmasını sağlamalıdır."
+  },
+  "ki_act-ki_kompetenz-02": {
+    "question": "Madde 4'e göre bir şirket içinde hangi kişi grubu için yapay zeka okuryazarlığı sağlanmalıdır?",
+    "options": {
+      "a": "Yalnızca kadrolu çalışanlar için, dış hizmet sağlayıcılar veya serbest çalışanlar için değil",
+      "b": "Sağlayıcı veya dağıtıcı adına yapay zeka sistemlerinin işletilmesi ve kullanılmasıyla ilgilenen tüm kişiler için - çalışanlar ve görevlendirilen diğer kişiler dahil",
+      "c": "Yalnızca üst yönetim için, çünkü nihai sorumluluk onlara aittir",
+      "d": "Yalnızca yapay zeka modellerini bizzat programlayan veya eğiten kişiler için"
+    },
+    "explanation": "Bu yükümlülük kasıtlı olarak geniş tutulmuştur ve yalnızca kadrolu çalışanları değil, şirket adına yapay zeka sistemleriyle ilgilenen tüm kişileri kapsar - buna örneğin müşteri iletişiminde bir yapay zeka aracı kullanan serbest çalışanlar, geçici işçiler veya dış hizmet sağlayıcılar da dahil olabilir."
+  },
+  "ki_act-ki_kompetenz-03": {
+    "question": "Madde 4'e göre yapay zeka okuryazarlığı eğitimi bir şirketin tüm çalışanları için aynı mı olmalıdır?",
+    "options": {
+      "a": "Hayır - eğitimin kapsamı ilgili kişinin teknik ön bilgisine, deneyimine, eğitimine ve somut kullanım bağlamına göre belirlenmelidir",
+      "b": "Evet - tüzük tüm roller için aynı içerikli, ülke çapında standart bir müfredat öngörür",
+      "c": "Evet - yalnızca herkes için aynı sınavla yapılan tek, şirket çapında zorunlu bir eğitim gereksinimleri karşılar",
+      "d": "Hayır, eğitim içeriği tamamen serbesttir ve riskleri veya pratik kullanımı ele almak zorunda değildir"
+    },
+    "explanation": "Madde 4 açıkça ön bilgi, deneyim, eğitim ve yapay zeka sistemlerinin kullanılacağı bağlamın dikkate alınmasını talep eder - bu nedenle eğitimler role özgü olarak tasarlanmalıdır. Yapay zeka yazım asistanını yalnızca ara sıra kullanan bir kişi, yüksek riskli alanda yapay zeka destekli kararlar alan birinden farklı içeriğe ihtiyaç duyar."
+  },
+  "ki_act-ki_kompetenz-04": {
+    "question": "Madde 4'teki yapay zeka okuryazarlığı yükümlülüğü pratikte ne zamandan beri yürürlüktedir?",
+    "options": {
+      "a": "Ancak 2 Ağustos 2027'den itibaren, en katı yüksek risk yükümlülükleriyle eşzamanlı olarak",
+      "b": "Zaten 2 Şubat 2025'ten beri - Madde 5 uyarınca belirli yapay zeka uygulamalarının yasaklanmasıyla birlikte",
+      "c": "Ancak 2 Ağustos 2026'dan itibaren, çoğu şeffaflık yükümlülüğüyle birlikte",
+      "d": "Yükümlülük yalnızca bir şirket Ek III'te listelenen yüksek riskli bir yapay zeka sistemi kullandığında geçerli olur"
+    },
+    "explanation": "Madde 113(a)'ya göre, Bölüm I (Madde 4, yapay zeka okuryazarlığı dahil) ve Bölüm II (Madde 5, yasak uygulamalar) zaten 2 Şubat 2025'ten beri yürürlüktedir - tüzüğün ancak 2 Ağustos 2026'dan itibaren uygulanacak büyük kısmından çok daha önce. Yapay zeka okuryazarlığı yükümlülüğünü şimdiye kadar göz ardı etmiş olan bir kuruluş, dolayısıyla yalnızca 'gelecekte bir gün'le değil, zaten şimdiden gecikmeyle karşı karşıyadır."
+  },
+  "ki_act-verbotene_praktiken-01": {
+    "question": "Bir şirket, çalışanları sosyal davranışlarına ve kişisel özelliklerine göre değerlendiren ve bundan çok farklı bağlamlarda (örneğin performans değerlendirmesi, kaynaklara erişim) kullanılan genel bir 'güven puanı' oluşturan bir yapay zeka sistemi getirmeyi düşünüyor. Bu, Yapay Zeka Yasası'na göre nasıl sınıflandırılır?",
+    "options": {
+      "a": "Çalışanlar gayri resmi olarak onay verdiği sürece sorun teşkil etmez",
+      "b": "Yalnızca Almanya'da yasaktır, diğer AB ülkelerinde açıkça izin verilmiştir",
+      "c": "Puan yayınlanmadığı sürece izin verilir",
+      "d": "Kişilerin bu şekilde bağlamlar arası 'sosyal puanlaması' Madde 5 uyarınca yasaklanan uygulamalar arasında sayılır ve AB genelinde hiçbir yerde kullanılamaz"
+    },
+    "explanation": "Sosyal puanlama - gerçek kişilerin uzun bir süre boyunca sosyal davranışlarına veya kişisel özelliklerine göre değerlendirilmesi veya sınıflandırılması ve bundan kaynaklanan, ilgisiz bağlamlarda kötü muamele - Madde 5'in klasik 'kırmızı çizgilerinden' biridir ve bireysel onaydan bağımsız olarak AB genelinde yasaktır."
+  },
+  "ki_act-verbotene_praktiken-02": {
+    "question": "Kolluk kuvvetleri amaçlarıyla halka açık alanlarda biyometrik yapay zeka sistemleri aracılığıyla 'gerçek zamanlı uzaktan tanımlama' kullanımı Madde 5 uyarınca ilke olarak yasaktır. Bu, hiçbir istisna olmaksızın geçerli midir?",
+    "options": {
+      "a": "Evet, kesinlikle hiçbir istisna yoktur - her kullanım her durumda yasaktır",
+      "b": "Hayır, özel güvenlik şirketleri bunu tamamen serbestçe ve hiçbir kısıtlama olmaksızın kullanabilir",
+      "c": "Hayır, katı koşullara tabi olan ve genellikle önceden yargısal izin gerektiren dar tanımlanmış istisnalar vardır (örneğin kayıp kişilerin hedefli aranması, somut bir terörist tehdidin önlenmesi)",
+      "d": "Hayır, herhangi bir şirket önce bir veri koruma etki değerlendirmesi yaptığı sürece bunu kullanabilir"
+    },
+    "explanation": "Tüzük, kolluk kuvvetleri amaçlarıyla halka açık alanlarda gerçek zamanlı biyometrik uzaktan tanımlama için dar, kapsamlı şekilde sayılmış istisnalar öngörür (örneğin kayıp çocukların aranması, somut ve mevcut bir terörist tehdidin önlenmesi); bunlar genellikle önceden yargısal veya bağımsız idari izin gerektirir. Kolluk kuvvetleri dışındaki özel şirketler için ise bu tür bir kullanım genellikle her halükârda yasak olarak kalır."
+  },
+  "ki_act-verbotene_praktiken-03": {
+    "question": "Bir pazarlama ekibi, kullanıcıların bilinçli olarak algılayamadığı eşik altı uyarıcıları kasıtlı olarak kullanarak satın alma kararlarını manipüle eden ve onlara önemli zarar veren bir yapay zeka sistemi kullanmak istiyor. Bu nasıl değerlendirilmelidir?",
+    "options": {
+      "a": "Bu, davranışı önemli ölçüde bozmak ve zarar potansiyeli oluşturmak için kasıtlı olarak eşik altı teknikler kullanıldığından, Madde 5 uyarınca yasaklanan manipülatif veya aldatıcı uygulamalar kapsamına girer",
+      "b": "Şartlar ve koşullarda 'kişiselleştirilmiş reklamcılık'tan bahsedildiği sürece bu meşru, yaratıcı bir pazarlamadır",
+      "c": "Bu yalnızca çocuklara yönelik reklamlarda yasaktır, yetişkinler için ilke olarak izinlidir",
+      "d": "Bu, pazarlama olduğu ve yüksek riskli bir sistem olmadığı için Yapay Zeka Yasası kapsamına hiç girmez"
+    },
+    "explanation": "Madde 5, bir kişinin bilincinin ötesinde eşik altı, manipülatif veya aldatıcı teknikler kullanan ve bu yolla davranışını önemli ölçüde bozarak ona önemli zarar veren yapay zeka sistemlerinin kullanımını yasaklar - hedef kitle çocuklar veya yetişkinler olsun fark etmez. Şartlar ve koşullardaki bir not bunu değiştirmez, çünkü teknik özellikle bilinçsiz etkilemeyi hedefler."
+  },
+  "ki_act-verbotene_praktiken-04": {
+    "question": "Bir yapay zeka sistemi, yaşlıların veya zor ekonomik durumdaki kişilerin savunmasızlığından yararlanarak davranışlarını onların aleyhine etkilemek üzere kasıtlı olarak tasarlanacaktır. Yapay Zeka Yasası bunu nasıl sınıflandırır?",
+    "options": {
+      "a": "Uygunluk değerlendirmesiyle yasal olarak kullanılabilecek yüksek riskli bir uygulama olarak",
+      "b": "Yaş, engellilik veya sosyal/ekonomik durum nedeniyle savunmasızlığın kasıtlı olarak sömürülerek etkilenen kişilerin aleyhine hareket edilmesini amaçladığından, Madde 5 uyarınca yasaklanan uygulamalardan biri olarak",
+      "c": "Mali bir zarar oluşmadığı sürece tamamen sorunsuz olarak",
+      "d": "Yalnızca 'Bir yapay zeka ile etkileşimdesiniz' gibi basit bir bildirimin yeterli olduğu bir şeffaflık yükümlülüğü vakası olarak"
+    },
+    "explanation": "Belirli grupların - örneğin yaş, engellilik veya zor bir sosyal ya da ekonomik durum nedeniyle - savunmasızlığının, davranışlarını aleyhlerine etkilemek amacıyla kasıtlı olarak sömürülmesi, Madde 5 uyarınca açıkça yasaklanan uygulamalar arasında sayılır. Bir uygunluk değerlendirmesi veya şeffaflık bildirimi bu tür bir yasağı 'iyileştiremez', çünkü yasaklanan uygulamalar genel olarak ek koşullarla yasallaştırılamaz."
+  },
+  "ki_act-transparenzpflichten-01": {
+    "question": "Şirketiniz müşteri sorularını otomatik olarak yanıtlayan bir sohbet robotu kullanıyor. Bu durumda Madde 50 temel olarak neyi gerektirir?",
+    "options": {
+      "a": "Bir müşteri sorduğunda sohbet robotu tamamen kapatılmalıdır",
+      "b": "Sohbet robotu teknik olarak hatasız çalıştığı sürece hiçbir yükümlülük yoktur",
+      "c": "Müşterilere, bunun zaten açık olduğu durumlar dışında, bir insanla değil bir yapay zeka sistemiyle etkileşimde olduklarının açık ve zamanında bildirilmesi gerekir",
+      "d": "Sohbet robotu ancak yüksek riskli sistemler için olduğu gibi bir uygunluk değerlendirmesi yapıldıktan sonra kullanılabilir"
+    },
+    "explanation": "Madde 50, gerçek kişilerle doğrudan etkileşim için tasarlanmış sistemler için, yeterince bilgili ve dikkatli bir kişi için bunun açık olduğu durumlar dışında (örneğin açıkça otomatikleştirilmiş standart SSS botları), kullanıcıların bir yapay zeka sistemiyle etkileşimde olduklarının bilgilendirilmesini gerektirir. Basit bir sohbet robotu genellikle yüksek riskli bir sistem olmadığından, burada yüksek risk uygunluk değerlendirmesine gerek yoktur."
+  },
+  "ki_act-transparenzpflichten-02": {
+    "question": "Bir meslektaş, tanınmış bir kişinin hiç söylemediği şeyleri söylüyormuş gibi gösteren, gerçekçi görünen bir video oluşturmak için yapay zeka görüntü üreteci kullanıyor ('deepfake') ve bunu şirket içinde ve dışında yaymak istiyor. Burada temel olarak ne geçerlidir?",
+    "options": {
+      "a": "İzleyicilerin içerik ve ifadelerin gerçek olmadığını fark edebilmesi için videonun yapay zeka tarafından üretilmiş veya değiştirilmiş olarak işaretlenmesi gerekir",
+      "b": "İşaretleme yükümlülüğü yalnızca AB dışında ticari kullanım için geçerlidir",
+      "c": "Deepfake'ler ilke olarak yasaktır ve hiçbir koşulda oluşturulamaz",
+      "d": "Mali bir kazanç elde edilmediği sürece işaretleme yükümlülüğü yoktur"
+    },
+    "explanation": "Madde 50, gerçek kişileri, nesneleri, yerleri veya olayları gerçekmiş gibi göstererek yanıltan, yapay zeka tarafından üretilmiş veya değiştirilmiş görüntü, ses veya video içeriğinin ('deepfake') yapay olarak üretildiği veya değiştirildiği şeklinde işaretlenmesini zorunlu kılar. Deepfake'ler kendi başına yasak değildir, ancak şeffaf hale getirilmelidir - örneğin sosyal puanlamanın aksine, Madde 5'in bir 'kırmızı çizgisi' değildir, ancak bir işaretleme yükümlülüğüne tabidir."
+  },
+  "ki_act-transparenzpflichten-03": {
+    "question": "Toplantılar sırasında çalışanların ruh halini yakalamak için işyerinde bir duygu tanıma yapay zeka sistemi kullanılıyor. Madde 50 bu konuda asgari olarak ne talep eder?",
+    "options": {
+      "a": "Kullanım, bağlamdan bağımsız olarak her zaman yasaktır",
+      "b": "Etkilenen kişilere bir duygu tanıma sisteminin kullanıldığı bildirilmelidir",
+      "c": "Dahili BT belgelerinde bir not yeterlidir, etkilenen kişilerin bilgilendirilmesi gerekmez",
+      "d": "Bilgilendirme yükümlülüğü yalnızca işçi konseyine karşıdır, bireysel çalışanlara karşı değil"
+    },
+    "explanation": "Duygu tanıma veya biyometrik kategorilendirme sistemleri için Madde 50, sisteme maruz kalan gerçek kişilere karşı bir bilgilendirme yükümlülüğü öngörür - sistemin işletildiği konusunda bilgilendirilmeleri gerekir. Bu, işçi konseyi gibi ek iş hukuku katılım haklarının yerini almaz, bunlara ek olarak gelir."
+  },
+  "ki_act-transparenzpflichten-04": {
+    "question": "Madde 50 uyarınca genel şeffaflık yükümlülükleri (sohbet robotu işaretlemesi, deepfake etiketlemesi vb. dahil) ne zamandan itibaren uygulanır?",
+    "options": {
+      "a": "Tüzüğün Ağustos 2024'te yürürlüğe girmesinden itibaren zaten",
+      "b": "Ancak 2 Ağustos 2027'den itibaren",
+      "c": "Zaten 2 Şubat 2025'ten itibaren, yasak uygulamalarla birlikte",
+      "d": "Tüzüğün geri kalan yükümlülüklerinin çoğuyla birlikte 2 Ağustos 2026'dan itibaren"
+    },
+    "explanation": "Zaten 2 Şubat 2025'ten itibaren geçerli olan yapay zeka yeterliliği yükümlülüğünün (Madde 4) ve yasak uygulamaların (Madde 5) aksine, Madde 50'deki şeffaflık yükümlülükleri ancak genel uygulama tarihi olan 2 Ağustos 2026'da yürürlüğe girer - tüzüğün geri kalan yükümlülüklerinin çoğuyla birlikte. Şirketler bu farklı son tarihleri göz önünde bulundurmalıdır."
+  },
+  "ki_act-ki_am_arbeitsplatz-01": {
+    "question": "Bir meslektaş, bir yanıt oluşturmasına yardımcı olması için gizli müşteri verilerini herkese açık bir yapay zeka sohbet robotuna girmek istiyor. Öncelikle neyi göz önünde bulundurmalıdır?",
+    "options": {
+      "a": "Bu sorunsuzdur, çünkü yapay zeka sağlayıcıları ilke olarak girdi verilerini asla depolamaz",
+      "b": "Kişisel veya gizli veriler genellikle önceden kontrol edilmeden dış yapay zeka araçlarına girilmemelidir, çünkü bu veri koruma kurallarını ve iç politikayı ihlal edebilir - Yapay Zeka Yasası'ndan bağımsız olarak burada ek olarak GDPR de geçerlidir",
+      "c": "Meslektaş müşteriyi bunu daha sonra gayri resmi olarak bilgilendirdiği sürece bu kabul edilebilir",
+      "d": "Yapay Zeka Yasası, işyerinde herhangi bir dış yapay zeka sohbet robotu kullanımını ilke olarak yasaklar"
+    },
+    "explanation": "Yapay Zeka Yasası öncelikle yapay zeka sisteminin kendisinden kaynaklanan riskleri düzenler, ancak GDPR'nin yerini almaz. Kişisel veya gizli verileri harici bir yapay zeka aracına giren kişi, Yapay Zeka Yasası'ndan bağımsız olarak veri koruma hukukunu ve iç politikayı ihlal edebilir; örneğin verilerin şirketin kontrolü dışındaki sunucularda işlenmesi nedeniyle. Yapay Zeka Yasası ve GDPR olmak üzere her iki hukuki çerçeveye de paralel olarak uyulmalıdır."
+  },
+  "ki_act-ki_am_arbeitsplatz-02": {
+    "question": "Yüksek riskli bir yapay zeka sistemi başvuruların ön elemesine destek olmaktadır. Bir çalışan, 'yapay zeka çoğunlukla haklı çıkıyor' diyerek yapay zekanın her önerisini incelemeden kabul ediyor. Bu davranış, insan gözetimi gereksinimleri açısından nasıl değerlendirilmelidir?",
+    "options": {
+      "a": "Karar resmi olarak yapay zeka tarafından alındığından tamamen sorun değildir",
+      "b": "Yalnızca başvuru sahibi şikayet ederse sorunludur",
+      "c": "Sorunlu: Yüksek riskli sistemlerde insan gözetimi, yapay zekanın önerilerini otomatik olarak onaylamak yerine eleştirel olarak incelemek ve gerekçelendirebilmek anlamına gelir",
+      "d": "Sorun teşkil etmez, çünkü tüm kararların sorumluluğu yapay zekanın üreticisine aittir"
+    },
+    "explanation": "Yapay Zeka Yasası, yüksek riskli sistemler için etkin insan gözetimi talep eder: Sorumlu kişi, yapay zekanın sonuçlarını anlayabilmeli, eleştirel olarak sorgulayabilmeli ve şüphe durumunda düzeltebilmeli veya reddedebilmelidir ('otomasyon önyargısından' kaçınma). Yapay zeka önerilerinin körü körüne kabul edilmesi bu ilkeye aykırıdır ve sonuçta şirketin sorumlu kalacağı ayrımcı kararlara da yol açabilir."
+  },
+  "ki_act-ki_am_arbeitsplatz-03": {
+    "question": "Bir yönetici, yapay zeka önerisine dayanarak sonradan hatalı ve ayrımcı olduğu ortaya çıkan olumsuz bir personel kararı alır. Yöneticinin argümanı: 'Bunu yapay zeka önerdi, ben sadece kabul ettim.' Bu argüman hukuken sağlam mıdır?",
+    "options": {
+      "a": "Hayır - bir kararın sorumluluğu ilke olarak insanda veya yapay zeka sistemini kullanan dağıtıcı olarak şirkette kalır; 'yapay zeka öyle söyledi' kendi özen yükümlülüğünden muaf tutmaz",
+      "b": "Evet - bir yapay zeka sistemi bir öneri sunar sunmaz, tam hukuki sorumluluk otomatik olarak yapay zeka üreticisine geçer",
+      "c": "Evet, ancak yalnızca şirketin 50'den az çalışanı varsa",
+      "d": "Bu hukuken önemsizdir, çünkü Yapay Zeka Yasası dağıtıcı sorumluluklarına ilişkin herhangi bir hüküm içermez"
+    },
+    "explanation": "Yapay Zeka Yasası, yüksek riskli yapay zeka sistemlerinin dağıtıcılarına (deployer), uygun insan gözetimi ve üreticinin talimatlarına uygun kullanım dahil kendi yükümlülüklerini yükler. Bu yükümlülükler - ve bunlardan doğan işletmedeki somut kararlara ilişkin sorumluluk - temel öneriyi bir yapay zeka sağlamış olsa bile ilke olarak şirkette veya hareket eden kişide kalır."
+  },
+  "ki_act-ki_am_arbeitsplatz-04": {
+    "question": "Günlük işte üretken yapay zeka asistanlarının (örneğin metin oluşturmak için) kullanımı için mantıklı, pratik bir davranış kuralı nedir?",
+    "options": {
+      "a": "Zaman kazanmak için yapay zeka tarafından üretilen metinleri her zaman değiştirmeden ve incelemeden kullanmak",
+      "b": "Yapay zeka tarafından üretilen sonuçları kullanmadan önce özellikle doğruluk, önyargı ve veri koruma açısından içerik olarak incelemek - ve şüphe durumunda kullanımını geçerli iç politikayla karşılaştırmak",
+      "c": "Üretken yapay zekayı ilke olarak yalnızca mesai saatleri dışında ve hiçbir iş ilişkisi olmadan kullanmak",
+      "d": "Hiçbir müşteri içeriği doğrudan görmediği sürece her türlü incelemeden vazgeçmek"
+    },
+    "explanation": "Üretken yapay zeka işte çok faydalı olabilir, ancak kişinin kendi mesleki ve hukuki sorumluluğunun yerini almaz. Sonuçlar gerçeklere aykırı olabilir ('halüsinasyonlar'), bilinçsiz önyargılar içerebilir veya yanlışlıkla gizli bilgiler girildiyse veri koruma açısından sorunlu olabilir - bu nedenle daha ileri kullanımdan önce eleştirel bir inceleme iyi kurumsal uygulamanın bir parçasıdır."
+  },
+  "ki_act-grundlagen-05": {
+    "question": "Bir yapay zeka sistemi yalnızca ulusal savunma askeri amaçları için geliştirilmekte ve kullanılmaktadır. Yapay Zeka Yasası buna uygulanır mı?",
+    "options": {
+      "a": "Hayır - Madde 2(3) uyarınca, Yapay Zeka Yasası yalnızca askeri, savunma veya ulusal güvenlik amaçları için piyasaya sürülen, hizmete sokulan veya kullanılan yapay zeka sistemlerine uygulanmaz",
+      "b": "Evet, sınırsız olarak - askeri kullanım Ek III'te ayrı bir yüksek riskli alan olarak açıkça listelenmiştir",
+      "c": "Hayır, ama yalnızca sistem ayrıca resmi olarak NATO tarafından sertifikalandırılmışsa",
+      "d": "Evet, ama en azından Madde 50'deki şeffaflık yükümlülükleri buna rağmen tamamen geçerliliğini korur"
+    },
+    "explanation": "Madde 2(3), yalnızca askeri, savunma veya ulusal güvenlik amaçları için tasarlanan yapay zeka sistemlerini - bunları hangi tür bir kuruluşun işlettiğinden bağımsız olarak - tüzüğün uygulama kapsamının tamamen dışında bırakır. Bunun için ayrı bir NATO sertifikasyonu yoktur ve bu durumda şeffaflık yükümlülükleri de geçerli değildir."
+  },
+  "ki_act-grundlagen-06": {
+    "question": "Bir araştırma ekibi, yeni bir yapay zeka modelini piyasaya sürülmeden veya hizmete sokulmadan önce yalnızca bilimsel araştırma kapsamında geliştirir ve test eder. Bu, Yapay Zeka Yasası'na göre nasıl sınıflandırılır?",
+    "options": {
+      "a": "Piyasaya sürülmeden veya hizmete sokulmadan önceki bu tür araştırma, test ve geliştirme faaliyetleri ilke olarak tüzüğün kapsamı dışındadır",
+      "b": "Salt bilimsel araştırma bile önceden yüksek riskli bir sistemmiş gibi tam bir uygunluk değerlendirmesinden geçmelidir",
+      "c": "İstisna yalnızca araştırma özel sektörde değil, bir devlet üniversitesinde yapılıyorsa geçerlidir",
+      "d": "Model daha sonra piyasada gerçek kullanıcılara sunulduğunda bile istisna değişmeden uygulanmaya devam eder"
+    },
+    "explanation": "Madde 2(8), piyasaya sürülmeden veya hizmete sokulmadan önce yapay zeka sistemleri veya modelleriyle ilgili araştırma, test ve geliştirme faaliyetlerini tüzüğün kapsamı dışında bırakır. İstisna kamu kurumlarıyla sınırlı değildir, ancak sistem fiilen piyasada sunulduğunda veya hizmete sokulduğunda sona erer - bu andan itibaren olağan yükümlülükler geçerlidir."
+  },
+  "ki_act-grundlagen-07": {
+    "question": "Madde 3(3)'teki tanıma göre bir yapay zeka sisteminin 'sağlayıcısı' (provider) kimdir?",
+    "options": {
+      "a": "Yalnızca bir yapay zeka sistemi için bizzat program kodu yazan bir gerçek kişi",
+      "b": "Bir yapay zeka sistemi geliştiren veya geliştirten ve onu ücretli ya da ücretsiz olarak kendi adı veya markası altında piyasaya süren ya da hizmete sokan herhangi bir gerçek veya tüzel kişi, kamu otoritesi, kurum veya başka bir organ",
+      "c": "Yalnızca AB dışında kurulmuş ve yapay zeka sistemlerini AB'ye ihraç eden şirketler",
+      "d": "Bir üçüncü tarafın hazır bir yapay zeka aracını, başkasına aktarmadan yalnızca kendi işletmesinde kullanan herhangi bir şirket"
+    },
+    "explanation": "Sağlayıcı tanımı kasıtlı olarak geniş tutulmuştur ve şirketin kurulduğu yere veya ücretli olup olmadığına bağlı değildir; birinin bir yapay zeka sistemi geliştirmesine (veya geliştirtmesine) ve onu kendi adı veya markası altında piyasaya sürmesine ya da hizmete sokmasına bağlıdır. d seçeneği ise daha çok başkasının sistemini yalnızca kullanan bir dağıtıcının (deployer) rolünü tanımlar."
+  },
+  "ki_act-grundlagen-08": {
+    "question": "Ek III'teki listenin yanı sıra, bir yapay zeka sisteminin yüksek riskli hale gelebileceği ikinci, bağımsız bir yol vardır. Bu nedir?",
+    "options": {
+      "a": "Yapay zeka sisteminin kendisinin bir ürün olması veya Ek I'de listelenen AB ürün güvenliği mevzuatı (örneğin makineler, tıbbi cihazlar) kapsamına giren bir ürüne güvenlik bileşeni olarak entegre edilmesi ve bu ürünün üçüncü taraf uygunluk değerlendirmesi gerektirmesi",
+      "b": "Yapay zekayı kullanan şirketin 500'den fazla çalışanı olması",
+      "c": "Yapay zeka sisteminin aynı anda üçten fazla AB üye ülkesinde kullanılması",
+      "d": "Yapay zeka sisteminin İnternet'te halka açık ve ücretsiz olarak sunulması"
+    },
+    "explanation": "Madde 6(1), Ek III aracılığıyla uygulama tabanlı sınıflandırmanın yanı sıra, ürün tabanlı ikinci bir yol açar: Yapay zeka sisteminin kendisi, mevcut AB ürün güvenliği mevzuatı kapsamına giren (Ek I, örneğin Makine Tüzüğü, Tıbbi Cihaz Tüzüğü) ve orada üçüncü taraf uygunluk değerlendirmesi gerektiren bir ürün veya bir ürünün güvenlik bileşeni ise, yapay zeka sistemi de yüksek riskli sayılır."
+  },
+  "ki_act-ki_kompetenz-05": {
+    "question": "Madde 3(56), 'yapay zeka okuryazarlığı' (AI literacy) terimini nasıl tanımlar?",
+    "options": {
+      "a": "Sağlayıcıların, dağıtıcıların ve etkilenen kişilerin yapay zeka sistemlerini bilinçli bir şekilde uygulamalarını ve yapay zekanın fırsat ve risklerinin yanı sıra olası zararlarının farkına varmalarını sağlayan beceriler, bilgi ve anlayış olarak",
+      "b": "Yalnızca devlet tarafından akredite edilmiş test kuruluşlarınca verilebilecek resmi bir sertifikasyon olarak",
+      "c": "Yalnızca BT uzmanlarını ilgilendiren, salt programlama dillerine ilişkin teknik bilgi olarak",
+      "d": "Her yıl belirli bir asgari eğitim saati sayısının belgelenmesine ilişkin yasal bir yükümlülük olarak"
+    },
+    "explanation": "Madde 3(56)'daki tanım kasıtlı olarak geniş tutulmuştur: Belirli bir sertifikasyon veya salt programlama bilgisi değil, yapay zekayla ilgilenirken bilinçli kararlar almayı mümkün kılan ve fırsatlar, riskler ve olası zararlara ilişkin farkındalık yaratan beceriler, bilgi ve anlayış söz konusudur."
+  },
+  "ki_act-ki_kompetenz-06": {
+    "question": "20. Gerekçe'ye göre, sağlayıcıların ve dağıtıcıların kendi personelinin ötesinde, yapay zeka okuryazarlığından nihayetinde kim de yararlanmalıdır?",
+    "options": {
+      "a": "Yalnızca üst yönetim, böylece sağlam yatırım kararları alabilsinler",
+      "b": "Yapay zeka destekli kararlardan etkilenen kişiler de, böylece yapay zeka yardımıyla alınan kararların kendilerini nasıl etkilediğini anlayabilsinler",
+      "c": "Yalnızca tüzüğe uyumu izleyen ulusal piyasa gözetim otoriteleri",
+      "d": "Yalnızca yeni yapay zeka modellerini eğitmekle görevlendirilen dış yazılım geliştiricileri"
+    },
+    "explanation": "20. Gerekçe, yapay zeka okuryazarlığının yalnızca sağlayıcılara ve dağıtıcılara hizmet etmemesi, aynı zamanda etkilenen kişilere de yapay zeka yardımıyla alınan kararların kendilerini nasıl etkilediğini anlamaları için gerekli bilgiyi vermesi gerektiğini açıkça belirtir."
+  },
+  "ki_act-ki_kompetenz-07": {
+    "question": "Madde 4, yapay zeka okuryazarlığı için belirli, yasal olarak öngörülmüş bir eğitim formatı (örneğin sertifikalı bir sınav) talep eder mi?",
+    "options": {
+      "a": "Hayır - metin, sağlayıcıları ve dağıtıcıları 'en iyi çabalarıyla' uygun önlemler almakla yükümlü kılar; Madde 4 belirli bir format veya sertifikasyon öngörmez",
+      "b": "Evet, mutlaka harici bir sertifikayla çok günlük yüz yüze bir eğitim olmalıdır",
+      "c": "Evet, yalnızca devlet onaylı bir e-öğrenme kursu Madde 4'ün gereksinimlerini karşılar",
+      "d": "Evet, ama yalnızca aynı zamanda yüksek riskli yapay zeka sistemleri sunan şirketler için"
+    },
+    "explanation": "Madde 4, belirli bir formatla sonuç yükümlülüğü olarak değil, bir 'en iyi çaba' yükümlülüğü ('en iyi çabalarıyla') olarak formüle edilmiştir. Kanun, önlemlerin somut olarak nasıl görüneceğini açık bırakır - uygun oldukları ve ön bilgiyi, bağlamı ve etkilenen kişi gruplarını dikkate aldıkları sürece."
+  },
+  "ki_act-ki_kompetenz-08": {
+    "question": "Bir şirket yalnızca minimal riskli bir yapay zeka sistemi kullanıyor (örneğin yapay zeka destekli yazım denetimi), ancak yüksek riskli bir sistem değil. Yine de Madde 4'ün yapay zeka okuryazarlığına ilişkin hükümlerine uymak zorunda mıdır?",
+    "options": {
+      "a": "Evet - yapay zeka okuryazarlığı yükümlülüğü, yalnızca yüksek riskli sistemler için değil, kullanılan yapay zeka sisteminin risk sınıfından bağımsız olarak sağlayıcılar ve dağıtıcılar için geçerlidir",
+      "b": "Hayır, Madde 4 yalnızca Ek III uyarınca yüksek riskli yapay zeka sistemlerinin sağlayıcıları ve dağıtıcıları için geçerlidir",
+      "c": "Hayır, yükümlülük yalnızca şirket 50'den fazla farklı yapay zeka uygulaması kullandığında devreye girer",
+      "d": "Hayır, minimal risk durumunda yalnızca Madde 50'deki şeffaflık yükümlülüğü geçerlidir, Madde 4 değil"
+    },
+    "explanation": "Madde 4, yüksek riskli sistemlerle sınırlı değildir, genel olarak 'yapay zeka sistemleri' için geçerlidir. Bu nedenle bir şirket, yapay zeka okuryazarlığı yükümlülüğünden kurtulmak için yalnızca düşük riskli araçlar kullandığını öne süremez - bu, gerçek bir uyum riski taşıyan yaygın ama yanlış bir varsayımdır."
+  },
+  "ki_act-verbotene_praktiken-05": {
+    "question": "Bir kamu kurumu, yalnızca profilleme ve kişilik özelliklerine dayanarak bir kişinin gelecekte suç işleme riskini tahmin eden ve bundan önlemler türetmek isteyen bir yapay zeka sistemi kullanmak istiyor. Bu, Yapay Zeka Yasası'na göre nasıl değerlendirilir?",
+    "options": {
+      "a": "Suç tahminini yalnızca profillemeye veya kişilik özelliklerine dayandıran bu tür yapay zeka destekli 'öngörücü polislik', Madde 5(1)(d) uyarınca yasaklanan uygulamalardan biri olarak sayılır",
+      "b": "Bir yetkili nihayetinde yapay zekanın önerdiği önlemi resmi olarak imzaladığı sürece buna izin verilir",
+      "c": "Bu, uygunluk değerlendirmesinden sonra serbestçe kullanılabilecek sıradan bir yüksek riskli sistemdir",
+      "d": "Bu ilke olarak izinlidir, çünkü somut suçların nesnel, doğrulanabilir gerçeklere dayalı bir insan değerlendirmesine destek olmak genel olarak yasaktır"
+    },
+    "explanation": "Madde 5(1)(d), yalnızca profillemeye veya kişilik özelliklerine dayanan, bir kişinin suça eğilimine ilişkin risk değerlendirmelerini veya tahminleri yasaklar. Buna karşılık, somut suç davranışıyla doğrudan bağlantılı, nesnel ve doğrulanabilir gerçeklere dayanan bir insan değerlendirmesine yapay zeka desteği izinli kalır - bu dar istisnadır, genel kural değil."
+  },
+  "ki_act-verbotene_praktiken-06": {
+    "question": "Bir sağlayıcı, açık İnternet'ten ve CCTV görüntülerinden otomatik ve hedefsiz bir şekilde yüz görüntüleri toplayarak bir yüz tanıma veritabanı oluşturmak istiyor. Yapay Zeka Yasası bunu nasıl sınıflandırır?",
+    "options": {
+      "a": "Yüz tanıma veritabanları oluşturmak veya genişletmek amacıyla İnternet'ten veya CCTV görüntülerinden yüz görüntülerinin hedefsiz ('untargeted') olarak taranması, Madde 5(1)(e) uyarınca yasaklanan uygulamalar arasında sayılır",
+      "b": "Toplanan görüntüler daha sonra takma adlandırılmış (pseudonymised) olarak saklandığı sürece buna izin verilir",
+      "c": "Bu yalnızca reşit olmayanların görüntüleri için yasaktır, yetişkinler için ilke olarak izinlidir",
+      "d": "Bu, resmi olarak bir yapay zeka sistemi değil bir veritabanı oluşturduğu için Yapay Zeka Yasası kapsamına hiç girmez"
+    },
+    "explanation": "Madde 5(1)(e), yüz tanıma veritabanları oluşturmak veya genişletmek amacıyla İnternet'ten veya CCTV görüntülerinden yüz görüntülerinin hedefsiz olarak toplanmasını - takma adlandırma veya görüntülenen kişilerin yaşından bağımsız olarak - özellikle yasaklar. Sonuç resmi olarak 'sadece' bir veritabanı olsa bile, arkasındaki toplama ve işleme mantığı Yapay Zeka Yasası kapsamına girer."
+  },
+  "ki_act-verbotene_praktiken-07": {
+    "question": "Bir okul, tıbbi veya güvenlikle ilgili nedenlerle değil, kamera ve mikrofon aracılığıyla ders sırasında öğrencilerin duygularını tanıyan ve değerlendiren bir yapay zeka sistemi kullanmak istiyor. Bu, Yapay Zeka Yasası'na göre nasıl değerlendirilir?",
+    "options": {
+      "a": "Eğitim kurumlarında tıbbi veya güvenlikle ilgili nedenler dışında duygu tanımanın kullanılması, Madde 5(1)(f) uyarınca yasaklanan uygulamalardan biri olarak sayılır",
+      "b": "Okul, duygu tanımayı Madde 50 uyarınca ifşa ettiği sürece buna her zaman izin verilir",
+      "c": "Bu yalnızca elde edilen sonuçlar daha sonra yayınlanırsa yasaktır",
+      "d": "Bu yalnızca işyerinde yasaktır, eğitim kurumlarında ise ilke olarak izinlidir"
+    },
+    "explanation": "Madde 5(1)(f), tıbbi veya güvenlikle ilgili nedenler (örneğin güvenlik açısından kritik faaliyetlerde yorgunluğun tespiti) bulunmadıkça, hem işyerinde hem de eğitim kurumlarında duygu tanıma sistemlerinin kullanılmasını yasaklar. Burada Madde 50 uyarınca yalnızca ifşa yeterli değildir - yasak, şeffaf bilgi verilip verilmediğinden bağımsız olarak geçerlidir."
+  },
+  "ki_act-verbotene_praktiken-08": {
+    "question": "Bir şirket, biyometrik verilere (örneğin yüz veya ses tanıma) dayanarak kişilerin varsayılan cinsel yönelimini, siyasi görüşünü veya dini inancını otomatik olarak çıkaran bir yapay zeka sistemi kullanmak istiyor. Bu nasıl sınıflandırılır?",
+    "options": {
+      "a": "Cinsel yönelim, siyasi görüş veya dini inanç gibi özellikle hassas özellikleri çıkarmak için yapılan bu tür biyometrik kategorilendirme, Madde 5(1)(g) uyarınca yasaklanan uygulamalardan biri olarak sayılır",
+      "b": "İlgili kişi önceden genel bir gizlilik bildirimini kabul ettiği sürece buna izin verilir",
+      "c": "Yalnızca pazarlama amacıyla yapılıyorsa buna ilke olarak izin verilir",
+      "d": "Bu yalnızca çıkarılan özellikler daha sonra üçüncü taraflara yeniden satılırsa yasaktır"
+    },
+    "explanation": "Madde 5(1)(g), gerçek kişilerin ırkını, siyasi görüşlerini, sendika üyeliğini, dini veya felsefi inançlarını, cinsel yaşamını veya cinsel yönelimini çıkarsamak amacıyla biyometrik olarak kategorilendirilmesini yasaklar. Kabul edilen bir gizlilik bildirimi veya pazarlama amacı bunu değiştirmez - istisnalar yalnızca dar bir şekilde mevcuttur, örneğin veri setlerinin meşru etiketlenmesi/filtrelenmesi veya kolluk kuvvetleri tarafından biyometrik kategorilendirme için."
+  },
+  "ki_act-transparenzpflichten-05": {
+    "question": "Şirketiniz otomatik olarak görüntü ve metin içeriği üreten üretken bir yapay zeka sistemi kullanıyor. Madde 50(2) bu konuda böyle bir sistemin sağlayıcısından ne talep eder?",
+    "options": {
+      "a": "Sağlayıcı, teknik olarak mümkün olduğu ölçüde, üretilen içeriğin makine tarafından okunabilir bir biçimde işaretlenmesini ve yapay olarak üretildiğinin veya değiştirildiğinin tanınabilir olmasını sağlamalıdır",
+      "b": "Sağlayıcı, yayınlanmadan önce üretilen her içeriği bir ulusal denetim otoritesine onaylatmalıdır",
+      "c": "İçerik ticari olarak kullanılmadığı sürece işaretleme yükümlülüğü yoktur",
+      "d": "İşaretleme yükümlülüğü yalnızca video içeriği için geçerlidir, metin veya görüntüler için değil"
+    },
+    "explanation": "Madde 50(2), sentetik görüntü, ses, video veya metin içeriği üreten yapay zeka sistemlerinin sağlayıcılarını, bu çıktıların - yetkililerden önceden onay alınmasından veya ticari kullanımdan bağımsız olarak, teknik olarak mümkün olduğu ölçüde - makine tarafından okunabilir bir biçimde işaretlenmesini ve yapay olarak üretildiğinin veya değiştirildiğinin tanınabilir olmasını sağlamakla yükümlü kılar."
+  },
+  "ki_act-transparenzpflichten-06": {
+    "question": "Madde 50(1)'deki, kişilere bir yapay zeka sistemiyle etkileşimde olduklarını bildirme yükümlülüğü, hiçbir istisna olmaksızın her sistem için geçerli midir?",
+    "options": {
+      "a": "Hayır - bu yükümlülük, diğer hususların yanı sıra, üçüncü tarafların haklarına ilişkin uygun güvenceler saklı kalmak kaydıyla, cezai suçların tespiti, önlenmesi, soruşturulması veya kovuşturulması için yasal olarak yetkilendirilmiş yapay zeka sistemleri için geçerli değildir - ancak sistem bir suçu bildirmek için kamuya açıksa bu istisna geçerli değildir",
+      "b": "Evet, hiçbir istisna yoktur - her yapay zeka sistemi her durumda her zaman kendini açığa vurmalıdır",
+      "c": "Hayır, kullanım amacından bağımsız olarak bu yükümlülük hiçbir kamu otoritesi için ilke olarak geçerli değildir",
+      "d": "Hayır, bu yükümlülük yalnızca ücret karşılığında sunulan yapay zeka sistemleri için geçerlidir"
+    },
+    "explanation": "Madde 50(1), üçüncü tarafların haklarına ilişkin uygun güvenceler saklı kalmak kaydıyla, cezai suçların tespiti, önlenmesi, soruşturulması veya kovuşturulması için yasal olarak yetkilendirilmiş yapay zeka sistemleri için sınırlı bir istisna öngörür. Ancak sistem bir suçu bildirmek için kamuya açıksa bu istisna geçerli değildir - orada bilgilendirme yükümlülüğü devam eder. Tüm kamu otoriteleri için genel bir muafiyet yoktur."
+  },
+  "ki_act-transparenzpflichten-07": {
+    "question": "Bir yayın kuruluşu, kamu yararına ilişkin bir konuda metin oluşturmak ve yayınlamak için üretken yapay zeka kullanıyor. Ancak metin, yayınlanmadan önce editoryal olarak revize ediliyor ve bir kişi bunun editoryal sorumluluğunu üstleniyor. Buna rağmen yapay zekanın dahil olduğu açıklanmalı mıdır?",
+    "options": {
+      "a": "Hayır - böyle bir metin insan incelemesi veya editoryal kontrol sürecinden geçer ve bir kişi bunun editoryal sorumluluğunu üstlenirse, Madde 50(4) ikinci alt paragraf uyarınca ifşa yükümlülüğü geçerli değildir",
+      "b": "Evet, Yapay Zeka Yasası uyarınca gazetecilik metinlerinde üretken yapay zekanın her kullanımı istisnasız açıklanmalıdır",
+      "c": "Hayır, çünkü gazetecilik içeriği genel olarak Yapay Zeka Yasası'nın kapsamının tamamen dışındadır",
+      "d": "Evet, ama yalnızca yayınlanan metin 1.000 kelimeden uzunsa"
+    },
+    "explanation": "Madde 50(4) ikinci alt paragraf, kamu yararına ilişkin konularda yayınlanan yapay zeka tarafından üretilmiş veya değiştirilmiş metinler için ilke olarak bir ifşa yükümlülüğü öngörür. Ancak içerik insan incelemesi veya editoryal kontrol sürecinden geçmişse ve bir gerçek veya tüzel kişi yayının editoryal sorumluluğunu üstleniyorsa, bu yükümlülük geçerli değildir."
+  },
+  "ki_act-transparenzpflichten-08": {
+    "question": "Şirketiniz, aynı zamanda Madde 50'deki şeffaflık yükümlülükleri kapsamına da giren (örneğin kişilerle doğrudan etkileşim kurduğu için) yüksek riskli bir yapay zeka sistemi kullanıyor. Madde 50'deki yükümlülükler ile Bölüm III'teki yüksek riskli sistemlere ilişkin yükümlülükler birbirini dışlar mı?",
+    "options": {
+      "a": "Hayır - Madde 50(6), şeffaflık yükümlülüklerinin Bölüm III'ün gereksinimlerini etkilemediğini açıklığa kavuşturur; her iki yükümlülük grubu da yan yana geçerli olabilir ve kümülatif olarak yerine getirilmelidir",
+      "b": "Evet, bir sistem yüksek riskli sayılır sayılmaz, Bölüm III yükümlülükleri Madde 50'deki tüm şeffaflık yükümlülüklerinin yerini otomatik olarak alır",
+      "c": "Evet, Madde 50 ilke olarak yalnızca minimal riskli sistemler için geçerlidir, yüksek riskli sistemler için asla",
+      "d": "Hayır, ama ikisinden yalnızca daha katı olanının yerine getirilmesi gerekir, ikisinin aynı anda değil"
+    },
+    "explanation": "Madde 50(6), 1 ila 4. paragraflardaki şeffaflık yükümlülüklerinin Bölüm III'ün (yüksek riskli sistemler) gereksinimlerini ve yükümlülüklerini etkilemediğini açıkça belirtir. Bu nedenle aynı zamanda Madde 50'nin kapsamına da giren yüksek riskli bir sistem, iki yükümlülük grubundan yalnızca birini değil, her ikisini de kümülatif olarak yerine getirmelidir."
+  },
+  "ki_act-ki_am_arbeitsplatz-05": {
+    "question": "Bir şirket, çalışanların performansını değerlendirmek için yüksek riskli bir yapay zeka sistemi getirmek istiyor. Madde 26(7), sistem işyerinde kullanılmadan önce dağıtıcı olarak işverenden ne talep eder?",
+    "options": {
+      "a": "İşveren, yüksek riskli yapay zeka sisteminin hizmete sokulmasından veya kullanılmasından önce, işçi temsilcilerini ve etkilenen çalışanları bu sistemin kullanımına tabi olacakları konusunda bilgilendirmelidir",
+      "b": "Bilginin kullanımın ilk üç ayı geçtikten sonra sonradan verilmesi yeterlidir",
+      "c": "Bilgilendirme yalnızca 50'den fazla çalışan bu kullanımdan etkileniyorsa gereklidir",
+      "d": "Çalışanları özel olarak bilgilendirmeden, sistemi şirketin genel gizlilik bildiriminde belirtmek yeterlidir"
+    },
+    "explanation": "Madde 26(7), dağıtıcı olarak işyerinde yüksek riskli bir yapay zeka sistemi kullanan işverenleri, işçi temsilcilerini ve etkilenen çalışanları önceden bilgilendirmekle yükümlü kılar - sonradan değil, şirket büyüklüğünden bağımsız olarak ve yalnızca genel bir gizlilik bildiriminde genel bir şekilde değil."
+  },
+  "ki_act-ki_am_arbeitsplatz-06": {
+    "question": "Aşağıdakilerden hangisi, Ek III madde 4'e göre 'istihdam, işçi yönetimi ve serbest çalışmaya erişim' yüksek riskli alanları arasında açıkça sayılır?",
+    "options": {
+      "a": "Çalışanlara görev dağıtan veya performans ve davranışlarını sürekli izleyip değerlendiren bir yapay zeka yazılımı",
+      "b": "Çalışanlara vejetaryen menü önerileri sunan yapay zeka destekli bir yemekhane uygulaması",
+      "c": "Çalışanların dahili e-postalarındaki yazım hatalarını otomatik düzelten bir yapay zeka",
+      "d": "Yalnızca yoklamayı kaydeden, performansa dair hiçbir değerlendirme yapmayan yapay zeka destekli bir zaman takip uygulaması"
+    },
+    "explanation": "Ek III madde 4(b), çalışma koşulları, terfi veya işten çıkarma konusunda kararlar alan, bireysel davranışa veya kişisel özelliklere dayalı olarak görev tahsis eden veya çalışanların performans ve davranışlarını sürekli izleyip değerlendiren yapay zeka sistemlerini açıkça sayar. Değerlendirme işlevi olmayan salt idari araçlar (yemekhane uygulaması, yazım denetimi, salt yoklama kaydı) bunun kapsamına girmez."
+  },
+  "ki_act-ki_am_arbeitsplatz-07": {
+    "question": "Başvuruların ön elemesi için yüksek riskli bir yapay zeka sistemi bir şirkette kullanılacaktır. Madde 14(4)'e göre, sistemin kendisi insan gözetiminden sorumlu kişilere teknik olarak neyi mümkün kılmalıdır?",
+    "options": {
+      "a": "Sistem, gözetimi yürüten kişinin işleyişi izleyebilmesi, sonuçları doğru yorumlayabilmesi, sistemi kullanmama kararı alabilmesi veya çıktıyı görmezden gelebilmesi, geçersiz kılabilmesi ya da geri alabilmesi ve 'durdur' düğmesi veya benzer bir yöntemle işleyişi kesintiye uğratabilmesi şeklinde tasarlanmalıdır",
+      "b": "Sistem, yalnızca üretici tarafından uzaktan kapatılabilecek, kullanan şirket tarafından kapatılamayacak şekilde tasarlanmalıdır",
+      "c": "Bir kişinin yılda bir kez sistem kayıtlarını örnekleme yoluyla incelemesi yeterlidir",
+      "d": "Sonradan manipülasyonu önlemek için, sistemin kararlarının ilke olarak asla geri alınamayacağı şekilde tasarlanması gerekir"
+    },
+    "explanation": "Madde 14(4), yüksek riskli yapay zeka sistemlerinin, gözetimden sorumlu kişinin sistemin yeteneklerini ve sınırlarını anlayabileceği, çıktılarını doğru yorumlayabileceği, sistemi kullanmama kararı alabileceği veya çıktıyı görmezden gelebileceği, geçersiz kılabileceği ya da geri alabileceği ve 'durdur' düğmesi veya benzer bir yöntemle işleyişi kesintiye uğratabileceği şekilde tasarlanmasını gerektirir. Yıllık bir örnekleme incelemesi veya yalnızca üreticide bulunan bir kapatma imkanı bu gereksinimi karşılamaz."
+  },
+  "ki_act-ki_am_arbeitsplatz-08": {
+    "question": "Bir yapay zeka sistemi, hiçbir insan katılımı olmaksızın, yalnızca bir başvuru sahibinin belgelerinin otomatik değerlendirmesine dayanarak reddedilmesine ilişkin nihai kararı veriyor. Başvuru sahibi, Yapay Zeka Yasası'ndan bağımsız olarak ek olarak hangi hakkı ileri sürebilir?",
+    "options": {
+      "a": "GDPR Madde 22'de yer alan, orada belirtilen istisnalar saklı kalmak kaydıyla, yalnızca otomatik işlemeye dayanan ve hukuki sonuç doğuran veya kendisini benzer şekilde önemli ölçüde etkileyen bir karara tabi tutulmama hakkı",
+      "b": "Başvurunun içeriğine ilişkin sonuçtan bağımsız olarak derhal işe alınma hakkı",
+      "c": "Yapay zeka yazılımının üreticisinin ona tam kaynak kodunu açıklaması hakkı",
+      "d": "Ek bir hak yoktur, çünkü Yapay Zeka Yasası istihdam konularında GDPR'nin yerini tamamen alır"
+    },
+    "explanation": "Yapay Zeka Yasası öncelikle yapay zeka sisteminin kendisinden kaynaklanan riskleri düzenler ve GDPR'nin yerini almaz. Bununla eşzamanlı olarak GDPR Madde 22, etkilenen kişilere, kanunda belirtilen dar istisnalar saklı kalmak kaydıyla, hiçbir insan katılımı olmadan tamamen otomatik bir iş başvurusu reddi gibi, yalnızca hukuki sonuç doğuran veya kendilerini benzer şekilde önemli ölçüde etkileyen otomatik bir karara tabi tutulmama hakkını verir."
+  }
+}
