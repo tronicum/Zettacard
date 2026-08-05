@@ -533,6 +533,19 @@ main {
   text-align: left;
   border: 1px solid var(--border);
   background: var(--badge-neutral-bg, transparent);
+  /* Real bug found via a user screenshot (2026-08-05): this rule never set
+     an explicit color, so text fell back to the browser's default <button>
+     text color (near-black) instead of inheriting the page's theme text
+     color - nearly unreadable against this dark custom background
+     (11.6:1/12.3:1 once fixed vs. effectively unreadable before, since a
+     UA-default button color isn't a themed value at all). This is the
+     class used for module-picker module/scope options and the exam-mode
+     (training/simulation) picker, so it was a wide-reaching miss by the
+     earlier CSS-custom-property-only contrast audit, which only checked
+     declared var-to-var pairings and had no way to catch an absent color
+     declaration.
+  */
+  color: var(--text);
   border-radius: 10px;
   padding: 12px 14px;
   margin-bottom: 10px;
@@ -639,6 +652,66 @@ main {
   min-width: 140px;
   font-size: 0.8rem;
   padding: 8px 10px;
+}
+
+/* Sign Reference (Fuehrerschein-only browsable sign study list) */
+#sign-reference-list {
+  text-align: left;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+#sign-reference-list .empty {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.sign-ref-category {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  margin: 18px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sign-ref-category:first-child {
+  margin-top: 0;
+}
+
+.sign-ref-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: var(--badge-neutral-bg, transparent);
+}
+
+.sign-ref-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+}
+
+.sign-ref-text {
+  min-width: 0;
+}
+
+.sign-ref-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.sign-ref-desc {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  line-height: 1.35;
 }
 
 .exam-timer {
