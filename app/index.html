@@ -36,18 +36,28 @@
         <div class="lang-select-wrap">
           <span class="lang-icon" aria-hidden="true">🌐</span>
           <select class="lang-select" id="lang-select">
-            <option value="de">Deutsch</option>
-            <option value="en">English</option>
-            <option value="uk">Українська</option>
-            <option value="pl">Polski</option>
-            <option value="ar">العربية</option>
-            <option value="zh">简体中文</option>
-            <option value="hi">हिन्दी</option>
-          <option value="tr">Türkçe</option>
-          <option value="fr">Français</option>
-          <option value="ru">Русский</option>
-          <option value="es">Español</option>
-          <option value="it">Italiano</option>
+            <!-- Flags added per explicit user request (2026-08-05) as a
+                 decorative prefix alongside each language's own endonym
+                 text - NOT flags-only. An earlier UX review rejected a
+                 flags-ONLY picker (flags represent countries, not
+                 languages: Arabic has no single flag, English/Chinese span
+                 many countries) - keeping the real language name as the
+                 primary, authoritative label avoids reintroducing that
+                 problem while still giving the visual flair asked for.
+                 Picks are a common-convention "best representative"
+                 country per language, not a claim of exclusivity. -->
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="uk">🇺🇦 Українська</option>
+            <option value="pl">🇵🇱 Polski</option>
+            <option value="ar">🇸🇦 العربية</option>
+            <option value="zh">🇨🇳 简体中文</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="it">🇮🇹 Italiano</option>
           </select>
         </div>
       </div>
@@ -69,18 +79,18 @@
       <div class="lang-select-wrap">
         <span class="lang-icon" aria-hidden="true">🌐</span>
         <select class="lang-select" id="detail-lang-select">
-          <option value="de">Deutsch</option>
-          <option value="en">English</option>
-          <option value="uk">Українська</option>
-          <option value="pl">Polski</option>
-          <option value="ar">العربية</option>
-          <option value="zh">简体中文</option>
-          <option value="hi">हिन्दी</option>
-          <option value="tr">Türkçe</option>
-          <option value="fr">Français</option>
-          <option value="ru">Русский</option>
-          <option value="es">Español</option>
-          <option value="it">Italiano</option>
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="uk">🇺🇦 Українська</option>
+          <option value="pl">🇵🇱 Polski</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="zh">🇨🇳 简体中文</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="it">🇮🇹 Italiano</option>
         </select>
       </div>
     </div>

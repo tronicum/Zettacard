@@ -715,6 +715,19 @@ function renderModulePicker() {
   const container = el("#module-picker-body");
   container.innerHTML = "";
 
+  // Fix for a real bug found in the 2026-08-05 UX review: this button had
+  // NO text set anywhere, ever - it rendered as a blank, unreadable pill at
+  // the bottom of the picker on every visit (not a contrast problem, an
+  // actually-empty-label problem, which is worse - also invisible to
+  // screen readers). On a mandatory first-ever visit (no module chosen
+  // yet) cancelling would just immediately reopen the picker via the
+  // popstate handler, so hide it there instead of showing a button that
+  // does nothing.
+  const cancelBtn = el("#module-picker-cancel");
+  const MPC = MODULE_PICKER_STRINGS[state.lang] || MODULE_PICKER_STRINGS.en;
+  cancelBtn.textContent = MPC.cancel;
+  cancelBtn.hidden = !state.examType;
+
   if (state.modulePickerStep === "module") {
     el("#module-picker-title").textContent = MODULE_PICKER_STRINGS[state.lang]?.chooseModule
       || MODULE_PICKER_STRINGS.en.chooseModule;
@@ -782,18 +795,18 @@ async function selectModuleAndScope(examType, scopeCode) {
 // this picker is shown before any module - and therefore any module's
 // content locale - has loaded; only needs a couple of short labels).
 const MODULE_PICKER_STRINGS = {
-  de: { chooseModule: "Welche Prüfung lernst du?", back: "← Zurück", changeExam: "Prüfung wechseln" },
-  en: { chooseModule: "Which exam are you studying for?", back: "← Back", changeExam: "Change exam" },
-  uk: { chooseModule: "До якого іспиту ви готуєтесь?", back: "← Назад", changeExam: "Змінити іспит" },
-  pl: { chooseModule: "Do jakiego egzaminu się przygotowujesz?", back: "← Wstecz", changeExam: "Zmień egzamin" },
-  ar: { chooseModule: "لأي امتحان تستعد؟", back: "→ رجوع", changeExam: "تغيير الامتحان" },
-  zh: { chooseModule: "你在准备哪个考试？", back: "← 返回", changeExam: "更换考试" },
-  hi: { chooseModule: "आप किस परीक्षा की तैयारी कर रहे हैं?", back: "← वापस", changeExam: "परीक्षा बदलें" },
-  tr: { chooseModule: "Hangi sınava çalışıyorsun?", back: "← Geri", changeExam: "Sınavı değiştir" },
-  fr: { chooseModule: "Pour quel examen étudiez-vous ?", back: "← Retour", changeExam: "Changer d'examen" },
-  ru: { chooseModule: "К какому экзамену вы готовитесь?", back: "← Назад", changeExam: "Сменить экзамен" },
-  es: { chooseModule: "¿Para qué examen estás estudiando?", back: "← Atrás", changeExam: "Cambiar de examen" },
-  it: { chooseModule: "Per quale esame stai studiando?", back: "← Indietro", changeExam: "Cambia esame" },
+  de: { chooseModule: "Welche Prüfung lernst du?", back: "← Zurück", changeExam: "Prüfung wechseln", cancel: "Abbrechen" },
+  en: { chooseModule: "Which exam are you studying for?", back: "← Back", changeExam: "Change exam", cancel: "Cancel" },
+  uk: { chooseModule: "До якого іспиту ви готуєтесь?", back: "← Назад", changeExam: "Змінити іспит", cancel: "Скасувати" },
+  pl: { chooseModule: "Do jakiego egzaminu się przygotowujesz?", back: "← Wstecz", changeExam: "Zmień egzamin", cancel: "Anuluj" },
+  ar: { chooseModule: "لأي امتحان تستعد؟", back: "→ رجوع", changeExam: "تغيير الامتحان", cancel: "إلغاء" },
+  zh: { chooseModule: "你在准备哪个考试？", back: "← 返回", changeExam: "更换考试", cancel: "取消" },
+  hi: { chooseModule: "आप किस परीक्षा की तैयारी कर रहे हैं?", back: "← वापस", changeExam: "परीक्षा बदलें", cancel: "रद्द करें" },
+  tr: { chooseModule: "Hangi sınava çalışıyorsun?", back: "← Geri", changeExam: "Sınavı değiştir", cancel: "İptal" },
+  fr: { chooseModule: "Pour quel examen étudiez-vous ?", back: "← Retour", changeExam: "Changer d'examen", cancel: "Annuler" },
+  ru: { chooseModule: "К какому экзамену вы готовитесь?", back: "← Назад", changeExam: "Сменить экзамен", cancel: "Отмена" },
+  es: { chooseModule: "¿Para qué examen estás estudiando?", back: "← Atrás", changeExam: "Cambiar de examen", cancel: "Cancelar" },
+  it: { chooseModule: "Per quale esame stai studiando?", back: "← Indietro", changeExam: "Cambia esame", cancel: "Annulla" },
 };
 
 // --- Module intro wizard (DN-43) ----------------------------------------
@@ -1255,6 +1268,8 @@ function renderExamQuestion() {
       const isSel = div.dataset.key === selected;
       div.classList.toggle("exam-selected", isSel);
       div.setAttribute("aria-pressed", String(isSel));
+      const mark = div.querySelector(".selected-mark");
+      if (mark) mark.textContent = isSel ? "✓" : "";
     });
   };
   Object.entries(t.options).forEach(([key, text]) => {
@@ -1264,7 +1279,12 @@ function renderExamQuestion() {
     div.setAttribute("role", "button");
     div.setAttribute("aria-pressed", "false");
     div.tabIndex = 0;
-    div.innerHTML = `<span class="key">${key.toUpperCase()}</span><span>${text}</span>`;
+    // The "your selected answer" state previously relied ENTIRELY on a
+    // border-color/background tint shift (2026-08-05 UX review) - a real
+    // color-only signal, same class of issue this project already fixed
+    // for the correct-answer mark. The checkmark span makes selection a
+    // shape change too, not just a color change, for colorblind users.
+    div.innerHTML = `<span class="key">${key.toUpperCase()}</span><span>${text}</span><span class="selected-mark" aria-hidden="true"></span>`;
     const pick = () => {
       ex.answers[q.id] = key;
       applySelection();
