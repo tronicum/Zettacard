@@ -29,6 +29,7 @@
       </div>
       <div style="display:flex; gap:8px; align-items:center;">
         <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
+        <button class="module-switch-btn" id="certificates-btn" aria-label="My certificates">🎓</button>
         <button class="module-switch-btn" id="module-switch-btn"></button>
         <button class="exam-start-btn" id="exam-start-btn"></button>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme"></button>
@@ -110,6 +111,22 @@
     </div>
   </div>
 
+  <!-- My certificates (DN-14 completion tracking): lists every passed
+       Simulation-mode exam completion recorded on this device, each with a
+       downloadable printable certificate and a self-issued (unsigned)
+       Open-Badges-shaped credential JSON. Completion records are stored
+       locally (localStorage) - the record itself never leaves the device
+       until the user explicitly downloads a certificate/credential file,
+       which is the actual portable artifact (not the app's local state). -->
+  <div class="exam-modal" id="certificates-view" hidden role="dialog" aria-modal="true" aria-labelledby="certificates-title">
+    <div class="exam-modal-card" style="max-width:560px;">
+      <h2 id="certificates-title" tabindex="-1"></h2>
+      <p id="certificates-intro"></p>
+      <div id="certificates-list"></div>
+      <button class="back-btn" id="certificates-close-btn"></button>
+    </div>
+  </div>
+
   <!-- Module intro wizard (DN-43): a short, skippable walkthrough of what a
        module actually covers, shown once per device before a user's first
        study session in a module that has one (see modules_manifest.json's
@@ -174,6 +191,7 @@
     <div class="detail-body">
       <h2 id="exam-results-title"></h2>
       <div id="exam-results-summary"></div>
+      <div id="exam-results-certificate"></div>
       <div id="exam-results-review"></div>
     </div>
   </div>

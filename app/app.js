@@ -856,6 +856,189 @@ function wireModuleIntroControls() {
   });
 }
 
+// --- Completion tracking & certificates (DN-14 / DN-44 prep) -----------
+// A passed Simulation-mode exam (not Training - that's low-stakes
+// practice, not a real attempt) is recorded on this device as a
+// "completion." This is deliberately NOT a step toward exam mode's
+// original no-scoring boundary being reopened again - it reuses exam
+// mode's own existing pass/fail logic as the single source of truth for
+// what counts as "completed," rather than inventing a second notion of
+// passing.
+//
+// Portability is achieved by making the DOWNLOADED FILE the portable
+// artifact, not the app's local state - localStorage here never leaves
+// the device on its own; only an explicit "download certificate" /
+// "download credential" action produces something the user can keep,
+// print, or hand to someone else. This keeps the app's zero-backend,
+// fully-static-PWA architecture intact.
+//
+// The JSON credential is shaped like an Open Badges 3.0 / W3C Verifiable
+// Credential (the real, employer-independent standard for portable
+// digital credentials - see docs/KANBAN.md retro log for why this
+// standard was chosen over inventing a proprietary format) but is
+// SELF-ISSUED and UNSIGNED: there is no backend keypair/issuer identity
+// in this static-PWA architecture to produce a real cryptographic
+// signature a third party could verify. It is honestly labeled as such
+// in both the UI and the credential's own `unverified: true` field -
+// making it cryptographically verifiable would need a real signing
+// backend, a genuine architecture change, not something to fake.
+const CERT_STRINGS = {
+  de: {
+    btn: "Meine Zertifikate", title: "Meine Zertifikate", close: "← Zurück",
+    intro: "Bestandene Prüfungssimulationen werden hier als Nachweis gespeichert (nur auf diesem Gerät). Lade eine Zertifikatsdatei herunter, um sie zu behalten oder weiterzugeben - das ist die eigentlich portable Datei, nicht der App-Zustand.",
+    empty: "Noch keine bestandene Prüfungssimulation. Bestehe eine Prüfungssimulation (nicht den Übungsmodus), um hier ein Zertifikat zu erhalten.",
+    passedOn: (d) => `Bestanden am ${d}`,
+    downloadCert: "Zertifikat herunterladen (HTML)", downloadCred: "Berechtigungsnachweis herunterladen (JSON)",
+    disclaimer: "Selbst erstellter Nachweis, nicht kryptographisch signiert oder extern verifiziert.",
+  },
+  en: {
+    btn: "My certificates", title: "My certificates", close: "← Back",
+    intro: "Passed exam simulations are recorded here as proof of completion (this device only). Download a certificate file to keep or share it - that file is the actual portable artifact, not the app's internal state.",
+    empty: "No passed exam simulation yet. Pass an Exam Simulation (not Training mode) to get a certificate here.",
+    passedOn: (d) => `Passed on ${d}`,
+    downloadCert: "Download certificate (HTML)", downloadCred: "Download credential (JSON)",
+    disclaimer: "Self-generated record, not cryptographically signed or independently verified.",
+  },
+};
+function certStrings(lang) {
+  return CERT_STRINGS[lang] || CERT_STRINGS.en;
+}
+
+function getCompletions() {
+  try {
+    return JSON.parse(localStorage.getItem("dn-completions") || "[]");
+  } catch (e) {
+    return [];
+  }
+}
+
+function recordCompletion(examType, scopeCode, results) {
+  const mod = moduleManifestFor(examType);
+  const scopeOpt = mod?.options.find((o) => o.code === scopeCode);
+  const record = {
+    id: `${examType}-${scopeCode}-${Date.now()}`,
+    examType,
+    scopeCode,
+    moduleLabel: mod ? (mod.label[state.lang] || mod.label.en) : examType,
+    scopeLabel: scopeOpt ? (scopeOpt.label[state.lang] || scopeOpt.label.en) : scopeCode,
+    passedAt: new Date().toISOString(),
+    errorPoints: results.errorPoints,
+    wrongHighStakes: results.wrongHighStakes,
+    totalQuestions: state.exam.questions.length,
+  };
+  const all = getCompletions();
+  all.push(record);
+  try {
+    localStorage.setItem("dn-completions", JSON.stringify(all));
+  } catch (e) { /* non-fatal - storage may be full/unavailable */ }
+  return record;
+}
+
+function certificateHtmlDoc(record) {
+  const C = certStrings(state.lang);
+  const dateStr = new Date(record.passedAt).toLocaleDateString(state.lang);
+  const escape = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+  return `<!doctype html>
+<html lang="${state.lang}"><head><meta charset="utf-8"><title>${escape(record.moduleLabel)} - Certificate</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 700px; margin: 60px auto; padding: 40px; border: 3px double #444; text-align: center; color: #222; }
+  h1 { font-size: 1.6rem; margin-bottom: 4px; }
+  .sub { color: #666; margin-bottom: 32px; }
+  .module { font-size: 1.3rem; margin: 24px 0 4px; font-weight: bold; }
+  .scope { color: #555; margin-bottom: 24px; }
+  .meta { margin: 24px 0; font-size: 0.95rem; }
+  .disclaimer { margin-top: 40px; font-size: 0.75rem; color: #888; font-family: Arial, sans-serif; }
+</style></head>
+<body>
+  <h1>drivenow</h1>
+  <div class="sub">Certificate of Completion</div>
+  <div class="module">${escape(record.moduleLabel)}</div>
+  <div class="scope">${escape(record.scopeLabel)}</div>
+  <div class="meta">${escape(C.passedOn(dateStr))}<br>${record.totalQuestions} question exam simulation &middot; ${record.errorPoints} error point(s) &middot; ${record.wrongHighStakes} safety-critical miss(es)</div>
+  <div class="disclaimer">${escape(C.disclaimer)}</div>
+</body></html>`;
+}
+
+function credentialJsonDoc(record) {
+  return {
+    "@context": ["https://www.w3.org/ns/credentials/v2", "https://purl.imsglobal.org/spec/ob/v3p0/context.json"],
+    type: ["VerifiableCredential", "OpenBadgeCredential"],
+    unverified: true,
+    unverifiedReason: "Self-issued by a zero-backend static PWA with no signing authority - not cryptographically signed, not independently verifiable by a third party.",
+    issuer: { type: "Profile", name: "drivenow (self-issued, unverified)" },
+    validFrom: record.passedAt,
+    credentialSubject: {
+      type: "AchievementSubject",
+      achievement: {
+        type: "Achievement",
+        name: `${record.moduleLabel} - ${record.scopeLabel}`,
+        description: `Passed an Exam Simulation for ${record.moduleLabel} (${record.scopeLabel}) in the drivenow app.`,
+        criteria: { narrative: `${record.totalQuestions}-question simulated exam, ${record.errorPoints} error points, ${record.wrongHighStakes} wrong safety-critical answer(s).` },
+      },
+    },
+  };
+}
+
+function downloadTextFile(filename, content, mime) {
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function openCertificates() {
+  el("#certificates-view").hidden = false;
+  history.pushState({ view: "certificates" }, "");
+  renderCertificates();
+  setInertBehindDialog(true);
+  el("#certificates-title").focus();
+}
+
+function closeCertificates() {
+  el("#certificates-view").hidden = true;
+  setInertBehindDialog(false);
+}
+
+function renderCertificates() {
+  const C = certStrings(state.lang);
+  el("#certificates-title").textContent = C.title;
+  el("#certificates-intro").textContent = C.intro;
+  el("#certificates-close-btn").textContent = C.close;
+
+  const list = el("#certificates-list");
+  list.innerHTML = "";
+  const records = getCompletions().slice().reverse();
+  if (records.length === 0) {
+    list.innerHTML = `<p class="empty">${C.empty}</p>`;
+    return;
+  }
+  records.forEach((record) => {
+    const dateStr = new Date(record.passedAt).toLocaleDateString(state.lang);
+    const card = document.createElement("div");
+    card.className = "cert-card";
+    card.innerHTML = `
+      <div class="cert-card-title">${record.moduleLabel} · ${record.scopeLabel}</div>
+      <div class="cert-card-date">${C.passedOn(dateStr)}</div>
+      <div class="cert-card-actions">
+        <button class="back-btn cert-dl-cert">${C.downloadCert}</button>
+        <button class="back-btn cert-dl-cred">${C.downloadCred}</button>
+      </div>
+    `;
+    card.querySelector(".cert-dl-cert").addEventListener("click", () => {
+      downloadTextFile(`${record.examType}-${record.scopeCode}-certificate.html`, certificateHtmlDoc(record), "text/html");
+    });
+    card.querySelector(".cert-dl-cred").addEventListener("click", () => {
+      downloadTextFile(`${record.examType}-${record.scopeCode}-credential.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
+    });
+    list.appendChild(card);
+  });
+}
+
 // --- Exam mode (DN-29) --------------------------------------------------
 // Reverses the original Sprint-1 "no exam mode" boundary, with explicit PO
 // sign-off (see docs/KANBAN.md retro log). Two modes share the same draw
@@ -1096,6 +1279,10 @@ function finishExam(timedOut) {
   el("#exam-view").hidden = true;
   el("#exam-results").hidden = false;
   history.replaceState({ view: "exam-results" }, "");
+  const results = computeExamResults();
+  if (results.passed && state.exam.mode === "simulation") {
+    state.exam.certRecord = recordCompletion(state.examType, state.scopeCode, results);
+  }
   renderExamResults();
   el("#exam-results-title").focus ? null : null; // no-op, kept for symmetry with detail focus pattern
 }
@@ -1134,6 +1321,29 @@ function renderExamResults() {
     });
   }
   el("#exam-results-close-btn").textContent = X.close;
+
+  const certEl = el("#exam-results-certificate");
+  const C = certStrings(state.lang);
+  if (state.exam.certRecord) {
+    certEl.innerHTML = `
+      <div class="cert-card">
+        <div class="cert-card-title">🎓 ${C.title}</div>
+        <div class="cert-card-actions">
+          <button class="back-btn" id="exam-results-cert-html">${C.downloadCert}</button>
+          <button class="back-btn" id="exam-results-cert-json">${C.downloadCred}</button>
+        </div>
+      </div>
+    `;
+    const record = state.exam.certRecord;
+    el("#exam-results-cert-html").addEventListener("click", () => {
+      downloadTextFile(`drivenow-zertifikat-${record.id}.html`, certificateHtmlDoc(record), "text/html");
+    });
+    el("#exam-results-cert-json").addEventListener("click", () => {
+      downloadTextFile(`drivenow-credential-${record.id}.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
+    });
+  } else {
+    certEl.innerHTML = "";
+  }
 }
 
 function exitExam() {
@@ -1422,6 +1632,8 @@ function wireStaticControls() {
   el("#module-switch-btn").addEventListener("click", openModulePicker);
   el("#module-picker-cancel").addEventListener("click", () => history.back());
   wireModuleIntroControls();
+  el("#certificates-btn").addEventListener("click", openCertificates);
+  el("#certificates-close-btn").addEventListener("click", () => history.back());
 
   const toggleTheme = () => setTheme(currentTheme() === "light" ? "dark" : "light");
   el("#theme-toggle").addEventListener("click", toggleTheme);
@@ -1439,6 +1651,7 @@ function wireStaticControls() {
     if (!el("#exam-picker").hidden) closeExamPicker();
     if (!el("#exam-view").hidden || !el("#exam-results").hidden) exitExam();
     if (!el("#module-intro").hidden) closeModuleIntro();
+    if (!el("#certificates-view").hidden) closeCertificates();
     if (!el("#module-picker").hidden) {
       // On first-ever visit the module picker is mandatory (no content is
       // loaded yet) - a back gesture there shouldn't leave the app in a

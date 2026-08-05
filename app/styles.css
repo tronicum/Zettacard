@@ -584,6 +584,52 @@ main {
   visibility: hidden;
 }
 
+/* Completion tracking & certificates (DN-14 / DN-44 prep) */
+#certificates-list {
+  text-align: left;
+  max-height: 55vh;
+  overflow-y: auto;
+}
+
+#certificates-list .empty {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.cert-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background: var(--badge-neutral-bg, transparent);
+}
+
+.cert-card-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.cert-card-date {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+.cert-card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cert-card-actions .back-btn {
+  flex: 1 1 auto;
+  min-width: 140px;
+  font-size: 0.8rem;
+  padding: 8px 10px;
+}
+
 .exam-timer {
   font-variant-numeric: tabular-nums;
   font-weight: 700;
