@@ -88,8 +88,15 @@ def priority_road(crossed=False):
   <polygon points="50,12 88,50 50,88 12,50" fill="#f5c400"/>
 '''
     if crossed:
+        # 307 Ende der Vorfahrtstrasse: the yellow diamond itself stays
+        # yellow (WebSearch-verified 2026-08-05 - a prior render looked gray
+        # overall, a real user-reported design flaw) - only a thick black
+        # "cancellation" band crosses it corner-to-corner, with two thin
+        # white pinstripes running down the middle of that band.
         body += '''
-  <line x1="18" y1="82" x2="82" y2="18" stroke="#4a4a4a" stroke-width="7"/>
+  <line x1="16" y1="84" x2="84" y2="16" stroke="#1a1a1a" stroke-width="11"/>
+  <line x1="13.3" y1="81.3" x2="81.3" y2="13.3" stroke="#fff" stroke-width="1.6"/>
+  <line x1="18.7" y1="86.7" x2="86.7" y2="18.7" stroke="#fff" stroke-width="1.6"/>
 '''
     return body
 
@@ -113,12 +120,32 @@ def stop_octagon():
 '''
 
 def andreaskreuz():
-    return '''
-  <line x1="10" y1="20" x2="90" y2="80" stroke="#c0272d" stroke-width="10" stroke-linecap="round"/>
-  <line x1="90" y1="20" x2="10" y2="80" stroke="#c0272d" stroke-width="10" stroke-linecap="round"/>
-  <line x1="10" y1="20" x2="90" y2="80" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-  <line x1="90" y1="20" x2="10" y2="80" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
-'''
+    # 201 Andreaskreuz: each of the 4 arms is physically half white (the
+    # inner half, towards the center) / half red (the outer tip) - there is
+    # no separate white background plate behind the X, the arms themselves
+    # carry the two colors (WebSearch-verified against the official
+    # dimensioned schematic, 2026-08-05 user-reported design flaw - previous
+    # version painted the whole X red with only a thin white pinstripe down
+    # the middle, not true half-white/half-red arms).
+    # This app renders signs directly on a white page background with no
+    # backing plate of their own - a white-colored arm half would be
+    # invisible there (an earlier draft of this fix had exactly that bug:
+    # the white inner halves vanished, leaving 4 disconnected floating red
+    # marks). A thin dark outline under the full arm keeps the white half
+    # visible while still matching the real half-white/half-red arm design.
+    cx, cy = 50, 50
+    ends = [(10, 20), (90, 80), (90, 20), (10, 80)]
+    body = ""
+    for ex, ey in ends:
+        mx, my = (cx + ex) / 2, (cy + ey) / 2
+        body += f'<line x1="{cx}" y1="{cy}" x2="{ex}" y2="{ey}" stroke="#333" stroke-width="14" stroke-linecap="round"/>'
+    for ex, ey in ends:
+        mx, my = (cx + ex) / 2, (cy + ey) / 2
+        body += (
+            f'<line x1="{cx}" y1="{cy}" x2="{mx:.1f}" y2="{my:.1f}" stroke="#fff" stroke-width="10" stroke-linecap="round"/>'
+            f'<line x1="{mx:.1f}" y1="{my:.1f}" x2="{ex}" y2="{ey}" stroke="#c0272d" stroke-width="10" stroke-linecap="round"/>'
+        )
+    return body
 
 def gruenpfeil():
     # "Grünpfeil" plate: black square plate, green right-turn arrow
@@ -196,9 +223,12 @@ def sym_crossroads():
     return '<line x1="50" y1="34" x2="50" y2="78" stroke="#000" stroke-width="6"/><line x1="30" y1="56" x2="70" y2="56" stroke="#000" stroke-width="6"/>'
 
 def sym_narrowing():
-    return '''<path d="M18 40 L42 62 M82 40 L58 62" stroke="#000" stroke-width="6" fill="none" stroke-linecap="round"/>
-  <line x1="42" y1="62" x2="42" y2="80" stroke="#000" stroke-width="6"/>
-  <line x1="58" y1="62" x2="58" y2="80" stroke="#000" stroke-width="6"/>'''
+    # 120 Verengte Fahrbahn (both sides): the real pictogram is two bold
+    # SOLID black road-edge silhouettes bending inward symmetrically, not
+    # thin wireframe lines (WebSearch-verified 2026-08-05 user-reported
+    # design flaw - too basic/thin previously).
+    return '''<path d="M18 28 L18 58 L38 80" stroke="#000" stroke-width="11" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M82 28 L82 58 L62 80" stroke="#000" stroke-width="11" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'''
 
 def sym_roadworks():
     return '''<line x1="38" y1="80" x2="62" y2="38" stroke="#000" stroke-width="6" stroke-linecap="round"/>
@@ -206,8 +236,19 @@ def sym_roadworks():
   <path d="M30 80 Q50 68 70 80" stroke="#000" stroke-width="5" fill="none"/>'''
 
 def sym_children():
-    return '''<circle cx="38" cy="46" r="7" fill="#000"/><rect x="31" y="55" width="14" height="20" rx="4" fill="#000"/>
-  <circle cx="62" cy="52" r="6" fill="#000"/><rect x="56" y="60" width="12" height="17" rx="4" fill="#000"/>'''
+    # 136 Kinder: real sign shows two RUNNING children of clearly different
+    # heights (WebSearch-verified against the official pictogram, ~2026-08-05
+    # user-reported design flaw) - the shorter/left figure and taller/right
+    # figure need a visible size difference plus kicked-leg running poses and
+    # large round child-proportioned heads, not near-identical adult-style
+    # stick figures with a plain rectangle torso.
+    return '''
+  <circle cx="30" cy="50" r="7" fill="#000"/>
+  <rect x="24" y="58" width="12" height="14" rx="4" fill="#000"/>
+  <path d="M24 70 L14 78 M36 70 L42 62 M28 58 L18 50 M32 58 L42 54" stroke="#000" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="64" cy="42" r="9" fill="#000"/>
+  <rect x="56" y="52" width="16" height="20" rx="5" fill="#000"/>
+  <path d="M56 72 L44 82 M72 72 L82 66 M60 52 L48 42 M68 52 L82 46" stroke="#000" stroke-width="5.5" stroke-linecap="round"/>'''
 
 def sym_train():
     return '''<rect x="34" y="40" width="32" height="24" rx="6" fill="#000"/>
@@ -218,25 +259,94 @@ def sym_arrow_right(color="#fff"):
     return f'<path d="M32 30 L68 50 L32 70 Z" fill="{color}"/>'
 
 def sym_roundabout():
-    return '''<path d="M30 50 A20 20 0 1 1 50 70" fill="none" stroke="#fff" stroke-width="6"/>
-  <path d="M46 66 L50 70 L54 63" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'''
+    # 215 Kreisverkehr: the real sign shows 3 SEPARATE white crescent arrows
+    # arranged ~120 degrees apart in a pinwheel (not one continuous circular
+    # arrow), rotating counterclockwise - the right-hand-traffic convention
+    # (WebSearch-verified against the official pictogram, 2026-08-05 user-
+    # reported design flaw: previous version was a single thin arc, unclear
+    # as a roundabout symbol).
+    import math
+    cx, cy, r = 50, 50, 23
+    body = ""
+    for i in range(3):
+        a0 = math.radians(i * 120 - 20)
+        a1 = math.radians(i * 120 + 70)
+        x0, y0 = cx + r * math.cos(a0), cy + r * math.sin(a0)
+        x1, y1 = cx + r * math.cos(a1), cy + r * math.sin(a1)
+        # Tangent direction at the arc's leading (counterclockwise) end,
+        # used to point the arrowhead.
+        tx, ty = -math.sin(a1), math.cos(a1)
+        px, py = math.cos(a1), math.sin(a1)
+        hx, hy = x1 + tx * 10, y1 + ty * 10
+        lx, ly = x1 + px * 6, y1 + py * 6
+        rx, ry = x1 - px * 6, y1 - py * 6
+        body += (
+            f'<path d="M {x0:.1f} {y0:.1f} A {r} {r} 0 0 1 {x1:.1f} {y1:.1f}" '
+            f'fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>'
+            f'<polygon points="{lx:.1f},{ly:.1f} {hx:.1f},{hy:.1f} {rx:.1f},{ry:.1f}" fill="#fff"/>'
+        )
+    return body
 
 def sym_oneway_arrow():
-    return '<path d="M50 22 L72 50 L58 50 L58 78 L42 78 L42 50 L28 50 Z" fill="#fff"/>'
+    # 220 Einbahnstrasse: the real sign carries the word "Einbahnstraße" as
+    # well as the arrow - a pure pictogram-only arrow is missing part of the
+    # real design (WebSearch-verified 2026-08-05 user-reported design flaw:
+    # text was missing entirely). Arrow direction matches this project's own
+    # question content ("weisser Pfeil nach oben") - pointing up.
+    text = '''<text x="50" y="20" font-family="Arial, sans-serif" font-size="10.5" font-weight="700"
+        fill="#fff" text-anchor="middle">EINBAHN-</text>
+  <text x="50" y="31" font-family="Arial, sans-serif" font-size="10.5" font-weight="700"
+        fill="#fff" text-anchor="middle">STRASSE</text>'''
+    arrow = '<path d="M50 40 L70 62 L58 62 L58 86 L42 86 L42 62 L30 62 Z" fill="#fff"/>'
+    return text + arrow
 
 def sym_bicycle():
-    return '''<circle cx="36" cy="64" r="12" fill="none" stroke="#fff" stroke-width="4"/>
-  <circle cx="64" cy="64" r="12" fill="none" stroke="#fff" stroke-width="4"/>
-  <path d="M36 64 L50 40 L64 64 M50 40 L44 64 M50 48 L60 48" stroke="#fff" stroke-width="4" fill="none" stroke-linejoin="round"/>'''
+    # 237 Radweg: needs a clear seat-tube apex with a saddle knob, and a
+    # distinct curved handlebar rising from the front-wheel area with a
+    # small forward hook - a plain triangle without these reads as an
+    # abstract shape rather than a bicycle (WebSearch-verified 2026-08-05
+    # user-reported design flaw).
+    return '''<circle cx="34" cy="66" r="12" fill="none" stroke="#fff" stroke-width="4"/>
+  <circle cx="66" cy="66" r="12" fill="none" stroke="#fff" stroke-width="4"/>
+  <path d="M34 66 L48 40 L66 66 M48 40 L42 66" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="37" r="3.5" fill="#fff"/>
+  <path d="M66 66 L60 46 Q58 39 65 37" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>'''
 
 def sym_ped_bike_stack():
-    return '''<circle cx="50" cy="26" r="6" fill="#fff"/><rect x="44" y="33" width="12" height="16" rx="3" fill="#fff"/>
-  <circle cx="38" cy="72" r="8" fill="none" stroke="#fff" stroke-width="3.5"/>
-  <circle cx="62" cy="72" r="8" fill="none" stroke="#fff" stroke-width="3.5"/>
-  <path d="M38 72 L50 55 L62 72" stroke="#fff" stroke-width="3.5" fill="none"/>'''
+    # 240 Gemeinsamer Fuss- und Radweg: pedestrian pictogram on top, bicycle
+    # pictogram below, divided by a HORIZONTAL line (no vertical line - that
+    # feature belongs to 241's side-by-side split, see symB_bike_ped_split;
+    # WebSearch-verified 2026-08-05 user-reported design flaw - previously
+    # had no divider line at all, which read as unfinished/ambiguous).
+    return '''<circle cx="50" cy="24" r="6" fill="#fff"/><rect x="44" y="31" width="12" height="16" rx="3" fill="#fff"/>
+  <line x1="14" y1="55" x2="86" y2="55" stroke="#fff" stroke-width="3"/>
+  <circle cx="38" cy="74" r="8" fill="none" stroke="#fff" stroke-width="3.5"/>
+  <circle cx="62" cy="74" r="8" fill="none" stroke="#fff" stroke-width="3.5"/>
+  <path d="M38 74 L50 60 L62 74" stroke="#fff" stroke-width="3.5" fill="none"/>'''
 
 def sym_car_silhouette(color="#000"):
     return f'<rect x="26" y="46" width="48" height="18" rx="6" fill="{color}"/><circle cx="36" cy="66" r="5" fill="{color}"/><circle cx="64" cy="66" r="5" fill="{color}"/>'
+
+def sym_moto_and_car(color="#000"):
+    # 260 Verbot fuer Kraftraeder ... sowie fuer Kraftwagen und sonstige
+    # mehrspurige Kraftfahrzeuge: the real sign prohibits BOTH motorcycles
+    # AND cars, and shows two vehicle pictograms stacked vertically
+    # (motorcycle+helmeted rider on top, car below), not a single car
+    # silhouette (WebSearch-verified 2026-08-05 user-reported design flaw -
+    # previous version showed one car only, "not even a motorcycle").
+    moto = (
+        f'<circle cx="34" cy="38" r="9" fill="none" stroke="{color}" stroke-width="4"/>'
+        f'<circle cx="66" cy="38" r="9" fill="none" stroke="{color}" stroke-width="4"/>'
+        f'<path d="M34 38 L46 24 L66 38 M46 24 L54 38" stroke="{color}" stroke-width="4" '
+        f'fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
+        f'<circle cx="50" cy="14" r="6" fill="{color}"/>'
+    )
+    line = f'<line x1="18" y1="50" x2="82" y2="50" stroke="{color}" stroke-width="3"/>'
+    car = (
+        f'<rect x="28" y="60" width="44" height="15" rx="5" fill="{color}"/>'
+        f'<circle cx="37" cy="78" r="4.5" fill="{color}"/><circle cx="63" cy="78" r="4.5" fill="{color}"/>'
+    )
+    return moto + line + car
 
 def sym_two_cars(c1="#000", c2="#c0272d"):
     return sym_car_silhouette(c1).replace('x="26"', 'x="14"') + sym_car_silhouette(c2).replace('x="26"', 'x="38"').replace('cx="36"','cx="48"').replace('cx="64"','cx="76"')
@@ -261,10 +371,28 @@ def sym_P_pavement():
     return sym_P(x=42, y=52, size=34) + '<rect x="16" y="70" width="68" height="8" fill="#fff"/><circle cx="26" cy="82" r="4" fill="#fff"/><circle cx="74" cy="82" r="4" fill="#fff"/>'
 
 def sym_ped_crossing():
+    # 350 Fussgaengerueberweg: blue square, white triangle, black walking-
+    # person silhouette standing over a few short black zebra-stripe bars at
+    # his feet. Fixed the stripe color here while auditing 293 vs 350
+    # (2026-08-05): they were filled the same blue as the square background,
+    # making them invisible - should be black like the person silhouette.
     body = '<polygon points="50,14 88,82 12,82" fill="#fff"/>'
     body += '<circle cx="50" cy="52" r="6" fill="#000"/><rect x="43" y="60" width="14" height="18" rx="4" fill="#000"/>'
     for x in (24, 34, 44, 54, 64, 74):
-        body += f'<rect x="{x}" y="86" width="6" height="8" fill="#0058a3" transform="translate(0,-2)"/>'
+        body += f'<rect x="{x}" y="83" width="6" height="7" fill="#000"/>'
+    return body
+
+def sym_zebra_marking():
+    # 293 is NOT the same real-world thing as 350: it's the painted zebra-
+    # stripe ROAD MARKING itself (Anlage 2 zu Section 42 StVO), not the blue
+    # pedestrian-crossing warning/notice sign - a distinct icon is needed
+    # (WebSearch-verified 2026-08-05 user-reported design flaw: 293 was
+    # previously mapped to the exact same icon as 350). Depicted as
+    # alternating white stripes on asphalt gray, viewed from above, not as
+    # a blue Richtzeichen square.
+    body = '<rect x="6" y="6" width="88" height="88" rx="4" fill="#58595b"/>'
+    for x in (13, 28, 43, 58, 73):
+        body += f'<rect x="{x}" y="16" width="11" height="68" fill="#fff"/>'
     return body
 
 def sym_motorway_start():
@@ -455,10 +583,12 @@ def symA_crosswind():
   <path d="M30 34 L74 42 L60 50 L74 58 L30 50 Z" fill="#000"/>'''
 
 def symA_narrow_one_side():
-    # 121 einseitig verengte Fahrbahn (rechts): left edge unaffected,
-    # right edge angles inward
-    return '''<line x1="30" y1="30" x2="30" y2="80" stroke="#000" stroke-width="6"/>
-  <path d="M78 30 L54 62 L54 80" stroke="#000" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'''
+    # 121 einseitig verengte Fahrbahn (rechts): left edge unaffected, right
+    # edge angles inward - bold SOLID black road-edge silhouettes to match
+    # 120's style, not thin wireframe lines (WebSearch-verified 2026-08-05
+    # user-reported design flaw - too basic previously).
+    return '''<line x1="28" y1="28" x2="28" y2="80" stroke="#000" stroke-width="11" stroke-linecap="round"/>
+  <path d="M78 28 L78 56 L54 80" stroke="#000" stroke-width="11" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'''
 
 def symA_stau():
     # 124 Stau: a few stacked car-rectangles, receding into the distance
@@ -540,16 +670,21 @@ def symB_priority_arrows():
 '''
 
 def symB_bike_ped_split():
-    # Zeichen 241 getrennter Rad- und Gehweg: bicycle pictogram over a
-    # pedestrian pictogram, divided by a horizontal line - white on blue.
+    # Zeichen 241 getrennter Rad- und Gehweg: pedestrian pictogram on the
+    # LEFT, bicycle pictogram on the RIGHT, divided by a VERTICAL line - this
+    # is the feature that actually distinguishes 241 from 240 (which stacks
+    # the same two icons top/bottom with a HORIZONTAL line instead, see
+    # sym_ped_bike_stack). Previous version had this backwards - stacked
+    # top/bottom with a horizontal line, indistinguishable from 240
+    # (WebSearch-verified 2026-08-05 user-reported design flaw).
     return '''
-  <circle cx="32" cy="40" r="9" fill="none" stroke="#fff" stroke-width="3.5"/>
-  <circle cx="60" cy="40" r="9" fill="none" stroke="#fff" stroke-width="3.5"/>
-  <path d="M32 40 L46 20 L60 40 M46 20 L42 40 M46 24 L54 24" stroke="#fff" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
-  <line x1="10" y1="50" x2="90" y2="50" stroke="#fff" stroke-width="3"/>
-  <circle cx="50" cy="60" r="6" fill="#fff"/>
-  <rect x="44" y="67" width="12" height="16" rx="4" fill="#fff"/>
-  <path d="M44 83 L37 93 M56 83 L63 93" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="24" cy="34" r="6" fill="#fff"/>
+  <rect x="18" y="41" width="12" height="17" rx="3" fill="#fff"/>
+  <path d="M18 58 L12 74 M30 58 L36 74" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <line x1="50" y1="14" x2="50" y2="90" stroke="#fff" stroke-width="3"/>
+  <circle cx="66" cy="66" r="8" fill="none" stroke="#fff" stroke-width="3.5"/>
+  <circle cx="84" cy="66" r="8" fill="none" stroke="#fff" stroke-width="3.5"/>
+  <path d="M66 66 L75 44 L84 66 M75 44 L71 66" stroke="#fff" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
 '''
 
 def symB_min_distance(n="70m"):
@@ -771,7 +906,7 @@ SIGNS = {
     "237": circle_mandatory(sym_bicycle()),
     "240": circle_mandatory(sym_ped_bike_stack()),
     "250": circle_prohibition(""),
-    "260": circle_prohibition(sym_car_silhouette("#000")),
+    "260": circle_prohibition(sym_moto_and_car("#000")),
     "267": circle_no_entry(sym_no_entry_bar()),
     "274": circle_prohibition(sym_speed_number("50")),
     "276": circle_prohibition(sym_two_cars()),
@@ -779,7 +914,7 @@ SIGNS = {
     "282": circle_prohibition(sym_five_stripes()).replace('stroke="#c0272d"', 'stroke="#8a8a8a"'),
     "283": circle_stopping_ban('<line x1="24" y1="24" x2="76" y2="76" stroke="#c0272d" stroke-width="8"/><line x1="76" y1="24" x2="24" y2="76" stroke="#c0272d" stroke-width="8"/>'),
     "286": circle_stopping_ban('<line x1="26" y1="26" x2="74" y2="74" stroke="#c0272d" stroke-width="8"/>'),
-    "293": square_blue(sym_ped_crossing()),
+    "293": sym_zebra_marking(),
     "301": diamond_yellow_border(),
     "306": priority_road(crossed=False),
     "307": priority_road(crossed=True),
