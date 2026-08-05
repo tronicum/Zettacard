@@ -312,17 +312,17 @@ def sym_oneway_arrow():
     arrow = '<path d="M50 40 L70 62 L58 62 L58 86 L42 86 L42 62 L30 62 Z" fill="#fff"/>'
     return text + arrow
 
-def sym_bicycle():
+def sym_bicycle(color="#fff"):
     # 237 Radweg: needs a clear seat-tube apex with a saddle knob, and a
     # distinct curved handlebar rising from the front-wheel area with a
     # small forward hook - a plain triangle without these reads as an
     # abstract shape rather than a bicycle (WebSearch-verified 2026-08-05
     # user-reported design flaw).
-    return '''<circle cx="34" cy="66" r="12" fill="none" stroke="#fff" stroke-width="4"/>
-  <circle cx="66" cy="66" r="12" fill="none" stroke="#fff" stroke-width="4"/>
-  <path d="M34 66 L48 40 L66 66 M48 40 L42 66" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="48" cy="37" r="3.5" fill="#fff"/>
-  <path d="M66 66 L60 46 Q58 39 65 37" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>'''
+    return f'''<circle cx="34" cy="66" r="12" fill="none" stroke="{color}" stroke-width="4"/>
+  <circle cx="66" cy="66" r="12" fill="none" stroke="{color}" stroke-width="4"/>
+  <path d="M34 66 L48 40 L66 66 M48 40 L42 66" stroke="{color}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="37" r="3.5" fill="{color}"/>
+  <path d="M66 66 L60 46 Q58 39 65 37" stroke="{color}" stroke-width="4" fill="none" stroke-linecap="round"/>'''
 
 def sym_ped_bike_stack():
     # 240 Gemeinsamer Fuss- und Radweg: pedestrian pictogram on top, bicycle
@@ -477,21 +477,25 @@ def sym_length(n="10m"):
     return sym_width(n)
 
 def sym_snow_chain():
-    # 268 Schneekettenpflicht: real sign shows a single wheel/tyre with a
-    # visible chain-link diamond net wrapped over it - two identical open
-    # circles read as an abstract Venn diagram, not tyre chains
-    # (catalog-audit finding 2026-08-05: "illegible, doesn't suggest tire
-    # chains at all").
-    tyre = '<circle cx="50" cy="50" r="24" fill="none" stroke="#fff" stroke-width="6"/>'
-    links = ""
-    import math
-    for i in range(8):
-        a = math.radians(i * 45)
-        x1, y1 = 50 + 16 * math.cos(a), 50 + 16 * math.sin(a)
-        x2, y2 = 50 + 24 * math.cos(a), 50 + 24 * math.sin(a)
-        links += f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#fff" stroke-width="3"/>'
-    net = '<circle cx="50" cy="50" r="16" fill="none" stroke="#fff" stroke-width="3"/>'
-    return tyre + links + net
+    # 268 Schneekettenpflicht: real sign shows a plain tyre silhouette with a
+    # diamond-lattice chain-link net draped across its face (two sets of
+    # parallel diagonal lines crossing at ~45/135 degrees, clipped to the
+    # tyre's circle) - NOT a life-preserver-style ring of radiating spokes
+    # (ADAC-brochure audit finding 2026-08-05: previous geometry read as a
+    # life-ring, not a tyre with chains).
+    r = 24
+    tyre = f'<circle cx="50" cy="50" r="{r}" fill="none" stroke="#fff" stroke-width="5"/>'
+    clip = (
+        f'<clipPath id="tyreClip"><circle cx="50" cy="50" r="{r}"/></clipPath>'
+    )
+    mesh = ""
+    offsets = [-32, -20, -8, 8, 20, 32]
+    for o in offsets:
+        # 45deg diagonals
+        mesh += f'<line x1="{10+o}" y1="90" x2="{90+o}" y2="10" stroke="#fff" stroke-width="2.5"/>'
+        # 135deg diagonals
+        mesh += f'<line x1="{10+o}" y1="10" x2="{90+o}" y2="90" stroke="#fff" stroke-width="2.5"/>'
+    return clip + tyre + f'<g clip-path="url(#tyreClip)">{mesh}</g>'
 
 def sym_house_car():
     # Verkehrsberuhigter Bereich (325.1): simplified house + car + child
@@ -504,7 +508,12 @@ def sym_deadend():
   <line x1="26" y1="62" x2="74" y2="62" stroke="#000" stroke-width="6"/>'''
 
 def sym_first_aid_cross():
-    return '<rect x="42" y="24" width="16" height="52" fill="#fff"/><rect x="24" y="42" width="52" height="16" fill="#fff"/>'
+    # 358 Erste Hilfe: the real sign is a RED cross on a WHITE inset panel
+    # within the blue square border - not a white cross drawn straight onto
+    # the blue background (ADAC-brochure audit finding 2026-08-05).
+    panel = '<rect x="18" y="18" width="64" height="64" rx="3" fill="#fff"/>'
+    cross = '<rect x="42" y="26" width="16" height="48" fill="#c0272d"/><rect x="26" y="42" width="48" height="16" fill="#c0272d"/>'
+    return panel + cross
 
 def sym_police_star():
     import math
@@ -546,14 +555,14 @@ def sym_wheelchair():
     return '<circle cx="46" cy="30" r="7" fill="#fff"/><path d="M46 40 L46 56 L64 56 M46 48 L60 48" stroke="#fff" stroke-width="4" fill="none"/><path d="M46 56 Q46 74 30 74 Q18 74 18 62" stroke="#fff" stroke-width="4" fill="none"/>'
 
 def sym_uturn_ban():
-    # 272 Verbot des Wendens: real pictogram is a closed "U"-shaped arrow -
-    # a straight segment down on the right, a full semicircular sweep across
-    # the bottom, and a straight segment back up on the left ending in an
-    # arrowhead pointing up - the previous geometry (a shallow top arc plus
-    # a separate hook) read as "turn right" rather than a proper U-turn loop
-    # (catalog-audit finding 2026-08-05).
-    return '''<path d="M66 22 L66 54 A18 18 0 0 1 30 54 L30 32" stroke="#000" stroke-width="7" fill="none" stroke-linecap="round"/>
-  <polygon points="20,40 30,22 40,40" fill="#000"/>
+    # 272 Verbot des Wendens: real pictogram is an upside-down "U" / "∩"
+    # shape - a semicircular arc across the TOP with both prongs hanging
+    # DOWN, one of them ending in an arrowhead-flare - not an arc across
+    # the bottom with prongs pointing up (mirror-flip fix, ADAC-brochure
+    # audit finding 2026-08-05: previous geometry had the loop opening
+    # upward instead of downward).
+    return '''<path d="M66 78 L66 46 A18 18 0 0 0 30 46 L30 68" stroke="#000" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <polygon points="20,60 30,78 40,60" fill="#000"/>
   <line x1="18" y1="82" x2="82" y2="18" stroke="#c0272d" stroke-width="7"/>'''
 
 def sym_min_speed(n="30"):
@@ -823,15 +832,20 @@ def symC_waterdrop():
     return '<path d="M50 22 C62 40 74 54 74 66 A24 24 0 1 1 26 66 C26 54 38 40 50 22 Z" fill="#fff"/>'
 
 def symC_water_truck():
-    # 354 Wasserschutzgebiet: real sign shows a tanker-truck silhouette over
-    # wavy water lines (catalog-audit finding 2026-08-05).
-    truck = '''<rect x="22" y="32" width="40" height="18" rx="3" fill="#fff"/>
-  <rect x="62" y="36" width="14" height="14" rx="2" fill="#fff"/>
-  <ellipse cx="42" cy="41" rx="16" ry="6" fill="#0058a3"/>
-  <circle cx="34" cy="54" r="5" fill="#fff"/><circle cx="58" cy="54" r="5" fill="#fff"/><circle cx="70" cy="54" r="4" fill="#fff"/>'''
-    water = '''<path d="M16 66 Q26 60 36 66 Q46 72 56 66 Q66 60 84 66" stroke="#fff" stroke-width="4" fill="none"/>
-  <path d="M16 76 Q26 70 36 76 Q46 82 56 76 Q66 70 84 76" stroke="#fff" stroke-width="4" fill="none"/>'''
-    return truck + water
+    # 354 Wasserschutzgebiet: real sign shows a tanker-truck pictogram plus
+    # the literal printed label "Wasser-Schutzgebiet" underneath (as text,
+    # matching this project's existing icon+text-label convention used for
+    # 242.x/244.x's "ZONE"/"Fahrradstrasse" and 356's "Verkehrshelfer"
+    # labels) - it does NOT show wavy water lines at all (ADAC-brochure
+    # audit finding 2026-08-05). Truck nudged up slightly to leave room for
+    # the two-line label below it.
+    truck = '''<rect x="22" y="24" width="40" height="18" rx="3" fill="#fff"/>
+  <rect x="62" y="28" width="14" height="14" rx="2" fill="#fff"/>
+  <ellipse cx="42" cy="33" rx="16" ry="6" fill="#0058a3"/>
+  <circle cx="34" cy="46" r="5" fill="#fff"/><circle cx="58" cy="46" r="5" fill="#fff"/><circle cx="70" cy="46" r="4" fill="#fff"/>'''
+    label = symC_text("Wasser-", x=50, y=66, size=13, color="#fff") + \
+        symC_text("Schutzgebiet", x=50, y=80, size=13, color="#fff")
+    return truck + label
 
 def _inset(symbol, cx=50, cy=36, s=0.5):
     # Scales/repositions a full-100x100-viewbox pictogram (e.g. sym_pedestrian,
@@ -844,34 +858,57 @@ def sign_zone_plate(symbol, label_lines, ended=False):
     # 242.x/244.x (Fussgaengerzone/Fahrradstrasse Beginn/Ende): real signs
     # are a white plate with a black border, a solid blue INSET CIRCLE
     # (not a full-square blue fill) carrying the pictogram, plus printed
-    # text below the circle - the "Ende" variants add a diagonal
-    # black-and-white hatch band across the plate (catalog-audit finding
-    # 2026-08-05: previous version was just square_blue(pictogram), missing
-    # the plate/inset-circle/text entirely).
-    circle = f'<circle cx="50" cy="36" r="26" fill="#0058a3"/>{symbol}'
+    # text below the circle. The "Ende" variants do NOT keep the circle
+    # blue with a hatch band across the whole plate - instead the entire
+    # inset circle (and its pictogram/text) turns GREY, with a single
+    # clean solid diagonal line crossing just the circle (ADAC-brochure
+    # audit finding 2026-08-05: previous "Ende" version kept the circle
+    # blue and added a dashed hatch band across the full plate instead).
+    # NOTE: circle and symbol/text use distinct grey shades (not the same
+    # #8a8a8a for both) so the pictogram stays visible against the grey
+    # circle instead of disappearing into it.
+    circle_color = "#b0b0b0" if ended else "#0058a3"
+    text_color = "#5a5a5a" if ended else "#000"
+    circle = f'<circle cx="50" cy="36" r="26" fill="{circle_color}"/>{symbol}'
     text = "".join(
         f'<text x="50" y="{72 + i * 13}" font-family="Arial, sans-serif" '
-        f'font-size="11" font-weight="700" fill="#000" text-anchor="middle">{line}</text>'
+        f'font-size="11" font-weight="700" fill="{text_color}" text-anchor="middle">{line}</text>'
         for i, line in enumerate(label_lines)
     )
     hatch = ""
     if ended:
-        hatch = (
-            '<line x1="12" y1="88" x2="88" y2="12" stroke="#000" stroke-width="6"/>'
-            '<line x1="12" y1="88" x2="88" y2="12" stroke="#fff" stroke-width="6" stroke-dasharray="8 8"/>'
-        )
+        # single solid diagonal line crossing only the circle's bounding
+        # area (circle center 50,36 r=26 -> bbox roughly x24-76, y10-62)
+        hatch = '<line x1="24" y1="62" x2="76" y2="10" stroke="#5a5a5a" stroke-width="5"/>'
     return rect_white_black_border(circle + text + hatch)
 
 def symC_guard():
-    # 356 Verkehrshelfer: simple original figure holding a stop-paddle.
-    return '''
-  <circle cx="42" cy="28" r="7" fill="#fff"/>
-  <rect x="35" y="36" width="14" height="24" rx="4" fill="#fff"/>
-  <line x1="49" y1="42" x2="70" y2="30" stroke="#fff" stroke-width="4"/>
-  <rect x="66" y="20" width="16" height="16" fill="#fff"/>
-  <line x1="38" y1="60" x2="30" y2="80" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-  <line x1="46" y1="60" x2="52" y2="80" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    # 356 Verkehrshelfer: figure holding a stop-paddle, plus the printed
+    # "Verkehrshelfer" label underneath - the real sign always carries this
+    # text label (matching the icon+text-label convention used for
+    # 242.x/244.x and 354); the previous version rendered the icon alone
+    # with no label at all (ADAC-brochure audit finding 2026-08-05). Figure
+    # scaled/shifted up slightly to leave room for the two-line label.
+    figure = '''
+  <circle cx="42" cy="24" r="6" fill="#fff"/>
+  <rect x="36" y="30" width="12" height="20" rx="4" fill="#fff"/>
+  <line x1="48" y1="35" x2="66" y2="25" stroke="#fff" stroke-width="3.5"/>
+  <rect x="63" y="17" width="14" height="14" fill="#fff"/>
+  <line x1="39" y1="50" x2="32" y2="66" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="45" y1="50" x2="50" y2="66" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
 '''
+    label = symC_text("Verkehrs-", x=50, y=78, size=12, color="#fff") + \
+        symC_text("helfer", x=50, y=90, size=12, color="#fff")
+    return figure + label
+
+def symC_police_panel():
+    # 363 Polizei: the real sign has "Polizei" sitting inside a distinct
+    # white inset rectangular panel within the blue square border, not white
+    # text directly on the blue background - the panel needs black text
+    # since it now sits on white (ADAC-brochure audit finding 2026-08-05).
+    panel = '<rect x="14" y="36" width="72" height="28" rx="4" fill="#fff"/>'
+    text = symC_text("Polizei", x=50, y=56, size=17, color="#000")
+    return panel + text
 
 def symC_autohof():
     # 448.1 Autohof: simple fuel pump plus a small bed rectangle.
@@ -1090,9 +1127,9 @@ BATCH_B_SIGNS = {
     "229": square_blue(sym_taxi_text()),
     "241": square_blue(symB_bike_ped_split()),
     "242.1": sign_zone_plate(_inset(sym_pedestrian(color="#fff")), ["ZONE"]),
-    "242.2": sign_zone_plate(_inset(sym_pedestrian(color="#fff")), ["ZONE"], ended=True),
+    "242.2": sign_zone_plate(_inset(sym_pedestrian(color="#5a5a5a")), ["ZONE"], ended=True),
     "244.1": sign_zone_plate(_inset(sym_bicycle()), ["Fahrradstrasse"]),
-    "244.2": sign_zone_plate(_inset(sym_bicycle()), ["Fahrradstrasse"], ended=True),
+    "244.2": sign_zone_plate(_inset(sym_bicycle(color="#5a5a5a")), ["Fahrradstrasse"], ended=True),
     "245": square_blue(sym_bus(color="#fff")),
     "290.1": circle_stopping_ban('<line x1="26" y1="26" x2="74" y2="74" stroke="#c0272d" stroke-width="8"/>'),
     "290.2": circle_stopping_ban(
@@ -1113,7 +1150,7 @@ BATCH_C_SIGNS = {
     "354": square_blue(symC_water_truck()),
     "356": square_blue(symC_guard()),
     "358": square_blue(sym_first_aid_cross()),
-    "363": square_blue(symC_text("Polizei", size=17, color="#fff")),
+    "363": square_blue(symC_police_panel()),
     "448.1": square_blue(symC_autohof()),
     # -- service-facility signs (6), verified blue-square family --
     "365-fuel": square_blue(sym_fuel_pump()),
