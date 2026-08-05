@@ -1048,12 +1048,25 @@ SIGNS.update(BATCH_C_SIGNS)
 SIGNS.update(BATCH_D_SIGNS)
 
 def main():
-    out_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "signs")
-    os.makedirs(out_dir, exist_ok=True)
-    for ref, body in SIGNS.items():
-        with open(os.path.join(out_dir, f"{ref}.svg"), "w", encoding="utf-8") as f:
-            f.write(svg(body))
-    print(f"Wrote {len(SIGNS)} sign SVGs to {out_dir}")
+    here = os.path.dirname(os.path.abspath(__file__))
+    # Write to BOTH this script's own signs/ (kept as the readable source-of-
+    # truth location next to generate_signs.py) AND app/assets/signs/ (the
+    # path actually served to users) in the same run. A real bug found
+    # 2026-08-05: these two directories had drifted apart for years - fixes
+    # made here (including an earlier session's DN-32 zeichen-68/214 redraw)
+    # were verified against assets/signs/ but never copied to app/, so they
+    # were never actually live. Writing both every run removes the
+    # "someone forgot to copy" failure mode entirely.
+    out_dirs = [
+        os.path.join(here, "signs"),
+        os.path.join(here, "..", "app", "assets", "signs"),
+    ]
+    for out_dir in out_dirs:
+        os.makedirs(out_dir, exist_ok=True)
+        for ref, body in SIGNS.items():
+            with open(os.path.join(out_dir, f"{ref}.svg"), "w", encoding="utf-8") as f:
+                f.write(svg(body))
+        print(f"Wrote {len(SIGNS)} sign SVGs to {out_dir}")
 
 if __name__ == "__main__":
     main()
