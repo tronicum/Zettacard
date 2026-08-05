@@ -51,6 +51,18 @@ def square_blue(symbol=""):
   {symbol}
 '''
 
+def circle_end_restriction(symbol=""):
+    # 278/282 Ende-signs (speed/overtaking restriction lifted): real signs
+    # are NOT a recolored prohibition ring - they use a visibly THIN grey
+    # ring (not the thick 9px prohibition-ring width) with grey numbers/
+    # stripes, since the restriction is being lifted rather than imposed
+    # (catalog-audit finding 2026-08-05: previous version reused
+    # circle_prohibition's thick ring via a string-replace color hack).
+    return f'''
+  <circle cx="50" cy="50" r="44" fill="#fff" stroke="#8a8a8a" stroke-width="3"/>
+  {symbol}
+'''
+
 def circle_no_entry(symbol=""):
     # Zeichen 267 Verbot der Einfahrt: this is NOT a white circle with a red
     # ring like other Verbotszeichen - it's a solid red disc (thin white
@@ -357,6 +369,12 @@ def sym_speed_number(n):
 def sym_speed_number_crossed(n):
     return sym_speed_number(n) + '<line x1="18" y1="82" x2="82" y2="18" stroke="#8a8a8a" stroke-width="6"/>'
 
+def sym_speed_number_grey(n):
+    # 278 Ende der Geschwindigkeitsbegrenzung: number itself is grey (not
+    # solid black) to match the restriction-lifted look of the thin grey
+    # ring in circle_end_restriction() (catalog-audit finding 2026-08-05).
+    return f'<text x="50" y="63" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#8a8a8a" text-anchor="middle">{n}</text>'
+
 def sym_five_stripes():
     lines = "".join(
         f'<line x1="{x}" y1="82" x2="{x+18}" y2="18" stroke="#8a8a8a" stroke-width="5"/>'
@@ -459,8 +477,21 @@ def sym_length(n="10m"):
     return sym_width(n)
 
 def sym_snow_chain():
-    return '''<circle cx="38" cy="50" r="14" fill="none" stroke="#fff" stroke-width="5"/>
-  <circle cx="62" cy="50" r="14" fill="none" stroke="#fff" stroke-width="5"/>'''
+    # 268 Schneekettenpflicht: real sign shows a single wheel/tyre with a
+    # visible chain-link diamond net wrapped over it - two identical open
+    # circles read as an abstract Venn diagram, not tyre chains
+    # (catalog-audit finding 2026-08-05: "illegible, doesn't suggest tire
+    # chains at all").
+    tyre = '<circle cx="50" cy="50" r="24" fill="none" stroke="#fff" stroke-width="6"/>'
+    links = ""
+    import math
+    for i in range(8):
+        a = math.radians(i * 45)
+        x1, y1 = 50 + 16 * math.cos(a), 50 + 16 * math.sin(a)
+        x2, y2 = 50 + 24 * math.cos(a), 50 + 24 * math.sin(a)
+        links += f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#fff" stroke-width="3"/>'
+    net = '<circle cx="50" cy="50" r="16" fill="none" stroke="#fff" stroke-width="3"/>'
+    return tyre + links + net
 
 def sym_house_car():
     # Verkehrsberuhigter Bereich (325.1): simplified house + car + child
@@ -515,8 +546,14 @@ def sym_wheelchair():
     return '<circle cx="46" cy="30" r="7" fill="#fff"/><path d="M46 40 L46 56 L64 56 M46 48 L60 48" stroke="#fff" stroke-width="4" fill="none"/><path d="M46 56 Q46 74 30 74 Q18 74 18 62" stroke="#fff" stroke-width="4" fill="none"/>'
 
 def sym_uturn_ban():
-    return '''<path d="M32 60 Q32 32 56 32 Q76 32 76 50" stroke="#000" stroke-width="6" fill="none"/>
-  <path d="M68 42 L76 50 L84 40" stroke="#000" stroke-width="6" fill="none" stroke-linejoin="round"/>
+    # 272 Verbot des Wendens: real pictogram is a closed "U"-shaped arrow -
+    # a straight segment down on the right, a full semicircular sweep across
+    # the bottom, and a straight segment back up on the left ending in an
+    # arrowhead pointing up - the previous geometry (a shallow top arc plus
+    # a separate hook) read as "turn right" rather than a proper U-turn loop
+    # (catalog-audit finding 2026-08-05).
+    return '''<path d="M66 22 L66 54 A18 18 0 0 1 30 54 L30 32" stroke="#000" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <polygon points="20,40 30,22 40,40" fill="#000"/>
   <line x1="18" y1="82" x2="82" y2="18" stroke="#c0272d" stroke-width="7"/>'''
 
 def sym_min_speed(n="30"):
@@ -530,6 +567,29 @@ def sym_arrow_left(color="#fff"):
 
 def sym_arrow_both(color="#fff"):
     return f'<path d="M22 50 L36 38 L36 46 L64 46 L64 38 L78 50 L64 62 L64 54 L36 54 L36 62 Z" fill="{color}"/>'
+
+def sym_arrow_straight_and_right(color="#fff"):
+    # 214 Vorgeschriebene Fahrtrichtung (geradeaus und rechts): real sign is
+    # a straight-up arrow (tip at top, same shape as sym_arrow_straight) with
+    # a second branch peeling off the shaft and curving right, ending in its
+    # own arrowhead - NOT a left/right choice; fixes a wrong-meaning bug
+    # where sym_arrow_both (a horizontal left-right double arrow) was reused
+    # here (catalog-audit finding 2026-08-05).
+    straight = f'<path d="M50 20 L66 40 L58 40 L58 78 L42 78 L42 40 L34 40 Z" fill="{color}"/>'
+    branch = (
+        f'<path d="M58 58 Q78 58 78 40" stroke="{color}" stroke-width="9" fill="none" stroke-linecap="round"/>'
+        f'<path d="M69 32 L82 37 L73 48 Z" fill="{color}"/>'
+    )
+    return straight + branch
+
+def sym_arrow_bypass_right(color="#fff"):
+    # 222 Vorgeschriebene Vorbeifahrt: real sign shows traffic being routed
+    # AROUND an obstacle (a bent/offset arrow), distinct from the plain
+    # rightward arrow already used for 209/211 - reusing the same icon made
+    # 222 visually indistinguishable from those two unrelated signs
+    # (catalog-audit finding 2026-08-05).
+    return f'''<path d="M26 26 L26 58 Q26 70 38 70 L58 70" stroke="{color}" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M48 58 L64 70 L48 82 Z" fill="{color}"/>'''
 
 def sym_tunnel_shape():
     return '<path d="M20 74 L20 46 Q20 22 50 22 Q80 22 80 46 L80 74" fill="none" stroke="#fff" stroke-width="6"/>'
@@ -742,17 +802,65 @@ def symC_hiker_park():
 
 def symC_house_car_end():
     # 325.2 Ende verkehrsberuhigter Bereich: same pictogram as 325.1's
-    # sym_house_car, with the project's standard grey diagonal "end" line.
-    return sym_house_car() + '<line x1="18" y1="82" x2="82" y2="18" stroke="#8a8a8a" stroke-width="7"/>'
+    # sym_house_car. Real sign uses a RED diagonal line (matching this
+    # project's own already-correct 330.2 Ende der Autobahn via
+    # sym_motorway_end()) - was incorrectly using the grey "end" convention
+    # that belongs to speed/overtaking-restriction signs instead
+    # (catalog-audit finding 2026-08-05).
+    return sym_house_car() + '<line x1="18" y1="82" x2="82" y2="18" stroke="#c0272d" stroke-width="7"/>'
 
 def symC_car_end():
     # 331.2 Ende Kraftfahrstrasse: same car silhouette as 331.1, plus the
-    # grey diagonal "end" line convention.
-    return sym_car_silhouette("#fff") + '<line x1="18" y1="82" x2="82" y2="18" stroke="#8a8a8a" stroke-width="7"/>'
+    # RED diagonal "end" line (matching 330.2's already-correct convention -
+    # catalog-audit finding 2026-08-05, same root cause as 325.2 above).
+    return sym_car_silhouette("#fff") + '<line x1="18" y1="82" x2="82" y2="18" stroke="#c0272d" stroke-width="7"/>'
 
 def symC_waterdrop():
     # 354 Wasserschutzgebiet: simple original water-drop silhouette.
+    # NOTE: superseded by symC_water_truck() below (catalog-audit finding
+    # 2026-08-05: real sign shows a tanker truck over wavy water lines, not
+    # a generic drop) - kept defined in case it's still referenced elsewhere.
     return '<path d="M50 22 C62 40 74 54 74 66 A24 24 0 1 1 26 66 C26 54 38 40 50 22 Z" fill="#fff"/>'
+
+def symC_water_truck():
+    # 354 Wasserschutzgebiet: real sign shows a tanker-truck silhouette over
+    # wavy water lines (catalog-audit finding 2026-08-05).
+    truck = '''<rect x="22" y="32" width="40" height="18" rx="3" fill="#fff"/>
+  <rect x="62" y="36" width="14" height="14" rx="2" fill="#fff"/>
+  <ellipse cx="42" cy="41" rx="16" ry="6" fill="#0058a3"/>
+  <circle cx="34" cy="54" r="5" fill="#fff"/><circle cx="58" cy="54" r="5" fill="#fff"/><circle cx="70" cy="54" r="4" fill="#fff"/>'''
+    water = '''<path d="M16 66 Q26 60 36 66 Q46 72 56 66 Q66 60 84 66" stroke="#fff" stroke-width="4" fill="none"/>
+  <path d="M16 76 Q26 70 36 76 Q46 82 56 76 Q66 70 84 76" stroke="#fff" stroke-width="4" fill="none"/>'''
+    return truck + water
+
+def _inset(symbol, cx=50, cy=36, s=0.5):
+    # Scales/repositions a full-100x100-viewbox pictogram (e.g. sym_pedestrian,
+    # sym_bicycle - shared helpers also used at full scale elsewhere) to fit
+    # inside sign_zone_plate()'s inset circle, without rewriting those shared
+    # helpers.
+    return f'<g transform="translate({cx},{cy}) scale({s}) translate(-50,-50)">{symbol}</g>'
+
+def sign_zone_plate(symbol, label_lines, ended=False):
+    # 242.x/244.x (Fussgaengerzone/Fahrradstrasse Beginn/Ende): real signs
+    # are a white plate with a black border, a solid blue INSET CIRCLE
+    # (not a full-square blue fill) carrying the pictogram, plus printed
+    # text below the circle - the "Ende" variants add a diagonal
+    # black-and-white hatch band across the plate (catalog-audit finding
+    # 2026-08-05: previous version was just square_blue(pictogram), missing
+    # the plate/inset-circle/text entirely).
+    circle = f'<circle cx="50" cy="36" r="26" fill="#0058a3"/>{symbol}'
+    text = "".join(
+        f'<text x="50" y="{72 + i * 13}" font-family="Arial, sans-serif" '
+        f'font-size="11" font-weight="700" fill="#000" text-anchor="middle">{line}</text>'
+        for i, line in enumerate(label_lines)
+    )
+    hatch = ""
+    if ended:
+        hatch = (
+            '<line x1="12" y1="88" x2="88" y2="12" stroke="#000" stroke-width="6"/>'
+            '<line x1="12" y1="88" x2="88" y2="12" stroke="#fff" stroke-width="6" stroke-dasharray="8 8"/>'
+        )
+    return rect_white_black_border(circle + text + hatch)
 
 def symC_guard():
     # 356 Verkehrshelfer: simple original figure holding a stop-paddle.
@@ -910,8 +1018,8 @@ SIGNS = {
     "267": circle_no_entry(sym_no_entry_bar()),
     "274": circle_prohibition(sym_speed_number("50")),
     "276": circle_prohibition(sym_two_cars()),
-    "278": circle_prohibition(sym_speed_number_crossed("50")).replace('stroke="#c0272d"', 'stroke="#8a8a8a"'),
-    "282": circle_prohibition(sym_five_stripes()).replace('stroke="#c0272d"', 'stroke="#8a8a8a"'),
+    "278": circle_end_restriction(sym_speed_number_grey("50")),
+    "282": circle_end_restriction(sym_five_stripes()),
     "283": circle_stopping_ban('<line x1="24" y1="24" x2="76" y2="76" stroke="#c0272d" stroke-width="8"/><line x1="76" y1="24" x2="24" y2="76" stroke="#c0272d" stroke-width="8"/>'),
     "286": circle_stopping_ban('<line x1="26" y1="26" x2="74" y2="74" stroke="#c0272d" stroke-width="8"/>'),
     "293": sym_zebra_marking(),
@@ -952,8 +1060,8 @@ BATCH_A_SIGNS = {
 BATCH_B_SIGNS = {
     # -- mandatory-direction family (circle_mandatory) --
     "211": circle_mandatory(sym_arrow_right()),
-    "214": circle_mandatory(sym_arrow_both()),
-    "222": circle_mandatory(sym_arrow_right()),
+    "214": circle_mandatory(sym_arrow_straight_and_right()),
+    "222": circle_mandatory(sym_arrow_bypass_right()),
     "238": circle_mandatory(sym_horse_rider(color="#fff")),
     "239": circle_mandatory(sym_pedestrian(color="#fff")),
     "268": circle_mandatory(sym_snow_chain()),
@@ -981,10 +1089,10 @@ BATCH_B_SIGNS = {
     "224": square_blue(sym_bus(color="#fff")),
     "229": square_blue(sym_taxi_text()),
     "241": square_blue(symB_bike_ped_split()),
-    "242.1": square_blue(sym_pedestrian(color="#fff")),
-    "242.2": square_blue(symB_pedestrian_end()),
-    "244.1": square_blue(sym_bicycle()),
-    "244.2": square_blue(symB_bicycle_end()),
+    "242.1": sign_zone_plate(_inset(sym_pedestrian(color="#fff")), ["ZONE"]),
+    "242.2": sign_zone_plate(_inset(sym_pedestrian(color="#fff")), ["ZONE"], ended=True),
+    "244.1": sign_zone_plate(_inset(sym_bicycle()), ["Fahrradstrasse"]),
+    "244.2": sign_zone_plate(_inset(sym_bicycle()), ["Fahrradstrasse"], ended=True),
     "245": square_blue(sym_bus(color="#fff")),
     "290.1": circle_stopping_ban('<line x1="26" y1="26" x2="74" y2="74" stroke="#c0272d" stroke-width="8"/>'),
     "290.2": circle_stopping_ban(
@@ -1002,10 +1110,10 @@ BATCH_C_SIGNS = {
     "327": square_blue(sym_tunnel_shape()),
     "331.1": square_blue(sym_car_silhouette("#fff")),
     "331.2": square_blue(symC_car_end()),
-    "354": square_blue(symC_waterdrop()),
+    "354": square_blue(symC_water_truck()),
     "356": square_blue(symC_guard()),
     "358": square_blue(sym_first_aid_cross()),
-    "363": square_blue(sym_police_star()),
+    "363": square_blue(symC_text("Polizei", size=17, color="#fff")),
     "448.1": square_blue(symC_autohof()),
     # -- service-facility signs (6), verified blue-square family --
     "365-fuel": square_blue(sym_fuel_pump()),
