@@ -1,0 +1,202 @@
+{
+  "it_sicherheit-zugriffsschutz-01": {
+    "question": "What property makes a password fundamentally more resistant to automated guessing attacks?",
+    "options": {
+      "a": "It contains the department name, so it's easier to remember",
+      "b": "It is long, unique to this one account, and not easy to guess",
+      "c": "It is replaced every three days with a very similar password",
+      "d": "It consists only of digits, because that speeds up typing"
+    },
+    "explanation": "Length and uniqueness are the key factors against automated guessing and so-called credential stuffing, where stolen login data from other services is tried out. A password tied to the workplace is easy to guess, frequent changes to a very similar password bring little security benefit, and purely numeric passwords have far too few possible combinations."
+  },
+  "it_sicherheit-zugriffsschutz-02": {
+    "question": "Why is multi-factor authentication (MFA) considered significantly more secure than a password alone?",
+    "options": {
+      "a": "Because it makes the password unnecessary and nothing needs to be remembered anymore",
+      "b": "Because it fully protects the account against every kind of attack",
+      "c": "Because even with a stolen password, an attacker would additionally need the second factor",
+      "d": "Because it is technically only possible for administrator accounts"
+    },
+    "explanation": "MFA combines something you know (a password) with something you have (e.g. an app or token) or something you are. A stolen password alone is then no longer enough for an attacker. MFA does not replace the password, does not offer complete protection against every type of attack, and today is available for practically any user account, not only administrator accounts."
+  },
+  "it_sicherheit-zugriffsschutz-03": {
+    "question": "A colleague asks you to briefly use their personal user account and password because their own access is currently locked. How should you respond?",
+    "options": {
+      "a": "Decline, and instead inform IT support or the manager responsible",
+      "b": "Agree, as long as it's only used briefly",
+      "c": "Agree, but afterwards change the colleague's password yourself",
+      "d": "Agree if the task is urgent and no other access seems possible"
+    },
+    "explanation": "Accounts are tied to individuals so that actions in the system can be clearly attributed to one person (accountability). If an account is shared, it becomes impossible afterwards to determine who actually did what - which also makes investigating security incidents much harder. Urgency does not justify an exception; the correct path is to restore proper access through IT support."
+  },
+  "it_sicherheit-zugriffsschutz-04": {
+    "question": "You leave your desk for a short conversation in the next office. What is the correct way to handle your unlocked computer?",
+    "options": {
+      "a": "Do nothing, since it's an internal office building",
+      "b": "Lock the screen before leaving your workstation",
+      "c": "Just close the open document, everything else can stay open",
+      "d": "Turn off the monitor - that's enough protection"
+    },
+    "explanation": "An unlocked computer lets anyone with brief access to the room - including visitors, cleaning staff, or unauthorised third parties - reach every open program and piece of data. Turning off the monitor changes nothing, since the session keeps running in the background. Locking the screen (e.g. via a keyboard shortcut) is a simple, effective baseline measure, regardless of how trustworthy the environment seems."
+  },
+  "it_sicherheit-phishing-01": {
+    "question": "Which of the following is a typical warning sign of a phishing email?",
+    "options": {
+      "a": "The email arrives during normal working hours",
+      "b": "The email includes the company logo as an attachment",
+      "c": "The email creates time pressure and demands an immediate, unusual action",
+      "d": "The email was sent to several colleagues at the same time"
+    },
+    "explanation": "Attackers deliberately rely on artificial time pressure and emotional urgency so that recipients act immediately - clicking a link or handing over data - instead of pausing to think or checking with someone. Logos, normal sending times, or a wider recipient list say nothing on their own about whether a message is genuine, since logos are easily copied and send times or recipient lists can be chosen freely."
+  },
+  "it_sicherheit-phishing-02": {
+    "question": "You receive an email apparently from senior management urgently and confidentially instructing you to transfer a large sum to a new, unfamiliar account. What is the correct first step?",
+    "options": {
+      "a": "Execute the transfer immediately, since instructions from senior management take priority",
+      "b": "Verify the request personally through a known, independent channel (e.g. a phone call) before doing anything",
+      "c": "Reply to the email and ask for written confirmation there",
+      "d": "Make the transfer, but send a smaller amount than requested"
+    },
+    "explanation": "This pattern is often called \"CEO fraud\": attackers impersonate a manager and exploit authority, confidentiality, and time pressure to bypass normal controls. Replying within the same email thread does not help, since the attacker controls exactly that channel. The key step is verification through an independent, already-known contact route - such as a call to a phone number on file - before any payment or action is carried out."
+  },
+  "it_sicherheit-phishing-03": {
+    "question": "An email displays a link that supposedly leads to your company's known login page. What is the most sensible way to check whether the link is trustworthy without clicking it?",
+    "options": {
+      "a": "Hover the mouse over the link (without clicking) and check the actual destination address shown in the status bar",
+      "b": "Click the link and then immediately check whether the page looks genuine",
+      "c": "Check whether the email is written in correct German",
+      "d": "Check the sender name shown in the display field of the email program"
+    },
+    "explanation": "The displayed link text can differ completely from the actual destination address; only hovering with the mouse reveals the real URL in the browser's or email program's status bar. Clicking already carries risk, since some fake pages automatically load malicious code. Flawless language is no longer a reliable indicator, since phishing texts today often look very professional, and the displayed sender name can easily be forged without matching the actual sending address."
+  },
+  "it_sicherheit-phishing-04": {
+    "question": "You clicked a link in a suspicious email and accidentally entered your login credentials there. What is the correct response?",
+    "options": {
+      "a": "Wait and see if anything unusual shows up in the account, and only react then",
+      "b": "Do nothing, since it's probably a harmless one-off",
+      "c": "Change the password in the next few days, whenever there's time",
+      "d": "Change the password immediately and report the incident promptly to the responsible internal contact (e.g. IT security)"
+    },
+    "explanation": "The faster compromised credentials are changed and the incident reported, the smaller the window in which an attacker can misuse the stolen data. Waiting, doing nothing, or delaying unnecessarily increases the risk, especially if the same password is also used for other systems. Reporting to the responsible contact also allows further protective measures to be taken and other staff to be warned."
+  },
+  "it_sicherheit-datensicherung-01": {
+    "question": "Why are regular, scheduled data backups important, even if a device is currently running reliably?",
+    "options": {
+      "a": "Because backups make passwords unnecessary",
+      "b": "Because data can be lost through user error, technical failure, or malware such as ransomware, regardless of how reliable the device currently seems",
+      "c": "Because backups are only required for very old devices",
+      "d": "Because without a backup, the internet connection becomes slower"
+    },
+    "explanation": "A backup protects against very different causes of data loss: accidental deletion, hardware failure, but also ransomware that encrypts files. A device's past reliability says nothing about future failures or attacks. Backups have nothing to do with passwords or internet speed and make sense regardless of a device's age."
+  },
+  "it_sicherheit-datensicherung-02": {
+    "question": "You find an unlabeled USB stick in the company parking lot. What is the correct way to handle it?",
+    "options": {
+      "a": "Plug it into a company computer to find out who it belongs to",
+      "b": "Keep it and use it privately, since no one seems to be missing it",
+      "c": "Do not connect it, and instead hand it over to the IT department or security staff",
+      "d": "Check it on a personal device before deciding what to do"
+    },
+    "explanation": "Unknown USB sticks are a classic entry point for malware: they can be prepared to automatically execute malicious code as soon as they are plugged in, even before any file is opened. This applies to company computers just as much as to personal devices. The safe approach is not to investigate the find yourself, but to hand it to the responsible department, which can examine it under controlled conditions."
+  },
+  "it_sicherheit-datensicherung-03": {
+    "question": "Why should you install security updates for the operating system and applications on your work device promptly when the system offers them?",
+    "options": {
+      "a": "Because updates often close known security vulnerabilities that could otherwise be exploited by attackers",
+      "b": "Because updates mainly improve the look of the user interface",
+      "c": "Because updates only increase the speed of the device",
+      "d": "Because updates are only security-relevant on personally owned devices"
+    },
+    "explanation": "Security vulnerabilities in operating systems and applications are continuously discovered and published; vendors close them through updates. If an update is postponed, the vulnerability remains open, and attackers frequently target exactly the period shortly after it becomes publicly known. Interface design or speed are at most side effects, not the real security reason, and update discipline applies to work devices just as much as to personal ones."
+  },
+  "it_sicherheit-datensicherung-04": {
+    "question": "A colleague recommends a handy, free add-on program from the internet for your company computer. What is the most sensible way to proceed?",
+    "options": {
+      "a": "Install it right away, since it's free and doesn't cost anything",
+      "b": "Install it, but only on the computer, not on the work phone",
+      "c": "Install it, as long as it's downloaded from a well-known website",
+      "d": "Ask the responsible IT department beforehand whether and how the software can be approved"
+    },
+    "explanation": "Unapproved software can contain security vulnerabilities, conflict with other programs, or violate licensing and compliance rules - regardless of whether it's free, which website it comes from, or what type of device it's installed on. The IT department can check whether software can be used safely and in line with policy, and can provide a vetted alternative if needed."
+  },
+  "it_sicherheit-mobil_homeoffice-01": {
+    "question": "Which measure contributes most to securing the home Wi-Fi network for work purposes in a home-office setting?",
+    "options": {
+      "a": "Setting the Wi-Fi network name (SSID) so it sounds inconspicuous",
+      "b": "Using a strong, individual Wi-Fi password and up-to-date encryption (e.g. WPA2/WPA3)",
+      "c": "Only turning the Wi-Fi on during the day and switching it off completely at night",
+      "d": "Keeping the router's factory-default access settings unchanged to avoid mistakes"
+    },
+    "explanation": "A strong, individual password together with modern encryption prevents unauthorised people within range from simply joining the network and reading or tampering with traffic. An inconspicuous network name provides no technical protection, switching the Wi-Fi off at times doesn't solve the underlying problem, and factory-default settings (default passwords, default SSID) are often publicly known and therefore especially insecure."
+  },
+  "it_sicherheit-mobil_homeoffice-02": {
+    "question": "You need to quickly check work email while out and about, and find an open, unencrypted Wi-Fi network in a café. What is the safest way to proceed?",
+    "options": {
+      "a": "Use the open Wi-Fi directly, since checking email is low-risk",
+      "b": "Use the open Wi-Fi, but change your own password beforehand",
+      "c": "Instead of the open Wi-Fi, use a secured connection, such as mobile data or a company VPN",
+      "d": "Use the open Wi-Fi, as long as the café's website shows a padlock icon in the address bar"
+    },
+    "explanation": "In open, unencrypted Wi-Fi networks, traffic can be intercepted or redirected by others on the same network, even if individual websites are themselves encrypted (the padlock icon only covers that one connection, not the whole network). Mobile data or a company VPN establishes an additionally secured, encrypted connection that is far harder to intercept. Changing your password beforehand does not address the actual risk."
+  },
+  "it_sicherheit-mobil_homeoffice-03": {
+    "question": "You are working on a confidential document on your laptop on a train. What should you keep in mind to prevent others from reading over your shoulder?",
+    "options": {
+      "a": "Stay aware of your surroundings and, if needed, use a privacy screen filter or a seating position that limits visibility",
+      "b": "Just zoom the document out smaller so it can't be read from a distance",
+      "c": "Only anonymise the file name, since the content itself isn't sensitive",
+      "d": "Generally treat confidential documents on the go the same as publicly available information"
+    },
+    "explanation": "\"Shoulder surfing\" - other people reading a screen over someone's shoulder - is a real risk in public settings like trains or waiting areas. A privacy screen filter or a well-chosen seating position effectively reduces this risk. Zooming out smaller is not a reliable protection, the file name is not the actual thing that needs protecting, and confidential content always needs appropriate protection regardless of location, not just in the office."
+  },
+  "it_sicherheit-mobil_homeoffice-04": {
+    "question": "You are traveling for work and need to briefly leave your company laptop in a parked car. What is the safest way to handle this?",
+    "options": {
+      "a": "Leave the laptop clearly visible on the passenger seat so it isn't forgotten",
+      "b": "Place the laptop in the not-visible trunk and lock the vehicle, or preferably take it with you entirely",
+      "c": "Hide the laptop under a jacket on the back seat - that's enough protection",
+      "d": "It doesn't matter, as long as the laptop is protected by a user password"
+    },
+    "explanation": "Visible valuables in a car significantly increase the risk of a break-in; a not-visible trunk or taking the device along noticeably reduces this risk. A jacket used as visual cover is unreliable and does not protect against a targeted break-in. A user password partly protects the data on the device if it is stolen, but does not prevent the physical loss of the device itself, and therefore does not replace secure storage."
+  },
+  "it_sicherheit-meldepflicht_it-01": {
+    "question": "You suspect your company computer may be infected with malware, but you're not entirely sure. How should you behave?",
+    "options": {
+      "a": "Wait until there is clear proof, so as not to raise a false alarm",
+      "b": "Report the suspicion promptly to the responsible internal contact (e.g. IT security or the helpdesk), even if you're unsure",
+      "c": "Reinstall the computer yourself and then carry on working as normal",
+      "d": "First ask colleagues whether they've noticed anything similar before reporting anything"
+    },
+    "explanation": "A functioning reporting and response culture requires that even mere suspicions are reported early, rather than waiting for clear proof - the sooner a possible incident becomes known, the better any spread can be contained. Re-installing the computer yourself can destroy important traces needed to determine the cause. Informally asking colleagues first also delays the report unnecessarily and does not replace informing the responsible contact."
+  },
+  "it_sicherheit-meldepflicht_it-02": {
+    "question": "Why does the EU Network and Information Security Directive (NIS2) set such short deadlines for the initial report of a significant security incident (roughly: an early warning within hours, followed by a more detailed report)?",
+    "options": {
+      "a": "So that organisations gain as much time as possible to keep the incident quiet internally",
+      "b": "Because a full technical investigation is never possible anyway",
+      "c": "So that responsible authorities can respond early and other potentially affected organisations can be warned in time",
+      "d": "Because short deadlines apply only to IT service providers, not to their customers"
+    },
+    "explanation": "Short reporting deadlines exist to ensure authorities and other affected parties are informed quickly, so that a spread can be contained and countermeasures coordinated - not to enable internal cover-ups. An initial early report is deliberately allowed to be incomplete and is followed up later; that is exactly the point of a staged reporting process. The reporting obligations apply to affected organisations as a whole, not only to IT service providers."
+  },
+  "it_sicherheit-meldepflicht_it-03": {
+    "question": "Why does a good security culture require employees to report a suspected security incident instead of trying to quietly fix it themselves?",
+    "options": {
+      "a": "Because an individual often cannot see the full scope and cause of an incident, and acting alone can erase evidence or make the problem worse",
+      "b": "Because fixing it yourself is fundamentally a copyright violation",
+      "c": "Because that's the only way to reduce a company's IT security costs",
+      "d": "Because without reporting, employees are automatically made personally liable"
+    },
+    "explanation": "A single incident can be part of a larger pattern - for example, an attack affecting several systems. Someone who tries to solve the problem alone, without reporting it, can destroy important evidence needed to determine the cause, and risks letting the incident spread unnoticed. The other listed reasons (copyright, cost reduction, automatic personal liability) do not describe the actual rationale behind the reporting requirement."
+  },
+  "it_sicherheit-meldepflicht_it-04": {
+    "question": "You're unsure who in the company is responsible for reporting a suspected IT security incident. What is the most sensible approach?",
+    "options": {
+      "a": "Post about the incident in a public internal chat channel so that someone sees it",
+      "b": "Wait until someone else happens to notice the problem and reports it",
+      "c": "Describe the incident on social media to get quick attention",
+      "d": "Use the company's established reporting channels (e.g. IT support, security officer, or line manager), or ask your own manager if in doubt"
+    },
+    "explanation": "A prepared reporting process with clearly responsible contacts ensures an incident reaches the right people quickly, so appropriate countermeasures can be taken. A public chat channel or social media are unsuitable and could additionally make the incident public or tip off attackers. Waiting delays the response unnecessarily; when in doubt, your own manager is always a sensible first point of contact for finding the correct reporting channel."
+  }
+}

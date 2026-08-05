@@ -326,6 +326,158 @@
           }
         }
       ]
+    },
+    {
+      "exam_type": "datenschutz",
+      "label": {
+        "de": "Datenschutz",
+        "en": "Data protection",
+        "uk": "Захист даних",
+        "pl": "Ochrona danych",
+        "ar": "حماية البيانات",
+        "zh": "数据保护",
+        "hi": "डेटा सुरक्षा",
+        "tr": "Veri koruma",
+        "fr": "Protection des données",
+        "ru": "Защита данных",
+        "es": "Protección de datos",
+        "it": "Protezione dei dati"
+      },
+      "_comment": "DN-44: first of 4 fully separate workplace-compliance modules (PO decision - not one module with topic options). scopeKind 'class' with a single 'ALL' option is a placeholder scope, since there's no class/region dimension for compliance training yet - kept so the existing module architecture (build_modules.py, questionMatchesScope) needs zero special-casing.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "arbeitssicherheit",
+      "label": {
+        "de": "Arbeitssicherheit",
+        "en": "Occupational safety",
+        "uk": "Охорона праці",
+        "pl": "Bezpieczeństwo pracy",
+        "ar": "السلامة المهنية",
+        "zh": "职业安全",
+        "hi": "व्यावसायिक सुरक्षा",
+        "tr": "İş güvenliği",
+        "fr": "Sécurité au travail",
+        "ru": "Охрана труда",
+        "es": "Seguridad laboral",
+        "it": "Sicurezza sul lavoro"
+      },
+      "_comment": "DN-44: second of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "ki_act",
+      "label": {
+        "de": "KI-Verordnung",
+        "en": "AI Act",
+        "uk": "Закон про ШІ",
+        "pl": "Akt o sztucznej inteligencji",
+        "ar": "قانون الذكاء الاصطناعي",
+        "zh": "人工智能法案",
+        "hi": "एआई अधिनियम",
+        "tr": "Yapay Zeka Yasası",
+        "fr": "Règlement sur l'IA",
+        "ru": "Закон об ИИ",
+        "es": "Ley de IA",
+        "it": "Legge sull'IA"
+      },
+      "_comment": "DN-44: third of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "it_sicherheit",
+      "label": {
+        "de": "IT-Sicherheit",
+        "en": "IT security",
+        "uk": "ІТ-безпека",
+        "pl": "Bezpieczeństwo IT",
+        "ar": "أمن تقنية المعلومات",
+        "zh": "IT安全",
+        "hi": "आईटी सुरक्षा",
+        "tr": "BT güvenliği",
+        "fr": "Sécurité informatique",
+        "ru": "ИТ-безопасность",
+        "es": "Seguridad informática",
+        "it": "Sicurezza IT"
+      },
+      "_comment": "DN-44: fourth of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
     }
   ]
 }

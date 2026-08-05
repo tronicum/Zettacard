@@ -117,10 +117,32 @@ def main():
         os.path.join(HERE, "lkw_pilot.json"), "lkw", lkw_locales)
     print(f"lkw: {lkw_count} questions, locale gaps: {lkw_missing}")
 
+    # DN-44: 4 fully separate workplace-compliance modules, first pilot batch
+    # (20 questions each, DE/EN) - infra-first per PO decision, content is
+    # deliberately a first pilot batch like Angelschein's DN-11 was, not a
+    # full-scale batch yet.
+    compliance_locales = ["de", "en"]
+    dsg_count, dsg_missing = split_module(
+        os.path.join(HERE, "datenschutz_pilot.json"), "datenschutz", compliance_locales)
+    print(f"datenschutz: {dsg_count} questions, locale gaps: {dsg_missing}")
+
+    asig_count, asig_missing = split_module(
+        os.path.join(HERE, "arbeitssicherheit_pilot.json"), "arbeitssicherheit", compliance_locales)
+    print(f"arbeitssicherheit: {asig_count} questions, locale gaps: {asig_missing}")
+
+    kiact_count, kiact_missing = split_module(
+        os.path.join(HERE, "ki_act_pilot.json"), "ki_act", compliance_locales)
+    print(f"ki_act: {kiact_count} questions, locale gaps: {kiact_missing}")
+
+    itsec_count, itsec_missing = split_module(
+        os.path.join(HERE, "it_sicherheit_pilot.json"), "it_sicherheit", compliance_locales)
+    print(f"it_sicherheit: {itsec_count} questions, locale gaps: {itsec_missing}")
+
     # Sanity: every core question must resolve in at least its canonical
     # locale, and every core question's scope field must be present -
     # otherwise the app would silently render a blank question.
-    for exam_type in ("fuehrerschein", "angelschein", "motorrad", "lkw"):
+    for exam_type in ("fuehrerschein", "angelschein", "motorrad", "lkw",
+                       "datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit"):
         core = json.load(open(os.path.join(APP_DATA, exam_type, "core.json"), encoding="utf-8"))
         for q in core["questions"]:
             if not any(sf in q for sf in SCOPE_FIELDS):

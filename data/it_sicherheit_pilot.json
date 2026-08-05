@@ -1,0 +1,760 @@
+{
+  "meta": {
+    "app": "drivenow / it-sicherheit-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-05",
+    "description": "Original MCQs for a workplace IT-security / cyber-hygiene awareness module aimed at general employees (no IT-specialist or audit-level detail). Content is independently phrased and grounded in publicly available guidance: BSI IT-Grundschutz-Kompendium Bausteine (e.g. ORP.3, ORP.4, CON.3, DER.2.1, OPS.1.2.4, SYS.3.2.1) and BSI consumer/employee phishing guidance, ISO/IEC 27001:2022 Annex A control themes described conceptually (not a certification-exam simulation), and the EU NIS2 Directive's general employee-relevant obligations (Art. 21(2)(g) cyber hygiene practices and training; Art. 23 incident reporting timelines). This is a fully independent exam module from Fuehrerschein (Klasse B), Motorrad and Angelschein - separate content pool, separate exam simulation. Locales: de (canonical), en (reviewed translation) for this first round.",
+    "class": "ALL",
+    "locales": ["de", "en"],
+    "canonical_locale": "de",
+    "point_system": "2-5 points per question, matching this app's existing style",
+    "pass_rule_note": "Provisional: same generic mechanics as this app's other modules (30 questions per simulation run, max 10 error points, auto-fail on 2+ wrong high_stakes) used as a placeholder pending a real workplace-training design pass - see legal_review_status.",
+    "legal_review_status": "NOT legally reviewed - verify BSI/ISO/NIS2 references and currency before production/commercial use",
+    "total_questions": 20,
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome."
+  },
+  "questions": [
+    {
+      "id": "it_sicherheit-zugriffsschutz-01",
+      "topic": "Zugriffsschutz",
+      "topic_code": "zugriffsschutz",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein ORP.4 (Identitäts- und Berechtigungsmanagement)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Welche Eigenschaft macht ein Passwort grundsätzlich sicherer gegen automatisierte Rateangriffe?",
+          "options": {
+            "a": "Es enthält den Namen der Abteilung, damit man es sich leichter merken kann",
+            "b": "Es ist lang, einzigartig für diesen einen Account und nicht leicht zu erraten",
+            "c": "Es wird alle drei Tage durch ein sehr ähnliches Passwort ersetzt",
+            "d": "Es besteht nur aus Ziffern, weil das die Eingabe beschleunigt"
+          }
+        },
+        "en": {
+          "question": "What property makes a password fundamentally more resistant to automated guessing attacks?",
+          "options": {
+            "a": "It contains the department name, so it's easier to remember",
+            "b": "It is long, unique to this one account, and not easy to guess",
+            "c": "It is replaced every three days with a very similar password",
+            "d": "It consists only of digits, because that speeds up typing"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Länge und Einzigartigkeit sind die wichtigsten Faktoren gegen automatisiertes Ausprobieren und gegen sogenanntes Credential Stuffing, bei dem gestohlene Zugangsdaten aus anderen Diensten ausprobiert werden. Ein Passwort mit Bezug zum Arbeitsplatz ist leicht zu erraten, häufiges Wechseln auf ein sehr ähnliches Passwort bringt kaum Sicherheitsgewinn, und rein numerische Passwörter haben zu wenig mögliche Kombinationen.",
+          "en": "Length and uniqueness are the key factors against automated guessing and so-called credential stuffing, where stolen login data from other services is tried out. A password tied to the workplace is easy to guess, frequent changes to a very similar password bring little security benefit, and purely numeric passwords have far too few possible combinations."
+      }
+    },
+    {
+      "id": "it_sicherheit-zugriffsschutz-02",
+      "topic": "Zugriffsschutz",
+      "topic_code": "zugriffsschutz",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "ISO/IEC 27001:2022, Anhang A, Control 8.5 (Sichere Authentifizierung)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": {
+          "question": "Warum gilt Multi-Faktor-Authentifizierung (MFA) als deutlich sicherer als ein Passwort allein?",
+          "options": {
+            "a": "Weil sie das Passwort überflüssig macht und man sich nichts mehr merken muss",
+            "b": "Weil sie das Konto vor allen Arten von Angriffen vollständig schützt",
+            "c": "Weil ein Angreifer selbst bei einem gestohlenen Passwort zusätzlich den zweiten Faktor bräuchte",
+            "d": "Weil sie ausschließlich für Administratorkonten technisch möglich ist"
+          }
+        },
+        "en": {
+          "question": "Why is multi-factor authentication (MFA) considered significantly more secure than a password alone?",
+          "options": {
+            "a": "Because it makes the password unnecessary and nothing needs to be remembered anymore",
+            "b": "Because it fully protects the account against every kind of attack",
+            "c": "Because even with a stolen password, an attacker would additionally need the second factor",
+            "d": "Because it is technically only possible for administrator accounts"
+          }
+        }
+      },
+      "explanation": {
+        "de": "MFA kombiniert etwas, das man weiß (Passwort), mit etwas, das man besitzt (z. B. eine App oder ein Token) oder ist. Ein gestohlenes Passwort allein reicht einem Angreifer damit nicht mehr aus. MFA ersetzt das Passwort nicht, bietet keinen vollständigen Schutz gegen jede Angriffsart und ist heute für praktisch jedes Nutzerkonto verfügbar, nicht nur für Administratoren.",
+        "en": "MFA combines something you know (a password) with something you have (e.g. an app or token) or something you are. A stolen password alone is then no longer enough for an attacker. MFA does not replace the password, does not offer complete protection against every type of attack, and today is available for practically any user account, not only administrator accounts."
+      }
+    },
+    {
+      "id": "it_sicherheit-zugriffsschutz-03",
+      "topic": "Zugriffsschutz",
+      "topic_code": "zugriffsschutz",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein ORP.4 (Identitäts- und Berechtigungsmanagement)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["a"],
+      "text": {
+        "de": {
+          "question": "Ein Kollege bittet Sie, kurz sein persönliches Benutzerkonto samt Passwort mitzubenutzen, weil sein eigener Zugang gerade gesperrt ist. Wie sollten Sie reagieren?",
+          "options": {
+            "a": "Ablehnen und stattdessen den zuständigen IT-Support oder die Führungskraft informieren",
+            "b": "Zustimmen, solange nur kurzfristig damit gearbeitet wird",
+            "c": "Zustimmen, aber danach das Passwort des Kollegen selbst ändern",
+            "d": "Zustimmen, wenn die Aufgabe dringend ist und kein anderer Zugang möglich erscheint"
+          }
+        },
+        "en": {
+          "question": "A colleague asks you to briefly use their personal user account and password because their own access is currently locked. How should you respond?",
+          "options": {
+            "a": "Decline, and instead inform IT support or the manager responsible",
+            "b": "Agree, as long as it's only used briefly",
+            "c": "Agree, but afterwards change the colleague's password yourself",
+            "d": "Agree if the task is urgent and no other access seems possible"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Konten sind personenbezogen, damit Handlungen im System eindeutig einer Person zuordenbar bleiben (Nachvollziehbarkeit). Wird ein Konto geteilt, lässt sich im Nachhinein nicht mehr klären, wer was getan hat - das erschwert auch die Aufklärung von Sicherheitsvorfällen erheblich. Dringlichkeit rechtfertigt keine Ausnahme; der richtige Weg ist, den eigentlichen Zugriffsweg über IT-Support wiederherzustellen.",
+        "en": "Accounts are tied to individuals so that actions in the system can be clearly attributed to one person (accountability). If an account is shared, it becomes impossible afterwards to determine who actually did what - which also makes investigating security incidents much harder. Urgency does not justify an exception; the correct path is to restore proper access through IT support."
+      }
+    },
+    {
+      "id": "it_sicherheit-zugriffsschutz-04",
+      "topic": "Zugriffsschutz",
+      "topic_code": "zugriffsschutz",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein ORP.4 (Identitäts- und Berechtigungsmanagement)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Sie verlassen Ihren Arbeitsplatz für ein kurzes Gespräch im Nachbarbüro. Was ist der richtige Umgang mit Ihrem entsperrten Computer?",
+          "options": {
+            "a": "Nichts unternehmen, da es sich um ein internes Bürogebäude handelt",
+            "b": "Den Bildschirm sperren, bevor Sie den Arbeitsplatz verlassen",
+            "c": "Nur das geöffnete Dokument schließen, der Rest kann offen bleiben",
+            "d": "Den Monitor ausschalten, das genügt als Schutz"
+          }
+        },
+        "en": {
+          "question": "You leave your desk for a short conversation in the next office. What is the correct way to handle your unlocked computer?",
+          "options": {
+            "a": "Do nothing, since it's an internal office building",
+            "b": "Lock the screen before leaving your workstation",
+            "c": "Just close the open document, everything else can stay open",
+            "d": "Turn off the monitor - that's enough protection"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Ein entsperrter Rechner erlaubt jedem, der kurz Zugang zum Raum hat - auch Besuchern, Reinigungspersonal oder unbefugten Dritten -, auf alle geöffneten Programme und Daten zuzugreifen. Ein ausgeschalteter Monitor ändert daran nichts, da die Sitzung im Hintergrund weiterläuft. Bildschirmsperren (z. B. per Tastenkürzel) sind eine einfache, wirksame Basismaßnahme, unabhängig davon, wie vertrauenswürdig die Umgebung erscheint.",
+        "en": "An unlocked computer lets anyone with brief access to the room - including visitors, cleaning staff, or unauthorised third parties - reach every open program and piece of data. Turning off the monitor changes nothing, since the session keeps running in the background. Locking the screen (e.g. via a keyboard shortcut) is a simple, effective baseline measure, regardless of how trustworthy the environment seems."
+      }
+    },
+    {
+      "id": "it_sicherheit-phishing-01",
+      "topic": "Phishing",
+      "topic_code": "phishing",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI, Verbraucherinformation \"Wie erkenne ich Phishing in E-Mails und auf Webseiten?\" (bsi.bund.de)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": {
+          "question": "Welches der folgenden Merkmale ist ein typisches Warnsignal für eine Phishing-E-Mail?",
+          "options": {
+            "a": "Die E-Mail kommt während der üblichen Arbeitszeit an",
+            "b": "Die E-Mail enthält das Firmenlogo im Anhang",
+            "c": "Die E-Mail erzeugt Zeitdruck und fordert zu einer sofortigen, unüblichen Handlung auf",
+            "d": "Die E-Mail wurde an mehrere Kollegen gleichzeitig verschickt"
+          }
+        },
+        "en": {
+          "question": "Which of the following is a typical warning sign of a phishing email?",
+          "options": {
+            "a": "The email arrives during normal working hours",
+            "b": "The email includes the company logo as an attachment",
+            "c": "The email creates time pressure and demands an immediate, unusual action",
+            "d": "The email was sent to several colleagues at the same time"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Angreifer setzen gezielt auf künstlichen Zeitdruck und emotionale Dringlichkeit, damit Empfänger nicht in Ruhe nachdenken oder Rücksprache halten, sondern sofort handeln - etwa auf einen Link klicken oder Daten preisgeben. Logos, normale Versandzeiten oder ein größerer Empfängerkreis sagen für sich genommen nichts über die Echtheit einer Nachricht aus, da Logos leicht kopiert und Versandzeiten sowie Empfängerlisten beliebig gewählt werden können.",
+        "en": "Attackers deliberately rely on artificial time pressure and emotional urgency so that recipients act immediately - clicking a link or handing over data - instead of pausing to think or checking with someone. Logos, normal sending times, or a wider recipient list say nothing on their own about whether a message is genuine, since logos are easily copied and send times or recipient lists can be chosen freely."
+      }
+    },
+    {
+      "id": "it_sicherheit-phishing-02",
+      "topic": "Phishing",
+      "topic_code": "phishing",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI, Verbraucherinformation \"Wie erkenne ich Phishing in E-Mails und auf Webseiten?\" (bsi.bund.de)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Sie erhalten scheinbar von der Geschäftsführung eine E-Mail, die Sie auffordert, dringend und vertraulich eine hohe Summe an ein neues, unbekanntes Konto zu überweisen. Was ist der richtige erste Schritt?",
+          "options": {
+            "a": "Die Überweisung sofort ausführen, da Anweisungen der Geschäftsführung Vorrang haben",
+            "b": "Die Anfrage über einen bekannten, unabhängigen Kanal (z. B. Telefonanruf) persönlich verifizieren, bevor irgendetwas geschieht",
+            "c": "Auf die E-Mail antworten und dort nach einer schriftlichen Bestätigung fragen",
+            "d": "Die Überweisung durchführen, aber einen kleineren Betrag als angefordert senden"
+          }
+        },
+        "en": {
+          "question": "You receive an email apparently from senior management urgently and confidentially instructing you to transfer a large sum to a new, unfamiliar account. What is the correct first step?",
+          "options": {
+            "a": "Execute the transfer immediately, since instructions from senior management take priority",
+            "b": "Verify the request personally through a known, independent channel (e.g. a phone call) before doing anything",
+            "c": "Reply to the email and ask for written confirmation there",
+            "d": "Make the transfer, but send a smaller amount than requested"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Dieses Muster wird häufig als \"CEO-Fraud\" bezeichnet: Angreifer geben sich als Führungskraft aus und nutzen Autorität, Vertraulichkeit und Zeitdruck, um Kontrollen zu umgehen. Eine Antwort innerhalb derselben E-Mail-Konversation hilft nicht, da der Angreifer genau diesen Kanal kontrolliert. Entscheidend ist die Verifikation über einen unabhängigen, bereits bekannten Kontaktweg - etwa ein Anruf unter einer hinterlegten Telefonnummer -, bevor irgendeine Zahlung oder Handlung erfolgt.",
+        "en": "This pattern is often called \"CEO fraud\": attackers impersonate a manager and exploit authority, confidentiality, and time pressure to bypass normal controls. Replying within the same email thread does not help, since the attacker controls exactly that channel. The key step is verification through an independent, already-known contact route - such as a call to a phone number on file - before any payment or action is carried out."
+      }
+    },
+    {
+      "id": "it_sicherheit-phishing-03",
+      "topic": "Phishing",
+      "topic_code": "phishing",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI, Verbraucherinformation \"Wie schützt man sich gegen Phishing?\" (bsi.bund.de)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["a"],
+      "text": {
+        "de": {
+          "question": "In einer E-Mail wird ein Link angezeigt, der angeblich zur bekannten Login-Seite Ihres Unternehmens führt. Wie prüfen Sie am sinnvollsten, ob der Link vertrauenswürdig ist, ohne ihn anzuklicken?",
+          "options": {
+            "a": "Mit der Maus über den Link fahren (ohne zu klicken) und die tatsächliche Zieladresse in der Statusanzeige prüfen",
+            "b": "Den Link anklicken und dann sofort schauen, ob die Seite echt aussieht",
+            "c": "Prüfen, ob die E-Mail in korrektem Deutsch geschrieben ist",
+            "d": "Den Absendernamen im Anzeigefeld des E-Mail-Programms kontrollieren"
+          }
+        },
+        "en": {
+          "question": "An email displays a link that supposedly leads to your company's known login page. What is the most sensible way to check whether the link is trustworthy without clicking it?",
+          "options": {
+            "a": "Hover the mouse over the link (without clicking) and check the actual destination address shown in the status bar",
+            "b": "Click the link and then immediately check whether the page looks genuine",
+            "c": "Check whether the email is written in correct German",
+            "d": "Check the sender name shown in the display field of the email program"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Der angezeigte Linktext kann beliebig von der tatsächlichen Zieladresse abweichen; erst das Überfahren mit der Maus zeigt die reale URL in der Statusleiste des Browsers oder E-Mail-Programms. Anklicken birgt bereits ein Risiko, da manche gefälschten Seiten automatisch Schadcode laden. Fehlerfreie Sprache ist kein verlässliches Kriterium mehr, da Phishing-Texte heute oft sehr professionell wirken, und der angezeigte Absendername lässt sich leicht fälschen, ohne dass die tatsächliche Absenderadresse dazu passt.",
+        "en": "The displayed link text can differ completely from the actual destination address; only hovering with the mouse reveals the real URL in the browser's or email program's status bar. Clicking already carries risk, since some fake pages automatically load malicious code. Flawless language is no longer a reliable indicator, since phishing texts today often look very professional, and the displayed sender name can easily be forged without matching the actual sending address."
+      }
+    },
+    {
+      "id": "it_sicherheit-phishing-04",
+      "topic": "Phishing",
+      "topic_code": "phishing",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein DER.2.1 (Behandlung von Sicherheitsvorfällen)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["d"],
+      "text": {
+        "de": {
+          "question": "Sie haben auf einen Link in einer verdächtigen E-Mail geklickt und dort versehentlich Ihre Zugangsdaten eingegeben. Was ist die richtige Reaktion?",
+          "options": {
+            "a": "Abwarten, ob sich etwas Ungewöhnliches im Konto zeigt, und erst dann reagieren",
+            "b": "Nichts tun, da es sich vermutlich um einen harmlosen Einzelfall handelt",
+            "c": "Das Passwort in den nächsten Tagen ändern, wenn Zeit dafür ist",
+            "d": "Sofort das Passwort ändern und den Vorfall umgehend der zuständigen internen Stelle (z. B. IT-Sicherheit) melden"
+          }
+        },
+        "en": {
+          "question": "You clicked a link in a suspicious email and accidentally entered your login credentials there. What is the correct response?",
+          "options": {
+            "a": "Wait and see if anything unusual shows up in the account, and only react then",
+            "b": "Do nothing, since it's probably a harmless one-off",
+            "c": "Change the password in the next few days, whenever there's time",
+            "d": "Change the password immediately and report the incident promptly to the responsible internal contact (e.g. IT security)"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Je schneller ein kompromittiertes Zugangsdatum geändert und der Vorfall gemeldet wird, desto kleiner bleibt das Zeitfenster, in dem ein Angreifer die gestohlenen Daten missbrauchen kann. Abwarten, Nichtstun oder Verzögern erhöht das Risiko unnötig, insbesondere wenn dasselbe Passwort auch für weitere Systeme genutzt wird. Die Meldung an die zuständige Stelle ermöglicht zusätzlich, weitere Schutzmaßnahmen einzuleiten und andere Beschäftigte zu warnen.",
+        "en": "The faster compromised credentials are changed and the incident reported, the smaller the window in which an attacker can misuse the stolen data. Waiting, doing nothing, or delaying unnecessarily increases the risk, especially if the same password is also used for other systems. Reporting to the responsible contact also allows further protective measures to be taken and other staff to be warned."
+      }
+    },
+    {
+      "id": "it_sicherheit-datensicherung-01",
+      "topic": "Datensicherung und Geräteumgang",
+      "topic_code": "datensicherung",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein CON.3 (Datensicherungskonzept)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Warum sind regelmäßige, geplante Datensicherungen (Backups) wichtig, auch wenn ein Gerät technisch zuverlässig läuft?",
+          "options": {
+            "a": "Weil Backups die Notwendigkeit von Passwörtern ersetzen",
+            "b": "Weil Daten auch durch Fehlbedienung, technischen Defekt oder Schadsoftware wie Ransomware verloren gehen können, unabhängig von der aktuellen Zuverlässigkeit des Geräts",
+            "c": "Weil Backups ausschließlich für sehr alte Geräte vorgeschrieben sind",
+            "d": "Weil ohne Backup die Internetverbindung langsamer wird"
+          }
+        },
+        "en": {
+          "question": "Why are regular, scheduled data backups important, even if a device is currently running reliably?",
+          "options": {
+            "a": "Because backups make passwords unnecessary",
+            "b": "Because data can be lost through user error, technical failure, or malware such as ransomware, regardless of how reliable the device currently seems",
+            "c": "Because backups are only required for very old devices",
+            "d": "Because without a backup, the internet connection becomes slower"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Ein Backup schützt vor ganz unterschiedlichen Ursachen für Datenverlust: versehentliches Löschen, Hardwaredefekte, aber auch Ransomware, die Dateien verschlüsselt. Die bisherige Zuverlässigkeit eines Geräts sagt nichts über zukünftige Ausfälle oder Angriffe aus. Backups haben nichts mit Passwörtern oder Internetgeschwindigkeit zu tun und sind unabhängig vom Alter des Geräts sinnvoll.",
+        "en": "A backup protects against very different causes of data loss: accidental deletion, hardware failure, but also ransomware that encrypts files. A device's past reliability says nothing about future failures or attacks. Backups have nothing to do with passwords or internet speed and make sense regardless of a device's age."
+      }
+    },
+    {
+      "id": "it_sicherheit-datensicherung-02",
+      "topic": "Datensicherung und Geräteumgang",
+      "topic_code": "datensicherung",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein SYS.3.2.1 (Allgemeine Smartphones und Tablets - übertragbares Grundprinzip auf Wechseldatenträger)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": {
+          "question": "Sie finden auf dem Firmenparkplatz einen USB-Stick ohne Kennzeichnung. Was ist der richtige Umgang damit?",
+          "options": {
+            "a": "Den Stick an einem Firmenrechner einstecken, um herauszufinden, wem er gehört",
+            "b": "Den Stick mitnehmen und privat weiterverwenden, da niemand ihn vermisst",
+            "c": "Den Stick nicht anschließen, sondern der IT-Abteilung oder dem Sicherheitspersonal übergeben",
+            "d": "Den Stick an einem privaten Gerät prüfen, bevor eine Entscheidung getroffen wird"
+          }
+        },
+        "en": {
+          "question": "You find an unlabeled USB stick in the company parking lot. What is the correct way to handle it?",
+          "options": {
+            "a": "Plug it into a company computer to find out who it belongs to",
+            "b": "Keep it and use it privately, since no one seems to be missing it",
+            "c": "Do not connect it, and instead hand it over to the IT department or security staff",
+            "d": "Check it on a personal device before deciding what to do"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Unbekannte USB-Sticks sind ein klassisches Einfallstor für Schadsoftware: Sie können so präpariert sein, dass sie beim Einstecken automatisch Schadcode ausführen, auch bevor eine Datei geöffnet wird. Das gilt für Firmenrechner ebenso wie für private Geräte. Der sichere Weg ist, den Fund nicht selbst zu untersuchen, sondern an die zuständige Stelle weiterzugeben, die ihn kontrolliert prüfen kann.",
+        "en": "Unknown USB sticks are a classic entry point for malware: they can be prepared to automatically execute malicious code as soon as they are plugged in, even before any file is opened. This applies to company computers just as much as to personal devices. The safe approach is not to investigate the find yourself, but to hand it to the responsible department, which can examine it under controlled conditions."
+      }
+    },
+    {
+      "id": "it_sicherheit-datensicherung-03",
+      "topic": "Datensicherung und Geräteumgang",
+      "topic_code": "datensicherung",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein ORP.4; NIS2-Richtlinie, Art. 21 Abs. 2 Buchst. g (grundlegende Cyberhygiene-Verfahren)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["a"],
+      "text": {
+        "de": {
+          "question": "Warum sollten Sie Sicherheitsupdates für Betriebssystem und Programme auf Ihrem Arbeitsgerät zeitnah installieren, wenn das System es anbietet?",
+          "options": {
+            "a": "Weil Updates häufig bekannt gewordene Sicherheitslücken schließen, die sonst von Angreifern ausgenutzt werden können",
+            "b": "Weil Updates hauptsächlich das Design der Benutzeroberfläche verbessern",
+            "c": "Weil Updates ausschließlich die Geschwindigkeit des Geräts erhöhen",
+            "d": "Weil Updates nur bei privat genutzten Geräten sicherheitsrelevant sind"
+          }
+        },
+        "en": {
+          "question": "Why should you install security updates for the operating system and applications on your work device promptly when the system offers them?",
+          "options": {
+            "a": "Because updates often close known security vulnerabilities that could otherwise be exploited by attackers",
+            "b": "Because updates mainly improve the look of the user interface",
+            "c": "Because updates only increase the speed of the device",
+            "d": "Because updates are only security-relevant on personally owned devices"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Sicherheitslücken in Betriebssystemen und Anwendungen werden fortlaufend entdeckt und veröffentlicht; Hersteller schließen sie über Updates. Wird ein Update aufgeschoben, bleibt die Lücke offen, und Angreifer nutzen häufig gerade den Zeitraum kurz nach Bekanntwerden gezielt aus. Oberflächengestaltung oder Geschwindigkeit sind allenfalls Nebeneffekte, nicht der eigentliche Sicherheitsgrund, und die Update-Disziplin gilt für dienstliche Geräte genauso wie für private.",
+        "en": "Security vulnerabilities in operating systems and applications are continuously discovered and published; vendors close them through updates. If an update is postponed, the vulnerability remains open, and attackers frequently target exactly the period shortly after it becomes publicly known. Interface design or speed are at most side effects, not the real security reason, and update discipline applies to work devices just as much as to personal ones."
+      }
+    },
+    {
+      "id": "it_sicherheit-datensicherung-04",
+      "topic": "Datensicherung und Geräteumgang",
+      "topic_code": "datensicherung",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein ORP.4; ISO/IEC 27001:2022, Anhang A, Control 8.19 (Softwareinstallation auf Systemen im Betrieb - konzeptionell)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["d"],
+      "text": {
+        "de": {
+          "question": "Ein Kollege empfiehlt Ihnen ein praktisches, kostenloses Zusatzprogramm aus dem Internet für Ihren Firmenrechner. Wie gehen Sie am sinnvollsten vor?",
+          "options": {
+            "a": "Das Programm sofort installieren, da es kostenlos ist und keine Kosten verursacht",
+            "b": "Das Programm installieren, aber nur auf dem Rechner, nicht auf dem Diensthandy",
+            "c": "Das Programm installieren, solange es von einer bekannten Webseite heruntergeladen wird",
+            "d": "Vor der Installation die zuständige IT-Stelle fragen, ob und wie die Software freigegeben werden kann"
+          }
+        },
+        "en": {
+          "question": "A colleague recommends a handy, free add-on program from the internet for your company computer. What is the most sensible way to proceed?",
+          "options": {
+            "a": "Install it right away, since it's free and doesn't cost anything",
+            "b": "Install it, but only on the computer, not on the work phone",
+            "c": "Install it, as long as it's downloaded from a well-known website",
+            "d": "Ask the responsible IT department beforehand whether and how the software can be approved"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Nicht freigegebene Software kann Sicherheitslücken enthalten, mit anderen Programmen in Konflikt geraten oder gegen Lizenz- und Compliance-Vorgaben verstoßen - unabhängig davon, ob sie kostenlos ist, von welcher Webseite sie stammt oder auf welchem Gerätetyp sie installiert wird. Die IT-Abteilung kann prüfen, ob eine Software sicher und regelkonform eingesetzt werden kann, und gegebenenfalls eine geprüfte Alternative bereitstellen.",
+        "en": "Unapproved software can contain security vulnerabilities, conflict with other programs, or violate licensing and compliance rules - regardless of whether it's free, which website it comes from, or what type of device it's installed on. The IT department can check whether software can be used safely and in line with policy, and can provide a vetted alternative if needed."
+      }
+    },
+    {
+      "id": "it_sicherheit-mobil_homeoffice-01",
+      "topic": "Mobile Geräte und Homeoffice",
+      "topic_code": "mobil_homeoffice",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein OPS.1.2.4 (Telearbeit)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Welche Maßnahme trägt am meisten dazu bei, das heimische WLAN für dienstliche Arbeit im Homeoffice abzusichern?",
+          "options": {
+            "a": "Den Namen (SSID) des WLANs so einstellen, dass er unauffällig klingt",
+            "b": "Ein starkes, individuelles WLAN-Passwort und eine aktuelle Verschlüsselung (z. B. WPA2/WPA3) verwenden",
+            "c": "Das WLAN nur tagsüber einschalten und nachts komplett abschalten",
+            "d": "Den werkseitig voreingestellten Router-Zugang unverändert beibehalten, um Fehler zu vermeiden"
+          }
+        },
+        "en": {
+          "question": "Which measure contributes most to securing the home Wi-Fi network for work purposes in a home-office setting?",
+          "options": {
+            "a": "Setting the Wi-Fi network name (SSID) so it sounds inconspicuous",
+            "b": "Using a strong, individual Wi-Fi password and up-to-date encryption (e.g. WPA2/WPA3)",
+            "c": "Only turning the Wi-Fi on during the day and switching it off completely at night",
+            "d": "Keeping the router's factory-default access settings unchanged to avoid mistakes"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Ein starkes, individuelles Passwort zusammen mit moderner Verschlüsselung verhindert, dass Unbefugte in Reichweite sich einfach ins Netzwerk einklinken und den Datenverkehr mitlesen oder manipulieren können. Ein unauffälliger Netzwerkname bietet keinen technischen Schutz, ein zeitweises Abschalten löst das Grundproblem nicht, und werkseitige Voreinstellungen (Standardpasswörter, Standard-SSID) sind oft öffentlich bekannt und daher besonders unsicher.",
+        "en": "A strong, individual password together with modern encryption prevents unauthorised people within range from simply joining the network and reading or tampering with traffic. An inconspicuous network name provides no technical protection, switching the Wi-Fi off at times doesn't solve the underlying problem, and factory-default settings (default passwords, default SSID) are often publicly known and therefore especially insecure."
+      }
+    },
+    {
+      "id": "it_sicherheit-mobil_homeoffice-02",
+      "topic": "Mobile Geräte und Homeoffice",
+      "topic_code": "mobil_homeoffice",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein SYS.3.2.1 (Allgemeine Smartphones und Tablets)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": {
+          "question": "Sie müssen unterwegs kurz auf dienstliche E-Mails zugreifen und finden ein offenes, unverschlüsseltes WLAN in einem Café. Wie gehen Sie am sichersten vor?",
+          "options": {
+            "a": "Das offene WLAN direkt nutzen, da E-Mail-Abrufe unkritisch sind",
+            "b": "Das offene WLAN nutzen, aber vorher das eigene Passwort ändern",
+            "c": "Statt des offenen WLANs eine gesicherte Verbindung nutzen, etwa mobile Daten oder ein Firmen-VPN",
+            "d": "Das offene WLAN nutzen, solange die Café-Webseite ein Schloss-Symbol in der Adresszeile zeigt"
+          }
+        },
+        "en": {
+          "question": "You need to quickly check work email while out and about, and find an open, unencrypted Wi-Fi network in a café. What is the safest way to proceed?",
+          "options": {
+            "a": "Use the open Wi-Fi directly, since checking email is low-risk",
+            "b": "Use the open Wi-Fi, but change your own password beforehand",
+            "c": "Instead of the open Wi-Fi, use a secured connection, such as mobile data or a company VPN",
+            "d": "Use the open Wi-Fi, as long as the café's website shows a padlock icon in the address bar"
+          }
+        }
+      },
+      "explanation": {
+        "de": "In offenen, unverschlüsselten WLANs kann der Datenverkehr von Dritten im selben Netz mitgelesen oder umgeleitet werden, auch wenn einzelne Webseiten selbst verschlüsselt sind (das Schloss-Symbol bezieht sich nur auf diese eine Verbindung, nicht auf das gesamte Netz). Mobile Daten oder ein Firmen-VPN bauen eine zusätzlich abgesicherte, verschlüsselte Verbindung auf, die deutlich schwerer abzuhören ist. Ein vorheriger Passwortwechsel löst das eigentliche Risiko nicht.",
+        "en": "In open, unencrypted Wi-Fi networks, traffic can be intercepted or redirected by others on the same network, even if individual websites are themselves encrypted (the padlock icon only covers that one connection, not the whole network). Mobile data or a company VPN establishes an additionally secured, encrypted connection that is far harder to intercept. Changing your password beforehand does not address the actual risk."
+      }
+    },
+    {
+      "id": "it_sicherheit-mobil_homeoffice-03",
+      "topic": "Mobile Geräte und Homeoffice",
+      "topic_code": "mobil_homeoffice",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein OPS.1.2.4 (Telearbeit)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["a"],
+      "text": {
+        "de": {
+          "question": "Sie arbeiten im Zug an einem vertraulichen Dokument auf Ihrem Laptop. Was sollten Sie zum Schutz vor Mitlesen beachten?",
+          "options": {
+            "a": "Auf die Umgebung achten und bei Bedarf einen Sichtschutzfilter oder eine sitzplatzbedingt geschützte Position nutzen",
+            "b": "Das Dokument einfach kleiner zoomen, damit es aus der Ferne nicht lesbar ist",
+            "c": "Nur den Dateinamen anonymisieren, der Inhalt selbst ist unkritisch",
+            "d": "Vertrauliche Dokumente unterwegs generell genauso behandeln wie öffentlich zugängliche Informationen"
+          }
+        },
+        "en": {
+          "question": "You are working on a confidential document on your laptop on a train. What should you keep in mind to prevent others from reading over your shoulder?",
+          "options": {
+            "a": "Stay aware of your surroundings and, if needed, use a privacy screen filter or a seating position that limits visibility",
+            "b": "Just zoom the document out smaller so it can't be read from a distance",
+            "c": "Only anonymise the file name, since the content itself isn't sensitive",
+            "d": "Generally treat confidential documents on the go the same as publicly available information"
+          }
+        }
+      },
+      "explanation": {
+        "de": "\"Shoulder surfing\" - das Mitlesen von Bildschirminhalten durch umstehende Personen - ist ein reales Risiko in öffentlichen Umgebungen wie Zügen oder Wartebereichen. Ein Sichtschutzfilter oder eine geschickte Sitzposition verringert dieses Risiko wirksam. Kleineres Zoomen schützt nicht zuverlässig, der Dateiname ist nicht der eigentliche Schutzgegenstand, und vertrauliche Inhalte benötigen unabhängig vom Ort immer den entsprechenden Schutz, nicht nur im Büro.",
+        "en": "\"Shoulder surfing\" - other people reading a screen over someone's shoulder - is a real risk in public settings like trains or waiting areas. A privacy screen filter or a well-chosen seating position effectively reduces this risk. Zooming out smaller is not a reliable protection, the file name is not the actual thing that needs protecting, and confidential content always needs appropriate protection regardless of location, not just in the office."
+      }
+    },
+    {
+      "id": "it_sicherheit-mobil_homeoffice-04",
+      "topic": "Mobile Geräte und Homeoffice",
+      "topic_code": "mobil_homeoffice",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "ISO/IEC 27001:2022, Anhang A, Control 7.9 (Sicherheit von Werten außerhalb der Räumlichkeiten)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Sie sind dienstlich unterwegs und müssen Ihren Firmenlaptop kurz im geparkten Auto zurücklassen. Was ist der sicherste Umgang damit?",
+          "options": {
+            "a": "Den Laptop gut sichtbar auf dem Beifahrersitz liegen lassen, damit er nicht vergessen wird",
+            "b": "Den Laptop in den nicht einsehbaren Kofferraum legen und das Fahrzeug verschließen, oder ihn möglichst ganz mitnehmen",
+            "c": "Den Laptop unter einer Jacke auf dem Rücksitz verstecken, das genügt als Schutz",
+            "d": "Es spielt keine Rolle, solange der Laptop mit einem Benutzerkennwort geschützt ist"
+          }
+        },
+        "en": {
+          "question": "You are traveling for work and need to briefly leave your company laptop in a parked car. What is the safest way to handle this?",
+          "options": {
+            "a": "Leave the laptop clearly visible on the passenger seat so it isn't forgotten",
+            "b": "Place the laptop in the not-visible trunk and lock the vehicle, or preferably take it with you entirely",
+            "c": "Hide the laptop under a jacket on the back seat - that's enough protection",
+            "d": "It doesn't matter, as long as the laptop is protected by a user password"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Sichtbare Wertgegenstände im Auto erhöhen das Risiko eines Einbruchs erheblich; ein nicht einsehbarer Kofferraum oder das Mitnehmen des Geräts verringern dieses Risiko deutlich. Eine Jacke als Sichtschutz ist unzuverlässig und schützt nicht vor einem gezielten Einbruch. Ein Benutzerkennwort schützt zwar die Daten auf dem Gerät im Falle eines Diebstahls teilweise, verhindert aber nicht den physischen Verlust des Geräts selbst und ersetzt daher nicht die sichere Aufbewahrung.",
+        "en": "Visible valuables in a car significantly increase the risk of a break-in; a not-visible trunk or taking the device along noticeably reduces this risk. A jacket used as visual cover is unreliable and does not protect against a targeted break-in. A user password partly protects the data on the device if it is stolen, but does not prevent the physical loss of the device itself, and therefore does not replace secure storage."
+      }
+    },
+    {
+      "id": "it_sicherheit-meldepflicht_it-01",
+      "topic": "Meldepflicht bei IT-Sicherheitsvorfällen",
+      "topic_code": "meldepflicht_it",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein DER.2.1 (Behandlung von Sicherheitsvorfällen)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Sie vermuten, dass Ihr Firmenrechner mit Schadsoftware infiziert ist, sind sich aber nicht ganz sicher. Wie sollten Sie sich verhalten?",
+          "options": {
+            "a": "Abwarten, bis eindeutige Beweise vorliegen, um keine Fehlmeldung abzugeben",
+            "b": "Den Verdacht umgehend der zuständigen internen Stelle (z. B. IT-Sicherheit oder Helpdesk) melden, auch bei Unsicherheit",
+            "c": "Den Rechner selbst neu aufsetzen und danach normal weiterarbeiten",
+            "d": "Erst Kollegen fragen, ob ihnen Ähnliches aufgefallen ist, bevor irgendetwas gemeldet wird"
+          }
+        },
+        "en": {
+          "question": "You suspect your company computer may be infected with malware, but you're not entirely sure. How should you behave?",
+          "options": {
+            "a": "Wait until there is clear proof, so as not to raise a false alarm",
+            "b": "Report the suspicion promptly to the responsible internal contact (e.g. IT security or the helpdesk), even if you're unsure",
+            "c": "Reinstall the computer yourself and then carry on working as normal",
+            "d": "First ask colleagues whether they've noticed anything similar before reporting anything"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Eine funktionierende Melde- und Reaktionskultur setzt voraus, dass auch bloße Verdachtsfälle frühzeitig gemeldet werden, statt auf eindeutige Beweise zu warten - je früher ein möglicher Vorfall bekannt wird, desto besser lässt sich eine Ausbreitung eindämmen. Eigenständiges Neuaufsetzen des Rechners kann wichtige Spuren zur Ursachenklärung zerstören. Auch das informelle Nachfragen bei Kollegen verzögert die Meldung unnötig und ersetzt nicht die Information der zuständigen Stelle.",
+        "en": "A functioning reporting and response culture requires that even mere suspicions are reported early, rather than waiting for clear proof - the sooner a possible incident becomes known, the better any spread can be contained. Re-installing the computer yourself can destroy important traces needed to determine the cause. Informally asking colleagues first also delays the report unnecessarily and does not replace informing the responsible contact."
+      }
+    },
+    {
+      "id": "it_sicherheit-meldepflicht_it-02",
+      "topic": "Meldepflicht bei IT-Sicherheitsvorfällen",
+      "topic_code": "meldepflicht_it",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "EU-Richtlinie (NIS2), Art. 23 (Meldepflichten - Fristen für Frühwarnung und Meldung)",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": {
+          "question": "Warum legt die EU-Richtlinie zur Netz- und Informationssicherheit (NIS2) für betroffene Organisationen so kurze Fristen für die erste Meldung eines erheblichen Sicherheitsvorfalls fest (grob: eine frühe Warnung innerhalb von Stunden, gefolgt von einer ausführlicheren Meldung)?",
+          "options": {
+            "a": "Damit Unternehmen möglichst viel Zeit gewinnen, um den Vorfall intern zu verschweigen",
+            "b": "Weil eine vollständige technische Untersuchung ohnehin nie möglich ist",
+            "c": "Damit zuständige Stellen frühzeitig reagieren und andere potenziell betroffene Organisationen rechtzeitig gewarnt werden können",
+            "d": "Weil kurze Fristen ausschließlich für IT-Dienstleister gelten, nicht für deren Kunden"
+          }
+        },
+        "en": {
+          "question": "Why does the EU Network and Information Security Directive (NIS2) set such short deadlines for the initial report of a significant security incident (roughly: an early warning within hours, followed by a more detailed report)?",
+          "options": {
+            "a": "So that organisations gain as much time as possible to keep the incident quiet internally",
+            "b": "Because a full technical investigation is never possible anyway",
+            "c": "So that responsible authorities can respond early and other potentially affected organisations can be warned in time",
+            "d": "Because short deadlines apply only to IT service providers, not to their customers"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Kurze Meldefristen sollen sicherstellen, dass Behörden und andere betroffene Stellen schnell informiert werden, um eine Ausbreitung einzudämmen und Gegenmaßnahmen zu koordinieren - nicht, um internes Verschweigen zu ermöglichen. Eine erste, frühe Meldung darf bewusst noch unvollständig sein und wird später ergänzt; das ist gerade der Sinn eines gestuften Meldeverfahrens. Die Meldepflichten richten sich an betroffene Organisationen insgesamt, nicht nur an IT-Dienstleister.",
+        "en": "Short reporting deadlines exist to ensure authorities and other affected parties are informed quickly, so that a spread can be contained and countermeasures coordinated - not to enable internal cover-ups. An initial early report is deliberately allowed to be incomplete and is followed up later; that is exactly the point of a staged reporting process. The reporting obligations apply to affected organisations as a whole, not only to IT service providers."
+      }
+    },
+    {
+      "id": "it_sicherheit-meldepflicht_it-03",
+      "topic": "Meldepflicht bei IT-Sicherheitsvorfällen",
+      "topic_code": "meldepflicht_it",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "BSI IT-Grundschutz-Kompendium, Baustein ORP.3 (Sensibilisierung und Schulung zur Informationssicherheit); NIS2-Richtlinie, Art. 21 Abs. 2 Buchst. g",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["a"],
+      "text": {
+        "de": {
+          "question": "Warum verlangt eine gute Sicherheitskultur, dass Beschäftigte einen vermuteten Sicherheitsvorfall melden, statt zu versuchen, ihn selbst \"still\" zu beheben?",
+          "options": {
+            "a": "Weil ein Einzelner oft nicht das gesamte Ausmaß und die Ursache eines Vorfalls überblicken kann und eigenmächtiges Handeln Spuren verwischen oder das Problem verschlimmern kann",
+            "b": "Weil eigenständiges Beheben grundsätzlich gegen das Urheberrecht verstößt",
+            "c": "Weil nur so die Kosten für IT-Sicherheit im Unternehmen reduziert werden können",
+            "d": "Weil Beschäftigte ohne Meldung automatisch persönlich haftbar gemacht werden können"
+          }
+        },
+        "en": {
+          "question": "Why does a good security culture require employees to report a suspected security incident instead of trying to quietly fix it themselves?",
+          "options": {
+            "a": "Because an individual often cannot see the full scope and cause of an incident, and acting alone can erase evidence or make the problem worse",
+            "b": "Because fixing it yourself is fundamentally a copyright violation",
+            "c": "Because that's the only way to reduce a company's IT security costs",
+            "d": "Because without reporting, employees are automatically made personally liable"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Ein einzelner Vorfall kann Teil eines größeren Musters sein - etwa ein Angriff, der mehrere Systeme betrifft. Wer versucht, das Problem allein und ohne Meldung zu lösen, kann wichtige Spuren zerstören, die für die Ursachenklärung nötig wären, und riskiert, dass sich der Vorfall unbemerkt weiter ausbreitet. Die genannten Alternativen (Urheberrecht, Kostensenkung, automatische persönliche Haftung) beschreiben nicht den eigentlichen Grund für die Meldepflicht.",
+        "en": "A single incident can be part of a larger pattern - for example, an attack affecting several systems. Someone who tries to solve the problem alone, without reporting it, can destroy important evidence needed to determine the cause, and risks letting the incident spread unnoticed. The other listed reasons (copyright, cost reduction, automatic personal liability) do not describe the actual rationale behind the reporting requirement."
+      }
+    },
+    {
+      "id": "it_sicherheit-meldepflicht_it-04",
+      "topic": "Meldepflicht bei IT-Sicherheitsvorfällen",
+      "topic_code": "meldepflicht_it",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "ISO/IEC 27001:2022, Anhang A, Control 5.24 (Planung und Vorbereitung des Managements von Informationssicherheitsvorfällen)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["d"],
+      "text": {
+        "de": {
+          "question": "Sie sind unsicher, wer im Unternehmen für die Meldung eines vermuteten IT-Sicherheitsvorfalls zuständig ist. Was ist der sinnvollste Ansatz?",
+          "options": {
+            "a": "Den Vorfall in einem öffentlichen internen Chatkanal posten, damit ihn irgendjemand sieht",
+            "b": "Abwarten, bis jemand anderes das Problem zufällig bemerkt und meldet",
+            "c": "Den Vorfall in sozialen Medien schildern, um schnell Aufmerksamkeit zu bekommen",
+            "d": "Die im Unternehmen festgelegten Meldewege nutzen (z. B. IT-Support, Sicherheitsbeauftragte oder Führungskraft) oder im Zweifel bei der eigenen Führungskraft nachfragen"
+          }
+        },
+        "en": {
+          "question": "You're unsure who in the company is responsible for reporting a suspected IT security incident. What is the most sensible approach?",
+          "options": {
+            "a": "Post about the incident in a public internal chat channel so that someone sees it",
+            "b": "Wait until someone else happens to notice the problem and reports it",
+            "c": "Describe the incident on social media to get quick attention",
+            "d": "Use the company's established reporting channels (e.g. IT support, security officer, or line manager), or ask your own manager if in doubt"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Ein vorbereitetes Meldeverfahren mit klar zuständigen Stellen sorgt dafür, dass ein Vorfall schnell bei den richtigen Personen ankommt, die geeignete Gegenmaßnahmen einleiten können. Ein öffentlicher Chatkanal oder gar soziale Medien sind ungeeignet und können den Vorfall zusätzlich öffentlich machen oder Angreifer warnen. Abwarten verzögert die Reaktion unnötig; im Zweifel ist die eigene Führungskraft immer ein sinnvoller erster Ansprechpartner, um den richtigen Meldeweg zu finden.",
+        "en": "A prepared reporting process with clearly responsible contacts ensures an incident reaches the right people quickly, so appropriate countermeasures can be taken. A public chat channel or social media are unsuitable and could additionally make the incident public or tip off attackers. Waiting delays the response unnecessarily; when in doubt, your own manager is always a sensible first point of contact for finding the correct reporting channel."
+      }
+    }
+  ]
+}

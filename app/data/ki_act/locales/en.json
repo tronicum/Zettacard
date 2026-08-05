@@ -1,0 +1,202 @@
+{
+  "ki_act-grundlagen-01": {
+    "question": "What is the fundamental goal of the EU AI Act?",
+    "options": {
+      "a": "It generally bans the use of artificial intelligence for companies in the EU",
+      "b": "It regulates AI systems through a risk-based approach to protect fundamental rights and safety while still enabling innovation",
+      "c": "It sets purely technical standards for software developers with no legal effect on companies",
+      "d": "It completely replaces the GDPR for any data processing that involves AI"
+    },
+    "explanation": "The AI Act follows a risk-based approach: the greater the risk an AI system poses to safety or fundamental rights, the stricter the requirements. There is no blanket ban on AI, and the regulation does not replace the GDPR - both apply in parallel."
+  },
+  "ki_act-grundlagen-02": {
+    "question": "Into how many basic risk tiers does the AI Act classify AI systems?",
+    "options": {
+      "a": "Two tiers: allowed and banned",
+      "b": "Five tiers, staggered by industry sector",
+      "c": "Four tiers: unacceptable risk, high risk, limited risk (transparency obligations), and minimal risk",
+      "d": "Three tiers, based purely on company size"
+    },
+    "explanation": "The core concept of the AI Act is the risk pyramid: unacceptable risk (banned), high risk (strict requirements, e.g. for applicant screening or credit scoring), limited risk (mainly transparency duties, e.g. chatbots), and minimal risk (few obligations, e.g. spam filters or game AI)."
+  },
+  "ki_act-grundlagen-03": {
+    "question": "According to the Art. 3(1) definition, what is the decisive feature of an 'AI system'?",
+    "options": {
+      "a": "It is a machine-based system that operates with some degree of autonomy and infers from inputs how to generate outputs such as content, predictions, recommendations, or decisions",
+      "b": "It must necessarily be based on neural networks or generative AI, otherwise it does not count as an AI system",
+      "c": "It must always run in the cloud; locally installed software never falls under the definition",
+      "d": "It must be marketed by a human as 'AI', otherwise the regulation does not apply"
+    },
+    "explanation": "The definition is deliberately technology-neutral: what matters is the ability to infer from input data how to generate outputs, regardless of whether a simple rule-based system, machine learning, or a large language model is behind it. A purely fixed, hard-coded rule set without any form of inference generally does not qualify."
+  },
+  "ki_act-grundlagen-04": {
+    "question": "Which of the following is a typical example of a 'high-risk AI system' under the AI Act?",
+    "options": {
+      "a": "AI that automatically corrects spelling mistakes in emails",
+      "b": "An AI-powered movie recommendation feature in a streaming app",
+      "c": "An AI chatbot answering general product questions in customer service",
+      "d": "AI software that pre-screens job applications and helps decide who gets invited to an interview"
+    },
+    "explanation": "AI used in HR that helps decide on hiring, promotion, or dismissal is explicitly listed as a high-risk area in Annex III of the AI Act, because it can significantly affect individuals' rights and opportunities. Spell-checking, movie recommendations, and simple chatbots, by contrast, are considered minimal or limited risk."
+  },
+  "ki_act-ki_kompetenz-01": {
+    "question": "Who does Article 4 of the AI Act require to ensure sufficient 'AI literacy'?",
+    "options": {
+      "a": "Only providers (manufacturers) of AI systems, not the companies that use those systems day to day",
+      "b": "Only large corporations with more than 250 employees",
+      "c": "Both providers and deployers of AI systems - including companies that merely use ready-made AI tools",
+      "d": "Only IT departments, since they are the only ones who technically interact with AI systems"
+    },
+    "explanation": "Article 4 explicitly addresses both providers (who develop or place AI systems on the market) and deployers, who use AI systems under their own responsibility - for example, a company using a purchased AI tool in customer service. Both groups must ensure their staff have sufficient AI literacy."
+  },
+  "ki_act-ki_kompetenz-02": {
+    "question": "According to Article 4, which people within an organisation must have AI literacy ensured for them?",
+    "options": {
+      "a": "Only permanent employees, not external contractors or freelancers",
+      "b": "All persons dealing with the operation and use of AI systems on behalf of the provider or deployer - including staff and other engaged persons",
+      "c": "Only senior management, since they bear ultimate responsibility",
+      "d": "Only people who personally program or train AI models"
+    },
+    "explanation": "The obligation is deliberately broad and covers not only permanent staff but everyone who deals with AI systems on the company's behalf - this can include freelancers, temporary workers, or external contractors who, for example, use an AI tool in customer contact."
+  },
+  "ki_act-ki_kompetenz-03": {
+    "question": "Under Article 4, must AI-literacy training be identical for all employees of a company?",
+    "options": {
+      "a": "No - the scope of training should account for people's technical knowledge, experience, education, and the specific context in which they use AI",
+      "b": "Yes - the regulation prescribes one standardised, nationwide curriculum with identical content for every role",
+      "c": "Yes - only a single, company-wide mandatory training with the same exam for everyone satisfies the requirement",
+      "d": "No, training content is entirely optional and does not need to cover risks or practical use at all"
+    },
+    "explanation": "Article 4 explicitly requires taking into account people's technical knowledge, experience, education, and the context in which the AI systems will be used - training should therefore be tailored to the role. Someone who occasionally uses an AI writing assistant needs different content than someone making AI-supported decisions in a high-risk area."
+  },
+  "ki_act-ki_kompetenz-04": {
+    "question": "Since when has the AI-literacy obligation under Article 4 already applied in practice?",
+    "options": {
+      "a": "Only from 2 August 2027, at the same time as the strictest high-risk obligations",
+      "b": "Already since 2 February 2025 - alongside the ban on certain AI practices under Article 5",
+      "c": "Only from 2 August 2026, together with most transparency obligations",
+      "d": "The obligation only applies once a company deploys a high-risk AI system as listed in Annex III"
+    },
+    "explanation": "Under Article 113(a) of the AI Act, Chapter I (including Article 4, AI literacy) and Chapter II (Article 5, prohibited practices) have already applied since 2 February 2025 - well before most of the regulation, which only becomes applicable from 2 August 2026. Any organisation that has ignored the AI-literacy duty so far is therefore already behind, not merely facing a future deadline."
+  },
+  "ki_act-verbotene_praktiken-01": {
+    "question": "A company is considering an AI system that rates employees based on their social behaviour and personal traits, producing a general 'trust score' used across quite different contexts (e.g. performance review, access to resources). How is this classified under the AI Act?",
+    "options": {
+      "a": "Unproblematic, as long as employees give informal consent",
+      "b": "Banned only in Germany, explicitly allowed in other EU member states",
+      "c": "Allowed as long as the score is not published",
+      "d": "Such cross-context 'social scoring' of people counts as a practice prohibited under Article 5 and may not be deployed anywhere in the EU"
+    },
+    "explanation": "Social scoring - evaluating or classifying natural persons over time based on their social behaviour or personal characteristics, leading to detrimental treatment in unrelated contexts - is one of the classic 'red lines' of Article 5 of the AI Act and is banned across the whole EU, regardless of individual consent."
+  },
+  "ki_act-verbotene_praktiken-02": {
+    "question": "Using 'real-time' remote biometric identification via AI systems in publicly accessible spaces for law enforcement purposes is, in principle, prohibited under Article 5. Is this true without any exception?",
+    "options": {
+      "a": "Yes, there are absolutely no exceptions - any use is banned in every case",
+      "b": "No, private security firms may use it completely freely without restriction",
+      "c": "No, there are narrowly defined exceptions (e.g. targeted search for missing persons, averting a specific terrorist threat) that are subject to strict conditions and usually require prior judicial authorisation",
+      "d": "No, any company may use it as long as it first conducts a data protection impact assessment"
+    },
+    "explanation": "The regulation provides narrow, exhaustively listed exceptions for real-time remote biometric identification in publicly accessible spaces for law enforcement purposes (e.g. searching for a missing child, averting a specific and present terrorist threat), which generally require prior judicial or independent administrative authorisation. For private companies outside law enforcement, such use generally remains prohibited regardless."
+  },
+  "ki_act-verbotene_praktiken-03": {
+    "question": "A marketing team wants to deploy an AI system that deliberately uses subliminal techniques, imperceptible to users, to manipulate their purchasing decisions and cause them significant harm. How should this be assessed?",
+    "options": {
+      "a": "This falls under the manipulative or deceptive practices prohibited by Article 5, since subliminal techniques are deliberately used to materially distort behaviour with potential for harm",
+      "b": "This is legitimate, creative marketing as long as the terms and conditions mention 'personalised advertising'",
+      "c": "This is only prohibited when targeting children; it is generally permitted for adults",
+      "d": "This does not fall under the AI Act at all, since it is marketing rather than a high-risk system"
+    },
+    "explanation": "Article 5 of the AI Act bans AI systems that use subliminal, manipulative, or deceptive techniques beyond a person's conscious awareness to materially distort their behaviour in a way likely to cause significant harm - regardless of whether the target group is children or adults. A note in the terms and conditions does not change this, since the technique specifically targets unconscious influence."
+  },
+  "ki_act-verbotene_praktiken-04": {
+    "question": "An AI system is deliberately designed to exploit the vulnerability of elderly people or people in difficult economic circumstances, in order to influence their behaviour to their detriment. How does the AI Act classify this?",
+    "options": {
+      "a": "As a high-risk practice that may nonetheless be lawfully used after a conformity assessment",
+      "b": "As one of the practices prohibited under Article 5, since it deliberately exploits vulnerabilities due to age, disability, or social/economic situation in order to act to the detriment of those affected",
+      "c": "As entirely unproblematic, as long as no financial harm occurs",
+      "d": "As a transparency-obligation case where a simple 'You are interacting with an AI' notice is sufficient"
+    },
+    "explanation": "Deliberately exploiting the vulnerability of specific groups of people - for example due to age, disability, or a difficult social or economic situation - with the aim of influencing their behaviour to their detriment is one of the practices explicitly banned under Article 5. A conformity assessment or a transparency notice cannot 'cure' such a ban, because prohibited practices cannot be legalised through additional requirements."
+  },
+  "ki_act-transparenzpflichten-01": {
+    "question": "Your company uses a chatbot to automatically answer customer queries. What does Article 50 of the AI Act generally require in this case?",
+    "options": {
+      "a": "The chatbot must be fully switched off as soon as a customer asks about it",
+      "b": "There is no obligation at all, as long as the chatbot works technically without errors",
+      "c": "Customers must be clearly and timely informed that they are interacting with an AI system rather than a human - unless this is obvious anyway from the circumstances",
+      "d": "The chatbot may only be used after a conformity assessment equivalent to that for high-risk systems has been carried out"
+    },
+    "explanation": "Article 50 requires systems intended for direct interaction with natural persons to inform users that they are interacting with an AI system - unless this is obvious to a reasonably informed, observant person (e.g. clearly automated standard FAQ bots). A high-risk conformity assessment is not required here, since a simple chatbot is generally not a high-risk system."
+  },
+  "ki_act-transparenzpflichten-02": {
+    "question": "A colleague uses an AI image generator to create a realistic-looking video in which a well-known person appears to say things they never actually said ('deepfake'), and wants to distribute it internally and externally. What generally applies here?",
+    "options": {
+      "a": "The video must be labelled as AI-generated or manipulated, so viewers can recognise that the content and statements are not authentic",
+      "b": "A labelling duty only applies to commercial use outside the EU",
+      "c": "Deepfakes are categorically banned and may never be created under any circumstances",
+      "d": "There is no labelling obligation as long as no financial profit is made"
+    },
+    "explanation": "Article 50 of the AI Act requires AI-generated or manipulated image, audio, or video content that falsely appears to depict real people, objects, places, or events ('deepfakes') to be labelled as artificially generated or manipulated. Deepfakes are not banned outright, but they must be made transparent - unlike social scoring, they are not a 'red line' under Article 5, but are instead subject to a labelling obligation."
+  },
+  "ki_act-transparenzpflichten-03": {
+    "question": "An emotion-recognition AI system is used in the workplace to gauge employees' mood during meetings. What does Article 50 require at a minimum here?",
+    "options": {
+      "a": "Such use is always banned, regardless of context",
+      "b": "The people affected must be informed that an emotion-recognition system is being used",
+      "c": "A note in internal IT documentation is sufficient; informing the affected individuals is not required",
+      "d": "An information duty exists only towards the works council, not towards individual employees"
+    },
+    "explanation": "For emotion-recognition or biometric-categorisation systems, Article 50 provides for an information duty towards the natural persons exposed to the system - they must be informed that the system is being operated. This does not replace any additional labour-law co-determination rights, such as those of a works council, but applies in addition to them."
+  },
+  "ki_act-transparenzpflichten-04": {
+    "question": "From when do the general transparency obligations under Article 50 (e.g. chatbot disclosure, deepfake labelling) become applicable?",
+    "options": {
+      "a": "Already since the regulation entered into force in August 2024",
+      "b": "Only from 2 August 2027",
+      "c": "Already since 2 February 2025, together with the prohibited practices",
+      "d": "From 2 August 2026, together with most of the regulation's remaining obligations"
+    },
+    "explanation": "Unlike the AI-literacy obligation (Article 4) and the prohibited practices (Article 5), which have already applied since 2 February 2025, the Article 50 transparency obligations only take effect on the general application date of 2 August 2026 - together with most of the regulation's remaining obligations. Companies should keep these different deadlines in mind."
+  },
+  "ki_act-ki_am_arbeitsplatz-01": {
+    "question": "A colleague wants to paste confidential customer data into a publicly available AI chatbot to get help drafting a reply. What should they consider first?",
+    "options": {
+      "a": "This is unproblematic, since AI providers generally never store any input data",
+      "b": "Personal or confidential data generally must not be entered into external AI tools without checking first, since this can violate data-protection rules and internal policy - the GDPR applies here in addition to, and independently of, the AI Act",
+      "c": "This is fine as long as the colleague informally tells the customer about it afterwards",
+      "d": "The AI Act categorically bans any use of external AI chatbots in the workplace"
+    },
+    "explanation": "The AI Act primarily addresses risks arising from the AI system itself, but it does not replace the GDPR. Entering personal or confidential data into an external AI tool can violate data-protection law and internal policy independently of the AI Act, for instance because the data is processed on servers outside the company's control. Both legal frameworks - the AI Act and the GDPR - must be observed in parallel."
+  },
+  "ki_act-ki_am_arbeitsplatz-02": {
+    "question": "A high-risk AI system supports the pre-selection of job applications. An employee accepts every AI suggestion without review, reasoning that 'the AI is usually right anyway'. How should this behaviour be assessed against the human-oversight requirements?",
+    "options": {
+      "a": "Completely fine, since the AI formally made the decision",
+      "b": "Only a concern if the applicant complains",
+      "c": "Problematic: human oversight for high-risk systems means critically reviewing and being able to justify the AI's suggestions, not rubber-stamping them automatically",
+      "d": "Unproblematic, because the AI's manufacturer bears responsibility for all decisions"
+    },
+    "explanation": "The AI Act requires effective human oversight for high-risk systems: the responsible person must be able to understand, critically question, and, where necessary, correct or override the AI's output (avoiding 'automation bias'). Blindly accepting AI suggestions contradicts this principle and can result in discriminatory decisions, for which the company remains responsible."
+  },
+  "ki_act-ki_am_arbeitsplatz-03": {
+    "question": "A manager makes an adverse HR decision based on an AI recommendation, which later turns out to be flawed and discriminatory. The manager argues: 'The AI suggested it, I just went along with it.' Is this argument legally sound?",
+    "options": {
+      "a": "No - responsibility for a decision generally remains with the human, or with the company as the deployer using the AI system; 'the AI said so' does not remove the duty of care",
+      "b": "Yes - as soon as an AI system issues a recommendation, full legal responsibility automatically shifts to the AI's manufacturer",
+      "c": "Yes, but only if the company has fewer than 50 employees",
+      "d": "This is legally irrelevant, since the AI Act contains no provisions on deployer responsibilities"
+    },
+    "explanation": "The AI Act imposes obligations on deployers of high-risk AI systems, including exercising appropriate human oversight and using the system in line with the provider's instructions. These duties - and the resulting responsibility for concrete decisions made in the business - generally remain with the company or the acting individual, even where an AI provided the underlying recommendation."
+  },
+  "ki_act-ki_am_arbeitsplatz-04": {
+    "question": "What is a sensible, practical rule of thumb for using generative AI assistants (e.g. for drafting text) in everyday work?",
+    "options": {
+      "a": "Always use AI-generated text unchanged and unreviewed to save time",
+      "b": "Review AI-generated output for content before using it - especially for accuracy, bias, and data-protection concerns - and check against applicable internal policy when in doubt",
+      "c": "Only ever use generative AI outside working hours and with no work relevance whatsoever",
+      "d": "Skip any review entirely as long as no customer sees the content directly"
+    },
+    "explanation": "Generative AI can be very useful at work, but it does not replace one's own professional and legal responsibility. Outputs can be factually wrong ('hallucinations'), contain unintended bias, or raise data-protection concerns if confidential information was accidentally entered - so a critical review before further use is good workplace practice."
+  }
+}

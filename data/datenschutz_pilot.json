@@ -1,0 +1,760 @@
+{
+  "meta": {
+    "app": "drivenow / datenschutz-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-05",
+    "description": "Original MCQs for a German workplace-compliance training module on data protection (Datenschutz/DSGVO-BDSG) for employees, covering GDPR core principles and legal bases (Art. 5 & 6 DSGVO), data subject rights (Art. 12-21 DSGVO), technical/organisational measures and special-category data (Art. 9, 25, 32 DSGVO), breach-notification duties (Art. 33-34 DSGVO), and Auftragsverarbeitung/international transfers/employee confidentiality (Art. 28, 44-46 DSGVO, §26 & §53 BDSG). Content is independently phrased and grounded directly in the EU GDPR (DSGVO) text and the German BDSG, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module from Fuehrerschein (Klasse B), Angelschein, LKW, and Motorrad - separate content pool, separate exam simulation. Locales: de (canonical), en (reviewed translation) for this first pilot round.",
+    "class": "ALL",
+    "locales": ["de", "en"],
+    "canonical_locale": "de",
+    "point_system": "2-5 points per question, matching this app's existing style",
+    "pass_rule_note": "Provisional: same generic mechanics as this app's other modules (30 questions per simulation run, max 10 error points, auto-fail on 2+ wrong high_stakes) used as a placeholder pending a real workplace-training design pass - see legal_review_status.",
+    "legal_review_status": "NOT legally reviewed - verify GDPR/BDSG citations and currency before production/commercial use",
+    "total_questions": 20,
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome."
+  },
+  "questions": [
+    {
+      "id": "datenschutz-grundprinzipien-01",
+      "topic": "Grundprinzipien der DSGVO",
+      "topic_code": "grundprinzipien",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Abs. 1 DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": {
+          "question": "Welcher der folgenden Grundsätze gehört NICHT zu den in Art. 5 Abs. 1 DSGVO genannten Grundsätzen für die Verarbeitung personenbezogener Daten?",
+          "options": {
+            "a": "Datenminimierung: Es dürfen nur die Daten erhoben werden, die für den Zweck tatsächlich nötig sind",
+            "b": "Speicherbegrenzung: Daten dürfen nicht länger als nötig aufbewahrt werden",
+            "c": "Gewinnmaximierung: Die Verarbeitung muss dem wirtschaftlichen Erfolg des Unternehmens dienen",
+            "d": "Richtigkeit: Daten müssen sachlich richtig und erforderlichenfalls aktuell gehalten werden"
+          }
+        },
+        "en": {
+          "question": "Which of the following is NOT one of the principles listed in Art. 5(1) GDPR for processing personal data?",
+          "options": {
+            "a": "Data minimisation: only data that is actually necessary for the purpose may be collected",
+            "b": "Storage limitation: data may not be kept longer than necessary",
+            "c": "Profit maximisation: processing must serve the company's economic success",
+            "d": "Accuracy: data must be factually correct and kept up to date where necessary"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 1 DSGVO nennt sieben Grundsätze: Rechtmäßigkeit/Verarbeitung nach Treu und Glauben/Transparenz, Zweckbindung, Datenminimierung, Richtigkeit, Speicherbegrenzung, Integrität und Vertraulichkeit sowie (in Abs. 2) Rechenschaftspflicht. Wirtschaftlicher Nutzen für das Unternehmen ist kein eigenständiger Datenschutzgrundsatz - er kann höchstens Teil eines berechtigten Interesses nach Art. 6 Abs. 1 lit. f DSGVO sein, ersetzt aber keine der genannten Pflichten.",
+        "en": "Art. 5(1) GDPR lists seven principles: lawfulness/fairness/transparency, purpose limitation, data minimisation, accuracy, storage limitation, integrity and confidentiality, plus accountability (Art. 5(2)). Economic benefit to the company is not a data protection principle in its own right - at most it can feed into a legitimate interest under Art. 6(1)(f) GDPR, but it never replaces the other duties."
+      }
+    },
+    {
+      "id": "datenschutz-grundprinzipien-02",
+      "topic": "Grundprinzipien der DSGVO",
+      "topic_code": "grundprinzipien",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Abs. 1 lit. b DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Die Personalabteilung hat die private E-Mail-Adresse einer Mitarbeiterin ausschließlich zur Abwicklung der Gehaltsabrechnung gespeichert. Darf die Marketingabteilung diese Adresse ohne Weiteres nutzen, um der Mitarbeiterin Werbung für interne Vergünstigungen zu schicken?",
+          "options": {
+            "a": "Ja, sobald Daten einmal rechtmäßig im Unternehmen vorliegen, dürfen sie für jeden internen Zweck weiterverwendet werden",
+            "b": "Nein, das würde gegen die Zweckbindung verstoßen - eine Weiterverarbeitung zu einem anderen Zweck braucht eine eigene Rechtsgrundlage oder Kompatibilitätsprüfung",
+            "c": "Ja, weil es sich um interne Kommunikation innerhalb desselben Arbeitgebers handelt und die DSGVO nur externe Datenweitergabe regelt",
+            "d": "Nein, aber nur weil es sich um eine private statt eine dienstliche E-Mail-Adresse handelt"
+          }
+        },
+        "en": {
+          "question": "HR has stored an employee's private email address solely to process payroll. May the marketing department simply use that address to send her advertising for internal employee perks?",
+          "options": {
+            "a": "Yes, once data is lawfully held anywhere in the company it may be reused for any internal purpose",
+            "b": "No, that would violate purpose limitation - reusing data for a different purpose needs its own legal basis or a compatibility check",
+            "c": "Yes, because this is internal communication within the same employer and GDPR only governs data shared externally",
+            "d": "No, but only because it is a private rather than a work email address"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Der Grundsatz der Zweckbindung (Art. 5 Abs. 1 lit. b DSGVO) besagt, dass personenbezogene Daten nur für festgelegte, eindeutige und legitime Zwecke erhoben werden dürfen und nicht ohne Weiteres in einer mit diesen Zwecken nicht zu vereinbarenden Weise weiterverarbeitet werden dürfen. Ob eine Weiterverwendung ausnahmsweise zulässig ist, hängt von einer Vereinbarkeitsprüfung (Art. 6 Abs. 4 DSGVO) oder einer neuen eigenen Rechtsgrundlage ab - 'gehört ja eh schon dem Unternehmen' reicht nicht.",
+        "en": "The purpose-limitation principle (Art. 5(1)(b) GDPR) means personal data collected for specified, explicit and legitimate purposes may not simply be reused for an incompatible purpose. Reuse is only permitted after a compatibility assessment (Art. 6(4) GDPR) or on the strength of a new, separate legal basis - 'the company already has it' is not sufficient justification."
+      }
+    },
+    {
+      "id": "datenschutz-grundprinzipien-03",
+      "topic": "Grundprinzipien der DSGVO",
+      "topic_code": "grundprinzipien",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 6 Abs. 1 DSGVO",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["d"],
+      "text": {
+        "de": {
+          "question": "Welche der folgenden Optionen ist KEINE eigenständige Rechtsgrundlage nach Art. 6 Abs. 1 DSGVO für die Verarbeitung personenbezogener Daten?",
+          "options": {
+            "a": "Die Verarbeitung ist zur Erfüllung eines Vertrags mit der betroffenen Person erforderlich",
+            "b": "Die betroffene Person hat wirksam in die Verarbeitung eingewilligt",
+            "c": "Die Verarbeitung ist zur Erfüllung einer rechtlichen Verpflichtung erforderlich, der der Verantwortliche unterliegt",
+            "d": "Die Verarbeitung erleichtert lediglich interne Arbeitsabläufe und spart Kosten"
+          }
+        },
+        "en": {
+          "question": "Which of the following is NOT an independent legal basis under Art. 6(1) GDPR for processing personal data?",
+          "options": {
+            "a": "Processing is necessary for the performance of a contract with the data subject",
+            "b": "The data subject has validly given consent to the processing",
+            "c": "Processing is necessary for compliance with a legal obligation to which the controller is subject",
+            "d": "Processing merely makes internal workflows more convenient and saves cost"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 6 Abs. 1 DSGVO kennt sechs Rechtsgrundlagen: Einwilligung, Vertrag, rechtliche Verpflichtung, lebenswichtige Interessen, öffentliche Aufgabe und berechtigtes Interesse. Bloße betriebliche Bequemlichkeit oder Kostenersparnis ist für sich genommen keine dieser sechs Grundlagen - sie kann höchstens in eine Interessenabwägung nach Art. 6 Abs. 1 lit. f DSGVO einfließen, muss dort aber gegen die Interessen der betroffenen Person abgewogen werden.",
+        "en": "Art. 6(1) GDPR recognises six legal bases: consent, contract, legal obligation, vital interests, public task, and legitimate interest. Mere operational convenience or cost savings is not, by itself, any of these six - at most it can feed into the balancing-of-interests test under Art. 6(1)(f) GDPR, where it still has to be weighed against the data subject's interests."
+      }
+    },
+    {
+      "id": "datenschutz-grundprinzipien-04",
+      "topic": "Grundprinzipien der DSGVO",
+      "topic_code": "grundprinzipien",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Abs. 2 DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["a"],
+      "text": {
+        "de": {
+          "question": "Was verlangt der Grundsatz der Rechenschaftspflicht (Accountability) nach Art. 5 Abs. 2 DSGVO konkret vom Verantwortlichen?",
+          "options": {
+            "a": "Er muss die Einhaltung der Datenschutzgrundsätze nicht nur sicherstellen, sondern auch nachweisen können, z. B. durch Dokumentation, Verzeichnisse und Richtlinien",
+            "b": "Er muss jede Datenverarbeitung vorab von der zuständigen Aufsichtsbehörde genehmigen lassen",
+            "c": "Er muss jährlich Rechenschaft in Form einer öffentlichen Pressemitteilung über alle Datenpannen ablegen",
+            "d": "Er muss sämtliche Verarbeitungstätigkeiten kostenlos für Externe einsehbar veröffentlichen"
+          }
+        },
+        "en": {
+          "question": "What does the accountability principle under Art. 5(2) GDPR actually require of the controller?",
+          "options": {
+            "a": "They must not only comply with the data protection principles but also be able to demonstrate that compliance, e.g. through documentation, records, and policies",
+            "b": "They must obtain prior approval from the supervisory authority for every processing activity",
+            "c": "They must issue an annual public press release accounting for all data breaches",
+            "d": "They must publish all processing activities for free public inspection by anyone"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Rechenschaftspflicht bedeutet, dass es nicht reicht, sich datenschutzkonform zu verhalten - der Verantwortliche muss dies auch jederzeit belegen können, etwa durch ein Verarbeitungsverzeichnis (Art. 30 DSGVO), interne Richtlinien, Schulungsnachweise oder Datenschutz-Folgenabschätzungen. Es gibt keine generelle Vorab-Genehmigungspflicht durch eine Behörde und keine Pflicht zur öffentlichen Presseerklärung bei jeder Verarbeitung.",
+        "en": "Accountability means it is not enough to actually comply with data protection law - the controller must also be able to prove that compliance at any time, for example through a record of processing activities (Art. 30 GDPR), internal policies, training records, or data protection impact assessments. There is no general requirement to get prior authority approval for each processing activity, and no duty to issue a public press release for every activity."
+      }
+    },
+    {
+      "id": "datenschutz-betroffenenrechte-01",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 12 Abs. 3 DSGVO",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Ein Mitarbeiter stellt bei der Personalabteilung einen Antrag auf Auskunft über die zu ihm gespeicherten Daten (Art. 15 DSGVO). Innerhalb welcher Frist muss das Unternehmen grundsätzlich antworten?",
+          "options": {
+            "a": "Innerhalb von 72 Stunden, wie bei einer Datenpanne",
+            "b": "Unverzüglich, spätestens aber innerhalb eines Monats ab Eingang des Antrags; eine Verlängerung um zwei weitere Monate ist bei komplexen Fällen mit Begründung möglich",
+            "c": "Es gibt keine gesetzliche Frist, eine Antwort 'in angemessener Zeit' reicht immer aus",
+            "d": "Innerhalb eines Jahres, da Auskunftsanträge nachrangig gegenüber dem Tagesgeschäft sind"
+          }
+        },
+        "en": {
+          "question": "An employee submits a request to HR for access to the data held about them (Art. 15 GDPR). Within what timeframe must the company generally respond?",
+          "options": {
+            "a": "Within 72 hours, as with a data breach",
+            "b": "Without undue delay and at the latest within one month of receiving the request; a further two-month extension is possible for complex cases, with reasons given",
+            "c": "There is no statutory deadline - a response 'within a reasonable time' is always sufficient",
+            "d": "Within one year, since access requests rank behind day-to-day business"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Nach Art. 12 Abs. 3 DSGVO muss der Verantwortliche einer betroffenen Person unverzüglich, in jedem Fall aber innerhalb eines Monats nach Eingang des Antrags, Informationen zu den ergriffenen Maßnahmen übermitteln. Bei mehreren oder komplexen Anträgen kann diese Frist um weitere zwei Monate verlängert werden, die betroffene Person muss darüber aber innerhalb des ersten Monats informiert werden. Wird die Frist versäumt, ist das ein ernstzunehmender Compliance-Verstoß, der Beschwerden bei der Aufsichtsbehörde nach sich ziehen kann - daher als high_stakes markiert.",
+        "en": "Under Art. 12(3) GDPR, the controller must provide information on the action taken without undue delay and in any event within one month of receiving the request. For multiple or complex requests, this can be extended by a further two months, but the data subject must be informed of the extension within the first month. Missing the deadline is a serious compliance failure that can trigger a complaint to the supervisory authority - hence marked high_stakes."
+      }
+    },
+    {
+      "id": "datenschutz-betroffenenrechte-02",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 17 Abs. 3 lit. b DSGVO",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": {
+          "question": "Eine ehemalige Mitarbeiterin verlangt sechs Monate nach ihrem Austritt die vollständige Löschung ihrer Gehaltsabrechnungen (Art. 17 DSGVO). Wie sollte das Unternehmen reagieren?",
+          "options": {
+            "a": "Sofort löschen, da jeder Löschantrag ausnahmslos binnen 72 Stunden umzusetzen ist",
+            "b": "Ablehnen, weil das Recht auf Löschung für ehemalige Mitarbeiter grundsätzlich nicht gilt",
+            "c": "Dem Antrag insoweit nicht vollständig stattgeben, wie gesetzliche Aufbewahrungspflichten (z. B. steuer- und handelsrechtliche Fristen) einer Löschung entgegenstehen - diese Daten sind vorerst weiter aufzubewahren, aber vor anderweitiger Nutzung zu sperren",
+            "d": "Löschen, aber nur wenn die ehemalige Mitarbeiterin dafür eine schriftliche Bestätigung des Finanzamts vorlegt"
+          }
+        },
+        "en": {
+          "question": "A former employee, six months after leaving, demands complete deletion of her payslips (Art. 17 GDPR). How should the company respond?",
+          "options": {
+            "a": "Delete immediately, since every erasure request must be executed within 72 hours without exception",
+            "b": "Refuse, because the right to erasure generally does not apply to former employees",
+            "c": "Not fully grant the request to the extent statutory retention obligations (e.g. tax and commercial-law retention periods) prevent deletion - that data must be retained for now but restricted from other use",
+            "d": "Delete it, but only if the former employee first provides written confirmation from the tax authority"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das Recht auf Löschung nach Art. 17 DSGVO gilt zwar grundsätzlich auch für ehemalige Mitarbeiter, wird aber durch Art. 17 Abs. 3 lit. b DSGVO eingeschränkt, wenn die Verarbeitung zur Erfüllung einer rechtlichen Pflicht (z. B. handels-/steuerrechtliche Aufbewahrungsfristen nach HGB/AO) erforderlich ist. In solchen Fällen bleiben die Daten bis zum Fristablauf gespeichert, dürfen aber nicht mehr für andere Zwecke genutzt werden. Eine pauschale Ablehnung oder eine sofortige 72-Stunden-Löschung ohne Prüfung wären beide falsch - falsches Handeln hier ist ein ernstzunehmender Compliance-Fehler, daher high_stakes.",
+        "en": "The right to erasure under Art. 17 GDPR generally does apply to former employees too, but it is limited by Art. 17(3)(b) GDPR where processing is necessary for compliance with a legal obligation (e.g. commercial/tax retention periods under German commercial and tax law). In such cases the data must be kept until the retention period expires but may no longer be used for other purposes. A blanket refusal or an unchecked 72-hour deletion would both be wrong - getting this wrong is a serious compliance failure, hence high_stakes."
+      }
+    },
+    {
+      "id": "datenschutz-betroffenenrechte-03",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 20 DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Was ist mit dem 'Recht auf Datenübertragbarkeit' nach Art. 20 DSGVO gemeint?",
+          "options": {
+            "a": "Das Recht, dass ein Unternehmen personenbezogene Daten grenzenlos an beliebige Dritte weitergibt",
+            "b": "Das Recht, von einem Verantwortlichen bereitgestellte Daten, die auf einer Einwilligung oder einem Vertrag beruhen und automatisiert verarbeitet werden, in einem strukturierten, gängigen, maschinenlesbaren Format zu erhalten oder direkt an einen anderen Verantwortlichen übermitteln zu lassen",
+            "c": "Das Recht auf eine kostenlose physische Kopie sämtlicher Papierakten, unabhängig von der Rechtsgrundlage",
+            "d": "Das Recht, dass Daten automatisch nach einem Jahr an einen neuen Arbeitgeber übertragen werden"
+          }
+        },
+        "en": {
+          "question": "What does the 'right to data portability' under Art. 20 GDPR actually mean?",
+          "options": {
+            "a": "The right to have a company forward personal data to any third party without limit",
+            "b": "The right to receive data provided to a controller - where processing is based on consent or contract and carried out by automated means - in a structured, commonly used, machine-readable format, or to have it transmitted directly to another controller",
+            "c": "The right to a free physical paper copy of all files, regardless of the legal basis for processing",
+            "d": "The right to have data automatically transferred to a new employer after one year"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 20 DSGVO gilt nur für Daten, die die betroffene Person selbst bereitgestellt hat, deren Verarbeitung auf einer Einwilligung oder einem Vertrag beruht und die automatisiert erfolgt. Ziel ist es, den Wechsel zwischen Anbietern oder Diensten zu erleichtern, nicht eine allgemeine Weitergabepflicht an Dritte oder ein Recht auf Papierkopien unabhängig von der Rechtsgrundlage zu schaffen.",
+        "en": "Art. 20 GDPR only covers data the data subject provided themselves, where processing is based on consent or a contract and is carried out by automated means. Its purpose is to make it easier to switch between providers or services, not to create a general obligation to pass data to third parties or a right to paper copies regardless of the legal basis."
+      }
+    },
+    {
+      "id": "datenschutz-betroffenenrechte-04",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 21 Abs. 2 und 3 DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["a"],
+      "text": {
+        "de": {
+          "question": "Ein Kunde widerspricht der Verarbeitung seiner Daten zu Zwecken der Direktwerbung. Wie muss das Unternehmen reagieren?",
+          "options": {
+            "a": "Die Verarbeitung zu Werbezwecken muss sofort und ausnahmslos eingestellt werden - bei Direktwerbung gibt es kein 'Abwägungsrecht' des Unternehmens",
+            "b": "Das Unternehmen darf die Werbung fortsetzen, wenn es ein überwiegendes berechtigtes Interesse nachweisen kann",
+            "c": "Das Unternehmen muss den Widerspruch nur berücksichtigen, wenn der Kunde eine Begründung liefert",
+            "d": "Ein Widerspruch gegen Werbung ist rechtlich nicht vorgesehen, nur ein Widerruf einer erteilten Einwilligung"
+          }
+        },
+        "en": {
+          "question": "A customer objects to their data being processed for direct marketing purposes. How must the company respond?",
+          "options": {
+            "a": "Processing for marketing purposes must stop immediately and without exception - for direct marketing, the company has no 'balancing of interests' option",
+            "b": "The company may continue the marketing if it can demonstrate an overriding legitimate interest",
+            "c": "The company only has to honour the objection if the customer provides a justification",
+            "d": "There is no legal right to object to marketing, only a right to withdraw a consent that was previously given"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Bei Direktwerbung ist das Widerspruchsrecht nach Art. 21 Abs. 2 und 3 DSGVO ein absolutes Recht: Sobald die betroffene Person widerspricht, dürfen die Daten für diesen Zweck nicht mehr verarbeitet werden - eine Interessenabwägung wie bei sonstigen Widersprüchen nach Art. 21 Abs. 1 DSGVO findet hier nicht statt, und eine Begründung ist nicht erforderlich.",
+        "en": "For direct marketing, the right to object under Art. 21(2) and (3) GDPR is an absolute right: as soon as the data subject objects, their data may no longer be processed for that purpose - unlike the general objection right in Art. 21(1) GDPR, there is no balancing-of-interests test here, and no justification is required from the customer."
+      }
+    },
+    {
+      "id": "datenschutz-datensicherheit-01",
+      "topic": "Datensicherheit und TOMs",
+      "topic_code": "datensicherheit",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 32 DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Was fordert Art. 32 DSGVO von Verantwortlichen und Auftragsverarbeitern in Bezug auf 'technische und organisatorische Maßnahmen' (TOMs)?",
+          "options": {
+            "a": "Eine einmalige, unveränderliche Liste an Maßnahmen, die für alle Unternehmen gleichermaßen gilt",
+            "b": "Ein dem Risiko angemessenes Schutzniveau, z. B. durch Verschlüsselung, Zugriffskontrollen, Sicherstellung von Vertraulichkeit/Integrität/Verfügbarkeit sowie regelmäßige Überprüfung der Wirksamkeit der Maßnahmen",
+            "c": "Ausschließlich physische Maßnahmen wie abschließbare Aktenschränke, IT-Sicherheit ist hiervon nicht erfasst",
+            "d": "Die Verpflichtung, für jede Verarbeitung eine Datenschutz-Folgenabschätzung durchzuführen"
+          }
+        },
+        "en": {
+          "question": "What does Art. 32 GDPR require of controllers and processors regarding 'technical and organisational measures' (TOMs)?",
+          "options": {
+            "a": "A single, fixed list of measures that applies identically to every company",
+            "b": "A level of protection appropriate to the risk, e.g. through encryption, access controls, ensuring confidentiality/integrity/availability, and regularly testing the effectiveness of the measures",
+            "c": "Only physical measures such as lockable filing cabinets - IT security is not covered by this article",
+            "d": "An obligation to carry out a data protection impact assessment for every processing activity"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 32 DSGVO verlangt keine starre Checkliste, sondern ein risikoangemessenes Schutzniveau: Der konkrete Umfang der Maßnahmen hängt vom Stand der Technik, den Implementierungskosten sowie Art, Umfang, Umständen und Zwecken der Verarbeitung und dem Risiko für Betroffene ab. Genannt werden u. a. Pseudonymisierung/Verschlüsselung, Sicherstellung von Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit sowie ein Verfahren zur regelmäßigen Überprüfung der Wirksamkeit. Eine Datenschutz-Folgenabschätzung ist ein eigenständiges Instrument nach Art. 35 DSGVO, keine TOM.",
+        "en": "Art. 32 GDPR does not prescribe a fixed checklist but a risk-appropriate level of protection: the actual scope of measures depends on the state of the art, implementation costs, and the nature, scope, context and purposes of processing as well as the risk to data subjects. It mentions, among other things, pseudonymisation/encryption, ensuring confidentiality, integrity, availability and resilience, and a process for regularly testing effectiveness. A data protection impact assessment is a separate instrument under Art. 35 GDPR, not a TOM."
+      }
+    },
+    {
+      "id": "datenschutz-datensicherheit-02",
+      "topic": "Datensicherheit und TOMs",
+      "topic_code": "datensicherheit",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 25 DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["d"],
+      "text": {
+        "de": {
+          "question": "Ein neues internes Tool zur Bewerberverwaltung wird eingeführt. Was verlangt der Grundsatz 'Privacy by Design und by Default' (Art. 25 DSGVO) hierbei konkret?",
+          "options": {
+            "a": "Dass Datenschutz erst nach dem Go-live nachträglich per Update ergänzt wird, sobald Beschwerden auftreten",
+            "b": "Dass grundsätzlich alle verfügbaren Datenfelder aktiviert werden, damit später nichts fehlt",
+            "c": "Dass ausschließlich die IT-Abteilung, nicht aber Fachabteilungen, für Datenschutzeinstellungen verantwortlich ist",
+            "d": "Dass Datenschutz bereits bei der Konzeption des Tools mitgedacht wird und die datenschutzfreundlichsten Voreinstellungen (z. B. minimale Pflichtfelder, kürzeste sinnvolle Speicherfristen) standardmäßig aktiv sind"
+          }
+        },
+        "en": {
+          "question": "A new internal applicant-tracking tool is being introduced. What does the 'privacy by design and by default' principle (Art. 25 GDPR) actually require here?",
+          "options": {
+            "a": "That data protection is bolted on afterwards via an update once complaints start coming in",
+            "b": "That all available data fields are switched on by default so nothing is missing later",
+            "c": "That only the IT department, and never business departments, is responsible for privacy settings",
+            "d": "That data protection is built into the tool's design from the start, with the most privacy-friendly settings (e.g. minimal mandatory fields, the shortest reasonable retention periods) active by default"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Privacy by Design bedeutet, dass Datenschutzanforderungen von Anfang an in die Planung und Entwicklung eines Systems einfließen, statt nachträglich angeflickt zu werden. Privacy by Default bedeutet, dass ohne aktives Zutun der Nutzer nur die für den jeweiligen Zweck erforderlichen Daten verarbeitet werden - Voreinstellungen müssen also datenschutzfreundlich, nicht maximal datensammelnd, sein.",
+        "en": "Privacy by design means data protection requirements are built into a system's planning and development from the outset, rather than patched on afterwards. Privacy by default means that, without any active choice by the user, only the data necessary for the specific purpose is processed by default - so default settings must be privacy-friendly, not maximally data-collecting."
+      }
+    },
+    {
+      "id": "datenschutz-datensicherheit-03",
+      "topic": "Datensicherheit und TOMs",
+      "topic_code": "datensicherheit",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 9 Abs. 1 DSGVO",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": {
+          "question": "Welche der folgenden Angaben zählt zu den 'besonderen Kategorien personenbezogener Daten' nach Art. 9 Abs. 1 DSGVO, die besonders strengen Schutz erfordern?",
+          "options": {
+            "a": "Die Bürokennung und Telefondurchwahl eines Mitarbeiters",
+            "b": "Das monatliche Bruttogehalt eines Mitarbeiters",
+            "c": "Angaben zur Gewerkschaftszugehörigkeit oder zum Gesundheitszustand eines Mitarbeiters",
+            "d": "Der Wohnort und die private Handynummer eines Mitarbeiters"
+          }
+        },
+        "en": {
+          "question": "Which of the following counts as a 'special category of personal data' under Art. 9(1) GDPR, requiring especially strict protection?",
+          "options": {
+            "a": "An employee's office number and phone extension",
+            "b": "An employee's monthly gross salary",
+            "c": "Information about an employee's trade union membership or state of health",
+            "d": "An employee's home address and private mobile number"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 9 Abs. 1 DSGVO nennt als besondere Kategorien u. a. rassische und ethnische Herkunft, politische Meinungen, religiöse/weltanschauliche Überzeugungen, Gewerkschaftszugehörigkeit, genetische und biometrische Daten, Gesundheitsdaten sowie Daten zum Sexualleben oder zur sexuellen Orientierung. Gehalt, Bürokennung oder Kontaktdaten sind zwar auch schützenswerte personenbezogene Daten, fallen aber nicht unter diese verschärfte Kategorie - falsches Vertraulichkeitsmanagement bei echten Gesundheits- oder Gewerkschaftsdaten ist ein ernster Verstoß, daher high_stakes.",
+        "en": "Art. 9(1) GDPR lists, among others, racial or ethnic origin, political opinions, religious or philosophical beliefs, trade union membership, genetic and biometric data, health data, and data concerning a person's sex life or sexual orientation as special categories. Salary, office numbers, or contact details are protectable personal data too, but they do not fall into this heightened-protection category - mishandling confidentiality for genuinely sensitive health or union data is a serious violation, hence high_stakes."
+      }
+    },
+    {
+      "id": "datenschutz-datensicherheit-04",
+      "topic": "Datensicherheit und TOMs",
+      "topic_code": "datensicherheit",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 9 Abs. 2 lit. b DSGVO i. V. m. § 26 BDSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Ein Mitarbeiter reicht bei der Personalabteilung ein ärztliches Attest ein, um eine Krankschreibung nachzuweisen. Auf welcher Grundlage darf der Arbeitgeber diese Gesundheitsdaten verarbeiten, obwohl es sich um besonders geschützte Daten handelt?",
+          "options": {
+            "a": "Gesundheitsdaten von Mitarbeitern dürfen grundsätzlich niemals verarbeitet werden, auch nicht bei Krankschreibungen",
+            "b": "Die Verarbeitung ist zulässig, weil sie zur Ausübung von Rechten und Pflichten aus dem Beschäftigungsverhältnis erforderlich ist (Art. 9 Abs. 2 lit. b DSGVO i. V. m. § 26 BDSG); der Zugriff sollte dabei auf das notwendige Minimum beschränkt bleiben",
+            "c": "Nur mit einer notariell beglaubigten Einwilligung des Mitarbeiters, eine gesetzliche Grundlage reicht hierfür nicht aus",
+            "d": "Nur wenn die Krankenkasse dem Arbeitgeber vorab eine Verarbeitungserlaubnis erteilt"
+          }
+        },
+        "en": {
+          "question": "An employee submits a doctor's note to HR to prove sick leave. On what basis may the employer process this health data, given that it is specially protected?",
+          "options": {
+            "a": "Employee health data may never be processed under any circumstances, not even for sick-leave certificates",
+            "b": "Processing is permitted because it is necessary for exercising rights and obligations arising from the employment relationship (Art. 9(2)(b) GDPR in conjunction with §26 BDSG); access should be limited to what is strictly necessary",
+            "c": "Only with a notarised consent form from the employee - a statutory basis is not sufficient here",
+            "d": "Only if the employee's health insurance provider grants the employer prior authorisation to process it"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 9 Abs. 2 lit. b DSGVO erlaubt die Verarbeitung besonderer Datenkategorien, wenn dies für die Ausübung von Rechten und Pflichten aus dem Arbeits- und Sozialrecht erforderlich ist; § 26 BDSG konkretisiert dies für das Beschäftigungsverhältnis in Deutschland. Krankschreibungen sind ein klassischer, alltäglicher Anwendungsfall - eine Einwilligung ist hierfür nicht zwingend nötig, aber Zugriff sollte nach dem Need-to-know-Prinzip auf wenige berechtigte Personen (i. d. R. HR) beschränkt bleiben.",
+        "en": "Art. 9(2)(b) GDPR permits processing special categories of data where necessary for exercising rights and obligations under employment and social security law; §26 BDSG spells this out for German employment relationships. Sick notes are a classic, everyday example - consent is not strictly required here, but access should still be limited to a small number of authorised people (typically HR) under a need-to-know principle."
+      }
+    },
+    {
+      "id": "datenschutz-meldepflichten-01",
+      "topic": "Meldepflichten bei Datenpannen",
+      "topic_code": "meldepflichten",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 33 Abs. 1 DSGVO",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Am Montagmorgen bemerkt die IT-Abteilung, dass am Freitagabend eine Datenbank mit Kundendaten unverschlüsselt für kurze Zeit im Internet einsehbar war und ein Risiko für die Rechte der Betroffenen wahrscheinlich ist. Bis wann muss der Vorfall grundsätzlich der zuständigen Aufsichtsbehörde gemeldet werden?",
+          "options": {
+            "a": "Erst am Ende des laufenden Quartals im Rahmen des regulären Datenschutzberichts",
+            "b": "Unverzüglich und, wenn möglich, binnen 72 Stunden ab Kenntniserlangung durch das Unternehmen (nicht ab dem eigentlichen Vorfallszeitpunkt); bei Überschreitung ist eine Begründung für die Verzögerung beizufügen",
+            "c": "Innerhalb von 72 Stunden ab dem tatsächlichen Zeitpunkt der Datenpanne selbst, unabhängig davon, wann sie entdeckt wurde",
+            "d": "Es besteht keine Meldepflicht, solange keine Kreditkartendaten betroffen sind"
+          }
+        },
+        "en": {
+          "question": "On Monday morning, IT discovers that on Friday evening a database of customer data was briefly accessible unencrypted on the internet, and a risk to data subjects' rights is likely. By when must the incident generally be reported to the competent supervisory authority?",
+          "options": {
+            "a": "Only at the end of the current quarter, as part of the regular data protection report",
+            "b": "Without undue delay and, where feasible, within 72 hours of the company becoming aware of it (not from the moment the incident itself occurred); if the deadline is missed, a justification for the delay must be provided",
+            "c": "Within 72 hours of the actual moment the breach occurred, regardless of when it was discovered",
+            "d": "There is no notification duty unless credit card data is involved"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Die 72-Stunden-Frist nach Art. 33 Abs. 1 DSGVO beginnt, sobald der Verantwortliche Kenntnis von der Verletzung erlangt hat - nicht erst ab dem tatsächlichen Vorfallszeitpunkt, der ja unbemerkt bleiben kann. Kann die Meldung nicht fristgerecht erfolgen, muss sie dennoch unverzüglich nachgeholt und mit einer Begründung für die Verzögerung versehen werden. Ein Verpassen dieser Frist ohne triftigen Grund ist ein schwerer Compliance-Verstoß, daher high_stakes.",
+        "en": "The 72-hour deadline under Art. 33(1) GDPR starts running once the controller becomes aware of the breach - not from the actual moment the incident occurred, which may go unnoticed for a while. If the notification cannot be made in time, it must still be made without further delay, accompanied by reasons for the delay. Missing this deadline without good reason is a serious compliance failure, hence high_stakes."
+      }
+    },
+    {
+      "id": "datenschutz-meldepflichten-02",
+      "topic": "Meldepflichten bei Datenpannen",
+      "topic_code": "meldepflichten",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 33 Abs. 1 DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["a"],
+      "text": {
+        "de": {
+          "question": "Ein Mitarbeiter verliert kurzzeitig einen vollständig verschlüsselten Firmenlaptop, der sofort per Fernzugriff gesperrt und gelöscht werden kann; niemand hatte in der Zwischenzeit Zugriff auf die Daten. Muss dieser Vorfall zwingend der Aufsichtsbehörde gemeldet werden?",
+          "options": {
+            "a": "Nicht zwingend - wenn die Verletzung voraussichtlich zu keinem Risiko für die Rechte und Freiheiten der Betroffenen führt (z. B. wegen wirksamer Verschlüsselung und Fernlöschung), entfällt die Meldepflicht nach Art. 33 Abs. 1 DSGVO, der Vorfall sollte aber trotzdem intern dokumentiert werden",
+            "b": "Ja, jede Datenpanne ohne Ausnahme muss der Aufsichtsbehörde gemeldet werden",
+            "c": "Nein, eine Meldepflicht besteht ausschließlich bei Cyberangriffen durch Dritte, nie bei Verlust von Geräten",
+            "d": "Ja, aber nur wenn der Laptop mehr als 72 Stunden vermisst wurde"
+          }
+        },
+        "en": {
+          "question": "An employee briefly loses a fully encrypted company laptop that can immediately be remote-locked and wiped; no one accessed the data in the meantime. Must this incident be reported to the supervisory authority?",
+          "options": {
+            "a": "Not necessarily - if the breach is unlikely to result in a risk to the rights and freedoms of data subjects (e.g. because of effective encryption and remote wipe), the notification duty under Art. 33(1) GDPR does not apply, though the incident should still be documented internally",
+            "b": "Yes, every data breach without exception must be reported to the supervisory authority",
+            "c": "No, a notification duty only exists for cyberattacks by third parties, never for lost devices",
+            "d": "Yes, but only if the laptop was missing for more than 72 hours"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 33 Abs. 1 DSGVO sieht eine Ausnahme von der Meldepflicht an die Aufsichtsbehörde vor, wenn die Verletzung voraussichtlich nicht zu einem Risiko für die Rechte und Freiheiten natürlicher Personen führt. Wirksame Verschlüsselung und sofortige Fernlöschung können ein solches Risiko erheblich mindern. Wichtig: Auch nicht meldepflichtige Vorfälle müssen nach Art. 33 Abs. 5 DSGVO intern dokumentiert werden, damit die Aufsichtsbehörde die Einhaltung im Zweifel prüfen kann.",
+        "en": "Art. 33(1) GDPR provides an exception to the notification duty to the supervisory authority where the breach is unlikely to result in a risk to the rights and freedoms of natural persons. Effective encryption and immediate remote wiping can substantially reduce such a risk. Importantly, even breaches that don't need to be reported must still be documented internally under Art. 33(5) GDPR, so the supervisory authority can review compliance if needed."
+      }
+    },
+    {
+      "id": "datenschutz-meldepflichten-03",
+      "topic": "Meldepflichten bei Datenpannen",
+      "topic_code": "meldepflichten",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 34 Abs. 1 DSGVO",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": {
+          "question": "Bei einem Cyberangriff werden unverschlüsselte Gesundheitsdaten und Sozialversicherungsnummern mehrerer tausend Kunden entwendet, was voraussichtlich ein hohes Risiko für die Betroffenen darstellt. Reicht es aus, diesen Vorfall nur der Aufsichtsbehörde zu melden?",
+          "options": {
+            "a": "Ja, eine Meldung an die Aufsichtsbehörde nach Art. 33 DSGVO deckt automatisch auch die Information der Betroffenen mit ab",
+            "b": "Nein, betroffene Personen müssen nur informiert werden, wenn sie das Unternehmen aktiv danach fragen",
+            "c": "Nein, bei einem voraussichtlich hohen Risiko müssen zusätzlich die betroffenen Personen nach Art. 34 DSGVO unverzüglich benachrichtigt werden, es sei denn, eine der in Art. 34 Abs. 3 DSGVO genannten Ausnahmen greift (z. B. wirksame Verschlüsselung der betroffenen Daten)",
+            "d": "Nein, aber eine Benachrichtigung der Betroffenen ist erst nach Abschluss eines behördlichen Bußgeldverfahrens vorgesehen"
+          }
+        },
+        "en": {
+          "question": "In a cyberattack, unencrypted health data and social security numbers of several thousand customers are stolen, likely posing a high risk to those affected. Is it enough to report this incident only to the supervisory authority?",
+          "options": {
+            "a": "Yes, notifying the supervisory authority under Art. 33 GDPR automatically also covers informing the data subjects",
+            "b": "No, affected individuals only need to be informed if they proactively ask the company about it",
+            "c": "No, where a high risk is likely, the affected individuals must additionally be notified without undue delay under Art. 34 GDPR, unless one of the exceptions in Art. 34(3) GDPR applies (e.g. the affected data was effectively encrypted)",
+            "d": "No, but notifying affected individuals is only required after a regulatory fine proceeding has concluded"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 33 DSGVO (Meldung an die Aufsichtsbehörde) und Art. 34 DSGVO (Benachrichtigung der betroffenen Personen) sind zwei getrennte Pflichten mit unterschiedlichen Schwellenwerten: Art. 33 greift schon bei jedem Risiko, Art. 34 erst bei einem voraussichtlich hohen Risiko - dann aber zusätzlich zur Behördenmeldung. Ausnahmen nach Art. 34 Abs. 3 DSGVO greifen u. a. bei wirksamer Verschlüsselung, nachträglichen risikomindernden Maßnahmen oder bei unverhältnismäßigem Aufwand (dann öffentliche Bekanntmachung statt Einzelbenachrichtigung). Unentdeckte, unverschlüsselte Gesundheitsdaten sind ein klassischer Fall mit hohem Risiko - ein Unterlassen wäre ein schwerer Verstoß, daher high_stakes.",
+        "en": "Art. 33 GDPR (notifying the supervisory authority) and Art. 34 GDPR (notifying data subjects) are two separate duties with different thresholds: Art. 33 already applies at any risk level, while Art. 34 only kicks in where a high risk is likely - and then it applies in addition to, not instead of, the authority notification. Exceptions under Art. 34(3) GDPR apply where the data was effectively encrypted, where subsequent measures have eliminated the high risk, or where individual notification would involve disproportionate effort (then public communication can substitute). Unencrypted stolen health data is a textbook high-risk case - failing to notify would be a serious violation, hence high_stakes."
+      }
+    },
+    {
+      "id": "datenschutz-meldepflichten-04",
+      "topic": "Meldepflichten bei Datenpannen",
+      "topic_code": "meldepflichten",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 33 Abs. 5 DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Nach Prüfung eines kleineren Vorfalls entscheidet das Unternehmen, dass keine Meldepflicht an die Aufsichtsbehörde besteht, weil kein Risiko für Betroffene erkennbar ist. Ist damit die Sache erledigt?",
+          "options": {
+            "a": "Ja, ohne Meldepflicht entfallen auch alle weiteren Pflichten in Bezug auf diesen Vorfall vollständig",
+            "b": "Nein, nach Art. 33 Abs. 5 DSGVO muss jede Verletzung des Schutzes personenbezogener Daten - einschließlich Fakten, Auswirkungen und ergriffener Abhilfemaßnahmen - intern dokumentiert werden, damit die Aufsichtsbehörde die Einhaltung überprüfen kann",
+            "c": "Nein, es müssen trotzdem sämtliche Kunden des Unternehmens vorsorglich informiert werden",
+            "d": "Ja, eine Dokumentation ist nur bei meldepflichtigen Vorfällen vorgeschrieben"
+          }
+        },
+        "en": {
+          "question": "After reviewing a minor incident, the company decides there is no duty to notify the supervisory authority because no risk to data subjects is apparent. Is the matter then closed?",
+          "options": {
+            "a": "Yes, without a notification duty, all further obligations regarding this incident disappear entirely",
+            "b": "No, under Art. 33(5) GDPR, every personal data breach - including the facts, its effects, and the remedial action taken - must still be documented internally so the supervisory authority can verify compliance",
+            "c": "No, all of the company's customers must nevertheless be informed as a precaution",
+            "d": "Yes, documentation is only required for incidents that are subject to the notification duty"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 33 Abs. 5 DSGVO verpflichtet Verantwortliche, alle Datenschutzverletzungen zu dokumentieren, unabhängig davon, ob eine Meldung an die Aufsichtsbehörde erforderlich ist. Diese Dokumentation dient als Nachweis der Rechenschaftspflicht und ermöglicht es der Aufsichtsbehörde, die Einschätzung des Unternehmens im Nachhinein zu überprüfen. Eine pauschale Information aller Kunden ist bei fehlendem Risiko nicht vorgeschrieben und würde unnötige Verunsicherung stiften.",
+        "en": "Art. 33(5) GDPR requires controllers to document every personal data breach, regardless of whether notification to the supervisory authority is required. This documentation serves as evidence of accountability and allows the supervisory authority to review the company's risk assessment after the fact. Blanket notification of all customers is not required where no risk exists and would only cause unnecessary alarm."
+      }
+    },
+    {
+      "id": "datenschutz-auftragsverarbeitung-01",
+      "topic": "Auftragsverarbeitung und internationale Übermittlung",
+      "topic_code": "auftragsverarbeitung",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 28 Abs. 3 und 9 DSGVO",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["b"],
+      "text": {
+        "de": {
+          "question": "Das Unternehmen möchte die Lohnbuchhaltung an einen externen Dienstleister auslagern, der dafür Zugriff auf Mitarbeiterdaten benötigt. Was ist zwingend erforderlich, bevor der Dienstleister mit der Verarbeitung beginnen darf?",
+          "options": {
+            "a": "Eine formlose mündliche Absprache reicht aus, solange beide Seiten sich vertrauen",
+            "b": "Ein schriftlicher (auch elektronischer) Auftragsverarbeitungsvertrag nach Art. 28 DSGVO, der u. a. Gegenstand, Dauer, Art und Zweck der Verarbeitung, die Kategorien der Daten sowie die Pflichten des Auftragsverarbeiters regelt",
+            "c": "Eine notarielle Beurkundung des Auftrags, da es sich um Beschäftigtendaten handelt",
+            "d": "Nichts, sofern der Dienstleister seinen Sitz ebenfalls in Deutschland hat"
+          }
+        },
+        "en": {
+          "question": "The company wants to outsource payroll processing to an external service provider, who needs access to employee data for this. What is mandatory before the provider may begin processing?",
+          "options": {
+            "a": "An informal verbal agreement is enough, as long as both sides trust each other",
+            "b": "A written (electronic form is acceptable) data processing agreement under Art. 28 GDPR, covering, among other things, the subject matter, duration, nature and purpose of processing, categories of data, and the processor's obligations",
+            "c": "Notarisation of the arrangement, because employee data is involved",
+            "d": "Nothing, as long as the service provider is also based in Germany"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 28 Abs. 9 DSGVO schreibt für die Auftragsverarbeitung zwingend die Schriftform vor (elektronische Form genügt). Der Vertrag muss nach Art. 28 Abs. 3 DSGVO u. a. Gegenstand, Dauer, Art und Zweck der Verarbeitung, die Art der personenbezogenen Daten und Kategorien betroffener Personen sowie die Pflichten und Rechte des Verantwortlichen regeln. Ein rein mündliches Vertrauensverhältnis reicht nicht, unabhängig vom Sitz des Dienstleisters.",
+        "en": "Art. 28(9) GDPR mandates a written contract for data processing on behalf of a controller (electronic form is sufficient). Under Art. 28(3) GDPR, the contract must set out, among other things, the subject matter, duration, nature and purpose of processing, the type of personal data and categories of data subjects, and the obligations and rights of the controller. A purely verbal trust-based arrangement is not enough, regardless of where the service provider is located."
+      }
+    },
+    {
+      "id": "datenschutz-auftragsverarbeitung-02",
+      "topic": "Auftragsverarbeitung und internationale Übermittlung",
+      "topic_code": "auftragsverarbeitung",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 28 Abs. 2 DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["a"],
+      "text": {
+        "de": {
+          "question": "Ein beauftragter IT-Dienstleister möchte für die Datenspeicherung einen weiteren Subunternehmer (Sub-Auftragsverarbeiter) einschalten. Darf er das ohne Weiteres tun?",
+          "options": {
+            "a": "Nein, nach Art. 28 Abs. 2 DSGVO darf ein Auftragsverarbeiter keinen weiteren Auftragsverarbeiter hinzuziehen, ohne dass der Verantwortliche vorab eine spezifische oder allgemeine schriftliche Genehmigung erteilt hat",
+            "b": "Ja, sobald ein Vertrag mit dem Hauptdienstleister besteht, können beliebig viele weitere Subunternehmer ohne zusätzliche Genehmigung eingebunden werden",
+            "c": "Ja, solange der Subunternehmer seinen Sitz innerhalb der EU hat, ist keine gesonderte Genehmigung nötig",
+            "d": "Nein, Sub-Auftragsverarbeiter sind in der DSGVO generell verboten"
+          }
+        },
+        "en": {
+          "question": "An engaged IT service provider wants to bring in a further subcontractor (sub-processor) for data storage. May it simply do so?",
+          "options": {
+            "a": "No, under Art. 28(2) GDPR a processor may not engage another processor without the controller's prior specific or general written authorisation",
+            "b": "Yes, once a contract with the main service provider exists, any number of further subcontractors can be brought in without additional authorisation",
+            "c": "Yes, as long as the subcontractor is based within the EU, no separate authorisation is needed",
+            "d": "No, sub-processors are generally prohibited under GDPR"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 28 Abs. 2 DSGVO verlangt, dass ein Auftragsverarbeiter keinen weiteren Auftragsverarbeiter ohne vorherige gesonderte oder allgemeine schriftliche Genehmigung des Verantwortlichen in Anspruch nimmt. Bei einer allgemeinen Genehmigung muss der Auftragsverarbeiter den Verantwortlichen über beabsichtigte Änderungen informieren, sodass dieser Widerspruch einlegen kann. Der Sitz innerhalb der EU ändert an diesem Genehmigungserfordernis nichts, und Sub-Auftragsverarbeiter sind nicht grundsätzlich verboten, sondern an Bedingungen geknüpft.",
+        "en": "Art. 28(2) GDPR requires that a processor does not engage another processor without the controller's prior specific or general written authorisation. Where a general authorisation is given, the processor must inform the controller of intended changes so the controller can object. Being based within the EU doesn't remove this authorisation requirement, and sub-processors are not banned outright - they are simply subject to conditions."
+      }
+    },
+    {
+      "id": "datenschutz-auftragsverarbeitung-03",
+      "topic": "Auftragsverarbeitung und internationale Übermittlung",
+      "topic_code": "auftragsverarbeitung",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "Art. 44-46 DSGVO",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["c"],
+      "text": {
+        "de": {
+          "question": "Ein Unternehmen möchte Kundendaten an einen Cloud-Anbieter mit Sitz außerhalb der EU/des EWR übermitteln. Was gilt hierfür auf konzeptioneller Ebene nach Art. 44 ff. DSGVO?",
+          "options": {
+            "a": "Eine solche Übermittlung ist grundsätzlich verboten und in keinem Fall zulässig",
+            "b": "Es reicht immer aus, dass der Kunde vorab per E-Mail zugestimmt hat, unabhängig vom Zielland",
+            "c": "Die Übermittlung braucht eine geeignete Grundlage, z. B. einen Angemessenheitsbeschluss der EU-Kommission für das Zielland (Art. 45 DSGVO) oder geeignete Garantien wie EU-Standardvertragsklauseln (Art. 46 DSGVO); ohne eine solche Grundlage ist die Übermittlung grundsätzlich unzulässig",
+            "d": "Solche Übermittlungen unterliegen ausschließlich dem nationalen Recht des Zielstaats, nicht der DSGVO"
+          }
+        },
+        "en": {
+          "question": "A company wants to transfer customer data to a cloud provider based outside the EU/EEA. What applies here, at a conceptual level, under Art. 44 et seq. GDPR?",
+          "options": {
+            "a": "Such a transfer is fundamentally prohibited and never permitted",
+            "b": "It is always enough that the customer gave prior consent by email, regardless of the destination country",
+            "c": "The transfer needs a suitable basis, e.g. an adequacy decision by the European Commission for the destination country (Art. 45 GDPR) or appropriate safeguards such as EU Standard Contractual Clauses (Art. 46 GDPR); without such a basis, the transfer is generally not permitted",
+            "d": "Such transfers are governed solely by the destination country's national law, not by GDPR"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Übermittlungen personenbezogener Daten in Drittländer sind nach Art. 44 DSGVO nur zulässig, wenn eine geeignete Grundlage vorliegt: entweder ein Angemessenheitsbeschluss der EU-Kommission, der dem Zielland ein angemessenes Schutzniveau bescheinigt (Art. 45 DSGVO), oder geeignete Garantien wie EU-Standardvertragsklauseln, verbindliche interne Datenschutzvorschriften oder in engen Ausnahmefällen die in Art. 49 DSGVO genannten Ausnahmetatbestände. Eine einfache E-Mail-Zustimmung reicht regelmäßig nicht als alleinige, dauerhafte Grundlage für laufende Übermittlungen, und die DSGVO gilt zusätzlich zum nationalen Recht des Zielstaats.",
+        "en": "Transfers of personal data to third countries are only permitted under Art. 44 GDPR if a suitable basis exists: either an adequacy decision by the European Commission confirming an adequate level of protection in the destination country (Art. 45 GDPR), or appropriate safeguards such as EU Standard Contractual Clauses, binding corporate rules, or, in narrow cases, one of the derogations listed in Art. 49 GDPR. A simple email consent generally isn't sufficient as the sole, ongoing basis for regular transfers, and GDPR applies in addition to the destination country's national law, not instead of it."
+      }
+    },
+    {
+      "id": "datenschutz-auftragsverarbeitung-04",
+      "topic": "Auftragsverarbeitung und internationale Übermittlung",
+      "topic_code": "auftragsverarbeitung",
+      "class_scope": ["ALL"],
+      "grundstoff": true,
+      "legal_basis": "§ 53 BDSG i. V. m. Art. 5 Abs. 1 lit. f, Art. 28 Abs. 3 lit. b DSGVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": ["d"],
+      "text": {
+        "de": {
+          "question": "Ein neuer Mitarbeiter erhält im Rahmen seiner Einarbeitung Zugriff auf ein System mit Kundendaten, obwohl er für seine Tätigkeit nur einen Teil dieser Daten benötigt. Welches Prinzip wird hier verletzt, und was ist die richtige Vorgehensweise?",
+          "options": {
+            "a": "Es wird kein Prinzip verletzt, da jeder Mitarbeiter grundsätzlich Zugriff auf alle Unternehmensdaten haben sollte",
+            "b": "Es handelt sich um einen Verstoß gegen das Recht auf Datenübertragbarkeit, da der Mitarbeiter die Daten theoretisch exportieren könnte",
+            "c": "Es ist unproblematisch, solange der Mitarbeiter auf das Datengeheimnis nach § 53 BDSG verpflichtet wurde, unabhängig vom Umfang seiner Zugriffsrechte",
+            "d": "Es wird das Need-to-know-Prinzip verletzt; Zugriffsrechte sollten nach dem Grundsatz der Datenminimierung auf das für die jeweilige Aufgabe erforderliche Maß beschränkt werden, zusätzlich zur allgemeinen Verpflichtung auf Vertraulichkeit nach § 53 BDSG"
+          }
+        },
+        "en": {
+          "question": "As part of onboarding, a new employee is given access to a system containing customer data, even though their role only requires part of that data. Which principle is being violated here, and what is the correct approach?",
+          "options": {
+            "a": "No principle is violated, since every employee should generally have access to all company data",
+            "b": "This is a violation of the right to data portability, since the employee could theoretically export the data",
+            "c": "It is unproblematic as long as the employee has been bound to confidentiality under §53 BDSG, regardless of the scope of their access rights",
+            "d": "This violates the need-to-know principle; access rights should be restricted, under the data minimisation principle, to what is actually required for the employee's task, in addition to the general duty of confidentiality under §53 BDSG"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Über die allgemeine Verpflichtung von Beschäftigten auf das Datengeheimnis nach § 53 BDSG hinaus verlangt der Grundsatz der Datenminimierung (Art. 5 Abs. 1 lit. c DSGVO), dass Zugriffsrechte nach dem Need-to-know-Prinzip vergeben werden: Mitarbeiter sollten nur auf die Daten zugreifen können, die sie für ihre konkrete Aufgabe benötigen. Eine Vertraulichkeitsverpflichtung ersetzt keine technische Zugriffsbeschränkung - beides ist erforderlich, nicht entweder-oder.",
+        "en": "Beyond the general duty of employees to maintain confidentiality under §53 BDSG, the data minimisation principle (Art. 5(1)(c) GDPR) requires that access rights be granted on a need-to-know basis: employees should only be able to access the data actually required for their specific task. A confidentiality obligation does not substitute for technical access restrictions - both are required, not one or the other."
+      }
+    }
+  ]
+}

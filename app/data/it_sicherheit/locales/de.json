@@ -1,0 +1,202 @@
+{
+  "it_sicherheit-zugriffsschutz-01": {
+    "question": "Welche Eigenschaft macht ein Passwort grundsätzlich sicherer gegen automatisierte Rateangriffe?",
+    "options": {
+      "a": "Es enthält den Namen der Abteilung, damit man es sich leichter merken kann",
+      "b": "Es ist lang, einzigartig für diesen einen Account und nicht leicht zu erraten",
+      "c": "Es wird alle drei Tage durch ein sehr ähnliches Passwort ersetzt",
+      "d": "Es besteht nur aus Ziffern, weil das die Eingabe beschleunigt"
+    },
+    "explanation": "Länge und Einzigartigkeit sind die wichtigsten Faktoren gegen automatisiertes Ausprobieren und gegen sogenanntes Credential Stuffing, bei dem gestohlene Zugangsdaten aus anderen Diensten ausprobiert werden. Ein Passwort mit Bezug zum Arbeitsplatz ist leicht zu erraten, häufiges Wechseln auf ein sehr ähnliches Passwort bringt kaum Sicherheitsgewinn, und rein numerische Passwörter haben zu wenig mögliche Kombinationen."
+  },
+  "it_sicherheit-zugriffsschutz-02": {
+    "question": "Warum gilt Multi-Faktor-Authentifizierung (MFA) als deutlich sicherer als ein Passwort allein?",
+    "options": {
+      "a": "Weil sie das Passwort überflüssig macht und man sich nichts mehr merken muss",
+      "b": "Weil sie das Konto vor allen Arten von Angriffen vollständig schützt",
+      "c": "Weil ein Angreifer selbst bei einem gestohlenen Passwort zusätzlich den zweiten Faktor bräuchte",
+      "d": "Weil sie ausschließlich für Administratorkonten technisch möglich ist"
+    },
+    "explanation": "MFA kombiniert etwas, das man weiß (Passwort), mit etwas, das man besitzt (z. B. eine App oder ein Token) oder ist. Ein gestohlenes Passwort allein reicht einem Angreifer damit nicht mehr aus. MFA ersetzt das Passwort nicht, bietet keinen vollständigen Schutz gegen jede Angriffsart und ist heute für praktisch jedes Nutzerkonto verfügbar, nicht nur für Administratoren."
+  },
+  "it_sicherheit-zugriffsschutz-03": {
+    "question": "Ein Kollege bittet Sie, kurz sein persönliches Benutzerkonto samt Passwort mitzubenutzen, weil sein eigener Zugang gerade gesperrt ist. Wie sollten Sie reagieren?",
+    "options": {
+      "a": "Ablehnen und stattdessen den zuständigen IT-Support oder die Führungskraft informieren",
+      "b": "Zustimmen, solange nur kurzfristig damit gearbeitet wird",
+      "c": "Zustimmen, aber danach das Passwort des Kollegen selbst ändern",
+      "d": "Zustimmen, wenn die Aufgabe dringend ist und kein anderer Zugang möglich erscheint"
+    },
+    "explanation": "Konten sind personenbezogen, damit Handlungen im System eindeutig einer Person zuordenbar bleiben (Nachvollziehbarkeit). Wird ein Konto geteilt, lässt sich im Nachhinein nicht mehr klären, wer was getan hat - das erschwert auch die Aufklärung von Sicherheitsvorfällen erheblich. Dringlichkeit rechtfertigt keine Ausnahme; der richtige Weg ist, den eigentlichen Zugriffsweg über IT-Support wiederherzustellen."
+  },
+  "it_sicherheit-zugriffsschutz-04": {
+    "question": "Sie verlassen Ihren Arbeitsplatz für ein kurzes Gespräch im Nachbarbüro. Was ist der richtige Umgang mit Ihrem entsperrten Computer?",
+    "options": {
+      "a": "Nichts unternehmen, da es sich um ein internes Bürogebäude handelt",
+      "b": "Den Bildschirm sperren, bevor Sie den Arbeitsplatz verlassen",
+      "c": "Nur das geöffnete Dokument schließen, der Rest kann offen bleiben",
+      "d": "Den Monitor ausschalten, das genügt als Schutz"
+    },
+    "explanation": "Ein entsperrter Rechner erlaubt jedem, der kurz Zugang zum Raum hat - auch Besuchern, Reinigungspersonal oder unbefugten Dritten -, auf alle geöffneten Programme und Daten zuzugreifen. Ein ausgeschalteter Monitor ändert daran nichts, da die Sitzung im Hintergrund weiterläuft. Bildschirmsperren (z. B. per Tastenkürzel) sind eine einfache, wirksame Basismaßnahme, unabhängig davon, wie vertrauenswürdig die Umgebung erscheint."
+  },
+  "it_sicherheit-phishing-01": {
+    "question": "Welches der folgenden Merkmale ist ein typisches Warnsignal für eine Phishing-E-Mail?",
+    "options": {
+      "a": "Die E-Mail kommt während der üblichen Arbeitszeit an",
+      "b": "Die E-Mail enthält das Firmenlogo im Anhang",
+      "c": "Die E-Mail erzeugt Zeitdruck und fordert zu einer sofortigen, unüblichen Handlung auf",
+      "d": "Die E-Mail wurde an mehrere Kollegen gleichzeitig verschickt"
+    },
+    "explanation": "Angreifer setzen gezielt auf künstlichen Zeitdruck und emotionale Dringlichkeit, damit Empfänger nicht in Ruhe nachdenken oder Rücksprache halten, sondern sofort handeln - etwa auf einen Link klicken oder Daten preisgeben. Logos, normale Versandzeiten oder ein größerer Empfängerkreis sagen für sich genommen nichts über die Echtheit einer Nachricht aus, da Logos leicht kopiert und Versandzeiten sowie Empfängerlisten beliebig gewählt werden können."
+  },
+  "it_sicherheit-phishing-02": {
+    "question": "Sie erhalten scheinbar von der Geschäftsführung eine E-Mail, die Sie auffordert, dringend und vertraulich eine hohe Summe an ein neues, unbekanntes Konto zu überweisen. Was ist der richtige erste Schritt?",
+    "options": {
+      "a": "Die Überweisung sofort ausführen, da Anweisungen der Geschäftsführung Vorrang haben",
+      "b": "Die Anfrage über einen bekannten, unabhängigen Kanal (z. B. Telefonanruf) persönlich verifizieren, bevor irgendetwas geschieht",
+      "c": "Auf die E-Mail antworten und dort nach einer schriftlichen Bestätigung fragen",
+      "d": "Die Überweisung durchführen, aber einen kleineren Betrag als angefordert senden"
+    },
+    "explanation": "Dieses Muster wird häufig als \"CEO-Fraud\" bezeichnet: Angreifer geben sich als Führungskraft aus und nutzen Autorität, Vertraulichkeit und Zeitdruck, um Kontrollen zu umgehen. Eine Antwort innerhalb derselben E-Mail-Konversation hilft nicht, da der Angreifer genau diesen Kanal kontrolliert. Entscheidend ist die Verifikation über einen unabhängigen, bereits bekannten Kontaktweg - etwa ein Anruf unter einer hinterlegten Telefonnummer -, bevor irgendeine Zahlung oder Handlung erfolgt."
+  },
+  "it_sicherheit-phishing-03": {
+    "question": "In einer E-Mail wird ein Link angezeigt, der angeblich zur bekannten Login-Seite Ihres Unternehmens führt. Wie prüfen Sie am sinnvollsten, ob der Link vertrauenswürdig ist, ohne ihn anzuklicken?",
+    "options": {
+      "a": "Mit der Maus über den Link fahren (ohne zu klicken) und die tatsächliche Zieladresse in der Statusanzeige prüfen",
+      "b": "Den Link anklicken und dann sofort schauen, ob die Seite echt aussieht",
+      "c": "Prüfen, ob die E-Mail in korrektem Deutsch geschrieben ist",
+      "d": "Den Absendernamen im Anzeigefeld des E-Mail-Programms kontrollieren"
+    },
+    "explanation": "Der angezeigte Linktext kann beliebig von der tatsächlichen Zieladresse abweichen; erst das Überfahren mit der Maus zeigt die reale URL in der Statusleiste des Browsers oder E-Mail-Programms. Anklicken birgt bereits ein Risiko, da manche gefälschten Seiten automatisch Schadcode laden. Fehlerfreie Sprache ist kein verlässliches Kriterium mehr, da Phishing-Texte heute oft sehr professionell wirken, und der angezeigte Absendername lässt sich leicht fälschen, ohne dass die tatsächliche Absenderadresse dazu passt."
+  },
+  "it_sicherheit-phishing-04": {
+    "question": "Sie haben auf einen Link in einer verdächtigen E-Mail geklickt und dort versehentlich Ihre Zugangsdaten eingegeben. Was ist die richtige Reaktion?",
+    "options": {
+      "a": "Abwarten, ob sich etwas Ungewöhnliches im Konto zeigt, und erst dann reagieren",
+      "b": "Nichts tun, da es sich vermutlich um einen harmlosen Einzelfall handelt",
+      "c": "Das Passwort in den nächsten Tagen ändern, wenn Zeit dafür ist",
+      "d": "Sofort das Passwort ändern und den Vorfall umgehend der zuständigen internen Stelle (z. B. IT-Sicherheit) melden"
+    },
+    "explanation": "Je schneller ein kompromittiertes Zugangsdatum geändert und der Vorfall gemeldet wird, desto kleiner bleibt das Zeitfenster, in dem ein Angreifer die gestohlenen Daten missbrauchen kann. Abwarten, Nichtstun oder Verzögern erhöht das Risiko unnötig, insbesondere wenn dasselbe Passwort auch für weitere Systeme genutzt wird. Die Meldung an die zuständige Stelle ermöglicht zusätzlich, weitere Schutzmaßnahmen einzuleiten und andere Beschäftigte zu warnen."
+  },
+  "it_sicherheit-datensicherung-01": {
+    "question": "Warum sind regelmäßige, geplante Datensicherungen (Backups) wichtig, auch wenn ein Gerät technisch zuverlässig läuft?",
+    "options": {
+      "a": "Weil Backups die Notwendigkeit von Passwörtern ersetzen",
+      "b": "Weil Daten auch durch Fehlbedienung, technischen Defekt oder Schadsoftware wie Ransomware verloren gehen können, unabhängig von der aktuellen Zuverlässigkeit des Geräts",
+      "c": "Weil Backups ausschließlich für sehr alte Geräte vorgeschrieben sind",
+      "d": "Weil ohne Backup die Internetverbindung langsamer wird"
+    },
+    "explanation": "Ein Backup schützt vor ganz unterschiedlichen Ursachen für Datenverlust: versehentliches Löschen, Hardwaredefekte, aber auch Ransomware, die Dateien verschlüsselt. Die bisherige Zuverlässigkeit eines Geräts sagt nichts über zukünftige Ausfälle oder Angriffe aus. Backups haben nichts mit Passwörtern oder Internetgeschwindigkeit zu tun und sind unabhängig vom Alter des Geräts sinnvoll."
+  },
+  "it_sicherheit-datensicherung-02": {
+    "question": "Sie finden auf dem Firmenparkplatz einen USB-Stick ohne Kennzeichnung. Was ist der richtige Umgang damit?",
+    "options": {
+      "a": "Den Stick an einem Firmenrechner einstecken, um herauszufinden, wem er gehört",
+      "b": "Den Stick mitnehmen und privat weiterverwenden, da niemand ihn vermisst",
+      "c": "Den Stick nicht anschließen, sondern der IT-Abteilung oder dem Sicherheitspersonal übergeben",
+      "d": "Den Stick an einem privaten Gerät prüfen, bevor eine Entscheidung getroffen wird"
+    },
+    "explanation": "Unbekannte USB-Sticks sind ein klassisches Einfallstor für Schadsoftware: Sie können so präpariert sein, dass sie beim Einstecken automatisch Schadcode ausführen, auch bevor eine Datei geöffnet wird. Das gilt für Firmenrechner ebenso wie für private Geräte. Der sichere Weg ist, den Fund nicht selbst zu untersuchen, sondern an die zuständige Stelle weiterzugeben, die ihn kontrolliert prüfen kann."
+  },
+  "it_sicherheit-datensicherung-03": {
+    "question": "Warum sollten Sie Sicherheitsupdates für Betriebssystem und Programme auf Ihrem Arbeitsgerät zeitnah installieren, wenn das System es anbietet?",
+    "options": {
+      "a": "Weil Updates häufig bekannt gewordene Sicherheitslücken schließen, die sonst von Angreifern ausgenutzt werden können",
+      "b": "Weil Updates hauptsächlich das Design der Benutzeroberfläche verbessern",
+      "c": "Weil Updates ausschließlich die Geschwindigkeit des Geräts erhöhen",
+      "d": "Weil Updates nur bei privat genutzten Geräten sicherheitsrelevant sind"
+    },
+    "explanation": "Sicherheitslücken in Betriebssystemen und Anwendungen werden fortlaufend entdeckt und veröffentlicht; Hersteller schließen sie über Updates. Wird ein Update aufgeschoben, bleibt die Lücke offen, und Angreifer nutzen häufig gerade den Zeitraum kurz nach Bekanntwerden gezielt aus. Oberflächengestaltung oder Geschwindigkeit sind allenfalls Nebeneffekte, nicht der eigentliche Sicherheitsgrund, und die Update-Disziplin gilt für dienstliche Geräte genauso wie für private."
+  },
+  "it_sicherheit-datensicherung-04": {
+    "question": "Ein Kollege empfiehlt Ihnen ein praktisches, kostenloses Zusatzprogramm aus dem Internet für Ihren Firmenrechner. Wie gehen Sie am sinnvollsten vor?",
+    "options": {
+      "a": "Das Programm sofort installieren, da es kostenlos ist und keine Kosten verursacht",
+      "b": "Das Programm installieren, aber nur auf dem Rechner, nicht auf dem Diensthandy",
+      "c": "Das Programm installieren, solange es von einer bekannten Webseite heruntergeladen wird",
+      "d": "Vor der Installation die zuständige IT-Stelle fragen, ob und wie die Software freigegeben werden kann"
+    },
+    "explanation": "Nicht freigegebene Software kann Sicherheitslücken enthalten, mit anderen Programmen in Konflikt geraten oder gegen Lizenz- und Compliance-Vorgaben verstoßen - unabhängig davon, ob sie kostenlos ist, von welcher Webseite sie stammt oder auf welchem Gerätetyp sie installiert wird. Die IT-Abteilung kann prüfen, ob eine Software sicher und regelkonform eingesetzt werden kann, und gegebenenfalls eine geprüfte Alternative bereitstellen."
+  },
+  "it_sicherheit-mobil_homeoffice-01": {
+    "question": "Welche Maßnahme trägt am meisten dazu bei, das heimische WLAN für dienstliche Arbeit im Homeoffice abzusichern?",
+    "options": {
+      "a": "Den Namen (SSID) des WLANs so einstellen, dass er unauffällig klingt",
+      "b": "Ein starkes, individuelles WLAN-Passwort und eine aktuelle Verschlüsselung (z. B. WPA2/WPA3) verwenden",
+      "c": "Das WLAN nur tagsüber einschalten und nachts komplett abschalten",
+      "d": "Den werkseitig voreingestellten Router-Zugang unverändert beibehalten, um Fehler zu vermeiden"
+    },
+    "explanation": "Ein starkes, individuelles Passwort zusammen mit moderner Verschlüsselung verhindert, dass Unbefugte in Reichweite sich einfach ins Netzwerk einklinken und den Datenverkehr mitlesen oder manipulieren können. Ein unauffälliger Netzwerkname bietet keinen technischen Schutz, ein zeitweises Abschalten löst das Grundproblem nicht, und werkseitige Voreinstellungen (Standardpasswörter, Standard-SSID) sind oft öffentlich bekannt und daher besonders unsicher."
+  },
+  "it_sicherheit-mobil_homeoffice-02": {
+    "question": "Sie müssen unterwegs kurz auf dienstliche E-Mails zugreifen und finden ein offenes, unverschlüsseltes WLAN in einem Café. Wie gehen Sie am sichersten vor?",
+    "options": {
+      "a": "Das offene WLAN direkt nutzen, da E-Mail-Abrufe unkritisch sind",
+      "b": "Das offene WLAN nutzen, aber vorher das eigene Passwort ändern",
+      "c": "Statt des offenen WLANs eine gesicherte Verbindung nutzen, etwa mobile Daten oder ein Firmen-VPN",
+      "d": "Das offene WLAN nutzen, solange die Café-Webseite ein Schloss-Symbol in der Adresszeile zeigt"
+    },
+    "explanation": "In offenen, unverschlüsselten WLANs kann der Datenverkehr von Dritten im selben Netz mitgelesen oder umgeleitet werden, auch wenn einzelne Webseiten selbst verschlüsselt sind (das Schloss-Symbol bezieht sich nur auf diese eine Verbindung, nicht auf das gesamte Netz). Mobile Daten oder ein Firmen-VPN bauen eine zusätzlich abgesicherte, verschlüsselte Verbindung auf, die deutlich schwerer abzuhören ist. Ein vorheriger Passwortwechsel löst das eigentliche Risiko nicht."
+  },
+  "it_sicherheit-mobil_homeoffice-03": {
+    "question": "Sie arbeiten im Zug an einem vertraulichen Dokument auf Ihrem Laptop. Was sollten Sie zum Schutz vor Mitlesen beachten?",
+    "options": {
+      "a": "Auf die Umgebung achten und bei Bedarf einen Sichtschutzfilter oder eine sitzplatzbedingt geschützte Position nutzen",
+      "b": "Das Dokument einfach kleiner zoomen, damit es aus der Ferne nicht lesbar ist",
+      "c": "Nur den Dateinamen anonymisieren, der Inhalt selbst ist unkritisch",
+      "d": "Vertrauliche Dokumente unterwegs generell genauso behandeln wie öffentlich zugängliche Informationen"
+    },
+    "explanation": "\"Shoulder surfing\" - das Mitlesen von Bildschirminhalten durch umstehende Personen - ist ein reales Risiko in öffentlichen Umgebungen wie Zügen oder Wartebereichen. Ein Sichtschutzfilter oder eine geschickte Sitzposition verringert dieses Risiko wirksam. Kleineres Zoomen schützt nicht zuverlässig, der Dateiname ist nicht der eigentliche Schutzgegenstand, und vertrauliche Inhalte benötigen unabhängig vom Ort immer den entsprechenden Schutz, nicht nur im Büro."
+  },
+  "it_sicherheit-mobil_homeoffice-04": {
+    "question": "Sie sind dienstlich unterwegs und müssen Ihren Firmenlaptop kurz im geparkten Auto zurücklassen. Was ist der sicherste Umgang damit?",
+    "options": {
+      "a": "Den Laptop gut sichtbar auf dem Beifahrersitz liegen lassen, damit er nicht vergessen wird",
+      "b": "Den Laptop in den nicht einsehbaren Kofferraum legen und das Fahrzeug verschließen, oder ihn möglichst ganz mitnehmen",
+      "c": "Den Laptop unter einer Jacke auf dem Rücksitz verstecken, das genügt als Schutz",
+      "d": "Es spielt keine Rolle, solange der Laptop mit einem Benutzerkennwort geschützt ist"
+    },
+    "explanation": "Sichtbare Wertgegenstände im Auto erhöhen das Risiko eines Einbruchs erheblich; ein nicht einsehbarer Kofferraum oder das Mitnehmen des Geräts verringern dieses Risiko deutlich. Eine Jacke als Sichtschutz ist unzuverlässig und schützt nicht vor einem gezielten Einbruch. Ein Benutzerkennwort schützt zwar die Daten auf dem Gerät im Falle eines Diebstahls teilweise, verhindert aber nicht den physischen Verlust des Geräts selbst und ersetzt daher nicht die sichere Aufbewahrung."
+  },
+  "it_sicherheit-meldepflicht_it-01": {
+    "question": "Sie vermuten, dass Ihr Firmenrechner mit Schadsoftware infiziert ist, sind sich aber nicht ganz sicher. Wie sollten Sie sich verhalten?",
+    "options": {
+      "a": "Abwarten, bis eindeutige Beweise vorliegen, um keine Fehlmeldung abzugeben",
+      "b": "Den Verdacht umgehend der zuständigen internen Stelle (z. B. IT-Sicherheit oder Helpdesk) melden, auch bei Unsicherheit",
+      "c": "Den Rechner selbst neu aufsetzen und danach normal weiterarbeiten",
+      "d": "Erst Kollegen fragen, ob ihnen Ähnliches aufgefallen ist, bevor irgendetwas gemeldet wird"
+    },
+    "explanation": "Eine funktionierende Melde- und Reaktionskultur setzt voraus, dass auch bloße Verdachtsfälle frühzeitig gemeldet werden, statt auf eindeutige Beweise zu warten - je früher ein möglicher Vorfall bekannt wird, desto besser lässt sich eine Ausbreitung eindämmen. Eigenständiges Neuaufsetzen des Rechners kann wichtige Spuren zur Ursachenklärung zerstören. Auch das informelle Nachfragen bei Kollegen verzögert die Meldung unnötig und ersetzt nicht die Information der zuständigen Stelle."
+  },
+  "it_sicherheit-meldepflicht_it-02": {
+    "question": "Warum legt die EU-Richtlinie zur Netz- und Informationssicherheit (NIS2) für betroffene Organisationen so kurze Fristen für die erste Meldung eines erheblichen Sicherheitsvorfalls fest (grob: eine frühe Warnung innerhalb von Stunden, gefolgt von einer ausführlicheren Meldung)?",
+    "options": {
+      "a": "Damit Unternehmen möglichst viel Zeit gewinnen, um den Vorfall intern zu verschweigen",
+      "b": "Weil eine vollständige technische Untersuchung ohnehin nie möglich ist",
+      "c": "Damit zuständige Stellen frühzeitig reagieren und andere potenziell betroffene Organisationen rechtzeitig gewarnt werden können",
+      "d": "Weil kurze Fristen ausschließlich für IT-Dienstleister gelten, nicht für deren Kunden"
+    },
+    "explanation": "Kurze Meldefristen sollen sicherstellen, dass Behörden und andere betroffene Stellen schnell informiert werden, um eine Ausbreitung einzudämmen und Gegenmaßnahmen zu koordinieren - nicht, um internes Verschweigen zu ermöglichen. Eine erste, frühe Meldung darf bewusst noch unvollständig sein und wird später ergänzt; das ist gerade der Sinn eines gestuften Meldeverfahrens. Die Meldepflichten richten sich an betroffene Organisationen insgesamt, nicht nur an IT-Dienstleister."
+  },
+  "it_sicherheit-meldepflicht_it-03": {
+    "question": "Warum verlangt eine gute Sicherheitskultur, dass Beschäftigte einen vermuteten Sicherheitsvorfall melden, statt zu versuchen, ihn selbst \"still\" zu beheben?",
+    "options": {
+      "a": "Weil ein Einzelner oft nicht das gesamte Ausmaß und die Ursache eines Vorfalls überblicken kann und eigenmächtiges Handeln Spuren verwischen oder das Problem verschlimmern kann",
+      "b": "Weil eigenständiges Beheben grundsätzlich gegen das Urheberrecht verstößt",
+      "c": "Weil nur so die Kosten für IT-Sicherheit im Unternehmen reduziert werden können",
+      "d": "Weil Beschäftigte ohne Meldung automatisch persönlich haftbar gemacht werden können"
+    },
+    "explanation": "Ein einzelner Vorfall kann Teil eines größeren Musters sein - etwa ein Angriff, der mehrere Systeme betrifft. Wer versucht, das Problem allein und ohne Meldung zu lösen, kann wichtige Spuren zerstören, die für die Ursachenklärung nötig wären, und riskiert, dass sich der Vorfall unbemerkt weiter ausbreitet. Die genannten Alternativen (Urheberrecht, Kostensenkung, automatische persönliche Haftung) beschreiben nicht den eigentlichen Grund für die Meldepflicht."
+  },
+  "it_sicherheit-meldepflicht_it-04": {
+    "question": "Sie sind unsicher, wer im Unternehmen für die Meldung eines vermuteten IT-Sicherheitsvorfalls zuständig ist. Was ist der sinnvollste Ansatz?",
+    "options": {
+      "a": "Den Vorfall in einem öffentlichen internen Chatkanal posten, damit ihn irgendjemand sieht",
+      "b": "Abwarten, bis jemand anderes das Problem zufällig bemerkt und meldet",
+      "c": "Den Vorfall in sozialen Medien schildern, um schnell Aufmerksamkeit zu bekommen",
+      "d": "Die im Unternehmen festgelegten Meldewege nutzen (z. B. IT-Support, Sicherheitsbeauftragte oder Führungskraft) oder im Zweifel bei der eigenen Führungskraft nachfragen"
+    },
+    "explanation": "Ein vorbereitetes Meldeverfahren mit klar zuständigen Stellen sorgt dafür, dass ein Vorfall schnell bei den richtigen Personen ankommt, die geeignete Gegenmaßnahmen einleiten können. Ein öffentlicher Chatkanal oder gar soziale Medien sind ungeeignet und können den Vorfall zusätzlich öffentlich machen oder Angreifer warnen. Abwarten verzögert die Reaktion unnötig; im Zweifel ist die eigene Führungskraft immer ein sinnvoller erster Ansprechpartner, um den richtigen Meldeweg zu finden."
+  }
+}

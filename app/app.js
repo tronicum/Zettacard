@@ -511,6 +511,34 @@ const TOPIC_LABELS = {
     geraete: { de: "Geräte und Methoden", en: "Tackle & methods" },
     gewaesser: { de: "Gewässerordnung und Angelschein", en: "Water rules & the licence itself" },
   },
+  datenschutz: {
+    grundprinzipien: { de: "Grundprinzipien und Rechtsgrundlagen", en: "Core principles & legal bases" },
+    betroffenenrechte: { de: "Betroffenenrechte", en: "Data subject rights" },
+    datensicherheit: { de: "Datensicherheit (TOMs)", en: "Data security (TOMs)" },
+    meldepflichten: { de: "Meldepflichten bei Datenpannen", en: "Breach notification duties" },
+    auftragsverarbeitung: { de: "Auftragsverarbeitung und Drittländer", en: "Processor agreements & transfers" },
+  },
+  arbeitssicherheit: {
+    grundpflichten: { de: "Grundpflichten", en: "Basic duties" },
+    unterweisung: { de: "Unterweisungspflicht", en: "Instruction obligation" },
+    gefaehrdungsbeurteilung: { de: "Gefährdungsbeurteilung", en: "Risk assessment" },
+    psa_notfall: { de: "PSA und Notfälle", en: "PPE & emergencies" },
+    bildschirmarbeit: { de: "Bildschirmarbeit und Ergonomie", en: "Screen work & ergonomics" },
+  },
+  ki_act: {
+    grundlagen: { de: "Grundlagen und Risikoklassen", en: "Basics & risk tiers" },
+    ki_kompetenz: { de: "KI-Kompetenzpflicht", en: "AI-literacy obligation" },
+    verbotene_praktiken: { de: "Verbotene Praktiken", en: "Prohibited practices" },
+    transparenzpflichten: { de: "Transparenzpflichten", en: "Transparency obligations" },
+    ki_am_arbeitsplatz: { de: "KI am Arbeitsplatz", en: "AI at work" },
+  },
+  it_sicherheit: {
+    zugriffsschutz: { de: "Zugriffsschutz", en: "Access protection" },
+    phishing: { de: "Phishing und Social Engineering", en: "Phishing & social engineering" },
+    datensicherung: { de: "Datensicherung und Geräte", en: "Backups & devices" },
+    mobil_homeoffice: { de: "Mobile Geräte und Home-Office", en: "Mobile devices & home office" },
+    meldepflicht_it: { de: "Meldung von Sicherheitsvorfällen", en: "Incident reporting" },
+  },
 };
 
 // Looks up a topic label for the CURRENT module/locale, falling back to EN
