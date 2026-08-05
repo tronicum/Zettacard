@@ -562,6 +562,23 @@ function scopeFieldFor(examType) {
   return manifest && manifest.scopeKind === "region" ? "region_scope" : "class_scope";
 }
 
+// DN-42: a "region" scope (Angelschein: state fisheries law) is additive -
+// picking a specific state should still include nationwide (ALL) content,
+// since a regional student needs the national baseline PLUS their state's
+// extra rules, not instead of it. A "class" scope (Fuehrerschein/Motorrad/
+// LKW) stays exact-match: content there already lists every class a
+// question applies to directly in its own class_scope array (e.g.
+// ["A1","A2","A"] for a fact common to all three), so there's no separate
+// "general" code that needs folding in at query time the way ALL does for
+// regions.
+function questionMatchesScope(q, scopeField, scopeKind, scopeCode) {
+  const scopes = q[scopeField] || [];
+  if (scopeKind === "region") {
+    return scopes.includes(scopeCode) || (scopeCode !== "ALL" && scopes.includes("ALL"));
+  }
+  return scopes.includes(scopeCode);
+}
+
 async function fetchJson(path) {
   const res = await fetch(path);
   if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
@@ -589,9 +606,11 @@ async function loadModuleData(examType, scopeCode) {
   const core = await fetchJson(`data/${examType}/core.json`);
   const { lang: resolvedLang, text: localeText } = await fetchLocaleTextWithFallback(examType, state.lang);
   const scopeField = scopeFieldFor(examType);
+  const manifest = moduleManifestFor(examType);
+  const scopeKind = manifest?.scopeKind;
 
   const merged = core.questions
-    .filter((q) => (q[scopeField] || []).includes(scopeCode))
+    .filter((q) => questionMatchesScope(q, scopeField, scopeKind, scopeCode))
     .map((q) => {
       const t = localeText[q.id];
       return {
