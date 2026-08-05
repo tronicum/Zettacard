@@ -565,18 +565,24 @@ function scopeFieldFor(examType) {
 // DN-42: a "region" scope (Angelschein: state fisheries law) is additive -
 // picking a specific state should still include nationwide (ALL) content,
 // since a regional student needs the national baseline PLUS their state's
-// extra rules, not instead of it. A "class" scope (Fuehrerschein/Motorrad/
-// LKW) stays exact-match: content there already lists every class a
-// question applies to directly in its own class_scope array (e.g.
-// ["A1","A2","A"] for a fact common to all three), so there's no separate
-// "general" code that needs folding in at query time the way ALL does for
-// regions.
-function questionMatchesScope(q, scopeField, scopeKind, scopeCode) {
+// extra rules, not instead of it. Most "class" scopes (Motorrad's A1/A2/A,
+// LKW's C1/C/CE) stay exact-match: those are independent sibling classes,
+// and content there already lists every class a question applies to
+// directly in its own class_scope array (e.g. ["A1","A2","A"] for a fact
+// common to all three) - there's no separate "general" code to fold in.
+//
+// DN-45: some classes genuinely ARE an add-on to another, not a sibling -
+// Fuehrerschein's BE (car+trailer) requires everything B requires, plus
+// BE-specific facts, the same "baseline + extra" relationship ALL/region
+// has. Rather than duplicate the region-only special case, a class option
+// can declare `extends: "<baseCode>"` in modules_manifest.json (see BE's
+// entry) and the same additive logic applies - a class WITHOUT `extends`
+// (every option so far except BE) behaves exactly as before.
+function questionMatchesScope(q, scopeField, scopeKind, scopeCode, extendsCode) {
   const scopes = q[scopeField] || [];
-  if (scopeKind === "region") {
-    return scopes.includes(scopeCode) || (scopeCode !== "ALL" && scopes.includes("ALL"));
-  }
-  return scopes.includes(scopeCode);
+  if (scopes.includes(scopeCode)) return true;
+  if (scopeKind === "region") return scopeCode !== "ALL" && scopes.includes("ALL");
+  return Boolean(extendsCode) && scopes.includes(extendsCode);
 }
 
 async function fetchJson(path) {
@@ -608,9 +614,11 @@ async function loadModuleData(examType, scopeCode) {
   const scopeField = scopeFieldFor(examType);
   const manifest = moduleManifestFor(examType);
   const scopeKind = manifest?.scopeKind;
+  const scopeOpt = manifest?.options.find((o) => o.code === scopeCode);
+  const extendsCode = scopeOpt?.extends || null;
 
   const merged = core.questions
-    .filter((q) => questionMatchesScope(q, scopeField, scopeKind, scopeCode))
+    .filter((q) => questionMatchesScope(q, scopeField, scopeKind, scopeCode, extendsCode))
     .map((q) => {
       const t = localeText[q.id];
       return {
