@@ -654,10 +654,21 @@ async function loadModuleData(examType, scopeCode) {
         // Reassembled into the same {text:{lang:{...}}, explanation:{lang:...}}
         // shape the existing render/exam code already expects, so those
         // functions didn't need to change for the module split - only ONE
-        // locale is ever populated at a time now (whichever just loaded),
-        // which is fine since nothing reads any locale but state.lang.
-        text: t ? { [resolvedLang]: { question: t.question, options: t.options } } : {},
-        explanation: t ? { [resolvedLang]: t.explanation } : {},
+        // locale is ever populated at a time now (whichever just loaded).
+        // IMPORTANT: keyed under state.lang (the UI language actually
+        // selected), NOT resolvedLang (the locale file that was actually
+        // fetched) - every render/exam function indexes with
+        // q.text[state.lang], so when a fallback occurs (e.g. a module
+        // without Russian content falls back to English), keying under
+        // resolvedLang left q.text[state.lang] undefined and crashed the
+        // whole view (real bug: e.g. LKW - DE/EN only - failed to load at
+        // all under Russian). Keying under state.lang instead means the
+        // fallback TEXT still renders correctly under whatever language is
+        // actually selected; state.contentLangFallback (set below) is what
+        // a future "showing English because X isn't translated yet" UI
+        // notice should read, not the text object's own keys.
+        text: t ? { [state.lang]: { question: t.question, options: t.options } } : {},
+        explanation: t ? { [state.lang]: t.explanation } : {},
       };
     });
 
