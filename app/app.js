@@ -565,7 +565,200 @@ const state = {
   examType: null,
   scopeCode: null,
   modulesManifest: null,
+  // Local profile switcher: which per-device profile is active, and the
+  // full registry of profiles on this device (see migrateOrInitProfiles()).
+  profiles: [],
+  activeProfileId: null,
 };
+
+// --- Local profile switcher --------------------------------------------
+// Lets several people share one device (e.g. a family) without their
+// progress/settings colliding. Deliberately NOT a real account/recovery
+// system - everything still lives in this browser's localStorage only,
+// same zero-backend architecture as the rest of the app; a profile is just
+// a namespace prefix, not an identity. Per-profile data: language,
+// active module+scope, topic filter, module-intro-seen flags, and
+// completions/certificates. Shared across all profiles: theme ("dn-theme",
+// intentionally left flat/un-namespaced).
+const PROFILE_REGISTRY_KEY = "dn-profiles";
+const PROFILE_ACTIVE_KEY = "dn-active-profile";
+// The old flat per-profile keys this app used before profiles existed -
+// migrated (moved, not copied) into the auto-created "Default" profile's
+// namespace the first time this code runs on a device that already has
+// data under them. `dn-intro-seen-<examType>` isn't listed here since its
+// suffix is dynamic - it's discovered separately via a startsWith scan.
+const OLD_FLAT_KEYS = ["dn-lang", "dn-filter", "dn-exam-type", "dn-scope-code", "dn-completions"];
+
+function genProfileId() {
+  return `${Date.now().toString(36)}${Math.random().toString(36).slice(2, 8)}`;
+}
+
+// Every per-profile localStorage key goes through here rather than being
+// hardcoded inline, so the active profile's namespace is always applied
+// consistently. `base` is the key's old flat name with the "dn-" prefix
+// stripped (e.g. "lang", "completions", "intro-seen-fuehrerschein").
+function profileKey(base) {
+  return `dn-p-${state.activeProfileId}-${base}`;
+}
+
+function loadProfileRegistry() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(PROFILE_REGISTRY_KEY) || "null");
+    return Array.isArray(raw) ? raw : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function saveProfileRegistry(list) {
+  try { localStorage.setItem(PROFILE_REGISTRY_KEY, JSON.stringify(list)); } catch (e) { /* non-fatal */ }
+}
+
+function setActiveProfileId(id) {
+  try { localStorage.setItem(PROFILE_ACTIVE_KEY, id); } catch (e) { /* non-fatal */ }
+}
+
+// Runs once, before anything else touches localStorage. If a profile
+// registry already exists, just loads it. Otherwise creates a single
+// "Default" profile - MOVING (not copying) any pre-existing flat keys from
+// before this feature existed into that profile's namespace, so an
+// existing user's saved language/module/filter/completions survive
+// untouched. A genuinely brand-new visitor (no registry, no old flat keys)
+// just gets an empty Default profile and the normal first-visit flow
+// (mandatory module picker, etc.) proceeds unchanged.
+function migrateOrInitProfiles() {
+  const existing = loadProfileRegistry();
+  if (existing && existing.length > 0) {
+    state.profiles = existing;
+    let activeId = null;
+    try { activeId = localStorage.getItem(PROFILE_ACTIVE_KEY); } catch (e) { /* non-fatal */ }
+    state.activeProfileId = (activeId && existing.some((p) => p.id === activeId)) ? activeId : existing[0].id;
+    return;
+  }
+
+  const id = genProfileId();
+  let introSeenKeys = [];
+  try {
+    introSeenKeys = Object.keys(localStorage).filter((k) => k.startsWith("dn-intro-seen-"));
+  } catch (e) { /* non-fatal */ }
+
+  const hasOldData = OLD_FLAT_KEYS.some((k) => {
+    try { return localStorage.getItem(k) !== null; } catch (e) { return false; }
+  }) || introSeenKeys.length > 0;
+
+  if (hasOldData) {
+    OLD_FLAT_KEYS.forEach((k) => {
+      try {
+        const v = localStorage.getItem(k);
+        if (v !== null) {
+          localStorage.setItem(`dn-p-${id}-${k.slice(3)}`, v);
+          localStorage.removeItem(k);
+        }
+      } catch (e) { /* non-fatal */ }
+    });
+    introSeenKeys.forEach((k) => {
+      try {
+        const v = localStorage.getItem(k);
+        localStorage.setItem(`dn-p-${id}-${k.slice(3)}`, v);
+        localStorage.removeItem(k);
+      } catch (e) { /* non-fatal */ }
+    });
+  }
+
+  const profiles = [{ id, name: "Default", createdAt: new Date().toISOString() }];
+  saveProfileRegistry(profiles);
+  setActiveProfileId(id);
+  state.profiles = profiles;
+  state.activeProfileId = id;
+}
+
+function currentProfileName() {
+  const p = (state.profiles || []).find((prof) => prof.id === state.activeProfileId);
+  return p ? p.name : "Default";
+}
+
+// Minimal standalone strings, same convention as MODULE_PICKER_STRINGS.
+const PROFILE_STRINGS = {
+  de: { switchAria: "Profil wechseln", title: "Profile auf diesem Gerät", close: "← Zurück", addPlaceholder: "Profilname", addConfirm: "+ Profil hinzufügen" },
+  en: { switchAria: "Switch profile", title: "Profiles on this device", close: "← Back", addPlaceholder: "Profile name", addConfirm: "+ Add profile" },
+  uk: { switchAria: "Змінити профіль", title: "Профілі на цьому пристрої", close: "← Назад", addPlaceholder: "Назва профілю", addConfirm: "+ Додати профіль" },
+  pl: { switchAria: "Zmień profil", title: "Profile na tym urządzeniu", close: "← Wstecz", addPlaceholder: "Nazwa profilu", addConfirm: "+ Dodaj profil" },
+  ar: { switchAria: "تبديل الملف الشخصي", title: "الملفات الشخصية على هذا الجهاز", close: "→ رجوع", addPlaceholder: "اسم الملف الشخصي", addConfirm: "+ إضافة ملف شخصي" },
+  zh: { switchAria: "切换个人资料", title: "此设备上的个人资料", close: "← 返回", addPlaceholder: "个人资料名称", addConfirm: "+ 添加个人资料" },
+  hi: { switchAria: "प्रोफ़ाइल बदलें", title: "इस डिवाइस पर प्रोफ़ाइल", close: "← वापस", addPlaceholder: "प्रोफ़ाइल का नाम", addConfirm: "+ प्रोफ़ाइल जोड़ें" },
+  tr: { switchAria: "Profili değiştir", title: "Bu cihazdaki profiller", close: "← Geri", addPlaceholder: "Profil adı", addConfirm: "+ Profil ekle" },
+  fr: { switchAria: "Changer de profil", title: "Profils sur cet appareil", close: "← Retour", addPlaceholder: "Nom du profil", addConfirm: "+ Ajouter un profil" },
+  ru: { switchAria: "Сменить профиль", title: "Профили на этом устройстве", close: "← Назад", addPlaceholder: "Название профиля", addConfirm: "+ Добавить профиль" },
+  es: { switchAria: "Cambiar de perfil", title: "Perfiles en este dispositivo", close: "← Atrás", addPlaceholder: "Nombre del perfil", addConfirm: "+ Añadir perfil" },
+  it: { switchAria: "Cambia profilo", title: "Profili su questo dispositivo", close: "← Indietro", addPlaceholder: "Nome del profilo", addConfirm: "+ Aggiungi profilo" },
+};
+function profileStrings(lang) {
+  return PROFILE_STRINGS[lang] || PROFILE_STRINGS.en;
+}
+
+function openProfileSwitcher() {
+  el("#profile-view").hidden = false;
+  history.pushState({ view: "profile-view" }, "");
+  renderProfileSwitcher();
+  setInertBehindDialog(true);
+  el("#profile-title").focus();
+}
+
+function closeProfileSwitcher() {
+  el("#profile-view").hidden = true;
+  setInertBehindDialog(false);
+}
+
+function renderProfileSwitcher() {
+  const P = profileStrings(state.lang);
+  el("#profile-title").textContent = P.title;
+  el("#profile-close-btn").textContent = P.close;
+  el("#profile-add-input").placeholder = P.addPlaceholder;
+  el("#profile-add-btn").textContent = P.addConfirm;
+
+  const list = el("#profile-list");
+  list.innerHTML = "";
+  (state.profiles || []).forEach((p) => {
+    const btn = document.createElement("button");
+    btn.className = "exam-mode-btn profile-row" + (p.id === state.activeProfileId ? " active" : "");
+    btn.textContent = p.name + (p.id === state.activeProfileId ? " ✓" : "");
+    btn.addEventListener("click", () => switchProfile(p.id));
+    list.appendChild(btn);
+  });
+}
+
+// Switching profiles re-loads every piece of per-profile state from the
+// newly-active profile's own localStorage namespace and re-renders
+// everything - the same "full state reload" a language or module switch
+// already does, just for a different profile's saved language/module/
+// filter instead of the same profile's.
+function switchProfile(id) {
+  if (id === state.activeProfileId) {
+    closeProfileSwitcher();
+    return;
+  }
+  state.activeProfileId = id;
+  setActiveProfileId(id);
+  closeProfileSwitcher();
+  loadActiveProfileState();
+}
+
+// Creates a brand-new, empty profile (no module/language selected yet -
+// same starting point as a genuine first-time visitor, mandatory module
+// picker included) and switches to it immediately.
+function createProfile(name) {
+  const trimmed = (name || "").trim();
+  if (!trimmed) return;
+  const id = genProfileId();
+  const profile = { id, name: trimmed, createdAt: new Date().toISOString() };
+  state.profiles = [...(state.profiles || []), profile];
+  saveProfileRegistry(state.profiles);
+  state.activeProfileId = id;
+  setActiveProfileId(id);
+  el("#profile-add-input").value = "";
+  closeProfileSwitcher();
+  loadActiveProfileState();
+}
 
 // --- Module system (DN-39) ----------------------------------------------
 // Splits content by exam module (Fuehrerschein vs. Angelschein, and future
@@ -687,8 +880,8 @@ async function loadModuleData(examType, scopeCode) {
   }
 
   try {
-    localStorage.setItem("dn-exam-type", examType);
-    localStorage.setItem("dn-scope-code", scopeCode);
+    localStorage.setItem(profileKey("exam-type"), examType);
+    localStorage.setItem(profileKey("scope-code"), scopeCode);
   } catch (e) { /* non-fatal */ }
 }
 
@@ -826,7 +1019,7 @@ function introStrings(lang) {
 
 function hasSeenIntro(examType) {
   try {
-    return localStorage.getItem(`dn-intro-seen-${examType}`) === "1";
+    return localStorage.getItem(profileKey(`intro-seen-${examType}`)) === "1";
   } catch (e) {
     return false;
   }
@@ -834,7 +1027,7 @@ function hasSeenIntro(examType) {
 
 function markIntroSeen(examType) {
   try {
-    localStorage.setItem(`dn-intro-seen-${examType}`, "1");
+    localStorage.setItem(profileKey(`intro-seen-${examType}`), "1");
   } catch (e) { /* non-fatal */ }
 }
 
@@ -958,7 +1151,7 @@ function certStrings(lang) {
 
 function getCompletions() {
   try {
-    return JSON.parse(localStorage.getItem("dn-completions") || "[]");
+    return JSON.parse(localStorage.getItem(profileKey("completions")) || "[]");
   } catch (e) {
     return [];
   }
@@ -981,7 +1174,7 @@ function recordCompletion(examType, scopeCode, results) {
   const all = getCompletions();
   all.push(record);
   try {
-    localStorage.setItem("dn-completions", JSON.stringify(all));
+    localStorage.setItem(profileKey("completions"), JSON.stringify(all));
   } catch (e) { /* non-fatal - storage may be full/unavailable */ }
   return record;
 }
@@ -1601,6 +1794,12 @@ function render() {
     el("#" + id).setAttribute("aria-label", LANG_PICKER_LABEL[state.lang] || "Language");
   });
 
+  const PR = profileStrings(state.lang);
+  const profileBtn = el("#profile-switch-btn");
+  profileBtn.textContent = `👤 ${currentProfileName()} ▾`;
+  profileBtn.setAttribute("aria-label", PR.switchAria);
+  profileBtn.title = PR.switchAria;
+
   renderFilters();
 
   if (state.detailIndex === null) {
@@ -1625,7 +1824,7 @@ function renderFilters() {
     btn.addEventListener("click", () => {
       state.topicFilter = code;
       state.detailIndex = null;
-      try { localStorage.setItem("dn-filter", code); } catch (e) { /* non-fatal */ }
+      try { localStorage.setItem(profileKey("filter"), code); } catch (e) { /* non-fatal */ }
       render();
     });
     container.appendChild(btn);
@@ -1756,7 +1955,7 @@ async function setLang(lang) {
   // Arabic reads right-to-left - mirrors layout direction for correct reading
   // order (WCAG 1.3.2) rather than leaving RTL text inside an LTR container.
   document.documentElement.setAttribute("dir", RTL_LANGS.has(lang) ? "rtl" : "ltr");
-  try { localStorage.setItem("dn-lang", lang); } catch (e) { /* storage unavailable, non-fatal */ }
+  try { localStorage.setItem(profileKey("lang"), lang); } catch (e) { /* storage unavailable, non-fatal */ }
   // Content is now loaded ONE locale at a time per module (DN-39) rather
   // than all 12 up front, so switching languages mid-session means
   // re-fetching that module's text file for the newly-selected language -
@@ -1835,6 +2034,13 @@ function wireStaticControls() {
   el("#sign-reference-btn").addEventListener("click", openSignReferenceView);
   el("#sign-reference-close-btn").addEventListener("click", () => history.back());
 
+  el("#profile-switch-btn").addEventListener("click", openProfileSwitcher);
+  el("#profile-close-btn").addEventListener("click", () => history.back());
+  el("#profile-add-btn").addEventListener("click", () => createProfile(el("#profile-add-input").value));
+  el("#profile-add-input").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") { e.preventDefault(); createProfile(el("#profile-add-input").value); }
+  });
+
   const toggleTheme = () => setTheme(currentTheme() === "light" ? "dark" : "light");
   el("#theme-toggle").addEventListener("click", toggleTheme);
   el("#detail-theme-toggle").addEventListener("click", toggleTheme);
@@ -1853,6 +2059,7 @@ function wireStaticControls() {
     if (!el("#module-intro").hidden) closeModuleIntro();
     if (!el("#certificates-view").hidden) closeCertificates();
     if (!el("#sign-reference-view").hidden) closeSignReferenceView();
+    if (!el("#profile-view").hidden) closeProfileSwitcher();
     if (!el("#module-picker").hidden) {
       // On first-ever visit the module picker is mandatory (no content is
       // loaded yet) - a back gesture there shouldn't leave the app in a
@@ -1899,38 +2106,41 @@ function wireStaticControls() {
   });
 }
 
-async function init() {
+// Loads every piece of per-profile state (language, topic filter, active
+// module+scope) from the CURRENTLY active profile's localStorage namespace
+// and re-renders everything - used both by init() on first load and by
+// switchProfile()/createProfile() so switching profiles is a full state
+// reload, exactly like a language or module switch already is.
+async function loadActiveProfileState() {
+  state.detailIndex = null;
+  state.exam = null;
+  state.topicFilter = "all";
+  state.examType = null;
+  state.scopeCode = null;
+
   try {
-    const savedLang = localStorage.getItem("dn-lang");
+    const savedLang = localStorage.getItem(profileKey("lang"));
     if (savedLang && UI_STRINGS[savedLang]) {
       state.lang = savedLang;
     } else {
-      // No explicit preference saved yet - try the browser/device language
-      // before falling back to German, so a first-time visitor in one of
-      // the 7 supported languages doesn't always land on German chrome.
+      // No explicit preference saved yet for this profile - try the
+      // browser/device language before falling back to German, so a
+      // first-time visitor in one of the supported languages doesn't
+      // always land on German chrome.
       const detected = detectBrowserLang();
-      if (detected) state.lang = detected;
+      state.lang = detected || "de";
     }
-    const savedFilter = localStorage.getItem("dn-filter");
-    if (savedFilter) state.topicFilter = savedFilter;
+    const savedFilter = localStorage.getItem(profileKey("filter"));
+    state.topicFilter = savedFilter || "all";
   } catch (e) { /* storage unavailable, defaults are fine */ }
 
   document.documentElement.setAttribute("lang", state.lang);
   document.documentElement.setAttribute("dir", RTL_LANGS.has(state.lang) ? "rtl" : "ltr");
-  wireStaticControls();
-  renderThemeToggle();
-
-  try {
-    state.modulesManifest = await fetchJson("data/modules.json");
-  } catch (err) {
-    el("#list").innerHTML = `<div class="empty">Could not load data/modules.json: ${err}</div>`;
-    return;
-  }
 
   let savedExamType = null, savedScopeCode = null;
   try {
-    savedExamType = localStorage.getItem("dn-exam-type");
-    savedScopeCode = localStorage.getItem("dn-scope-code");
+    savedExamType = localStorage.getItem(profileKey("exam-type"));
+    savedScopeCode = localStorage.getItem(profileKey("scope-code"));
   } catch (e) { /* non-fatal */ }
 
   const savedModuleValid = savedExamType && savedScopeCode
@@ -1947,12 +2157,30 @@ async function init() {
       openModulePicker();
     }
   } else {
-    // First-ever visit, or no saved selection yet - block on choosing a
-    // module before showing any content, same pattern as the exam-mode
-    // picker (a full-screen dialog, not a silent default).
+    // First-ever visit for this profile, or no saved selection yet - block
+    // on choosing a module before showing any content, same pattern as the
+    // exam-mode picker (a full-screen dialog, not a silent default).
     render();
     openModulePicker();
   }
+}
+
+async function init() {
+  migrateOrInitProfiles();
+
+  document.documentElement.setAttribute("lang", state.lang);
+  document.documentElement.setAttribute("dir", RTL_LANGS.has(state.lang) ? "rtl" : "ltr");
+  wireStaticControls();
+  renderThemeToggle();
+
+  try {
+    state.modulesManifest = await fetchJson("data/modules.json");
+  } catch (err) {
+    el("#list").innerHTML = `<div class="empty">Could not load data/modules.json: ${err}</div>`;
+    return;
+  }
+
+  await loadActiveProfileState();
 
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("service-worker.js").catch(() => {

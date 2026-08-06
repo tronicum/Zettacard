@@ -608,6 +608,47 @@ main {
   visibility: hidden;
 }
 
+/* Local profile switcher */
+#profile-list {
+  text-align: left;
+  max-height: 45vh;
+  overflow-y: auto;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-row.active {
+  border-color: var(--accent);
+}
+
+.profile-add-row {
+  display: flex;
+  gap: 8px;
+  margin: 4px 0 14px;
+}
+
+.profile-add-input {
+  flex: 1 1 auto;
+  border: 1px solid var(--border);
+  background: var(--surface, var(--bg));
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+}
+
+.profile-add-row .profile-add-btn {
+  flex: 0 0 auto;
+  width: auto;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
 /* Completion tracking & certificates (DN-14 / DN-44 prep) */
 #certificates-list {
   text-align: left;

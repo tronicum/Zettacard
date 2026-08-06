@@ -31,6 +31,7 @@
         <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
         <button class="module-switch-btn" id="sign-reference-btn" hidden aria-label="Sign reference">📚 Signs</button>
         <button class="module-switch-btn" id="certificates-btn" aria-label="My certificates">🎓</button>
+        <button class="module-switch-btn" id="profile-switch-btn" aria-label="Switch profile"></button>
         <button class="module-switch-btn" id="module-switch-btn"></button>
         <button class="exam-start-btn" id="exam-start-btn"></button>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme"></button>
@@ -135,6 +136,23 @@
       <p id="certificates-intro"></p>
       <div id="certificates-list"></div>
       <button class="back-btn" id="certificates-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Local profile switcher: lets multiple people share one device (e.g. a
+       family) without their progress/settings colliding. NOT a real
+       account/recovery system - purely a local-device convenience, see
+       profileKey()/migrateOrInitProfiles() in app.js. Follows the exact same
+       .exam-modal dialog pattern as #certificates-view/#module-picker. -->
+  <div class="exam-modal" id="profile-view" hidden role="dialog" aria-modal="true" aria-labelledby="profile-title">
+    <div class="exam-modal-card" style="max-width:480px;">
+      <h2 id="profile-title" tabindex="-1"></h2>
+      <div id="profile-list"></div>
+      <div class="profile-add-row">
+        <input type="text" id="profile-add-input" class="profile-add-input" />
+        <button class="exam-mode-btn profile-add-btn" id="profile-add-btn"></button>
+      </div>
+      <button class="back-btn" id="profile-close-btn"></button>
     </div>
   </div>
 

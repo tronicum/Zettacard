@@ -263,9 +263,13 @@ def sym_children():
   <path d="M56 72 L44 82 M72 72 L82 66 M60 52 L48 42 M68 52 L82 46" stroke="#000" stroke-width="5.5" stroke-linecap="round"/>'''
 
 def sym_train():
-    return '''<rect x="34" y="40" width="32" height="24" rx="6" fill="#000"/>
-  <circle cx="42" cy="70" r="5" fill="#000"/><circle cx="58" cy="70" r="5" fill="#000"/>
-  <line x1="50" y1="30" x2="50" y2="40" stroke="#000" stroke-width="4"/>'''
+    # 151 Bahnuebergang ohne Schranken: a recognizable train/locomotive
+    # FRONT silhouette (sloped/rounded nose, cab window, body, wheels) -
+    # not a plain box (catalog-audit DN-46 finding, 2026-08-06).
+    return '''<path d="M30 74 L30 48 Q30 38 40 38 L54 38 Q64 38 68 48 L70 60 L70 74 Z" fill="#000"/>
+  <rect x="42" y="43" width="14" height="12" rx="2" fill="#fff"/>
+  <circle cx="40" cy="76" r="5" fill="#000"/><circle cx="60" cy="76" r="5" fill="#000"/>
+  <line x1="50" y1="30" x2="50" y2="38" stroke="#000" stroke-width="4"/>'''
 
 def sym_arrow_right(color="#fff"):
     return f'<path d="M32 30 L68 50 L32 70 Z" fill="{color}"/>'
@@ -647,9 +651,13 @@ def symA_skid():
   <path d="M30 82 Q50 70 70 82" stroke="#000" stroke-width="5" fill="none" stroke-linecap="round"/>'''
 
 def symA_crosswind():
-    # 117 Seitenwind: pole with a pennant/windsock blown sideways
-    return '''<line x1="30" y1="30" x2="30" y2="80" stroke="#000" stroke-width="5"/>
-  <path d="M30 34 L74 42 L60 50 L74 58 L30 50 Z" fill="#000"/>'''
+    # 117 Seitenwind: pole with a STRIPED pennant/windsock blown sideways and
+    # drooping - 3 dark stripe bands with gaps, not a solid black triangle
+    # (catalog-audit DN-46 finding, 2026-08-06).
+    return '''<line x1="30" y1="30" x2="30" y2="82" stroke="#000" stroke-width="5"/>
+  <path d="M30 36 L43.4 43.8 L43.4 55.4 L30 52 Z" fill="#000"/>
+  <path d="M48.2 46.6 L61.7 54.5 L61.7 59.9 L48.2 56.6 Z" fill="#000"/>
+  <path d="M66.5 57.3 L78 64 L66.5 61.1 Z" fill="#000"/>'''
 
 def symA_narrow_one_side():
     # 121 einseitig verengte Fahrbahn (rechts): left edge unaffected, right
@@ -660,11 +668,18 @@ def symA_narrow_one_side():
   <path d="M78 28 L78 56 L54 80" stroke="#000" stroke-width="11" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'''
 
 def symA_stau():
-    # 124 Stau: a few stacked car-rectangles, receding into the distance
-    return '''<rect x="22" y="60" width="20" height="12" rx="2" fill="#000"/>
-  <rect x="46" y="52" width="20" height="12" rx="2" fill="#000"/>
-  <rect x="70" y="44" width="14" height="10" rx="2" fill="#000"/>
-  <line x1="18" y1="76" x2="88" y2="76" stroke="#000" stroke-width="3"/>'''
+    # 124 Stau: two car-rear-view silhouettes (a wide low body with a
+    # narrower, rounded-top cabin/roof merged flush on top - reads as a car,
+    # not a floating blob), receding into the distance with a vertical/
+    # perspective offset - not three same-shape boxes (catalog-audit DN-46
+    # finding, 2026-08-06).
+    return '''<rect x="16" y="64" width="32" height="12" rx="3" fill="#000"/>
+  <path d="M20 64 L20 58 Q20 52 26 52 L38 52 Q44 52 44 58 L44 64 Z" fill="#000"/>
+  <circle cx="24" cy="76" r="4" fill="#000"/><circle cx="40" cy="76" r="4" fill="#000"/>
+  <rect x="54" y="50" width="19" height="7" rx="2" fill="#000"/>
+  <path d="M57 50 L57 46 Q57 43 60 43 L68 43 Q71 43 71 46 L71 50 Z" fill="#000"/>
+  <circle cx="59" cy="57" r="2.5" fill="#000"/><circle cx="68" cy="57" r="2.5" fill="#000"/>
+  <line x1="12" y1="84" x2="88" y2="84" stroke="#000" stroke-width="3"/>'''
 
 def symA_oncoming():
     # 125 Gegenverkehr: two opposing vertical arrows
@@ -757,15 +772,20 @@ def symB_bike_ped_split():
 '''
 
 def symB_min_distance(n="70m"):
-    # Zeichen 273 Mindestabstand: two small truck rectangles with a gap
-    # between them and the minimum distance text - original simplified
-    # pictogram, not a literal truck drawing.
+    # Zeichen 273 Mindestabstand: two boxier truck (cab+trailer) silhouettes
+    # with a central gap between them and the minimum-distance text ABOVE
+    # the vehicles - original simplified pictogram, not a literal truck
+    # drawing (catalog-audit DN-46 legibility polish, 2026-08-06).
     return f'''
-  <rect x="8" y="34" width="24" height="14" rx="2" fill="#000"/>
-  <rect x="68" y="34" width="24" height="14" rx="2" fill="#000"/>
-  <line x1="36" y1="60" x2="64" y2="60" stroke="#000" stroke-width="3" stroke-dasharray="5,4"/>
-  <text x="50" y="82" font-family="Arial, sans-serif" font-size="18" font-weight="700"
+  <text x="50" y="24" font-family="Arial, sans-serif" font-size="18" font-weight="700"
         fill="#000" text-anchor="middle">{n}</text>
+  <rect x="8" y="42" width="20" height="16" rx="1" fill="#000"/>
+  <rect x="28" y="46" width="8" height="12" rx="1" fill="#000"/>
+  <circle cx="14" cy="60" r="3" fill="#000"/><circle cx="30" cy="60" r="3" fill="#000"/>
+  <rect x="64" y="46" width="8" height="12" rx="1" fill="#000"/>
+  <rect x="72" y="42" width="20" height="16" rx="1" fill="#000"/>
+  <circle cx="70" cy="60" r="3" fill="#000"/><circle cx="86" cy="60" r="3" fill="#000"/>
+  <line x1="36" y1="50" x2="64" y2="50" stroke="#000" stroke-width="3" stroke-dasharray="5,4"/>
 '''
 
 _GREY_END_LINE = '<line x1="18" y1="82" x2="82" y2="18" stroke="#8a8a8a" stroke-width="6"/>'
