@@ -35,7 +35,12 @@ async function main() {
   process.env.URL = process.env.URL || "https://drivenow-fahrschule.netlify.app";
 
   const { handler } = require("../netlify/functions/sign-credential.js");
-  const { importJWK, jwtVerify } = require("jose");
+  // Dynamic import, not require() - jose is ESM-only and this must keep
+  // testing the same code path Netlify's actual (older, non-require(esm))
+  // Lambda runtime uses, not just whatever this dev machine's Node version
+  // happens to tolerate (see the ERR_REQUIRE_ESM bug this caught live on
+  // the first real deploy, 2026-08-06).
+  const { importJWK, jwtVerify } = await import("jose");
 
   const mockRecord = {
     id: "arbeitsschutz-basis-1735000000000",

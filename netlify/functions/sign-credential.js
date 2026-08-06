@@ -38,7 +38,19 @@
 // just not a perfect one.
 // -----------------------------------------------------------------------
 
-const { importJWK, SignJWT } = require("jose");
+// jose v6 ships as an ESM-only package - a top-level `require("jose")`
+// crashes Netlify's bundled CommonJS function at runtime with a raw
+// ERR_REQUIRE_ESM stack trace (confirmed live on the first real deploy of
+// this function, 2026-08-06 - local testing had only mock-invoked the
+// handler directly with node, which doesn't reproduce Netlify's actual
+// bundler/runtime). A dynamic import() works from CommonJS and is cached
+// after the first call within a given function instance, so this has no
+// real per-request cost beyond the first invocation.
+let _josePromise;
+function loadJose() {
+  if (!_josePromise) _josePromise = import("jose");
+  return _josePromise;
+}
 
 const ALG = "ES256";
 // Public, stable identity for the issuer - this is what a verifier will see
@@ -177,6 +189,7 @@ exports.handler = async (event) => {
   }
 
   try {
+    const { importJWK, SignJWT } = await loadJose();
     const privateKey = await importJWK(privateJwk, ALG);
     const vc = buildCredentialClaims(record);
     const now = Math.floor(Date.now() / 1000);
