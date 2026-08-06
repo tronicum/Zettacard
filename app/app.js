@@ -15,6 +15,7 @@ const UI_STRINGS = {
     progress: (i, n) => `Frage ${i} von ${n}`,
     points: (p) => `${p} Punkte`,
     highStakes: "Sicherheitsrelevante Frage",
+    multiSelectHint: "Mehrere Antworten möglich",
     imageNote: "🖼️ Bild ausstehend — Referenz: ",
     explanationLabel: "Erklärung",
     legalBasis: "Rechtsgrundlage",
@@ -34,6 +35,7 @@ const UI_STRINGS = {
     progress: (i, n) => `Question ${i} of ${n}`,
     points: (p) => `${p} points`,
     highStakes: "Safety-critical question",
+    multiSelectHint: "Multiple answers possible",
     imageNote: "🖼️ Image pending — ref: ",
     explanationLabel: "Explanation",
     legalBasis: "Legal basis",
@@ -53,6 +55,7 @@ const UI_STRINGS = {
     progress: (i, n) => `Питання ${i} з ${n}`,
     points: (p) => `${p} балів`,
     highStakes: "Питання, важливе для безпеки",
+    multiSelectHint: "Можливо кілька правильних відповідей",
     imageNote: "🖼️ Зображення відсутнє — посилання: ",
     explanationLabel: "Пояснення",
     legalBasis: "Правова основа",
@@ -72,6 +75,7 @@ const UI_STRINGS = {
     progress: (i, n) => `Pytanie ${i} z ${n}`,
     points: (p) => `${p} punktów`,
     highStakes: "Pytanie istotne dla bezpieczeństwa",
+    multiSelectHint: "Możliwych kilka poprawnych odpowiedzi",
     imageNote: "🖼️ Brak obrazu — odniesienie: ",
     explanationLabel: "Wyjaśnienie",
     legalBasis: "Podstawa prawna",
@@ -91,6 +95,7 @@ const UI_STRINGS = {
     progress: (i, n) => `السؤال ${i} من ${n}`,
     points: (p) => `${p} نقاط`,
     highStakes: "سؤال حرج للسلامة",
+    multiSelectHint: "قد تكون هناك عدة إجابات صحيحة",
     imageNote: "🖼️ الصورة غير متوفرة — المرجع: ",
     explanationLabel: "الشرح",
     legalBasis: "الأساس القانوني",
@@ -110,6 +115,7 @@ const UI_STRINGS = {
     progress: (i, n) => `第 ${i} 题，共 ${n} 题`,
     points: (p) => `${p} 分`,
     highStakes: "安全关键问题",
+    multiSelectHint: "可能有多个正确答案",
     imageNote: "🖼️ 图片暂缺 — 参考：",
     explanationLabel: "解释",
     legalBasis: "法律依据",
@@ -129,6 +135,7 @@ const UI_STRINGS = {
     progress: (i, n) => `प्रश्न ${i} / ${n}`,
     points: (p) => `${p} अंक`,
     highStakes: "सुरक्षा-महत्वपूर्ण प्रश्न",
+    multiSelectHint: "कई सही उत्तर संभव हैं",
     imageNote: "🖼️ चित्र उपलब्ध नहीं — संदर्भ: ",
     explanationLabel: "स्पष्टीकरण",
     legalBasis: "कानूनी आधार",
@@ -148,6 +155,7 @@ const UI_STRINGS = {
     progress: (i, n) => `${n} sorudan ${i}.`,
     points: (p) => `${p} puan`,
     highStakes: "Güvenlik açısından kritik soru",
+    multiSelectHint: "Birden fazla doğru cevap olabilir",
     imageNote: "🖼️ Görsel eksik — referans: ",
     explanationLabel: "Açıklama",
     legalBasis: "Yasal dayanak",
@@ -167,6 +175,7 @@ const UI_STRINGS = {
     progress: (i, n) => `Question ${i} sur ${n}`,
     points: (p) => `${p} points`,
     highStakes: "Question critique pour la sécurité",
+    multiSelectHint: "Plusieurs réponses correctes possibles",
     imageNote: "🖼️ Image manquante — référence : ",
     explanationLabel: "Explication",
     legalBasis: "Base légale",
@@ -186,6 +195,7 @@ const UI_STRINGS = {
     progress: (i, n) => `Вопрос ${i} из ${n}`,
     points: (p) => `${p} баллов`,
     highStakes: "Вопрос, критичный для безопасности",
+    multiSelectHint: "Возможно несколько правильных ответов",
     imageNote: "🖼️ Изображение отсутствует — ссылка: ",
     explanationLabel: "Объяснение",
     legalBasis: "Правовая основа",
@@ -205,6 +215,7 @@ const UI_STRINGS = {
     progress: (i, n) => `Pregunta ${i} de ${n}`,
     points: (p) => `${p} puntos`,
     highStakes: "Pregunta crítica para la seguridad",
+    multiSelectHint: "Puede haber varias respuestas correctas",
     imageNote: "🖼️ Imagen pendiente — referencia: ",
     explanationLabel: "Explicación",
     legalBasis: "Base legal",
@@ -224,6 +235,7 @@ const UI_STRINGS = {
     progress: (i, n) => `Domanda ${i} di ${n}`,
     points: (p) => `${p} punti`,
     highStakes: "Domanda critica per la sicurezza",
+    multiSelectHint: "Sono possibili più risposte corrette",
     imageNote: "🖼️ Immagine mancante — riferimento: ",
     explanationLabel: "Spiegazione",
     legalBasis: "Base giuridica",
@@ -1558,11 +1570,13 @@ function renderExamQuestion() {
   const t = q.text[state.lang];
   const topicLabel = getTopicLabel(q.topic_code, q.topic);
 
+  const isMultiSelect = q.question_type === "multi_choice";
   el("#exam-progress").textContent = X.progress(ex.index + 1, ex.questions.length);
   el("#exam-meta").innerHTML = `
     <span class="badge topic">${topicLabel}</span>
     <span class="badge points">${S.points(q.points)}</span>
     ${q.high_stakes ? `<span class="badge high-stakes">${S.highStakes}</span>` : ""}
+    ${isMultiSelect ? `<span class="badge multi-select">${S.multiSelectHint}</span>` : ""}
   `;
   el("#exam-question").textContent = t.question;
 
@@ -1584,22 +1598,37 @@ function renderExamQuestion() {
   // recreate every option element, dropping keyboard focus back to <body>
   // on every single answer - the same class of focus-loss bug DN-17 fixed
   // for the flashcard reveal flow, now avoided here from the start).
+  // Multi-select questions (DN-4, question_type "multi_choice") let more
+  // than one option be selected at once, toggling independently - a real
+  // checkbox rather than the radio-style single overwrite used for
+  // single_choice. ex.answers[q.id] is a plain string key for single_choice
+  // (unchanged from before) and an array of key strings for multi_choice, so
+  // computeExamResults() below has to branch on question_type too.
   const applySelection = () => {
     const selected = ex.answers[q.id];
+    const isSelected = (key) => isMultiSelect
+      ? Array.isArray(selected) && selected.includes(key)
+      : selected === key;
     optionsEl.querySelectorAll(".option").forEach((div) => {
-      const isSel = div.dataset.key === selected;
+      const isSel = isSelected(div.dataset.key);
       div.classList.toggle("exam-selected", isSel);
-      div.setAttribute("aria-pressed", String(isSel));
+      if (isMultiSelect) div.setAttribute("aria-checked", String(isSel));
+      else div.setAttribute("aria-pressed", String(isSel));
       const mark = div.querySelector(".selected-mark");
       if (mark) mark.textContent = isSel ? "✓" : "";
     });
   };
   Object.entries(t.options).forEach(([key, text]) => {
     const div = document.createElement("div");
-    div.className = "option";
+    div.className = "option" + (isMultiSelect ? " option-checkbox" : "");
     div.dataset.key = key;
-    div.setAttribute("role", "button");
-    div.setAttribute("aria-pressed", "false");
+    if (isMultiSelect) {
+      div.setAttribute("role", "checkbox");
+      div.setAttribute("aria-checked", "false");
+    } else {
+      div.setAttribute("role", "button");
+      div.setAttribute("aria-pressed", "false");
+    }
     div.tabIndex = 0;
     // The "your selected answer" state previously relied ENTIRELY on a
     // border-color/background tint shift (2026-08-05 UX review) - a real
@@ -1608,7 +1637,14 @@ function renderExamQuestion() {
     // shape change too, not just a color change, for colorblind users.
     div.innerHTML = `<span class="key">${key.toUpperCase()}</span><span>${text}</span><span class="selected-mark" aria-hidden="true"></span>`;
     const pick = () => {
-      ex.answers[q.id] = key;
+      if (isMultiSelect) {
+        const current = Array.isArray(ex.answers[q.id]) ? ex.answers[q.id] : [];
+        ex.answers[q.id] = current.includes(key)
+          ? current.filter((k) => k !== key)
+          : [...current, key];
+      } else {
+        ex.answers[q.id] = key;
+      }
       applySelection();
     };
     div.addEventListener("click", pick);
@@ -1635,6 +1671,19 @@ function examNext() {
   }
 }
 
+// A multi_choice question is only correct if the given set of picks is
+// EXACTLY the correct set - matching the real exam's all-or-nothing scoring
+// (no partial credit for picking some but not all of the right options, and
+// picking an extra wrong option alongside right ones is still a full miss).
+function isExamAnswerCorrect(q, given) {
+  if (q.question_type === "multi_choice") {
+    if (!Array.isArray(given) || given.length === 0) return false;
+    if (given.length !== q.correct.length) return false;
+    return given.every((k) => q.correct.includes(k));
+  }
+  return given != null && q.correct.includes(given);
+}
+
 function computeExamResults() {
   const ex = state.exam;
   let errorPoints = 0;
@@ -1642,7 +1691,7 @@ function computeExamResults() {
   const wrongList = [];
   ex.questions.forEach((q) => {
     const given = ex.answers[q.id];
-    const isCorrect = given != null && q.correct.includes(given);
+    const isCorrect = isExamAnswerCorrect(q, given);
     if (!isCorrect) {
       errorPoints += q.points;
       if (q.high_stakes) wrongHighStakes += 1;
@@ -1690,13 +1739,20 @@ function renderExamResults() {
     reviewEl.innerHTML = `<h3>${X.reviewLabel}</h3>`;
     results.wrongList.forEach(({ q, given }) => {
       const t = q.text[state.lang];
-      const correctKey = q.correct[0];
+      // Multi-select questions can have 2+ correct keys and a given answer
+      // that's an array (or unanswered) - join them into one readable list
+      // rather than assuming a single string like the original single_choice
+      // code did (which would have shown "undefined" for an array).
+      const givenText = Array.isArray(given)
+        ? (given.length ? given.map((k) => t.options[k]).join(", ") : "—")
+        : (given && t.options[given]) || "—";
+      const correctText = q.correct.map((k) => t.options[k]).join(", ");
       const item = document.createElement("div");
       item.className = "exam-review-item";
       item.innerHTML = `
         <div class="q-card-text">${t.question}</div>
-        <div class="your-answer">${X.yourAnswer}: ${(given && t.options[given]) || "—"}</div>
-        <div class="right-answer">${X.rightAnswer}: ${t.options[correctKey]}</div>
+        <div class="your-answer">${X.yourAnswer}: ${givenText}</div>
+        <div class="right-answer">${X.rightAnswer}: ${correctText}</div>
       `;
       reviewEl.appendChild(item);
     });
@@ -1853,6 +1909,7 @@ function renderList() {
         <span class="badge topic">${topicLabel}</span>
         <span class="badge points">${S.points(q.points)}</span>
         ${q.high_stakes ? `<span class="badge high-stakes">${S.highStakes}</span>` : ""}
+        ${q.question_type === "multi_choice" ? `<span class="badge multi-select">${S.multiSelectHint}</span>` : ""}
         <span class="q-card-id">${q.id}</span>
       </div>
       <div class="q-card-text">${q.text[state.lang].question}</div>
@@ -1894,6 +1951,7 @@ function renderDetail() {
     <span class="badge topic">${topicLabel}</span>
     <span class="badge points">${S.points(q.points)}</span>
     ${q.high_stakes ? `<span class="badge high-stakes">${S.highStakes}</span>` : ""}
+    ${q.question_type === "multi_choice" ? `<span class="badge multi-select">${S.multiSelectHint}</span>` : ""}
   `;
 
   el("#detail-question").textContent = t.question;

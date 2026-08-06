@@ -240,6 +240,10 @@ main {
 .badge.topic { background: var(--accent-dim); color: var(--badge-topic-text); }
 .badge.points { background: var(--badge-neutral-bg); color: var(--text-dim); }
 .badge.high-stakes { background: var(--amber-bg); color: var(--amber); }
+/* DN-4 multi-select hint badge - reuses the already contrast-verified
+   --correct-bg/--green pairing (see .option.correct above) rather than
+   introducing a new, unaudited color token. */
+.badge.multi-select { background: var(--correct-bg); color: var(--green); }
 
 .q-card-text {
   font-size: 0.95rem;
@@ -773,6 +777,33 @@ main {
 .options .option.exam-selected {
   border-color: var(--accent);
   background: var(--accent-dim);
+}
+
+/* DN-4: multi-select options get a small square checkbox indicator before
+   the A/B/C/D key, so the "pick any number of these" affordance reads as a
+   genuinely different interaction than the single-select radio-style cards
+   above - not just relying on the shared .exam-selected border/bg tint,
+   which stays as a secondary reinforcement only. */
+.option-checkbox .key {
+  position: relative;
+  padding-inline-start: 22px;
+}
+
+.option-checkbox .key::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.15em;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--text-dim);
+  border-radius: 3px;
+  background: transparent;
+}
+
+.option-checkbox.exam-selected .key::before {
+  border-color: var(--accent);
+  background: var(--accent);
 }
 
 /* A checkmark that appears/disappears (not just a color/background shift)
