@@ -14,7 +14,17 @@
        A visitor who has already installed the app never sees this page
        again anyway (their home-screen icon launches straight into
        app.html). See netlify.toml/service-worker.js comments for how the
-       two files' roles were split during the Zettacard rebrand. -->
+       two files' roles were split during the Zettacard rebrand.
+
+       2026-08-06: extended from a DE/EN-only toggle to all 12 of the app's
+       languages (LANDING_STRINGS below), on explicit request, since the
+       earlier DE/EN-only scoping read as a real gap once the rest of the
+       app had full 12-locale coverage. Deliberately still self-contained -
+       no dependency on app.js's i18n machinery or on fetching modules.json
+       at runtime - module names/subtitles below are copied verbatim from
+       the already-translated, already-verified app/data/modules.json
+       (not re-translated from scratch) so this page can't drift out of
+       sync with the app's own wording for those particular strings. -->
   <link rel="stylesheet" href="styles.css" />
   <script>
     // Same theme-flash-prevention approach as app.html (same key,
@@ -83,23 +93,17 @@
     .lang-toggle {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 6px;
       margin-bottom: 8px;
     }
-    .lang-toggle button {
-      border: 1px solid var(--border);
-      background: var(--card);
-      color: var(--text-dim);
-      padding: 8px 14px;
-      min-height: 36px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      cursor: pointer;
-    }
-    .lang-toggle button.active {
-      border-color: var(--accent);
-      color: var(--badge-topic-text);
-      background: var(--accent-dim);
+    /* Reuses the exact same "🌐 icon + native-endonym <select>" pattern as
+       app.html's own language pickers (lang-select-wrap/lang-icon/
+       lang-select classes, styled by the shared styles.css), so this page's
+       picker looks and behaves identically to the app's - not a bespoke
+       second design for the same concept. */
+    .lang-select-wrap select {
+      min-width: 160px;
     }
     .features {
       max-width: 720px;
@@ -151,96 +155,150 @@
       font-size: 0.78rem;
       padding: 0 20px 40px;
     }
-    [data-lang="en"] .de-only { display: none; }
-    [data-lang="de"] .en-only { display: none; }
   </style>
 </head>
-<body data-lang="de">
+<body>
   <main>
     <section class="hero">
       <img class="hero-logo" src="icons/logo.svg" alt="Zettacard logo" width="96" height="96" />
       <h1>Zettacard</h1>
-      <p class="lede de-only">
-        Original erstellte Übungsfragen für Führerschein, Motorrad, LKW, Angelschein
-        und betriebliche Pflichtthemen (Datenschutz, Arbeitssicherheit, KI-Verordnung,
-        IT-Sicherheit) — in 12 Sprachen, komplett kostenlos, funktioniert offline und
-        lässt sich als App installieren.
-      </p>
-      <p class="lede en-only">
-        Original practice questions for driving licences, motorcycle and truck
-        licences, fishing licences, and workplace-compliance topics (data protection,
-        occupational safety, the AI Act, IT security) — in 12 languages, completely
-        free, works offline, and installs as an app.
-      </p>
+      <p class="lede" id="lede"></p>
       <div class="cta-row">
-        <a class="cta-btn de-only" href="./app.html">Jetzt starten</a>
-        <a class="cta-btn en-only" href="./app.html">Start now</a>
+        <a class="cta-btn" id="cta-btn" href="./app.html"></a>
       </div>
-      <!-- Lightweight DE/EN toggle only - not the app's full 12-language
-           select. This marketing page's job is a fast, low-friction
-           first impression, not full localization; DE (the app's default
-           locale, and this project's primary audience) plus EN cover the
-           large majority of visitors. All 12 languages are still available
-           the moment someone opens the actual app. -->
-      <div class="lang-toggle" role="group" aria-label="Language / Sprache">
-        <button type="button" data-set-lang="de" class="active">Deutsch</button>
-        <button type="button" data-set-lang="en">English</button>
+      <div class="lang-toggle">
+        <div class="lang-select-wrap">
+          <span class="lang-icon" aria-hidden="true">🌐</span>
+          <select class="lang-select" id="lang-select">
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="uk">🇺🇦 Українська</option>
+            <option value="pl">🇵🇱 Polski</option>
+            <option value="ar">🇸🇦 العربية</option>
+            <option value="zh">🇨🇳 简体中文</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+            <option value="tr">🇹🇷 Türkçe</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="it">🇮🇹 Italiano</option>
+          </select>
+        </div>
       </div>
     </section>
 
     <section class="features">
-      <ul>
-        <li class="de-only">✅ Original erstellte Fragen</li>
-        <li class="en-only">✅ Original, exam-style questions</li>
-        <li class="de-only">🌐 12 Sprachen</li>
-        <li class="en-only">🌐 12 languages</li>
-        <li class="de-only">📶 Funktioniert offline</li>
-        <li class="en-only">📶 Works offline</li>
-        <li class="de-only">🆓 Kostenlos</li>
-        <li class="en-only">🆓 Free</li>
-      </ul>
+      <ul id="features-list"></ul>
     </section>
 
     <section class="modules">
-      <h2 class="de-only">8 Module</h2>
-      <h2 class="en-only">8 modules</h2>
-      <div class="module-grid">
-        <div class="module-card"><strong>Führerschein</strong><span class="de-only">Klasse B (Pkw)</span><span class="en-only">Class B (car)</span></div>
-        <div class="module-card de-only"><strong>Motorrad</strong><span>Theorieprüfung</span></div>
-        <div class="module-card en-only"><strong>Motorcycle</strong><span>Theory exam</span></div>
-        <div class="module-card de-only"><strong>LKW</strong><span>Theorieprüfung</span></div>
-        <div class="module-card en-only"><strong>Truck</strong><span>Theory exam</span></div>
-        <div class="module-card"><strong>Angelschein</strong><span class="de-only">Fischereischein</span><span class="en-only">Fishing licence</span></div>
-        <div class="module-card de-only"><strong>Datenschutz</strong><span>DSGVO / GDPR</span></div>
-        <div class="module-card en-only"><strong>Data protection</strong><span>GDPR</span></div>
-        <div class="module-card"><strong>Arbeitssicherheit</strong><span class="de-only">Betriebliche Pflichtschulung</span><span class="en-only">Occupational safety</span></div>
-        <div class="module-card"><strong>KI-Verordnung</strong><span class="de-only">EU AI Act</span><span class="en-only">EU AI Act</span></div>
-        <div class="module-card de-only"><strong>IT-Sicherheit</strong><span>Betriebliche Pflichtschulung</span></div>
-        <div class="module-card en-only"><strong>IT security</strong><span>Workplace compliance</span></div>
-      </div>
+      <h2 id="modules-heading"></h2>
+      <div class="module-grid" id="module-grid"></div>
     </section>
   </main>
 
-  <footer class="landing-footer">
-    <span class="de-only">Zettacard ist kein amtlicher Prüfungssimulator. Original-Lerninhalte, CC BY-NC-SA 4.0.</span>
-    <span class="en-only">Zettacard is not an official exam simulator. Original learning content, CC BY-NC-SA 4.0.</span>
-  </footer>
+  <footer class="landing-footer" id="landing-footer"></footer>
 
   <script>
-    // Minimal DE/EN toggle for this landing page only (see the lang-toggle
-    // comment above for why this is DE+EN and not the app's full 12-locale
-    // select). Just flips a data-lang attribute the CSS above keys off of -
-    // no dependency on app.js's i18n machinery, which this page intentionally
-    // does not load.
     (function () {
-      var body = document.body;
-      var buttons = document.querySelectorAll("[data-set-lang]");
-      buttons.forEach(function (btn) {
-        btn.addEventListener("click", function () {
-          var lang = btn.getAttribute("data-set-lang");
-          body.setAttribute("data-lang", lang);
-          buttons.forEach(function (b) { b.classList.toggle("active", b === btn); });
+      // Module names/subtitles are copied verbatim from the already-
+      // translated, already-verified app/data/modules.json (fuehrerschein's
+      // "B" class-option label reused as its subtitle) rather than
+      // re-translated here, so this page can't silently drift from the
+      // app's own wording for the same concepts.
+      var MODULE_LABELS = {
+        fuehrerschein: {de:"Führerschein",en:"Driving licence",uk:"Посвідчення водія",pl:"Prawo jazdy",ar:"رخصة القيادة",zh:"驾驶执照",hi:"ड्राइविंग लाइसेंस",tr:"Sürücü belgesi",fr:"Permis de conduire",ru:"Водительские права",es:"Permiso de conducir",it:"Patente di guida"},
+        motorrad: {de:"Motorrad",en:"Motorcycle",uk:"Мотоцикл",pl:"Motocykl",ar:"دراجة نارية",zh:"摩托车",hi:"मोटरसाइकिल",tr:"Motosiklet",fr:"Moto",ru:"Мотоцикл",es:"Motocicleta",it:"Motociclo"},
+        lkw: {de:"LKW",en:"Truck",uk:"Вантажівка",pl:"Ciężarówka",ar:"شاحنة",zh:"卡车",hi:"ट्रक",tr:"Kamyon",fr:"Poids lourd",ru:"Грузовик",es:"Camión",it:"Camion"},
+        angelschein: {de:"Angelschein",en:"Fishing licence",uk:"Посвідчення рибалки",pl:"Karta wędkarska",ar:"رخصة الصيد",zh:"钓鱼证",hi:"मछली पकड़ने का लाइसेंस",tr:"Balıkçılık belgesi",fr:"Permis de pêche",ru:"Удостоверение рыболова",es:"Licencia de pesca",it:"Licenza di pesca"},
+        datenschutz: {de:"Datenschutz",en:"Data protection",uk:"Захист даних",pl:"Ochrona danych",ar:"حماية البيانات",zh:"数据保护",hi:"डेटा सुरक्षा",tr:"Veri koruma",fr:"Protection des données",ru:"Защита данных",es:"Protección de datos",it:"Protezione dei dati"},
+        arbeitssicherheit: {de:"Arbeitssicherheit",en:"Occupational safety",uk:"Охорона праці",pl:"Bezpieczeństwo pracy",ar:"السلامة المهنية",zh:"职业安全",hi:"व्यावसायिक सुरक्षा",tr:"İş güvenliği",fr:"Sécurité au travail",ru:"Охрана труда",es:"Seguridad laboral",it:"Sicurezza sul lavoro"},
+        ki_act: {de:"KI-Verordnung",en:"AI Act",uk:"Закон про ШІ",pl:"Akt o sztucznej inteligencji",ar:"قانون الذكاء الاصطناعي",zh:"人工智能法案",hi:"एआई अधिनियम",tr:"Yapay Zeka Yasası",fr:"Règlement sur l'IA",ru:"Закон об ИИ",es:"Ley de IA",it:"Legge sull'IA"},
+        it_sicherheit: {de:"IT-Sicherheit",en:"IT security",uk:"ІТ-безпека",pl:"Bezpieczeństwo IT",ar:"أمن تقنية المعلومات",zh:"IT安全",hi:"आईटी सुरक्षा",tr:"BT güvenliği",fr:"Sécurité informatique",ru:"ИТ-безопасность",es:"Seguridad informática",it:"Sicurezza IT"}
+      };
+      var CLASS_B = {de:"Klasse B (Pkw)",en:"Class B (car)",uk:"Категорія B (легковий)",pl:"Kategoria B (samochód)",ar:"الفئة B (سيارة)",zh:"B 类（小汽车）",hi:"क्लास B (कार)",tr:"B Sınıfı (otomobil)",fr:"Catégorie B (voiture)",ru:"Категория B (легковой)",es:"Clase B (coche)",it:"Classe B (auto)"};
+
+      var LANDING_STRINGS = {
+        de: { lede:"Original erstellte Übungsfragen für Führerschein, Motorrad, LKW, Angelschein und betriebliche Pflichtthemen (Datenschutz, Arbeitssicherheit, KI-Verordnung, IT-Sicherheit) — in 12 Sprachen, komplett kostenlos, funktioniert offline und lässt sich als App installieren.", cta:"Jetzt starten", feats:["✅ Original erstellte Fragen","🌐 12 Sprachen","📶 Funktioniert offline","🆓 Kostenlos"], modulesHeading:"8 Module", theoryExam:"Theorieprüfung", compliance:"Betriebliche Pflichtschulung", footer:"Zettacard ist kein amtlicher Prüfungssimulator. Original-Lerninhalte, CC BY-NC-SA 4.0.", langLabel:"Sprache" },
+        en: { lede:"Original practice questions for driving licences, motorcycle and truck licences, fishing licences, and workplace-compliance topics (data protection, occupational safety, the AI Act, IT security) — in 12 languages, completely free, works offline, and installs as an app.", cta:"Start now", feats:["✅ Original, exam-style questions","🌐 12 languages","📶 Works offline","🆓 Free"], modulesHeading:"8 modules", theoryExam:"Theory exam", compliance:"Workplace compliance", footer:"Zettacard is not an official exam simulator. Original learning content, CC BY-NC-SA 4.0.", langLabel:"Language" },
+        uk: { lede:"Оригінальні практичні запитання для водійських прав, посвідчень на мотоцикл і вантажівку, посвідчення рибалки та тем обов'язкового навчання на робочому місці (захист даних, охорона праці, Закон про ШІ, ІТ-безпека) — 12 мовами, повністю безкоштовно, працює офлайн і встановлюється як застосунок.", cta:"Почати зараз", feats:["✅ Оригінальні запитання","🌐 12 мов","📶 Працює офлайн","🆓 Безкоштовно"], modulesHeading:"8 модулів", theoryExam:"Теоретичний іспит", compliance:"Обов'язкове навчання на роботі", footer:"Zettacard не є офіційним симулятором іспиту. Оригінальний навчальний контент, CC BY-NC-SA 4.0.", langLabel:"Мова" },
+        pl: { lede:"Oryginalne pytania ćwiczeniowe do prawa jazdy, uprawnień na motocykl i ciężarówkę, karty wędkarskiej oraz tematów obowiązkowych szkoleń w pracy (ochrona danych, bezpieczeństwo pracy, Akt o sztucznej inteligencji, bezpieczeństwo IT) — w 12 językach, całkowicie za darmo, działa offline i instaluje się jako aplikacja.", cta:"Zacznij teraz", feats:["✅ Oryginalne pytania","🌐 12 języków","📶 Działa offline","🆓 Za darmo"], modulesHeading:"8 modułów", theoryExam:"Egzamin teoretyczny", compliance:"Obowiązkowe szkolenie w pracy", footer:"Zettacard nie jest oficjalnym symulatorem egzaminu. Oryginalne treści edukacyjne, CC BY-NC-SA 4.0.", langLabel:"Język" },
+        ar: { lede:"أسئلة تدريبية أصلية لرخصة القيادة، ورخصتي الدراجة النارية والشاحنة، ورخصة الصيد، ومواضيع التدريب الإلزامي في مكان العمل (حماية البيانات، السلامة المهنية، قانون الذكاء الاصطناعي، أمن تقنية المعلومات) — بـ 12 لغة، مجانية بالكامل، تعمل دون اتصال بالإنترنت ويمكن تثبيتها كتطبيق.", cta:"ابدأ الآن", feats:["✅ أسئلة أصلية","🌐 12 لغة","📶 يعمل دون اتصال","🆓 مجاني"], modulesHeading:"8 وحدات", theoryExam:"اختبار نظري", compliance:"تدريب إلزامي في العمل", footer:"زيتاكارد ليس محاكيًا رسميًا للاختبار. محتوى تعليمي أصلي، CC BY-NC-SA 4.0.", langLabel:"اللغة" },
+        zh: { lede:"为驾驶执照、摩托车和卡车驾照、钓鱼证以及职场合规培训主题(数据保护、职业安全、人工智能法案、IT安全)提供的原创练习题——支持12种语言,完全免费,可离线使用,并可作为应用安装。", cta:"立即开始", feats:["✅ 原创题目","🌐 12种语言","📶 离线可用","🆓 免费"], modulesHeading:"8个模块", theoryExam:"理论考试", compliance:"职场合规培训", footer:"Zettacard 不是官方考试模拟器。原创学习内容,CC BY-NC-SA 4.0。", langLabel:"语言" },
+        hi: { lede:"ड्राइविंग लाइसेंस, मोटरसाइकिल और ट्रक लाइसेंस, मछली पकड़ने के लाइसेंस, और कार्यस्थल अनुपालन विषयों (डेटा सुरक्षा, व्यावसायिक सुरक्षा, एआई अधिनियम, आईटी सुरक्षा) के लिए मौलिक अभ्यास प्रश्न — 12 भाषाओं में, पूरी तरह मुफ़्त, ऑफ़लाइन काम करता है और ऐप के रूप में इंस्टॉल किया जा सकता है।", cta:"अभी शुरू करें", feats:["✅ मौलिक प्रश्न","🌐 12 भाषाएँ","📶 ऑफ़लाइन काम करता है","🆓 मुफ़्त"], modulesHeading:"8 मॉड्यूल", theoryExam:"सैद्धांतिक परीक्षा", compliance:"कार्यस्थल अनुपालन प्रशिक्षण", footer:"Zettacard कोई आधिकारिक परीक्षा सिम्युलेटर नहीं है। मौलिक शिक्षण सामग्री, CC BY-NC-SA 4.0।", langLabel:"भाषा" },
+        tr: { lede:"Sürücü belgesi, motosiklet ve kamyon ehliyeti, balıkçılık belgesi ve işyeri uyum konuları (veri koruma, iş güvenliği, Yapay Zeka Yasası, BT güvenliği) için özgün alıştırma soruları — 12 dilde, tamamen ücretsiz, çevrimdışı çalışır ve uygulama olarak yüklenebilir.", cta:"Şimdi başla", feats:["✅ Özgün sorular","🌐 12 dil","📶 Çevrimdışı çalışır","🆓 Ücretsiz"], modulesHeading:"8 modül", theoryExam:"Teorik sınav", compliance:"İşyeri zorunlu eğitimi", footer:"Zettacard resmi bir sınav simülatörü değildir. Özgün öğrenme içeriği, CC BY-NC-SA 4.0.", langLabel:"Dil" },
+        fr: { lede:"Questions d'entraînement originales pour le permis de conduire, les permis moto et poids lourd, le permis de pêche et les thèmes de conformité en entreprise (protection des données, sécurité au travail, règlement sur l'IA, sécurité informatique) — en 12 langues, entièrement gratuit, fonctionne hors ligne et s'installe comme une application.", cta:"Commencer maintenant", feats:["✅ Questions originales","🌐 12 langues","📶 Fonctionne hors ligne","🆓 Gratuit"], modulesHeading:"8 modules", theoryExam:"Examen théorique", compliance:"Formation obligatoire en entreprise", footer:"Zettacard n'est pas un simulateur d'examen officiel. Contenu pédagogique original, CC BY-NC-SA 4.0.", langLabel:"Langue" },
+        ru: { lede:"Оригинальные тренировочные вопросы для водительских прав, прав на мотоцикл и грузовик, удостоверения рыболова и тем обязательного обучения на рабочем месте (защита данных, охрана труда, закон об ИИ, ИТ-безопасность) — на 12 языках, полностью бесплатно, работает офлайн и устанавливается как приложение.", cta:"Начать сейчас", feats:["✅ Оригинальные вопросы","🌐 12 языков","📶 Работает офлайн","🆓 Бесплатно"], modulesHeading:"8 модулей", theoryExam:"Теоретический экзамен", compliance:"Обязательное обучение на работе", footer:"Zettacard не является официальным симулятором экзамена. Оригинальный учебный контент, CC BY-NC-SA 4.0.", langLabel:"Язык" },
+        es: { lede:"Preguntas de práctica originales para el permiso de conducir, las licencias de motocicleta y camión, la licencia de pesca y los temas de cumplimiento normativo laboral (protección de datos, seguridad laboral, la Ley de IA, seguridad informática) — en 12 idiomas, totalmente gratis, funciona sin conexión y se instala como aplicación.", cta:"Empezar ahora", feats:["✅ Preguntas originales","🌐 12 idiomas","📶 Funciona sin conexión","🆓 Gratis"], modulesHeading:"8 módulos", theoryExam:"Examen teórico", compliance:"Formación obligatoria laboral", footer:"Zettacard no es un simulador de examen oficial. Contenido educativo original, CC BY-NC-SA 4.0.", langLabel:"Idioma" },
+        it: { lede:"Domande di esercizio originali per la patente di guida, le patenti per moto e camion, la licenza di pesca e i temi di conformità aziendale (protezione dei dati, sicurezza sul lavoro, la Legge sull'IA, sicurezza IT) — in 12 lingue, completamente gratuito, funziona offline e si installa come app.", cta:"Inizia ora", feats:["✅ Domande originali","🌐 12 lingue","📶 Funziona offline","🆓 Gratuito"], modulesHeading:"8 moduli", theoryExam:"Esame teorico", compliance:"Formazione aziendale obbligatoria", footer:"Zettacard non è un simulatore d'esame ufficiale. Contenuti didattici originali, CC BY-NC-SA 4.0.", langLabel:"Lingua" }
+      };
+
+      var LOCALES = ["de","en","uk","pl","ar","zh","hi","tr","fr","ru","es","it"];
+      var RTL_LOCALES = { ar: true };
+      var STORAGE_KEY = "dn-landing-lang";
+
+      function detectLang() {
+        try {
+          var saved = localStorage.getItem(STORAGE_KEY);
+          if (saved && LANDING_STRINGS[saved]) return saved;
+        } catch (e) { /* storage unavailable, fall through to browser detection */ }
+        var nav = (navigator.language || "de").slice(0, 2).toLowerCase();
+        return LANDING_STRINGS[nav] ? nav : "de";
+      }
+
+      function render(lang) {
+        var s = LANDING_STRINGS[lang] || LANDING_STRINGS.de;
+        document.documentElement.setAttribute("lang", lang);
+        document.documentElement.setAttribute("dir", RTL_LOCALES[lang] ? "rtl" : "ltr");
+        document.getElementById("lede").textContent = s.lede;
+        document.getElementById("cta-btn").textContent = s.cta;
+        document.getElementById("modules-heading").textContent = s.modulesHeading;
+        document.getElementById("landing-footer").textContent = s.footer;
+        document.querySelector(".lang-toggle").setAttribute("aria-label", s.langLabel);
+
+        var featsEl = document.getElementById("features-list");
+        featsEl.innerHTML = "";
+        s.feats.forEach(function (f) {
+          var li = document.createElement("li");
+          li.textContent = f;
+          featsEl.appendChild(li);
         });
+
+        var moduleOrder = ["fuehrerschein","motorrad","lkw","angelschein","datenschutz","arbeitssicherheit","ki_act","it_sicherheit"];
+        var subtitles = {
+          fuehrerschein: CLASS_B[lang] || CLASS_B.en,
+          motorrad: s.theoryExam,
+          lkw: s.theoryExam,
+          arbeitssicherheit: s.compliance,
+          it_sicherheit: s.compliance
+        };
+        var gridEl = document.getElementById("module-grid");
+        gridEl.innerHTML = "";
+        moduleOrder.forEach(function (mod) {
+          var name = (MODULE_LABELS[mod] && (MODULE_LABELS[mod][lang] || MODULE_LABELS[mod].en)) || mod;
+          var card = document.createElement("div");
+          card.className = "module-card";
+          var strong = document.createElement("strong");
+          strong.textContent = name;
+          card.appendChild(strong);
+          if (subtitles[mod]) {
+            var span = document.createElement("span");
+            span.textContent = subtitles[mod];
+            card.appendChild(span);
+          }
+          gridEl.appendChild(card);
+        });
+
+        document.getElementById("lang-select").value = lang;
+      }
+
+      var startLang = detectLang();
+      render(startLang);
+
+      document.getElementById("lang-select").addEventListener("change", function (e) {
+        var lang = e.target.value;
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e2) { /* storage unavailable, non-fatal */ }
+        render(lang);
       });
     })();
   </script>
