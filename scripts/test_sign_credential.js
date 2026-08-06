@@ -32,7 +32,7 @@ async function main() {
     console.error("ZETTACARD_SIGNING_PRIVATE_JWK not set (expected in .env.local for this test). Run scripts/generate_signing_keypair.mjs first.");
     process.exit(1);
   }
-  process.env.URL = process.env.URL || "https://drivenow-fahrschule.netlify.app";
+  process.env.URL = process.env.URL || "https://zettacard.netlify.app";
 
   const { handler } = require("../netlify/functions/sign-credential.js");
   // Dynamic import, not require() - jose is ESM-only and this must keep

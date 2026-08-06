@@ -62,7 +62,7 @@ this doc is just the "how to actually turn this on" checklist plus the verifier 
 A downloaded credential JSON with `"verified": true` has a `proof.jwt` field (a compact JWT string)
 and a `proof.jwksUrl` field pointing at the public key set. To verify it:
 
-1. Fetch the JWKS: `GET https://drivenow-fahrschule.netlify.app/.well-known/jwks.json`
+1. Fetch the JWKS: `GET https://zettacard.netlify.app/.well-known/jwks.json`
 2. Find the key whose `kid` matches the JWT's protected header `kid` (or `proof.kid` in the
    credential JSON) and the `alg` (`ES256`).
 3. Verify the JWT's signature against that public key and inspect its `vc` claim for the actual
@@ -74,7 +74,7 @@ Example using `jose` (Node.js) - this is exactly what
 ```js
 import { importJWK, jwtVerify } from "jose";
 
-const jwksRes = await fetch("https://drivenow-fahrschule.netlify.app/.well-known/jwks.json");
+const jwksRes = await fetch("https://zettacard.netlify.app/.well-known/jwks.json");
 const jwks = await jwksRes.json();
 
 const jwt = "..."; // from credential.proof.jwt

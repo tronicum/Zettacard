@@ -3,14 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Zettacard</title>
-  <meta name="description" content="Original practice questions for driving licences, fishing licences, and workplace compliance training, multilingual. Not an exam simulator." />
-  <link rel="manifest" href="manifest.json" />
+  <title>Zettacard — Lernkarten & Prüfungsvorbereitung</title>
+  <meta name="description" content="Original practice questions for driving licences, fishing licences, and workplace compliance training, in 12 languages. Free, works offline, installable as an app. Not an exam simulator." />
   <meta name="theme-color" content="#0b1220" />
+  <link rel="icon" type="image/svg+xml" href="icons/logo.svg" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <!-- This is a marketing landing page, not the app itself - it deliberately
+       does NOT link manifest.json or attempt a PWA install prompt (that's
+       app.html's job, since manifest.json's start_url now points there).
+       A visitor who has already installed the app never sees this page
+       again anyway (their home-screen icon launches straight into
+       app.html). See netlify.toml/service-worker.js comments for how the
+       two files' roles were split during the Zettacard rebrand. -->
   <link rel="stylesheet" href="styles.css" />
   <script>
-    // Apply saved/system theme before first paint to avoid a flash of the wrong theme.
+    // Same theme-flash-prevention approach as app.html (same key,
+    // "dn-theme," same styles.css tokens) - kept here too, even though this
+    // page never shows an install prompt, because the landing page reuses
+    // the app's exact visual system and should honor the same saved
+    // light/dark preference without its own flash of the wrong theme.
     (function () {
       try {
         var saved = localStorage.getItem("dn-theme");
@@ -19,245 +30,219 @@
       } catch (e) { /* storage/matchMedia unavailable - default dark styling still applies */ }
     })();
   </script>
+  <style>
+    /* Landing-page-only layout. Colors/typography intentionally come from
+       styles.css's existing tokens (loaded above) so this page looks like
+       the same product as app.html, not a different design language - only
+       structure/spacing rules specific to this page's sections live here. */
+    .hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 20px 24px;
+      text-align: center;
+    }
+    .hero-logo {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 20px;
+      display: block;
+      border-radius: var(--radius);
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin: 0 0 10px;
+      letter-spacing: -0.02em;
+    }
+    .hero p.lede {
+      color: var(--text-dim);
+      font-size: 1.05rem;
+      line-height: 1.5;
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 999px;
+      min-height: 44px;
+      line-height: 1.6;
+    }
+    .cta-btn:hover, .cta-btn:focus-visible { filter: brightness(1.08); }
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .lang-toggle button {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text-dim);
+      padding: 8px 14px;
+      min-height: 36px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+    .lang-toggle button.active {
+      border-color: var(--accent);
+      color: var(--badge-topic-text);
+      background: var(--accent-dim);
+    }
+    .features {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 8px 20px 8px;
+    }
+    .features ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 10px;
+    }
+    .features li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      font-size: 0.88rem;
+    }
+    .modules {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+    .modules h2 {
+      font-size: 1.15rem;
+      margin: 0 0 14px;
+      text-align: center;
+    }
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .module-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      font-size: 0.9rem;
+    }
+    .module-card strong { display: block; margin-bottom: 2px; }
+    .module-card span { color: var(--text-dim); font-size: 0.8rem; }
+    footer.landing-footer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.78rem;
+      padding: 0 20px 40px;
+    }
+    [data-lang="en"] .de-only { display: none; }
+    [data-lang="de"] .en-only { display: none; }
+  </style>
 </head>
-<body>
-  <header>
-    <div class="title-row">
-      <div>
-        <h1 id="app-title">Zettacard</h1>
-        <div class="subtitle" id="app-subtitle"></div>
-      </div>
-      <div style="display:flex; gap:8px; align-items:center;">
-        <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
-        <button class="module-switch-btn" id="sign-reference-btn" hidden aria-label="Sign reference">📚 Signs</button>
-        <button class="module-switch-btn" id="certificates-btn" aria-label="My certificates">🎓</button>
-        <button class="review-btn" id="review-btn" aria-label="Review due questions"></button>
-        <button class="module-switch-btn" id="profile-switch-btn" aria-label="Switch profile"></button>
-        <button class="module-switch-btn" id="module-switch-btn"></button>
-        <button class="exam-start-btn" id="exam-start-btn"></button>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme"></button>
-        <div class="lang-select-wrap">
-          <span class="lang-icon" aria-hidden="true">🌐</span>
-          <select class="lang-select" id="lang-select">
-            <!-- Flags added per explicit user request (2026-08-05) as a
-                 decorative prefix alongside each language's own endonym
-                 text - NOT flags-only. An earlier UX review rejected a
-                 flags-ONLY picker (flags represent countries, not
-                 languages: Arabic has no single flag, English/Chinese span
-                 many countries) - keeping the real language name as the
-                 primary, authoritative label avoids reintroducing that
-                 problem while still giving the visual flair asked for.
-                 Picks are a common-convention "best representative"
-                 country per language, not a claim of exclusivity. -->
-            <option value="de">🇩🇪 Deutsch</option>
-            <option value="en">🇬🇧 English</option>
-            <option value="uk">🇺🇦 Українська</option>
-            <option value="pl">🇵🇱 Polski</option>
-            <option value="ar">🇸🇦 العربية</option>
-            <option value="zh">🇨🇳 简体中文</option>
-            <option value="hi">🇮🇳 हिन्दी</option>
-          <option value="tr">🇹🇷 Türkçe</option>
-          <option value="fr">🇫🇷 Français</option>
-          <option value="ru">🇷🇺 Русский</option>
-          <option value="es">🇪🇸 Español</option>
-          <option value="it">🇮🇹 Italiano</option>
-          </select>
-        </div>
-      </div>
-    </div>
-    <div class="filters" id="filters"></div>
-    <!-- DN-44: role-relevance filter, additive to the topic filter above -
-         only shown (via renderRoleFilter() in app.js) for the 4 workplace-
-         compliance modules, which are the only content carrying a per-
-         question `roles` tag. Hidden by default so it never flashes empty
-         before the first render() call for another module. -->
-    <div class="filters role-filters" id="role-filters" hidden></div>
-  </header>
-
+<body data-lang="de">
   <main>
-    <div class="list" id="list"></div>
+    <section class="hero">
+      <img class="hero-logo" src="icons/logo.svg" alt="Zettacard logo" width="96" height="96" />
+      <h1>Zettacard</h1>
+      <p class="lede de-only">
+        Original erstellte Übungsfragen für Führerschein, Motorrad, LKW, Angelschein
+        und betriebliche Pflichtthemen (Datenschutz, Arbeitssicherheit, KI-Verordnung,
+        IT-Sicherheit) — in 12 Sprachen, komplett kostenlos, funktioniert offline und
+        lässt sich als App installieren.
+      </p>
+      <p class="lede en-only">
+        Original practice questions for driving licences, motorcycle and truck
+        licences, fishing licences, and workplace-compliance topics (data protection,
+        occupational safety, the AI Act, IT security) — in 12 languages, completely
+        free, works offline, and installs as an app.
+      </p>
+      <div class="cta-row">
+        <a class="cta-btn de-only" href="./app.html">Jetzt starten</a>
+        <a class="cta-btn en-only" href="./app.html">Start now</a>
+      </div>
+      <!-- Lightweight DE/EN toggle only - not the app's full 12-language
+           select. This marketing page's job is a fast, low-friction
+           first impression, not full localization; DE (the app's default
+           locale, and this project's primary audience) plus EN cover the
+           large majority of visitors. All 12 languages are still available
+           the moment someone opens the actual app. -->
+      <div class="lang-toggle" role="group" aria-label="Language / Sprache">
+        <button type="button" data-set-lang="de" class="active">Deutsch</button>
+        <button type="button" data-set-lang="en">English</button>
+      </div>
+    </section>
+
+    <section class="features">
+      <ul>
+        <li class="de-only">✅ Original erstellte Fragen</li>
+        <li class="en-only">✅ Original, exam-style questions</li>
+        <li class="de-only">🌐 12 Sprachen</li>
+        <li class="en-only">🌐 12 languages</li>
+        <li class="de-only">📶 Funktioniert offline</li>
+        <li class="en-only">📶 Works offline</li>
+        <li class="de-only">🆓 Kostenlos</li>
+        <li class="en-only">🆓 Free</li>
+      </ul>
+    </section>
+
+    <section class="modules">
+      <h2 class="de-only">8 Module</h2>
+      <h2 class="en-only">8 modules</h2>
+      <div class="module-grid">
+        <div class="module-card"><strong>Führerschein</strong><span class="de-only">Klasse B (Pkw)</span><span class="en-only">Class B (car)</span></div>
+        <div class="module-card de-only"><strong>Motorrad</strong><span>Theorieprüfung</span></div>
+        <div class="module-card en-only"><strong>Motorcycle</strong><span>Theory exam</span></div>
+        <div class="module-card de-only"><strong>LKW</strong><span>Theorieprüfung</span></div>
+        <div class="module-card en-only"><strong>Truck</strong><span>Theory exam</span></div>
+        <div class="module-card"><strong>Angelschein</strong><span class="de-only">Fischereischein</span><span class="en-only">Fishing licence</span></div>
+        <div class="module-card de-only"><strong>Datenschutz</strong><span>DSGVO / GDPR</span></div>
+        <div class="module-card en-only"><strong>Data protection</strong><span>GDPR</span></div>
+        <div class="module-card"><strong>Arbeitssicherheit</strong><span class="de-only">Betriebliche Pflichtschulung</span><span class="en-only">Occupational safety</span></div>
+        <div class="module-card"><strong>KI-Verordnung</strong><span class="de-only">EU AI Act</span><span class="en-only">EU AI Act</span></div>
+        <div class="module-card de-only"><strong>IT-Sicherheit</strong><span>Betriebliche Pflichtschulung</span></div>
+        <div class="module-card en-only"><strong>IT security</strong><span>Workplace compliance</span></div>
+      </div>
+    </section>
   </main>
 
-  <div class="install-hint" id="install-hint"></div>
+  <footer class="landing-footer">
+    <span class="de-only">Zettacard ist kein amtlicher Prüfungssimulator. Original-Lerninhalte, CC BY-NC-SA 4.0.</span>
+    <span class="en-only">Zettacard is not an official exam simulator. Original learning content, CC BY-NC-SA 4.0.</span>
+  </footer>
 
-  <div class="detail" id="detail-view" hidden role="dialog" aria-modal="true" aria-labelledby="detail-question">
-    <div class="detail-header">
-      <button class="back-btn" id="back-btn"></button>
-      <div class="progress-bar" id="detail-progress" style="margin:0; flex:1;"></div>
-      <button class="theme-toggle" id="detail-theme-toggle" aria-label="Toggle light/dark theme"></button>
-      <div class="lang-select-wrap">
-        <span class="lang-icon" aria-hidden="true">🌐</span>
-        <select class="lang-select" id="detail-lang-select">
-          <option value="de">🇩🇪 Deutsch</option>
-          <option value="en">🇬🇧 English</option>
-          <option value="uk">🇺🇦 Українська</option>
-          <option value="pl">🇵🇱 Polski</option>
-          <option value="ar">🇸🇦 العربية</option>
-          <option value="zh">🇨🇳 简体中文</option>
-          <option value="hi">🇮🇳 हिन्दी</option>
-          <option value="tr">🇹🇷 Türkçe</option>
-          <option value="fr">🇫🇷 Français</option>
-          <option value="ru">🇷🇺 Русский</option>
-          <option value="es">🇪🇸 Español</option>
-          <option value="it">🇮🇹 Italiano</option>
-        </select>
-      </div>
-    </div>
-    <div class="detail-body">
-      <div class="detail-meta" id="detail-meta"></div>
-      <p class="detail-question" id="detail-question" tabindex="-1"></p>
-      <div class="image-note" id="image-note"></div>
-      <div class="options" id="options"></div>
-      <button class="reveal-btn" id="reveal-btn"></button>
-      <div class="explanation" id="explanation" hidden tabindex="-1" aria-live="polite"></div>
-      <!-- Self-assessment for spaced-repetition review mode (DN-16). The
-           flashcard view otherwise has no explicit right/wrong signal (unlike
-           exam mode's real answer capture), so reviewing a due question needs
-           its own "did I actually know that" input to feed the Leitner box
-           update - shown only while state.reviewMode is true and the answer
-           has been revealed (see renderDetail() in app.js). -->
-      <div class="review-actions" id="review-actions" hidden>
-        <button class="review-know-btn" id="review-know-btn"></button>
-        <button class="review-dontknow-btn" id="review-dontknow-btn"></button>
-      </div>
-      <div id="detail-nav-row" style="display:flex; gap:10px; margin-top:20px;">
-        <button class="back-btn" id="prev-btn" style="flex:1;"></button>
-        <button class="back-btn" id="next-btn" style="flex:1;"></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Module picker (DN-39): which exam module (Fuehrerschein, Angelschein,
-       future modules), then which class/region within it. Shown blocking on
-       first visit (no saved selection); reopenable any time via the header
-       "change exam" button. Step content is built entirely in JS
-       (renderModulePicker) since the number of modules/options is dynamic. -->
-  <div class="exam-modal" id="module-picker" hidden role="dialog" aria-modal="true" aria-labelledby="module-picker-title">
-    <div class="exam-modal-card">
-      <h2 id="module-picker-title" tabindex="-1"></h2>
-      <div id="module-picker-body"></div>
-      <button class="back-btn" id="module-picker-cancel"></button>
-    </div>
-  </div>
-
-  <!-- My certificates (DN-14 completion tracking): lists every passed
-       Simulation-mode exam completion recorded on this device, each with a
-       downloadable printable certificate and a self-issued (unsigned)
-       Open-Badges-shaped credential JSON. Completion records are stored
-       locally (localStorage) - the record itself never leaves the device
-       until the user explicitly downloads a certificate/credential file,
-       which is the actual portable artifact (not the app's local state). -->
-  <div class="exam-modal" id="certificates-view" hidden role="dialog" aria-modal="true" aria-labelledby="certificates-title">
-    <div class="exam-modal-card" style="max-width:560px;">
-      <h2 id="certificates-title" tabindex="-1"></h2>
-      <p id="certificates-intro"></p>
-      <div id="certificates-list"></div>
-      <button class="back-btn" id="certificates-close-btn"></button>
-    </div>
-  </div>
-
-  <!-- Local profile switcher: lets multiple people share one device (e.g. a
-       family) without their progress/settings colliding. NOT a real
-       account/recovery system - purely a local-device convenience, see
-       profileKey()/migrateOrInitProfiles() in app.js. Follows the exact same
-       .exam-modal dialog pattern as #certificates-view/#module-picker. -->
-  <div class="exam-modal" id="profile-view" hidden role="dialog" aria-modal="true" aria-labelledby="profile-title">
-    <div class="exam-modal-card" style="max-width:480px;">
-      <h2 id="profile-title" tabindex="-1"></h2>
-      <div id="profile-list"></div>
-      <div class="profile-add-row">
-        <input type="text" id="profile-add-input" class="profile-add-input" />
-        <button class="exam-mode-btn profile-add-btn" id="profile-add-btn"></button>
-      </div>
-      <button class="back-btn" id="profile-close-btn"></button>
-    </div>
-  </div>
-
-  <!-- Sign Reference (Fuehrerschein-only): a browsable study reference of
-       every StVO sign actually cited by a Fuehrerschein question's
-       image_ref, grouped by sign category and reusing already-verified
-       correct-option/explanation text (see assets/build_sign_reference.py)
-       instead of asserting any new fact about a sign's meaning. Only shown
-       when state.examType === "fuehrerschein" (see render()), same pattern
-       as #module-info-btn. -->
-  <div class="exam-modal" id="sign-reference-view" hidden role="dialog" aria-modal="true" aria-labelledby="sign-reference-title">
-    <div class="exam-modal-card" style="max-width:640px;">
-      <h2 id="sign-reference-title" tabindex="-1"></h2>
-      <p id="sign-reference-intro"></p>
-      <div id="sign-reference-list"></div>
-      <button class="back-btn" id="sign-reference-close-btn"></button>
-    </div>
-  </div>
-
-  <!-- Module intro wizard (DN-43): a short, skippable walkthrough of what a
-       module actually covers, shown once per device before a user's first
-       study session in a module that has one (see modules_manifest.json's
-       optional "intro" block), and reopenable any time via the header "ⓘ"
-       button. Step content is built entirely in JS (renderModuleIntro). -->
-  <div class="exam-modal" id="module-intro" hidden role="dialog" aria-modal="true" aria-labelledby="module-intro-title">
-    <div class="exam-modal-card">
-      <h2 id="module-intro-title" tabindex="-1"></h2>
-      <p id="module-intro-body"></p>
-      <div class="intro-dots" id="module-intro-dots" aria-hidden="true"></div>
-      <div class="intro-nav">
-        <button class="back-btn" id="module-intro-back"></button>
-        <button class="back-btn" id="module-intro-skip"></button>
-        <button class="exam-mode-btn intro-next-btn" id="module-intro-next"></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Exam mode picker: choice between untimed training and the timed,
-       strictly-scored simulation, per the real exam's own two-tier framing
-       (DN-29, activated with explicit PO sign-off - see AGENTS.md history:
-       this reverses the original Sprint-1 "no exam mode" boundary). -->
-  <div class="exam-modal" id="exam-picker" hidden role="dialog" aria-modal="true" aria-labelledby="exam-picker-title">
-    <div class="exam-modal-card">
-      <h2 id="exam-picker-title"></h2>
-      <p id="exam-picker-desc"></p>
-      <button class="exam-mode-btn" id="exam-pick-training"></button>
-      <button class="exam-mode-btn" id="exam-pick-simulation"></button>
-      <button class="back-btn" id="exam-picker-cancel"></button>
-    </div>
-  </div>
-
-  <!-- Live exam run: one question at a time, answers captured but not
-       revealed until the end (matches how the real exam works) - see
-       renderExam* functions in app.js. -->
-  <div class="exam-view" id="exam-view" hidden role="dialog" aria-modal="true" aria-labelledby="exam-question">
-    <div class="detail-header">
-      <button class="back-btn" id="exam-exit-btn"></button>
-      <div class="progress-bar" id="exam-progress" style="margin:0; flex:1;"></div>
-      <div class="exam-timer" id="exam-timer" hidden></div>
-    </div>
-    <div class="detail-body">
-      <div class="detail-meta" id="exam-meta"></div>
-      <p class="detail-question" id="exam-question" tabindex="-1"></p>
-      <div class="image-note" id="exam-image-note"></div>
-      <div class="options" id="exam-options"></div>
-      <div style="display:flex; gap:10px; margin-top:20px;">
-        <button class="back-btn" id="exam-next-btn" style="flex:1;"></button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Exam results: pass/fail per the real point-based rule, plus a review
-       list of every wrong answer with the correct one shown, since a
-       nervous test-taker's actual goal is learning from the miss, not just
-       a score. -->
-  <div class="exam-view" id="exam-results" hidden role="dialog" aria-modal="true" aria-labelledby="exam-results-title">
-    <div class="detail-header">
-      <button class="back-btn" id="exam-results-close-btn"></button>
-      <div style="flex:1;"></div>
-    </div>
-    <div class="detail-body">
-      <h2 id="exam-results-title"></h2>
-      <div id="exam-results-summary"></div>
-      <div id="exam-results-certificate"></div>
-      <div id="exam-results-review"></div>
-    </div>
-  </div>
-
-  <script src="app.js"></script>
+  <script>
+    // Minimal DE/EN toggle for this landing page only (see the lang-toggle
+    // comment above for why this is DE+EN and not the app's full 12-locale
+    // select). Just flips a data-lang attribute the CSS above keys off of -
+    // no dependency on app.js's i18n machinery, which this page intentionally
+    // does not load.
+    (function () {
+      var body = document.body;
+      var buttons = document.querySelectorAll("[data-set-lang]");
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var lang = btn.getAttribute("data-set-lang");
+          body.setAttribute("data-lang", lang);
+          buttons.forEach(function (b) { b.classList.toggle("active", b === btn); });
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

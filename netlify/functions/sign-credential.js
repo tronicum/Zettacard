@@ -56,7 +56,14 @@ const ALG = "ES256";
 // Public, stable identity for the issuer - this is what a verifier will see
 // in the JWT's `iss` claim and should match wherever the JWKS is actually
 // reachable so a verifier can find the right key.
-const ISSUER_URL = process.env.URL || "https://drivenow-fahrschule.netlify.app";
+// process.env.URL is set automatically by Netlify at runtime to whatever
+// the site's actual primary URL is - this hardcoded fallback only matters
+// for local/dev invocation outside Netlify (see scripts/test_sign_credential.js).
+// Updated 2026-08-06 when the site was renamed from drivenow-fahrschule to
+// zettacard - the live deploy already picks up the new domain automatically
+// via process.env.URL without needing this file changed, but the fallback
+// should still reflect reality for anyone testing locally.
+const ISSUER_URL = process.env.URL || "https://zettacard.netlify.app";
 const JWKS_PATH = "/.well-known/jwks.json";
 
 // Reasonable sanity bounds - not a re-grade, just rejecting shapes that

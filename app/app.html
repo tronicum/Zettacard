@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Zettacard</title>
+  <meta name="description" content="Original practice questions for driving licences, fishing licences, and workplace compliance training, multilingual. Not an exam simulator." />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="icon" type="image/svg+xml" href="icons/logo.svg" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Apply saved/system theme before first paint to avoid a flash of the wrong theme.
+    (function () {
+      try {
+        var saved = localStorage.getItem("dn-theme");
+        var theme = saved || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) { /* storage/matchMedia unavailable - default dark styling still applies */ }
+    })();
+  </script>
+</head>
+<body>
+  <header>
+    <div class="title-row">
+      <div>
+        <h1 id="app-title">Zettacard</h1>
+        <div class="subtitle" id="app-subtitle"></div>
+      </div>
+      <div style="display:flex; gap:8px; align-items:center;">
+        <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
+        <button class="module-switch-btn" id="sign-reference-btn" hidden aria-label="Sign reference">📚 Signs</button>
+        <button class="module-switch-btn" id="certificates-btn" aria-label="My certificates">🎓</button>
+        <button class="review-btn" id="review-btn" aria-label="Review due questions"></button>
+        <button class="module-switch-btn" id="profile-switch-btn" aria-label="Switch profile"></button>
+        <button class="module-switch-btn" id="module-switch-btn"></button>
+        <button class="exam-start-btn" id="exam-start-btn"></button>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme"></button>
+        <div class="lang-select-wrap">
+          <span class="lang-icon" aria-hidden="true">🌐</span>
+          <select class="lang-select" id="lang-select">
+            <!-- Flags added per explicit user request (2026-08-05) as a
+                 decorative prefix alongside each language's own endonym
+                 text - NOT flags-only. An earlier UX review rejected a
+                 flags-ONLY picker (flags represent countries, not
+                 languages: Arabic has no single flag, English/Chinese span
+                 many countries) - keeping the real language name as the
+                 primary, authoritative label avoids reintroducing that
+                 problem while still giving the visual flair asked for.
+                 Picks are a common-convention "best representative"
+                 country per language, not a claim of exclusivity. -->
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="uk">🇺🇦 Українська</option>
+            <option value="pl">🇵🇱 Polski</option>
+            <option value="ar">🇸🇦 العربية</option>
+            <option value="zh">🇨🇳 简体中文</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="it">🇮🇹 Italiano</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <!-- DN-44: role-relevance filter, additive to the topic filter above -
+         only shown (via renderRoleFilter() in app.js) for the 4 workplace-
+         compliance modules, which are the only content carrying a per-
+         question `roles` tag. Hidden by default so it never flashes empty
+         before the first render() call for another module. -->
+    <div class="filters role-filters" id="role-filters" hidden></div>
+  </header>
+
+  <main>
+    <div class="list" id="list"></div>
+  </main>
+
+  <div class="install-hint" id="install-hint"></div>
+
+  <div class="detail" id="detail-view" hidden role="dialog" aria-modal="true" aria-labelledby="detail-question">
+    <div class="detail-header">
+      <button class="back-btn" id="back-btn"></button>
+      <div class="progress-bar" id="detail-progress" style="margin:0; flex:1;"></div>
+      <button class="theme-toggle" id="detail-theme-toggle" aria-label="Toggle light/dark theme"></button>
+      <div class="lang-select-wrap">
+        <span class="lang-icon" aria-hidden="true">🌐</span>
+        <select class="lang-select" id="detail-lang-select">
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="uk">🇺🇦 Українська</option>
+          <option value="pl">🇵🇱 Polski</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="zh">🇨🇳 简体中文</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="it">🇮🇹 Italiano</option>
+        </select>
+      </div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-meta" id="detail-meta"></div>
+      <p class="detail-question" id="detail-question" tabindex="-1"></p>
+      <div class="image-note" id="image-note"></div>
+      <div class="options" id="options"></div>
+      <button class="reveal-btn" id="reveal-btn"></button>
+      <div class="explanation" id="explanation" hidden tabindex="-1" aria-live="polite"></div>
+      <!-- Self-assessment for spaced-repetition review mode (DN-16). The
+           flashcard view otherwise has no explicit right/wrong signal (unlike
+           exam mode's real answer capture), so reviewing a due question needs
+           its own "did I actually know that" input to feed the Leitner box
+           update - shown only while state.reviewMode is true and the answer
+           has been revealed (see renderDetail() in app.js). -->
+      <div class="review-actions" id="review-actions" hidden>
+        <button class="review-know-btn" id="review-know-btn"></button>
+        <button class="review-dontknow-btn" id="review-dontknow-btn"></button>
+      </div>
+      <div id="detail-nav-row" style="display:flex; gap:10px; margin-top:20px;">
+        <button class="back-btn" id="prev-btn" style="flex:1;"></button>
+        <button class="back-btn" id="next-btn" style="flex:1;"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module picker (DN-39): which exam module (Fuehrerschein, Angelschein,
+       future modules), then which class/region within it. Shown blocking on
+       first visit (no saved selection); reopenable any time via the header
+       "change exam" button. Step content is built entirely in JS
+       (renderModulePicker) since the number of modules/options is dynamic. -->
+  <div class="exam-modal" id="module-picker" hidden role="dialog" aria-modal="true" aria-labelledby="module-picker-title">
+    <div class="exam-modal-card">
+      <h2 id="module-picker-title" tabindex="-1"></h2>
+      <div id="module-picker-body"></div>
+      <button class="back-btn" id="module-picker-cancel"></button>
+    </div>
+  </div>
+
+  <!-- My certificates (DN-14 completion tracking): lists every passed
+       Simulation-mode exam completion recorded on this device, each with a
+       downloadable printable certificate and a self-issued (unsigned)
+       Open-Badges-shaped credential JSON. Completion records are stored
+       locally (localStorage) - the record itself never leaves the device
+       until the user explicitly downloads a certificate/credential file,
+       which is the actual portable artifact (not the app's local state). -->
+  <div class="exam-modal" id="certificates-view" hidden role="dialog" aria-modal="true" aria-labelledby="certificates-title">
+    <div class="exam-modal-card" style="max-width:560px;">
+      <h2 id="certificates-title" tabindex="-1"></h2>
+      <p id="certificates-intro"></p>
+      <div id="certificates-list"></div>
+      <button class="back-btn" id="certificates-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Local profile switcher: lets multiple people share one device (e.g. a
+       family) without their progress/settings colliding. NOT a real
+       account/recovery system - purely a local-device convenience, see
+       profileKey()/migrateOrInitProfiles() in app.js. Follows the exact same
+       .exam-modal dialog pattern as #certificates-view/#module-picker. -->
+  <div class="exam-modal" id="profile-view" hidden role="dialog" aria-modal="true" aria-labelledby="profile-title">
+    <div class="exam-modal-card" style="max-width:480px;">
+      <h2 id="profile-title" tabindex="-1"></h2>
+      <div id="profile-list"></div>
+      <div class="profile-add-row">
+        <input type="text" id="profile-add-input" class="profile-add-input" />
+        <button class="exam-mode-btn profile-add-btn" id="profile-add-btn"></button>
+      </div>
+      <button class="back-btn" id="profile-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Sign Reference (Fuehrerschein-only): a browsable study reference of
+       every StVO sign actually cited by a Fuehrerschein question's
+       image_ref, grouped by sign category and reusing already-verified
+       correct-option/explanation text (see assets/build_sign_reference.py)
+       instead of asserting any new fact about a sign's meaning. Only shown
+       when state.examType === "fuehrerschein" (see render()), same pattern
+       as #module-info-btn. -->
+  <div class="exam-modal" id="sign-reference-view" hidden role="dialog" aria-modal="true" aria-labelledby="sign-reference-title">
+    <div class="exam-modal-card" style="max-width:640px;">
+      <h2 id="sign-reference-title" tabindex="-1"></h2>
+      <p id="sign-reference-intro"></p>
+      <div id="sign-reference-list"></div>
+      <button class="back-btn" id="sign-reference-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Module intro wizard (DN-43): a short, skippable walkthrough of what a
+       module actually covers, shown once per device before a user's first
+       study session in a module that has one (see modules_manifest.json's
+       optional "intro" block), and reopenable any time via the header "ⓘ"
+       button. Step content is built entirely in JS (renderModuleIntro). -->
+  <div class="exam-modal" id="module-intro" hidden role="dialog" aria-modal="true" aria-labelledby="module-intro-title">
+    <div class="exam-modal-card">
+      <h2 id="module-intro-title" tabindex="-1"></h2>
+      <p id="module-intro-body"></p>
+      <div class="intro-dots" id="module-intro-dots" aria-hidden="true"></div>
+      <div class="intro-nav">
+        <button class="back-btn" id="module-intro-back"></button>
+        <button class="back-btn" id="module-intro-skip"></button>
+        <button class="exam-mode-btn intro-next-btn" id="module-intro-next"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exam mode picker: choice between untimed training and the timed,
+       strictly-scored simulation, per the real exam's own two-tier framing
+       (DN-29, activated with explicit PO sign-off - see AGENTS.md history:
+       this reverses the original Sprint-1 "no exam mode" boundary). -->
+  <div class="exam-modal" id="exam-picker" hidden role="dialog" aria-modal="true" aria-labelledby="exam-picker-title">
+    <div class="exam-modal-card">
+      <h2 id="exam-picker-title"></h2>
+      <p id="exam-picker-desc"></p>
+      <button class="exam-mode-btn" id="exam-pick-training"></button>
+      <button class="exam-mode-btn" id="exam-pick-simulation"></button>
+      <button class="back-btn" id="exam-picker-cancel"></button>
+    </div>
+  </div>
+
+  <!-- Live exam run: one question at a time, answers captured but not
+       revealed until the end (matches how the real exam works) - see
+       renderExam* functions in app.js. -->
+  <div class="exam-view" id="exam-view" hidden role="dialog" aria-modal="true" aria-labelledby="exam-question">
+    <div class="detail-header">
+      <button class="back-btn" id="exam-exit-btn"></button>
+      <div class="progress-bar" id="exam-progress" style="margin:0; flex:1;"></div>
+      <div class="exam-timer" id="exam-timer" hidden></div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-meta" id="exam-meta"></div>
+      <p class="detail-question" id="exam-question" tabindex="-1"></p>
+      <div class="image-note" id="exam-image-note"></div>
+      <div class="options" id="exam-options"></div>
+      <div style="display:flex; gap:10px; margin-top:20px;">
+        <button class="back-btn" id="exam-next-btn" style="flex:1;"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exam results: pass/fail per the real point-based rule, plus a review
+       list of every wrong answer with the correct one shown, since a
+       nervous test-taker's actual goal is learning from the miss, not just
+       a score. -->
+  <div class="exam-view" id="exam-results" hidden role="dialog" aria-modal="true" aria-labelledby="exam-results-title">
+    <div class="detail-header">
+      <button class="back-btn" id="exam-results-close-btn"></button>
+      <div style="flex:1;"></div>
+    </div>
+    <div class="detail-body">
+      <h2 id="exam-results-title"></h2>
+      <div id="exam-results-summary"></div>
+      <div id="exam-results-certificate"></div>
+      <div id="exam-results-review"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

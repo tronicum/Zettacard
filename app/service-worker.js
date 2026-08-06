@@ -51,14 +51,24 @@
 //     final else-branch below) is untouched - that content is genuinely
 //     immutable per filename once published, so cache-first there is still
 //     correct and keeps the app usable offline.
-const CACHE_NAME = "zettacard-v6";
+// v7: root index.html is now the marketing landing page (see AGENTS.md /
+// BACKLOG.md rebrand entry) and the actual app moved to app.html. Both are
+// precached: app.html for the obvious offline-app reason, and the landing
+// page too since it's cheap (one small static file) and keeps this a fully
+// installable-and-offline PWA even for the splash page a fresh visitor
+// hits before ever opening the app. logo.svg is the new favicon/app-icon
+// source and is small/static, so it's precached alongside the PNGs it was
+// rendered from.
+const CACHE_NAME = "zettacard-v7";
 const ASSETS = [
   "./",
   "index.html",
+  "app.html",
   "styles.css",
   "app.js",
   "data/modules.json",
   "manifest.json",
+  "icons/logo.svg",
   "icons/icon-192.png",
   "icons/icon-512.png",
 ];

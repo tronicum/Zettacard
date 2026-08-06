@@ -2358,7 +2358,7 @@ function renderList() {
       history.pushState({ view: "detail" }, "");
       render();
       setInertBehindDialog(true);
-      // Focus the question itself first (tabindex="-1", see index.html) so a
+      // Focus the question itself first (tabindex="-1", see app.html) so a
       // screen reader announces the dialog's content immediately, before any
       // control - this also fixes keyboard users otherwise landing 50 Tab
       // presses deep into the still-focusable list underneath (see KANBAN
