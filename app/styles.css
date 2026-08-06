@@ -571,6 +571,24 @@ main {
   color: var(--badge-topic-text);
 }
 
+/* "Prepare for offline" (DN-46) - button reuses .module-switch-btn's look
+   via the shared class; this just lays out the small status text next to
+   it, dimmed like the other header hint text rather than a new color. */
+.offline-prep-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.offline-prep-status {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .review-actions {
   margin: 14px 0 18px;
 }

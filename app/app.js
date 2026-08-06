@@ -23,6 +23,10 @@ const UI_STRINGS = {
     installHint: "Zum Startbildschirm hinzufügen für Offline-Nutzung.",
     empty: "Keine Fragen in dieser Kategorie.",
     correctMark: "Richtig",
+    offlinePrepBtn: "📥 Für offline verfügbar machen",
+    offlinePrepReady: "✅ Offline verfügbar",
+    offlinePrepLoading: (i, n) => `Lade ${i}/${n}…`,
+    offlinePrepError: "⚠️ Nicht alles konnte geladen werden — bitte erneut versuchen",
   },
   en: {
     title: "Zettacard — Flashcards",
@@ -44,6 +48,10 @@ const UI_STRINGS = {
     installHint: "Add to your home screen to use offline.",
     empty: "No questions in this category.",
     correctMark: "Correct",
+    offlinePrepBtn: "📥 Make available offline",
+    offlinePrepReady: "✅ Available offline",
+    offlinePrepLoading: (i, n) => `Loading ${i}/${n}…`,
+    offlinePrepError: "⚠️ Some files failed — try again",
   },
   uk: {
     title: "Zettacard — Картки для навчання",
@@ -65,6 +73,10 @@ const UI_STRINGS = {
     installHint: "Додайте на головний екран для використання офлайн.",
     empty: "У цій категорії немає питань.",
     correctMark: "Правильно",
+    offlinePrepBtn: "📥 Зробити доступним офлайн",
+    offlinePrepReady: "✅ Доступно офлайн",
+    offlinePrepLoading: (i, n) => `Завантаження ${i}/${n}…`,
+    offlinePrepError: "⚠️ Не все вдалося завантажити — спробуйте ще раз",
   },
   pl: {
     title: "Zettacard — Fiszki",
@@ -86,6 +98,10 @@ const UI_STRINGS = {
     installHint: "Dodaj do ekranu głównego, aby korzystać offline.",
     empty: "Brak pytań w tej kategorii.",
     correctMark: "Poprawnie",
+    offlinePrepBtn: "📥 Udostępnij offline",
+    offlinePrepReady: "✅ Dostępne offline",
+    offlinePrepLoading: (i, n) => `Wczytywanie ${i}/${n}…`,
+    offlinePrepError: "⚠️ Nie wszystko się udało — spróbuj ponownie",
   },
   ar: {
     title: "Zettacard — بطاقات تعليمية",
@@ -107,6 +123,10 @@ const UI_STRINGS = {
     installHint: "أضف إلى الشاشة الرئيسية للاستخدام دون اتصال بالإنترنت.",
     empty: "لا توجد أسئلة في هذه الفئة.",
     correctMark: "صحيح",
+    offlinePrepBtn: "📥 إتاحة العمل دون اتصال",
+    offlinePrepReady: "✅ متاح دون اتصال",
+    offlinePrepLoading: (i, n) => `جارٍ التحميل ${i}/${n}…`,
+    offlinePrepError: "⚠️ تعذّر تحميل بعض الملفات — حاول مرة أخرى",
   },
   zh: {
     title: "Zettacard — 学习卡片",
@@ -128,6 +148,10 @@ const UI_STRINGS = {
     installHint: "添加到主屏幕即可离线使用。",
     empty: "该类别下没有题目。",
     correctMark: "正确",
+    offlinePrepBtn: "📥 设为离线可用",
+    offlinePrepReady: "✅ 已可离线使用",
+    offlinePrepLoading: (i, n) => `正在加载 ${i}/${n}…`,
+    offlinePrepError: "⚠️ 部分文件加载失败 — 请重试",
   },
   hi: {
     title: "Zettacard — अभ्यास कार्ड",
@@ -149,6 +173,10 @@ const UI_STRINGS = {
     installHint: "ऑफ़लाइन उपयोग के लिए होम स्क्रीन पर जोड़ें।",
     empty: "इस श्रेणी में कोई प्रश्न नहीं है।",
     correctMark: "सही",
+    offlinePrepBtn: "📥 ऑफ़लाइन उपलब्ध कराएं",
+    offlinePrepReady: "✅ ऑफ़लाइन उपलब्ध",
+    offlinePrepLoading: (i, n) => `लोड हो रहा है ${i}/${n}…`,
+    offlinePrepError: "⚠️ कुछ फ़ाइलें लोड नहीं हुईं — फिर कोशिश करें",
   },
   tr: {
     title: "Zettacard — Çalışma Kartları",
@@ -170,6 +198,10 @@ const UI_STRINGS = {
     installHint: "Çevrimdışı kullanım için ana ekrana ekleyin.",
     empty: "Bu kategoride soru yok.",
     correctMark: "Doğru",
+    offlinePrepBtn: "📥 Çevrimdışı kullanıma hazırla",
+    offlinePrepReady: "✅ Çevrimdışı kullanılabilir",
+    offlinePrepLoading: (i, n) => `Yükleniyor ${i}/${n}…`,
+    offlinePrepError: "⚠️ Bazı dosyalar yüklenemedi — tekrar deneyin",
   },
   fr: {
     title: "Zettacard — Fiches d'apprentissage",
@@ -191,6 +223,10 @@ const UI_STRINGS = {
     installHint: "Ajoutez à l'écran d'accueil pour une utilisation hors ligne.",
     empty: "Aucune question dans cette catégorie.",
     correctMark: "Correct",
+    offlinePrepBtn: "📥 Rendre disponible hors ligne",
+    offlinePrepReady: "✅ Disponible hors ligne",
+    offlinePrepLoading: (i, n) => `Chargement ${i}/${n}…`,
+    offlinePrepError: "⚠️ Certains fichiers ont échoué — réessayez",
   },
   ru: {
     title: "Zettacard — Карточки для изучения",
@@ -212,6 +248,10 @@ const UI_STRINGS = {
     installHint: "Добавьте на главный экран для использования офлайн.",
     empty: "В этой категории нет вопросов.",
     correctMark: "Правильно",
+    offlinePrepBtn: "📥 Сделать доступным офлайн",
+    offlinePrepReady: "✅ Доступно офлайн",
+    offlinePrepLoading: (i, n) => `Загрузка ${i}/${n}…`,
+    offlinePrepError: "⚠️ Не всё удалось загрузить — попробуйте снова",
   },
   es: {
     title: "Zettacard — Tarjetas de estudio",
@@ -233,6 +273,10 @@ const UI_STRINGS = {
     installHint: "Añade a la pantalla de inicio para usarlo sin conexión.",
     empty: "No hay preguntas en esta categoría.",
     correctMark: "Correcto",
+    offlinePrepBtn: "📥 Disponible sin conexión",
+    offlinePrepReady: "✅ Disponible sin conexión",
+    offlinePrepLoading: (i, n) => `Cargando ${i}/${n}…`,
+    offlinePrepError: "⚠️ Algunos archivos fallaron — inténtalo de nuevo",
   },
   it: {
     title: "Zettacard — Schede di studio",
@@ -254,6 +298,10 @@ const UI_STRINGS = {
     installHint: "Aggiungi alla schermata Home per l'uso offline.",
     empty: "Nessuna domanda in questa categoria.",
     correctMark: "Corretto",
+    offlinePrepBtn: "📥 Rendi disponibile offline",
+    offlinePrepReady: "✅ Disponibile offline",
+    offlinePrepLoading: (i, n) => `Caricamento ${i}/${n}…`,
+    offlinePrepError: "⚠️ Alcuni file non sono stati caricati — riprova",
   },
 };
 
@@ -639,6 +687,11 @@ const state = {
   examType: null,
   scopeCode: null,
   modulesManifest: null,
+  // "Prepare for offline" button/status (DN-46): status is
+  // "idle" | "checking" | "ready" | "unprepared" | "loading" | "error" -
+  // see checkOfflineReadiness()/prepareOffline()/renderOfflinePrep() below.
+  // done/total are only meaningful while status === "loading".
+  offlinePrep: { status: "idle", done: 0, total: 0 },
   // Local profile switcher: which per-device profile is active, and the
   // full registry of profiles on this device (see migrateOrInitProfiles()).
   profiles: [],
@@ -971,6 +1024,143 @@ async function loadModuleData(examType, scopeCode) {
     localStorage.setItem(profileKey("exam-type"), examType);
     localStorage.setItem(profileKey("scope-code"), scopeCode);
   } catch (e) { /* non-fatal */ }
+
+  // DN-46: re-check (read-only, no fetching) whether this module+language
+  // combination is already fully offline-cached from a previous visit/prep,
+  // so a returning visitor sees "already offline" immediately rather than a
+  // stale "not prepared yet". Fire-and-forget - it repaints itself via
+  // renderOfflinePrep() once the caches.match() calls resolve, independent
+  // of the render() the caller does right after loadModuleData() returns.
+  checkOfflineReadiness();
+}
+
+// DN-46 "prepare for offline" feature. This deliberately does NOT talk to
+// the service worker at all (no postMessage/messaging) - service-worker.js's
+// existing fetch handler already runtime-caches ANY successful fetch for a
+// non-shell-asset URL (see the final `event.respondWith` branch there), so a
+// plain page-side fetch() of a module/locale/sign URL gets cached as a side
+// effect automatically. This code only needs to (a) know which URLs matter
+// for the currently loaded module+language and (b) fetch them / read back
+// their cache status via the plain `caches` API.
+
+// Every URL needed for the CURRENTLY loaded module, in the CURRENTLY
+// resolved content language, to work fully offline: core data, the locale
+// file actually in use (which may differ from state.lang after a fallback -
+// see fetchLocaleTextWithFallback()/state.contentLangFallback), and every
+// unique sign SVG referenced by the loaded questions.
+function offlineAssetUrls() {
+  if (!state.examType) return [];
+  const lang = state.contentLangFallback || state.lang;
+  const urls = [
+    `data/${state.examType}/core.json`,
+    `data/${state.examType}/locales/${lang}.json`,
+  ];
+  const signUrls = new Set();
+  state.questions.forEach((q) => {
+    if (q.image_ref) {
+      // Same resolution logic as resolveImage() above.
+      const key = q.image_ref.split("/")[1];
+      signUrls.add(`assets/signs/${key}.svg`);
+    } else if (DIAGRAM_IDS.has(q.id)) {
+      // Diagram questions render TWO variants (the plain pre-reveal scene
+      // and the answer-revealed scene, see resolveImage() above) - both
+      // need to be cached, not just whichever one happens to have been
+      // viewed so far, otherwise revealing the answer offline for a
+      // not-yet-revealed diagram question would fail (caught during
+      // review of this feature - the initial pass only covered
+      // image_ref/sign SVGs, not the separate diagram-id image path).
+      signUrls.add(`assets/diagrams/${q.id}.svg`);
+      signUrls.add(`assets/diagrams/${q.id}-answer.svg`);
+    }
+  });
+  urls.push(...signUrls);
+  return urls;
+}
+
+// Read-only: checks whether every URL the current module+language needs is
+// already sitting in some cache at this origin (caches.match() with no
+// cache name searches all of them), without fetching/writing anything.
+async function checkOfflineReadiness() {
+  const urls = offlineAssetUrls();
+  if (urls.length === 0) return;
+  state.offlinePrep = { status: "checking", done: 0, total: urls.length };
+  renderOfflinePrep();
+  const hits = await Promise.all(urls.map((u) => caches.match(u).then((r) => !!r)));
+  const allCached = hits.every(Boolean);
+  state.offlinePrep = { status: allCached ? "ready" : "unprepared", done: 0, total: urls.length };
+  renderOfflinePrep();
+}
+
+// Actually fetches every needed URL (triggering the service worker's
+// runtime-cache-on-success behavior). Uses allSettled so one failed file
+// (e.g. a flaky connection mid-fetch) doesn't abort the rest - the button
+// stays clickable to retry, and a retry simply re-fetches everything again,
+// which is cheap for these small JSON/SVG files and keeps this logic simple.
+async function prepareOffline() {
+  const urls = offlineAssetUrls();
+  if (urls.length === 0) return;
+  state.offlinePrep = { status: "loading", done: 0, total: urls.length };
+  renderOfflinePrep();
+  let done = 0;
+  let hadError = false;
+  await Promise.allSettled(
+    urls.map((u) =>
+      fetch(u)
+        .then((r) => {
+          if (!r || !r.ok) hadError = true;
+        })
+        .catch(() => {
+          hadError = true;
+        })
+        .finally(() => {
+          done += 1;
+          state.offlinePrep = { status: "loading", done, total: urls.length };
+          renderOfflinePrep();
+        })
+    )
+  );
+  state.offlinePrep = { status: hadError ? "error" : "ready", done, total: urls.length };
+  renderOfflinePrep();
+}
+
+// Paints the button/status span from state.offlinePrep - a pure repaint, it
+// never itself touches the cache or network. Called both from render() (for
+// visibility whenever the module or language changes) and standalone by
+// checkOfflineReadiness()/prepareOffline() as their async work progresses.
+function renderOfflinePrep() {
+  const S = UI_STRINGS[state.lang];
+  const btn = el("#offline-prep-btn");
+  const status = el("#offline-prep-status");
+  // Shown for every module (any module can be prepared for offline use,
+  // unlike Sign Reference above which is Fuehrerschein-only) - only hidden
+  // when no module is loaded yet at all, same as the other header controls.
+  const hide = !state.examType;
+  btn.hidden = hide;
+  status.hidden = hide;
+  if (hide) return;
+
+  const st = state.offlinePrep || { status: "idle" };
+  btn.disabled = st.status === "loading" || st.status === "checking";
+  btn.textContent = S.offlinePrepBtn;
+  btn.title = S.offlinePrepBtn;
+  btn.setAttribute("aria-label", S.offlinePrepBtn);
+
+  switch (st.status) {
+    case "ready":
+      status.textContent = S.offlinePrepReady;
+      break;
+    case "loading":
+      status.textContent = S.offlinePrepLoading(st.done, st.total);
+      break;
+    case "error":
+      status.textContent = S.offlinePrepError;
+      break;
+    case "checking":
+    case "unprepared":
+    case "idle":
+    default:
+      status.textContent = "";
+  }
 }
 
 function openModulePicker() {
@@ -2269,6 +2459,13 @@ function render() {
   signRefBtn.title = R.title;
   signRefBtn.setAttribute("aria-label", R.ariaLabel);
 
+  // DN-46: "prepare for offline" button/status - shown for every module
+  // (not Fuehrerschein-only like Sign Reference above), hidden only when no
+  // module is loaded. Pure repaint from state.offlinePrep - never re-checks
+  // the cache itself (that only happens via checkOfflineReadiness(), called
+  // from loadModuleData()/setLang()).
+  renderOfflinePrep();
+
   ["lang-select", "detail-lang-select"].forEach((id) => {
     el("#" + id).value = state.lang;
     el("#" + id).setAttribute("aria-label", LANG_PICKER_LABEL[state.lang] || "Language");
@@ -2643,6 +2840,7 @@ function wireStaticControls() {
   el("#review-know-btn").addEventListener("click", () => reviewAssess(true));
   el("#review-dontknow-btn").addEventListener("click", () => reviewAssess(false));
   el("#sign-reference-btn").addEventListener("click", openSignReferenceView);
+  el("#offline-prep-btn").addEventListener("click", () => { prepareOffline(); });
   el("#sign-reference-close-btn").addEventListener("click", () => history.back());
 
   el("#profile-switch-btn").addEventListener("click", openProfileSwitcher);
