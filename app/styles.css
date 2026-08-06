@@ -15,6 +15,11 @@
   --green: #3fbf76;
   --correct-bg: #103a26;
   --red: #e2593d;
+  /* Paired with --red the same way --correct-bg is paired with --green -
+     used by the spaced-repetition "I didn't know it" self-assessment button
+     (DN-16) so its fill+text combo has the same contrast-checked shape as
+     the existing correct/wrong visual language, not an ad-hoc new color. */
+  --wrong-bg: #3a1c16;
   --header-bg: rgba(11, 18, 32, 0.92);
   --badge-topic-text: #cfe0ff;
   --badge-neutral-bg: #24304a;
@@ -48,6 +53,7 @@
   --green: #0f6b3d;
   --correct-bg: #e5f7ed;
   --red: #b8402a;
+  --wrong-bg: #fbe8e3;
   --header-bg: rgba(245, 247, 251, 0.92);
   --badge-topic-text: #1e3a8a;
   --badge-neutral-bg: #dde3ee;
@@ -195,6 +201,20 @@ h1 {
   background: var(--accent-dim);
 }
 
+/* DN-44: role filter row - same button look as .filters above (deliberately
+   not a new visual language), just a slightly smaller/dimmer variant so it
+   reads as a secondary, additive filter under the topic row rather than a
+   second identical-weight control. */
+.role-filters {
+  margin-top: -2px;
+}
+
+.role-filters button {
+  font-size: 0.78rem;
+  padding: 10px 12px;
+  min-height: 40px;
+}
+
 main {
   max-width: 720px;
   margin: 0 auto;
@@ -244,6 +264,11 @@ main {
    --correct-bg/--green pairing (see .option.correct above) rather than
    introducing a new, unaudited color token. */
 .badge.multi-select { background: var(--correct-bg); color: var(--green); }
+/* DN-44: renewal-due note on a certificate card - same amber/warning token
+   pair as .badge.high-stakes above (deliberately not a new color), just a
+   distinct class name since the semantic meaning differs (a completion
+   record's renewal status, not a question's safety-criticality). */
+.badge.renewal-due { background: var(--amber-bg); color: var(--amber); }
 
 .q-card-text {
   font-size: 0.95rem;
@@ -485,6 +510,60 @@ main {
   white-space: nowrap;
 }
 
+/* Spaced repetition / Leitner review mode (DN-16) ------------------- */
+
+/* Same base look as .module-switch-btn (it sits right next to it in the
+   header), but never hidden even at 0 due - a learner should be able to see
+   "nothing due right now" rather than wonder if the feature exists at all. */
+.review-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.review-btn.has-due {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--badge-topic-text);
+}
+
+.review-actions {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0 18px;
+}
+
+.review-know-btn,
+.review-dontknow-btn {
+  flex: 1;
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Same "never color alone" principle as .correct-mark/.selected-mark - the
+   button TEXT ("I knew it" / "I didn't know it") is the primary signal,
+   the green/red fill is only a reinforcement. */
+.review-know-btn {
+  border: 1px solid var(--green);
+  background: var(--correct-bg);
+  color: var(--green);
+}
+
+.review-dontknow-btn {
+  border: 1px solid var(--red);
+  background: var(--wrong-bg);
+  color: var(--red);
+}
+
 .exam-modal,
 .exam-view {
   position: fixed;
@@ -684,6 +763,12 @@ main {
   color: var(--text-dim);
   font-size: 0.8rem;
   margin-bottom: 10px;
+}
+
+/* DN-44: only populated for compliance-module completions that are overdue
+   or due soon for renewal - empty and takes no visible space otherwise. */
+.cert-card-renewal:not(:empty) {
+  margin: -4px 0 10px;
 }
 
 .cert-card-actions {

@@ -2,3 +2,10 @@ __pycache__/
 *.pyc
 .DS_Store
 .netlify/
+node_modules/
+# Local dev-only private signing key material - NEVER commit real key
+# material. See docs/open-badges-signing-setup.md for how this is provided
+# (a Netlify env var in production; a local .env.local for dev testing only).
+.env
+.env.local
+*.pem

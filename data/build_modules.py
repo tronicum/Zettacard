@@ -33,6 +33,11 @@ APP_DATA = os.path.join(HERE, "..", "app", "data")
 CORE_FIELDS = [
     "id", "topic", "topic_code", "exam_type", "grundstoff", "legal_basis",
     "points", "high_stakes", "question_type", "image_ref", "correct",
+    # DN-44: per-question role-relevance tags ("all", "all_staff", "hr",
+    # "it", "management") - only present on the 4 compliance modules so far;
+    # `k in q` in split_module() below means every other module's questions
+    # (which have no "roles" field at all) are unaffected.
+    "roles",
 ]
 # scope field name differs by module (class_scope for Fuehrerschein,
 # region_scope for Angelschein) - included in CORE_FIELDS output as

@@ -1,3 +1,12 @@
+[functions]
+  # DN-signing: netlify/functions/sign-credential.js signs completion
+  # records as JWT credentials (see docs/open-badges-signing-scoping.md
+  # and docs/open-badges-signing-setup.md). Requires the
+  # ZETTACARD_SIGNING_PRIVATE_JWK env var to be set in the Netlify UI -
+  # never committed here. package.json at repo root exists solely so the
+  # function bundler can resolve/bundle its "jose" dependency.
+  directory = "netlify/functions"
+
 [build]
   # No build step from Netlify's perspective - app/ is a flat static PWA.
   # The data/ tree under app/ IS a build artifact, but it's generated ahead
@@ -39,3 +48,8 @@
   # Single-page app fallback - not strictly needed today (there's no
   # client-side router with deep-linkable routes yet) but harmless and
   # future-proofs against a 404 if that changes.
+  #
+  # This does NOT swallow /.well-known/jwks.json or /.netlify/functions/* -
+  # Netlify serves an existing static file (jwks.json) and functions before
+  # falling through to redirects, so both stay reachable at their real
+  # paths without needing an explicit exclusion rule here.

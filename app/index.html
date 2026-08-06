@@ -31,6 +31,7 @@
         <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
         <button class="module-switch-btn" id="sign-reference-btn" hidden aria-label="Sign reference">📚 Signs</button>
         <button class="module-switch-btn" id="certificates-btn" aria-label="My certificates">🎓</button>
+        <button class="review-btn" id="review-btn" aria-label="Review due questions"></button>
         <button class="module-switch-btn" id="profile-switch-btn" aria-label="Switch profile"></button>
         <button class="module-switch-btn" id="module-switch-btn"></button>
         <button class="exam-start-btn" id="exam-start-btn"></button>
@@ -65,6 +66,12 @@
       </div>
     </div>
     <div class="filters" id="filters"></div>
+    <!-- DN-44: role-relevance filter, additive to the topic filter above -
+         only shown (via renderRoleFilter() in app.js) for the 4 workplace-
+         compliance modules, which are the only content carrying a per-
+         question `roles` tag. Hidden by default so it never flashes empty
+         before the first render() call for another module. -->
+    <div class="filters role-filters" id="role-filters" hidden></div>
   </header>
 
   <main>
@@ -103,7 +110,17 @@
       <div class="options" id="options"></div>
       <button class="reveal-btn" id="reveal-btn"></button>
       <div class="explanation" id="explanation" hidden tabindex="-1" aria-live="polite"></div>
-      <div style="display:flex; gap:10px; margin-top:20px;">
+      <!-- Self-assessment for spaced-repetition review mode (DN-16). The
+           flashcard view otherwise has no explicit right/wrong signal (unlike
+           exam mode's real answer capture), so reviewing a due question needs
+           its own "did I actually know that" input to feed the Leitner box
+           update - shown only while state.reviewMode is true and the answer
+           has been revealed (see renderDetail() in app.js). -->
+      <div class="review-actions" id="review-actions" hidden>
+        <button class="review-know-btn" id="review-know-btn"></button>
+        <button class="review-dontknow-btn" id="review-dontknow-btn"></button>
+      </div>
+      <div id="detail-nav-row" style="display:flex; gap:10px; margin-top:20px;">
         <button class="back-btn" id="prev-btn" style="flex:1;"></button>
         <button class="back-btn" id="next-btn" style="flex:1;"></button>
       </div>

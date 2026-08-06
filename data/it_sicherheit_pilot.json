@@ -26,7 +26,10 @@
     "total_questions": 40,
     "license": "CC BY-NC-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome."
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+    "renewal_months": 12,
+    "renewal_basis": "best_practice",
+    "renewal_note": "NIS2UmsVO Annex 8.2.1/8.2.5 requires personnel in security-relevant roles be trained 'regelmaessig' (regularly) and the training program itself be regularly updated, but leaves the exact cadence to the organization's risk assessment; annual is the de facto ISO 27001/NIS2 industry-standard default, not a fixed statutory number."
   },
   "questions": [
     {
@@ -168,7 +171,10 @@
         "ru": "Длина и уникальность — важнейшие факторы против автоматизированного подбора и так называемого credential stuffing, когда пробуются украденные учётные данные из других сервисов. Пароль, связанный с рабочим местом, легко угадать, частая смена на очень похожий пароль почти не повышает безопасность, а чисто цифровые пароли имеют слишком мало возможных комбинаций.",
         "es": "La longitud y la unicidad son los factores más importantes frente a los intentos automatizados y frente al llamado credential stuffing, en el que se prueban credenciales robadas de otros servicios. Una contraseña relacionada con el puesto de trabajo es fácil de adivinar, cambiarla frecuentemente por una muy parecida apenas aporta seguridad, y las contraseñas puramente numéricas tienen demasiadas pocas combinaciones posibles.",
         "it": "La lunghezza e l'unicità sono i fattori più importanti contro i tentativi automatizzati e contro il cosiddetto credential stuffing, in cui vengono provate credenziali rubate da altri servizi. Una password legata al posto di lavoro è facile da indovinare, cambiarla spesso con una molto simile porta scarso beneficio in termini di sicurezza, e le password puramente numeriche hanno troppe poche combinazioni possibili."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-zugriffsschutz-02",
@@ -309,7 +315,10 @@
         "ru": "MFA сочетает что-то, что человек знает (пароль), с чем-то, что он имеет (например, приложение или токен), или чем он является. Одного украденного пароля злоумышленнику уже недостаточно. MFA не заменяет пароль, не даёт полной защиты от любого вида атак и сегодня доступна практически для любой учётной записи пользователя, а не только для администраторов.",
         "es": "La MFA combina algo que se sabe (contraseña) con algo que se posee (por ejemplo, una aplicación o un token) o que se es. Una contraseña robada ya no basta por sí sola a un atacante. La MFA no sustituye a la contraseña, no ofrece protección total frente a cualquier tipo de ataque y hoy está disponible prácticamente para cualquier cuenta de usuario, no solo para administradores.",
         "it": "L'MFA combina qualcosa che si sa (la password) con qualcosa che si possiede (ad esempio un'app o un token) o che si è. Una password rubata da sola non basta più a un aggressore. L'MFA non sostituisce la password, non offre una protezione completa contro ogni tipo di attacco ed è oggi disponibile praticamente per qualsiasi account utente, non solo per gli amministratori."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-zugriffsschutz-03",
@@ -450,7 +459,10 @@
         "ru": "Учётные записи являются персональными, чтобы действия в системе всегда можно было однозначно отнести к конкретному человеку (прослеживаемость). Если учётную запись делят, впоследствии невозможно установить, кто что сделал — это также существенно затрудняет расследование инцидентов безопасности. Срочность не оправдывает исключения; правильный путь — восстановить собственный доступ через ИТ-поддержку.",
         "es": "Las cuentas son personales para que las acciones en el sistema sigan siendo claramente atribuibles a una persona (trazabilidad). Si se comparte una cuenta, luego ya no se puede determinar quién hizo qué, lo que dificulta considerablemente el esclarecimiento de incidentes de seguridad. La urgencia no justifica una excepción; el camino correcto es restablecer el acceso propio a través del soporte de TI.",
         "it": "Gli account sono personali affinché le azioni nel sistema restino sempre chiaramente attribuibili a una persona (tracciabilità). Se un account viene condiviso, in seguito non si può più stabilire chi ha fatto cosa - il che complica notevolmente anche il chiarimento degli incidenti di sicurezza. L'urgenza non giustifica un'eccezione; la via corretta è ripristinare il proprio accesso tramite il supporto IT."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-zugriffsschutz-04",
@@ -591,7 +603,10 @@
         "ru": "Разблокированный компьютер позволяет любому, кто ненадолго получит доступ в помещение — включая посетителей, уборщиков или посторонних лиц, — получить доступ ко всем открытым программам и данным. Выключенный монитор ничего не меняет, так как сеанс продолжает работать в фоновом режиме. Блокировка экрана (например, сочетанием клавиш) — простая и эффективная базовая мера, независимо от того, насколько надёжной кажется обстановка.",
         "es": "Un ordenador desbloqueado permite a cualquiera que tenga acceso breve a la sala -incluidos visitantes, personal de limpieza o terceros no autorizados- acceder a todos los programas y datos abiertos. Apagar el monitor no cambia nada, ya que la sesión sigue activa en segundo plano. El bloqueo de pantalla (por ejemplo, con un atajo de teclado) es una medida básica sencilla y eficaz, independientemente de lo fiable que parezca el entorno.",
         "it": "Un computer sbloccato consente a chiunque abbia brevemente accesso alla stanza - anche visitatori, personale delle pulizie o terzi non autorizzati - di accedere a tutti i programmi e i dati aperti. Un monitor spento non cambia nulla, poiché la sessione continua a funzionare in background. Il blocco dello schermo (ad esempio tramite scorciatoia da tastiera) è una misura di base semplice ed efficace, indipendentemente da quanto affidabile sembri l'ambiente."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-phishing-01",
@@ -732,7 +747,10 @@
         "ru": "Злоумышленники целенаправленно используют искусственное давление времени и эмоциональную срочность, чтобы получатель не успел спокойно подумать или посоветоваться, а действовал немедленно — например, нажал на ссылку или раскрыл данные. Логотипы, обычное время отправки или более широкий круг получателей сами по себе ничего не говорят о подлинности сообщения, поскольку логотипы легко скопировать, а время отправки и списки получателей можно выбрать произвольно.",
         "es": "Los atacantes apuestan deliberadamente por una presión temporal artificial y una urgencia emocional, para que el destinatario no reflexione con calma ni consulte, sino que actúe de inmediato -por ejemplo, haciendo clic en un enlace o revelando datos-. Los logotipos, los horarios de envío habituales o un círculo de destinatarios más amplio no dicen nada por sí mismos sobre la autenticidad de un mensaje, ya que los logotipos se copian fácilmente y los horarios de envío y las listas de destinatarios pueden elegirse libremente.",
         "it": "Gli aggressori puntano deliberatamente su una pressione temporale artificiale e un'urgenza emotiva, affinché il destinatario non rifletta con calma né si consulti con altri, ma agisca immediatamente - ad esempio cliccando su un link o rivelando dati. Loghi, orari di invio abituali o una cerchia di destinatari più ampia non dicono nulla di per sé sull'autenticità di un messaggio, poiché i loghi si copiano facilmente e gli orari di invio e le liste di destinatari possono essere scelti a piacimento."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-phishing-02",
@@ -873,7 +891,10 @@
         "ru": "Эту схему часто называют \"мошенничество от имени руководителя\": злоумышленники выдают себя за руководителя и используют авторитет, конфиденциальность и давление времени, чтобы обойти контроль. Ответ в той же переписке по электронной почте не поможет, поскольку именно этот канал контролирует злоумышленник. Решающее значение имеет проверка через независимый, уже известный канал связи — например, звонок по сохранённому номеру телефона — прежде чем совершить любой платёж или действие.",
         "es": "Este patrón se conoce a menudo como \"fraude del CEO\": los atacantes se hacen pasar por un directivo y aprovechan la autoridad, la confidencialidad y la presión temporal para eludir los controles. Responder dentro de la misma conversación de correo no ayuda, ya que precisamente ese canal lo controla el atacante. Lo decisivo es la verificación a través de un canal de contacto independiente y ya conocido -por ejemplo, una llamada a un número de teléfono guardado- antes de realizar cualquier pago o acción.",
         "it": "Questo schema è spesso chiamato \"CEO fraud\": gli aggressori si spacciano per un dirigente e sfruttano autorità, riservatezza e pressione temporale per aggirare i controlli. Rispondere nella stessa conversazione e-mail non aiuta, poiché è proprio quel canale a essere controllato dall'aggressore. Ciò che conta è la verifica tramite un canale di contatto indipendente e già noto - ad esempio una telefonata a un numero già registrato - prima di effettuare qualsiasi pagamento o azione."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-phishing-03",
@@ -1014,7 +1035,10 @@
         "ru": "Отображаемый текст ссылки может произвольно отличаться от фактического адреса назначения; только наведение курсора мыши показывает реальный URL в строке состояния браузера или почтовой программы. Само нажатие уже несёт риск, поскольку некоторые поддельные страницы автоматически загружают вредоносный код. Безупречный язык больше не является надёжным критерием, поскольку фишинговые тексты сегодня часто выглядят очень профессионально, а отображаемое имя отправителя легко подделать без соответствия фактическому адресу отправителя.",
         "es": "El texto del enlace mostrado puede diferir arbitrariamente de la dirección de destino real; solo al pasar el ratón se muestra la URL real en la barra de estado del navegador o del programa de correo. Hacer clic ya conlleva un riesgo, ya que algunas páginas falsificadas cargan automáticamente código malicioso. Un lenguaje impecable ya no es un criterio fiable, porque los textos de phishing hoy en día suelen parecer muy profesionales, y el nombre del remitente mostrado es fácil de falsificar sin que coincida con la dirección real del remitente.",
         "it": "Il testo del link visualizzato può differire arbitrariamente dall'indirizzo di destinazione reale; solo passando il mouse si vede l'URL reale nella barra di stato del browser o del programma di posta. Cliccare comporta già un rischio, poiché alcune pagine falsificate caricano automaticamente codice dannoso. Un linguaggio impeccabile non è più un criterio affidabile, poiché i testi di phishing oggi appaiono spesso molto professionali, e il nome del mittente visualizzato è facile da falsificare senza corrispondere all'indirizzo reale del mittente."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-phishing-04",
@@ -1155,7 +1179,10 @@
         "ru": "Чем быстрее будут изменены скомпрометированные учётные данные и сообщено об инциденте, тем меньше остаётся временное окно, в котором злоумышленник может злоупотребить украденными данными. Ожидание, бездействие или промедление неоправданно повышают риск, особенно если тот же пароль используется и для других систем. Сообщение в соответствующее подразделение дополнительно позволяет принять дальнейшие защитные меры и предупредить других сотрудников.",
         "es": "Cuanto más rápido se cambien las credenciales comprometidas y se notifique el incidente, más pequeña será la ventana de tiempo en la que un atacante puede abusar de los datos robados. Esperar, no hacer nada o retrasar aumenta el riesgo innecesariamente, especialmente si la misma contraseña se usa también en otros sistemas. La notificación a la unidad competente permite además iniciar otras medidas de protección y advertir a otros empleados.",
         "it": "Più velocemente vengono cambiate le credenziali compromesse e segnalato l'incidente, minore rimane la finestra temporale in cui un aggressore può abusare dei dati rubati. Aspettare, non fare nulla o rimandare aumenta inutilmente il rischio, soprattutto se la stessa password viene usata anche per altri sistemi. La segnalazione all'unità competente permette inoltre di avviare ulteriori misure di protezione e di avvisare altri dipendenti."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-datensicherung-01",
@@ -1296,7 +1323,10 @@
         "ru": "Резервная копия защищает от самых разных причин потери данных: случайного удаления, аппаратных сбоев, а также программ-вымогателей, шифрующих файлы. Прежняя надёжность устройства ничего не говорит о будущих сбоях или атаках. Резервные копии не имеют ничего общего с паролями или скоростью интернета и имеют смысл независимо от возраста устройства.",
         "es": "Una copia de seguridad protege frente a causas muy diversas de pérdida de datos: borrado accidental, defectos de hardware, pero también ransomware que cifra archivos. La fiabilidad pasada de un dispositivo no dice nada sobre fallos o ataques futuros. Las copias de seguridad no tienen nada que ver con las contraseñas ni con la velocidad de internet y tienen sentido independientemente de la antigüedad del dispositivo.",
         "it": "Un backup protegge da cause di perdita dati molto diverse: cancellazione accidentale, guasti hardware, ma anche ransomware che cifrano i file. L'affidabilità passata di un dispositivo non dice nulla sui guasti o attacchi futuri. I backup non hanno nulla a che fare con le password o la velocità di internet e hanno senso indipendentemente dall'età del dispositivo."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-datensicherung-02",
@@ -1437,7 +1467,10 @@
         "ru": "Неизвестные USB-накопители — классический путь проникновения вредоносного ПО: они могут быть подготовлены так, чтобы автоматически выполнять вредоносный код при подключении, ещё до открытия какого-либо файла. Это относится как к компьютерам компании, так и к личным устройствам. Безопасный путь — не исследовать находку самостоятельно, а передать её ответственной службе, которая сможет проверить её контролируемым образом.",
         "es": "Las memorias USB desconocidas son una vía de entrada clásica para el malware: pueden estar preparadas para ejecutar automáticamente código malicioso al conectarlas, incluso antes de abrir cualquier archivo. Esto se aplica tanto a los ordenadores de la empresa como a los dispositivos privados. La forma segura es no investigar el hallazgo uno mismo, sino entregarlo a la unidad competente, que puede comprobarlo de forma controlada.",
         "it": "Le chiavette USB sconosciute sono una classica porta d'ingresso per il malware: possono essere preparate in modo da eseguire automaticamente codice dannoso al momento del collegamento, ancora prima che venga aperto un qualsiasi file. Questo vale sia per i computer aziendali sia per i dispositivi privati. La via sicura è non esaminare da sé il ritrovamento, ma consegnarlo all'unità competente, che può verificarlo in modo controllato."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-datensicherung-03",
@@ -1578,7 +1611,10 @@
         "ru": "Уязвимости безопасности в операционных системах и приложениях постоянно обнаруживаются и публикуются; производители закрывают их с помощью обновлений. Если обновление откладывается, уязвимость остаётся открытой, и злоумышленники часто целенаправленно используют именно период сразу после её обнародования. Оформление интерфейса или скорость — в лучшем случае побочные эффекты, а не истинная причина безопасности, а дисциплина обновлений касается служебных устройств так же, как и личных.",
         "es": "Las vulnerabilidades de seguridad en sistemas operativos y aplicaciones se descubren y publican continuamente; los fabricantes las cierran mediante actualizaciones. Si se retrasa una actualización, la vulnerabilidad permanece abierta, y los atacantes suelen aprovechar precisamente el periodo posterior a su divulgación. El diseño de la interfaz o la velocidad son, en el mejor de los casos, efectos secundarios, no la verdadera razón de seguridad, y la disciplina de actualización se aplica tanto a los dispositivos de trabajo como a los privados.",
         "it": "Le vulnerabilità di sicurezza nei sistemi operativi e nelle applicazioni vengono scoperte e pubblicate continuamente; i produttori le chiudono tramite aggiornamenti. Se un aggiornamento viene rimandato, la vulnerabilità resta aperta, e gli aggressori sfruttano spesso proprio il periodo immediatamente successivo alla sua divulgazione. L'aspetto dell'interfaccia o la velocità sono al massimo effetti collaterali, non la vera ragione di sicurezza, e la disciplina degli aggiornamenti vale per i dispositivi aziendali tanto quanto per quelli privati."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-datensicherung-04",
@@ -1719,7 +1755,10 @@
         "ru": "Неутверждённое программное обеспечение может содержать уязвимости безопасности, конфликтовать с другими программами или нарушать требования лицензирования и соответствия — независимо от того, бесплатно ли оно, с какого сайта происходит или на каком типе устройства устанавливается. ИТ-отдел может проверить, можно ли использовать программу безопасно и в соответствии с правилами, и при необходимости предоставить проверенную альтернативу.",
         "es": "El software no autorizado puede contener vulnerabilidades de seguridad, entrar en conflicto con otros programas o infringir requisitos de licencia y cumplimiento normativo, independientemente de si es gratuito, de qué sitio web procede o en qué tipo de dispositivo se instala. El departamento de TI puede comprobar si un software puede utilizarse de forma segura y conforme a las normas, y en su caso ofrecer una alternativa comprobada.",
         "it": "Il software non autorizzato può contenere vulnerabilità di sicurezza, entrare in conflitto con altri programmi o violare requisiti di licenza e conformità - indipendentemente dal fatto che sia gratuito, da quale sito web provenga o su quale tipo di dispositivo venga installato. Il reparto IT può verificare se un software può essere utilizzato in modo sicuro e conforme alle regole, ed eventualmente fornire un'alternativa verificata."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-mobil_homeoffice-01",
@@ -1860,7 +1899,10 @@
         "ru": "Надёжный, индивидуальный пароль вместе с современным шифрованием не позволяет посторонним лицам в зоне действия легко подключиться к сети и читать или изменять трафик данных. Неприметное имя сети не даёт технической защиты, временное отключение не решает основную проблему, а заводские настройки (пароли по умолчанию, стандартный SSID) часто общеизвестны и потому особенно небезопасны.",
         "es": "Una contraseña fuerte e individual junto con un cifrado moderno impide que personas no autorizadas dentro del alcance se conecten fácilmente a la red y lean o manipulen el tráfico de datos. Un nombre de red discreto no ofrece protección técnica, apagarla temporalmente no resuelve el problema de fondo, y los ajustes de fábrica (contraseñas por defecto, SSID por defecto) suelen ser públicamente conocidos y, por tanto, especialmente inseguros.",
         "it": "Una password forte e individuale insieme a una crittografia moderna impedisce a persone non autorizzate nel raggio d'azione di connettersi facilmente alla rete e leggere o manipolare il traffico dati. Un nome di rete discreto non offre protezione tecnica, uno spegnimento temporaneo non risolve il problema di fondo, e le impostazioni di fabbrica (password predefinite, SSID predefinito) sono spesso pubblicamente note e quindi particolarmente insicure."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-mobil_homeoffice-02",
@@ -2001,7 +2043,10 @@
         "ru": "В открытых, незашифрованных Wi-Fi сетях трафик данных может быть прочитан или перенаправлен третьими лицами в той же сети, даже если отдельные веб-сайты сами по себе зашифрованы (значок замка относится только к этому одному соединению, а не ко всей сети). Мобильные данные или корпоративный VPN создают дополнительно защищённое, зашифрованное соединение, которое значительно труднее прослушать. Предварительная смена пароля не устраняет реальный риск.",
         "es": "En redes WiFi abiertas y sin cifrar, terceros en la misma red pueden leer o redirigir el tráfico de datos, aunque páginas web concretas estén cifradas en sí mismas (el candado solo se refiere a esa única conexión, no a toda la red). Los datos móviles o una VPN de la empresa establecen una conexión adicional, segura y cifrada, que es mucho más difícil de interceptar. Un cambio previo de contraseña no elimina el riesgo real.",
         "it": "Nelle reti WiFi aperte e non crittografate, il traffico dati può essere letto o reindirizzato da terzi nella stessa rete, anche se singoli siti web sono essi stessi crittografati (il simbolo del lucchetto si riferisce solo a quella singola connessione, non all'intera rete). I dati mobili o una VPN aziendale creano una connessione aggiuntiva, protetta e crittografata, molto più difficile da intercettare. Un cambio password preventivo non elimina il rischio reale."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-mobil_homeoffice-03",
@@ -2142,7 +2187,10 @@
         "ru": "\"Подглядывание через плечо\" — считывание содержимого экрана посторонними людьми — реальный риск в публичных местах, таких как поезда или залы ожидания. Защитный фильтр экрана или удачное положение сидения эффективно снижают этот риск. Меньший масштаб не обеспечивает надёжной защиты, название файла не является настоящим объектом защиты, а конфиденциальное содержимое всегда требует соответствующей защиты независимо от места, а не только в офисе.",
         "es": "El \"shoulder surfing\" -leer de forma indiscreta el contenido de la pantalla por parte de personas cercanas- es un riesgo real en entornos públicos como trenes o salas de espera. Un filtro de privacidad de pantalla o una posición de asiento inteligente reducen eficazmente este riesgo. Un zoom menor no protege de forma fiable, el nombre del archivo no es el objeto real de protección, y el contenido confidencial siempre necesita la protección correspondiente independientemente del lugar, no solo en la oficina.",
         "it": "Lo \"shoulder surfing\" - la lettura indiscreta del contenuto dello schermo da parte di persone vicine - è un rischio reale in ambienti pubblici come treni o sale d'attesa. Un filtro per la privacy dello schermo o una posizione a sedere astuta riducono efficacemente questo rischio. Uno zoom minore non protegge in modo affidabile, il nome del file non è il vero oggetto da proteggere, e i contenuti riservati necessitano sempre della protezione adeguata indipendentemente dal luogo, non solo in ufficio."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-mobil_homeoffice-04",
@@ -2283,7 +2331,10 @@
         "ru": "Видимые ценные вещи в автомобиле значительно повышают риск взлома; невидимый снаружи багажник или взятие устройства с собой заметно снижают этот риск. Куртка как визуальная защита ненадёжна и не защищает от целенаправленного взлома. Пароль пользователя частично защищает данные на устройстве в случае кражи, но не предотвращает физическую утрату самого устройства и поэтому не заменяет безопасное хранение.",
         "es": "Los objetos de valor visibles en un coche aumentan considerablemente el riesgo de robo con allanamiento; un maletero no visible o llevarse el dispositivo reducen claramente este riesgo. Una chaqueta como protección visual no es fiable y no protege frente a un robo dirigido. Una contraseña de usuario protege parcialmente los datos del dispositivo en caso de robo, pero no impide la pérdida física del propio dispositivo y, por lo tanto, no sustituye un almacenamiento seguro.",
         "it": "Oggetti di valore visibili in auto aumentano notevolmente il rischio di effrazione; un bagagliaio non visibile o portare con sé il dispositivo riducono chiaramente questo rischio. Una giacca come schermo visivo non è affidabile e non protegge da un'effrazione mirata. Una password utente protegge in parte i dati sul dispositivo in caso di furto, ma non impedisce la perdita fisica del dispositivo stesso e quindi non sostituisce una conservazione sicura."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-meldepflicht_it-01",
@@ -2424,7 +2475,10 @@
         "ru": "Работающая культура сообщений и реагирования предполагает, что даже простые подозрения сообщаются заблаговременно, вместо того чтобы ждать однозначных доказательств — чем раньше становится известно о возможном инциденте, тем лучше можно сдержать его распространение. Самостоятельная переустановка компьютера может уничтожить важные следы, необходимые для выяснения причины. Неформальные расспросы коллег также неоправданно задерживают сообщение и не заменяют информирование ответственного подразделения.",
         "es": "Una cultura de notificación y reacción funcional requiere que incluso las simples sospechas se notifiquen a tiempo, en lugar de esperar pruebas claras; cuanto antes se conozca un posible incidente, mejor se podrá contener su propagación. Reinstalar el ordenador por cuenta propia puede destruir rastros importantes para esclarecer la causa. Preguntar informalmente a los compañeros también retrasa innecesariamente la notificación y no sustituye informar a la unidad competente.",
         "it": "Una cultura della segnalazione e della reazione funzionante presuppone che anche i semplici sospetti vengano segnalati tempestivamente, invece di aspettare prove inequivocabili - prima un possibile incidente diventa noto, meglio se ne può contenere la diffusione. Reinstallare da sé il computer può distruggere tracce importanti per il chiarimento della causa. Anche chiedere informalmente ai colleghi ritarda inutilmente la segnalazione e non sostituisce l'informazione dell'unità competente."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-meldepflicht_it-02",
@@ -2565,7 +2619,10 @@
         "ru": "Короткие сроки уведомления призваны обеспечить быстрое информирование органов власти и других заинтересованных структур, чтобы сдержать распространение и скоординировать ответные меры — а не для того, чтобы позволить внутреннее сокрытие. Первое, раннее уведомление может сознательно быть ещё неполным и дополняется позже; именно в этом и заключается смысл поэтапной процедуры уведомления. Обязанности по уведомлению касаются затронутых организаций в целом, а не только ИТ-поставщиков услуг.",
         "es": "Los plazos de notificación cortos pretenden garantizar que las autoridades y otras entidades afectadas se informen rápidamente para contener la propagación y coordinar contramedidas, no para permitir el ocultamiento interno. Una primera notificación temprana puede ser deliberadamente incompleta y se completa más tarde; ese es precisamente el sentido de un procedimiento de notificación escalonado. Las obligaciones de notificación se dirigen a las organizaciones afectadas en su conjunto, no solo a los proveedores de servicios de TI.",
         "it": "I termini brevi di segnalazione devono garantire che le autorità e altri organismi interessati vengano informati rapidamente, per contenere la diffusione e coordinare le contromisure - non per consentire un occultamento interno. Una prima segnalazione precoce può deliberatamente essere ancora incompleta e viene integrata successivamente; è proprio questo il senso di una procedura di segnalazione graduale. Gli obblighi di segnalazione riguardano le organizzazioni interessate nel loro insieme, non solo i fornitori di servizi IT."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "it_sicherheit-meldepflicht_it-03",
@@ -2706,7 +2763,10 @@
         "ru": "Отдельный инцидент может быть частью более широкой схемы — например, атаки, затрагивающей несколько систем. Тот, кто пытается решить проблему самостоятельно и без уведомления, может уничтожить важные следы, необходимые для выяснения причины, и рискует тем, что инцидент незаметно продолжит распространяться. Указанные альтернативы (авторское право, снижение затрат, автоматическая личная ответственность) не описывают истинную причину обязанности уведомления.",
         "es": "Un incidente aislado puede formar parte de un patrón más amplio, por ejemplo un ataque que afecte a varios sistemas. Quien intenta resolver el problema solo y sin notificarlo puede destruir rastros importantes necesarios para esclarecer la causa, y corre el riesgo de que el incidente siga propagándose sin ser notado. Las alternativas mencionadas (derechos de autor, reducción de costes, responsabilidad personal automática) no describen la verdadera razón de la obligación de notificación.",
         "it": "Un singolo incidente può far parte di uno schema più ampio - ad esempio un attacco che colpisce più sistemi. Chi cerca di risolvere il problema da solo e senza segnalarlo può distruggere tracce importanti necessarie per chiarire la causa, e rischia che l'incidente continui a diffondersi inosservato. Le alternative citate (diritto d'autore, riduzione dei costi, responsabilità personale automatica) non descrivono la vera ragione dell'obbligo di segnalazione."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-meldepflicht_it-04",
@@ -2847,7 +2907,10 @@
         "ru": "Подготовленная процедура уведомления с чётко определёнными ответственными подразделениями обеспечивает, что инцидент быстро доходит до нужных людей, которые могут принять соответствующие ответные меры. Публичный чат-канал или тем более социальные сети непригодны и могут дополнительно предать инцидент огласке или предупредить злоумышленника. Ожидание неоправданно задерживает реакцию; в случае сомнений собственный руководитель всегда является разумным первым контактом для поиска правильного пути уведомления.",
         "es": "Un procedimiento de notificación preparado con unidades responsables claramente definidas garantiza que un incidente llegue rápidamente a las personas adecuadas, que pueden iniciar contramedidas apropiadas. Un canal de chat público o incluso las redes sociales no son adecuados y pueden además hacer público el incidente o advertir al atacante. Esperar retrasa innecesariamente la reacción; en caso de duda, el propio superior es siempre un primer contacto razonable para encontrar la vía de notificación correcta.",
         "it": "Una procedura di segnalazione preparata con unità responsabili chiaramente definite garantisce che un incidente arrivi rapidamente alle persone giuste, che possono avviare contromisure adeguate. Un canale di chat pubblico o addirittura i social media sono inadatti e possono inoltre rendere pubblico l'incidente o avvisare l'aggressore. Aspettare ritarda inutilmente la reazione; in caso di dubbio il proprio superiore è sempre un primo interlocutore sensato per trovare la giusta via di segnalazione."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-zugriffsschutz-05",
@@ -2988,7 +3051,11 @@
         "ru": "Принцип минимальных привилегий (least privilege) ограничивает ущерб, который может причинить украденная учётная запись или случайная ошибка, поскольку доступ возможен только к действительно необходимым системам и данным. Речь идёт не о количестве паролей, объёме поддержки или формальном равном обращении, а об ограничении риска в соответствии с конкретной задачей.",
         "es": "El principio de mínimo privilegio (least privilege) limita el daño que puede causar una cuenta robada o un error accidental, porque solo se puede acceder a los sistemas y datos realmente necesarios. No se trata del número de contraseñas, la carga de soporte o la igualdad formal de trato, sino de limitar el riesgo en función de la tarea correspondiente.",
         "it": "Il principio del privilegio minimo (least privilege) limita il danno che un account rubato o un errore accidentale può causare, poiché è possibile accedere solo ai sistemi e ai dati effettivamente necessari. Non si tratta del numero di password, del carico di supporto o della parità formale di trattamento, ma della limitazione del rischio in base al compito specifico."
-      }
+      },
+      "roles": [
+        "it",
+        "management"
+      ]
     },
     {
       "id": "it_sicherheit-zugriffsschutz-06",
@@ -3129,7 +3196,11 @@
         "ru": "Полномочия должны соответствовать текущей области задач; при смене роли уже не нужные права доступа должны быть отозваны, а новые, соответствующие права — предоставлены. В противном случае со временем накапливаются ненужные, избыточные полномочия (\"инфляция прав\"), что неоправданно повышает риск в случае компрометации учётной записи. Простая смена пароля ничего не меняет в этом отношении.",
         "es": "Los permisos deben corresponder al ámbito de tareas actual; en un cambio de rol, hay que retirar los derechos de acceso que ya no se necesitan y asignar nuevos derechos adecuados. De lo contrario, con el tiempo se acumulan permisos innecesarios y superfluos (\"inflación de derechos\"), lo que aumenta innecesariamente el riesgo en caso de que la cuenta se vea comprometida. Un simple cambio de contraseña no cambia nada al respecto.",
         "it": "Le autorizzazioni devono corrispondere all'ambito di compiti attuale; in caso di cambio di ruolo, i diritti di accesso non più necessari devono essere revocati e devono essere assegnati nuovi diritti adeguati. Altrimenti, con il tempo si accumulano autorizzazioni inutili e superflue (\"inflazione dei diritti\"), che aumentano inutilmente il rischio in caso di compromissione dell'account. Un semplice cambio di password non cambia nulla in questo senso."
-      }
+      },
+      "roles": [
+        "it",
+        "hr"
+      ]
     },
     {
       "id": "it_sicherheit-zugriffsschutz-07",
@@ -3270,7 +3341,10 @@
         "ru": "Одобренный менеджер паролей позволяет использовать для каждой системы длинный, уникальный пароль, не запоминая все по отдельности, и защищает сами хранимые учётные данные с помощью шифрования. Повторное использование паролей означает, что одна утечка данных ставит под угрозу все связанные учётные записи; листки и незашифрованные файлы сразу доступны для просмотра любому, у кого есть физический или цифровой доступ.",
         "es": "Un gestor de contraseñas autorizado permite usar una contraseña larga y única para cada sistema sin tener que recordarlas todas por separado, y protege mediante cifrado las propias credenciales almacenadas. Reutilizar contraseñas significa que una sola filtración de datos pone en peligro todas las cuentas afectadas; las notas adhesivas y los archivos sin cifrar son visibles de inmediato para cualquiera con acceso físico o digital.",
         "it": "Un gestore di password approvato permette di usare per ogni sistema una password lunga e univoca senza doverle ricordare tutte singolarmente, e protegge le stesse credenziali salvate tramite crittografia. Il riutilizzo delle password significa che una singola violazione di dati mette a rischio tutti gli account interessati; i post-it e i file non crittografati sono immediatamente visibili a chiunque abbia accesso fisico o digitale."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-zugriffsschutz-08",
@@ -3411,7 +3485,10 @@
         "ru": "Принцип чистого стола требует запирать конфиденциальные бумажные документы и носители данных в отсутствие сотрудника, чтобы они не были свободно доступны посторонним лицам — например, уборщикам, посетителям или другим сотрудникам без соответствующих полномочий. Одна лишь запертая дверь офиса не защищает от всех людей с доступом в здание или помещение, а правило касается конфиденциальных документов в целом, а не только явно помеченных как \"секретно\".",
         "es": "El principio de mesa despejada exige guardar bajo llave los documentos en papel confidenciales y los soportes de datos durante la ausencia, para que no queden libremente accesibles a personas no autorizadas, como personal de limpieza, visitantes u otros empleados sin autorización. Una puerta de oficina cerrada con llave por sí sola no protege frente a todas las personas con acceso al edificio o a la sala, y la regla se aplica a los documentos confidenciales en general, no solo a los marcados explícitamente como \"secreto\".",
         "it": "Il principio della scrivania pulita richiede di chiudere a chiave i documenti cartacei riservati e i supporti dati in caso di assenza, affinché non siano liberamente accessibili a persone non autorizzate - ad esempio personale delle pulizie, visitatori o altri dipendenti senza autorizzazione. Una porta dell'ufficio chiusa a chiave da sola non protegge da tutte le persone con accesso all'edificio o alla stanza, e la regola vale per i documenti riservati in generale, non solo per quelli esplicitamente contrassegnati come \"segreti\"."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-phishing-05",
@@ -3552,7 +3629,10 @@
         "ru": "Запрос активировать макросы — известная схема атаки: только активация приводит к выполнению вредоносного кода, содержащегося в файле, который без этого согласия остался бы неактивным. Перезагрузка компьютера ничего не меняет, а пересылка коллеге лишь переносит риск, а не устраняет его. При неуверенности относительно отправителя или содержимого письмо следует проверить через обычные внутренние каналы уведомления, прежде чем что-либо открывать или активировать.",
         "es": "La solicitud de activar macros es un patrón de ataque conocido: solo la activación ejecuta el código malicioso contenido en el archivo, que sin ese consentimiento permanecería inactivo. Reiniciar el ordenador no cambia nada, y reenviarlo a un compañero solo traslada el riesgo en lugar de eliminarlo. En caso de incertidumbre sobre el remitente o el contenido, el correo debería revisarse a través de las vías internas de notificación habituales antes de abrir o activar nada.",
         "it": "La richiesta di attivare le macro è uno schema di attacco noto: solo l'attivazione fa eseguire il codice dannoso contenuto nel file, che senza tale consenso resterebbe inattivo. Un riavvio del computer non cambia nulla, e l'inoltro a un collega sposta solo il rischio invece di eliminarlo. In caso di incertezza sul mittente o sul contenuto, l'e-mail dovrebbe essere verificata tramite i consueti canali interni di segnalazione prima di aprire o attivare qualsiasi cosa."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-phishing-06",
@@ -3693,7 +3773,10 @@
         "ru": "При целевом фишинге злоумышленники целенаправленно собирают информацию о человеке или организации — например, имена руководителей, текущие проекты или внутренние процессы, — чтобы сообщение выглядело особенно убедительно и персонализированно. Это делает такие атаки труднее распознаваемыми, чем обычные массовые фишинговые письма. Ни канал связи, ни отказ от ссылок/вложений, ни ограничение личными учётными записями не являются решающим признаком.",
         "es": "En el spear phishing, los atacantes investigan de forma específica información sobre una persona u organización -por ejemplo, nombres de superiores, proyectos en curso o procesos internos- para que un mensaje parezca especialmente creíble y personalizado. Esto hace que estos ataques sean más difíciles de reconocer que los correos de phishing masivo genéricos. Ni el canal de comunicación, ni la ausencia de enlaces/adjuntos, ni la limitación a cuentas privadas son la característica decisiva.",
         "it": "Nello spear phishing gli aggressori ricercano mirandone specificamente informazioni su una persona o organizzazione - ad esempio nomi di superiori, progetti in corso o processi interni - per rendere un messaggio particolarmente credibile e personalizzato. Questo rende tali attacchi più difficili da riconoscere rispetto alle generiche e-mail di phishing di massa. Né il canale di comunicazione, né la rinuncia a link/allegati, né la limitazione ad account privati sono la caratteristica decisiva."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-phishing-07",
@@ -3834,7 +3917,10 @@
         "ru": "Фишинг не ограничивается электронной почтой: \"смишинг\" использует SMS-сообщения с тем же базовым принципом срочности и манипулированной ссылкой. Имя отправителя SMS тоже можно подделать. Безопаснее независимо проверить якобы имеющийся повод через официальный веб-сайт или приложение, а не переходить по ссылке. Эта тема актуальна и для сотрудников, поскольку те же схемы могут касаться и служебных устройств или контактной информации, и уже само нажатие на подготовленную ссылку может представлять риск.",
         "es": "El phishing no se limita a los correos electrónicos: el \"smishing\" utiliza mensajes SMS con el mismo principio básico de urgencia y un enlace manipulado. El nombre del remitente de un SMS también se puede falsificar. Es más seguro comprobar de forma independiente el supuesto motivo a través del sitio web o la aplicación oficial, en lugar de seguir el enlace. El tema también es relevante para los empleados, ya que los mismos patrones pueden afectar también a dispositivos profesionales o datos de contacto, e incluso el mero hecho de hacer clic en un enlace preparado ya puede suponer un riesgo.",
         "it": "Il phishing non si limita alle e-mail: lo \"smishing\" utilizza messaggi SMS con lo stesso principio di base di urgenza e un link manipolato. Anche il nome del mittente di un SMS può essere falsificato. È più sicuro verificare indipendentemente il presunto motivo tramite il sito web ufficiale o l'app, invece di seguire il link. Il tema è rilevante anche per i dipendenti, poiché gli stessi schemi possono riguardare anche dispositivi aziendali o informazioni di contatto, e già il semplice clic su un link preparato può rappresentare un rischio."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-phishing-08",
@@ -3975,7 +4061,10 @@
         "ru": "Злоумышленники целенаправленно регистрируют домены, обманчиво похожие на настоящий домен компании (например, дополнительные слова, переставленные буквы или другие окончания), чтобы имитировать доверие. Такое расхождение — серьёзный тревожный сигнал, а не мелочь или вопрос вкуса. Фактический адрес отправителя следует тщательно проверять при подозрительных признаках и при сомнениях уточнять через независимый канал, а не автоматически исходить из его подлинности.",
         "es": "Los atacantes registran deliberadamente dominios que se parecen confusamente al dominio real de la empresa (por ejemplo, palabras adicionales, letras intercambiadas u otras terminaciones) para simular confianza. Tal desviación es una señal de alerta seria y no una trivialidad o cuestión de gusto. La dirección real del remitente debería comprobarse cuidadosamente ante indicios sospechosos, y en caso de duda verificarse a través de un canal independiente, en lugar de asumir automáticamente su autenticidad.",
         "it": "Gli aggressori registrano deliberatamente domini ingannevolmente simili al vero dominio aziendale (ad esempio parole aggiuntive, lettere invertite o desinenze diverse) per simulare fiducia. Una tale discrepanza è un serio segnale d'allarme e non una banalità o una questione di gusto. L'indirizzo reale del mittente dovrebbe essere verificato attentamente in caso di anomalie sospette, e in caso di dubbio confermato tramite un canale indipendente, invece di dare per scontata automaticamente la sua autenticità."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-datensicherung-05",
@@ -4116,7 +4205,10 @@
         "ru": "Программы-вымогатели, как правило, шифруют все доступные диски, включая постоянно подключённые сетевые диски — резервная копия там уже не даёт реальной защиты, поскольку тоже может пострадать. Поэтому эффективная концепция резервного копирования предусматривает как минимум одну копию, хранящуюся отдельно (офлайн или с временной задержкой) от рабочей системы, чтобы она не пострадала при атаке на основную систему.",
         "es": "El ransomware suele cifrar todas las unidades accesibles, incluidas las unidades de red conectadas permanentemente; una copia de seguridad allí ya no ofrece una protección real, ya que también puede verse afectada. Por eso, un concepto de copia de seguridad eficaz prevé al menos una copia que se mantenga separada (fuera de línea o con un desfase temporal) del sistema productivo, para que no se vea afectada por un ataque al sistema principal.",
         "it": "I ransomware di norma crittografano tutti i dischi raggiungibili, inclusi i dischi di rete costantemente collegati - una copia di backup lì presente non offre quindi più una protezione reale, poiché può essere colpita a sua volta. Un concetto di backup efficace prevede quindi almeno una copia conservata separatamente (offline o con sfasamento temporale) dal sistema produttivo, affinché non venga coinvolta in un attacco al sistema principale."
-      }
+      },
+      "roles": [
+        "it"
+      ]
     },
     {
       "id": "it_sicherheit-datensicherung-06",
@@ -4257,7 +4349,10 @@
         "ru": "Выполнение резервного копирования может дать сбой или создать повреждённую, неполную копию без немедленного обнаружения этого. Только регулярный тест восстановления надёжно показывает, действительно ли в случае необходимости можно вернуть данные. Частота самого резервного копирования зависит от потребности и не ограничена одним разом в год, автоматические процессы вполне могут давать сбой, а резервная копия автоматически не теряет силу через 24 часа.",
         "es": "Una ejecución de copia de seguridad puede fallar o generar una copia dañada e incompleta sin que se note de inmediato. Solo una prueba de restauración regular muestra de forma fiable si realmente se pueden recuperar datos en caso de emergencia. La frecuencia de la propia copia de seguridad depende de la necesidad y no se limita a una vez al año, los procesos automáticos pueden fallar perfectamente, y una copia de seguridad no pierde automáticamente su validez después de 24 horas.",
         "it": "Un'esecuzione di backup può fallire o generare una copia danneggiata e incompleta, senza che ciò venga notato subito. Solo un test di ripristino regolare mostra in modo affidabile se in caso di necessità si possono davvero recuperare i dati. La frequenza del backup stesso dipende dalle esigenze e non è limitata a una volta all'anno, i processi automatici possono certamente fallire, e un backup non perde automaticamente validità dopo 24 ore."
-      }
+      },
+      "roles": [
+        "it"
+      ]
     },
     {
       "id": "it_sicherheit-datensicherung-07",
@@ -4398,7 +4493,10 @@
         "ru": "Съёмные носители данных легко теряются или крадутся; без шифрования хранящиеся на них данные сразу читаемы для любого, у кого есть физический доступ. Шифрование обеспечивает защиту данных даже в случае потери, пока ключ или пароль остаются в тайне. Наклейка, неприметная форма или переименованные файлы, напротив, не дают реальной технической защиты от несанкционированного чтения.",
         "es": "Los soportes de datos extraíbles se pierden o se roban fácilmente; sin cifrado, los datos allí almacenados son entonces inmediatamente legibles para cualquiera con acceso físico. El cifrado garantiza que los datos permanezcan protegidos incluso en caso de pérdida, siempre que la clave o la contraseña sigan siendo secretas. Una pegatina, una forma discreta o archivos renombrados, en cambio, no ofrecen una protección técnica real frente a la lectura no autorizada.",
         "it": "I supporti dati rimovibili si perdono o vengono rubati facilmente; senza crittografia i dati lì memorizzati sono quindi subito leggibili da chiunque abbia accesso fisico. La crittografia garantisce che i dati restino protetti anche in caso di smarrimento, purché la chiave o la password restino segrete. Un adesivo, una forma discreta o file rinominati invece non offrono alcuna reale protezione tecnica contro la lettura non autorizzata."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-datensicherung-08",
@@ -4539,7 +4637,10 @@
         "ru": "Простое удаление в корзину или форматирование обычно убирает файлы только из видимого каталога, тогда как сами данные подходящими средствами часто остаются восстановимыми. Перед передачей или утилизацией носители данных поэтому должны быть безопасно удалены (например, многократной перезаписью) или физически уничтожены, чтобы конфиденциальные данные компании не попали в чужие руки. Выбрасывание в бытовой мусор также недопустимо по экологическим причинам и причинам утилизации.",
         "es": "El simple borrado en la papelera o el formateo suele eliminar los archivos solo del directorio visible, mientras que los datos en sí a menudo siguen siendo recuperables con los medios adecuados. Antes de entregarlos o desecharlos, los soportes de datos deben, por tanto, borrarse de forma segura (por ejemplo, mediante sobrescritura múltiple) o destruirse físicamente, para que los datos confidenciales de la empresa no caigan en manos equivocadas. Además, tirarlo con la basura doméstica no está permitido por razones medioambientales y de eliminación de residuos.",
         "it": "La semplice cancellazione nel cestino o la formattazione rimuove di norma i file solo dalla directory visibile, mentre i dati stessi con mezzi adeguati spesso restano recuperabili. Prima della cessione o dello smaltimento, i supporti dati devono quindi essere cancellati in modo sicuro (ad esempio tramite sovrascrittura multipla) o distrutti fisicamente, affinché i dati aziendali riservati non finiscano in mani sbagliate. Gettarlo nei rifiuti domestici è inoltre inammissibile per motivi ambientali e di smaltimento."
-      }
+      },
+      "roles": [
+        "it"
+      ]
     },
     {
       "id": "it_sicherheit-mobil_homeoffice-05",
@@ -4680,7 +4781,10 @@
         "ru": "Устройства, используемые вне офиса, подвержены более высокому риску кражи или потери — например, в поезде, автомобиле или в поездке к клиенту. Без шифрования диска встроенный жёсткий диск часто можно демонтировать и напрямую считать данные, независимо от пароля входа операционной системы. Шифрование и пароль входа дополняют друг друга, но не заменяют, а скорость запуска не имеет к этому никакого отношения.",
         "es": "Los dispositivos que se usan fuera de la oficina están expuestos a un mayor riesgo de robo o pérdida, por ejemplo en el tren, en el coche o de viaje en casa de un cliente. Sin cifrado de disco, el disco duro integrado a menudo se puede desmontar y leer los datos directamente, independientemente de la contraseña de inicio de sesión del sistema operativo. El cifrado y la contraseña de inicio de sesión se complementan, pero no se sustituyen mutuamente, y la velocidad de inicio no tiene nada que ver con esto.",
         "it": "I dispositivi usati fuori dall'ufficio sono esposti a un rischio maggiore di furto o smarrimento - ad esempio in treno, in auto o in viaggio dal cliente. Senza crittografia del disco, il disco rigido integrato può spesso essere smontato e i dati letti direttamente, indipendentemente dalla password di accesso del sistema operativo. Crittografia e password di accesso si completano a vicenda, ma non si sostituiscono, e la velocità di avvio non c'entra nulla con questo."
-      }
+      },
+      "roles": [
+        "it"
+      ]
     },
     {
       "id": "it_sicherheit-mobil_homeoffice-06",
@@ -4821,7 +4925,10 @@
         "ru": "Короткий интервал блокировки уменьшает временное окно, в котором ненадолго оставленное без присмотра или потерянное устройство может использоваться без аутентификации, например для доступа к электронной почте, контактам или корпоративным приложениям. Время работы аккумулятора и настройки звонков не имеют никакого отношения к безопасности, а правило разумно применяется ко всем служебно используемым устройствам, а не только к определённым группам лиц.",
         "es": "Un intervalo de bloqueo corto reduce la ventana de tiempo en la que un dispositivo dejado brevemente sin vigilancia o perdido puede usarse sin autenticación, por ejemplo para acceder al correo, contactos o aplicaciones de la empresa. La duración de la batería y la configuración de llamadas no tienen ninguna relación con la seguridad, y la regla se aplica razonablemente a todos los dispositivos de uso profesional, no solo a determinados grupos de personas.",
         "it": "Un breve intervallo di blocco riduce la finestra temporale in cui un dispositivo lasciato brevemente incustodito o smarrito può essere usato senza autenticazione, ad esempio per accedere a e-mail, contatti o app aziendali. La durata della batteria e le impostazioni delle chiamate non hanno alcuna relazione con la sicurezza, e la regola vale ragionevolmente per tutti i dispositivi usati per lavoro, non solo per determinati gruppi di persone."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-mobil_homeoffice-07",
@@ -4962,7 +5069,11 @@
         "ru": "Если личные устройства используются в служебных целях, должны быть достигнуты те же цели защиты, что и для корпоративных устройств — например, за счёт минимальных требований к шифрованию, блокировке экрана, разделённым областям для служебных данных и возможности удалённо удалить служебные данные в случае потери. Смешивание личных и служебных данных как раз затрудняет эту защиту, а любой произвольный пароль сам по себе или личное финансирование устройства не освобождают от действующих корпоративных требований.",
         "es": "Si se usan dispositivos privados con fines profesionales, deben alcanzarse los mismos objetivos de protección que con los dispositivos de la empresa, por ejemplo mediante requisitos mínimos de cifrado, bloqueo de pantalla, áreas separadas para datos profesionales y la posibilidad de borrar de forma remota los datos profesionales en caso de pérdida. Mezclar datos privados y profesionales dificulta precisamente esta protección, y una contraseña cualquiera por sí sola o la financiación privada del dispositivo no eximen de las directrices vigentes de la empresa.",
         "it": "Se dispositivi privati vengono usati per lavoro, devono essere raggiunti gli stessi obiettivi di protezione dei dispositivi aziendali - ad esempio tramite requisiti minimi di crittografia, blocco schermo, aree separate per i dati lavorativi e la possibilità di cancellare da remoto i dati lavorativi in caso di smarrimento. Mescolare dati privati e lavorativi ostacola proprio questa protezione, e una password qualsiasi da sola o il finanziamento privato del dispositivo non esonerano dalle direttive aziendali vigenti."
-      }
+      },
+      "roles": [
+        "it",
+        "management"
+      ]
     },
     {
       "id": "it_sicherheit-mobil_homeoffice-08",
@@ -5103,7 +5214,10 @@
         "ru": "В домашней обстановке и другие люди могут заметить то, что видно на экране или слышно через микрофон — например, члены семьи или гости, а находящиеся поблизости голосовые помощники могут непреднамеренно подслушать. Спокойное, изолированное место и осознанное обращение с экраном и микрофоном защищают конфиденциальность. Сама скорость соединения касается качества, а не конфиденциальности, а выключенный микрофон как минимум так же важен для произносимого конфиденциального содержимого, как и камера.",
         "es": "En el entorno doméstico, otras personas también pueden percibir lo que se ve en la pantalla o se escucha por el micrófono, por ejemplo familiares o visitas, y los asistentes de voz cercanos pueden escuchar involuntariamente. Un lugar tranquilo y aislado y un manejo consciente de la pantalla y el micrófono protegen la confidencialidad. La mera velocidad de conexión afecta a la calidad, no a la confidencialidad, y un micrófono apagado es al menos tan importante para el contenido confidencial hablado como la cámara.",
         "it": "Nell'ambiente domestico anche altre persone possono percepire ciò che si vede sullo schermo o si sente tramite il microfono - ad esempio familiari o ospiti, e assistenti vocali nelle vicinanze possono ascoltare involontariamente. Un luogo tranquillo e isolato e una gestione consapevole di schermo e microfono proteggono la riservatezza. La sola velocità di connessione riguarda la qualità, non la riservatezza, e un microfono spento è almeno altrettanto importante per i contenuti riservati parlati quanto la telecamera."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-meldepflicht_it-05",
@@ -5244,7 +5358,10 @@
         "ru": "Директива NIS2 предусматривает поэтапную процедуру: раннее предупреждение в течение 24 часов с момента получения сведений, более подробное уведомление в течение 72 часов и итоговый отчёт не позднее чем через месяц после этого уведомления. Такая поэтапность позволяет быстро отреагировать вначале, даже если ещё не все детали известны. Однократное уведомление через год, сразу полный отчёт в течение 24 часов или ожидание общественной огласки не соответствуют реальной процедуре.",
         "es": "La directiva NIS2 prevé un procedimiento escalonado: una alerta temprana en un plazo de 24 horas desde el conocimiento del incidente, una notificación más detallada en un plazo de 72 horas, y un informe final a más tardar un mes después de dicha notificación. Esta escalonamiento permite una primera reacción rápida, incluso cuando aún no se conocen todos los detalles. Una notificación única al cabo de un año, un informe completo inmediato en 24 horas o esperar a que se haga público el incidente no corresponden al procedimiento real.",
         "it": "La direttiva NIS2 prevede una procedura graduale: un preallarme entro 24 ore dalla presa di conoscenza, una segnalazione più dettagliata entro 72 ore, e un rapporto finale al più tardi un mese dopo tale segnalazione. Questa gradualità consente una prima reazione rapida, anche quando non tutti i dettagli sono ancora noti. Una segnalazione unica dopo un anno, un rapporto completo immediato entro 24 ore o l'attesa della notorietà pubblica non corrispondono alla procedura reale."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "it_sicherheit-meldepflicht_it-06",
@@ -5385,7 +5502,10 @@
         "ru": "Согласно NIS2, инцидент считается значительным, в частности, когда он вызывает или может вызвать серьёзное нарушение работы или финансовый ущерб для затронутой организации, или когда из-за него другие физические или юридические лица несут или могут понести значительный ущерб. Ни само по себе затрагивание ИТ-отдела, ни продолжительность или время суток инцидента сами по себе не являются решающим критерием — определяющим является фактический или возможный масштаб последствий.",
         "es": "Según la NIS2, un incidente se considera importante especialmente cuando causa o puede causar una perturbación grave del funcionamiento o un daño financiero para la organización afectada, o cuando debido a ello otras personas físicas o jurídicas sufren o pueden sufrir un perjuicio importante. Ni la mera afectación del departamento de TI, ni la duración o la hora del día del incidente son por sí solas el criterio decisivo; lo determinante es el alcance real o posible de los efectos.",
         "it": "Secondo la NIS2, un incidente è considerato significativo in particolare quando causa o può causare un grave malfunzionamento operativo o un danno finanziario per l'organizzazione colpita, oppure quando a causa di esso altre persone fisiche o giuridiche subiscono o possono subire un danno significativo. Né il semplice coinvolgimento del reparto IT, né la durata o l'ora del giorno dell'incidente sono di per sé il criterio decisivo - determinante è la reale o possibile portata delle conseguenze."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "it_sicherheit-meldepflicht_it-07",
@@ -5526,7 +5646,10 @@
         "ru": "Некоторые важные следы инцидента — например, активные сетевые соединения или процессы в оперативной памяти — теряются при перезагрузке или выключении и впоследствии не могут быть восстановлены. Поэтому для последующего выяснения причины важно оставить систему максимально неизменной и сначала сообщить об инциденте, чтобы ответственное подразделение могло принять решение о дальнейших действиях. Перезагрузка автоматически не удаляет данные компании и не устраняет лежащий в основе инцидент безопасности.",
         "es": "Algunos rastros importantes de un incidente -por ejemplo, conexiones de red activas o procesos en la memoria RAM- se pierden con un reinicio o apagado y ya no pueden reconstruirse después. Para el posterior esclarecimiento de la causa, es importante, por tanto, dejar el sistema lo más inalterado posible y notificar primero el incidente, para que la unidad competente pueda decidir sobre el proceder posterior. Un reinicio no borra automáticamente los datos de la empresa ni resuelve el incidente de seguridad subyacente.",
         "it": "Alcune tracce importanti di un incidente - ad esempio connessioni di rete attive o processi nella memoria di lavoro - vanno perse con un riavvio o uno spegnimento e non possono più essere ricostruite in seguito. Per il successivo chiarimento della causa è quindi importante lasciare il sistema il più possibile invariato e segnalare prima l'incidente, affinché l'unità competente possa decidere sull'ulteriore procedura. Un riavvio non cancella automaticamente i dati aziendali né risolve l'incidente di sicurezza sottostante."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "it_sicherheit-meldepflicht_it-08",
@@ -5667,7 +5790,10 @@
         "ru": "Конкретные сведения о времени, замеченном поведении (например, необычные всплывающие окна, необъяснимые изменения файлов) и затронутых системах или данных помогают ответственному подразделению быстро классифицировать инцидент, оценить масштаб и принять соответствующие ответные меры. Одного лишь имени для этого недостаточно, уведомление без указания времени затрудняет хронологическую классификацию, а предположения о \"вине\" не являются решающим моментом для технической обработки инцидента.",
         "es": "Los datos concretos sobre el momento, el comportamiento observado (por ejemplo, ventanas emergentes inusuales, cambios inexplicables en archivos) y los sistemas o datos afectados ayudan a la unidad competente a clasificar rápidamente el incidente, estimar su alcance e iniciar contramedidas adecuadas. El propio nombre por sí solo no basta para ello, una notificación sin indicación de hora dificulta la clasificación temporal, y las suposiciones sobre una \"cuestión de culpa\" no son el punto decisivo para el procesamiento técnico del incidente.",
         "it": "Informazioni concrete su orario, comportamento osservato (ad esempio finestre pop-up insolite, modifiche di file inspiegabili) e sistemi o dati coinvolti aiutano l'unità competente a classificare rapidamente l'incidente, a stimarne la portata e ad avviare contromisure adeguate. Il solo nome non basta a questo scopo, una segnalazione senza indicazione dell'orario complica la classificazione cronologica, e le supposizioni su una \"questione di colpa\" non sono il punto decisivo per la gestione tecnica dell'incidente."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     }
   ]
 }

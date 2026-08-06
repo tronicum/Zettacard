@@ -1,7 +1,13 @@
 # Scoping: Real Cryptographic Signing for Zettacard Credentials
 
-Status: research/scoping only — nothing here is scheduled or built. Written to be read before anyone
-picks up the actual implementation work.
+Status: **step 1 of the recommendation below (section 4) is implemented** — a Netlify Function
+(`netlify/functions/sign-credential.js`) plus static JWKS (`app/.well-known/jwks.json`) now sign
+completion records as real JWT credentials, with a graceful offline/unreachable fallback to the
+original self-issued/unverified shape. See `docs/open-badges-signing-setup.md` for the exact env
+var / deploy steps still required before this is live (private key generation and the Netlify env
+var still need to be done by someone with real deploy access - not done as part of this pass), the
+key-rotation plan, and the third-party verification walkthrough. The rest of this document (options
+b/c/d, section 3's positioning discipline, etc.) remains as originally written and still applies.
 
 ## 0. Where we are today
 

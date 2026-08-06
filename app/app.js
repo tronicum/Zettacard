@@ -563,9 +563,53 @@ function getTopicLabel(topicCode, fallbackTopic) {
   return entry[state.lang] || entry.en || entry.de || fallbackTopic;
 }
 
+// --- Role filter (DN-44) -------------------------------------------------
+// The 4 workplace-compliance modules carry a per-question `roles` array
+// (see data/build_modules.py's CORE_FIELDS) - e.g. ["all"] for a question
+// relevant to everyone, or ["it"]/["hr"]/["management"]/["all_staff"] for a
+// more role-specific one. This is a SECOND, additive filter row shown only
+// for those 4 modules, layered on top of the existing topic filter (a
+// learner can combine both) rather than replacing it.
+const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit"]);
+
+// Role codes in a fixed display order - "all" here means "no role filter
+// applied" (show every question regardless of its own roles tag), NOT to be
+// confused with a question's own "all" role tag (meaning "relevant to
+// everyone"), which is folded into every other filter's results below.
+const ROLE_FILTER_CODES = ["all", "all_staff", "hr", "it", "management"];
+
+const ROLE_FILTER_STRINGS = {
+  de: { label: "Rolle", all: "Alle Rollen", all_staff: "Alle Mitarbeitenden", hr: "Personalabteilung", it: "IT", management: "Führungskraft" },
+  en: { label: "Role", all: "All roles", all_staff: "All staff", hr: "HR", it: "IT", management: "Management" },
+  uk: { label: "Роль", all: "Усі ролі", all_staff: "Весь персонал", hr: "Відділ кадрів", it: "ІТ", management: "Керівництво" },
+  pl: { label: "Rola", all: "Wszystkie role", all_staff: "Wszyscy pracownicy", hr: "Dział HR", it: "IT", management: "Kierownictwo" },
+  ar: { label: "الدور", all: "كل الأدوار", all_staff: "جميع الموظفين", hr: "الموارد البشرية", it: "تقنية المعلومات", management: "الإدارة" },
+  zh: { label: "角色", all: "所有角色", all_staff: "全体员工", hr: "人力资源部", it: "IT部门", management: "管理层" },
+  hi: { label: "भूमिका", all: "सभी भूमिकाएँ", all_staff: "सभी कर्मचारी", hr: "मानव संसाधन", it: "आईटी", management: "प्रबंधन" },
+  tr: { label: "Rol", all: "Tüm roller", all_staff: "Tüm çalışanlar", hr: "İK", it: "BT", management: "Yönetim" },
+  fr: { label: "Rôle", all: "Tous les rôles", all_staff: "Tout le personnel", hr: "RH", it: "Informatique", management: "Direction" },
+  ru: { label: "Роль", all: "Все роли", all_staff: "Весь персонал", hr: "Отдел кадров", it: "ИТ", management: "Руководство" },
+  es: { label: "Rol", all: "Todos los roles", all_staff: "Todo el personal", hr: "RR. HH.", it: "TI", management: "Dirección" },
+  it: { label: "Ruolo", all: "Tutti i ruoli", all_staff: "Tutto il personale", hr: "Risorse umane", it: "IT", management: "Direzione" },
+};
+function roleFilterStrings(lang) {
+  return ROLE_FILTER_STRINGS[lang] || ROLE_FILTER_STRINGS.en;
+}
+
+// A question matches a role filter if either the filter is "all" (no
+// filtering), the question itself is tagged "all" (relevant to everyone,
+// regardless of which specific role is selected), or the question's own
+// roles array actually contains the selected code.
+function questionMatchesRole(q, roleCode) {
+  if (roleCode === "all") return true;
+  const roles = q.roles || ["all"];
+  return roles.includes("all") || roles.includes(roleCode);
+}
+
 const state = {
   lang: "de",
   topicFilter: "all",
+  roleFilter: "all",
   questions: [],
   detailIndex: null, // index into filtered list, or null when showing the list
   revealed: false,
@@ -581,6 +625,11 @@ const state = {
   // full registry of profiles on this device (see migrateOrInitProfiles()).
   profiles: [],
   activeProfileId: null,
+  // Spaced-repetition "Review due" mode (DN-16, see openReviewSession()):
+  // while true, filteredQuestions() sources #detail-view from reviewQueue
+  // (the due-question list) instead of the topic-filtered browsing list.
+  reviewMode: false,
+  reviewQueue: [],
 };
 
 // --- Local profile switcher --------------------------------------------
@@ -981,6 +1030,7 @@ async function selectModuleAndScope(examType, scopeCode) {
     return;
   }
   state.topicFilter = "all";
+  state.roleFilter = "all";
   state.detailIndex = null;
   closeModulePicker();
   history.replaceState({ view: "list" }, "");
@@ -1147,6 +1197,12 @@ const CERT_STRINGS = {
     passedOn: (d) => `Bestanden am ${d}`,
     downloadCert: "Zertifikat herunterladen (HTML)", downloadCred: "Berechtigungsnachweis herunterladen (JSON)",
     disclaimer: "Selbst erstellter Nachweis, nicht kryptographisch signiert oder extern verifiziert.",
+    // DN-44: simple renewal-due note for compliance modules that carry a
+    // renewal_months value in their meta - only shown once the due date has
+    // passed or is within 30 days (see renewalStatusForRecord()), not a
+    // countdown for every completion.
+    renewalOverdue: (d) => `Auffrischung überfällig seit ${d}`,
+    renewalDueSoon: (d) => `Auffrischung fällig bis ${d}`,
   },
   en: {
     btn: "My certificates", title: "My certificates", close: "← Back",
@@ -1155,6 +1211,8 @@ const CERT_STRINGS = {
     passedOn: (d) => `Passed on ${d}`,
     downloadCert: "Download certificate (HTML)", downloadCred: "Download credential (JSON)",
     disclaimer: "Self-generated record, not cryptographically signed or independently verified.",
+    renewalOverdue: (d) => `Refresher overdue since ${d}`,
+    renewalDueSoon: (d) => `Refresher due by ${d}`,
   },
 };
 function certStrings(lang) {
@@ -1167,6 +1225,86 @@ function getCompletions() {
   } catch (e) {
     return [];
   }
+}
+
+// --- Real cryptographic signing (docs/open-badges-signing-scoping.md,
+// section 4 "smallest viable version") ----------------------------------
+// Netlify Function endpoint that signs a completion record as a JWT
+// against the issuer keypair whose public half is published at
+// /.well-known/jwks.json. This is genuinely optional at every call site:
+// this app is an offline-capable PWA, so a passed exam simulation must
+// keep producing a usable (if unverified) certificate even when the
+// device is offline or the function isn't deployed/reachable yet - see
+// trySignCompletion()'s catch path and credentialJsonDoc()'s fallback
+// below. Nothing here ever blocks or fails the existing local-only flow.
+const SIGN_CREDENTIAL_ENDPOINT = "/.netlify/functions/sign-credential";
+const SIGN_CREDENTIAL_TIMEOUT_MS = 8000;
+
+function persistCompletionUpdate(record) {
+  try {
+    const all = getCompletions();
+    const idx = all.findIndex((r) => r.id === record.id);
+    if (idx === -1) return;
+    all[idx] = { ...all[idx], signedJwt: record.signedJwt, verified: record.verified, signedKid: record.signedKid, signedAlg: record.signedAlg };
+    localStorage.setItem(profileKey("completions"), JSON.stringify(all));
+  } catch (e) { /* non-fatal - storage may be full/unavailable */ }
+}
+
+// Best-effort: asks the signing function for a real signature over this
+// completion record, mutates the record in place (so any already-rendered
+// UI holding the same object reference picks it up), and persists the
+// signed fields back into localStorage. Never throws - a failure here
+// (offline, function not deployed, misconfigured env var, timeout) simply
+// leaves the record as a self-issued/unverified one, exactly as it was
+// before this feature existed.
+async function trySignCompletion(record) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), SIGN_CREDENTIAL_TIMEOUT_MS);
+  try {
+    const res = await fetch(SIGN_CREDENTIAL_ENDPOINT, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        id: record.id,
+        examType: record.examType,
+        scopeCode: record.scopeCode,
+        moduleLabel: record.moduleLabel,
+        scopeLabel: record.scopeLabel,
+        passedAt: record.passedAt,
+        errorPoints: record.errorPoints,
+        wrongHighStakes: record.wrongHighStakes,
+        totalQuestions: record.totalQuestions,
+      }),
+      signal: controller.signal,
+    });
+    if (!res.ok) return; // server rejected it or isn't configured - stay unverified
+    const body = await res.json();
+    if (!body || !body.jwt || body.verified !== true) return;
+    record.signedJwt = body.jwt;
+    record.verified = true;
+    record.signedKid = body.kid;
+    record.signedAlg = body.alg;
+    persistCompletionUpdate(record);
+  } catch (e) {
+    // Offline, function unreachable, timed out, or non-JSON response -
+    // this is an expected, normal state for a static PWA and must not
+    // surface as an error to the user; the unverified fallback stands.
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// Ensures a record has a signature attempt done at least once "fresh"
+// before it's actually downloaded (in addition to the best-effort
+// background attempt fired right after recordCompletion()) - covers the
+// case where the background attempt hasn't resolved yet, was offline at
+// the time but is online now, or the user is downloading an older
+// already-recorded completion for the first time. Still falls back
+// silently to the unverified shape on any failure.
+async function ensureSignedCredential(record) {
+  if (record.verified && record.signedJwt) return record;
+  await trySignCompletion(record);
+  return record;
 }
 
 function recordCompletion(examType, scopeCode, results) {
@@ -1188,6 +1326,12 @@ function recordCompletion(examType, scopeCode, results) {
   try {
     localStorage.setItem(profileKey("completions"), JSON.stringify(all));
   } catch (e) { /* non-fatal - storage may be full/unavailable */ }
+  // Best-effort, non-blocking: try to get a real signature right away so
+  // it's likely already available by the time the user opens the
+  // certificate screen and clicks download. Deliberately not awaited -
+  // recordCompletion() must stay synchronous and must never make passing
+  // an exam simulation depend on network access.
+  trySignCompletion(record);
   return record;
 }
 
@@ -1217,12 +1361,9 @@ function certificateHtmlDoc(record) {
 }
 
 function credentialJsonDoc(record) {
-  return {
+  const base = {
     "@context": ["https://www.w3.org/ns/credentials/v2", "https://purl.imsglobal.org/spec/ob/v3p0/context.json"],
     type: ["VerifiableCredential", "OpenBadgeCredential"],
-    unverified: true,
-    unverifiedReason: "Self-issued by a zero-backend static PWA with no signing authority - not cryptographically signed, not independently verifiable by a third party.",
-    issuer: { type: "Profile", name: "Zettacard (self-issued, unverified)" },
     validFrom: record.passedAt,
     credentialSubject: {
       type: "AchievementSubject",
@@ -1233,6 +1374,38 @@ function credentialJsonDoc(record) {
         criteria: { narrative: `${record.totalQuestions}-question simulated exam, ${record.errorPoints} error points, ${record.wrongHighStakes} wrong safety-critical answer(s).` },
       },
     },
+  };
+
+  // Real signature available (netlify/functions/sign-credential.js
+  // succeeded at some point for this record - see trySignCompletion()):
+  // ship the actual signed JWT as the verifiable proof, drop the
+  // unverified/unverifiedReason fields since they'd be actively false.
+  // See docs/open-badges-signing-verification.md for how a third party
+  // checks this signature themselves.
+  if (record.verified && record.signedJwt) {
+    return {
+      ...base,
+      issuer: { type: "Profile", id: (location.origin || ""), name: "Zettacard" },
+      verified: true,
+      proof: {
+        type: "JsonWebSignature",
+        jwt: record.signedJwt,
+        alg: record.signedAlg || "ES256",
+        kid: record.signedKid,
+        jwksUrl: `${location.origin || ""}/.well-known/jwks.json`,
+      },
+    };
+  }
+
+  // Fallback: no signature yet (offline, function not deployed, signing
+  // still in flight, or this is an older completion recorded before this
+  // feature existed) - keep the original, honest self-issued shape rather
+  // than blocking certificate/credential download on network access.
+  return {
+    ...base,
+    unverified: true,
+    unverifiedReason: "Self-issued by a zero-backend static PWA with no signing authority - not cryptographically signed, not independently verifiable by a third party.",
+    issuer: { type: "Profile", name: "Zettacard (self-issued, unverified)" },
   };
 }
 
@@ -1261,7 +1434,47 @@ function closeCertificates() {
   setInertBehindDialog(false);
 }
 
-function renderCertificates() {
+// DN-44: renewal-due indicator. A completion record only knows its own
+// examType/scopeCode/passedAt - the renewal_months/renewal_basis policy
+// lives in that module's core.json meta block (see data/build_modules.py),
+// which may not be the CURRENTLY loaded module (e.g. viewing certificates
+// for Datenschutz while Arbeitssicherheit is the active module). Fetched
+// lazily and cached per exam_type rather than upfront for every module.
+const moduleMetaCache = {};
+async function getModuleMetaCached(examType) {
+  if (moduleMetaCache[examType]) return moduleMetaCache[examType];
+  try {
+    const core = await fetchJson(`data/${examType}/core.json`);
+    moduleMetaCache[examType] = core.meta || null;
+  } catch (e) {
+    moduleMetaCache[examType] = null;
+  }
+  return moduleMetaCache[examType];
+}
+
+function addMonths(date, months) {
+  const d = new Date(date.getTime());
+  d.setMonth(d.getMonth() + months);
+  return d;
+}
+
+const RENEWAL_DUE_SOON_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
+
+// Returns null if this module has no fixed renewal_months (e.g. KI-Act) or
+// the due date is more than 30 days away - the badge is only worth showing
+// once it's actually actionable, not as a permanent countdown.
+async function renewalStatusForRecord(record) {
+  const meta = await getModuleMetaCached(record.examType);
+  const months = meta && meta.renewal_months;
+  if (!months) return null;
+  const dueDate = addMonths(new Date(record.passedAt), months);
+  const now = Date.now();
+  if (dueDate.getTime() <= now) return { status: "overdue", dueDate };
+  if (dueDate.getTime() - now <= RENEWAL_DUE_SOON_MS) return { status: "dueSoon", dueDate };
+  return null;
+}
+
+async function renderCertificates() {
   const C = certStrings(state.lang);
   el("#certificates-title").textContent = C.title;
   el("#certificates-intro").textContent = C.intro;
@@ -1274,13 +1487,14 @@ function renderCertificates() {
     list.innerHTML = `<p class="empty">${C.empty}</p>`;
     return;
   }
-  records.forEach((record) => {
+  records.forEach(async (record) => {
     const dateStr = new Date(record.passedAt).toLocaleDateString(state.lang);
     const card = document.createElement("div");
     card.className = "cert-card";
     card.innerHTML = `
       <div class="cert-card-title">${record.moduleLabel} · ${record.scopeLabel}</div>
       <div class="cert-card-date">${C.passedOn(dateStr)}</div>
+      <div class="cert-card-renewal"></div>
       <div class="cert-card-actions">
         <button class="back-btn cert-dl-cert">${C.downloadCert}</button>
         <button class="back-btn cert-dl-cred">${C.downloadCred}</button>
@@ -1289,11 +1503,164 @@ function renderCertificates() {
     card.querySelector(".cert-dl-cert").addEventListener("click", () => {
       downloadTextFile(`${record.examType}-${record.scopeCode}-certificate.html`, certificateHtmlDoc(record), "text/html");
     });
-    card.querySelector(".cert-dl-cred").addEventListener("click", () => {
+    card.querySelector(".cert-dl-cred").addEventListener("click", async () => {
+      // Give an unsigned/already-attempted record one more chance to get a
+      // real signature (e.g. the device just came back online) before
+      // building the download - falls back silently if it can't.
+      await ensureSignedCredential(record);
       downloadTextFile(`${record.examType}-${record.scopeCode}-credential.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
     list.appendChild(card);
+
+    // Fetched/rendered after the card is already in the list (only the 4
+    // compliance modules ever resolve to a non-null status) so a slow or
+    // failed fetch never blocks showing the certificate itself.
+    if (COMPLIANCE_MODULES.has(record.examType)) {
+      const renewal = await renewalStatusForRecord(record);
+      if (renewal) {
+        const dueDateStr = renewal.dueDate.toLocaleDateString(state.lang);
+        const text = renewal.status === "overdue" ? C.renewalOverdue(dueDateStr) : C.renewalDueSoon(dueDateStr);
+        const slot = card.querySelector(".cert-card-renewal");
+        if (slot) slot.innerHTML = `<span class="badge renewal-due">${text}</span>`;
+      }
+    }
   });
+}
+
+// --- Spaced repetition / Leitner system (DN-16) -------------------------
+// A lightweight Leitner box scheme: every question a user has ever answered
+// (in exam mode) or self-assessed (in the flashcard "Review due" mode) sits
+// in one of 5 boxes (0-4). A correct/"knew it" answer promotes it one box
+// up (reviewed less often going forward); a wrong/"didn't know it" answer
+// resets it straight to box 0 (reviewed again soon) - the whole point of
+// Leitner is that a single miss should undo several correct streaks' worth
+// of spacing, not just step back one box, since a wrong answer on a
+// recently-"mastered" question is a strong signal it wasn't mastered.
+// Interval choice (deliberately simple, not a full SM-2/Anki-style
+// algorithm - this is a lightweight add-on, not the app's whole model of
+// learning):
+//   box 0 -> due immediately (dueAt = now) - "next session" in practice,
+//            since a review session already in progress keeps working
+//            through the same due list rather than re-showing this
+//            question a second later.
+//   box 1 -> 1 day
+//   box 2 -> 3 days
+//   box 3 -> 7 days
+//   box 4 -> 21 days (the ceiling - a question that keeps getting answered
+//            correctly stays here rather than escaping review forever).
+const SRS_BOX_INTERVAL_MS = [
+  0,
+  24 * 60 * 60 * 1000,
+  3 * 24 * 60 * 60 * 1000,
+  7 * 24 * 60 * 60 * 1000,
+  21 * 24 * 60 * 60 * 1000,
+];
+
+// Data shape (per profile, via the same profileKey() namespace every other
+// per-profile piece of state uses - see PROFILE_STRINGS block above):
+//   { [questionId]: { box: 0-4, dueAt: <epoch ms> } }
+// A question with no entry here has simply never been answered/assessed
+// yet - it's not "due", it's just untracked, and stays that way until the
+// first exam attempt or flashcard self-assessment touches it.
+function loadSrsData() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(profileKey("srs")) || "{}");
+    return raw && typeof raw === "object" ? raw : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveSrsData(data) {
+  try { localStorage.setItem(profileKey("srs"), JSON.stringify(data)); } catch (e) { /* non-fatal */ }
+}
+
+// Single entry point for both feed paths (exam mode's real right/wrong and
+// the flashcard review mode's self-assessment) so the box math only lives
+// in one place.
+function updateSrsBox(questionId, wasCorrect) {
+  const srs = loadSrsData();
+  const prevBox = srs[questionId]?.box ?? 0;
+  const newBox = wasCorrect ? Math.min(SRS_BOX_INTERVAL_MS.length - 1, prevBox + 1) : 0;
+  srs[questionId] = { box: newBox, dueAt: Date.now() + SRS_BOX_INTERVAL_MS[newBox] };
+  saveSrsData(srs);
+}
+
+// Questions due right now for the CURRENTLY loaded module+scope (state.
+// questions is already scoped to that - see loadModuleData). Deliberately
+// ignores the topic filter: "due for review" is a study-priority queue
+// across the whole module, not a subset of whatever topic happens to be
+// selected in the regular browsing list.
+function dueQuestionsForActiveScope() {
+  const now = Date.now();
+  const srs = loadSrsData();
+  return state.questions.filter((q) => {
+    const entry = srs[q.id];
+    return entry && entry.dueAt <= now;
+  });
+}
+
+// Same locale-object-per-language convention as PROFILE_STRINGS/CERT_STRINGS
+// above, kept standalone rather than folded into UI_STRINGS since it's a
+// self-contained additive feature (same reasoning EXAM_STRINGS documents).
+const SRS_STRINGS = {
+  de: { reviewBtn: (n) => `📅 Wiederholen (${n})`, reviewAria: "Fällige Wiederholungen", know: "Ich wusste es", dontKnow: "Ich wusste es nicht" },
+  en: { reviewBtn: (n) => `📅 Review (${n})`, reviewAria: "Questions due for review", know: "I knew it", dontKnow: "I didn't know it" },
+  uk: { reviewBtn: (n) => `📅 Повторення (${n})`, reviewAria: "Питання для повторення", know: "Я знав(ла) це", dontKnow: "Я не знав(ла) цього" },
+  pl: { reviewBtn: (n) => `📅 Powtórka (${n})`, reviewAria: "Pytania do powtórki", know: "Wiedziałem/am to", dontKnow: "Nie wiedziałem/am tego" },
+  ar: { reviewBtn: (n) => `📅 مراجعة (${n})`, reviewAria: "أسئلة مستحقة للمراجعة", know: "كنت أعرف ذلك", dontKnow: "لم أكن أعرف ذلك" },
+  zh: { reviewBtn: (n) => `📅 复习 (${n})`, reviewAria: "待复习的问题", know: "我知道", dontKnow: "我不知道" },
+  hi: { reviewBtn: (n) => `📅 पुनरावृत्ति (${n})`, reviewAria: "समीक्षा हेतु प्रश्न", know: "मुझे पता था", dontKnow: "मुझे नहीं पता था" },
+  tr: { reviewBtn: (n) => `📅 Tekrar (${n})`, reviewAria: "Tekrar edilecek sorular", know: "Biliyordum", dontKnow: "Bilmiyordum" },
+  fr: { reviewBtn: (n) => `📅 Révision (${n})`, reviewAria: "Questions à réviser", know: "Je le savais", dontKnow: "Je ne le savais pas" },
+  ru: { reviewBtn: (n) => `📅 Повтор (${n})`, reviewAria: "Вопросы для повторения", know: "Я знал(а) это", dontKnow: "Я не знал(а) этого" },
+  es: { reviewBtn: (n) => `📅 Repaso (${n})`, reviewAria: "Preguntas para repasar", know: "Lo sabía", dontKnow: "No lo sabía" },
+  it: { reviewBtn: (n) => `📅 Ripasso (${n})`, reviewAria: "Domande da ripassare", know: "Lo sapevo", dontKnow: "Non lo sapevo" },
+};
+function srsStrings(lang) {
+  return SRS_STRINGS[lang] || SRS_STRINGS.en;
+}
+
+// Opens the same #detail-view flashcard UI the regular question list uses,
+// but sourced from the due queue instead of filteredQuestions()'s topic-
+// filtered list (see the reviewMode branch in filteredQuestions() below) -
+// deliberately reusing the existing single-question dialog rather than
+// building a whole parallel view, since the only real difference is which
+// list feeds it and what happens after reveal.
+function openReviewSession() {
+  const due = dueQuestionsForActiveScope();
+  if (due.length === 0) return; // nothing to review right now - button stays visible showing "(0)"
+  const srs = loadSrsData();
+  state.reviewMode = true;
+  // Most-overdue-first, so the questions that have been due longest (or
+  // dropped straight back to box 0 most recently) surface before ones that
+  // only just became due.
+  state.reviewQueue = due.slice().sort((a, b) => srs[a.id].dueAt - srs[b.id].dueAt);
+  state.detailIndex = 0;
+  state.revealed = false;
+  state.listScrollY = window.scrollY;
+  state.lastOpenedIndex = null; // review mode isn't opened from a specific list card
+  history.pushState({ view: "detail" }, "");
+  render();
+  setInertBehindDialog(true);
+  el("#detail-question").focus();
+}
+
+// Records the self-assessment, feeds it into the Leitner box, and advances
+// to the next due question (or exits review mode once the queue is empty).
+function reviewAssess(wasCorrect) {
+  const q = state.reviewQueue[state.detailIndex];
+  if (!q) return;
+  updateSrsBox(q.id, wasCorrect);
+  state.reviewQueue.splice(state.detailIndex, 1);
+  state.revealed = false;
+  if (state.reviewQueue.length === 0) {
+    history.back(); // triggers the popstate handler's closeDetail(), same exit path as the back button
+    return;
+  }
+  if (state.detailIndex >= state.reviewQueue.length) state.detailIndex = state.reviewQueue.length - 1;
+  render();
+  el("#detail-question").focus();
 }
 
 // --- Sign Reference (Fuehrerschein-only) --------------------------------
@@ -1702,6 +2069,23 @@ function computeExamResults() {
   return { errorPoints, wrongHighStakes, wrongList, passed };
 }
 
+// DN-16: exam mode already has a real, unambiguous right/wrong signal per
+// question (isExamAnswerCorrect), unlike the flashcard view - so exam
+// attempts feed the Leitner schedule automatically, with no extra UI, right
+// alongside completion recording below. Only questions the user actually
+// answered are touched; an unanswered question in Training mode (no time
+// pressure, so this mostly matters for a timed-out Simulation run) isn't
+// assumed to be a "miss" for scheduling purposes, since the user never
+// engaged with it at all.
+function feedExamResultsIntoSrs(ex) {
+  ex.questions.forEach((q) => {
+    const given = ex.answers[q.id];
+    const wasAnswered = Array.isArray(given) ? given.length > 0 : given != null;
+    if (!wasAnswered) return;
+    updateSrsBox(q.id, isExamAnswerCorrect(q, given));
+  });
+}
+
 function finishExam(timedOut) {
   stopExamTimer();
   state.exam.finished = true;
@@ -1710,6 +2094,7 @@ function finishExam(timedOut) {
   el("#exam-results").hidden = false;
   history.replaceState({ view: "exam-results" }, "");
   const results = computeExamResults();
+  feedExamResultsIntoSrs(state.exam);
   if (results.passed && state.exam.mode === "simulation") {
     state.exam.certRecord = recordCompletion(state.examType, state.scopeCode, results);
   }
@@ -1775,7 +2160,8 @@ function renderExamResults() {
     el("#exam-results-cert-html").addEventListener("click", () => {
       downloadTextFile(`zettacard-zertifikat-${record.id}.html`, certificateHtmlDoc(record), "text/html");
     });
-    el("#exam-results-cert-json").addEventListener("click", () => {
+    el("#exam-results-cert-json").addEventListener("click", async () => {
+      await ensureSignedCredential(record);
       downloadTextFile(`zettacard-credential-${record.id}.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
   } else {
@@ -1799,8 +2185,17 @@ function exitExam() {
 const el = (sel) => document.querySelector(sel);
 
 function filteredQuestions() {
-  if (state.topicFilter === "all") return state.questions;
-  return state.questions.filter((q) => q.topic_code === state.topicFilter);
+  // Review mode (DN-16) swaps the list source entirely - the topic filter
+  // doesn't apply while cycling through the due queue, see openReviewSession().
+  if (state.reviewMode) return state.reviewQueue;
+  let qs = state.questions;
+  if (state.topicFilter !== "all") qs = qs.filter((q) => q.topic_code === state.topicFilter);
+  // Role filter (DN-44) is additive to the topic filter above, and only
+  // ever meaningfully narrows anything for the 4 compliance modules (every
+  // other module's questions have no "roles" field, so questionMatchesRole
+  // treats them as ["all"] and they always pass).
+  if (state.roleFilter !== "all") qs = qs.filter((q) => questionMatchesRole(q, state.roleFilter));
+  return qs;
 }
 
 function render() {
@@ -1856,7 +2251,18 @@ function render() {
   profileBtn.setAttribute("aria-label", PR.switchAria);
   profileBtn.title = PR.switchAria;
 
+  // DN-16: shown even at 0 due (never hidden) - a learner should be able to
+  // see "nothing due right now" rather than wonder if review mode exists.
+  const SR = srsStrings(state.lang);
+  const dueCount = dueQuestionsForActiveScope().length;
+  const reviewBtn = el("#review-btn");
+  reviewBtn.textContent = SR.reviewBtn(dueCount);
+  reviewBtn.setAttribute("aria-label", SR.reviewAria);
+  reviewBtn.title = SR.reviewAria;
+  reviewBtn.classList.toggle("has-due", dueCount > 0);
+
   renderFilters();
+  renderRoleFilter();
 
   if (state.detailIndex === null) {
     el("#detail-view").hidden = true;
@@ -1881,6 +2287,36 @@ function renderFilters() {
       state.topicFilter = code;
       state.detailIndex = null;
       try { localStorage.setItem(profileKey("filter"), code); } catch (e) { /* non-fatal */ }
+      render();
+    });
+    container.appendChild(btn);
+  });
+}
+
+// DN-44: second, additive filter row - only shown for the 4 workplace-
+// compliance modules, since that's the only content that carries a `roles`
+// tag. Hidden entirely (not just empty) for every other module, same
+// pattern the Sign Reference button already uses to hide itself outside
+// Fuehrerschein.
+function renderRoleFilter() {
+  const container = el("#role-filters");
+  if (!container) return;
+  const isCompliance = COMPLIANCE_MODULES.has(state.examType);
+  container.hidden = !isCompliance;
+  if (!isCompliance) return;
+
+  const R = roleFilterStrings(state.lang);
+  container.setAttribute("aria-label", R.label);
+  container.innerHTML = "";
+  ROLE_FILTER_CODES.forEach((code) => {
+    const btn = document.createElement("button");
+    btn.textContent = R[code];
+    btn.className = state.roleFilter === code ? "active" : "";
+    btn.setAttribute("aria-pressed", String(state.roleFilter === code));
+    btn.addEventListener("click", () => {
+      state.roleFilter = code;
+      state.detailIndex = null;
+      try { localStorage.setItem(profileKey("role-filter"), code); } catch (e) { /* non-fatal */ }
       render();
     });
     container.appendChild(btn);
@@ -1999,6 +2435,20 @@ function renderDetail() {
     ? `<strong>${S.explanationLabel}:</strong> ${expl}<div class="legal-cite">${S.legalBasis}: ${q.legal_basis}</div>`
     : "";
 
+  // DN-16: review mode replaces the usual prev/next browsing controls with
+  // self-assessment buttons once the answer is revealed - this view has no
+  // other explicit right/wrong signal the way exam mode does (real answer
+  // capture), so the Leitner box update needs the user's own honest
+  // judgment of whether they actually knew it.
+  const SR = srsStrings(state.lang);
+  el("#detail-nav-row").hidden = state.reviewMode;
+  const reviewActions = el("#review-actions");
+  reviewActions.hidden = !(state.reviewMode && state.revealed);
+  if (state.reviewMode) {
+    el("#review-know-btn").textContent = SR.know;
+    el("#review-dontknow-btn").textContent = SR.dontKnow;
+  }
+
   el("#prev-btn").textContent = S.prev;
   el("#next-btn").textContent = S.next;
   el("#prev-btn").disabled = state.detailIndex === 0;
@@ -2069,6 +2519,12 @@ function setInertBehindDialog(isInert) {
 function closeDetail() {
   const returnIndex = state.lastOpenedIndex;
   state.detailIndex = null;
+  // Leaving the detail dialog always exits review mode too (whether via the
+  // back button, browser back gesture, or the queue running out in
+  // reviewAssess()) - there's no "paused" review session to resume, a new
+  // one is just built fresh from whatever's due next time.
+  state.reviewMode = false;
+  state.reviewQueue = [];
   render();
   setInertBehindDialog(false);
   window.scrollTo(0, state.listScrollY || 0);
@@ -2089,6 +2545,9 @@ function wireStaticControls() {
   wireModuleIntroControls();
   el("#certificates-btn").addEventListener("click", openCertificates);
   el("#certificates-close-btn").addEventListener("click", () => history.back());
+  el("#review-btn").addEventListener("click", openReviewSession);
+  el("#review-know-btn").addEventListener("click", () => reviewAssess(true));
+  el("#review-dontknow-btn").addEventListener("click", () => reviewAssess(false));
   el("#sign-reference-btn").addEventListener("click", openSignReferenceView);
   el("#sign-reference-close-btn").addEventListener("click", () => history.back());
 
@@ -2173,6 +2632,7 @@ async function loadActiveProfileState() {
   state.detailIndex = null;
   state.exam = null;
   state.topicFilter = "all";
+  state.roleFilter = "all";
   state.examType = null;
   state.scopeCode = null;
 
@@ -2190,6 +2650,13 @@ async function loadActiveProfileState() {
     }
     const savedFilter = localStorage.getItem(profileKey("filter"));
     state.topicFilter = savedFilter || "all";
+    // DN-44: role filter is per-profile too (same key convention as the
+    // topic filter above) - only ever visibly applied for the 4 compliance
+    // modules, but harmless to restore unconditionally since
+    // questionMatchesRole() treats every other module's untagged questions
+    // as always matching.
+    const savedRoleFilter = localStorage.getItem(profileKey("role-filter"));
+    state.roleFilter = ROLE_FILTER_CODES.includes(savedRoleFilter) ? savedRoleFilter : "all";
   } catch (e) { /* storage unavailable, defaults are fine */ }
 
   document.documentElement.setAttribute("lang", state.lang);

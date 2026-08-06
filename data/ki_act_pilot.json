@@ -26,7 +26,10 @@
     "total_questions": 40,
     "license": "CC BY-NC-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome."
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+    "renewal_months": null,
+    "renewal_basis": "one_time_plus_role_triggered",
+    "renewal_note": "EU AI Act Art. 4 (in force since 2 Feb 2025, enforcement/supervision from 2 Aug 2026) requires 'sufficient AI literacy' scaled to role/risk/system, with no fixed recurring interval in the statute - closer to one-time-plus-updates-on-role-or-system-change than a calendar-driven renewal."
   },
   "questions": [
     {
@@ -168,7 +171,10 @@
         "ru": "AI Act следует риск-ориентированному подходу: чем выше риск, который система ИИ создаёт для безопасности или основных прав, тем строже требования. Полного запрета ИИ не существует, и регламент не заменяет GDPR - оба действуют параллельно.",
         "es": "El AI Act sigue un enfoque basado en el riesgo: cuanto mayor sea el riesgo que un sistema de IA supone para la seguridad o los derechos fundamentales, más estrictos son los requisitos. No existe una prohibición general de la IA, y el reglamento tampoco sustituye al RGPD - ambos se aplican en paralelo.",
         "it": "L'AI Act segue un approccio basato sul rischio: quanto maggiore è il rischio che un sistema di IA comporta per la sicurezza o i diritti fondamentali, tanto più rigorosi sono i requisiti. Non esiste un divieto generale dell'IA, e il regolamento non sostituisce nemmeno il GDPR - entrambi si applicano in parallelo."
-      }
+      },
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "ki_act-grundlagen-02",
@@ -309,7 +315,10 @@
         "ru": "Центральная концепция AI Act - пирамида рисков: неприемлемый риск (запрещён), высокий риск (строгие требования, например при отборе кандидатов или оценке кредитоспособности), ограниченный риск (в основном обязательства по прозрачности, например чат-боты) и минимальный риск (почти нет обязательств, например спам-фильтры или ИИ в видеоиграх).",
         "es": "El concepto central del AI Act es la pirámide de riesgos: riesgo inaceptable (prohibido), riesgo alto (requisitos estrictos, por ejemplo en la selección de candidatos o la evaluación de solvencia), riesgo limitado (principalmente obligaciones de transparencia, por ejemplo chatbots) y riesgo mínimo (apenas obligaciones, por ejemplo filtros de spam o IA de videojuegos).",
         "it": "Il concetto centrale dell'AI Act è la piramide del rischio: rischio inaccettabile (vietato), rischio alto (requisiti rigorosi, ad esempio nella selezione dei candidati o nella valutazione del merito creditizio), rischio limitato (principalmente obblighi di trasparenza, ad esempio i chatbot) e rischio minimo (quasi nessun obbligo, ad esempio i filtri antispam o l'IA nei videogiochi)."
-      }
+      },
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "ki_act-grundlagen-03",
@@ -450,7 +459,10 @@
         "ru": "Определение намеренно технологически нейтрально: решающее значение имеет способность делать выводы из входных данных и на этой основе генерировать результаты - независимо от того, лежит ли в основе простая система правил, машинное обучение или большая языковая модель. Простой, жёстко запрограммированный набор правил без какой-либо формы вывода, как правило, под это не подпадает.",
         "es": "La definición es deliberadamente neutra en cuanto a la tecnología: lo decisivo es la capacidad de extraer conclusiones a partir de datos de entrada y generar resultados sobre esa base, ya sea que detrás haya un sistema simple de reglas, aprendizaje automático o un gran modelo de lenguaje. Un conjunto de reglas fijas y codificadas de forma rígida, sin ninguna forma de inferencia, generalmente no entra en esta categoría.",
         "it": "La definizione è deliberatamente neutrale dal punto di vista tecnologico: ciò che conta è la capacità di trarre conclusioni dai dati di input e generare risultati su questa base, indipendentemente dal fatto che vi sia dietro un semplice sistema di regole, l'apprendimento automatico o un grande modello linguistico. Un insieme di regole fisso e programmato in modo rigido, privo di qualsiasi forma di inferenza, generalmente non rientra in questa categoria."
-      }
+      },
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "ki_act-grundlagen-04",
@@ -591,7 +603,10 @@
         "ru": "ИИ в сфере управления персоналом, участвующий в принятии решений о найме, повышении или увольнении, прямо указан в приложении III AI Act как область высокого риска, поскольку может существенно повлиять на права и возможности отдельных людей. Проверка орфографии, рекомендации фильмов и простые чат-боты, напротив, считаются минимальным или ограниченным риском.",
         "es": "La IA utilizada en recursos humanos que participa en decisiones de contratación, promoción o despido se menciona expresamente en el anexo III del AI Act como área de alto riesgo, porque puede afectar significativamente a los derechos y oportunidades de las personas. La corrección ortográfica, las recomendaciones de películas y los chatbots sencillos, en cambio, se consideran de riesgo mínimo o limitado.",
         "it": "L'IA utilizzata nelle risorse umane che concorre alle decisioni di assunzione, promozione o licenziamento è espressamente indicata nell'allegato III dell'AI Act come settore ad alto rischio, poiché può incidere significativamente sui diritti e sulle opportunità delle persone. La correzione ortografica, le raccomandazioni di film e i semplici chatbot, invece, sono considerati a rischio minimo o limitato."
-      }
+      },
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "ki_act-ki_kompetenz-01",
@@ -732,7 +747,10 @@
         "ru": "Статья 4 прямо адресована как поставщикам (которые разрабатывают или выводят на рынок системы ИИ), так и операторам (deployer), которые используют системы ИИ под собственную ответственность - например, компания, использующая приобретённый ИИ-инструмент в службе поддержки клиентов. Обе группы должны обеспечить, чтобы их персонал обладал достаточной ИИ-грамотностью.",
         "es": "El artículo 4 se dirige expresamente tanto a los proveedores (que desarrollan o comercializan sistemas de IA) como a los responsables del despliegue, que utilizan sistemas de IA bajo su propia responsabilidad - por ejemplo, una empresa que usa una herramienta de IA comprada en atención al cliente. Ambos grupos deben garantizar que su personal cuente con una alfabetización en IA suficiente.",
         "it": "L'articolo 4 si rivolge espressamente sia ai fornitori (che sviluppano o immettono sul mercato sistemi di IA) sia ai deployer, che utilizzano sistemi di IA sotto la propria responsabilità - ad esempio un'azienda che utilizza uno strumento di IA acquistato nel servizio clienti. Entrambi i gruppi devono garantire che il proprio personale disponga di un'adeguata alfabetizzazione in materia di IA."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-ki_kompetenz-02",
@@ -873,7 +891,10 @@
         "ru": "Это обязательство намеренно сформулировано широко и охватывает не только штатных сотрудников, но и всех лиц, которые по поручению компании имеют дело с системами ИИ - это могут быть фрилансеры, временные работники или внешние поставщики услуг, например использующие ИИ-инструмент в общении с клиентами.",
         "es": "La obligación está deliberadamente formulada de forma amplia y no se limita a los empleados fijos, sino que abarca a todas las personas que, por encargo de la empresa, tratan con sistemas de IA - esto puede incluir a autónomos, trabajadores temporales o prestadores de servicios externos que, por ejemplo, usan una herramienta de IA en el contacto con clientes.",
         "it": "L'obbligo è deliberatamente formulato in modo ampio e non riguarda solo i dipendenti stabili, ma tutte le persone che, per conto dell'azienda, hanno a che fare con sistemi di IA - possono essere anche liberi professionisti, lavoratori temporanei o fornitori di servizi esterni che, ad esempio, utilizzano uno strumento di IA nel contatto con i clienti."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-ki_kompetenz-03",
@@ -1014,7 +1035,10 @@
         "ru": "Статья 4 прямо требует учитывать предварительные знания, опыт, образование, а также контекст, в котором будут использоваться системы ИИ - поэтому обучение должно быть адаптировано под конкретную роль. Человеку, который лишь изредка пользуется ИИ-ассистентом для написания текстов, требуется иное содержание, чем тому, кто принимает решения с помощью ИИ в области высокого риска.",
         "es": "El artículo 4 exige expresamente tener en cuenta los conocimientos previos, la experiencia, la formación y el contexto en el que se utilizarán los sistemas de IA - por lo tanto, la formación debe adaptarse al puesto específico. Una persona que solo utiliza ocasionalmente un asistente de escritura de IA necesita un contenido diferente al de alguien que toma decisiones asistidas por IA en un área de alto riesgo.",
         "it": "L'articolo 4 richiede espressamente di tenere conto delle conoscenze pregresse, dell'esperienza, dell'istruzione e del contesto in cui i sistemi di IA saranno utilizzati - la formazione dovrebbe quindi essere adattata al ruolo specifico. Una persona che utilizza solo occasionalmente un assistente di scrittura IA ha bisogno di contenuti diversi rispetto a chi prende decisioni supportate dall'IA in un ambito ad alto rischio."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-ki_kompetenz-04",
@@ -1155,7 +1179,10 @@
         "ru": "Согласно статье 113(a), Глава I (включая статью 4, ИИ-грамотность) и Глава II (статья 5, запрещённые практики) применяются уже с 2 февраля 2025 года - значительно раньше большей части регламента, которая станет применимой только с 2 августа 2026 года. Организация, до сих пор игнорировавшая обязательство по ИИ-грамотности, уже отстаёт, а не просто столкнётся с будущим сроком.",
         "es": "Según el artículo 113, letra a), el capítulo I (que incluye el artículo 4, alfabetización en IA) y el capítulo II (artículo 5, prácticas prohibidas) se aplican ya desde el 2 de febrero de 2025 - mucho antes que la mayor parte del reglamento, que solo será aplicable a partir del 2 de agosto de 2026. Una organización que hasta ahora haya ignorado la obligación de alfabetización en IA ya está, por tanto, en retraso, y no simplemente enfrentando un plazo futuro.",
         "it": "Ai sensi dell'articolo 113, lettera a), il capo I (compreso l'articolo 4, alfabetizzazione in materia di IA) e il capo II (articolo 5, pratiche vietate) si applicano già dal 2 febbraio 2025 - molto prima della maggior parte del regolamento, che diventerà applicabile solo dal 2 agosto 2026. Chi finora ha ignorato l'obbligo di alfabetizzazione in materia di IA è quindi già in ritardo, non semplicemente di fronte a una scadenza futura."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-verbotene_praktiken-01",
@@ -1296,7 +1323,10 @@
         "ru": "Социальная оценка (social scoring) - оценка или классификация физических лиц в течение длительного времени на основе их социального поведения или личных характеристик с последующим неблагоприятным обращением в несвязанных контекстах - одна из классических 'красных линий' статьи 5 AI Act и запрещена во всём ЕС независимо от индивидуального согласия.",
         "es": "La puntuación social - evaluar o clasificar a personas físicas durante un período prolongado en función de su comportamiento social o rasgos personales, con un trato desfavorable resultante en contextos no relacionados - es una de las clásicas 'líneas rojas' del artículo 5 y está prohibida en toda la UE, independientemente del consentimiento individual.",
         "it": "Il punteggio sociale (social scoring) - la valutazione o classificazione di persone fisiche per un periodo prolungato sulla base del loro comportamento sociale o di tratti personali, con conseguente trattamento sfavorevole in contesti non correlati - è una delle classiche 'linee rosse' dell'articolo 5 ed è vietato in tutta l'UE, indipendentemente dal consenso individuale."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-verbotene_praktiken-02",
@@ -1437,7 +1467,10 @@
         "ru": "Регламент предусматривает для удалённой биометрической идентификации в реальном времени в общедоступных местах в целях правоприменения узкие, исчерпывающе перечисленные исключения (например, поиск пропавших детей, предотвращение конкретной и актуальной террористической угрозы), которые, как правило, требуют предварительного судебного или независимого административного разрешения. Для частных компаний вне сферы правоприменения такое использование, как правило, в любом случае остаётся запрещённым.",
         "es": "El reglamento prevé, para la identificación biométrica remota en tiempo real en espacios de acceso público con fines de aplicación de la ley, excepciones estrechas y enumeradas de forma exhaustiva (por ejemplo, la búsqueda de menores desaparecidos, la prevención de una amenaza terrorista concreta e inminente), que en general requieren autorización judicial previa o autorización administrativa independiente. Para las empresas privadas fuera del ámbito de la aplicación de la ley, dicho uso generalmente sigue estando prohibido en cualquier caso.",
         "it": "Il regolamento prevede, per l'identificazione biometrica remota in tempo reale in spazi accessibili al pubblico a fini di contrasto, eccezioni ristrette ed elencate in modo esaustivo (ad esempio la ricerca di bambini scomparsi, la prevenzione di una minaccia terroristica concreta e attuale), che di norma richiedono un'autorizzazione giudiziaria preventiva o un'autorizzazione amministrativa indipendente. Per le aziende private al di fuori delle attività di contrasto, tale uso rimane in genere comunque vietato."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-verbotene_praktiken-03",
@@ -1578,7 +1611,10 @@
         "ru": "Статья 5 запрещает использование систем ИИ, которые применяют подпороговые, манипулятивные или вводящие в заблуждение техники за пределами сознания человека, чтобы существенно исказить его поведение и причинить ему значительный вред - независимо от того, являются ли целевой группой дети или взрослые. Упоминание в условиях использования ничего не меняет, поскольку техника специально направлена на бессознательное влияние.",
         "es": "El artículo 5 prohíbe el uso de sistemas de IA que empleen técnicas subliminales, manipuladoras o engañosas más allá de la conciencia de una persona, para distorsionar sustancialmente su comportamiento y causarle un perjuicio importante - independientemente de que el grupo destinatario sean niños o adultos. Una mención en las condiciones de uso no cambia nada, ya que la técnica está dirigida precisamente a una influencia inconsciente.",
         "it": "L'articolo 5 vieta l'uso di sistemi di IA che impiegano tecniche subliminali, manipolative o ingannevoli al di là della consapevolezza di una persona, per alterarne sostanzialmente il comportamento e arrecarle un danno significativo - indipendentemente dal fatto che il gruppo target sia costituito da bambini o adulti. Una menzione nelle condizioni generali non cambia nulla, poiché la tecnica mira proprio a un'influenza inconsapevole."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-verbotene_praktiken-04",
@@ -1719,7 +1755,10 @@
         "ru": "Намеренная эксплуатация уязвимости определённых групп людей - например, из-за возраста, инвалидности или трудного социального или экономического положения - с целью повлиять на их поведение в их ущерб относится к практикам, прямо запрещённым статьёй 5. Оценка соответствия или уведомление о прозрачности не могут 'исправить' такой запрет, поскольку запрещённые практики в целом не могут быть легализованы дополнительными условиями.",
         "es": "Explotar deliberadamente la vulnerabilidad de determinados grupos de personas - por ejemplo, debido a la edad, la discapacidad o una situación social o económica difícil - con el fin de influir en su comportamiento en su perjuicio se cuenta entre las prácticas expresamente prohibidas por el artículo 5. Una evaluación de conformidad o un aviso de transparencia no puede 'subsanar' dicha prohibición, ya que las prácticas prohibidas en general no pueden legalizarse mediante condiciones adicionales.",
         "it": "Lo sfruttamento deliberato della vulnerabilità di determinati gruppi di persone - ad esempio a causa dell'età, della disabilità o di una difficile situazione sociale o economica - allo scopo di influenzarne il comportamento a loro svantaggio rientra tra le pratiche espressamente vietate dall'articolo 5. Una valutazione di conformità o un avviso di trasparenza non possono 'sanare' un simile divieto, poiché le pratiche vietate in generale non possono essere legalizzate mediante condizioni aggiuntive."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-transparenzpflichten-01",
@@ -1860,7 +1899,11 @@
         "ru": "Статья 50 требует для систем, предназначенных для прямого взаимодействия с физическими лицами, чтобы пользователи были проинформированы о том, что они взаимодействуют с системой ИИ - если только это не очевидно для достаточно информированного, внимательного человека (например, в случае явно автоматизированных стандартных FAQ-ботов). Оценка соответствия для высокого риска здесь не требуется, поскольку простой чат-бот обычно не является системой высокого риска.",
         "es": "El artículo 50 exige, para los sistemas destinados a interactuar directamente con personas físicas, que se informe a los usuarios de que están interactuando con un sistema de IA, salvo que esto sea evidente para una persona razonablemente informada y atenta (por ejemplo, bots de preguntas frecuentes claramente automatizados). No se requiere aquí una evaluación de conformidad de alto riesgo, ya que un chatbot sencillo generalmente no es un sistema de alto riesgo.",
         "it": "L'articolo 50 richiede, per i sistemi destinati a interagire direttamente con persone fisiche, che gli utenti siano informati del fatto che stanno interagendo con un sistema di IA - a meno che ciò non sia evidente per una persona ragionevolmente informata e attenta (ad esempio bot per le domande frequenti chiaramente automatizzati). Non è qui necessaria una valutazione di conformità per l'alto rischio, poiché un semplice chatbot generalmente non è un sistema ad alto rischio."
-      }
+      },
+      "roles": [
+        "management",
+        "it"
+      ]
     },
     {
       "id": "ki_act-transparenzpflichten-02",
@@ -2001,7 +2044,10 @@
         "ru": "Статья 50 обязывает маркировать как искусственно созданный или изменённый контент изображения, аудио или видео, созданный или изменённый ИИ, который ложно представляет реальных людей, объекты, места или события как подлинные ('дипфейки'). Дипфейки не запрещены сами по себе, но должны быть прозрачными - в отличие, например, от социальной оценки, они не являются 'красной линией' статьи 5, а подпадают под обязанность маркировки.",
         "es": "El artículo 50 obliga a etiquetar como generado o manipulado artificialmente el contenido de imagen, audio o vídeo generado o manipulado por IA que haga aparecer falsamente como auténticos a personas, objetos, lugares o eventos reales ('deepfakes'). Los deepfakes no están prohibidos en sí mismos, pero deben hacerse transparentes - a diferencia, por ejemplo, de la puntuación social, no constituyen una 'línea roja' del artículo 5, sino que están sujetos a una obligación de etiquetado.",
         "it": "L'articolo 50 obbliga a contrassegnare come generati o manipolati artificialmente i contenuti di immagini, audio o video generati o manipolati dall'IA che fanno apparire falsamente come autentici persone, oggetti, luoghi o eventi reali ('deepfake'). I deepfake non sono vietati in quanto tali, ma devono essere resi trasparenti - a differenza, ad esempio, del punteggio sociale, non costituiscono una 'linea rossa' ai sensi dell'articolo 5, ma sono soggetti a un obbligo di etichettatura."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "ki_act-transparenzpflichten-03",
@@ -2142,7 +2188,11 @@
         "ru": "Для систем распознавания эмоций или биометрической категоризации статья 50 предусматривает обязанность информирования физических лиц, подверженных воздействию системы - их необходимо проинформировать об эксплуатации системы. Это, кстати, не заменяет никакие дополнительные права соучастия по трудовому праву, например, совета работников, а дополняет их.",
         "es": "Para los sistemas de reconocimiento de emociones o de categorización biométrica, el artículo 50 prevé una obligación de información hacia las personas físicas expuestas al sistema - deben ser informadas de que el sistema está en funcionamiento. Esto, por cierto, no sustituye a otros posibles derechos de codeterminación laboral, como los del comité de empresa, sino que se suma a ellos.",
         "it": "Per i sistemi di riconoscimento delle emozioni o di categorizzazione biometrica, l'articolo 50 prevede un obbligo di informazione nei confronti delle persone fisiche esposte al sistema - devono essere informate del funzionamento del sistema. Ciò, peraltro, non sostituisce eventuali ulteriori diritti di partecipazione previsti dal diritto del lavoro, come quelli del consiglio dei lavoratori, ma si aggiunge ad essi."
-      }
+      },
+      "roles": [
+        "management",
+        "hr"
+      ]
     },
     {
       "id": "ki_act-transparenzpflichten-04",
@@ -2283,7 +2333,10 @@
         "ru": "В отличие от обязательства по ИИ-грамотности (статья 4) и запрещённых практик (статья 5), которые применяются уже с 2 февраля 2025 года, обязательства прозрачности по статье 50 вступают в силу только с общей даты применения 2 августа 2026 года - вместе с большинством остальных обязательств регламента. Компаниям следует учитывать эти разные сроки.",
         "es": "A diferencia de la obligación de alfabetización en IA (artículo 4) y las prácticas prohibidas (artículo 5), que ya se aplican desde el 2 de febrero de 2025, las obligaciones de transparencia del artículo 50 solo entran en vigor en la fecha general de aplicación, el 2 de agosto de 2026, junto con la mayoría de las demás obligaciones del reglamento. Las empresas deben tener presentes estos plazos diferentes.",
         "it": "A differenza dell'obbligo di alfabetizzazione in materia di IA (articolo 4) e delle pratiche vietate (articolo 5), già applicabili dal 2 febbraio 2025, gli obblighi di trasparenza dell'articolo 50 entrano in vigore solo alla data generale di applicazione del 2 agosto 2026 - insieme alla maggior parte degli altri obblighi del regolamento. Le aziende dovrebbero tenere presente queste diverse scadenze."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-ki_am_arbeitsplatz-01",
@@ -2424,7 +2477,10 @@
         "ru": "AI Act регулирует прежде всего риски, исходящие от самой системы ИИ, но не заменяет GDPR. Тот, кто вводит персональные или конфиденциальные данные во внешний ИИ-инструмент, может независимо от AI Act нарушить право защиты данных и внутренние политики, например, потому что данные обрабатываются на серверах вне контроля компании. Оба правовых режима - AI Act и GDPR - необходимо соблюдать параллельно.",
         "es": "El AI Act regula principalmente los riesgos derivados del propio sistema de IA, pero no sustituye al RGPD. Quien introduce datos personales o confidenciales en una herramienta de IA externa puede, independientemente del AI Act, infringir el derecho de protección de datos y las políticas internas, por ejemplo porque los datos se procesan en servidores fuera del control de la empresa. Ambos marcos legales - el AI Act y el RGPD - deben respetarse en paralelo.",
         "it": "L'AI Act disciplina principalmente i rischi derivanti dal sistema di IA stesso, ma non sostituisce il GDPR. Chi inserisce dati personali o riservati in uno strumento di IA esterno può, indipendentemente dall'AI Act, violare il diritto in materia di protezione dei dati e le politiche interne, ad esempio perché i dati vengono elaborati su server al di fuori del controllo dell'azienda. Entrambi i quadri giuridici - l'AI Act e il GDPR - devono essere rispettati in parallelo."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "ki_act-ki_am_arbeitsplatz-02",
@@ -2565,7 +2621,10 @@
         "ru": "AI Act требует для систем высокого риска эффективного человеческого надзора: ответственное лицо должно быть способно понимать результаты ИИ, критически их оценивать и в случае сомнений исправлять или отклонять (избегая 'предвзятости автоматизации'). Слепое принятие предложений ИИ противоречит этому принципу и может в итоге привести к дискриминационным решениям, за которые компания остаётся ответственной.",
         "es": "El AI Act exige, para los sistemas de alto riesgo, una supervisión humana efectiva: la persona responsable debe ser capaz de comprender los resultados de la IA, cuestionarlos críticamente y, en caso de duda, corregirlos o rechazarlos (evitando el 'sesgo de automatización'). Aceptar ciegamente las sugerencias de la IA contradice este principio y puede dar lugar, en última instancia, a decisiones discriminatorias, de las cuales la empresa sigue siendo responsable.",
         "it": "L'AI Act richiede, per i sistemi ad alto rischio, una sorveglianza umana efficace: la persona responsabile deve essere in grado di comprendere i risultati dell'IA, di metterli criticamente in discussione e, in caso di dubbio, di correggerli o respingerli (evitando il cosiddetto 'bias da automazione'). Accettare ciecamente i suggerimenti dell'IA contraddice questo principio e può, in ultima analisi, portare a decisioni discriminatorie, di cui l'azienda rimane responsabile."
-      }
+      },
+      "roles": [
+        "hr"
+      ]
     },
     {
       "id": "ki_act-ki_am_arbeitsplatz-03",
@@ -2706,7 +2765,10 @@
         "ru": "AI Act возлагает на операторов (deployer) систем ИИ высокого риска собственные обязательства, включая надлежащий человеческий надзор и надлежащее использование в соответствии с инструкциями производителя. Эти обязательства - и вытекающая из них ответственность за конкретные решения, принимаемые в деятельности компании - в принципе остаются за компанией или действующим лицом, даже если базовую рекомендацию предоставил ИИ.",
         "es": "El AI Act impone a los responsables del despliegue de sistemas de IA de alto riesgo obligaciones propias, entre ellas una supervisión humana adecuada y un uso conforme a las instrucciones del proveedor. Estas obligaciones - y la responsabilidad resultante de las decisiones concretas tomadas en la empresa - siguen recayendo en principio en la empresa o en la persona que actúa, incluso si la recomendación subyacente fue proporcionada por una IA.",
         "it": "L'AI Act impone ai deployer di sistemi di IA ad alto rischio obblighi propri, tra cui un'adeguata sorveglianza umana e un utilizzo conforme alle istruzioni del fornitore. Questi obblighi - e la conseguente responsabilità per le decisioni concrete prese nell'attività aziendale - rimangono in linea di principio in capo all'azienda o alla persona che agisce, anche se la raccomandazione di base è stata fornita da un'IA."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-ki_am_arbeitsplatz-04",
@@ -2847,7 +2909,10 @@
         "ru": "Генеративный ИИ может быть очень полезен в работе, но не заменяет собственную профессиональную и юридическую ответственность. Результаты могут быть фактически неверными ('галлюцинации'), содержать неосознанные предубеждения или быть проблематичными с точки зрения защиты данных, если случайно были введены конфиденциальные сведения - поэтому критическая проверка перед дальнейшим использованием относится к хорошей деловой практике.",
         "es": "La IA generativa puede ser muy útil en el trabajo, pero no sustituye la responsabilidad profesional y jurídica propia. Los resultados pueden ser objetivamente incorrectos ('alucinaciones'), contener sesgos involuntarios o ser problemáticos desde el punto de vista de la protección de datos si se introdujo información confidencial por error - por eso una revisión crítica antes de un uso posterior forma parte de una buena práctica empresarial.",
         "it": "L'IA generativa può essere molto utile nel lavoro, ma non sostituisce la propria responsabilità professionale e giuridica. I risultati possono essere oggettivamente errati ('allucinazioni'), contenere pregiudizi involontari o essere problematici dal punto di vista della protezione dei dati se sono state inserite per errore informazioni riservate - per questo un esame critico prima dell'ulteriore utilizzo fa parte di una buona prassi aziendale."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "ki_act-grundlagen-05",
@@ -2988,7 +3053,10 @@
         "ru": "Статья 2(3) полностью исключает из сферы применения регламента системы ИИ, предназначенные исключительно для военных, оборонных целей или целей национальной безопасности - независимо от того, какой тип структуры их эксплуатирует. Для этого не существует отдельной сертификации НАТО, и обязательства прозрачности в этом случае также не применяются.",
         "es": "El artículo 2, apartado 3, excluye por completo del ámbito de aplicación del reglamento a los sistemas de IA destinados exclusivamente a fines militares, de defensa o de seguridad nacional, independientemente del tipo de entidad que los opere. No existe una certificación separada de la OTAN para ello, y las obligaciones de transparencia tampoco se aplican en este caso.",
         "it": "L'articolo 2, paragrafo 3, esclude completamente dall'ambito di applicazione del regolamento i sistemi di IA destinati esclusivamente a scopi militari, di difesa o di sicurezza nazionale - indipendentemente dal tipo di ente che li gestisce. Non esiste a tal fine una certificazione NATO separata, e in questo caso non si applicano nemmeno gli obblighi di trasparenza."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-grundlagen-06",
@@ -3129,7 +3197,10 @@
         "ru": "Статья 2(8) исключает из сферы применения исследовательскую, тестовую и разработческую деятельность в отношении систем или моделей ИИ до их вывода на рынок или ввода в эксплуатацию. Исключение не ограничивается государственными учреждениями, но заканчивается, как только система фактически предоставляется на рынке или вводится в эксплуатацию - с этого момента действуют обычные обязательства.",
         "es": "El artículo 2, apartado 8, excluye del ámbito de aplicación las actividades de investigación, prueba y desarrollo relativas a sistemas o modelos de IA antes de su comercialización o puesta en servicio. La excepción no se limita a las instituciones públicas, pero termina en cuanto el sistema se pone efectivamente a disposición en el mercado o se pone en servicio; a partir de ese momento se aplican las obligaciones habituales.",
         "it": "L'articolo 2, paragrafo 8, esclude dall'ambito di applicazione le attività di ricerca, test e sviluppo relative a sistemi o modelli di IA prima della loro immissione sul mercato o messa in servizio. L'eccezione non è limitata alle istituzioni pubbliche, ma termina non appena il sistema viene effettivamente reso disponibile sul mercato o messo in servizio - da quel momento si applicano gli obblighi ordinari."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-grundlagen-07",
@@ -3270,7 +3341,10 @@
         "ru": "Определение поставщика намеренно широкое и не зависит от места учреждения компании или платности, а от того, что кто-то разрабатывает (или поручает разработать) систему ИИ и выводит её на рынок или вводит в эксплуатацию под собственным именем или торговой маркой. Вариант d, напротив, описывает скорее роль оператора (deployer), который лишь использует чужую систему.",
         "es": "La definición de proveedor es deliberadamente amplia y no depende del lugar de establecimiento de la empresa ni de si hay pago, sino de que alguien desarrolle (o haga desarrollar) un sistema de IA y lo comercialice o ponga en servicio bajo su propio nombre o marca. La opción d describe más bien el papel de un responsable del despliegue, que solo utiliza el sistema de otra persona.",
         "it": "La definizione di fornitore è deliberatamente ampia e non dipende dalla sede dell'azienda o dall'onerosità, bensì dal fatto che qualcuno sviluppi (o faccia sviluppare) un sistema di IA e lo immetta sul mercato o lo metta in servizio con il proprio nome o marchio. L'opzione d descrive invece piuttosto il ruolo di un deployer, che si limita a utilizzare il sistema di qualcun altro."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-grundlagen-08",
@@ -3411,7 +3485,10 @@
         "ru": "Статья 6(1) открывает, наряду с классификацией на основе применения через приложение III, второй путь, основанный на продукте: если система ИИ сама является продуктом или компонентом безопасности продукта, который уже подпадает под действующее законодательство ЕС о безопасности продукции (приложение I, например, регламент о машинах, регламент о медицинских изделиях) и требует там оценки соответствия третьей стороной, система ИИ также считается высокорисковой.",
         "es": "El artículo 6, apartado 1, abre, junto a la clasificación basada en la aplicación a través del anexo III, una segunda vía basada en el producto: si el sistema de IA es en sí mismo un producto o un componente de seguridad de un producto que ya está sujeto a la legislación de la UE sobre seguridad de los productos existente (anexo I, por ejemplo, el Reglamento de Maquinaria, el Reglamento de Productos Sanitarios) y que requiere allí una evaluación de conformidad por parte de un tercero, el sistema de IA también se considera de alto riesgo.",
         "it": "L'articolo 6, paragrafo 1, apre, accanto alla classificazione basata sull'applicazione tramite l'allegato III, una seconda via basata sul prodotto: se il sistema di IA è esso stesso un prodotto o un componente di sicurezza di un prodotto già disciplinato dalla normativa UE esistente sulla sicurezza dei prodotti (allegato I, ad esempio il regolamento sulle macchine, il regolamento sui dispositivi medici) e richiede in quell'ambito una valutazione di conformità da parte di terzi, anche il sistema di IA è considerato ad alto rischio."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-ki_kompetenz-05",
@@ -3552,7 +3629,10 @@
         "ru": "Определение в статье 3(56) намеренно широкое: речь идёт не об определённой сертификации или чисто программистских знаниях, а о навыках, знаниях и понимании, позволяющих принимать осознанные решения при обращении с ИИ и формирующих осознание возможностей, рисков и возможного вреда.",
         "es": "La definición del artículo 3, apartado 56, es deliberadamente amplia: no se trata de una certificación específica ni de conocimientos puramente de programación, sino de capacidades, conocimientos y comprensión que permiten tomar decisiones informadas en el manejo de la IA y que generan conciencia sobre las oportunidades, los riesgos y los posibles perjuicios.",
         "it": "La definizione dell'articolo 3, paragrafo 56, è deliberatamente ampia: non si tratta di una certificazione specifica né di pura conoscenza della programmazione, bensì di competenze, conoscenze e comprensione che consentono di prendere decisioni informate nel trattare con l'IA e che creano consapevolezza delle opportunità, dei rischi e dei possibili danni."
-      }
+      },
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "ki_act-ki_kompetenz-06",
@@ -3693,7 +3773,10 @@
         "ru": "Пункт преамбулы 20 поясняет, что ИИ-грамотность должна служить не только самим поставщикам и операторам, но и давать затронутым лицам знания, необходимые для понимания того, как решения, принятые с помощью ИИ, влияют на них.",
         "es": "El considerando 20 aclara que la alfabetización en IA no debe servir únicamente a los propios proveedores y responsables del despliegue, sino también proporcionar a las personas afectadas los conocimientos necesarios para comprender cómo les afectan las decisiones tomadas con ayuda de la IA.",
         "it": "Il considerando 20 chiarisce che l'alfabetizzazione in materia di IA non deve servire soltanto ai fornitori e ai deployer stessi, ma deve anche fornire alle persone interessate le conoscenze necessarie per comprendere in che modo le decisioni prese con l'ausilio dell'IA le riguardano."
-      }
+      },
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "ki_act-ki_kompetenz-07",
@@ -3834,7 +3917,10 @@
         "ru": "Статья 4 сформулирована как обязательство прилагать усилия ('в меру своих возможностей'), а не как обязательство достижения результата с предписанным форматом. Закон оставляет открытым, как конкретно выглядят меры - при условии, что они уместны и учитывают предварительные знания, контекст и затронутые группы лиц.",
         "es": "El artículo 4 está formulado como una obligación de mejores esfuerzos ('en la medida de sus posibilidades'), no como una obligación de resultado con un formato prescrito. La ley deja abierto cómo se ven concretamente las medidas, siempre que sean adecuadas y tengan en cuenta los conocimientos previos, el contexto y los grupos de personas afectados.",
         "it": "L'articolo 4 è formulato come un obbligo di mezzi ('nella misura delle loro possibilità'), non come un obbligo di risultato con un formato prescritto. La legge lascia aperto come si presentino concretamente le misure - purché siano adeguate e tengano conto delle conoscenze pregresse, del contesto e dei gruppi di persone interessati."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-ki_kompetenz-08",
@@ -3975,7 +4061,10 @@
         "ru": "Статья 4 не ограничивается системами высокого риска, а применяется к 'системам ИИ' в целом. Поэтому компания не может ссылаться на то, что использует только низкорисковые инструменты, чтобы освободить себя от обязательства по ИИ-грамотности - это распространённое, но ошибочное заблуждение с реальным риском для соответствия требованиям.",
         "es": "El artículo 4 no se limita a los sistemas de alto riesgo, sino que se aplica a los 'sistemas de IA' en general. Por lo tanto, una empresa no puede alegar que solo utiliza herramientas de bajo riesgo para eximirse de la obligación de alfabetización en IA - es un supuesto común pero erróneo, con un riesgo real de incumplimiento.",
         "it": "L'articolo 4 non si limita ai sistemi ad alto rischio, ma si applica ai 'sistemi di IA' in generale. Un'azienda non può quindi appellarsi al fatto di utilizzare solo strumenti a basso rischio per esonerarsi dall'obbligo di alfabetizzazione in materia di IA - si tratta di un equivoco diffuso ma errato, che comporta un rischio di conformità reale."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-verbotene_praktiken-05",
@@ -4116,7 +4205,10 @@
         "ru": "Статья 5(1)(d) запрещает оценки риска или прогнозы склонности человека к преступлению, основанные исключительно на профилировании или личностных характеристиках. Допустимой остаётся, напротив, ИИ-поддержка человеческой оценки, основанной на объективных, проверяемых фактах, непосредственно связанных с конкретным преступным поведением - это узкое исключение, а не общее правило.",
         "es": "El artículo 5, apartado 1, letra d), prohíbe las evaluaciones de riesgo o predicciones sobre la propensión de una persona a cometer delitos que se basen únicamente en la elaboración de perfiles o en rasgos de personalidad. En cambio, sigue estando permitido el apoyo de la IA a una evaluación humana basada en hechos objetivos y verificables directamente vinculados a una conducta delictiva concreta - esta es la excepción estrecha, no la regla general.",
         "it": "L'articolo 5, paragrafo 1, lettera d), vieta le valutazioni del rischio o le previsioni relative alla propensione di una persona a commettere reati basate esclusivamente sulla profilazione o su tratti della personalità. Resta invece consentito il supporto dell'IA a una valutazione umana basata su fatti oggettivi e verificabili direttamente collegati a un comportamento criminale concreto - questa è l'eccezione ristretta, non la regola generale."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-verbotene_praktiken-06",
@@ -4257,7 +4349,10 @@
         "ru": "Статья 5(1)(e) прямо запрещает нецеленаправленный сбор изображений лиц из интернета или записей видеонаблюдения для создания или расширения баз данных распознавания лиц - независимо от псевдонимизации или возраста изображённых лиц. Логика сбора и обработки, стоящая за этим, подпадает под AI Act, даже если результат формально является 'лишь' базой данных.",
         "es": "El artículo 5, apartado 1, letra e), prohíbe específicamente la recopilación no dirigida de imágenes de rostros de internet o de grabaciones de videovigilancia para crear o ampliar bases de datos de reconocimiento facial, independientemente de la seudonimización o de la edad de las personas representadas. La lógica de recopilación y tratamiento subyacente entra en el ámbito del AI Act, aunque el resultado sea formalmente 'solo' una base de datos.",
         "it": "L'articolo 5, paragrafo 1, lettera e), vieta specificamente la raccolta non mirata di immagini di volti da internet o da registrazioni di videosorveglianza per creare o ampliare banche dati di riconoscimento facciale - indipendentemente dalla pseudonimizzazione o dall'età delle persone ritratte. La logica di raccolta ed elaborazione sottostante rientra nell'AI Act, anche se il risultato è formalmente 'solo' una banca dati."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-verbotene_praktiken-07",
@@ -4398,7 +4493,10 @@
         "ru": "Статья 5(1)(f) запрещает использование систем распознавания эмоций как на рабочем месте, так и в образовательных учреждениях, за исключением случаев, когда существуют медицинские причины или причины безопасности (например, обнаружение усталости при выполнении критически важных для безопасности работ). Простого раскрытия по статье 50 здесь недостаточно - запрет действует независимо от того, предоставлена ли прозрачная информация.",
         "es": "El artículo 5, apartado 1, letra f), prohíbe el uso de sistemas de reconocimiento de emociones tanto en el lugar de trabajo como en los centros educativos, salvo que existan motivos médicos o de seguridad (por ejemplo, la detección de fatiga en actividades críticas para la seguridad). Una mera revelación conforme al artículo 50 no es suficiente aquí - la prohibición se aplica independientemente de si se proporciona información transparente.",
         "it": "L'articolo 5, paragrafo 1, lettera f), vieta l'uso di sistemi di riconoscimento delle emozioni sia sul posto di lavoro sia negli istituti di istruzione, a meno che non sussistano motivi medici o di sicurezza (ad esempio il rilevamento della stanchezza in attività critiche per la sicurezza). Una semplice dichiarazione ai sensi dell'articolo 50 non è qui sufficiente - il divieto si applica indipendentemente dal fatto che venga fornita un'informazione trasparente."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-verbotene_praktiken-08",
@@ -4539,7 +4637,10 @@
         "ru": "Статья 5(1)(g) запрещает биометрическую категоризацию физических лиц с целью вывода их расы, политических взглядов, членства в профсоюзе, религиозных или философских убеждений, сексуальной жизни или сексуальной ориентации. Принятое уведомление о конфиденциальности или маркетинговая цель ничего не меняют - исключения существуют лишь в узком виде, например для законной маркировки/фильтрации наборов данных или биометрической категоризации правоохранительными органами.",
         "es": "El artículo 5, apartado 1, letra g), prohíbe la categorización biométrica de personas físicas para inferir su raza, opiniones políticas, afiliación sindical, creencias religiosas o filosóficas, vida sexual u orientación sexual. Un aviso de privacidad aceptado o una finalidad de marketing no cambian nada al respecto - solo existen excepciones estrechamente definidas, por ejemplo para el etiquetado/filtrado lícito de conjuntos de datos o la categorización biométrica por parte de las autoridades encargadas de hacer cumplir la ley.",
         "it": "L'articolo 5, paragrafo 1, lettera g), vieta la categorizzazione biometrica delle persone fisiche al fine di dedurne la razza, le opinioni politiche, l'appartenenza sindacale, le convinzioni religiose o filosofiche, la vita sessuale o l'orientamento sessuale. Un'informativa sulla privacy accettata o una finalità di marketing non cambiano nulla al riguardo - esistono solo eccezioni definite in modo ristretto, ad esempio per l'etichettatura/filtraggio lecito di set di dati o la categorizzazione biometrica da parte delle autorità di contrasto."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-transparenzpflichten-05",
@@ -4680,7 +4781,10 @@
         "ru": "Статья 50(2) обязывает поставщиков систем ИИ, генерирующих синтетический контент в виде изображений, аудио, видео или текста, обеспечивать, чтобы эти результаты были помечены в машиночитаемом формате и распознаваемы как искусственно созданные или изменённые, насколько это технически осуществимо - независимо от предварительного одобрения органов власти или коммерческого использования.",
         "es": "El artículo 50, apartado 2, obliga a los proveedores de sistemas de IA que generan contenido sintético de imagen, audio, vídeo o texto a garantizar que estos resultados estén marcados en un formato legible por máquina y sean reconocibles como generados o manipulados artificialmente, en la medida en que sea técnicamente viable, independientemente de una aprobación previa por parte de las autoridades o de un uso comercial.",
         "it": "L'articolo 50, paragrafo 2, obbliga i fornitori di sistemi di IA che generano contenuti sintetici di immagini, audio, video o testo a garantire che tali output siano contrassegnati in un formato leggibile da macchina e riconoscibili come generati o manipolati artificialmente, nella misura in cui ciò sia tecnicamente possibile - indipendentemente da un'approvazione preventiva da parte delle autorità o da un uso commerciale."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-transparenzpflichten-06",
@@ -4821,7 +4925,10 @@
         "ru": "Статья 50(1) предусматривает ограниченное исключение для систем ИИ, законно уполномоченных выявлять, предотвращать, расследовать или преследовать уголовные преступления, при условии надлежащих гарантий прав третьих лиц. Однако это исключение не применяется, когда система доступна общественности для сообщения о преступлении - там обязанность информирования сохраняется. Общего исключения для всех государственных органов не существует.",
         "es": "El artículo 50, apartado 1, prevé una excepción limitada para los sistemas de IA legalmente autorizados para detectar, prevenir, investigar o enjuiciar delitos penales, sujeto a garantías adecuadas para los derechos de terceros. Sin embargo, esta excepción no se aplica cuando el sistema está disponible para que el público denuncie un delito - en ese caso, la obligación de información sigue existiendo. No existe una exención general para todas las autoridades públicas.",
         "it": "L'articolo 50, paragrafo 1, prevede un'eccezione limitata per i sistemi di IA legalmente autorizzati a individuare, prevenire, indagare o perseguire reati, fatte salve adeguate garanzie per i diritti dei terzi. Tuttavia, questa eccezione non si applica quando il sistema è disponibile al pubblico per segnalare un reato - in tal caso l'obbligo di informazione permane. Non esiste un'esenzione generale per tutte le autorità pubbliche."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-transparenzpflichten-07",
@@ -4962,7 +5069,10 @@
         "ru": "Статья 50(4), второй абзац, в принципе предусматривает обязательство раскрытия для текстов, созданных или изменённых ИИ и опубликованных на общественно значимые темы. Однако это обязательство не применяется, если контент прошёл процесс человеческой проверки или редакционного контроля, и физическое или юридическое лицо несёт редакционную ответственность за публикацию.",
         "es": "El artículo 50, apartado 4, párrafo segundo, prevé en principio una obligación de divulgación para los textos generados o manipulados por IA publicados sobre temas de interés público. Sin embargo, esta obligación no se aplica si el contenido se ha sometido a un proceso de revisión humana o control editorial y una persona física o jurídica asume la responsabilidad editorial de la publicación.",
         "it": "L'articolo 50, paragrafo 4, secondo comma, prevede in linea di principio un obbligo di divulgazione per i testi generati o manipolati dall'IA pubblicati su argomenti di interesse pubblico. Tale obbligo non si applica tuttavia se il contenuto è stato sottoposto a un processo di revisione umana o controllo editoriale e una persona fisica o giuridica assume la responsabilità editoriale della pubblicazione."
-      }
+      },
+      "roles": [
+        "all_staff"
+      ]
     },
     {
       "id": "ki_act-transparenzpflichten-08",
@@ -5103,7 +5213,10 @@
         "ru": "Статья 50(6) прямо поясняет, что обязательства прозрачности из пунктов 1-4 не затрагивают требования и обязательства Главы III (системы высокого риска). Система высокого риска, которая одновременно подпадает под сферу применения статьи 50, должна поэтому выполнять оба набора обязательств в совокупности, а не только один из них.",
         "es": "El artículo 50, apartado 6, aclara expresamente que las obligaciones de transparencia de los apartados 1 a 4 no afectan a los requisitos y obligaciones del capítulo III (sistemas de alto riesgo). Un sistema de alto riesgo que al mismo tiempo entre en el ámbito de aplicación del artículo 50 debe, por tanto, cumplir ambos conjuntos de obligaciones de forma acumulativa, no solo uno de ellos.",
         "it": "L'articolo 50, paragrafo 6, chiarisce espressamente che gli obblighi di trasparenza dei paragrafi da 1 a 4 non pregiudicano i requisiti e gli obblighi del capo III (sistemi ad alto rischio). Un sistema ad alto rischio che rientra al contempo nell'ambito di applicazione dell'articolo 50 deve pertanto soddisfare entrambi i gruppi di obblighi cumulativamente, non solo uno di essi."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-ki_am_arbeitsplatz-05",
@@ -5244,7 +5357,11 @@
         "ru": "Статья 26(7) обязывает работодателей, которые как операторы используют систему ИИ высокого риска на рабочем месте, заранее информировать представителей работников и затронутых сотрудников - а не только впоследствии, независимо от размера компании, и не только в общем виде в общем уведомлении о конфиденциальности.",
         "es": "El artículo 26, apartado 7, obliga a los empleadores que, como responsables del despliegue, utilizan un sistema de IA de alto riesgo en el lugar de trabajo, a informar previamente a los representantes de los trabajadores y a los empleados afectados - no solo después, independientemente del tamaño de la empresa, y no solo de forma genérica en un aviso de privacidad general.",
         "it": "L'articolo 26, paragrafo 7, obbliga i datori di lavoro che, in qualità di deployer, utilizzano un sistema di IA ad alto rischio sul posto di lavoro a informare preventivamente i rappresentanti dei lavoratori e i dipendenti interessati - non solo a posteriori, indipendentemente dalle dimensioni dell'azienda, e non solo in modo generico in un'informativa generale sulla privacy."
-      }
+      },
+      "roles": [
+        "management",
+        "hr"
+      ]
     },
     {
       "id": "ki_act-ki_am_arbeitsplatz-06",
@@ -5385,7 +5502,10 @@
         "ru": "Приложение III, пункт 4(b), прямо называет системы ИИ, которые принимают решения об условиях труда, повышении или увольнении, распределяют задачи на основе индивидуального поведения или личных характеристик, либо непрерывно отслеживают и оценивают результативность и поведение сотрудников. Чисто административные инструменты без оценочной функции (приложение для столовой, проверка орфографии, простой учёт присутствия) сюда не относятся.",
         "es": "El anexo III, punto 4, letra b), menciona expresamente los sistemas de IA que toman decisiones sobre las condiciones de trabajo, la promoción o el despido, que asignan tareas en función del comportamiento individual o de rasgos personales, o que supervisan y evalúan continuamente el rendimiento y el comportamiento de los empleados. Las herramientas puramente administrativas sin función de evaluación (aplicación de comedor, corrector ortográfico, mero registro de asistencia) no entran en esta categoría.",
         "it": "L'allegato III, punto 4, lettera b), menziona espressamente i sistemi di IA che prendono decisioni sulle condizioni di lavoro, la promozione o il licenziamento, che assegnano compiti in base al comportamento individuale o a tratti personali, o che monitorano e valutano continuamente le prestazioni e il comportamento dei dipendenti. Gli strumenti puramente amministrativi privi di funzione valutativa (app per mensa, correzione ortografica, semplice rilevazione delle presenze) non vi rientrano."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     },
     {
       "id": "ki_act-ki_am_arbeitsplatz-07",
@@ -5526,7 +5646,11 @@
         "ru": "Статья 14(4) требует, чтобы системы ИИ высокого риска были спроектированы так, чтобы лицо, ответственное за надзор, понимало возможности и ограничения системы, могло правильно интерпретировать её результаты, принимать решение не использовать её или игнорировать, отменять либо аннулировать результат, а также прерывать её работу с помощью кнопки 'стоп' или аналогичной процедуры. Ежегодная выборочная проверка или возможность отключения, находящаяся исключительно у производителя, не отвечают этому требованию.",
         "es": "El artículo 14, apartado 4, exige que los sistemas de IA de alto riesgo se diseñen de modo que la persona encargada de la supervisión comprenda las capacidades y limitaciones del sistema, pueda interpretar correctamente sus resultados, decidir no utilizarlo o ignorar, anular o revertir el resultado, e interrumpir su funcionamiento mediante un botón de 'parada' o un procedimiento similar. Una revisión anual por muestreo o una capacidad de apagado que resida exclusivamente en el fabricante no satisfacen este requisito.",
         "it": "L'articolo 14, paragrafo 4, richiede che i sistemi di IA ad alto rischio siano progettati in modo che la persona incaricata della sorveglianza comprenda le capacità e i limiti del sistema, possa interpretarne correttamente gli output, possa decidere di non utilizzarlo o ignorare, annullare o revocare l'output, e possa interrompere il funzionamento tramite un pulsante di 'arresto' o una procedura simile. Un controllo annuale a campione o una capacità di disattivazione riservata esclusivamente al produttore non soddisfano questo requisito."
-      }
+      },
+      "roles": [
+        "hr",
+        "management"
+      ]
     },
     {
       "id": "ki_act-ki_am_arbeitsplatz-08",
@@ -5667,7 +5791,10 @@
         "ru": "AI Act регулирует прежде всего риски, исходящие от самой системы ИИ, и не заменяет GDPR. Параллельно с этим статья 22 GDPR предоставляет затронутым лицам право не подвергаться исключительно автоматизированному решению, которое влечёт юридические последствия или подобным образом существенно затрагивает их - например, полностью автоматизированному отказу в приёме на работу без какого-либо участия человека, с учётом узких исключений, предусмотренных законом.",
         "es": "El AI Act regula principalmente los riesgos derivados del propio sistema de IA y no sustituye al RGPD. En paralelo, el artículo 22 del RGPD concede a las personas afectadas el derecho a no ser objeto exclusivamente de una decisión automatizada que produzca efectos jurídicos o les afecte de modo similarmente significativo - como un rechazo de solicitud de empleo totalmente automatizado sin ninguna intervención humana, sin perjuicio de las excepciones estrechas previstas en la ley.",
         "it": "L'AI Act disciplina principalmente i rischi derivanti dal sistema di IA stesso e non sostituisce il GDPR. Parallelamente, l'articolo 22 del GDPR conferisce alle persone interessate il diritto di non essere sottoposte esclusivamente a una decisione automatizzata che produca effetti giuridici o incida in modo analogamente significativo su di esse - come un rifiuto di candidatura del tutto automatizzato senza alcun coinvolgimento umano, fatte salve le eccezioni ristrette previste dalla legge."
-      }
+      },
+      "roles": [
+        "management"
+      ]
     }
   ]
 }
