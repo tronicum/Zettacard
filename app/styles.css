@@ -396,6 +396,13 @@ main {
   line-height: 1.4;
 }
 
+/* Flashcard options are only clickable ("try it yourself") before reveal -
+   renderDetail() only sets role="button"/"checkbox" on the pre-reveal
+   elements, so this selector naturally stops applying once revealed. */
+.option[role="button"], .option[role="checkbox"] {
+  cursor: pointer;
+}
+
 .option .key {
   font-weight: 700;
   color: var(--text-dim);
@@ -419,6 +426,37 @@ main {
   font-size: 0.78rem;
   font-weight: 700;
   color: var(--green);
+}
+
+/* "Try it yourself" flashcard self-answer (requested after users found the
+   reveal-only flow disconnected from the review-mode know/don't-know
+   buttons). .picked is the pre-reveal "you tapped this one" state - a
+   lighter version of exam mode's .exam-selected so it doesn't get
+   confused with the post-reveal green/red verdict. .your-wrong-pick is the
+   post-reveal "this is what you picked, and it wasn't right" state -
+   paired with the already-shown-elsewhere-in-this-file --red/--wrong-bg
+   tokens (see the review-know/dontknow buttons) so a wrong self-answer and
+   a wrong review self-assessment read as the same kind of feedback. */
+.options .option.picked {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  cursor: pointer;
+}
+
+.option.your-wrong-pick {
+  border-color: var(--red);
+  background: var(--wrong-bg);
+}
+
+.option.your-wrong-pick .key { color: var(--red); }
+
+.wrong-pick-mark {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--red);
 }
 
 .reveal-btn {
@@ -534,9 +572,18 @@ main {
 }
 
 .review-actions {
+  margin: 14px 0 18px;
+}
+
+.review-actions-caption {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.review-actions-buttons {
   display: flex;
   gap: 10px;
-  margin: 14px 0 18px;
 }
 
 .review-know-btn,
@@ -547,6 +594,16 @@ main {
   font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
+}
+
+/* A subtle "this matches what you just did" hint on whichever button lines
+   up with the user's own pre-reveal self-answer attempt (if they made one) -
+   still requires an explicit tap, never auto-submitted, but gives someone
+   who DID try the card something more concrete than a bare feelings-based
+   choice to anchor on. */
+.review-know-btn.suggested,
+.review-dontknow-btn.suggested {
+  box-shadow: 0 0 0 2px var(--focus-ring) inset;
 }
 
 /* Same "never color alone" principle as .correct-mark/.selected-mark - the

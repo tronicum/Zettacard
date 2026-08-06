@@ -118,8 +118,16 @@
            update - shown only while state.reviewMode is true and the answer
            has been revealed (see renderDetail() in app.js). -->
       <div class="review-actions" id="review-actions" hidden>
-        <button class="review-know-btn" id="review-know-btn"></button>
-        <button class="review-dontknow-btn" id="review-dontknow-btn"></button>
+        <!-- Short caption so the two buttons below have context even for a
+             user who hasn't tried answering the card themselves first (see
+             the new pre-reveal "try it yourself" option-picking above) -
+             users found the bare green/red buttons hard to connect to
+             anything on their own. -->
+        <p class="review-actions-caption" id="review-actions-caption"></p>
+        <div class="review-actions-buttons">
+          <button class="review-know-btn" id="review-know-btn"></button>
+          <button class="review-dontknow-btn" id="review-dontknow-btn"></button>
+        </div>
       </div>
       <div id="detail-nav-row" style="display:flex; gap:10px; margin-top:20px;">
         <button class="back-btn" id="prev-btn" style="flex:1;"></button>

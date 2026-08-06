@@ -16,6 +16,7 @@ const UI_STRINGS = {
     points: (p) => `${p} Punkte`,
     highStakes: "Sicherheitsrelevante Frage",
     multiSelectHint: "Mehrere Antworten möglich",
+    yourPickWrong: "Deine Antwort",
     imageNote: "🖼️ Bild ausstehend — Referenz: ",
     explanationLabel: "Erklärung",
     legalBasis: "Rechtsgrundlage",
@@ -36,6 +37,7 @@ const UI_STRINGS = {
     points: (p) => `${p} points`,
     highStakes: "Safety-critical question",
     multiSelectHint: "Multiple answers possible",
+    yourPickWrong: "Your answer",
     imageNote: "🖼️ Image pending — ref: ",
     explanationLabel: "Explanation",
     legalBasis: "Legal basis",
@@ -56,6 +58,7 @@ const UI_STRINGS = {
     points: (p) => `${p} балів`,
     highStakes: "Питання, важливе для безпеки",
     multiSelectHint: "Можливо кілька правильних відповідей",
+    yourPickWrong: "Твоя відповідь",
     imageNote: "🖼️ Зображення відсутнє — посилання: ",
     explanationLabel: "Пояснення",
     legalBasis: "Правова основа",
@@ -76,6 +79,7 @@ const UI_STRINGS = {
     points: (p) => `${p} punktów`,
     highStakes: "Pytanie istotne dla bezpieczeństwa",
     multiSelectHint: "Możliwych kilka poprawnych odpowiedzi",
+    yourPickWrong: "Twoja odpowiedź",
     imageNote: "🖼️ Brak obrazu — odniesienie: ",
     explanationLabel: "Wyjaśnienie",
     legalBasis: "Podstawa prawna",
@@ -96,6 +100,7 @@ const UI_STRINGS = {
     points: (p) => `${p} نقاط`,
     highStakes: "سؤال حرج للسلامة",
     multiSelectHint: "قد تكون هناك عدة إجابات صحيحة",
+    yourPickWrong: "إجابتك",
     imageNote: "🖼️ الصورة غير متوفرة — المرجع: ",
     explanationLabel: "الشرح",
     legalBasis: "الأساس القانوني",
@@ -116,6 +121,7 @@ const UI_STRINGS = {
     points: (p) => `${p} 分`,
     highStakes: "安全关键问题",
     multiSelectHint: "可能有多个正确答案",
+    yourPickWrong: "你的答案",
     imageNote: "🖼️ 图片暂缺 — 参考：",
     explanationLabel: "解释",
     legalBasis: "法律依据",
@@ -136,6 +142,7 @@ const UI_STRINGS = {
     points: (p) => `${p} अंक`,
     highStakes: "सुरक्षा-महत्वपूर्ण प्रश्न",
     multiSelectHint: "कई सही उत्तर संभव हैं",
+    yourPickWrong: "आपका उत्तर",
     imageNote: "🖼️ चित्र उपलब्ध नहीं — संदर्भ: ",
     explanationLabel: "स्पष्टीकरण",
     legalBasis: "कानूनी आधार",
@@ -156,6 +163,7 @@ const UI_STRINGS = {
     points: (p) => `${p} puan`,
     highStakes: "Güvenlik açısından kritik soru",
     multiSelectHint: "Birden fazla doğru cevap olabilir",
+    yourPickWrong: "Cevabınız",
     imageNote: "🖼️ Görsel eksik — referans: ",
     explanationLabel: "Açıklama",
     legalBasis: "Yasal dayanak",
@@ -176,6 +184,7 @@ const UI_STRINGS = {
     points: (p) => `${p} points`,
     highStakes: "Question critique pour la sécurité",
     multiSelectHint: "Plusieurs réponses correctes possibles",
+    yourPickWrong: "Votre réponse",
     imageNote: "🖼️ Image manquante — référence : ",
     explanationLabel: "Explication",
     legalBasis: "Base légale",
@@ -196,6 +205,7 @@ const UI_STRINGS = {
     points: (p) => `${p} баллов`,
     highStakes: "Вопрос, критичный для безопасности",
     multiSelectHint: "Возможно несколько правильных ответов",
+    yourPickWrong: "Ваш ответ",
     imageNote: "🖼️ Изображение отсутствует — ссылка: ",
     explanationLabel: "Объяснение",
     legalBasis: "Правовая основа",
@@ -216,6 +226,7 @@ const UI_STRINGS = {
     points: (p) => `${p} puntos`,
     highStakes: "Pregunta crítica para la seguridad",
     multiSelectHint: "Puede haber varias respuestas correctas",
+    yourPickWrong: "Tu respuesta",
     imageNote: "🖼️ Imagen pendiente — referencia: ",
     explanationLabel: "Explicación",
     legalBasis: "Base legal",
@@ -236,6 +247,7 @@ const UI_STRINGS = {
     points: (p) => `${p} punti`,
     highStakes: "Domanda critica per la sicurezza",
     multiSelectHint: "Sono possibili più risposte corrette",
+    yourPickWrong: "La tua risposta",
     imageNote: "🖼️ Immagine mancante — riferimento: ",
     explanationLabel: "Spiegazione",
     legalBasis: "Base giuridica",
@@ -630,6 +642,15 @@ const state = {
   // (the due-question list) instead of the topic-filtered browsing list.
   reviewMode: false,
   reviewQueue: [],
+  // "Try it yourself" (flashcard self-answer, requested after users found the
+  // reveal-only flow and the review-mode know/don't-know buttons hard to
+  // connect to anything - answering blind then being asked "did you know
+  // it?" felt disconnected). Mirrors exam mode's answer-tracking shape:
+  // a single string key for single_choice, an array of keys for
+  // multi_choice. Cleared to null whenever the shown question changes (see
+  // every "state.revealed = false" site above) so a stale pick from a
+  // previous card never leaks into the next one.
+  detailPick: null,
 };
 
 // --- Local profile switcher --------------------------------------------
@@ -1604,18 +1625,18 @@ function dueQuestionsForActiveScope() {
 // above, kept standalone rather than folded into UI_STRINGS since it's a
 // self-contained additive feature (same reasoning EXAM_STRINGS documents).
 const SRS_STRINGS = {
-  de: { reviewBtn: (n) => `📅 Wiederholen (${n})`, reviewAria: "Fällige Wiederholungen", know: "Ich wusste es", dontKnow: "Ich wusste es nicht" },
-  en: { reviewBtn: (n) => `📅 Review (${n})`, reviewAria: "Questions due for review", know: "I knew it", dontKnow: "I didn't know it" },
-  uk: { reviewBtn: (n) => `📅 Повторення (${n})`, reviewAria: "Питання для повторення", know: "Я знав(ла) це", dontKnow: "Я не знав(ла) цього" },
-  pl: { reviewBtn: (n) => `📅 Powtórka (${n})`, reviewAria: "Pytania do powtórki", know: "Wiedziałem/am to", dontKnow: "Nie wiedziałem/am tego" },
-  ar: { reviewBtn: (n) => `📅 مراجعة (${n})`, reviewAria: "أسئلة مستحقة للمراجعة", know: "كنت أعرف ذلك", dontKnow: "لم أكن أعرف ذلك" },
-  zh: { reviewBtn: (n) => `📅 复习 (${n})`, reviewAria: "待复习的问题", know: "我知道", dontKnow: "我不知道" },
-  hi: { reviewBtn: (n) => `📅 पुनरावृत्ति (${n})`, reviewAria: "समीक्षा हेतु प्रश्न", know: "मुझे पता था", dontKnow: "मुझे नहीं पता था" },
-  tr: { reviewBtn: (n) => `📅 Tekrar (${n})`, reviewAria: "Tekrar edilecek sorular", know: "Biliyordum", dontKnow: "Bilmiyordum" },
-  fr: { reviewBtn: (n) => `📅 Révision (${n})`, reviewAria: "Questions à réviser", know: "Je le savais", dontKnow: "Je ne le savais pas" },
-  ru: { reviewBtn: (n) => `📅 Повтор (${n})`, reviewAria: "Вопросы для повторения", know: "Я знал(а) это", dontKnow: "Я не знал(а) этого" },
-  es: { reviewBtn: (n) => `📅 Repaso (${n})`, reviewAria: "Preguntas para repasar", know: "Lo sabía", dontKnow: "No lo sabía" },
-  it: { reviewBtn: (n) => `📅 Ripasso (${n})`, reviewAria: "Domande da ripassare", know: "Lo sapevo", dontKnow: "Non lo sapevo" },
+  de: { reviewBtn: (n) => `📅 Wiederholen (${n})`, reviewAria: "Fällige Wiederholungen", know: "Ich wusste es", dontKnow: "Ich wusste es nicht", caption: "Wie lief's mit dieser Karte?" },
+  en: { reviewBtn: (n) => `📅 Review (${n})`, reviewAria: "Questions due for review", know: "I knew it", dontKnow: "I didn't know it", caption: "How did that go?" },
+  uk: { reviewBtn: (n) => `📅 Повторення (${n})`, reviewAria: "Питання для повторення", know: "Я знав(ла) це", dontKnow: "Я не знав(ла) цього", caption: "Як пройшло з цією карткою?" },
+  pl: { reviewBtn: (n) => `📅 Powtórka (${n})`, reviewAria: "Pytania do powtórki", know: "Wiedziałem/am to", dontKnow: "Nie wiedziałem/am tego", caption: "Jak poszło z tą kartą?" },
+  ar: { reviewBtn: (n) => `📅 مراجعة (${n})`, reviewAria: "أسئلة مستحقة للمراجعة", know: "كنت أعرف ذلك", dontKnow: "لم أكن أعرف ذلك", caption: "كيف سارت الأمور مع هذه البطاقة؟" },
+  zh: { reviewBtn: (n) => `📅 复习 (${n})`, reviewAria: "待复习的问题", know: "我知道", dontKnow: "我不知道", caption: "这张卡片答得怎么样？" },
+  hi: { reviewBtn: (n) => `📅 पुनरावृत्ति (${n})`, reviewAria: "समीक्षा हेतु प्रश्न", know: "मुझे पता था", dontKnow: "मुझे नहीं पता था", caption: "इस कार्ड के साथ कैसा रहा?" },
+  tr: { reviewBtn: (n) => `📅 Tekrar (${n})`, reviewAria: "Tekrar edilecek sorular", know: "Biliyordum", dontKnow: "Bilmiyordum", caption: "Bu kartla nasıl gitti?" },
+  fr: { reviewBtn: (n) => `📅 Révision (${n})`, reviewAria: "Questions à réviser", know: "Je le savais", dontKnow: "Je ne le savais pas", caption: "Comment ça s'est passé avec cette carte ?" },
+  ru: { reviewBtn: (n) => `📅 Повтор (${n})`, reviewAria: "Вопросы для повторения", know: "Я знал(а) это", dontKnow: "Я не знал(а) этого", caption: "Как прошло с этой карточкой?" },
+  es: { reviewBtn: (n) => `📅 Repaso (${n})`, reviewAria: "Preguntas para repasar", know: "Lo sabía", dontKnow: "No lo sabía", caption: "¿Cómo te fue con esta tarjeta?" },
+  it: { reviewBtn: (n) => `📅 Ripasso (${n})`, reviewAria: "Domande da ripassare", know: "Lo sapevo", dontKnow: "Non lo sapevo", caption: "Come è andata con questa carta?" },
 };
 function srsStrings(lang) {
   return SRS_STRINGS[lang] || SRS_STRINGS.en;
@@ -1638,6 +1659,7 @@ function openReviewSession() {
   state.reviewQueue = due.slice().sort((a, b) => srs[a.id].dueAt - srs[b.id].dueAt);
   state.detailIndex = 0;
   state.revealed = false;
+      state.detailPick = null; // DN: clear any in-progress self-answer attempt when moving to a (possibly new) question
   state.listScrollY = window.scrollY;
   state.lastOpenedIndex = null; // review mode isn't opened from a specific list card
   history.pushState({ view: "detail" }, "");
@@ -1654,6 +1676,7 @@ function reviewAssess(wasCorrect) {
   updateSrsBox(q.id, wasCorrect);
   state.reviewQueue.splice(state.detailIndex, 1);
   state.revealed = false;
+      state.detailPick = null; // DN: clear any in-progress self-answer attempt when moving to a (possibly new) question
   if (state.reviewQueue.length === 0) {
     history.back(); // triggers the popstate handler's closeDetail(), same exit path as the back button
     return;
@@ -2355,6 +2378,7 @@ function renderList() {
       state.lastOpenedIndex = i; // so focus can return to the same card on close
       state.detailIndex = i;
       state.revealed = false;
+      state.detailPick = null; // DN: clear any in-progress self-answer attempt when moving to a (possibly new) question
       history.pushState({ view: "detail" }, "");
       render();
       setInertBehindDialog(true);
@@ -2410,19 +2434,66 @@ function renderDetail() {
     imageNoteEl.hidden = true;              // class has equal CSS specificity to [hidden]
   }
 
+  // "Try it yourself": before reveal, options are clickable (checkbox-style
+  // toggle for multi_choice, single-pick overwrite otherwise - exactly
+  // mirroring exam mode's pick()/applySelection() so the interaction feels
+  // like the same product). After reveal, clicking stops doing anything
+  // (isRevealPending guards it) and every option shows its final state:
+  // the real correct answer(s) always get the existing green check mark,
+  // and - new - whichever option(s) the user actually picked get a second,
+  // distinct mark if their pick was wrong (a plain reveal-only flow can't
+  // tell a user "yes you had it right" or "no, that's not it" the way exam
+  // mode already could).
+  const isMultiSelectQ = q.question_type === "multi_choice";
+  const pickedKeys = Array.isArray(state.detailPick)
+    ? state.detailPick
+    : (state.detailPick != null ? [state.detailPick] : []);
+
   const optionsEl = el("#options");
   optionsEl.innerHTML = "";
   Object.entries(t.options).forEach(([key, text]) => {
     const isCorrect = q.correct.includes(key);
     const showCorrect = state.revealed && isCorrect;
+    const wasPicked = pickedKeys.includes(key);
+    const showWrongPick = state.revealed && wasPicked && !isCorrect;
     const div = document.createElement("div");
-    div.className = "option" + (showCorrect ? " correct" : "");
-    // Correct answer is marked with text + a checkmark, not color alone -
-    // color-only signalling is unreliable for colorblind users (amber/green
-    // read as near-identical under some forms of color blindness).
+    div.className = "option"
+      + (showCorrect ? " correct" : "")
+      + (showWrongPick ? " your-wrong-pick" : "")
+      + (!state.revealed && wasPicked ? " picked" : "")
+      + (isMultiSelectQ && !state.revealed ? " option-checkbox" : "");
+    div.dataset.key = key;
+    if (!state.revealed) {
+      div.setAttribute("role", isMultiSelectQ ? "checkbox" : "button");
+      if (isMultiSelectQ) div.setAttribute("aria-checked", String(wasPicked));
+      else div.setAttribute("aria-pressed", String(wasPicked));
+      div.tabIndex = 0;
+    }
+    // Marks are always text/icon + color together, never color alone -
+    // same accessibility principle already applied to .correct-mark/
+    // .selected-mark elsewhere in this app.
     div.innerHTML = `<span class="key">${key.toUpperCase()}</span><span>${text}</span>${
-      showCorrect ? `<span class="correct-mark">✓ ${S.correctMark}</span>` : ""
+      showCorrect ? `<span class="correct-mark">✓ ${S.correctMark}</span>`
+      : showWrongPick ? `<span class="wrong-pick-mark">✗ ${S.yourPickWrong}</span>`
+      : ""
     }`;
+    if (!state.revealed) {
+      const pick = () => {
+        if (isMultiSelectQ) {
+          const current = Array.isArray(state.detailPick) ? state.detailPick : [];
+          state.detailPick = current.includes(key)
+            ? current.filter((k) => k !== key)
+            : [...current, key];
+        } else {
+          state.detailPick = state.detailPick === key ? null : key; // click again to deselect
+        }
+        renderDetail();
+      };
+      div.addEventListener("click", pick);
+      div.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); }
+      });
+    }
     optionsEl.appendChild(div);
   });
 
@@ -2445,8 +2516,25 @@ function renderDetail() {
   const reviewActions = el("#review-actions");
   reviewActions.hidden = !(state.reviewMode && state.revealed);
   if (state.reviewMode) {
+    el("#review-actions-caption").textContent = SR.caption;
     el("#review-know-btn").textContent = SR.know;
     el("#review-dontknow-btn").textContent = SR.dontKnow;
+    // If the user actually tried answering this card themselves (pickedKeys,
+    // computed above while rendering #options) before revealing, gently
+    // suggest whichever button matches what really happened - still just a
+    // suggestion (a highlighted ring, not a pre-click), since a single
+    // right/wrong guess isn't automatically the same thing as genuinely
+    // "knowing" a fact, and the user should always have the final say.
+    const knowBtn = el("#review-know-btn");
+    const dontKnowBtn = el("#review-dontknow-btn");
+    knowBtn.classList.remove("suggested");
+    dontKnowBtn.classList.remove("suggested");
+    if (pickedKeys.length > 0) {
+      const gotItRight = isMultiSelectQ
+        ? (pickedKeys.length === q.correct.length && pickedKeys.every((k) => q.correct.includes(k)))
+        : (pickedKeys.length === 1 && q.correct.includes(pickedKeys[0]));
+      (gotItRight ? knowBtn : dontKnowBtn).classList.add("suggested");
+    }
   }
 
   el("#prev-btn").textContent = S.prev;
@@ -2607,6 +2695,7 @@ function wireStaticControls() {
     if (state.detailIndex > 0) {
       state.detailIndex -= 1;
       state.revealed = false;
+      state.detailPick = null; // DN: clear any in-progress self-answer attempt when moving to a (possibly new) question
       render();
       el("#detail-view").scrollTop = 0;
     }
@@ -2617,6 +2706,7 @@ function wireStaticControls() {
     if (state.detailIndex < qs.length - 1) {
       state.detailIndex += 1;
       state.revealed = false;
+      state.detailPick = null; // DN: clear any in-progress self-answer attempt when moving to a (possibly new) question
       render();
       el("#detail-view").scrollTop = 0;
     }
