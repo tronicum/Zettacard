@@ -220,6 +220,23 @@ async function main() {
     console.log("Independent signature verification: PASSED");
     console.log(`  achievement: ${payload.vc.credentialSubject.achievement.name}`);
 
+    // DN-51: the exam-results screen should now also offer a standalone
+    // "Download signed credential (JWT, for wallets)" button - verify it's
+    // present and that clicking it actually downloads the raw JWT (not
+    // wrapped in JSON), matching the record's own signedJwt exactly.
+    const jwtBtn = page.locator(".cert-jwt-row .cert-dl-jwt");
+    await jwtBtn.waitFor({ state: "visible", timeout: 5000 });
+    const [download] = await Promise.all([
+      page.waitForEvent("download"),
+      jwtBtn.click(),
+    ]);
+    const downloadPath = await download.path();
+    const downloadedJwt = (await (await import("node:fs/promises")).readFile(downloadPath, "utf8")).trim();
+    if (downloadedJwt !== record.signedJwt) {
+      fail(`JWT download button produced content that doesn't match the record's signedJwt (DN-51 regression). Got ${downloadedJwt.length} chars, expected ${record.signedJwt.length}.`);
+    }
+    console.log("DN-51 JWT download button: PASSED (downloaded file matches the signed JWT exactly)");
+
     console.log("\nPASS: real exam completed, real signed badge issued and independently verified.");
     process.exitCode = 0;
   } catch (e) {
