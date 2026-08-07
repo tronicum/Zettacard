@@ -39,6 +39,23 @@ const ISSUER_URL = process.env.URL || "https://zettacard.netlify.app";
 const JWKS_PATH = "/.well-known/jwks.json";
 const STORE_NAME = "verified-credentials";
 
+// This is a "legacy" (exports.handler) function, not the newer
+// export-default Functions v2 style - Netlify only auto-injects the Blobs
+// siteID/token context for v2 functions, so getStore(STORE_NAME) alone
+// throws MissingBlobsEnvironmentError here even in production (confirmed
+// by deploying with debug output). Netlify still exposes SITE_ID and a
+// scoped NETLIFY_FUNCTIONS_TOKEN to every function's environment though,
+// which is exactly the { siteID, token } shape getStore() accepts - so
+// pass those explicitly instead of switching function styles.
+async function getVerifiedCredentialsStore() {
+  const { getStore } = await loadBlobs();
+  return getStore({
+    name: STORE_NAME,
+    siteID: process.env.SITE_ID,
+    token: process.env.NETLIFY_FUNCTIONS_TOKEN,
+  });
+}
+
 const COMPLIANCE_EXAM_TYPES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit"]);
 const MAX_LABEL_LEN = 200;
 const MAX_NAME_LEN = 100;
@@ -136,18 +153,11 @@ exports.handler = async (event, context) => {
   };
 
   try {
-    const { getStore } = await loadBlobs();
-    const store = getStore(STORE_NAME);
+    const store = getVerifiedCredentialsStore();
     await store.setJSON(slug, record);
   } catch (e) {
     console.error("save-verified-credential: Blobs write failed:", e);
-    return jsonResponse(500, {
-      error: "Could not save the permanent verification record on this deployment.",
-      debug: String((e && e.stack) || e),
-      envKeys: Object.keys(process.env).filter((k) => /NETLIFY|BLOB|SITE|URL|DEPLOY/i.test(k)),
-      contextKeys: Object.keys(context || {}),
-      clientContextKeys: Object.keys((context && context.clientContext) || {}),
-    });
+    return jsonResponse(500, { error: "Could not save the permanent verification record on this deployment." });
   }
 
   return jsonResponse(200, { slug, verifyUrl: `${ISSUER_URL}/verify/${slug}` });

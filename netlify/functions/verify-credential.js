@@ -36,6 +36,20 @@ const ISSUER_URL = process.env.URL || "https://zettacard.netlify.app";
 const JWKS_PATH = "/.well-known/jwks.json";
 const STORE_NAME = "verified-credentials";
 
+// See save-verified-credential.js for why siteID/token are passed
+// explicitly: this is a "legacy" (exports.handler) function, and Netlify
+// only auto-injects the Blobs environment for v2 (export-default)
+// functions - getStore(STORE_NAME) alone throws
+// MissingBlobsEnvironmentError here even in production.
+async function getVerifiedCredentialsStore() {
+  const { getStore } = await loadBlobs();
+  return getStore({
+    name: STORE_NAME,
+    siteID: process.env.SITE_ID,
+    token: process.env.NETLIFY_FUNCTIONS_TOKEN,
+  });
+}
+
 function escapeHtml(s) {
   return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
@@ -87,8 +101,7 @@ exports.handler = async (event) => {
 
   let record;
   try {
-    const { getStore } = await loadBlobs();
-    const store = getStore(STORE_NAME);
+    const store = await getVerifiedCredentialsStore();
     record = await store.get(slug, { type: "json" });
   } catch (e) {
     console.error("verify-credential: Blobs read failed:", e);
