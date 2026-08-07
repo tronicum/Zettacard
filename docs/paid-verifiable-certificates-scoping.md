@@ -1,8 +1,15 @@
 # Scoping: Paid, Permanently-Verifiable PDF Certificates (B2B + B2C)
 
-Status: **scoping only, no code written yet.** PO has already made three scope calls that this
-document takes as fixed inputs (see section 0) — what's still open is everything under
-"Open questions" (section 6) and the actual build, which hasn't started.
+Status: **scoping only, MVP build about to start.** PO has made a fourth scope call since this
+document was first written: **the MVP ships at 0€ per certificate — no payment processing at all
+for now.** This removes Stripe entirely from the MVP (section 3.2's `stripe-checkout-session` /
+`stripe-webhook` functions and all of Phase 2/4 below are deferred, not cancelled — the permanent
+verification link is the actual product being validated first; monetizing it is a later,
+separate decision once the mechanic itself is proven and there's a real B2B customer asking to pay
+for it). Everything else in section 0 (module scope: 4 compliance modules only; storage: Netlify
+Database) still stands. What's now open is only "Open questions" (section 6) still relevant to a
+free MVP (identity capture, data retention) — pricing/payment questions are moot until a paid tier
+is actually revisited.
 
 ## 0. The ask, and decisions already made
 
@@ -95,9 +102,18 @@ realistic volume for a while.
 
 ### 3.2 New/changed Netlify Functions
 
+**MVP (0€, build this now):**
+
 - **`create-verified-credential`** (extends today's `sign-credential.js` flow): after signing,
-  if the request is for a *paid* record, write the row above and return the permanent slug/URL
-  instead of (or alongside) the raw JWT.
+  writes the row above and returns a permanent slug/URL alongside the raw JWT — no payment gate,
+  every completed compliance-module exam simulation gets one.
+- **`verify/[id]`** (or a static-feeling route serving from the DB): the actual public
+  verification page. Renders credential details + a clear "✅ Valid" / re-checks the JWT signature
+  server-side against the JWKS at request time (belt-and-suspenders alongside the stored
+  `signed_jwt`) — this is the page a non-technical DGUV auditor actually opens, not a JSON blob.
+
+**Deferred until a paid tier is actually revisited (not part of the MVP):**
+
 - **`stripe-checkout-session`**: creates a Stripe Checkout session for either the B2C one-off
   (~5€) or a B2B flow (see section 6 — B2B pricing isn't decided yet, this function's shape
   depends on that answer).
@@ -106,10 +122,6 @@ realistic volume for a while.
   is what actually confirms payment and triggers persistence. This is the same category of
   trust-boundary discipline the existing signing doc already applies to grading (client state is
   never trusted for anything that matters).
-- **`verify/[id]`** (or a static-feeling route serving from the DB): the actual public
-  verification page. Renders credential details + a clear "✅ Valid" / re-checks the JWT signature
-  server-side against the JWKS at request time (belt-and-suspenders alongside the stored
-  `signed_jwt`) — this is the page a non-technical DGUV auditor actually opens, not a JSON blob.
 
 ### 3.3 PDF generation
 
@@ -151,37 +163,52 @@ if real B2B customers push back on quality/consistency.
 
 ## 5. Recommended build order (phased, not all-at-once)
 
-1. **Phase 1 — prove the mechanic, no payment yet**: wire up Netlify Database, extend the existing
-   free signing flow so ANY signed record can optionally get a permanent slug + a real `/verify/<id>`
-   page (gate it behind a feature flag / internal-only for now). Goal: prove the "permanent,
-   independently-checkable link" idea actually works end-to-end before adding money to it.
-2. **Phase 2 — B2C paid unlock**: Stripe Checkout for the one-off ~5€ purchase, gated behind
-   Phase 1's persistence layer. Webhook-confirmed, not client-confirmed.
+**MVP scope (0€ — this is what we're building now):**
+
+1. **Phase 1 — the actual MVP**: wire up storage (Netlify Database or Blobs — see the sources note
+   below, worth a 10-minute comparison before committing to one), extend the existing free signing
+   flow so every completed compliance-module Exam Simulation gets a permanent slug + a real
+   `/verify/<id>` public page, no payment gate at all. This alone is the deliverable: a DGUV
+   auditor or a new employer can open a real, permanent, independently-checkable link — for free.
+   Ship this, then see whether B2B demand for a paid/premium tier actually materializes before
+   building anything in Phase 2.
+
+**Deferred, not scoped further until there's real demand:**
+
+2. **Phase 2 — paid tier** (Stripe, B2C ~5€ one-off + a to-be-decided B2B model): only worth
+   building once Phase 1 is live and either a real B2B customer asks to pay for something Phase 1
+   doesn't already give them (e.g. a nicer PDF, bulk/org management, an SLA), or B2C demand for a
+   premium version shows up. Revisit sections 3.2/6's price and B2B-model questions at that point,
+   not now.
 3. **Phase 3 — PDF**: client-side generation first (see 3.3), styled to match the existing
-   certificate design.
-4. **Phase 4 — B2B flow**: deliberately last, and deliberately a separate scoping conversation —
-   B2B pricing/contracts/bulk-purchase or subscription shape is a business decision, not a
-   technical one, and isn't decided yet (see open questions below).
+   certificate design. Could actually happen alongside or even before Phase 2 if a downloadable PDF
+   turns out to matter more than the payment question — worth reassessing once Phase 1 users
+   actually ask for it.
+4. **Phase 4 — B2B-specific flow**: bulk/org accounts, invoicing — its own scoping conversation
+   later.
 
 ## 6. Open questions — need a PO decision before Phase 1 starts
 
-- **Exact B2C price**: ~5€ was mentioned but not confirmed as final.
 - **Identity capture**: a permanent, third-party-checkable certificate arguably needs to show
   *whose* certificate it is — today the app has no login/accounts at all (local device-profile
-  names only, e.g. "Default", not verified identities). At minimum, buying a certificate would need
-  to capture a real name/email at payment time (Stripe Checkout can collect this). This is also
-  where the PO's earlier "we'll need real login eventually, e.g. Google OAuth" comment (this
-  session) becomes directly relevant — worth deciding whether this feature is the trigger for that
-  login work, or whether "email/name captured at payment, no account/login" is good enough for v1.
-- **B2B pricing model**: per-certificate, per-seat/subscription, or a custom
-  quote/invoice-based flow? Not scoped in this document on purpose — it's a business decision, and
-  the technical shape (section 3.2) depends on the answer.
+  names only, e.g. "Default", not verified identities, and definitely not something to put on a
+  public compliance record). Since there's no payment step to piggyback a name/email capture on
+  anymore, this needs its own small answer for the free MVP: simplest option is a plain optional
+  text field ("Name for the certificate") shown once, at the moment of generating the permanent
+  link — not a real verified identity, just a label, same trust level as today's local profile
+  names. This is also where the PO's earlier "we'll need real login eventually, e.g. Google OAuth"
+  comment (this session) becomes relevant again — worth deciding whether Phase 1 needs that now, or
+  whether an unverified optional name field is good enough for a free MVP (recommended: the latter
+  — don't pull OAuth into scope just to ship a free verification-link MVP).
 - **Data retention**: how long does a verification record need to stay live? Indefinitely (the
   "permanent" in "permanent link" implies this), but worth an explicit policy statement rather than
-  an implicit assumption, especially once GDPR obligations (section 4) are being written up anyway.
+  an implicit assumption, especially since section 4's GDPR note applies even to a free MVP the
+  moment a name is attached to a record.
 - **Verification page branding/content**: should it show just pass/fail + module + date (matches
   today's certificate), or more detail (e.g. per-topic breakdown)? Worth a quick mockup once Phase
   1 is underway rather than deciding purely in the abstract here.
+- Price and B2B-pricing-model questions from the original draft are moot for now — revisit only
+  when Phase 2 is actually scheduled.
 
 ## Sources
 
