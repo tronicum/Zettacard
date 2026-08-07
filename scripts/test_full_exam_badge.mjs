@@ -195,10 +195,28 @@ async function main() {
     // Independently verify the JWT's signature against the LIVE published
     // JWKS - this is the actual proof, not just trusting the app's own
     // "verified: true" flag (which the app sets itself and could in
-    // principle be wrong even if well-intentioned).
+    // principle be wrong even if well-intentioned). Retried a couple times
+    // with a generous per-attempt timeout: this sandbox's outbound network
+    // is occasionally slow/jittery (observed transient JWKSTimeout errors
+    // during development that a plain re-run always passed on the next
+    // attempt) - that's sandbox flakiness, not a signal about the actual
+    // feature, so it's worth a couple of retries here rather than a single
+    // shot with jose's short default timeout.
     const { jwtVerify, createRemoteJWKSet } = await import("jose");
-    const JWKS = createRemoteJWKSet(new URL(`${SITE_URL}/.well-known/jwks.json`));
-    const { payload } = await jwtVerify(record.signedJwt, JWKS, { issuer: SITE_URL });
+    const JWKS = createRemoteJWKSet(new URL(`${SITE_URL}/.well-known/jwks.json`), { timeoutDuration: 10000 });
+    let payload;
+    let lastErr;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        ({ payload } = await jwtVerify(record.signedJwt, JWKS, { issuer: SITE_URL }));
+        lastErr = null;
+        break;
+      } catch (e) {
+        lastErr = e;
+        console.warn(`  [warn] JWKS verification attempt ${attempt}/3 failed (${e.message}), retrying...`);
+      }
+    }
+    if (lastErr) fail(`Independent signature verification failed after 3 attempts: ${lastErr.message}`);
     console.log("Independent signature verification: PASSED");
     console.log(`  achievement: ${payload.vc.credentialSubject.achievement.name}`);
 
