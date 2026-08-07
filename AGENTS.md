@@ -32,7 +32,7 @@ Read these before generating or editing any content — they came out of real le
 
 ## Offline architecture (orientation only — see `app/service-worker.js` comments for full detail)
 
-`service-worker.js` precaches only the small app shell plus the top-level module manifest (`app/data/modules.json`) at install time. Per-module, per-locale content files and sign SVGs are **not** precached by default — they're runtime-cached lazily as the fetch handler intercepts requests, so only the module(s)/locale(s)/sign(s) a given visitor actually opens become available offline for them (plus, since a later round, an explicit "prepare for offline" action that proactively fetches a chosen module/locale ahead of time — see the offline-preparation feature if/when built). Keep this in mind before assuming "offline" means "everything is precached": adding a module or locale does not require touching the service worker's precache list, but a bug in the runtime-cache fetch handler affects offline availability project-wide.
+`service-worker.js` precaches only the small app shell plus the top-level module manifest (`app/data/modules.json`) at install time. Per-module, per-locale content files and sign/diagram SVGs are **not** precached by default — they're runtime-cached lazily as the fetch handler intercepts requests, so only the module(s)/locale(s)/image(s) a given visitor actually opens become available offline for them. On top of that, `app.js` has an explicit per-module "make available offline" button (`offlineAssetUrls()`/`checkOfflineReadiness()`/`prepareOffline()`) that proactively fetches a chosen module's current-language content plus every sign/diagram image its questions reference, so a visitor can prepare a module ahead of time instead of only getting offline coverage for whatever they happened to click on already — this works with ZERO changes to `service-worker.js` itself, since its existing fetch handler already caches any successful fetch it intercepts; adding proactive-fetch coverage for something new (e.g. a different asset type) only ever needs the URL added to `offlineAssetUrls()`. Keep this in mind before assuming "offline" means "everything is precached": adding a module or locale does not require touching the service worker's precache list, but a bug in the runtime-cache fetch handler affects offline availability project-wide.
 
 ## Working discipline: don't trust self-reported "looks right"
 
@@ -53,7 +53,7 @@ This project runs light scrumban with four personas: **Product Owner**, **Scrum 
 
 1. Pull the top card from `Ready` in `BACKLOG.md` (respect WIP limits).
 2. Move it to `In Progress`, do the work as the Developer persona.
-3. Run validation (schema check script, locale-coverage check; extend as the schema grows).
+3. Validate before calling it done. There is **no automated schema-check script in this repo today** — despite what an earlier version of this file implied, don't assume one exists. In practice validation has meant: a small ad-hoc Python/Node script per change (locale-key-completeness check, image_ref → file-exists check, `node --check`/`python3 -c "import ast; ast.parse(...)"` for syntax), and for anything visual, actually rendering/screenshotting it (see "Working discipline" below). Building a real, reusable schema-validation script would be a legitimate improvement — flag it to the PO rather than silently building one as a side effect of an unrelated card.
 4. Move to `Student Review` — do a pass as the Student persona (does this read clearly, does it feel exam-realistic, is anything confusing).
 5. Only after Student Review passes, move to `Done` and commit, referencing the card ID in the commit message.
 6. Scrum Master role: keep `BACKLOG.md` tidy, enforce WIP limits, don't originate content decisions.
@@ -62,3 +62,11 @@ This project runs light scrumban with four personas: **Product Owner**, **Scrum 
 ## Commit conventions
 
 `[<card-id>] <short summary>` — e.g. `[DN-3] Add multi-select question type to schema`. Keep commits scoped to one card where possible.
+
+## Deploy (once work is committed and the PO wants it live)
+
+1. If `data/` content or `data/modules_manifest.json` changed: `cd data && python3 build_modules.py` (regenerates `app/data/**`). If any StVO sign/diagram was touched: `python3 assets/generate_signs.py` (and `assets/generate_diagrams.py` if applicable) from the repo root — both write to `assets/` AND `app/assets/` in the same run, and `assets/build_sign_reference.py` if `app/data/fuehrerschein/sign_reference.json` needs regenerating too. Re-run these before committing, not after.
+2. Commit and push to `main` on GitHub (`tronicum/Zettacard`) — proxy env vars must be unset for `git push` to work in this environment: `env -u https_proxy -u HTTPS_PROXY -u http_proxy -u HTTP_PROXY -u no_proxy -u NO_PROXY git push`.
+3. Deploy to Netlify (site `zettacard`, siteId `b244f9b2-e45a-48c0-9f59-0405f587c213`) via the Netlify MCP connector's `deploy-site` operation, then run the `npx @netlify/mcp@latest --site-id ... --proxy-path "..."` command it returns (same unset-proxy-vars requirement as the git push).
+4. Verify the live site, not just the deploy log: `curl` a changed data/asset file's live URL to confirm the new content actually served, and/or a live Playwright pass for anything UI-visible. A successful Netlify deploy message is not itself proof the change is live and correct.
+5. Per standing PO instruction: don't deploy every small change automatically — deploying is a deliberate step, not an implicit part of "done."
