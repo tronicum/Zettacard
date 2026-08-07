@@ -49,7 +49,12 @@
   # below the catch-all every /verify/<slug> link would 200 into the
   # landing page instead of ever reaching verify-credential.js.
   from = "/verify/*"
-  to = "/.netlify/functions/verify-credential/:splat"
+  # Function is named "verify-credential-v2" (not "verify-credential") -
+  # Netlify's deploy pipeline was reusing a stale cached bundle for the
+  # original name across deploys even after its source was rewritten (a
+  # legacy exports.handler function replaced by a v2 export-default one);
+  # renaming sidestepped whatever kept it stuck on the old build.
+  to = "/.netlify/functions/verify-credential-v2/:splat"
   status = 200
 
 [[redirects]]

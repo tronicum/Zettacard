@@ -2225,7 +2225,10 @@ function renderBadgeRow(slot, record, C) {
 // own comments) - this call is best-effort and offline-safe like the
 // signing flow above: on any failure the record simply stays without a
 // verifyUrl and the button remains available to retry later.
-const SAVE_VERIFIED_CREDENTIAL_ENDPOINT = "/.netlify/functions/save-verified-credential";
+// Function is named "save-verified-credential-v2" (not
+// "save-verified-credential") - see netlify.toml's /verify/* redirect
+// comment for why (a stale deploy-caching issue with the original name).
+const SAVE_VERIFIED_CREDENTIAL_ENDPOINT = "/.netlify/functions/save-verified-credential-v2";
 const SAVE_VERIFIED_CREDENTIAL_TIMEOUT_MS = 8000;
 
 async function createVerifyLink(record, participantName) {
