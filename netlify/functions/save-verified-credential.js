@@ -62,7 +62,7 @@ function sanitizeName(raw) {
   return cleaned.slice(0, MAX_NAME_LEN);
 }
 
-exports.handler = async (event) => {
+exports.handler = async (event, context) => {
   if (event.httpMethod !== "POST") {
     return jsonResponse(405, { error: "Method not allowed. Use POST." });
   }
@@ -141,7 +141,13 @@ exports.handler = async (event) => {
     await store.setJSON(slug, record);
   } catch (e) {
     console.error("save-verified-credential: Blobs write failed:", e);
-    return jsonResponse(500, { error: "Could not save the permanent verification record on this deployment.", debug: String((e && e.stack) || e) });
+    return jsonResponse(500, {
+      error: "Could not save the permanent verification record on this deployment.",
+      debug: String((e && e.stack) || e),
+      envKeys: Object.keys(process.env).filter((k) => /NETLIFY|BLOB|SITE|URL|DEPLOY/i.test(k)),
+      contextKeys: Object.keys(context || {}),
+      clientContextKeys: Object.keys((context && context.clientContext) || {}),
+    });
   }
 
   return jsonResponse(200, { slug, verifyUrl: `${ISSUER_URL}/verify/${slug}` });
