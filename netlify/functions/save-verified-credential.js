@@ -153,11 +153,11 @@ exports.handler = async (event, context) => {
   };
 
   try {
-    const store = getVerifiedCredentialsStore();
+    const store = await getVerifiedCredentialsStore();
     await store.setJSON(slug, record);
   } catch (e) {
     console.error("save-verified-credential: Blobs write failed:", e);
-    return jsonResponse(500, { error: "Could not save the permanent verification record on this deployment." });
+    return jsonResponse(500, { error: "Could not save the permanent verification record on this deployment.", debug: String((e && e.stack) || e) });
   }
 
   return jsonResponse(200, { slug, verifyUrl: `${ISSUER_URL}/verify/${slug}` });
