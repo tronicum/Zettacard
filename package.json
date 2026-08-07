@@ -4,7 +4,8 @@
   "version": "1.0.0",
   "description": "Zettacard exam-prep PWA. This package.json exists solely so Netlify's function bundler (zip-it-and-ship-it/esbuild) can resolve and bundle npm dependencies for netlify/functions/*.js - the app itself (app/) remains a build-step-free static PWA (see netlify.toml).",
   "dependencies": {
-    "jose": "^6.2.8"
+    "jose": "^6.2.8",
+    "@netlify/blobs": "^8.1.0"
   },
   "devDependencies": {
     "playwright": "^1.47.0"

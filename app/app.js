@@ -1600,6 +1600,17 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ Signiertes Abzeichen", selfIssuedLabel: "Unbestätigt",
     verifiedHint: "Kryptographisch signiert, von Dritten überprüfbar.",
     selfIssuedHint: "Selbst erstellt, nicht signiert.",
+    // DN-49: permanent, publicly shareable verification link for compliance
+    // certificates (0€ MVP - see docs/paid-verifiable-certificates-scoping.md).
+    verifyRowTitle: "Permanenter Prüflink",
+    verifyRowIntro: "Für Compliance-Zertifikate: Erstelle einen dauerhaften Link, unter dem jeder (z. B. dein Arbeitgeber) die Signatur direkt online prüfen kann.",
+    verifyNamePlaceholder: "Name (optional)",
+    verifyCreateBtn: "Prüflink erstellen",
+    verifyCreating: "Wird erstellt …",
+    verifyLinkLabel: "Dein Prüflink:",
+    verifyCopyBtn: "Kopieren",
+    verifyCopiedBtn: "Kopiert!",
+    verifyError: "Der Prüflink konnte nicht erstellt werden. Bitte später erneut versuchen.",
   },
   en: {
     btn: "My certificates", title: "My certificates", close: "← Back",
@@ -1613,6 +1624,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ Signed badge", selfIssuedLabel: "Unverified",
     verifiedHint: "Cryptographically signed, independently verifiable by a third party.",
     selfIssuedHint: "Self-generated, not signed.",
+    verifyRowTitle: "Permanent verification link",
+    verifyRowIntro: "For compliance certificates: create a permanent link where anyone (e.g. your employer) can check the signature directly online.",
+    verifyNamePlaceholder: "Name (optional)",
+    verifyCreateBtn: "Create verification link",
+    verifyCreating: "Creating …",
+    verifyLinkLabel: "Your verification link:",
+    verifyCopyBtn: "Copy",
+    verifyCopiedBtn: "Copied!",
+    verifyError: "Could not create the verification link. Please try again later.",
   },
   uk: {
     btn: "Мої сертифікати", title: "Мої сертифікати", close: "← Назад",
@@ -1626,6 +1646,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ Підписаний бейдж", selfIssuedLabel: "Не підтверджено",
     verifiedHint: "Криптографічно підписано, може бути перевірено третьою стороною.",
     selfIssuedHint: "Створено самостійно, не підписано.",
+    verifyRowTitle: "Постійне посилання для перевірки",
+    verifyRowIntro: "Для сертифікатів комплаєнсу: створіть постійне посилання, за яким будь-хто (наприклад, ваш роботодавець) може перевірити підпис онлайн.",
+    verifyNamePlaceholder: "Ім'я (необов'язково)",
+    verifyCreateBtn: "Створити посилання для перевірки",
+    verifyCreating: "Створення…",
+    verifyLinkLabel: "Ваше посилання для перевірки:",
+    verifyCopyBtn: "Копіювати",
+    verifyCopiedBtn: "Скопійовано!",
+    verifyError: "Не вдалося створити посилання для перевірки. Спробуйте пізніше.",
   },
   pl: {
     btn: "Moje certyfikaty", title: "Moje certyfikaty", close: "← Wstecz",
@@ -1639,6 +1668,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ Podpisana odznaka", selfIssuedLabel: "Niezweryfikowane",
     verifiedHint: "Podpisane kryptograficznie, możliwe do niezależnej weryfikacji.",
     selfIssuedHint: "Wygenerowane samodzielnie, niepodpisane.",
+    verifyRowTitle: "Stały link weryfikacyjny",
+    verifyRowIntro: "Dla certyfikatów zgodności: utwórz stały link, pod którym każdy (np. Twój pracodawca) może bezpośrednio online sprawdzić podpis.",
+    verifyNamePlaceholder: "Imię (opcjonalnie)",
+    verifyCreateBtn: "Utwórz link weryfikacyjny",
+    verifyCreating: "Tworzenie…",
+    verifyLinkLabel: "Twój link weryfikacyjny:",
+    verifyCopyBtn: "Kopiuj",
+    verifyCopiedBtn: "Skopiowano!",
+    verifyError: "Nie udało się utworzyć linku weryfikacyjnego. Spróbuj ponownie później.",
   },
   ar: {
     btn: "شهاداتي", title: "شهاداتي", close: "→ رجوع",
@@ -1652,6 +1690,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ شارة موقّعة", selfIssuedLabel: "غير موثّق",
     verifiedHint: "موقّعة تشفيريًا، ويمكن لطرف مستقل التحقق منها.",
     selfIssuedHint: "تم إنشاؤها ذاتيًا، غير موقّعة.",
+    verifyRowTitle: "رابط تحقق دائم",
+    verifyRowIntro: "لشهادات الامتثال: أنشئ رابطًا دائمًا يمكن لأي شخص (مثل صاحب العمل) من خلاله التحقق من التوقيع مباشرة عبر الإنترنت.",
+    verifyNamePlaceholder: "الاسم (اختياري)",
+    verifyCreateBtn: "إنشاء رابط تحقق",
+    verifyCreating: "جارٍ الإنشاء…",
+    verifyLinkLabel: "رابط التحقق الخاص بك:",
+    verifyCopyBtn: "نسخ",
+    verifyCopiedBtn: "تم النسخ!",
+    verifyError: "تعذّر إنشاء رابط التحقق. يرجى المحاولة لاحقًا.",
   },
   zh: {
     btn: "我的证书", title: "我的证书", close: "← 返回",
@@ -1665,6 +1712,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ 已签名徽章", selfIssuedLabel: "未验证",
     verifiedHint: "已加密签名,可由第三方独立验证。",
     selfIssuedHint: "自行生成,未签名。",
+    verifyRowTitle: "永久验证链接",
+    verifyRowIntro: "适用于合规证书:创建一个永久链接,任何人(例如你的雇主)都可以直接在线核实签名。",
+    verifyNamePlaceholder: "姓名(可选)",
+    verifyCreateBtn: "创建验证链接",
+    verifyCreating: "正在创建…",
+    verifyLinkLabel: "你的验证链接:",
+    verifyCopyBtn: "复制",
+    verifyCopiedBtn: "已复制!",
+    verifyError: "无法创建验证链接,请稍后重试。",
   },
   hi: {
     btn: "मेरे प्रमाणपत्र", title: "मेरे प्रमाणपत्र", close: "← वापस",
@@ -1678,6 +1734,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ हस्ताक्षरित बैज", selfIssuedLabel: "असत्यापित",
     verifiedHint: "क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित, किसी तीसरे पक्ष द्वारा स्वतंत्र रूप से सत्यापन योग्य।",
     selfIssuedHint: "स्वयं निर्मित, हस्ताक्षरित नहीं।",
+    verifyRowTitle: "स्थायी सत्यापन लिंक",
+    verifyRowIntro: "अनुपालन प्रमाणपत्रों के लिए: एक स्थायी लिंक बनाएं जिससे कोई भी (जैसे आपका नियोक्ता) सीधे ऑनलाइन हस्ताक्षर की जांच कर सके।",
+    verifyNamePlaceholder: "नाम (वैकल्पिक)",
+    verifyCreateBtn: "सत्यापन लिंक बनाएं",
+    verifyCreating: "बनाया जा रहा है…",
+    verifyLinkLabel: "आपका सत्यापन लिंक:",
+    verifyCopyBtn: "कॉपी करें",
+    verifyCopiedBtn: "कॉपी हो गया!",
+    verifyError: "सत्यापन लिंक नहीं बनाया जा सका। कृपया बाद में पुनः प्रयास करें।",
   },
   tr: {
     btn: "Sertifikalarım", title: "Sertifikalarım", close: "← Geri",
@@ -1691,6 +1756,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ İmzalı rozet", selfIssuedLabel: "Doğrulanmamış",
     verifiedHint: "Kriptografik olarak imzalanmış, üçüncü bir taraf tarafından bağımsız olarak doğrulanabilir.",
     selfIssuedHint: "Kendiliğinden oluşturulmuş, imzalanmamış.",
+    verifyRowTitle: "Kalıcı doğrulama bağlantısı",
+    verifyRowIntro: "Uyumluluk sertifikaları için: herkesin (ör. işvereniniz) imzayı doğrudan çevrimiçi kontrol edebileceği kalıcı bir bağlantı oluşturun.",
+    verifyNamePlaceholder: "İsim (opsiyonel)",
+    verifyCreateBtn: "Doğrulama bağlantısı oluştur",
+    verifyCreating: "Oluşturuluyor…",
+    verifyLinkLabel: "Doğrulama bağlantınız:",
+    verifyCopyBtn: "Kopyala",
+    verifyCopiedBtn: "Kopyalandı!",
+    verifyError: "Doğrulama bağlantısı oluşturulamadı. Lütfen daha sonra tekrar deneyin.",
   },
   fr: {
     btn: "Mes certificats", title: "Mes certificats", close: "← Retour",
@@ -1704,6 +1778,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ Badge signé", selfIssuedLabel: "Non vérifié",
     verifiedHint: "Signé cryptographiquement, vérifiable de manière indépendante par un tiers.",
     selfIssuedHint: "Auto-généré, non signé.",
+    verifyRowTitle: "Lien de vérification permanent",
+    verifyRowIntro: "Pour les certificats de conformité : créez un lien permanent où n'importe qui (par ex. votre employeur) peut vérifier la signature directement en ligne.",
+    verifyNamePlaceholder: "Nom (facultatif)",
+    verifyCreateBtn: "Créer un lien de vérification",
+    verifyCreating: "Création en cours…",
+    verifyLinkLabel: "Votre lien de vérification :",
+    verifyCopyBtn: "Copier",
+    verifyCopiedBtn: "Copié !",
+    verifyError: "Impossible de créer le lien de vérification. Veuillez réessayer plus tard.",
   },
   ru: {
     btn: "Мои сертификаты", title: "Мои сертификаты", close: "← Назад",
@@ -1717,6 +1800,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ Подписанный значок", selfIssuedLabel: "Не подтверждено",
     verifiedHint: "Подписано криптографически, может быть независимо проверено третьей стороной.",
     selfIssuedHint: "Создано самостоятельно, не подписано.",
+    verifyRowTitle: "Постоянная ссылка для проверки",
+    verifyRowIntro: "Для сертификатов соответствия: создайте постоянную ссылку, по которой любой (например, ваш работодатель) может напрямую проверить подпись онлайн.",
+    verifyNamePlaceholder: "Имя (необязательно)",
+    verifyCreateBtn: "Создать ссылку для проверки",
+    verifyCreating: "Создание…",
+    verifyLinkLabel: "Ваша ссылка для проверки:",
+    verifyCopyBtn: "Копировать",
+    verifyCopiedBtn: "Скопировано!",
+    verifyError: "Не удалось создать ссылку для проверки. Попробуйте позже.",
   },
   es: {
     btn: "Mis certificados", title: "Mis certificados", close: "← Atrás",
@@ -1730,6 +1822,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ Insignia firmada", selfIssuedLabel: "No verificado",
     verifiedHint: "Firmado criptográficamente, verificable de forma independiente por un tercero.",
     selfIssuedHint: "Autogenerado, no firmado.",
+    verifyRowTitle: "Enlace de verificación permanente",
+    verifyRowIntro: "Para certificados de cumplimiento: crea un enlace permanente donde cualquiera (p. ej. tu empleador) pueda comprobar la firma directamente en línea.",
+    verifyNamePlaceholder: "Nombre (opcional)",
+    verifyCreateBtn: "Crear enlace de verificación",
+    verifyCreating: "Creando…",
+    verifyLinkLabel: "Tu enlace de verificación:",
+    verifyCopyBtn: "Copiar",
+    verifyCopiedBtn: "¡Copiado!",
+    verifyError: "No se pudo crear el enlace de verificación. Inténtalo de nuevo más tarde.",
   },
   it: {
     btn: "I miei certificati", title: "I miei certificati", close: "← Indietro",
@@ -1743,6 +1844,15 @@ const CERT_STRINGS = {
     verifiedLabel: "✅ Badge firmato", selfIssuedLabel: "Non verificato",
     verifiedHint: "Firmato crittograficamente, verificabile in modo indipendente da terzi.",
     selfIssuedHint: "Autogenerato, non firmato.",
+    verifyRowTitle: "Link di verifica permanente",
+    verifyRowIntro: "Per i certificati di conformità: crea un link permanente con cui chiunque (ad es. il tuo datore di lavoro) può verificare la firma direttamente online.",
+    verifyNamePlaceholder: "Nome (facoltativo)",
+    verifyCreateBtn: "Crea link di verifica",
+    verifyCreating: "Creazione…",
+    verifyLinkLabel: "Il tuo link di verifica:",
+    verifyCopyBtn: "Copia",
+    verifyCopiedBtn: "Copiato!",
+    verifyError: "Impossibile creare il link di verifica. Riprova più tardi.",
   },
 };
 function certStrings(lang) {
@@ -1776,6 +1886,20 @@ function persistCompletionUpdate(record) {
     const idx = all.findIndex((r) => r.id === record.id);
     if (idx === -1) return;
     all[idx] = { ...all[idx], signedJwt: record.signedJwt, verified: record.verified, signedKid: record.signedKid, signedAlg: record.signedAlg };
+    localStorage.setItem(profileKey("completions"), JSON.stringify(all));
+  } catch (e) { /* non-fatal - storage may be full/unavailable */ }
+}
+
+// DN-49: once a permanent verification link has been created for a record
+// (see createVerifyLink() below), remember it in the same localStorage
+// completion record so re-opening "My certificates" later shows the
+// existing link instead of silently offering to create a second one.
+function persistVerifyUrl(record) {
+  try {
+    const all = getCompletions();
+    const idx = all.findIndex((r) => r.id === record.id);
+    if (idx === -1) return;
+    all[idx] = { ...all[idx], verifyUrl: record.verifyUrl };
     localStorage.setItem(profileKey("completions"), JSON.stringify(all));
   } catch (e) { /* non-fatal - storage may be full/unavailable */ }
 }
@@ -2030,8 +2154,10 @@ async function renderCertificates() {
         <button class="back-btn cert-dl-cert">${C.downloadCert}</button>
         <button class="back-btn cert-dl-cred">${C.downloadCred}</button>
       </div>
+      <div class="cert-verify-row"></div>
     `;
     renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+    renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
     card.querySelector(".cert-dl-cert").addEventListener("click", () => {
       downloadTextFile(`${record.examType}-${record.scopeCode}-certificate.html`, certificateHtmlDoc(record), "text/html");
     });
@@ -2041,6 +2167,7 @@ async function renderCertificates() {
       // building the download - falls back silently if it can't.
       await ensureSignedCredential(record);
       renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+      renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
       downloadTextFile(`${record.examType}-${record.scopeCode}-credential.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
     list.appendChild(card);
@@ -2056,6 +2183,7 @@ async function renderCertificates() {
     if (!record.verified) {
       ensureSignedCredential(record).then(() => {
         renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+        renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
       });
     }
 
@@ -2089,6 +2217,108 @@ function renderBadgeRow(slot, record, C) {
       <span class="cert-badge-hint">${verified ? C.verifiedHint : C.selfIssuedHint}</span>
     </span>
   `;
+}
+
+// --- Permanent verification link (DN-49, 0€ MVP) ------------------------
+// Calls save-verified-credential.js, which independently re-verifies the
+// signature server-side before persisting anything (see that function's
+// own comments) - this call is best-effort and offline-safe like the
+// signing flow above: on any failure the record simply stays without a
+// verifyUrl and the button remains available to retry later.
+const SAVE_VERIFIED_CREDENTIAL_ENDPOINT = "/.netlify/functions/save-verified-credential";
+const SAVE_VERIFIED_CREDENTIAL_TIMEOUT_MS = 8000;
+
+async function createVerifyLink(record, participantName) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), SAVE_VERIFIED_CREDENTIAL_TIMEOUT_MS);
+  try {
+    const res = await fetch(SAVE_VERIFIED_CREDENTIAL_ENDPOINT, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        id: record.id,
+        examType: record.examType,
+        scopeCode: record.scopeCode,
+        moduleLabel: record.moduleLabel,
+        scopeLabel: record.scopeLabel,
+        passedAt: record.passedAt,
+        errorPoints: record.errorPoints,
+        wrongHighStakes: record.wrongHighStakes,
+        totalQuestions: record.totalQuestions,
+        signedJwt: record.signedJwt,
+        signedKid: record.signedKid,
+        signedAlg: record.signedAlg,
+        participantName: participantName || undefined,
+      }),
+      signal: controller.signal,
+    });
+    if (!res.ok) return null;
+    const body = await res.json();
+    if (!body || !body.verifyUrl) return null;
+    record.verifyUrl = body.verifyUrl;
+    persistVerifyUrl(record);
+    return body.verifyUrl;
+  } catch (e) {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// Renders the "get a permanent, shareable verification link" row for a
+// completion card. Only ever shown for the 4 compliance modules AND only
+// once the record actually has a real signature (verified + signedJwt) -
+// a self-issued/unverified record isn't eligible, same gating the backend
+// function independently enforces itself (see save-verified-credential.js).
+function renderVerifyLinkRow(slot, record, C) {
+  if (!slot) return;
+  if (!COMPLIANCE_MODULES.has(record.examType) || !(record.verified && record.signedJwt)) {
+    slot.innerHTML = "";
+    return;
+  }
+  if (record.verifyUrl) {
+    slot.innerHTML = `
+      <div class="cert-verify-title">${C.verifyRowTitle}</div>
+      <div class="cert-verify-link-row">
+        <a class="cert-verify-link" href="${record.verifyUrl}" target="_blank" rel="noopener">${record.verifyUrl}</a>
+        <button type="button" class="back-btn cert-verify-copy-btn">${C.verifyCopyBtn}</button>
+      </div>
+    `;
+    slot.querySelector(".cert-verify-copy-btn").addEventListener("click", async () => {
+      const btn = slot.querySelector(".cert-verify-copy-btn");
+      try {
+        await navigator.clipboard.writeText(record.verifyUrl);
+        btn.textContent = C.verifyCopiedBtn;
+        setTimeout(() => { btn.textContent = C.verifyCopyBtn; }, 2000);
+      } catch (e) { /* clipboard API unavailable - link is still selectable/openable */ }
+    });
+    return;
+  }
+  slot.innerHTML = `
+    <div class="cert-verify-title">${C.verifyRowTitle}</div>
+    <div class="cert-verify-intro">${C.verifyRowIntro}</div>
+    <div class="cert-verify-form">
+      <input type="text" class="cert-verify-name-input" placeholder="${C.verifyNamePlaceholder}" maxlength="100">
+      <button type="button" class="back-btn cert-verify-create-btn">${C.verifyCreateBtn}</button>
+    </div>
+  `;
+  slot.querySelector(".cert-verify-create-btn").addEventListener("click", async () => {
+    const btn = slot.querySelector(".cert-verify-create-btn");
+    const nameInput = slot.querySelector(".cert-verify-name-input");
+    btn.disabled = true;
+    btn.textContent = C.verifyCreating;
+    const url = await createVerifyLink(record, nameInput.value.trim());
+    if (url) {
+      renderVerifyLinkRow(slot, record, C);
+    } else {
+      btn.disabled = false;
+      btn.textContent = C.verifyCreateBtn;
+      const err = document.createElement("div");
+      err.className = "cert-verify-error";
+      err.textContent = C.verifyError;
+      slot.appendChild(err);
+    }
+  });
 }
 
 // --- Spaced repetition / Leitner system (DN-16) -------------------------
@@ -2867,19 +3097,26 @@ function renderExamResults() {
           <button class="back-btn" id="exam-results-cert-html">${C.downloadCert}</button>
           <button class="back-btn" id="exam-results-cert-json">${C.downloadCred}</button>
         </div>
+        <div class="cert-verify-row"></div>
       </div>
     `;
     const record = state.exam.certRecord;
     const badgeSlot = certEl.querySelector(".cert-badge-row");
+    const verifySlot = certEl.querySelector(".cert-verify-row");
     renderBadgeRow(badgeSlot, record, C);
+    renderVerifyLinkRow(verifySlot, record, C);
     // A fresh pass fires trySignCompletion() in the background right from
     // recordCompletion() (still in flight at the moment this results screen
     // first renders) - re-render the badge once that settles so a passing
     // user actually SEES the upgrade from "self-issued" to "signed badge"
     // happen live, rather than only finding out on a later visit to "My
-    // certificates".
+    // certificates". The verify-link row is re-rendered alongside it since it
+    // only becomes eligible once the signature is real.
     if (!record.verified) {
-      ensureSignedCredential(record).then(() => renderBadgeRow(badgeSlot, record, C));
+      ensureSignedCredential(record).then(() => {
+        renderBadgeRow(badgeSlot, record, C);
+        renderVerifyLinkRow(verifySlot, record, C);
+      });
     }
     el("#exam-results-cert-html").addEventListener("click", () => {
       downloadTextFile(`zettacard-zertifikat-${record.id}.html`, certificateHtmlDoc(record), "text/html");
@@ -2887,6 +3124,7 @@ function renderExamResults() {
     el("#exam-results-cert-json").addEventListener("click", async () => {
       await ensureSignedCredential(record);
       renderBadgeRow(badgeSlot, record, C);
+      renderVerifyLinkRow(verifySlot, record, C);
       downloadTextFile(`zettacard-credential-${record.id}.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
   } else {

@@ -42,6 +42,17 @@
     Cache-Control = "public, max-age=3600"
 
 [[redirects]]
+  # DN-49: permanent, shareable "is this real" pages for compliance-module
+  # certificates (see docs/paid-verifiable-certificates-scoping.md). Must
+  # stay ABOVE the catch-all "/* -> /index.html" rule below - Netlify
+  # matches redirects in file order, first match wins, so if this were
+  # below the catch-all every /verify/<slug> link would 200 into the
+  # landing page instead of ever reaching verify-credential.js.
+  from = "/verify/*"
+  to = "/.netlify/functions/verify-credential/:splat"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

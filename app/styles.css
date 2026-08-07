@@ -944,6 +944,75 @@ main {
   padding: 8px 10px;
 }
 
+/* DN-49: permanent verification link row (0€ MVP). Only ever populated for
+   compliance-module records that already carry a real signature - see
+   renderVerifyLinkRow() in app.js. Empty (no visible space) otherwise. */
+.cert-verify-row:not(:empty) {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+
+.cert-verify-title {
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.cert-verify-intro {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.cert-verify-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cert-verify-name-input {
+  flex: 1 1 140px;
+  min-width: 120px;
+  font-size: 0.85rem;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg, transparent);
+  color: inherit;
+}
+
+.cert-verify-form .cert-verify-create-btn {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  padding: 8px 12px;
+}
+
+.cert-verify-link-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cert-verify-link {
+  font-size: 0.8rem;
+  word-break: break-all;
+  color: var(--accent, inherit);
+}
+
+.cert-verify-link-row .cert-verify-copy-btn {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  padding: 6px 10px;
+}
+
+.cert-verify-error {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--red, #d9534f);
+}
+
 /* Sign Reference (Fuehrerschein-only browsable sign study list) */
 #sign-reference-list {
   text-align: left;
