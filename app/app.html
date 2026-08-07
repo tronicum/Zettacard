@@ -113,6 +113,12 @@
       <p class="detail-question" id="detail-question" tabindex="-1"></p>
       <div class="image-note" id="image-note"></div>
       <div class="options" id="options"></div>
+      <!-- DN-14: manual star/bookmark toggle - independent of the Leitner
+           spaced-repetition system and of whether the question was answered
+           right or wrong. aria-pressed toggled in renderDetail() (app.js),
+           same pattern as the exam option cards' own aria-pressed/aria-checked
+           toggle-button convention. -->
+      <button class="star-btn" id="star-btn" aria-pressed="false"></button>
       <button class="reveal-btn" id="reveal-btn"></button>
       <div class="explanation" id="explanation" hidden tabindex="-1" aria-live="polite"></div>
       <!-- Self-assessment for spaced-repetition review mode (DN-16). The
@@ -244,11 +250,21 @@
       <div class="exam-timer" id="exam-timer" hidden></div>
     </div>
     <div class="detail-body">
+      <!-- "Frage schieben" (skip-and-revisit) second-pass banner - only
+           shown while state.exam.reviewPass is true (see
+           renderExamQuestion() in app.js), so a test-taker can never mistake
+           this bounded review-only pass for a fresh run through the whole
+           exam. -->
+      <div class="exam-skip-banner" id="exam-skip-banner" hidden></div>
       <div class="detail-meta" id="exam-meta"></div>
       <p class="detail-question" id="exam-question" tabindex="-1"></p>
       <div class="image-note" id="exam-image-note"></div>
       <div class="options" id="exam-options"></div>
       <div style="display:flex; gap:10px; margin-top:20px;">
+        <!-- Simulation-mode-only skip button (hidden for Training mode and
+             during the skipped-questions review pass) - see examSkip()/
+             renderExamQuestion() in app.js. -->
+        <button class="back-btn" id="exam-skip-btn" style="flex:1;" hidden></button>
         <button class="back-btn" id="exam-next-btn" style="flex:1;"></button>
       </div>
     </div>

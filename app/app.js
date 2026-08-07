@@ -317,7 +317,8 @@ const EXAM_STRINGS = {
     resultsPass: "Bestanden", resultsFail: "Nicht bestanden",
     summary: (err, wrong) => `Fehlerpunkte: ${err} von max. 10 zulässig. Falsch beantwortete sicherheitsrelevante Fragen: ${wrong} (bei 2 oder mehr: automatisches Nichtbestehen).`,
     reviewLabel: "Überprüfung der falschen Antworten", yourAnswer: "Ihre Antwort", rightAnswer: "Richtige Antwort",
-    close: "Schließen", noMistakes: "Alle Fragen richtig beantwortet — sehr gut!", confirmExit: "Prüfung wirklich abbrechen? Der Fortschritt geht verloren." },
+    close: "Schließen", noMistakes: "Alle Fragen richtig beantwortet — sehr gut!", confirmExit: "Prüfung wirklich abbrechen? Der Fortschritt geht verloren.",
+    skip: "Später beantworten", skipBanner: "Wiederholung übersprungener Fragen — diese Fragen müssen jetzt final beantwortet werden.", skipProgress: (i, n) => `Übersprungene Fragen: ${i} von ${n}` },
   en: { startBtn: "Exam", pickerTitle: "Choose exam mode", pickerDesc: "Choose how you want to practice. Both modes draw 30 questions with realistic weighting and score using the real pass rule.",
     trainingTitle: "Training exam", trainingDesc: "No time limit. Good for calm practice.",
     simTitle: "Simulated real exam", simDesc: "45-minute time limit, like the real exam.",
@@ -326,7 +327,8 @@ const EXAM_STRINGS = {
     resultsPass: "Passed", resultsFail: "Not passed",
     summary: (err, wrong) => `Error points: ${err} of max. 10 allowed. Wrong safety-critical questions: ${wrong} (2 or more means automatic fail).`,
     reviewLabel: "Review of wrong answers", yourAnswer: "Your answer", rightAnswer: "Correct answer",
-    close: "Close", noMistakes: "All questions answered correctly — well done!", confirmExit: "Really cancel the exam? Progress will be lost." },
+    close: "Close", noMistakes: "All questions answered correctly — well done!", confirmExit: "Really cancel the exam? Progress will be lost.",
+    skip: "Answer later", skipBanner: "Reviewing skipped questions — these must be answered now.", skipProgress: (i, n) => `Skipped questions: ${i} of ${n}` },
   uk: { startBtn: "Іспит", pickerTitle: "Виберіть режим іспиту", pickerDesc: "Оберіть, як тренуватися. В обох режимах 30 питань з реальним розподілом і оцінюванням за справжнім правилом складання.",
     trainingTitle: "Тренувальний іспит", trainingDesc: "Без обмеження часу. Підходить для спокійного тренування.",
     simTitle: "Симуляція реального іспиту", simDesc: "Обмеження 45 хвилин, як на справжньому іспиті.",
@@ -335,7 +337,8 @@ const EXAM_STRINGS = {
     resultsPass: "Складено", resultsFail: "Не складено",
     summary: (err, wrong) => `Штрафні бали: ${err} з макс. 10 допустимих. Неправильні відповіді на питання, важливі для безпеки: ${wrong} (2 і більше — автоматичний провал).`,
     reviewLabel: "Перегляд неправильних відповідей", yourAnswer: "Ваша відповідь", rightAnswer: "Правильна відповідь",
-    close: "Закрити", noMistakes: "Усі питання дано правильно — чудово!", confirmExit: "Дійсно скасувати іспит? Прогрес буде втрачено." },
+    close: "Закрити", noMistakes: "Усі питання дано правильно — чудово!", confirmExit: "Дійсно скасувати іспит? Прогрес буде втрачено.",
+    skip: "Відповісти пізніше", skipBanner: "Перегляд пропущених питань — на них потрібно відповісти зараз.", skipProgress: (i, n) => `Пропущені питання: ${i} з ${n}` },
   pl: { startBtn: "Egzamin", pickerTitle: "Wybierz tryb egzaminu", pickerDesc: "Wybierz sposób ćwiczenia. Oba tryby losują 30 pytań z realnym rozkładem i oceniają wg prawdziwej zasady zaliczenia.",
     trainingTitle: "Egzamin ćwiczeniowy", trainingDesc: "Bez limitu czasu. Do spokojnego ćwiczenia.",
     simTitle: "Symulacja prawdziwego egzaminu", simDesc: "Limit czasu 45 minut, jak na prawdziwym egzaminie.",
@@ -344,7 +347,8 @@ const EXAM_STRINGS = {
     resultsPass: "Zdany", resultsFail: "Niezdany",
     summary: (err, wrong) => `Punkty karne: ${err} z maks. 10 dozwolonych. Błędne odpowiedzi na pytania istotne dla bezpieczeństwa: ${wrong} (2 lub więcej oznacza automatyczne niezaliczenie).`,
     reviewLabel: "Przegląd błędnych odpowiedzi", yourAnswer: "Twoja odpowiedź", rightAnswer: "Poprawna odpowiedź",
-    close: "Zamknij", noMistakes: "Wszystkie pytania poprawne — świetnie!", confirmExit: "Na pewno przerwać egzamin? Postęp zostanie utracony." },
+    close: "Zamknij", noMistakes: "Wszystkie pytania poprawne — świetnie!", confirmExit: "Na pewno przerwać egzamin? Postęp zostanie utracony.",
+    skip: "Odpowiedz później", skipBanner: "Przegląd pominiętych pytań — teraz trzeba na nie odpowiedzieć.", skipProgress: (i, n) => `Pominięte pytania: ${i} z ${n}` },
   ar: { startBtn: "الامتحان", pickerTitle: "اختر وضع الامتحان", pickerDesc: "اختر طريقة التدريب. يسحب كلا الوضعين 30 سؤالاً بتوزيع واقعي ويُقيَّمان وفق قاعدة النجاح الحقيقية.",
     trainingTitle: "امتحان تدريبي", trainingDesc: "بدون حد زمني. مناسب للتدريب الهادئ.",
     simTitle: "محاكاة الامتحان الحقيقي", simDesc: "حد زمني 45 دقيقة، كما في الامتحان الحقيقي.",
@@ -353,7 +357,8 @@ const EXAM_STRINGS = {
     resultsPass: "ناجح", resultsFail: "غير ناجح",
     summary: (err, wrong) => `نقاط الخطأ: ${err} من 10 كحد أقصى مسموح. الأسئلة الحرجة للسلامة الخاطئة: ${wrong} (سؤالان أو أكثر يعني رسوبًا تلقائيًا).`,
     reviewLabel: "مراجعة الإجابات الخاطئة", yourAnswer: "إجابتك", rightAnswer: "الإجابة الصحيحة",
-    close: "إغلاق", noMistakes: "تمت الإجابة عن جميع الأسئلة بشكل صحيح — أحسنت!", confirmExit: "هل تريد حقًا إلغاء الامتحان؟ سيُفقد التقدم." },
+    close: "إغلاق", noMistakes: "تمت الإجابة عن جميع الأسئلة بشكل صحيح — أحسنت!", confirmExit: "هل تريد حقًا إلغاء الامتحان؟ سيُفقد التقدم.",
+    skip: "الإجابة لاحقًا", skipBanner: "مراجعة الأسئلة المتخطاة — يجب الإجابة عنها الآن.", skipProgress: (i, n) => `الأسئلة المتخطاة: ${i} من ${n}` },
   zh: { startBtn: "考试", pickerTitle: "选择考试模式", pickerDesc: "选择练习方式。两种模式都会按真实比例抽取30道题,并按真实及格规则评分。",
     trainingTitle: "练习考试", trainingDesc: "无时间限制,适合从容练习。",
     simTitle: "模拟真实考试", simDesc: "45分钟时间限制,与真实考试一致。",
@@ -362,7 +367,8 @@ const EXAM_STRINGS = {
     resultsPass: "通过", resultsFail: "未通过",
     summary: (err, wrong) => `错误分数：${err}分，最多允许10分。安全关键问题答错数：${wrong}题（2题或以上将自动判定不及格）。`,
     reviewLabel: "错误答案回顾", yourAnswer: "您的答案", rightAnswer: "正确答案",
-    close: "关闭", noMistakes: "所有题目均答对 — 非常好!", confirmExit: "确定要取消考试吗?进度将丢失。" },
+    close: "关闭", noMistakes: "所有题目均答对 — 非常好!", confirmExit: "确定要取消考试吗?进度将丢失。",
+    skip: "稍后回答", skipBanner: "正在复查跳过的题目 — 现在必须作答。", skipProgress: (i, n) => `跳过的题目：第 ${i} 题，共 ${n} 题` },
   hi: { startBtn: "परीक्षा", pickerTitle: "परीक्षा मोड चुनें", pickerDesc: "अभ्यास करने का तरीका चुनें। दोनों मोड वास्तविक भारांक के साथ 30 प्रश्न चुनते हैं और असली उत्तीर्ण नियम से स्कोर करते हैं।",
     trainingTitle: "अभ्यास परीक्षा", trainingDesc: "समय सीमा नहीं। शांति से अभ्यास के लिए अच्छा।",
     simTitle: "वास्तविक परीक्षा सिमुलेशन", simDesc: "45 मिनट की समय सीमा, असली परीक्षा जैसी।",
@@ -371,7 +377,8 @@ const EXAM_STRINGS = {
     resultsPass: "उत्तीर्ण", resultsFail: "अनुत्तीर्ण",
     summary: (err, wrong) => `त्रुटि अंक: ${err}, अधिकतम 10 स्वीकार्य। गलत सुरक्षा-महत्वपूर्ण प्रश्न: ${wrong} (2 या अधिक होने पर स्वतः अनुत्तीर्ण)।`,
     reviewLabel: "गलत उत्तरों की समीक्षा", yourAnswer: "आपका उत्तर", rightAnswer: "सही उत्तर",
-    close: "बंद करें", noMistakes: "सभी प्रश्नों के सही उत्तर — बहुत बढ़िया!", confirmExit: "क्या आप वाकई परीक्षा रद्द करना चाहते हैं? प्रगति खो जाएगी।" },
+    close: "बंद करें", noMistakes: "सभी प्रश्नों के सही उत्तर — बहुत बढ़िया!", confirmExit: "क्या आप वाकई परीक्षा रद्द करना चाहते हैं? प्रगति खो जाएगी।",
+    skip: "बाद में उत्तर दें", skipBanner: "छोड़े गए प्रश्नों की समीक्षा — अब इनका उत्तर देना आवश्यक है।", skipProgress: (i, n) => `छोड़े गए प्रश्न: ${i} / ${n}` },
   tr: { startBtn: "Sınav", pickerTitle: "Sınav modunu seçin", pickerDesc: "Nasıl çalışmak istediğinizi seçin. Her iki mod da gerçekçi ağırlıkla 30 soru seçer ve gerçek geçme kuralına göre puanlar.",
     trainingTitle: "Alıştırma sınavı", trainingDesc: "Süre sınırı yok. Sakin çalışma için uygundur.",
     simTitle: "Gerçek sınav simülasyonu", simDesc: "Gerçek sınavdaki gibi 45 dakika süre sınırı.",
@@ -380,7 +387,8 @@ const EXAM_STRINGS = {
     resultsPass: "Geçti", resultsFail: "Geçemedi",
     summary: (err, wrong) => `Hata puanı: ${err}, izin verilen maksimum 10. Yanlış güvenlik açısından kritik soru: ${wrong} (2 veya daha fazlası otomatik başarısızlık demektir).`,
     reviewLabel: "Yanlış cevapların incelenmesi", yourAnswer: "Cevabınız", rightAnswer: "Doğru cevap",
-    close: "Kapat", noMistakes: "Tüm sorular doğru cevaplandı — harika!", confirmExit: "Sınavı gerçekten iptal etmek istiyor musunuz? İlerleme kaybolacak." },
+    close: "Kapat", noMistakes: "Tüm sorular doğru cevaplandı — harika!", confirmExit: "Sınavı gerçekten iptal etmek istiyor musunuz? İlerleme kaybolacak.",
+    skip: "Sonra cevapla", skipBanner: "Atlanan soruların gözden geçirilmesi — bunlar şimdi cevaplanmalı.", skipProgress: (i, n) => `Atlanan sorular: ${n} sorudan ${i}.` },
   fr: { startBtn: "Examen", pickerTitle: "Choisir le mode d'examen", pickerDesc: "Choisissez votre façon de vous entraîner. Les deux modes tirent 30 questions avec une pondération réaliste et notent selon la règle de réussite réelle.",
     trainingTitle: "Examen d'entraînement", trainingDesc: "Sans limite de temps. Idéal pour s'entraîner calmement.",
     simTitle: "Simulation d'examen réel", simDesc: "Limite de 45 minutes, comme le véritable examen.",
@@ -389,7 +397,8 @@ const EXAM_STRINGS = {
     resultsPass: "Réussi", resultsFail: "Échoué",
     summary: (err, wrong) => `Points d'erreur : ${err} sur 10 maximum autorisés. Questions critiques pour la sécurité incorrectes : ${wrong} (2 ou plus entraîne un échec automatique).`,
     reviewLabel: "Révision des réponses incorrectes", yourAnswer: "Votre réponse", rightAnswer: "Bonne réponse",
-    close: "Fermer", noMistakes: "Toutes les questions ont une réponse correcte — bravo !", confirmExit: "Voulez-vous vraiment annuler l'examen ? La progression sera perdue." },
+    close: "Fermer", noMistakes: "Toutes les questions ont une réponse correcte — bravo !", confirmExit: "Voulez-vous vraiment annuler l'examen ? La progression sera perdue.",
+    skip: "Répondre plus tard", skipBanner: "Révision des questions passées — elles doivent maintenant recevoir une réponse.", skipProgress: (i, n) => `Questions passées : ${i} sur ${n}` },
   ru: { startBtn: "Экзамен", pickerTitle: "Выберите режим экзамена", pickerDesc: "Выберите способ тренировки. Оба режима выбирают 30 вопросов с реалистичным распределением и оцениваются по настоящему правилу сдачи.",
     trainingTitle: "Тренировочный экзамен", trainingDesc: "Без ограничения времени. Подходит для спокойной тренировки.",
     simTitle: "Симуляция настоящего экзамена", simDesc: "Ограничение 45 минут, как на настоящем экзамене.",
@@ -398,7 +407,8 @@ const EXAM_STRINGS = {
     resultsPass: "Сдано", resultsFail: "Не сдано",
     summary: (err, wrong) => `Штрафные баллы: ${err} из макс. 10 допустимых. Неверные ответы на вопросы, критичные для безопасности: ${wrong} (2 и более означает автоматический провал).`,
     reviewLabel: "Разбор неверных ответов", yourAnswer: "Ваш ответ", rightAnswer: "Правильный ответ",
-    close: "Закрыть", noMistakes: "Все вопросы даны верно — отлично!", confirmExit: "Действительно отменить экзамен? Прогресс будет потерян." },
+    close: "Закрыть", noMistakes: "Все вопросы даны верно — отлично!", confirmExit: "Действительно отменить экзамен? Прогресс будет потерян.",
+    skip: "Ответить позже", skipBanner: "Повторный просмотр пропущенных вопросов — на них нужно ответить сейчас.", skipProgress: (i, n) => `Пропущенные вопросы: ${i} из ${n}` },
   es: { startBtn: "Examen", pickerTitle: "Elegir modo de examen", pickerDesc: "Elige cómo quieres practicar. Ambos modos seleccionan 30 preguntas con ponderación realista y puntúan según la regla real de aprobación.",
     trainingTitle: "Examen de entrenamiento", trainingDesc: "Sin límite de tiempo. Ideal para practicar con calma.",
     simTitle: "Simulación de examen real", simDesc: "Límite de 45 minutos, como el examen real.",
@@ -407,7 +417,8 @@ const EXAM_STRINGS = {
     resultsPass: "Aprobado", resultsFail: "No aprobado",
     summary: (err, wrong) => `Puntos de error: ${err} de máx. 10 permitidos. Preguntas críticas para la seguridad incorrectas: ${wrong} (2 o más significa suspenso automático).`,
     reviewLabel: "Revisión de respuestas incorrectas", yourAnswer: "Tu respuesta", rightAnswer: "Respuesta correcta",
-    close: "Cerrar", noMistakes: "Todas las preguntas respondidas correctamente — ¡muy bien!", confirmExit: "¿Seguro que quieres cancelar el examen? Se perderá el progreso." },
+    close: "Cerrar", noMistakes: "Todas las preguntas respondidas correctamente — ¡muy bien!", confirmExit: "¿Seguro que quieres cancelar el examen? Se perderá el progreso.",
+    skip: "Responder más tarde", skipBanner: "Revisión de preguntas omitidas — ahora deben responderse.", skipProgress: (i, n) => `Preguntas omitidas: ${i} de ${n}` },
   it: { startBtn: "Esame", pickerTitle: "Scegli la modalità d'esame", pickerDesc: "Scegli come vuoi esercitarti. Entrambe le modalità estraggono 30 domande con una ponderazione realistica e valutano secondo la regola reale di superamento.",
     trainingTitle: "Esame di allenamento", trainingDesc: "Senza limite di tempo. Ideale per esercitarsi con calma.",
     simTitle: "Simulazione d'esame reale", simDesc: "Limite di 45 minuti, come l'esame reale.",
@@ -416,7 +427,8 @@ const EXAM_STRINGS = {
     resultsPass: "Superato", resultsFail: "Non superato",
     summary: (err, wrong) => `Punti di errore: ${err} su un massimo di 10 consentiti. Domande critiche per la sicurezza sbagliate: ${wrong} (2 o più significa bocciatura automatica).`,
     reviewLabel: "Revisione delle risposte sbagliate", yourAnswer: "La tua risposta", rightAnswer: "Risposta corretta",
-    close: "Chiudi", noMistakes: "Tutte le domande risposte correttamente — ottimo lavoro!", confirmExit: "Vuoi davvero annullare l'esame? I progressi andranno persi." },
+    close: "Chiudi", noMistakes: "Tutte le domande risposte correttamente — ottimo lavoro!", confirmExit: "Vuoi davvero annullare l'esame? I progressi andranno persi.",
+    skip: "Rispondi più tardi", skipBanner: "Revisione delle domande saltate — ora devono essere risposte.", skipProgress: (i, n) => `Domande saltate: ${i} di ${n}` },
 };
 
 // Languages that read right-to-left - toggled via dir="rtl"/"ltr" on <html>.
@@ -451,6 +463,17 @@ function detectBrowserLang() {
 const DIAGRAM_IDS = new Set([
   "vorfahrt-01", "vorfahrt-07", "vorfahrt-09", "vorfahrt-13",
   "vorfahrt-17", "vorfahrt-19", "vorfahrt-21",
+  // DN-27 pilot round (2026-08-07): 28 of the 40 "gefahr" (hazard/road-
+  // condition) topic questions - the rest were deliberately skipped as
+  // purely definitional/behavioural with nothing spatial to draw (see
+  // BACKLOG.md for the full skip list and reasoning). New scene types
+  // drawn by assets/generate_hazard_diagrams.py (sibling to
+  // generate_diagrams.py, reuses its svg()/car()/badge()/arrow() helpers).
+  "gefahr-01", "gefahr-02", "gefahr-04", "gefahr-05", "gefahr-06", "gefahr-07",
+  "gefahr-08", "gefahr-09", "gefahr-10", "gefahr-16", "gefahr-18", "gefahr-19",
+  "gefahr-20", "gefahr-22", "gefahr-23", "gefahr-24", "gefahr-25", "gefahr-26",
+  "gefahr-27", "gefahr-29", "gefahr-32", "gefahr-33", "gefahr-34", "gefahr-35",
+  "gefahr-36", "gefahr-37", "gefahr-38", "gefahr-40",
 ]);
 
 // Alt text describes what's VISUALLY on the sign (shape/color/symbol) -
@@ -529,6 +552,121 @@ const DIAGRAM_ALT = {
   "vorfahrt-21": {
     plain: { de: "Straße kreuzt Bahngleise ohne Schranke. Ein Zug nähert sich.", en: "Road crossing railway tracks with no barrier. A train is approaching." },
     answer: { de: "Der Zug hat immer Vorrang, auch wenn Ihre Straße sonst eine Vorfahrtstraße ist.", en: "The train always has priority, even though your road is otherwise a priority road." },
+  },
+  // DN-27 pilot round (2026-08-07) - see DIAGRAM_IDS above. de/en only, same
+  // deliberate precedent as sign alt text (DN-28: fixed exam-material alt
+  // text isn't translated into the other 10 locales).
+  "gefahr-01": {
+    plain:  { de: "Zwei Fahrspuren nebeneinander, trocken und nass, mit einem Auto am Start jeder Spur.", en: "Two lanes side by side, one dry and one wet, with a car at the start of each." },
+    answer: { de: "Trockene Spur mit kurzem Bremsweg (grün), nasse Spur mit deutlich längerem Bremsweg (gelb).", en: "Dry lane shows a short braking mark (green), wet lane shows a much longer one (amber)." },
+  },
+  "gefahr-02": {
+    plain:  { de: "Seitenansicht eines Autoreifens über einer Wasserschicht auf der Fahrbahn.", en: "Side view of a car tire above a layer of water on the road." },
+    answer: { de: "Der Reifen ist vom Wasserfilm angehoben und hat keinen Fahrbahnkontakt mehr.", en: "The tire is lifted by the water film and has lost contact with the road." },
+  },
+  "gefahr-04": {
+    plain:  { de: "Straße mit einer Brücke links und einem schattenspendenden Baum rechts.", en: "Road with a bridge on the left and a shade-casting tree on the right." },
+    answer: { de: "Eisflächen sind unter der Brücke und im Schatten des Baumes markiert.", en: "Icy patches are marked under the bridge and in the tree's shade." },
+  },
+  "gefahr-05": {
+    plain:  { de: "Ein Auto auf der Straße, noch ohne markierten Reaktions- oder Bremsweg.", en: "A car on the road, with no reaction or braking distance marked yet." },
+    answer: { de: "Gestrichelter Reaktionsweg-Abschnitt gefolgt von einem markierten Bremsweg-Abschnitt.", en: "A dashed reaction-distance segment followed by a marked braking-distance segment." },
+  },
+  "gefahr-06": {
+    plain:  { de: "Zwei Autos hintereinander auf einer Fahrspur mit Abstand dazwischen.", en: "Two cars one behind the other in a lane, with a gap between them." },
+    answer: { de: "Der Abstand zwischen beiden Autos ist als 'mindestens halbe Geschwindigkeit in Metern' markiert.", en: "The gap between the two cars is marked as 'at least half the speed in metres'." },
+  },
+  "gefahr-07": {
+    plain:  { de: "Zwei Autos hintereinander mit einem markierten Fixpunkt auf der Fahrbahn.", en: "Two cars one behind the other with a marked fixed point on the road." },
+    answer: { de: "Hinweis, dass mindestens drei Sekunden bis zum Fixpunkt vergehen sollten.", en: "Note that at least three seconds should pass before reaching the fixed point." },
+  },
+  "gefahr-08": {
+    plain:  { de: "Ein Ball rollt vom Straßenrand auf die Fahrbahn, ein Auto nähert sich.", en: "A ball rolls from the roadside onto the road as a car approaches." },
+    answer: { de: "Ein Kind ist angedeutet, das dem Ball folgen könnte, mit Hinweis zum Tempo verringern.", en: "A child that might follow the ball is indicated, with a note to slow down." },
+  },
+  "gefahr-09": {
+    plain:  { de: "Ein Bus steht an einer Haltestelle, ein Auto nähert sich auf der Fahrspur.", en: "A bus is stopped at a bus stop, with a car approaching in the lane." },
+    answer: { de: "Bereich vor dem Bus ist markiert, in den der Bus einfädeln darf.", en: "The area in front of the bus is marked as space the bus may pull into." },
+  },
+  "gefahr-10": {
+    plain:  { de: "Draufsicht auf eine Fahrspur mit einem Auto und einem schattierten Bereich seitlich daneben.", en: "Top-down view of a lane with a car and a shaded area beside it." },
+    answer: { de: "Ein zweites Fahrzeug ist im schattierten Bereich versteckt und für die Spiegel unsichtbar.", en: "A second vehicle is hidden in the shaded area, invisible to the mirrors." },
+  },
+  "gefahr-16": {
+    plain:  { de: "Draufsicht auf eine Reihe geparkter Autos am Straßenrand, ein Auto fährt vorbei.", en: "Top-down view of a row of parked cars at the roadside, with a car driving past." },
+    answer: { de: "Eine Person ist zwischen zwei geparkten Autos verdeckt und könnte hervortreten.", en: "A person is hidden between two parked cars and could step out." },
+  },
+  "gefahr-18": {
+    plain:  { de: "Zwei Fahrspuren mit unterschiedlicher Geschwindigkeit (v und doppelte Geschwindigkeit).", en: "Two lanes at different speeds (v and double v)." },
+    answer: { de: "Bremsweg bei doppelter Geschwindigkeit ist deutlich mehr als doppelt so lang markiert.", en: "The braking mark at double speed is shown far more than twice as long." },
+  },
+  "gefahr-19": {
+    plain:  { de: "Ein Auto fährt dicht hinter einem Lastwagen auf der Straße.", en: "A car driving close behind a truck on the road." },
+    answer: { de: "Gestrichelte Sichtlinie zeigt, dass die Sicht durch den Lastwagen versperrt ist; größerer Abstand hilft.", en: "A dashed sightline shows the view is blocked by the truck; more distance helps." },
+  },
+  "gefahr-20": {
+    plain:  { de: "Ein Kind steht am Fahrbahnrand, ein Auto nähert sich.", en: "A child stands at the edge of the road as a car approaches." },
+    answer: { de: "Der Bereich um das Kind ist als Vorsichtszone markiert, Auto ist bremsbereit.", en: "The area around the child is marked as a caution zone, car ready to brake." },
+  },
+  "gefahr-22": {
+    plain:  { de: "Eine Straßenbahn hält, eine Person steht in Fahrbahnnähe, ein Auto nähert sich.", en: "A tram is stopped, a person stands near the road, a car approaches." },
+    answer: { de: "Die Person quert zur Haltestelle, Hinweis auf sehr langsames Fahren.", en: "The person is crossing to the stop, with a note to drive very slowly." },
+  },
+  "gefahr-23": {
+    plain:  { de: "Eine Fahrbahn mit verstreuten Laubblättern, ein Auto fährt darüber.", en: "A road with scattered leaves, a car driving over it." },
+    answer: { de: "Eine leichte Schlingerlinie zeigt reduzierten Grip auf dem nassen Laub.", en: "A slight swerving line shows reduced grip on the wet leaves." },
+  },
+  "gefahr-24": {
+    plain:  { de: "Draufsicht auf einen Lastwagen mit einem schattierten Bereich seitlich daneben.", en: "Top-down view of a truck with a shaded area beside it." },
+    answer: { de: "Ein Fahrrad-Symbol ist im schattierten Bereich versteckt und für den Lkw-Fahrer unsichtbar.", en: "A bicycle icon is hidden in the shaded area, invisible to the truck driver." },
+  },
+  "gefahr-25": {
+    plain:  { de: "Eine Pfütze auf der Fahrbahn, ein Auto nähert sich.", en: "A puddle on the road, with a car approaching." },
+    answer: { de: "Gestrichelte Linie zeigt die verborgene Tiefe der Pfütze und einen möglichen Lenkruck.", en: "A dashed line shows the puddle's hidden depth and a possible steering jolt." },
+  },
+  "gefahr-26": {
+    plain:  { de: "Zwei Reifen im Querschnitt, einer mit tiefem, einer mit flachem Profil.", en: "Two tires in cross-section, one with deep tread, one with shallow tread." },
+    answer: { de: "Der neue Reifen leitet Wasser ab (grün), der abgefahrene hat hohes Aquaplaning-Risiko (rot).", en: "The new tire channels water away (green), the worn one has high hydroplaning risk (red)." },
+  },
+  "gefahr-27": {
+    plain:  { de: "Ein Auto fährt in dichtem Nebel, ein weiteres Fahrzeug ist nur schwach sichtbar.", en: "A car driving in dense fog, with another vehicle barely visible ahead." },
+    answer: { de: "Pfeile zeigen einen vergrößerten Abstand zum vorausfahrenden Fahrzeug.", en: "Arrows show an increased distance to the vehicle ahead." },
+  },
+  "gefahr-29": {
+    plain:  { de: "Eine Ost-West-Straße mit tiefstehender Sonne am Horizont, ein Auto fährt darauf zu.", en: "An east-west road with the sun low on the horizon, a car driving toward it." },
+    answer: { de: "Hinweis, dass die Blendgefahr kurz nach Sonnenaufgang und vor Sonnenuntergang am höchsten ist.", en: "Note that glare risk is highest shortly after sunrise and before sunset." },
+  },
+  "gefahr-32": {
+    plain:  { de: "Eine Landstraße neben einer Weide mit grasenden Tieren, ohne sichtbaren Zaun.", en: "A rural road next to a pasture with grazing animals and no visible fence." },
+    answer: { de: "Pfeil zeigt, dass Tiere ohne Zaun auf die Fahrbahn gelangen könnten.", en: "An arrow shows the animals could reach the road since there is no fence." },
+  },
+  "gefahr-33": {
+    plain:  { de: "Eine Straße an einer Schule vorbei, Kinder verlassen das Gelände.", en: "A road past a school, with children leaving the premises." },
+    answer: { de: "Der Bereich vor der Schule ist als Gefahrenzone markiert, deutlich langsamer und bremsbereit.", en: "The area in front of the school is marked as a danger zone, drive much slower and stay ready to brake." },
+  },
+  "gefahr-34": {
+    plain:  { de: "Eine unbefestigte Straße mit losen Steinen, ein Auto fährt darüber.", en: "An unpaved road with loose stones, a car driving over it." },
+    answer: { de: "Eine Schlingerlinie zeigt die Ausbrechgefahr durch die losen Steine.", en: "A swerving line shows the risk of the car breaking loose on the loose stones." },
+  },
+  "gefahr-35": {
+    plain:  { de: "Ein Auto auf einer erhöhten Brücke, seitliche Windpfeile treffen es.", en: "A car on an elevated bridge, with sideways wind arrows hitting it." },
+    answer: { de: "Gestrichelter Pfeil zeigt, wie das Auto seitlich aus der Spur gedrückt wird.", en: "A dashed arrow shows the car being pushed sideways out of its lane." },
+  },
+  "gefahr-36": {
+    plain:  { de: "Nachtszene mit einem Auto und dem Lichtkegel des Abblendlichts.", en: "A night scene with a car and its dipped-headlight beam." },
+    answer: { de: "Markierung zeigt, dass der Bremsweg innerhalb des Lichtkegels enden muss.", en: "A marker shows the braking distance must end within the headlight beam." },
+  },
+  "gefahr-37": {
+    plain:  { de: "Zwei Autos hintereinander in einem Tunnel.", en: "Two cars one behind the other inside a tunnel." },
+    answer: { de: "Pfeile zeigen einen vergrößerten Sicherheitsabstand im Tunnel.", en: "Arrows show an increased safety distance inside the tunnel." },
+  },
+  "gefahr-38": {
+    plain:  { de: "Zwei Autos hintereinander, das vordere mit aufleuchtendem Bremslicht.", en: "Two cars one behind the other, the front one with its brake light lit." },
+    answer: { de: "Der Abstand zwischen beiden Autos ist als ausreichender Sicherheitsabstand markiert.", en: "The gap between the two cars is marked as an adequate safety distance." },
+  },
+  "gefahr-40": {
+    plain:  { de: "Ein voll beladenes Auto auf einer steilen Gefällstrecke.", en: "A fully loaded car on a steep downhill stretch." },
+    answer: { de: "Ein rotes Symbol zeigt überhitzende Bremsen, Hinweis auf frühes Schalten in einen niedrigen Gang.", en: "A red icon shows overheating brakes, with a note to shift into a low gear early." },
   },
 };
 
@@ -662,6 +800,30 @@ function roleFilterStrings(lang) {
   return ROLE_FILTER_STRINGS[lang] || ROLE_FILTER_STRINGS.en;
 }
 
+// DN-14: manual star/bookmark strings - standalone rather than folded into
+// UI_STRINGS, same reasoning SRS_STRINGS/ROLE_FILTER_STRINGS document (a
+// self-contained additive feature). Covers the star toggle button (both
+// states), its aria-label, the "starred only" filter chip in the topic
+// filter row, and the empty-state message shown when that filter is active
+// but nothing is starred yet.
+const STAR_STRINGS = {
+  de: { star: "☆ Merken", starred: "⭐ Gemerkt", starAria: "Diese Frage merken", starredAria: "Markierung entfernen", filterChip: "⭐ Nur markierte", filterAria: "Nur markierte Fragen anzeigen", emptyStarred: "Noch keine markierten Fragen in dieser Kategorie." },
+  en: { star: "☆ Star", starred: "⭐ Starred", starAria: "Star this question", starredAria: "Remove star", filterChip: "⭐ Starred only", filterAria: "Show only starred questions", emptyStarred: "No starred questions in this category yet." },
+  uk: { star: "☆ Позначити", starred: "⭐ Позначено", starAria: "Позначити це питання зіркою", starredAria: "Прибрати позначку", filterChip: "⭐ Лише позначені", filterAria: "Показати лише позначені питання", emptyStarred: "У цій категорії ще немає позначених питань." },
+  pl: { star: "☆ Oznacz", starred: "⭐ Oznaczone", starAria: "Oznacz to pytanie gwiazdką", starredAria: "Usuń oznaczenie", filterChip: "⭐ Tylko oznaczone", filterAria: "Pokaż tylko oznaczone pytania", emptyStarred: "W tej kategorii nie ma jeszcze oznaczonych pytań." },
+  ar: { star: "☆ تمييز", starred: "⭐ مميزة", starAria: "تمييز هذا السؤال", starredAria: "إزالة التمييز", filterChip: "⭐ المميزة فقط", filterAria: "عرض الأسئلة المميزة فقط", emptyStarred: "لا توجد أسئلة مميزة في هذه الفئة بعد." },
+  zh: { star: "☆ 标记", starred: "⭐ 已标记", starAria: "标记此题", starredAria: "取消标记", filterChip: "⭐ 仅显示已标记", filterAria: "仅显示已标记的题目", emptyStarred: "该类别下暂无已标记的题目。" },
+  hi: { star: "☆ चिह्नित करें", starred: "⭐ चिह्नित", starAria: "इस प्रश्न को चिह्नित करें", starredAria: "चिह्न हटाएं", filterChip: "⭐ केवल चिह्नित", filterAria: "केवल चिह्नित प्रश्न दिखाएं", emptyStarred: "इस श्रेणी में अभी तक कोई चिह्नित प्रश्न नहीं है।" },
+  tr: { star: "☆ İşaretle", starred: "⭐ İşaretlendi", starAria: "Bu soruyu işaretle", starredAria: "İşareti kaldır", filterChip: "⭐ Yalnızca işaretliler", filterAria: "Yalnızca işaretli soruları göster", emptyStarred: "Bu kategoride henüz işaretli soru yok." },
+  fr: { star: "☆ Marquer", starred: "⭐ Marquée", starAria: "Marquer cette question", starredAria: "Retirer le marquage", filterChip: "⭐ Marquées uniquement", filterAria: "Afficher uniquement les questions marquées", emptyStarred: "Aucune question marquée dans cette catégorie pour l'instant." },
+  ru: { star: "☆ Отметить", starred: "⭐ Отмечено", starAria: "Отметить этот вопрос", starredAria: "Снять отметку", filterChip: "⭐ Только отмеченные", filterAria: "Показать только отмеченные вопросы", emptyStarred: "В этой категории пока нет отмеченных вопросов." },
+  es: { star: "☆ Marcar", starred: "⭐ Marcada", starAria: "Marcar esta pregunta", starredAria: "Quitar marca", filterChip: "⭐ Solo marcadas", filterAria: "Mostrar solo preguntas marcadas", emptyStarred: "Todavía no hay preguntas marcadas en esta categoría." },
+  it: { star: "☆ Contrassegna", starred: "⭐ Contrassegnata", starAria: "Contrassegna questa domanda", starredAria: "Rimuovi contrassegno", filterChip: "⭐ Solo contrassegnate", filterAria: "Mostra solo le domande contrassegnate", emptyStarred: "Nessuna domanda contrassegnata in questa categoria ancora." },
+};
+function starStrings(lang) {
+  return STAR_STRINGS[lang] || STAR_STRINGS.en;
+}
+
 // A question matches a role filter if either the filter is "all" (no
 // filtering), the question itself is tagged "all" (relevant to everyone,
 // regardless of which specific role is selected), or the question's own
@@ -710,6 +872,13 @@ const state = {
   // every "state.revealed = false" site above) so a stale pick from a
   // previous card never leaks into the next one.
   detailPick: null,
+  // DN-14: "starred only" list filter. Deliberately NOT persisted like
+  // topicFilter/roleFilter above - it's a quick, temporary lens on "what am I
+  // looking at right now" rather than a durable per-profile preference, the
+  // same reasoning reviewMode (also session-only) already follows. The
+  // underlying starred/seen data itself IS persisted (loadStarredData()/
+  // loadSeenData() below), just not which filter view is currently toggled.
+  starredOnlyFilter: false,
 };
 
 // --- Local profile switcher --------------------------------------------
@@ -1981,6 +2150,61 @@ function updateSrsBox(questionId, wasCorrect) {
   saveSrsData(srs);
 }
 
+// --- DN-14: "seen" tracking + manual star/bookmark ---------------------
+// Two independent, lightweight per-question-id-keyed localStorage maps,
+// following the exact same profileKey()-namespaced convention as
+// loadSrsData()/saveSrsData() above - neither one touches or is touched by
+// the Leitner box logic, and neither depends on the exam-completion system.
+//
+// "Seen": { [questionId]: <epoch ms first seen> }. Pure bookkeeping for a
+// future stat (e.g. "you've seen 120 of 500 questions") - no UI surfaces it
+// directly yet, so this is intentionally just a reliable write, not a
+// feature in itself.
+function loadSeenData() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(profileKey("seen")) || "{}");
+    return raw && typeof raw === "object" ? raw : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function markSeen(questionId) {
+  const seen = loadSeenData();
+  if (seen[questionId]) return; // already recorded - avoid a redundant write on every render
+  seen[questionId] = Date.now();
+  try { localStorage.setItem(profileKey("seen"), JSON.stringify(seen)); } catch (e) { /* non-fatal */ }
+}
+
+// "Starred": { [questionId]: true }. A manual bookmark independent of
+// whether the user got the question right or wrong and independent of the
+// Leitner box - purely "I want to find this again later." Surfaced via the
+// star toggle button in #detail-view and the "starred only" filter chip in
+// the main list (see renderFilters()/filteredQuestions() below).
+function loadStarredData() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(profileKey("starred")) || "{}");
+    return raw && typeof raw === "object" ? raw : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function saveStarredData(data) {
+  try { localStorage.setItem(profileKey("starred"), JSON.stringify(data)); } catch (e) { /* non-fatal */ }
+}
+
+function isStarred(questionId) {
+  return !!loadStarredData()[questionId];
+}
+
+function toggleStarred(questionId) {
+  const starred = loadStarredData();
+  if (starred[questionId]) delete starred[questionId];
+  else starred[questionId] = true;
+  saveStarredData(starred);
+}
+
 // Questions due right now for the CURRENTLY loaded module+scope (state.
 // questions is already scoped to that - see loadModuleData). Deliberately
 // ignores the topic filter: "due for review" is a study-priority queue
@@ -2289,6 +2513,22 @@ function startExam(mode) {
     index: 0,
     startedAt: Date.now(),
     finished: false,
+    // "Frage schieben" skip-and-revisit (Simulation mode only, see
+    // examSkip()/renderExamQuestion() below): ids explicitly skipped during
+    // the first pass, in the order they were skipped. A skipped question's
+    // answer is left untouched in `answers` above - it stays unanswered
+    // until (and unless) the user actually answers it in the second pass.
+    skipped: [],
+    // Once the first pass through `questions` completes, if `skipped` is
+    // non-empty we enter a second, bounded pass over ONLY those questions
+    // (reviewQueue, in their original exam order) before finishExam() is
+    // allowed to run - see examNext(). reviewIndex is that pass's own
+    // cursor, kept separate from `index` so the first pass's position isn't
+    // disturbed. No skip button is offered on this second pass (must answer
+    // or leave blank, same as any other question - no infinite skip loop).
+    reviewPass: false,
+    reviewQueue: [],
+    reviewIndex: 0,
   };
   history.replaceState({ view: "exam" }, "");
   el("#exam-view").hidden = false;
@@ -2326,16 +2566,44 @@ function stopExamTimer() {
   }
 }
 
+// Which question list/cursor is currently active: the normal first pass
+// over the full drawn set, or (once skipped questions exist and the first
+// pass has run out) the bounded second pass over just those skipped
+// questions - see startExam()/examNext(). Kept as small helpers rather than
+// inlined everywhere so renderExamQuestion()/examNext()/examSkip() can't
+// drift out of sync on which list "the current question" means.
+function examActiveList() {
+  const ex = state.exam;
+  return ex.reviewPass ? ex.reviewQueue : ex.questions;
+}
+function examActiveIndex() {
+  const ex = state.exam;
+  return ex.reviewPass ? ex.reviewIndex : ex.index;
+}
+
 function renderExamQuestion() {
   const S = UI_STRINGS[state.lang];
   const X = EXAM_STRINGS[state.lang];
   const ex = state.exam;
-  const q = ex.questions[ex.index];
+  const list = examActiveList();
+  const idx = examActiveIndex();
+  const q = list[idx];
   const t = q.text[state.lang];
   const topicLabel = getTopicLabel(q.topic_code, q.topic);
 
   const isMultiSelect = q.question_type === "multi_choice";
-  el("#exam-progress").textContent = X.progress(ex.index + 1, ex.questions.length);
+  // DN-14: the "review skipped questions" second pass gets its own,
+  // unambiguous banner + progress-counter shape ("Übersprungene Fragen: 2
+  // von 2") instead of the normal "Frage X von Y", so a test-taker can never
+  // mistake it for a fresh run through the whole exam.
+  const bannerEl = el("#exam-skip-banner");
+  if (bannerEl) {
+    bannerEl.hidden = !ex.reviewPass;
+    bannerEl.textContent = ex.reviewPass ? X.skipBanner : "";
+  }
+  el("#exam-progress").textContent = ex.reviewPass
+    ? X.skipProgress(idx + 1, list.length)
+    : X.progress(idx + 1, list.length);
   el("#exam-meta").innerHTML = `
     <span class="badge topic">${topicLabel}</span>
     <span class="badge points">${S.points(q.points)}</span>
@@ -2419,20 +2687,67 @@ function renderExamQuestion() {
   });
   applySelection();
 
-  const isLast = ex.index === ex.questions.length - 1;
+  const isLast = idx === list.length - 1;
   el("#exam-next-btn").textContent = isLast ? X.finish : X.next;
   el("#exam-exit-btn").textContent = X.exit;
+
+  // "Frage schieben": only offered in Simulation mode, and only during the
+  // first pass - the second pass (reviewing explicitly skipped questions)
+  // must actually be answered or left blank, no further skipping.
+  const skipBtn = el("#exam-skip-btn");
+  if (skipBtn) {
+    skipBtn.hidden = !(ex.mode === "simulation" && !ex.reviewPass);
+    skipBtn.textContent = X.skip;
+  }
 }
 
 function examNext() {
   const ex = state.exam;
+  if (ex.reviewPass) {
+    // Second pass: bounded to reviewQueue, no re-entry into skip logic.
+    if (ex.reviewIndex < ex.reviewQueue.length - 1) {
+      ex.reviewIndex += 1;
+      renderExamQuestion();
+      el("#exam-view").scrollTop = 0;
+    } else {
+      finishExam(false);
+    }
+    return;
+  }
   if (ex.index < ex.questions.length - 1) {
     ex.index += 1;
+    renderExamQuestion();
+    el("#exam-view").scrollTop = 0;
+  } else if (ex.skipped.length > 0) {
+    // First pass just ran out with unresolved skips - enter the required
+    // second pass over exactly those questions (original exam order)
+    // instead of finishing yet. See startExam()'s state.exam.reviewPass doc
+    // comment for why this is bounded (no infinite skip loop): the second
+    // pass never offers its own skip button (see renderExamQuestion above).
+    ex.reviewPass = true;
+    const skippedSet = new Set(ex.skipped);
+    ex.reviewQueue = ex.questions.filter((q) => skippedSet.has(q.id));
+    ex.reviewIndex = 0;
     renderExamQuestion();
     el("#exam-view").scrollTop = 0;
   } else {
     finishExam(false);
   }
+}
+
+// Records the current question as explicitly skipped (Simulation mode's
+// first pass only - see the skip button's own visibility guard in
+// renderExamQuestion()) and advances exactly like examNext() does, without
+// touching state.exam.answers for it. Deliberately a thin wrapper around
+// examNext() rather than duplicating its advance/end-of-pass logic, so
+// "what happens after skip" and "what happens after next" can never drift
+// apart.
+function examSkip() {
+  const ex = state.exam;
+  if (!ex || ex.reviewPass) return; // no skip once inside the skipped-question review pass
+  const q = ex.questions[ex.index];
+  if (!ex.skipped.includes(q.id)) ex.skipped.push(q.id);
+  examNext();
 }
 
 // A multi_choice question is only correct if the given set of picks is
@@ -2605,6 +2920,13 @@ function filteredQuestions() {
   // other module's questions have no "roles" field, so questionMatchesRole
   // treats them as ["all"] and they always pass).
   if (state.roleFilter !== "all") qs = qs.filter((q) => questionMatchesRole(q, state.roleFilter));
+  // DN-14: "starred only" filter, additive to the above two - narrows the
+  // already topic/role-filtered list down to just the questions this
+  // profile has manually starred.
+  if (state.starredOnlyFilter) {
+    const starred = loadStarredData();
+    qs = qs.filter((q) => starred[q.id]);
+  }
   return qs;
 }
 
@@ -2708,6 +3030,25 @@ function renderFilters() {
     });
     container.appendChild(btn);
   });
+
+  // DN-14: "starred only" toggle chip, appended after the topic buttons in
+  // the same row/container - same button look (relies on the existing
+  // `.filters button`/`.filters button.active` CSS, no new class needed),
+  // just a distinct, independently-toggleable chip rather than one of the
+  // mutually-exclusive topic options above.
+  const SS = starStrings(state.lang);
+  const starBtn = document.createElement("button");
+  starBtn.textContent = SS.filterChip;
+  starBtn.className = state.starredOnlyFilter ? "active" : "";
+  starBtn.setAttribute("aria-pressed", String(state.starredOnlyFilter));
+  starBtn.setAttribute("aria-label", SS.filterAria);
+  starBtn.title = SS.filterAria;
+  starBtn.addEventListener("click", () => {
+    state.starredOnlyFilter = !state.starredOnlyFilter;
+    state.detailIndex = null;
+    render();
+  });
+  container.appendChild(starBtn);
 }
 
 // DN-44: second, additive filter row - only shown for the 4 workplace-
@@ -2742,15 +3083,22 @@ function renderRoleFilter() {
 
 function renderList() {
   const S = UI_STRINGS[state.lang];
+  const SS = starStrings(state.lang);
   const list = el("#list");
   const qs = filteredQuestions();
   list.innerHTML = "";
 
   if (qs.length === 0) {
-    list.innerHTML = `<div class="empty">${S.empty}</div>`;
+    // DN-14: a distinct empty-state message when the "starred only" filter
+    // is the reason the list is empty, rather than the generic "no
+    // questions in this category" text - a learner should understand THIS
+    // is because they haven't starred anything yet, not that the category
+    // itself is empty.
+    list.innerHTML = `<div class="empty">${state.starredOnlyFilter ? SS.emptyStarred : S.empty}</div>`;
     return;
   }
 
+  const starred = loadStarredData(); // one read for the whole list, not per-card
   qs.forEach((q, i) => {
     const card = document.createElement("div");
     card.className = "q-card";
@@ -2763,6 +3111,7 @@ function renderList() {
         <span class="badge points">${S.points(q.points)}</span>
         ${q.high_stakes ? `<span class="badge high-stakes">${S.highStakes}</span>` : ""}
         ${q.question_type === "multi_choice" ? `<span class="badge multi-select">${S.multiSelectHint}</span>` : ""}
+        ${starred[q.id] ? `<span class="badge star-badge" aria-label="${SS.starredAria}">⭐</span>` : ""}
         <span class="q-card-id">${q.id}</span>
       </div>
       <div class="q-card-text">${q.text[state.lang].question}</div>
@@ -2798,6 +3147,21 @@ function renderDetail() {
   const topicLabel = getTopicLabel(q.topic_code, q.topic);
   const t = q.text[state.lang];
   const expl = q.explanation[state.lang];
+
+  // DN-14: every time a question is actually shown in this detail/flashcard
+  // view (initial open, prev/next navigation, review-mode cycling) counts
+  // as "seen" - markSeen() itself no-ops after the first time, so this is a
+  // cheap, idempotent call rather than something that needs its own guard
+  // here.
+  markSeen(q.id);
+
+  const SS = starStrings(state.lang);
+  const starBtn = el("#star-btn");
+  const starred = isStarred(q.id);
+  starBtn.textContent = starred ? SS.starred : SS.star;
+  starBtn.setAttribute("aria-pressed", String(starred));
+  starBtn.setAttribute("aria-label", starred ? SS.starredAria : SS.starAria);
+  starBtn.title = starred ? SS.starredAria : SS.starAria;
 
   el("#detail-progress").textContent = S.progress(state.detailIndex + 1, qs.length);
 
@@ -3076,6 +3440,7 @@ function wireStaticControls() {
   el("#exam-pick-simulation").addEventListener("click", () => startExam("simulation"));
   el("#exam-exit-btn").addEventListener("click", exitExam);
   el("#exam-next-btn").addEventListener("click", examNext);
+  el("#exam-skip-btn").addEventListener("click", examSkip);
   el("#exam-results-close-btn").addEventListener("click", exitExam);
 
   el("#reveal-btn").addEventListener("click", () => {
@@ -3084,6 +3449,17 @@ function wireStaticControls() {
     // Move focus to the newly-revealed explanation so keyboard/screen-reader
     // users land on the new content instead of losing focus entirely.
     el("#explanation").focus();
+  });
+
+  // DN-14: manual star/bookmark toggle - independent of reveal state and of
+  // whether the user got the question right or wrong, so this can be
+  // clicked at any point while a question is open.
+  el("#star-btn").addEventListener("click", () => {
+    const qs = filteredQuestions();
+    const q = qs[state.detailIndex];
+    if (!q) return;
+    toggleStarred(q.id);
+    render();
   });
 
   el("#prev-btn").addEventListener("click", () => {

@@ -269,6 +269,12 @@ main {
    distinct class name since the semantic meaning differs (a completion
    record's renewal status, not a question's safety-criticality). */
 .badge.renewal-due { background: var(--amber-bg); color: var(--amber); }
+/* DN-14: small star indicator on a list row that's been manually bookmarked
+   - reuses the amber token pair (already contrast-verified for
+   .badge.high-stakes/.badge.renewal-due above) rather than a new, unaudited
+   color, just a distinct class name since the semantic meaning differs
+   (a manual bookmark, not a safety-criticality or renewal flag). */
+.badge.star-badge { background: var(--amber-bg); color: var(--amber); }
 
 .q-card-text {
   font-size: 0.95rem;
@@ -457,6 +463,34 @@ main {
   font-size: 0.78rem;
   font-weight: 700;
   color: var(--red);
+}
+
+/* DN-14: manual star/bookmark toggle, sits directly above the reveal
+   button - a secondary, outline-style action (not the primary accent-filled
+   look .reveal-btn uses below) since starring is optional bookkeeping, not
+   the main flow of a question. Toggled state (aria-pressed) gets the same
+   accent-dim treatment already used for .filters button.active/.review-btn.
+   has-due, so "starred" reads consistently with every other toggle in the
+   app rather than inventing a new visual language. */
+.star-btn {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  min-height: 44px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.star-btn[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--badge-topic-text);
 }
 
 .reveal-btn {
@@ -983,6 +1017,21 @@ main {
 .exam-timer.low-time {
   color: var(--amber);
   border-color: var(--amber);
+}
+
+/* DN-14: "Frage schieben" (skip-and-revisit) second-pass banner - reuses the
+   same amber warning token as .exam-timer.low-time/.badge.high-stakes above
+   (deliberately not a new color) so it reads as "pay attention, this is a
+   different mode" without introducing yet another accent. */
+.exam-skip-banner {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
 .options .option.exam-selected {
