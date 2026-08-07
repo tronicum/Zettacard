@@ -1406,6 +1406,14 @@ function wireModuleIntroControls() {
 // in both the UI and the credential's own `unverified: true` field -
 // making it cryptographically verifiable would need a real signing
 // backend, a genuine architecture change, not something to fake.
+// Badge display (2026-08-07): a completion can now carry a REAL signature
+// (record.verified === true, see trySignCompletion()/credentialJsonDoc()
+// above) or stay a self-issued/unverified fallback (offline, signing
+// function unreachable, or an older completion from before this feature
+// existed) - verifiedLabel/selfIssuedLabel/verifiedHint/selfIssuedHint let
+// renderCertificates() show which one a given card actually is, not just
+// offer downloads with no visible distinction between a real badge and a
+// placeholder one.
 const CERT_STRINGS = {
   de: {
     btn: "Meine Zertifikate", title: "Meine Zertifikate", close: "← Zurück",
@@ -1420,6 +1428,9 @@ const CERT_STRINGS = {
     // countdown for every completion.
     renewalOverdue: (d) => `Auffrischung überfällig seit ${d}`,
     renewalDueSoon: (d) => `Auffrischung fällig bis ${d}`,
+    verifiedLabel: "✅ Signiertes Abzeichen", selfIssuedLabel: "Unbestätigt",
+    verifiedHint: "Kryptographisch signiert, von Dritten überprüfbar.",
+    selfIssuedHint: "Selbst erstellt, nicht signiert.",
   },
   en: {
     btn: "My certificates", title: "My certificates", close: "← Back",
@@ -1430,6 +1441,139 @@ const CERT_STRINGS = {
     disclaimer: "Self-generated record, not cryptographically signed or independently verified.",
     renewalOverdue: (d) => `Refresher overdue since ${d}`,
     renewalDueSoon: (d) => `Refresher due by ${d}`,
+    verifiedLabel: "✅ Signed badge", selfIssuedLabel: "Unverified",
+    verifiedHint: "Cryptographically signed, independently verifiable by a third party.",
+    selfIssuedHint: "Self-generated, not signed.",
+  },
+  uk: {
+    btn: "Мої сертифікати", title: "Мої сертифікати", close: "← Назад",
+    intro: "Пройдені симуляції іспитів зберігаються тут як підтвердження (лише на цьому пристрої). Завантажте файл сертифіката, щоб зберегти або поділитися ним - саме цей файл є портативним артефактом, а не стан застосунку.",
+    empty: "Ще немає пройденої симуляції іспиту. Пройдіть Симуляцію іспиту (не режим тренування), щоб отримати тут сертифікат.",
+    passedOn: (d) => `Складено ${d}`,
+    downloadCert: "Завантажити сертифікат (HTML)", downloadCred: "Завантажити посвідчення (JSON)",
+    disclaimer: "Самостійно створений запис, не підписаний криптографічно і не перевірений незалежно.",
+    renewalOverdue: (d) => `Оновлення прострочено з ${d}`,
+    renewalDueSoon: (d) => `Оновлення потрібне до ${d}`,
+    verifiedLabel: "✅ Підписаний бейдж", selfIssuedLabel: "Не підтверджено",
+    verifiedHint: "Криптографічно підписано, може бути перевірено третьою стороною.",
+    selfIssuedHint: "Створено самостійно, не підписано.",
+  },
+  pl: {
+    btn: "Moje certyfikaty", title: "Moje certyfikaty", close: "← Wstecz",
+    intro: "Zaliczone symulacje egzaminów są tu zapisywane jako dowód ukończenia (tylko na tym urządzeniu). Pobierz plik certyfikatu, aby go zachować lub udostępnić - to właśnie ten plik jest realnym, przenośnym artefaktem, a nie stan aplikacji.",
+    empty: "Jeszcze żadnej zaliczonej symulacji egzaminu. Zdaj Symulację egzaminu (nie tryb ćwiczeń), aby otrzymać tu certyfikat.",
+    passedOn: (d) => `Zaliczono ${d}`,
+    downloadCert: "Pobierz certyfikat (HTML)", downloadCred: "Pobierz poświadczenie (JSON)",
+    disclaimer: "Zapis wygenerowany samodzielnie, niepodpisany kryptograficznie ani niezweryfikowany zewnętrznie.",
+    renewalOverdue: (d) => `Odświeżenie zaległe od ${d}`,
+    renewalDueSoon: (d) => `Odświeżenie wymagane do ${d}`,
+    verifiedLabel: "✅ Podpisana odznaka", selfIssuedLabel: "Niezweryfikowane",
+    verifiedHint: "Podpisane kryptograficznie, możliwe do niezależnej weryfikacji.",
+    selfIssuedHint: "Wygenerowane samodzielnie, niepodpisane.",
+  },
+  ar: {
+    btn: "شهاداتي", title: "شهاداتي", close: "→ رجوع",
+    intro: "يتم تسجيل محاكاة الامتحانات الناجحة هنا كإثبات للإتمام (على هذا الجهاز فقط). قم بتنزيل ملف الشهادة للاحتفاظ بها أو مشاركتها - هذا الملف هو العنصر المحمول الفعلي، وليس حالة التطبيق.",
+    empty: "لا توجد محاكاة امتحان ناجحة بعد. اجتز محاكاة امتحان (وليس وضع التدريب) للحصول على شهادة هنا.",
+    passedOn: (d) => `اجتيز في ${d}`,
+    downloadCert: "تنزيل الشهادة (HTML)", downloadCred: "تنزيل بيانات الاعتماد (JSON)",
+    disclaimer: "سجل ذاتي الإصدار، غير موقّع تشفيريًا وغير موثّق من طرف مستقل.",
+    renewalOverdue: (d) => `التجديد متأخر منذ ${d}`,
+    renewalDueSoon: (d) => `التجديد مستحق بحلول ${d}`,
+    verifiedLabel: "✅ شارة موقّعة", selfIssuedLabel: "غير موثّق",
+    verifiedHint: "موقّعة تشفيريًا، ويمكن لطرف مستقل التحقق منها.",
+    selfIssuedHint: "تم إنشاؤها ذاتيًا، غير موقّعة.",
+  },
+  zh: {
+    btn: "我的证书", title: "我的证书", close: "← 返回",
+    intro: "已通过的模拟考试会记录在此作为完成证明(仅保存在本设备)。下载证书文件以保存或分享——该文件才是真正可移植的凭证,而不是应用内部状态。",
+    empty: "尚无已通过的模拟考试。通过一次模拟考试(而非练习模式)即可在此获得证书。",
+    passedOn: (d) => `通过日期:${d}`,
+    downloadCert: "下载证书(HTML)", downloadCred: "下载凭证(JSON)",
+    disclaimer: "自行生成的记录,未经加密签名,也未经第三方独立验证。",
+    renewalOverdue: (d) => `续期已逾期,截止日期为 ${d}`,
+    renewalDueSoon: (d) => `续期截止日期为 ${d}`,
+    verifiedLabel: "✅ 已签名徽章", selfIssuedLabel: "未验证",
+    verifiedHint: "已加密签名,可由第三方独立验证。",
+    selfIssuedHint: "自行生成,未签名。",
+  },
+  hi: {
+    btn: "मेरे प्रमाणपत्र", title: "मेरे प्रमाणपत्र", close: "← वापस",
+    intro: "पास की गई परीक्षा सिमुलेशन यहाँ पूर्णता के प्रमाण के रूप में दर्ज की जाती हैं (केवल इस डिवाइस पर)। इसे रखने या साझा करने के लिए प्रमाणपत्र फ़ाइल डाउनलोड करें - वही असली पोर्टेबल फ़ाइल है, ऐप की आंतरिक स्थिति नहीं।",
+    empty: "अभी तक कोई पास की गई परीक्षा सिमुलेशन नहीं है। यहाँ प्रमाणपत्र पाने के लिए एक परीक्षा सिमुलेशन (अभ्यास मोड नहीं) पास करें।",
+    passedOn: (d) => `${d} को उत्तीर्ण`,
+    downloadCert: "प्रमाणपत्र डाउनलोड करें (HTML)", downloadCred: "क्रेडेंशियल डाउनलोड करें (JSON)",
+    disclaimer: "स्व-निर्मित रिकॉर्ड, क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित या स्वतंत्र रूप से सत्यापित नहीं।",
+    renewalOverdue: (d) => `नवीनीकरण ${d} से लंबित`,
+    renewalDueSoon: (d) => `नवीनीकरण ${d} तक देय`,
+    verifiedLabel: "✅ हस्ताक्षरित बैज", selfIssuedLabel: "असत्यापित",
+    verifiedHint: "क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित, किसी तीसरे पक्ष द्वारा स्वतंत्र रूप से सत्यापन योग्य।",
+    selfIssuedHint: "स्वयं निर्मित, हस्ताक्षरित नहीं।",
+  },
+  tr: {
+    btn: "Sertifikalarım", title: "Sertifikalarım", close: "← Geri",
+    intro: "Geçilen sınav simülasyonları burada tamamlanma kanıtı olarak kaydedilir (yalnızca bu cihazda). Saklamak veya paylaşmak için bir sertifika dosyası indirin - gerçek taşınabilir belge budur, uygulamanın iç durumu değil.",
+    empty: "Henüz geçilmiş bir sınav simülasyonu yok. Burada bir sertifika almak için bir Sınav Simülasyonunu (Alıştırma modunu değil) geçin.",
+    passedOn: (d) => `${d} tarihinde geçildi`,
+    downloadCert: "Sertifikayı indir (HTML)", downloadCred: "Belgeyi indir (JSON)",
+    disclaimer: "Kendiliğinden oluşturulmuş kayıt, kriptografik olarak imzalanmamış veya bağımsız olarak doğrulanmamıştır.",
+    renewalOverdue: (d) => `Yenileme ${d} tarihinden beri gecikmiş`,
+    renewalDueSoon: (d) => `Yenileme ${d} tarihine kadar gerekli`,
+    verifiedLabel: "✅ İmzalı rozet", selfIssuedLabel: "Doğrulanmamış",
+    verifiedHint: "Kriptografik olarak imzalanmış, üçüncü bir taraf tarafından bağımsız olarak doğrulanabilir.",
+    selfIssuedHint: "Kendiliğinden oluşturulmuş, imzalanmamış.",
+  },
+  fr: {
+    btn: "Mes certificats", title: "Mes certificats", close: "← Retour",
+    intro: "Les simulations d'examen réussies sont enregistrées ici comme preuve d'accomplissement (sur cet appareil uniquement). Téléchargez un fichier de certificat pour le conserver ou le partager - c'est ce fichier qui est réellement portable, pas l'état interne de l'application.",
+    empty: "Aucune simulation d'examen réussie pour l'instant. Réussissez une Simulation d'examen (pas le mode Entraînement) pour obtenir un certificat ici.",
+    passedOn: (d) => `Réussi le ${d}`,
+    downloadCert: "Télécharger le certificat (HTML)", downloadCred: "Télécharger l'attestation (JSON)",
+    disclaimer: "Enregistrement auto-généré, non signé cryptographiquement et non vérifié de manière indépendante.",
+    renewalOverdue: (d) => `Renouvellement en retard depuis le ${d}`,
+    renewalDueSoon: (d) => `Renouvellement à effectuer avant le ${d}`,
+    verifiedLabel: "✅ Badge signé", selfIssuedLabel: "Non vérifié",
+    verifiedHint: "Signé cryptographiquement, vérifiable de manière indépendante par un tiers.",
+    selfIssuedHint: "Auto-généré, non signé.",
+  },
+  ru: {
+    btn: "Мои сертификаты", title: "Мои сертификаты", close: "← Назад",
+    intro: "Пройденные симуляции экзаменов сохраняются здесь как подтверждение прохождения (только на этом устройстве). Скачайте файл сертификата, чтобы сохранить или передать его - именно этот файл является настоящим переносимым артефактом, а не состояние приложения.",
+    empty: "Пока нет пройденной симуляции экзамена. Пройдите Симуляцию экзамена (не режим тренировки), чтобы получить здесь сертификат.",
+    passedOn: (d) => `Пройдено ${d}`,
+    downloadCert: "Скачать сертификат (HTML)", downloadCred: "Скачать удостоверение (JSON)",
+    disclaimer: "Самостоятельно созданная запись, не подписана криптографически и не проверена независимо.",
+    renewalOverdue: (d) => `Обновление просрочено с ${d}`,
+    renewalDueSoon: (d) => `Обновление требуется до ${d}`,
+    verifiedLabel: "✅ Подписанный значок", selfIssuedLabel: "Не подтверждено",
+    verifiedHint: "Подписано криптографически, может быть независимо проверено третьей стороной.",
+    selfIssuedHint: "Создано самостоятельно, не подписано.",
+  },
+  es: {
+    btn: "Mis certificados", title: "Mis certificados", close: "← Atrás",
+    intro: "Las simulaciones de examen aprobadas se registran aquí como comprobante de finalización (solo en este dispositivo). Descarga un archivo de certificado para conservarlo o compartirlo - ese archivo es el elemento realmente portátil, no el estado interno de la aplicación.",
+    empty: "Todavía no hay ninguna simulación de examen aprobada. Aprueba una Simulación de examen (no el modo Entrenamiento) para obtener aquí un certificado.",
+    passedOn: (d) => `Aprobado el ${d}`,
+    downloadCert: "Descargar certificado (HTML)", downloadCred: "Descargar credencial (JSON)",
+    disclaimer: "Registro autogenerado, no firmado criptográficamente ni verificado de forma independiente.",
+    renewalOverdue: (d) => `Renovación vencida desde el ${d}`,
+    renewalDueSoon: (d) => `Renovación necesaria antes del ${d}`,
+    verifiedLabel: "✅ Insignia firmada", selfIssuedLabel: "No verificado",
+    verifiedHint: "Firmado criptográficamente, verificable de forma independiente por un tercero.",
+    selfIssuedHint: "Autogenerado, no firmado.",
+  },
+  it: {
+    btn: "I miei certificati", title: "I miei certificati", close: "← Indietro",
+    intro: "Le simulazioni d'esame superate vengono registrate qui come prova di completamento (solo su questo dispositivo). Scarica un file certificato per conservarlo o condividerlo - quel file è il vero elemento portatile, non lo stato interno dell'app.",
+    empty: "Ancora nessuna simulazione d'esame superata. Supera una Simulazione d'esame (non la modalità Allenamento) per ottenere qui un certificato.",
+    passedOn: (d) => `Superato il ${d}`,
+    downloadCert: "Scarica certificato (HTML)", downloadCred: "Scarica credenziale (JSON)",
+    disclaimer: "Registro autogenerato, non firmato crittograficamente né verificato in modo indipendente.",
+    renewalOverdue: (d) => `Rinnovo scaduto dal ${d}`,
+    renewalDueSoon: (d) => `Rinnovo da effettuare entro il ${d}`,
+    verifiedLabel: "✅ Badge firmato", selfIssuedLabel: "Non verificato",
+    verifiedHint: "Firmato crittograficamente, verificabile in modo indipendente da terzi.",
+    selfIssuedHint: "Autogenerato, non firmato.",
   },
 };
 function certStrings(lang) {
@@ -1709,6 +1853,7 @@ async function renderCertificates() {
     const card = document.createElement("div");
     card.className = "cert-card";
     card.innerHTML = `
+      <div class="cert-badge-row"></div>
       <div class="cert-card-title">${record.moduleLabel} · ${record.scopeLabel}</div>
       <div class="cert-card-date">${C.passedOn(dateStr)}</div>
       <div class="cert-card-renewal"></div>
@@ -1717,6 +1862,7 @@ async function renderCertificates() {
         <button class="back-btn cert-dl-cred">${C.downloadCred}</button>
       </div>
     `;
+    renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
     card.querySelector(".cert-dl-cert").addEventListener("click", () => {
       downloadTextFile(`${record.examType}-${record.scopeCode}-certificate.html`, certificateHtmlDoc(record), "text/html");
     });
@@ -1725,9 +1871,24 @@ async function renderCertificates() {
       // real signature (e.g. the device just came back online) before
       // building the download - falls back silently if it can't.
       await ensureSignedCredential(record);
+      renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
       downloadTextFile(`${record.examType}-${record.scopeCode}-credential.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
     list.appendChild(card);
+
+    // If this record isn't signed yet (background attempt from
+    // recordCompletion() may still be in flight, was offline at the time,
+    // or this is an older completion from before real signing existed),
+    // give it one more fresh, non-blocking attempt right here so a visitor
+    // who opens "My certificates" shortly after passing doesn't see a
+    // stale "unverified" badge that a moment later would actually be real.
+    // Mirrors the same non-blocking upgrade-in-place pattern the renewal
+    // check below already uses.
+    if (!record.verified) {
+      ensureSignedCredential(record).then(() => {
+        renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+      });
+    }
 
     // Fetched/rendered after the card is already in the list (only the 4
     // compliance modules ever resolve to a non-null status) so a slow or
@@ -1742,6 +1903,23 @@ async function renderCertificates() {
       }
     }
   });
+}
+
+// Renders the actual visual "badge" for a completion: a circular emblem
+// (gold + checkmark for a real cryptographically-signed credential, plain
+// grey outline for a self-issued/unverified one) plus a short status label
+// and one-line explanation - so a real signed badge is visibly, not just
+// technically, distinguishable from the honest-but-unsigned fallback.
+function renderBadgeRow(slot, record, C) {
+  if (!slot) return;
+  const verified = !!(record.verified && record.signedJwt);
+  slot.innerHTML = `
+    <span class="cert-badge-emblem ${verified ? "verified" : "self-issued"}" aria-hidden="true">${verified ? "🏅" : "🎫"}</span>
+    <span class="cert-badge-text">
+      <span class="badge ${verified ? "verified" : "self-issued"}">${verified ? C.verifiedLabel : C.selfIssuedLabel}</span>
+      <span class="cert-badge-hint">${verified ? C.verifiedHint : C.selfIssuedHint}</span>
+    </span>
+  `;
 }
 
 // --- Spaced repetition / Leitner system (DN-16) -------------------------
@@ -2368,6 +2546,7 @@ function renderExamResults() {
   if (state.exam.certRecord) {
     certEl.innerHTML = `
       <div class="cert-card">
+        <div class="cert-badge-row"></div>
         <div class="cert-card-title">🎓 ${C.title}</div>
         <div class="cert-card-actions">
           <button class="back-btn" id="exam-results-cert-html">${C.downloadCert}</button>
@@ -2376,11 +2555,23 @@ function renderExamResults() {
       </div>
     `;
     const record = state.exam.certRecord;
+    const badgeSlot = certEl.querySelector(".cert-badge-row");
+    renderBadgeRow(badgeSlot, record, C);
+    // A fresh pass fires trySignCompletion() in the background right from
+    // recordCompletion() (still in flight at the moment this results screen
+    // first renders) - re-render the badge once that settles so a passing
+    // user actually SEES the upgrade from "self-issued" to "signed badge"
+    // happen live, rather than only finding out on a later visit to "My
+    // certificates".
+    if (!record.verified) {
+      ensureSignedCredential(record).then(() => renderBadgeRow(badgeSlot, record, C));
+    }
     el("#exam-results-cert-html").addEventListener("click", () => {
       downloadTextFile(`zettacard-zertifikat-${record.id}.html`, certificateHtmlDoc(record), "text/html");
     });
     el("#exam-results-cert-json").addEventListener("click", async () => {
       await ensureSignedCredential(record);
+      renderBadgeRow(badgeSlot, record, C);
       downloadTextFile(`zettacard-credential-${record.id}.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
   } else {

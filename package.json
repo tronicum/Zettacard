@@ -6,7 +6,11 @@
   "dependencies": {
     "jose": "^6.2.8"
   },
+  "devDependencies": {
+    "playwright": "^1.47.0"
+  },
   "scripts": {
-    "test:sign-credential": "node scripts/test_sign_credential.js"
+    "test:sign-credential": "node scripts/test_sign_credential.js",
+    "test:full-exam-badge": "node scripts/test_full_exam_badge.mjs"
   }
 }

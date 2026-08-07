@@ -828,6 +828,57 @@ main {
   background: var(--badge-neutral-bg, transparent);
 }
 
+/* Badge display (2026-08-07): visually distinguishes a real, cryptographically
+   signed credential from the honest self-issued/unverified fallback - see
+   renderBadgeRow() in app.js. Gold-toned emblem + "verified" badge pill for a
+   real signature; a plain grey/neutral emblem + "self-issued" pill otherwise.
+   Kept as a color+icon+text combination (not color alone) for colorblind
+   users, matching this project's existing selection-mark convention. */
+.cert-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.cert-badge-emblem {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.cert-badge-emblem.verified {
+  background: linear-gradient(135deg, #f6d365, #d9a441);
+  box-shadow: 0 0 0 2px rgba(217, 164, 65, 0.35);
+}
+
+.cert-badge-emblem.self-issued {
+  background: var(--badge-neutral-bg, rgba(128, 128, 128, 0.15));
+  filter: grayscale(1);
+  opacity: 0.75;
+}
+
+.cert-badge-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.badge.verified { background: var(--green-bg, rgba(46, 160, 67, 0.15)); color: var(--green, #2ea043); }
+.badge.self-issued { background: var(--badge-neutral-bg, rgba(128, 128, 128, 0.15)); color: var(--text-dim); }
+
+.cert-badge-hint {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
 .cert-card-title {
   font-weight: 700;
   font-size: 0.95rem;
