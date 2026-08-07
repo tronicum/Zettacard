@@ -944,6 +944,20 @@ main {
   padding: 8px 10px;
 }
 
+/* DN-51: standalone signed-JWT download button, for real badge-wallet
+   (Credly/Open Badges Passport) file-upload import - see
+   renderJwtDownloadBtn() in app.js. Only populated once a record is
+   genuinely signed; empty (no visible space) otherwise. */
+.cert-jwt-row:not(:empty) {
+  margin-top: 8px;
+}
+
+.cert-jwt-row .cert-dl-jwt {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 8px 10px;
+}
+
 /* DN-49: permanent verification link row (0€ MVP). Only ever populated for
    compliance-module records that already carry a real signature - see
    renderVerifyLinkRow() in app.js. Empty (no visible space) otherwise. */

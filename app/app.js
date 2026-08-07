@@ -1590,6 +1590,11 @@ const CERT_STRINGS = {
     empty: "Noch keine bestandene Prüfungssimulation. Bestehe eine Prüfungssimulation (nicht den Übungsmodus), um hier ein Zertifikat zu erhalten.",
     passedOn: (d) => `Bestanden am ${d}`,
     downloadCert: "Zertifikat herunterladen (HTML)", downloadCred: "Berechtigungsnachweis herunterladen (JSON)",
+    // DN-51: the raw signed JWT itself (not wrapped in JSON) - the actual
+    // Open Badges 3.0-conformant artifact a real badge wallet (Credly,
+    // Open Badges Passport, etc.) expects for file-upload import. Only
+    // shown once a record is genuinely signed - see renderJwtDownloadBtn().
+    downloadJwt: "Signiertes Credential herunterladen (JWT, für Wallets)",
     disclaimer: "Selbst erstellter Nachweis, nicht kryptographisch signiert oder extern verifiziert.",
     // DN-44: simple renewal-due note for compliance modules that carry a
     // renewal_months value in their meta - only shown once the due date has
@@ -1618,6 +1623,7 @@ const CERT_STRINGS = {
     empty: "No passed exam simulation yet. Pass an Exam Simulation (not Training mode) to get a certificate here.",
     passedOn: (d) => `Passed on ${d}`,
     downloadCert: "Download certificate (HTML)", downloadCred: "Download credential (JSON)",
+    downloadJwt: "Download signed credential (JWT, for wallets)",
     disclaimer: "Self-generated record, not cryptographically signed or independently verified.",
     renewalOverdue: (d) => `Refresher overdue since ${d}`,
     renewalDueSoon: (d) => `Refresher due by ${d}`,
@@ -1640,6 +1646,7 @@ const CERT_STRINGS = {
     empty: "Ще немає пройденої симуляції іспиту. Пройдіть Симуляцію іспиту (не режим тренування), щоб отримати тут сертифікат.",
     passedOn: (d) => `Складено ${d}`,
     downloadCert: "Завантажити сертифікат (HTML)", downloadCred: "Завантажити посвідчення (JSON)",
+    downloadJwt: "Завантажити підписане посвідчення (JWT, для гаманців)",
     disclaimer: "Самостійно створений запис, не підписаний криптографічно і не перевірений незалежно.",
     renewalOverdue: (d) => `Оновлення прострочено з ${d}`,
     renewalDueSoon: (d) => `Оновлення потрібне до ${d}`,
@@ -1662,6 +1669,7 @@ const CERT_STRINGS = {
     empty: "Jeszcze żadnej zaliczonej symulacji egzaminu. Zdaj Symulację egzaminu (nie tryb ćwiczeń), aby otrzymać tu certyfikat.",
     passedOn: (d) => `Zaliczono ${d}`,
     downloadCert: "Pobierz certyfikat (HTML)", downloadCred: "Pobierz poświadczenie (JSON)",
+    downloadJwt: "Pobierz podpisane poświadczenie (JWT, do portfeli)",
     disclaimer: "Zapis wygenerowany samodzielnie, niepodpisany kryptograficznie ani niezweryfikowany zewnętrznie.",
     renewalOverdue: (d) => `Odświeżenie zaległe od ${d}`,
     renewalDueSoon: (d) => `Odświeżenie wymagane do ${d}`,
@@ -1684,6 +1692,7 @@ const CERT_STRINGS = {
     empty: "لا توجد محاكاة امتحان ناجحة بعد. اجتز محاكاة امتحان (وليس وضع التدريب) للحصول على شهادة هنا.",
     passedOn: (d) => `اجتيز في ${d}`,
     downloadCert: "تنزيل الشهادة (HTML)", downloadCred: "تنزيل بيانات الاعتماد (JSON)",
+    downloadJwt: "تنزيل بيانات الاعتماد الموقّعة (JWT، للمحافظ)",
     disclaimer: "سجل ذاتي الإصدار، غير موقّع تشفيريًا وغير موثّق من طرف مستقل.",
     renewalOverdue: (d) => `التجديد متأخر منذ ${d}`,
     renewalDueSoon: (d) => `التجديد مستحق بحلول ${d}`,
@@ -1706,6 +1715,7 @@ const CERT_STRINGS = {
     empty: "尚无已通过的模拟考试。通过一次模拟考试(而非练习模式)即可在此获得证书。",
     passedOn: (d) => `通过日期:${d}`,
     downloadCert: "下载证书(HTML)", downloadCred: "下载凭证(JSON)",
+    downloadJwt: "下载已签名凭证(JWT,供钱包应用使用)",
     disclaimer: "自行生成的记录,未经加密签名,也未经第三方独立验证。",
     renewalOverdue: (d) => `续期已逾期,截止日期为 ${d}`,
     renewalDueSoon: (d) => `续期截止日期为 ${d}`,
@@ -1728,6 +1738,7 @@ const CERT_STRINGS = {
     empty: "अभी तक कोई पास की गई परीक्षा सिमुलेशन नहीं है। यहाँ प्रमाणपत्र पाने के लिए एक परीक्षा सिमुलेशन (अभ्यास मोड नहीं) पास करें।",
     passedOn: (d) => `${d} को उत्तीर्ण`,
     downloadCert: "प्रमाणपत्र डाउनलोड करें (HTML)", downloadCred: "क्रेडेंशियल डाउनलोड करें (JSON)",
+    downloadJwt: "हस्ताक्षरित क्रेडेंशियल डाउनलोड करें (JWT, वॉलेट के लिए)",
     disclaimer: "स्व-निर्मित रिकॉर्ड, क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित या स्वतंत्र रूप से सत्यापित नहीं।",
     renewalOverdue: (d) => `नवीनीकरण ${d} से लंबित`,
     renewalDueSoon: (d) => `नवीनीकरण ${d} तक देय`,
@@ -1750,6 +1761,7 @@ const CERT_STRINGS = {
     empty: "Henüz geçilmiş bir sınav simülasyonu yok. Burada bir sertifika almak için bir Sınav Simülasyonunu (Alıştırma modunu değil) geçin.",
     passedOn: (d) => `${d} tarihinde geçildi`,
     downloadCert: "Sertifikayı indir (HTML)", downloadCred: "Belgeyi indir (JSON)",
+    downloadJwt: "İmzalı belgeyi indir (JWT, cüzdanlar için)",
     disclaimer: "Kendiliğinden oluşturulmuş kayıt, kriptografik olarak imzalanmamış veya bağımsız olarak doğrulanmamıştır.",
     renewalOverdue: (d) => `Yenileme ${d} tarihinden beri gecikmiş`,
     renewalDueSoon: (d) => `Yenileme ${d} tarihine kadar gerekli`,
@@ -1772,6 +1784,7 @@ const CERT_STRINGS = {
     empty: "Aucune simulation d'examen réussie pour l'instant. Réussissez une Simulation d'examen (pas le mode Entraînement) pour obtenir un certificat ici.",
     passedOn: (d) => `Réussi le ${d}`,
     downloadCert: "Télécharger le certificat (HTML)", downloadCred: "Télécharger l'attestation (JSON)",
+    downloadJwt: "Télécharger l'attestation signée (JWT, pour portefeuilles)",
     disclaimer: "Enregistrement auto-généré, non signé cryptographiquement et non vérifié de manière indépendante.",
     renewalOverdue: (d) => `Renouvellement en retard depuis le ${d}`,
     renewalDueSoon: (d) => `Renouvellement à effectuer avant le ${d}`,
@@ -1794,6 +1807,7 @@ const CERT_STRINGS = {
     empty: "Пока нет пройденной симуляции экзамена. Пройдите Симуляцию экзамена (не режим тренировки), чтобы получить здесь сертификат.",
     passedOn: (d) => `Пройдено ${d}`,
     downloadCert: "Скачать сертификат (HTML)", downloadCred: "Скачать удостоверение (JSON)",
+    downloadJwt: "Скачать подписанное удостоверение (JWT, для кошельков)",
     disclaimer: "Самостоятельно созданная запись, не подписана криптографически и не проверена независимо.",
     renewalOverdue: (d) => `Обновление просрочено с ${d}`,
     renewalDueSoon: (d) => `Обновление требуется до ${d}`,
@@ -1816,6 +1830,7 @@ const CERT_STRINGS = {
     empty: "Todavía no hay ninguna simulación de examen aprobada. Aprueba una Simulación de examen (no el modo Entrenamiento) para obtener aquí un certificado.",
     passedOn: (d) => `Aprobado el ${d}`,
     downloadCert: "Descargar certificado (HTML)", downloadCred: "Descargar credencial (JSON)",
+    downloadJwt: "Descargar credencial firmada (JWT, para carteras)",
     disclaimer: "Registro autogenerado, no firmado criptográficamente ni verificado de forma independiente.",
     renewalOverdue: (d) => `Renovación vencida desde el ${d}`,
     renewalDueSoon: (d) => `Renovación necesaria antes del ${d}`,
@@ -1838,6 +1853,7 @@ const CERT_STRINGS = {
     empty: "Ancora nessuna simulazione d'esame superata. Supera una Simulazione d'esame (non la modalità Allenamento) per ottenere qui un certificato.",
     passedOn: (d) => `Superato il ${d}`,
     downloadCert: "Scarica certificato (HTML)", downloadCred: "Scarica credenziale (JSON)",
+    downloadJwt: "Scarica credenziale firmata (JWT, per wallet)",
     disclaimer: "Registro autogenerato, non firmato crittograficamente né verificato in modo indipendente.",
     renewalOverdue: (d) => `Rinnovo scaduto dal ${d}`,
     renewalDueSoon: (d) => `Rinnovo da effettuare entro il ${d}`,
@@ -2154,9 +2170,11 @@ async function renderCertificates() {
         <button class="back-btn cert-dl-cert">${C.downloadCert}</button>
         <button class="back-btn cert-dl-cred">${C.downloadCred}</button>
       </div>
+      <div class="cert-jwt-row"></div>
       <div class="cert-verify-row"></div>
     `;
     renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+    renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
     renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
     card.querySelector(".cert-dl-cert").addEventListener("click", () => {
       downloadTextFile(`${record.examType}-${record.scopeCode}-certificate.html`, certificateHtmlDoc(record), "text/html");
@@ -2167,6 +2185,7 @@ async function renderCertificates() {
       // building the download - falls back silently if it can't.
       await ensureSignedCredential(record);
       renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+      renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
       renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
       downloadTextFile(`${record.examType}-${record.scopeCode}-credential.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
@@ -2183,6 +2202,7 @@ async function renderCertificates() {
     if (!record.verified) {
       ensureSignedCredential(record).then(() => {
         renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+        renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
         renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
       });
     }
@@ -2321,6 +2341,28 @@ function renderVerifyLinkRow(slot, record, C) {
       err.textContent = C.verifyError;
       slot.appendChild(err);
     }
+  });
+}
+
+// DN-51 (docs/badge-wallet-portability-scoping.md): the raw signed JWT
+// itself, as a standalone downloadable file - NOT wrapped in JSON like
+// credentialJsonDoc()'s existing download. Real badge wallets (Credly,
+// Open Badges Passport, etc.) that accept third-party badges via file
+// upload expect the actual OB3-compliant compact JWS, which is exactly
+// record.signedJwt - the existing JSON credential download nests that
+// same JWT inside a custom `proof.jwt` field, which a real wallet import
+// would not recognize. Only ever shown once a record is genuinely signed
+// (same verified+signedJwt gate as the badge/verify-link rows) - a
+// self-issued/unverified record has no JWT to offer.
+function renderJwtDownloadBtn(slot, record, C) {
+  if (!slot) return;
+  if (!(record.verified && record.signedJwt)) {
+    slot.innerHTML = "";
+    return;
+  }
+  slot.innerHTML = `<button type="button" class="back-btn cert-dl-jwt">${C.downloadJwt}</button>`;
+  slot.querySelector(".cert-dl-jwt").addEventListener("click", () => {
+    downloadTextFile(`${record.examType}-${record.scopeCode}-credential.jwt`, record.signedJwt, "text/plain");
   });
 }
 
@@ -3100,24 +3142,29 @@ function renderExamResults() {
           <button class="back-btn" id="exam-results-cert-html">${C.downloadCert}</button>
           <button class="back-btn" id="exam-results-cert-json">${C.downloadCred}</button>
         </div>
+        <div class="cert-jwt-row"></div>
         <div class="cert-verify-row"></div>
       </div>
     `;
     const record = state.exam.certRecord;
     const badgeSlot = certEl.querySelector(".cert-badge-row");
+    const jwtSlot = certEl.querySelector(".cert-jwt-row");
     const verifySlot = certEl.querySelector(".cert-verify-row");
     renderBadgeRow(badgeSlot, record, C);
+    renderJwtDownloadBtn(jwtSlot, record, C);
     renderVerifyLinkRow(verifySlot, record, C);
     // A fresh pass fires trySignCompletion() in the background right from
     // recordCompletion() (still in flight at the moment this results screen
     // first renders) - re-render the badge once that settles so a passing
     // user actually SEES the upgrade from "self-issued" to "signed badge"
     // happen live, rather than only finding out on a later visit to "My
-    // certificates". The verify-link row is re-rendered alongside it since it
-    // only becomes eligible once the signature is real.
+    // certificates". The JWT-download and verify-link rows are re-rendered
+    // alongside it since both only become eligible once the signature is
+    // real.
     if (!record.verified) {
       ensureSignedCredential(record).then(() => {
         renderBadgeRow(badgeSlot, record, C);
+        renderJwtDownloadBtn(jwtSlot, record, C);
         renderVerifyLinkRow(verifySlot, record, C);
       });
     }
@@ -3127,6 +3174,7 @@ function renderExamResults() {
     el("#exam-results-cert-json").addEventListener("click", async () => {
       await ensureSignedCredential(record);
       renderBadgeRow(badgeSlot, record, C);
+      renderJwtDownloadBtn(jwtSlot, record, C);
       renderVerifyLinkRow(verifySlot, record, C);
       downloadTextFile(`zettacard-credential-${record.id}.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
