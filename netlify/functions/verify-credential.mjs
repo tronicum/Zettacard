@@ -1,14 +1,14 @@
-// Netlify Function: the actual public-facing deliverable of DN-49. Renders
-// a plain, no-JS-required HTML page for a permanent /verify/<slug> link
-// (routed here via the netlify.toml redirect, which must stay ABOVE the
-// catch-all SPA-fallback redirect for /verify/* to ever reach this
-// function instead of the marketing landing page) so a non-technical
-// verifier (a DGUV auditor, a new employer) can just open a link and see
-// whether a completion is real - not parse a JSON credential or run a
-// signature check themselves.
+// Netlify Function (v2 / export-default style): the actual public-facing
+// deliverable of DN-49. Renders a plain, no-JS-required HTML page for a
+// permanent /verify/<slug> link (routed here via the netlify.toml
+// redirect, which must stay ABOVE the catch-all SPA-fallback redirect for
+// /verify/* to ever reach this function instead of the marketing landing
+// page) so a non-technical verifier (a DGUV auditor, a new employer) can
+// just open a link and see whether a completion is real - not parse a
+// JSON credential or run a signature check themselves.
 //
 // Re-verifies the stored signature against the LIVE JWKS at request time
-// (not just trusting whatever was true when save-verified-credential.js
+// (not just trusting whatever was true when save-verified-credential.mjs
 // wrote the record) - belt-and-suspenders in case of a future key
 // rotation, and because this is the one honest place to actually show
 // "yes, right now, this still checks out."
@@ -19,36 +19,18 @@
 // link can view it. Same trust model as sharing a Google Docs link - a
 // deliberate, simple choice for the MVP, not an oversight (see
 // docs/paid-verifiable-certificates-scoping.md, "Open questions").
+//
+// v2 (export default), not exports.handler: see
+// save-verified-credential.mjs for why - Netlify only auto-injects the
+// Blobs siteID/token context for v2 functions.
 
-let _josePromise;
-function loadJose() {
-  if (!_josePromise) _josePromise = import("jose");
-  return _josePromise;
-}
-let _blobsPromise;
-function loadBlobs() {
-  if (!_blobsPromise) _blobsPromise = import("@netlify/blobs");
-  return _blobsPromise;
-}
+import { importJWK, jwtVerify } from "jose";
+import { getStore } from "@netlify/blobs";
 
 const ALG = "ES256";
 const ISSUER_URL = process.env.URL || "https://zettacard.netlify.app";
 const JWKS_PATH = "/.well-known/jwks.json";
 const STORE_NAME = "verified-credentials";
-
-// See save-verified-credential.js for why siteID/token are passed
-// explicitly: this is a "legacy" (exports.handler) function, and Netlify
-// only auto-injects the Blobs environment for v2 (export-default)
-// functions - getStore(STORE_NAME) alone throws
-// MissingBlobsEnvironmentError here even in production.
-async function getVerifiedCredentialsStore() {
-  const { getStore } = await loadBlobs();
-  return getStore({
-    name: STORE_NAME,
-    siteID: process.env.SITE_ID,
-    token: process.env.NETLIFY_FUNCTIONS_TOKEN,
-  });
-}
 
 function escapeHtml(s) {
   return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({
@@ -56,7 +38,7 @@ function escapeHtml(s) {
   }[c]));
 }
 
-function htmlPage({ title, bodyHtml, statusOk }) {
+function htmlPage({ title, bodyHtml }) {
   return `<!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${escapeHtml(title)}</title>
@@ -81,27 +63,31 @@ function htmlPage({ title, bodyHtml, statusOk }) {
 </body></html>`;
 }
 
-exports.handler = async (event) => {
-  if (event.httpMethod !== "GET") {
-    return { statusCode: 405, headers: { "content-type": "text/plain" }, body: "Method not allowed." };
+function htmlResponse(status, bodyHtml, title) {
+  return new Response(htmlPage({ title, bodyHtml }), {
+    status,
+    headers: { "content-type": "text/html; charset=utf-8" },
+  });
+}
+
+export default async (req) => {
+  if (req.method !== "GET") {
+    return new Response("Method not allowed.", { status: 405, headers: { "content-type": "text/plain" } });
   }
 
   // The redirect (netlify.toml) forwards the path segment as
   // /.netlify/functions/verify-credential/<slug> - pull the last segment.
-  const parts = event.path.split("/").filter(Boolean);
+  const url = new URL(req.url);
+  const parts = url.pathname.split("/").filter(Boolean);
   const slug = parts[parts.length - 1];
   const slugRe = /^[0-9a-f-]{8,64}$/i;
   if (!slug || !slugRe.test(slug)) {
-    return {
-      statusCode: 400,
-      headers: { "content-type": "text/html; charset=utf-8" },
-      body: htmlPage({ title: "Ungültiger Link", bodyHtml: `<h1>Ungültiger Link</h1><p>Dieser Verifizierungslink ist nicht gültig.</p>` }),
-    };
+    return htmlResponse(400, `<h1>Ungültiger Link</h1><p>Dieser Verifizierungslink ist nicht gültig.</p>`, "Ungültiger Link");
   }
 
   let record;
   try {
-    const store = await getVerifiedCredentialsStore();
+    const store = getStore(STORE_NAME);
     record = await store.get(slug, { type: "json" });
   } catch (e) {
     console.error("verify-credential: Blobs read failed:", e);
@@ -109,14 +95,11 @@ exports.handler = async (event) => {
   }
 
   if (!record) {
-    return {
-      statusCode: 404,
-      headers: { "content-type": "text/html; charset=utf-8" },
-      body: htmlPage({
-        title: "Zertifikat nicht gefunden",
-        bodyHtml: `<h1>Zertifikat nicht gefunden</h1><p>Unter diesem Link ist kein Zertifikat hinterlegt. Der Link könnte falsch kopiert oder das Zertifikat entfernt worden sein.</p>`,
-      }),
-    };
+    return htmlResponse(
+      404,
+      `<h1>Zertifikat nicht gefunden</h1><p>Unter diesem Link ist kein Zertifikat hinterlegt. Der Link könnte falsch kopiert oder das Zertifikat entfernt worden sein.</p>`,
+      "Zertifikat nicht gefunden",
+    );
   }
 
   // Re-verify RIGHT NOW against the live JWKS, not just trusting that the
@@ -126,7 +109,6 @@ exports.handler = async (event) => {
     const jwksRaw = await fetch(`${ISSUER_URL}${JWKS_PATH}`).then((r) => r.json());
     const jwk = (jwksRaw.keys || []).find((k) => k.kid === record.signedKid) || jwksRaw.keys?.[0];
     if (jwk) {
-      const { importJWK, jwtVerify } = await loadJose();
       const publicKey = await importJWK(jwk, record.signedAlg || ALG);
       await jwtVerify(record.signedJwt, publicKey, { issuer: ISSUER_URL });
       signatureValid = true;
@@ -155,9 +137,5 @@ exports.handler = async (event) => {
     </div>
   `;
 
-  return {
-    statusCode: 200,
-    headers: { "content-type": "text/html; charset=utf-8" },
-    body: htmlPage({ title: `Zettacard – ${record.moduleLabel} Zertifikat`, bodyHtml }),
-  };
+  return htmlResponse(200, bodyHtml, `Zettacard – ${record.moduleLabel} Zertifikat`);
 };

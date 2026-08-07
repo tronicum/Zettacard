@@ -1,11 +1,21 @@
-// Netlify Function: persists an ALREADY-SIGNED completion record (see
-// sign-credential.js) to Netlify Blobs under a random public slug, so it
-// can be shown at a permanent, shareable /verify/<slug> page (see
-// verify-credential.js) - the actual DN-49 deliverable: a link a DGUV
-// auditor or new employer can just open, not a JSON file only a
-// technical person could check.
+// Netlify Function (v2 / export-default style): persists an ALREADY-SIGNED
+// completion record (see sign-credential.js) to Netlify Blobs under a
+// random public slug, so it can be shown at a permanent, shareable
+// /verify/<slug> page (see verify-credential.mjs) - the actual DN-49
+// deliverable: a link a DGUV auditor or new employer can just open, not a
+// JSON file only a technical person could check.
 //
 // -----------------------------------------------------------------------
+// WHY v2 (export default), not the exports.handler style used by
+// sign-credential.js: Netlify only auto-injects the Netlify Blobs
+// siteID/token context for v2 functions. The exports.handler version of
+// this function threw MissingBlobsEnvironmentError in production even
+// with SITE_ID/NETLIFY_FUNCTIONS_TOKEN passed explicitly to getStore()
+// (that token isn't scoped for the Blobs API - got a 401 from Blobs
+// itself). Confirmed via temporary debug responses during rollout. v2
+// functions need no such workaround - getStore(name) just works.
+// -----------------------------------------------------------------------
+//
 // SCOPE, DELIBERATE (see docs/paid-verifiable-certificates-scoping.md):
 // - Only the 4 workplace-compliance modules (datenschutz, arbeitssicherheit,
 //   ki_act, it_sicherheit) may get a permanent link - driving/fishing
@@ -23,38 +33,13 @@
 //   that isn't).
 // -----------------------------------------------------------------------
 
-let _josePromise;
-function loadJose() {
-  if (!_josePromise) _josePromise = import("jose");
-  return _josePromise;
-}
-let _blobsPromise;
-function loadBlobs() {
-  if (!_blobsPromise) _blobsPromise = import("@netlify/blobs");
-  return _blobsPromise;
-}
+import { importJWK, jwtVerify } from "jose";
+import { getStore } from "@netlify/blobs";
 
 const ALG = "ES256";
 const ISSUER_URL = process.env.URL || "https://zettacard.netlify.app";
 const JWKS_PATH = "/.well-known/jwks.json";
 const STORE_NAME = "verified-credentials";
-
-// This is a "legacy" (exports.handler) function, not the newer
-// export-default Functions v2 style - Netlify only auto-injects the Blobs
-// siteID/token context for v2 functions, so getStore(STORE_NAME) alone
-// throws MissingBlobsEnvironmentError here even in production (confirmed
-// by deploying with debug output). Netlify still exposes SITE_ID and a
-// scoped NETLIFY_FUNCTIONS_TOKEN to every function's environment though,
-// which is exactly the { siteID, token } shape getStore() accepts - so
-// pass those explicitly instead of switching function styles.
-async function getVerifiedCredentialsStore() {
-  const { getStore } = await loadBlobs();
-  return getStore({
-    name: STORE_NAME,
-    siteID: process.env.SITE_ID,
-    token: process.env.NETLIFY_FUNCTIONS_TOKEN,
-  });
-}
 
 const COMPLIANCE_EXAM_TYPES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit"]);
 const MAX_LABEL_LEN = 200;
@@ -62,11 +47,14 @@ const MAX_NAME_LEN = 100;
 const SAFE_CODE_RE = /^[a-zA-Z0-9_-]{1,64}$/;
 
 function jsonResponse(statusCode, body) {
-  return { statusCode, headers: { "content-type": "application/json" }, body: JSON.stringify(body) };
+  return new Response(JSON.stringify(body), {
+    status: statusCode,
+    headers: { "content-type": "application/json" },
+  });
 }
 
 // Strips control characters only - stored as plain data. The actual
-// HTML-safety boundary is enforced on the OUTPUT side (verify-credential.js
+// HTML-safety boundary is enforced on the OUTPUT side (verify-credential.mjs
 // escapes it when rendering, the same discipline certificateHtmlDoc() in
 // app.js already uses for user-adjacent text) - escaping on render is the
 // correct place for that, not mangling the stored value here. Purely a
@@ -79,14 +67,14 @@ function sanitizeName(raw) {
   return cleaned.slice(0, MAX_NAME_LEN);
 }
 
-exports.handler = async (event, context) => {
-  if (event.httpMethod !== "POST") {
+export default async (req) => {
+  if (req.method !== "POST") {
     return jsonResponse(405, { error: "Method not allowed. Use POST." });
   }
 
   let payload;
   try {
-    payload = JSON.parse(event.body || "{}");
+    payload = await req.json();
   } catch (e) {
     return jsonResponse(400, { error: "Request body must be valid JSON." });
   }
@@ -95,7 +83,7 @@ exports.handler = async (event, context) => {
     id, examType, scopeCode, moduleLabel, scopeLabel, passedAt,
     errorPoints, wrongHighStakes, totalQuestions,
     signedJwt, signedKid, signedAlg, participantName,
-  } = payload;
+  } = payload || {};
 
   if (typeof examType !== "string" || !COMPLIANCE_EXAM_TYPES.has(examType)) {
     return jsonResponse(400, { error: "Permanent verification links are only available for the compliance modules (datenschutz, arbeitssicherheit, ki_act, it_sicherheit)." });
@@ -135,7 +123,6 @@ exports.handler = async (event, context) => {
     const jwksRaw = await fetch(`${ISSUER_URL}${JWKS_PATH}`).then((r) => r.json());
     const jwk = (jwksRaw.keys || []).find((k) => k.kid === signedKid) || jwksRaw.keys?.[0];
     if (!jwk) throw new Error("No matching key in JWKS.");
-    const { importJWK, jwtVerify } = await loadJose();
     const publicKey = await importJWK(jwk, signedAlg || ALG);
     await jwtVerify(signedJwt, publicKey, { issuer: ISSUER_URL });
   } catch (e) {
@@ -153,11 +140,11 @@ exports.handler = async (event, context) => {
   };
 
   try {
-    const store = await getVerifiedCredentialsStore();
+    const store = getStore(STORE_NAME);
     await store.setJSON(slug, record);
   } catch (e) {
     console.error("save-verified-credential: Blobs write failed:", e);
-    return jsonResponse(500, { error: "Could not save the permanent verification record on this deployment.", debug: String((e && e.stack) || e) });
+    return jsonResponse(500, { error: "Could not save the permanent verification record on this deployment." });
   }
 
   return jsonResponse(200, { slug, verifyUrl: `${ISSUER_URL}/verify/${slug}` });
