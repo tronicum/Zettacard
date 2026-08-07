@@ -163,15 +163,19 @@ if real B2B customers push back on quality/consistency.
 
 ## 5. Recommended build order (phased, not all-at-once)
 
-**MVP scope (0€ — this is what we're building now):**
+**MVP scope (0€):**
 
-1. **Phase 1 — the actual MVP**: wire up storage (Netlify Database or Blobs — see the sources note
-   below, worth a 10-minute comparison before committing to one), extend the existing free signing
-   flow so every completed compliance-module Exam Simulation gets a permanent slug + a real
-   `/verify/<id>` public page, no payment gate at all. This alone is the deliverable: a DGUV
-   auditor or a new employer can open a real, permanent, independently-checkable link — for free.
-   Ship this, then see whether B2B demand for a paid/premium tier actually materializes before
-   building anything in Phase 2.
+1. **Phase 1 — the actual MVP — DONE, live in production (2026-08-07)**: wired up Netlify Blobs
+   (chosen over Netlify Database — simpler and sufficient for simple UUID-keyed record storage,
+   no complex queries needed), extended the existing free signing flow so every completed
+   compliance-module Exam Simulation can request a permanent slug + a real `/verify/<id>` public
+   page, no payment gate at all. This alone is the deliverable: a DGUV auditor or a new employer
+   can open a real, permanent, independently-checkable link — for free. See BACKLOG.md's Done
+   section (2026-08-07 entry) for the full build/debugging account, including a real multi-step
+   Netlify Blobs + deploy-caching saga worth reading before touching these functions again.
+   Shipped as `netlify/functions/save-verified-credential-v2.mjs` +
+   `netlify/functions/verify-credential-v2.mjs` + `app/_redirects`. Now watching for whether real
+   B2B demand for a paid/premium tier actually materializes before building anything in Phase 2.
 
 **Deferred, not scoped further until there's real demand:**
 
