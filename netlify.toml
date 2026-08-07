@@ -41,44 +41,12 @@
     # change rarely - a short cache is a reasonable middle ground.
     Cache-Control = "public, max-age=3600"
 
-[[redirects]]
-  # DN-49: permanent, shareable "is this real" pages for compliance-module
-  # certificates (see docs/paid-verifiable-certificates-scoping.md). Must
-  # stay ABOVE the catch-all "/* -> /index.html" rule below - Netlify
-  # matches redirects in file order, first match wins, so if this were
-  # below the catch-all every /verify/<slug> link would 200 into the
-  # landing page instead of ever reaching verify-credential.js.
-  from = "/verify/*"
-  # Function is named "verify-credential-v2" (not "verify-credential") -
-  # Netlify's deploy pipeline was reusing a stale cached bundle for the
-  # original name across deploys even after its source was rewritten (a
-  # legacy exports.handler function replaced by a v2 export-default one);
-  # renaming sidestepped whatever kept it stuck on the old build.
-  to = "/.netlify/functions/verify-credential-v2/:splat"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  # Single-page app fallback - not strictly needed today (there's no
-  # client-side router with deep-linkable routes yet) but harmless and
-  # future-proofs against a 404 if that changes.
-  #
-  # Rebrand note: as of the landing-page split, /index.html is the
-  # marketing page, not the app (which now lives at /app.html) - so an
-  # unknown/deep path now falls back to the landing page rather than
-  # straight into the app. Considered pointing this at /app.html instead,
-  # but decided against it: this rule only exists as a 404 backstop for a
-  # path nobody actually linked to, and landing a confused/incoming visitor
-  # on "here's what Zettacard is, click to start" is a more sensible
-  # recovery than dropping them into app UI state with no context. A
-  # visitor who already knows the app (bookmarked/installed) always has a
-  # correct direct link/home-screen icon to /app.html regardless of this
-  # rule.
-  #
-  # This does NOT swallow /.well-known/jwks.json or /.netlify/functions/* -
-  # Netlify serves an existing static file (jwks.json) and functions before
-  # falling through to redirects, so both stay reachable at their real
-  # paths without needing an explicit exclusion rule here.
+# Redirects (including the /verify/* -> verify-credential-v2 function rule
+# and the SPA/marketing-page catch-all) now live in app/_redirects, not
+# here. netlify.toml redirects take precedence over an _redirects file
+# when both exist, and the second [[redirects]] block that used to be
+# here was silently never applied in production (confirmed by curling a
+# fresh /verify/<slug> and getting the landing page instead of the
+# function's output, even with force=true) - moving both rules to
+# app/_redirects sidesteps whatever was dropping it. See that file for
+# the actual rules and their comments.

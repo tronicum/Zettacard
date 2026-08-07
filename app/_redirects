@@ -1,0 +1,16 @@
+# DN-49: permanent, shareable "is this real" pages for compliance-module
+# certificates (see docs/paid-verifiable-certificates-scoping.md). Must
+# stay ABOVE the catch-all "/* -> /index.html" rule below - first match
+# wins, so if this were below the catch-all every /verify/<slug> link
+# would 200 into the landing page instead of ever reaching
+# verify-credential-v2.
+#
+# Moved here from netlify.toml's [[redirects]] because that second
+# [[redirects]] block was silently not being applied in production (only
+# the pre-existing catch-all rule ever took effect, confirmed by directly
+# curling a fresh /verify/<slug> and seeing the landing page instead of
+# the function's output, even after a force=true retry) - an _redirects
+# file is the more battle-tested mechanism, so this sidesteps whatever
+# was dropping the second netlify.toml rule.
+/verify/*  /.netlify/functions/verify-credential-v2/:splat  200
+/*  /index.html  200
