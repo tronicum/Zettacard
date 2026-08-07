@@ -68,12 +68,16 @@ it to yourself" feature - the file shape itself needs fixing first.
 
 ## 5. Recommended smallest viable version
 
-1. **Fix the file shape first (no new infrastructure, no PII)**: add a "Download signed credential
-   (JWT)" option next to the existing JSON download, that is literally `record.signedJwt` written
-   to a `.jwt`/`.txt` file - the actual OB3-compliant artifact a wallet or validator expects, not a
-   wrapper around it. This alone makes the *existing* credential genuinely importable into
-   Credly-style "upload a file" flows, with zero new server work and zero new personal data
-   captured.
+1. **DONE (2026-08-07)**: added a "Download signed credential (JWT, for wallets)" button next to
+   the existing certificate/JSON downloads (both "My certificates" and the exam-results screen),
+   gated to genuinely-signed records, translated across all 12 locales. It's literally
+   `record.signedJwt` written to a file - the actual OB3-compliant compact JWS a wallet or validator
+   expects, not a wrapper around it. Verified via an extended `scripts/test_full_exam_badge.mjs`
+   run (byte-compares the downloaded file against the record's own `signedJwt` after a real signed
+   exam pass). This alone makes credential import via Credly-style "upload a file" flows viable for
+   the first time, with zero new server work and zero new personal data captured. NOT done as part
+   of this step: the separately-flagged `achievement.id`/proof-shape gaps in the existing JSON
+   download (`credentialJsonDoc()`) are unrelated to this new button and remain open.
 2. **Do not build email capture for this.** Every mainstream badge platform researched treats the
    earner's email as a required field and just accepts the GDPR processing that implies; no
    platform researched does a no-email self-service model. That means Zettacard doing the
