@@ -150,11 +150,24 @@ def main():
         os.path.join(HERE, "it_sicherheit_pilot.json"), "it_sicherheit", compliance_locales)
     print(f"it_sicherheit: {itsec_count} questions, locale gaps: {itsec_missing}")
 
+    # DN-50: 5th compliance module (Hinweisgeberschutzgesetz/HinSchG). A
+    # DE/EN-only 20-question pilot for now (see hinweisgeberschutz_pilot.json
+    # meta) - NOT yet scaled to the other 10 locales/40 questions the way
+    # the DN-44 four were under DN-48, so this uses its own locales list
+    # rather than compliance_locales above. Scaling to full parity is
+    # tracked as remaining scope in BACKLOG.md - same pilot-then-scale
+    # pattern every other module already went through.
+    hgs_locales = ["de", "en"]
+    hgs_count, hgs_missing = split_module(
+        os.path.join(HERE, "hinweisgeberschutz_pilot.json"), "hinweisgeberschutz", hgs_locales)
+    print(f"hinweisgeberschutz: {hgs_count} questions, locale gaps: {hgs_missing}")
+
     # Sanity: every core question must resolve in at least its canonical
     # locale, and every core question's scope field must be present -
     # otherwise the app would silently render a blank question.
     for exam_type in ("fuehrerschein", "angelschein", "motorrad", "lkw",
-                       "datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit"):
+                       "datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit",
+                       "hinweisgeberschutz"):
         core = json.load(open(os.path.join(APP_DATA, exam_type, "core.json"), encoding="utf-8"))
         for q in core["questions"]:
             if not any(sf in q for sf in SCOPE_FIELDS):

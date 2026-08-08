@@ -755,6 +755,18 @@ const TOPIC_LABELS = {
     mobil_homeoffice: { de: "Mobile Geräte und Home-Office", en: "Mobile devices & home office", uk: "Мобільні пристрої та дистанційна робота", pl: "Urządzenia mobilne i praca zdalna", ar: "الأجهزة المحمولة والعمل عن بُعد", zh: "移动设备与居家办公", hi: "मोबाइल उपकरण और होम-ऑफिस", tr: "Mobil cihazlar ve evden çalışma", fr: "Appareils mobiles et télétravail", ru: "Мобильные устройства и удалённая работа", es: "Dispositivos móviles y teletrabajo", it: "Dispositivi mobili e lavoro da remoto" },
     meldepflicht_it: { de: "Meldung von Sicherheitsvorfällen", en: "Incident reporting", uk: "Повідомлення про інциденти безпеки", pl: "Zgłaszanie incydentów bezpieczeństwa", ar: "الإبلاغ عن حوادث الأمان", zh: "安全事件报告", hi: "सुरक्षा घटना की रिपोर्टिंग", tr: "Güvenlik olaylarının bildirilmesi", fr: "Signalement des incidents de sécurité", ru: "Уведомление об инцидентах безопасности", es: "Notificación de incidentes de seguridad", it: "Segnalazione di incidenti di sicurezza" },
   },
+  // DN-50: 5th compliance module. DE/EN-only pilot (see
+  // hinweisgeberschutz_pilot.json meta) - these topic labels are DE/EN only
+  // for now too, matching getTopicLabel()'s existing EN/DE-then-raw
+  // fallback chain (same situation angelschein was in before it got full
+  // 12-locale topic labels).
+  hinweisgeberschutz: {
+    geltungsbereich: { de: "Geltungsbereich", en: "Scope & thresholds" },
+    meldestellen: { de: "Meldestellen (intern/extern)", en: "Reporting channels (internal/external)" },
+    vertraulichkeit: { de: "Vertraulichkeit", en: "Confidentiality" },
+    repressalienschutz: { de: "Schutz vor Repressalien", en: "Protection from retaliation" },
+    sanktionen: { de: "Sanktionen (Bußgeld)", en: "Sanctions (fines)" },
+  },
 };
 
 // Looks up a topic label for the CURRENT module/locale, falling back to EN
@@ -774,7 +786,7 @@ function getTopicLabel(topicCode, fallbackTopic) {
 // more role-specific one. This is a SECOND, additive filter row shown only
 // for those 4 modules, layered on top of the existing topic filter (a
 // learner can combine both) rather than replacing it.
-const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit"]);
+const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz"]);
 
 // Role codes in a fixed display order - "all" here means "no role filter
 // applied" (show every question regardless of its own roles tag), NOT to be

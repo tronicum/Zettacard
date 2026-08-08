@@ -3,18 +3,36 @@
     {
       "exam_type": "fuehrerschein",
       "label": {
-        "de": "Führerschein", "en": "Driving licence", "uk": "Посвідчення водія", "pl": "Prawo jazdy",
-        "ar": "رخصة القيادة", "zh": "驾驶执照", "hi": "ड्राइविंग लाइसेंस", "tr": "Sürücü belgesi",
-        "fr": "Permis de conduire", "ru": "Водительские права", "es": "Permiso de conducir", "it": "Patente di guida"
+        "de": "Führerschein",
+        "en": "Driving licence",
+        "uk": "Посвідчення водія",
+        "pl": "Prawo jazdy",
+        "ar": "رخصة القيادة",
+        "zh": "驾驶执照",
+        "hi": "ड्राइविंग लाइसेंस",
+        "tr": "Sürücü belgesi",
+        "fr": "Permis de conduire",
+        "ru": "Водительские права",
+        "es": "Permiso de conducir",
+        "it": "Patente di guida"
       },
       "scopeKind": "class",
       "options": [
         {
           "code": "B",
           "label": {
-            "de": "Klasse B (Pkw)", "en": "Class B (car)", "uk": "Категорія B (легковий)", "pl": "Kategoria B (samochód)",
-            "ar": "الفئة B (سيارة)", "zh": "B 类（小汽车）", "hi": "क्लास B (कार)", "tr": "B Sınıfı (otomobil)",
-            "fr": "Catégorie B (voiture)", "ru": "Категория B (легковой)", "es": "Clase B (coche)", "it": "Classe B (auto)"
+            "de": "Klasse B (Pkw)",
+            "en": "Class B (car)",
+            "uk": "Категорія B (легковий)",
+            "pl": "Kategoria B (samochód)",
+            "ar": "الفئة B (سيارة)",
+            "zh": "B 类（小汽车）",
+            "hi": "क्लास B (कार)",
+            "tr": "B Sınıfı (otomobil)",
+            "fr": "Catégorie B (voiture)",
+            "ru": "Категория B (легковой)",
+            "es": "Clase B (coche)",
+            "it": "Classe B (auto)"
           }
         },
         {
@@ -22,9 +40,18 @@
           "extends": "B",
           "_comment": "extends: BE is a trailer add-on to B, not an independent test - a BE student needs all of B's content PLUS BE-specific facts, so this class stacks onto B the same way Angelschein's region_scope stacks onto ALL (DN-42). See questionMatchesScope() in app.js.",
           "label": {
-            "de": "Klasse BE (Pkw mit Anhänger)", "en": "Class BE (car with trailer)", "uk": "Категорія BE (легковий з причепом)", "pl": "Kategoria BE (samochód z przyczepą)",
-            "ar": "الفئة BE (سيارة مع مقطورة)", "zh": "BE 类（带挂车的小汽车）", "hi": "क्लास BE (ट्रेलर सहित कार)", "tr": "BE Sınıfı (römorklu otomobil)",
-            "fr": "Catégorie BE (voiture avec remorque)", "ru": "Категория BE (легковой с прицепом)", "es": "Clase BE (coche con remolque)", "it": "Classe BE (auto con rimorchio)"
+            "de": "Klasse BE (Pkw mit Anhänger)",
+            "en": "Class BE (car with trailer)",
+            "uk": "Категорія BE (легковий з причепом)",
+            "pl": "Kategoria BE (samochód z przyczepą)",
+            "ar": "الفئة BE (سيارة مع مقطورة)",
+            "zh": "BE 类（带挂车的小汽车）",
+            "hi": "क्लास BE (ट्रेलर सहित कार)",
+            "tr": "BE Sınıfı (römorklu otomobil)",
+            "fr": "Catégorie BE (voiture avec remorque)",
+            "ru": "Категория BE (легковой с прицепом)",
+            "es": "Clase BE (coche con remolque)",
+            "it": "Classe BE (auto con rimorchio)"
           }
         }
       ],
@@ -32,32 +59,74 @@
         "_comment": "DN-43: shown once per device before a user's first study session in this module, and reopenable any time via the header info button. DE/EN only for now (like alt text) - falls back to EN for other UI languages, same pattern as MODULE_PICKER_STRINGS.",
         "steps": [
           {
-            "de": { "title": "Willkommen beim Führerschein-Modul", "body": "Hier bereitest du dich auf die theoretische Prüfung für die Klasse B (Pkw) vor - mit 500 Original-Fragen, die sich eng an die echten Prüfungsthemen anlehnen." },
-            "en": { "title": "Welcome to the Driving Licence module", "body": "This module prepares you for the Class B (car) theory exam - 500 original questions closely modeled on the real exam's actual subject areas." }
+            "de": {
+              "title": "Willkommen beim Führerschein-Modul",
+              "body": "Hier bereitest du dich auf die theoretische Prüfung für die Klasse B (Pkw) vor - mit 500 Original-Fragen, die sich eng an die echten Prüfungsthemen anlehnen."
+            },
+            "en": {
+              "title": "Welcome to the Driving Licence module",
+              "body": "This module prepares you for the Class B (car) theory exam - 500 original questions closely modeled on the real exam's actual subject areas."
+            }
           },
           {
-            "de": { "title": "Was wird abgefragt?", "body": "10 Themenbereiche: Vorfahrt, Verkehrszeichen, Gefahrenlehre, Umwelt und Technik, Ladungssicherung, Erste Hilfe, Alkohol/Drogen und mehr - jede Frage ist einem echten Grundstoff-Thema zugeordnet." },
-            "en": { "title": "What's covered", "body": "10 topic areas: right of way, traffic signs, hazard perception, environment and technology, load securing, first aid, alcohol/drugs, and more - every question is tagged to a real exam subject area." }
+            "de": {
+              "title": "Was wird abgefragt?",
+              "body": "10 Themenbereiche: Vorfahrt, Verkehrszeichen, Gefahrenlehre, Umwelt und Technik, Ladungssicherung, Erste Hilfe, Alkohol/Drogen und mehr - jede Frage ist einem echten Grundstoff-Thema zugeordnet."
+            },
+            "en": {
+              "title": "What's covered",
+              "body": "10 topic areas: right of way, traffic signs, hazard perception, environment and technology, load securing, first aid, alcohol/drugs, and more - every question is tagged to a real exam subject area."
+            }
           },
           {
-            "de": { "title": "Frei üben, ohne Zeitdruck", "body": "In der Karteikarten-Ansicht kannst du nach Thema filtern, Fragen in beliebiger Reihenfolge durchgehen und dir Antwort und Begründung jederzeit anzeigen lassen." },
-            "en": { "title": "Practice freely, no time pressure", "body": "In flashcard view you can filter by topic, go through questions in any order, and reveal the answer plus explanation whenever you're ready." }
+            "de": {
+              "title": "Frei üben, ohne Zeitdruck",
+              "body": "In der Karteikarten-Ansicht kannst du nach Thema filtern, Fragen in beliebiger Reihenfolge durchgehen und dir Antwort und Begründung jederzeit anzeigen lassen."
+            },
+            "en": {
+              "title": "Practice freely, no time pressure",
+              "body": "In flashcard view you can filter by topic, go through questions in any order, and reveal the answer plus explanation whenever you're ready."
+            }
           },
           {
-            "de": { "title": "Prüfungssimulation", "body": "Der Prüfungsmodus zieht 30 Fragen realistisch nach Themenverteilung, mit 45 Minuten Zeitlimit in der Simulation - genau wie bei der echten Prüfung." },
-            "en": { "title": "Exam simulation", "body": "Exam mode draws 30 questions with a realistic topic distribution, with a 45-minute time limit in Simulation mode - just like the real exam." }
+            "de": {
+              "title": "Prüfungssimulation",
+              "body": "Der Prüfungsmodus zieht 30 Fragen realistisch nach Themenverteilung, mit 45 Minuten Zeitlimit in der Simulation - genau wie bei der echten Prüfung."
+            },
+            "en": {
+              "title": "Exam simulation",
+              "body": "Exam mode draws 30 questions with a realistic topic distribution, with a 45-minute time limit in Simulation mode - just like the real exam."
+            }
           },
           {
-            "de": { "title": "So wird bewertet", "body": "Bestanden ist, wer höchstens 10 Fehlerpunkte sammelt und nicht 2 oder mehr besonders gefahrenrelevante Fragen falsch beantwortet - dieselbe Regel wie bei der echten Prüfung." },
-            "en": { "title": "How scoring works", "body": "You pass with at most 10 error points, and no more than 1 wrong answer on questions flagged as especially safety-critical - the same rule the real exam uses." }
+            "de": {
+              "title": "So wird bewertet",
+              "body": "Bestanden ist, wer höchstens 10 Fehlerpunkte sammelt und nicht 2 oder mehr besonders gefahrenrelevante Fragen falsch beantwortet - dieselbe Regel wie bei der echten Prüfung."
+            },
+            "en": {
+              "title": "How scoring works",
+              "body": "You pass with at most 10 error points, and no more than 1 wrong answer on questions flagged as especially safety-critical - the same rule the real exam uses."
+            }
           },
           {
-            "de": { "title": "In deiner Sprache", "body": "Alle 500 Fragen gibt es in 12 Sprachen. Du kannst die Sprache jederzeit oben wechseln, auch mitten in einer Frage." },
-            "en": { "title": "In your language", "body": "All 500 questions are available in 12 languages. Switch languages any time from the header, even in the middle of a question." }
+            "de": {
+              "title": "In deiner Sprache",
+              "body": "Alle 500 Fragen gibt es in 12 Sprachen. Du kannst die Sprache jederzeit oben wechseln, auch mitten in einer Frage."
+            },
+            "en": {
+              "title": "In your language",
+              "body": "All 500 questions are available in 12 languages. Switch languages any time from the header, even in the middle of a question."
+            }
           },
           {
-            "de": { "title": "Auch offline", "body": "Die App lässt sich installieren und funktioniert komplett offline - ideal zum Lernen unterwegs, ganz ohne Datenverbrauch." },
-            "en": { "title": "Works offline too", "body": "The app can be installed and works fully offline - great for studying on the go without using any mobile data." }
+            "de": {
+              "title": "Auch offline",
+              "body": "Die App lässt sich installieren und funktioniert komplett offline - ideal zum Lernen unterwegs, ganz ohne Datenverbrauch."
+            },
+            "en": {
+              "title": "Works offline too",
+              "body": "The app can be installed and works fully offline - great for studying on the go without using any mobile data."
+            }
           }
         ]
       }
@@ -65,34 +134,70 @@
     {
       "exam_type": "motorrad",
       "label": {
-        "de": "Motorrad", "en": "Motorcycle", "uk": "Мотоцикл", "pl": "Motocykl",
-        "ar": "دراجة نارية", "zh": "摩托车", "hi": "मोटरसाइकिल", "tr": "Motosiklet",
-        "fr": "Moto", "ru": "Мотоцикл", "es": "Motocicleta", "it": "Motociclo"
+        "de": "Motorrad",
+        "en": "Motorcycle",
+        "uk": "Мотоцикл",
+        "pl": "Motocykl",
+        "ar": "دراجة نارية",
+        "zh": "摩托车",
+        "hi": "मोटरसाइकिल",
+        "tr": "Motosiklet",
+        "fr": "Moto",
+        "ru": "Мотоцикл",
+        "es": "Motocicleta",
+        "it": "Motociclo"
       },
       "scopeKind": "class",
       "options": [
         {
           "code": "A1",
           "label": {
-            "de": "Klasse A1 (bis 125 cm³)", "en": "Class A1 (up to 125cc)", "uk": "Категорія A1 (до 125 см³)", "pl": "Kategoria A1 (do 125 cm³)",
-            "ar": "الفئة A1 (حتى 125 سم³)", "zh": "A1 类（125cc 以下）", "hi": "क्लास A1 (125cc तक)", "tr": "A1 Sınıfı (125cc'ye kadar)",
-            "fr": "Catégorie A1 (jusqu'à 125 cm³)", "ru": "Категория A1 (до 125 см³)", "es": "Clase A1 (hasta 125cc)", "it": "Classe A1 (fino a 125cc)"
+            "de": "Klasse A1 (bis 125 cm³)",
+            "en": "Class A1 (up to 125cc)",
+            "uk": "Категорія A1 (до 125 см³)",
+            "pl": "Kategoria A1 (do 125 cm³)",
+            "ar": "الفئة A1 (حتى 125 سم³)",
+            "zh": "A1 类（125cc 以下）",
+            "hi": "क्लास A1 (125cc तक)",
+            "tr": "A1 Sınıfı (125cc'ye kadar)",
+            "fr": "Catégorie A1 (jusqu'à 125 cm³)",
+            "ru": "Категория A1 (до 125 см³)",
+            "es": "Clase A1 (hasta 125cc)",
+            "it": "Classe A1 (fino a 125cc)"
           }
         },
         {
           "code": "A2",
           "label": {
-            "de": "Klasse A2 (bis 35 kW)", "en": "Class A2 (up to 35kW)", "uk": "Категорія A2 (до 35 кВт)", "pl": "Kategoria A2 (do 35 kW)",
-            "ar": "الفئة A2 (حتى 35 كيلوواط)", "zh": "A2 类（35kW 以下）", "hi": "क्लास A2 (35kW तक)", "tr": "A2 Sınıfı (35kW'a kadar)",
-            "fr": "Catégorie A2 (jusqu'à 35 kW)", "ru": "Категория A2 (до 35 кВт)", "es": "Clase A2 (hasta 35kW)", "it": "Classe A2 (fino a 35kW)"
+            "de": "Klasse A2 (bis 35 kW)",
+            "en": "Class A2 (up to 35kW)",
+            "uk": "Категорія A2 (до 35 кВт)",
+            "pl": "Kategoria A2 (do 35 kW)",
+            "ar": "الفئة A2 (حتى 35 كيلوواط)",
+            "zh": "A2 类（35kW 以下）",
+            "hi": "क्लास A2 (35kW तक)",
+            "tr": "A2 Sınıfı (35kW'a kadar)",
+            "fr": "Catégorie A2 (jusqu'à 35 kW)",
+            "ru": "Категория A2 (до 35 кВт)",
+            "es": "Clase A2 (hasta 35kW)",
+            "it": "Classe A2 (fino a 35kW)"
           }
         },
         {
           "code": "A",
           "label": {
-            "de": "Klasse A (unbeschränkt)", "en": "Class A (unrestricted)", "uk": "Категорія A (без обмежень)", "pl": "Kategoria A (bez ograniczeń)",
-            "ar": "الفئة A (غير مقيدة)", "zh": "A 类（无限制）", "hi": "क्लास A (असीमित)", "tr": "A Sınıfı (sınırsız)",
-            "fr": "Catégorie A (illimitée)", "ru": "Категория A (без ограничений)", "es": "Clase A (sin restricciones)", "it": "Classe A (illimitata)"
+            "de": "Klasse A (unbeschränkt)",
+            "en": "Class A (unrestricted)",
+            "uk": "Категорія A (без обмежень)",
+            "pl": "Kategoria A (bez ograniczeń)",
+            "ar": "الفئة A (غير مقيدة)",
+            "zh": "A 类（无限制）",
+            "hi": "क्लास A (असीमित)",
+            "tr": "A Sınıfı (sınırsız)",
+            "fr": "Catégorie A (illimitée)",
+            "ru": "Категория A (без ограничений)",
+            "es": "Clase A (sin restricciones)",
+            "it": "Classe A (illimitata)"
           }
         }
       ]
@@ -100,34 +205,70 @@
     {
       "exam_type": "lkw",
       "label": {
-        "de": "LKW", "en": "Truck", "uk": "Вантажівка", "pl": "Ciężarówka",
-        "ar": "شاحنة", "zh": "卡车", "hi": "ट्रक", "tr": "Kamyon",
-        "fr": "Poids lourd", "ru": "Грузовик", "es": "Camión", "it": "Camion"
+        "de": "LKW",
+        "en": "Truck",
+        "uk": "Вантажівка",
+        "pl": "Ciężarówka",
+        "ar": "شاحنة",
+        "zh": "卡车",
+        "hi": "ट्रक",
+        "tr": "Kamyon",
+        "fr": "Poids lourd",
+        "ru": "Грузовик",
+        "es": "Camión",
+        "it": "Camion"
       },
       "scopeKind": "class",
       "options": [
         {
           "code": "C1",
           "label": {
-            "de": "Klasse C1 (3,5–7,5 t)", "en": "Class C1 (3.5–7.5t)", "uk": "Категорія C1 (3,5–7,5 т)", "pl": "Kategoria C1 (3,5–7,5 t)",
-            "ar": "الفئة C1 (3.5–7.5 طن)", "zh": "C1 类（3.5–7.5吨）", "hi": "क्लास C1 (3.5–7.5 टन)", "tr": "C1 Sınıfı (3,5–7,5 t)",
-            "fr": "Catégorie C1 (3,5–7,5 t)", "ru": "Категория C1 (3,5–7,5 т)", "es": "Clase C1 (3,5–7,5 t)", "it": "Classe C1 (3,5–7,5 t)"
+            "de": "Klasse C1 (3,5–7,5 t)",
+            "en": "Class C1 (3.5–7.5t)",
+            "uk": "Категорія C1 (3,5–7,5 т)",
+            "pl": "Kategoria C1 (3,5–7,5 t)",
+            "ar": "الفئة C1 (3.5–7.5 طن)",
+            "zh": "C1 类（3.5–7.5吨）",
+            "hi": "क्लास C1 (3.5–7.5 टन)",
+            "tr": "C1 Sınıfı (3,5–7,5 t)",
+            "fr": "Catégorie C1 (3,5–7,5 t)",
+            "ru": "Категория C1 (3,5–7,5 т)",
+            "es": "Clase C1 (3,5–7,5 t)",
+            "it": "Classe C1 (3,5–7,5 t)"
           }
         },
         {
           "code": "C",
           "label": {
-            "de": "Klasse C (über 3,5 t)", "en": "Class C (over 3.5t)", "uk": "Категорія C (понад 3,5 т)", "pl": "Kategoria C (powyżej 3,5 t)",
-            "ar": "الفئة C (أكثر من 3.5 طن)", "zh": "C 类（超过3.5吨）", "hi": "क्लास C (3.5 टन से अधिक)", "tr": "C Sınıfı (3,5 t üzeri)",
-            "fr": "Catégorie C (plus de 3,5 t)", "ru": "Категория C (свыше 3,5 т)", "es": "Clase C (más de 3,5 t)", "it": "Classe C (oltre 3,5 t)"
+            "de": "Klasse C (über 3,5 t)",
+            "en": "Class C (over 3.5t)",
+            "uk": "Категорія C (понад 3,5 т)",
+            "pl": "Kategoria C (powyżej 3,5 t)",
+            "ar": "الفئة C (أكثر من 3.5 طن)",
+            "zh": "C 类（超过3.5吨）",
+            "hi": "क्लास C (3.5 टन से अधिक)",
+            "tr": "C Sınıfı (3,5 t üzeri)",
+            "fr": "Catégorie C (plus de 3,5 t)",
+            "ru": "Категория C (свыше 3,5 т)",
+            "es": "Clase C (más de 3,5 t)",
+            "it": "Classe C (oltre 3,5 t)"
           }
         },
         {
           "code": "CE",
           "label": {
-            "de": "Klasse CE (mit Anhänger)", "en": "Class CE (with trailer)", "uk": "Категорія CE (з причепом)", "pl": "Kategoria CE (z przyczepą)",
-            "ar": "الفئة CE (مع مقطورة)", "zh": "CE 类（带挂车）", "hi": "क्लास CE (ट्रेलर सहित)", "tr": "CE Sınıfı (römorklu)",
-            "fr": "Catégorie CE (avec remorque)", "ru": "Категория CE (с прицепом)", "es": "Clase CE (con remolque)", "it": "Classe CE (con rimorchio)"
+            "de": "Klasse CE (mit Anhänger)",
+            "en": "Class CE (with trailer)",
+            "uk": "Категорія CE (з причепом)",
+            "pl": "Kategoria CE (z przyczepą)",
+            "ar": "الفئة CE (مع مقطورة)",
+            "zh": "CE 类（带挂车）",
+            "hi": "क्लास CE (ट्रेलर सहित)",
+            "tr": "CE Sınıfı (römorklu)",
+            "fr": "Catégorie CE (avec remorque)",
+            "ru": "Категория CE (с прицепом)",
+            "es": "Clase CE (con remolque)",
+            "it": "Classe CE (con rimorchio)"
           }
         }
       ]
@@ -135,26 +276,53 @@
     {
       "exam_type": "angelschein",
       "label": {
-        "de": "Angelschein", "en": "Fishing licence", "uk": "Посвідчення рибалки", "pl": "Karta wędkarska",
-        "ar": "رخصة الصيد", "zh": "钓鱼证", "hi": "मछली पकड़ने का लाइसेंस", "tr": "Balıkçılık belgesi",
-        "fr": "Permis de pêche", "ru": "Удостоверение рыболова", "es": "Licencia de pesca", "it": "Licenza di pesca"
+        "de": "Angelschein",
+        "en": "Fishing licence",
+        "uk": "Посвідчення рибалки",
+        "pl": "Karta wędkarska",
+        "ar": "رخصة الصيد",
+        "zh": "钓鱼证",
+        "hi": "मछली पकड़ने का लाइसेंस",
+        "tr": "Balıkçılık belgesi",
+        "fr": "Permis de pêche",
+        "ru": "Удостоверение рыболова",
+        "es": "Licencia de pesca",
+        "it": "Licenza di pesca"
       },
       "scopeKind": "region",
       "options": [
         {
           "code": "ALL",
           "label": {
-            "de": "Allgemein (bundesweite Grundlagen)", "en": "General (nationwide basics)", "uk": "Загальне (загальнонаціональні основи)", "pl": "Ogólne (ogólnokrajowe podstawy)",
-            "ar": "عام (أساسيات على مستوى البلاد)", "zh": "通用（全国基础知识）", "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)", "tr": "Genel (ülke geneli temel bilgiler)",
-            "fr": "Général (bases nationales)", "ru": "Общее (общенациональные основы)", "es": "General (fundamentos nacionales)", "it": "Generale (basi nazionali)"
+            "de": "Allgemein (bundesweite Grundlagen)",
+            "en": "General (nationwide basics)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ar": "عام (أساسيات على مستوى البلاد)",
+            "zh": "通用（全国基础知识）",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "fr": "Général (bases nationales)",
+            "ru": "Общее (общенациональные основы)",
+            "es": "General (fundamentos nacionales)",
+            "it": "Generale (basi nazionali)"
           }
         },
         {
           "code": "NRW",
           "label": {
-            "de": "Nordrhein-Westfalen (regionale Ergänzung)", "en": "North Rhine-Westphalia (regional addition)", "uk": "Північний Рейн-Вестфалія (регіональне доповнення)", "pl": "Nadrenia Północna-Westfalia (dodatek regionalny)",
-            "ar": "شمال الراين وستفاليا (إضافة إقليمية)", "zh": "北莱茵-威斯特法伦州（地区补充）", "hi": "नॉर्थ राइन-वेस्टफेलिया (क्षेत्रीय अतिरिक्त)", "tr": "Kuzey Ren-Vestfalya (bölgesel ek)",
-            "fr": "Rhénanie-du-Nord-Westphalie (complément régional)", "ru": "Северный Рейн-Вестфалия (региональное дополнение)", "es": "Renania del Norte-Westfalia (complemento regional)", "it": "Renania Settentrionale-Vestfalia (integrazione regionale)"
+            "de": "Nordrhein-Westfalen (regionale Ergänzung)",
+            "en": "North Rhine-Westphalia (regional addition)",
+            "uk": "Північний Рейн-Вестфалія (регіональне доповнення)",
+            "pl": "Nadrenia Północna-Westfalia (dodatek regionalny)",
+            "ar": "شمال الراين وستفاليا (إضافة إقليمية)",
+            "zh": "北莱茵-威斯特法伦州（地区补充）",
+            "hi": "नॉर्थ राइन-वेस्टफेलिया (क्षेत्रीय अतिरिक्त)",
+            "tr": "Kuzey Ren-Vestfalya (bölgesel ek)",
+            "fr": "Rhénanie-du-Nord-Westphalie (complément régional)",
+            "ru": "Северный Рейн-Вестфалия (региональное дополнение)",
+            "es": "Renania del Norte-Westfalia (complemento regional)",
+            "it": "Renania Settentrionale-Vestfalia (integrazione regionale)"
           }
         }
       ]
@@ -162,9 +330,18 @@
     {
       "exam_type": "datenschutz",
       "label": {
-        "de": "Datenschutz", "en": "Data protection", "uk": "Захист даних", "pl": "Ochrona danych",
-        "ar": "حماية البيانات", "zh": "数据保护", "hi": "डेटा सुरक्षा", "tr": "Veri koruma",
-        "fr": "Protection des données", "ru": "Защита данных", "es": "Protección de datos", "it": "Protezione dei dati"
+        "de": "Datenschutz",
+        "en": "Data protection",
+        "uk": "Захист даних",
+        "pl": "Ochrona danych",
+        "ar": "حماية البيانات",
+        "zh": "数据保护",
+        "hi": "डेटा सुरक्षा",
+        "tr": "Veri koruma",
+        "fr": "Protection des données",
+        "ru": "Защита данных",
+        "es": "Protección de datos",
+        "it": "Protezione dei dati"
       },
       "_comment": "DN-44: first of 4 fully separate workplace-compliance modules (PO decision - not one module with topic options). scopeKind 'class' with a single 'ALL' option is a placeholder scope, since there's no class/region dimension for compliance training yet - kept so the existing module architecture (build_modules.py, questionMatchesScope) needs zero special-casing.",
       "scopeKind": "class",
@@ -172,9 +349,18 @@
         {
           "code": "ALL",
           "label": {
-            "de": "Grundlagenschulung", "en": "Baseline training", "uk": "Базове навчання", "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي", "zh": "基础培训", "hi": "आधारभूत प्रशिक्षण", "tr": "Temel eğitim",
-            "fr": "Formation de base", "ru": "Базовое обучение", "es": "Formación básica", "it": "Formazione di base"
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
           }
         }
       ]
@@ -182,9 +368,18 @@
     {
       "exam_type": "arbeitssicherheit",
       "label": {
-        "de": "Arbeitssicherheit", "en": "Occupational safety", "uk": "Охорона праці", "pl": "Bezpieczeństwo pracy",
-        "ar": "السلامة المهنية", "zh": "职业安全", "hi": "व्यावसायिक सुरक्षा", "tr": "İş güvenliği",
-        "fr": "Sécurité au travail", "ru": "Охрана труда", "es": "Seguridad laboral", "it": "Sicurezza sul lavoro"
+        "de": "Arbeitssicherheit",
+        "en": "Occupational safety",
+        "uk": "Охорона праці",
+        "pl": "Bezpieczeństwo pracy",
+        "ar": "السلامة المهنية",
+        "zh": "职业安全",
+        "hi": "व्यावसायिक सुरक्षा",
+        "tr": "İş güvenliği",
+        "fr": "Sécurité au travail",
+        "ru": "Охрана труда",
+        "es": "Seguridad laboral",
+        "it": "Sicurezza sul lavoro"
       },
       "_comment": "DN-44: second of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
       "scopeKind": "class",
@@ -192,9 +387,18 @@
         {
           "code": "ALL",
           "label": {
-            "de": "Grundlagenschulung", "en": "Baseline training", "uk": "Базове навчання", "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي", "zh": "基础培训", "hi": "आधारभूत प्रशिक्षण", "tr": "Temel eğitim",
-            "fr": "Formation de base", "ru": "Базовое обучение", "es": "Formación básica", "it": "Formazione di base"
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
           }
         }
       ]
@@ -202,9 +406,18 @@
     {
       "exam_type": "ki_act",
       "label": {
-        "de": "KI-Verordnung", "en": "AI Act", "uk": "Закон про ШІ", "pl": "Akt o sztucznej inteligencji",
-        "ar": "قانون الذكاء الاصطناعي", "zh": "人工智能法案", "hi": "एआई अधिनियम", "tr": "Yapay Zeka Yasası",
-        "fr": "Règlement sur l'IA", "ru": "Закон об ИИ", "es": "Ley de IA", "it": "Legge sull'IA"
+        "de": "KI-Verordnung",
+        "en": "AI Act",
+        "uk": "Закон про ШІ",
+        "pl": "Akt o sztucznej inteligencji",
+        "ar": "قانون الذكاء الاصطناعي",
+        "zh": "人工智能法案",
+        "hi": "एआई अधिनियम",
+        "tr": "Yapay Zeka Yasası",
+        "fr": "Règlement sur l'IA",
+        "ru": "Закон об ИИ",
+        "es": "Ley de IA",
+        "it": "Legge sull'IA"
       },
       "_comment": "DN-44: third of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
       "scopeKind": "class",
@@ -212,9 +425,18 @@
         {
           "code": "ALL",
           "label": {
-            "de": "Grundlagenschulung", "en": "Baseline training", "uk": "Базове навчання", "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي", "zh": "基础培训", "hi": "आधारभूत प्रशिक्षण", "tr": "Temel eğitim",
-            "fr": "Formation de base", "ru": "Базовое обучение", "es": "Formación básica", "it": "Formazione di base"
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
           }
         }
       ]
@@ -222,9 +444,18 @@
     {
       "exam_type": "it_sicherheit",
       "label": {
-        "de": "IT-Sicherheit", "en": "IT security", "uk": "ІТ-безпека", "pl": "Bezpieczeństwo IT",
-        "ar": "أمن تقنية المعلومات", "zh": "IT安全", "hi": "आईटी सुरक्षा", "tr": "BT güvenliği",
-        "fr": "Sécurité informatique", "ru": "ИТ-безопасность", "es": "Seguridad informática", "it": "Sicurezza IT"
+        "de": "IT-Sicherheit",
+        "en": "IT security",
+        "uk": "ІТ-безпека",
+        "pl": "Bezpieczeństwo IT",
+        "ar": "أمن تقنية المعلومات",
+        "zh": "IT安全",
+        "hi": "आईटी सुरक्षा",
+        "tr": "BT güvenliği",
+        "fr": "Sécurité informatique",
+        "ru": "ИТ-безопасность",
+        "es": "Seguridad informática",
+        "it": "Sicurezza IT"
       },
       "_comment": "DN-44: fourth of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
       "scopeKind": "class",
@@ -232,9 +463,56 @@
         {
           "code": "ALL",
           "label": {
-            "de": "Grundlagenschulung", "en": "Baseline training", "uk": "Базове навчання", "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي", "zh": "基础培训", "hi": "आधारभूत प्रशिक्षण", "tr": "Temel eğitim",
-            "fr": "Formation de base", "ru": "Базовое обучение", "es": "Formación básica", "it": "Formazione di base"
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "hinweisgeberschutz",
+      "label": {
+        "de": "Hinweisgeberschutz",
+        "en": "Whistleblower protection",
+        "uk": "Захист викривачів",
+        "pl": "Ochrona sygnalistów",
+        "ar": "حماية المبلغين عن المخالفات",
+        "zh": "举报人保护",
+        "hi": "व्हिसलब्लोअर सुरक्षा",
+        "tr": "Bilgi verenlerin korunması",
+        "fr": "Protection des lanceurs d'alerte",
+        "ru": "Защита осведомителей",
+        "es": "Protección de denunciantes",
+        "it": "Tutela dei whistleblower"
+      },
+      "_comment": "DN-50: 5th workplace-compliance module (Hinweisgeberschutzgesetz/HinSchG, in force since 2 July 2023). 20-question DE/EN-only pilot (see data/hinweisgeberschutz_pilot.json meta) - scopeKind/options placeholder pattern copied verbatim from datenschutz (DN-44) for the same reason: no class/region dimension for compliance training yet.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
           }
         }
       ]

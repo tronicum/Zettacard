@@ -1,0 +1,918 @@
+{
+  "meta": {
+    "app": "Zettacard / hinweisgeberschutz-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-08",
+    "description": "Original MCQs for a German workplace-compliance training module on whistleblower protection (Hinweisgeberschutzgesetz / HinSchG), in force since 2 July 2023, covering scope/thresholds for internal reporting channels, the mechanics of internal and external Meldestellen (§§12-13, §17 HinSchG), confidentiality and documentation duties, protection against retaliation and the reversed burden of proof (§36 HinSchG), and the administrative fines (Bußgeld) under the Act. Content is independently phrased and grounded directly in the HinSchG statute text, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module from Fuehrerschein (Klasse B), Angelschein, LKW, Motorrad, and Datenschutz - separate content pool, separate exam simulation. Locales: de (canonical), en (reviewed translation) for this first pilot round.",
+    "class": "ALL",
+    "locales": [
+      "de",
+      "en"
+    ],
+    "canonical_locale": "de",
+    "point_system": "2-5 points per question, matching this app's existing style",
+    "pass_rule_note": "Provisional: same generic mechanics as this app's other modules (30 questions per simulation run, max 10 error points, auto-fail on 2+ wrong high_stakes) used as a placeholder pending a real workplace-training design pass - see legal_review_status.",
+    "legal_review_status": "NOT legally reviewed - verify HinSchG citations and currency before production/commercial use",
+    "total_questions": 20,
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+    "renewal_months": 12,
+    "renewal_basis": "best_practice",
+    "renewal_note": "HinSchG sets no fixed statutory training-refresher interval; annual refresher is used here as a de facto best-practice standard analogous to other compliance-training areas, not a hard statutory number."
+  },
+  "questions": [
+    {
+      "id": "hinweisgeberschutz-geltungsbereich-01",
+      "topic": "Geltungsbereich des HinSchG",
+      "topic_code": "geltungsbereich",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§12 Abs. 2 HinSchG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Seit wann müssen private Arbeitgeber mit in der Regel mindestens 250 Beschäftigten eine interne Meldestelle nach dem Hinweisgeberschutzgesetz eingerichtet haben?",
+          "options": {
+            "a": "Seit dem 1. Januar 2023",
+            "b": "Seit dem 2. Juli 2023",
+            "c": "Seit dem 17. Dezember 2023",
+            "d": "Erst ab dem 1. Januar 2025"
+          }
+        },
+        "en": {
+          "question": "Since when have private-sector employers with at least 250 employees (as a rule) been required to have an internal reporting channel under the Hinweisgeberschutzgesetz (HinSchG)?",
+          "options": {
+            "a": "Since 1 January 2023",
+            "b": "Since 2 July 2023",
+            "c": "Since 17 December 2023",
+            "d": "Not until 1 January 2025"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das HinSchG ist am 2. Juli 2023 in Kraft getreten; für Arbeitgeber mit in der Regel mindestens 250 Beschäftigten galt die Pflicht zur Einrichtung einer internen Meldestelle ab diesem Tag. Der 17. Dezember 2023 ist das Datum, ab dem die Pflicht auch für Arbeitgeber mit 50 bis 249 Beschäftigten griff, nicht für die großen Unternehmen. Der 1. Januar 2023 liegt vor Inkrafttreten des Gesetzes.",
+        "en": "The HinSchG entered into force on 2 July 2023; for employers with at least 250 employees (as a rule) the duty to set up an internal reporting channel applied from that date. 17 December 2023 is the date from which the duty also applied to employers with 50-249 employees, not to the larger companies. 1 January 2023 predates the Act's entry into force."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-geltungsbereich-02",
+      "topic": "Geltungsbereich des HinSchG",
+      "topic_code": "geltungsbereich",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§12 Abs. 2 HinSchG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Unternehmen beschäftigt regelmäßig 80 Mitarbeitende. Ab welchem Datum musste es eine interne Meldestelle eingerichtet haben?",
+          "options": {
+            "a": "Ab dem 2. Juli 2023, wie alle anderen Unternehmen auch",
+            "b": "Gar nicht, weil unter 250 Beschäftigte grundsätzlich ausgenommen sind",
+            "c": "Ab dem 17. Dezember 2023, weil für Arbeitgeber mit 50 bis 249 Beschäftigten eine längere Übergangsfrist galt",
+            "d": "Erst nach einer behördlichen Einzelfallprüfung durch das Bundesamt für Justiz"
+          }
+        },
+        "en": {
+          "question": "A company regularly employs 80 people. From what date did it have to have an internal reporting channel in place?",
+          "options": {
+            "a": "From 2 July 2023, the same as all other companies",
+            "b": "Never - companies with under 250 employees are exempt entirely",
+            "c": "From 17 December 2023, because employers with 50-249 employees had a longer transition period",
+            "d": "Only after a case-by-case review by the Bundesamt für Justiz"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Für Arbeitgeber mit in der Regel 50 bis 249 Beschäftigten galt eine verlängerte Übergangsfrist bis zum 17. Dezember 2023; ab diesem Tag mussten auch sie eine interne Meldestelle eingerichtet haben. Eine generelle Ausnahme für kleinere Unternehmen gibt es nicht, und das Bundesamt für Justiz führt keine Einzelfallprüfung zur Anwendbarkeit der Pflicht durch.",
+        "en": "Employers with 50-249 employees (as a rule) had an extended transition period until 17 December 2023, from which date they too had to have an internal reporting channel in place. There is no blanket exemption for smaller companies, and the Bundesamt für Justiz does not conduct a case-by-case review of whether the duty applies."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-geltungsbereich-03",
+      "topic": "Geltungsbereich des HinSchG",
+      "topic_code": "geltungsbereich",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§12 HinSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Wie zählen Arbeitgeber mit weniger als 50 Beschäftigten in Bezug auf die Pflicht zur Einrichtung einer internen Meldestelle?",
+          "options": {
+            "a": "Sie sind stets verpflichtet, sobald sie eine einzige meldepflichtige Tätigkeit ausüben",
+            "b": "Sie sind grundsätzlich nicht zur Einrichtung einer internen Meldestelle verpflichtet, von punktuellen branchenspezifischen Sonderregelungen abgesehen",
+            "c": "Sie müssen dieselbe Meldestelle wie Unternehmen mit 250+ Beschäftigten einrichten, nur mit späterer Frist",
+            "d": "Sie dürfen die Pflicht durch eine einfache schriftliche Erklärung gegenüber dem Bundesamt für Justiz dauerhaft ausschließen"
+          }
+        },
+        "en": {
+          "question": "How do employers with fewer than 50 employees fare regarding the duty to set up an internal reporting channel?",
+          "options": {
+            "a": "They are always obliged, as soon as they engage in even one activity subject to reporting duties",
+            "b": "As a rule, they are not obliged to set up an internal reporting channel, apart from a few sector-specific special rules",
+            "c": "They must set up the same reporting channel as companies with 250+ employees, just on a later deadline",
+            "d": "They may permanently opt out of the duty simply by filing a written declaration with the Bundesamt für Justiz"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Die grundsätzliche Pflicht zur internen Meldestelle nach §12 HinSchG knüpft an die Schwellenwerte 250 und 50 Beschäftigte an; Betriebe unter 50 Beschäftigten sind davon grundsätzlich nicht erfasst, auch wenn es für bestimmte regulierte Branchen (z.B. Finanzsektor) eigene, unabhängige Sonderpflichten geben kann. Eine Befreiung durch schriftliche Erklärung gegenüber dem Bundesamt für Justiz existiert nicht - die externe Meldestelle steht ohnehin unabhängig von jeder unternehmensinternen Erklärung offen.",
+        "en": "The core duty to set up an internal reporting channel under §12 HinSchG is tied to the 250- and 50-employee thresholds; businesses with fewer than 50 employees are, as a rule, not covered, although certain regulated sectors (e.g. financial services) may have separate, independent special duties. There is no opt-out via written declaration to the Bundesamt für Justiz - the external reporting channel remains available regardless of any internal company declaration."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-geltungsbereich-04",
+      "topic": "Geltungsbereich des HinSchG",
+      "topic_code": "geltungsbereich",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§12 Abs. 1, 3 HinSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Wie verhält es sich mit öffentlichen Arbeitgebern (z.B. Behörden, Kommunen) und der Pflicht zur internen Meldestelle?",
+          "options": {
+            "a": "Öffentliche Arbeitgeber sind von der Pflicht zur internen Meldestelle vollständig ausgenommen, da das HinSchG nur die Privatwirtschaft betrifft",
+            "b": "Öffentliche Arbeitgeber müssen unabhängig von ihrer Größe stets eine Meldestelle einrichten, ohne jede Schwellenwertregelung",
+            "c": "Für öffentliche Stellen gelten eigene, den privaten Schwellenwerten grundsätzlich vergleichbare Regelungen, wobei kleine Gemeinden teils zusammengefasst werden können",
+            "d": "Öffentliche Arbeitgeber dürfen ihre Meldestelle ausschließlich durch das Bundesamt für Justiz betreiben lassen"
+          }
+        },
+        "en": {
+          "question": "How does the internal-reporting-channel duty apply to public-sector employers (e.g. authorities, municipalities)?",
+          "options": {
+            "a": "Public-sector employers are entirely exempt, since the HinSchG only applies to the private sector",
+            "b": "Public-sector employers must always set up a reporting channel regardless of size, with no threshold rule at all",
+            "c": "Public bodies are subject to their own rules broadly comparable to the private-sector thresholds, and smaller municipalities may in some cases be grouped together",
+            "d": "Public-sector employers may only have their reporting channel operated directly by the Bundesamt für Justiz"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das HinSchG erfasst nicht nur die Privatwirtschaft, sondern verpflichtet auch öffentliche Beschäftigungsgeber zur Einrichtung interner Meldestellen, mit eigenen, den privaten Schwellenwerten grundsätzlich ähnlichen Regelungen und Sonderregelungen etwa für kleinere Gemeinden. Eine vollständige Ausnahme für den öffentlichen Sektor gibt es also nicht, ebenso wenig eine Pflicht zum Betrieb ausschließlich durch das Bundesamt für Justiz - das ist die externe Meldestelle des Bundes, nicht die interne Stelle einer Behörde.",
+        "en": "The HinSchG does not only cover the private sector - it also obliges public-sector employers to set up internal reporting channels, under their own rules broadly similar to the private-sector thresholds, with special provisions for e.g. smaller municipalities. There is no blanket exemption for the public sector, and no requirement that it be run exclusively by the Bundesamt für Justiz - that body operates the external federal reporting channel, not a given authority's internal channel."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-meldestellen-01",
+      "topic": "Interne und externe Meldestellen",
+      "topic_code": "meldestellen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§§12-13 HinSchG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche Anforderung stellt das HinSchG an die Person(en), die die interne Meldestelle betreiben?",
+          "options": {
+            "a": "Sie müssen zwingend Mitglied der Geschäftsführung sein",
+            "b": "Sie müssen über die notwendige Fachkunde verfügen und ihre Aufgabe unabhängig und frei von Interessenkonflikten wahrnehmen",
+            "c": "Sie dürfen ausschließlich aus der Rechtsabteilung des Unternehmens stammen",
+            "d": "Sie müssen zwingend beim Bundesamt für Justiz akkreditiert sein, bevor sie tätig werden dürfen"
+          }
+        },
+        "en": {
+          "question": "What requirement does the HinSchG impose on the person(s) who staff the internal reporting channel?",
+          "options": {
+            "a": "They must always be a member of the company's executive management",
+            "b": "They must have the necessary expertise and carry out the role independently and free of conflicts of interest",
+            "c": "They must come exclusively from the company's legal department",
+            "d": "They must first be accredited by the Bundesamt für Justiz before they may act"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Nach §§12-13 HinSchG muss der Arbeitgeber eine kompetente, unabhängige interne Meldestelle einrichten; die damit betrauten Personen brauchen die für die Aufgabe erforderliche Fachkunde und müssen unabhängig sowie frei von Interessenkonflikten sein. Eine Beschränkung auf Geschäftsführung oder Rechtsabteilung schreibt das Gesetz nicht vor, und eine Akkreditierungspflicht beim Bundesamt für Justiz für interne Meldestellen existiert nicht.",
+        "en": "Under §§12-13 HinSchG, the employer must set up a competent, independent internal reporting channel; the people entrusted with it need the expertise the task requires and must be independent and free of conflicts of interest. The law does not require the role to be restricted to executive management or the legal department, and there is no accreditation requirement with the Bundesamt für Justiz for internal reporting channels."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-meldestellen-02",
+      "topic": "Interne und externe Meldestellen",
+      "topic_code": "meldestellen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§14 HinSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Darf ein Unternehmen den Betrieb seiner internen Meldestelle an eine externe Ombudsperson oder Kanzlei auslagern?",
+          "options": {
+            "a": "Nein, die Meldestelle muss zwingend aus eigenen Beschäftigten des Unternehmens bestehen",
+            "b": "Ja, die Aufgabe kann einer internen Einheit übertragen oder an eine externe Ombudsperson bzw. Kanzlei ausgelagert werden, sofern Unabhängigkeit und Fachkunde gewahrt bleiben",
+            "c": "Ja, aber nur wenn das Unternehmen weniger als 50 Beschäftigte hat",
+            "d": "Nein, eine Auslagerung ist nur mit vorheriger Genehmigung des Bundesamts für Justiz im Einzelfall zulässig"
+          }
+        },
+        "en": {
+          "question": "May a company outsource the operation of its internal reporting channel to an external ombudsperson or law firm?",
+          "options": {
+            "a": "No, the reporting channel must always consist of the company's own employees",
+            "b": "Yes, the task can be assigned to an internal unit or outsourced to an external ombudsperson or law firm, as long as independence and expertise are maintained",
+            "c": "Yes, but only if the company has fewer than 50 employees",
+            "d": "No, outsourcing is only permitted with prior case-by-case approval from the Bundesamt für Justiz"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das HinSchG lässt ausdrücklich zu, dass die interne Meldestelle entweder von einer internen Einheit betrieben oder an einen Dritten - etwa eine externe Ombudsperson oder eine Kanzlei - übertragen wird, solange die geforderte Unabhängigkeit und Fachkunde gewahrt bleiben. Eine Beschränkung auf eigene Beschäftigte, eine Genehmigungspflicht durch das Bundesamt für Justiz oder eine Größenbeschränkung auf kleine Unternehmen gibt es hierfür nicht.",
+        "en": "The HinSchG expressly allows the internal reporting channel to be operated either by an internal unit or delegated to a third party - such as an external ombudsperson or a law firm - as long as the required independence and expertise are maintained. There is no restriction to the company's own employees, no approval requirement from the Bundesamt für Justiz, and no size limit to small companies for this option."
+      },
+      "roles": [
+        "hr",
+        "management"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-meldestellen-03",
+      "topic": "Interne und externe Meldestellen",
+      "topic_code": "meldestellen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§17 HinSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Innerhalb welcher Frist muss die Meldestelle dem Hinweisgeber nach §17 HinSchG den Eingang einer Meldung bestätigen?",
+          "options": {
+            "a": "Innerhalb von 24 Stunden",
+            "b": "Innerhalb von 7 Tagen",
+            "c": "Innerhalb von 30 Tagen",
+            "d": "Innerhalb von 3 Monaten"
+          }
+        },
+        "en": {
+          "question": "Within what deadline must the reporting channel acknowledge receipt of a report to the whistleblower under §17 HinSchG?",
+          "options": {
+            "a": "Within 24 hours",
+            "b": "Within 7 days",
+            "c": "Within 30 days",
+            "d": "Within 3 months"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§17 HinSchG verpflichtet die Meldestelle, den Eingang einer Meldung innerhalb von 7 Tagen zu bestätigen. Die Frist von 3 Monaten betrifft nicht die Eingangsbestätigung, sondern die spätere Rückmeldung über geplante bzw. ergriffene Folgemaßnahmen. 24 Stunden und 30 Tage sind im Gesetz für diesen Schritt nicht vorgesehen.",
+        "en": "§17 HinSchG requires the reporting channel to acknowledge receipt of a report within 7 days. The 3-month period does not apply to this acknowledgement but to the later feedback on planned or taken follow-up measures. 24 hours and 30 days are not the deadlines set by the Act for this step."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-meldestellen-04",
+      "topic": "Interne und externe Meldestellen",
+      "topic_code": "meldestellen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§7 Abs. 1, §32 HinSchG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Vorgesetzter erklärt einer Mitarbeiterin, sie müsse ihren Verdacht zuerst intern melden - die externe Meldestelle beim Bundesamt für Justiz dürfe sie erst kontaktieren, wenn die interne Meldestelle nicht reagiert, und eine Offenlegung gegenüber der Presse sei ohnehin nie geschützt. Was stimmt davon?",
+          "options": {
+            "a": "Beides stimmt: intern vor extern ist zwingend vorgeschrieben, und Offenlegung gegenüber der Presse ist nie geschützt",
+            "b": "Hinweisgeber können frei zwischen interner und externer Meldestelle wählen, ohne die interne zuerst versucht haben zu müssen; eine Offenlegung gegenüber der Öffentlichkeit ist nur unter engen Voraussetzungen als letztes Mittel geschützt (z.B. keine Reaktion der Meldestellen, unmittelbare Gefahr für die Öffentlichkeit oder drohende Repressalien/Beweisvernichtung)",
+            "c": "Es gibt keine verbindliche Rangfolge, aber eine Offenlegung gegenüber der Presse ist immer und ohne jede Voraussetzung in vollem Umfang geschützt",
+            "d": "Intern vor extern ist zwingend vorgeschrieben, eine Offenlegung gegenüber der Presse ist dagegen immer geschützt"
+          }
+        },
+        "en": {
+          "question": "A manager tells an employee she must report her suspicion internally first - she may only contact the external reporting channel at the Bundesamt für Justiz if the internal channel fails to respond, and disclosing to the press is never protected anyway. What is actually correct?",
+          "options": {
+            "a": "Both are correct: internal-before-external is mandatory, and disclosure to the press is never protected",
+            "b": "Whistleblowers can freely choose between the internal and external reporting channel, without first having to try the internal one; disclosure to the public is only protected as a last resort under narrow conditions (e.g. no response from the reporting channels, imminent danger to the public, or risk of retaliation/evidence destruction)",
+            "c": "There is no mandatory order of precedence, but disclosure to the press is always fully protected with no conditions at all",
+            "d": "Internal-before-external is mandatory, whereas disclosure to the press is always protected"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das HinSchG stellt interne und externe Meldestelle gleichrangig nebeneinander - eine Person kann frei wählen, ohne den internen Weg zuerst ausprobieren zu müssen. Eine Offenlegung gegenüber der Öffentlichkeit (z.B. Presse) ist demgegenüber nur als letztes Mittel unter engen, im Gesetz benannten Voraussetzungen geschützt, etwa wenn die Meldestellen nicht reagiert haben, eine unmittelbare Gefahr für das öffentliche Interesse besteht oder Repressalien bzw. Beweisvernichtung drohen. Beide Fehlvorstellungen - eine erzwungene interne Vorstufe und eine pauschal (un-)geschützte Presseveröffentlichung - können Hinweisgeber faktisch von der richtigen Wahl des Meldewegs abhalten, weshalb dieser Punkt als besonders folgenreich gilt.",
+        "en": "The HinSchG places the internal and external reporting channel on an equal footing - a person can choose freely, without having to try the internal route first. Disclosure to the public (e.g. the press), by contrast, is protected only as a last resort under narrow, statutorily named conditions, such as no response from the reporting channels, imminent danger to the public interest, or a risk of retaliation or destruction of evidence. Both misconceptions - a forced internal first step and a blanket protected or unprotected view of press disclosure - can in practice deter whistleblowers from choosing the correct channel, which is why this point is considered particularly consequential."
+      },
+      "roles": [
+        "hr",
+        "management"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-vertraulichkeit-01",
+      "topic": "Vertraulichkeit und Dokumentation",
+      "topic_code": "vertraulichkeit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§8 HinSchG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Wessen Identität muss die Meldestelle nach §8 HinSchG grundsätzlich vertraulich behandeln?",
+          "options": {
+            "a": "Ausschließlich die Identität des Hinweisgebers",
+            "b": "Ausschließlich die Identität der Person, gegen die sich die Meldung richtet",
+            "c": "Sowohl die Identität des Hinweisgebers als auch die der von der Meldung betroffenen bzw. beschuldigten Person",
+            "d": "Niemandes Identität - Vertraulichkeit ist nur eine unverbindliche Empfehlung, keine Rechtspflicht"
+          }
+        },
+        "en": {
+          "question": "Whose identity must the reporting channel treat as confidential, as a rule, under §8 HinSchG?",
+          "options": {
+            "a": "Only the whistleblower's identity",
+            "b": "Only the identity of the person the report is directed against",
+            "c": "Both the whistleblower's identity and that of the person implicated or accused in the report",
+            "d": "Nobody's identity - confidentiality is only a non-binding recommendation, not a legal duty"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§8 HinSchG verpflichtet die Meldestelle, sowohl die Identität des Hinweisgebers als auch die der betroffenen bzw. beschuldigten Person vertraulich zu behandeln, mit engen, im Gesetz benannten Ausnahmen. Es handelt sich um eine echte Rechtspflicht und nicht um eine bloße Empfehlung; sie beschränkt sich auch nicht auf eine der beiden Seiten.",
+        "en": "§8 HinSchG obliges the reporting channel to keep both the whistleblower's identity and that of the implicated or accused person confidential, subject to narrow, statutorily named exceptions. This is a genuine legal duty, not a mere recommendation, and it is not limited to protecting only one of the two sides."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-vertraulichkeit-02",
+      "topic": "Vertraulichkeit und Dokumentation",
+      "topic_code": "vertraulichkeit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§8 Abs. 2 HinSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Gilt die Vertraulichkeitspflicht bezüglich der Identität des Hinweisgebers absolut, ohne jede Ausnahme?",
+          "options": {
+            "a": "Ja, die Identität darf unter keinen Umständen offengelegt werden, auch nicht gegenüber Strafverfolgungsbehörden",
+            "b": "Nein, das Gesetz sieht eng begrenzte, konkret benannte Ausnahmen vor, in denen eine Offenlegung zulässig ist",
+            "c": "Nein, jede Führungskraft darf die Identität offenlegen, wenn sie es für sachlich geboten hält",
+            "d": "Ja, außer wenn der Hinweisgeber selbst schriftlich um vollständige Anonymität gebeten hat"
+          }
+        },
+        "en": {
+          "question": "Is the confidentiality duty regarding the whistleblower's identity absolute, with no exceptions at all?",
+          "options": {
+            "a": "Yes, the identity may never be disclosed under any circumstances, not even to law enforcement authorities",
+            "b": "No, the Act provides narrowly limited, specifically named exceptions in which disclosure is permitted",
+            "c": "No, any manager may disclose the identity whenever they consider it factually warranted",
+            "d": "Yes, except where the whistleblower has personally requested full anonymity in writing"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Die Vertraulichkeitspflicht ist die Regel, aber nicht ausnahmslos: Das Gesetz benennt eng begrenzte Fälle, in denen eine Offenlegung zulässig ist, etwa im Rahmen bestimmter behördlicher oder gerichtlicher Verfahren. Ein generelles Ermessen einzelner Führungskräfte zur Offenlegung sieht das Gesetz gerade nicht vor - das würde den Schutzzweck untergraben.",
+        "en": "Confidentiality is the rule, but not without exception: the Act names narrowly defined cases in which disclosure is permitted, for example in connection with certain administrative or judicial proceedings. The Act does not grant individual managers a general discretion to disclose - that would undermine the protective purpose of the law."
+      },
+      "roles": [
+        "hr",
+        "management"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-vertraulichkeit-03",
+      "topic": "Vertraulichkeit und Dokumentation",
+      "topic_code": "vertraulichkeit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 HinSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Wie lange muss die Meldestelle die Dokumentation zu einer eingegangenen Meldung im Regelfall aufbewahren, bevor sie zu löschen ist?",
+          "options": {
+            "a": "6 Monate",
+            "b": "3 Jahre",
+            "c": "10 Jahre",
+            "d": "Unbegrenzt, eine Löschpflicht besteht nicht"
+          }
+        },
+        "en": {
+          "question": "For how long must the reporting channel, as a rule, retain the documentation of a received report before it must be deleted?",
+          "options": {
+            "a": "6 months",
+            "b": "3 years",
+            "c": "10 years",
+            "d": "Indefinitely - there is no deletion duty"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Nach §11 HinSchG ist die Dokumentation zu einer Meldung grundsätzlich für einen Zeitraum von im Kern drei Jahren nach Abschluss des Verfahrens aufzubewahren und danach zu löschen, soweit keine andere Rechtsgrundlage die weitere Speicherung erfordert oder rechtfertigt. Eine unbegrenzte Aufbewahrung ohne Löschpflicht widerspräche sowohl dem Datenschutz- als auch dem Vertraulichkeitsgedanken des Gesetzes.",
+        "en": "Under §11 HinSchG, documentation of a report must, in essence, be retained for around three years after the procedure concludes and then deleted, unless another legal basis requires or justifies continued storage. Indefinite retention with no deletion duty would run counter to both the data-protection and confidentiality rationale of the Act."
+      },
+      "roles": [
+        "hr",
+        "management"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-vertraulichkeit-04",
+      "topic": "Vertraulichkeit und Dokumentation",
+      "topic_code": "vertraulichkeit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§8 HinSchG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Eine Mitarbeiterin der Meldestelle erzählt beim Mittagessen beiläufig einer Kollegin, wer eine bestimmte Meldung eingereicht hat, weil sie es für harmlosen Flurfunk hält. Wie ist das einzuordnen?",
+          "options": {
+            "a": "Unproblematisch, solange die Information nicht schriftlich oder per E-Mail weitergegeben wird",
+            "b": "Ein Verstoß gegen die Vertraulichkeitspflicht nach §8 HinSchG, der bußgeldbewehrt sein kann und den Hinweisgeber realer Gefahr aussetzt",
+            "c": "Unproblematisch, weil die Vertraulichkeitspflicht nur gegenüber externen Dritten gilt, nicht innerhalb des Unternehmens",
+            "d": "Nur dann ein Problem, wenn die Kollegin die Information ihrerseits weitererzählt"
+          }
+        },
+        "en": {
+          "question": "An employee working at the reporting channel casually mentions over lunch to a colleague who submitted a particular report, thinking it is harmless office chat. How should this be assessed?",
+          "options": {
+            "a": "Not a problem, as long as the information is not shared in writing or by email",
+            "b": "A breach of the confidentiality duty under §8 HinSchG, which can carry a fine and exposes the whistleblower to real risk",
+            "c": "Not a problem, because the confidentiality duty only applies towards external third parties, not within the company",
+            "d": "Only a problem if the colleague in turn passes the information on further"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Die Vertraulichkeitspflicht nach §8 HinSchG gilt unabhängig vom Kommunikationsmedium und auch innerhalb des Unternehmens - eine mündliche, beiläufige Weitergabe der Identität ist ebenso ein Verstoß wie eine schriftliche. Ein solcher Verstoß kann bußgeldbewehrt sein und setzt den Hinweisgeber der genau der Gefahr aus (z.B. Repressalien durch Kollegen oder Vorgesetzte), vor der ihn das Gesetz eigentlich schützen soll - deshalb ist dieser Irrtum besonders gefährlich, unabhängig davon, ob die Information noch weiter verbreitet wird.",
+        "en": "The confidentiality duty under §8 HinSchG applies regardless of the communication medium and also applies within the company - a casual verbal disclosure of the identity is just as much a breach as a written one. Such a breach can carry a fine and exposes the whistleblower to exactly the risk (e.g. retaliation from colleagues or superiors) that the Act is meant to protect against - which is why this misunderstanding is particularly dangerous, regardless of whether the information is spread any further."
+      },
+      "roles": [
+        "hr",
+        "management"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-repressalienschutz-01",
+      "topic": "Schutz vor Repressalien",
+      "topic_code": "repressalienschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 Abs. 1 HinSchG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Was besagt §36 Abs. 1 HinSchG in Bezug auf Repressalien gegen Hinweisgeber?",
+          "options": {
+            "a": "Repressalien sind erlaubt, solange sie nicht öffentlich bekannt werden",
+            "b": "Repressalien sind nur bei Meldungen an die externe Meldestelle verboten, nicht bei internen Meldungen",
+            "c": "Repressalien gegen Personen, die eine Meldung abgegeben oder eine Offenlegung vorgenommen haben, sind verboten",
+            "d": "Repressalien sind nur verboten, wenn sich der gemeldete Verdacht später als zutreffend herausstellt"
+          }
+        },
+        "en": {
+          "question": "What does §36(1) HinSchG provide regarding retaliation against whistleblowers?",
+          "options": {
+            "a": "Retaliation is allowed as long as it does not become publicly known",
+            "b": "Retaliation is only prohibited for reports made to the external reporting channel, not for internal reports",
+            "c": "Retaliation against persons who have made a report or a disclosure is prohibited",
+            "d": "Retaliation is only prohibited if the reported suspicion later turns out to be accurate"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§36 Abs. 1 HinSchG verbietet Repressalien gegen Personen, die eine Meldung oder Offenlegung im Sinne des Gesetzes vorgenommen haben, unabhängig davon, ob intern oder extern gemeldet wurde und ob sich der Verdacht am Ende bestätigt. Entscheidend ist, dass die Meldung zum Zeitpunkt der Abgabe hinreichenden Grund zur Annahme der Richtigkeit bot, nicht das spätere Ergebnis der Prüfung.",
+        "en": "§36(1) HinSchG prohibits retaliation against persons who have made a report or disclosure within the meaning of the Act, regardless of whether the report was internal or external and regardless of whether the suspicion is ultimately confirmed. What matters is that there were reasonable grounds to believe the report was accurate at the time it was made, not the later outcome of the investigation."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-repressalienschutz-02",
+      "topic": "Schutz vor Repressalien",
+      "topic_code": "repressalienschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 Abs. 2 HinSchG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Beschäftigter meldet einen Verstoß und wird kurz darauf nicht wie eigentlich vorgesehen befördert. Er vermutet einen Zusammenhang. Wer muss beweisen, ob ein Zusammenhang mit der Meldung besteht oder nicht?",
+          "options": {
+            "a": "Der Hinweisgeber muss vollständig beweisen, dass die ausgebliebene Beförderung eine Repressalie war",
+            "b": "Der Arbeitgeber muss beweisen, dass die ausgebliebene Beförderung NICHT auf der Meldung beruhte - die Beweislast ist umgekehrt",
+            "c": "Keiner von beiden - solche Fälle werden ausschließlich durch eine Schlichtungsstelle ohne Beweislastregel entschieden",
+            "d": "Der Hinweisgeber muss beweisen, dass die Meldung ursächlich war, aber nur wenn er extern statt intern gemeldet hat"
+          }
+        },
+        "en": {
+          "question": "An employee reports a violation and shortly afterwards is not promoted as had otherwise been planned. He suspects a connection. Who must prove whether or not there is a connection to the report?",
+          "options": {
+            "a": "The whistleblower must fully prove that the missed promotion was retaliation",
+            "b": "The employer must prove that the missed promotion was NOT based on the report - the burden of proof is reversed",
+            "c": "Neither - such cases are decided exclusively by an arbitration body with no burden-of-proof rule at all",
+            "d": "The whistleblower must prove the report was the cause, but only if he reported externally rather than internally"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Nach §36 Abs. 2 HinSchG kehrt sich die Beweislast um, sobald ein Hinweisgeber nach einer Meldung einen Nachteil erleidet: Der Arbeitgeber muss dann darlegen und beweisen, dass der Nachteil NICHT auf der Meldung beruhte. Die verbreitete Annahme, der Hinweisgeber müsse selbst den Zusammenhang beweisen, ist genau falsch und würde den vom Gesetz bezweckten Schutz faktisch aushebeln - deshalb ist dies eine besonders gefährliche Fehlvorstellung, unabhängig davon, ob intern oder extern gemeldet wurde.",
+        "en": "Under §36(2) HinSchG, the burden of proof reverses as soon as a whistleblower suffers a detriment after making a report: the employer must then show and prove that the detriment was NOT based on the report. The widespread assumption that the whistleblower must prove the connection himself is exactly backwards and would effectively gut the protection the Act is meant to provide - which is why this is a particularly dangerous misconception, regardless of whether the report was internal or external."
+      },
+      "roles": [
+        "management",
+        "hr"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-repressalienschutz-03",
+      "topic": "Schutz vor Repressalien",
+      "topic_code": "repressalienschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§37 HinSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche Rechtsfolge hat eine Repressalie, die trotz des Verbots aus §36 HinSchG ausgesprochen wird - etwa eine Kündigung als Reaktion auf eine Meldung?",
+          "options": {
+            "a": "Sie bleibt in vollem Umfang wirksam, der Hinweisgeber kann lediglich eine Entschuldigung verlangen",
+            "b": "Sie ist unwirksam bzw. entfaltet keine Rechtswirkung, und der Hinweisgeber kann zusätzlich Schadensersatz verlangen",
+            "c": "Sie ist wirksam, solange der Arbeitgeber sie schriftlich begründet",
+            "d": "Sie führt automatisch zur Auflösung des gesamten Arbeitsverhältnisses zugunsten des Hinweisgebers mit doppeltem Gehalt"
+          }
+        },
+        "en": {
+          "question": "What legal consequence attaches to a retaliatory measure taken despite the prohibition in §36 HinSchG - for example, a dismissal issued in reaction to a report?",
+          "options": {
+            "a": "It remains fully valid; the whistleblower can only demand an apology",
+            "b": "It is void or has no legal effect, and the whistleblower can additionally claim damages",
+            "c": "It remains valid as long as the employer gives written reasons for it",
+            "d": "It automatically terminates the entire employment relationship in the whistleblower's favour with double salary"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Nach §37 HinSchG sind Repressalien im Sinne des §36 HinSchG unwirksam bzw. ohne Rechtswirkung; zusätzlich kann der Hinweisgeber Schadensersatz für den entstandenen Schaden verlangen. Eine bloße Entschuldigungspflicht oder eine automatische Vertragsauflösung mit Gehaltsverdopplung sieht das Gesetz nicht vor, und eine schriftliche Begründung heilt eine unzulässige Repressalie nicht.",
+        "en": "Under §37 HinSchG, retaliatory measures within the meaning of §36 HinSchG are void or without legal effect; in addition, the whistleblower can claim damages for the harm suffered. The Act does not provide for a mere duty to apologise or an automatic termination of the contract with double salary, and giving written reasons does not cure an unlawful retaliatory measure."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-repressalienschutz-04",
+      "topic": "Schutz vor Repressalien",
+      "topic_code": "repressalienschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 Abs. 1 HinSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "multi_choice",
+      "image_ref": null,
+      "correct": [
+        "a",
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche der folgenden Maßnahmen können, wenn sie als Reaktion auf eine zulässige Meldung erfolgen, als verbotene Repressalie im Sinne des §36 HinSchG gelten? (Mehrfachauswahl)",
+          "options": {
+            "a": "Versetzung des Hinweisgebers auf eine schlechter bewertete Stelle ohne sachlichen Grund",
+            "b": "Eine reguläre, leistungsbezogene Gehaltsanpassung, die alle Teammitglieder unabhängig von einer Meldung gleichermaßen betrifft",
+            "c": "Mobbing oder Ausgrenzung des Hinweisgebers durch Vorgesetzte nach Bekanntwerden der Meldung",
+            "d": "Eine Schulung zu Compliance-Themen, die allen Beschäftigten der Abteilung angeboten wird"
+          }
+        },
+        "en": {
+          "question": "Which of the following measures, if taken in reaction to a permissible report, could count as a prohibited retaliatory measure within the meaning of §36 HinSchG? (Select all that apply)",
+          "options": {
+            "a": "Transferring the whistleblower to a lower-graded position without objective justification",
+            "b": "A routine, performance-based salary adjustment applied equally to all team members regardless of any report",
+            "c": "Bullying or ostracising the whistleblower by managers after the report becomes known",
+            "d": "A compliance training session offered to all employees in the department"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Repressalien im Sinne des §36 HinSchG sind Benachteiligungen, die im Zusammenhang mit einer Meldung stehen, z.B. eine sachlich unbegründete Versetzung auf eine schlechtere Stelle oder Mobbing/Ausgrenzung durch Vorgesetzte. Eine reguläre, für alle gleichermaßen geltende Gehaltsanpassung und ein für die gesamte Abteilung angebotenes Schulungsangebot sind neutrale, nicht meldungsbezogene Maßnahmen und stellen keine Repressalie dar.",
+        "en": "Retaliatory measures within the meaning of §36 HinSchG are detriments connected to a report, e.g. an objectively unjustified transfer to a worse position, or bullying/ostracism by managers. A routine salary adjustment applied equally to everyone and a training offer made to the whole department are neutral measures unrelated to the report and do not constitute retaliation."
+      },
+      "roles": [
+        "management",
+        "hr"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-sanktionen-01",
+      "topic": "Bußgelder nach dem HinSchG",
+      "topic_code": "sanktionen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§40 Abs. 2 Nr. 2, Abs. 6 HinSchG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Bis zu welcher Höhe kann ein Bußgeld verhängt werden, wenn ein Arbeitgeber eine Meldung behindert oder einen Hinweisgeber mit einer Repressalie belegt?",
+          "options": {
+            "a": "Bis zu 5.000 Euro",
+            "b": "Bis zu 50.000 Euro",
+            "c": "Bis zu 500.000 Euro",
+            "d": "Ein Bußgeld ist dafür nicht vorgesehen, nur zivilrechtlicher Schadensersatz"
+          }
+        },
+        "en": {
+          "question": "Up to what amount can a fine be imposed if an employer obstructs a report or subjects a whistleblower to a retaliatory measure?",
+          "options": {
+            "a": "Up to €5,000",
+            "b": "Up to €50,000",
+            "c": "Up to €500,000",
+            "d": "No fine is provided for this - only civil damages"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das Behindern einer Meldung sowie das Ergreifen von Repressalien gegen einen Hinweisgeber können mit einem Bußgeld von bis zu 50.000 Euro geahndet werden. Diese Sanktion tritt neben den zivilrechtlichen Schadensersatzanspruch nach §37 HinSchG, ersetzt ihn aber nicht.",
+        "en": "Obstructing a report and taking retaliatory measures against a whistleblower can both be sanctioned with a fine of up to €50,000. This sanction exists alongside the civil-law damages claim under §37 HinSchG, not instead of it."
+      },
+      "roles": [
+        "management",
+        "hr"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-sanktionen-02",
+      "topic": "Bußgelder nach dem HinSchG",
+      "topic_code": "sanktionen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§40 Abs. 2 Nr. 1, Abs. 6 HinSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein verpflichteter Arbeitgeber mit 300 Beschäftigten richtet trotz gesetzlicher Pflicht überhaupt keine interne Meldestelle ein. Mit welchem Bußgeld muss er dafür maximal rechnen?",
+          "options": {
+            "a": "Bis zu 5.000 Euro",
+            "b": "Bis zu 50.000 Euro, wie bei einer Repressalie",
+            "c": "Bis zu 20.000 Euro",
+            "d": "Es droht kein Bußgeld, sondern nur eine unverbindliche behördliche Ermahnung"
+          }
+        },
+        "en": {
+          "question": "An obligated employer with 300 employees fails to set up any internal reporting channel at all, despite the statutory duty. What is the maximum fine it must expect for this?",
+          "options": {
+            "a": "Up to €5,000",
+            "b": "Up to €50,000, the same as for retaliation",
+            "c": "Up to €20,000",
+            "d": "No fine is threatened, only a non-binding administrative warning"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das vollständige Unterlassen der gesetzlich vorgeschriebenen internen Meldestelle kann mit einem Bußgeld von bis zu 20.000 Euro geahndet werden - ein geringerer Höchstbetrag als bei der Behinderung einer Meldung oder bei Repressalien (jeweils bis zu 50.000 Euro), aber eben doch ein echtes Bußgeld und keine bloße Ermahnung.",
+        "en": "Completely failing to set up the legally required internal reporting channel can be sanctioned with a fine of up to €20,000 - a lower maximum than for obstructing a report or for retaliation (each up to €50,000), but still a genuine fine, not a mere administrative warning."
+      },
+      "roles": [
+        "management",
+        "hr"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-sanktionen-03",
+      "topic": "Bußgelder nach dem HinSchG",
+      "topic_code": "sanktionen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§40 Abs. 2 Nr. 5, Abs. 6 HinSchG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Mitarbeiter der Meldestelle verletzt die Vertraulichkeit der Identität eines Hinweisgebers, indem er sie ohne Rechtsgrund an Dritte weitergibt. Welche Bußgeldhöhe ist dafür maximal vorgesehen?",
+          "options": {
+            "a": "Bis zu 10.000 Euro",
+            "b": "Bis zu 50.000 Euro",
+            "c": "Bis zu 100.000 Euro",
+            "d": "Bis zu 1.000 Euro"
+          }
+        },
+        "en": {
+          "question": "An employee at the reporting channel breaches the confidentiality of a whistleblower's identity by disclosing it to third parties without legal grounds. What is the maximum fine provided for this?",
+          "options": {
+            "a": "Up to €10,000",
+            "b": "Up to €50,000",
+            "c": "Up to €100,000",
+            "d": "Up to €1,000"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Die unbefugte Offenlegung der Identität eines Hinweisgebers (oder einer betroffenen Person) kann mit einem Bußgeld von bis zu 50.000 Euro geahndet werden - derselbe Höchstbetrag wie bei Behinderung einer Meldung und bei Repressalien, weil das Gesetz all diesen Verstößen ein vergleichbares Gewicht beimisst.",
+        "en": "The unauthorised disclosure of a whistleblower's (or an implicated person's) identity can be sanctioned with a fine of up to €50,000 - the same maximum as for obstructing a report and for retaliation, because the Act treats all of these violations as comparably serious."
+      },
+      "roles": [
+        "hr",
+        "management"
+      ]
+    },
+    {
+      "id": "hinweisgeberschutz-sanktionen-04",
+      "topic": "Bußgelder nach dem HinSchG",
+      "topic_code": "sanktionen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§40 HinSchG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche der folgenden Aussagen zu den Bußgeldern des HinSchG trifft zu?",
+          "options": {
+            "a": "Es gibt nur einen einheitlichen Bußgeldrahmen von 50.000 Euro für alle im Gesetz genannten Verstöße",
+            "b": "Die Bußgeldhöhen unterscheiden sich je nach Verstoß - u.a. bis zu 20.000 Euro für das gänzliche Fehlen einer Meldestelle und bis zu 50.000 Euro für Behinderung, Repressalien oder Vertraulichkeitsverstöße",
+            "c": "Bußgelder nach dem HinSchG können ausschließlich gegen einzelne Beschäftigte, nie gegen das Unternehmen als Ganzes verhängt werden",
+            "d": "Bußgelder sind im HinSchG nur als unverbindliche Selbstverpflichtung der Unternehmen vorgesehen, nicht als staatlich durchsetzbare Sanktion"
+          }
+        },
+        "en": {
+          "question": "Which of the following statements about the fines under the HinSchG is correct?",
+          "options": {
+            "a": "There is a single uniform fine range of €50,000 for all violations named in the Act",
+            "b": "The fine amounts differ depending on the violation - among others, up to €20,000 for entirely failing to set up a reporting channel, and up to €50,000 for obstruction, retaliation, or confidentiality breaches",
+            "c": "Fines under the HinSchG can only be imposed on individual employees, never on the company as a whole",
+            "d": "Fines are only provided for in the HinSchG as a non-binding self-commitment by companies, not as a state-enforceable sanction"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das HinSchG staffelt die Bußgeldrahmen je nach Schwere und Art des Verstoßes: bis zu 20.000 Euro für das komplette Fehlen einer verpflichtenden internen Meldestelle, bis zu 50.000 Euro für Behinderung einer Meldung, für Repressalien und für Vertraulichkeitsverstöße. Es handelt sich um echte, staatlich durchsetzbare Ordnungswidrigkeiten-Sanktionen und nicht um eine bloße freiwillige Selbstverpflichtung; sie können sich auch gegen das Unternehmen als Ganzes richten, nicht nur gegen Einzelpersonen.",
+        "en": "The HinSchG scales the fine ranges according to the severity and type of violation: up to €20,000 for entirely failing to set up a required internal reporting channel, up to €50,000 for obstructing a report, for retaliation, and for confidentiality breaches. These are genuine, state-enforceable administrative-fine (Ordnungswidrigkeiten) sanctions, not a merely voluntary self-commitment, and they can be directed at the company as a whole, not only at individuals."
+      },
+      "roles": [
+        "management",
+        "hr"
+      ]
+    }
+  ]
+}
