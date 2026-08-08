@@ -140,6 +140,16 @@ function validateCompletionPayload(payload) {
 
 // Mirrors app/app.js credentialJsonDoc()'s achievement shape, extended with
 // real issuer/proof-carrying claims instead of unverified/unverifiedReason.
+//
+// DN-51 fix: OB3 requires `achievement` to carry an `id` (a URI) - the two
+// external OB3 validators run against a real signed credential earlier this
+// project (CertLister, 1EdTech's own validator) both flagged its absence.
+// achievement.id identifies the ACHIEVEMENT DEFINITION (this module+scope's
+// exam, shared by every earner who passes it), not this specific earner's
+// instance of earning it - that instance-level identity is already handled
+// correctly at the VC-JWT level via the `jti` claim below (VC-JWT's standard
+// claim mapping treats `jti` as the credential's own `id`), so no separate
+// `vc.id` field is added here - it would just duplicate `jti`.
 function buildCredentialClaims(record) {
   return {
     "@context": ["https://www.w3.org/ns/credentials/v2", "https://purl.imsglobal.org/spec/ob/v3p0/context.json"],
@@ -149,6 +159,7 @@ function buildCredentialClaims(record) {
     credentialSubject: {
       type: "AchievementSubject",
       achievement: {
+        id: `${ISSUER_URL}/achievements/${record.examType}-${record.scopeCode}`,
         type: "Achievement",
         name: `${record.moduleLabel} - ${record.scopeLabel}`,
         description: `Passed an Exam Simulation for ${record.moduleLabel} (${record.scopeLabel}) in the Zettacard app.`,

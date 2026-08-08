@@ -75,9 +75,26 @@ it to yourself" feature - the file shape itself needs fixing first.
    expects, not a wrapper around it. Verified via an extended `scripts/test_full_exam_badge.mjs`
    run (byte-compares the downloaded file against the record's own `signedJwt` after a real signed
    exam pass). This alone makes credential import via Credly-style "upload a file" flows viable for
-   the first time, with zero new server work and zero new personal data captured. NOT done as part
-   of this step: the separately-flagged `achievement.id`/proof-shape gaps in the existing JSON
-   download (`credentialJsonDoc()`) are unrelated to this new button and remain open.
+   the first time, with zero new server work and zero new personal data captured.
+1b. **DONE (2026-08-08)**: closed the `achievement.id`/proof-shape gaps flagged in section 4, left
+   open by step 1. Fixed in both places that build the credential shape: `buildCredentialClaims()`
+   in `netlify/functions/sign-credential.js` (the real signed artifact) and `credentialJsonDoc()` in
+   `app/app.js` (the unsigned/preview JSON download) now both set `achievement.id` to a stable
+   per-module+scope URI (`{origin}/achievements/{examType}-{scopeCode}` - identifies the achievement
+   *definition*, shared by every earner, not one earner's instance of it; instance-level identity is
+   already handled correctly via the JWT's own `jti` claim, which VC-JWT's standard mapping treats as
+   the credential's `id` - so no redundant `vc.id` was added server-side, though the client-side
+   preview JSON does get its own `id` field for the same reason a debug/reference document benefits
+   from one). The custom `proof: {type: "JsonWebSignature", jwt: ...}` field in `credentialJsonDoc()`
+   is removed - it never was a valid OB3 JOSE/Data-Integrity proof shape, and OB3's actual JWT-secured
+   form doesn't use a `proof` field at all (the compact JWS *is* the credential, already shipped
+   correctly by step 1's button). Replaced with plain `signedJwtNote`/`signedJwtAlg`/`signedJwtKid`
+   fields that describe the signature without pretending to embed a standards-conformant proof.
+   Verified: `node --check` on both files, a standalone Node repro of `buildCredentialClaims()`
+   confirming `achievement.id` parses as a valid URL. NOT re-run against the two external OB3
+   validators (CertLister, 1EdTech's) this round - that's the next real verification step before
+   calling this fully closed, ideally alongside a fresh `scripts/test_full_exam_badge.mjs` pass once
+   this sandbox's Playwright/Chromium networking is healthy again.
 2. **Do not build email capture for this.** Every mainstream badge platform researched treats the
    earner's email as a required field and just accepts the GDPR processing that implies; no
    platform researched does a no-email self-service model. That means Zettacard doing the

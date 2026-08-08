@@ -2103,14 +2103,38 @@ function certificateHtmlDoc(record) {
 </body></html>`;
 }
 
+// DN-51 fix (see docs/badge-wallet-portability-scoping.md section 4): two
+// external OB3 validators (CertLister, 1EdTech's own validator) run against
+// a real signed credential earlier flagged two concrete spec-conformance
+// gaps in this function's output:
+//   1. `achievement` had no `id` (OB3 requires a URI here) - fixed below,
+//      using a stable per-module+scope URI (the achievement DEFINITION,
+//      shared by every earner, not this one earner's instance of it -
+//      mirrors netlify/functions/sign-credential.js's buildCredentialClaims,
+//      which needed the identical fix for the real signed JWT this
+//      function's unsigned fallback is modeled on).
+//   2. The old `proof: {type: "JsonWebSignature", jwt: ...}` field was a
+//      custom shape that isn't what OB3/VC validators expect for a JOSE or
+//      Data-Integrity proof - because OB3's actual JWT-secured form treats
+//      the compact JWS itself (three dot-separated parts) as the
+//      verifiable artifact, not a JSON document with the JWT nested inside
+//      a `proof` field. Zettacard already ships that real artifact
+//      separately via the "Download signed credential (JWT, for wallets)"
+//      button (record.signedJwt as its own file, done 2026-08-07) - so
+//      rather than inventing another non-standard `proof` shape here, this
+//      JSON document now says plainly that it's a human-readable reference
+//      copy and points at the real verifiable download instead of claiming
+//      a proof mechanism it doesn't actually have.
 function credentialJsonDoc(record) {
   const base = {
     "@context": ["https://www.w3.org/ns/credentials/v2", "https://purl.imsglobal.org/spec/ob/v3p0/context.json"],
+    id: `${location.origin || ""}/credentials/${record.id}`,
     type: ["VerifiableCredential", "OpenBadgeCredential"],
     validFrom: record.passedAt,
     credentialSubject: {
       type: "AchievementSubject",
       achievement: {
+        id: `${location.origin || ""}/achievements/${record.examType}-${record.scopeCode}`,
         type: "Achievement",
         name: `${record.moduleLabel} - ${record.scopeLabel}`,
         description: `Passed an Exam Simulation for ${record.moduleLabel} (${record.scopeLabel}) in the Zettacard app.`,
@@ -2121,22 +2145,21 @@ function credentialJsonDoc(record) {
 
   // Real signature available (netlify/functions/sign-credential.js
   // succeeded at some point for this record - see trySignCompletion()):
-  // ship the actual signed JWT as the verifiable proof, drop the
+  // note the signature's existence/metadata for reference, but this JSON
+  // document is explicitly NOT presented as the verifiable artifact itself
+  // - see the function-level comment above. Drop the
   // unverified/unverifiedReason fields since they'd be actively false.
   // See docs/open-badges-signing-verification.md for how a third party
-  // checks this signature themselves.
+  // checks the real signed JWT (the separate download) themselves.
   if (record.verified && record.signedJwt) {
     return {
       ...base,
       issuer: { type: "Profile", id: (location.origin || ""), name: "Zettacard" },
       verified: true,
-      proof: {
-        type: "JsonWebSignature",
-        jwt: record.signedJwt,
-        alg: record.signedAlg || "ES256",
-        kid: record.signedKid,
-        jwksUrl: `${location.origin || ""}/.well-known/jwks.json`,
-      },
+      signedJwtNote: "This JSON document is a human-readable reference copy only, not itself the verifiable credential. Use the separate signed-JWT download (a compact JWS) for actual OB3/W3C-VC verification.",
+      signedJwtAlg: record.signedAlg || "ES256",
+      signedJwtKid: record.signedKid,
+      jwksUrl: `${location.origin || ""}/.well-known/jwks.json`,
     };
   }
 
@@ -2422,11 +2445,14 @@ function renderVerifyLinkRow(slot, record, C) {
 // credentialJsonDoc()'s existing download. Real badge wallets (Credly,
 // Open Badges Passport, etc.) that accept third-party badges via file
 // upload expect the actual OB3-compliant compact JWS, which is exactly
-// record.signedJwt - the existing JSON credential download nests that
-// same JWT inside a custom `proof.jwt` field, which a real wallet import
-// would not recognize. Only ever shown once a record is genuinely signed
-// (same verified+signedJwt gate as the badge/verify-link rows) - a
-// self-issued/unverified record has no JWT to offer.
+// record.signedJwt - the JSON credential download is a human-readable
+// reference copy (see credentialJsonDoc()'s own comment for the full
+// history: it used to nest this same JWT inside a custom `proof.jwt`
+// field, which a real wallet import would not recognize as a valid OB3
+// proof - since fixed to stop claiming a proof shape it doesn't have).
+// Only ever shown once a record is genuinely signed (same verified+
+// signedJwt gate as the badge/verify-link rows) - a self-issued/unverified
+// record has no JWT to offer.
 function renderJwtDownloadBtn(slot, record, C) {
   if (!slot) return;
   if (!(record.verified && record.signedJwt)) {
