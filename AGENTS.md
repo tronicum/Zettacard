@@ -38,6 +38,15 @@ Read these before generating or editing any content — they came out of real le
 
 For anything visual or otherwise subjective (redrawn sign icons, UI/landing-page rendering, RTL layout, screenshots), do not accept a sub-agent's own claim that a fix "looks right" as the fix being done. Independently re-render/re-screenshot and actually look at the result yourself before closing it out. This project's own history (see `BACKLOG.md`) has caught agents being wrong on the same fix 2-3 rounds in a row this way (e.g. a sign-icon fix-agent repeatedly misjudging its own render of a horse-and-rider pictogram until an independent check caught it). Applies whether you're the one who made the fix or the one reviewing it — "the agent that did the fix says it's fine" is not itself verification.
 
+## Working with the attached Claude Project's docs — no git, no undo
+
+This repo's docs (`docs/*.md`, `BACKLOG.md`, `AGENTS.md`, etc.) are all in git, so a bad edit is always recoverable via `git diff`/`git checkout`/history. The Zettacard **Claude Project** attached to this repo's sessions (currently holding `fuehrerschein-learning-data-plan.md`, `compliance-competitor-pricing-and-course-gaps.md`, `netlify-deploy-status.md`) is **not** version-controlled the same way — writing to a project doc replaces its content outright, with no diff view and no built-in undo. An agent overwrote `fuehrerschein-learning-data-plan.md` with placeholder text this way on 2026-08-08 (a stray/erroneous write call made without reading the doc first) and the original content could not be recovered — only reconstructed from context, imperfectly. Learn from this:
+
+1. **Always `project_read` (or equivalent) before any `project_write` to an existing path.** Never write to a path you haven't just read in the same turn, even for what feels like a routine update — there is no git-style diff to catch a mistake after the fact.
+2. **Double-check the path and content are what you intend before the write call actually fires** — a placeholder, a draft meant for a different file, or content copied from the wrong buffer becomes permanent the instant the call succeeds.
+3. **If a project doc's content matters and might need recovery later, consider mirroring the important bits into a git-tracked file in this repo** (e.g. under `docs/`) so there's at least one durable, diffable copy — don't rely solely on the project as the only record of anything load-bearing.
+4. **If you do overwrite something by mistake anyway:** say so immediately and plainly (don't paper over it or bury it in an unrelated update), check this repo's git history and any local working copies for a reconstructable version before declaring it unrecoverable, and if nothing can be found, rebuild the best version you can from first principles/available context and flag clearly that it's a reconstruction, not the original.
+
 ## Parallel vs. sequential work
 
 Rule of thumb: **file-disjoint work can be parallelized, file-shared work must be sequential.**
