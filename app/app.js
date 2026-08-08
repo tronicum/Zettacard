@@ -702,9 +702,16 @@ function resolveImage(q, revealed) {
 // Nested by exam_type (DN-39) - each module can have its own topic set with
 // no risk of a topic_code collision between modules (e.g. a future
 // Angelschein "technik" topic wouldn't clash with Fuehrerschein's "umwelt").
-// A locale missing for a given module (Angelschein only ships de/en so far)
-// simply isn't looked up - callers always fall back through pickLocaleText-
-// style chains rather than indexing this directly with an unchecked locale.
+// A locale missing for a given module (only hinweisgeberschutz is DE/EN-only
+// for now, being a 20-question pilot - see its own comment below) simply
+// isn't looked up - getTopicLabel() falls back through en-then-de-then-the
+// raw topic string rather than indexing this directly with an unchecked
+// locale. IMPORTANT, learned the hard way during a 2026-08-08 translation
+// audit: a module missing ENTIRELY from this object (not just missing a
+// locale) doesn't just fall back to a raw label - renderFilters() builds
+// its filter-chip list from Object.keys(TOPIC_LABELS[examType] || {}), so a
+// missing module gets NO topic filter row at all, silently. Check both
+// failure modes when auditing this file, not just per-locale gaps.
 const TOPIC_LABELS = {
   fuehrerschein: {
     vorfahrt: { de: "Vorfahrt und Kreuzungen", en: "Right of way & intersections", uk: "Проїзд перехресть", pl: "Pierwszeństwo i skrzyżowania", ar: "الأولوية والتقاطعات", zh: "路权与交叉路口", hi: "प्राथमिकता और चौराहे", tr: "Geçiş hakkı ve kavşaklar", fr: "Priorité et intersections", ru: "Приоритет проезда и перекрёстки", es: "Prioridad de paso e intersecciones", it: "Precedenza e incroci" },
@@ -717,6 +724,13 @@ const TOPIC_LABELS = {
     ladung: { de: "Ladungssicherung und Mitfahrende", en: "Cargo & passenger safety", uk: "Кріплення вантажу та пасажири", pl: "Mocowanie ładunku i pasażerowie", ar: "تثبيت الحمولة والركاب", zh: "货物固定与乘客安全", hi: "भार सुरक्षा और सह-यात्री", tr: "Yük sabitleme ve yolcular", fr: "Arrimage du chargement et passagers", ru: "Крепление груза и пассажиры", es: "Sujeción de la carga y pasajeros", it: "Fissaggio del carico e passeggeri" },
     erstehilfe: { de: "Unfaelle und Erste Hilfe", en: "Accidents & first aid", uk: "ДТП та перша допомога", pl: "Wypadki i pierwsza pomoc", ar: "الحوادث والإسعافات الأولية", zh: "事故与急救", hi: "दुर्घटना और प्राथमिक चिकित्सा", tr: "Kazalar ve ilk yardım", fr: "Accidents et premiers secours", ru: "ДТП и первая помощь", es: "Accidentes y primeros auxilios", it: "Incidenti e primo soccorso" },
     fahrtuechtigkeit: { de: "Alkohol, Drogen und Fahrtuechtigkeit", en: "Alcohol, drugs & fitness to drive", uk: "Алкоголь, наркотики і придатність до керування", pl: "Alkohol, narkotyki i zdolność do jazdy", ar: "الكحول والمخدرات واللياقة للقيادة", zh: "酒精、毒品与驾驶适宜性", hi: "शराब, नशा और ड्राइविंग योग्यता", tr: "Alkol, uyuşturucu ve sürüşe uygunluk", fr: "Alcool, drogues et aptitude à conduire", ru: "Алкоголь, наркотики и годность к вождению", es: "Alcohol, drogas y aptitud para conducir", it: "Alcol, droghe e idoneità alla guida" },
+    // 2026-08-08: found via a full translation audit (PO asked to check all
+    // translations) - anhaenger_be (the Klasse BE trailer-towing topic, 26
+    // real questions) had NO entry here at all, meaning it was invisible in
+    // the topic filter row (which is built from this object's own keys, see
+    // renderFilters()) and its badge fell back to raw German text in every
+    // UI language. Real gap, not by design - fixed.
+    anhaenger_be: { de: "Anhängerbetrieb (Klasse BE)", en: "Trailer operation (Class BE)", uk: "Причіп (категорія BE)", pl: "Przyczepa (kategoria BE)", ar: "القطر بمقطورة (فئة BE)", zh: "挂车驾驶（BE类）", hi: "ट्रेलर संचालन (क्लास BE)", tr: "Römork kullanımı (BE sınıfı)", fr: "Remorque (catégorie BE)", ru: "Прицеп (категория BE)", es: "Remolque (categoría BE)", it: "Rimorchio (categoria BE)" },
   },
   // 2026-08-06: extended these 5 modules' topic-filter labels from DE/EN
   // to the app's full 12-locale set (previously fell back silently to
@@ -757,6 +771,26 @@ const TOPIC_LABELS = {
     datensicherung: { de: "Datensicherung und Geräte", en: "Backups & devices", uk: "Резервне копіювання та пристрої", pl: "Kopie zapasowe i urządzenia", ar: "النسخ الاحتياطي والأجهزة", zh: "数据备份与设备", hi: "बैकअप और उपकरण", tr: "Yedekleme ve cihazlar", fr: "Sauvegardes et appareils", ru: "Резервное копирование и устройства", es: "Copias de seguridad y dispositivos", it: "Backup e dispositivi" },
     mobil_homeoffice: { de: "Mobile Geräte und Home-Office", en: "Mobile devices & home office", uk: "Мобільні пристрої та дистанційна робота", pl: "Urządzenia mobilne i praca zdalna", ar: "الأجهزة المحمولة والعمل عن بُعد", zh: "移动设备与居家办公", hi: "मोबाइल उपकरण और होम-ऑफिस", tr: "Mobil cihazlar ve evden çalışma", fr: "Appareils mobiles et télétravail", ru: "Мобильные устройства и удалённая работа", es: "Dispositivos móviles y teletrabajo", it: "Dispositivi mobili e lavoro da remoto" },
     meldepflicht_it: { de: "Meldung von Sicherheitsvorfällen", en: "Incident reporting", uk: "Повідомлення про інциденти безпеки", pl: "Zgłaszanie incydentów bezpieczeństwa", ar: "الإبلاغ عن حوادث الأمان", zh: "安全事件报告", hi: "सुरक्षा घटना की रिपोर्टिंग", tr: "Güvenlik olaylarının bildirilmesi", fr: "Signalement des incidents de sécurité", ru: "Уведомление об инцидентах безопасности", es: "Notificación de incidentes de seguridad", it: "Segnalazione di incidenti di sicurezza" },
+  },
+  // 2026-08-08: added via a full translation audit (PO asked to check all
+  // translations) - motorrad/lkw had NO entry in this object at all, which
+  // silently suppressed their topic-filter row entirely (renderFilters()
+  // builds the filter chip list from this object's own keys) and made every
+  // question's topic badge fall back to raw German text regardless of UI
+  // language. A stale comment elsewhere claimed this was because these two
+  // modules have "a single topic" - false: motorrad has 5, lkw has 4. Fixed.
+  motorrad: {
+    fahrphysik: { de: "Fahrphysik und Balance", en: "Riding physics & balance", uk: "Фізика керування та рівновага", pl: "Fizyka jazdy i równowaga", ar: "فيزياء القيادة والتوازن", zh: "骑行物理与平衡", hi: "सवारी भौतिकी और संतुलन", tr: "Sürüş fiziği ve denge", fr: "Physique de conduite et équilibre", ru: "Физика движения и баланс", es: "Física de conducción y equilibrio", it: "Fisica di guida ed equilibrio" },
+    schutzausruestung: { de: "Schutzausrüstung und Sichtbarkeit", en: "Protective gear & visibility", uk: "Захисне спорядження та видимість", pl: "Odzież ochronna i widoczność", ar: "معدات الحماية والظهور", zh: "防护装备与能见度", hi: "सुरक्षा उपकरण और दृश्यता", tr: "Koruyucu ekipman ve görünürlük", fr: "Équipement de protection et visibilité", ru: "Защитная экипировка и видимость", es: "Equipo de protección y visibilidad", it: "Abbigliamento protettivo e visibilità" },
+    verkehrsverhalten: { de: "Verkehrsverhalten für Kraftradfahrer", en: "Road behavior for motorcyclists", uk: "Поведінка на дорозі для мотоциклістів", pl: "Zachowanie na drodze motocyklistów", ar: "سلوك السائق على الطريق للدراجات النارية", zh: "摩托车骑手的道路行为", hi: "मोटरसाइकिल चालकों के लिए सड़क व्यवहार", tr: "Motosikletliler için trafik davranışı", fr: "Comportement routier des motards", ru: "Поведение на дороге для мотоциклистов", es: "Comportamiento vial para motociclistas", it: "Comportamento stradale per motociclisti" },
+    fahrerlaubnis: { de: "Fahrerlaubnisklassen und technische Besonderheiten", en: "License classes & technical specifics", uk: "Категорії прав та технічні особливості", pl: "Kategorie prawa jazdy i specyfika techniczna", ar: "فئات الرخصة والخصائص الفنية", zh: "驾照类别与技术细节", hi: "लाइसेंस श्रेणियाँ और तकनीकी विशेषताएँ", tr: "Ehliyet sınıfları ve teknik özellikler", fr: "Catégories de permis et spécificités techniques", ru: "Категории прав и технические особенности", es: "Categorías de licencia y particularidades técnicas", it: "Categorie di patente e specifiche tecniche" },
+    besondere_bedingungen: { de: "Fahren unter besonderen Bedingungen", en: "Riding under special conditions", uk: "Керування в особливих умовах", pl: "Jazda w szczególnych warunkach", ar: "القيادة في ظروف خاصة", zh: "特殊条件下的骑行", hi: "विशेष परिस्थितियों में सवारी", tr: "Özel koşullarda sürüş", fr: "Conduite dans des conditions particulières", ru: "Вождение в особых условиях", es: "Conducción en condiciones especiales", it: "Guida in condizioni particolari" },
+  },
+  lkw: {
+    fahrdynamik: { de: "Fahrzeugabmessungen und Fahrdynamik", en: "Vehicle dimensions & dynamics", uk: "Габарити та динаміка транспортного засобу", pl: "Wymiary i dynamika pojazdu", ar: "أبعاد المركبة وديناميكيتها", zh: "车辆尺寸与动力学", hi: "वाहन आयाम और गतिकी", tr: "Araç boyutları ve dinamiği", fr: "Dimensions et dynamique du véhicule", ru: "Габариты и динамика транспортного средства", es: "Dimensiones y dinámica del vehículo", it: "Dimensioni e dinamica del veicolo" },
+    vorschriften: { de: "Vorschriften, Kontrollen und Ankuppeln", en: "Regulations, inspections & coupling", uk: "Правила, перевірки та зчеплення", pl: "Przepisy, kontrole i sprzęganie", ar: "اللوائح والفحوصات والقرن", zh: "法规、检查与挂接", hi: "नियम, निरीक्षण और कपलिंग", tr: "Kurallar, kontroller ve bağlantı", fr: "Réglementation, contrôles et attelage", ru: "Правила, проверки и сцепка", es: "Normativa, controles y enganche", it: "Normative, controlli e aggancio" },
+    ladungssicherung: { de: "Ladungssicherung", en: "Load securing", uk: "Кріплення вантажу", pl: "Mocowanie ładunku", ar: "تثبيت الحمولة", zh: "货物固定", hi: "भार सुरक्षा", tr: "Yük emniyeti", fr: "Arrimage du chargement", ru: "Крепление груза", es: "Sujeción de la carga", it: "Fissaggio del carico" },
+    lenkzeiten: { de: "Lenk- und Ruhezeiten sowie Fahrtenschreiber", en: "Driving & rest times, and the tachograph", uk: "Час керування та відпочинку, тахограф", pl: "Czas jazdy i odpoczynku oraz tachograf", ar: "أوقات القيادة والراحة ومسجل السرعة", zh: "驾驶与休息时间及行车记录仪", hi: "ड्राइविंग और विश्राम समय, तथा टैकोग्राफ", tr: "Sürüş ve dinlenme süreleri ile takograf", fr: "Temps de conduite et de repos, et tachygraphe", ru: "Время вождения и отдыха, тахограф", es: "Tiempos de conducción y descanso, y tacógrafo", it: "Tempi di guida e riposo, e tachigrafo" },
   },
   // DN-50: 5th compliance module. DE/EN-only pilot (see
   // hinweisgeberschutz_pilot.json meta) - these topic labels are DE/EN only
@@ -3412,7 +3446,10 @@ function renderFilters() {
     btn.addEventListener("click", () => {
       state.topicFilter = code;
       state.detailIndex = null;
-      try { localStorage.setItem(profileKey("filter"), code); } catch (e) { /* non-fatal */ }
+      // Scoped per module (2026-08-08 fix) - see loadActiveProfileState()'s
+      // comment for why an unscoped key let one module's filter selection
+      // leak into another after an app reload.
+      try { localStorage.setItem(profileKey(`filter-${state.examType}`), code); } catch (e) { /* non-fatal */ }
       render();
     });
     container.appendChild(btn);
@@ -3461,7 +3498,9 @@ function renderRoleFilter() {
     btn.addEventListener("click", () => {
       state.roleFilter = code;
       state.detailIndex = null;
-      try { localStorage.setItem(profileKey("role-filter"), code); } catch (e) { /* non-fatal */ }
+      // Scoped per module (2026-08-08 fix) - same cross-module leak as the
+      // topic filter above.
+      try { localStorage.setItem(profileKey(`role-filter-${state.examType}`), code); } catch (e) { /* non-fatal */ }
       render();
     });
     container.appendChild(btn);
@@ -3896,15 +3935,6 @@ async function loadActiveProfileState() {
       const detected = detectBrowserLang();
       state.lang = detected || "de";
     }
-    const savedFilter = localStorage.getItem(profileKey("filter"));
-    state.topicFilter = savedFilter || "all";
-    // DN-44: role filter is per-profile too (same key convention as the
-    // topic filter above) - only ever visibly applied for the 4 compliance
-    // modules, but harmless to restore unconditionally since
-    // questionMatchesRole() treats every other module's untagged questions
-    // as always matching.
-    const savedRoleFilter = localStorage.getItem(profileKey("role-filter"));
-    state.roleFilter = ROLE_FILTER_CODES.includes(savedRoleFilter) ? savedRoleFilter : "all";
   } catch (e) { /* storage unavailable, defaults are fine */ }
 
   document.documentElement.setAttribute("lang", state.lang);
@@ -3915,6 +3945,32 @@ async function loadActiveProfileState() {
     savedExamType = localStorage.getItem(profileKey("exam-type"));
     savedScopeCode = localStorage.getItem(profileKey("scope-code"));
   } catch (e) { /* non-fatal */ }
+
+  // 2026-08-08 fix (real bug, found while auditing translations - PO flagged
+  // seeing compliance-course categories appear while studying for the
+  // driver's licence): topicFilter/roleFilter used to be saved under a
+  // single profileKey("filter")/profileKey("role-filter"), shared across
+  // EVERY module for a given profile, and were restored here BEFORE
+  // savedExamType was even known - so switching modules mid-session
+  // (selectModuleAndScope() resets both to "all" in memory, correctly) but
+  // then closing the app without ever clicking a filter chip in the new
+  // module left the OLD module's last-clicked filter code sitting in that
+  // shared storage key. On the next app load, that stale code (e.g. a
+  // Datenschutz topic_code like "grundprinzipien") got restored as the
+  // driver's-licence module's topicFilter - a code no Fuehrerschein
+  // question has, so the list silently filtered down to empty (no chip
+  // ever showed as "active" for it, since renderFilters() only builds
+  // chips from the CURRENT module's own TOPIC_LABELS, but the underlying
+  // filter value was still wrong and invisible). Fixed by scoping both
+  // keys per module, and only restoring them once savedExamType is known.
+  try {
+    if (savedExamType) {
+      const savedFilter = localStorage.getItem(profileKey(`filter-${savedExamType}`));
+      state.topicFilter = savedFilter || "all";
+      const savedRoleFilter = localStorage.getItem(profileKey(`role-filter-${savedExamType}`));
+      state.roleFilter = ROLE_FILTER_CODES.includes(savedRoleFilter) ? savedRoleFilter : "all";
+    }
+  } catch (e) { /* storage unavailable, defaults are fine */ }
 
   const savedModuleValid = savedExamType && savedScopeCode
     && moduleManifestFor(savedExamType)?.options.some((o) => o.code === savedScopeCode);
