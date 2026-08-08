@@ -221,6 +221,23 @@ h1 {
   min-height: 40px;
 }
 
+/* REAL BUG, found 2026-08-08 from a user report ("driving test still shows
+   IT/compliance role filter"): #role-filters is `class="filters role-filters"`
+   and starts `hidden` in app.html, with renderRoleFilter() (app.js) toggling
+   the `hidden` property based on whether the current module is a compliance
+   module. But `.filters` above sets `display: flex`, and a plain author-
+   stylesheet rule always beats the browser's default `[hidden] { display:
+   none }` UA rule regardless of specificity (origin/importance is checked
+   BEFORE specificity in the cascade) - so the role-filter row was actually
+   showing on EVERY module, including Fuehrerschein, the whole time DN-44's
+   role filter has existed. This is the exact same class of bug already
+   fixed twice elsewhere in this file (.image-note[hidden]/.image-illustration
+   [hidden] above, .exam-modal[hidden]/.exam-view[hidden] below) - just never
+   applied here too. Fixed the same way: an explicit [hidden] override. */
+.role-filters[hidden] {
+  display: none;
+}
+
 main {
   max-width: 720px;
   margin: 0 auto;
