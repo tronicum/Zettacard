@@ -1,11 +1,11 @@
 # Scoping: Kickstart Learning Journey — Primers, Practice Quizzes, Path Wizard (DN-52)
 
-Status: scoping only, no PO decision to build yet. Came out of a PO brainstorm (2026-08-08) about
-bridging a true beginner from "knows nothing about this topic" to "confident enough to start real
-practice," rather than dropping every new user straight into a flashcard list or a 30-question exam
-with no context. This document lays out what that actually takes, grounded in what this app already
-has (so the plan reuses real infrastructure instead of assuming a blank slate) and what's genuinely
-new.
+Status: scoping only, no PO decision to build yet - except section 5's completion-counting question,
+which the PO has decided (2026-08-08). Came out of a PO brainstorm (2026-08-08) about bridging a true
+beginner from "knows nothing about this topic" to "confident enough to start real practice," rather
+than dropping every new user straight into a flashcard list or a 30-question exam with no context.
+This document lays out what that actually takes, grounded in what this app already has (so the plan
+reuses real infrastructure instead of assuming a blank slate) and what's genuinely new.
 
 ## 0. The ask, distilled
 
@@ -142,11 +142,19 @@ diagnostic. Both are legitimate entry points into the same underlying quiz-drawi
 lower-stakes, shorter, more flexibly-scoped sibling mode reusing most of that machinery, not a
 parallel implementation.
 
-**Open design question**: does an early, voluntary Exam Simulation attempt that happens to pass
-count as the module's real, certificate-worthy completion? Recommended: yes - a genuine pass is a
-genuine pass regardless of when it's attempted, and a fail should read as useful diagnostic
-information, never a strike against the learner. Worth an explicit PO confirmation before Phase 3
-below, since it touches the existing compliance-credential system's behavior.
+**PO decision (2026-08-08): yes.** An early, voluntary Exam Simulation attempt that happens to pass
+counts as the module's real, certificate-worthy completion - no change needed to `recordCompletion()`
+/`trySignCompletion()`, since Exam Simulation already only records a completion on a genuine pass
+regardless of when the attempt happens. PO's own stated reasoning: the whole point for a compliance
+learner is *not having to redo training they've already demonstrably mastered* just because they
+took the "diagnostic" framing literally - a real pass is a real pass. PO explicitly acknowledged and
+accepted the obvious risk (someone could "dare the exam" specifically to game a quick certificate
+without genuinely learning the material) as out of scope: that risk exists identically for *any*
+self-service, unproctored exam attempt in this app already (nothing stops a user from retrying Exam
+Simulation repeatedly today, kickstart wizard or not), so this feature doesn't introduce a new
+exposure - it just makes an existing one more visible. No mitigation is being scoped for this in
+Phase 3; if proctoring/anti-gaming ever becomes a real ask, that's its own future scoping
+conversation, not a blocker here.
 
 ## 6. New entry point: the kickstart path wizard
 
@@ -204,9 +212,9 @@ the PO stops after it, and each later phase depends on the one before actually e
    from the existing module-intro screen).
 2. **Phase 2 - situational crossing primers for Vorfahrt** (reusing DN-3's existing diagrams), then
    Autobahn/Gefahrenlehre/Parken once the format is proven.
-3. **Phase 3 - the practice-quiz tier.** The genuinely new mechanic; needs the PO's confirmation on
-   the "does an early exam pass count as real completion" question first (section 5). Reuses
-   `drawExamQuestions()`/`feedExamResultsIntoSrs()` rather than new scoring logic.
+3. **Phase 3 - the practice-quiz tier.** The genuinely new mechanic. PO already confirmed (section 5,
+   2026-08-08) that an early voluntary exam pass counts as real completion, so no gating question
+   remains here. Reuses `drawExamQuestions()`/`feedExamResultsIntoSrs()` rather than new scoring logic.
 4. **Phase 4 - the kickstart path wizard**, tying phases 1-3 together with the three-path choice and
    framing copy. Deliberately last, since it's presenting choices that need to already exist and
    work before they can be offered as a menu.
@@ -216,8 +224,8 @@ the PO stops after it, and each later phase depends on the one before actually e
 
 ## 9. Open questions for the PO
 
-- Confirm the "early voluntary exam pass still counts as real completion" call (section 5) before
-  Phase 3 starts.
+- ~~Confirm the "early voluntary exam pass still counts as real completion" call~~ - **DECIDED
+  2026-08-08, see section 5.**
 - Decision-flow-then-examples vs. pure worked-example-gallery for situational primers (section 4) -
   can be decided per-topic rather than as one global rule.
 - Whether the kickstart wizard's return-visit dashboard (section 6) is worth building in Phase 4, or
