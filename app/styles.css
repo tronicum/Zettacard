@@ -105,7 +105,13 @@ header {
   background: var(--header-bg);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--border);
-  padding: 14px 16px 10px;
+  /* DN-23: safe-area-inset padding for notched phones (the viewport meta
+     already has viewport-fit=cover in app.html, so these env() values
+     resolve to real insets rather than 0 on devices that have one - a
+     no-op elsewhere). Additive via calc() so the existing spacing is a
+     floor, not replaced. Top/left/right here since header sits at the
+     very top of the layout; main below gets the bottom inset. */
+  padding: calc(14px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 10px calc(16px + env(safe-area-inset-left));
 }
 
 .title-row {
@@ -219,7 +225,11 @@ main {
   max-width: 720px;
   margin: 0 auto;
   padding: 16px;
-  padding-bottom: 64px;
+  /* DN-23: safe-area-inset-bottom so content isn't flush against a phone's
+     home-indicator gesture area; left/right too for landscape notches. */
+  padding-left: calc(16px + env(safe-area-inset-left));
+  padding-right: calc(16px + env(safe-area-inset-right));
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
 }
 
 .list {
@@ -275,6 +285,14 @@ main {
    color, just a distinct class name since the semantic meaning differs
    (a manual bookmark, not a safety-criticality or renewal flag). */
 .badge.star-badge { background: var(--amber-bg); color: var(--amber); }
+/* DN-23 (tap-affordance hint): pre-reveal-only badge telling the user the
+   option rows below are actually tappable (the "try it yourself" flashcard
+   self-answer, see renderDetail() in app.js) - added because a plain
+   cursor:pointer (see .option[role="button"] etc. below) is invisible on
+   touch devices, which are this app's primary audience. Reuses the same
+   already-contrast-verified --accent-dim/accent pairing as filter chips
+   rather than a new color. */
+.badge.try-it-hint { background: var(--accent-dim); color: var(--accent); }
 
 .q-card-text {
   font-size: 0.95rem;
@@ -312,7 +330,10 @@ main {
   background: var(--header-bg);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--border);
-  padding: 14px 16px;
+  /* DN-23: same safe-area treatment as header - this is a fixed, full-
+     screen (.detail is inset:0) view's own top bar, so it needs its own
+     top inset rather than inheriting the page header's. */
+  padding: calc(14px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 14px calc(16px + env(safe-area-inset-left));
   display: flex;
   align-items: center;
   gap: 10px;
@@ -332,7 +353,10 @@ main {
 .detail-body {
   max-width: 680px;
   margin: 0 auto;
-  padding: 20px 16px 64px;
+  /* DN-23: safe-area-inset-bottom/left/right - this is the scrollable body
+     inside the fixed, edge-to-edge .detail/.exam-view overlays, shared by
+     the flashcard detail view and Simulation/Training exam screens alike. */
+  padding: 20px calc(16px + env(safe-area-inset-right)) calc(64px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
 }
 
 .detail-meta {
@@ -407,6 +431,15 @@ main {
    elements, so this selector naturally stops applying once revealed. */
 .option[role="button"], .option[role="checkbox"] {
   cursor: pointer;
+}
+
+/* DN-23: explicit tap feedback for touch users, since cursor:pointer above
+   gives no feedback at all on a touch device (no hover state to reveal it).
+   Kept subtle (background shift only, no layout move) so it doesn't fight
+   with the .picked/.correct/.your-wrong-pick state colors that can apply
+   at the same time. */
+.option[role="button"]:active, .option[role="checkbox"]:active {
+  background: var(--accent-dim);
 }
 
 .option .key {

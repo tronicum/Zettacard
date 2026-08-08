@@ -16,6 +16,7 @@ const UI_STRINGS = {
     points: (p) => `${p} Punkte`,
     highStakes: "Sicherheitsrelevante Frage",
     multiSelectHint: "Mehrere Antworten möglich",
+    tryItHint: "Zum Ausprobieren antippen",
     yourPickWrong: "Deine Antwort",
     imageNote: "🖼️ Bild ausstehend — Referenz: ",
     explanationLabel: "Erklärung",
@@ -41,6 +42,7 @@ const UI_STRINGS = {
     points: (p) => `${p} points`,
     highStakes: "Safety-critical question",
     multiSelectHint: "Multiple answers possible",
+    tryItHint: "Tap to try answering",
     yourPickWrong: "Your answer",
     imageNote: "🖼️ Image pending — ref: ",
     explanationLabel: "Explanation",
@@ -66,6 +68,7 @@ const UI_STRINGS = {
     points: (p) => `${p} балів`,
     highStakes: "Питання, важливе для безпеки",
     multiSelectHint: "Можливо кілька правильних відповідей",
+    tryItHint: "Торкніться, щоб спробувати відповісти",
     yourPickWrong: "Твоя відповідь",
     imageNote: "🖼️ Зображення відсутнє — посилання: ",
     explanationLabel: "Пояснення",
@@ -91,6 +94,7 @@ const UI_STRINGS = {
     points: (p) => `${p} punktów`,
     highStakes: "Pytanie istotne dla bezpieczeństwa",
     multiSelectHint: "Możliwych kilka poprawnych odpowiedzi",
+    tryItHint: "Dotknij, aby spróbować odpowiedzieć",
     yourPickWrong: "Twoja odpowiedź",
     imageNote: "🖼️ Brak obrazu — odniesienie: ",
     explanationLabel: "Wyjaśnienie",
@@ -116,6 +120,7 @@ const UI_STRINGS = {
     points: (p) => `${p} نقاط`,
     highStakes: "سؤال حرج للسلامة",
     multiSelectHint: "قد تكون هناك عدة إجابات صحيحة",
+    tryItHint: "اضغط للمحاولة في الإجابة",
     yourPickWrong: "إجابتك",
     imageNote: "🖼️ الصورة غير متوفرة — المرجع: ",
     explanationLabel: "الشرح",
@@ -141,6 +146,7 @@ const UI_STRINGS = {
     points: (p) => `${p} 分`,
     highStakes: "安全关键问题",
     multiSelectHint: "可能有多个正确答案",
+    tryItHint: "点击尝试作答",
     yourPickWrong: "你的答案",
     imageNote: "🖼️ 图片暂缺 — 参考：",
     explanationLabel: "解释",
@@ -166,6 +172,7 @@ const UI_STRINGS = {
     points: (p) => `${p} अंक`,
     highStakes: "सुरक्षा-महत्वपूर्ण प्रश्न",
     multiSelectHint: "कई सही उत्तर संभव हैं",
+    tryItHint: "उत्तर देने के लिए टैप करें",
     yourPickWrong: "आपका उत्तर",
     imageNote: "🖼️ चित्र उपलब्ध नहीं — संदर्भ: ",
     explanationLabel: "स्पष्टीकरण",
@@ -191,6 +198,7 @@ const UI_STRINGS = {
     points: (p) => `${p} puan`,
     highStakes: "Güvenlik açısından kritik soru",
     multiSelectHint: "Birden fazla doğru cevap olabilir",
+    tryItHint: "Cevaplamayı denemek için dokunun",
     yourPickWrong: "Cevabınız",
     imageNote: "🖼️ Görsel eksik — referans: ",
     explanationLabel: "Açıklama",
@@ -216,6 +224,7 @@ const UI_STRINGS = {
     points: (p) => `${p} points`,
     highStakes: "Question critique pour la sécurité",
     multiSelectHint: "Plusieurs réponses correctes possibles",
+    tryItHint: "Touchez pour essayer de répondre",
     yourPickWrong: "Votre réponse",
     imageNote: "🖼️ Image manquante — référence : ",
     explanationLabel: "Explication",
@@ -241,6 +250,7 @@ const UI_STRINGS = {
     points: (p) => `${p} баллов`,
     highStakes: "Вопрос, критичный для безопасности",
     multiSelectHint: "Возможно несколько правильных ответов",
+    tryItHint: "Нажмите, чтобы попробовать ответить",
     yourPickWrong: "Ваш ответ",
     imageNote: "🖼️ Изображение отсутствует — ссылка: ",
     explanationLabel: "Объяснение",
@@ -266,6 +276,7 @@ const UI_STRINGS = {
     points: (p) => `${p} puntos`,
     highStakes: "Pregunta crítica para la seguridad",
     multiSelectHint: "Puede haber varias respuestas correctas",
+    tryItHint: "Toca para intentar responder",
     yourPickWrong: "Tu respuesta",
     imageNote: "🖼️ Imagen pendiente — referencia: ",
     explanationLabel: "Explicación",
@@ -291,6 +302,7 @@ const UI_STRINGS = {
     points: (p) => `${p} punti`,
     highStakes: "Domanda critica per la sicurezza",
     multiSelectHint: "Sono possibili più risposte corrette",
+    tryItHint: "Tocca per provare a rispondere",
     yourPickWrong: "La tua risposta",
     imageNote: "🖼️ Immagine mancante — riferimento: ",
     explanationLabel: "Spiegazione",
@@ -3596,6 +3608,7 @@ function renderDetail() {
     <span class="badge points">${S.points(q.points)}</span>
     ${q.high_stakes ? `<span class="badge high-stakes">${S.highStakes}</span>` : ""}
     ${q.question_type === "multi_choice" ? `<span class="badge multi-select">${S.multiSelectHint}</span>` : ""}
+    ${!state.revealed ? `<span class="badge try-it-hint">${S.tryItHint}</span>` : ""}
   `;
 
   el("#detail-question").textContent = t.question;
