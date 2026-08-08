@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 """One-off script (DN-XX, Sign Reference view) that assembles
 app/data/fuehrerschein/sign_reference.json from ALREADY-VERIFIED content:
-core.json's question -> image_ref/correct mapping, plus the de/en locale
-files' option text and explanation. This intentionally does NOT invent any
-new factual claim about what a sign means - see assets/generate_signs.py's
-many "verified" comments and BACKLOG.md's DN-32 entry for why that
-discipline matters in this project. Every name/description below is lifted
-verbatim from an existing, already-reviewed question's correct option text
-or explanation.
+core.json's question -> image_ref/correct mapping, plus each locale file's
+option text and explanation, across all 12 locales fuehrerschein already
+carries (de/en originally, extended to all 12 - see BACKLOG.md's follow-up
+to DN-28: DN-28 kept SIGN_ALT/DIAGRAM_ALT alt-text and this catalog's
+content DE/EN-only; the underlying question text/options/explanations this
+script pulls from were ALREADY fully translated into all 12 locales for
+other reasons, so extending this script's output to match was free - no
+new translation needed, just stopped hardcoding de/en). This intentionally
+does NOT invent any new factual claim about what a sign means - see
+assets/generate_signs.py's many "verified" comments and BACKLOG.md's DN-32
+entry for why that discipline matters in this project. Every name/
+description below is lifted verbatim from an existing, already-reviewed
+question's correct option text or explanation, in whichever locale it's
+being generated for.
 
 Categorization (StVO family) is derived from which SVG template function
 assets/generate_signs.py used to draw each ref - not re-derived from
@@ -136,10 +143,15 @@ def build_entry_for_ref(ref, qids, qid_to_correct, locale):
     return {"name": name, "desc": desc}
 
 
+LOCALES = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
+
+
 def main():
     core = json.load(open(CORE_PATH, encoding="utf-8"))
-    de = json.load(open(os.path.join(LOCALE_DIR, "de.json"), encoding="utf-8"))
-    en = json.load(open(os.path.join(LOCALE_DIR, "en.json"), encoding="utf-8"))
+    locales = {
+        loc: json.load(open(os.path.join(LOCALE_DIR, f"{loc}.json"), encoding="utf-8"))
+        for loc in LOCALES
+    }
     gen_text = open(GEN_SIGNS_PATH, encoding="utf-8").read()
 
     ref_to_template = parse_ref_to_template(gen_text)
@@ -150,13 +162,25 @@ def main():
 
     for ref in sorted(ref_to_qids.keys()):
         qids = ref_to_qids[ref]
-        de_entry = build_entry_for_ref(ref, qids, qid_to_correct, de)
-        en_entry = build_entry_for_ref(ref, qids, qid_to_correct, en)
-        if not de_entry or not en_entry:
+        entries_by_locale = {
+            loc: build_entry_for_ref(ref, qids, qid_to_correct, locales[loc])
+            for loc in LOCALES
+        }
+        # de/en remain required (as before - every other locale's absence
+        # would mean a real content gap in that locale's fuehrerschein
+        # translation, which build_modules.py's own sanity check already
+        # guards against separately). Any locale missing here just isn't
+        # included for this ref - callers already have a de/en/raw fallback
+        # chain (see app.js's pickLocaleText-style pattern).
+        if not entries_by_locale["de"] or not entries_by_locale["en"]:
             skipped.append((ref, qids))
             continue
         cat = category_for(ref, ref_to_template)
-        result[cat].append({"ref": ref, "de": de_entry, "en": en_entry})
+        entry = {"ref": ref}
+        for loc in LOCALES:
+            if entries_by_locale[loc]:
+                entry[loc] = entries_by_locale[loc]
+        result[cat].append(entry)
 
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
@@ -169,6 +193,18 @@ def main():
         print("Skipped (no usable locale text found):")
         for ref, qids in skipped:
             print(f"  {ref}: cited by {qids}")
+
+    # Sanity: report any non-de/en locale gaps (shouldn't happen given
+    # fuehrerschein's full 12-locale coverage, but worth catching loudly
+    # if it ever does rather than silently shipping a partial catalog).
+    for loc in LOCALES:
+        if loc in ("de", "en"):
+            continue
+        missing = [
+            e["ref"] for cat in CATEGORY_ORDER for e in result[cat] if loc not in e
+        ]
+        if missing:
+            print(f"  [warn] {loc}: {len(missing)} refs missing this locale: {missing[:5]}")
 
 
 if __name__ == "__main__":
