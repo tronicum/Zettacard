@@ -829,12 +829,13 @@ function getTopicLabel(topicCode, fallbackTopic) {
 }
 
 // --- Role filter (DN-44) -------------------------------------------------
-// The 4 workplace-compliance modules carry a per-question `roles` array
+// The workplace-compliance modules carry a per-question `roles` array
 // (see data/build_modules.py's CORE_FIELDS) - e.g. ["all"] for a question
 // relevant to everyone, or ["it"]/["hr"]/["management"]/["all_staff"] for a
 // more role-specific one. This is a SECOND, additive filter row shown only
-// for those 4 modules, layered on top of the existing topic filter (a
-// learner can combine both) rather than replacing it.
+// for those modules (originally 4 under DN-44, now 5 since DN-50 added
+// hinweisgeberschutz with its own roles field), layered on top of the
+// existing topic filter (a learner can combine both) rather than replacing it.
 const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz"]);
 
 // Role codes in a fixed display order - "all" here means "no role filter
@@ -2385,10 +2386,16 @@ async function createVerifyLink(record, participantName) {
 }
 
 // Renders the "get a permanent, shareable verification link" row for a
-// completion card. Only ever shown for the 4 compliance modules AND only
-// once the record actually has a real signature (verified + signedJwt) -
-// a self-issued/unverified record isn't eligible, same gating the backend
-// function independently enforces itself (see save-verified-credential.js).
+// completion card. Only ever shown for the compliance modules (COMPLIANCE_
+// MODULES - originally 4 under DN-44, now 5 since DN-50 added
+// hinweisgeberschutz) AND only once the record actually has a real
+// signature (verified + signedJwt) - a self-issued/unverified record isn't
+// eligible, same gating the backend function independently enforces
+// itself (see save-verified-credential-v2.mjs - this exact allowlist drift
+// was a real bug found and fixed 2026-08-08: that function's own
+// COMPLIANCE_EXAM_TYPES set had not been updated when hinweisgeberschutz
+// was added, so this button would have shown but the request would have
+// 400'd).
 function renderVerifyLinkRow(slot, record, C) {
   if (!slot) return;
   if (!COMPLIANCE_MODULES.has(record.examType) || !(record.verified && record.signedJwt)) {
@@ -3375,9 +3382,9 @@ function filteredQuestions() {
   let qs = state.questions;
   if (state.topicFilter !== "all") qs = qs.filter((q) => q.topic_code === state.topicFilter);
   // Role filter (DN-44) is additive to the topic filter above, and only
-  // ever meaningfully narrows anything for the 4 compliance modules (every
-  // other module's questions have no "roles" field, so questionMatchesRole
-  // treats them as ["all"] and they always pass).
+  // ever meaningfully narrows anything for the compliance modules that
+  // carry a "roles" field (every other module's questions have none, so
+  // questionMatchesRole treats them as ["all"] and they always pass).
   if (state.roleFilter !== "all") qs = qs.filter((q) => questionMatchesRole(q, state.roleFilter));
   // DN-14: "starred only" filter, additive to the above two - narrows the
   // already topic/role-filtered list down to just the questions this

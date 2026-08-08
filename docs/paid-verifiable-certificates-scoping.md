@@ -11,6 +11,23 @@ Database) still stands. What's now open is only "Open questions" (section 6) sti
 free MVP (identity capture, data retention) — pricing/payment questions are moot until a paid tier
 is actually revisited.
 
+**2026-08-08 follow-up note**: "4 compliance modules" above described the scope as it stood when
+this doc was written. DN-50 later added hinweisgeberschutz as a 5th compliance module, and
+`app/app.js`'s frontend gate for this feature (`COMPLIANCE_MODULES`) was correctly updated to
+include it at that time - but a real bug was found during this session's board audit:
+`netlify/functions/save-verified-credential-v2.mjs`'s own, independent server-side allowlist
+(`COMPLIANCE_EXAM_TYPES`) had NOT been updated to match, so a user who passed a signed
+Hinweisgeberschutz exam would have seen the "get a permanent verification link" button (frontend
+gate passed) but had the actual request rejected with a 400 (backend gate failed) - a genuine,
+previously-undiscovered gap between the two independent checks. Fixed by adding hinweisgeberschutz
+to the backend allowlist too, on the reasoning that the frontend gate's update already reflected
+the real intent (treat it like any other compliance module for this feature) and the backend had
+simply drifted out of sync, not that excluding it was ever a deliberate choice. Not verified via a
+live end-to-end permanent-link creation this round (same sandbox Playwright/Chromium networking
+outage as everything else this session) - re-verify next session: pass a signed Hinweisgeberschutz
+Exam Simulation, request a permanent link, confirm it succeeds and the resulting `/verify/<slug>`
+page renders correctly.
+
 ## 0. The ask, and decisions already made
 
 PO's ask (verbatim intent): extend the existing signed-badge feature (see

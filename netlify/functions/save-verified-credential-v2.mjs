@@ -17,9 +17,10 @@
 // -----------------------------------------------------------------------
 //
 // SCOPE, DELIBERATE (see docs/paid-verifiable-certificates-scoping.md):
-// - Only the 4 workplace-compliance modules (datenschutz, arbeitssicherheit,
-//   ki_act, it_sicherheit) may get a permanent link - driving/fishing
-//   modules are out of scope for this feature entirely, by PO decision.
+// - Only the workplace-compliance modules (datenschutz, arbeitssicherheit,
+//   ki_act, it_sicherheit, and hinweisgeberschutz since DN-50 added it as a
+//   5th) may get a permanent link - driving/fishing modules are out of
+//   scope for this feature entirely, by PO decision.
 // - MVP ships at 0€ - no payment gate here at all. Every passed compliance
 //   Exam Simulation may request a permanent link, for free, for now.
 // - Only records that carry a REAL signature (verified:true + a signedJwt
@@ -41,7 +42,17 @@ const ISSUER_URL = process.env.URL || "https://zettacard.netlify.app";
 const JWKS_PATH = "/.well-known/jwks.json";
 const STORE_NAME = "verified-credentials";
 
-const COMPLIANCE_EXAM_TYPES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit"]);
+// Real bug found 2026-08-08 (board audit, not user-reported): this list
+// was never updated when DN-50 added hinweisgeberschutz as a 5th
+// compliance module. app/app.js's own COMPLIANCE_MODULES set (which gates
+// whether the "get a permanent verification link" button even shows) was
+// correctly updated to include it - so a user who passed a signed
+// Hinweisgeberschutz exam would see the button, click it, and this
+// function would reject the request with a 400 (examType not in this set)
+// since the client-side gate and this independent server-side allowlist
+// had silently drifted apart. Kept in sync now; watch for the same drift
+// next time a compliance module is added.
+const COMPLIANCE_EXAM_TYPES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz"]);
 const MAX_LABEL_LEN = 200;
 const MAX_NAME_LEN = 100;
 const SAFE_CODE_RE = /^[a-zA-Z0-9_-]{1,64}$/;
@@ -86,7 +97,7 @@ export default async (req) => {
   } = payload || {};
 
   if (typeof examType !== "string" || !COMPLIANCE_EXAM_TYPES.has(examType)) {
-    return jsonResponse(400, { error: "Permanent verification links are only available for the compliance modules (datenschutz, arbeitssicherheit, ki_act, it_sicherheit)." });
+    return jsonResponse(400, { error: "Permanent verification links are only available for the compliance modules (datenschutz, arbeitssicherheit, ki_act, it_sicherheit, hinweisgeberschutz)." });
   }
   if (typeof id !== "string" || id.length < 1 || id.length > MAX_LABEL_LEN) {
     return jsonResponse(400, { error: "Invalid or missing 'id'." });
