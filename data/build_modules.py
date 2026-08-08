@@ -150,16 +150,15 @@ def main():
         os.path.join(HERE, "it_sicherheit_pilot.json"), "it_sicherheit", compliance_locales)
     print(f"it_sicherheit: {itsec_count} questions, locale gaps: {itsec_missing}")
 
-    # DN-50: 5th compliance module (Hinweisgeberschutzgesetz/HinSchG). A
-    # DE/EN-only 20-question pilot for now (see hinweisgeberschutz_pilot.json
-    # meta) - NOT yet scaled to the other 10 locales/40 questions the way
-    # the DN-44 four were under DN-48, so this uses its own locales list
-    # rather than compliance_locales above. Scaling to full parity is
-    # tracked as remaining scope in BACKLOG.md - same pilot-then-scale
-    # pattern every other module already went through.
-    hgs_locales = ["de", "en"]
+    # DN-50: 5th compliance module (Hinweisgeberschutzgesetz/HinSchG).
+    # Scaled 2026-08-08 from a DE/EN-only 20-question pilot to 40 questions
+    # in all 12 locales (4 new WebSearch-verified questions per existing
+    # topic, then translated into the other 10 locales) - the same
+    # pilot-then-scale pattern DN-48 already used for the other 4
+    # compliance modules, so this now shares compliance_locales above
+    # rather than its own separate DE/EN-only list.
     hgs_count, hgs_missing = split_module(
-        os.path.join(HERE, "hinweisgeberschutz_pilot.json"), "hinweisgeberschutz", hgs_locales)
+        os.path.join(HERE, "hinweisgeberschutz_pilot.json"), "hinweisgeberschutz", compliance_locales)
     print(f"hinweisgeberschutz: {hgs_count} questions, locale gaps: {hgs_missing}")
 
     # Sanity: every core question must resolve in at least its canonical
