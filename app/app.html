@@ -30,6 +30,7 @@
       </div>
       <div style="display:flex; gap:8px; align-items:center;">
         <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
+        <button class="module-switch-btn" id="primers-btn" hidden aria-label="Learn the basics">🧭 Learn</button>
         <button class="module-switch-btn" id="sign-reference-btn" hidden aria-label="Sign reference">📚 Signs</button>
         <span class="offline-prep-wrap">
           <button class="module-switch-btn" id="offline-prep-btn" hidden aria-label="Make available offline">📥</button>
@@ -205,6 +206,39 @@
       <p id="sign-reference-intro"></p>
       <div id="sign-reference-list"></div>
       <button class="back-btn" id="sign-reference-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Kickstart-learning-journey topic primers (DN-52 Phase 1): a browsable
+       list of short 5-10 minute "learn the basics" guides - one for sign
+       shapes/categories plus one per Fuehrerschein exam topic - that bridge
+       a total beginner to a topic area before they start practicing real
+       exam questions. Fuehrerschein-only (state.examType === "fuehrerschein"),
+       same visibility pattern as #sign-reference-view. See
+       docs/kickstart-learning-journey-scoping.md. -->
+  <div class="exam-modal" id="primers-view" hidden role="dialog" aria-modal="true" aria-labelledby="primers-title">
+    <div class="exam-modal-card" style="max-width:560px;">
+      <h2 id="primers-title" tabindex="-1"></h2>
+      <p id="primers-intro"></p>
+      <div id="primers-list"></div>
+      <button class="back-btn" id="primers-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Primer reader: one topic's primer, chunk by chunk, reusing the exact
+       dots/back/next wizard mechanic already established by the module-intro
+       wizard below (#module-intro) for a consistent, already-familiar
+       navigation pattern rather than inventing a new one. -->
+  <div class="exam-modal" id="primer-reader" hidden role="dialog" aria-modal="true" aria-labelledby="primer-reader-title">
+    <div class="exam-modal-card">
+      <h2 id="primer-reader-title" tabindex="-1"></h2>
+      <p id="primer-reader-body"></p>
+      <div class="intro-dots" id="primer-reader-dots" aria-hidden="true"></div>
+      <div class="intro-nav">
+        <button class="back-btn" id="primer-reader-back"></button>
+        <button class="back-btn" id="primer-reader-exit"></button>
+        <button class="exam-mode-btn intro-next-btn" id="primer-reader-next"></button>
+      </div>
     </div>
   </div>
 

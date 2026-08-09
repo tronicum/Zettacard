@@ -941,6 +941,13 @@ const state = {
   // underlying starred/seen data itself IS persisted (loadStarredData()/
   // loadSeenData() below), just not which filter view is currently toggled.
   starredOnlyFilter: false,
+  // Kickstart-learning-journey topic primers (DN-52 Phase 1, see
+  // openPrimerReader()/renderPrimerReader() below): which topic's primer is
+  // currently open, its chunks (already resolved to the active UI language),
+  // and the current chunk index within it.
+  primerTopic: null,
+  primerChunks: [],
+  primerChunkIndex: 0,
 };
 
 // --- Local profile switcher --------------------------------------------
@@ -1305,6 +1312,18 @@ function offlineAssetUrls() {
     }
   });
   urls.push(...signUrls);
+
+  // DN-52 Phase 1: the kickstart-learning-journey topic primers are their
+  // own separate fetch (data/fuehrerschein/primers.json +
+  // primers_locales/<lang>.json, not part of core.json/locales/*.json
+  // above) - "prepare for offline" needs to know about them explicitly or a
+  // learner who prepped a module for offline use would still hit the
+  // network the first time they open a primer. Fuehrerschein-only, same
+  // gating as the primers button itself.
+  if (state.examType === "fuehrerschein") {
+    urls.push(`data/fuehrerschein/primers.json`, `data/fuehrerschein/primers_locales/${lang}.json`);
+  }
+
   return urls;
 }
 
@@ -2865,6 +2884,313 @@ async function renderSignReferenceView() {
   el("#sign-reference-title").focus();
 }
 
+// --- Kickstart-learning-journey topic primers (DN-52 Phase 1) -----------
+// Short 5-10 minute "learn the basics" guides that bridge a total beginner
+// to a Fuehrerschein exam topic before they start practicing real exam
+// questions - one for sign shapes/categories plus one per topic (11 topics,
+// matching TOPIC_LABELS.fuehrerschein exactly). Content is original,
+// grounded in verified sample questions from pilot_questions.json plus
+// well-established StVO/StVZO/StVG/StGB structure - see
+// docs/kickstart-learning-journey-scoping.md and data/build_primers.py's
+// header comment for the full sourcing/pipeline discipline. Fuehrerschein-
+// only for now (Phase 5 of the scoping doc is the stretch goal of rolling
+// primers out to other modules) - same visibility pattern as Sign Reference.
+const PRIMER_STRINGS = {
+  de: {
+    btn: "🧭 Lernen", ariaLabel: "Grundlagen lernen", title: "Die Grundlagen lernen",
+    intro: "Kurze 5-10-Minuten-Einführungen in jedes Prüfungsthema, bevor du mit echten Übungsfragen startest.",
+    close: "← Zurück", empty: "Keine Einführungen verfügbar.",
+    shapeCategoryLabel: "Schilderformen und -kategorien",
+    next: "Weiter", back: "← Zurück", exit: "Beenden", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Jetzt Übungsfragen dazu starten",
+  },
+  en: {
+    btn: "🧭 Learn", ariaLabel: "Learn the basics", title: "Learn the basics",
+    intro: "Short 5-10 minute introductions to each exam topic, before you start practicing real exam questions.",
+    close: "← Back", empty: "No introductions available.",
+    shapeCategoryLabel: "Sign shapes & categories",
+    next: "Next", back: "← Back", exit: "Exit", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Practice this topic now",
+  },
+  uk: {
+    btn: "🧭 Навчання", ariaLabel: "Вивчити основи", title: "Вивчити основи",
+    intro: "Короткі 5-10-хвилинні вступи до кожної теми іспиту, перш ніж почати практикувати реальні питання.",
+    close: "← Назад", empty: "Немає доступних вступів.",
+    shapeCategoryLabel: "Форми та категорії знаків",
+    next: "Далі", back: "← Назад", exit: "Вийти", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Практикувати цю тему зараз",
+  },
+  pl: {
+    btn: "🧭 Nauka", ariaLabel: "Poznaj podstawy", title: "Poznaj podstawy",
+    intro: "Krótkie 5-10-minutowe wprowadzenia do każdego tematu egzaminu, zanim zaczniesz ćwiczyć prawdziwe pytania.",
+    close: "← Wstecz", empty: "Brak dostępnych wprowadzeń.",
+    shapeCategoryLabel: "Kształty i kategorie znaków",
+    next: "Dalej", back: "← Wstecz", exit: "Zakończ", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Ćwicz ten temat teraz",
+  },
+  ar: {
+    btn: "🧭 تعلّم", ariaLabel: "تعلّم الأساسيات", title: "تعلّم الأساسيات",
+    intro: "مقدمات قصيرة من 5 إلى 10 دقائق لكل موضوع في الامتحان، قبل أن تبدأ بممارسة أسئلة الامتحان الحقيقية.",
+    close: "← رجوع", empty: "لا توجد مقدمات متاحة.",
+    shapeCategoryLabel: "أشكال وفئات الإشارات",
+    next: "التالي", back: "← رجوع", exit: "خروج", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "تدرّب على هذا الموضوع الآن",
+  },
+  zh: {
+    btn: "🧭 学习", ariaLabel: "学习基础知识", title: "学习基础知识",
+    intro: "在开始练习真实考试题之前，先花5到10分钟简要了解每个考试主题。",
+    close: "← 返回", empty: "暂无可用的入门介绍。",
+    shapeCategoryLabel: "标志形状与分类",
+    next: "下一步", back: "← 返回", exit: "退出", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "现在练习这个主题",
+  },
+  hi: {
+    btn: "🧭 सीखें", ariaLabel: "बुनियादी बातें सीखें", title: "बुनियादी बातें सीखें",
+    intro: "असली परीक्षा प्रश्नों का अभ्यास शुरू करने से पहले, हर विषय का 5-10 मिनट का संक्षिप्त परिचय।",
+    close: "← वापस", empty: "कोई परिचय उपलब्ध नहीं है।",
+    shapeCategoryLabel: "संकेत आकार और श्रेणियाँ",
+    next: "आगे", back: "← वापस", exit: "बाहर निकलें", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "अभी इस विषय का अभ्यास करें",
+  },
+  tr: {
+    btn: "🧭 Öğren", ariaLabel: "Temelleri öğren", title: "Temelleri öğren",
+    intro: "Gerçek sınav sorularını pratik etmeye başlamadan önce her konuya kısa 5-10 dakikalık giriş.",
+    close: "← Geri", empty: "Kullanılabilir giriş yok.",
+    shapeCategoryLabel: "İşaret şekilleri ve kategorileri",
+    next: "İleri", back: "← Geri", exit: "Çık", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Bu konuyu şimdi pratik et",
+  },
+  fr: {
+    btn: "🧭 Apprendre", ariaLabel: "Apprendre les bases", title: "Apprendre les bases",
+    intro: "De courtes introductions de 5 à 10 minutes à chaque thème d'examen, avant de pratiquer de vraies questions.",
+    close: "← Retour", empty: "Aucune introduction disponible.",
+    shapeCategoryLabel: "Formes et catégories des panneaux",
+    next: "Suivant", back: "← Retour", exit: "Quitter", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Pratiquer ce thème maintenant",
+  },
+  ru: {
+    btn: "🧭 Учиться", ariaLabel: "Изучить основы", title: "Изучить основы",
+    intro: "Краткие введения по 5-10 минут в каждую тему экзамена, прежде чем начать практиковать реальные вопросы.",
+    close: "← Назад", empty: "Нет доступных введений.",
+    shapeCategoryLabel: "Формы и категории знаков",
+    next: "Далее", back: "← Назад", exit: "Выйти", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Практиковать эту тему сейчас",
+  },
+  es: {
+    btn: "🧭 Aprender", ariaLabel: "Aprender lo básico", title: "Aprender lo básico",
+    intro: "Breves introducciones de 5 a 10 minutos a cada tema del examen, antes de practicar preguntas reales.",
+    close: "← Atrás", empty: "No hay introducciones disponibles.",
+    shapeCategoryLabel: "Formas y categorías de señales",
+    next: "Siguiente", back: "← Atrás", exit: "Salir", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Practicar este tema ahora",
+  },
+  it: {
+    btn: "🧭 Impara", ariaLabel: "Impara le basi", title: "Impara le basi",
+    intro: "Brevi introduzioni di 5-10 minuti a ogni argomento d'esame, prima di iniziare a esercitarti con domande reali.",
+    close: "← Indietro", empty: "Nessuna introduzione disponibile.",
+    shapeCategoryLabel: "Forme e categorie dei segnali",
+    next: "Avanti", back: "← Indietro", exit: "Esci", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Esercitati ora su questo argomento",
+  },
+};
+
+function primerStrings(lang) {
+  return PRIMER_STRINGS[lang] || PRIMER_STRINGS.en;
+}
+
+// Fixed display order: sign shapes/categories first (a prerequisite lens
+// that applies to every other topic), then the 11 Fuehrerschein topics in
+// the same order TOPIC_LABELS.fuehrerschein/renderFilters() already use.
+const PRIMER_TOPIC_ORDER = ["shape_category", ...Object.keys(TOPIC_LABELS.fuehrerschein)];
+
+function primerTopicLabel(topicCode, lang) {
+  if (topicCode === "shape_category") return primerStrings(lang).shapeCategoryLabel;
+  const entry = TOPIC_LABELS.fuehrerschein[topicCode];
+  if (!entry) return topicCode;
+  return entry[lang] || entry.en || entry.de || topicCode;
+}
+
+// Fetched once and cached per (core, locale) - core structural data (id/
+// topic_code/order) never changes per language, only the locale text does,
+// same split as app/data/fuehrerschein/{primers.json,primers_locales/*.json}
+// on disk (see data/build_primers.py).
+let primersCoreCache = null;
+const primerLocaleCache = {};
+
+async function loadPrimersCore() {
+  if (primersCoreCache) return primersCoreCache;
+  primersCoreCache = await fetchJson(`data/fuehrerschein/primers.json`);
+  return primersCoreCache;
+}
+
+async function loadPrimerLocale(lang) {
+  if (primerLocaleCache[lang]) return primerLocaleCache[lang];
+  const data = await fetchJson(`data/fuehrerschein/primers_locales/${lang}.json`).catch(() => null);
+  if (data) primerLocaleCache[lang] = data;
+  return data;
+}
+
+// Returns an ordered array of {id, topic_code, order, title, body} for one
+// topic, in the active UI language (falling back to en then de per chunk,
+// same fallback chain used throughout this file, e.g. getTopicLabel()).
+async function loadPrimerChunks(topicCode) {
+  const core = await loadPrimersCore();
+  const lang = state.lang;
+  const localeData = (await loadPrimerLocale(lang)) || {};
+  const enData = lang === "en" ? localeData : (await loadPrimerLocale("en")) || {};
+  const deData = lang === "de" ? localeData : (await loadPrimerLocale("de")) || {};
+  return core.primers
+    .filter((p) => p.topic_code === topicCode)
+    .sort((a, b) => a.order - b.order)
+    .map((p) => {
+      const text = localeData[p.id] || enData[p.id] || deData[p.id] || { title: p.id, body: "" };
+      return { id: p.id, topic_code: p.topic_code, order: p.order, title: text.title, body: text.body };
+    });
+}
+
+function openPrimersView() {
+  el("#primers-view").hidden = false;
+  history.pushState({ view: "primers" }, "");
+  setInertBehindDialog(true);
+  renderPrimersView();
+}
+
+function closePrimersView() {
+  el("#primers-view").hidden = true;
+  setInertBehindDialog(false);
+}
+
+async function renderPrimersView() {
+  const S = primerStrings(state.lang);
+  el("#primers-title").textContent = S.title;
+  el("#primers-intro").textContent = S.intro;
+  el("#primers-close-btn").textContent = S.close;
+
+  const list = el("#primers-list");
+  list.innerHTML = "";
+
+  let core;
+  try {
+    core = await loadPrimersCore();
+  } catch (e) {
+    list.innerHTML = `<p class="empty">${S.empty}</p>`;
+    el("#primers-title").focus();
+    return;
+  }
+
+  const availableTopics = new Set(core.primers.map((p) => p.topic_code));
+  const orderedTopics = PRIMER_TOPIC_ORDER.filter((t) => availableTopics.has(t));
+
+  if (orderedTopics.length === 0) {
+    list.innerHTML = `<p class="empty">${S.empty}</p>`;
+    el("#primers-title").focus();
+    return;
+  }
+
+  orderedTopics.forEach((topicCode) => {
+    const btn = document.createElement("button");
+    btn.className = "exam-mode-btn";
+    btn.innerHTML = `<strong>${primerTopicLabel(topicCode, state.lang)}</strong>`;
+    btn.addEventListener("click", () => openPrimerReader(topicCode));
+    list.appendChild(btn);
+  });
+
+  el("#primers-title").focus();
+}
+
+async function openPrimerReader(topicCode) {
+  const chunks = await loadPrimerChunks(topicCode);
+  if (chunks.length === 0) return;
+  state.primerTopic = topicCode;
+  state.primerChunks = chunks;
+  state.primerChunkIndex = 0;
+  el("#primer-reader").hidden = false;
+  history.pushState({ view: "primer-reader" }, "");
+  setInertBehindDialog(true);
+  renderPrimerReader();
+  el("#primer-reader-title").focus();
+}
+
+function closePrimerReader() {
+  el("#primer-reader").hidden = true;
+  setInertBehindDialog(false);
+}
+
+function renderPrimerReader() {
+  const S = primerStrings(state.lang);
+  const chunks = state.primerChunks || [];
+  const i = state.primerChunkIndex;
+  const chunk = chunks[i];
+  if (!chunk) return;
+
+  el("#primer-reader-title").textContent = chunk.title;
+  el("#primer-reader-body").textContent = chunk.body;
+
+  const dots = el("#primer-reader-dots");
+  dots.innerHTML = "";
+  chunks.forEach((_, idx) => {
+    const dot = document.createElement("span");
+    dot.className = "dot" + (idx === i ? " active" : "");
+    dots.appendChild(dot);
+  });
+
+  const backBtn = el("#primer-reader-back");
+  backBtn.textContent = S.back;
+  backBtn.disabled = i === 0;
+
+  el("#primer-reader-exit").textContent = S.exit;
+
+  const nextBtn = el("#primer-reader-next");
+  const isLast = i === chunks.length - 1;
+  nextBtn.innerHTML = `<strong>${isLast ? S.practiceNow : S.next}</strong>`;
+}
+
+// On the final chunk, "next" becomes a handoff into the existing topic
+// filter (DN-52 §6/§8 Phase 1: "practice this topic now" reuses
+// state.topicFilter rather than inventing a new mechanism) - closes the
+// reader and jumps straight to that topic's filtered question list, exactly
+// as if the learner had clicked that topic's chip in the header filter row.
+function primerReaderHandoff() {
+  const topicCode = state.primerTopic;
+  // Close both dialogs synchronously first (rather than chaining
+  // history.back() calls, whose popstate events fire asynchronously and
+  // could race), then correct the history stack in one go() so the
+  // in-app/browser back gesture still lands somewhere sane afterwards. The
+  // popstate handler's own closePrimerReader()/closePrimersView() calls are
+  // safe to run again once that fires - they no-op on an already-hidden view.
+  const primersViewWasOpen = !el("#primers-view").hidden;
+  closePrimerReader();
+  if (primersViewWasOpen) closePrimersView();
+  history.go(primersViewWasOpen ? -2 : -1);
+  if (topicCode && TOPIC_LABELS.fuehrerschein[topicCode]) {
+    state.topicFilter = topicCode;
+    state.detailIndex = null;
+    try { localStorage.setItem(profileKey(`filter-${state.examType}`), topicCode); } catch (e) { /* non-fatal */ }
+  }
+  render();
+}
+
+function wirePrimerControls() {
+  el("#primers-btn").addEventListener("click", openPrimersView);
+  el("#primers-close-btn").addEventListener("click", () => history.back());
+  el("#primer-reader-back").addEventListener("click", () => {
+    if (state.primerChunkIndex > 0) {
+      state.primerChunkIndex -= 1;
+      renderPrimerReader();
+    }
+  });
+  el("#primer-reader-next").addEventListener("click", () => {
+    const chunks = state.primerChunks || [];
+    if (state.primerChunkIndex < chunks.length - 1) {
+      state.primerChunkIndex += 1;
+      renderPrimerReader();
+    } else {
+      primerReaderHandoff();
+    }
+  });
+  el("#primer-reader-exit").addEventListener("click", () => history.back());
+}
+
 // --- Exam mode (DN-29) --------------------------------------------------
 // Reverses the original Sprint-1 "no exam mode" boundary, with explicit PO
 // sign-off (see docs/KANBAN.md retro log). Two modes share the same draw
@@ -3438,6 +3764,15 @@ function render() {
   signRefBtn.title = R.title;
   signRefBtn.setAttribute("aria-label", R.ariaLabel);
 
+  // Kickstart-learning-journey topic primers (DN-52 Phase 1) - Fuehrerschein-
+  // only for now, same visibility pattern as Sign Reference above.
+  const primersBtn = el("#primers-btn");
+  primersBtn.hidden = state.examType !== "fuehrerschein";
+  const PS = primerStrings(state.lang);
+  primersBtn.textContent = PS.btn;
+  primersBtn.title = PS.title;
+  primersBtn.setAttribute("aria-label", PS.ariaLabel);
+
   // DN-46: "prepare for offline" button/status - shown for every module
   // (not Fuehrerschein-only like Sign Reference above), hidden only when no
   // module is loaded. Pure repaint from state.offlinePrep - never re-checks
@@ -3867,6 +4202,7 @@ function wireStaticControls() {
   el("#review-know-btn").addEventListener("click", () => reviewAssess(true));
   el("#review-dontknow-btn").addEventListener("click", () => reviewAssess(false));
   el("#sign-reference-btn").addEventListener("click", openSignReferenceView);
+  wirePrimerControls();
   el("#offline-prep-btn").addEventListener("click", () => { prepareOffline(); });
   el("#sign-reference-close-btn").addEventListener("click", () => history.back());
 
@@ -3895,6 +4231,8 @@ function wireStaticControls() {
     if (!el("#module-intro").hidden) closeModuleIntro();
     if (!el("#certificates-view").hidden) closeCertificates();
     if (!el("#sign-reference-view").hidden) closeSignReferenceView();
+    if (!el("#primer-reader").hidden) closePrimerReader();
+    if (!el("#primers-view").hidden) closePrimersView();
     if (!el("#profile-view").hidden) closeProfileSwitcher();
     if (!el("#module-picker").hidden) {
       // On first-ever visit the module picker is mandatory (no content is

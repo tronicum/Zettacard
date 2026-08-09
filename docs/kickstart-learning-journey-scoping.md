@@ -1,7 +1,9 @@
 # Scoping: Kickstart Learning Journey — Primers, Practice Quizzes, Path Wizard (DN-52)
 
-Status: scoping only, no PO decision to build yet - except section 5's completion-counting question,
-which the PO has decided (2026-08-08). Came out of a PO brainstorm (2026-08-08) about bridging a true
+Status: Phase 1 shipped (2026-08-09) - see BACKLOG.md's DN-52 Phase 1 entry for the full build/
+verification writeup. Section 5's completion-counting question was decided by the PO (2026-08-08)
+before Phase 1 build started. Phases 2-5 remain scoping only, no PO decision to build yet.
+Came out of a PO brainstorm (2026-08-08) about bridging a true
 beginner from "knows nothing about this topic" to "confident enough to start real practice," rather
 than dropping every new user straight into a flashcard list or a 30-question exam with no context.
 This document lays out what that actually takes, grounded in what this app already has (so the plan
