@@ -454,9 +454,12 @@ def sym_ped_bike_stack():
     # side with no divider at all, and used a single pedestrian instead of
     # the adult+child pair - both wrong; the side-by-side/vertical-divider
     # layout actually belongs to 241, see symB_bike_ped_split() below).
-    ped = f'<g transform="translate(9,-8) scale(0.42)">{sym_ped_child(color="#fff")}</g>'
+    # Recentered 2026-08-09 (user-reported: "position not right, needs to
+    # be centered") - the pedestrian+child group was cropped against the
+    # top/left edges of the circle, and the bicycle sat off-center below.
+    ped = f'<g transform="translate(16,6) scale(0.42)">{sym_ped_child(color="#fff")}</g>'
     divider = '<line x1="14" y1="50" x2="86" y2="50" stroke="#fff" stroke-width="3"/>'
-    bike = f'<g transform="translate(18,52) scale(0.62)">{sym_bicycle(color="#fff")}</g>'
+    bike = f'<g transform="translate(24,52) scale(0.58)">{sym_bicycle(color="#fff")}</g>'
     return ped + divider + bike
 
 def sym_car_silhouette(color="#000"):
@@ -494,9 +497,11 @@ def sym_moto_and_car(color="#000"):
     # each side - the previous transforms pushed the car's roofline up
     # past the divider line, producing a stray thick bar cutting straight
     # through the car silhouette (ADAC-brochure audit finding 2026-08-06).
-    moto = f'<g transform="translate(21.4,-2.6) scale(0.561)">{sym_motorcycle(color)}</g>'
-    line = f'<line x1="18" y1="50" x2="82" y2="50" stroke="{color}" stroke-width="3"/>'
-    car = f'<g transform="translate(5.3,25) scale(0.844)">{sym_car_silhouette(color)}</g>'
+    # Scaled down and given more margin from the ring 2026-08-09
+    # (user-reported: "too big and close to the red border").
+    moto = f'<g transform="translate(26,3) scale(0.48)">{sym_motorcycle(color)}</g>'
+    line = f'<line x1="24" y1="50" x2="76" y2="50" stroke="{color}" stroke-width="3"/>'
+    car = f'<g transform="translate(12,30) scale(0.72)">{sym_car_silhouette(color)}</g>'
     return moto + line + car
 
 def sym_two_cars(c1="#000", c2="#c0272d"):
@@ -505,8 +510,12 @@ def sym_two_cars(c1="#000", c2="#c0272d"):
     # sym_car_silhouette() pictogram (positioned/scaled via <g transform>)
     # rather than brittle string-replace hacks tied to a since-changed
     # rect-based car shape (ADAC-brochure audit finding 2026-08-06).
-    car1 = f'<g transform="translate(-4,10) scale(0.56)">{sym_car_silhouette(c1)}</g>'
-    car2 = f'<g transform="translate(22,-6) scale(0.56)">{sym_car_silhouette(c2)}</g>'
+    # Recentered 2026-08-09 (user-reported: "cars not centered") - the pair's
+    # combined bounding box was computed from the actual transforms and sat
+    # well off the circle's own center (shifted left/up); both cars shifted
+    # by the same amount to bring the pair's center back to (50,50).
+    car1 = f'<g transform="translate(7.5,27.5) scale(0.56)">{sym_car_silhouette(c1)}</g>'
+    car2 = f'<g transform="translate(33.5,11.5) scale(0.56)">{sym_car_silhouette(c2)}</g>'
     return car1 + car2
 
 def sym_speed_number(n):
@@ -527,11 +536,21 @@ def sym_speed_number_grey(n):
     return text + sym_five_stripes()
 
 def sym_five_stripes():
+    # Fixed 2026-08-09 (user-reported, correctly called "pretty obvious"):
+    # these lines' endpoints were computed to span the pictogram's own
+    # 100x100 box, with no regard for the fact that circle_end_restriction()
+    # draws them inside an r=44 CIRCLE - most of each line's length stuck
+    # out past the actual ring. Clip-path against the same circle guarantees
+    # this can't happen regardless of the line endpoints chosen, rather than
+    # hand-computing each one against the circle's radius.
     lines = "".join(
-        f'<line x1="{x}" y1="82" x2="{x+18}" y2="18" stroke="#8a8a8a" stroke-width="5"/>'
+        f'<line x1="{x}" y1="90" x2="{x+18}" y2="10" stroke="#8a8a8a" stroke-width="5"/>'
         for x in (6, 22, 38, 54, 70)
     )
-    return lines
+    return (
+        '<clipPath id="clip-five-stripes"><circle cx="50" cy="50" r="42"/></clipPath>'
+        f'<g clip-path="url(#clip-five-stripes)">{lines}</g>'
+    )
 
 def sym_P(x=50, y=68, size=46):
     return f'<text x="{x}" y="{y}" font-family="Arial, sans-serif" font-size="{size}" font-weight="700" fill="#fff" text-anchor="middle">P</text>'
@@ -1026,7 +1045,12 @@ def symA_curve():
     # narrows sharply near its apex), so the black line visibly crossed the
     # red border - end point pulled in to stay inside at every height along
     # the curve, not just checked at the start.
-    return '<path d="M25 78 C25 54 38 36 58 34" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round"/>'
+    # Simplified to a single quadratic curve 2026-08-09 (user-reported:
+    # still "quirky" after the bounds fix) - the previous cubic's two
+    # independent control points let the curve wobble/double back on
+    # itself slightly; one control point gives a single, clean bend with
+    # no inflection.
+    return '<path d="M27 80 Q27 44 60 32" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round"/>'
 
 def symA_double_curve():
     # 105 Doppelkurve: the plain (un-suffixed) Zeichen 105 is officially
@@ -1043,7 +1067,12 @@ def symA_double_curve():
     # the triangle's interior at that height (too close to the narrow apex),
     # crossing the red border - pulled the top bend inward/lower to stay
     # clear of the border at every point.
-    return '<path d="M32 80 C32 64 55 64 55 50 C55 38 46 33 46 28" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>'
+    # Rebuilt with two clean quadratic segments 2026-08-09 (user-reported:
+    # still "quirky") - two independent cubic control points each let the
+    # path bulge in more than one direction, blurring the "first right,
+    # then left" S-shape into a wobble. Each quadratic bend has a single,
+    # unambiguous direction.
+    return '<path d="M32 80 Q48 66 42 50 Q37 36 50 26" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>'
 
 def symA_gefaelle(pct="10"):
     # 108 Gefaelle: real pictogram is a SOLID filled black wedge - flat
@@ -1051,20 +1080,25 @@ def symA_gefaelle(pct="10"):
     # point on the upper-left down to the bottom-right corner - not just an
     # outline (ADAC-brochure audit finding 2026-08-06: previous version only
     # drew the outline, leaving the wedge unfilled/white).
-    # Widened the margin from the border 2026-08-09 (user-reported): the
-    # wedge's base corners sat only ~3 units from the triangle's actual
-    # inner edge at that height - pulled in a bit more for a comfortable gap.
-    return f'''<polygon points="22,74 78,74 32,48" fill="#000"/>
-  <text x="58" y="38" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
+    # Widened the horizontal margin from the border 2026-08-09
+    # (user-reported), but that fix accidentally raised the wedge's flat
+    # base away from the triangle's own bottom edge too, so it looked like
+    # it was floating rather than resting on the ground - the horizontal
+    # margin and the vertical "sits on the ground" requirement are
+    # independent, fixing one shouldn't have moved the other. Base dropped
+    # back down to actually meet the border's inner edge (~86-87) while
+    # keeping the narrower x22-78 span.
+    return f'''<polygon points="22,86 78,86 32,56" fill="#000"/>
+  <text x="58" y="40" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
 
 def symA_steigung(pct="10"):
     # 110 Steigung: mirror of symA_gefaelle - solid filled black wedge with
     # a flat bottom and a diagonal rising from the bottom-left corner up to
     # a point on the upper-right (same solid-fill fix as 108 - ADAC-brochure
-    # audit finding 2026-08-06). Margin widened 2026-08-09, same reason/fix
-    # as symA_gefaelle above.
-    return f'''<polygon points="22,74 78,74 68,48" fill="#000"/>
-  <text x="42" y="38" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
+    # audit finding 2026-08-06). Base dropped to meet the ground 2026-08-09,
+    # same reason/fix as symA_gefaelle above.
+    return f'''<polygon points="22,86 78,86 68,56" fill="#000"/>
+  <text x="42" y="40" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
 
 def symA_uneven():
     # 112 Unebene Fahrbahn: re-audited 2026-08-09 against the official ADAC
@@ -1107,11 +1141,16 @@ def symA_crosswind():
     # classic banded-windsock texture cue, so the outline itself (the part
     # that actually has to read as "a windsock") stays a single smooth
     # taper.
-    pole = '<line x1="28" y1="18" x2="28" y2="82" stroke="#000" stroke-width="5"/>'
-    cone = '<path d="M28 26 C46 22 64 28 80 46 C64 44 46 46 28 40 Z" fill="#000"/>'
+    # Fixed 2026-08-09 (user-reported: "flag crosses out of sign border") -
+    # the cone's rightmost point (80,46) was well outside the triangle's
+    # actual interior at that height (checked against the triangle's real
+    # width, not eyeballed) - whole pictogram moved down/left and the cone
+    # shortened so its widest point stays inside at every height.
+    pole = '<line x1="42" y1="30" x2="42" y2="82" stroke="#000" stroke-width="5"/>'
+    cone = '<path d="M42 36 C52 33 58 36 62 42 C52 41 46 42 42 40 Z" fill="#000"/>'
     bands = (
-        '<line x1="38" y1="27.3" x2="41" y2="39.8" stroke="#fff" stroke-width="2"/>'
-        '<line x1="54" y1="30.3" x2="56" y2="42.3" stroke="#fff" stroke-width="2"/>'
+        '<line x1="48" y1="35.5" x2="49.5" y2="40.5" stroke="#fff" stroke-width="2"/>'
+        '<line x1="55" y1="37" x2="56" y2="41.5" stroke="#fff" stroke-width="2"/>'
     )
     return pole + cone + bands
 
@@ -1185,22 +1224,32 @@ def symA_wildlife():
     # straight-up pair read as bug antennae, not antlers), and straight
     # (not bent) legs at a running angle, since the bent-knee version's
     # extra joints read as broken/disjointed rather than animal-like.
-    body = '<ellipse cx="38" cy="58" rx="20" ry="8" fill="#000"/>'
-    neck = '<path d="M50 56 Q58 44 66 34 Q69 30 74 30 L74 37 Q67 43 58 55 Q54 59 48 59 Z" fill="#000"/>'
-    head = '<ellipse cx="76" cy="28" rx="6" ry="5" fill="#000"/>'
-    snout = '<polygon points="81,27 90,29 81,31" fill="#000"/>'
+    # 6th attempt, same session (user-reported: STILL crossing the border,
+    # in addition to still looking quirky) - the 5th attempt's head
+    # (cx=76,cy=28) and antler tips (up to x=87,y=17) were checked against
+    # the triangle's actual width at those heights, and both were well
+    # outside it - the triangle narrows fast near the apex, so pushing the
+    # head/antlers up and to one side was never going to fit. This version
+    # keeps the ENTIRE figure lower and more centered (nothing above y=30,
+    # nothing past x=64) with small simple ear points instead of tall
+    # antlers, since real headroom this close to the apex doesn't allow
+    # for branching antlers at any position that isn't dead-center.
+    body = '<ellipse cx="36" cy="64" rx="18" ry="8" fill="#000"/>'
+    neck = '<path d="M48 62 Q55 50 60 42 Q62 39 65 40 L65 46 Q60 51 54 61 Q50 64 46 64 Z" fill="#000"/>'
+    head = '<ellipse cx="61" cy="38" rx="5.5" ry="4.5" fill="#000"/>'
+    snout = '<polygon points="65,37 73,39 65,41" fill="#000"/>'
     antlers = (
-        '<path d="M72 24 L65 16 M80 24 L87 17" '
-        'stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>'
+        '<path d="M58 34 L54 28 M63 34 L67 28" '
+        'stroke="#000" stroke-width="2.6" fill="none" stroke-linecap="round"/>'
     )
-    tail = '<path d="M18 53 L10 49" stroke="#000" stroke-width="5" stroke-linecap="round"/>'
+    tail = '<path d="M18 59 L10 55" stroke="#000" stroke-width="5" stroke-linecap="round"/>'
     front_legs = (
-        '<path d="M52 64 L60 78" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
-        '<path d="M60 63 L70 78" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
+        '<path d="M48 70 L54 80" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
+        '<path d="M55 69 L62 80" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
     )
     back_legs = (
-        '<path d="M24 64 L16 78" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
-        '<path d="M32 64 L26 79" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
+        '<path d="M22 70 L15 80" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
+        '<path d="M29 70 L24 81" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
     )
     return body + neck + head + snout + antlers + tail + front_legs + back_legs
 
@@ -1389,13 +1438,17 @@ def symC_house_car_end():
     # sym_motorway_end()) - was incorrectly using the grey "end" convention
     # that belongs to speed/overtaking-restriction signs instead
     # (catalog-audit finding 2026-08-05).
-    return sym_house_car() + '<line x1="18" y1="82" x2="82" y2="18" stroke="#c0272d" stroke-width="7"/>'
+    # Line standardized 2026-08-09 (user-reported) to the same edge-to-edge
+    # coordinates as sym_motorway_end()'s already-correct 330.2 line - this
+    # one previously stopped well short of the corners on both ends.
+    return sym_house_car() + '<line x1="14" y1="86" x2="86" y2="14" stroke="#c0272d" stroke-width="7"/>'
 
 def symC_car_end():
     # 331.2 Ende Kraftfahrstrasse: same car silhouette as 331.1, plus the
     # RED diagonal "end" line (matching 330.2's already-correct convention -
     # catalog-audit finding 2026-08-05, same root cause as 325.2 above).
-    return sym_car_silhouette("#fff") + '<line x1="18" y1="82" x2="82" y2="18" stroke="#c0272d" stroke-width="7"/>'
+    # Line standardized 2026-08-09 (user-reported), same fix as 325.2 above.
+    return sym_car_silhouette("#fff") + '<line x1="14" y1="86" x2="86" y2="14" stroke="#c0272d" stroke-width="7"/>'
 
 def symC_waterdrop():
     # 354 Wasserschutzgebiet: simple original water-drop silhouette.
@@ -1450,9 +1503,16 @@ def sign_zone_plate(symbol, label_lines, ended=False):
     )
     hatch = ""
     if ended:
-        # single solid diagonal line crossing only the circle's bounding
-        # area (circle center 50,36 r=26 -> bbox roughly x24-76, y10-62)
-        hatch = '<line x1="24" y1="62" x2="76" y2="10" stroke="#5a5a5a" stroke-width="5"/>'
+        # Fixed 2026-08-09 (user-reported, same mistake as sym_five_stripes()
+        # above): this line ran corner-to-corner of the circle's BOUNDING
+        # BOX, which is longer than the circle's own diameter along a
+        # diagonal - it stuck out past the circle on both ends. Clipped to
+        # the actual circle instead of trusting the bbox math.
+        hatch = (
+            '<clipPath id="clip-zone-end"><circle cx="50" cy="36" r="26"/></clipPath>'
+            '<line x1="24" y1="62" x2="76" y2="10" stroke="#5a5a5a" stroke-width="5" '
+            'clip-path="url(#clip-zone-end)"/>'
+        )
     return rect_white_black_border(circle + text + hatch)
 
 def _zone_stop_ring(ended=False):
@@ -1563,7 +1623,15 @@ def symC_town_name_leaving(name="MUSTERSTADT"):
     # 311 Ortstafel Rueckseite: same plate as 310, with a diagonal red
     # line through the town name to indicate you're leaving (project's
     # diagonal-line "end/leaving" convention, red here per the real sign).
-    return symC_town_name(name) + '<line x1="18" y1="78" x2="82" y2="42" stroke="#c0272d" stroke-width="5"/>'
+    # Fixed 2026-08-09 (user-reported): this wasn't even a 45-degree line
+    # (18,78)-(82,42) is a shallow ~29-degree slope, not the real sign's
+    # steep diagonal, and it fell well short of the plate's top/bottom
+    # edges. rect_yellow_black_border's plate is 88 wide x 60 tall
+    # (x6-94,y20-80) - a true 45-degree line can span the full HEIGHT
+    # (the shorter dimension) while staying centered horizontally with
+    # matching 14-unit margins either side, same margin this project's
+    # other edge-to-edge "end" lines already use.
+    return symC_town_name(name) + '<line x1="20" y1="80" x2="80" y2="20" stroke="#c0272d" stroke-width="5"/>'
 
 def symC_route_number(t="1", color="#000", size=28):
     # NOTE: kept as a plain (non-fitted) text call, unchanged from before -
