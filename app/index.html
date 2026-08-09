@@ -155,6 +155,11 @@
       font-size: 0.78rem;
       padding: 0 20px 40px;
     }
+    footer.landing-footer p { margin: 0 0 8px; }
+    .legal-links a {
+      color: var(--text-dim);
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -197,7 +202,14 @@
     </section>
   </main>
 
-  <footer class="landing-footer" id="landing-footer"></footer>
+  <footer class="landing-footer">
+    <p id="landing-footer"></p>
+    <nav class="legal-links" id="legal-links">
+      <a href="./impressum.html" id="legal-link-impressum"></a>
+      <span aria-hidden="true"> · </span>
+      <a href="./datenschutzerklaerung.html" id="legal-link-privacy"></a>
+    </nav>
+  </footer>
 
   <script>
     (function () {
@@ -237,6 +249,32 @@
       var RTL_LOCALES = { ar: true };
       var STORAGE_KEY = "dn-landing-lang";
 
+      // Footer legal-page links (Impressum/Datenschutzerklärung, both added
+      // on request of tronicum networx GmbH). Only the link LABELS are
+      // translated here - the actual pages (impressum.html,
+      // datenschutzerklaerung.html) are German-authoritative + English
+      // translation only, a deliberate scope decision (see those files'
+      // own comments): legal/regulatory text carries real mistranslation
+      // risk in a way the app's learning content doesn't, so unlike every
+      // other piece of UI text in this project, these two pages are NOT
+      // held to the 12-locale-from-day-one bar - a link labeled in the
+      // user's own language is still a real usability improvement even
+      // when the destination page itself is DE/EN.
+      var LEGAL_LABELS = {
+        de: { impressum: "Impressum", privacy: "Datenschutzerklärung" },
+        en: { impressum: "Legal notice", privacy: "Privacy policy" },
+        uk: { impressum: "Правова інформація", privacy: "Політика конфіденційності" },
+        pl: { impressum: "Nota prawna", privacy: "Polityka prywatności" },
+        ar: { impressum: "بيانات قانونية", privacy: "سياسة الخصوصية" },
+        zh: { impressum: "法律声明", privacy: "隐私政策" },
+        hi: { impressum: "कानूनी सूचना", privacy: "गोपनीयता नीति" },
+        tr: { impressum: "Yasal bilgiler", privacy: "Gizlilik politikası" },
+        fr: { impressum: "Mentions légales", privacy: "Politique de confidentialité" },
+        ru: { impressum: "Правовая информация", privacy: "Политика конфиденциальности" },
+        es: { impressum: "Aviso legal", privacy: "Política de privacidad" },
+        it: { impressum: "Note legali", privacy: "Informativa sulla privacy" },
+      };
+
       function detectLang() {
         try {
           var saved = localStorage.getItem(STORAGE_KEY);
@@ -255,6 +293,10 @@
         document.getElementById("modules-heading").textContent = s.modulesHeading;
         document.getElementById("landing-footer").textContent = s.footer;
         document.querySelector(".lang-toggle").setAttribute("aria-label", s.langLabel);
+
+        var legalLabels = LEGAL_LABELS[lang] || LEGAL_LABELS.en;
+        document.getElementById("legal-link-impressum").textContent = legalLabels.impressum;
+        document.getElementById("legal-link-privacy").textContent = legalLabels.privacy;
 
         var featsEl = document.getElementById("features-list");
         featsEl.innerHTML = "";

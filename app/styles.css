@@ -255,6 +255,25 @@ main {
   gap: 10px;
 }
 
+/* Legal-notice/privacy-policy footer (app/impressum.html,
+   app/datenschutzerklaerung.html) - deliberately subtle (small, dim text)
+   since it's a legal-compliance requirement, not a feature to promote, but
+   still always visible/reachable from the main list view without needing
+   to open any modal. Hidden behind the exam/detail/certificate views etc.
+   the same way `main` itself is - those views cover the full viewport - so
+   no extra hiding logic is needed here. */
+.app-legal-footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.72rem;
+  padding: 4px 20px calc(20px + env(safe-area-inset-bottom));
+}
+
+.app-legal-footer a {
+  color: var(--text-dim);
+  text-decoration: underline;
+}
+
 .q-card {
   background: var(--card);
   border: 1px solid var(--border);

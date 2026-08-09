@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Datenschutzerklärung · Zettacard</title>
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/svg+xml" href="icons/logo.svg" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("dn-theme");
+        var theme = saved || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) { /* storage/matchMedia unavailable - default dark styling still applies */ }
+    })();
+  </script>
+  <style>
+    /* Same plain-prose layout as impressum.html - kept as a near-identical
+       copy rather than a shared stylesheet import, since these two files
+       are the only ones on the whole site with this layout and a shared
+       class name isn't worth the indirection for two pages. */
+    .legal-page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+      line-height: 1.6;
+    }
+    .legal-page h1 { font-size: 1.5rem; margin: 0 0 4px; }
+    .legal-page .legal-lang-note { color: var(--text-dim); font-size: 0.82rem; margin: 0 0 28px; }
+    .legal-page h2 { font-size: 1.05rem; margin: 28px 0 8px; }
+    .legal-page h3 { font-size: 0.92rem; margin: 18px 0 6px; }
+    .legal-page p, .legal-page ul { margin: 0 0 10px; }
+    .legal-page ul { padding-left: 20px; }
+    .legal-page li { margin-bottom: 4px; }
+    .legal-page address { font-style: normal; }
+    .legal-page a { color: var(--accent); }
+    .legal-page .back-link { display: inline-block; margin-bottom: 20px; }
+    .legal-page hr { border: none; border-top: 1px solid var(--border); margin: 40px 0; }
+  </style>
+</head>
+<body>
+  <main class="legal-page">
+    <a class="back-link" href="./index.html">← Zettacard</a>
+
+    <!-- German version: legally authoritative. Content below is grounded in
+         what this app's actual code does (see app/app.js's localStorage
+         usage and netlify/functions/{sign-credential.js,
+         save-verified-credential-v2.mjs}), not a generic boilerplate
+         template - specifically: no cookies/analytics/tracking anywhere in
+         this codebase (verified by grep before writing this page); local-
+         only browser storage for app state/progress; a stateless signing
+         function that never persists anything; and one genuinely optional,
+         user-initiated feature (the public verification link) that DOES
+         store data server-side, including an optional name if the user
+         types one in - described honestly here rather than glossed over. -->
+    <h1>Datenschutzerklärung</h1>
+    <p class="legal-lang-note">English translation below (non-binding / zur Information) - the German text is legally authoritative.</p>
+
+    <h2>1. Verantwortlicher</h2>
+    <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:</p>
+    <address>
+      tronicum networx GmbH<br />
+      Markgrafendamm 4<br />
+      10245 Berlin<br />
+      Deutschland<br />
+      E-Mail: <a href="mailto:contact@zettacard.de">contact@zettacard.de</a><br />
+      Telefon: 0700 800 70000
+    </address>
+
+    <h2>2. Keine Cookies, kein Tracking</h2>
+    <p>
+      Zettacard verwendet keine Cookies, kein Analyse-Tool und keine Tracking- oder
+      Werbetechnologien jeglicher Art. Es findet keine Nachverfolgung Ihres Nutzungsverhaltens
+      über Website- oder Gerätegrenzen hinweg statt, und es werden keine Nutzungsdaten an
+      Dritte zu Werbe- oder Analysezwecken weitergegeben.
+    </p>
+
+    <h2>3. Lokale Speicherung auf Ihrem Gerät (localStorage)</h2>
+    <p>
+      Zettacard speichert bestimmte Daten ausschließlich lokal in Ihrem Browser
+      (Web-Storage/„localStorage&quot;), damit die App auch ohne Benutzerkonto Ihren
+      Lernfortschritt merken kann. Dazu gehören: Ihre Sprach- und Theme-Einstellung, der
+      gewählte Modus (z. B. Führerschein-Klasse), markierte/gemerkte Fragen, bereits gesehene
+      Fragen und Ihr Fortschritt im Wiederholungssystem (Leitner-System), abgeschlossene
+      Prüfungssimulationen sowie - falls Sie ein lokales Geräteprofil anlegen, z. B. um die App
+      mit Familienmitgliedern zu teilen - der von Ihnen selbst gewählte Profilname.
+    </p>
+    <p>
+      Diese Daten verlassen Ihr Gerät nicht und werden zu keinem Zeitpunkt an uns oder Dritte
+      übertragen. Sie können diese Daten jederzeit über die Einstellungen Ihres Browsers löschen
+      (z. B. „Website-Daten löschen&quot; für zettacard.de). Rechtsgrundlage ist unser
+      berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO) bzw. Ihre konkludente Einwilligung
+      durch aktive Nutzung der App, an einer funktionsfähigen App ohne Registrierungszwang.
+    </p>
+
+    <h2>4. Signierte Prüfungsnachweise (serverseitig, ohne Speicherung)</h2>
+    <p>
+      Wenn Sie in einem der betrieblichen Pflichtschulungs-Module (z. B. Datenschutz,
+      Arbeitssicherheit) eine Prüfungssimulation bestehen, kann die App optional versuchen, das
+      Ergebnis kryptografisch signieren zu lassen, um einen glaubwürdigeren Nachweis zu
+      erzeugen. Dabei werden ausschließlich Metadaten der Prüfung (Modul, Bestehensdatum,
+      Fehlerpunkte, Gesamtfragenzahl) - ausdrücklich <strong>kein Name und keine sonstigen
+      personenbezogenen Daten</strong> - an eine Netlify-Funktion übertragen. Diese Funktion
+      signiert die Daten und gibt sie zurück, ohne sie serverseitig zu speichern. Rechtsgrundlage
+      ist Ihre Anforderung dieser Funktion (Art. 6 Abs. 1 lit. b DSGVO analog).
+    </p>
+
+    <h2>5. Optionaler öffentlicher Verifizierungslink</h2>
+    <p>
+      Nach einer bestandenen, signierten Prüfungssimulation können Sie <strong>freiwillig</strong>
+      einen dauerhaften, öffentlich abrufbaren Verifizierungslink (&quot;/verify/…&quot;)
+      anfordern, etwa um einen Nachweis gegenüber einem Arbeitgeber oder Prüfer zu erbringen.
+      Nur wenn Sie diese Funktion aktiv nutzen, werden folgende Daten auf einem Server
+      gespeichert: die Prüfungsmetadaten aus Abschnitt 4, die digitale Signatur sowie -
+      optional, nur falls Sie ihn eingeben - ein von Ihnen angegebener Name. Diese Daten werden
+      bei unserem Hosting-Anbieter Netlify, Inc. (USA) in einem &quot;Netlify Blobs&quot;
+      genannten Datenspeicher abgelegt und sind über den generierten Link öffentlich abrufbar,
+      solange Sie den Link nicht löschen lassen. Da Netlify, Inc. ein US-amerikanisches
+      Unternehmen ist, kann dies eine Datenübermittlung in ein Land außerhalb der EU/des EWR
+      beinhalten; Netlify verweist hierzu auf eigene Datenschutzgarantien in seiner
+      Datenschutzerklärung.
+    </p>
+    <p>
+      Rechtsgrundlage ist Ihre ausdrückliche Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), da Sie
+      diese Funktion aktiv und erkennbar selbst auslösen müssen - sie ist niemals automatisch
+      aktiv. Eine Löschung eines bereits erstellten Verifizierungslinks können Sie jederzeit
+      formlos über <a href="mailto:contact@zettacard.de">contact@zettacard.de</a> beantragen;
+      wir werden dem Antrag zeitnah nachkommen.
+    </p>
+
+    <h2>6. Hosting</h2>
+    <p>
+      Diese Website wird bei Netlify, Inc. gehostet. Beim Aufruf der Seite verarbeitet Netlify
+      als technischer Betreiber die hierfür technisch erforderlichen Server-Logdaten (u. a.
+      IP-Adresse, Zeitpunkt des Zugriffs) im Rahmen des laufenden Betriebs. Rechtsgrundlage ist
+      unser berechtigtes Interesse an einer stabilen und sicheren Bereitstellung der Website
+      (Art. 6 Abs. 1 lit. f DSGVO). Details entnehmen Sie der Datenschutzerklärung von Netlify.
+    </p>
+
+    <h2>7. Ihre Rechte</h2>
+    <p>
+      Sie haben nach Maßgabe des geltenden Rechts das Recht auf Auskunft, Berichtigung,
+      Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch
+      gegenüber der Verarbeitung Sie betreffender personenbezogener Daten. Da Zettacard
+      standardmäßig keine personenbezogenen Daten an uns überträgt (siehe Abschnitt 3), betreffen
+      diese Rechte in der Praxis vor allem Daten aus Abschnitt 5. Wenden Sie sich hierzu an
+      <a href="mailto:contact@zettacard.de">contact@zettacard.de</a>. Sie haben außerdem das
+      Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren, z. B. bei der
+      Berliner Beauftragten für Datenschutz und Informationsfreiheit.
+    </p>
+
+    <h2>8. Änderungen dieser Erklärung</h2>
+    <p>
+      Wir passen diese Datenschutzerklärung an, sobald sich die Datenverarbeitung innerhalb der
+      App ändert. Es gilt jeweils die auf dieser Seite veröffentlichte, aktuelle Fassung.
+    </p>
+
+    <hr />
+
+    <!-- English translation: informational only. -->
+    <h1>Privacy Policy</h1>
+    <p class="legal-lang-note">Non-binding English translation - the German version above is legally authoritative.</p>
+
+    <h2>1. Controller</h2>
+    <p>The controller responsible for data processing under the GDPR is:</p>
+    <address>
+      tronicum networx GmbH<br />
+      Markgrafendamm 4<br />
+      10245 Berlin<br />
+      Germany<br />
+      Email: <a href="mailto:contact@zettacard.de">contact@zettacard.de</a><br />
+      Phone: +49 700 800 70000
+    </address>
+
+    <h2>2. No cookies, no tracking</h2>
+    <p>
+      Zettacard does not use cookies, analytics tools, or any form of tracking or advertising
+      technology. There is no cross-site or cross-device tracking of your usage behavior, and
+      no usage data is shared with third parties for advertising or analytics purposes.
+    </p>
+
+    <h2>3. Local storage on your device</h2>
+    <p>
+      Zettacard stores certain data exclusively in your browser's local storage, so the app can
+      remember your learning progress without requiring a user account. This includes: your
+      language and theme preference, the selected mode (e.g. driving-licence class), starred or
+      bookmarked questions, questions you've already seen, your progress in the spaced-
+      repetition (Leitner) system, completed exam simulations, and - if you create a local
+      device profile, e.g. to share the app with family members - the profile name you chose
+      yourself.
+    </p>
+    <p>
+      This data never leaves your device and is never transmitted to us or any third party. You
+      can delete it at any time via your browser's settings (e.g. "clear site data" for
+      zettacard.de). The legal basis is our legitimate interest (Art. 6(1)(f) GDPR) in, and your
+      implied consent through active use of, a functional app that requires no registration.
+    </p>
+
+    <h2>4. Signed exam credentials (server-side, no storage)</h2>
+    <p>
+      If you pass an exam simulation in one of the workplace-compliance modules (e.g. data
+      protection, occupational safety), the app can optionally attempt to have the result
+      cryptographically signed to produce a more credible proof of completion. Only exam
+      metadata (module, pass date, error points, total question count) - explicitly
+      <strong>no name and no other personal data</strong> - is transmitted to a Netlify
+      function for this purpose. This function signs the data and returns it without storing it
+      server-side. The legal basis is your request for this feature (Art. 6(1)(b) GDPR,
+      analogously applied).
+    </p>
+
+    <h2>5. Optional public verification link</h2>
+    <p>
+      After a passed, signed exam simulation, you can <strong>voluntarily</strong> request a
+      permanent, publicly accessible verification link ("/verify/…"), for example to provide
+      proof to an employer or auditor. Only if you actively use this feature is the following
+      data stored on a server: the exam metadata from section 4, the digital signature, and -
+      optionally, only if you enter one - a name you provide. This data is stored with our
+      hosting provider, Netlify, Inc. (USA), in a data store called "Netlify Blobs," and is
+      publicly accessible via the generated link until you have it deleted. Because Netlify,
+      Inc. is a US company, this may involve a transfer of data outside the EU/EEA; Netlify's
+      own privacy policy describes the safeguards it applies to such transfers.
+    </p>
+    <p>
+      The legal basis is your explicit consent (Art. 6(1)(a) GDPR), since you must actively and
+      knowingly trigger this feature yourself - it is never active automatically. You can
+      request deletion of an already-created verification link at any time, informally, via
+      <a href="mailto:contact@zettacard.de">contact@zettacard.de</a>; we will act on such
+      requests promptly.
+    </p>
+
+    <h2>6. Hosting</h2>
+    <p>
+      This website is hosted by Netlify, Inc. When you access the site, Netlify, as the
+      technical operator, processes the server log data technically required for this (including
+      IP address and time of access) as part of ongoing operation. The legal basis is our
+      legitimate interest in a stable and secure website (Art. 6(1)(f) GDPR). See Netlify's own
+      privacy policy for details.
+    </p>
+
+    <h2>7. Your rights</h2>
+    <p>
+      Under applicable law, you have the right to access, rectification, erasure, restriction of
+      processing, data portability, and objection regarding personal data concerning you. Since
+      Zettacard does not transmit personal data to us by default (see section 3), these rights
+      mainly concern the data described in section 5. Please contact
+      <a href="mailto:contact@zettacard.de">contact@zettacard.de</a> for such requests. You also
+      have the right to lodge a complaint with a data protection supervisory authority, e.g. the
+      Berlin Commissioner for Data Protection and Freedom of Information (Berliner Beauftragte
+      für Datenschutz und Informationsfreiheit).
+    </p>
+
+    <h2>8. Changes to this policy</h2>
+    <p>
+      We will update this privacy policy whenever data processing within the app changes. The
+      version published on this page is always the current, applicable one.
+    </p>
+  </main>
+</body>
+</html>
