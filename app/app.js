@@ -1322,6 +1322,14 @@ function offlineAssetUrls() {
   // gating as the primers button itself.
   if (state.examType === "fuehrerschein") {
     urls.push(`data/fuehrerschein/primers.json`, `data/fuehrerschein/primers_locales/${lang}.json`);
+    // The Sign Reference catalog (loadSignReference()) fetches this
+    // directly, independent of core.json/locales/*.json above - a real gap
+    // found 2026-08-09 (user-reported "Keine Schilderreferenz verfügbar"
+    // while offline): without this, every sign SVG a question uses gets
+    // prefetched above, but the catalog view listing/describing them didn't.
+    // Locale-agnostic (all locale text is embedded per-sign in one file), so
+    // no per-lang suffix needed, unlike primers.json above.
+    urls.push(`data/fuehrerschein/sign_reference.json`);
   }
 
   return urls;
