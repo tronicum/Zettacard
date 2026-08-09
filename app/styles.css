@@ -105,7 +105,13 @@ header {
   background: var(--header-bg);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--border);
-  padding: 14px 16px 10px;
+  /* DN-23: safe-area-inset padding for notched phones (the viewport meta
+     already has viewport-fit=cover in app.html, so these env() values
+     resolve to real insets rather than 0 on devices that have one - a
+     no-op elsewhere). Additive via calc() so the existing spacing is a
+     floor, not replaced. Top/left/right here since header sits at the
+     very top of the layout; main below gets the bottom inset. */
+  padding: calc(14px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 10px calc(16px + env(safe-area-inset-left));
 }
 
 .title-row {
@@ -215,11 +221,32 @@ h1 {
   min-height: 40px;
 }
 
+/* REAL BUG, found 2026-08-08 from a user report ("driving test still shows
+   IT/compliance role filter"): #role-filters is `class="filters role-filters"`
+   and starts `hidden` in app.html, with renderRoleFilter() (app.js) toggling
+   the `hidden` property based on whether the current module is a compliance
+   module. But `.filters` above sets `display: flex`, and a plain author-
+   stylesheet rule always beats the browser's default `[hidden] { display:
+   none }` UA rule regardless of specificity (origin/importance is checked
+   BEFORE specificity in the cascade) - so the role-filter row was actually
+   showing on EVERY module, including Fuehrerschein, the whole time DN-44's
+   role filter has existed. This is the exact same class of bug already
+   fixed twice elsewhere in this file (.image-note[hidden]/.image-illustration
+   [hidden] above, .exam-modal[hidden]/.exam-view[hidden] below) - just never
+   applied here too. Fixed the same way: an explicit [hidden] override. */
+.role-filters[hidden] {
+  display: none;
+}
+
 main {
   max-width: 720px;
   margin: 0 auto;
   padding: 16px;
-  padding-bottom: 64px;
+  /* DN-23: safe-area-inset-bottom so content isn't flush against a phone's
+     home-indicator gesture area; left/right too for landscape notches. */
+  padding-left: calc(16px + env(safe-area-inset-left));
+  padding-right: calc(16px + env(safe-area-inset-right));
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
 }
 
 .list {
@@ -269,6 +296,20 @@ main {
    distinct class name since the semantic meaning differs (a completion
    record's renewal status, not a question's safety-criticality). */
 .badge.renewal-due { background: var(--amber-bg); color: var(--amber); }
+/* DN-14: small star indicator on a list row that's been manually bookmarked
+   - reuses the amber token pair (already contrast-verified for
+   .badge.high-stakes/.badge.renewal-due above) rather than a new, unaudited
+   color, just a distinct class name since the semantic meaning differs
+   (a manual bookmark, not a safety-criticality or renewal flag). */
+.badge.star-badge { background: var(--amber-bg); color: var(--amber); }
+/* DN-23 (tap-affordance hint): pre-reveal-only badge telling the user the
+   option rows below are actually tappable (the "try it yourself" flashcard
+   self-answer, see renderDetail() in app.js) - added because a plain
+   cursor:pointer (see .option[role="button"] etc. below) is invisible on
+   touch devices, which are this app's primary audience. Reuses the same
+   already-contrast-verified --accent-dim/accent pairing as filter chips
+   rather than a new color. */
+.badge.try-it-hint { background: var(--accent-dim); color: var(--accent); }
 
 .q-card-text {
   font-size: 0.95rem;
@@ -306,7 +347,10 @@ main {
   background: var(--header-bg);
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--border);
-  padding: 14px 16px;
+  /* DN-23: same safe-area treatment as header - this is a fixed, full-
+     screen (.detail is inset:0) view's own top bar, so it needs its own
+     top inset rather than inheriting the page header's. */
+  padding: calc(14px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 14px calc(16px + env(safe-area-inset-left));
   display: flex;
   align-items: center;
   gap: 10px;
@@ -326,7 +370,10 @@ main {
 .detail-body {
   max-width: 680px;
   margin: 0 auto;
-  padding: 20px 16px 64px;
+  /* DN-23: safe-area-inset-bottom/left/right - this is the scrollable body
+     inside the fixed, edge-to-edge .detail/.exam-view overlays, shared by
+     the flashcard detail view and Simulation/Training exam screens alike. */
+  padding: 20px calc(16px + env(safe-area-inset-right)) calc(64px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
 }
 
 .detail-meta {
@@ -403,6 +450,15 @@ main {
   cursor: pointer;
 }
 
+/* DN-23: explicit tap feedback for touch users, since cursor:pointer above
+   gives no feedback at all on a touch device (no hover state to reveal it).
+   Kept subtle (background shift only, no layout move) so it doesn't fight
+   with the .picked/.correct/.your-wrong-pick state colors that can apply
+   at the same time. */
+.option[role="button"]:active, .option[role="checkbox"]:active {
+  background: var(--accent-dim);
+}
+
 .option .key {
   font-weight: 700;
   color: var(--text-dim);
@@ -457,6 +513,34 @@ main {
   font-size: 0.78rem;
   font-weight: 700;
   color: var(--red);
+}
+
+/* DN-14: manual star/bookmark toggle, sits directly above the reveal
+   button - a secondary, outline-style action (not the primary accent-filled
+   look .reveal-btn uses below) since starring is optional bookkeeping, not
+   the main flow of a question. Toggled state (aria-pressed) gets the same
+   accent-dim treatment already used for .filters button.active/.review-btn.
+   has-due, so "starred" reads consistently with every other toggle in the
+   app rather than inventing a new visual language. */
+.star-btn {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  min-height: 44px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.star-btn[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--badge-topic-text);
 }
 
 .reveal-btn {
@@ -766,6 +850,27 @@ main {
   visibility: hidden;
 }
 
+/* Kickstart-learning-journey topic primers (DN-52 Phase 1). The primer
+   body text is genuinely a short paragraph or two (unlike the module-intro
+   wizard's one-liners, or Sign Reference's short descriptions), so the
+   inherited `.exam-modal-card p { text-align:center; color:var(--text-dim);
+   font-size:.85rem }` reads poorly here - override to left-aligned, full
+   text color, and a slightly larger/looser line-height for readability. */
+#primer-reader-body {
+  text-align: left;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+#primers-list {
+  text-align: left;
+  max-height: 55vh;
+  overflow-y: auto;
+}
+
 /* Local profile switcher */
 #profile-list {
   text-align: left;
@@ -828,6 +933,57 @@ main {
   background: var(--badge-neutral-bg, transparent);
 }
 
+/* Badge display (2026-08-07): visually distinguishes a real, cryptographically
+   signed credential from the honest self-issued/unverified fallback - see
+   renderBadgeRow() in app.js. Gold-toned emblem + "verified" badge pill for a
+   real signature; a plain grey/neutral emblem + "self-issued" pill otherwise.
+   Kept as a color+icon+text combination (not color alone) for colorblind
+   users, matching this project's existing selection-mark convention. */
+.cert-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.cert-badge-emblem {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.cert-badge-emblem.verified {
+  background: linear-gradient(135deg, #f6d365, #d9a441);
+  box-shadow: 0 0 0 2px rgba(217, 164, 65, 0.35);
+}
+
+.cert-badge-emblem.self-issued {
+  background: var(--badge-neutral-bg, rgba(128, 128, 128, 0.15));
+  filter: grayscale(1);
+  opacity: 0.75;
+}
+
+.cert-badge-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.badge.verified { background: var(--green-bg, rgba(46, 160, 67, 0.15)); color: var(--green, #2ea043); }
+.badge.self-issued { background: var(--badge-neutral-bg, rgba(128, 128, 128, 0.15)); color: var(--text-dim); }
+
+.cert-badge-hint {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
 .cert-card-title {
   font-weight: 700;
   font-size: 0.95rem;
@@ -857,6 +1013,89 @@ main {
   min-width: 140px;
   font-size: 0.8rem;
   padding: 8px 10px;
+}
+
+/* DN-51: standalone signed-JWT download button, for real badge-wallet
+   (Credly/Open Badges Passport) file-upload import - see
+   renderJwtDownloadBtn() in app.js. Only populated once a record is
+   genuinely signed; empty (no visible space) otherwise. */
+.cert-jwt-row:not(:empty) {
+  margin-top: 8px;
+}
+
+.cert-jwt-row .cert-dl-jwt {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 8px 10px;
+}
+
+/* DN-49: permanent verification link row (0€ MVP). Only ever populated for
+   compliance-module records that already carry a real signature - see
+   renderVerifyLinkRow() in app.js. Empty (no visible space) otherwise. */
+.cert-verify-row:not(:empty) {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+
+.cert-verify-title {
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.cert-verify-intro {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.cert-verify-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cert-verify-name-input {
+  flex: 1 1 140px;
+  min-width: 120px;
+  font-size: 0.85rem;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg, transparent);
+  color: inherit;
+}
+
+.cert-verify-form .cert-verify-create-btn {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  padding: 8px 12px;
+}
+
+.cert-verify-link-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cert-verify-link {
+  font-size: 0.8rem;
+  word-break: break-all;
+  color: var(--accent, inherit);
+}
+
+.cert-verify-link-row .cert-verify-copy-btn {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  padding: 6px 10px;
+}
+
+.cert-verify-error {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--red, #d9534f);
 }
 
 /* Sign Reference (Fuehrerschein-only browsable sign study list) */
@@ -932,6 +1171,21 @@ main {
 .exam-timer.low-time {
   color: var(--amber);
   border-color: var(--amber);
+}
+
+/* DN-14: "Frage schieben" (skip-and-revisit) second-pass banner - reuses the
+   same amber warning token as .exam-timer.low-time/.badge.high-stakes above
+   (deliberately not a new color) so it reads as "pay attention, this is a
+   different mode" without introducing yet another accent. */
+.exam-skip-banner {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 14px;
 }
 
 .options .option.exam-selected {
