@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """One-off script (DN-XX, Sign Reference view) that assembles
 app/data/fuehrerschein/sign_reference.json from ALREADY-VERIFIED content:
-core.json's question -> image_ref/correct mapping, plus the de/en locale
-files' option text and explanation. This intentionally does NOT invent any
-new factual claim about what a sign means - see assets/generate_signs.py's
-many "verified" comments and BACKLOG.md's DN-32 entry for why that
-discipline matters in this project. Every name/description below is lifted
-verbatim from an existing, already-reviewed question's correct option text
-or explanation.
+core.json's question -> image_ref/correct mapping, plus each of the 12
+locale files' option text and explanation. This intentionally does NOT
+invent any new factual claim about what a sign means - see
+assets/generate_signs.py's many "verified" comments and BACKLOG.md's DN-32
+entry for why that discipline matters in this project. Every name/description
+below is lifted verbatim from an existing, already-reviewed question's
+correct option text or explanation.
 
 Categorization (StVO family) is derived from which SVG template function
 assets/generate_signs.py used to draw each ref - not re-derived from
@@ -136,10 +136,15 @@ def build_entry_for_ref(ref, qids, qid_to_correct, locale):
     return {"name": name, "desc": desc}
 
 
+LOCALES = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
+
+
 def main():
     core = json.load(open(CORE_PATH, encoding="utf-8"))
-    de = json.load(open(os.path.join(LOCALE_DIR, "de.json"), encoding="utf-8"))
-    en = json.load(open(os.path.join(LOCALE_DIR, "en.json"), encoding="utf-8"))
+    locales = {
+        lang: json.load(open(os.path.join(LOCALE_DIR, f"{lang}.json"), encoding="utf-8"))
+        for lang in LOCALES
+    }
     gen_text = open(GEN_SIGNS_PATH, encoding="utf-8").read()
 
     ref_to_template = parse_ref_to_template(gen_text)
@@ -150,13 +155,23 @@ def main():
 
     for ref in sorted(ref_to_qids.keys()):
         qids = ref_to_qids[ref]
-        de_entry = build_entry_for_ref(ref, qids, qid_to_correct, de)
-        en_entry = build_entry_for_ref(ref, qids, qid_to_correct, en)
-        if not de_entry or not en_entry:
+        entries_by_lang = {
+            lang: build_entry_for_ref(ref, qids, qid_to_correct, locales[lang])
+            for lang in LOCALES
+        }
+        # de/en gate whether this ref is usable at all (same standing as
+        # before this change) - the other 10 locales fall back to en if a
+        # given ref's question text happens to be missing/empty for them
+        # (shouldn't happen given pilot_questions.json's own zero-locale-gap
+        # guarantee, but fail soft here rather than dropping the whole ref).
+        if not entries_by_lang["de"] or not entries_by_lang["en"]:
             skipped.append((ref, qids))
             continue
+        entry = {"ref": ref}
+        for lang in LOCALES:
+            entry[lang] = entries_by_lang[lang] or entries_by_lang["en"]
         cat = category_for(ref, ref_to_template)
-        result[cat].append({"ref": ref, "de": de_entry, "en": en_entry})
+        result[cat].append(entry)
 
     with open(OUT_PATH, "w", encoding="utf-8") as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
