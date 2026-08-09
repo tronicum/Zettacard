@@ -63,6 +63,21 @@ def circle_end_restriction(symbol=""):
   {symbol}
 '''
 
+def circle_haltestelle(letter="H"):
+    # Zeichen 224 Haltestelle (Linienverkehr und Schulbusse): re-audited
+    # 2026-08-09 against the official ADAC brochure (p.6) plus an
+    # independent WebSearch confirmation - this is NOT a blue square with a
+    # bus pictogram at all (that was a 2026-08-06 round's mistake, probably
+    # confusing it with 245 Bussonderfahrstreifen, which correctly IS a
+    # blue square). The real 224 is a round sign: YELLOW disc, GREEN ring
+    # border, GREEN "H" letter (Haltestelle) in the middle - its own
+    # distinct colour family shared with no other sign in this catalog.
+    return f'''
+  <circle cx="50" cy="50" r="46" fill="#f5c400" stroke="#1f9d5c" stroke-width="7"/>
+  <text x="50" y="66" font-family="Arial, sans-serif" font-size="50" font-weight="700"
+        fill="#1f9d5c" text-anchor="middle">{letter}</text>
+'''
+
 def circle_no_entry(symbol=""):
     # Zeichen 267 Verbot der Einfahrt: this is NOT a white circle with a red
     # ring like other Verbotszeichen - it's a solid red disc (thin white
@@ -82,16 +97,20 @@ def circle_stopping_ban(symbol=""):
   {symbol}
 '''
 
-def diamond_yellow_border():
-    # Zeichen 301 Vorfahrt: a white square standing on one corner (diamond
-    # orientation) with a yellow square (also diamond-rotated) filling most
-    # of the interior - a pure colour/shape sign with NO black pictogram
-    # (catalog-audit finding 2026-08-06: an earlier version wrongly added a
-    # crossroads pictogram on top, which the real Zeichen 301 does not
-    # have). Deliberately kept WITHOUT the extra white/black-bordered inner
-    # diamond that priority_road() (306/307) adds, since that inset is
-    # exactly what distinguishes "priority at this one junction" (301) from
-    # "priority road continuing over several junctions" (306).
+def priority_diamond_plain():
+    # Zeichen 301 Vorfahrt: reverted 2026-08-09 - an earlier fix this same
+    # session (priority_triangle()/symA_priority_cross(), a red triangle
+    # with a black crossroads cross) was a confirmed regression, not a
+    # correction. That shape is actually Zeichen 102 (Kreuzung oder
+    # Einmuendung, a Gefahrzeichen warning about an intersection), a
+    # completely different sign. The real Zeichen 301 is a plain yellow
+    # diamond ("auf der Spitze stehendes Quadrat"), white border, no
+    # pictogram at all - this is well-established (every German "Vorfahrt"
+    # sign looks like this) and matches this project's own 2026-08-06
+    # DN-46/DN-47 finding, which this restores verbatim. See priority_road()
+    # below for 306/307, the visually similar but legally distinct
+    # "Vorfahrtstrasse" signs (306 additionally carries a white diamond
+    # inset to stay visually distinguishable from 301, which has none).
     return '''
   <polygon points="50,4 96,50 50,96 4,50" fill="#fff"/>
   <polygon points="50,12 88,50 50,88 12,50" fill="#f5c400"/>
@@ -177,11 +196,20 @@ def andreaskreuz():
     return body
 
 def gruenpfeil():
-    # "Grünpfeil" plate: black square plate, green right-turn arrow
+    # "Gruenpfeil" plate (Zeichen 720): re-audited 2026-08-09 against the
+    # official ADAC brochure (p.18) - the real sign is a plain BLACK square
+    # (no separate white outer frame) with a bold GREEN ARROW (a shaft plus
+    # a triangular head, white-outlined for contrast) pointing right. The
+    # previous version's bare filled triangle (no shaft) reads as a "play"
+    # button/wedge rather than a directional arrow - the exact same failure
+    # mode this file's own sym_arrow_right() comment already documented and
+    # fixed for other signs, just not carried over to this one.
     return '''
-  <rect x="8" y="8" width="84" height="84" rx="6" fill="#fff" stroke="#000" stroke-width="4"/>
-  <rect x="16" y="16" width="68" height="68" rx="4" fill="#000"/>
-  <path d="M32 32 L68 50 L32 68 Z" fill="#1f9d5c"/>
+  <rect x="8" y="8" width="84" height="84" rx="6" fill="#000"/>
+  <path d="M22 50 L60 50" stroke="#fff" stroke-width="15" stroke-linecap="round"/>
+  <path d="M22 50 L58 50" stroke="#1f9d5c" stroke-width="9" stroke-linecap="round"/>
+  <polygon points="50,28 82,50 50,72" fill="#fff"/>
+  <polygon points="53,34 76,50 53,66" fill="#1f9d5c"/>
 '''
 
 def zusatzzeichen(symbol=""):
@@ -263,8 +291,12 @@ def sym_narrowing():
     # 2026-08-06: previous geometry only widened going down and never
     # converged). Bold solid black road-edge silhouettes, not thin wireframe
     # lines (earlier WebSearch-verified 2026-08-05 fix, kept here).
-    return '''<path d="M40 22 Q48 50 40 78" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>
-  <path d="M60 22 Q52 50 60 78" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>'''
+    # Fixed 2026-08-09 (user-reported): both top ends (40,22)/(60,22) sat
+    # outside the triangle's interior at that height, crossing the red
+    # border - moved the top ends down to y=36 where the triangle is wide
+    # enough to actually contain them.
+    return '''<path d="M40 36 Q46 55 40 78" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M60 36 Q54 55 60 78" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>'''
 
 def sym_roadworks():
     # 123 Arbeitsstelle: a recognizable construction-worker-with-shovel
@@ -285,13 +317,18 @@ def sym_children():
     # figure need a visible size difference plus kicked-leg running poses and
     # large round child-proportioned heads, not near-identical adult-style
     # stick figures with a plain rectangle torso.
+    # Fixed 2026-08-09 (user-reported): the taller right figure's head and
+    # raised arm reached outside the triangle's interior at that height
+    # (checked against the triangle's actual width at each y, not just
+    # eyeballed) - whole figure shifted left, and the raised-arm reach
+    # shortened separately since shifting alone wasn't enough to clear it.
     return '''
-  <circle cx="30" cy="50" r="7" fill="#000"/>
-  <rect x="24" y="58" width="12" height="14" rx="4" fill="#000"/>
-  <path d="M24 70 L14 78 M36 70 L42 62 M28 58 L18 50 M32 58 L42 54" stroke="#000" stroke-width="4.5" stroke-linecap="round"/>
-  <circle cx="64" cy="42" r="9" fill="#000"/>
-  <rect x="56" y="52" width="16" height="20" rx="5" fill="#000"/>
-  <path d="M56 72 L44 82 M72 72 L82 66 M60 52 L48 42 M68 52 L82 46" stroke="#000" stroke-width="5.5" stroke-linecap="round"/>'''
+  <circle cx="34" cy="50" r="7" fill="#000"/>
+  <rect x="28" y="58" width="12" height="14" rx="4" fill="#000"/>
+  <path d="M28 70 L18 78 M40 70 L46 62 M32 58 L22 50 M36 58 L46 54" stroke="#000" stroke-width="4.5" stroke-linecap="round"/>
+  <circle cx="56" cy="42" r="9" fill="#000"/>
+  <rect x="48" y="52" width="16" height="20" rx="5" fill="#000"/>
+  <path d="M48 72 L36 82 M64 72 L74 68 M52 52 L40 42 M60 52 L66 48" stroke="#000" stroke-width="5.5" stroke-linecap="round"/>'''
 
 def sym_train():
     # 151 Bahnuebergang ohne Schranken: a recognizable train/locomotive
@@ -319,23 +356,29 @@ def sym_arrow_right(color="#fff"):
             f'<polygon points="52,32 86,50 52,68" fill="{color}"/>')
 
 def sym_arrow_right_bold(color="#fff"):
-    # 209/209-10/209-20/209-30 Vorgeschriebene Fahrtrichtung (single
-    # direction, here: rechts): a bold SHAFTED arrow - not the bare
-    # triangle-only sym_arrow_right() (that thin glyph is reused for small
+    # 211/211-10/211-20 Vorgeschriebene Fahrtrichtung hier rechts: a bold
+    # SHAFTED, perfectly horizontal arrow - not the bare triangle-only
+    # sym_arrow_right() (that thin glyph is reused for small
     # additional-panel icons elsewhere and is too weak to read as the
     # sign's sole pictogram) - pointing straight in the mandated direction.
-    # Kept visually distinct from 211's bending arrow (catalog-audit
-    # finding 2026-08-06: 209 and 211 previously shared this exact
-    # sym_arrow_right() call and were indistinguishable).
+    # RE-AUDITED 2026-08-09 against the official ADAC brochure (p.6) plus an
+    # independent WebSearch confirmation ("VZ 211 zeigt einen horizontalen,
+    # nach rechts weisenden Pfeil"): this straight arrow is 211's real
+    # pictogram, and the BENT arrow below (sym_arrow_bend_junction) is
+    # actually 209's - a 2026-08-06 round had these two swapped (assigned
+    # this straight arrow to 209 and the bent one to 211), which was
+    # backwards. Fixed at the SIGNS registry call sites, not just here.
     return f'<path d="M82 50 L54 26 L54 38 L18 38 L18 62 L54 62 L54 74 Z" fill="{color}"/>'
 
 def sym_arrow_bend_junction(color="#fff"):
-    # 211/211-10/211-20 Vorgeschriebene Fahrtrichtung an der Kreuzung: the
-    # real sign shows a bold arrow that CHANGES heading (rises from below,
-    # then bends into a new direction) to convey "you must continue this
-    # way at this junction" - deliberately drawn as a curve+bend, not a
-    # single straight shaft, so it can never be mistaken for 209's plain
-    # directional arrow again (catalog-audit finding 2026-08-06).
+    # 209/209-10/209-20/209-30 Vorgeschriebene Fahrtrichtung (hier: rechts,
+    # at a point where the road itself bends): the real sign shows a bold
+    # arrow that CHANGES heading (rises vertically from below, then curves
+    # into a new direction) - WebSearch-confirmed 2026-08-09 ("VZ 209 zeigt
+    # einen vertikalen, nach rechts oben gebogenen Pfeil"). See the
+    # sym_arrow_right_bold() comment above for the 209/211 swap this
+    # corrects (a 2026-08-06 round had this bent arrow assigned to 211 and
+    # the straight one to 209 - backwards).
     shaft = (
         f'<path d="M30 84 L30 46 Q30 28 48 28 L58 28" stroke="{color}" '
         f'stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'
@@ -404,26 +447,33 @@ def sym_bicycle(color="#fff"):
   <line x1="46" y1="46" x2="42" y2="40" stroke="{color}" stroke-width="4" stroke-linecap="round"/>'''
 
 def sym_ped_bike_stack():
-    # 240 Gemeinsamer Geh- und Radweg: a walking-pedestrian figure and a
-    # bicycle pictogram placed SIDE BY SIDE with no divider (a shared path
-    # carries both together, unlike 241's split lanes which use a vertical
-    # divider) - reuses the same sym_pedestrian()/sym_bicycle() helpers as
-    # 239/237 so all three read consistently, scaled down and offset to
-    # fit together. Redrawn 2026-08-06: the previous top/bottom stack used
-    # a headless, armless pedestrian blob that didn't read as a person
-    # (catalog-audit finding 2026-08-06).
-    ped = f'<g transform="translate(-6,8) scale(0.56)">{sym_pedestrian(color="#fff")}</g>'
-    bike = f'<g transform="translate(30,14) scale(0.62)">{sym_bicycle(color="#fff")}</g>'
-    return ped + bike
+    # 240 Gemeinsamer Geh- und Radweg: RE-AUDITED 2026-08-09 against the
+    # official ADAC brochure (p.6) - the real sign stacks the adult+child
+    # pedestrian pictogram ON TOP, a HORIZONTAL divider line in the middle,
+    # and the bicycle pictogram BELOW (a 2026-08-06 round had this side by
+    # side with no divider at all, and used a single pedestrian instead of
+    # the adult+child pair - both wrong; the side-by-side/vertical-divider
+    # layout actually belongs to 241, see symB_bike_ped_split() below).
+    ped = f'<g transform="translate(9,-8) scale(0.42)">{sym_ped_child(color="#fff")}</g>'
+    divider = '<line x1="14" y1="50" x2="86" y2="50" stroke="#fff" stroke-width="3"/>'
+    bike = f'<g transform="translate(18,52) scale(0.62)">{sym_bicycle(color="#fff")}</g>'
+    return ped + divider + bike
 
 def sym_car_silhouette(color="#000"):
     # 251/331.1 etc: a recognizable front/side car silhouette (bonnet,
     # windshield, raised roofline, sloped rear) rather than a shapeless
     # rounded box on two wheels that could be any vehicle (ADAC-brochure
     # audit finding 2026-08-06: previous version was just a rounded rect).
+    # Added a light windshield/window cutout 2026-08-09 (user-reported: the
+    # silhouette read as an all-black blob with no internal definition,
+    # e.g. on sign 260) - a white cabin-window shape over the roofline,
+    # matching the cutout-window convention already used elsewhere in this
+    # file (e.g. sym_train()) rather than a fully solid silhouette.
+    window = '#fff' if color != '#fff' else '#000'
     return (
         f'<path d="M16 66 L20 54 Q24 46 34 46 L40 46 L46 36 Q49 32 55 32 '
         f'L66 32 Q71 32 74 37 L79 46 Q88 46 90 54 L90 66 Z" fill="{color}"/>'
+        f'<path d="M48 46 L52 40 Q54 37 58 37 L63 37 Q66 37 68 40 L71 46 Z" fill="{window}"/>'
         f'<circle cx="30" cy="70" r="7" fill="{color}"/>'
         f'<circle cx="76" cy="70" r="7" fill="{color}"/>'
     )
@@ -607,51 +657,77 @@ def sym_truck_trailer(color="#000"):
     return sym_truck(color) + f'<rect x="14" y="40" width="6" height="24" fill="{color}"/>'
 
 def sym_pedestrian(color="#000"):
-    # 259 Verbot fuer Fussgaenger (and 133/239/242.x which reuse this same
-    # helper): a proper walking pedestrian silhouette - swinging arms and a
-    # forward/back stride - matching the pose convention this app already
-    # uses correctly for 101-21 (symA_ped_crossing_warn), reused here
-    # instead of a static torso-with-straight-legs blob with no arms
-    # (ADAC-brochure audit finding 2026-08-06).
+    # 133 (Fussgaenger warning) and 259 (Verbot fuer Fussgaenger): a proper
+    # walking pedestrian silhouette - swinging arms and a forward/back
+    # stride - matching the pose convention this app already uses correctly
+    # for 101-21 (symA_ped_crossing_warn), reused here instead of a static
+    # torso-with-straight-legs blob with no arms (ADAC-brochure audit
+    # finding 2026-08-06). NOT used for 239/240/241/242.x - re-audited
+    # 2026-08-09: the whole "Sonderweg/Sonderflaeche Fussgaenger" mandatory-
+    # path family (239, 240, 241, 242.1, 242.2) shows an ADULT+CHILD pair,
+    # not a single walking figure - see sym_ped_child() below, which a
+    # 2026-08-06 round should have used for those refs instead of this one.
     return f'''<circle cx="50" cy="30" r="7" fill="{color}"/>
   <rect x="44" y="38" width="12" height="20" rx="5" fill="{color}"/>
   <path d="M46 42 L34 50 M54 42 L64 36" stroke="{color}" stroke-width="5" stroke-linecap="round"/>
   <path d="M46 56 L36 76 M54 56 L62 72" stroke="{color}" stroke-width="5.5" stroke-linecap="round"/>'''
 
+def sym_ped_child(color="#000"):
+    # 239 Sonderweg Fussgaenger / 240 gemeinsamer Geh- und Radweg / 241
+    # getrennter Rad- und Gehweg / 242.1/242.2 Fussgaengerzone: the real
+    # pictogram for this whole family is an ADULT holding a CHILD's hand,
+    # not a single walking figure (WebSearch-confirmed 2026-08-09: "Das
+    # runde Verkehrszeichen zeigt 2 Personen in Weiss, einen Erwachsenen und
+    # ein Kind in Bewegung" - also directly visible in the official ADAC
+    # brochure, p.6). Adult on the left (taller, skirt-like lower body to
+    # read distinctly as the "adult" figure per the real pictogram's
+    # convention), smaller child on the right holding hands.
+    adult = f'''<circle cx="30" cy="26" r="7" fill="{color}"/>
+  <path d="M24 36 L20 62 L28 62 L30 48 L32 62 L40 62 L36 36 Z" fill="{color}"/>
+  <path d="M30 40 L42 46" stroke="{color}" stroke-width="4.5" stroke-linecap="round"/>'''
+    child = f'''<circle cx="62" cy="46" r="5.5" fill="{color}"/>
+  <rect x="57" y="53" width="11" height="14" rx="4" fill="{color}"/>
+  <path d="M58 67 L52 80 M67 67 L73 80" stroke="{color}" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M58 57 L47 47" stroke="{color}" stroke-width="4" stroke-linecap="round"/>'''
+    return adult + child
+
 def sym_horse_rider(color="#000"):
-    # 257-51/238/242: a horse-and-rider silhouette, redrawn again 2026-08-06
-    # (the second attempt still read as a llama/table, not a horse) with
-    # classic, unambiguous proportions: a rounded barrel-shaped body, a
-    # neck that arcs up and forward to a compact head with ONE small
-    # pointed ear (not a wedge that reads as a second horn/ear), a
-    # gently curved tail off the back, four THIN straight legs (not thick
-    # blocks) ending in small hoof marks for a clear "standing horse"
-    # silhouette, and a rider sitting properly ON TOP of the body (round
-    # head + short torso + one bent leg draping down the horse's side),
-    # not hunched over the neck.
-    body = f'<ellipse cx="46" cy="56" rx="24" ry="13" fill="{color}"/>'
-    neck_head = (
-        f'<path d="M64 50 Q74 44 76 33 Q77 27 72 24 Q68 22 65 26 '
-        f'Q62 30 63 36 Q58 40 60 48 Z" fill="{color}"/>'
-    )
-    ear = f'<path d="M69 25 L67 17 L74 22 Z" fill="{color}"/>'
-    tail = f'<path d="M23 48 Q13 46 11 56 Q13 64 21 62 Q17 55 23 48 Z" fill="{color}"/>'
+    # 257-51/238: a horse-and-rider silhouette, redrawn a FOURTH time
+    # 2026-08-09 (BACKLOG's own history: earlier organic-curve attempts kept
+    # reading as "a llama/table" or "a dog/donkey" even after their own
+    # render checks - this project's standing lesson that curvy hand-tuned
+    # bezier silhouettes are hard to get right without many render/inspect
+    # cycles). This version deliberately uses simple, blocky, kid's-drawing
+    # geometry instead: a rounded-rectangle barrel body, a STRAIGHT tapering
+    # polygon wedge (not a multi-curve path) for the neck+head ending in a
+    # clearly pointed nose, jagged mane teeth along the neck's top edge (a
+    # concrete visual cue a "dog" silhouette lacks), 4 straight legs evenly
+    # spaced directly under the body (kept simple rather than angled, since
+    # angling was tried before and the head/neck shape - not the legs - was
+    # the actual repeat failure point), and a distinctly separate rider
+    # (round head clearly floating above the horse's back, short torso,
+    # one leg) so the two silhouettes don't visually merge into one blob.
+    body = f'<rect x="14" y="52" width="44" height="20" rx="10" fill="{color}"/>'
+    # A SHORT, thick neck (a stroke, not a big filled wedge - an earlier
+    # attempt's oversized wedge read as a paper airplane/flag; a longer
+    # thin neck after that read as a giraffe) rising only slightly above
+    # the body line to a small head - horses carry their head roughly
+    # level with/just above the back, not high up like a giraffe.
+    neck = f'<path d="M48 56 Q55 44 62 38" stroke="{color}" stroke-width="13" fill="none" stroke-linecap="round"/>'
+    head = f'<ellipse cx="67" cy="35" rx="8.5" ry="6.5" fill="{color}"/>'
+    snout = f'<polygon points="73,33 86,36 73,40" fill="{color}"/>'
+    ear = f'<path d="M64 30 L62 21 L70 26 Z" fill="{color}"/>'
+    tail = f'<path d="M15 54 Q6 52 6 64 Q9 72 16 68" stroke="{color}" stroke-width="6" fill="none" stroke-linecap="round"/>'
     legs = (
-        f'<path d="M28 66 L25 86" stroke="{color}" stroke-width="5" stroke-linecap="round"/>'
-        f'<path d="M38 68 L36 86" stroke="{color}" stroke-width="5" stroke-linecap="round"/>'
-        f'<path d="M54 68 L56 86" stroke="{color}" stroke-width="5" stroke-linecap="round"/>'
-        f'<path d="M64 66 L67 86" stroke="{color}" stroke-width="5" stroke-linecap="round"/>'
+        f'<rect x="19" y="70" width="7" height="20" rx="2" fill="{color}"/>'
+        f'<rect x="33" y="70" width="7" height="20" rx="2" fill="{color}"/>'
+        f'<rect x="45" y="70" width="7" height="20" rx="2" fill="{color}"/>'
+        f'<rect x="57" y="70" width="7" height="20" rx="2" fill="{color}"/>'
     )
-    hooves = (
-        f'<rect x="21" y="84" width="8" height="4" rx="1" fill="{color}"/>'
-        f'<rect x="32" y="84" width="8" height="4" rx="1" fill="{color}"/>'
-        f'<rect x="52" y="84" width="8" height="4" rx="1" fill="{color}"/>'
-        f'<rect x="63" y="84" width="8" height="4" rx="1" fill="{color}"/>'
-    )
-    rider_head = f'<circle cx="49" cy="30" r="7.5" fill="{color}"/>'
-    rider_torso = f'<path d="M44 36 Q42 44 44 53 L54 53 Q55 44 53 37 Z" fill="{color}"/>'
-    rider_leg = f'<path d="M45 50 Q40 56 41 64" stroke="{color}" stroke-width="4.5" fill="none" stroke-linecap="round"/>'
-    return body + neck_head + ear + tail + legs + hooves + rider_head + rider_torso + rider_leg
+    rider_head = f'<circle cx="32" cy="34" r="7.5" fill="{color}"/>'
+    rider_torso = f'<rect x="27" y="41" width="11" height="16" rx="4" fill="{color}"/>'
+    rider_leg = f'<path d="M29 55 Q24 62 26 70" stroke="{color}" stroke-width="5" fill="none" stroke-linecap="round"/>'
+    return body + neck + head + snout + ear + tail + legs + rider_head + rider_torso + rider_leg
 
 def sym_moped(color="#000"):
     # 257-50 Verbot fuer Mofas: matches the real Zeichen 257-50 pictogram
@@ -702,10 +778,15 @@ def sym_length(n="10m"):
     # ruler bar with no vehicle at all (ADAC-brochure audit finding
     # 2026-08-06).
     truck = f'<g transform="translate(10,-14) scale(0.85)">{sym_truck("#000")}</g>'
-    arrow = '''<line x1="18" y1="84" x2="82" y2="84" stroke="#000" stroke-width="3.5"/>
-  <polygon points="18,84 28,78 28,90" fill="#000"/>
-  <polygon points="82,84 72,78 72,90" fill="#000"/>'''
-    text = f'<text x="50" y="74" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#000" text-anchor="middle">{n}</text>'
+    # Fixed 2026-08-09 (user-reported text/arrow placement): the arrow at
+    # y=84 spanning x=18-82 was wider than the circle's actual interior at
+    # that height (a circle narrows fast near its bottom edge), and sat
+    # right against the text above it - moved up and narrowed to fit, with
+    # the text nudged up to keep a clear gap.
+    arrow = '''<line x1="22" y1="79" x2="78" y2="79" stroke="#000" stroke-width="3.5"/>
+  <polygon points="22,79 30,73 30,85" fill="#000"/>
+  <polygon points="78,79 70,73 70,85" fill="#000"/>'''
+    text = f'<text x="50" y="68" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#000" text-anchor="middle">{n}</text>'
     return truck + arrow + text
 
 def sym_snow_chain():
@@ -747,12 +828,20 @@ def sym_house_car():
     # may use the whole street, cars must go at walking pace", which needs
     # a visible pedestrian alongside the car (catalog-audit finding
     # 2026-08-06: previous version omitted any pedestrian figure entirely).
-    # Reuses the shared sym_pedestrian() helper, scaled down and placed in
-    # the "street" area between the house and the car.
-    house = '''<polygon points="24,42 24,60 42,60 42,42 33,32" fill="#fff"/>'''
-    car = '''<rect x="52" y="48" width="30" height="14" rx="4" fill="#fff"/><circle cx="59" cy="64" r="4" fill="#0058a3"/><circle cx="75" cy="64" r="4" fill="#0058a3"/>'''
-    ped = f'<g transform="translate(34,60) scale(0.36)">{sym_pedestrian(color="#fff")}</g>'
-    return house + car + ped
+    # RE-AUDITED 2026-08-09 against the official ADAC brochure (p.10):
+    # confirmed the real pictogram ALSO includes a small child playing with
+    # a ball at the bottom (this specific detail - children may play in the
+    # street - is part of what "verkehrsberuhigt" actually permits, and was
+    # still missing after the 2026-08-06 round). Added a small child+ball
+    # glyph bottom-centre, and enlarged/repositioned the pedestrian to the
+    # left edge to better match the real layout (pedestrian left, car top,
+    # house top-right, child+ball bottom).
+    house = '''<polygon points="66,20 66,36 84,36 84,20 75,10" fill="#fff"/>'''
+    car = '''<rect x="38" y="26" width="28" height="13" rx="4" fill="#fff"/><circle cx="45" cy="41" r="3.5" fill="#0058a3"/><circle cx="59" cy="41" r="3.5" fill="#0058a3"/>'''
+    ped = f'<g transform="translate(8,28) scale(0.46)">{sym_pedestrian(color="#fff")}</g>'
+    child = f'<g transform="translate(46,54) scale(0.3)">{sym_pedestrian(color="#fff")}</g>'
+    ball = '<circle cx="66" cy="82" r="4.5" fill="#fff"/>'
+    return house + car + ped + child + ball
 
 def sym_deadend():
     return '''<line x1="50" y1="22" x2="50" y2="62" stroke="#000" stroke-width="6"/>
@@ -878,27 +967,51 @@ def sym_arrow_straight_and_right(color="#fff"):
 
 def sym_arrow_bypass_right(color="#fff"):
     # 222 Vorgeschriebene Vorbeifahrt (Hindernis nur auf angezeigter Seite
-    # vorbei): real sign shows a bold arrow angled DIAGONALLY down-and-
-    # around, directing traffic past an obstacle on this side - a smooth
-    # diagonal sweep from upper-left to lower-right, not a right-angle
-    # "L" bend (catalog-audit finding 2026-08-06: previous geometry was a
-    # vertical drop followed by a 90-degree corner, which read as an L,
-    # not a diagonal bypass arrow).
+    # vorbei): real sign shows a bold, perfectly STRAIGHT diagonal arrow
+    # from upper-left to lower-right - re-audited 2026-08-09 against the
+    # official ADAC brochure (p.6): the real pictogram's shaft has no
+    # curve/bend at all, unlike the smooth curved sweep a 2026-08-06 round
+    # drew (that round correctly fixed an earlier right-angle "L" bend, but
+    # over-corrected into a curve instead of landing on the real sign's
+    # plain straight diagonal).
     shaft = (
-        f'<path d="M24 22 Q28 56 60 72" stroke="{color}" stroke-width="10" '
-        f'fill="none" stroke-linecap="round"/>'
+        f'<line x1="24" y1="22" x2="64" y2="68" stroke="{color}" stroke-width="10" '
+        f'stroke-linecap="round"/>'
     )
-    head = f'<polygon points="76,80 54,82 62,64" fill="{color}"/>'
+    head = f'<polygon points="80,76 56,80 66,60" fill="{color}"/>'
     return shaft + head
 
 def sym_tunnel_shape():
-    return '<path d="M20 74 L20 46 Q20 22 50 22 Q80 22 80 46 L80 74" fill="none" stroke="#fff" stroke-width="6"/>'
+    # 327 Tunnel: re-audited 2026-08-09 against the official ADAC brochure
+    # (p.10) - the real sign shows a SOLID black tunnel-arch silhouette
+    # (an arched entrance shape, brick/arch texture implied by its solid
+    # fill) sitting inside a white inset panel within the blue square
+    # border - not a bare white outline arch directly on the blue
+    # background (a previous version's outline-only arch didn't read as a
+    # solid tunnel mouth).
+    panel = '<rect x="14" y="14" width="72" height="72" rx="3" fill="#fff"/>'
+    arch = '<path d="M24 78 L24 48 Q24 20 50 20 Q76 20 76 48 L76 78 Z" fill="#000"/>'
+    return panel + arch
 
 def sym_breakdown_h():
     return '<text x="50" y="66" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#fff" text-anchor="middle">H</text>'
 
 def sym_taxi_text():
-    return '<text x="50" y="60" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#fff" text-anchor="middle">TAXI</text>'
+    # 229 Taxenstand: re-audited 2026-08-09 against the official ADAC
+    # brochure (p.6) - the real sign is NOT just white "TAXI" text on a
+    # blue square. It carries the standard red "reserved, no parking for
+    # others" ring-with-cross symbol (same family as 283/286's prohibition
+    # rings) above the "TAXI" text, since the sign reserves the space for
+    # taxis and prohibits everyone else from stopping there - a bare "TAXI"
+    # label alone (this file's previous version) omits that defining
+    # pictogram entirely.
+    ring = '<circle cx="50" cy="34" r="18" fill="none" stroke="#c0272d" stroke-width="5"/>'
+    cross = (
+        '<line x1="39" y1="23" x2="61" y2="45" stroke="#c0272d" stroke-width="5" stroke-linecap="round"/>'
+        '<line x1="61" y1="23" x2="39" y2="45" stroke="#c0272d" stroke-width="5" stroke-linecap="round"/>'
+    )
+    text = '<text x="50" y="76" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">TAXI</text>'
+    return ring + cross + text
 
 def sym_bike_dismount():
     return sym_bicycle().replace('fill="none" stroke="#fff"', 'fill="none" stroke="#000"') + '<line x1="18" y1="82" x2="82" y2="18" stroke="#c0272d" stroke-width="7"/>'
@@ -907,8 +1020,13 @@ def sym_bike_dismount():
 
 # ==== Batch A (Gefahrzeichen) icon helpers ====
 def symA_curve():
-    # 103 Kurve (rechts): simple curved road-band bending right
-    return '<path d="M25 78 C25 40 45 24 82 24" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round"/>'
+    # 103 Kurve (rechts): simple curved road-band bending right. Fixed
+    # 2026-08-09 (user-reported): the curve's upper-right end (82,24) sat far
+    # outside the triangle's actual interior at that height (the triangle
+    # narrows sharply near its apex), so the black line visibly crossed the
+    # red border - end point pulled in to stay inside at every height along
+    # the curve, not just checked at the start.
+    return '<path d="M25 78 C25 54 38 36 58 34" stroke="#000" stroke-width="8" fill="none" stroke-linecap="round"/>'
 
 def symA_double_curve():
     # 105 Doppelkurve: the plain (un-suffixed) Zeichen 105 is officially
@@ -921,7 +1039,11 @@ def symA_double_curve():
     # Drawn as a single ribbon-like road-band with two distinct bends (first
     # right, then left - a real "S"/zigzag), not one smooth uninterrupted
     # diagonal sweep (ADAC-brochure audit finding 2026-08-06).
-    return '<path d="M32 80 C32 62 58 62 58 48 C58 34 32 34 32 20" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>'
+    # Fixed 2026-08-09 (user-reported): the top end (32,20) sat well outside
+    # the triangle's interior at that height (too close to the narrow apex),
+    # crossing the red border - pulled the top bend inward/lower to stay
+    # clear of the border at every point.
+    return '<path d="M32 80 C32 64 55 64 55 50 C55 38 46 33 46 28" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>'
 
 def symA_gefaelle(pct="10"):
     # 108 Gefaelle: real pictogram is a SOLID filled black wedge - flat
@@ -929,47 +1051,79 @@ def symA_gefaelle(pct="10"):
     # point on the upper-left down to the bottom-right corner - not just an
     # outline (ADAC-brochure audit finding 2026-08-06: previous version only
     # drew the outline, leaving the wedge unfilled/white).
-    return f'''<polygon points="18,76 82,76 30,46" fill="#000"/>
-  <text x="58" y="36" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
+    # Widened the margin from the border 2026-08-09 (user-reported): the
+    # wedge's base corners sat only ~3 units from the triangle's actual
+    # inner edge at that height - pulled in a bit more for a comfortable gap.
+    return f'''<polygon points="22,74 78,74 32,48" fill="#000"/>
+  <text x="58" y="38" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
 
 def symA_steigung(pct="10"):
     # 110 Steigung: mirror of symA_gefaelle - solid filled black wedge with
     # a flat bottom and a diagonal rising from the bottom-left corner up to
     # a point on the upper-right (same solid-fill fix as 108 - ADAC-brochure
-    # audit finding 2026-08-06).
-    return f'''<polygon points="18,76 82,76 70,46" fill="#000"/>
-  <text x="42" y="36" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
+    # audit finding 2026-08-06). Margin widened 2026-08-09, same reason/fix
+    # as symA_gefaelle above.
+    return f'''<polygon points="22,74 78,74 68,48" fill="#000"/>
+  <text x="42" y="38" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
 
 def symA_uneven():
-    # 112 Unebene Fahrbahn: real pictogram is a flat baseline with two
-    # compact bumps sitting on it, not a full-width smooth sine wave
-    # (ADAC-brochure audit finding 2026-08-06).
-    return '''<line x1="20" y1="74" x2="80" y2="74" stroke="#000" stroke-width="6" stroke-linecap="round"/>
-  <path d="M32 74 Q38 56 46 74" stroke="#000" stroke-width="6" fill="none" stroke-linecap="round"/>
-  <path d="M50 74 Q58 52 68 74" stroke="#000" stroke-width="6" fill="none" stroke-linecap="round"/>'''
+    # 112 Unebene Fahrbahn: re-audited 2026-08-09 against the official ADAC
+    # brochure (p.4) - the real pictogram is a single continuous irregular
+    # mound/ridge silhouette sitting directly on the triangle's own bottom
+    # edge (a filled bumpy hill shape, not a separate straight baseline
+    # stroke with two detached bump-arcs floating above it - a 2026-08-06
+    # round's version still read as "two arches on a shelf" rather than one
+    # uneven road surface).
+    return '<path d="M18 82 L18 76 Q26 60 34 76 Q40 64 46 76 Q54 58 62 76 Q70 66 76 76 L82 76 L82 82 Z" fill="#000"/>'
 
 def symA_skid():
-    # 114 Schleuder- oder Rutschgefahr: car silhouette with skid-mark curves
-    return '''<rect x="34" y="46" width="34" height="14" rx="5" fill="#000"/><circle cx="42" cy="62" r="4" fill="#000"/><circle cx="60" cy="62" r="4" fill="#000"/>
-  <path d="M20 76 Q40 62 60 76" stroke="#000" stroke-width="5" fill="none" stroke-linecap="round"/>
-  <path d="M30 82 Q50 70 70 82" stroke="#000" stroke-width="5" fill="none" stroke-linecap="round"/>'''
+    # 114 Schleuder- oder Rutschgefahr: re-audited 2026-08-09 against the
+    # official ADAC brochure (p.4) - the real pictogram's single most
+    # defining visual cue is that the CAR ITSELF is drawn skewed/rotated
+    # (as if it has spun sideways), not sitting square and level - a
+    # previous version's perfectly level, unrotated car silhouette lost
+    # that cue entirely and could read as a generic "slippery road" icon
+    # with no car-specific skid. Car silhouette + wheels now sit inside a
+    # <g transform="rotate(...)"> so the whole car is visibly canted,
+    # matching the real sign, with the same two skid-mark curves trailing
+    # behind it.
+    car = ('<g transform="rotate(-18 46 55)">'
+           '<rect x="34" y="46" width="34" height="14" rx="5" fill="#000"/>'
+           '<circle cx="42" cy="62" r="4" fill="#000"/><circle cx="60" cy="62" r="4" fill="#000"/>'
+           '</g>')
+    skids = ('<path d="M18 74 Q40 60 62 74" stroke="#000" stroke-width="5" fill="none" stroke-linecap="round"/>'
+             '<path d="M26 82 Q48 70 70 82" stroke="#000" stroke-width="5" fill="none" stroke-linecap="round"/>')
+    return car + skids
 
 def symA_crosswind():
-    # 117 Seitenwind: pole with a STRIPED pennant/windsock blown sideways and
-    # drooping - 3 dark stripe bands with gaps, not a solid black triangle
-    # (catalog-audit DN-46 finding, 2026-08-06).
-    return '''<line x1="30" y1="30" x2="30" y2="82" stroke="#000" stroke-width="5"/>
-  <path d="M30 36 L43.4 43.8 L43.4 55.4 L30 52 Z" fill="#000"/>
-  <path d="M48.2 46.6 L61.7 54.5 L61.7 59.9 L48.2 56.6 Z" fill="#000"/>
-  <path d="M66.5 57.3 L78 64 L66.5 61.1 Z" fill="#000"/>'''
+    # 117 Seitenwind: RE-AUDITED 2026-08-09 against the official ADAC
+    # brochure (p.4) - the real pictogram is a single continuous tapering
+    # windsock CONE (wide where it attaches to the pole, narrowing smoothly
+    # to a point, with a slight downward droop from gravity/wind), not a
+    # row of disconnected shrinking triangle segments (a 2026-08-06 round's
+    # version, which still didn't read as a windsock once rendered - it
+    # looked like a torn flag). One continuous filled silhouette for the
+    # outer shape, with two thin white gap-lines layered on top for the
+    # classic banded-windsock texture cue, so the outline itself (the part
+    # that actually has to read as "a windsock") stays a single smooth
+    # taper.
+    pole = '<line x1="28" y1="18" x2="28" y2="82" stroke="#000" stroke-width="5"/>'
+    cone = '<path d="M28 26 C46 22 64 28 80 46 C64 44 46 46 28 40 Z" fill="#000"/>'
+    bands = (
+        '<line x1="38" y1="27.3" x2="41" y2="39.8" stroke="#fff" stroke-width="2"/>'
+        '<line x1="54" y1="30.3" x2="56" y2="42.3" stroke="#fff" stroke-width="2"/>'
+    )
+    return pole + cone + bands
 
 def symA_narrow_one_side():
     # 121 einseitig verengte Fahrbahn (rechts): left edge unaffected, right
     # edge angles inward - bold SOLID black road-edge silhouettes to match
     # 120's style, not thin wireframe lines (WebSearch-verified 2026-08-05
     # user-reported design flaw - too basic previously).
-    return '''<line x1="28" y1="28" x2="28" y2="80" stroke="#000" stroke-width="11" stroke-linecap="round"/>
-  <path d="M78 28 L78 56 L54 80" stroke="#000" stroke-width="11" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'''
+    # Fixed 2026-08-09 (user-reported): both top ends (28,28)/(78,28) sat
+    # outside the triangle's interior at that height - moved down/inward.
+    return '''<line x1="36" y1="44" x2="36" y2="80" stroke="#000" stroke-width="11" stroke-linecap="round"/>
+  <path d="M64 44 L64 58 L48 80" stroke="#000" stroke-width="11" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'''
 
 def symA_stau():
     # 124 Stau: THREE car-rear-view silhouettes (a wide low body with a
@@ -992,8 +1146,11 @@ def symA_oncoming():
     # 125 Gegenverkehr: official pictogram is a DOWN arrow on the left and
     # an UP arrow on the right - the previous version had this backwards
     # (ADAC-brochure audit finding 2026-08-06).
-    return '''<path d="M30 30 L30 78 L22 68 M30 78 L38 68" stroke="#000" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M70 78 L70 30 L62 40 M70 30 L78 40" stroke="#000" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'''
+    # Fixed 2026-08-09 (user-reported): both arrow tails (30,30)/(70,30) and
+    # the right arrow's barb (78,40) sat outside the triangle's interior at
+    # that height - shortened both arrows and pulled the barbs inward.
+    return '''<path d="M38 42 L38 78 L30 68 M38 78 L46 68" stroke="#000" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62 78 L62 42 L54 52 M62 42 L68 52" stroke="#000" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'''
 
 def symA_traffic_light():
     # 131 Lichtzeichenanlage: schematic traffic-light column with the 3
@@ -1011,18 +1168,41 @@ def symA_radverkehr():
     return sym_bicycle().replace('stroke="#fff"', 'stroke="#000"')
 
 def symA_wildlife():
-    # 142 Wildwechsel: recognizable leaping-deer silhouette - a single
-    # continuous body-to-neck-to-head shape (not a plain oval blob), legs
-    # bent/kicked out fore-and-aft in a mid-leap pose, a small tail, and a
-    # distinct forked-antler pair on the head - schematic/original, not
-    # photorealistic, but readable as a deer (ADAC-brochure audit finding
-    # 2026-08-06: previous version was an oval + straight "antenna" lines).
-    return '''<path d="M20 56 Q42 28 70 34" stroke="#000" stroke-width="13" fill="none" stroke-linecap="round"/>
-  <circle cx="75" cy="30" r="6" fill="#000"/>
-  <path d="M74 24 L68 14 M78 23 L84 15" stroke="#000" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-  <path d="M62 36 L70 56 M70 32 L80 50" stroke="#000" stroke-width="5.5" fill="none" stroke-linecap="round"/>
-  <path d="M26 52 L16 70 M34 48 L28 70" stroke="#000" stroke-width="5.5" fill="none" stroke-linecap="round"/>
-  <path d="M18 56 L8 52" stroke="#000" stroke-width="4" fill="none" stroke-linecap="round"/>'''
+    # 142 Wildwechsel: redrawn a FOURTH time 2026-08-09 (user-reported: "the
+    # animal looks weird," independently confirmed - the 3rd attempt's legs
+    # were straight lines splayed outward at odd angles, more spider-like
+    # than deer-like, and the antlers read as a disconnected zigzag floating
+    # above the head with no clear attachment). This version: a thicker
+    # neck stroke (13, up from 11) that visibly overlaps both the body and
+    # head ellipses so there's no visible seam/gap at the joins, a small
+    # simplified two-prong antler tucked close against the head rather than
+    # a tall zigzag, and legs bent at a "knee" (front legs bending forward,
+    # back legs bending back) instead of straight diagonals, since a real
+    # leaping animal's legs are never poker-straight.
+    # 5th attempt, same session: switched the neck from a thin stroke (read
+    # as giraffe-like/too long) to a filled tapering wedge merged directly
+    # with the body via one path, antlers splayed outward in a V (a
+    # straight-up pair read as bug antennae, not antlers), and straight
+    # (not bent) legs at a running angle, since the bent-knee version's
+    # extra joints read as broken/disjointed rather than animal-like.
+    body = '<ellipse cx="38" cy="58" rx="20" ry="8" fill="#000"/>'
+    neck = '<path d="M50 56 Q58 44 66 34 Q69 30 74 30 L74 37 Q67 43 58 55 Q54 59 48 59 Z" fill="#000"/>'
+    head = '<ellipse cx="76" cy="28" rx="6" ry="5" fill="#000"/>'
+    snout = '<polygon points="81,27 90,29 81,31" fill="#000"/>'
+    antlers = (
+        '<path d="M72 24 L65 16 M80 24 L87 17" '
+        'stroke="#000" stroke-width="2.8" fill="none" stroke-linecap="round"/>'
+    )
+    tail = '<path d="M18 53 L10 49" stroke="#000" stroke-width="5" stroke-linecap="round"/>'
+    front_legs = (
+        '<path d="M52 64 L60 78" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
+        '<path d="M60 63 L70 78" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
+    )
+    back_legs = (
+        '<path d="M24 64 L16 78" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
+        '<path d="M32 64 L26 79" stroke="#000" stroke-width="6" stroke-linecap="round"/>'
+    )
+    return body + neck + head + snout + antlers + tail + front_legs + back_legs
 
 def symA_ped_crossing_warn():
     # 101-21: warning-triangle version of the pedestrian-crossing pictogram
@@ -1049,18 +1229,34 @@ def symA_falling_rocks():
   <path d="M22 64 L28 72 L22 78 L16 70 Z" fill="#000"/>'''
 
 def symA_bake3_body():
-    # 156 Bahnuebergang mit Bake, 3-streifig: this is NOT a Gefahrzeichen
-    # triangle - it's a distinct StVO sign family (Bake, Anlage 1 lfd. Nr.
-    # under Zeichen 156), a narrow white rectangular post/plate with three
-    # red diagonal stripes, placed ~240m before an unguarded railway
-    # crossing (2-stripe/1-stripe Baken follow closer to the crossing).
-    # Rendered as its own standalone SVG body, not via triangle_warning().
-    return '''
-  <rect x="30" y="4" width="40" height="92" fill="#fff" stroke="#000" stroke-width="2"/>
-  <path d="M30 24 L70 8" stroke="#c0272d" stroke-width="9"/>
-  <path d="M30 50 L70 34" stroke="#c0272d" stroke-width="9"/>
-  <path d="M30 76 L70 60" stroke="#c0272d" stroke-width="9"/>
+    # 156 Bahnuebergang mit Bake, 3-streifig: a distinct StVO sign family
+    # (Bake, Anlage 1) - a narrow white post with three red diagonal
+    # stripes, placed ~240m before an unguarded railway crossing (2-stripe/
+    # 1-stripe Baken follow closer to the crossing). RE-AUDITED 2026-08-09
+    # against the official ADAC brochure (p.4): the real 156 also carries a
+    # SMALL triangular warning-sign icon (the same train pictogram as 151)
+    # mounted on top of the striped post - a previous version drew only the
+    # bare striped post with no triangle at all, missing that defining
+    # element (159/162, the closer 2-stripe/1-stripe Baken, correctly have
+    # no triangle - only 156, the first one in the sequence, carries it).
+    triangle = (
+        '<polygon points="50,2 67,29 33,29" fill="#fff" stroke="#c0272d" '
+        'stroke-width="4" stroke-linejoin="round"/>'
+        # sym_train()'s own bbox is roughly x14-78 (center 46), y28-85
+        # (center 56.5) - scaled by 0.26 and translated so that center
+        # lands in the middle of the small triangle above (center 50,15.5).
+        # An earlier attempt's translate math put this entirely off-canvas
+        # above the triangle (negative y) - caught by re-rendering and
+        # actually looking, not just trusting the transform arithmetic.
+        f'<g transform="translate(38,1) scale(0.26)">{sym_train()}</g>'
+    )
+    post = '''
+  <rect x="34" y="33" width="32" height="63" fill="#fff" stroke="#000" stroke-width="2"/>
+  <path d="M34 47 L66 35" stroke="#c0272d" stroke-width="7"/>
+  <path d="M34 67 L66 55" stroke="#c0272d" stroke-width="7"/>
+  <path d="M34 87 L66 75" stroke="#c0272d" stroke-width="7"/>
 '''
+    return triangle + post
 
 # ---- registry: ref -> svg body --------------------------------------------
 
@@ -1070,17 +1266,18 @@ def symB_bicycle_black():
     return sym_bicycle().replace('stroke="#fff"', 'stroke="#000"')
 
 def symB_priority_arrows():
-    # Zeichen 308 Vorrang vor dem Gegenverkehr: the real sign shows a BOLD
-    # dark/black arrow for your own (priority) direction pointing UP, and a
-    # THINNER red arrow for oncoming traffic (which must yield) pointing
-    # DOWN - a previous version had the colours/weights swapped (a thin
-    # white own-direction arrow next to an equally-thick red oncoming
-    # arrow), which reads backwards versus the real sign (catalog-audit
-    # finding 2026-08-06).
+    # Zeichen 308 Vorrang vor dem Gegenverkehr: RE-AUDITED 2026-08-09
+    # against the official ADAC brochure (p.6) - the real sign shows a RED
+    # arrow pointing DOWN on the LEFT (oncoming traffic, which must yield)
+    # and a WHITE arrow pointing UP on the RIGHT (your own, priority
+    # direction), both roughly the same bold weight. A 2026-08-06 round's
+    # "fix" got both the colour (used near-black "#1a1a1a" instead of white
+    # for the own-direction arrow, which reads wrong against this sign's
+    # blue background) and the left/right position backwards.
     return '''
-  <path d="M32 78 L32 26 L20 40 M32 26 L44 40" stroke="#1a1a1a" stroke-width="10"
+  <path d="M32 24 L32 76 L20 62 M32 76 L44 62" stroke="#c0272d" stroke-width="8"
         fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M68 24 L68 72 L61 63 M68 72 L75 63" stroke="#c0272d" stroke-width="5"
+  <path d="M68 76 L68 24 L56 38 M68 24 L80 38" stroke="#fff" stroke-width="8"
         fill="none" stroke-linecap="round" stroke-linejoin="round"/>
 '''
 
@@ -1097,22 +1294,19 @@ def symC_bus_lane():
     return bus + lane
 
 def symB_bike_ped_split():
-    # Zeichen 241 getrennter Rad- und Gehweg: pedestrian pictogram on the
-    # LEFT, bicycle pictogram on the RIGHT, divided by a VERTICAL line - this
-    # is the feature that actually distinguishes 241 from 240 (which stacks
-    # the same two icons top/bottom with a HORIZONTAL line instead, see
-    # sym_ped_bike_stack). Previous version had this backwards - stacked
-    # top/bottom with a horizontal line, indistinguishable from 240
-    # (WebSearch-verified 2026-08-05 user-reported design flaw).
-    return '''
-  <circle cx="24" cy="34" r="6" fill="#fff"/>
-  <rect x="18" y="41" width="12" height="17" rx="3" fill="#fff"/>
-  <path d="M18 58 L12 74 M30 58 L36 74" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-  <line x1="50" y1="14" x2="50" y2="90" stroke="#fff" stroke-width="3"/>
-  <circle cx="66" cy="66" r="8" fill="none" stroke="#fff" stroke-width="3.5"/>
-  <circle cx="84" cy="66" r="8" fill="none" stroke="#fff" stroke-width="3.5"/>
-  <path d="M66 66 L75 44 L84 66 M75 44 L71 66" stroke="#fff" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
-'''
+    # Zeichen 241 getrennter Rad- und Gehweg: RE-AUDITED 2026-08-09 against
+    # the official ADAC brochure (p.6) - bicycle pictogram on the LEFT,
+    # adult+child pedestrian pair on the RIGHT, divided by a VERTICAL line.
+    # A 2026-08-05 round correctly identified that 241 needs a vertical
+    # divider (as opposed to 240's horizontal one, see sym_ped_bike_stack)
+    # but put a single pedestrian on the left / bicycle on the right - both
+    # backwards versus the real sign, and using the wrong pedestrian
+    # pictogram (single figure, not adult+child - same family-wide mistake
+    # as 239/240/242.x, see sym_ped_child()).
+    bike = f'<g transform="translate(-8,4) scale(0.5)">{sym_bicycle(color="#fff")}</g>'
+    divider = '<line x1="50" y1="14" x2="50" y2="90" stroke="#fff" stroke-width="3"/>'
+    ped = f'<g transform="translate(46,-4) scale(0.46)">{sym_ped_child(color="#fff")}</g>'
+    return bike + divider + ped
 
 def symB_min_distance(n="70m"):
     # Zeichen 273 Mindestabstand: two boxier truck (cab+trailer) silhouettes
@@ -1168,16 +1362,25 @@ def symC_hiker_park():
     # 317 Wandererparkplatz: P plus a hiking-figure pictogram (head, torso,
     # backpack, walking stick, striding legs) - the real sign shows a
     # hiker, not a pine tree (catalog-audit finding 2026-08-06: previous
-    # version drew two stacked triangles for a tree).
-    p = sym_P(x=28, y=64, size=34)
+    # version drew two stacked triangles for a tree). Re-audited 2026-08-09
+    # against the official ADAC brochure (p.10): the real pictogram shows
+    # TWO hikers side by side, not one - added a second, smaller figure
+    # just behind/right of the first.
+    p = sym_P(x=24, y=64, size=30)
     hiker = '''
-  <circle cx="66" cy="26" r="6" fill="#fff"/>
-  <rect x="61" y="33" width="11" height="18" rx="4" fill="#fff"/>
-  <rect x="58" y="36" width="8" height="12" rx="2" fill="#fff"/>
-  <path d="M61 37 L50 60" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
-  <path d="M63 51 L57 70 M70 51 L76 68" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="60" cy="26" r="6" fill="#fff"/>
+  <rect x="55" y="33" width="11" height="18" rx="4" fill="#fff"/>
+  <rect x="52" y="36" width="8" height="12" rx="2" fill="#fff"/>
+  <path d="M55 37 L44 60" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M57 51 L51 70 M64 51 L70 68" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
 '''
-    return p + hiker
+    hiker2 = '''
+  <circle cx="78" cy="32" r="5" fill="#fff"/>
+  <rect x="74" y="38" width="9" height="15" rx="3.5" fill="#fff"/>
+  <path d="M74 41 L66 58" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <path d="M76 53 L71 70 M81 53 L86 68" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/>
+'''
+    return p + hiker2 + hiker
 
 def symC_house_car_end():
     # 325.2 Ende verkehrsberuhigter Bereich: same pictogram as 325.1's
@@ -1294,16 +1497,28 @@ def symC_police_panel():
     return panel + text
 
 def symC_autohof():
-    # 448.1 Autohof mit Tankstelle und Uebernachtungsmoeglichkeit: a
-    # fuel-pump pictogram (reusing the shared sym_fuel_pump() helper, same
-    # as the 365-fuel service sign) side by side with a bed/lodging
-    # pictogram (reusing sym_bed()) - the previous version's plain
-    # rectangle-plus-nozzle and bare rectangle read as an ambiguous
-    # composition rather than clearly "fuel + lodging" (catalog-audit
-    # finding 2026-08-06).
-    fuel = f'<g transform="translate(-8,10) scale(0.65)">{sym_fuel_pump()}</g>'
-    bed = f'<g transform="translate(28,22) scale(0.65)">{sym_bed()}</g>'
-    return fuel + bed
+    # 448.1 Autohof: RE-AUDITED 2026-08-09 against the official ADAC
+    # brochure (p.16) - this is a NAVIGATION sign (same "Wegweiser zur
+    # Ausfahrt" family as 448 itself, just labelled "Autohof" instead of a
+    # destination name), not an amenity-icon sign. The real pictogram is
+    # the word "Autohof" plus a small motorway-junction arrow (main road
+    # continuing, with a branch peeling off toward the exit) and a small
+    # exit-number badge - fuel-pump/bed icons (a 2026-08-06 round's version)
+    # belong to the completely separate 365-fuel/365-rest service-facility
+    # signs, which this project already has correctly elsewhere and
+    # shouldn't have been duplicated here.
+    label = symC_text("Autohof", x=50, y=24, size=15, color="#fff")
+    junction = (
+        '<path d="M30 34 L30 66" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>'
+        '<path d="M30 50 L52 66" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>'
+        '<polygon points="58,70 44,68 50,58" fill="#fff"/>'
+    )
+    badge = (
+        '<circle cx="72" cy="46" r="13" fill="#fff"/>'
+        '<text x="72" y="51" font-family="Arial, sans-serif" font-size="14" font-weight="700" '
+        'fill="#0058a3" text-anchor="middle">27</text>'
+    )
+    return label + junction + badge
 
 def symC_breakdown_bay():
     # 328 Nothalte- und Pannenbucht: road line with a rectangular bay
@@ -1417,9 +1632,12 @@ def symD_priority_route():
     # Zeichen 1002 Verlauf der Vorfahrtstrasse: thick black line showing the
     # shape the priority road takes through the junction (here: straight,
     # then bending), plus a thin line for the crossing minor road.
+    # Fixed 2026-08-09 (user-reported): the vertical stem ran to y=85, well
+    # past the plate's own bottom border (the plate's visible interior only
+    # goes to about y=68) - rescaled the whole pictogram to fit inside.
     return '''
-  <path d="M10 40 L55 40 L55 85" stroke="#000" stroke-width="8" fill="none" stroke-linejoin="round"/>
-  <line x1="20" y1="70" x2="92" y2="70" stroke="#000" stroke-width="3"/>
+  <path d="M10 42 L55 42 L55 62" stroke="#000" stroke-width="8" fill="none" stroke-linejoin="round"/>
+  <line x1="20" y1="58" x2="85" y2="58" stroke="#000" stroke-width="3"/>
 '''
 
 def symD_caravan_skid():
@@ -1445,41 +1663,60 @@ def symD_bicycle_black_v2():
   <path d="M36 64 L50 40 L64 64 M50 40 L44 64 M50 48 L60 48" stroke="#000" stroke-width="4" fill="none" stroke-linejoin="round"/>'''
 
 def symD_bike_end():
-    # Zeichen 1012-31 Ende Radweg: bicycle icon with a grey diagonal line,
-    # matching this project's existing "end of ..." convention (grey, not
-    # red, since it marks a limit/end rather than a prohibition - see
-    # sym_speed_number_crossed / priority_road(crossed=True) elsewhere in
-    # generate_signs.py).
-    return symD_bicycle_black_v2() + '<line x1="18" y1="82" x2="82" y2="18" stroke="#8a8a8a" stroke-width="6"/>'
+    # Zeichen 1012-31: re-audited 2026-08-09 against the official ADAC
+    # brochure (p.20) - the real plate is simply the plain word "Ende" (a
+    # generic "end of the previous restriction/dedication" qualifier, not
+    # specifically about bicycles/Radweg) - no bicycle icon or diagonal
+    # line at all. A previous round's crossed-bicycle icon was the wrong
+    # content for this specific ref.
+    return symD_text("Ende", size=22)
 
 def symD_bike_dismount_walk():
-    # Zeichen 1012-32 Radfahrer absteigen: bicycle icon next to a small
-    # walking-figure pictogram (cyclist walking the bike, not riding it).
-    bike = '''<circle cx="26" cy="70" r="9" fill="none" stroke="#000" stroke-width="3.5"/>
-  <circle cx="50" cy="70" r="9" fill="none" stroke="#000" stroke-width="3.5"/>
-  <path d="M26 70 L38 48 L50 70 M38 48 L34 70 M38 54 L46 54" stroke="#000" stroke-width="3.5" fill="none" stroke-linejoin="round"/>'''
-    walker = '''<circle cx="76" cy="34" r="6" fill="#000"/>
-  <rect x="69" y="42" width="14" height="18" rx="4" fill="#000"/>
-  <path d="M69 60 L62 78 M83 60 L88 78" stroke="#000" stroke-width="4" stroke-linecap="round"/>'''
-    return bike + walker
+    # Zeichen 1012-32 Radfahrer absteigen: re-audited 2026-08-09 against
+    # the official ADAC brochure (p.20) - the real plate is plain two-line
+    # text "Radfahrer" / "absteigen", not a bicycle+walking-figure icon
+    # pair (a previous round's icon-based version was the wrong content
+    # type for this ref - matches this file's own already-correct text-only
+    # treatment of sibling plates like 1012-34 "Gruene Welle bei ... km/h").
+    return symD_text_lines(["Radfahrer", "absteigen"], size=15, start_y=46, dy=17)
 
 def symD_wheelchair_black():
     # Zeichen 1020-11 Parkverbot gilt nicht fuer Schwerbehinderte: the
     # standard, universally-recognised accessibility pictogram - a compact
     # seated figure (head + torso + forward arm) resting against a large
-    # wheel, with a small front caster - redrawn 2026-08-06 (a second time)
-    # to fit cleanly within the zusatzzeichen plate's interior (y 30-70)
-    # instead of overflowing above/below it, and to read as a wheelchair
-    # rather than an abstract loop-and-dot glyph.
-    head = '<circle cx="36" cy="37" r="5" fill="#000"/>'
-    torso = '<path d="M36 42 L37 50" stroke="#000" stroke-width="5" stroke-linecap="round"/>'
-    seat = '<path d="M37 50 L54 50" stroke="#000" stroke-width="5" stroke-linecap="round"/>'
-    arm = '<path d="M37 45 L49 55" stroke="#000" stroke-width="4" stroke-linecap="round"/>'
-    wheel = '<circle cx="51" cy="58" r="11" fill="none" stroke="#000" stroke-width="4"/>'
-    hub = '<circle cx="51" cy="58" r="2" fill="#000"/>'
-    caster = '<circle cx="66" cy="64" r="3" fill="#000"/>'
-    footrest = '<path d="M54 50 L66 64" stroke="#000" stroke-width="3" stroke-linecap="round"/>'
-    return head + torso + seat + arm + wheel + hub + footrest + caster
+    # wheel, with a small front caster. RE-AUDITED 2026-08-09 against the
+    # official ADAC brochure (p.20): the real plate is NOT the icon alone -
+    # it's a SMALL icon in the upper-left corner plus the qualifying text
+    # "mit Parkausweis ... frei" filling most of the plate, since the icon
+    # by itself would read as generic disabled-parking signage rather than
+    # this specific "exempted if you hold the permit" qualifier (a
+    # 2026-08-06 round's icon-only version, oversized and centered, omitted
+    # that essential text entirely).
+    # icon bbox in its own native coordinates is roughly x31-69,y32-69
+    # (center ~50,50) - scaled by 0.55 and translated so it lands fully
+    # inside the plate's left third (an earlier attempt's translate math
+    # pushed it up above the plate's top edge - caught by re-rendering and
+    # looking, not just trusting the transform arithmetic).
+    icon = f'<g transform="translate(-5,15) scale(0.55)">' + (
+        '<circle cx="36" cy="37" r="5" fill="#000"/>'
+        '<path d="M36 42 L37 50" stroke="#000" stroke-width="5" stroke-linecap="round"/>'
+        '<path d="M37 50 L54 50" stroke="#000" stroke-width="5" stroke-linecap="round"/>'
+        '<path d="M37 45 L49 55" stroke="#000" stroke-width="4" stroke-linecap="round"/>'
+        '<circle cx="51" cy="58" r="11" fill="none" stroke="#000" stroke-width="4"/>'
+        '<circle cx="51" cy="58" r="2" fill="#000"/>'
+        '<circle cx="66" cy="64" r="3" fill="#000"/>'
+        '<path d="M54 50 L66 64" stroke="#000" stroke-width="3" stroke-linecap="round"/>'
+    ) + '</g>'
+    # Fixed 2026-08-09 (user-reported text placement): the two lines sat
+    # unevenly in the plate's vertical space ("mit Parkausweis" too close to
+    # the icon's own midline, "frei" too close to the bottom border) -
+    # rebalanced with more even spacing top and bottom.
+    text = (
+        symC_text_fit("mit Parkausweis", x=64, y=40, max_width=56, base_size=11) +
+        '<text x="64" y="60" font-family="Arial, sans-serif" font-size="13" font-weight="700" '
+        'fill="#000" text-anchor="middle">frei</text>'
+    )
+    return icon + text
 
 def symD_shoulder_crossed():
     # Zeichen 1013-50 Seitenstreifen nicht befahrbar: a solid carriageway
@@ -1519,7 +1756,7 @@ SIGNS = {
     "201": andreaskreuz(),
     "205": yield_sign(),
     "206": stop_octagon(),
-    "209": circle_mandatory(sym_arrow_right_bold()),
+    "209": circle_mandatory(sym_arrow_bend_junction()),
     "215": circle_mandatory(sym_roundabout()),
     "220": square_blue(sym_oneway_arrow()),
     "237": circle_mandatory(sym_bicycle()),
@@ -1534,7 +1771,7 @@ SIGNS = {
     "283": circle_stopping_ban('<line x1="24" y1="24" x2="76" y2="76" stroke="#c0272d" stroke-width="8"/><line x1="76" y1="24" x2="24" y2="76" stroke="#c0272d" stroke-width="8"/>'),
     "286": circle_stopping_ban('<line x1="26" y1="26" x2="74" y2="74" stroke="#c0272d" stroke-width="8"/>'),
     "293": sym_zebra_marking(),
-    "301": diamond_yellow_border(),
+    "301": priority_diamond_plain(),
     "306": priority_road(crossed=False),
     "307": priority_road(crossed=True),
     "314": square_blue(sym_P()),
@@ -1570,11 +1807,11 @@ BATCH_A_SIGNS = {
 
 BATCH_B_SIGNS = {
     # -- mandatory-direction family (circle_mandatory) --
-    "211": circle_mandatory(sym_arrow_bend_junction()),
+    "211": circle_mandatory(sym_arrow_right_bold()),
     "214": circle_mandatory(sym_arrow_straight_and_right()),
     "222": circle_mandatory(sym_arrow_bypass_right()),
     "238": circle_mandatory(sym_horse_rider(color="#fff")),
-    "239": circle_mandatory(sym_pedestrian(color="#fff")),
+    "239": circle_mandatory(sym_ped_child(color="#fff")),
     "268": circle_mandatory(sym_snow_chain()),
     "275": circle_mandatory(sym_min_speed("30")),
     # 308 verified as blue SQUARE (Richtzeichen), not a blue circle
@@ -1602,11 +1839,11 @@ BATCH_B_SIGNS = {
     # exact same sym_bus(color="#fff") and were byte-identical despite
     # being different signs (catalog-audit finding 2026-08-06) - see
     # symC_bus_lane() below for 245's differentiated artwork.
-    "224": square_blue(sym_bus(color="#fff")),
+    "224": circle_haltestelle(),
     "229": square_blue(sym_taxi_text()),
     "241": square_blue(symB_bike_ped_split()),
-    "242.1": sign_zone_plate(_inset(sym_pedestrian(color="#fff")), ["ZONE"]),
-    "242.2": sign_zone_plate(_inset(sym_pedestrian(color="#5a5a5a")), ["ZONE"], ended=True),
+    "242.1": sign_zone_plate(_inset(sym_ped_child(color="#fff"), s=0.42), ["ZONE"]),
+    "242.2": sign_zone_plate(_inset(sym_ped_child(color="#5a5a5a"), s=0.42), ["ZONE"], ended=True),
     "244.1": sign_zone_plate(_inset(sym_bicycle()), ["Fahrradstrasse"]),
     "244.2": sign_zone_plate(_inset(sym_bicycle(color="#5a5a5a")), ["Fahrradstrasse"], ended=True),
     "245": square_blue(symC_bus_lane()),
@@ -1665,11 +1902,32 @@ BATCH_C_SIGNS = {
 
 BATCH_D_SIGNS = {
     "1000": zusatzzeichen(sym_arrow_right(color="#000")),
-    "1001": zusatzzeichen(symD_text("300 m", size=30)),
+    # 1001-30 "Auf ... m": re-audited 2026-08-09 against the official ADAC
+    # brochure (p.20) - the real plate flanks the distance text with a
+    # small up-arrow on each side ("^800 m^"), which a previous version's
+    # bare text omitted.
+    "1001": zusatzzeichen(
+        symD_text("300 m", size=19)
+        + '<polygon points="10,60 15,49 20,60" fill="#000"/>'
+        + '<polygon points="80,60 85,49 90,60" fill="#000"/>'
+    ),
     "1002": zusatzzeichen(symD_priority_route()),
     "1006": zusatzzeichen(symD_caravan_skid()),
-    "1010-51": zusatzzeichen(symD_text("Radfahrer frei", size=16)),
-    "1010-60": zusatzzeichen(symD_text("Anlieger frei", size=17)),
+    # 1010-51 real meaning (WebSearch/ADAC-brochure-verified 2026-08-09,
+    # p.20): "Kraftfahrzeuge mit einem zulaessigen Gesamtgewicht ueber
+    # 3,5t... ausgenommen Personenkraftwagen und Kraftomnibusse" - a
+    # weight-based vehicle-type qualifier. The real plate shows a bare
+    # TRUCK icon with no text at all (confirmed directly in the brochure's
+    # own pictogram) - a prior round's "Radfahrer frei" text was simply the
+    # wrong content for this ref (that meaning belongs to 1022-10, which
+    # already correctly shows a bicycle icon elsewhere in this registry).
+    "1010-51": zusatzzeichen(_inset(sym_truck(color="#000"), cx=50, cy=52, s=0.68)),
+    # Fixed 2026-08-09: plain symD_text() with a fixed font-size ran the
+    # text past both edges of the plate once actually rendered (caught by
+    # rendering and looking, not just reading the code) - switched to
+    # symC_text_fit() like its sibling 1020-30 (identical wording) already
+    # correctly does.
+    "1010-60": zusatzzeichen(symC_text_fit("Anlieger frei", max_width=80, base_size=17)),
     # 1010-53 "gilt auch fuer Fussgaenger": a walking-pedestrian pictogram -
     # the previous version showed the literal text "Mofa frei" (a completely
     # different, unrelated plate's wording) instead of any pedestrian icon
@@ -1693,12 +1951,22 @@ BATCH_D_SIGNS = {
         symC_text_fit("Nur mit Parkausweis", x=50, y=46, max_width=82, base_size=13)
         + symC_text_fit("Nr. ...", x=50, y=64, max_width=82, base_size=15)
     ),
-    # 1022-10 "gilt nicht fuer Radfahrer": reuses the shared sym_bicycle()
-    # pictogram (same helper used by 237/138/254) rather than inventing a
-    # new bike glyph, since this plate just exempts cyclists from the main
-    # sign's prohibition (catalog-audit finding 2026-08-06: same missing-
-    # from-registry file-hygiene issue as 1020-32 above).
-    "1022-10": zusatzzeichen(_inset(sym_bicycle(color="#000"), cx=50, cy=52, s=0.62)),
+    # 1022-10 "Radfahrer frei": reuses the shared sym_bicycle() pictogram
+    # (same helper used by 237/138/254) rather than inventing a new bike
+    # glyph, since this plate just exempts cyclists from the main sign's
+    # prohibition (catalog-audit finding 2026-08-06: same missing-from-
+    # registry file-hygiene issue as 1020-32 above). Re-audited 2026-08-09
+    # against the official ADAC brochure (p.20): the real plate pairs the
+    # bicycle icon with "frei" text underneath it - icon alone (this file's
+    # previous version) was missing that text.
+    # Fixed 2026-08-09 (user-reported text placement): "frei" sat right at
+    # the plate's bottom border, crowding the bicycle icon above it - icon
+    # nudged up, text nudged up off the border for a clear gap between them.
+    "1022-10": zusatzzeichen(
+        _inset(sym_bicycle(color="#000"), cx=50, cy=39, s=0.5)
+        + '<text x="50" y="63" font-family="Arial, sans-serif" font-size="15" font-weight="700" '
+          'fill="#000" text-anchor="middle">frei</text>'
+    ),
 }
 
 SIGNS.update(BATCH_A_SIGNS)
