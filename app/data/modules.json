@@ -516,6 +516,44 @@
           }
         }
       ]
+    },
+    {
+      "exam_type": "kyc_aml",
+      "label": {
+        "de": "Geldwäscheprävention (KYC/AML)",
+        "en": "Anti-money laundering (KYC/AML)",
+        "uk": "Запобігання відмиванню коштів (KYC/AML)",
+        "pl": "Przeciwdziałanie praniu pieniędzy (KYC/AML)",
+        "ar": "مكافحة غسل الأموال (KYC/AML)",
+        "zh": "反洗钱合规 (KYC/AML)",
+        "hi": "मनी लॉन्ड्रिंग रोकथाम (KYC/AML)",
+        "tr": "Kara para aklamayla mücadele (KYC/AML)",
+        "fr": "Lutte contre le blanchiment d'argent (KYC/AML)",
+        "ru": "Противодействие отмыванию денег (KYC/AML)",
+        "es": "Prevención del blanqueo de capitales (KYC/AML)",
+        "it": "Prevenzione del riciclaggio (KYC/AML)"
+      },
+      "_comment": "DN-53: 6th compliance module, first enterprise/premium-focused one - KYC/AML per the Geldwaeschegesetz (GwG), whose Sec. 6(2) No. 6 GwG imposes an explicit initial-and-ongoing staff training mandate (unlike the other compliance modules, which rest on softer/discretionary bases). Started as a 20-question DE/EN-only pilot (data/kyc_aml_pilot.json), same launch pattern as hinweisgeberschutz before it. Ships free for now - pricing intentionally deferred pending real enterprise/bank demand (see docs/antitrust-kyc-enterprise-scoping.md). scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
     }
   ]
 }

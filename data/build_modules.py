@@ -161,12 +161,23 @@ def main():
         os.path.join(HERE, "hinweisgeberschutz_pilot.json"), "hinweisgeberschutz", compliance_locales)
     print(f"hinweisgeberschutz: {hgs_count} questions, locale gaps: {hgs_missing}")
 
+    # DN-53: 6th compliance module, first enterprise-focused one - KYC/AML
+    # (Geldwaeschegesetz/GwG). 20-question DE/EN-only pilot (same
+    # pilot-first pattern the other 5 compliance modules started with,
+    # before DN-48/DN-50 later scaled them to 40q/12 locales). Free pilot
+    # for now - pricing intentionally not yet decided (see
+    # docs/antitrust-kyc-enterprise-scoping.md).
+    kyc_locales = ["de", "en"]
+    kyc_count, kyc_missing = split_module(
+        os.path.join(HERE, "kyc_aml_pilot.json"), "kyc_aml", kyc_locales)
+    print(f"kyc_aml: {kyc_count} questions, locale gaps: {kyc_missing}")
+
     # Sanity: every core question must resolve in at least its canonical
     # locale, and every core question's scope field must be present -
     # otherwise the app would silently render a blank question.
     for exam_type in ("fuehrerschein", "angelschein", "motorrad", "lkw",
                        "datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit",
-                       "hinweisgeberschutz"):
+                       "hinweisgeberschutz", "kyc_aml"):
         core = json.load(open(os.path.join(APP_DATA, exam_type, "core.json"), encoding="utf-8"))
         for q in core["questions"]:
             if not any(sf in q for sf in SCOPE_FIELDS):

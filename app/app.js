@@ -816,6 +816,17 @@ const TOPIC_LABELS = {
     repressalienschutz: { de: "Schutz vor Repressalien", en: "Protection from retaliation" },
     sanktionen: { de: "Sanktionen (Bußgeld)", en: "Sanctions (fines)" },
   },
+  // DN-53: 6th compliance module, first enterprise/premium-focused one -
+  // KYC/AML (Geldwaeschegesetz/GwG). DE/EN-only 20-question pilot, same
+  // launch pattern as hinweisgeberschutz above - topic labels DE/EN only
+  // for now too.
+  kyc_aml: {
+    grundlagen: { de: "Grundlagen der Geldwäsche", en: "Money laundering fundamentals" },
+    sorgfaltspflichten: { de: "Allgemeine Sorgfaltspflichten", en: "General due diligence duties" },
+    verdachtsmeldung: { de: "Verdachtsmeldung", en: "Suspicious activity reporting" },
+    verstaerkte_sorgfalt: { de: "Verstärkte Sorgfaltspflichten (PEP, Hochrisiko)", en: "Enhanced due diligence (PEPs, high-risk)" },
+    sanktionen: { de: "Sanktionen (Bußgeld, Straftat)", en: "Sanctions (fines, criminal offense)" },
+  },
 };
 
 // Looks up a topic label for the CURRENT module/locale, falling back to EN
@@ -836,7 +847,7 @@ function getTopicLabel(topicCode, fallbackTopic) {
 // for those modules (originally 4 under DN-44, now 5 since DN-50 added
 // hinweisgeberschutz with its own roles field), layered on top of the
 // existing topic filter (a learner can combine both) rather than replacing it.
-const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz"]);
+const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz", "kyc_aml"]);
 
 // Role codes in a fixed display order - "all" here means "no role filter
 // applied" (show every question regardless of its own roles tag), NOT to be
