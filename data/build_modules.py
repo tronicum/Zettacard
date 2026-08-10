@@ -172,12 +172,22 @@ def main():
         os.path.join(HERE, "kyc_aml_pilot.json"), "kyc_aml", kyc_locales)
     print(f"kyc_aml: {kyc_count} questions, locale gaps: {kyc_missing}")
 
+    # DN-53 (second module) - 7th compliance module, second enterprise-focused
+    # one - Kartellrecht (German/EU antitrust and competition law: GWB Sec.
+    # 1/18/19, Art. 101/102 TFEU). Build order per the user's own explicit
+    # choice: KYC/AML first, antitrust second. Same DE/EN-only 20-question
+    # pilot-first pattern.
+    kartell_locales = ["de", "en"]
+    kartell_count, kartell_missing = split_module(
+        os.path.join(HERE, "kartellrecht_pilot.json"), "kartellrecht", kartell_locales)
+    print(f"kartellrecht: {kartell_count} questions, locale gaps: {kartell_missing}")
+
     # Sanity: every core question must resolve in at least its canonical
     # locale, and every core question's scope field must be present -
     # otherwise the app would silently render a blank question.
     for exam_type in ("fuehrerschein", "angelschein", "motorrad", "lkw",
                        "datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit",
-                       "hinweisgeberschutz", "kyc_aml"):
+                       "hinweisgeberschutz", "kyc_aml", "kartellrecht"):
         core = json.load(open(os.path.join(APP_DATA, exam_type, "core.json"), encoding="utf-8"))
         for q in core["questions"]:
             if not any(sf in q for sf in SCOPE_FIELDS):

@@ -827,6 +827,16 @@ const TOPIC_LABELS = {
     verstaerkte_sorgfalt: { de: "Verstärkte Sorgfaltspflichten (PEP, Hochrisiko)", en: "Enhanced due diligence (PEPs, high-risk)" },
     sanktionen: { de: "Sanktionen (Bußgeld, Straftat)", en: "Sanctions (fines, criminal offense)" },
   },
+  // DN-53 (second module): 7th compliance module, second enterprise-focused
+  // one - Kartellrecht (antitrust/competition law). DE/EN-only 20-question
+  // pilot, same launch pattern as kyc_aml above.
+  kartellrecht: {
+    grundlagen: { de: "Grundlagen des Kartellverbots", en: "Cartel-prohibition fundamentals" },
+    kernbeschraenkungen: { de: "Kernbeschränkungen und Risikoszenarien", en: "Hardcore restrictions & risk scenarios" },
+    bussgelder: { de: "Bußgelder und Haftungsrahmen", en: "Fines & liability framework" },
+    selbstreinigung: { de: "Selbstreinigung nach Kartellverstößen", en: "Self-cleaning after competition-law violations" },
+    straftaten: { de: "Individuelle Haftung und Durchsetzungspraxis", en: "Individual liability & enforcement practice" },
+  },
 };
 
 // Looks up a topic label for the CURRENT module/locale, falling back to EN
@@ -847,7 +857,7 @@ function getTopicLabel(topicCode, fallbackTopic) {
 // for those modules (originally 4 under DN-44, now 5 since DN-50 added
 // hinweisgeberschutz with its own roles field), layered on top of the
 // existing topic filter (a learner can combine both) rather than replacing it.
-const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz", "kyc_aml"]);
+const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz", "kyc_aml", "kartellrecht"]);
 
 // Role codes in a fixed display order - "all" here means "no role filter
 // applied" (show every question regardless of its own roles tag), NOT to be

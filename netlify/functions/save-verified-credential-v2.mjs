@@ -52,10 +52,11 @@ const STORE_NAME = "verified-credentials";
 // since the client-side gate and this independent server-side allowlist
 // had silently drifted apart. Kept in sync now; watch for the same drift
 // next time a compliance module is added.
-// DN-53 added kyc_aml (6th compliance module, GwG/KYC-AML) in the same
-// commit as its app/app.js COMPLIANCE_MODULES entry, specifically to avoid
-// repeating that exact drift.
-const COMPLIANCE_EXAM_TYPES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz", "kyc_aml"]);
+// DN-53 added kyc_aml (6th compliance module, GwG/KYC-AML) and then
+// kartellrecht (7th, GWB/antitrust) in the same commits as their
+// app/app.js COMPLIANCE_MODULES entries, specifically to avoid repeating
+// that exact drift.
+const COMPLIANCE_EXAM_TYPES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz", "kyc_aml", "kartellrecht"]);
 const MAX_LABEL_LEN = 200;
 const MAX_NAME_LEN = 100;
 const SAFE_CODE_RE = /^[a-zA-Z0-9_-]{1,64}$/;
@@ -100,7 +101,7 @@ export default async (req) => {
   } = payload || {};
 
   if (typeof examType !== "string" || !COMPLIANCE_EXAM_TYPES.has(examType)) {
-    return jsonResponse(400, { error: "Permanent verification links are only available for the compliance modules (datenschutz, arbeitssicherheit, ki_act, it_sicherheit, hinweisgeberschutz, kyc_aml)." });
+    return jsonResponse(400, { error: "Permanent verification links are only available for the compliance modules (datenschutz, arbeitssicherheit, ki_act, it_sicherheit, hinweisgeberschutz, kyc_aml, kartellrecht)." });
   }
   if (typeof id !== "string" || id.length < 1 || id.length > MAX_LABEL_LEN) {
     return jsonResponse(400, { error: "Invalid or missing 'id'." });

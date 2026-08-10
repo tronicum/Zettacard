@@ -554,6 +554,44 @@
           }
         }
       ]
+    },
+    {
+      "exam_type": "kartellrecht",
+      "label": {
+        "de": "Kartellrecht (Wettbewerbsrecht)",
+        "en": "Antitrust & competition law",
+        "uk": "Антимонопольне право",
+        "pl": "Prawo antymonopolowe i konkurencji",
+        "ar": "قانون مكافحة الاحتكار والمنافسة",
+        "zh": "反垄断与竞争法",
+        "hi": "एंटीट्रस्ट और प्रतिस्पर्धा कानून",
+        "tr": "Rekabet hukuku",
+        "fr": "Droit de la concurrence",
+        "ru": "Антимонопольное право",
+        "es": "Derecho de la competencia",
+        "it": "Diritto della concorrenza"
+      },
+      "_comment": "DN-53 (second module): 7th compliance module, second enterprise/premium-focused one - Kartellrecht (German/EU antitrust and competition law: GWB Sec. 1/18/19, Art. 101/102 TFEU). Build order per the user's own explicit choice (KYC/AML first, antitrust second). Started as a 20-question DE/EN-only pilot (data/kartellrecht_pilot.json), same launch pattern as kyc_aml before it. Ships free for now - pricing intentionally deferred, same as kyc_aml. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
     }
   ]
 }
