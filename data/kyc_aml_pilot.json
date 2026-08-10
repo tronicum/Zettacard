@@ -5,11 +5,14 @@
     "generated": "2026-08-10",
     "description": "Original MCQs for a German workplace-compliance training module on Know-Your-Customer (KYC) / Anti-Money-Laundering (AML) obligations under the Geldwaeschegesetz (GwG), covering scope of obligated entities (Verpflichtete) and the all-crimes predicate-offense approach under reformed Sec.261 StGB, general customer due diligence duties and EUR thresholds (Sec.10 GwG), suspicious-activity reporting to the FIU and the tipping-off prohibition (Sec.43, Sec.47 GwG), enhanced due diligence for PEPs/high-risk countries/complex transactions (Sec.15 GwG), and administrative fines (Sec.56 GwG) including a real 2025 BaFin enforcement example. Content is independently phrased and grounded directly in GwG/StGB statute text (cross-checked via dejure.org and lxgesetze.de statutory-text mirrors) and BaFin enforcement notices, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module - separate content pool, separate exam simulation from every other module.",
     "class": "ALL",
-    "locales": ["de", "en"],
+    "locales": [
+      "de",
+      "en"
+    ],
     "canonical_locale": "de",
     "point_system": "2-5 points per question, matching this app's existing style",
     "pass_rule_note": "Provisional: same generic mechanics as this app's other modules (30 questions per simulation run, max 10 error points, auto-fail on 2+ wrong high_stakes) used as a placeholder pending a real workplace-training design pass - see legal_review_status.",
-    "legal_review_status": "NOT legally reviewed - verify GwG/StGB citations and currency before production/commercial use. Two figures flagged lower-confidence during research and deliberately NOT used in this pilot's questions: Sec.10 Abs.6a goods/art-dealer cash thresholds (EUR 2,000/10,000) came via a secondary source only, not a twice-confirmed primary passage.",
+    "legal_review_status": "Reviewed 2026-08-10 via an AI legal-review pass (see BACKLOG.md DN-53 entry) grounded in current GwG/StGB statute text - 18/20 questions confirmed accurate on first pass, 2 corrected (Leichtfertigkeit vs. simple Fahrlässigkeit distinction in §261 Abs. 6 StGB / §56 Abs. 1 GwG, now fixed). Still NOT reviewed by a licensed lawyer or GwG-Compliance-Beauftragter - that human-review gate remains before commercial/production use. Flag: the EU AML Regulation (EU) 2024/1624 (AMLR) applies from 10 July 2027 and will lower the general occasional-transaction threshold from EUR 15,000 to EUR 10,000 among other changes - re-review this module before that date regardless of the normal 12-month renewal cycle.",
     "total_questions": 20,
     "license": "CC BY-NC-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
@@ -23,14 +26,18 @@
       "id": "kyc-aml-grundlagen-01",
       "topic": "Grundlagen der Geldwaesche",
       "topic_code": "grundlagen",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§261 StGB",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["b"],
+      "correct": [
+        "b"
+      ],
       "text": {
         "de": {
           "question": "Was hat die Reform des §261 StGB zum 18. März 2021 grundlegend geändert?",
@@ -55,20 +62,26 @@
         "de": "Vor der Reform erfasste §261 StGB Geldwäsche nur, wenn das Geld aus einem im Gesetz abschließend aufgezählten Katalog von Vortaten stammte. Seit 18. März 2021 reicht jede rechtswidrige Tat als Vortat aus (All-Crimes-Ansatz) - eine deutliche Ausweitung der Strafbarkeit.",
         "en": "Before the reform, Sec. 261 StGB only covered money laundering if the funds derived from an exhaustively enumerated statutory catalogue of predicate offenses. Since 18 March 2021, any unlawful act suffices as a predicate offense (all-crimes approach) - a significant expansion of criminal liability."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-grundlagen-02",
       "topic": "Grundlagen der Geldwaesche",
       "topic_code": "grundlagen",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§2 Abs. 1 GwG",
       "points": 2,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["c"],
+      "correct": [
+        "c"
+      ],
       "text": {
         "de": {
           "question": "Welche der folgenden Berufsgruppen zählt gemäß §2 Abs. 1 GwG ausdrücklich zu den Verpflichteten?",
@@ -91,60 +104,72 @@
       },
       "explanation": {
         "de": "§2 Abs. 1 GwG listet in 16 Nummern konkrete Kategorien von Verpflichteten auf, darunter Kreditinstitute, Finanzdienstleistungsinstitute, Versicherungen, Rechtsanwälte und Notare (für bestimmte Geschäfte), Steuerberater, Immobilienmakler sowie Güterhändler. Journalisten, niedergelassene Ärzte und Lehrkräfte gehören nicht zu dieser Liste.",
-          "en": "Sec. 2(1) GwG lists 16 numbered categories of obligated entities, including credit institutions, financial services institutions, insurers, lawyers and notaries (for specified transactions), tax advisors, real estate brokers, and goods dealers. Journalists, private-practice physicians, and public-school teachers are not on this list."
+        "en": "Sec. 2(1) GwG lists 16 numbered categories of obligated entities, including credit institutions, financial services institutions, insurers, lawyers and notaries (for specified transactions), tax advisors, real estate brokers, and goods dealers. Journalists, private-practice physicians, and public-school teachers are not on this list."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-grundlagen-03",
       "topic": "Grundlagen der Geldwaesche",
       "topic_code": "grundlagen",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": false,
       "legal_basis": "§261 Abs. 6 StGB",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["a"],
+      "correct": [
+        "a"
+      ],
       "text": {
         "de": {
-          "question": "Wie wird die fahrlässige Geldwäsche nach §261 Abs. 6 StGB im Grundsatz sanktioniert?",
+          "question": "Wie wird die leichtfertige (grob fahrlässige) Geldwäsche nach §261 Abs. 6 StGB im Grundsatz sanktioniert?",
           "options": {
             "a": "Freiheitsstrafe bis zu 2 Jahren oder Geldstrafe",
             "b": "Ausschließlich eine Verwarnung ohne Bußgeld",
             "c": "Freiheitsstrafe von mindestens 6 Monaten bis 10 Jahren",
-            "d": "Fahrlässige Geldwäsche ist im deutschen Recht straflos"
+            "d": "Einfach fahrlässige Geldwäsche ist ebenso strafbar wie die vorsätzliche Tat"
           }
         },
         "en": {
-          "question": "What is the basic sanction for negligent money laundering under Sec. 261(6) StGB?",
+          "question": "What is the basic sanction for recklessly negligent (leichtfertig) money laundering under Sec. 261(6) StGB?",
           "options": {
             "a": "Imprisonment of up to 2 years, or a fine",
             "b": "Only a formal warning, no fine",
             "c": "Imprisonment ranging from at least 6 months to 10 years",
-            "d": "Negligent money laundering is not a criminal offense under German law"
+            "d": "Simple (ordinary) negligent money laundering is punishable just like intentional conduct"
           }
         }
       },
       "explanation": {
-        "de": "§261 Abs. 6 StGB stellt auch die fahrlässige Begehung unter Strafe, allerdings deutlich milder als die vorsätzliche Tat: Freiheitsstrafe bis zu 2 Jahren oder Geldstrafe. Die 6-Monats-bis-10-Jahres-Spanne aus Antwort c gilt für den besonders schweren, gewerbs- oder bandenmäßigen Fall nach §261 Abs. 5 StGB.",
-        "en": "Sec. 261(6) StGB also criminalizes negligent commission, though far more leniently than intentional conduct: imprisonment of up to 2 years, or a fine. The 6-month-to-10-year range in option c applies to the especially serious, commercial or gang-based case under Sec. 261(5) StGB."
+        "de": "§261 Abs. 6 StGB stellt nur die leichtfertige (grob fahrlässige) Begehung unter Strafe - einfache Fahrlässigkeit bleibt straflos, das ist eine wichtige Abgrenzung. Der Strafrahmen für die leichtfertige Tat ist deutlich milder als für die vorsätzliche: Freiheitsstrafe bis zu 2 Jahren oder Geldstrafe. Die 6-Monats-bis-10-Jahres-Spanne aus Antwort c gilt für den besonders schweren, gewerbs- oder bandenmäßigen Fall nach §261 Abs. 5 StGB.",
+        "en": "Sec. 261(6) StGB only criminalizes leichtfertig (recklessly/grossly negligent) commission - simple (ordinary) negligence remains unpunishable, an important distinction. The sentencing range for the reckless-negligence offense is far more lenient than for intentional conduct: imprisonment of up to 2 years, or a fine. The 6-month-to-10-year range in option c applies to the especially serious, commercial or gang-based case under Sec. 261(5) StGB."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-grundlagen-04",
       "topic": "Grundlagen der Geldwaesche",
       "topic_code": "grundlagen",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "FATF/BaFin-Standardmodell",
       "points": 2,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["b"],
+      "correct": [
+        "b"
+      ],
       "text": {
         "de": {
           "question": "Im klassischen 3-Phasen-Modell der Geldwäsche (Placement, Layering, Integration) bezeichnet die Phase 'Verschleierung' welchen Schritt?",
@@ -169,20 +194,26 @@
         "de": "'Placement' (Platzierung) ist das Einschleusen, 'Layering' (Verschleierung) die Verschleierungsphase durch komplexe Transaktionsketten, 'Integration' die abschließende Einspeisung der Gelder als scheinbar legales Vermögen. Das Modell ist ein anerkanntes FATF/BaFin-Erklärmodell, kein eigener Gesetzesbegriff im GwG.",
         "en": "'Placement' is the introduction stage, 'layering' is the obscuring stage via complex transaction chains, and 'integration' is the final stage where funds re-enter the economy as seemingly legitimate assets. This model is a recognized FATF/BaFin explanatory framework, not a defined statutory term within the GwG itself."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-sorgfaltspflichten-01",
       "topic": "Kundensorgfaltspflichten (KYC)",
       "topic_code": "sorgfaltspflichten",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§10 Abs. 1 GwG",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["d"],
+      "correct": [
+        "d"
+      ],
       "text": {
         "de": {
           "question": "Welche der folgenden Maßnahmen gehört NICHT zu den allgemeinen Sorgfaltspflichten nach §10 Abs. 1 GwG?",
@@ -207,20 +238,26 @@
         "de": "§10 Abs. 1 GwG nennt fünf Kernpflichten: Identifizierung, Feststellung/Identifizierung des wirtschaftlich Berechtigten, Informationen zu Zweck und Art der Geschäftsbeziehung, kontinuierliche Überwachung inklusive Herkunftsprüfung der Mittel, sowie die Prüfung, ob eine politisch exponierte Person vorliegt. Eine automatische Meldung an das Finanzamt ist keine GwG-Sorgfaltspflicht.",
         "en": "Sec. 10(1) GwG lists five core duties: identification, determining/identifying the beneficial owner, obtaining information on the purpose and nature of the business relationship, ongoing monitoring including source-of-funds checks, and checking whether the party is a politically exposed person. Automatically reporting the relationship to the tax office is not a GwG due diligence duty."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-sorgfaltspflichten-02",
       "topic": "Kundensorgfaltspflichten (KYC)",
       "topic_code": "sorgfaltspflichten",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§10 Abs. 3 GwG",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["c"],
+      "correct": [
+        "c"
+      ],
       "text": {
         "de": {
           "question": "Ab welchem Betrag müssen Sorgfaltspflichten grundsätzlich auch für eine einzelne, außerhalb einer bestehenden Geschäftsbeziehung durchgeführte Transaktion erfüllt werden (allgemeiner Schwellenwert nach §10 Abs. 3 GwG)?",
@@ -245,20 +282,26 @@
         "de": "Der allgemeine Schwellenwert nach §10 Abs. 3 GwG liegt bei 15.000 Euro. Für Geldtransfers und Transfers von Kryptowerten gilt dagegen ein deutlich niedrigerer Schwellenwert von 1.000 Euro.",
         "en": "The general threshold under Sec. 10(3) GwG is EUR 15,000. Money transfers and crypto-asset transfers, however, are subject to a markedly lower threshold of EUR 1,000."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-sorgfaltspflichten-03",
       "topic": "Kundensorgfaltspflichten (KYC)",
       "topic_code": "sorgfaltspflichten",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": false,
       "legal_basis": "§10 Abs. 3 GwG",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["a"],
+      "correct": [
+        "a"
+      ],
       "text": {
         "de": {
           "question": "Ab welchem Betrag gilt der abgesenkte Schwellenwert für Geldtransfers und Übertragungen von Kryptowerten nach §10 Abs. 3 GwG?",
@@ -283,20 +326,26 @@
         "de": "Für Geldtransfers (nach Art. 3 Nr. 9 der EU-Verordnung 2023/1113) und für Übertragungen von Kryptowerten gilt ein besonders niedriger Schwellenwert von 1.000 Euro - deutlich unter dem allgemeinen Schwellenwert von 15.000 Euro.",
         "en": "Money transfers (per Art. 3 No. 9 of EU Regulation 2023/1113) and crypto-asset transfers are subject to a particularly low threshold of EUR 1,000 - well below the general EUR 15,000 threshold."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-sorgfaltspflichten-04",
       "topic": "Kundensorgfaltspflichten (KYC)",
       "topic_code": "sorgfaltspflichten",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§10 Abs. 3 GwG",
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["b"],
+      "correct": [
+        "b"
+      ],
       "text": {
         "de": {
           "question": "Ein Kunde tätigt eine Transaktion unterhalb aller einschlägigen Schwellenwerte. Muss der Verpflichtete trotzdem Sorgfaltspflichten anwenden, wenn ein konkreter Verdacht auf Geldwäsche besteht?",
@@ -321,20 +370,26 @@
         "de": "Neben den Schwellenwerten sieht §10 Abs. 3 GwG weitere, schwellenwertunabhängige Auslöser vor: die Begründung einer Geschäftsbeziehung, ein konkreter Verdacht auf Geldwäsche oder Terrorismusfinanzierung, sowie Zweifel an zuvor erhobenen Identifizierungsdaten. Ein Verdachtsfall macht also jede Schwellenwertfrage irrelevant.",
         "en": "Besides the value thresholds, Sec. 10(3) GwG provides further triggers independent of any threshold: establishing a business relationship, a concrete suspicion of money laundering or terrorist financing, and doubts about previously collected identification data. A suspected case therefore overrides any threshold question entirely."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-verdachtsmeldung-01",
       "topic": "Verdachtsmeldewesen",
       "topic_code": "verdachtsmeldung",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§43 Abs. 1 GwG",
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["c"],
+      "correct": [
+        "c"
+      ],
       "text": {
         "de": {
           "question": "An welche Stelle muss ein Verpflichteter eine Verdachtsmeldung nach §43 GwG richten?",
@@ -359,20 +414,26 @@
         "de": "Verdachtsmeldungen nach §43 Abs. 1 GwG sind unverzüglich an die Zentralstelle für Finanztransaktionsuntersuchungen (FIU) zu richten - die deutsche Financial Intelligence Unit, nicht an Finanzamt, Polizei oder EZB direkt.",
         "en": "Suspicious activity reports under Sec. 43(1) GwG must be submitted without delay to the Zentralstelle für Finanztransaktionsuntersuchungen (FIU) - Germany's Financial Intelligence Unit - not directly to the tax office, police, or ECB."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-verdachtsmeldung-02",
       "topic": "Verdachtsmeldewesen",
       "topic_code": "verdachtsmeldung",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§43 Abs. 1 GwG",
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["b"],
+      "correct": [
+        "b"
+      ],
       "text": {
         "de": {
           "question": "Ist die Meldepflicht nach §43 GwG an einen bestimmten Mindesttransaktionswert gebunden?",
@@ -397,20 +458,26 @@
         "de": "Anders als die allgemeinen Sorgfaltspflichten kennt die Meldepflicht nach §43 GwG keinen Mindestbetrag - besteht ein Verdachtsfall, ist unabhängig vom Transaktionswert unverzüglich zu melden.",
         "en": "Unlike the general due diligence duties, the reporting duty under Sec. 43 GwG has no minimum-amount exemption - if a suspected case exists, a report must be filed without delay regardless of the transaction's value."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-verdachtsmeldung-03",
       "topic": "Verdachtsmeldewesen",
       "topic_code": "verdachtsmeldung",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§47 GwG",
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["a"],
+      "correct": [
+        "a"
+      ],
       "text": {
         "de": {
           "question": "Was verbietet das sogenannte 'Tipping-off'-Verbot nach §47 GwG?",
@@ -435,20 +502,26 @@
         "de": "§47 GwG verbietet, den Kunden, den Transaktionsbeteiligten oder Dritte über eine beabsichtigte oder bereits erstattete Meldung sowie über daraus resultierende Ermittlungen zu informieren. Gruppeninterne Weitergabe unter bestimmten Voraussetzungen sowie Behördenkommunikation sind ausdrücklich ausgenommen.",
         "en": "Sec. 47 GwG prohibits informing the customer, the transaction party, or third parties about an intended or already-filed report, or about resulting investigations. Group-internal sharing under specified conditions, as well as communication with authorities, are explicitly exempted."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-verdachtsmeldung-04",
       "topic": "Verdachtsmeldewesen",
       "topic_code": "verdachtsmeldung",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": false,
       "legal_basis": "§43 Abs. 2 GwG",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["b"],
+      "correct": [
+        "b"
+      ],
       "text": {
         "de": {
           "question": "Unter welcher Bedingung entfällt für Rechtsanwälte und vergleichbare Berufe ausnahmsweise die Meldepflicht nach §43 GwG?",
@@ -470,23 +543,29 @@
         }
       },
       "explanation": {
-        "de": "§43 Abs. 2 GwG sieht eine begrenzte Ausnahme für Rechtsanwälte, Notare und vergleichbare Berufe vor, wenn die relevante Kenntnis aus der rechtsberatenden oder -vertretenden Tätigkeit stammt - diese Ausnahme entfällt jedoch, wenn der Berufsträger weiß, dass die Rechtsberatung gezielt zum Zweck der Geldwäsche in Anspruch genommen wird.",
-        "en": "Sec. 43(2) GwG provides a limited exception for lawyers, notaries, and comparable professions where the relevant knowledge arose from legal advisory or representative activity - this exception falls away, however, if the professional knows the legal advice is being sought specifically for money-laundering purposes."
+        "de": "§43 Abs. 2 GwG sieht eine begrenzte Ausnahme für Rechtsanwälte, Notare und vergleichbare Berufe vor, wenn die relevante Kenntnis aus der rechtsberatenden oder -vertretenden Tätigkeit stammt - diese Ausnahme entfällt jedoch, wenn der Berufsträger weiß, dass die Rechtsberatung gezielt zum Zweck der Geldwäsche in Anspruch genommen wird. Zu beachten: Bei bestimmten Immobiliengeschäften (§43 Abs. 6 GwG i. V. m. der GwGMeldV-Immobilien) entfällt diese Ausnahme, sodass dort auch für Notare eine eigenständige Meldepflicht besteht.",
+        "en": "Sec. 43(2) GwG provides a limited exception for lawyers, notaries, and comparable professions where the relevant knowledge arose from legal advisory or representative activity - this exception falls away, however, if the professional knows the legal advice is being sought specifically for money-laundering purposes. Note: for certain real-estate transactions (Sec. 43(6) GwG in conjunction with the GwGMeldV-Immobilien regulation), this exception falls away, meaning notaries face an independent reporting duty there too."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-verstaerkte-sorgfalt-01",
       "topic": "Verstaerkte Sorgfaltspflichten",
       "topic_code": "verstaerkte_sorgfalt",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§15 Abs. 3 GwG, §1 Abs. 12-14 GwG",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["d"],
+      "correct": [
+        "d"
+      ],
       "text": {
         "de": {
           "question": "Welcher Personenkreis zählt gemäß §1 Abs. 12-14 GwG zusätzlich zur politisch exponierten Person (PEP) selbst zu den verstärkt zu prüfenden Personen?",
@@ -511,20 +590,26 @@
         "de": "Neben der PEP selbst erfasst das GwG auch Familienmitglieder (§1 Abs. 13: Ehe-/Lebenspartner, Kinder und deren Partner, Eltern) sowie bekanntermaßen nahestehende Personen (§1 Abs. 14, z. B. gemeinsame wirtschaftliche Berechtigung oder enge Geschäftsbeziehungen) - beide Gruppen unterliegen denselben verstärkten Sorgfaltspflichten.",
         "en": "Besides the PEP themselves, the GwG also covers family members (Sec. 1(13): spouse/registered partner, children and their partners, parents) and known close associates (Sec. 1(14), e.g. joint beneficial ownership or close business relationships) - both groups are subject to the same enhanced due diligence measures."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-verstaerkte-sorgfalt-02",
       "topic": "Verstaerkte Sorgfaltspflichten",
       "topic_code": "verstaerkte_sorgfalt",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§15 Abs. 3 Nr. 2 GwG",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["c"],
+      "correct": [
+        "c"
+      ],
       "text": {
         "de": {
           "question": "Wer legt fest, welche Länder als 'Drittstaaten mit hohem Risiko' im Sinne des §15 GwG gelten?",
@@ -549,20 +634,26 @@
         "de": "Das GwG selbst enthält keine eigene Länderliste - maßgeblich ist die von der Europäischen Kommission per delegierter Verordnung festgelegte Liste von Drittstaaten mit hohem Risiko. Verpflichtete müssen sich auf diese EU-Liste stützen, nicht auf eine eigene oder eine FIU-Liste.",
         "en": "The GwG itself contains no country list of its own - what matters is the list of high-risk third countries determined by the European Commission via a delegated regulation. Obligated entities must rely on this EU list, not on one they create themselves or one issued by the FIU."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-verstaerkte-sorgfalt-03",
       "topic": "Verstaerkte Sorgfaltspflichten",
       "topic_code": "verstaerkte_sorgfalt",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§15 Abs. 4 GwG",
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["b"],
+      "correct": [
+        "b"
+      ],
       "text": {
         "de": {
           "question": "Was ist vor der Aufnahme oder Fortführung einer Geschäftsbeziehung mit einer politisch exponierten Person nach §15 Abs. 4 GwG zwingend erforderlich?",
@@ -587,20 +678,26 @@
         "de": "§15 Abs. 4 GwG verlangt für PEP-Geschäftsbeziehungen die Zustimmung eines Mitglieds der Führungsebene vor Begründung oder Fortführung, angemessene Maßnahmen zur Bestimmung von Vermögens-/Mittelherkunft sowie eine verstärkte kontinuierliche Überwachung. Diese genaue Vorgabe war 2025 auch Gegenstand einer realen BaFin-Sanktion gegen ein deutsches Kreditinstitut.",
         "en": "Sec. 15(4) GwG requires senior-management approval before establishing or continuing a PEP business relationship, appropriate measures to establish the source of wealth/funds, and enhanced ongoing monitoring. This exact requirement was also the subject of a real 2025 BaFin sanction against a German credit institution."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-verstaerkte-sorgfalt-04",
       "topic": "Verstaerkte Sorgfaltspflichten",
       "topic_code": "verstaerkte_sorgfalt",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": false,
       "legal_basis": "§15 Abs. 3 Nr. 3 GwG",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["a"],
+      "correct": [
+        "a"
+      ],
       "text": {
         "de": {
           "question": "Welches Merkmal einer Transaktion löst nach §15 GwG typischerweise verstärkte Sorgfaltspflichten aus, unabhängig vom Herkunftsland der Beteiligten?",
@@ -625,20 +722,26 @@
         "de": "Neben PEP-Bezug und Hochrisikoländern nennt §15 GwG als eigenständigen Auslöser auch Transaktionen, die besonders komplex oder ungewöhnlich groß sind, einem ungewöhnlichen Muster folgen oder keinen offensichtlichen wirtschaftlichen oder rechtmäßigen Zweck erkennen lassen - unabhängig davon, woher die Beteiligten stammen.",
         "en": "Besides PEP status and high-risk countries, Sec. 15 GwG also names transactions that are especially complex or unusually large, follow an unusual pattern, or show no apparent economic or lawful purpose as an independent trigger - regardless of where the parties involved are from."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-sanktionen-01",
       "topic": "Sanktionen und Folgen",
       "topic_code": "sanktionen",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§56 Abs. 3 GwG",
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["b"],
+      "correct": [
+        "b"
+      ],
       "text": {
         "de": {
           "question": "Wie hoch kann das Bußgeld bei schwerwiegenden, wiederholten oder systematischen Verstößen nach §56 Abs. 3 GwG für die meisten Verpflichteten ausfallen?",
@@ -663,20 +766,26 @@
         "de": "§56 Abs. 3 GwG sieht für schwerwiegende, wiederholte oder systematische Verstöße einen verschärften Bußgeldrahmen von bis zu 1 Million Euro oder dem Zweifachen des aus dem Verstoß gezogenen wirtschaftlichen Vorteils vor - je nachdem, welcher Betrag höher liegt. Für Kredit- und Finanzdienstleistungsinstitute gilt ein noch höherer Rahmen (siehe nächste Frage).",
         "en": "Sec. 56(3) GwG provides for an aggravated fine framework of up to EUR 1 million, or twice the economic benefit derived from the violation, whichever is higher, for serious, repeated, or systematic violations. An even higher framework applies to credit and financial services institutions (see the next question)."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-sanktionen-02",
       "topic": "Sanktionen und Folgen",
       "topic_code": "sanktionen",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§56 Abs. 3 GwG",
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["c"],
+      "correct": [
+        "c"
+      ],
       "text": {
         "de": {
           "question": "Welcher verschärfte Bußgeldrahmen gilt speziell für Kreditinstitute und Finanzdienstleistungsinstitute bei schwerwiegenden Verstößen nach §56 Abs. 3 GwG?",
@@ -701,20 +810,26 @@
         "de": "Für Kreditinstitute, Finanzdienstleistungsinstitute und vergleichbare Unternehmen des Finanzsektors steigt der Bußgeldrahmen bei schwerwiegenden, wiederholten oder systematischen Verstößen auf bis zu 5 Millionen Euro oder 10 % des jährlichen Gesamtumsatzes - je nachdem, welcher Betrag höher liegt. Auch für natürliche Personen in diesem Bereich sind Bußgelder bis zu 5 Millionen Euro möglich.",
         "en": "For credit institutions, financial services institutions, and comparable financial-sector companies, the fine framework for serious, repeated, or systematic violations rises to up to EUR 5 million, or 10% of total annual turnover, whichever is higher. Fines of up to EUR 5 million are also possible for natural persons in this sector."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-sanktionen-03",
       "topic": "Sanktionen und Folgen",
       "topic_code": "sanktionen",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": false,
       "legal_basis": "BaFin-Verfügung gegen KT Bank AG, 23. Januar 2025",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["c"],
+      "correct": [
+        "c"
+      ],
       "text": {
         "de": {
           "question": "In welcher Größenordnung bewegte sich das Bußgeld, das die BaFin am 23. Januar 2025 gegen die KT Bank AG wegen mehrerer GwG-Verstöße verhängte (u. a. unzureichende interne Sicherungsmaßnahmen, mangelhafte Aufzeichnungspflichten und fehlende Zustimmung der Führungsebene bei PEP-Beziehungen)?",
@@ -739,20 +854,26 @@
         "de": "Die BaFin verhängte am 23. Januar 2025 gegen die KT Bank AG ein Gesamtbußgeld von 600.000 Euro, zusammengesetzt aus 30 Einzelbußgeldern zu je 20.000 Euro, wegen Verstößen unter anderem gegen §6 Abs. 1 (interne Sicherungsmaßnahmen), §8 Abs. 4 (Aufbewahrungspflichten), §10 Abs. 1 Nr. 5 und Abs. 2 (kontinuierliche Überwachung) sowie §15 Abs. 4 Nr. 1 GwG (fehlende Zustimmung der Führungsebene bei PEP-Geschäftsbeziehungen).",
         "en": "On 23 January 2025, BaFin imposed a total fine of EUR 600,000 on KT Bank AG, made up of 30 individual fines of EUR 20,000 each, for violations including Sec. 6(1) (internal safeguards), Sec. 8(4) (record-retention duties), Sec. 10(1) No. 5 and (2) (ongoing monitoring), and Sec. 15(4) No. 1 GwG (missing senior-management approval for PEP business relationships)."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     },
     {
       "id": "kyc-aml-sanktionen-04",
       "topic": "Sanktionen und Folgen",
       "topic_code": "sanktionen",
-      "class_scope": ["ALL"],
+      "class_scope": [
+        "ALL"
+      ],
       "grundstoff": true,
       "legal_basis": "§56 Abs. 1 GwG",
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
       "image_ref": null,
-      "correct": ["b"],
+      "correct": [
+        "b"
+      ],
       "text": {
         "de": {
           "question": "Wie hoch ist der grundsätzliche Bußgeldrahmen nach §56 Abs. 1 GwG für eine vorsätzlich begangene, nicht besonders schwerwiegende Ordnungswidrigkeit?",
@@ -774,10 +895,12 @@
         }
       },
       "explanation": {
-        "de": "§56 Abs. 1 GwG listet zahlreiche Ordnungswidrigkeitstatbestände (u. a. Verstöße gegen Risikoanalyse, interne Sicherungsmaßnahmen oder Sorgfaltspflichten) mit einem Grundrahmen von bis zu 150.000 Euro bei Vorsatz beziehungsweise bis zu 100.000 Euro bei Fahrlässigkeit. Der verschärfte Rahmen bis 1 Million Euro (oder mehr für Finanzinstitute) gilt erst bei schwerwiegenden, wiederholten oder systematischen Verstößen nach §56 Abs. 3 GwG.",
-        "en": "Sec. 56(1) GwG lists numerous administrative-offense provisions (including violations of risk-assessment, internal-safeguard, or due-diligence requirements) with a base framework of up to EUR 150,000 for intentional conduct, or up to EUR 100,000 for negligent conduct. The aggravated framework of up to EUR 1 million (or more for financial institutions) only applies to serious, repeated, or systematic violations under Sec. 56(3) GwG."
+        "de": "§56 Abs. 1 GwG listet zahlreiche Ordnungswidrigkeitstatbestände (u. a. Verstöße gegen Risikoanalyse, interne Sicherungsmaßnahmen oder Sorgfaltspflichten) mit einem Grundrahmen von bis zu 150.000 Euro bei Vorsatz beziehungsweise bis zu 100.000 Euro bei leichtfertiger (grob fahrlässiger) Begehung - einfache Fahrlässigkeit ist hier nicht bußgeldbewehrt. Der verschärfte Rahmen bis 1 Million Euro (oder mehr für Finanzinstitute) gilt erst bei schwerwiegenden, wiederholten oder systematischen Verstößen nach §56 Abs. 3 GwG.",
+        "en": "Sec. 56(1) GwG lists numerous administrative-offense provisions (including violations of risk-assessment, internal-safeguard, or due-diligence requirements) with a base framework of up to EUR 150,000 for intentional conduct, or up to EUR 100,000 for reckless/grossly negligent (leichtfertig) conduct - ordinary negligence does not trigger a fine here. The aggravated framework of up to EUR 1 million (or more for financial institutions) only applies to serious, repeated, or systematic violations under Sec. 56(3) GwG."
       },
-      "roles": ["all"]
+      "roles": [
+        "all"
+      ]
     }
   ]
 }
