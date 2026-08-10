@@ -12,14 +12,14 @@
     "canonical_locale": "de",
     "point_system": "2-5 points per question, matching this app's existing style",
     "pass_rule_note": "Provisional: same generic mechanics as this app's other modules (30 questions per simulation run, max 10 error points, auto-fail on 2+ wrong high_stakes) used as a placeholder pending a real workplace-training design pass - see legal_review_status.",
-    "legal_review_status": "Reviewed 2026-08-10 via an AI legal-review pass (see BACKLOG.md DN-53 entry) grounded in current GwG/StGB statute text - 18/20 questions confirmed accurate on first pass, 2 corrected (Leichtfertigkeit vs. simple Fahrlässigkeit distinction in §261 Abs. 6 StGB / §56 Abs. 1 GwG, now fixed). Still NOT reviewed by a licensed lawyer or GwG-Compliance-Beauftragter - that human-review gate remains before commercial/production use. Flag: the EU AML Regulation (EU) 2024/1624 (AMLR) applies from 10 July 2027 and will lower the general occasional-transaction threshold from EUR 15,000 to EUR 10,000 among other changes - re-review this module before that date regardless of the normal 12-month renewal cycle.",
+    "legal_review_status": "Reviewed 2026-08-10 via an AI legal-review pass (see BACKLOG.md DN-53 entry) grounded in current GwG/StGB statute text - 18/20 questions confirmed accurate on first pass, 2 corrected (Leichtfertigkeit vs. simple Fahrlässigkeit distinction in §261 Abs. 6 StGB / §56 Abs. 1 GwG, now fixed). Still NOT reviewed by a licensed lawyer or GwG-Compliance-Beauftragter - that human-review gate remains before commercial/production use. Flag: the EU AML Regulation (EU) 2024/1624 (AMLR) applies from 10 July 2027 and will lower the general occasional-transaction threshold from EUR 15,000 to EUR 10,000 among other changes - re-review this module before that date regardless of the normal 12-month renewal cycle. Follow-up (2026-08-10): a second, independent fable-model pre-review-dossier pass re-verified all 20 citations against current statute text with zero new substantive errors found; refined the wording of kyc-aml-verdachtsmeldung-04 (professional-knowledge standard vs. client-intent framing, and softened the GwGMeldV-Immobilien scope claim) - this question remains flagged as the highest-value item for actual attorney review. Full dossier: claude/kyc-aml-pre-review-dossier-2026-08-10.md (Claude Project).",
     "total_questions": 20,
     "license": "CC BY-NC-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
     "renewal_months": 12,
     "renewal_basis": "best_practice",
-    "renewal_note": "Sec.6 Abs.2 Nr.6 GwG requires training 'initially and on an ongoing basis' (erstmalig und danach fortlaufend) without a fixed numeric interval in the statute text itself; annual refresher is used here as the de facto best-practice standard BaFin supervisory practice operationalizes this into, not a hard statutory number - re-verify before binding compliance claims."
+    "renewal_note": "Sec. 6 Abs. 2 Nr. 6 GwG requires \"erstmalige und laufende Unterrichtung\" (initial and ongoing instruction/training) of relevant staff, without a fixed numeric interval in the statute text itself; annual refresher is used here as the de facto best-practice standard BaFin supervisory practice operationalizes this into, not a hard statutory number - re-verify before binding compliance claims."
   },
   "questions": [
     {
@@ -527,7 +527,7 @@
           "question": "Unter welcher Bedingung entfällt für Rechtsanwälte und vergleichbare Berufe ausnahmsweise die Meldepflicht nach §43 GwG?",
           "options": {
             "a": "Immer, Anwälte sind generell von der Meldepflicht ausgenommen",
-            "b": "Wenn die Kenntnis aus der Rechtsberatung/Vertretung stammt - außer der Mandant sucht die Beratung gezielt zur Geldwäsche",
+            "b": "Wenn die Kenntnis aus der Rechtsberatung/Vertretung stammt - außer der Berufsträger selbst weiß, dass die Beratung gezielt zum Zweck der Geldwäsche in Anspruch genommen wird",
             "c": "Nur bei Mandaten mit einem Streitwert unter 15.000 Euro",
             "d": "Nur wenn der Mandant ausdrücklich widerspricht"
           }
@@ -536,15 +536,15 @@
           "question": "Under what condition does the reporting duty under Sec. 43 GwG exceptionally not apply to lawyers and comparable professions?",
           "options": {
             "a": "Always - lawyers are generally exempt from the reporting duty entirely",
-            "b": "When the knowledge arose from legal advice/representation - unless the client is specifically seeking that advice to launder money",
+            "b": "When the knowledge arose from legal advice/representation - unless the professional themselves knows the advice is being sought specifically for money-laundering purposes",
             "c": "Only for cases with a value in dispute under EUR 15,000",
             "d": "Only if the client explicitly objects"
           }
         }
       },
       "explanation": {
-        "de": "§43 Abs. 2 GwG sieht eine begrenzte Ausnahme für Rechtsanwälte, Notare und vergleichbare Berufe vor, wenn die relevante Kenntnis aus der rechtsberatenden oder -vertretenden Tätigkeit stammt - diese Ausnahme entfällt jedoch, wenn der Berufsträger weiß, dass die Rechtsberatung gezielt zum Zweck der Geldwäsche in Anspruch genommen wird. Zu beachten: Bei bestimmten Immobiliengeschäften (§43 Abs. 6 GwG i. V. m. der GwGMeldV-Immobilien) entfällt diese Ausnahme, sodass dort auch für Notare eine eigenständige Meldepflicht besteht.",
-        "en": "Sec. 43(2) GwG provides a limited exception for lawyers, notaries, and comparable professions where the relevant knowledge arose from legal advisory or representative activity - this exception falls away, however, if the professional knows the legal advice is being sought specifically for money-laundering purposes. Note: for certain real-estate transactions (Sec. 43(6) GwG in conjunction with the GwGMeldV-Immobilien regulation), this exception falls away, meaning notaries face an independent reporting duty there too."
+        "de": "§43 Abs. 2 GwG sieht eine begrenzte Ausnahme für Rechtsanwälte, Notare und vergleichbare Berufe vor, wenn die relevante Kenntnis aus der rechtsberatenden oder -vertretenden Tätigkeit stammt - entscheidend ist dabei die eigene Kenntnis des Berufsträgers, nicht die (unbeweisbare) Absicht des Mandanten: Die Ausnahme entfällt, wenn der Berufsträger selbst weiß, dass die Rechtsberatung gezielt zum Zweck der Geldwäsche in Anspruch genommen wird. Zu beachten: In bestimmten, durch die GwGMeldV-Immobilien erfassten Immobiliensachverhalten (§43 Abs. 6 GwG) kann diese Ausnahme entfallen, sodass dort auch für Notare eine eigenständige Meldepflicht bestehen kann - der genaue Anwendungsbereich dieser Verordnung sollte vor einer verbindlichen Compliance-Aussage anwaltlich geprüft werden.",
+        "en": "Sec. 43(2) GwG provides a limited exception for lawyers, notaries, and comparable professions where the relevant knowledge arose from legal advisory or representative activity - what matters is the professional's own knowledge, not the (unprovable) intent of the client: the exception falls away if the professional themselves knows the legal advice is being sought specifically for money-laundering purposes. Note: in certain real-estate matters covered by the GwGMeldV-Immobilien regulation (Sec. 43(6) GwG), this exception can fall away, meaning notaries may face an independent reporting duty there too - the exact scope of that regulation should be confirmed by counsel before relying on it as a firm compliance statement."
       },
       "roles": [
         "all"

@@ -3,7 +3,7 @@
     "app": "Zettacard / kartellrecht-lernmodul",
     "version": "0.1",
     "generated": "2026-08-10",
-    "description": "Original MCQs for a German antitrust/competition-law (Kartellrecht) compliance-training module, covering the cartel prohibition and abuse-of-dominance rules (Sec. 1/18/19 GWB, mirroring Art. 101/102 TFEU), hardcore restrictions and real-world risk scenarios (trade-association information exchange, no-poach agreements, non-price cartels), the fine framework and the role of compliance programs in fine mitigation (Sec. 81c/81d GWB), self-cleaning for regaining public-tender eligibility (Sec. 125 GWB), and individual criminal liability for bid-rigging (Sec. 298 StGB) - including three real, named 2025-2026 enforcement examples (German road-construction bid-rigging, EU automotive-recycling cartel, Delivery Hero/Glovo no-poach case). Content is independently phrased and grounded directly in GWB/StGB statute text and primary enforcement sources (Bundeskartellamt press releases, EU Commission press releases), cross-checked via dejure.org and named case sources, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module - separate content pool, separate exam simulation from every other module. Confirmed: unlike the GwG (money-laundering law), there is no statutorily fixed training-frequency mandate for antitrust compliance training.",
+    "description": "Original MCQs for a German antitrust/competition-law (Kartellrecht) compliance-training module, covering the cartel prohibition and the market-dominance test (Sec. 1/18 GWB, mirroring Art. 101 TFEU; Sec. 19 GWB's specific abuse-of-dominance categories and Art. 102 TFEU are researched but not yet covered by a dedicated question in this pilot round - flagged as a gap for the next scale-up), hardcore restrictions and real-world risk scenarios (trade-association information exchange, no-poach agreements, non-price cartels), the fine framework and the role of compliance programs in fine mitigation (Sec. 81c/81d GWB), self-cleaning for regaining public-tender eligibility (Sec. 125 GWB), and individual criminal liability for bid-rigging (Sec. 298 StGB) - including three real, named 2025-2026 enforcement examples (German road-construction bid-rigging, EU automotive-recycling cartel, Delivery Hero/Glovo no-poach case). Content is independently phrased and grounded directly in GWB/StGB statute text and primary enforcement sources (Bundeskartellamt press releases, EU Commission press releases), cross-checked via dejure.org and named case sources, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module - separate content pool, separate exam simulation from every other module. Confirmed: unlike the GwG (money-laundering law), there is no statutorily fixed training-frequency mandate for antitrust compliance training.",
     "class": "ALL",
     "locales": [
       "de",
@@ -12,7 +12,7 @@
     "canonical_locale": "de",
     "point_system": "3-4 points per question, matching this app's existing style",
     "pass_rule_note": "Provisional: same generic mechanics as this app's other modules (30 questions per simulation run, max 10 error points, auto-fail on 2+ wrong high_stakes) used as a placeholder pending a real workplace-training design pass - see legal_review_status.",
-    "legal_review_status": "Reviewed 2026-08-10 via an AI legal-review pass (fable model, see BACKLOG.md DN-53 second-module entry), grounded in current GWB/StGB statute text and the three named enforcement sources. 17/20 questions confirmed accurate on first pass. Fixed 2 citation/wording defects that didn't change any answer key: kartellrecht-straftaten-04's legal_basis corrected from the wrong §81b GWB (association-fine liability) to §§81h ff. GWB (the actual Kronzeugenprogramm/Bonusregelung provisions); kartellrecht-selbstreinigung-03's claimed 'schriftlich' (written-form) requirement for §125 Abs. 2 GWB's reasons obligation removed - the statute does not in fact prescribe a specific form. Also fixed a garbled explanation sentence in kartellrecht-kernbeschraenkungen-03 (automotive-recycling cartel: manufacturers agreed among themselves not to advertise recyclability to customers, not 'to each other'). Still NOT reviewed by a licensed lawyer or Kartellrechts-Compliance-Beauftragter - that human-review gate remains before commercial/production use.",
+    "legal_review_status": "Reviewed 2026-08-10 via an AI legal-review pass (fable model, see BACKLOG.md DN-53 second-module entry), grounded in current GWB/StGB statute text and the three named enforcement sources. 17/20 questions confirmed accurate on first pass. Fixed 2 citation/wording defects that didn't change any answer key: kartellrecht-straftaten-04's legal_basis corrected from the wrong §81b GWB (association-fine liability) to §§81h ff. GWB (the actual Kronzeugenprogramm/Bonusregelung provisions); kartellrecht-selbstreinigung-03's claimed 'schriftlich' (written-form) requirement for §125 Abs. 2 GWB's reasons obligation removed - the statute does not in fact prescribe a specific form. Also fixed a garbled explanation sentence in kartellrecht-kernbeschraenkungen-03 (automotive-recycling cartel: manufacturers agreed among themselves not to advertise recyclability to customers, not 'to each other'). Still NOT reviewed by a licensed lawyer or Kartellrechts-Compliance-Beauftragter - that human-review gate remains before commercial/production use. Follow-up (2026-08-10): a second, independent fable-model pre-review-dossier pass re-verified all 20 citations with zero new substantive errors, but found 2 wording-precision issues (both fixed, no answer-key changes): kartellrecht-selbstreinigung-04 now distinguishes §123 GWB's mandatory exclusion grounds from §124 GWB's facultative ones (cartel offenses typically fall under the discretionary §124 ground, not an automatic §123 exclusion); kartellrecht-selbstreinigung-02 now describes training as part of the combined \"technical, organizational, and personnel measures\" requirement rather than implying a separate formal \"personnel measures\" category. Also corrected the module description's overclaim of Sec. 19 GWB / Art. 102 TFEU coverage (researched but no dedicated question exists yet - flagged for the next round). Full dossier: claude/kartellrecht-pre-review-dossier-2026-08-10.md (Claude Project).",
     "total_questions": 20,
     "license": "CC BY-NC-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
@@ -615,7 +615,7 @@
           "question": "Wo genau ordnet sich eine verbesserte Kartellrechts-Schulung der Mitarbeiter im Rahmen der Selbstreinigung nach §125 GWB ein?",
           "options": {
             "a": "Sie ist eine eigenständig ausreichende Voraussetzung, unabhängig von den anderen beiden Anforderungen",
-            "b": "Sie zählt zu den \"personellen Maßnahmen\" (Nr. 3) - einer von drei gleichzeitig zu erfüllenden Anforderungen, nicht allein ausreichend",
+            "b": "Sie ist Teil der \"konkreten technischen, organisatorischen und personellen Maßnahmen\" (Nr. 3) - einer von drei gleichzeitig zu erfüllenden Anforderungen, nicht allein ausreichend",
             "c": "Sie ist im Gesetz überhaupt nicht erwähnt und rein freiwillig",
             "d": "Sie ersetzt die Pflicht zur Schadenskompensation vollständig"
           }
@@ -624,15 +624,15 @@
           "question": "Where exactly does improved employee competition-law training fit within self-cleaning under Sec. 125 GWB?",
           "options": {
             "a": "It is a standalone-sufficient requirement, independent of the other two requirements",
-            "b": "It falls under \"personnel measures\" (No. 3) - one of three requirements that must all be satisfied simultaneously, not sufficient on its own",
+            "b": "It forms part of the \"concrete technical, organizational, and personnel measures\" (No. 3) - one of three requirements that must all be satisfied simultaneously, not sufficient on its own",
             "c": "It is not mentioned in the statute at all and is purely voluntary",
             "d": "It fully substitutes for the duty to compensate damage"
           }
         }
       },
       "explanation": {
-        "de": "Verbesserte Schulung fällt unter die \"personellen Maßnahmen\" des §125 Abs. 1 Nr. 3 GWB - neben organisatorischen und technischen Maßnahmen eine anerkannte Kategorie zur Verhinderung künftiger Verstöße. Sie allein genügt aber nicht: Schadensausgleich (Nr. 1) und umfassende Sachverhaltsaufklärung durch Kooperation (Nr. 2) müssen zusätzlich erfüllt sein.",
-        "en": "Improved training falls under the \"personnel measures\" of Sec. 125(1) No. 3 GWB - alongside organizational and technical measures, a recognized category for preventing future violations. It is not sufficient alone, however: compensation for damage (No. 1) and comprehensive fact clarification through cooperation (No. 2) must also be satisfied."
+        "de": "Verbesserte Schulung ist Teil der in §125 Abs. 1 Nr. 3 GWB genannten technischen, organisatorischen und personellen Maßnahmen - der Gesetzestext nennt diese drei Aspekte gemeinsam als eine einheitliche dritte Voraussetzung, nicht als getrennt benannte Kategorien. Sie allein genügt aber nicht: Schadensausgleich (Nr. 1) und umfassende Sachverhaltsaufklärung durch Kooperation (Nr. 2) müssen zusätzlich erfüllt sein.",
+        "en": "Improved training is part of the technical, organizational, and personnel measures named in Sec. 125(1) No. 3 GWB - the statute names these three aspects together as one combined third requirement, not as separately labeled categories. It is not sufficient alone, however: compensation for damage (No. 1) and comprehensive fact clarification through cooperation (No. 2) must also be satisfied."
       },
       "roles": [
         "all"
@@ -703,7 +703,7 @@
           "question": "Wozu dient die Selbstreinigung (\"Selbstreinigung\") nach §125 GWB praktisch - wovon kann sie ein Unternehmen befreien?",
           "options": {
             "a": "Von der Zahlung eines bereits rechtskräftig verhängten Bußgelds",
-            "b": "Von einem zwingenden Ausschluss von öffentlichen Vergabeverfahren, der andernfalls nach §123 oder §124 GWB wegen des Kartellverstoßes drohen würde",
+            "b": "Von einem Ausschluss von öffentlichen Vergabeverfahren, der andernfalls wegen des Kartellverstoßes drohen würde - zwingend nach §123 GWB oder im Ermessen des Auftraggebers nach §124 GWB",
             "c": "Von der strafrechtlichen Verantwortlichkeit beteiligter Einzelpersonen nach §298 StGB",
             "d": "Von der Verpflichtung, künftige Fusionen beim Bundeskartellamt anzumelden"
           }
@@ -712,15 +712,15 @@
           "question": "What does self-cleaning under Sec. 125 GWB practically achieve - what can it exempt an undertaking from?",
           "options": {
             "a": "Payment of an already legally binding fine",
-            "b": "A mandatory exclusion from public tender procedures that would otherwise apply under Sec. 123 or Sec. 124 GWB because of the competition-law violation",
+            "b": "From an exclusion from public tender procedures that would otherwise apply because of the competition-law violation - mandatory under Sec. 123 GWB, or at the contracting authority's discretion under Sec. 124 GWB",
             "c": "The individual criminal liability of involved persons under Sec. 298 StGB",
             "d": "The obligation to notify future mergers to the Bundeskartellamt"
           }
         }
       },
       "explanation": {
-        "de": "§125 GWB betrifft die Vergaberechtsseite: Ein Unternehmen, das wegen eines Kartellverstoßes eigentlich nach §123 oder §124 GWB von öffentlichen Vergabeverfahren auszuschließen wäre, kann durch erfolgreiche Selbstreinigung seine Zugangsberechtigung zurückerlangen. Das Bußgeld selbst und eine mögliche strafrechtliche Verantwortlichkeit einzelner Personen (§298 StGB) bleiben davon unberührt.",
-        "en": "Sec. 125 GWB concerns the public-procurement side: an undertaking that would otherwise have to be excluded from public tender procedures under Sec. 123 or Sec. 124 GWB because of a competition-law violation can regain its eligibility through successful self-cleaning. The fine itself, and any individual criminal liability under Sec. 298 StGB, remain unaffected by this."
+        "de": "§125 GWB betrifft die Vergaberechtsseite: Ein Unternehmen, das wegen eines Kartellverstoßes von öffentlichen Vergabeverfahren auszuschließen wäre, kann durch erfolgreiche Selbstreinigung seine Zugangsberechtigung zurückerlangen. Zur Präzisierung: §123 GWB nennt zwingende Ausschlussgründe, während §124 GWB fakultative (im Ermessen des Auftraggebers stehende) Ausschlussgründe enthält - reine Kartell-Ordnungswidrigkeiten fallen typischerweise unter den fakultativen Ausschlussgrund des §124 GWB, sind also nicht in jedem Fall automatisch zwingend. Das Bußgeld selbst und eine mögliche strafrechtliche Verantwortlichkeit einzelner Personen (§298 StGB) bleiben von der Selbstreinigung unberührt.",
+        "en": "Sec. 125 GWB concerns the public-procurement side: an undertaking that would otherwise have to be excluded from public tender procedures because of a competition-law violation can regain its eligibility through successful self-cleaning. To be precise: Sec. 123 GWB lists mandatory exclusion grounds, while Sec. 124 GWB lists facultative (discretionary, contracting-authority's-choice) exclusion grounds - pure competition-law administrative offenses typically fall under the discretionary exclusion ground in Sec. 124 GWB, so exclusion is not automatically mandatory in every case. The fine itself, and any individual criminal liability under Sec. 298 StGB, remain unaffected by self-cleaning."
       },
       "roles": [
         "all"
