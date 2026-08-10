@@ -298,16 +298,15 @@ def sym_narrowing():
     # 2026-08-06: previous geometry only widened going down and never
     # converged). Bold solid black road-edge silhouettes, not thin wireframe
     # lines (earlier WebSearch-verified 2026-08-05 fix, kept here).
-    # Fixed 2026-08-09 (user-reported): both top ends (40,22)/(60,22) sat
-    # outside the triangle's interior at that height, crossing the red
-    # border. Re-fixed again same day (user-reported: should reach/touch
-    # the border, not float in the middle with a big gap) - the real
-    # pictogram's road edges run right up to the sign's own frame, they
-    # don't stop short of it. Computed the triangle's actual inner boundary
-    # at y=30 (x40.4-59.6) and placed the top ends there so they touch it
-    # exactly rather than overshooting past it or stopping well short.
-    return '''<path d="M41 30 Q46 55 40 78" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>
-  <path d="M59 30 Q54 55 60 78" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>'''
+    # Redrawn again 2026-08-10 against the actual ADAC brochure image
+    # (p.4, fetched and looked at directly) - every previous version this
+    # session had the shape backwards. The real pictogram sits low in the
+    # triangle (nowhere near the top border, unlike every earlier attempt
+    # here), with both edges running close together and mostly STRAIGHT
+    # for the lower two-thirds, bending outward (away from center) only in
+    # the upper third - not a smooth pinch-in-the-middle curve.
+    return '''<path d="M38 42 Q40 48 42 54 L42 80" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M62 42 Q60 48 58 54 L58 80" stroke="#000" stroke-width="9" fill="none" stroke-linecap="round"/>'''
 
 def sym_roadworks():
     # 123 Arbeitsstelle: a recognizable construction-worker-with-shovel
@@ -1088,9 +1087,16 @@ def symA_curve():
     # corner, and ends in a short pointed tip - not a single uniform arc,
     # which is what every previous attempt this session drew and is why it
     # kept reading as "quirky"/not matching the original.
+    # Tip repositioned again 2026-08-10 (user-reported: the sloping looked
+    # off) - the tip's base (x51) sat to the LEFT of where the band
+    # actually ends (x56,y29), so it rendered as a small flag floating
+    # disconnected above-left of the band instead of a continuation of it.
+    # Rebuilt to overlap the band's own endpoint and extend further along
+    # the same direction of travel, checked against the border at its new
+    # (smaller, closer-in) point.
     band = '<path d="M30 80 L30 46 Q30 35 42 33 L56 29" stroke="#000" stroke-width="9" fill="none" stroke-linecap="butt" stroke-linejoin="round"/>'
     tail_notch = '<polygon points="25,80 35,80 30,73" fill="#fff"/>'
-    tip = '<polygon points="51,23 58,27.5 51,32" fill="#000"/>'
+    tip = '<polygon points="53,24 57,28 53,32" fill="#000"/>'
     return band + tail_notch + tip
 
 def symA_double_curve():
@@ -1115,9 +1121,11 @@ def symA_double_curve():
     # joins rather than a smooth continuous S-curve, and a pointed tip at
     # the top - every previous attempt this session used a smooth curve,
     # which is why it kept reading as "quirky."
+    # Tip repositioned again 2026-08-10, same reason/fix as 103's tip
+    # above - its base didn't overlap the band's actual endpoint (45,24).
     band = '<path d="M32 80 L32 62 L46 52 L36 40 L45 24" stroke="#000" stroke-width="9" fill="none" stroke-linecap="butt" stroke-linejoin="round"/>'
     tail_notch = '<polygon points="27,80 37,80 32,73" fill="#fff"/>'
-    tip = '<polygon points="43,23 48,18 51,23" fill="#000"/>'
+    tip = '<polygon points="44,25 48,18 51,25" fill="#000"/>'
     return band + tail_notch + tip
 
 def symA_gefaelle(pct="10"):
@@ -1133,26 +1141,27 @@ def symA_gefaelle(pct="10"):
     # margin and the vertical "sits on the ground" requirement are
     # independent, fixing one shouldn't have moved the other. Base dropped
     # back down to actually meet the border's inner edge.
-    # Re-fixed again same day (user-reported: the wedge should also touch
-    # the sloped border, not just the ground) - the wedge's tall left edge
-    # (base-left corner to peak) now runs from the border at the base up to
-    # the border again at the peak's height (computed x13/x28 against the
-    # triangle's actual boundary at y86/y52), so it reads as flush against
-    # the sign's own frame the way the real pictogram is, not floating with
-    # a visible white gap on that side. Text moved to the remaining
-    # upper-right space and given a matching vertical nudge.
-    return f'''<polygon points="13,86 78,86 28,52" fill="#000"/>
-  <text x="60" y="36" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
+    # Re-fixed AGAIN 2026-08-10 - the previous round's "touch the sloped
+    # border too" change was wrong: fetched the real ADAC brochure image
+    # (p.4) and looked at it directly - the peak does NOT touch the sloped
+    # border at all, there's a clear visible gap there in the real sign.
+    # What actually touches is the BASE, which spans nearly the full width
+    # of the triangle at that height (both bottom corners close to the
+    # border), not the narrower x13-78 span used before. Widened the base
+    # back out, and pulled the peak back in off the sloped edge.
+    return f'''<polygon points="12,86 88,86 30,50" fill="#000"/>
+  <text x="58" y="40" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
 
 def symA_steigung(pct="10"):
     # 110 Steigung: mirror of symA_gefaelle - solid filled black wedge with
     # a flat bottom and a diagonal rising from the bottom-left corner up to
     # a point on the upper-right (same solid-fill fix as 108 - ADAC-brochure
-    # audit finding 2026-08-06). Base dropped to meet the ground, then the
-    # tall right edge extended to touch the sloped border too (mirror of
-    # symA_gefaelle's fix above, same reasoning).
-    return f'''<polygon points="22,86 87,86 71,52" fill="#000"/>
-  <text x="40" y="36" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
+    # audit finding 2026-08-06). Re-fixed 2026-08-10, mirror of
+    # symA_gefaelle's fix above (checked against the real ADAC image
+    # directly - the peak doesn't touch the sloped border, only the base
+    # is wide).
+    return f'''<polygon points="12,86 88,86 70,50" fill="#000"/>
+  <text x="42" y="40" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#000" text-anchor="middle">{pct}%</text>'''
 
 def symA_uneven():
     # 112 Unebene Fahrbahn: re-audited 2026-08-09 against the official ADAC
@@ -1221,13 +1230,17 @@ def symA_narrow_one_side():
     # actual boundary at y=30 (same computed x40.4/59.6 as 120 above), and
     # the right/narrowing edge rebuilt as one smooth curve instead of two
     # straight segments meeting at a sharp corner.
-    # Narrowing amount reduced 2026-08-09 (user-reported after the border
-    # fix: the two edges now converged almost to a single point at the
-    # bottom, reading as a full closure rather than a lane narrowing with a
-    # still-passable gap) - bottom end pulled back out to leave a clearer
-    # gap between the two edges.
-    return '''<line x1="41" y1="30" x2="41" y2="80" stroke="#000" stroke-width="11" stroke-linecap="round"/>
-  <path d="M59 30 Q58 55 55 80" stroke="#000" stroke-width="11" fill="none" stroke-linecap="round"/>'''
+    # Narrowing amount reduced 2026-08-09.
+    # Redrawn again 2026-08-10 against the actual ADAC brochure image,
+    # same correction as sym_narrowing() (120) above - the pictogram sits
+    # low in the triangle, not near the top border, and only the upper
+    # third bends outward (the lower two-thirds run close/parallel). Left
+    # edge fully straight the whole height (unaffected lane), right edge
+    # matches 120's own right-edge curve exactly (same bend, same "narrow
+    # for most of the height" shape) so 120 and 121 read as clearly
+    # related pictograms, just with one side fixed vs. both moving.
+    return '''<line x1="42" y1="42" x2="42" y2="80" stroke="#000" stroke-width="11" stroke-linecap="round"/>
+  <path d="M62 42 Q60 48 58 54 L58 80" stroke="#000" stroke-width="11" fill="none" stroke-linecap="round"/>'''
 
 def symA_stau():
     # 124 Stau: THREE car-rear-view silhouettes (a wide low body with a
