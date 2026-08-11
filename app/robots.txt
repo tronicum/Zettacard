@@ -1,0 +1,10 @@
+# Zettacard - app/ is served as-is by Netlify (see netlify.toml), so this
+# file lives alongside index.html/app.html rather than under a separate
+# public/ directory. Nothing here is disallowed: the whole site is meant to
+# be crawled - index.html (marketing landing page) and app.html (the PWA
+# itself, which server-renders nothing but is still fine for crawlers to
+# see) are both intentionally public, as are the legal pages.
+User-agent: *
+Allow: /
+
+Sitemap: https://zettacard.de/sitemap.xml

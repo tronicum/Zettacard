@@ -4,10 +4,70 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Zettacard — Lernkarten & Prüfungsvorbereitung</title>
-  <meta name="description" content="Original practice questions for driving licences, fishing licences, and workplace compliance training, in 12 languages. Free, works offline, installable as an app. Not an exam simulator." />
+  <meta name="description" content="Original practice questions for driving licences, fishing licences, and workplace/enterprise compliance training (incl. KYC/AML and antitrust law), in 12 languages. Free, works offline, installable as an app. Not an official exam simulator." />
   <meta name="theme-color" content="#0b1220" />
   <link rel="icon" type="image/svg+xml" href="icons/logo.svg" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
+
+  <!-- DN-55: SEO/discoverability pass. canonical points at the apex domain
+       (not the netlify.app alias) since zettacard.de is the primary
+       production URL as of the custom-domain migration; og:/twitter: tags
+       use the German copy as the single static fallback description (this
+       page is otherwise fully client-side-i18n'd per LANDING_STRINGS below,
+       but crawlers/social-share unfurlers execute no JS, so they only ever
+       see whatever is in these static tags - German was chosen as the
+       operator's home-market language, matching <html lang="de"> above).
+       og-banner.png is a static 1200x630 PNG generated from
+       icons/og-banner.svg (same brand colors/logo as the app icon; kept as
+       a separate rasterized asset since OG/Twitter unfurlers require a
+       real image file, not inline SVG). -->
+  <link rel="canonical" href="https://zettacard.de/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Zettacard" />
+  <meta property="og:title" content="Zettacard — Lernkarten & Prüfungsvorbereitung" />
+  <meta property="og:description" content="Original erstellte Übungsfragen für Führerschein, Motorrad, LKW, Angelschein und betriebliche/unternehmensweite Pflichtthemen (u. a. Datenschutz, KI-Verordnung, Geldwäscheprävention, Kartellrecht) — in 12 Sprachen, kostenlos, offlinefähig, installierbar." />
+  <meta property="og:url" content="https://zettacard.de/" />
+  <meta property="og:image" content="https://zettacard.de/icons/og-banner.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Zettacard — Lernkarten & Prüfungsvorbereitung" />
+  <meta name="twitter:description" content="Original erstellte Übungsfragen für Führerschein, Angelschein und betriebliche/unternehmensweite Pflichtthemen — in 12 Sprachen, kostenlos, offlinefähig." />
+  <meta name="twitter:image" content="https://zettacard.de/icons/og-banner.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://zettacard.de/#organization",
+        "name": "tronicum networx GmbH",
+        "url": "https://zettacard.de/",
+        "logo": "https://zettacard.de/icons/icon-512.png",
+        "email": "contact@zettacard.de"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://zettacard.de/#website",
+        "url": "https://zettacard.de/",
+        "name": "Zettacard",
+        "inLanguage": ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"],
+        "publisher": { "@id": "https://zettacard.de/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Zettacard",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Any (installable PWA)",
+        "url": "https://zettacard.de/",
+        "description": "Original practice questions for driving/motorcycle/truck/fishing licences and workplace/enterprise compliance training (data protection, AI Act, occupational safety, whistleblower protection, KYC/AML, antitrust law), in 12 languages.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "publisher": { "@id": "https://zettacard.de/#organization" }
+      }
+    ]
+  }
+  </script>
   <!-- This is a marketing landing page, not the app itself - it deliberately
        does NOT link manifest.json or attempt a PWA install prompt (that's
        app.html's job, since manifest.json's start_url now points there).
@@ -128,12 +188,27 @@
     .modules {
       max-width: 720px;
       margin: 0 auto;
-      padding: 32px 20px 56px;
+      padding: 32px 20px 8px;
     }
     .modules h2 {
       font-size: 1.15rem;
       margin: 0 0 14px;
       text-align: center;
+    }
+    /* DN-55: module grid reorganized into 3 labeled groups (driving/
+       leisure, workplace compliance, enterprise) instead of one flat list -
+       both a content fix (surfaces all 11 modules instead of the 8 that
+       were hardcoded before) and a readability improvement once the count
+       grew past what one undifferentiated grid can present clearly. */
+    .module-group { margin-bottom: 22px; }
+    .module-group:last-child { margin-bottom: 0; }
+    .module-group-heading {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-dim);
+      margin: 0 0 10px;
     }
     .module-grid {
       display: grid;
@@ -149,6 +224,70 @@
     }
     .module-card strong { display: block; margin-bottom: 2px; }
     .module-card span { color: var(--text-dim); font-size: 0.8rem; }
+
+    /* DN-55: enterprise/B2B callout - a visually distinct section (accent
+       border + tinted background, vs. the plain --card used everywhere
+       else on this page) placed after the hero/features and before the
+       full module grid, since it's a conversion-focused pitch at a
+       specific buyer (banks/corporates), not just another content list
+       item. The two modules it highlights (kyc_aml, kartellrecht) still
+       also appear in the regular module grid below under "For enterprises"
+       - this section exists in addition to that, not instead of it. */
+    .enterprise {
+      max-width: 720px;
+      margin: 8px auto 0;
+      padding: 0 20px;
+    }
+    .enterprise-card {
+      background: linear-gradient(135deg, var(--card) 0%, var(--card) 60%, var(--accent-dim) 220%);
+      border: 1px solid var(--accent-dim);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+    }
+    .enterprise-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .enterprise-card h2 {
+      font-size: 1.25rem;
+      margin: 0 0 8px;
+    }
+    .enterprise-card > p {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+      line-height: 1.5;
+      margin: 0 0 18px;
+      max-width: 560px;
+    }
+    .enterprise-modules {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .enterprise-module-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+    }
+    .enterprise-module-card strong { display: block; margin-bottom: 4px; font-size: 0.98rem; }
+    .enterprise-module-card p { margin: 0; color: var(--text-dim); font-size: 0.82rem; line-height: 1.45; }
+    .enterprise-cta-row { display: flex; justify-content: center; margin-bottom: 10px; }
+    .enterprise-disclaimer {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.72rem;
+      margin: 0;
+    }
     footer.landing-footer {
       text-align: center;
       color: var(--text-dim);
@@ -196,9 +335,31 @@
       <ul id="features-list"></ul>
     </section>
 
+    <section class="enterprise">
+      <div class="enterprise-card">
+        <span class="enterprise-badge" id="enterprise-badge"></span>
+        <h2 id="enterprise-heading"></h2>
+        <p id="enterprise-intro"></p>
+        <div class="enterprise-modules">
+          <div class="enterprise-module-card">
+            <strong id="enterprise-kyc-title"></strong>
+            <p id="enterprise-kyc-desc"></p>
+          </div>
+          <div class="enterprise-module-card">
+            <strong id="enterprise-kartell-title"></strong>
+            <p id="enterprise-kartell-desc"></p>
+          </div>
+        </div>
+        <div class="enterprise-cta-row">
+          <a class="cta-btn" id="enterprise-cta" href="./app.html"></a>
+        </div>
+        <p class="enterprise-disclaimer" id="enterprise-disclaimer"></p>
+      </div>
+    </section>
+
     <section class="modules">
       <h2 id="modules-heading"></h2>
-      <div class="module-grid" id="module-grid"></div>
+      <div id="module-groups"></div>
     </section>
   </main>
 
@@ -226,23 +387,52 @@
         datenschutz: {de:"Datenschutz",en:"Data protection",uk:"Захист даних",pl:"Ochrona danych",ar:"حماية البيانات",zh:"数据保护",hi:"डेटा सुरक्षा",tr:"Veri koruma",fr:"Protection des données",ru:"Защита данных",es:"Protección de datos",it:"Protezione dei dati"},
         arbeitssicherheit: {de:"Arbeitssicherheit",en:"Occupational safety",uk:"Охорона праці",pl:"Bezpieczeństwo pracy",ar:"السلامة المهنية",zh:"职业安全",hi:"व्यावसायिक सुरक्षा",tr:"İş güvenliği",fr:"Sécurité au travail",ru:"Охрана труда",es:"Seguridad laboral",it:"Sicurezza sul lavoro"},
         ki_act: {de:"KI-Verordnung",en:"AI Act",uk:"Закон про ШІ",pl:"Akt o sztucznej inteligencji",ar:"قانون الذكاء الاصطناعي",zh:"人工智能法案",hi:"एआई अधिनियम",tr:"Yapay Zeka Yasası",fr:"Règlement sur l'IA",ru:"Закон об ИИ",es:"Ley de IA",it:"Legge sull'IA"},
-        it_sicherheit: {de:"IT-Sicherheit",en:"IT security",uk:"ІТ-безпека",pl:"Bezpieczeństwo IT",ar:"أمن تقنية المعلومات",zh:"IT安全",hi:"आईटी सुरक्षा",tr:"BT güvenliği",fr:"Sécurité informatique",ru:"ИТ-безопасность",es:"Seguridad informática",it:"Sicurezza IT"}
+        it_sicherheit: {de:"IT-Sicherheit",en:"IT security",uk:"ІТ-безпека",pl:"Bezpieczeństwo IT",ar:"أمن تقنية المعلومات",zh:"IT安全",hi:"आईटी सुरक्षा",tr:"BT güvenliği",fr:"Sécurité informatique",ru:"ИТ-безопасность",es:"Seguridad informática",it:"Sicurezza IT"},
+        // DN-55: 3 modules added since this page's original 8-module list
+        // (hinweisgeberschutz/DN-50, kyc_aml+kartellrecht/DN-53) - labels
+        // copied verbatim from data/modules_manifest.json, same rule as
+        // the 8 above.
+        hinweisgeberschutz: {de:"Hinweisgeberschutz",en:"Whistleblower protection",uk:"Захист викривачів",pl:"Ochrona sygnalistów",ar:"حماية المبلغين عن المخالفات",zh:"举报人保护",hi:"व्हिसलब्लोअर सुरक्षा",tr:"Bilgi verenlerin korunması",fr:"Protection des lanceurs d'alerte",ru:"Защита осведомителей",es:"Protección de denunciantes",it:"Tutela dei whistleblower"},
+        kyc_aml: {de:"Geldwäscheprävention (KYC/AML)",en:"Anti-money laundering (KYC/AML)",uk:"Запобігання відмиванню коштів (KYC/AML)",pl:"Przeciwdziałanie praniu pieniędzy (KYC/AML)",ar:"مكافحة غسل الأموال (KYC/AML)",zh:"反洗钱合规 (KYC/AML)",hi:"मनी लॉन्ड्रिंग रोकथाम (KYC/AML)",tr:"Kara para aklamayla mücadele (KYC/AML)",fr:"Lutte contre le blanchiment d'argent (KYC/AML)",ru:"Противодействие отмыванию денег (KYC/AML)",es:"Prevención del blanqueo de capitales (KYC/AML)",it:"Prevenzione del riciclaggio (KYC/AML)"},
+        kartellrecht: {de:"Kartellrecht (Wettbewerbsrecht)",en:"Antitrust & competition law",uk:"Антимонопольне право",pl:"Prawo antymonopolowe i konkurencji",ar:"قانون مكافحة الاحتكار والمنافسة",zh:"反垄断与竞争法",hi:"एंटीट्रस्ट और प्रतिस्पर्धा कानून",tr:"Rekabet hukuku",fr:"Droit de la concurrence",ru:"Антимонопольное право",es:"Derecho de la competencia",it:"Diritto della concorrenza"}
       };
       var CLASS_B = {de:"Klasse B (Pkw)",en:"Class B (car)",uk:"Категорія B (легковий)",pl:"Kategoria B (samochód)",ar:"الفئة B (سيارة)",zh:"B 类（小汽车）",hi:"क्लास B (कार)",tr:"B Sınıfı (otomobil)",fr:"Catégorie B (voiture)",ru:"Категория B (легковой)",es:"Clase B (coche)",it:"Classe B (auto)"};
 
       var LANDING_STRINGS = {
-        de: { lede:"Original erstellte Übungsfragen für Führerschein, Motorrad, LKW, Angelschein und betriebliche Pflichtthemen (Datenschutz, Arbeitssicherheit, KI-Verordnung, IT-Sicherheit) — in 12 Sprachen, komplett kostenlos, funktioniert offline und lässt sich als App installieren.", cta:"Jetzt starten", feats:["✅ Original erstellte Fragen","🌐 12 Sprachen","📶 Funktioniert offline","🆓 Kostenlos"], modulesHeading:"8 Module", theoryExam:"Theorieprüfung", compliance:"Betriebliche Pflichtschulung", footer:"Zettacard ist kein amtlicher Prüfungssimulator. Original-Lerninhalte, CC BY-NC-SA 4.0.", langLabel:"Sprache" },
-        en: { lede:"Original practice questions for driving licences, motorcycle and truck licences, fishing licences, and workplace-compliance topics (data protection, occupational safety, the AI Act, IT security) — in 12 languages, completely free, works offline, and installs as an app.", cta:"Start now", feats:["✅ Original, exam-style questions","🌐 12 languages","📶 Works offline","🆓 Free"], modulesHeading:"8 modules", theoryExam:"Theory exam", compliance:"Workplace compliance", footer:"Zettacard is not an official exam simulator. Original learning content, CC BY-NC-SA 4.0.", langLabel:"Language" },
-        uk: { lede:"Оригінальні практичні запитання для водійських прав, посвідчень на мотоцикл і вантажівку, посвідчення рибалки та тем обов'язкового навчання на робочому місці (захист даних, охорона праці, Закон про ШІ, ІТ-безпека) — 12 мовами, повністю безкоштовно, працює офлайн і встановлюється як застосунок.", cta:"Почати зараз", feats:["✅ Оригінальні запитання","🌐 12 мов","📶 Працює офлайн","🆓 Безкоштовно"], modulesHeading:"8 модулів", theoryExam:"Теоретичний іспит", compliance:"Обов'язкове навчання на роботі", footer:"Zettacard не є офіційним симулятором іспиту. Оригінальний навчальний контент, CC BY-NC-SA 4.0.", langLabel:"Мова" },
-        pl: { lede:"Oryginalne pytania ćwiczeniowe do prawa jazdy, uprawnień na motocykl i ciężarówkę, karty wędkarskiej oraz tematów obowiązkowych szkoleń w pracy (ochrona danych, bezpieczeństwo pracy, Akt o sztucznej inteligencji, bezpieczeństwo IT) — w 12 językach, całkowicie za darmo, działa offline i instaluje się jako aplikacja.", cta:"Zacznij teraz", feats:["✅ Oryginalne pytania","🌐 12 języków","📶 Działa offline","🆓 Za darmo"], modulesHeading:"8 modułów", theoryExam:"Egzamin teoretyczny", compliance:"Obowiązkowe szkolenie w pracy", footer:"Zettacard nie jest oficjalnym symulatorem egzaminu. Oryginalne treści edukacyjne, CC BY-NC-SA 4.0.", langLabel:"Język" },
-        ar: { lede:"أسئلة تدريبية أصلية لرخصة القيادة، ورخصتي الدراجة النارية والشاحنة، ورخصة الصيد، ومواضيع التدريب الإلزامي في مكان العمل (حماية البيانات، السلامة المهنية، قانون الذكاء الاصطناعي، أمن تقنية المعلومات) — بـ 12 لغة، مجانية بالكامل، تعمل دون اتصال بالإنترنت ويمكن تثبيتها كتطبيق.", cta:"ابدأ الآن", feats:["✅ أسئلة أصلية","🌐 12 لغة","📶 يعمل دون اتصال","🆓 مجاني"], modulesHeading:"8 وحدات", theoryExam:"اختبار نظري", compliance:"تدريب إلزامي في العمل", footer:"زيتاكارد ليس محاكيًا رسميًا للاختبار. محتوى تعليمي أصلي، CC BY-NC-SA 4.0.", langLabel:"اللغة" },
-        zh: { lede:"为驾驶执照、摩托车和卡车驾照、钓鱼证以及职场合规培训主题(数据保护、职业安全、人工智能法案、IT安全)提供的原创练习题——支持12种语言,完全免费,可离线使用,并可作为应用安装。", cta:"立即开始", feats:["✅ 原创题目","🌐 12种语言","📶 离线可用","🆓 免费"], modulesHeading:"8个模块", theoryExam:"理论考试", compliance:"职场合规培训", footer:"Zettacard 不是官方考试模拟器。原创学习内容,CC BY-NC-SA 4.0。", langLabel:"语言" },
-        hi: { lede:"ड्राइविंग लाइसेंस, मोटरसाइकिल और ट्रक लाइसेंस, मछली पकड़ने के लाइसेंस, और कार्यस्थल अनुपालन विषयों (डेटा सुरक्षा, व्यावसायिक सुरक्षा, एआई अधिनियम, आईटी सुरक्षा) के लिए मौलिक अभ्यास प्रश्न — 12 भाषाओं में, पूरी तरह मुफ़्त, ऑफ़लाइन काम करता है और ऐप के रूप में इंस्टॉल किया जा सकता है।", cta:"अभी शुरू करें", feats:["✅ मौलिक प्रश्न","🌐 12 भाषाएँ","📶 ऑफ़लाइन काम करता है","🆓 मुफ़्त"], modulesHeading:"8 मॉड्यूल", theoryExam:"सैद्धांतिक परीक्षा", compliance:"कार्यस्थल अनुपालन प्रशिक्षण", footer:"Zettacard कोई आधिकारिक परीक्षा सिम्युलेटर नहीं है। मौलिक शिक्षण सामग्री, CC BY-NC-SA 4.0।", langLabel:"भाषा" },
-        tr: { lede:"Sürücü belgesi, motosiklet ve kamyon ehliyeti, balıkçılık belgesi ve işyeri uyum konuları (veri koruma, iş güvenliği, Yapay Zeka Yasası, BT güvenliği) için özgün alıştırma soruları — 12 dilde, tamamen ücretsiz, çevrimdışı çalışır ve uygulama olarak yüklenebilir.", cta:"Şimdi başla", feats:["✅ Özgün sorular","🌐 12 dil","📶 Çevrimdışı çalışır","🆓 Ücretsiz"], modulesHeading:"8 modül", theoryExam:"Teorik sınav", compliance:"İşyeri zorunlu eğitimi", footer:"Zettacard resmi bir sınav simülatörü değildir. Özgün öğrenme içeriği, CC BY-NC-SA 4.0.", langLabel:"Dil" },
-        fr: { lede:"Questions d'entraînement originales pour le permis de conduire, les permis moto et poids lourd, le permis de pêche et les thèmes de conformité en entreprise (protection des données, sécurité au travail, règlement sur l'IA, sécurité informatique) — en 12 langues, entièrement gratuit, fonctionne hors ligne et s'installe comme une application.", cta:"Commencer maintenant", feats:["✅ Questions originales","🌐 12 langues","📶 Fonctionne hors ligne","🆓 Gratuit"], modulesHeading:"8 modules", theoryExam:"Examen théorique", compliance:"Formation obligatoire en entreprise", footer:"Zettacard n'est pas un simulateur d'examen officiel. Contenu pédagogique original, CC BY-NC-SA 4.0.", langLabel:"Langue" },
-        ru: { lede:"Оригинальные тренировочные вопросы для водительских прав, прав на мотоцикл и грузовик, удостоверения рыболова и тем обязательного обучения на рабочем месте (защита данных, охрана труда, закон об ИИ, ИТ-безопасность) — на 12 языках, полностью бесплатно, работает офлайн и устанавливается как приложение.", cta:"Начать сейчас", feats:["✅ Оригинальные вопросы","🌐 12 языков","📶 Работает офлайн","🆓 Бесплатно"], modulesHeading:"8 модулей", theoryExam:"Теоретический экзамен", compliance:"Обязательное обучение на работе", footer:"Zettacard не является официальным симулятором экзамена. Оригинальный учебный контент, CC BY-NC-SA 4.0.", langLabel:"Язык" },
-        es: { lede:"Preguntas de práctica originales para el permiso de conducir, las licencias de motocicleta y camión, la licencia de pesca y los temas de cumplimiento normativo laboral (protección de datos, seguridad laboral, la Ley de IA, seguridad informática) — en 12 idiomas, totalmente gratis, funciona sin conexión y se instala como aplicación.", cta:"Empezar ahora", feats:["✅ Preguntas originales","🌐 12 idiomas","📶 Funciona sin conexión","🆓 Gratis"], modulesHeading:"8 módulos", theoryExam:"Examen teórico", compliance:"Formación obligatoria laboral", footer:"Zettacard no es un simulador de examen oficial. Contenido educativo original, CC BY-NC-SA 4.0.", langLabel:"Idioma" },
-        it: { lede:"Domande di esercizio originali per la patente di guida, le patenti per moto e camion, la licenza di pesca e i temi di conformità aziendale (protezione dei dati, sicurezza sul lavoro, la Legge sull'IA, sicurezza IT) — in 12 lingue, completamente gratuito, funziona offline e si installa come app.", cta:"Inizia ora", feats:["✅ Domande originali","🌐 12 lingue","📶 Funziona offline","🆓 Gratuito"], modulesHeading:"8 moduli", theoryExam:"Esame teorico", compliance:"Formazione aziendale obbligatoria", footer:"Zettacard non è un simulatore d'esame ufficiale. Contenuti didattici originali, CC BY-NC-SA 4.0.", langLabel:"Lingua" }
+        de: { lede:"Original erstellte Übungsfragen für Führerschein, Motorrad, LKW, Angelschein und betriebliche Pflichtthemen (Datenschutz, Arbeitssicherheit, KI-Verordnung, IT-Sicherheit) — in 12 Sprachen, komplett kostenlos, funktioniert offline und lässt sich als App installieren.", cta:"Jetzt starten", feats:["✅ Original erstellte Fragen","🌐 12 Sprachen","📶 Funktioniert offline","🆓 Kostenlos"], modulesHeading:"11 Module", theoryExam:"Theorieprüfung", compliance:"Betriebliche Pflichtschulung", footer:"Zettacard ist kein amtlicher Prüfungssimulator. Original-Lerninhalte, CC BY-NC-SA 4.0.", langLabel:"Sprache" },
+        en: { lede:"Original practice questions for driving licences, motorcycle and truck licences, fishing licences, and workplace-compliance topics (data protection, occupational safety, the AI Act, IT security) — in 12 languages, completely free, works offline, and installs as an app.", cta:"Start now", feats:["✅ Original, exam-style questions","🌐 12 languages","📶 Works offline","🆓 Free"], modulesHeading:"11 modules", theoryExam:"Theory exam", compliance:"Workplace compliance", footer:"Zettacard is not an official exam simulator. Original learning content, CC BY-NC-SA 4.0.", langLabel:"Language" },
+        uk: { lede:"Оригінальні практичні запитання для водійських прав, посвідчень на мотоцикл і вантажівку, посвідчення рибалки та тем обов'язкового навчання на робочому місці (захист даних, охорона праці, Закон про ШІ, ІТ-безпека) — 12 мовами, повністю безкоштовно, працює офлайн і встановлюється як застосунок.", cta:"Почати зараз", feats:["✅ Оригінальні запитання","🌐 12 мов","📶 Працює офлайн","🆓 Безкоштовно"], modulesHeading:"11 модулів", theoryExam:"Теоретичний іспит", compliance:"Обов'язкове навчання на роботі", footer:"Zettacard не є офіційним симулятором іспиту. Оригінальний навчальний контент, CC BY-NC-SA 4.0.", langLabel:"Мова" },
+        pl: { lede:"Oryginalne pytania ćwiczeniowe do prawa jazdy, uprawnień na motocykl i ciężarówkę, karty wędkarskiej oraz tematów obowiązkowych szkoleń w pracy (ochrona danych, bezpieczeństwo pracy, Akt o sztucznej inteligencji, bezpieczeństwo IT) — w 12 językach, całkowicie za darmo, działa offline i instaluje się jako aplikacja.", cta:"Zacznij teraz", feats:["✅ Oryginalne pytania","🌐 12 języków","📶 Działa offline","🆓 Za darmo"], modulesHeading:"11 modułów", theoryExam:"Egzamin teoretyczny", compliance:"Obowiązkowe szkolenie w pracy", footer:"Zettacard nie jest oficjalnym symulatorem egzaminu. Oryginalne treści edukacyjne, CC BY-NC-SA 4.0.", langLabel:"Język" },
+        ar: { lede:"أسئلة تدريبية أصلية لرخصة القيادة، ورخصتي الدراجة النارية والشاحنة، ورخصة الصيد، ومواضيع التدريب الإلزامي في مكان العمل (حماية البيانات، السلامة المهنية، قانون الذكاء الاصطناعي، أمن تقنية المعلومات) — بـ 12 لغة، مجانية بالكامل، تعمل دون اتصال بالإنترنت ويمكن تثبيتها كتطبيق.", cta:"ابدأ الآن", feats:["✅ أسئلة أصلية","🌐 12 لغة","📶 يعمل دون اتصال","🆓 مجاني"], modulesHeading:"11 وحدة", theoryExam:"اختبار نظري", compliance:"تدريب إلزامي في العمل", footer:"زيتاكارد ليس محاكيًا رسميًا للاختبار. محتوى تعليمي أصلي، CC BY-NC-SA 4.0.", langLabel:"اللغة" },
+        zh: { lede:"为驾驶执照、摩托车和卡车驾照、钓鱼证以及职场合规培训主题(数据保护、职业安全、人工智能法案、IT安全)提供的原创练习题——支持12种语言,完全免费,可离线使用,并可作为应用安装。", cta:"立即开始", feats:["✅ 原创题目","🌐 12种语言","📶 离线可用","🆓 免费"], modulesHeading:"11个模块", theoryExam:"理论考试", compliance:"职场合规培训", footer:"Zettacard 不是官方考试模拟器。原创学习内容,CC BY-NC-SA 4.0。", langLabel:"语言" },
+        hi: { lede:"ड्राइविंग लाइसेंस, मोटरसाइकिल और ट्रक लाइसेंस, मछली पकड़ने के लाइसेंस, और कार्यस्थल अनुपालन विषयों (डेटा सुरक्षा, व्यावसायिक सुरक्षा, एआई अधिनियम, आईटी सुरक्षा) के लिए मौलिक अभ्यास प्रश्न — 12 भाषाओं में, पूरी तरह मुफ़्त, ऑफ़लाइन काम करता है और ऐप के रूप में इंस्टॉल किया जा सकता है।", cta:"अभी शुरू करें", feats:["✅ मौलिक प्रश्न","🌐 12 भाषाएँ","📶 ऑफ़लाइन काम करता है","🆓 मुफ़्त"], modulesHeading:"11 मॉड्यूल", theoryExam:"सैद्धांतिक परीक्षा", compliance:"कार्यस्थल अनुपालन प्रशिक्षण", footer:"Zettacard कोई आधिकारिक परीक्षा सिम्युलेटर नहीं है। मौलिक शिक्षण सामग्री, CC BY-NC-SA 4.0।", langLabel:"भाषा" },
+        tr: { lede:"Sürücü belgesi, motosiklet ve kamyon ehliyeti, balıkçılık belgesi ve işyeri uyum konuları (veri koruma, iş güvenliği, Yapay Zeka Yasası, BT güvenliği) için özgün alıştırma soruları — 12 dilde, tamamen ücretsiz, çevrimdışı çalışır ve uygulama olarak yüklenebilir.", cta:"Şimdi başla", feats:["✅ Özgün sorular","🌐 12 dil","📶 Çevrimdışı çalışır","🆓 Ücretsiz"], modulesHeading:"11 modül", theoryExam:"Teorik sınav", compliance:"İşyeri zorunlu eğitimi", footer:"Zettacard resmi bir sınav simülatörü değildir. Özgün öğrenme içeriği, CC BY-NC-SA 4.0.", langLabel:"Dil" },
+        fr: { lede:"Questions d'entraînement originales pour le permis de conduire, les permis moto et poids lourd, le permis de pêche et les thèmes de conformité en entreprise (protection des données, sécurité au travail, règlement sur l'IA, sécurité informatique) — en 12 langues, entièrement gratuit, fonctionne hors ligne et s'installe comme une application.", cta:"Commencer maintenant", feats:["✅ Questions originales","🌐 12 langues","📶 Fonctionne hors ligne","🆓 Gratuit"], modulesHeading:"11 modules", theoryExam:"Examen théorique", compliance:"Formation obligatoire en entreprise", footer:"Zettacard n'est pas un simulateur d'examen officiel. Contenu pédagogique original, CC BY-NC-SA 4.0.", langLabel:"Langue" },
+        ru: { lede:"Оригинальные тренировочные вопросы для водительских прав, прав на мотоцикл и грузовик, удостоверения рыболова и тем обязательного обучения на рабочем месте (защита данных, охрана труда, закон об ИИ, ИТ-безопасность) — на 12 языках, полностью бесплатно, работает офлайн и устанавливается как приложение.", cta:"Начать сейчас", feats:["✅ Оригинальные вопросы","🌐 12 языков","📶 Работает офлайн","🆓 Бесплатно"], modulesHeading:"11 модулей", theoryExam:"Теоретический экзамен", compliance:"Обязательное обучение на работе", footer:"Zettacard не является официальным симулятором экзамена. Оригинальный учебный контент, CC BY-NC-SA 4.0.", langLabel:"Язык" },
+        es: { lede:"Preguntas de práctica originales para el permiso de conducir, las licencias de motocicleta y camión, la licencia de pesca y los temas de cumplimiento normativo laboral (protección de datos, seguridad laboral, la Ley de IA, seguridad informática) — en 12 idiomas, totalmente gratis, funciona sin conexión y se instala como aplicación.", cta:"Empezar ahora", feats:["✅ Preguntas originales","🌐 12 idiomas","📶 Funciona sin conexión","🆓 Gratis"], modulesHeading:"11 módulos", theoryExam:"Examen teórico", compliance:"Formación obligatoria laboral", footer:"Zettacard no es un simulador de examen oficial. Contenido educativo original, CC BY-NC-SA 4.0.", langLabel:"Idioma" },
+        it: { lede:"Domande di esercizio originali per la patente di guida, le patenti per moto e camion, la licenza di pesca e i temi di conformità aziendale (protezione dei dati, sicurezza sul lavoro, la Legge sull'IA, sicurezza IT) — in 12 lingue, completamente gratuito, funziona offline e si installa come app.", cta:"Inizia ora", feats:["✅ Domande originali","🌐 12 lingue","📶 Funziona offline","🆓 Gratuito"], modulesHeading:"11 moduli", theoryExam:"Esame teorico", compliance:"Formazione aziendale obbligatoria", footer:"Zettacard non è un simulatore d'esame ufficiale. Contenuti didattici originali, CC BY-NC-SA 4.0.", langLabel:"Lingua" }
+      };
+
+      // DN-55: enterprise/B2B callout section strings (kyc_aml/kartellrecht
+      // pitch) + module-grid group headings. Drafted DE/EN directly, then
+      // translated to the other 10 locales via 3 parallel agents (same
+      // uk/pl/ru, ar/zh/hi, tr/fr/es/it split this project always uses),
+      // instructed to keep "§6 Abs. 2 Nr. 6 GwG"/"§81d GWB"/"BaFin"/
+      // "KYC/AML" untranslated since those name specific German legal
+      // provisions, an authority, and an international acronym.
+      var ENTERPRISE_STRINGS = {
+        de: { badge:"Neu", heading:"Für Banken, Finanzdienstleister und Großunternehmen", intro:"Zwei neue Compliance-Module, entwickelt für den B2B-Bedarf großer Organisationen. Aktuell komplett kostenlos als Pilotprogramm – eine spätere Preisänderung ist möglich.", kycTitle:"Geldwäscheprävention (KYC/AML)", kycDesc:"Original-Fragen zu Sorgfaltspflichten, Verdachtsmeldewesen und verstärkten Sorgfaltspflichten – deckt die gesetzliche Schulungspflicht nach §6 Abs. 2 Nr. 6 GwG ab, mit realen BaFin-Bußgeldfällen.", kartellTitle:"Kartellrecht-Compliance", kartellDesc:"Original-Fragen zu Kartellverbot, Bußgeldern und Selbstreinigung – stärkt die Bußgeldminderung nach §81d GWB, mit realen Fällen wie dem Straßenbau-Kartell 2026.", cta:"Kostenlosen Pilot starten", disclaimer:"Original-Lerninhalte, rechtlich noch nicht extern geprüft – kein Ersatz für individuelle Rechtsberatung.", groupDriving:"Führerschein & Freizeit", groupCompliance:"Betriebliche Pflichtschulungen", groupEnterprise:"Für Unternehmen" },
+        en: { badge:"New", heading:"For banks, financial-services companies, and large corporations", intro:"Two new compliance modules, built for the B2B needs of large organizations. Currently completely free as a pilot program – pricing may change later.", kycTitle:"Anti-money laundering (KYC/AML)", kycDesc:"Original questions on due diligence, suspicious-activity reporting, and enhanced due diligence – covers the statutory training duty under §6 Abs. 2 Nr. 6 GwG, with real BaFin enforcement cases.", kartellTitle:"Antitrust/competition-law compliance", kartellDesc:"Original questions on the cartel prohibition, fines, and self-cleaning – strengthens fine-mitigation eligibility under §81d GWB, with real cases like the 2026 road-construction cartel.", cta:"Start the free pilot", disclaimer:"Original learning content, not yet reviewed by outside counsel – not a substitute for individual legal advice.", groupDriving:"Driving & leisure", groupCompliance:"Workplace compliance", groupEnterprise:"For enterprises" },
+        uk: { badge:"Нове", heading:"Для банків, фінансових компаній та великих підприємств", intro:"Два нові модулі комплаєнсу, розроблені для B2B-потреб великих організацій. Наразі повністю безкоштовно в рамках пілотної програми – у майбутньому можлива зміна вартості.", kycTitle:"Запобігання відмиванню грошей (KYC/AML)", kycDesc:"Оригінальні запитання щодо належної перевірки клієнтів, повідомлення про підозрілі операції та посиленої належної перевірки – охоплює законодавчо встановлений обов'язок навчання за §6 Abs. 2 Nr. 6 GwG, з реальними справами про штрафи BaFin.", kartellTitle:"Комплаєнс із картельного права", kartellDesc:"Оригінальні запитання щодо заборони картелів, штрафів та самоочищення – підвищує шанси на пом'якшення штрафу згідно з §81d GWB, з реальними справами, як-от картель дорожнього будівництва 2026 року.", cta:"Розпочати безкоштовний пілот", disclaimer:"Оригінальні навчальні матеріали, ще не перевірені зовнішніми юристами – не замінюють індивідуальну юридичну консультацію.", groupDriving:"Водійські права та дозвілля", groupCompliance:"Обов'язкові корпоративні навчання", groupEnterprise:"Для підприємств" },
+        pl: { badge:"Nowość", heading:"Dla banków, firm z sektora finansowego i dużych przedsiębiorstw", intro:"Dwa nowe moduły compliance, stworzone z myślą o potrzebach B2B dużych organizacji. Obecnie całkowicie bezpłatne w ramach programu pilotażowego – późniejsza zmiana cen jest możliwa.", kycTitle:"Przeciwdziałanie praniu pieniędzy (KYC/AML)", kycDesc:"Oryginalne pytania dotyczące obowiązków należytej staranności, zgłaszania podejrzanych transakcji oraz wzmożonej należytej staranności – obejmuje ustawowy obowiązek szkoleniowy zgodnie z §6 Abs. 2 Nr. 6 GwG, wraz z rzeczywistymi przypadkami kar BaFin.", kartellTitle:"Zgodność z prawem kartelowym", kartellDesc:"Oryginalne pytania dotyczące zakazu karteli, kar pieniężnych i samooczyszczenia – zwiększa szanse na złagodzenie kary zgodnie z §81d GWB, na przykładzie rzeczywistych spraw, takich jak kartel budowy dróg z 2026 roku.", cta:"Rozpocznij bezpłatny pilotaż", disclaimer:"Oryginalne materiały szkoleniowe, jeszcze niezweryfikowane przez zewnętrznych prawników – nie zastępują indywidualnej porady prawnej.", groupDriving:"Prawo jazdy i czas wolny", groupCompliance:"Obowiązkowe szkolenia firmowe", groupEnterprise:"Dla przedsiębiorstw" },
+        ar: { badge:"جديد", heading:"للبنوك ومزوّدي الخدمات المالية والشركات الكبرى", intro:"وحدتان جديدتان للامتثال، مصمَّمتان لتلبية احتياجات B2B لدى المؤسسات الكبرى. متاحتان حالياً مجاناً بالكامل كبرنامج تجريبي – قد يتغير التسعير لاحقاً.", kycTitle:"مكافحة غسل الأموال (KYC/AML)", kycDesc:"أسئلة أصلية حول واجبات العناية الواجبة، والإبلاغ عن الأنشطة المشبوهة، والعناية الواجبة المعزّزة – تغطي الالتزام القانوني بالتدريب بموجب §6 Abs. 2 Nr. 6 GwG، مع حالات إنفاذ فعلية من BaFin.", kartellTitle:"الامتثال لقانون مكافحة الاحتكار", kartellDesc:"أسئلة أصلية حول حظر الكارتلات والغرامات والتطهير الذاتي – تعزز أهلية تخفيف الغرامة بموجب §81d GWB، مع حالات فعلية مثل كارتل إنشاء الطرق لعام 2026.", cta:"ابدأ التجربة المجانية", disclaimer:"محتوى تعليمي أصلي، لم تتم مراجعته قانونياً بعد من جهة خارجية – لا يُغني عن استشارة قانونية فردية.", groupDriving:"رخصة القيادة والترفيه", groupCompliance:"التدريبات الإلزامية في العمل", groupEnterprise:"للشركات" },
+        zh: { badge:"新", heading:"面向银行、金融服务机构和大型企业", intro:"两个全新合规模块,专为大型组织的 B2B 需求打造。目前作为试点项目完全免费提供 —— 未来定价可能会调整。", kycTitle:"反洗钱(KYC/AML)", kycDesc:"原创题目涵盖尽职调查义务、可疑活动报告和强化尽职调查 —— 覆盖 §6 Abs. 2 Nr. 6 GwG 规定的法定培训义务,并包含 BaFin 的真实执法案例。", kartellTitle:"反垄断合规", kartellDesc:"原创题目涵盖卡特尔禁令、罚款和自我整改 —— 有助于符合 §81d GWB 规定的罚款减免资格,并包含如 2026 年道路建设卡特尔等真实案例。", cta:"开始免费试点", disclaimer:"原创学习内容,尚未经过外部法律审核 —— 不能替代个别法律咨询。", groupDriving:"驾照与休闲", groupCompliance:"企业强制培训", groupEnterprise:"企业专区" },
+        hi: { badge:"नया", heading:"बैंकों, वित्तीय सेवा कंपनियों और बड़े उद्यमों के लिए", intro:"दो नए अनुपालन मॉड्यूल, बड़े संगठनों की B2B आवश्यकताओं के लिए बनाए गए हैं। फिलहाल पायलट प्रोग्राम के रूप में पूरी तरह निःशुल्क – बाद में मूल्य में बदलाव संभव है।", kycTitle:"मनी लॉन्ड्रिंग रोकथाम (KYC/AML)", kycDesc:"ड्यू डिलिजेंस दायित्वों, संदिग्ध गतिविधि रिपोर्टिंग और उन्नत ड्यू डिलिजेंस से जुड़े मौलिक प्रश्न – §6 Abs. 2 Nr. 6 GwG के अंतर्गत कानूनी प्रशिक्षण अनिवार्यता को कवर करते हैं, साथ ही वास्तविक BaFin जुर्माना मामलों के साथ।", kartellTitle:"प्रतिस्पर्धा-विरोधी (कार्टेल) कानून अनुपालन", kartellDesc:"कार्टेल प्रतिबंध, जुर्माने और सेल्फ-क्लीनिंग से जुड़े मौलिक प्रश्न – §81d GWB के तहत जुर्माना राहत की पात्रता मजबूत करते हैं, साथ ही 2026 के सड़क-निर्माण कार्टेल जैसे वास्तविक मामलों के साथ।", cta:"मुफ़्त पायलट शुरू करें", disclaimer:"मौलिक शिक्षण सामग्री, अभी तक बाहरी कानूनी समीक्षा नहीं हुई है – व्यक्तिगत कानूनी सलाह का विकल्प नहीं है।", groupDriving:"ड्राइविंग लाइसेंस और अवकाश", groupCompliance:"अनिवार्य कार्यस्थल प्रशिक्षण", groupEnterprise:"उद्यमों के लिए" },
+        tr: { badge:"Yeni", heading:"Bankalar, finansal hizmet sağlayıcıları ve büyük şirketler için", intro:"Büyük kuruluşların B2B ihtiyaçları için geliştirilmiş iki yeni uyum (compliance) modülü. Şu anda pilot program kapsamında tamamen ücretsizdir – ileride fiyatlandırma değişebilir.", kycTitle:"Kara Para Aklamayı Önleme (KYC/AML)", kycDesc:"Özen yükümlülükleri, şüpheli işlem bildirimi ve artırılmış özen yükümlülükleri üzerine özgün sorular – §6 Abs. 2 Nr. 6 GwG kapsamındaki yasal eğitim yükümlülüğünü karşılar, gerçek BaFin para cezası vakalarıyla desteklenir.", kartellTitle:"Rekabet Hukuku Uyumluluğu", kartellDesc:"Kartel yasağı, para cezaları ve kendini temize çıkarma (self-cleaning) konularında özgün sorular – §81d GWB kapsamındaki ceza indirimi hakkını güçlendirir, 2026 yol yapımı karteli gibi gerçek vakalarla.", cta:"Ücretsiz Pilotu Başlat", disclaimer:"Özgün eğitim içerikleri, henüz bağımsız hukuki incelemeden geçmemiştir – bireysel hukuki danışmanlığın yerini tutmaz.", groupDriving:"Ehliyet ve Boş Zaman", groupCompliance:"Zorunlu İşyeri Eğitimleri", groupEnterprise:"Kurumlar İçin" },
+        fr: { badge:"Nouveau", heading:"Pour les banques, prestataires de services financiers et grandes entreprises", intro:"Deux nouveaux modules de conformité, conçus pour les besoins B2B des grandes organisations. Actuellement entièrement gratuits dans le cadre d'un programme pilote – une évolution tarifaire ultérieure est possible.", kycTitle:"Prévention du blanchiment d'argent (KYC/AML)", kycDesc:"Questions originales sur les obligations de vigilance, la déclaration de soupçon et les obligations de vigilance renforcée – couvre l'obligation légale de formation prévue à l'§6 Abs. 2 Nr. 6 GwG, avec des cas réels d'amendes BaFin.", kartellTitle:"Conformité au droit de la concurrence", kartellDesc:"Questions originales sur l'interdiction des ententes, les amendes et l'auto-nettoyage – renforce l'éligibilité à la réduction d'amende prévue à l'§81d GWB, avec des cas réels comme l'entente sur la construction routière de 2026.", cta:"Démarrer le pilote gratuit", disclaimer:"Contenus pédagogiques originaux, non encore vérifiés juridiquement par un cabinet externe – ne remplace pas un conseil juridique individuel.", groupDriving:"Permis & loisirs", groupCompliance:"Formations obligatoires en entreprise", groupEnterprise:"Pour les entreprises" },
+        ru: { badge:"Новое", heading:"Для банков, финансовых компаний и крупных предприятий", intro:"Два новых модуля комплаенса, разработанных для B2B-потребностей крупных организаций. В настоящее время полностью бесплатно в рамках пилотной программы – в дальнейшем возможно изменение стоимости.", kycTitle:"Противодействие отмыванию денег (KYC/AML)", kycDesc:"Оригинальные вопросы по надлежащей проверке клиентов, сообщениям о подозрительных операциях и усиленной надлежащей проверке – охватывает установленную законом обязанность обучения согласно §6 Abs. 2 Nr. 6 GwG, с реальными случаями штрафов BaFin.", kartellTitle:"Комплаенс в области картельного права", kartellDesc:"Оригинальные вопросы о запрете картелей, штрафах и самоочищении – повышает шансы на смягчение штрафа согласно §81d GWB, на примере реальных дел, таких как картель дорожного строительства 2026 года.", cta:"Начать бесплатный пилот", disclaimer:"Оригинальные учебные материалы, пока не проверенные внешними юристами – не заменяют индивидуальную юридическую консультацию.", groupDriving:"Водительские права и досуг", groupCompliance:"Обязательное корпоративное обучение", groupEnterprise:"Для предприятий" },
+        es: { badge:"Nuevo", heading:"Para bancos, proveedores de servicios financieros y grandes empresas", intro:"Dos nuevos módulos de cumplimiento normativo, desarrollados para las necesidades B2B de grandes organizaciones. Actualmente totalmente gratuitos como programa piloto – es posible un cambio de precio más adelante.", kycTitle:"Prevención del blanqueo de capitales (KYC/AML)", kycDesc:"Preguntas originales sobre las obligaciones de diligencia debida, la comunicación de operaciones sospechosas y la diligencia debida reforzada – cubre la obligación legal de formación conforme al §6 Abs. 2 Nr. 6 GwG, con casos reales de sanciones de BaFin.", kartellTitle:"Cumplimiento del derecho de la competencia", kartellDesc:"Preguntas originales sobre la prohibición de cárteles, las multas y la autolimpieza (self-cleaning) – refuerza la elegibilidad para la reducción de multas conforme al §81d GWB, con casos reales como el cártel de construcción de carreteras de 2026.", cta:"Iniciar piloto gratuito", disclaimer:"Contenidos formativos originales, aún no revisados legalmente por asesores externos – no sustituye el asesoramiento legal individual.", groupDriving:"Carnet y ocio", groupCompliance:"Formaciones obligatorias en la empresa", groupEnterprise:"Para empresas" },
+        it: { badge:"Novità", heading:"Per banche, società di servizi finanziari e grandi aziende", intro:"Due nuovi moduli di compliance, sviluppati per le esigenze B2B delle grandi organizzazioni. Attualmente completamente gratuiti come programma pilota – è possibile una futura variazione del prezzo.", kycTitle:"Prevenzione del riciclaggio di denaro (KYC/AML)", kycDesc:"Domande originali su obblighi di adeguata verifica, segnalazione di operazioni sospette e adeguata verifica rafforzata – copre l'obbligo formativo previsto dal §6 Abs. 2 Nr. 6 GwG, con casi reali di sanzioni BaFin.", kartellTitle:"Compliance in materia di diritto della concorrenza", kartellDesc:"Domande originali su divieto di cartelli, sanzioni e self-cleaning – rafforza l'idoneità alla riduzione della sanzione ai sensi del §81d GWB, con casi reali come il cartello delle costruzioni stradali del 2026.", cta:"Avvia il pilota gratuito", disclaimer:"Contenuti formativi originali, non ancora verificati legalmente da consulenti esterni – non sostituiscono una consulenza legale individuale.", groupDriving:"Patente e tempo libero", groupCompliance:"Formazioni aziendali obbligatorie", groupEnterprise:"Per le aziende" }
       };
 
       var LOCALES = ["de","en","uk","pl","ar","zh","hi","tr","fr","ru","es","it"];
@@ -306,29 +496,70 @@
           featsEl.appendChild(li);
         });
 
-        var moduleOrder = ["fuehrerschein","motorrad","lkw","angelschein","datenschutz","arbeitssicherheit","ki_act","it_sicherheit"];
+        // Enterprise/B2B callout (DN-55) - separate string table
+        // (ENTERPRISE_STRINGS) from the general LANDING_STRINGS above,
+        // since it's new copy scoped to just this section.
+        var es_ = ENTERPRISE_STRINGS[lang] || ENTERPRISE_STRINGS.en;
+        document.getElementById("enterprise-badge").textContent = es_.badge;
+        document.getElementById("enterprise-heading").textContent = es_.heading;
+        document.getElementById("enterprise-intro").textContent = es_.intro;
+        document.getElementById("enterprise-kyc-title").textContent = es_.kycTitle;
+        document.getElementById("enterprise-kyc-desc").textContent = es_.kycDesc;
+        document.getElementById("enterprise-kartell-title").textContent = es_.kartellTitle;
+        document.getElementById("enterprise-kartell-desc").textContent = es_.kartellDesc;
+        document.getElementById("enterprise-cta").textContent = es_.cta;
+        document.getElementById("enterprise-disclaimer").textContent = es_.disclaimer;
+
+        // DN-55: module grid reorganized into 3 labeled groups instead of
+        // one flat 8-item list, and extended to all 11 real modules
+        // (hinweisgeberschutz/kyc_aml/kartellrecht were missing entirely
+        // before - a real content gap, not just a layout choice).
         var subtitles = {
           fuehrerschein: CLASS_B[lang] || CLASS_B.en,
           motorrad: s.theoryExam,
           lkw: s.theoryExam,
           arbeitssicherheit: s.compliance,
-          it_sicherheit: s.compliance
+          it_sicherheit: s.compliance,
+          hinweisgeberschutz: s.compliance,
+          // Subtitle here is the "New" badge text rather than repeating
+          // the group heading ("For enterprises") a second time right
+          // below it on every card - redundant otherwise, since both cards
+          // already sit directly under that heading.
+          kyc_aml: es_.badge,
+          kartellrecht: es_.badge
         };
-        var gridEl = document.getElementById("module-grid");
-        gridEl.innerHTML = "";
-        moduleOrder.forEach(function (mod) {
-          var name = (MODULE_LABELS[mod] && (MODULE_LABELS[mod][lang] || MODULE_LABELS[mod].en)) || mod;
-          var card = document.createElement("div");
-          card.className = "module-card";
-          var strong = document.createElement("strong");
-          strong.textContent = name;
-          card.appendChild(strong);
-          if (subtitles[mod]) {
-            var span = document.createElement("span");
-            span.textContent = subtitles[mod];
-            card.appendChild(span);
-          }
-          gridEl.appendChild(card);
+        var groups = [
+          { heading: es_.groupDriving, mods: ["fuehrerschein","motorrad","lkw","angelschein"] },
+          { heading: es_.groupCompliance, mods: ["datenschutz","arbeitssicherheit","ki_act","it_sicherheit","hinweisgeberschutz"] },
+          { heading: es_.groupEnterprise, mods: ["kyc_aml","kartellrecht"] }
+        ];
+        var groupsEl = document.getElementById("module-groups");
+        groupsEl.innerHTML = "";
+        groups.forEach(function (group) {
+          var groupEl = document.createElement("div");
+          groupEl.className = "module-group";
+          var h3 = document.createElement("h3");
+          h3.className = "module-group-heading";
+          h3.textContent = group.heading;
+          groupEl.appendChild(h3);
+          var gridEl = document.createElement("div");
+          gridEl.className = "module-grid";
+          group.mods.forEach(function (mod) {
+            var name = (MODULE_LABELS[mod] && (MODULE_LABELS[mod][lang] || MODULE_LABELS[mod].en)) || mod;
+            var card = document.createElement("div");
+            card.className = "module-card";
+            var strong = document.createElement("strong");
+            strong.textContent = name;
+            card.appendChild(strong);
+            if (subtitles[mod]) {
+              var span = document.createElement("span");
+              span.textContent = subtitles[mod];
+              card.appendChild(span);
+            }
+            gridEl.appendChild(card);
+          });
+          groupEl.appendChild(gridEl);
+          groupsEl.appendChild(groupEl);
         });
 
         document.getElementById("lang-select").value = lang;

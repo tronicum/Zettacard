@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#141c2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- subtle accent glow -->
+  <circle cx="1020" cy="120" r="260" fill="#3968d8" opacity="0.12"/>
+  <circle cx="140" cy="560" r="220" fill="#3fbf76" opacity="0.08"/>
+
+  <!-- logo tile, scaled up -->
+  <g transform="translate(96,175) scale(4.2)">
+    <rect x="0" y="0" width="64" height="64" rx="14" fill="#3968d8"/>
+    <path d="M14 13
+             a4 4 0 0 1 4 -4
+             h20
+             l12 12
+             v30
+             a4 4 0 0 1 -4 4
+             h-28
+             a4 4 0 0 1 -4 -4
+             z" fill="#eef1f8"/>
+    <path d="M38 9 L50 21 L38 21 Z" fill="#3968d8"/>
+    <line x1="38" y1="9" x2="50" y2="21" stroke="#2c4a86" stroke-width="1.5"/>
+    <rect x="20" y="21" width="18" height="3" rx="1.5" fill="#9aa5bd"/>
+    <rect x="20" y="28" width="13" height="3" rx="1.5" fill="#9aa5bd"/>
+    <path d="M20 41 L27 48 L44 29" fill="none" stroke="#3fbf76" stroke-width="5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- wordmark + tagline -->
+  <text x="470" y="290" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" fill="#eef1f8">Zettacard</text>
+  <text x="472" y="340" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#9aa5bd">Lernkarten &amp; Prüfungsvorbereitung</text>
+
+  <!-- feature pill row (plain dot + text, no emoji glyphs - avoids tofu
+       boxes when this SVG is rasterized in environments without a
+       color-emoji font installed) -->
+  <g font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#eef1f8">
+    <rect x="472" y="380" width="200" height="52" rx="26" fill="#1b2540" stroke="#23304d"/>
+    <circle cx="497" cy="406" r="6" fill="#3fbf76"/>
+    <text x="516" y="414">11 Module</text>
+
+    <rect x="688" y="380" width="200" height="52" rx="26" fill="#1b2540" stroke="#23304d"/>
+    <circle cx="713" cy="406" r="6" fill="#3968d8"/>
+    <text x="732" y="414">12 Sprachen</text>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#eef1f8">
+    <rect x="472" y="446" width="178" height="52" rx="26" fill="#1b2540" stroke="#23304d"/>
+    <circle cx="497" cy="472" r="6" fill="#3fbf76"/>
+    <text x="516" y="480">Kostenlos</text>
+
+    <rect x="666" y="446" width="222" height="52" rx="26" fill="#1b2540" stroke="#23304d"/>
+    <circle cx="691" cy="472" r="6" fill="#3968d8"/>
+    <text x="710" y="480">Offline nutzbar</text>
+  </g>
+</svg>
