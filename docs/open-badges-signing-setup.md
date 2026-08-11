@@ -57,6 +57,32 @@ this doc is just the "how to actually turn this on" checklist plus the verifier 
   compliance modules - see `data/*/core.json` `meta.renewal_months` - since that's roughly how long
   a credential stays "current" for its holder).
 
+## Staging environment (added 2026-08-11)
+
+`zettacard-staging` (Netlify site id `480e3ec6-76f6-414e-a7bc-eb3e661f5816`,
+`https://zettacard-staging.netlify.app`) is a separate Netlify site deploying the same repo, used
+to verify changes before they hit `zettacard.de` production. Deploy to it the same way as
+production - the direct-deploy MCP flow, pointed at the staging site id instead of the production
+one - since `git push` from this sandbox is still blocked (see BACKLOG.md's standing note on that).
+
+Per this doc's own key-rotation guidance above ("consider a separate non-production keypair... so a
+leaked preview-deploy log can't compromise the production key"), staging has its **own** signing
+keypair, not a copy of production's:
+
+- Staging's private key (kid `a3b138a4-d8d6-4902-9a49-9fbaa1e9d082`) is set as
+  `ZETTACARD_SIGNING_PRIVATE_JWK` on the `zettacard-staging` site only - it was never committed or
+  logged anywhere production-reachable.
+- Its public JWK was ADDED (not swapped in) to `app/.well-known/jwks.json`'s `keys` array, alongside
+  production's real key (kid `be87070e-0843-4868-9f24-8af7b1021096`). Both sites deploy the same
+  file, and `verify-credential-v2.mjs` already resolves the right key by matching `record.signedKid`
+  against the array - so this "just works" without any function-code changes, on both sites.
+- Practical effect: a credential signed on staging is cryptographically distinguishable from a real
+  production credential (different `kid`, different issuer `URL` via `process.env.URL`, which Netlify
+  sets per-site automatically) - there's no way to mistake a staging test badge for a real one, even
+  though both verify successfully against the one shared JWKS file.
+- `ZC_TEST_VAR` (an old placeholder env var, unrelated to signing) was not copied to staging - only
+  the signing key, since that's the only env var either function actually reads.
+
 ## How anyone can verify a signed credential themselves
 
 A downloaded credential JSON with `"verified": true` has a `proof.jwt` field (a compact JWT string)
