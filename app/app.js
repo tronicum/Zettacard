@@ -1703,7 +1703,7 @@ const CERT_STRINGS = {
     intro: "Bestandene Prüfungssimulationen werden hier als Nachweis gespeichert (nur auf diesem Gerät). Lade eine Zertifikatsdatei herunter, um sie zu behalten oder weiterzugeben - das ist die eigentlich portable Datei, nicht der App-Zustand.",
     empty: "Noch keine bestandene Prüfungssimulation. Bestehe eine Prüfungssimulation (nicht den Übungsmodus), um hier ein Zertifikat zu erhalten.",
     passedOn: (d) => `Bestanden am ${d}`,
-    downloadCert: "Zertifikat herunterladen (HTML)", downloadCred: "Berechtigungsnachweis herunterladen (JSON)",
+    downloadCert: "Zertifikat herunterladen (HTML)", downloadPdf: "Zertifikat herunterladen (PDF)", downloadCred: "Berechtigungsnachweis herunterladen (JSON)",
     // DN-51: the raw signed JWT itself (not wrapped in JSON) - the actual
     // Open Badges 3.0-conformant artifact a real badge wallet (Credly,
     // Open Badges Passport, etc.) expects for file-upload import. Only
@@ -1736,7 +1736,7 @@ const CERT_STRINGS = {
     intro: "Passed exam simulations are recorded here as proof of completion (this device only). Download a certificate file to keep or share it - that file is the actual portable artifact, not the app's internal state.",
     empty: "No passed exam simulation yet. Pass an Exam Simulation (not Training mode) to get a certificate here.",
     passedOn: (d) => `Passed on ${d}`,
-    downloadCert: "Download certificate (HTML)", downloadCred: "Download credential (JSON)",
+    downloadCert: "Download certificate (HTML)", downloadPdf: "Download certificate (PDF)", downloadCred: "Download credential (JSON)",
     downloadJwt: "Download signed credential (JWT, for wallets)",
     disclaimer: "Self-generated record, not cryptographically signed or independently verified.",
     renewalOverdue: (d) => `Refresher overdue since ${d}`,
@@ -1759,7 +1759,7 @@ const CERT_STRINGS = {
     intro: "Пройдені симуляції іспитів зберігаються тут як підтвердження (лише на цьому пристрої). Завантажте файл сертифіката, щоб зберегти або поділитися ним - саме цей файл є портативним артефактом, а не стан застосунку.",
     empty: "Ще немає пройденої симуляції іспиту. Пройдіть Симуляцію іспиту (не режим тренування), щоб отримати тут сертифікат.",
     passedOn: (d) => `Складено ${d}`,
-    downloadCert: "Завантажити сертифікат (HTML)", downloadCred: "Завантажити посвідчення (JSON)",
+    downloadCert: "Завантажити сертифікат (HTML)", downloadPdf: "Завантажити сертифікат (PDF)", downloadCred: "Завантажити посвідчення (JSON)",
     downloadJwt: "Завантажити підписане посвідчення (JWT, для гаманців)",
     disclaimer: "Самостійно створений запис, не підписаний криптографічно і не перевірений незалежно.",
     renewalOverdue: (d) => `Оновлення прострочено з ${d}`,
@@ -1782,7 +1782,7 @@ const CERT_STRINGS = {
     intro: "Zaliczone symulacje egzaminów są tu zapisywane jako dowód ukończenia (tylko na tym urządzeniu). Pobierz plik certyfikatu, aby go zachować lub udostępnić - to właśnie ten plik jest realnym, przenośnym artefaktem, a nie stan aplikacji.",
     empty: "Jeszcze żadnej zaliczonej symulacji egzaminu. Zdaj Symulację egzaminu (nie tryb ćwiczeń), aby otrzymać tu certyfikat.",
     passedOn: (d) => `Zaliczono ${d}`,
-    downloadCert: "Pobierz certyfikat (HTML)", downloadCred: "Pobierz poświadczenie (JSON)",
+    downloadCert: "Pobierz certyfikat (HTML)", downloadPdf: "Pobierz certyfikat (PDF)", downloadCred: "Pobierz poświadczenie (JSON)",
     downloadJwt: "Pobierz podpisane poświadczenie (JWT, do portfeli)",
     disclaimer: "Zapis wygenerowany samodzielnie, niepodpisany kryptograficznie ani niezweryfikowany zewnętrznie.",
     renewalOverdue: (d) => `Odświeżenie zaległe od ${d}`,
@@ -1805,7 +1805,7 @@ const CERT_STRINGS = {
     intro: "يتم تسجيل محاكاة الامتحانات الناجحة هنا كإثبات للإتمام (على هذا الجهاز فقط). قم بتنزيل ملف الشهادة للاحتفاظ بها أو مشاركتها - هذا الملف هو العنصر المحمول الفعلي، وليس حالة التطبيق.",
     empty: "لا توجد محاكاة امتحان ناجحة بعد. اجتز محاكاة امتحان (وليس وضع التدريب) للحصول على شهادة هنا.",
     passedOn: (d) => `اجتيز في ${d}`,
-    downloadCert: "تنزيل الشهادة (HTML)", downloadCred: "تنزيل بيانات الاعتماد (JSON)",
+    downloadCert: "تنزيل الشهادة (HTML)", downloadPdf: "تنزيل الشهادة (PDF)", downloadCred: "تنزيل بيانات الاعتماد (JSON)",
     downloadJwt: "تنزيل بيانات الاعتماد الموقّعة (JWT، للمحافظ)",
     disclaimer: "سجل ذاتي الإصدار، غير موقّع تشفيريًا وغير موثّق من طرف مستقل.",
     renewalOverdue: (d) => `التجديد متأخر منذ ${d}`,
@@ -1828,7 +1828,7 @@ const CERT_STRINGS = {
     intro: "已通过的模拟考试会记录在此作为完成证明(仅保存在本设备)。下载证书文件以保存或分享——该文件才是真正可移植的凭证,而不是应用内部状态。",
     empty: "尚无已通过的模拟考试。通过一次模拟考试(而非练习模式)即可在此获得证书。",
     passedOn: (d) => `通过日期:${d}`,
-    downloadCert: "下载证书(HTML)", downloadCred: "下载凭证(JSON)",
+    downloadCert: "下载证书(HTML)", downloadPdf: "下载证书(PDF)", downloadCred: "下载凭证(JSON)",
     downloadJwt: "下载已签名凭证(JWT,供钱包应用使用)",
     disclaimer: "自行生成的记录,未经加密签名,也未经第三方独立验证。",
     renewalOverdue: (d) => `续期已逾期,截止日期为 ${d}`,
@@ -1851,7 +1851,7 @@ const CERT_STRINGS = {
     intro: "पास की गई परीक्षा सिमुलेशन यहाँ पूर्णता के प्रमाण के रूप में दर्ज की जाती हैं (केवल इस डिवाइस पर)। इसे रखने या साझा करने के लिए प्रमाणपत्र फ़ाइल डाउनलोड करें - वही असली पोर्टेबल फ़ाइल है, ऐप की आंतरिक स्थिति नहीं।",
     empty: "अभी तक कोई पास की गई परीक्षा सिमुलेशन नहीं है। यहाँ प्रमाणपत्र पाने के लिए एक परीक्षा सिमुलेशन (अभ्यास मोड नहीं) पास करें।",
     passedOn: (d) => `${d} को उत्तीर्ण`,
-    downloadCert: "प्रमाणपत्र डाउनलोड करें (HTML)", downloadCred: "क्रेडेंशियल डाउनलोड करें (JSON)",
+    downloadCert: "प्रमाणपत्र डाउनलोड करें (HTML)", downloadPdf: "प्रमाणपत्र डाउनलोड करें (PDF)", downloadCred: "क्रेडेंशियल डाउनलोड करें (JSON)",
     downloadJwt: "हस्ताक्षरित क्रेडेंशियल डाउनलोड करें (JWT, वॉलेट के लिए)",
     disclaimer: "स्व-निर्मित रिकॉर्ड, क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित या स्वतंत्र रूप से सत्यापित नहीं।",
     renewalOverdue: (d) => `नवीनीकरण ${d} से लंबित`,
@@ -1874,7 +1874,7 @@ const CERT_STRINGS = {
     intro: "Geçilen sınav simülasyonları burada tamamlanma kanıtı olarak kaydedilir (yalnızca bu cihazda). Saklamak veya paylaşmak için bir sertifika dosyası indirin - gerçek taşınabilir belge budur, uygulamanın iç durumu değil.",
     empty: "Henüz geçilmiş bir sınav simülasyonu yok. Burada bir sertifika almak için bir Sınav Simülasyonunu (Alıştırma modunu değil) geçin.",
     passedOn: (d) => `${d} tarihinde geçildi`,
-    downloadCert: "Sertifikayı indir (HTML)", downloadCred: "Belgeyi indir (JSON)",
+    downloadCert: "Sertifikayı indir (HTML)", downloadPdf: "Sertifikayı indir (PDF)", downloadCred: "Belgeyi indir (JSON)",
     downloadJwt: "İmzalı belgeyi indir (JWT, cüzdanlar için)",
     disclaimer: "Kendiliğinden oluşturulmuş kayıt, kriptografik olarak imzalanmamış veya bağımsız olarak doğrulanmamıştır.",
     renewalOverdue: (d) => `Yenileme ${d} tarihinden beri gecikmiş`,
@@ -1897,7 +1897,7 @@ const CERT_STRINGS = {
     intro: "Les simulations d'examen réussies sont enregistrées ici comme preuve d'accomplissement (sur cet appareil uniquement). Téléchargez un fichier de certificat pour le conserver ou le partager - c'est ce fichier qui est réellement portable, pas l'état interne de l'application.",
     empty: "Aucune simulation d'examen réussie pour l'instant. Réussissez une Simulation d'examen (pas le mode Entraînement) pour obtenir un certificat ici.",
     passedOn: (d) => `Réussi le ${d}`,
-    downloadCert: "Télécharger le certificat (HTML)", downloadCred: "Télécharger l'attestation (JSON)",
+    downloadCert: "Télécharger le certificat (HTML)", downloadPdf: "Télécharger le certificat (PDF)", downloadCred: "Télécharger l'attestation (JSON)",
     downloadJwt: "Télécharger l'attestation signée (JWT, pour portefeuilles)",
     disclaimer: "Enregistrement auto-généré, non signé cryptographiquement et non vérifié de manière indépendante.",
     renewalOverdue: (d) => `Renouvellement en retard depuis le ${d}`,
@@ -1920,7 +1920,7 @@ const CERT_STRINGS = {
     intro: "Пройденные симуляции экзаменов сохраняются здесь как подтверждение прохождения (только на этом устройстве). Скачайте файл сертификата, чтобы сохранить или передать его - именно этот файл является настоящим переносимым артефактом, а не состояние приложения.",
     empty: "Пока нет пройденной симуляции экзамена. Пройдите Симуляцию экзамена (не режим тренировки), чтобы получить здесь сертификат.",
     passedOn: (d) => `Пройдено ${d}`,
-    downloadCert: "Скачать сертификат (HTML)", downloadCred: "Скачать удостоверение (JSON)",
+    downloadCert: "Скачать сертификат (HTML)", downloadPdf: "Скачать сертификат (PDF)", downloadCred: "Скачать удостоверение (JSON)",
     downloadJwt: "Скачать подписанное удостоверение (JWT, для кошельков)",
     disclaimer: "Самостоятельно созданная запись, не подписана криптографически и не проверена независимо.",
     renewalOverdue: (d) => `Обновление просрочено с ${d}`,
@@ -1943,7 +1943,7 @@ const CERT_STRINGS = {
     intro: "Las simulaciones de examen aprobadas se registran aquí como comprobante de finalización (solo en este dispositivo). Descarga un archivo de certificado para conservarlo o compartirlo - ese archivo es el elemento realmente portátil, no el estado interno de la aplicación.",
     empty: "Todavía no hay ninguna simulación de examen aprobada. Aprueba una Simulación de examen (no el modo Entrenamiento) para obtener aquí un certificado.",
     passedOn: (d) => `Aprobado el ${d}`,
-    downloadCert: "Descargar certificado (HTML)", downloadCred: "Descargar credencial (JSON)",
+    downloadCert: "Descargar certificado (HTML)", downloadPdf: "Descargar certificado (PDF)", downloadCred: "Descargar credencial (JSON)",
     downloadJwt: "Descargar credencial firmada (JWT, para carteras)",
     disclaimer: "Registro autogenerado, no firmado criptográficamente ni verificado de forma independiente.",
     renewalOverdue: (d) => `Renovación vencida desde el ${d}`,
@@ -1966,7 +1966,7 @@ const CERT_STRINGS = {
     intro: "Le simulazioni d'esame superate vengono registrate qui come prova di completamento (solo su questo dispositivo). Scarica un file certificato per conservarlo o condividerlo - quel file è il vero elemento portatile, non lo stato interno dell'app.",
     empty: "Ancora nessuna simulazione d'esame superata. Supera una Simulazione d'esame (non la modalità Allenamento) per ottenere qui un certificato.",
     passedOn: (d) => `Superato il ${d}`,
-    downloadCert: "Scarica certificato (HTML)", downloadCred: "Scarica credenziale (JSON)",
+    downloadCert: "Scarica certificato (HTML)", downloadPdf: "Scarica certificato (PDF)", downloadCred: "Scarica credenziale (JSON)",
     downloadJwt: "Scarica credenziale firmata (JWT, per wallet)",
     disclaimer: "Registro autogenerato, non firmato crittograficamente né verificato in modo indipendente.",
     renewalOverdue: (d) => `Rinnovo scaduto dal ${d}`,
@@ -2216,6 +2216,69 @@ function credentialJsonDoc(record) {
   };
 }
 
+// DN-49 Phase 3: client-side PDF generation, per
+// docs/paid-verifiable-certificates-scoping.md section 3.3's recommendation
+// (client-side first, no new serverless surface, revisit server-rendered
+// only if real B2B customers push back on quality). No PDF library is
+// bundled - the app is a zero-dependency, offline-first static PWA (see
+// service-worker.js's precache list) and pulling in jsPDF/html2canvas from
+// a CDN would either break offline use or require vendoring a library into
+// this repo for a "nice to have" feature. Instead this reuses the browser's
+// own native print-to-PDF: render certificateHtmlDoc()'s exact markup into
+// a hidden iframe (so it doesn't disturb the visible app, and avoids the
+// popup-blocker risk a new window.open() print flow would have) and call
+// print() on it - every modern desktop and mobile browser offers "Save as
+// PDF" as a print destination, so this gets a pixel-faithful copy of the
+// same certificate design already used for the HTML download, with zero new
+// dependencies and full offline support.
+function printCertificateAsPdf(record) {
+  const iframe = document.createElement("iframe");
+  iframe.style.position = "fixed";
+  iframe.style.right = "0";
+  iframe.style.bottom = "0";
+  iframe.style.width = "0";
+  iframe.style.height = "0";
+  iframe.style.border = "0";
+  iframe.setAttribute("aria-hidden", "true");
+  document.body.appendChild(iframe);
+
+  // Print-specific overrides appended to the same markup the HTML download
+  // uses: the on-screen version centers the certificate with a large margin
+  // (fine for viewing a downloaded file in a browser tab), but printed
+  // through an actual print/PDF dialog that margin would either push
+  // content onto a second page or throw off centering depending on the
+  // browser's own page margins - @page + a zeroed body margin fixes that
+  // without touching the HTML-download design at all.
+  const printCss = `<style>@media print { @page { margin: 15mm; } body { margin: 0; } }</style>`;
+  const html = certificateHtmlDoc(record).replace("</head>", `${printCss}</head>`);
+
+  const doc = iframe.contentWindow.document;
+  doc.open();
+  doc.write(html);
+  doc.close();
+
+  let cleaned = false;
+  const cleanup = () => {
+    if (cleaned) return;
+    cleaned = true;
+    iframe.remove();
+  };
+  // afterprint fires once the browser's print/save dialog closes (either
+  // way - printed or cancelled); most browsers support this on the iframe's
+  // own contentWindow. Fallback timeout covers the rare browser that
+  // doesn't fire it, so the hidden iframe never lingers indefinitely.
+  iframe.contentWindow.addEventListener("afterprint", cleanup, { once: true });
+  setTimeout(cleanup, 60000);
+
+  // Let the iframe finish laying out the just-written document before
+  // invoking print() - a synchronous call immediately after doc.close() has
+  // been unreliable in some browsers for content with any images to size.
+  requestAnimationFrame(() => {
+    iframe.contentWindow.focus();
+    iframe.contentWindow.print();
+  });
+}
+
 function downloadTextFile(filename, content, mime) {
   const blob = new Blob([content], { type: mime });
   const url = URL.createObjectURL(blob);
@@ -2305,6 +2368,7 @@ async function renderCertificates() {
       <div class="cert-card-renewal"></div>
       <div class="cert-card-actions">
         <button class="back-btn cert-dl-cert">${C.downloadCert}</button>
+        <button class="back-btn cert-dl-pdf">${C.downloadPdf}</button>
         <button class="back-btn cert-dl-cred">${C.downloadCred}</button>
       </div>
       <div class="cert-jwt-row"></div>
@@ -2315,6 +2379,9 @@ async function renderCertificates() {
     renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
     card.querySelector(".cert-dl-cert").addEventListener("click", () => {
       downloadTextFile(`${record.examType}-${record.scopeCode}-certificate.html`, certificateHtmlDoc(record), "text/html");
+    });
+    card.querySelector(".cert-dl-pdf").addEventListener("click", () => {
+      printCertificateAsPdf(record);
     });
     card.querySelector(".cert-dl-cred").addEventListener("click", async () => {
       // Give an unsigned/already-attempted record one more chance to get a
@@ -3729,6 +3796,7 @@ function renderExamResults() {
         <div class="cert-card-title">🎓 ${C.title}</div>
         <div class="cert-card-actions">
           <button class="back-btn" id="exam-results-cert-html">${C.downloadCert}</button>
+          <button class="back-btn" id="exam-results-cert-pdf">${C.downloadPdf}</button>
           <button class="back-btn" id="exam-results-cert-json">${C.downloadCred}</button>
         </div>
         <div class="cert-jwt-row"></div>
@@ -3759,6 +3827,9 @@ function renderExamResults() {
     }
     el("#exam-results-cert-html").addEventListener("click", () => {
       downloadTextFile(`zettacard-zertifikat-${record.id}.html`, certificateHtmlDoc(record), "text/html");
+    });
+    el("#exam-results-cert-pdf").addEventListener("click", () => {
+      printCertificateAsPdf(record);
     });
     el("#exam-results-cert-json").addEventListener("click", async () => {
       await ensureSignedCredential(record);
