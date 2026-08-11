@@ -1,15 +1,15 @@
 {
   "meta": {
     "app": "Zettacard / kyc-aml-lernmodul",
-    "version": "0.1",
+    "version": "0.2",
     "generated": "2026-08-10",
     "description": "Original MCQs for a German workplace-compliance training module on Know-Your-Customer (KYC) / Anti-Money-Laundering (AML) obligations under the Geldwaeschegesetz (GwG), covering scope of obligated entities (Verpflichtete) and the all-crimes predicate-offense approach under reformed Sec.261 StGB, general customer due diligence duties and EUR thresholds (Sec.10 GwG), suspicious-activity reporting to the FIU and the tipping-off prohibition (Sec.43, Sec.47 GwG), enhanced due diligence for PEPs/high-risk countries/complex transactions (Sec.15 GwG), and administrative fines (Sec.56 GwG) including a real 2025 BaFin enforcement example. Content is independently phrased and grounded directly in GwG/StGB statute text (cross-checked via dejure.org and lxgesetze.de statutory-text mirrors) and BaFin enforcement notices, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module - separate content pool, separate exam simulation from every other module.",
     "class": "ALL",
     "canonical_locale": "de",
     "point_system": "2-5 points per question, matching this app's existing style",
-    "pass_rule_note": "Provisional: same generic mechanics as this app's other modules (30 questions per simulation run, max 10 error points, auto-fail on 2+ wrong high_stakes) used as a placeholder pending a real workplace-training design pass - see legal_review_status.",
+    "pass_rule_note": "DN-54 (2026-08-10): scaled from a 20-question DE/EN pilot to a 30-question pool (6 per topic) sized for a corporate compliance knowledge-check rather than a driving-exam-length test. Exam Simulation/Training now draws 6 questions per run (one topic gets 2, the other four get 1 each - every run touches all 5 topics), max 4 error points to pass (roughly a \"5 of 6 correct\" bar), auto-fail on 2+ wrong high_stakes questions, 10-minute time limit in Simulation mode. See app/app.js's EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW for the exact per-module config.",
     "legal_review_status": "Reviewed 2026-08-10 via an AI legal-review pass (see BACKLOG.md DN-53 entry) grounded in current GwG/StGB statute text - 18/20 questions confirmed accurate on first pass, 2 corrected (Leichtfertigkeit vs. simple Fahrlässigkeit distinction in §261 Abs. 6 StGB / §56 Abs. 1 GwG, now fixed). Still NOT reviewed by a licensed lawyer or GwG-Compliance-Beauftragter - that human-review gate remains before commercial/production use. Flag: the EU AML Regulation (EU) 2024/1624 (AMLR) applies from 10 July 2027 and will lower the general occasional-transaction threshold from EUR 15,000 to EUR 10,000 among other changes - re-review this module before that date regardless of the normal 12-month renewal cycle. Follow-up (2026-08-10): a second, independent fable-model pre-review-dossier pass re-verified all 20 citations against current statute text with zero new substantive errors found; refined the wording of kyc-aml-verdachtsmeldung-04 (professional-knowledge standard vs. client-intent framing, and softened the GwGMeldV-Immobilien scope claim) - this question remains flagged as the highest-value item for actual attorney review. Full dossier: claude/kyc-aml-pre-review-dossier-2026-08-10.md (Claude Project).",
-    "total_questions": 20,
+    "total_questions": 30,
     "license": "CC BY-NC-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
@@ -414,6 +414,206 @@
       "image_ref": null,
       "correct": [
         "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "kyc-aml-grundlagen-05",
+      "topic": "Grundlagen der Geldwaesche",
+      "topic_code": "grundlagen",
+      "grundstoff": true,
+      "legal_basis": "§§18, 20 GwG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "kyc-aml-grundlagen-06",
+      "topic": "Grundlagen der Geldwaesche",
+      "topic_code": "grundlagen",
+      "grundstoff": false,
+      "legal_basis": "§16a GwG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "kyc-aml-sorgfaltspflichten-05",
+      "topic": "Kundensorgfaltspflichten (KYC)",
+      "topic_code": "sorgfaltspflichten",
+      "grundstoff": true,
+      "legal_basis": "§§11, 12 GwG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "kyc-aml-sorgfaltspflichten-06",
+      "topic": "Kundensorgfaltspflichten (KYC)",
+      "topic_code": "sorgfaltspflichten",
+      "grundstoff": true,
+      "legal_basis": "§4, §5 GwG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "kyc-aml-verdachtsmeldung-05",
+      "topic": "Verdachtsmeldewesen",
+      "topic_code": "verdachtsmeldung",
+      "grundstoff": true,
+      "legal_basis": "§46 Abs. 1 GwG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "kyc-aml-verdachtsmeldung-06",
+      "topic": "Verdachtsmeldewesen",
+      "topic_code": "verdachtsmeldung",
+      "grundstoff": false,
+      "legal_basis": "§27 Abs. 1, §45 Abs. 1 GwG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "kyc-aml-verstaerkte-sorgfalt-05",
+      "topic": "Verstaerkte Sorgfaltspflichten",
+      "topic_code": "verstaerkte_sorgfalt",
+      "grundstoff": false,
+      "legal_basis": "§25h KWG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "kyc-aml-verstaerkte-sorgfalt-06",
+      "topic": "Verstaerkte Sorgfaltspflichten",
+      "topic_code": "verstaerkte_sorgfalt",
+      "grundstoff": true,
+      "legal_basis": "§15 Abs. 3 Nr. 4, Abs. 7 GwG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "kyc-aml-sanktionen-05",
+      "topic": "Sanktionen und Folgen",
+      "topic_code": "sanktionen",
+      "grundstoff": true,
+      "legal_basis": "§7 GwG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "kyc-aml-sanktionen-06",
+      "topic": "Sanktionen und Folgen",
+      "topic_code": "sanktionen",
+      "grundstoff": false,
+      "legal_basis": "BaFin-Bekanntmachung gegen J.P. Morgan SE, 6. November 2025; §43 Abs. 1, §56 GwG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
       ],
       "roles": [
         "all"

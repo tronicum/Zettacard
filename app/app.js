@@ -321,123 +321,123 @@ const UI_STRINGS = {
 // large existing per-locale blocks above didn't need touching individually -
 // exam mode is a newer, additive feature layered on top of the flashcard UI.
 const EXAM_STRINGS = {
-  de: { startBtn: "Prüfung", pickerTitle: "Prüfungsmodus wählen", pickerDesc: "Wählen Sie, wie Sie üben möchten. Beide Modi ziehen 30 Fragen nach realer Gewichtung und werten nach der echten Bestehensregel aus.",
+  de: { startBtn: "Prüfung", pickerTitle: "Prüfungsmodus wählen", pickerDesc: (count) => `Wählen Sie, wie Sie üben möchten. Beide Modi ziehen ${count} Fragen nach realer Gewichtung und werten nach der echten Bestehensregel aus.`,
     trainingTitle: "Übungsprüfung", trainingDesc: "Ohne Zeitlimit. Ideal zum ruhigen Üben.",
-    simTitle: "Prüfungssimulation", simDesc: "45 Minuten Zeitlimit, wie bei der echten Prüfung.",
+    simTitle: "Prüfungssimulation", simDesc: (minutes) => `${minutes} Minuten Zeitlimit, wie bei der echten Prüfung.`,
     cancel: "Abbrechen", progress: (i, n) => `Frage ${i} von ${n}`, next: "Weiter", finish: "Prüfung abschließen",
     exit: "Abbrechen", timeUp: "Die Zeit ist abgelaufen — die Prüfung wurde automatisch abgegeben.",
     resultsPass: "Bestanden", resultsFail: "Nicht bestanden",
-    summary: (err, wrong) => `Fehlerpunkte: ${err} von max. 10 zulässig. Falsch beantwortete sicherheitsrelevante Fragen: ${wrong} (bei 2 oder mehr: automatisches Nichtbestehen).`,
+    summary: (err, max, wrong) => `Fehlerpunkte: ${err} von max. ${max} zulässig. Falsch beantwortete sicherheitsrelevante Fragen: ${wrong} (bei 2 oder mehr: automatisches Nichtbestehen).`,
     reviewLabel: "Überprüfung der falschen Antworten", yourAnswer: "Ihre Antwort", rightAnswer: "Richtige Antwort",
     close: "Schließen", noMistakes: "Alle Fragen richtig beantwortet — sehr gut!", confirmExit: "Prüfung wirklich abbrechen? Der Fortschritt geht verloren.",
     skip: "Später beantworten", skipBanner: "Wiederholung übersprungener Fragen — diese Fragen müssen jetzt final beantwortet werden.", skipProgress: (i, n) => `Übersprungene Fragen: ${i} von ${n}` },
-  en: { startBtn: "Exam", pickerTitle: "Choose exam mode", pickerDesc: "Choose how you want to practice. Both modes draw 30 questions with realistic weighting and score using the real pass rule.",
+  en: { startBtn: "Exam", pickerTitle: "Choose exam mode", pickerDesc: (count) => `Choose how you want to practice. Both modes draw ${count} questions with realistic weighting and score using the real pass rule.`,
     trainingTitle: "Training exam", trainingDesc: "No time limit. Good for calm practice.",
-    simTitle: "Simulated real exam", simDesc: "45-minute time limit, like the real exam.",
+    simTitle: "Simulated real exam", simDesc: (minutes) => `${minutes}-minute time limit, like the real exam.`,
     cancel: "Cancel", progress: (i, n) => `Question ${i} of ${n}`, next: "Next", finish: "Finish exam",
     exit: "Cancel", timeUp: "Time is up — the exam was submitted automatically.",
     resultsPass: "Passed", resultsFail: "Not passed",
-    summary: (err, wrong) => `Error points: ${err} of max. 10 allowed. Wrong safety-critical questions: ${wrong} (2 or more means automatic fail).`,
+    summary: (err, max, wrong) => `Error points: ${err} of max. ${max} allowed. Wrong safety-critical questions: ${wrong} (2 or more means automatic fail).`,
     reviewLabel: "Review of wrong answers", yourAnswer: "Your answer", rightAnswer: "Correct answer",
     close: "Close", noMistakes: "All questions answered correctly — well done!", confirmExit: "Really cancel the exam? Progress will be lost.",
     skip: "Answer later", skipBanner: "Reviewing skipped questions — these must be answered now.", skipProgress: (i, n) => `Skipped questions: ${i} of ${n}` },
-  uk: { startBtn: "Іспит", pickerTitle: "Виберіть режим іспиту", pickerDesc: "Оберіть, як тренуватися. В обох режимах 30 питань з реальним розподілом і оцінюванням за справжнім правилом складання.",
+  uk: { startBtn: "Іспит", pickerTitle: "Виберіть режим іспиту", pickerDesc: (count) => `Оберіть, як тренуватися. В обох режимах ${count} питань з реальним розподілом і оцінюванням за справжнім правилом складання.`,
     trainingTitle: "Тренувальний іспит", trainingDesc: "Без обмеження часу. Підходить для спокійного тренування.",
-    simTitle: "Симуляція реального іспиту", simDesc: "Обмеження 45 хвилин, як на справжньому іспиті.",
+    simTitle: "Симуляція реального іспиту", simDesc: (minutes) => `Обмеження ${minutes} хвилин, як на справжньому іспиті.`,
     cancel: "Скасувати", progress: (i, n) => `Питання ${i} з ${n}`, next: "Далі", finish: "Завершити іспит",
     exit: "Скасувати", timeUp: "Час вийшов — іспит подано автоматично.",
     resultsPass: "Складено", resultsFail: "Не складено",
-    summary: (err, wrong) => `Штрафні бали: ${err} з макс. 10 допустимих. Неправильні відповіді на питання, важливі для безпеки: ${wrong} (2 і більше — автоматичний провал).`,
+    summary: (err, max, wrong) => `Штрафні бали: ${err} з макс. ${max} допустимих. Неправильні відповіді на питання, важливі для безпеки: ${wrong} (2 і більше — автоматичний провал).`,
     reviewLabel: "Перегляд неправильних відповідей", yourAnswer: "Ваша відповідь", rightAnswer: "Правильна відповідь",
     close: "Закрити", noMistakes: "Усі питання дано правильно — чудово!", confirmExit: "Дійсно скасувати іспит? Прогрес буде втрачено.",
     skip: "Відповісти пізніше", skipBanner: "Перегляд пропущених питань — на них потрібно відповісти зараз.", skipProgress: (i, n) => `Пропущені питання: ${i} з ${n}` },
-  pl: { startBtn: "Egzamin", pickerTitle: "Wybierz tryb egzaminu", pickerDesc: "Wybierz sposób ćwiczenia. Oba tryby losują 30 pytań z realnym rozkładem i oceniają wg prawdziwej zasady zaliczenia.",
+  pl: { startBtn: "Egzamin", pickerTitle: "Wybierz tryb egzaminu", pickerDesc: (count) => `Wybierz sposób ćwiczenia. Oba tryby losują ${count} pytań z realnym rozkładem i oceniają wg prawdziwej zasady zaliczenia.`,
     trainingTitle: "Egzamin ćwiczeniowy", trainingDesc: "Bez limitu czasu. Do spokojnego ćwiczenia.",
-    simTitle: "Symulacja prawdziwego egzaminu", simDesc: "Limit czasu 45 minut, jak na prawdziwym egzaminie.",
+    simTitle: "Symulacja prawdziwego egzaminu", simDesc: (minutes) => `Limit czasu ${minutes} minut, jak na prawdziwym egzaminie.`,
     cancel: "Anuluj", progress: (i, n) => `Pytanie ${i} z ${n}`, next: "Dalej", finish: "Zakończ egzamin",
     exit: "Anuluj", timeUp: "Czas minął — egzamin został przesłany automatycznie.",
     resultsPass: "Zdany", resultsFail: "Niezdany",
-    summary: (err, wrong) => `Punkty karne: ${err} z maks. 10 dozwolonych. Błędne odpowiedzi na pytania istotne dla bezpieczeństwa: ${wrong} (2 lub więcej oznacza automatyczne niezaliczenie).`,
+    summary: (err, max, wrong) => `Punkty karne: ${err} z maks. ${max} dozwolonych. Błędne odpowiedzi na pytania istotne dla bezpieczeństwa: ${wrong} (2 lub więcej oznacza automatyczne niezaliczenie).`,
     reviewLabel: "Przegląd błędnych odpowiedzi", yourAnswer: "Twoja odpowiedź", rightAnswer: "Poprawna odpowiedź",
     close: "Zamknij", noMistakes: "Wszystkie pytania poprawne — świetnie!", confirmExit: "Na pewno przerwać egzamin? Postęp zostanie utracony.",
     skip: "Odpowiedz później", skipBanner: "Przegląd pominiętych pytań — teraz trzeba na nie odpowiedzieć.", skipProgress: (i, n) => `Pominięte pytania: ${i} z ${n}` },
-  ar: { startBtn: "الامتحان", pickerTitle: "اختر وضع الامتحان", pickerDesc: "اختر طريقة التدريب. يسحب كلا الوضعين 30 سؤالاً بتوزيع واقعي ويُقيَّمان وفق قاعدة النجاح الحقيقية.",
+  ar: { startBtn: "الامتحان", pickerTitle: "اختر وضع الامتحان", pickerDesc: (count) => `اختر طريقة التدريب. يسحب كلا الوضعين ${count} سؤالاً بتوزيع واقعي ويُقيَّمان وفق قاعدة النجاح الحقيقية.`,
     trainingTitle: "امتحان تدريبي", trainingDesc: "بدون حد زمني. مناسب للتدريب الهادئ.",
-    simTitle: "محاكاة الامتحان الحقيقي", simDesc: "حد زمني 45 دقيقة، كما في الامتحان الحقيقي.",
+    simTitle: "محاكاة الامتحان الحقيقي", simDesc: (minutes) => `حد زمني ${minutes} دقيقة، كما في الامتحان الحقيقي.`,
     cancel: "إلغاء", progress: (i, n) => `السؤال ${i} من ${n}`, next: "التالي", finish: "إنهاء الامتحان",
     exit: "إلغاء", timeUp: "انتهى الوقت — تم تسليم الامتحان تلقائيًا.",
     resultsPass: "ناجح", resultsFail: "غير ناجح",
-    summary: (err, wrong) => `نقاط الخطأ: ${err} من 10 كحد أقصى مسموح. الأسئلة الحرجة للسلامة الخاطئة: ${wrong} (سؤالان أو أكثر يعني رسوبًا تلقائيًا).`,
+    summary: (err, max, wrong) => `نقاط الخطأ: ${err} من ${max} كحد أقصى مسموح. الأسئلة الحرجة للسلامة الخاطئة: ${wrong} (سؤالان أو أكثر يعني رسوبًا تلقائيًا).`,
     reviewLabel: "مراجعة الإجابات الخاطئة", yourAnswer: "إجابتك", rightAnswer: "الإجابة الصحيحة",
     close: "إغلاق", noMistakes: "تمت الإجابة عن جميع الأسئلة بشكل صحيح — أحسنت!", confirmExit: "هل تريد حقًا إلغاء الامتحان؟ سيُفقد التقدم.",
     skip: "الإجابة لاحقًا", skipBanner: "مراجعة الأسئلة المتخطاة — يجب الإجابة عنها الآن.", skipProgress: (i, n) => `الأسئلة المتخطاة: ${i} من ${n}` },
-  zh: { startBtn: "考试", pickerTitle: "选择考试模式", pickerDesc: "选择练习方式。两种模式都会按真实比例抽取30道题,并按真实及格规则评分。",
+  zh: { startBtn: "考试", pickerTitle: "选择考试模式", pickerDesc: (count) => `选择练习方式。两种模式都会按真实比例抽取${count}道题,并按真实及格规则评分。`,
     trainingTitle: "练习考试", trainingDesc: "无时间限制,适合从容练习。",
-    simTitle: "模拟真实考试", simDesc: "45分钟时间限制,与真实考试一致。",
+    simTitle: "模拟真实考试", simDesc: (minutes) => `${minutes}分钟时间限制,与真实考试一致。`,
     cancel: "取消", progress: (i, n) => `第 ${i} 题，共 ${n} 题`, next: "下一题", finish: "完成考试",
     exit: "取消", timeUp: "时间到 — 考试已自动提交。",
     resultsPass: "通过", resultsFail: "未通过",
-    summary: (err, wrong) => `错误分数：${err}分，最多允许10分。安全关键问题答错数：${wrong}题（2题或以上将自动判定不及格）。`,
+    summary: (err, max, wrong) => `错误分数：${err}分，最多允许${max}分。安全关键问题答错数：${wrong}题（2题或以上将自动判定不及格）。`,
     reviewLabel: "错误答案回顾", yourAnswer: "您的答案", rightAnswer: "正确答案",
     close: "关闭", noMistakes: "所有题目均答对 — 非常好!", confirmExit: "确定要取消考试吗?进度将丢失。",
     skip: "稍后回答", skipBanner: "正在复查跳过的题目 — 现在必须作答。", skipProgress: (i, n) => `跳过的题目：第 ${i} 题，共 ${n} 题` },
-  hi: { startBtn: "परीक्षा", pickerTitle: "परीक्षा मोड चुनें", pickerDesc: "अभ्यास करने का तरीका चुनें। दोनों मोड वास्तविक भारांक के साथ 30 प्रश्न चुनते हैं और असली उत्तीर्ण नियम से स्कोर करते हैं।",
+  hi: { startBtn: "परीक्षा", pickerTitle: "परीक्षा मोड चुनें", pickerDesc: (count) => `अभ्यास करने का तरीका चुनें। दोनों मोड वास्तविक भारांक के साथ ${count} प्रश्न चुनते हैं और असली उत्तीर्ण नियम से स्कोर करते हैं।`,
     trainingTitle: "अभ्यास परीक्षा", trainingDesc: "समय सीमा नहीं। शांति से अभ्यास के लिए अच्छा।",
-    simTitle: "वास्तविक परीक्षा सिमुलेशन", simDesc: "45 मिनट की समय सीमा, असली परीक्षा जैसी।",
+    simTitle: "वास्तविक परीक्षा सिमुलेशन", simDesc: (minutes) => `${minutes} मिनट की समय सीमा, असली परीक्षा जैसी।`,
     cancel: "रद्द करें", progress: (i, n) => `प्रश्न ${i} / ${n}`, next: "अगला", finish: "परीक्षा समाप्त करें",
     exit: "रद्द करें", timeUp: "समय समाप्त — परीक्षा स्वतः जमा कर दी गई।",
     resultsPass: "उत्तीर्ण", resultsFail: "अनुत्तीर्ण",
-    summary: (err, wrong) => `त्रुटि अंक: ${err}, अधिकतम 10 स्वीकार्य। गलत सुरक्षा-महत्वपूर्ण प्रश्न: ${wrong} (2 या अधिक होने पर स्वतः अनुत्तीर्ण)।`,
+    summary: (err, max, wrong) => `त्रुटि अंक: ${err}, अधिकतम ${max} स्वीकार्य। गलत सुरक्षा-महत्वपूर्ण प्रश्न: ${wrong} (2 या अधिक होने पर स्वतः अनुत्तीर्ण)।`,
     reviewLabel: "गलत उत्तरों की समीक्षा", yourAnswer: "आपका उत्तर", rightAnswer: "सही उत्तर",
     close: "बंद करें", noMistakes: "सभी प्रश्नों के सही उत्तर — बहुत बढ़िया!", confirmExit: "क्या आप वाकई परीक्षा रद्द करना चाहते हैं? प्रगति खो जाएगी।",
     skip: "बाद में उत्तर दें", skipBanner: "छोड़े गए प्रश्नों की समीक्षा — अब इनका उत्तर देना आवश्यक है।", skipProgress: (i, n) => `छोड़े गए प्रश्न: ${i} / ${n}` },
-  tr: { startBtn: "Sınav", pickerTitle: "Sınav modunu seçin", pickerDesc: "Nasıl çalışmak istediğinizi seçin. Her iki mod da gerçekçi ağırlıkla 30 soru seçer ve gerçek geçme kuralına göre puanlar.",
+  tr: { startBtn: "Sınav", pickerTitle: "Sınav modunu seçin", pickerDesc: (count) => `Nasıl çalışmak istediğinizi seçin. Her iki mod da gerçekçi ağırlıkla ${count} soru seçer ve gerçek geçme kuralına göre puanlar.`,
     trainingTitle: "Alıştırma sınavı", trainingDesc: "Süre sınırı yok. Sakin çalışma için uygundur.",
-    simTitle: "Gerçek sınav simülasyonu", simDesc: "Gerçek sınavdaki gibi 45 dakika süre sınırı.",
+    simTitle: "Gerçek sınav simülasyonu", simDesc: (minutes) => `Gerçek sınavdaki gibi ${minutes} dakika süre sınırı.`,
     cancel: "İptal", progress: (i, n) => `${n} sorudan ${i}.`, next: "İleri", finish: "Sınavı bitir",
     exit: "İptal", timeUp: "Süre doldu — sınav otomatik olarak gönderildi.",
     resultsPass: "Geçti", resultsFail: "Geçemedi",
-    summary: (err, wrong) => `Hata puanı: ${err}, izin verilen maksimum 10. Yanlış güvenlik açısından kritik soru: ${wrong} (2 veya daha fazlası otomatik başarısızlık demektir).`,
+    summary: (err, max, wrong) => `Hata puanı: ${err}, izin verilen maksimum ${max}. Yanlış güvenlik açısından kritik soru: ${wrong} (2 veya daha fazlası otomatik başarısızlık demektir).`,
     reviewLabel: "Yanlış cevapların incelenmesi", yourAnswer: "Cevabınız", rightAnswer: "Doğru cevap",
     close: "Kapat", noMistakes: "Tüm sorular doğru cevaplandı — harika!", confirmExit: "Sınavı gerçekten iptal etmek istiyor musunuz? İlerleme kaybolacak.",
     skip: "Sonra cevapla", skipBanner: "Atlanan soruların gözden geçirilmesi — bunlar şimdi cevaplanmalı.", skipProgress: (i, n) => `Atlanan sorular: ${n} sorudan ${i}.` },
-  fr: { startBtn: "Examen", pickerTitle: "Choisir le mode d'examen", pickerDesc: "Choisissez votre façon de vous entraîner. Les deux modes tirent 30 questions avec une pondération réaliste et notent selon la règle de réussite réelle.",
+  fr: { startBtn: "Examen", pickerTitle: "Choisir le mode d'examen", pickerDesc: (count) => `Choisissez votre façon de vous entraîner. Les deux modes tirent ${count} questions avec une pondération réaliste et notent selon la règle de réussite réelle.`,
     trainingTitle: "Examen d'entraînement", trainingDesc: "Sans limite de temps. Idéal pour s'entraîner calmement.",
-    simTitle: "Simulation d'examen réel", simDesc: "Limite de 45 minutes, comme le véritable examen.",
+    simTitle: "Simulation d'examen réel", simDesc: (minutes) => `Limite de ${minutes} minutes, comme le véritable examen.`,
     cancel: "Annuler", progress: (i, n) => `Question ${i} sur ${n}`, next: "Suivant", finish: "Terminer l'examen",
     exit: "Annuler", timeUp: "Le temps est écoulé — l'examen a été soumis automatiquement.",
     resultsPass: "Réussi", resultsFail: "Échoué",
-    summary: (err, wrong) => `Points d'erreur : ${err} sur 10 maximum autorisés. Questions critiques pour la sécurité incorrectes : ${wrong} (2 ou plus entraîne un échec automatique).`,
+    summary: (err, max, wrong) => `Points d'erreur : ${err} sur ${max} maximum autorisés. Questions critiques pour la sécurité incorrectes : ${wrong} (2 ou plus entraîne un échec automatique).`,
     reviewLabel: "Révision des réponses incorrectes", yourAnswer: "Votre réponse", rightAnswer: "Bonne réponse",
     close: "Fermer", noMistakes: "Toutes les questions ont une réponse correcte — bravo !", confirmExit: "Voulez-vous vraiment annuler l'examen ? La progression sera perdue.",
     skip: "Répondre plus tard", skipBanner: "Révision des questions passées — elles doivent maintenant recevoir une réponse.", skipProgress: (i, n) => `Questions passées : ${i} sur ${n}` },
-  ru: { startBtn: "Экзамен", pickerTitle: "Выберите режим экзамена", pickerDesc: "Выберите способ тренировки. Оба режима выбирают 30 вопросов с реалистичным распределением и оцениваются по настоящему правилу сдачи.",
+  ru: { startBtn: "Экзамен", pickerTitle: "Выберите режим экзамена", pickerDesc: (count) => `Выберите способ тренировки. Оба режима выбирают ${count} вопросов с реалистичным распределением и оцениваются по настоящему правилу сдачи.`,
     trainingTitle: "Тренировочный экзамен", trainingDesc: "Без ограничения времени. Подходит для спокойной тренировки.",
-    simTitle: "Симуляция настоящего экзамена", simDesc: "Ограничение 45 минут, как на настоящем экзамене.",
+    simTitle: "Симуляция настоящего экзамена", simDesc: (minutes) => `Ограничение ${minutes} минут, как на настоящем экзамене.`,
     cancel: "Отмена", progress: (i, n) => `Вопрос ${i} из ${n}`, next: "Далее", finish: "Завершить экзамен",
     exit: "Отмена", timeUp: "Время истекло — экзамен отправлен автоматически.",
     resultsPass: "Сдано", resultsFail: "Не сдано",
-    summary: (err, wrong) => `Штрафные баллы: ${err} из макс. 10 допустимых. Неверные ответы на вопросы, критичные для безопасности: ${wrong} (2 и более означает автоматический провал).`,
+    summary: (err, max, wrong) => `Штрафные баллы: ${err} из макс. ${max} допустимых. Неверные ответы на вопросы, критичные для безопасности: ${wrong} (2 и более означает автоматический провал).`,
     reviewLabel: "Разбор неверных ответов", yourAnswer: "Ваш ответ", rightAnswer: "Правильный ответ",
     close: "Закрыть", noMistakes: "Все вопросы даны верно — отлично!", confirmExit: "Действительно отменить экзамен? Прогресс будет потерян.",
     skip: "Ответить позже", skipBanner: "Повторный просмотр пропущенных вопросов — на них нужно ответить сейчас.", skipProgress: (i, n) => `Пропущенные вопросы: ${i} из ${n}` },
-  es: { startBtn: "Examen", pickerTitle: "Elegir modo de examen", pickerDesc: "Elige cómo quieres practicar. Ambos modos seleccionan 30 preguntas con ponderación realista y puntúan según la regla real de aprobación.",
+  es: { startBtn: "Examen", pickerTitle: "Elegir modo de examen", pickerDesc: (count) => `Elige cómo quieres practicar. Ambos modos seleccionan ${count} preguntas con ponderación realista y puntúan según la regla real de aprobación.`,
     trainingTitle: "Examen de entrenamiento", trainingDesc: "Sin límite de tiempo. Ideal para practicar con calma.",
-    simTitle: "Simulación de examen real", simDesc: "Límite de 45 minutos, como el examen real.",
+    simTitle: "Simulación de examen real", simDesc: (minutes) => `Límite de ${minutes} minutos, como el examen real.`,
     cancel: "Cancelar", progress: (i, n) => `Pregunta ${i} de ${n}`, next: "Siguiente", finish: "Finalizar examen",
     exit: "Cancelar", timeUp: "Se acabó el tiempo — el examen se envió automáticamente.",
     resultsPass: "Aprobado", resultsFail: "No aprobado",
-    summary: (err, wrong) => `Puntos de error: ${err} de máx. 10 permitidos. Preguntas críticas para la seguridad incorrectas: ${wrong} (2 o más significa suspenso automático).`,
+    summary: (err, max, wrong) => `Puntos de error: ${err} de máx. ${max} permitidos. Preguntas críticas para la seguridad incorrectas: ${wrong} (2 o más significa suspenso automático).`,
     reviewLabel: "Revisión de respuestas incorrectas", yourAnswer: "Tu respuesta", rightAnswer: "Respuesta correcta",
     close: "Cerrar", noMistakes: "Todas las preguntas respondidas correctamente — ¡muy bien!", confirmExit: "¿Seguro que quieres cancelar el examen? Se perderá el progreso.",
     skip: "Responder más tarde", skipBanner: "Revisión de preguntas omitidas — ahora deben responderse.", skipProgress: (i, n) => `Preguntas omitidas: ${i} de ${n}` },
-  it: { startBtn: "Esame", pickerTitle: "Scegli la modalità d'esame", pickerDesc: "Scegli come vuoi esercitarti. Entrambe le modalità estraggono 30 domande con una ponderazione realistica e valutano secondo la regola reale di superamento.",
+  it: { startBtn: "Esame", pickerTitle: "Scegli la modalità d'esame", pickerDesc: (count) => `Scegli come vuoi esercitarti. Entrambe le modalità estraggono ${count} domande con una ponderazione realistica e valutano secondo la regola reale di superamento.`,
     trainingTitle: "Esame di allenamento", trainingDesc: "Senza limite di tempo. Ideale per esercitarsi con calma.",
-    simTitle: "Simulazione d'esame reale", simDesc: "Limite di 45 minuti, come l'esame reale.",
+    simTitle: "Simulazione d'esame reale", simDesc: (minutes) => `Limite di ${minutes} minuti, come l'esame reale.`,
     cancel: "Annulla", progress: (i, n) => `Domanda ${i} di ${n}`, next: "Avanti", finish: "Termina esame",
     exit: "Annulla", timeUp: "Il tempo è scaduto — l'esame è stato inviato automaticamente.",
     resultsPass: "Superato", resultsFail: "Non superato",
-    summary: (err, wrong) => `Punti di errore: ${err} su un massimo di 10 consentiti. Domande critiche per la sicurezza sbagliate: ${wrong} (2 o più significa bocciatura automatica).`,
+    summary: (err, max, wrong) => `Punti di errore: ${err} su un massimo di ${max} consentiti. Domande critiche per la sicurezza sbagliate: ${wrong} (2 o più significa bocciatura automatica).`,
     reviewLabel: "Revisione delle risposte sbagliate", yourAnswer: "La tua risposta", rightAnswer: "Risposta corretta",
     close: "Chiudi", noMistakes: "Tutte le domande risposte correttamente — ottimo lavoro!", confirmExit: "Vuoi davvero annullare l'esame? I progressi andranno persi.",
     skip: "Rispondi più tardi", skipBanner: "Revisione delle domande saltate — ora devono essere risposte.", skipProgress: (i, n) => `Domande saltate: ${i} di ${n}` },
@@ -3222,8 +3222,49 @@ function wirePrimerControls() {
 // the DN-29/DN-21 correction in BACKLOG.md). "Training" drops the time
 // limit for calm practice; "simulation" adds the real 45-minute limit and
 // auto-submits when it expires.
-const EXAM_QUESTION_COUNT = 30;
-const EXAM_TIME_LIMIT_MS = 45 * 60 * 1000;
+//
+// DN-54: the two enterprise/premium compliance modules (kyc_aml,
+// kartellrecht) deliberately use a much shorter exam than every other
+// module - a 25-30 question pool with only ~6 drawn per exam run, vs. the
+// driving modules' 30-of-40+ draw - since this is a corporate compliance
+// knowledge-check taken during a work day, not a multi-hour licensing exam.
+// Question count, pass threshold, and time limit are therefore all
+// per-exam_type now (falling back to the original driving-exam defaults
+// for every module that doesn't override them) rather than single global
+// constants - see the *_BY_TYPE maps and their accessor functions below.
+const EXAM_QUESTION_COUNT_DEFAULT = 30;
+const EXAM_QUESTION_COUNT_BY_TYPE = {
+  kyc_aml: 6,
+  kartellrecht: 6,
+};
+function examQuestionCount(examType) {
+  return EXAM_QUESTION_COUNT_BY_TYPE[examType] || EXAM_QUESTION_COUNT_DEFAULT;
+}
+
+const EXAM_TIME_LIMIT_MS_DEFAULT = 45 * 60 * 1000;
+const EXAM_TIME_LIMIT_MS_BY_TYPE = {
+  // ~100s/question with real margin for a 6-question compliance check,
+  // vs. the driving exam's 45 real-world minutes for 30 questions.
+  kyc_aml: 10 * 60 * 1000,
+  kartellrecht: 10 * 60 * 1000,
+};
+function examTimeLimitMs(examType) {
+  return EXAM_TIME_LIMIT_MS_BY_TYPE[examType] || EXAM_TIME_LIMIT_MS_DEFAULT;
+}
+
+// Max total error points to still pass. Default (10, over a 30-question/
+// 2-5-points-each pool) matches the real Klasse-B rule. For the 6-question
+// compliance exams, 10 would let a learner miss almost every question and
+// still pass - scaled down so missing one typical-value question is
+// tolerated but two is not (roughly a "5 of 6 correct" bar).
+const MAX_ERROR_POINTS_DEFAULT = 10;
+const MAX_ERROR_POINTS_BY_TYPE = {
+  kyc_aml: 4,
+  kartellrecht: 4,
+};
+function maxErrorPoints(examType) {
+  return MAX_ERROR_POINTS_BY_TYPE[examType] != null ? MAX_ERROR_POINTS_BY_TYPE[examType] : MAX_ERROR_POINTS_DEFAULT;
+}
 
 // Target draw distribution across the 10 topics, summing to 30. Roughly
 // proportional to each topic's real share of the question pool, with a
@@ -3249,6 +3290,23 @@ const EXAM_TOPIC_DRAW = {
     fahrtuechtigkeit: 2,
     erstehilfe: 1,
   },
+  // DN-54: 6-question draws across the 5 compliance topics each module has
+  // - one topic gets 2 (the most operationally central one), the other 4
+  // get 1 each, so every exam run touches every topic at least once.
+  kyc_aml: {
+    sorgfaltspflichten: 2,
+    grundlagen: 1,
+    verdachtsmeldung: 1,
+    verstaerkte_sorgfalt: 1,
+    sanktionen: 1,
+  },
+  kartellrecht: {
+    grundlagen: 2,
+    kernbeschraenkungen: 1,
+    bussgelder: 1,
+    selbstreinigung: 1,
+    straftaten: 1,
+  },
 };
 
 function shuffle(arr) {
@@ -3261,6 +3319,7 @@ function shuffle(arr) {
 }
 
 function drawExamQuestions() {
+  const targetCount = examQuestionCount(state.examType);
   const byTopic = {};
   state.questions.forEach((q) => {
     (byTopic[q.topic_code] = byTopic[q.topic_code] || []).push(q);
@@ -3273,13 +3332,13 @@ function drawExamQuestions() {
   });
   // If a topic's pool were ever smaller than its target (not the case at
   // 500 questions, but defensive for future smaller content packs), top up
-  // from the overall pool so an exam run is always exactly 30 questions.
-  if (draw.length < EXAM_QUESTION_COUNT) {
+  // from the overall pool so an exam run is always exactly targetCount.
+  if (draw.length < targetCount) {
     const usedIds = new Set(draw.map((q) => q.id));
     const rest = shuffle(state.questions.filter((q) => !usedIds.has(q.id)));
-    draw = draw.concat(rest.slice(0, EXAM_QUESTION_COUNT - draw.length));
+    draw = draw.concat(rest.slice(0, targetCount - draw.length));
   }
-  return shuffle(draw).slice(0, EXAM_QUESTION_COUNT);
+  return shuffle(draw).slice(0, targetCount);
 }
 
 function openExamPicker() {
@@ -3296,10 +3355,12 @@ function closeExamPicker() {
 
 function renderExamPicker() {
   const X = EXAM_STRINGS[state.lang];
+  const count = examQuestionCount(state.examType);
+  const minutes = Math.round(examTimeLimitMs(state.examType) / 60000);
   el("#exam-picker-title").textContent = X.pickerTitle;
-  el("#exam-picker-desc").textContent = X.pickerDesc;
+  el("#exam-picker-desc").textContent = X.pickerDesc(count);
   el("#exam-pick-training").innerHTML = `<strong>${X.trainingTitle}</strong>${X.trainingDesc}`;
-  el("#exam-pick-simulation").innerHTML = `<strong>${X.simTitle}</strong>${X.simDesc}`;
+  el("#exam-pick-simulation").innerHTML = `<strong>${X.simTitle}</strong>${X.simDesc(minutes)}`;
   el("#exam-picker-cancel").textContent = X.cancel;
 }
 
@@ -3328,6 +3389,10 @@ function startExam(mode) {
     reviewPass: false,
     reviewQueue: [],
     reviewIndex: 0,
+    // DN-54: captured at start (not read live from the *_BY_TYPE map on
+    // every tick) so an in-progress exam keeps its original time limit even
+    // if state.examType somehow changed mid-run.
+    timeLimitMs: examTimeLimitMs(state.examType),
   };
   history.replaceState({ view: "exam" }, "");
   el("#exam-view").hidden = false;
@@ -3341,7 +3406,7 @@ function startExamTimer() {
   const tick = () => {
     if (!state.exam || state.exam.finished) return;
     const elapsed = Date.now() - state.exam.startedAt;
-    const remaining = EXAM_TIME_LIMIT_MS - elapsed;
+    const remaining = state.exam.timeLimitMs - elapsed;
     const timerEl = el("#exam-timer");
     timerEl.hidden = false;
     if (remaining <= 0) {
@@ -3576,7 +3641,7 @@ function computeExamResults() {
       wrongList.push({ q, given });
     }
   });
-  const passed = errorPoints <= 10 && wrongHighStakes < 2;
+  const passed = errorPoints <= maxErrorPoints(state.examType) && wrongHighStakes < 2;
   return { errorPoints, wrongHighStakes, wrongList, passed };
 }
 
@@ -3622,7 +3687,7 @@ function renderExamResults() {
   titleEl.className = results.passed ? "exam-results-pass" : "exam-results-fail";
 
   const summaryEl = el("#exam-results-summary");
-  let summaryHtml = `<div class="exam-results-summary-box">${X.summary(results.errorPoints, results.wrongHighStakes)}</div>`;
+  let summaryHtml = `<div class="exam-results-summary-box">${X.summary(results.errorPoints, maxErrorPoints(state.examType), results.wrongHighStakes)}</div>`;
   if (state.exam.timedOut) {
     summaryHtml = `<div class="exam-results-summary-box">${X.timeUp}</div>` + summaryHtml;
   }
@@ -3754,7 +3819,7 @@ function render() {
   // No real exam is meaningful with only a handful of seed questions (see
   // Angelschein's placeholder content) - disable rather than let someone
   // start a "30-question exam" that silently draws far fewer.
-  el("#exam-start-btn").disabled = state.questions.length < EXAM_QUESTION_COUNT;
+  el("#exam-start-btn").disabled = state.questions.length < examQuestionCount(state.examType);
 
   const moduleMod = moduleManifestFor(state.examType);
   const moduleBtn = el("#module-switch-btn");
