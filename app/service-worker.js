@@ -59,13 +59,20 @@
 // hits before ever opening the app. logo.svg is the new favicon/app-icon
 // source and is small/static, so it's precached alongside the PNGs it was
 // rendered from.
-const CACHE_NAME = "zettacard-v7";
+// v8 (DN-56): added vendor/qrcode.js (the certificate-embedded verify-link
+// QR encoder, loaded via a <script> tag in app.html right before app.js) -
+// a genuine new app-shell dependency, not just runtime-cached content, so
+// it's precached here and the cache name is bumped per this file's own
+// documented discipline (see the v7 comment above for why that discipline
+// exists and what breaks without it).
+const CACHE_NAME = "zettacard-v8";
 const ASSETS = [
   "./",
   "index.html",
   "app.html",
   "styles.css",
   "app.js",
+  "vendor/qrcode.js",
   "data/modules.json",
   "manifest.json",
   "icons/logo.svg",

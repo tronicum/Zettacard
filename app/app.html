@@ -336,6 +336,11 @@
     </div>
   </div>
 
+  <!-- DN-56: vendored (not CDN-loaded) MIT-licensed QR encoder, so
+       generating a scannable verify-link QR into a certificate keeps
+       working fully offline like the rest of this PWA. Exposes a global
+       `qrcode` factory function - see app.js's use in certificateHtmlDoc(). -->
+  <script src="vendor/qrcode.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

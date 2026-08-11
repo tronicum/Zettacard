@@ -1710,6 +1710,8 @@ const CERT_STRINGS = {
     // shown once a record is genuinely signed - see renderJwtDownloadBtn().
     downloadJwt: "Signiertes Credential herunterladen (JWT, für Wallets)",
     disclaimer: "Selbst erstellter Nachweis, nicht kryptographisch signiert oder extern verifiziert.",
+    certVerifyIntro: "Scanne den QR-Code oder öffne den Link, um dieses Zertifikat online zu prüfen:",
+    certSignedNoLinkNote: (d) => `Dieses Zertifikat ist kryptographisch von Zettacard signiert (Schlüssel-ID ${d}), aber es wurde noch kein öffentlicher Prüflink erstellt. Erstelle einen unter "Meine Zertifikate", damit andere ihn online prüfen können, oder nutze den separaten JWT-Download zur Offline-Prüfung.`,
     // DN-44: simple renewal-due note for compliance modules that carry a
     // renewal_months value in their meta - only shown once the due date has
     // passed or is within 30 days (see renewalStatusForRecord()), not a
@@ -1739,6 +1741,8 @@ const CERT_STRINGS = {
     downloadCert: "Download certificate (HTML)", downloadPdf: "Download certificate (PDF)", downloadCred: "Download credential (JSON)",
     downloadJwt: "Download signed credential (JWT, for wallets)",
     disclaimer: "Self-generated record, not cryptographically signed or independently verified.",
+    certVerifyIntro: "Scan the QR code or open the link to check this certificate online:",
+    certSignedNoLinkNote: (d) => `This certificate is cryptographically signed by Zettacard (key ID ${d}), but no public verification link has been created yet. Create one under "My certificates" so others can check it online, or use the separate signed-JWT download for offline verification.`,
     renewalOverdue: (d) => `Refresher overdue since ${d}`,
     renewalDueSoon: (d) => `Refresher due by ${d}`,
     verifiedLabel: "✅ Signed badge", selfIssuedLabel: "Unverified",
@@ -1762,6 +1766,8 @@ const CERT_STRINGS = {
     downloadCert: "Завантажити сертифікат (HTML)", downloadPdf: "Завантажити сертифікат (PDF)", downloadCred: "Завантажити посвідчення (JSON)",
     downloadJwt: "Завантажити підписане посвідчення (JWT, для гаманців)",
     disclaimer: "Самостійно створений запис, не підписаний криптографічно і не перевірений незалежно.",
+    certVerifyIntro: "Відскануйте QR-код або відкрийте посилання, щоб перевірити цей сертифікат онлайн:",
+    certSignedNoLinkNote: (d) => `Цей сертифікат криптографічно підписаний Zettacard (ID ключа ${d}), але публічне посилання для перевірки ще не створено. Створіть його в розділі "Мої сертифікати", щоб інші могли перевірити його онлайн, або скористайтеся окремим завантаженням JWT для офлайн-перевірки.`,
     renewalOverdue: (d) => `Оновлення прострочено з ${d}`,
     renewalDueSoon: (d) => `Оновлення потрібне до ${d}`,
     verifiedLabel: "✅ Підписаний бейдж", selfIssuedLabel: "Не підтверджено",
@@ -1785,6 +1791,8 @@ const CERT_STRINGS = {
     downloadCert: "Pobierz certyfikat (HTML)", downloadPdf: "Pobierz certyfikat (PDF)", downloadCred: "Pobierz poświadczenie (JSON)",
     downloadJwt: "Pobierz podpisane poświadczenie (JWT, do portfeli)",
     disclaimer: "Zapis wygenerowany samodzielnie, niepodpisany kryptograficznie ani niezweryfikowany zewnętrznie.",
+    certVerifyIntro: "Zeskanuj kod QR lub otwórz link, aby sprawdzić ten certyfikat online:",
+    certSignedNoLinkNote: (d) => `Ten certyfikat jest kryptograficznie podpisany przez Zettacard (ID klucza ${d}), ale nie utworzono jeszcze publicznego linku weryfikacyjnego. Utwórz go w sekcji "Moje certyfikaty", aby inni mogli go sprawdzić online, lub skorzystaj z osobnego pobrania JWT do weryfikacji offline.`,
     renewalOverdue: (d) => `Odświeżenie zaległe od ${d}`,
     renewalDueSoon: (d) => `Odświeżenie wymagane do ${d}`,
     verifiedLabel: "✅ Podpisana odznaka", selfIssuedLabel: "Niezweryfikowane",
@@ -1808,6 +1816,8 @@ const CERT_STRINGS = {
     downloadCert: "تنزيل الشهادة (HTML)", downloadPdf: "تنزيل الشهادة (PDF)", downloadCred: "تنزيل بيانات الاعتماد (JSON)",
     downloadJwt: "تنزيل بيانات الاعتماد الموقّعة (JWT، للمحافظ)",
     disclaimer: "سجل ذاتي الإصدار، غير موقّع تشفيريًا وغير موثّق من طرف مستقل.",
+    certVerifyIntro: "امسح رمز الاستجابة السريعة أو افتح الرابط للتحقق من هذه الشهادة عبر الإنترنت:",
+    certSignedNoLinkNote: (d) => `هذه الشهادة موقعة تشفيريًا من Zettacard (معرف المفتاح ${d})، ولكن لم يتم إنشاء رابط تحقق عام بعد. أنشئ واحدًا ضمن "شهاداتي" حتى يتمكن الآخرون من التحقق منها عبر الإنترنت، أو استخدم تنزيل JWT الموقّع المنفصل للتحقق دون اتصال بالإنترنت.`,
     renewalOverdue: (d) => `التجديد متأخر منذ ${d}`,
     renewalDueSoon: (d) => `التجديد مستحق بحلول ${d}`,
     verifiedLabel: "✅ شارة موقّعة", selfIssuedLabel: "غير موثّق",
@@ -1831,6 +1841,8 @@ const CERT_STRINGS = {
     downloadCert: "下载证书(HTML)", downloadPdf: "下载证书(PDF)", downloadCred: "下载凭证(JSON)",
     downloadJwt: "下载已签名凭证(JWT,供钱包应用使用)",
     disclaimer: "自行生成的记录,未经加密签名,也未经第三方独立验证。",
+    certVerifyIntro: "扫描二维码或打开链接以在线验证此证书:",
+    certSignedNoLinkNote: (d) => `此证书已由 Zettacard 进行加密签名(密钥 ID ${d}),但尚未创建公开验证链接。请在"我的证书"中创建一个,以便他人在线验证,或使用单独的已签名 JWT 下载进行离线验证。`,
     renewalOverdue: (d) => `续期已逾期,截止日期为 ${d}`,
     renewalDueSoon: (d) => `续期截止日期为 ${d}`,
     verifiedLabel: "✅ 已签名徽章", selfIssuedLabel: "未验证",
@@ -1854,6 +1866,8 @@ const CERT_STRINGS = {
     downloadCert: "प्रमाणपत्र डाउनलोड करें (HTML)", downloadPdf: "प्रमाणपत्र डाउनलोड करें (PDF)", downloadCred: "क्रेडेंशियल डाउनलोड करें (JSON)",
     downloadJwt: "हस्ताक्षरित क्रेडेंशियल डाउनलोड करें (JWT, वॉलेट के लिए)",
     disclaimer: "स्व-निर्मित रिकॉर्ड, क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित या स्वतंत्र रूप से सत्यापित नहीं।",
+    certVerifyIntro: "इस प्रमाणपत्र को ऑनलाइन जांचने के लिए QR कोड स्कैन करें या लिंक खोलें:",
+    certSignedNoLinkNote: (d) => `यह प्रमाणपत्र Zettacard द्वारा क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित है (कुंजी ID ${d}), लेकिन अभी तक कोई सार्वजनिक सत्यापन लिंक नहीं बनाया गया है। दूसरों के इसे ऑनलाइन जांचने के लिए "मेरे प्रमाणपत्र" में एक लिंक बनाएं, या ऑफ़लाइन सत्यापन के लिए अलग हस्ताक्षरित JWT डाउनलोड का उपयोग करें।`,
     renewalOverdue: (d) => `नवीनीकरण ${d} से लंबित`,
     renewalDueSoon: (d) => `नवीनीकरण ${d} तक देय`,
     verifiedLabel: "✅ हस्ताक्षरित बैज", selfIssuedLabel: "असत्यापित",
@@ -1877,6 +1891,8 @@ const CERT_STRINGS = {
     downloadCert: "Sertifikayı indir (HTML)", downloadPdf: "Sertifikayı indir (PDF)", downloadCred: "Belgeyi indir (JSON)",
     downloadJwt: "İmzalı belgeyi indir (JWT, cüzdanlar için)",
     disclaimer: "Kendiliğinden oluşturulmuş kayıt, kriptografik olarak imzalanmamış veya bağımsız olarak doğrulanmamıştır.",
+    certVerifyIntro: "Bu sertifikayı çevrimiçi kontrol etmek için QR kodunu tarayın veya bağlantıyı açın:",
+    certSignedNoLinkNote: (d) => `Bu sertifika Zettacard tarafından kriptografik olarak imzalanmıştır (anahtar kimliği ${d}), ancak henüz herkese açık bir doğrulama bağlantısı oluşturulmamıştır. Başkalarının çevrimiçi kontrol edebilmesi için "Sertifikalarım" bölümünden bir bağlantı oluşturun veya çevrimdışı doğrulama için ayrı imzalı JWT indirmesini kullanın.`,
     renewalOverdue: (d) => `Yenileme ${d} tarihinden beri gecikmiş`,
     renewalDueSoon: (d) => `Yenileme ${d} tarihine kadar gerekli`,
     verifiedLabel: "✅ İmzalı rozet", selfIssuedLabel: "Doğrulanmamış",
@@ -1900,6 +1916,8 @@ const CERT_STRINGS = {
     downloadCert: "Télécharger le certificat (HTML)", downloadPdf: "Télécharger le certificat (PDF)", downloadCred: "Télécharger l'attestation (JSON)",
     downloadJwt: "Télécharger l'attestation signée (JWT, pour portefeuilles)",
     disclaimer: "Enregistrement auto-généré, non signé cryptographiquement et non vérifié de manière indépendante.",
+    certVerifyIntro: "Scannez le code QR ou ouvrez le lien pour vérifier ce certificat en ligne :",
+    certSignedNoLinkNote: (d) => `Ce certificat est signé cryptographiquement par Zettacard (ID de clé ${d}), mais aucun lien de vérification public n'a encore été créé. Créez-en un dans « Mes certificats » afin que d'autres puissent le vérifier en ligne, ou utilisez le téléchargement JWT signé séparé pour une vérification hors ligne.`,
     renewalOverdue: (d) => `Renouvellement en retard depuis le ${d}`,
     renewalDueSoon: (d) => `Renouvellement à effectuer avant le ${d}`,
     verifiedLabel: "✅ Badge signé", selfIssuedLabel: "Non vérifié",
@@ -1923,6 +1941,8 @@ const CERT_STRINGS = {
     downloadCert: "Скачать сертификат (HTML)", downloadPdf: "Скачать сертификат (PDF)", downloadCred: "Скачать удостоверение (JSON)",
     downloadJwt: "Скачать подписанное удостоверение (JWT, для кошельков)",
     disclaimer: "Самостоятельно созданная запись, не подписана криптографически и не проверена независимо.",
+    certVerifyIntro: "Отсканируйте QR-код или откройте ссылку, чтобы проверить этот сертификат онлайн:",
+    certSignedNoLinkNote: (d) => `Этот сертификат криптографически подписан Zettacard (ID ключа ${d}), но публичная ссылка для проверки еще не создана. Создайте её в разделе "Мои сертификаты", чтобы другие могли проверить его онлайн, или используйте отдельную загрузку подписанного JWT для офлайн-проверки.`,
     renewalOverdue: (d) => `Обновление просрочено с ${d}`,
     renewalDueSoon: (d) => `Обновление требуется до ${d}`,
     verifiedLabel: "✅ Подписанный значок", selfIssuedLabel: "Не подтверждено",
@@ -1946,6 +1966,8 @@ const CERT_STRINGS = {
     downloadCert: "Descargar certificado (HTML)", downloadPdf: "Descargar certificado (PDF)", downloadCred: "Descargar credencial (JSON)",
     downloadJwt: "Descargar credencial firmada (JWT, para carteras)",
     disclaimer: "Registro autogenerado, no firmado criptográficamente ni verificado de forma independiente.",
+    certVerifyIntro: "Escanea el código QR o abre el enlace para verificar este certificado en línea:",
+    certSignedNoLinkNote: (d) => `Este certificado está firmado criptográficamente por Zettacard (ID de clave ${d}), pero aún no se ha creado un enlace de verificación público. Crea uno en "Mis certificados" para que otros puedan verificarlo en línea, o usa la descarga JWT firmada por separado para la verificación sin conexión.`,
     renewalOverdue: (d) => `Renovación vencida desde el ${d}`,
     renewalDueSoon: (d) => `Renovación necesaria antes del ${d}`,
     verifiedLabel: "✅ Insignia firmada", selfIssuedLabel: "No verificado",
@@ -1969,6 +1991,8 @@ const CERT_STRINGS = {
     downloadCert: "Scarica certificato (HTML)", downloadPdf: "Scarica certificato (PDF)", downloadCred: "Scarica credenziale (JSON)",
     downloadJwt: "Scarica credenziale firmata (JWT, per wallet)",
     disclaimer: "Registro autogenerato, non firmato crittograficamente né verificato in modo indipendente.",
+    certVerifyIntro: "Scansiona il codice QR o apri il link per verificare questo certificato online:",
+    certSignedNoLinkNote: (d) => `Questo certificato è firmato crittograficamente da Zettacard (ID chiave ${d}), ma non è ancora stato creato un link di verifica pubblico. Creane uno in "I miei certificati" per permettere ad altri di verificarlo online, oppure usa il download JWT firmato separato per la verifica offline.`,
     renewalOverdue: (d) => `Rinnovo scaduto dal ${d}`,
     renewalDueSoon: (d) => `Rinnovo da effettuare entro il ${d}`,
     verifiedLabel: "✅ Badge firmato", selfIssuedLabel: "Non verificato",
@@ -2119,10 +2143,66 @@ function recordCompletion(examType, scopeCode, results) {
   return record;
 }
 
+// DN-56: generates an inline, self-contained SVG QR code for a verify URL
+// using the vendored (not CDN-loaded) qrcode-generator library (see
+// app.html's <script src="vendor/qrcode.js"> comment for why this is
+// vendored rather than fetched from a CDN - keeps certificate generation
+// working fully offline). Runs in the PARENT page's JS context (this
+// function itself, not inside printCertificateAsPdf()'s hidden iframe) -
+// the resulting SVG markup is just a string that gets inlined into the
+// HTML text handed to the iframe/Blob, so the iframe never needs its own
+// copy of the QR library. Returns "" (degrades to text-link-only) if the
+// vendored library somehow isn't loaded, rather than throwing and breaking
+// certificate generation entirely over a decorative addition.
+function verifyLinkQrSvg(url) {
+  if (typeof qrcode !== "function") return "";
+  try {
+    const qr = qrcode(0, "M");
+    qr.addData(url);
+    qr.make();
+    return qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true });
+  } catch (e) {
+    return "";
+  }
+}
+
+// DN-56: certificate documents (HTML download + the PDF print flow, which
+// reuses this same markup - see printCertificateAsPdf()) now embed real
+// verification directly in the document itself, not just in the separate
+// JSON/JWT downloads, in one of three states depending on what's actually
+// true about this record:
+//   1. record.verifyUrl set - a permanent public /verify/<id> page exists
+//      (see createVerifyLink()/renderVerifyLinkRow()) - embed the link as
+//      text AND as a scannable QR code, so a printed/offline copy is still
+//      independently checkable by anyone with a phone.
+//   2. record.verified && record.signedJwt but no verifyUrl yet - the
+//      record IS cryptographically signed (ES256, see
+//      netlify/functions/sign-credential.js), just no public link was
+//      created - say so honestly (with the real key ID) rather than
+//      falling back to the unsigned disclaimer, which would understate
+//      what's actually true.
+//   3. neither - the original self-issued/unverified disclaimer, unchanged.
 function certificateHtmlDoc(record) {
   const C = certStrings(state.lang);
   const dateStr = new Date(record.passedAt).toLocaleDateString(state.lang);
   const escape = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+  let verifyBlockHtml;
+  if (record.verifyUrl) {
+    const qrSvg = verifyLinkQrSvg(record.verifyUrl);
+    verifyBlockHtml = `
+    <div class="verify-block">
+      <div class="verify-intro">${escape(C.certVerifyIntro)}</div>
+      ${qrSvg ? `<div class="verify-qr">${qrSvg}</div>` : ""}
+      <div class="verify-link-label">${escape(C.verifyLinkLabel)}</div>
+      <div class="verify-link">${escape(record.verifyUrl)}</div>
+    </div>`;
+  } else if (record.verified && record.signedJwt) {
+    verifyBlockHtml = `<div class="disclaimer">${escape(C.certSignedNoLinkNote(record.signedKid || "?"))}</div>`;
+  } else {
+    verifyBlockHtml = `<div class="disclaimer">${escape(C.disclaimer)}</div>`;
+  }
+
   return `<!doctype html>
 <html lang="${state.lang}"><head><meta charset="utf-8"><title>${escape(record.moduleLabel)} - Certificate</title>
 <style>
@@ -2133,6 +2213,11 @@ function certificateHtmlDoc(record) {
   .scope { color: #555; margin-bottom: 24px; }
   .meta { margin: 24px 0; font-size: 0.95rem; }
   .disclaimer { margin-top: 40px; font-size: 0.75rem; color: #888; font-family: Arial, sans-serif; }
+  .verify-block { margin-top: 40px; padding-top: 24px; border-top: 1px solid #ccc; font-family: Arial, sans-serif; }
+  .verify-intro { font-size: 0.85rem; color: #444; margin-bottom: 12px; }
+  .verify-qr svg { width: 140px; height: 140px; }
+  .verify-link-label { font-size: 0.72rem; color: #888; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 10px; }
+  .verify-link { font-size: 0.8rem; color: #234; word-break: break-all; margin-top: 2px; }
 </style></head>
 <body>
   <h1>Zettacard</h1>
@@ -2140,7 +2225,7 @@ function certificateHtmlDoc(record) {
   <div class="module">${escape(record.moduleLabel)}</div>
   <div class="scope">${escape(record.scopeLabel)}</div>
   <div class="meta">${escape(C.passedOn(dateStr))}<br>${record.totalQuestions} question exam simulation &middot; ${record.errorPoints} error point(s) &middot; ${record.wrongHighStakes} safety-critical miss(es)</div>
-  <div class="disclaimer">${escape(C.disclaimer)}</div>
+  ${verifyBlockHtml}
 </body></html>`;
 }
 
@@ -2377,10 +2462,24 @@ async function renderCertificates() {
     renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
     renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
     renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
-    card.querySelector(".cert-dl-cert").addEventListener("click", () => {
+    // DN-56: the certificate document itself now embeds verification (see
+    // certificateHtmlDoc()'s three-state verify block), so both downloads
+    // below give an unsigned/already-attempted record one more chance to
+    // pick up a real signature first - same reasoning the JSON handler
+    // already used, just extended to these two since they now have
+    // signature-dependent content too, not just the JSON/JWT downloads.
+    card.querySelector(".cert-dl-cert").addEventListener("click", async () => {
+      await ensureSignedCredential(record);
+      renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+      renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
+      renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
       downloadTextFile(`${record.examType}-${record.scopeCode}-certificate.html`, certificateHtmlDoc(record), "text/html");
     });
-    card.querySelector(".cert-dl-pdf").addEventListener("click", () => {
+    card.querySelector(".cert-dl-pdf").addEventListener("click", async () => {
+      await ensureSignedCredential(record);
+      renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+      renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
+      renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
       printCertificateAsPdf(record);
     });
     card.querySelector(".cert-dl-cred").addEventListener("click", async () => {
@@ -3825,10 +3924,18 @@ function renderExamResults() {
         renderVerifyLinkRow(verifySlot, record, C);
       });
     }
-    el("#exam-results-cert-html").addEventListener("click", () => {
+    el("#exam-results-cert-html").addEventListener("click", async () => {
+      await ensureSignedCredential(record);
+      renderBadgeRow(badgeSlot, record, C);
+      renderJwtDownloadBtn(jwtSlot, record, C);
+      renderVerifyLinkRow(verifySlot, record, C);
       downloadTextFile(`zettacard-zertifikat-${record.id}.html`, certificateHtmlDoc(record), "text/html");
     });
-    el("#exam-results-cert-pdf").addEventListener("click", () => {
+    el("#exam-results-cert-pdf").addEventListener("click", async () => {
+      await ensureSignedCredential(record);
+      renderBadgeRow(badgeSlot, record, C);
+      renderJwtDownloadBtn(jwtSlot, record, C);
+      renderVerifyLinkRow(verifySlot, record, C);
       printCertificateAsPdf(record);
     });
     el("#exam-results-cert-json").addEventListener("click", async () => {
