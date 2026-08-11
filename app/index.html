@@ -362,7 +362,13 @@
             <a class="cta-btn" id="enterprise-cta-kartell" href="./app.html?exam=kartellrecht&amp;scope=ALL"></a>
           </div>
         </div>
-        <p class="enterprise-disclaimer" id="enterprise-disclaimer"></p>
+        <!-- DN-59: the "not a substitute for individual legal advice"
+             disclaimer paragraph that used to render here has been removed
+             per PO decision - it belongs in the Terms & Conditions (AGB) if
+             anywhere, not the landing page. See render() below: the
+             ENTERPRISE_STRINGS[lang].disclaimer text itself is left in
+             place (unused) rather than deleted from all 12 locale objects,
+             in case AGB copy is drafted from it later. -->
       </div>
     </section>
 
@@ -516,9 +522,11 @@
         document.getElementById("enterprise-kyc-desc").textContent = es_.kycDesc;
         document.getElementById("enterprise-kartell-title").textContent = es_.kartellTitle;
         document.getElementById("enterprise-kartell-desc").textContent = es_.kartellDesc;
+        // DN-59: enterprise-disclaimer element removed from the landing
+        // page (see the HTML comment where it used to sit) - no longer
+        // rendered here.
         document.getElementById("enterprise-cta-kyc").textContent = es_.cta;
         document.getElementById("enterprise-cta-kartell").textContent = es_.cta;
-        document.getElementById("enterprise-disclaimer").textContent = es_.disclaimer;
 
         // DN-55: module grid reorganized into 3 labeled groups instead of
         // one flat 8-item list, and extended to all 11 real modules
