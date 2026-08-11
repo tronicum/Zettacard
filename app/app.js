@@ -4594,6 +4594,31 @@ async function loadActiveProfileState() {
     savedScopeCode = localStorage.getItem(profileKey("scope-code"));
   } catch (e) { /* non-fatal */ }
 
+  // DN-57: honor a one-time module deep-link from the landing page's
+  // per-module CTA links (e.g. "./app.html?exam=kyc_aml&scope=ALL"), so
+  // clicking "Start the free pilot" under a SPECIFIC module card actually
+  // opens that module - real bug found and reported by the PO: a returning
+  // visitor whose profile had previously used Fuehrerschein landed back on
+  // Fuehrerschein no matter which enterprise-module CTA they clicked, since
+  // the shared CTA link only pointed at "./app.html" with no module hint at
+  // all, so this saved-state restore below just won every time. Consumed
+  // and stripped from the URL immediately via history.replaceState so it
+  // only overrides the FIRST load of this page view, not every later
+  // profile switch in the same session (loadActiveProfileState() re-runs
+  // on those too, and shouldn't keep forcing the same module then).
+  try {
+    const linkParams = new URLSearchParams(location.search);
+    const linkExamType = linkParams.get("exam");
+    const linkScopeCode = linkParams.get("scope");
+    if (linkExamType) {
+      history.replaceState(null, "", location.pathname + location.hash);
+      if (linkScopeCode && moduleManifestFor(linkExamType)?.options.some((o) => o.code === linkScopeCode)) {
+        savedExamType = linkExamType;
+        savedScopeCode = linkScopeCode;
+      }
+    }
+  } catch (e) { /* URL/history API unavailable - deep link just won't apply */ }
+
   // 2026-08-08 fix (real bug, found while auditing translations - PO flagged
   // seeing compliance-course categories appear while studying for the
   // driver's licence): topicFilter/roleFilter used to be saved under a
