@@ -437,6 +437,14 @@ main {
   gap: 10px;
   border: 1px solid var(--border);
   background: var(--card);
+  /* Same bug class as .exam-mode-btn's 2026-08-05 fix (see its comment
+     below): no explicit color was ever declared here, so answer/flashcard
+     option text fell back to the browser's default text color instead of
+     the themed one - unreadable against this dark --card background.
+     Found 2026-08-12 from a user report of unreadable button text
+     "within a course" (i.e. the option rows, not the module picker, which
+     already had its own color declared). */
+  color: var(--text);
   border-radius: var(--radius);
   padding: 12px 14px;
   font-size: 0.95rem;
