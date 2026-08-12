@@ -2,14 +2,14 @@
   "meta": {
     "app": "fluegel-angeln / motorrad-lernmodul",
     "version": "0.1",
-    "generated": "2026-08-04",
-    "description": "Original MCQs for the German motorcycle (Klasse A1/A2/A) driving theory module, covering Fahrphysik und Balance, Schutzausruestung und Sichtbarkeit, Verkehrsverhalten fuer Kraftradfahrer, Fahrerlaubnisklassen und technische Besonderheiten, and Fahren unter besonderen Bedingungen. Content is independently phrased from public StVO/StVZO/FeV rules and general motorcycle safety knowledge, NOT copied from the licensed amtlicher Fragenkatalog. This is a fully independent exam module from Fuehrerschein (Klasse B) and Angelschein - separate content pool, separate exam simulation. Locales: de (canonical), en (reviewed translation) for this first round.",
+    "generated": "2026-08-12",
+    "description": "Original MCQs for the German motorcycle (Klasse A1/A2/A) driving theory module, covering Fahrphysik und Balance, Schutzausruestung und Sichtbarkeit, Verkehrsverhalten fuer Kraftradfahrer, Fahrerlaubnisklassen und technische Besonderheiten, and Fahren unter besonderen Bedingungen. Content is independently phrased from public StVO/StVZO/FeV rules and general motorcycle safety knowledge, NOT copied from the licensed amtlicher Fragenkatalog. This is a fully independent exam module from Fuehrerschein (Klasse B) and Angelschein - separate content pool, separate exam simulation. Locales: de (canonical), en (reviewed translation) for this first round. DN-65 Zusatzstoff expansion (2026-08-12): +48 questions extending the existing fahrphysik/schutzausruestung/verkehrsverhalten/fahrerlaubnis topics with hazard perception, lean/countersteering physics, ABS/CBS braking-distribution awareness, helmet-standard/ATGATT protective-gear content, motorcycle-specific traffic scenarios (filtering legality, blind spots, group riding), and technical pre-ride checks. Sourced from SS 6 FeV (A1/A2/A class definitions), Anlage 7/7b FeV (Fahrerschulung structure), SS 21a Abs. 2 StVO (Schutzhelmpflicht), and EU-VO 168/2013 (ABS/CBS braking-equipment rules), plus established motorcycle-safety/riding-physics knowledge. New questions are DE/EN only for this round, same as the rest of this app's newest content.",
     "class": "A1/A2/A",
     "canonical_locale": "de",
     "point_system": "2-5 points per question, matching real-exam-style weighting",
     "pass_rule_note": "Provisional: same generic mechanics as Klasse B (30 questions, max 10 error points, auto-fail on 2+ wrong high_stakes) used as a reasonable placeholder pending legal review of the actual Klasse A theory exam parameters - see legal_review_status.",
     "legal_review_status": "NOT legally reviewed - verify citations, class-specific figures (A1/A2/A power/age limits), and real Klasse A exam parameters before production/commercial use",
-    "total_questions": 90,
+    "total_questions": 138,
     "license": "CC BY-NC-SA 4.0",
     "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
@@ -1721,6 +1721,918 @@
       "image_ref": null,
       "correct": [
         "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-16",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht - sicheres Führen des Fahrzeugs)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-17",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht - sicheres Führen des Fahrzeugs)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-18",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht - sicheres Führen des Fahrzeugs)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-19",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "EU-Verordnung (EU) Nr. 168/2013 (Genehmigung/Marktüberwachung von zwei-, drei- und vierrädrigen Fahrzeugen)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-20",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "EU-Verordnung (EU) Nr. 168/2013",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-21",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-22",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-23",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-24",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-25",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-26",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrphysik-27",
+      "topic": "Fahrphysik und Balance",
+      "topic_code": "fahrphysik",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-16",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§21a Abs. 2 StVO (Schutzhelmpflicht)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-17",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§21a Abs. 2 StVO (Schutzhelmpflicht)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-18",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§21a Abs. 2 StVO i. V. m. anerkannten Prüfnormen für Schutzhelme",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-19",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§21a Abs. 2 StVO i. V. m. anerkannten Prüfnormen für Schutzhelme",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-20",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "anerkannte Prüfnormen für Schutzhelme (ECE-Regelung Nr. 22)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-21",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht), Empfehlung nach anerkannten Sicherheitsstandards",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-22",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-23",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht - Sichtbarkeit im Verkehr)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-24",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§21a Abs. 2 StVO (Schutzhelmpflicht)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-25",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-26",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-schutzausruestung-27",
+      "topic": "Schutzausrüstung und Sichtbarkeit",
+      "topic_code": "schutzausruestung",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-16",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-17",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-18",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO, §5 StVO (Überholen)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-19",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO, §4 StVO (Abstand)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-20",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-21",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-22",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO, §4 StVO (Abstand)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-23",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-24",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-25",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-26",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-verkehrsverhalten-27",
+      "topic": "Verkehrsverhalten für Kraftradfahrer",
+      "topic_code": "verkehrsverhalten",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-16",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§1 StVO (allgemeine Sorgfaltspflicht), §23 Abs. 1 StVO",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-17",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§23 Abs. 1 StVO",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-18",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§23 Abs. 1 StVO",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-19",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§17 StVO (Beleuchtung), §23 Abs. 1 StVO",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-20",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§23 Abs. 1 StVO",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-21",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§23 Abs. 1 StVO",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-22",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§23 Abs. 1 StVO",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-23",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§23 Abs. 1 StVO",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-24",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§23 Abs. 1 StVO",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-25",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§23 Abs. 1 StVO, §17 StVO",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-26",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§23 Abs. 1 StVO",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "A1",
+        "A2",
+        "A"
+      ]
+    },
+    {
+      "id": "motorrad-fahrerlaubnis-27",
+      "topic": "Fahrerlaubnisklassen und technische Besonderheiten",
+      "topic_code": "fahrerlaubnis",
+      "grundstoff": true,
+      "legal_basis": "§23 Abs. 1 StVO",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
       ],
       "class_scope": [
         "A1",

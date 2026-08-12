@@ -321,127 +321,175 @@ const UI_STRINGS = {
 // large existing per-locale blocks above didn't need touching individually -
 // exam mode is a newer, additive feature layered on top of the flashcard UI.
 const EXAM_STRINGS = {
-  de: { startBtn: "Prüfung", pickerTitle: "Prüfungsmodus wählen", pickerDesc: "Wählen Sie, wie Sie üben möchten. Beide Modi ziehen 30 Fragen nach realer Gewichtung und werten nach der echten Bestehensregel aus.",
+  de: { startBtn: "Prüfung", pickerTitle: "Prüfungsmodus wählen", pickerDesc: (count) => `Wählen Sie, wie Sie üben möchten. Beide Modi ziehen ${count} Fragen nach realer Gewichtung und werten nach der echten Bestehensregel aus.`,
     trainingTitle: "Übungsprüfung", trainingDesc: "Ohne Zeitlimit. Ideal zum ruhigen Üben.",
-    simTitle: "Prüfungssimulation", simDesc: "45 Minuten Zeitlimit, wie bei der echten Prüfung.",
+    simTitle: "Prüfungssimulation", simDesc: (minutes) => `${minutes} Minuten Zeitlimit, wie bei der echten Prüfung.`,
     cancel: "Abbrechen", progress: (i, n) => `Frage ${i} von ${n}`, next: "Weiter", finish: "Prüfung abschließen",
     exit: "Abbrechen", timeUp: "Die Zeit ist abgelaufen — die Prüfung wurde automatisch abgegeben.",
     resultsPass: "Bestanden", resultsFail: "Nicht bestanden",
-    summary: (err, wrong) => `Fehlerpunkte: ${err} von max. 10 zulässig. Falsch beantwortete sicherheitsrelevante Fragen: ${wrong} (bei 2 oder mehr: automatisches Nichtbestehen).`,
+    summary: (err, max, wrong) => `Fehlerpunkte: ${err} von max. ${max} zulässig. Falsch beantwortete sicherheitsrelevante Fragen: ${wrong} (bei 2 oder mehr: automatisches Nichtbestehen).`,
     reviewLabel: "Überprüfung der falschen Antworten", yourAnswer: "Ihre Antwort", rightAnswer: "Richtige Antwort",
     close: "Schließen", noMistakes: "Alle Fragen richtig beantwortet — sehr gut!", confirmExit: "Prüfung wirklich abbrechen? Der Fortschritt geht verloren.",
     skip: "Später beantworten", skipBanner: "Wiederholung übersprungener Fragen — diese Fragen müssen jetzt final beantwortet werden.", skipProgress: (i, n) => `Übersprungene Fragen: ${i} von ${n}` },
-  en: { startBtn: "Exam", pickerTitle: "Choose exam mode", pickerDesc: "Choose how you want to practice. Both modes draw 30 questions with realistic weighting and score using the real pass rule.",
+  en: { startBtn: "Exam", pickerTitle: "Choose exam mode", pickerDesc: (count) => `Choose how you want to practice. Both modes draw ${count} questions with realistic weighting and score using the real pass rule.`,
     trainingTitle: "Training exam", trainingDesc: "No time limit. Good for calm practice.",
-    simTitle: "Simulated real exam", simDesc: "45-minute time limit, like the real exam.",
+    simTitle: "Simulated real exam", simDesc: (minutes) => `${minutes}-minute time limit, like the real exam.`,
     cancel: "Cancel", progress: (i, n) => `Question ${i} of ${n}`, next: "Next", finish: "Finish exam",
     exit: "Cancel", timeUp: "Time is up — the exam was submitted automatically.",
     resultsPass: "Passed", resultsFail: "Not passed",
-    summary: (err, wrong) => `Error points: ${err} of max. 10 allowed. Wrong safety-critical questions: ${wrong} (2 or more means automatic fail).`,
+    summary: (err, max, wrong) => `Error points: ${err} of max. ${max} allowed. Wrong safety-critical questions: ${wrong} (2 or more means automatic fail).`,
     reviewLabel: "Review of wrong answers", yourAnswer: "Your answer", rightAnswer: "Correct answer",
     close: "Close", noMistakes: "All questions answered correctly — well done!", confirmExit: "Really cancel the exam? Progress will be lost.",
     skip: "Answer later", skipBanner: "Reviewing skipped questions — these must be answered now.", skipProgress: (i, n) => `Skipped questions: ${i} of ${n}` },
-  uk: { startBtn: "Іспит", pickerTitle: "Виберіть режим іспиту", pickerDesc: "Оберіть, як тренуватися. В обох режимах 30 питань з реальним розподілом і оцінюванням за справжнім правилом складання.",
+  uk: { startBtn: "Іспит", pickerTitle: "Виберіть режим іспиту", pickerDesc: (count) => `Оберіть, як тренуватися. В обох режимах ${count} питань з реальним розподілом і оцінюванням за справжнім правилом складання.`,
     trainingTitle: "Тренувальний іспит", trainingDesc: "Без обмеження часу. Підходить для спокійного тренування.",
-    simTitle: "Симуляція реального іспиту", simDesc: "Обмеження 45 хвилин, як на справжньому іспиті.",
+    simTitle: "Симуляція реального іспиту", simDesc: (minutes) => `Обмеження ${minutes} хвилин, як на справжньому іспиті.`,
     cancel: "Скасувати", progress: (i, n) => `Питання ${i} з ${n}`, next: "Далі", finish: "Завершити іспит",
     exit: "Скасувати", timeUp: "Час вийшов — іспит подано автоматично.",
     resultsPass: "Складено", resultsFail: "Не складено",
-    summary: (err, wrong) => `Штрафні бали: ${err} з макс. 10 допустимих. Неправильні відповіді на питання, важливі для безпеки: ${wrong} (2 і більше — автоматичний провал).`,
+    summary: (err, max, wrong) => `Штрафні бали: ${err} з макс. ${max} допустимих. Неправильні відповіді на питання, важливі для безпеки: ${wrong} (2 і більше — автоматичний провал).`,
     reviewLabel: "Перегляд неправильних відповідей", yourAnswer: "Ваша відповідь", rightAnswer: "Правильна відповідь",
     close: "Закрити", noMistakes: "Усі питання дано правильно — чудово!", confirmExit: "Дійсно скасувати іспит? Прогрес буде втрачено.",
     skip: "Відповісти пізніше", skipBanner: "Перегляд пропущених питань — на них потрібно відповісти зараз.", skipProgress: (i, n) => `Пропущені питання: ${i} з ${n}` },
-  pl: { startBtn: "Egzamin", pickerTitle: "Wybierz tryb egzaminu", pickerDesc: "Wybierz sposób ćwiczenia. Oba tryby losują 30 pytań z realnym rozkładem i oceniają wg prawdziwej zasady zaliczenia.",
+  pl: { startBtn: "Egzamin", pickerTitle: "Wybierz tryb egzaminu", pickerDesc: (count) => `Wybierz sposób ćwiczenia. Oba tryby losują ${count} pytań z realnym rozkładem i oceniają wg prawdziwej zasady zaliczenia.`,
     trainingTitle: "Egzamin ćwiczeniowy", trainingDesc: "Bez limitu czasu. Do spokojnego ćwiczenia.",
-    simTitle: "Symulacja prawdziwego egzaminu", simDesc: "Limit czasu 45 minut, jak na prawdziwym egzaminie.",
+    simTitle: "Symulacja prawdziwego egzaminu", simDesc: (minutes) => `Limit czasu ${minutes} minut, jak na prawdziwym egzaminie.`,
     cancel: "Anuluj", progress: (i, n) => `Pytanie ${i} z ${n}`, next: "Dalej", finish: "Zakończ egzamin",
     exit: "Anuluj", timeUp: "Czas minął — egzamin został przesłany automatycznie.",
     resultsPass: "Zdany", resultsFail: "Niezdany",
-    summary: (err, wrong) => `Punkty karne: ${err} z maks. 10 dozwolonych. Błędne odpowiedzi na pytania istotne dla bezpieczeństwa: ${wrong} (2 lub więcej oznacza automatyczne niezaliczenie).`,
+    summary: (err, max, wrong) => `Punkty karne: ${err} z maks. ${max} dozwolonych. Błędne odpowiedzi na pytania istotne dla bezpieczeństwa: ${wrong} (2 lub więcej oznacza automatyczne niezaliczenie).`,
     reviewLabel: "Przegląd błędnych odpowiedzi", yourAnswer: "Twoja odpowiedź", rightAnswer: "Poprawna odpowiedź",
     close: "Zamknij", noMistakes: "Wszystkie pytania poprawne — świetnie!", confirmExit: "Na pewno przerwać egzamin? Postęp zostanie utracony.",
     skip: "Odpowiedz później", skipBanner: "Przegląd pominiętych pytań — teraz trzeba na nie odpowiedzieć.", skipProgress: (i, n) => `Pominięte pytania: ${i} z ${n}` },
-  ar: { startBtn: "الامتحان", pickerTitle: "اختر وضع الامتحان", pickerDesc: "اختر طريقة التدريب. يسحب كلا الوضعين 30 سؤالاً بتوزيع واقعي ويُقيَّمان وفق قاعدة النجاح الحقيقية.",
+  ar: { startBtn: "الامتحان", pickerTitle: "اختر وضع الامتحان", pickerDesc: (count) => `اختر طريقة التدريب. يسحب كلا الوضعين ${count} سؤالاً بتوزيع واقعي ويُقيَّمان وفق قاعدة النجاح الحقيقية.`,
     trainingTitle: "امتحان تدريبي", trainingDesc: "بدون حد زمني. مناسب للتدريب الهادئ.",
-    simTitle: "محاكاة الامتحان الحقيقي", simDesc: "حد زمني 45 دقيقة، كما في الامتحان الحقيقي.",
+    simTitle: "محاكاة الامتحان الحقيقي", simDesc: (minutes) => `حد زمني ${minutes} دقيقة، كما في الامتحان الحقيقي.`,
     cancel: "إلغاء", progress: (i, n) => `السؤال ${i} من ${n}`, next: "التالي", finish: "إنهاء الامتحان",
     exit: "إلغاء", timeUp: "انتهى الوقت — تم تسليم الامتحان تلقائيًا.",
     resultsPass: "ناجح", resultsFail: "غير ناجح",
-    summary: (err, wrong) => `نقاط الخطأ: ${err} من 10 كحد أقصى مسموح. الأسئلة الحرجة للسلامة الخاطئة: ${wrong} (سؤالان أو أكثر يعني رسوبًا تلقائيًا).`,
+    summary: (err, max, wrong) => `نقاط الخطأ: ${err} من ${max} كحد أقصى مسموح. الأسئلة الحرجة للسلامة الخاطئة: ${wrong} (سؤالان أو أكثر يعني رسوبًا تلقائيًا).`,
     reviewLabel: "مراجعة الإجابات الخاطئة", yourAnswer: "إجابتك", rightAnswer: "الإجابة الصحيحة",
     close: "إغلاق", noMistakes: "تمت الإجابة عن جميع الأسئلة بشكل صحيح — أحسنت!", confirmExit: "هل تريد حقًا إلغاء الامتحان؟ سيُفقد التقدم.",
     skip: "الإجابة لاحقًا", skipBanner: "مراجعة الأسئلة المتخطاة — يجب الإجابة عنها الآن.", skipProgress: (i, n) => `الأسئلة المتخطاة: ${i} من ${n}` },
-  zh: { startBtn: "考试", pickerTitle: "选择考试模式", pickerDesc: "选择练习方式。两种模式都会按真实比例抽取30道题,并按真实及格规则评分。",
+  zh: { startBtn: "考试", pickerTitle: "选择考试模式", pickerDesc: (count) => `选择练习方式。两种模式都会按真实比例抽取${count}道题,并按真实及格规则评分。`,
     trainingTitle: "练习考试", trainingDesc: "无时间限制,适合从容练习。",
-    simTitle: "模拟真实考试", simDesc: "45分钟时间限制,与真实考试一致。",
+    simTitle: "模拟真实考试", simDesc: (minutes) => `${minutes}分钟时间限制,与真实考试一致。`,
     cancel: "取消", progress: (i, n) => `第 ${i} 题，共 ${n} 题`, next: "下一题", finish: "完成考试",
     exit: "取消", timeUp: "时间到 — 考试已自动提交。",
     resultsPass: "通过", resultsFail: "未通过",
-    summary: (err, wrong) => `错误分数：${err}分，最多允许10分。安全关键问题答错数：${wrong}题（2题或以上将自动判定不及格）。`,
+    summary: (err, max, wrong) => `错误分数：${err}分，最多允许${max}分。安全关键问题答错数：${wrong}题（2题或以上将自动判定不及格）。`,
     reviewLabel: "错误答案回顾", yourAnswer: "您的答案", rightAnswer: "正确答案",
     close: "关闭", noMistakes: "所有题目均答对 — 非常好!", confirmExit: "确定要取消考试吗?进度将丢失。",
     skip: "稍后回答", skipBanner: "正在复查跳过的题目 — 现在必须作答。", skipProgress: (i, n) => `跳过的题目：第 ${i} 题，共 ${n} 题` },
-  hi: { startBtn: "परीक्षा", pickerTitle: "परीक्षा मोड चुनें", pickerDesc: "अभ्यास करने का तरीका चुनें। दोनों मोड वास्तविक भारांक के साथ 30 प्रश्न चुनते हैं और असली उत्तीर्ण नियम से स्कोर करते हैं।",
+  hi: { startBtn: "परीक्षा", pickerTitle: "परीक्षा मोड चुनें", pickerDesc: (count) => `अभ्यास करने का तरीका चुनें। दोनों मोड वास्तविक भारांक के साथ ${count} प्रश्न चुनते हैं और असली उत्तीर्ण नियम से स्कोर करते हैं।`,
     trainingTitle: "अभ्यास परीक्षा", trainingDesc: "समय सीमा नहीं। शांति से अभ्यास के लिए अच्छा।",
-    simTitle: "वास्तविक परीक्षा सिमुलेशन", simDesc: "45 मिनट की समय सीमा, असली परीक्षा जैसी।",
+    simTitle: "वास्तविक परीक्षा सिमुलेशन", simDesc: (minutes) => `${minutes} मिनट की समय सीमा, असली परीक्षा जैसी।`,
     cancel: "रद्द करें", progress: (i, n) => `प्रश्न ${i} / ${n}`, next: "अगला", finish: "परीक्षा समाप्त करें",
     exit: "रद्द करें", timeUp: "समय समाप्त — परीक्षा स्वतः जमा कर दी गई।",
     resultsPass: "उत्तीर्ण", resultsFail: "अनुत्तीर्ण",
-    summary: (err, wrong) => `त्रुटि अंक: ${err}, अधिकतम 10 स्वीकार्य। गलत सुरक्षा-महत्वपूर्ण प्रश्न: ${wrong} (2 या अधिक होने पर स्वतः अनुत्तीर्ण)।`,
+    summary: (err, max, wrong) => `त्रुटि अंक: ${err}, अधिकतम ${max} स्वीकार्य। गलत सुरक्षा-महत्वपूर्ण प्रश्न: ${wrong} (2 या अधिक होने पर स्वतः अनुत्तीर्ण)।`,
     reviewLabel: "गलत उत्तरों की समीक्षा", yourAnswer: "आपका उत्तर", rightAnswer: "सही उत्तर",
     close: "बंद करें", noMistakes: "सभी प्रश्नों के सही उत्तर — बहुत बढ़िया!", confirmExit: "क्या आप वाकई परीक्षा रद्द करना चाहते हैं? प्रगति खो जाएगी।",
     skip: "बाद में उत्तर दें", skipBanner: "छोड़े गए प्रश्नों की समीक्षा — अब इनका उत्तर देना आवश्यक है।", skipProgress: (i, n) => `छोड़े गए प्रश्न: ${i} / ${n}` },
-  tr: { startBtn: "Sınav", pickerTitle: "Sınav modunu seçin", pickerDesc: "Nasıl çalışmak istediğinizi seçin. Her iki mod da gerçekçi ağırlıkla 30 soru seçer ve gerçek geçme kuralına göre puanlar.",
+  tr: { startBtn: "Sınav", pickerTitle: "Sınav modunu seçin", pickerDesc: (count) => `Nasıl çalışmak istediğinizi seçin. Her iki mod da gerçekçi ağırlıkla ${count} soru seçer ve gerçek geçme kuralına göre puanlar.`,
     trainingTitle: "Alıştırma sınavı", trainingDesc: "Süre sınırı yok. Sakin çalışma için uygundur.",
-    simTitle: "Gerçek sınav simülasyonu", simDesc: "Gerçek sınavdaki gibi 45 dakika süre sınırı.",
+    simTitle: "Gerçek sınav simülasyonu", simDesc: (minutes) => `Gerçek sınavdaki gibi ${minutes} dakika süre sınırı.`,
     cancel: "İptal", progress: (i, n) => `${n} sorudan ${i}.`, next: "İleri", finish: "Sınavı bitir",
     exit: "İptal", timeUp: "Süre doldu — sınav otomatik olarak gönderildi.",
     resultsPass: "Geçti", resultsFail: "Geçemedi",
-    summary: (err, wrong) => `Hata puanı: ${err}, izin verilen maksimum 10. Yanlış güvenlik açısından kritik soru: ${wrong} (2 veya daha fazlası otomatik başarısızlık demektir).`,
+    summary: (err, max, wrong) => `Hata puanı: ${err}, izin verilen maksimum ${max}. Yanlış güvenlik açısından kritik soru: ${wrong} (2 veya daha fazlası otomatik başarısızlık demektir).`,
     reviewLabel: "Yanlış cevapların incelenmesi", yourAnswer: "Cevabınız", rightAnswer: "Doğru cevap",
     close: "Kapat", noMistakes: "Tüm sorular doğru cevaplandı — harika!", confirmExit: "Sınavı gerçekten iptal etmek istiyor musunuz? İlerleme kaybolacak.",
     skip: "Sonra cevapla", skipBanner: "Atlanan soruların gözden geçirilmesi — bunlar şimdi cevaplanmalı.", skipProgress: (i, n) => `Atlanan sorular: ${n} sorudan ${i}.` },
-  fr: { startBtn: "Examen", pickerTitle: "Choisir le mode d'examen", pickerDesc: "Choisissez votre façon de vous entraîner. Les deux modes tirent 30 questions avec une pondération réaliste et notent selon la règle de réussite réelle.",
+  fr: { startBtn: "Examen", pickerTitle: "Choisir le mode d'examen", pickerDesc: (count) => `Choisissez votre façon de vous entraîner. Les deux modes tirent ${count} questions avec une pondération réaliste et notent selon la règle de réussite réelle.`,
     trainingTitle: "Examen d'entraînement", trainingDesc: "Sans limite de temps. Idéal pour s'entraîner calmement.",
-    simTitle: "Simulation d'examen réel", simDesc: "Limite de 45 minutes, comme le véritable examen.",
+    simTitle: "Simulation d'examen réel", simDesc: (minutes) => `Limite de ${minutes} minutes, comme le véritable examen.`,
     cancel: "Annuler", progress: (i, n) => `Question ${i} sur ${n}`, next: "Suivant", finish: "Terminer l'examen",
     exit: "Annuler", timeUp: "Le temps est écoulé — l'examen a été soumis automatiquement.",
     resultsPass: "Réussi", resultsFail: "Échoué",
-    summary: (err, wrong) => `Points d'erreur : ${err} sur 10 maximum autorisés. Questions critiques pour la sécurité incorrectes : ${wrong} (2 ou plus entraîne un échec automatique).`,
+    summary: (err, max, wrong) => `Points d'erreur : ${err} sur ${max} maximum autorisés. Questions critiques pour la sécurité incorrectes : ${wrong} (2 ou plus entraîne un échec automatique).`,
     reviewLabel: "Révision des réponses incorrectes", yourAnswer: "Votre réponse", rightAnswer: "Bonne réponse",
     close: "Fermer", noMistakes: "Toutes les questions ont une réponse correcte — bravo !", confirmExit: "Voulez-vous vraiment annuler l'examen ? La progression sera perdue.",
     skip: "Répondre plus tard", skipBanner: "Révision des questions passées — elles doivent maintenant recevoir une réponse.", skipProgress: (i, n) => `Questions passées : ${i} sur ${n}` },
-  ru: { startBtn: "Экзамен", pickerTitle: "Выберите режим экзамена", pickerDesc: "Выберите способ тренировки. Оба режима выбирают 30 вопросов с реалистичным распределением и оцениваются по настоящему правилу сдачи.",
+  ru: { startBtn: "Экзамен", pickerTitle: "Выберите режим экзамена", pickerDesc: (count) => `Выберите способ тренировки. Оба режима выбирают ${count} вопросов с реалистичным распределением и оцениваются по настоящему правилу сдачи.`,
     trainingTitle: "Тренировочный экзамен", trainingDesc: "Без ограничения времени. Подходит для спокойной тренировки.",
-    simTitle: "Симуляция настоящего экзамена", simDesc: "Ограничение 45 минут, как на настоящем экзамене.",
+    simTitle: "Симуляция настоящего экзамена", simDesc: (minutes) => `Ограничение ${minutes} минут, как на настоящем экзамене.`,
     cancel: "Отмена", progress: (i, n) => `Вопрос ${i} из ${n}`, next: "Далее", finish: "Завершить экзамен",
     exit: "Отмена", timeUp: "Время истекло — экзамен отправлен автоматически.",
     resultsPass: "Сдано", resultsFail: "Не сдано",
-    summary: (err, wrong) => `Штрафные баллы: ${err} из макс. 10 допустимых. Неверные ответы на вопросы, критичные для безопасности: ${wrong} (2 и более означает автоматический провал).`,
+    summary: (err, max, wrong) => `Штрафные баллы: ${err} из макс. ${max} допустимых. Неверные ответы на вопросы, критичные для безопасности: ${wrong} (2 и более означает автоматический провал).`,
     reviewLabel: "Разбор неверных ответов", yourAnswer: "Ваш ответ", rightAnswer: "Правильный ответ",
     close: "Закрыть", noMistakes: "Все вопросы даны верно — отлично!", confirmExit: "Действительно отменить экзамен? Прогресс будет потерян.",
     skip: "Ответить позже", skipBanner: "Повторный просмотр пропущенных вопросов — на них нужно ответить сейчас.", skipProgress: (i, n) => `Пропущенные вопросы: ${i} из ${n}` },
-  es: { startBtn: "Examen", pickerTitle: "Elegir modo de examen", pickerDesc: "Elige cómo quieres practicar. Ambos modos seleccionan 30 preguntas con ponderación realista y puntúan según la regla real de aprobación.",
+  es: { startBtn: "Examen", pickerTitle: "Elegir modo de examen", pickerDesc: (count) => `Elige cómo quieres practicar. Ambos modos seleccionan ${count} preguntas con ponderación realista y puntúan según la regla real de aprobación.`,
     trainingTitle: "Examen de entrenamiento", trainingDesc: "Sin límite de tiempo. Ideal para practicar con calma.",
-    simTitle: "Simulación de examen real", simDesc: "Límite de 45 minutos, como el examen real.",
+    simTitle: "Simulación de examen real", simDesc: (minutes) => `Límite de ${minutes} minutos, como el examen real.`,
     cancel: "Cancelar", progress: (i, n) => `Pregunta ${i} de ${n}`, next: "Siguiente", finish: "Finalizar examen",
     exit: "Cancelar", timeUp: "Se acabó el tiempo — el examen se envió automáticamente.",
     resultsPass: "Aprobado", resultsFail: "No aprobado",
-    summary: (err, wrong) => `Puntos de error: ${err} de máx. 10 permitidos. Preguntas críticas para la seguridad incorrectas: ${wrong} (2 o más significa suspenso automático).`,
+    summary: (err, max, wrong) => `Puntos de error: ${err} de máx. ${max} permitidos. Preguntas críticas para la seguridad incorrectas: ${wrong} (2 o más significa suspenso automático).`,
     reviewLabel: "Revisión de respuestas incorrectas", yourAnswer: "Tu respuesta", rightAnswer: "Respuesta correcta",
     close: "Cerrar", noMistakes: "Todas las preguntas respondidas correctamente — ¡muy bien!", confirmExit: "¿Seguro que quieres cancelar el examen? Se perderá el progreso.",
     skip: "Responder más tarde", skipBanner: "Revisión de preguntas omitidas — ahora deben responderse.", skipProgress: (i, n) => `Preguntas omitidas: ${i} de ${n}` },
-  it: { startBtn: "Esame", pickerTitle: "Scegli la modalità d'esame", pickerDesc: "Scegli come vuoi esercitarti. Entrambe le modalità estraggono 30 domande con una ponderazione realistica e valutano secondo la regola reale di superamento.",
+  it: { startBtn: "Esame", pickerTitle: "Scegli la modalità d'esame", pickerDesc: (count) => `Scegli come vuoi esercitarti. Entrambe le modalità estraggono ${count} domande con una ponderazione realistica e valutano secondo la regola reale di superamento.`,
     trainingTitle: "Esame di allenamento", trainingDesc: "Senza limite di tempo. Ideale per esercitarsi con calma.",
-    simTitle: "Simulazione d'esame reale", simDesc: "Limite di 45 minuti, come l'esame reale.",
+    simTitle: "Simulazione d'esame reale", simDesc: (minutes) => `Limite di ${minutes} minuti, come l'esame reale.`,
     cancel: "Annulla", progress: (i, n) => `Domanda ${i} di ${n}`, next: "Avanti", finish: "Termina esame",
     exit: "Annulla", timeUp: "Il tempo è scaduto — l'esame è stato inviato automaticamente.",
     resultsPass: "Superato", resultsFail: "Non superato",
-    summary: (err, wrong) => `Punti di errore: ${err} su un massimo di 10 consentiti. Domande critiche per la sicurezza sbagliate: ${wrong} (2 o più significa bocciatura automatica).`,
+    summary: (err, max, wrong) => `Punti di errore: ${err} su un massimo di ${max} consentiti. Domande critiche per la sicurezza sbagliate: ${wrong} (2 o più significa bocciatura automatica).`,
     reviewLabel: "Revisione delle risposte sbagliate", yourAnswer: "La tua risposta", rightAnswer: "Risposta corretta",
     close: "Chiudi", noMistakes: "Tutte le domande risposte correttamente — ottimo lavoro!", confirmExit: "Vuoi davvero annullare l'esame? I progressi andranno persi.",
     skip: "Rispondi più tardi", skipBanner: "Revisione delle domande saltate — ora devono essere risposte.", skipProgress: (i, n) => `Domande saltate: ${i} di ${n}` },
 };
+
+// DN-52 Phase 2 ("kickstart learning journey", practice-quiz tier - see
+// docs/kickstart-learning-journey-scoping.md section 5): a short, low-
+// stakes quiz mode between flashcards and Exam Simulation. Deliberately
+// NOT EXAM_STRINGS - the whole point of this tier is that it must never
+// read like "a smaller exam" (no pass/fail language, no "Prüfung"/"exam"
+// wording), so its copy is its own object rather than a few overridden
+// keys on the existing one. DE+EN only for this Phase 2 build (same
+// disclosed gap pattern as DN-43's modules_manifest.json intro.steps
+// content, see BACKLOG.md's DN-52 Phase 2 entry and section 7 of the
+// scoping doc) - practiceQuizStrings() below falls back to English for
+// every other of this app's 12 UI languages, same fallback chain used
+// throughout this file (e.g. signRefStrings()/primerStrings()).
+const PRACTICE_QUIZ_STRINGS = {
+  de: {
+    entryTitle: "Übungsquiz", entryDesc: "Kurz, locker, ohne Zeitdruck — zählt nicht für ein Zertifikat.",
+    pickerTitle: "Übungsquiz starten", pickerDesc: (count) => `Kein Zeitlimit, keine Bestehensregel, kein Zertifikat — nur ${count} Fragen zum Ausprobieren. Wähle, worauf du dich konzentrieren möchtest:`,
+    mixedTitle: "Gemischt", mixedDesc: "Fragen aus allen Themen.",
+    cancel: "Abbrechen",
+    progress: (i, n) => `Frage ${i} von ${n}`,
+    checkBtn: "Antwort prüfen", nextBtn: "Nächste Frage", finishBtn: "Quiz beenden",
+    correctLabel: "Richtig!", wrongLabel: "Nicht ganz.",
+    exit: "Beenden",
+    noStakesNote: "Nur zum Üben — dieses Quiz zählt nicht als Prüfung und erzeugt kein Zertifikat.",
+    resultsTitle: (score, total) => `${score} von ${total} richtig`,
+    resultsNote: "Das war ein Übungsquiz — es wurde nicht als Prüfungsversuch gewertet und keine Bescheinigung erstellt. Für ein Zertifikat: Prüfungssimulation nutzen.",
+    retryHint: "Du kannst dieses Quiz jederzeit erneut starten, mit anderen oder denselben Themen.",
+    close: "Schließen",
+  },
+  en: {
+    entryTitle: "Practice quiz", entryDesc: "Short, casual, no time pressure — doesn't count toward a certificate.",
+    pickerTitle: "Start a practice quiz", pickerDesc: (count) => `No time limit, no pass/fail rule, no certificate — just ${count} questions to try. Choose what to focus on:`,
+    mixedTitle: "Mixed", mixedDesc: "Questions from every topic.",
+    cancel: "Cancel",
+    progress: (i, n) => `Question ${i} of ${n}`,
+    checkBtn: "Check answer", nextBtn: "Next question", finishBtn: "Finish quiz",
+    correctLabel: "Correct!", wrongLabel: "Not quite.",
+    exit: "Exit",
+    noStakesNote: "Just for practice — this quiz doesn't count as an exam attempt and doesn't produce a certificate.",
+    resultsTitle: (score, total) => `${score} of ${total} correct`,
+    resultsNote: "That was a practice quiz — it wasn't recorded as an exam attempt and no certificate was created. For a certificate, use Exam Simulation.",
+    retryHint: "You can start this quiz again any time, with the same or different topics.",
+    close: "Close",
+  },
+};
+function practiceQuizStrings(lang) {
+  return PRACTICE_QUIZ_STRINGS[lang] || PRACTICE_QUIZ_STRINGS.en;
+}
 
 // Languages that read right-to-left - toggled via dir="rtl"/"ltr" on <html>.
 const RTL_LANGS = new Set(["ar"]);
@@ -816,6 +864,38 @@ const TOPIC_LABELS = {
     repressalienschutz: { de: "Schutz vor Repressalien", en: "Protection from retaliation" },
     sanktionen: { de: "Sanktionen (Bußgeld)", en: "Sanctions (fines)" },
   },
+  // DN-53: 6th compliance module, first enterprise/premium-focused one -
+  // KYC/AML (Geldwaeschegesetz/GwG). DE/EN-only 20-question pilot, same
+  // launch pattern as hinweisgeberschutz above - topic labels DE/EN only
+  // for now too.
+  kyc_aml: {
+    grundlagen: { de: "Grundlagen der Geldwäsche", en: "Money laundering fundamentals" },
+    sorgfaltspflichten: { de: "Allgemeine Sorgfaltspflichten", en: "General due diligence duties" },
+    verdachtsmeldung: { de: "Verdachtsmeldung", en: "Suspicious activity reporting" },
+    verstaerkte_sorgfalt: { de: "Verstärkte Sorgfaltspflichten (PEP, Hochrisiko)", en: "Enhanced due diligence (PEPs, high-risk)" },
+    sanktionen: { de: "Sanktionen (Bußgeld, Straftat)", en: "Sanctions (fines, criminal offense)" },
+  },
+  // DN-53 (second module): 7th compliance module, second enterprise-focused
+  // one - Kartellrecht (antitrust/competition law). DE/EN-only 20-question
+  // pilot, same launch pattern as kyc_aml above.
+  kartellrecht: {
+    grundlagen: { de: "Grundlagen des Kartellverbots", en: "Cartel-prohibition fundamentals" },
+    kernbeschraenkungen: { de: "Kernbeschränkungen und Risikoszenarien", en: "Hardcore restrictions & risk scenarios" },
+    bussgelder: { de: "Bußgelder und Haftungsrahmen", en: "Fines & liability framework" },
+    selbstreinigung: { de: "Selbstreinigung nach Kartellverstößen", en: "Self-cleaning after competition-law violations" },
+    straftaten: { de: "Individuelle Haftung und Durchsetzungspraxis", en: "Individual liability & enforcement practice" },
+  },
+  // DN-64: 8th compliance module, third enterprise-focused one - LkSG
+  // (Lieferkettensorgfaltspflichtengesetz/supply-chain due diligence act).
+  // DE/EN-only 30-question pilot, same launch pattern as kyc_aml/kartellrecht
+  // above - topic labels DE/EN only for now too.
+  lksg: {
+    anwendungsbereich: { de: "Anwendungsbereich und Schwellenwerte", en: "Scope & employee thresholds" },
+    sorgfaltspflichten: { de: "Sorgfaltspflichten und Risikoanalyse", en: "Due diligence duties & risk analysis" },
+    praevention_abhilfe: { de: "Präventions- und Abhilfemaßnahmen", en: "Preventive & remedial measures" },
+    beschwerdeverfahren: { de: "Beschwerdeverfahren", en: "Grievance mechanism" },
+    sanktionen: { de: "Bußgelder und Sanktionen", en: "Fines & sanctions" },
+  },
 };
 
 // Looks up a topic label for the CURRENT module/locale, falling back to EN
@@ -836,7 +916,7 @@ function getTopicLabel(topicCode, fallbackTopic) {
 // for those modules (originally 4 under DN-44, now 5 since DN-50 added
 // hinweisgeberschutz with its own roles field), layered on top of the
 // existing topic filter (a learner can combine both) rather than replacing it.
-const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz"]);
+const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz", "kyc_aml", "kartellrecht", "lksg"]);
 
 // Role codes in a fixed display order - "all" here means "no role filter
 // applied" (show every question regardless of its own roles tag), NOT to be
@@ -904,6 +984,12 @@ const state = {
   detailIndex: null, // index into filtered list, or null when showing the list
   revealed: false,
   exam: null, // set while an exam run (training or simulation) is active - see below
+  // DN-52 Phase 2: set while a practice-quiz run is active - mirrors
+  // state.exam's shape closely (questions/answers/index) so it can reuse
+  // isExamAnswerCorrect()/feedExamResultsIntoSrs(), but is a fully separate
+  // object so it can never accidentally be treated as a real exam attempt
+  // by recordCompletion()/trySignCompletion() or the certificate system.
+  practiceQuiz: null,
   // Module system (DN-39): examType is "fuehrerschein" | "angelschein" | null
   // (null = no selection yet, module picker is shown). scopeCode is the
   // active class code (Fuehrerschein, e.g. "B") or region code (Angelschein,
@@ -1322,14 +1408,6 @@ function offlineAssetUrls() {
   // gating as the primers button itself.
   if (state.examType === "fuehrerschein") {
     urls.push(`data/fuehrerschein/primers.json`, `data/fuehrerschein/primers_locales/${lang}.json`);
-    // The Sign Reference catalog (loadSignReference()) fetches this
-    // directly, independent of core.json/locales/*.json above - a real gap
-    // found 2026-08-09 (user-reported "Keine Schilderreferenz verfügbar"
-    // while offline): without this, every sign SVG a question uses gets
-    // prefetched above, but the catalog view listing/describing them didn't.
-    // Locale-agnostic (all locale text is embedded per-sign in one file), so
-    // no per-lang suffix needed, unlike primers.json above.
-    urls.push(`data/fuehrerschein/sign_reference.json`);
   }
 
   return urls;
@@ -1690,13 +1768,16 @@ const CERT_STRINGS = {
     intro: "Bestandene Prüfungssimulationen werden hier als Nachweis gespeichert (nur auf diesem Gerät). Lade eine Zertifikatsdatei herunter, um sie zu behalten oder weiterzugeben - das ist die eigentlich portable Datei, nicht der App-Zustand.",
     empty: "Noch keine bestandene Prüfungssimulation. Bestehe eine Prüfungssimulation (nicht den Übungsmodus), um hier ein Zertifikat zu erhalten.",
     passedOn: (d) => `Bestanden am ${d}`,
-    downloadCert: "Zertifikat herunterladen (HTML)", downloadCred: "Berechtigungsnachweis herunterladen (JSON)",
+    certDocTitle: "Teilnahmezertifikat", certLangSelectLabel: "Sprache des Zertifikats", certDocSummary: (n, err, wrong) => `${n} Fragen in der Prüfungssimulation · ${err} Fehlerpunkt(e) · ${wrong} sicherheitskritische(r) Fehler`,
+    downloadCert: "Zertifikat herunterladen (HTML)", downloadPdf: "Zertifikat herunterladen (PDF)", downloadCred: "Berechtigungsnachweis herunterladen (JSON)",
     // DN-51: the raw signed JWT itself (not wrapped in JSON) - the actual
     // Open Badges 3.0-conformant artifact a real badge wallet (Credly,
     // Open Badges Passport, etc.) expects for file-upload import. Only
     // shown once a record is genuinely signed - see renderJwtDownloadBtn().
     downloadJwt: "Signiertes Credential herunterladen (JWT, für Wallets)",
     disclaimer: "Selbst erstellter Nachweis, nicht kryptographisch signiert oder extern verifiziert.",
+    certVerifyIntro: "Scanne den QR-Code oder öffne den Link, um dieses Zertifikat online zu prüfen:",
+    certSignedNoLinkNote: (d) => `Dieses Zertifikat ist kryptographisch von Zettacard signiert (Schlüssel-ID ${d}), aber es wurde noch kein öffentlicher Prüflink erstellt. Erstelle einen unter "Meine Zertifikate", damit andere ihn online prüfen können, oder nutze den separaten JWT-Download zur Offline-Prüfung.`,
     // DN-44: simple renewal-due note for compliance modules that carry a
     // renewal_months value in their meta - only shown once the due date has
     // passed or is within 30 days (see renewalStatusForRecord()), not a
@@ -1717,15 +1798,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "Kopieren",
     verifyCopiedBtn: "Kopiert!",
     verifyError: "Der Prüflink konnte nicht erstellt werden. Bitte später erneut versuchen.",
+    emailLabel: "Per E-Mail senden", emailPlaceholder: "E-Mail-Adresse(n), durch Komma getrennt", emailSendBtn: "Zertifikat per E-Mail senden",
+    emailSending: "Wird gesendet …", emailSentMsg: "Gesendet! Bitte auch den Spam-Ordner prüfen.", emailErrorMsg: "Senden fehlgeschlagen. Bitte später erneut versuchen.", emailTooManyMsg: (n) => `Höchstens ${n} Empfänger pro Versand.`,
+    walletRowTitle: "Zu einer Badge-Wallet hinzufügen", walletRowIntro: "Nutze die oben herunterladbare signierte Credential-Datei (JWT), um dieses Abzeichen in einer externen Wallet-App zu speichern:",
+    walletCredlyStep: "Credly: Profil → Tab \"Other\" → die heruntergeladene JWT-Datei hochladen.", walletObpStep: "Open Badge Passport: \"Import a badge\" wählen und dieselbe JWT-Datei hochladen.", walletLcwStep: "Learner Credential Wallet: Ein Ein-Klick-Import wird noch nicht unterstützt - dafür wäre ein eigener VC-API-Austauschdienst nötig, eine größere neue Backend-Infrastruktur. Wird bei echter Nachfrage nachgerüstet.",
+    walletEmailNote: "Willst du es dir einfach nur für später sichern? Nutze dazu die E-Mail-Option oben.",
+    walletIdentityTitle: "Badge unabhängig von deiner Arbeits-E-Mail machen",
+    walletIdentityIntro: "Trag hier eine oder mehrere private E-Mail-Adressen ein, die du selbst kontrollierst - sie werden nur gehasht (nicht im Klartext) in eine eigene, personalisierte Zertifikatsdatei eingebettet, damit z. B. Credly sie mit der E-Mail deines eigenen Kontos abgleichen kann, egal welche du dort nutzt. Die Adressen werden nirgendwo gespeichert, nur für diesen einen Download verwendet.",
+    walletIdentityPlaceholder: "z. B. privat@gmail.com (bis zu 3, durch Komma getrennt)",
+    walletIdentityDownloadBtn: "Personalisierte Zertifikatsdatei herunterladen",
+    walletIdentitySigning: "Wird signiert …",
+    walletIdentityDoneMsg: "Fertig - die personalisierte Datei wurde heruntergeladen.",
+    walletIdentityErrorMsg: "Konnte keine personalisierte Datei erstellen. Bitte später erneut versuchen.",
+    walletIdentityTooManyMsg: (n) => `Höchstens ${n} E-Mail-Adressen möglich.`,
   },
   en: {
     btn: "My certificates", title: "My certificates", close: "← Back",
     intro: "Passed exam simulations are recorded here as proof of completion (this device only). Download a certificate file to keep or share it - that file is the actual portable artifact, not the app's internal state.",
     empty: "No passed exam simulation yet. Pass an Exam Simulation (not Training mode) to get a certificate here.",
     passedOn: (d) => `Passed on ${d}`,
-    downloadCert: "Download certificate (HTML)", downloadCred: "Download credential (JSON)",
+    certDocTitle: "Certificate of Completion", certLangSelectLabel: "Certificate language", certDocSummary: (n, err, wrong) => `${n}-question exam simulation · ${err} error point(s) · ${wrong} safety-critical miss(es)`,
+    downloadCert: "Download certificate (HTML)", downloadPdf: "Download certificate (PDF)", downloadCred: "Download credential (JSON)",
     downloadJwt: "Download signed credential (JWT, for wallets)",
     disclaimer: "Self-generated record, not cryptographically signed or independently verified.",
+    certVerifyIntro: "Scan the QR code or open the link to check this certificate online:",
+    certSignedNoLinkNote: (d) => `This certificate is cryptographically signed by Zettacard (key ID ${d}), but no public verification link has been created yet. Create one under "My certificates" so others can check it online, or use the separate signed-JWT download for offline verification.`,
     renewalOverdue: (d) => `Refresher overdue since ${d}`,
     renewalDueSoon: (d) => `Refresher due by ${d}`,
     verifiedLabel: "✅ Signed badge", selfIssuedLabel: "Unverified",
@@ -1740,15 +1837,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "Copy",
     verifyCopiedBtn: "Copied!",
     verifyError: "Could not create the verification link. Please try again later.",
+    emailLabel: "Send by email", emailPlaceholder: "Email address(es), comma-separated", emailSendBtn: "Email me the certificate",
+    emailSending: "Sending …", emailSentMsg: "Sent! Please also check your spam folder.", emailErrorMsg: "Sending failed. Please try again later.", emailTooManyMsg: (n) => `Maximum ${n} recipients per send.`,
+    walletRowTitle: "Add to a badge wallet", walletRowIntro: "Use the signed credential file (JWT) downloadable above to save this badge in an external wallet app:",
+    walletCredlyStep: "Credly: go to your profile → the \"Other\" tab → upload the downloaded JWT file.", walletObpStep: "Open Badge Passport: choose \"Import a badge\" and upload the same JWT file.", walletLcwStep: "Learner Credential Wallet: one-tap import isn't supported yet - it would require a dedicated VC-API exchange service, a larger new piece of backend infrastructure. May follow if there's real demand.",
+    walletEmailNote: "Just want to keep a copy for later? Use the email option above instead.",
+    walletIdentityTitle: "Make your badge independent of your work email",
+    walletIdentityIntro: "Enter one or more personal email addresses you control - they're only hashed (never stored in plain text) into a separate, personalized credential file, so e.g. Credly can match it against your own account's email, whichever one you use there. Nothing is stored anywhere - it's only used for this one download.",
+    walletIdentityPlaceholder: "e.g. personal@gmail.com (up to 3, comma-separated)",
+    walletIdentityDownloadBtn: "Download personalized credential",
+    walletIdentitySigning: "Signing…",
+    walletIdentityDoneMsg: "Done - the personalized file was downloaded.",
+    walletIdentityErrorMsg: "Couldn't create a personalized file. Please try again later.",
+    walletIdentityTooManyMsg: (n) => `At most ${n} email addresses allowed.`,
   },
   uk: {
     btn: "Мої сертифікати", title: "Мої сертифікати", close: "← Назад",
     intro: "Пройдені симуляції іспитів зберігаються тут як підтвердження (лише на цьому пристрої). Завантажте файл сертифіката, щоб зберегти або поділитися ним - саме цей файл є портативним артефактом, а не стан застосунку.",
     empty: "Ще немає пройденої симуляції іспиту. Пройдіть Симуляцію іспиту (не режим тренування), щоб отримати тут сертифікат.",
     passedOn: (d) => `Складено ${d}`,
-    downloadCert: "Завантажити сертифікат (HTML)", downloadCred: "Завантажити посвідчення (JSON)",
+    certDocTitle: "Сертифікат про проходження", certLangSelectLabel: "Мова сертифіката", certDocSummary: (n, err, wrong) => `${n} питань у симуляції іспиту · ${err} штрафний(х) бал(ів) · ${wrong} критичн(а/их) помилк(а/и)`,
+    downloadCert: "Завантажити сертифікат (HTML)", downloadPdf: "Завантажити сертифікат (PDF)", downloadCred: "Завантажити посвідчення (JSON)",
     downloadJwt: "Завантажити підписане посвідчення (JWT, для гаманців)",
     disclaimer: "Самостійно створений запис, не підписаний криптографічно і не перевірений незалежно.",
+    certVerifyIntro: "Відскануйте QR-код або відкрийте посилання, щоб перевірити цей сертифікат онлайн:",
+    certSignedNoLinkNote: (d) => `Цей сертифікат криптографічно підписаний Zettacard (ID ключа ${d}), але публічне посилання для перевірки ще не створено. Створіть його в розділі "Мої сертифікати", щоб інші могли перевірити його онлайн, або скористайтеся окремим завантаженням JWT для офлайн-перевірки.`,
     renewalOverdue: (d) => `Оновлення прострочено з ${d}`,
     renewalDueSoon: (d) => `Оновлення потрібне до ${d}`,
     verifiedLabel: "✅ Підписаний бейдж", selfIssuedLabel: "Не підтверджено",
@@ -1763,15 +1876,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "Копіювати",
     verifyCopiedBtn: "Скопійовано!",
     verifyError: "Не вдалося створити посилання для перевірки. Спробуйте пізніше.",
+    emailLabel: "Надіслати на пошту", emailPlaceholder: "Адреса електронної пошти (через кому, якщо кілька)", emailSendBtn: "Надіслати сертифікат на пошту",
+    emailSending: "Надсилання …", emailSentMsg: "Надіслано! Перевірте також папку \"Спам\".", emailErrorMsg: "Не вдалося надіслати. Спробуйте пізніше.", emailTooManyMsg: (n) => `Максимум ${n} одержувачів за одне надсилання.`,
+    walletRowTitle: "Додати до гаманця бейджів", walletRowIntro: "Використайте підписаний файл посвідчення (JWT), доступний для завантаження вище, щоб зберегти цей бейдж у зовнішньому гаманці:",
+    walletCredlyStep: "Credly: перейдіть у профіль → вкладка \"Other\" → завантажте файл JWT.", walletObpStep: "Open Badge Passport: оберіть \"Import a badge\" і завантажте той самий файл JWT.", walletLcwStep: "Learner Credential Wallet: імпорт в один клік поки не підтримується - для цього потрібен окремий сервіс обміну VC-API, значна нова частина серверної інфраструктури. Можливо, з'явиться за реального попиту.",
+    walletEmailNote: "Хочете просто зберегти копію на потім? Скористайтеся опцією електронної пошти вище.",
+    walletIdentityTitle: "Зробіть свій бейдж незалежним від робочої електронної пошти",
+    walletIdentityIntro: "Введіть одну або кілька особистих електронних адрес, якими ви керуєте - вони лише хешуються (ніколи не зберігаються у відкритому вигляді) в окремому персоналізованому файлі credential, щоб, наприклад, Credly міг зіставити його з поштою вашого власного облікового запису, незалежно від того, яку саме адресу ви там використовуєте. Нічого ніде не зберігається - це використовується лише для цього одного завантаження.",
+    walletIdentityPlaceholder: "напр. personal@gmail.com (до 3, через кому)",
+    walletIdentityDownloadBtn: "Завантажити персоналізований credential",
+    walletIdentitySigning: "Підписання…",
+    walletIdentityDoneMsg: "Готово - персоналізований файл завантажено.",
+    walletIdentityErrorMsg: "Не вдалося створити персоналізований файл. Спробуйте пізніше.",
+    walletIdentityTooManyMsg: (n) => `Дозволено не більше ${n} електронних адрес.`,
   },
   pl: {
     btn: "Moje certyfikaty", title: "Moje certyfikaty", close: "← Wstecz",
     intro: "Zaliczone symulacje egzaminów są tu zapisywane jako dowód ukończenia (tylko na tym urządzeniu). Pobierz plik certyfikatu, aby go zachować lub udostępnić - to właśnie ten plik jest realnym, przenośnym artefaktem, a nie stan aplikacji.",
     empty: "Jeszcze żadnej zaliczonej symulacji egzaminu. Zdaj Symulację egzaminu (nie tryb ćwiczeń), aby otrzymać tu certyfikat.",
     passedOn: (d) => `Zaliczono ${d}`,
-    downloadCert: "Pobierz certyfikat (HTML)", downloadCred: "Pobierz poświadczenie (JSON)",
+    certDocTitle: "Certyfikat ukończenia", certLangSelectLabel: "Język certyfikatu", certDocSummary: (n, err, wrong) => `Symulacja egzaminu: ${n} pytań · ${err} punkt(y) karne · ${wrong} błąd/y krytyczny/e`,
+    downloadCert: "Pobierz certyfikat (HTML)", downloadPdf: "Pobierz certyfikat (PDF)", downloadCred: "Pobierz poświadczenie (JSON)",
     downloadJwt: "Pobierz podpisane poświadczenie (JWT, do portfeli)",
     disclaimer: "Zapis wygenerowany samodzielnie, niepodpisany kryptograficznie ani niezweryfikowany zewnętrznie.",
+    certVerifyIntro: "Zeskanuj kod QR lub otwórz link, aby sprawdzić ten certyfikat online:",
+    certSignedNoLinkNote: (d) => `Ten certyfikat jest kryptograficznie podpisany przez Zettacard (ID klucza ${d}), ale nie utworzono jeszcze publicznego linku weryfikacyjnego. Utwórz go w sekcji "Moje certyfikaty", aby inni mogli go sprawdzić online, lub skorzystaj z osobnego pobrania JWT do weryfikacji offline.`,
     renewalOverdue: (d) => `Odświeżenie zaległe od ${d}`,
     renewalDueSoon: (d) => `Odświeżenie wymagane do ${d}`,
     verifiedLabel: "✅ Podpisana odznaka", selfIssuedLabel: "Niezweryfikowane",
@@ -1786,15 +1915,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "Kopiuj",
     verifyCopiedBtn: "Skopiowano!",
     verifyError: "Nie udało się utworzyć linku weryfikacyjnego. Spróbuj ponownie później.",
+    emailLabel: "Wyślij e-mailem", emailPlaceholder: "Adres(y) e-mail, oddzielone przecinkami", emailSendBtn: "Wyślij certyfikat e-mailem",
+    emailSending: "Wysyłanie …", emailSentMsg: "Wysłano! Sprawdź także folder spam.", emailErrorMsg: "Wysyłanie nie powiodło się. Spróbuj ponownie później.", emailTooManyMsg: (n) => `Maksymalnie ${n} odbiorców na jedną wysyłkę.`,
+    walletRowTitle: "Dodaj do portfela odznak", walletRowIntro: "Użyj podpisanego pliku poświadczenia (JWT) do pobrania powyżej, aby zapisać tę odznakę w zewnętrznej aplikacji portfela:",
+    walletCredlyStep: "Credly: przejdź do profilu → zakładka „Other” → prześlij pobrany plik JWT.", walletObpStep: "Open Badge Passport: wybierz „Import a badge” i prześlij ten sam plik JWT.", walletLcwStep: "Learner Credential Wallet: import jednym kliknięciem nie jest jeszcze obsługiwany - wymagałby osobnej usługi wymiany VC-API, czyli większej nowej infrastruktury backendowej. Może zostać dodany przy realnym zapotrzebowaniu.",
+    walletEmailNote: "Chcesz po prostu zachować kopię na później? Skorzystaj z opcji e-mail powyżej.",
+    walletIdentityTitle: "Uniezależnij swoją odznakę od służbowego adresu e-mail",
+    walletIdentityIntro: "Podaj jeden lub więcej prywatnych adresów e-mail, które kontrolujesz - zostaną one wyłącznie zahaszowane (nigdy nie zapisane jawnie) w osobnym, spersonalizowanym pliku poświadczenia, aby np. Credly mógł dopasować go do adresu e-mail Twojego konta, niezależnie od tego, którego tam używasz. Nic nie jest nigdzie zapisywane - służy to wyłącznie temu jednemu pobraniu.",
+    walletIdentityPlaceholder: "np. prywatny@gmail.com (do 3, oddzielone przecinkami)",
+    walletIdentityDownloadBtn: "Pobierz spersonalizowane poświadczenie",
+    walletIdentitySigning: "Podpisywanie…",
+    walletIdentityDoneMsg: "Gotowe - spersonalizowany plik został pobrany.",
+    walletIdentityErrorMsg: "Nie udało się utworzyć spersonalizowanego pliku. Spróbuj ponownie później.",
+    walletIdentityTooManyMsg: (n) => `Dozwolone maksymalnie ${n} adresy e-mail.`,
   },
   ar: {
     btn: "شهاداتي", title: "شهاداتي", close: "→ رجوع",
     intro: "يتم تسجيل محاكاة الامتحانات الناجحة هنا كإثبات للإتمام (على هذا الجهاز فقط). قم بتنزيل ملف الشهادة للاحتفاظ بها أو مشاركتها - هذا الملف هو العنصر المحمول الفعلي، وليس حالة التطبيق.",
     empty: "لا توجد محاكاة امتحان ناجحة بعد. اجتز محاكاة امتحان (وليس وضع التدريب) للحصول على شهادة هنا.",
     passedOn: (d) => `اجتيز في ${d}`,
-    downloadCert: "تنزيل الشهادة (HTML)", downloadCred: "تنزيل بيانات الاعتماد (JSON)",
+    certDocTitle: "شهادة إتمام", certLangSelectLabel: "لغة الشهادة", certDocSummary: (n, err, wrong) => `محاكاة اختبار من ${n} سؤالاً · ${err} نقطة/نقاط خطأ · ${wrong} خطأ/أخطاء حرجة`,
+    downloadCert: "تنزيل الشهادة (HTML)", downloadPdf: "تنزيل الشهادة (PDF)", downloadCred: "تنزيل بيانات الاعتماد (JSON)",
     downloadJwt: "تنزيل بيانات الاعتماد الموقّعة (JWT، للمحافظ)",
     disclaimer: "سجل ذاتي الإصدار، غير موقّع تشفيريًا وغير موثّق من طرف مستقل.",
+    certVerifyIntro: "امسح رمز الاستجابة السريعة أو افتح الرابط للتحقق من هذه الشهادة عبر الإنترنت:",
+    certSignedNoLinkNote: (d) => `هذه الشهادة موقعة تشفيريًا من Zettacard (معرف المفتاح ${d})، ولكن لم يتم إنشاء رابط تحقق عام بعد. أنشئ واحدًا ضمن "شهاداتي" حتى يتمكن الآخرون من التحقق منها عبر الإنترنت، أو استخدم تنزيل JWT الموقّع المنفصل للتحقق دون اتصال بالإنترنت.`,
     renewalOverdue: (d) => `التجديد متأخر منذ ${d}`,
     renewalDueSoon: (d) => `التجديد مستحق بحلول ${d}`,
     verifiedLabel: "✅ شارة موقّعة", selfIssuedLabel: "غير موثّق",
@@ -1809,15 +1954,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "نسخ",
     verifyCopiedBtn: "تم النسخ!",
     verifyError: "تعذّر إنشاء رابط التحقق. يرجى المحاولة لاحقًا.",
+    emailLabel: "إرسال بالبريد الإلكتروني", emailPlaceholder: "عناوين البريد الإلكتروني، مفصولة بفواصل", emailSendBtn: "أرسل لي الشهادة بالبريد الإلكتروني",
+    emailSending: "جارٍ الإرسال …", emailSentMsg: "تم الإرسال! يرجى التحقق أيضًا من مجلد البريد العشوائي.", emailErrorMsg: "فشل الإرسال. يرجى المحاولة لاحقًا.", emailTooManyMsg: (n) => `الحد الأقصى ${n} مستلمين لكل إرسال.`,
+    walletRowTitle: "إضافة إلى محفظة شارات", walletRowIntro: "استخدم ملف بيانات الاعتماد الموقّع (JWT) القابل للتنزيل أعلاه لحفظ هذه الشارة في تطبيق محفظة خارجي:",
+    walletCredlyStep: "Credly: اذهب إلى ملفك الشخصي ← علامة التبويب \"Other\" ← وارفع ملف JWT الذي تم تنزيله.", walletObpStep: "Open Badge Passport: اختر \"Import a badge\" وارفع نفس ملف JWT.", walletLcwStep: "Learner Credential Wallet: الاستيراد بنقرة واحدة غير مدعوم بعد - إذ يتطلب خدمة تبادل VC-API مخصّصة، وهي بنية خلفية جديدة أكبر. قد يُضاف لاحقًا إذا كان هناك طلب حقيقي.",
+    walletEmailNote: "تريد فقط الاحتفاظ بنسخة لوقت لاحق؟ استخدم خيار البريد الإلكتروني أعلاه.",
+    walletIdentityTitle: "اجعل شارتك مستقلة عن بريدك الإلكتروني الخاص بالعمل",
+    walletIdentityIntro: "أدخل عنوان بريد إلكتروني شخصيًا واحدًا أو أكثر تتحكم فيه - سيتم فقط تجزئته (ولن يُخزَّن أبدًا كنص عادي) في ملف اعتماد منفصل ومخصص، حتى يتمكن Credly مثلاً من مطابقته مع بريد حسابك الخاص، أيًا كان العنوان الذي تستخدمه هناك. لا يُخزَّن شيء في أي مكان - يُستخدم فقط لهذا التنزيل الواحد.",
+    walletIdentityPlaceholder: "مثال: personal@gmail.com (حتى 3 عناوين، مفصولة بفواصل)",
+    walletIdentityDownloadBtn: "تنزيل بيانات الاعتماد المخصصة",
+    walletIdentitySigning: "جارٍ التوقيع…",
+    walletIdentityDoneMsg: "تم - جرى تنزيل الملف المخصص.",
+    walletIdentityErrorMsg: "تعذّر إنشاء ملف مخصص. يرجى المحاولة لاحقًا.",
+    walletIdentityTooManyMsg: (n) => `يُسمح بحد أقصى ${n} عناوين بريد إلكتروني.`,
   },
   zh: {
     btn: "我的证书", title: "我的证书", close: "← 返回",
     intro: "已通过的模拟考试会记录在此作为完成证明(仅保存在本设备)。下载证书文件以保存或分享——该文件才是真正可移植的凭证,而不是应用内部状态。",
     empty: "尚无已通过的模拟考试。通过一次模拟考试(而非练习模式)即可在此获得证书。",
     passedOn: (d) => `通过日期:${d}`,
-    downloadCert: "下载证书(HTML)", downloadCred: "下载凭证(JSON)",
+    certDocTitle: "结业证书", certLangSelectLabel: "证书语言", certDocSummary: (n, err, wrong) => `共 ${n} 题模拟考试 · ${err} 个错误分 · ${wrong} 个安全关键错误`,
+    downloadCert: "下载证书(HTML)", downloadPdf: "下载证书(PDF)", downloadCred: "下载凭证(JSON)",
     downloadJwt: "下载已签名凭证(JWT,供钱包应用使用)",
     disclaimer: "自行生成的记录,未经加密签名,也未经第三方独立验证。",
+    certVerifyIntro: "扫描二维码或打开链接以在线验证此证书:",
+    certSignedNoLinkNote: (d) => `此证书已由 Zettacard 进行加密签名(密钥 ID ${d}),但尚未创建公开验证链接。请在"我的证书"中创建一个,以便他人在线验证,或使用单独的已签名 JWT 下载进行离线验证。`,
     renewalOverdue: (d) => `续期已逾期,截止日期为 ${d}`,
     renewalDueSoon: (d) => `续期截止日期为 ${d}`,
     verifiedLabel: "✅ 已签名徽章", selfIssuedLabel: "未验证",
@@ -1832,15 +1993,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "复制",
     verifyCopiedBtn: "已复制!",
     verifyError: "无法创建验证链接,请稍后重试。",
+    emailLabel: "通过电子邮件发送", emailPlaceholder: "电子邮件地址(多个请用逗号分隔)", emailSendBtn: "将证书发送到我的邮箱",
+    emailSending: "发送中……", emailSentMsg: "已发送!请同时检查垃圾邮件文件夹。", emailErrorMsg: "发送失败,请稍后重试。", emailTooManyMsg: (n) => `每次发送最多 ${n} 位收件人。`,
+    walletRowTitle: "添加到徽章钱包", walletRowIntro: "使用上方可下载的已签名凭证文件(JWT),将此徽章保存到外部钱包应用中:",
+    walletCredlyStep: "Credly:进入个人资料 → \u201cOther\u201d 标签页 → 上传已下载的 JWT 文件。", walletObpStep: "Open Badge Passport:选择\u201cImport a badge\u201d并上传同一个 JWT 文件。", walletLcwStep: "Learner Credential Wallet:目前尚不支持一键导入——这需要一个独立的 VC-API 交换服务,是一项更大的新后端基础设施工作。如有实际需求可能会在后续加入。",
+    walletEmailNote: "只是想先保存一份以备日后使用?可以使用上方的电子邮件选项。",
+    walletIdentityTitle: "让你的徽章不依赖于工作邮箱",
+    walletIdentityIntro: "输入一个或多个你自己掌控的个人邮箱地址——它们只会被哈希处理(绝不会以明文存储)嵌入到一个单独的个性化凭证文件中,这样例如 Credly 就能将其与你账户的邮箱进行匹配,无论你在那里使用的是哪个邮箱。任何内容都不会被存储——仅用于这一次下载。",
+    walletIdentityPlaceholder: "例如 personal@gmail.com(最多3个,用逗号分隔)",
+    walletIdentityDownloadBtn: "下载个性化凭证",
+    walletIdentitySigning: "签名中…",
+    walletIdentityDoneMsg: "完成——个性化文件已下载。",
+    walletIdentityErrorMsg: "无法创建个性化文件,请稍后重试。",
+    walletIdentityTooManyMsg: (n) => `最多允许 ${n} 个电子邮件地址。`,
   },
   hi: {
     btn: "मेरे प्रमाणपत्र", title: "मेरे प्रमाणपत्र", close: "← वापस",
     intro: "पास की गई परीक्षा सिमुलेशन यहाँ पूर्णता के प्रमाण के रूप में दर्ज की जाती हैं (केवल इस डिवाइस पर)। इसे रखने या साझा करने के लिए प्रमाणपत्र फ़ाइल डाउनलोड करें - वही असली पोर्टेबल फ़ाइल है, ऐप की आंतरिक स्थिति नहीं।",
     empty: "अभी तक कोई पास की गई परीक्षा सिमुलेशन नहीं है। यहाँ प्रमाणपत्र पाने के लिए एक परीक्षा सिमुलेशन (अभ्यास मोड नहीं) पास करें।",
     passedOn: (d) => `${d} को उत्तीर्ण`,
-    downloadCert: "प्रमाणपत्र डाउनलोड करें (HTML)", downloadCred: "क्रेडेंशियल डाउनलोड करें (JSON)",
+    certDocTitle: "पूर्णता प्रमाणपत्र", certLangSelectLabel: "प्रमाणपत्र की भाषा", certDocSummary: (n, err, wrong) => `${n} प्रश्नों की परीक्षा सिमुलेशन · ${err} त्रुटि अंक · ${wrong} सुरक्षा-महत्वपूर्ण चूक`,
+    downloadCert: "प्रमाणपत्र डाउनलोड करें (HTML)", downloadPdf: "प्रमाणपत्र डाउनलोड करें (PDF)", downloadCred: "क्रेडेंशियल डाउनलोड करें (JSON)",
     downloadJwt: "हस्ताक्षरित क्रेडेंशियल डाउनलोड करें (JWT, वॉलेट के लिए)",
     disclaimer: "स्व-निर्मित रिकॉर्ड, क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित या स्वतंत्र रूप से सत्यापित नहीं।",
+    certVerifyIntro: "इस प्रमाणपत्र को ऑनलाइन जांचने के लिए QR कोड स्कैन करें या लिंक खोलें:",
+    certSignedNoLinkNote: (d) => `यह प्रमाणपत्र Zettacard द्वारा क्रिप्टोग्राफ़िक रूप से हस्ताक्षरित है (कुंजी ID ${d}), लेकिन अभी तक कोई सार्वजनिक सत्यापन लिंक नहीं बनाया गया है। दूसरों के इसे ऑनलाइन जांचने के लिए "मेरे प्रमाणपत्र" में एक लिंक बनाएं, या ऑफ़लाइन सत्यापन के लिए अलग हस्ताक्षरित JWT डाउनलोड का उपयोग करें।`,
     renewalOverdue: (d) => `नवीनीकरण ${d} से लंबित`,
     renewalDueSoon: (d) => `नवीनीकरण ${d} तक देय`,
     verifiedLabel: "✅ हस्ताक्षरित बैज", selfIssuedLabel: "असत्यापित",
@@ -1855,15 +2032,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "कॉपी करें",
     verifyCopiedBtn: "कॉपी हो गया!",
     verifyError: "सत्यापन लिंक नहीं बनाया जा सका। कृपया बाद में पुनः प्रयास करें।",
+    emailLabel: "ईमेल से भेजें", emailPlaceholder: "ईमेल पता (कई पते अल्पविराम से अलग करें)", emailSendBtn: "प्रमाणपत्र ईमेल करें",
+    emailSending: "भेजा जा रहा है …", emailSentMsg: "भेज दिया गया! कृपया स्पैम फ़ोल्डर भी जांचें।", emailErrorMsg: "भेजना विफल रहा। कृपया बाद में पुनः प्रयास करें।", emailTooManyMsg: (n) => `प्रति भेजने पर अधिकतम ${n} प्राप्तकर्ता।`,
+    walletRowTitle: "बैज वॉलेट में जोड़ें", walletRowIntro: "इस बैज को किसी बाहरी वॉलेट ऐप में सहेजने के लिए ऊपर डाउनलोड किए जा सकने वाले हस्ताक्षरित क्रेडेंशियल (JWT) फ़ाइल का उपयोग करें:",
+    walletCredlyStep: "Credly: अपनी प्रोफ़ाइल में जाएँ → \"Other\" टैब → डाउनलोड की गई JWT फ़ाइल अपलोड करें।", walletObpStep: "Open Badge Passport: \"Import a badge\" चुनें और वही JWT फ़ाइल अपलोड करें।", walletLcwStep: "Learner Credential Wallet: एक-क्लिक आयात अभी समर्थित नहीं है - इसके लिए एक अलग VC-API एक्सचेंज सेवा चाहिए, जो एक बड़ी नई बैकएंड संरचना है। वास्तविक मांग होने पर इसे बाद में जोड़ा जा सकता है।",
+    walletEmailNote: "बस बाद के लिए एक कॉपी रखनी है? इसके बजाय ऊपर दिए गए ईमेल विकल्प का उपयोग करें।",
+    walletIdentityTitle: "अपने बैज को अपने ऑफिस ईमेल से स्वतंत्र बनाएं",
+    walletIdentityIntro: "एक या अधिक व्यक्तिगत ईमेल पते दर्ज करें जिन्हें आप नियंत्रित करते हैं - उन्हें केवल हैश किया जाएगा (कभी भी प्लेन टेक्स्ट में संग्रहीत नहीं) एक अलग, व्यक्तिगत क्रेडेंशियल फ़ाइल में, ताकि उदाहरण के लिए Credly इसे आपके अपने खाते के ईमेल से मिलान कर सके, चाहे आप वहां कोई भी उपयोग करें। कहीं भी कुछ भी संग्रहीत नहीं किया जाता - इसका उपयोग केवल इस एक डाउनलोड के लिए होता है।",
+    walletIdentityPlaceholder: "जैसे personal@gmail.com (कॉमा से अलग करके अधिकतम 3)",
+    walletIdentityDownloadBtn: "व्यक्तिगत क्रेडेंशियल डाउनलोड करें",
+    walletIdentitySigning: "हस्ताक्षर हो रहा है…",
+    walletIdentityDoneMsg: "पूर्ण - व्यक्तिगत फ़ाइल डाउनलोड हो गई।",
+    walletIdentityErrorMsg: "व्यक्तिगत फ़ाइल नहीं बन सकी। कृपया बाद में पुनः प्रयास करें।",
+    walletIdentityTooManyMsg: (n) => `अधिकतम ${n} ईमेल पते की अनुमति है।`,
   },
   tr: {
     btn: "Sertifikalarım", title: "Sertifikalarım", close: "← Geri",
     intro: "Geçilen sınav simülasyonları burada tamamlanma kanıtı olarak kaydedilir (yalnızca bu cihazda). Saklamak veya paylaşmak için bir sertifika dosyası indirin - gerçek taşınabilir belge budur, uygulamanın iç durumu değil.",
     empty: "Henüz geçilmiş bir sınav simülasyonu yok. Burada bir sertifika almak için bir Sınav Simülasyonunu (Alıştırma modunu değil) geçin.",
     passedOn: (d) => `${d} tarihinde geçildi`,
-    downloadCert: "Sertifikayı indir (HTML)", downloadCred: "Belgeyi indir (JSON)",
+    certDocTitle: "Tamamlama Sertifikası", certLangSelectLabel: "Sertifika dili", certDocSummary: (n, err, wrong) => `${n} soruluk sınav simülasyonu · ${err} hata puanı · ${wrong} güvenlik açısından kritik hata`,
+    downloadCert: "Sertifikayı indir (HTML)", downloadPdf: "Sertifikayı indir (PDF)", downloadCred: "Belgeyi indir (JSON)",
     downloadJwt: "İmzalı belgeyi indir (JWT, cüzdanlar için)",
     disclaimer: "Kendiliğinden oluşturulmuş kayıt, kriptografik olarak imzalanmamış veya bağımsız olarak doğrulanmamıştır.",
+    certVerifyIntro: "Bu sertifikayı çevrimiçi kontrol etmek için QR kodunu tarayın veya bağlantıyı açın:",
+    certSignedNoLinkNote: (d) => `Bu sertifika Zettacard tarafından kriptografik olarak imzalanmıştır (anahtar kimliği ${d}), ancak henüz herkese açık bir doğrulama bağlantısı oluşturulmamıştır. Başkalarının çevrimiçi kontrol edebilmesi için "Sertifikalarım" bölümünden bir bağlantı oluşturun veya çevrimdışı doğrulama için ayrı imzalı JWT indirmesini kullanın.`,
     renewalOverdue: (d) => `Yenileme ${d} tarihinden beri gecikmiş`,
     renewalDueSoon: (d) => `Yenileme ${d} tarihine kadar gerekli`,
     verifiedLabel: "✅ İmzalı rozet", selfIssuedLabel: "Doğrulanmamış",
@@ -1878,15 +2071,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "Kopyala",
     verifyCopiedBtn: "Kopyalandı!",
     verifyError: "Doğrulama bağlantısı oluşturulamadı. Lütfen daha sonra tekrar deneyin.",
+    emailLabel: "E-posta ile gönder", emailPlaceholder: "E-posta adresi(leri), virgülle ayırın", emailSendBtn: "Sertifikayı e-posta ile gönder",
+    emailSending: "Gönderiliyor …", emailSentMsg: "Gönderildi! Lütfen spam klasörünü de kontrol edin.", emailErrorMsg: "Gönderme başarısız oldu. Lütfen daha sonra tekrar deneyin.", emailTooManyMsg: (n) => `Gönderim başına en fazla ${n} alıcı.`,
+    walletRowTitle: "Bir rozet cüzdanına ekle", walletRowIntro: "Bu rozeti harici bir cüzdan uygulamasında saklamak için yukarıda indirilebilen imzalı kimlik bilgisi (JWT) dosyasını kullanın:",
+    walletCredlyStep: "Credly: profiline git → \"Other\" sekmesi → indirilen JWT dosyasını yükle.", walletObpStep: "Open Badge Passport: \"Import a badge\" seçeneğini seç ve aynı JWT dosyasını yükle.", walletLcwStep: "Learner Credential Wallet: tek tıkla içe aktarma henüz desteklenmiyor - bunun için ayrı bir VC-API değişim servisi, yani daha büyük yeni bir arka uç altyapısı gerekir. Gerçek bir talep olursa ileride eklenebilir.",
+    walletEmailNote: "Sadece daha sonrası için bir kopya mı istiyorsun? Bunun yerine yukarıdaki e-posta seçeneğini kullan.",
+    walletIdentityTitle: "Rozetini iş e-postandan bağımsız hale getir",
+    walletIdentityIntro: "Kontrol ettiğin bir veya birden fazla kişisel e-posta adresini gir - bunlar yalnızca hash'lenir (asla düz metin olarak saklanmaz) ve ayrı, kişiselleştirilmiş bir kimlik bilgisi dosyasına gömülür, böylece örneğin Credly bunu kendi hesabının e-postasıyla eşleştirebilir, orada hangisini kullanırsan kullan. Hiçbir şey hiçbir yerde saklanmaz - yalnızca bu tek indirme için kullanılır.",
+    walletIdentityPlaceholder: "örn. kisisel@gmail.com (virgülle ayrılmış, en fazla 3)",
+    walletIdentityDownloadBtn: "Kişiselleştirilmiş kimlik bilgisini indir",
+    walletIdentitySigning: "İmzalanıyor…",
+    walletIdentityDoneMsg: "Tamamlandı - kişiselleştirilmiş dosya indirildi.",
+    walletIdentityErrorMsg: "Kişiselleştirilmiş dosya oluşturulamadı. Lütfen daha sonra tekrar deneyin.",
+    walletIdentityTooManyMsg: (n) => `En fazla ${n} e-posta adresine izin verilir.`,
   },
   fr: {
     btn: "Mes certificats", title: "Mes certificats", close: "← Retour",
     intro: "Les simulations d'examen réussies sont enregistrées ici comme preuve d'accomplissement (sur cet appareil uniquement). Téléchargez un fichier de certificat pour le conserver ou le partager - c'est ce fichier qui est réellement portable, pas l'état interne de l'application.",
     empty: "Aucune simulation d'examen réussie pour l'instant. Réussissez une Simulation d'examen (pas le mode Entraînement) pour obtenir un certificat ici.",
     passedOn: (d) => `Réussi le ${d}`,
-    downloadCert: "Télécharger le certificat (HTML)", downloadCred: "Télécharger l'attestation (JSON)",
+    certDocTitle: "Certificat de réussite", certLangSelectLabel: "Langue du certificat", certDocSummary: (n, err, wrong) => `Simulation d’examen de ${n} questions · ${err} point(s) d’erreur · ${wrong} erreur(s) critique(s)`,
+    downloadCert: "Télécharger le certificat (HTML)", downloadPdf: "Télécharger le certificat (PDF)", downloadCred: "Télécharger l'attestation (JSON)",
     downloadJwt: "Télécharger l'attestation signée (JWT, pour portefeuilles)",
     disclaimer: "Enregistrement auto-généré, non signé cryptographiquement et non vérifié de manière indépendante.",
+    certVerifyIntro: "Scannez le code QR ou ouvrez le lien pour vérifier ce certificat en ligne :",
+    certSignedNoLinkNote: (d) => `Ce certificat est signé cryptographiquement par Zettacard (ID de clé ${d}), mais aucun lien de vérification public n'a encore été créé. Créez-en un dans « Mes certificats » afin que d'autres puissent le vérifier en ligne, ou utilisez le téléchargement JWT signé séparé pour une vérification hors ligne.`,
     renewalOverdue: (d) => `Renouvellement en retard depuis le ${d}`,
     renewalDueSoon: (d) => `Renouvellement à effectuer avant le ${d}`,
     verifiedLabel: "✅ Badge signé", selfIssuedLabel: "Non vérifié",
@@ -1901,15 +2110,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "Copier",
     verifyCopiedBtn: "Copié !",
     verifyError: "Impossible de créer le lien de vérification. Veuillez réessayer plus tard.",
+    emailLabel: "Envoyer par e-mail", emailPlaceholder: "Adresse(s) e-mail, séparées par des virgules", emailSendBtn: "M'envoyer le certificat par e-mail",
+    emailSending: "Envoi en cours …", emailSentMsg: "Envoyé ! Vérifiez aussi votre dossier spam.", emailErrorMsg: "Échec de l'envoi. Veuillez réessayer plus tard.", emailTooManyMsg: (n) => `Maximum ${n} destinataires par envoi.`,
+    walletRowTitle: "Ajouter à un portefeuille de badges", walletRowIntro: "Utilisez le fichier d'attestation signée (JWT) téléchargeable ci-dessus pour enregistrer ce badge dans une application de portefeuille externe :",
+    walletCredlyStep: "Credly : allez dans votre profil → l'onglet « Other » → téléversez le fichier JWT téléchargé.", walletObpStep: "Open Badge Passport : choisissez « Import a badge » et téléversez le même fichier JWT.", walletLcwStep: "Learner Credential Wallet : l'import en un clic n'est pas encore pris en charge - cela nécessiterait un service d'échange VC-API dédié, une infrastructure backend nouvelle et plus conséquente. Pourra être ajouté si une vraie demande se manifeste.",
+    walletEmailNote: "Vous voulez juste garder une copie pour plus tard ? Utilisez plutôt l'option d'envoi par e-mail ci-dessus.",
+    walletIdentityTitle: "Rends ton badge indépendant de ton e-mail professionnel",
+    walletIdentityIntro: "Saisis une ou plusieurs adresses e-mail personnelles que tu contrôles - elles seront uniquement hachées (jamais stockées en clair) dans un fichier d'identification séparé et personnalisé, afin que par exemple Credly puisse le faire correspondre à l'e-mail de ton propre compte, quel que soit celui que tu utilises là-bas. Rien n'est stocké nulle part - cela ne sert que pour ce seul téléchargement.",
+    walletIdentityPlaceholder: "ex. personnel@gmail.com (jusqu'à 3, séparées par des virgules)",
+    walletIdentityDownloadBtn: "Télécharger l'identifiant personnalisé",
+    walletIdentitySigning: "Signature en cours…",
+    walletIdentityDoneMsg: "Terminé - le fichier personnalisé a été téléchargé.",
+    walletIdentityErrorMsg: "Impossible de créer un fichier personnalisé. Réessaie plus tard.",
+    walletIdentityTooManyMsg: (n) => `${n} adresses e-mail maximum autorisées.`,
   },
   ru: {
     btn: "Мои сертификаты", title: "Мои сертификаты", close: "← Назад",
     intro: "Пройденные симуляции экзаменов сохраняются здесь как подтверждение прохождения (только на этом устройстве). Скачайте файл сертификата, чтобы сохранить или передать его - именно этот файл является настоящим переносимым артефактом, а не состояние приложения.",
     empty: "Пока нет пройденной симуляции экзамена. Пройдите Симуляцию экзамена (не режим тренировки), чтобы получить здесь сертификат.",
     passedOn: (d) => `Пройдено ${d}`,
-    downloadCert: "Скачать сертификат (HTML)", downloadCred: "Скачать удостоверение (JSON)",
+    certDocTitle: "Сертификат о прохождении", certLangSelectLabel: "Язык сертификата", certDocSummary: (n, err, wrong) => `Симуляция экзамена из ${n} вопросов · ${err} штрафных балл(ов) · ${wrong} критическая(их) ошибка(ок)`,
+    downloadCert: "Скачать сертификат (HTML)", downloadPdf: "Скачать сертификат (PDF)", downloadCred: "Скачать удостоверение (JSON)",
     downloadJwt: "Скачать подписанное удостоверение (JWT, для кошельков)",
     disclaimer: "Самостоятельно созданная запись, не подписана криптографически и не проверена независимо.",
+    certVerifyIntro: "Отсканируйте QR-код или откройте ссылку, чтобы проверить этот сертификат онлайн:",
+    certSignedNoLinkNote: (d) => `Этот сертификат криптографически подписан Zettacard (ID ключа ${d}), но публичная ссылка для проверки еще не создана. Создайте её в разделе "Мои сертификаты", чтобы другие могли проверить его онлайн, или используйте отдельную загрузку подписанного JWT для офлайн-проверки.`,
     renewalOverdue: (d) => `Обновление просрочено с ${d}`,
     renewalDueSoon: (d) => `Обновление требуется до ${d}`,
     verifiedLabel: "✅ Подписанный значок", selfIssuedLabel: "Не подтверждено",
@@ -1924,15 +2149,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "Копировать",
     verifyCopiedBtn: "Скопировано!",
     verifyError: "Не удалось создать ссылку для проверки. Попробуйте позже.",
+    emailLabel: "Отправить по почте", emailPlaceholder: "Адрес(а) электронной почты через запятую", emailSendBtn: "Отправить сертификат на почту",
+    emailSending: "Отправка …", emailSentMsg: "Отправлено! Проверьте также папку \"Спам\".", emailErrorMsg: "Не удалось отправить. Попробуйте позже.", emailTooManyMsg: (n) => `Максимум ${n} получателей за одну отправку.`,
+    walletRowTitle: "Добавить в кошелёк значков", walletRowIntro: "Используйте подписанный файл удостоверения (JWT), доступный для скачивания выше, чтобы сохранить этот значок во внешнем кошельке:",
+    walletCredlyStep: "Credly: перейдите в профиль → вкладка «Other» → загрузите скачанный файл JWT.", walletObpStep: "Open Badge Passport: выберите «Import a badge» и загрузите тот же файл JWT.", walletLcwStep: "Learner Credential Wallet: импорт в один клик пока не поддерживается - для этого потребовался бы отдельный сервис обмена VC-API, то есть более крупная новая часть серверной инфраструктуры. Может появиться при реальном спросе.",
+    walletEmailNote: "Просто хотите сохранить копию на потом? Используйте вариант с электронной почтой выше.",
+    walletIdentityTitle: "Сделайте свой бейдж независимым от рабочей электронной почты",
+    walletIdentityIntro: "Введите один или несколько личных адресов электронной почты, которыми вы владеете - они будут только хешированы (никогда не сохраняются в открытом виде) в отдельном персонализированном файле учётных данных, чтобы, например, Credly мог сопоставить его с почтой вашего собственного аккаунта, независимо от того, какой адрес вы там используете. Ничего нигде не сохраняется - это используется только для этой одной загрузки.",
+    walletIdentityPlaceholder: "напр. personal@gmail.com (до 3, через запятую)",
+    walletIdentityDownloadBtn: "Скачать персонализированные учётные данные",
+    walletIdentitySigning: "Подписание…",
+    walletIdentityDoneMsg: "Готово - персонализированный файл загружен.",
+    walletIdentityErrorMsg: "Не удалось создать персонализированный файл. Попробуйте позже.",
+    walletIdentityTooManyMsg: (n) => `Разрешено не более ${n} адресов электронной почты.`,
   },
   es: {
     btn: "Mis certificados", title: "Mis certificados", close: "← Atrás",
     intro: "Las simulaciones de examen aprobadas se registran aquí como comprobante de finalización (solo en este dispositivo). Descarga un archivo de certificado para conservarlo o compartirlo - ese archivo es el elemento realmente portátil, no el estado interno de la aplicación.",
     empty: "Todavía no hay ninguna simulación de examen aprobada. Aprueba una Simulación de examen (no el modo Entrenamiento) para obtener aquí un certificado.",
     passedOn: (d) => `Aprobado el ${d}`,
-    downloadCert: "Descargar certificado (HTML)", downloadCred: "Descargar credencial (JSON)",
+    certDocTitle: "Certificado de finalización", certLangSelectLabel: "Idioma del certificado", certDocSummary: (n, err, wrong) => `Simulación de examen de ${n} preguntas · ${err} punto(s) de error · ${wrong} fallo(s) crítico(s)`,
+    downloadCert: "Descargar certificado (HTML)", downloadPdf: "Descargar certificado (PDF)", downloadCred: "Descargar credencial (JSON)",
     downloadJwt: "Descargar credencial firmada (JWT, para carteras)",
     disclaimer: "Registro autogenerado, no firmado criptográficamente ni verificado de forma independiente.",
+    certVerifyIntro: "Escanea el código QR o abre el enlace para verificar este certificado en línea:",
+    certSignedNoLinkNote: (d) => `Este certificado está firmado criptográficamente por Zettacard (ID de clave ${d}), pero aún no se ha creado un enlace de verificación público. Crea uno en "Mis certificados" para que otros puedan verificarlo en línea, o usa la descarga JWT firmada por separado para la verificación sin conexión.`,
     renewalOverdue: (d) => `Renovación vencida desde el ${d}`,
     renewalDueSoon: (d) => `Renovación necesaria antes del ${d}`,
     verifiedLabel: "✅ Insignia firmada", selfIssuedLabel: "No verificado",
@@ -1947,15 +2188,31 @@ const CERT_STRINGS = {
     verifyCopyBtn: "Copiar",
     verifyCopiedBtn: "¡Copiado!",
     verifyError: "No se pudo crear el enlace de verificación. Inténtalo de nuevo más tarde.",
+    emailLabel: "Enviar por correo", emailPlaceholder: "Correo(s) electrónico(s), separados por comas", emailSendBtn: "Enviarme el certificado por correo",
+    emailSending: "Enviando …", emailSentMsg: "¡Enviado! Revisa también tu carpeta de spam.", emailErrorMsg: "Error al enviar. Inténtalo de nuevo más tarde.", emailTooManyMsg: (n) => `Máximo ${n} destinatarios por envío.`,
+    walletRowTitle: "Añadir a una cartera de insignias", walletRowIntro: "Usa el archivo de credencial firmada (JWT) descargable arriba para guardar esta insignia en una app de cartera externa:",
+    walletCredlyStep: "Credly: ve a tu perfil → la pestaña «Other» → sube el archivo JWT descargado.", walletObpStep: "Open Badge Passport: elige «Import a badge» y sube el mismo archivo JWT.", walletLcwStep: "Learner Credential Wallet: la importación con un clic todavía no está disponible - requeriría un servicio de intercambio VC-API dedicado, una infraestructura de backend nueva y más grande. Podría añadirse si hay una demanda real.",
+    walletEmailNote: "¿Solo quieres guardar una copia para más tarde? Usa la opción de correo electrónico de arriba.",
+    walletIdentityTitle: "Haz que tu insignia sea independiente de tu correo laboral",
+    walletIdentityIntro: "Introduce una o varias direcciones de correo personales que controles - solo se convertirán en hash (nunca se almacenan en texto plano) en un archivo de credencial personalizado y separado, para que, por ejemplo, Credly pueda compararlo con el correo de tu propia cuenta, sea cual sea el que uses allí. No se almacena nada en ningún sitio - solo se usa para esta descarga.",
+    walletIdentityPlaceholder: "p. ej. personal@gmail.com (hasta 3, separados por comas)",
+    walletIdentityDownloadBtn: "Descargar credencial personalizada",
+    walletIdentitySigning: "Firmando…",
+    walletIdentityDoneMsg: "Listo - se descargó el archivo personalizado.",
+    walletIdentityErrorMsg: "No se pudo crear un archivo personalizado. Inténtalo más tarde.",
+    walletIdentityTooManyMsg: (n) => `Se permiten como máximo ${n} direcciones de correo.`,
   },
   it: {
     btn: "I miei certificati", title: "I miei certificati", close: "← Indietro",
     intro: "Le simulazioni d'esame superate vengono registrate qui come prova di completamento (solo su questo dispositivo). Scarica un file certificato per conservarlo o condividerlo - quel file è il vero elemento portatile, non lo stato interno dell'app.",
     empty: "Ancora nessuna simulazione d'esame superata. Supera una Simulazione d'esame (non la modalità Allenamento) per ottenere qui un certificato.",
     passedOn: (d) => `Superato il ${d}`,
-    downloadCert: "Scarica certificato (HTML)", downloadCred: "Scarica credenziale (JSON)",
+    certDocTitle: "Certificato di completamento", certLangSelectLabel: "Lingua del certificato", certDocSummary: (n, err, wrong) => `Simulazione d’esame di ${n} domande · ${err} punto/i di errore · ${wrong} errore/i critico/i`,
+    downloadCert: "Scarica certificato (HTML)", downloadPdf: "Scarica certificato (PDF)", downloadCred: "Scarica credenziale (JSON)",
     downloadJwt: "Scarica credenziale firmata (JWT, per wallet)",
     disclaimer: "Registro autogenerato, non firmato crittograficamente né verificato in modo indipendente.",
+    certVerifyIntro: "Scansiona il codice QR o apri il link per verificare questo certificato online:",
+    certSignedNoLinkNote: (d) => `Questo certificato è firmato crittograficamente da Zettacard (ID chiave ${d}), ma non è ancora stato creato un link di verifica pubblico. Creane uno in "I miei certificati" per permettere ad altri di verificarlo online, oppure usa il download JWT firmato separato per la verifica offline.`,
     renewalOverdue: (d) => `Rinnovo scaduto dal ${d}`,
     renewalDueSoon: (d) => `Rinnovo da effettuare entro il ${d}`,
     verifiedLabel: "✅ Badge firmato", selfIssuedLabel: "Non verificato",
@@ -1970,10 +2227,62 @@ const CERT_STRINGS = {
     verifyCopyBtn: "Copia",
     verifyCopiedBtn: "Copiato!",
     verifyError: "Impossibile creare il link di verifica. Riprova più tardi.",
+    emailLabel: "Invia via email", emailPlaceholder: "Indirizzo/i email, separati da virgole", emailSendBtn: "Inviami il certificato via email",
+    emailSending: "Invio in corso …", emailSentMsg: "Inviato! Controlla anche la cartella spam.", emailErrorMsg: "Invio non riuscito. Riprova più tardi.", emailTooManyMsg: (n) => `Massimo ${n} destinatari per invio.`,
+    walletRowTitle: "Aggiungi a un wallet di badge", walletRowIntro: "Usa il file di credenziale firmata (JWT) scaricabile qui sopra per salvare questo badge in un'app wallet esterna:",
+    walletCredlyStep: "Credly: vai al tuo profilo → scheda «Other» → carica il file JWT scaricato.", walletObpStep: "Open Badge Passport: scegli «Import a badge» e carica lo stesso file JWT.", walletLcwStep: "Learner Credential Wallet: l'importazione con un clic non è ancora supportata - richiederebbe un servizio di scambio VC-API dedicato, un'infrastruttura backend nuova e più consistente. Potrebbe essere aggiunta in futuro in caso di richiesta reale.",
+    walletEmailNote: "Vuoi solo conservare una copia per dopo? Usa invece l'opzione email qui sopra.",
+    walletIdentityTitle: "Rendi il tuo badge indipendente dalla tua email di lavoro",
+    walletIdentityIntro: "Inserisci uno o più indirizzi email personali che controlli - verranno solo sottoposti a hash (mai memorizzati in chiaro) in un file di credenziale separato e personalizzato, così che ad esempio Credly possa confrontarlo con l'email del tuo account, qualunque essa sia. Nulla viene memorizzato da nessuna parte - viene usato solo per questo download.",
+    walletIdentityPlaceholder: "es. personale@gmail.com (fino a 3, separati da virgola)",
+    walletIdentityDownloadBtn: "Scarica credenziale personalizzata",
+    walletIdentitySigning: "Firma in corso…",
+    walletIdentityDoneMsg: "Fatto - il file personalizzato è stato scaricato.",
+    walletIdentityErrorMsg: "Impossibile creare un file personalizzato. Riprova più tardi.",
+    walletIdentityTooManyMsg: (n) => `Sono consentiti al massimo ${n} indirizzi email.`,
   },
 };
 function certStrings(lang) {
   return CERT_STRINGS[lang] || CERT_STRINGS.en;
+}
+
+// DN-65: independent certificate-document language, separate from the
+// app's own UI language (state.lang). Endonym labels copied verbatim from
+// app.html's #lang-select options - same 12 locales, same flag-prefix
+// convention, so the certificate-language dropdown feels like the same
+// control the user already knows from the header, not a new UI language.
+const CERT_LANG_OPTIONS = [
+  ["de", "🇩🇪 Deutsch"], ["en", "🇬🇧 English"], ["uk", "🇺🇦 Українська"],
+  ["pl", "🇵🇱 Polski"], ["ar", "🇸🇦 العربية"], ["zh", "🇨🇳 简体中文"],
+  ["hi", "🇮🇳 हिन्दी"], ["tr", "🇹🇷 Türkçe"], ["fr", "🇫🇷 Français"],
+  ["ru", "🇷🇺 Русский"], ["es", "🇪🇸 Español"], ["it", "🇮🇹 Italiano"],
+];
+
+// Session-only (not persisted to localStorage - a deliberate scope call:
+// this is a "generate this one download in a different language" choice,
+// not a standing preference worth remembering across visits the way
+// state.lang itself is), keyed by record.id so multiple certificate cards
+// on the same screen can each have their own selection independently.
+const certLangOverrides = new Map();
+
+function certLangFor(record) {
+  return certLangOverrides.get(record.id) || state.lang;
+}
+
+function certLangSelectHtml(record, C) {
+  const current = certLangFor(record);
+  const opts = CERT_LANG_OPTIONS.map(
+    ([code, label]) => `<option value="${code}"${code === current ? " selected" : ""}>${label}</option>`
+  ).join("");
+  return `
+    <label class="cert-lang-select-wrap">
+      <span class="cert-lang-select-label">${escapeCertLangLabel(C.certLangSelectLabel)}</span>
+      <select class="cert-lang-select" aria-label="${escapeCertLangLabel(C.certLangSelectLabel)}">${opts}</select>
+    </label>`;
+}
+
+function escapeCertLangLabel(s) {
+  return String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
 function getCompletions() {
@@ -2078,6 +2387,55 @@ async function ensureSignedCredential(record) {
   return record;
 }
 
+// Optional personal-email identity binding (2026-08-11 follow-up to DN-51/
+// DN-63's wallet-import work - see docs/badge-wallet-portability-scoping.md
+// and netlify/functions/sign-credential.js's buildCredentialClaims() for
+// the full reasoning): a learner can type in 1-3 emails THEY control at
+// export time to get a SEPARATE, personalized JWT with those addresses
+// embedded as hashed OB3 identifiers - so a wallet like Credly, which
+// checks the badge's embedded identity against whichever email is on the
+// uploader's own account, can match no matter which address (personal,
+// work, whatever) they actually signed up there with. Deliberately does
+// NOT touch record.signedJwt/record itself or persist anything to
+// localStorage - this is a one-off export action, not a change to the
+// record's own default (zero-PII, no identifier at all) signature that
+// trySignCompletion() already produced automatically. Returns the JWT
+// string on success, or null on any failure (server rejected the emails,
+// offline, timeout) - callers show a plain error in that case, same
+// fail-quiet-then-tell-the-user pattern as sendCertificateEmail().
+const SIGN_CREDENTIAL_MAX_IDENTITY_EMAILS = 3; // mirrors MAX_IDENTITY_EMAILS in sign-credential.js
+async function signPersonalizedCredential(record, emails) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), SIGN_CREDENTIAL_TIMEOUT_MS);
+  try {
+    const res = await fetch(SIGN_CREDENTIAL_ENDPOINT, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        id: record.id,
+        examType: record.examType,
+        scopeCode: record.scopeCode,
+        moduleLabel: record.moduleLabel,
+        scopeLabel: record.scopeLabel,
+        passedAt: record.passedAt,
+        errorPoints: record.errorPoints,
+        wrongHighStakes: record.wrongHighStakes,
+        totalQuestions: record.totalQuestions,
+        emails,
+      }),
+      signal: controller.signal,
+    });
+    if (!res.ok) return null;
+    const body = await res.json();
+    if (!body || !body.jwt || body.verified !== true) return null;
+    return body.jwt;
+  } catch (e) {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 function recordCompletion(examType, scopeCode, results) {
   const mod = moduleManifestFor(examType);
   const scopeOpt = mod?.options.find((o) => o.code === scopeCode);
@@ -2106,12 +2464,78 @@ function recordCompletion(examType, scopeCode, results) {
   return record;
 }
 
-function certificateHtmlDoc(record) {
-  const C = certStrings(state.lang);
-  const dateStr = new Date(record.passedAt).toLocaleDateString(state.lang);
+// DN-56: generates an inline, self-contained SVG QR code for a verify URL
+// using the vendored (not CDN-loaded) qrcode-generator library (see
+// app.html's <script src="vendor/qrcode.js"> comment for why this is
+// vendored rather than fetched from a CDN - keeps certificate generation
+// working fully offline). Runs in the PARENT page's JS context (this
+// function itself, not inside printCertificateAsPdf()'s hidden iframe) -
+// the resulting SVG markup is just a string that gets inlined into the
+// HTML text handed to the iframe/Blob, so the iframe never needs its own
+// copy of the QR library. Returns "" (degrades to text-link-only) if the
+// vendored library somehow isn't loaded, rather than throwing and breaking
+// certificate generation entirely over a decorative addition.
+function verifyLinkQrSvg(url) {
+  if (typeof qrcode !== "function") return "";
+  try {
+    const qr = qrcode(0, "M");
+    qr.addData(url);
+    qr.make();
+    return qr.createSvgTag({ cellSize: 4, margin: 2, scalable: true });
+  } catch (e) {
+    return "";
+  }
+}
+
+// DN-56: certificate documents (HTML download + the PDF print flow, which
+// reuses this same markup - see printCertificateAsPdf()) now embed real
+// verification directly in the document itself, not just in the separate
+// JSON/JWT downloads, in one of three states depending on what's actually
+// true about this record:
+//   1. record.verifyUrl set - a permanent public /verify/<id> page exists
+//      (see createVerifyLink()/renderVerifyLinkRow()) - embed the link as
+//      text AND as a scannable QR code, so a printed/offline copy is still
+//      independently checkable by anyone with a phone.
+//   2. record.verified && record.signedJwt but no verifyUrl yet - the
+//      record IS cryptographically signed (ES256, see
+//      netlify/functions/sign-credential.js), just no public link was
+//      created - say so honestly (with the real key ID) rather than
+//      falling back to the unsigned disclaimer, which would understate
+//      what's actually true.
+//   3. neither - the original self-issued/unverified disclaimer, unchanged.
+// DN-65 (PO decision, 2026-08-11: "beides" - both an independent
+// certificate-language selector and full 12-locale coverage, confirmed
+// during DN-56's clarifying question, left open until now): lang is the
+// DOCUMENT's language, independent of state.lang (the app's own UI
+// language) - a learner using the app in Turkish can still generate an
+// English-language certificate for an employer who doesn't read Turkish,
+// without switching their whole app session. Defaults to state.lang so
+// every existing call site (which doesn't pass a second argument) keeps
+// its current behavior unchanged.
+function certificateHtmlDoc(record, lang) {
+  const L = lang || state.lang;
+  const C = certStrings(L);
+  const dateStr = new Date(record.passedAt).toLocaleDateString(L);
   const escape = (s) => String(s).replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+
+  let verifyBlockHtml;
+  if (record.verifyUrl) {
+    const qrSvg = verifyLinkQrSvg(record.verifyUrl);
+    verifyBlockHtml = `
+    <div class="verify-block">
+      <div class="verify-intro">${escape(C.certVerifyIntro)}</div>
+      ${qrSvg ? `<div class="verify-qr">${qrSvg}</div>` : ""}
+      <div class="verify-link-label">${escape(C.verifyLinkLabel)}</div>
+      <div class="verify-link">${escape(record.verifyUrl)}</div>
+    </div>`;
+  } else if (record.verified && record.signedJwt) {
+    verifyBlockHtml = `<div class="disclaimer">${escape(C.certSignedNoLinkNote(record.signedKid || "?"))}</div>`;
+  } else {
+    verifyBlockHtml = `<div class="disclaimer">${escape(C.disclaimer)}</div>`;
+  }
+
   return `<!doctype html>
-<html lang="${state.lang}"><head><meta charset="utf-8"><title>${escape(record.moduleLabel)} - Certificate</title>
+<html lang="${L}"><head><meta charset="utf-8"><title>${escape(record.moduleLabel)} - Certificate</title>
 <style>
   body { font-family: Georgia, serif; max-width: 700px; margin: 60px auto; padding: 40px; border: 3px double #444; text-align: center; color: #222; }
   h1 { font-size: 1.6rem; margin-bottom: 4px; }
@@ -2120,14 +2544,19 @@ function certificateHtmlDoc(record) {
   .scope { color: #555; margin-bottom: 24px; }
   .meta { margin: 24px 0; font-size: 0.95rem; }
   .disclaimer { margin-top: 40px; font-size: 0.75rem; color: #888; font-family: Arial, sans-serif; }
+  .verify-block { margin-top: 40px; padding-top: 24px; border-top: 1px solid #ccc; font-family: Arial, sans-serif; }
+  .verify-intro { font-size: 0.85rem; color: #444; margin-bottom: 12px; }
+  .verify-qr svg { width: 140px; height: 140px; }
+  .verify-link-label { font-size: 0.72rem; color: #888; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 10px; }
+  .verify-link { font-size: 0.8rem; color: #234; word-break: break-all; margin-top: 2px; }
 </style></head>
 <body>
   <h1>Zettacard</h1>
-  <div class="sub">Certificate of Completion</div>
+  <div class="sub">${escape(C.certDocTitle)}</div>
   <div class="module">${escape(record.moduleLabel)}</div>
   <div class="scope">${escape(record.scopeLabel)}</div>
-  <div class="meta">${escape(C.passedOn(dateStr))}<br>${record.totalQuestions} question exam simulation &middot; ${record.errorPoints} error point(s) &middot; ${record.wrongHighStakes} safety-critical miss(es)</div>
-  <div class="disclaimer">${escape(C.disclaimer)}</div>
+  <div class="meta">${escape(C.passedOn(dateStr))}<br>${escape(C.certDocSummary(record.totalQuestions, record.errorPoints, record.wrongHighStakes))}</div>
+  ${verifyBlockHtml}
 </body></html>`;
 }
 
@@ -2155,7 +2584,11 @@ function certificateHtmlDoc(record) {
 //      a proof mechanism it doesn't actually have.
 function credentialJsonDoc(record) {
   const base = {
-    "@context": ["https://www.w3.org/ns/credentials/v2", "https://purl.imsglobal.org/spec/ob/v3p0/context.json"],
+    // DN-51 re-verification fix (2026-08-11): versioned OB3 context URL,
+    // not the unversioned one - see netlify/functions/sign-credential.js's
+    // buildCredentialClaims() for the matching fix and full reasoning
+    // (CertLister flagged the unversioned URL with a WARNING).
+    "@context": ["https://www.w3.org/ns/credentials/v2", "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"],
     id: `${location.origin || ""}/credentials/${record.id}`,
     type: ["VerifiableCredential", "OpenBadgeCredential"],
     validFrom: record.passedAt,
@@ -2201,6 +2634,71 @@ function credentialJsonDoc(record) {
     unverifiedReason: "Self-issued by a zero-backend static PWA with no signing authority - not cryptographically signed, not independently verifiable by a third party.",
     issuer: { type: "Profile", name: "Zettacard (self-issued, unverified)" },
   };
+}
+
+// DN-49 Phase 3: client-side PDF generation, per
+// docs/paid-verifiable-certificates-scoping.md section 3.3's recommendation
+// (client-side first, no new serverless surface, revisit server-rendered
+// only if real B2B customers push back on quality). No PDF library is
+// bundled - the app is a zero-dependency, offline-first static PWA (see
+// service-worker.js's precache list) and pulling in jsPDF/html2canvas from
+// a CDN would either break offline use or require vendoring a library into
+// this repo for a "nice to have" feature. Instead this reuses the browser's
+// own native print-to-PDF: render certificateHtmlDoc()'s exact markup into
+// a hidden iframe (so it doesn't disturb the visible app, and avoids the
+// popup-blocker risk a new window.open() print flow would have) and call
+// print() on it - every modern desktop and mobile browser offers "Save as
+// PDF" as a print destination, so this gets a pixel-faithful copy of the
+// same certificate design already used for the HTML download, with zero new
+// dependencies and full offline support.
+// DN-65: lang threads through to certificateHtmlDoc() the same way - see
+// that function's own comment.
+function printCertificateAsPdf(record, lang) {
+  const iframe = document.createElement("iframe");
+  iframe.style.position = "fixed";
+  iframe.style.right = "0";
+  iframe.style.bottom = "0";
+  iframe.style.width = "0";
+  iframe.style.height = "0";
+  iframe.style.border = "0";
+  iframe.setAttribute("aria-hidden", "true");
+  document.body.appendChild(iframe);
+
+  // Print-specific overrides appended to the same markup the HTML download
+  // uses: the on-screen version centers the certificate with a large margin
+  // (fine for viewing a downloaded file in a browser tab), but printed
+  // through an actual print/PDF dialog that margin would either push
+  // content onto a second page or throw off centering depending on the
+  // browser's own page margins - @page + a zeroed body margin fixes that
+  // without touching the HTML-download design at all.
+  const printCss = `<style>@media print { @page { margin: 15mm; } body { margin: 0; } }</style>`;
+  const html = certificateHtmlDoc(record, lang).replace("</head>", `${printCss}</head>`);
+
+  const doc = iframe.contentWindow.document;
+  doc.open();
+  doc.write(html);
+  doc.close();
+
+  let cleaned = false;
+  const cleanup = () => {
+    if (cleaned) return;
+    cleaned = true;
+    iframe.remove();
+  };
+  // afterprint fires once the browser's print/save dialog closes (either
+  // way - printed or cancelled); most browsers support this on the iframe's
+  // own contentWindow. Fallback timeout covers the rare browser that
+  // doesn't fire it, so the hidden iframe never lingers indefinitely.
+  iframe.contentWindow.addEventListener("afterprint", cleanup, { once: true });
+  setTimeout(cleanup, 60000);
+
+  // Let the iframe finish laying out the just-written document before
+  // invoking print() - a synchronous call immediately after doc.close() has
+  // been unreliable in some browsers for content with any images to size.
+  requestAnimationFrame(() => {
+    iframe.contentWindow.focus();
+    iframe.contentWindow.print();
+  });
 }
 
 function downloadTextFile(filename, content, mime) {
@@ -2290,18 +2788,46 @@ async function renderCertificates() {
       <div class="cert-card-title">${record.moduleLabel} · ${record.scopeLabel}</div>
       <div class="cert-card-date">${C.passedOn(dateStr)}</div>
       <div class="cert-card-renewal"></div>
+      <div class="cert-lang-row">${certLangSelectHtml(record, C)}</div>
       <div class="cert-card-actions">
         <button class="back-btn cert-dl-cert">${C.downloadCert}</button>
+        <button class="back-btn cert-dl-pdf">${C.downloadPdf}</button>
         <button class="back-btn cert-dl-cred">${C.downloadCred}</button>
       </div>
       <div class="cert-jwt-row"></div>
       <div class="cert-verify-row"></div>
+      <div class="cert-email-row"></div>
+      <div class="cert-wallet-row"></div>
     `;
+    card.querySelector(".cert-lang-select").addEventListener("change", (e) => {
+      certLangOverrides.set(record.id, e.target.value);
+    });
     renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
     renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
     renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
-    card.querySelector(".cert-dl-cert").addEventListener("click", () => {
-      downloadTextFile(`${record.examType}-${record.scopeCode}-certificate.html`, certificateHtmlDoc(record), "text/html");
+    renderEmailCertRow(card.querySelector(".cert-email-row"), record, C);
+    renderWalletRow(card.querySelector(".cert-wallet-row"), record, C);
+    // DN-56: the certificate document itself now embeds verification (see
+    // certificateHtmlDoc()'s three-state verify block), so both downloads
+    // below give an unsigned/already-attempted record one more chance to
+    // pick up a real signature first - same reasoning the JSON handler
+    // already used, just extended to these two since they now have
+    // signature-dependent content too, not just the JSON/JWT downloads.
+    card.querySelector(".cert-dl-cert").addEventListener("click", async () => {
+      await ensureSignedCredential(record);
+      renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+      renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
+      renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
+      renderWalletRow(card.querySelector(".cert-wallet-row"), record, C);
+      downloadTextFile(`${record.examType}-${record.scopeCode}-certificate.html`, certificateHtmlDoc(record, certLangFor(record)), "text/html");
+    });
+    card.querySelector(".cert-dl-pdf").addEventListener("click", async () => {
+      await ensureSignedCredential(record);
+      renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
+      renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
+      renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
+      renderWalletRow(card.querySelector(".cert-wallet-row"), record, C);
+      printCertificateAsPdf(record, certLangFor(record));
     });
     card.querySelector(".cert-dl-cred").addEventListener("click", async () => {
       // Give an unsigned/already-attempted record one more chance to get a
@@ -2311,6 +2837,7 @@ async function renderCertificates() {
       renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
       renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
       renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
+      renderWalletRow(card.querySelector(".cert-wallet-row"), record, C);
       downloadTextFile(`${record.examType}-${record.scopeCode}-credential.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
     list.appendChild(card);
@@ -2328,6 +2855,7 @@ async function renderCertificates() {
         renderBadgeRow(card.querySelector(".cert-badge-row"), record, C);
         renderJwtDownloadBtn(card.querySelector(".cert-jwt-row"), record, C);
         renderVerifyLinkRow(card.querySelector(".cert-verify-row"), record, C);
+        renderWalletRow(card.querySelector(".cert-wallet-row"), record, C);
       });
     }
 
@@ -2474,6 +3002,105 @@ function renderVerifyLinkRow(slot, record, C) {
   });
 }
 
+// DN-60: emails a copy of the certificate to the person who just earned it,
+// via netlify/functions/send-certificate-email.mjs (Resend). Unlike
+// renderVerifyLinkRow() above, this is NOT gated to COMPLIANCE_MODULES or to
+// a verified/signed record - it works for every module and both signed and
+// unsigned records (the function's own EMAIL_STRINGS falls back to a
+// "download it from the app" note when there's no verifyUrl yet). See that
+// function's own header comment for what the operator still has to set up
+// (Resend account, verified sending domain, RESEND_API_KEY/RESEND_FROM_
+// ADDRESS env vars) before this actually delivers mail - until then it
+// fails gracefully with C.emailErrorMsg, same as any other offline/network
+// failure this app already handles.
+const SEND_CERTIFICATE_EMAIL_ENDPOINT = "/.netlify/functions/send-certificate-email";
+const SEND_CERTIFICATE_EMAIL_TIMEOUT_MS = 10000;
+
+// DN-62: toAddresses is an array of one or more recipient email strings
+// (see renderEmailCertRow() below for how they're collected/parsed from a
+// single comma-separated input field).
+async function sendCertificateEmail(record, toAddresses) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), SEND_CERTIFICATE_EMAIL_TIMEOUT_MS);
+  try {
+    const res = await fetch(SEND_CERTIFICATE_EMAIL_ENDPOINT, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        to: toAddresses,
+        lang: state.lang,
+        moduleLabel: record.moduleLabel,
+        scopeLabel: record.scopeLabel,
+        examType: record.examType,
+        scopeCode: record.scopeCode,
+        passedAt: record.passedAt,
+        totalQuestions: record.totalQuestions,
+        errorPoints: record.errorPoints,
+        wrongHighStakes: record.wrongHighStakes,
+        verifyUrl: record.verifyUrl || undefined,
+      }),
+      signal: controller.signal,
+    });
+    return res.ok;
+  } catch (e) {
+    return false;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+const CERT_EMAIL_MAX_RECIPIENTS = 10; // mirrors MAX_RECIPIENTS in send-certificate-email.mjs
+const CERT_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// DN-62 (PO decision, 2026-08-11): "the user can select multiple addresses
+// to send the email to" - e.g. yourself + your manager/HR in one send,
+// rather than repeating the whole flow per recipient. Uses a single input
+// with the native HTML5 `multiple` attribute (built-in comma-separated
+// email-list parsing/validation in every modern browser, no extra UI
+// widget needed) rather than a dynamic "add another recipient" row set -
+// simpler to build and to use for the common case of a handful of
+// addresses typed or pasted at once.
+function renderEmailCertRow(slot, record, C) {
+  if (!slot) return;
+  slot.innerHTML = `
+    <div class="cert-email-form">
+      <input type="email" multiple class="cert-email-input" placeholder="${C.emailPlaceholder}" maxlength="1000">
+      <button type="button" class="back-btn cert-email-send-btn">${C.emailSendBtn}</button>
+    </div>
+  `;
+  slot.querySelector(".cert-email-send-btn").addEventListener("click", async () => {
+    const btn = slot.querySelector(".cert-email-send-btn");
+    const input = slot.querySelector(".cert-email-input");
+
+    if (!input.checkValidity()) { input.reportValidity(); return; }
+    const addrs = [...new Set(
+      input.value.split(",").map((a) => a.trim()).filter(Boolean)
+    )];
+    if (addrs.length < 1) { input.focus(); return; }
+    if (!addrs.every((a) => CERT_EMAIL_RE.test(a))) { input.reportValidity(); return; }
+    if (addrs.length > CERT_EMAIL_MAX_RECIPIENTS) {
+      const err = document.createElement("div");
+      err.className = "cert-email-error";
+      err.textContent = C.emailTooManyMsg(CERT_EMAIL_MAX_RECIPIENTS);
+      slot.appendChild(err);
+      return;
+    }
+
+    btn.disabled = true;
+    input.disabled = true;
+    btn.textContent = C.emailSending;
+    const ok = await sendCertificateEmail(record, addrs);
+    const msg = document.createElement("div");
+    msg.className = ok ? "cert-email-sent" : "cert-email-error";
+    msg.textContent = ok ? C.emailSentMsg : C.emailErrorMsg;
+    slot.appendChild(msg);
+    btn.disabled = false;
+    input.disabled = false;
+    btn.textContent = C.emailSendBtn;
+    if (ok) input.value = "";
+  });
+}
+
 // DN-51 (docs/badge-wallet-portability-scoping.md): the raw signed JWT
 // itself, as a standalone downloadable file - NOT wrapped in JSON like
 // credentialJsonDoc()'s existing download. Real badge wallets (Credly,
@@ -2496,6 +3123,90 @@ function renderJwtDownloadBtn(slot, record, C) {
   slot.innerHTML = `<button type="button" class="back-btn cert-dl-jwt">${C.downloadJwt}</button>`;
   slot.querySelector(".cert-dl-jwt").addEventListener("click", () => {
     downloadTextFile(`${record.examType}-${record.scopeCode}-credential.jwt`, record.signedJwt, "text/plain");
+  });
+}
+
+// DN-64 (docs/badge-wallet-portability-scoping.md, section 5 step 3): the
+// smallest viable version of "actually get this credential into a badge
+// wallet app" that doesn't require new backend infrastructure. This is
+// NOT a one-click "add to Credly" button - no real one exists (see the
+// research in the scoping doc): Credly/Open Badge Passport both require a
+// manual file upload, and the only genuine one-click mechanism (Learner
+// Credential Wallet's QR/link import) turned out, on checking LCW's own
+// README/CONTRIBUTING docs and GitHub issues, to route through the
+// "VC-API Interaction URL" protocol - a full issuer-hosted exchange
+// service (initiate/continue steps, workflow state), not a static link or
+// a GET-fetchable credential URL. That's real new backend work for a
+// benefit (skip the manual upload step) smaller than what step 1/1b
+// already shipped, so per the scoping doc's own recommendation it's
+// deliberately NOT built here - this row instead makes the two paths that
+// DO already work (file upload, and the existing opt-in email-yourself
+// flow) legible as "wallet import", which they weren't before even though
+// the underlying JWT/email features already existed.
+// Same gating as renderVerifyLinkRow() - COMPLIANCE_MODULES + a genuinely
+// signed record - since "add to a wallet" only makes sense for a
+// credential a third party could actually verify once imported.
+function renderWalletRow(slot, record, C) {
+  if (!slot) return;
+  if (!COMPLIANCE_MODULES.has(record.examType) || !(record.verified && record.signedJwt)) {
+    slot.innerHTML = "";
+    return;
+  }
+  slot.innerHTML = `
+    <div class="cert-wallet-title">${C.walletRowTitle}</div>
+    <div class="cert-wallet-intro">${C.walletRowIntro}</div>
+    <ul class="cert-wallet-list">
+      <li>${C.walletCredlyStep}</li>
+      <li>${C.walletObpStep}</li>
+      <li>${C.walletLcwStep}</li>
+    </ul>
+    <div class="cert-wallet-email-note">${C.walletEmailNote}</div>
+    <div class="cert-wallet-identity">
+      <div class="cert-wallet-identity-title">${C.walletIdentityTitle}</div>
+      <div class="cert-wallet-identity-intro">${C.walletIdentityIntro}</div>
+      <div class="cert-wallet-identity-form">
+        <input type="email" multiple class="cert-wallet-identity-input" placeholder="${C.walletIdentityPlaceholder}" maxlength="600">
+        <button type="button" class="back-btn cert-wallet-identity-btn">${C.walletIdentityDownloadBtn}</button>
+      </div>
+    </div>
+  `;
+  const input = slot.querySelector(".cert-wallet-identity-input");
+  const btn = slot.querySelector(".cert-wallet-identity-btn");
+  btn.addEventListener("click", async () => {
+    if (!input.checkValidity()) { input.reportValidity(); return; }
+    const addrs = [...new Set(
+      input.value.split(",").map((a) => a.trim().toLowerCase()).filter(Boolean)
+    )];
+    if (addrs.length < 1) { input.focus(); return; }
+    if (!addrs.every((a) => CERT_EMAIL_RE.test(a))) { input.reportValidity(); return; }
+    if (addrs.length > SIGN_CREDENTIAL_MAX_IDENTITY_EMAILS) {
+      const err = document.createElement("div");
+      err.className = "cert-wallet-identity-error";
+      err.textContent = C.walletIdentityTooManyMsg(SIGN_CREDENTIAL_MAX_IDENTITY_EMAILS);
+      slot.appendChild(err);
+      return;
+    }
+
+    btn.disabled = true;
+    input.disabled = true;
+    btn.textContent = C.walletIdentitySigning;
+    const jwt = await signPersonalizedCredential(record, addrs);
+    slot.querySelectorAll(".cert-wallet-identity-error, .cert-wallet-identity-done").forEach((n) => n.remove());
+    if (jwt) {
+      downloadTextFile(`${record.examType}-${record.scopeCode}-credential-personalized.jwt`, jwt, "text/plain");
+      const msg = document.createElement("div");
+      msg.className = "cert-wallet-identity-done";
+      msg.textContent = C.walletIdentityDoneMsg;
+      slot.appendChild(msg);
+    } else {
+      const err = document.createElement("div");
+      err.className = "cert-wallet-identity-error";
+      err.textContent = C.walletIdentityErrorMsg;
+      slot.appendChild(err);
+    }
+    btn.disabled = false;
+    input.disabled = false;
+    btn.textContent = C.walletIdentityDownloadBtn;
   });
 }
 
@@ -3209,8 +3920,122 @@ function wirePrimerControls() {
 // the DN-29/DN-21 correction in BACKLOG.md). "Training" drops the time
 // limit for calm practice; "simulation" adds the real 45-minute limit and
 // auto-submits when it expires.
-const EXAM_QUESTION_COUNT = 30;
-const EXAM_TIME_LIMIT_MS = 45 * 60 * 1000;
+//
+// DN-54: the two enterprise/premium compliance modules (kyc_aml,
+// kartellrecht) deliberately use a much shorter exam than every other
+// module - a 25-30 question pool with only ~6 drawn per exam run, vs. the
+// driving modules' 30-of-40+ draw - since this is a corporate compliance
+// knowledge-check taken during a work day, not a multi-hour licensing exam.
+// Question count, pass threshold, and time limit are therefore all
+// per-exam_type now (falling back to the original driving-exam defaults
+// for every module that doesn't override them) rather than single global
+// constants - see the *_BY_TYPE maps and their accessor functions below.
+const EXAM_QUESTION_COUNT_DEFAULT = 30;
+const EXAM_QUESTION_COUNT_BY_TYPE = {
+  kyc_aml: 6,
+  kartellrecht: 6,
+  // DN-64: lksg (Lieferkettensorgfaltspflichtengesetz) is a third
+  // enterprise/premium compliance module, same 30-question pool / 6-per-run
+  // pattern as kyc_aml and kartellrecht.
+  lksg: 6,
+  // 2026-08 content expansion: 4 new personal-license modules (not
+  // workplace compliance) - draw counts scaled to each module's real-world
+  // exam question count / pool size, not the 6-question compliance pattern.
+  // sportboot_binnen: 50-question pool (5 topics x10), 30-question draw
+  // approximates the real SBF Binnen exam's ~30 combined questions.
+  sportboot_binnen: 30,
+  // sportboot_see: 30-question pool (4 sea-specific topics), 20-question
+  // draw covers the pool's sea-specific content proportionally without
+  // duplicating the (smaller) real SBF See specific-question count.
+  sportboot_see: 20,
+  // waffensachkunde: 50-question pool (4 topics), 30-question draw matches
+  // the real Sachkundepruefung written exam's ~30 questions.
+  waffensachkunde: 30,
+  // amateurfunk_e: 40-question pool (3 topics), 20-question draw - smaller
+  // than the real exam's 3x25 sectioned format since this pilot pool is an
+  // initial coverage sample, not a full replica (see pilot meta).
+  amateurfunk_e: 20,
+  // 2026-08 content expansion round 2: 3 more modules, same "draw scaled
+  // proportionally to pool size" approach.
+  // angelschein_bayern: 48-question pool (5 topics), 30-question draw -
+  // same ~30-question scale as the other standalone personal-license
+  // modules this round.
+  angelschein_bayern: 30,
+  // angelschein_nrw: 56-question pool (5 topics), 30-question draw - kept
+  // at the same 30-question scale rather than scaling up with the larger
+  // pool, for a consistent exam-taking time across all Angelschein modules.
+  angelschein_nrw: 30,
+  // amateurfunk_a: 45-question pool, TECHNICAL-ONLY (no Betrieb/
+  // Vorschriften - see data/amateurfunk_a_pilot.json meta.
+  // design_flag_betrieb_vorschriften and BACKLOG.md for the open product
+  // decision on sharing those sections with amateurfunk_e). 22-question
+  // draw covers only the technical delta, not a full 3-section Klasse A
+  // exam simulation.
+  amateurfunk_a: 22,
+  // fuehrerschein_bus: 48-question pool (4 topics x12: PBefG/BOKraft
+  // passenger conduct, driving/rest times & tachograph for buses,
+  // bus-specific vehicle technology, and emergency/evacuation procedures -
+  // see data/fuehrerschein_bus_pilot.json meta), 28-question draw, same
+  // "~30-question personal-license scale" as this round's other modules.
+  fuehrerschein_bus: 28,
+};
+function examQuestionCount(examType) {
+  return EXAM_QUESTION_COUNT_BY_TYPE[examType] || EXAM_QUESTION_COUNT_DEFAULT;
+}
+
+const EXAM_TIME_LIMIT_MS_DEFAULT = 45 * 60 * 1000;
+const EXAM_TIME_LIMIT_MS_BY_TYPE = {
+  // ~100s/question with real margin for a 6-question compliance check,
+  // vs. the driving exam's 45 real-world minutes for 30 questions.
+  kyc_aml: 10 * 60 * 1000,
+  kartellrecht: 10 * 60 * 1000,
+  lksg: 10 * 60 * 1000,
+  // 2026-08 content expansion: realistic personal-license exam durations.
+  sportboot_binnen: 30 * 60 * 1000,
+  sportboot_see: 25 * 60 * 1000,
+  waffensachkunde: 30 * 60 * 1000,
+  amateurfunk_e: 30 * 60 * 1000,
+  // 2026-08 content expansion round 2.
+  angelschein_bayern: 30 * 60 * 1000,
+  angelschein_nrw: 30 * 60 * 1000,
+  // amateurfunk_a: shorter than amateurfunk_e's 30 minutes since this is a
+  // smaller, technical-only draw (22 questions, no Betrieb/Vorschriften).
+  amateurfunk_a: 20 * 60 * 1000,
+  // fuehrerschein_bus: 30 minutes for a 28-question draw, matching the
+  // other vehicle-license-style modules' time budget this round.
+  fuehrerschein_bus: 30 * 60 * 1000,
+};
+function examTimeLimitMs(examType) {
+  return EXAM_TIME_LIMIT_MS_BY_TYPE[examType] || EXAM_TIME_LIMIT_MS_DEFAULT;
+}
+
+// Max total error points to still pass. Default (10, over a 30-question/
+// 2-5-points-each pool) matches the real Klasse-B rule. For the 6-question
+// compliance exams, 10 would let a learner miss almost every question and
+// still pass - scaled down so missing one typical-value question is
+// tolerated but two is not (roughly a "5 of 6 correct" bar).
+const MAX_ERROR_POINTS_DEFAULT = 10;
+const MAX_ERROR_POINTS_BY_TYPE = {
+  kyc_aml: 4,
+  kartellrecht: 4,
+  lksg: 4,
+  // 2026-08 content expansion: ~1/3 of the draw's total points, in line
+  // with the driving-exam default's ~1/3 ratio (10 error points over a
+  // 30-question, 2-5-points-each pool).
+  sportboot_binnen: 8,
+  sportboot_see: 6,
+  waffensachkunde: 8,
+  amateurfunk_e: 6,
+  // 2026-08 content expansion round 2: same ~1/3-of-draw ratio.
+  angelschein_bayern: 8,
+  angelschein_nrw: 8,
+  amateurfunk_a: 6,
+  // fuehrerschein_bus: ~1/3-of-draw ratio again, for a 28-question draw.
+  fuehrerschein_bus: 8,
+};
+function maxErrorPoints(examType) {
+  return MAX_ERROR_POINTS_BY_TYPE[examType] != null ? MAX_ERROR_POINTS_BY_TYPE[examType] : MAX_ERROR_POINTS_DEFAULT;
+}
 
 // Target draw distribution across the 10 topics, summing to 30. Roughly
 // proportional to each topic's real share of the question pool, with a
@@ -3236,6 +4061,110 @@ const EXAM_TOPIC_DRAW = {
     fahrtuechtigkeit: 2,
     erstehilfe: 1,
   },
+  // DN-54: 6-question draws across the 5 compliance topics each module has
+  // - one topic gets 2 (the most operationally central one), the other 4
+  // get 1 each, so every exam run touches every topic at least once.
+  kyc_aml: {
+    sorgfaltspflichten: 2,
+    grundlagen: 1,
+    verdachtsmeldung: 1,
+    verstaerkte_sorgfalt: 1,
+    sanktionen: 1,
+  },
+  kartellrecht: {
+    grundlagen: 2,
+    kernbeschraenkungen: 1,
+    bussgelder: 1,
+    selbstreinigung: 1,
+    straftaten: 1,
+  },
+  // DN-64: lksg's 5 topics, same 2/1/1/1/1 draw pattern - anwendungsbereich
+  // (scope/thresholds) is the topic every learner should see reinforced most
+  // since it's the gate for whether the whole module applies to them.
+  lksg: {
+    anwendungsbereich: 2,
+    sorgfaltspflichten: 1,
+    praevention_abhilfe: 1,
+    beschwerdeverfahren: 1,
+    sanktionen: 1,
+  },
+  // 2026-08 content expansion: draws proportional to each module's real
+  // topic_code distribution in its pilot pool (see data/<module>_pilot.json
+  // meta.topic_breakdown / question counts per topic_code).
+  // sportboot_binnen pool: vorfahrt10, bezeichnung10, schallzeichen10,
+  // betonnung10, seemannschaft10 - even split, 6 each = 30.
+  sportboot_binnen: {
+    vorfahrt: 6,
+    bezeichnung: 6,
+    schallzeichen: 6,
+    betonnung: 6,
+    seemannschaft: 6,
+  },
+  // sportboot_see pool: betonnung8, seefunk_vorfahrt8, gezeiten7, seewetter7
+  // - even split, 5 each = 20.
+  sportboot_see: {
+    betonnung: 5,
+    seefunk_vorfahrt: 5,
+    gezeiten: 5,
+    seewetter: 5,
+  },
+  // waffensachkunde pool: grundlagen13, aufbewahrung_transport13,
+  // munition_ballistik12, handhabung_sicherheit12 - proportional, 8/8/7/7 = 30.
+  waffensachkunde: {
+    grundlagen: 8,
+    aufbewahrung_transport: 8,
+    munition_ballistik: 7,
+    handhabung_sicherheit: 7,
+  },
+  // amateurfunk_e pool: technik16, betrieb12, vorschriften12 - proportional,
+  // 8/6/6 = 20.
+  amateurfunk_e: {
+    technik: 8,
+    betrieb: 6,
+    vorschriften: 6,
+  },
+  // 2026-08 content expansion round 2.
+  // angelschein_bayern pool: schonzeiten_bayern12, fanggeraete_bayern9,
+  // fischereischein_bayern10, fischkunde_bayern9, gewaesserschutz_bayern8 -
+  // proportional to a 30-question draw, 8/6/6/6/4 = 30.
+  angelschein_bayern: {
+    schonzeiten_bayern: 8,
+    fanggeraete_bayern: 6,
+    fischereischein_bayern: 6,
+    fischkunde_bayern: 6,
+    gewaesserschutz_bayern: 4,
+  },
+  // angelschein_nrw pool: schonzeiten12, geraete10, fischereischein14,
+  // fischkunde12, gewaesserschutz8 - proportional to a 30-question draw,
+  // 6/5/8/6/5 = 30.
+  angelschein_nrw: {
+    schonzeiten: 6,
+    geraete: 5,
+    fischereischein: 8,
+    fischkunde: 6,
+    gewaesserschutz: 5,
+  },
+  // amateurfunk_a pool: antennentechnik8, leitungstheorie8, ausbreitung8,
+  // leistung8, modulation_digital7, emv_hochleistung6 - proportional to a
+  // 22-question draw (technical-only, no Betrieb/Vorschriften - see the
+  // design flag on EXAM_QUESTION_COUNT_BY_TYPE.amateurfunk_a above),
+  // 4/4/4/4/3/3 = 22.
+  amateurfunk_a: {
+    antennentechnik: 4,
+    leitungstheorie: 4,
+    ausbreitung: 4,
+    leistung: 4,
+    modulation_digital: 3,
+    emv_hochleistung: 3,
+  },
+  // fuehrerschein_bus pool: pbefg_verhalten12, lenkzeiten_bus12,
+  // fahrzeugtechnik_bus12, notfall_bus12 - even split, 7 each = 28.
+  fuehrerschein_bus: {
+    pbefg_verhalten: 7,
+    lenkzeiten_bus: 7,
+    fahrzeugtechnik_bus: 7,
+    notfall_bus: 7,
+  },
 };
 
 function shuffle(arr) {
@@ -3248,6 +4177,7 @@ function shuffle(arr) {
 }
 
 function drawExamQuestions() {
+  const targetCount = examQuestionCount(state.examType);
   const byTopic = {};
   state.questions.forEach((q) => {
     (byTopic[q.topic_code] = byTopic[q.topic_code] || []).push(q);
@@ -3260,13 +4190,40 @@ function drawExamQuestions() {
   });
   // If a topic's pool were ever smaller than its target (not the case at
   // 500 questions, but defensive for future smaller content packs), top up
-  // from the overall pool so an exam run is always exactly 30 questions.
-  if (draw.length < EXAM_QUESTION_COUNT) {
+  // from the overall pool so an exam run is always exactly targetCount.
+  if (draw.length < targetCount) {
     const usedIds = new Set(draw.map((q) => q.id));
     const rest = shuffle(state.questions.filter((q) => !usedIds.has(q.id)));
-    draw = draw.concat(rest.slice(0, EXAM_QUESTION_COUNT - draw.length));
+    draw = draw.concat(rest.slice(0, targetCount - draw.length));
   }
-  return shuffle(draw).slice(0, EXAM_QUESTION_COUNT);
+  return shuffle(draw).slice(0, targetCount);
+}
+
+// DN-52 Phase 2: short question count for the practice-quiz tier - within
+// the scoping doc's 10-15 range, and deliberately smaller than both
+// EXAM_QUESTION_COUNT_DEFAULT (30) and the compliance modules' 6 (which
+// already sits inside this same practice-scale range, so no per-module
+// override table is needed here the way exam mode needs one).
+const PRACTICE_QUIZ_QUESTION_COUNT = 12;
+
+// Draws a short question set for the practice-quiz tier, scoped either to
+// one topic or "mixed" (all topics). Deliberately reuses existing
+// question-drawing machinery rather than inventing a second selection
+// algorithm: a single-topic scope is just shuffle() (the same helper
+// drawExamQuestions() itself uses) over that topic's own questions, and
+// "mixed" leans on drawExamQuestions()'s already-realistic topic-weighted
+// full draw, then takes a shuffled subset of it - so a mixed practice quiz
+// still feels like a fair miniature exam rather than a differently-weighted
+// one. Undersized topic pools (e.g. a compliance module's smaller topics)
+// simply yield fewer than PRACTICE_QUIZ_QUESTION_COUNT questions, the same
+// graceful degradation drawExamQuestions() already has for its own topic
+// draw.
+function drawPracticeQuestions(scopeTopic) {
+  if (scopeTopic && scopeTopic !== "mixed") {
+    const pool = state.questions.filter((q) => q.topic_code === scopeTopic);
+    return shuffle(pool).slice(0, PRACTICE_QUIZ_QUESTION_COUNT);
+  }
+  return shuffle(drawExamQuestions()).slice(0, PRACTICE_QUIZ_QUESTION_COUNT);
 }
 
 function openExamPicker() {
@@ -3283,10 +4240,20 @@ function closeExamPicker() {
 
 function renderExamPicker() {
   const X = EXAM_STRINGS[state.lang];
+  const count = examQuestionCount(state.examType);
+  const minutes = Math.round(examTimeLimitMs(state.examType) / 60000);
   el("#exam-picker-title").textContent = X.pickerTitle;
-  el("#exam-picker-desc").textContent = X.pickerDesc;
+  el("#exam-picker-desc").textContent = X.pickerDesc(count);
   el("#exam-pick-training").innerHTML = `<strong>${X.trainingTitle}</strong>${X.trainingDesc}`;
-  el("#exam-pick-simulation").innerHTML = `<strong>${X.simTitle}</strong>${X.simDesc}`;
+  el("#exam-pick-simulation").innerHTML = `<strong>${X.simTitle}</strong>${X.simDesc(minutes)}`;
+  // DN-52 Phase 2: practice-quiz entry point, placed in the same mode-choice
+  // card Training/Simulation already use (per the scoping doc's "near where
+  // Exam Simulation/Training ... are already launched" entry-point ask) -
+  // no new header button or separate wizard needed for a working,
+  // discoverable entry point.
+  const PQ = practiceQuizStrings(state.lang);
+  const practiceBtn = el("#exam-pick-practice");
+  if (practiceBtn) practiceBtn.innerHTML = `<strong>${PQ.entryTitle}</strong>${PQ.entryDesc}`;
   el("#exam-picker-cancel").textContent = X.cancel;
 }
 
@@ -3315,6 +4282,10 @@ function startExam(mode) {
     reviewPass: false,
     reviewQueue: [],
     reviewIndex: 0,
+    // DN-54: captured at start (not read live from the *_BY_TYPE map on
+    // every tick) so an in-progress exam keeps its original time limit even
+    // if state.examType somehow changed mid-run.
+    timeLimitMs: examTimeLimitMs(state.examType),
   };
   history.replaceState({ view: "exam" }, "");
   el("#exam-view").hidden = false;
@@ -3328,7 +4299,7 @@ function startExamTimer() {
   const tick = () => {
     if (!state.exam || state.exam.finished) return;
     const elapsed = Date.now() - state.exam.startedAt;
-    const remaining = EXAM_TIME_LIMIT_MS - elapsed;
+    const remaining = state.exam.timeLimitMs - elapsed;
     const timerEl = el("#exam-timer");
     timerEl.hidden = false;
     if (remaining <= 0) {
@@ -3563,7 +4534,7 @@ function computeExamResults() {
       wrongList.push({ q, given });
     }
   });
-  const passed = errorPoints <= 10 && wrongHighStakes < 2;
+  const passed = errorPoints <= maxErrorPoints(state.examType) && wrongHighStakes < 2;
   return { errorPoints, wrongHighStakes, wrongList, passed };
 }
 
@@ -3609,7 +4580,7 @@ function renderExamResults() {
   titleEl.className = results.passed ? "exam-results-pass" : "exam-results-fail";
 
   const summaryEl = el("#exam-results-summary");
-  let summaryHtml = `<div class="exam-results-summary-box">${X.summary(results.errorPoints, results.wrongHighStakes)}</div>`;
+  let summaryHtml = `<div class="exam-results-summary-box">${X.summary(results.errorPoints, maxErrorPoints(state.examType), results.wrongHighStakes)}</div>`;
   if (state.exam.timedOut) {
     summaryHtml = `<div class="exam-results-summary-box">${X.timeUp}</div>` + summaryHtml;
   }
@@ -3649,21 +4620,32 @@ function renderExamResults() {
       <div class="cert-card">
         <div class="cert-badge-row"></div>
         <div class="cert-card-title">🎓 ${C.title}</div>
+        <div class="cert-lang-row">${certLangSelectHtml(state.exam.certRecord, C)}</div>
         <div class="cert-card-actions">
           <button class="back-btn" id="exam-results-cert-html">${C.downloadCert}</button>
+          <button class="back-btn" id="exam-results-cert-pdf">${C.downloadPdf}</button>
           <button class="back-btn" id="exam-results-cert-json">${C.downloadCred}</button>
         </div>
         <div class="cert-jwt-row"></div>
         <div class="cert-verify-row"></div>
+        <div class="cert-email-row"></div>
+        <div class="cert-wallet-row"></div>
       </div>
     `;
     const record = state.exam.certRecord;
     const badgeSlot = certEl.querySelector(".cert-badge-row");
     const jwtSlot = certEl.querySelector(".cert-jwt-row");
     const verifySlot = certEl.querySelector(".cert-verify-row");
+    const emailSlot = certEl.querySelector(".cert-email-row");
+    const walletSlot = certEl.querySelector(".cert-wallet-row");
+    certEl.querySelector(".cert-lang-select").addEventListener("change", (e) => {
+      certLangOverrides.set(record.id, e.target.value);
+    });
     renderBadgeRow(badgeSlot, record, C);
     renderJwtDownloadBtn(jwtSlot, record, C);
     renderVerifyLinkRow(verifySlot, record, C);
+    renderEmailCertRow(emailSlot, record, C);
+    renderWalletRow(walletSlot, record, C);
     // A fresh pass fires trySignCompletion() in the background right from
     // recordCompletion() (still in flight at the moment this results screen
     // first renders) - re-render the badge once that settles so a passing
@@ -3677,16 +4659,31 @@ function renderExamResults() {
         renderBadgeRow(badgeSlot, record, C);
         renderJwtDownloadBtn(jwtSlot, record, C);
         renderVerifyLinkRow(verifySlot, record, C);
+        renderWalletRow(walletSlot, record, C);
       });
     }
-    el("#exam-results-cert-html").addEventListener("click", () => {
-      downloadTextFile(`zettacard-zertifikat-${record.id}.html`, certificateHtmlDoc(record), "text/html");
+    el("#exam-results-cert-html").addEventListener("click", async () => {
+      await ensureSignedCredential(record);
+      renderBadgeRow(badgeSlot, record, C);
+      renderJwtDownloadBtn(jwtSlot, record, C);
+      renderVerifyLinkRow(verifySlot, record, C);
+      renderWalletRow(walletSlot, record, C);
+      downloadTextFile(`zettacard-zertifikat-${record.id}.html`, certificateHtmlDoc(record, certLangFor(record)), "text/html");
+    });
+    el("#exam-results-cert-pdf").addEventListener("click", async () => {
+      await ensureSignedCredential(record);
+      renderBadgeRow(badgeSlot, record, C);
+      renderJwtDownloadBtn(jwtSlot, record, C);
+      renderVerifyLinkRow(verifySlot, record, C);
+      renderWalletRow(walletSlot, record, C);
+      printCertificateAsPdf(record, certLangFor(record));
     });
     el("#exam-results-cert-json").addEventListener("click", async () => {
       await ensureSignedCredential(record);
       renderBadgeRow(badgeSlot, record, C);
       renderJwtDownloadBtn(jwtSlot, record, C);
       renderVerifyLinkRow(verifySlot, record, C);
+      renderWalletRow(walletSlot, record, C);
       downloadTextFile(`zettacard-credential-${record.id}.json`, JSON.stringify(credentialJsonDoc(record), null, 2), "application/json");
     });
   } else {
@@ -3703,6 +4700,252 @@ function exitExam() {
   state.exam = null;
   el("#exam-view").hidden = true;
   el("#exam-results").hidden = true;
+  setInertBehindDialog(false);
+  history.replaceState({ view: "list" }, "");
+}
+
+// --- DN-52 Phase 2: practice-quiz tier -----------------------------------
+// A short (PRACTICE_QUIZ_QUESTION_COUNT, 12), low-stakes quiz mode between
+// flashcards and Exam Simulation - see docs/kickstart-learning-journey-
+// scoping.md section 5. Hard constraints, per the PO's decision documented
+// there: no timer, no pass/fail rule, and this code path must NEVER call
+// recordCompletion()/trySignCompletion() or touch the certificate/
+// completions localStorage list - only a genuine Exam Simulation pass
+// (finishExam() above) does that. It DOES feed the Leitner spaced-
+// repetition schedule, via the exact same feedExamResultsIntoSrs() exam
+// mode already uses (that function only reads {questions, answers} shape,
+// so state.practiceQuiz works with it unmodified).
+//
+// Feedback is immediate per question (unlike exam mode's reveal-at-the-end)
+// - reusing the exact same post-reveal visual language the flashcard "try
+// it yourself" self-answer flow (renderDetail()) already established:
+// .option.correct / .your-wrong-pick / .picked, .correct-mark /
+// .wrong-pick-mark, and the .explanation block - so no new CSS had to be
+// invented for this, and a returning learner already recognizes the look.
+
+function openPracticePicker() {
+  el("#exam-picker").hidden = true; // came from the exam-mode picker card
+  el("#practice-picker").hidden = false;
+  history.pushState({ view: "practice-picker" }, "");
+  renderPracticePicker();
+  setInertBehindDialog(true);
+}
+
+function closePracticePicker() {
+  el("#practice-picker").hidden = true;
+  setInertBehindDialog(false);
+}
+
+function renderPracticePicker() {
+  const PQ = practiceQuizStrings(state.lang);
+  el("#practice-picker-title").textContent = PQ.pickerTitle;
+  el("#practice-picker-desc").textContent = PQ.pickerDesc(PRACTICE_QUIZ_QUESTION_COUNT);
+  const container = el("#practice-picker-topics");
+  container.innerHTML = "";
+  const mixedBtn = document.createElement("button");
+  mixedBtn.className = "exam-mode-btn";
+  mixedBtn.innerHTML = `<strong>${PQ.mixedTitle}</strong>${PQ.mixedDesc}`;
+  mixedBtn.addEventListener("click", () => startPracticeQuiz("mixed"));
+  container.appendChild(mixedBtn);
+  // Same topic set + labels the existing topic-filter chips use
+  // (renderFilters()) and the same state.topicFilter-scoping concept the
+  // scoping doc calls for - just presented as one-shot pick buttons here
+  // rather than a persistent filter.
+  Object.keys(TOPIC_LABELS[state.examType] || {}).forEach((code) => {
+    const btn = document.createElement("button");
+    btn.className = "exam-mode-btn";
+    btn.textContent = getTopicLabel(code, code);
+    btn.addEventListener("click", () => startPracticeQuiz(code));
+    container.appendChild(btn);
+  });
+  el("#practice-picker-cancel").textContent = PQ.cancel;
+}
+
+function startPracticeQuiz(scopeTopic) {
+  el("#practice-picker").hidden = true;
+  const questions = drawPracticeQuestions(scopeTopic);
+  state.practiceQuiz = {
+    scopeTopic, // "mixed" or a topic_code, only used for display/debugging
+    questions,
+    answers: {}, // qId -> given (string for single_choice, array for multi_choice) - same shape state.exam.answers uses
+    checked: {}, // qId -> true once this question's answer has been revealed
+    index: 0,
+    finished: false,
+  };
+  history.replaceState({ view: "practice" }, "");
+  el("#practice-view").hidden = false;
+  setInertBehindDialog(true);
+  renderPracticeQuestion();
+  el("#practice-question").focus();
+}
+
+function practiceCurrentQuestion() {
+  const pq = state.practiceQuiz;
+  return pq.questions[pq.index];
+}
+
+function renderPracticeQuestion() {
+  const S = UI_STRINGS[state.lang];
+  const PQ = practiceQuizStrings(state.lang);
+  const pq = state.practiceQuiz;
+  const q = practiceCurrentQuestion();
+  const t = q.text[state.lang];
+  const topicLabel = getTopicLabel(q.topic_code, q.topic);
+  const isMultiSelect = q.question_type === "multi_choice";
+  const isChecked = !!pq.checked[q.id];
+
+  el("#practice-progress").textContent = PQ.progress(pq.index + 1, pq.questions.length);
+  el("#practice-meta").innerHTML = `
+    <span class="badge topic">${topicLabel}</span>
+    ${isMultiSelect ? `<span class="badge multi-select">${S.multiSelectHint}</span>` : ""}
+  `;
+  el("#practice-question").textContent = t.question;
+
+  const img = resolveImage(q, isChecked);
+  const imgEl = el("#practice-image-note");
+  if (img) {
+    imgEl.innerHTML = `<img src="${img.src}" alt="${img.alt}" class="q-illustration" />`;
+    imgEl.className = "image-illustration";
+    imgEl.hidden = false;
+  } else {
+    imgEl.innerHTML = "";
+    imgEl.hidden = true;
+  }
+
+  const pickedKeys = Array.isArray(pq.answers[q.id])
+    ? pq.answers[q.id]
+    : (pq.answers[q.id] != null ? [pq.answers[q.id]] : []);
+
+  const optionsEl = el("#practice-options");
+  optionsEl.innerHTML = "";
+  Object.entries(t.options).forEach(([key, text]) => {
+    const isCorrect = q.correct.includes(key);
+    const wasPicked = pickedKeys.includes(key);
+    const showCorrect = isChecked && isCorrect;
+    const showWrongPick = isChecked && wasPicked && !isCorrect;
+    const div = document.createElement("div");
+    div.className = "option"
+      + (showCorrect ? " correct" : "")
+      + (showWrongPick ? " your-wrong-pick" : "")
+      + (!isChecked && wasPicked ? " picked" : "")
+      + (isMultiSelect && !isChecked ? " option-checkbox" : "");
+    div.dataset.key = key;
+    if (!isChecked) {
+      div.setAttribute("role", isMultiSelect ? "checkbox" : "button");
+      if (isMultiSelect) div.setAttribute("aria-checked", String(wasPicked));
+      else div.setAttribute("aria-pressed", String(wasPicked));
+      div.tabIndex = 0;
+    }
+    div.innerHTML = `<span class="key">${key.toUpperCase()}</span><span>${text}</span>${
+      showCorrect ? `<span class="correct-mark">✓ ${S.correctMark}</span>`
+      : showWrongPick ? `<span class="wrong-pick-mark">✗ ${S.yourPickWrong}</span>`
+      : ""
+    }`;
+    if (!isChecked) {
+      const pick = () => {
+        if (isMultiSelect) {
+          const current = Array.isArray(pq.answers[q.id]) ? pq.answers[q.id] : [];
+          pq.answers[q.id] = current.includes(key)
+            ? current.filter((k) => k !== key)
+            : [...current, key];
+        } else {
+          pq.answers[q.id] = key;
+        }
+        renderPracticeQuestion();
+      };
+      div.addEventListener("click", pick);
+      div.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); }
+      });
+    }
+    optionsEl.appendChild(div);
+  });
+
+  const checkBtn = el("#practice-check-btn");
+  const nextBtn = el("#practice-next-btn");
+  const hasPick = pickedKeys.length > 0;
+  if (isChecked) {
+    checkBtn.hidden = true;
+    nextBtn.hidden = false;
+    nextBtn.textContent = pq.index === pq.questions.length - 1 ? PQ.finishBtn : PQ.nextBtn;
+  } else {
+    checkBtn.hidden = false;
+    checkBtn.disabled = !hasPick;
+    checkBtn.textContent = PQ.checkBtn;
+    nextBtn.hidden = true;
+  }
+
+  const expl = q.explanation ? q.explanation[state.lang] : null;
+  el("#practice-explanation").hidden = !isChecked;
+  el("#practice-explanation").innerHTML = isChecked
+    ? `<strong>${isExamAnswerCorrect(q, pq.answers[q.id]) ? PQ.correctLabel : PQ.wrongLabel}</strong>${
+        expl ? ` ${expl}` : ""
+      }${q.legal_basis ? `<div class="legal-cite">${S.legalBasis}: ${q.legal_basis}</div>` : ""}`
+    : "";
+}
+
+function practiceCheckAnswer() {
+  const pq = state.practiceQuiz;
+  if (!pq) return;
+  const q = practiceCurrentQuestion();
+  pq.checked[q.id] = true;
+  renderPracticeQuestion();
+}
+
+function practiceNext() {
+  const pq = state.practiceQuiz;
+  if (!pq) return;
+  if (pq.index < pq.questions.length - 1) {
+    pq.index += 1;
+    renderPracticeQuestion();
+    el("#practice-view").scrollTop = 0;
+  } else {
+    finishPracticeQuiz();
+  }
+}
+
+// Same generic hook Exam Simulation/Training already use (DN-16) - the
+// scoping doc's explicit requirement that this tier still feed the Leitner
+// schedule even though it carries none of exam mode's other stakes.
+// Deliberately does NOT call recordCompletion()/trySignCompletion() and
+// never touches state.exam - a practice-quiz run must be structurally
+// incapable of producing a certificate, not just "not currently wired" to
+// one.
+function finishPracticeQuiz() {
+  const pq = state.practiceQuiz;
+  pq.finished = true;
+  feedExamResultsIntoSrs(pq);
+  el("#practice-view").hidden = true;
+  el("#practice-results").hidden = false;
+  history.replaceState({ view: "practice-results" }, "");
+  renderPracticeResults();
+}
+
+function renderPracticeResults() {
+  const PQ = practiceQuizStrings(state.lang);
+  const pq = state.practiceQuiz;
+  const score = pq.questions.reduce(
+    (n, q) => n + (isExamAnswerCorrect(q, pq.answers[q.id]) ? 1 : 0),
+    0
+  );
+  el("#practice-results-title").textContent = PQ.resultsTitle(score, pq.questions.length);
+  el("#practice-results-summary").innerHTML = `
+    <div class="exam-results-summary-box">${PQ.noStakesNote}</div>
+    <p>${PQ.resultsNote}</p>
+    <p>${PQ.retryHint}</p>
+  `;
+  el("#practice-results-close-btn").textContent = PQ.close;
+}
+
+function exitPracticeQuiz() {
+  // Explicitly no confirm() dialog here (unlike exitExam()'s "progress will
+  // be lost" prompt) - a practice quiz has no stakes to lose, per the
+  // scoping doc's framing, so interrupting one shouldn't feel like giving
+  // anything up.
+  state.practiceQuiz = null;
+  el("#practice-picker").hidden = true;
+  el("#practice-view").hidden = true;
+  el("#practice-results").hidden = true;
   setInertBehindDialog(false);
   history.replaceState({ view: "list" }, "");
 }
@@ -3741,7 +4984,7 @@ function render() {
   // No real exam is meaningful with only a handful of seed questions (see
   // Angelschein's placeholder content) - disable rather than let someone
   // start a "30-question exam" that silently draws far fewer.
-  el("#exam-start-btn").disabled = state.questions.length < EXAM_QUESTION_COUNT;
+  el("#exam-start-btn").disabled = state.questions.length < examQuestionCount(state.examType);
 
   const moduleMod = moduleManifestFor(state.examType);
   const moduleBtn = el("#module-switch-btn");
@@ -4236,6 +5479,8 @@ function wireStaticControls() {
     if (state.detailIndex !== null) closeDetail();
     if (!el("#exam-picker").hidden) closeExamPicker();
     if (!el("#exam-view").hidden || !el("#exam-results").hidden) exitExam();
+    if (!el("#practice-picker").hidden) closePracticePicker();
+    if (!el("#practice-view").hidden || !el("#practice-results").hidden) exitPracticeQuiz();
     if (!el("#module-intro").hidden) closeModuleIntro();
     if (!el("#certificates-view").hidden) closeCertificates();
     if (!el("#sign-reference-view").hidden) closeSignReferenceView();
@@ -4260,6 +5505,14 @@ function wireStaticControls() {
   el("#exam-next-btn").addEventListener("click", examNext);
   el("#exam-skip-btn").addEventListener("click", examSkip);
   el("#exam-results-close-btn").addEventListener("click", exitExam);
+
+  // DN-52 Phase 2: practice-quiz tier wiring.
+  el("#exam-pick-practice").addEventListener("click", openPracticePicker);
+  el("#practice-picker-cancel").addEventListener("click", () => history.back());
+  el("#practice-exit-btn").addEventListener("click", exitPracticeQuiz);
+  el("#practice-check-btn").addEventListener("click", practiceCheckAnswer);
+  el("#practice-next-btn").addEventListener("click", practiceNext);
+  el("#practice-results-close-btn").addEventListener("click", exitPracticeQuiz);
 
   el("#reveal-btn").addEventListener("click", () => {
     state.revealed = true;
@@ -4310,6 +5563,7 @@ function wireStaticControls() {
 async function loadActiveProfileState() {
   state.detailIndex = null;
   state.exam = null;
+  state.practiceQuiz = null;
   state.topicFilter = "all";
   state.roleFilter = "all";
   state.examType = null;
@@ -4337,6 +5591,31 @@ async function loadActiveProfileState() {
     savedExamType = localStorage.getItem(profileKey("exam-type"));
     savedScopeCode = localStorage.getItem(profileKey("scope-code"));
   } catch (e) { /* non-fatal */ }
+
+  // DN-57: honor a one-time module deep-link from the landing page's
+  // per-module CTA links (e.g. "./app.html?exam=kyc_aml&scope=ALL"), so
+  // clicking "Start the free pilot" under a SPECIFIC module card actually
+  // opens that module - real bug found and reported by the PO: a returning
+  // visitor whose profile had previously used Fuehrerschein landed back on
+  // Fuehrerschein no matter which enterprise-module CTA they clicked, since
+  // the shared CTA link only pointed at "./app.html" with no module hint at
+  // all, so this saved-state restore below just won every time. Consumed
+  // and stripped from the URL immediately via history.replaceState so it
+  // only overrides the FIRST load of this page view, not every later
+  // profile switch in the same session (loadActiveProfileState() re-runs
+  // on those too, and shouldn't keep forcing the same module then).
+  try {
+    const linkParams = new URLSearchParams(location.search);
+    const linkExamType = linkParams.get("exam");
+    const linkScopeCode = linkParams.get("scope");
+    if (linkExamType) {
+      history.replaceState(null, "", location.pathname + location.hash);
+      if (linkScopeCode && moduleManifestFor(linkExamType)?.options.some((o) => o.code === linkScopeCode)) {
+        savedExamType = linkExamType;
+        savedScopeCode = linkScopeCode;
+      }
+    }
+  } catch (e) { /* URL/history API unavailable - deep link just won't apply */ }
 
   // 2026-08-08 fix (real bug, found while auditing translations - PO flagged
   // seeing compliance-course categories appear while studying for the

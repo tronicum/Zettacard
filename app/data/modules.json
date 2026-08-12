@@ -478,6 +478,512 @@
           }
         }
       ]
+    },
+    {
+      "exam_type": "hinweisgeberschutz",
+      "label": {
+        "de": "Hinweisgeberschutz",
+        "en": "Whistleblower protection",
+        "uk": "Захист викривачів",
+        "pl": "Ochrona sygnalistów",
+        "ar": "حماية المبلغين عن المخالفات",
+        "zh": "举报人保护",
+        "hi": "व्हिसलब्लोअर सुरक्षा",
+        "tr": "Bilgi verenlerin korunması",
+        "fr": "Protection des lanceurs d'alerte",
+        "ru": "Защита осведомителей",
+        "es": "Protección de denunciantes",
+        "it": "Tutela dei whistleblower"
+      },
+      "_comment": "DN-50: 5th workplace-compliance module (Hinweisgeberschutzgesetz/HinSchG, in force since 2 July 2023). Started as a 20-question DE/EN-only pilot, scaled 2026-08-08 to 40 questions in all 12 locales (see data/hinweisgeberschutz_pilot.json meta) - scopeKind/options placeholder pattern copied verbatim from datenschutz (DN-44) for the same reason: no class/region dimension for compliance training yet.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "kyc_aml",
+      "label": {
+        "de": "Geldwäscheprävention (KYC/AML)",
+        "en": "Anti-money laundering (KYC/AML)",
+        "uk": "Запобігання відмиванню коштів (KYC/AML)",
+        "pl": "Przeciwdziałanie praniu pieniędzy (KYC/AML)",
+        "ar": "مكافحة غسل الأموال (KYC/AML)",
+        "zh": "反洗钱合规 (KYC/AML)",
+        "hi": "मनी लॉन्ड्रिंग रोकथाम (KYC/AML)",
+        "tr": "Kara para aklamayla mücadele (KYC/AML)",
+        "fr": "Lutte contre le blanchiment d'argent (KYC/AML)",
+        "ru": "Противодействие отмыванию денег (KYC/AML)",
+        "es": "Prevención del blanqueo de capitales (KYC/AML)",
+        "it": "Prevenzione del riciclaggio (KYC/AML)"
+      },
+      "_comment": "DN-53: 6th compliance module, first enterprise/premium-focused one - KYC/AML per the Geldwaeschegesetz (GwG), whose Sec. 6(2) No. 6 GwG imposes an explicit initial-and-ongoing staff training mandate (unlike the other compliance modules, which rest on softer/discretionary bases). Started as a 20-question DE/EN-only pilot (data/kyc_aml_pilot.json), same launch pattern as hinweisgeberschutz before it. Ships free for now - pricing intentionally deferred pending real enterprise/bank demand (see docs/antitrust-kyc-enterprise-scoping.md). scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "kartellrecht",
+      "label": {
+        "de": "Kartellrecht (Wettbewerbsrecht)",
+        "en": "Antitrust & competition law",
+        "uk": "Антимонопольне право",
+        "pl": "Prawo antymonopolowe i konkurencji",
+        "ar": "قانون مكافحة الاحتكار والمنافسة",
+        "zh": "反垄断与竞争法",
+        "hi": "एंटीट्रस्ट और प्रतिस्पर्धा कानून",
+        "tr": "Rekabet hukuku",
+        "fr": "Droit de la concurrence",
+        "ru": "Антимонопольное право",
+        "es": "Derecho de la competencia",
+        "it": "Diritto della concorrenza"
+      },
+      "_comment": "DN-53 (second module): 7th compliance module, second enterprise/premium-focused one - Kartellrecht (German/EU antitrust and competition law: GWB Sec. 1/18/19, Art. 101/102 TFEU). Build order per the user's own explicit choice (KYC/AML first, antitrust second). Started as a 20-question DE/EN-only pilot (data/kartellrecht_pilot.json), same launch pattern as kyc_aml before it. Ships free for now - pricing intentionally deferred, same as kyc_aml. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "lksg",
+      "label": {
+        "de": "Lieferkettengesetz (LkSG)",
+        "en": "Supply Chain Due Diligence Act (LkSG)",
+        "uk": "Закон про належну обачність у ланцюгах постачання (LkSG)",
+        "pl": "Ustawa o należytej staranności w łańcuchu dostaw (LkSG)",
+        "ar": "قانون العناية الواجبة في سلسلة التوريد (LkSG)",
+        "zh": "供应链尽职调查法 (LkSG)",
+        "hi": "आपूर्ति श्रृंखला सम्यक तत्परता अधिनियम (LkSG)",
+        "tr": "Tedarik Zinciri Özen Yükümlülüğü Yasası (LkSG)",
+        "fr": "Loi sur le devoir de vigilance dans la chaîne d'approvisionnement (LkSG)",
+        "ru": "Закон о должной осмотрительности в цепочке поставок (LkSG)",
+        "es": "Ley de diligencia debida en la cadena de suministro (LkSG)",
+        "it": "Legge sulla due diligence nella catena di fornitura (LkSG)"
+      },
+      "_comment": "DN-64: 8th compliance module, third enterprise/premium-focused one - LkSG (Lieferkettensorgfaltspflichtengesetz, German supply-chain human-rights/environmental due-diligence law; BAFA is the supervisory authority). Started directly as a 30-question DE/EN-only pilot (data/lksg_pilot.json), same launch pattern as kyc_aml/kartellrecht. Ships free for now - pricing intentionally deferred, same as kyc_aml/kartellrecht. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "sportboot_binnen",
+      "label": {
+        "de": "Sportbootführerschein Binnen",
+        "en": "Inland powerboat licence",
+        "uk": "Посвідчення на маломірне судно (внутрішні води)",
+        "pl": "Patent motorowodny (wody śródlądowe)",
+        "ar": "رخصة قوارب الرياضة (المياه الداخلية)",
+        "zh": "内陆motorboot驾照",
+        "hi": "अंतर्देशीय स्पोर्टबोट लाइसेंस",
+        "tr": "İç sular sportif tekne ehliyeti",
+        "fr": "Permis bateau eaux intérieures",
+        "ru": "Права на маломерное судно (внутренние воды)",
+        "es": "Licencia de embarcación de aguas interiores",
+        "it": "Patente nautica acque interne"
+      },
+      "_comment": "2026-08 content expansion: personal-license module (not workplace compliance), same 'ALL'-only class-scope pattern as lkw/angelschein since there's no class/region dimension for this license. 50-question pool (5 topics x10: vorfahrt, bezeichnung, schallzeichen, betonnung, seemannschaft), sourced from the official WSV/BMDV Fragenkatalog Binnen (Stand 01.08.2023) plus BinSchStrO statute text - see data/sportboot_binnen_pilot.json meta for full sourcing and legal_review_status.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Allgemein (bundesweite Grundlagen)",
+            "en": "General (nationwide basics)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ar": "عام (أساسيات على مستوى البلاد)",
+            "zh": "通用（全国基础知识）",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "fr": "Général (bases nationales)",
+            "ru": "Общее (общенациональные основы)",
+            "es": "General (fundamentos nacionales)",
+            "it": "Generale (basi nazionali)"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "sportboot_see",
+      "label": {
+        "de": "Sportbootführerschein See",
+        "en": "Coastal powerboat licence",
+        "uk": "Посвідчення на маломірне судно (морське)",
+        "pl": "Patent motorowodny (morski)",
+        "ar": "رخصة قوارب الرياضة (بحرية)",
+        "zh": "沿海motorboot驾照",
+        "hi": "समुद्री स्पोर्टबोट लाइसेंस",
+        "tr": "Deniz sportif tekne ehliyeti",
+        "fr": "Permis bateau mer côtière",
+        "ru": "Права на маломерное судно (морское)",
+        "es": "Licencia de embarcación marítima",
+        "it": "Patente nautica marittima"
+      },
+      "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as sportboot_binnen. 30-question pool (4 sea-specific topics: betonnung, seefunk_vorfahrt, gezeiten, seewetter), sourced from the official WSV Fragenkatalog See (Stand 01.08.2023) plus KVR/COLREG and SeeSchStrO - see data/sportboot_see_pilot.json meta for full sourcing and legal_review_status.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Allgemein (bundesweite Grundlagen)",
+            "en": "General (nationwide basics)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ar": "عام (أساسيات على مستوى البلاد)",
+            "zh": "通用（全国基础知识）",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "fr": "Général (bases nationales)",
+            "ru": "Общее (общенациональные основы)",
+            "es": "General (fundamentos nacionales)",
+            "it": "Generale (basi nazionali)"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "waffensachkunde",
+      "label": {
+        "de": "Waffensachkunde (§7 WaffG)",
+        "en": "Firearms expertise (§7 WaffG)",
+        "uk": "Зброярська кваліфікація (§7 WaffG)",
+        "pl": "Znajomość broni (§7 WaffG)",
+        "ar": "الخبرة بالأسلحة (§7 WaffG)",
+        "zh": "枪械专业知识 (§7 WaffG)",
+        "hi": "आग्नेयास्त्र विशेषज्ञता (§7 WaffG)",
+        "tr": "Silah bilgisi (§7 WaffG)",
+        "fr": "Expertise en armes à feu (§7 WaffG)",
+        "ru": "Оружейная экспертиза (§7 WaffG)",
+        "es": "Pericia en armas de fuego (§7 WaffG)",
+        "it": "Perizia in armi da fuoco (§7 WaffG)"
+      },
+      "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as sportboot_binnen/sportboot_see. 50-question pool (4 topics: grundlagen, munition_ballistik, aufbewahrung_transport, handhabung_sicherheit), sourced from the official Bundesverwaltungsamt (BVA) Sachkunde-Fragenkatalog (Stand 16.12.2024) plus WaffG/AWaffV/StGB §32 statute text - see data/waffensachkunde_pilot.json meta for full sourcing and legal_review_status. Not legal advice; does not replace an accredited Sachkundepruefung course.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Allgemein (bundesweite Grundlagen)",
+            "en": "General (nationwide basics)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ar": "عام (أساسيات على مستوى البلاد)",
+            "zh": "通用（全国基础知识）",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "fr": "Général (bases nationales)",
+            "ru": "Общее (общенациональные основы)",
+            "es": "General (fundamentos nacionales)",
+            "it": "Generale (basi nazionali)"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "amateurfunk_e",
+      "label": {
+        "de": "Amateurfunkzeugnis Klasse E",
+        "en": "Amateur radio licence Class E",
+        "uk": "Аматорська радіоліцензія класу E",
+        "pl": "Licencja radioamatorska klasy E",
+        "ar": "رخصة الراديو الهاوي فئة E",
+        "zh": "业余无线电执照 E 级",
+        "hi": "शौकिया रेडियो लाइसेंस क्लास E",
+        "tr": "Amatör telsiz ruhsatı E sınıfı",
+        "fr": "Licence radioamateur classe E",
+        "ru": "Радиолюбительская лицензия класса E",
+        "es": "Licencia de radioaficionado clase E",
+        "it": "Licenza radioamatoriale classe E"
+      },
+      "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as the other 3 new modules this round. 40-question pool (3 topics: technik, betrieb, vorschriften), sourced from the BNetzA Fragenkataloge (2006 editions, structural/topical reference only) plus AFuV statute text - see data/amateurfunk_e_pilot.json meta for full sourcing and legal_review_status. Klasse E only; a Klasse A follow-up module is planned separately.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Allgemein (bundesweite Grundlagen)",
+            "en": "General (nationwide basics)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ar": "عام (أساسيات على مستوى البلاد)",
+            "zh": "通用（全国基础知识）",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "fr": "Général (bases nationales)",
+            "ru": "Общее (общенациональные основы)",
+            "es": "General (fundamentos nacionales)",
+            "it": "Generale (basi nazionali)"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "angelschein_bayern",
+      "label": {
+        "de": "Angelschein Bayern",
+        "en": "Fishing licence Bavaria",
+        "uk": "Посвідчення рибалки (Баварія)",
+        "pl": "Karta wędkarska (Bawaria)",
+        "ar": "رخصة الصيد (بافاريا)",
+        "zh": "钓鱼证（巴伐利亚州）",
+        "hi": "मछली पकड़ने का लाइसेंस (बवेरिया)",
+        "tr": "Balıkçılık belgesi (Bavyera)",
+        "fr": "Permis de pêche (Bavière)",
+        "ru": "Удостоверение рыболова (Бавария)",
+        "es": "Licencia de pesca (Baviera)",
+        "it": "Licenza di pesca (Baviera)"
+      },
+      "_comment": "2026-08 content expansion (round 2): Bavaria-specific Angelschein/Fischerpruefung module, a standalone exam_type (not a region option on the existing generic 'angelschein' module) since Bavaria's BayFiG/AVBayFiG regime is its own self-contained statute set, same 'ALL'-only class-scope pattern as sportboot_binnen/sportboot_see/waffensachkunde/amateurfunk_e. 48-question pool (5 topics: schonzeiten_bayern12, fanggeraete_bayern9, fischereischein_bayern10, fischkunde_bayern9, gewaesserschutz_bayern8), sourced from BayFiG/AVBayFiG statute text on gesetze-bayern.de. 3 fact-check findings (legal_basis citation errors) independently re-verified and fixed against gesetze-bayern.de primary text before this round - see BACKLOG.md and data/angelschein_bayern_pilot.json meta for full sourcing and legal_review_status.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Allgemein (bundesweite Grundlagen)",
+            "en": "General (nationwide basics)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ar": "عام (أساسيات على مستوى البلاد)",
+            "zh": "通用（全国基础知识）",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "fr": "Général (bases nationales)",
+            "ru": "Общее (общенациональные основы)",
+            "es": "General (fundamentos nacionales)",
+            "it": "Generale (basi nazionali)"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "angelschein_nrw",
+      "label": {
+        "de": "Angelschein Nordrhein-Westfalen",
+        "en": "Fishing licence North Rhine-Westphalia",
+        "uk": "Посвідчення рибалки (Північний Рейн-Вестфалія)",
+        "pl": "Karta wędkarska (Nadrenia Północna-Westfalia)",
+        "ar": "رخصة الصيد (شمال الراين وستفاليا)",
+        "zh": "钓鱼证（北莱茵-威斯特法伦州）",
+        "hi": "मछली पकड़ने का लाइसेंस (नॉर्थ राइन-वेस्टफेलिया)",
+        "tr": "Balıkçılık belgesi (Kuzey Ren-Vestfalya)",
+        "fr": "Permis de pêche (Rhénanie-du-Nord-Westphalie)",
+        "ru": "Удостоверение рыболова (Северный Рейн-Вестфалия)",
+        "es": "Licencia de pesca (Renania del Norte-Westfalia)",
+        "it": "Licenza di pesca (Renania Settentrionale-Vestfalia)"
+      },
+      "_comment": "2026-08 content expansion (round 2): NRW-specific Angelschein/Fischerpruefung module, a standalone exam_type (not a region option on the existing generic 'angelschein' module, which already has a lighter 'NRW' region-scope addon) since this module is a full self-contained LFischG-NRW-grounded pool, same 'ALL'-only class-scope pattern as the other new modules this round. 56-question pool (5 topics: schonzeiten12, geraete10, fischereischein14, fischkunde12, gewaesserschutz8), sourced from LFischG NRW statute text on recht.nrw.de. 3 fact-check findings independently re-verified and fixed before this round (Groppe/Grundel fish-ID error, Handangel-count legal_basis error, Aal-Schonzeit geographic-scope omission) - see BACKLOG.md and data/angelschein_nrw_pilot.json meta for full sourcing, the NRW 2025/2026 LFischG/LFischVO Neufassung caveat, and legal_review_status.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Allgemein (bundesweite Grundlagen)",
+            "en": "General (nationwide basics)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ar": "عام (أساسيات على مستوى البلاد)",
+            "zh": "通用（全国基础知识）",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "fr": "Général (bases nationales)",
+            "ru": "Общее (общенациональные основы)",
+            "es": "General (fundamentos nacionales)",
+            "it": "Generale (basi nazionali)"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "amateurfunk_a",
+      "label": {
+        "de": "Amateurfunk Klasse A",
+        "en": "Amateur radio Class A",
+        "uk": "Аматорське радіо класу A",
+        "pl": "Radioamatorstwo klasy A",
+        "ar": "الراديو الهاوي فئة A",
+        "zh": "业余无线电 A 级",
+        "hi": "शौकिया रेडियो क्लास A",
+        "tr": "Amatör telsiz A sınıfı",
+        "fr": "Radioamateur classe A",
+        "ru": "Радиолюбительство класса A",
+        "es": "Radioaficionado clase A",
+        "it": "Radioamatore classe A"
+      },
+      "_comment": "2026-08 content expansion (round 2): the Klasse A follow-up module flagged as 'planned separately' in the amateurfunk_e entry above. Same 'ALL'-only class-scope pattern. 45-question pool, TECHNICAL-ONLY (topics: antennentechnik8, leitungstheorie8, ausbreitung8, leistung8, modulation_digital7, emv_hochleistung6) - Klasse A shares its Betrieb/Vorschriften exam pools ENTIRELY with Klasse E per §4 Abs. 4 AFuV (upgrading E->A only adds a technical exam), so this module deliberately contains ZERO Betrieb/Vorschriften questions rather than duplicating amateurfunk_e's. OPEN PRODUCT DECISION (not yet resolved, flagged in BACKLOG.md and data/amateurfunk_a_pilot.json meta.design_flag_betrieb_vorschriften): before this module can offer a realistic full 3-section Klasse A exam simulation, product needs to decide whether the exam composer draws Betrieb/Vorschriften questions live from the amateurfunk_e pool at draw time (preferred, avoids drift) or physically duplicates them into this module. Until resolved, this module's exam only covers the technical delta. 5 fact-check findings (AFuV/BEMFV legal_basis citation errors) independently re-verified against freirecht.de and the BNetzA Klasse A Fragenkatalog PDF and fixed before this round - see BACKLOG.md and data/amateurfunk_a_pilot.json meta for full sourcing and legal_review_status.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Allgemein (bundesweite Grundlagen)",
+            "en": "General (nationwide basics)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ar": "عام (أساسيات على مستوى البلاد)",
+            "zh": "通用（全国基础知识）",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "fr": "Général (bases nationales)",
+            "ru": "Общее (общенациональные основы)",
+            "es": "General (fundamentos nacionales)",
+            "it": "Generale (basi nazionali)"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "fuehrerschein_bus",
+      "label": {
+        "de": "Führerschein Bus",
+        "en": "Bus driving licence",
+        "uk": "Посвідчення водія автобуса",
+        "pl": "Prawo jazdy autobusowe",
+        "ar": "رخصة قيادة الحافلات",
+        "zh": "客车驾驶执照",
+        "hi": "बस ड्राइविंग लाइसेंस",
+        "tr": "Otobüs sürücü belgesi",
+        "fr": "Permis de conduire autobus",
+        "ru": "Водительские права на автобус",
+        "es": "Permiso de conducir autobús",
+        "it": "Patente di guida per autobus"
+      },
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "D1",
+          "label": {
+            "de": "Klasse D1 (Kleinbus, bis 16 Fahrgäste)",
+            "en": "Class D1 (minibus, up to 16 passengers)",
+            "uk": "Категорія D1 (мікроавтобус, до 16 пасажирів)",
+            "pl": "Kategoria D1 (mikrobus, do 16 pasażerów)",
+            "ar": "الفئة D1 (حافلة صغيرة، حتى 16 راكبًا)",
+            "zh": "D1 类（小型客车，最多16名乘客）",
+            "hi": "क्लास D1 (मिनीबस, 16 यात्रियों तक)",
+            "tr": "D1 Sınıfı (minibüs, 16 yolcuya kadar)",
+            "fr": "Catégorie D1 (minibus, jusqu'à 16 passagers)",
+            "ru": "Категория D1 (микроавтобус, до 16 пассажиров)",
+            "es": "Clase D1 (microbús, hasta 16 pasajeros)",
+            "it": "Classe D1 (minibus, fino a 16 passeggeri)"
+          }
+        },
+        {
+          "code": "D1E",
+          "label": {
+            "de": "Klasse D1E (Kleinbus mit Anhänger)",
+            "en": "Class D1E (minibus with trailer)",
+            "uk": "Категорія D1E (мікроавтобус з причепом)",
+            "pl": "Kategoria D1E (mikrobus z przyczepą)",
+            "ar": "الفئة D1E (حافلة صغيرة مع مقطورة)",
+            "zh": "D1E 类（带挂车的小型客车）",
+            "hi": "क्लास D1E (ट्रेलर सहित मिनीबस)",
+            "tr": "D1E Sınıfı (römorklu minibüs)",
+            "fr": "Catégorie D1E (minibus avec remorque)",
+            "ru": "Категория D1E (микроавтобус с прицепом)",
+            "es": "Clase D1E (microbús con remolque)",
+            "it": "Classe D1E (minibus con rimorchio)"
+          }
+        },
+        {
+          "code": "D",
+          "label": {
+            "de": "Klasse D (Linien-/Reisebus, über 16 Fahrgäste)",
+            "en": "Class D (bus/coach, more than 16 passengers)",
+            "uk": "Категорія D (автобус, понад 16 пасажирів)",
+            "pl": "Kategoria D (autobus, powyżej 16 pasażerów)",
+            "ar": "الفئة D (حافلة، أكثر من 16 راكبًا)",
+            "zh": "D 类（客车/大巴，超过16名乘客）",
+            "hi": "क्लास D (बस, 16 से अधिक यात्री)",
+            "tr": "D Sınıfı (otobüs, 16 yolcu üzeri)",
+            "fr": "Catégorie D (autobus/autocar, plus de 16 passagers)",
+            "ru": "Категория D (автобус, более 16 пассажиров)",
+            "es": "Clase D (autobús, más de 16 pasajeros)",
+            "it": "Classe D (autobus/pullman, oltre 16 passeggeri)"
+          }
+        },
+        {
+          "code": "DE",
+          "label": {
+            "de": "Klasse DE (Bus mit Anhänger)",
+            "en": "Class DE (bus with trailer)",
+            "uk": "Категорія DE (автобус з причепом)",
+            "pl": "Kategoria DE (autobus z przyczepą)",
+            "ar": "الفئة DE (حافلة مع مقطورة)",
+            "zh": "DE 类（带挂车的客车）",
+            "hi": "क्लास DE (ट्रेलर सहित बस)",
+            "tr": "DE Sınıfı (römorklu otobüs)",
+            "fr": "Catégorie DE (autobus avec remorque)",
+            "ru": "Категория DE (автобус с прицепом)",
+            "es": "Clase DE (autobús con remolque)",
+            "it": "Classe DE (autobus con rimorchio)"
+          }
+        }
+      ]
     }
   ]
 }

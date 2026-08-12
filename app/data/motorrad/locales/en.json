@@ -898,5 +898,485 @@
       "d": "It completely removes the need to adjust speed for wet or slippery conditions"
     },
     "explanation": "Traction control helps detect rear-wheel spin and adjusts engine power accordingly. However, it cannot overcome the physical limits of tyre grip, so careful, situation-adapted riding remains essential."
+  },
+  "motorrad-fahrphysik-16": {
+    "question": "Why does a motorcycle actually lean into the intended direction during countersteering (a brief push on the inside handlebar grip), even though the initial impulse steers the front wheel slightly the other way?",
+    "options": {
+      "a": "Because the rider automatically shifts body weight at the same time",
+      "b": "Because tyre pressure briefly changes as a result",
+      "c": "Because the brief opposite steering input makes the front tyre's contact patch move sideways out from under the bike ('out-tracking'); the resulting side force is the main cause of the lean around the longitudinal axis, with gyroscopic precession of the wheels contributing only a smaller, additional effect",
+      "d": "Because the rear brake is automatically applied at the same time"
+    },
+    "explanation": "A motorcycle's spinning wheels do act somewhat like gyroscopes, but the dominant effect during countersteering is different: the brief opposite steering impulse makes the front tyre's contact patch move sideways out from under the centre of mass ('out-tracking'); the resulting side force, acting at the height of the centre of mass, creates most of the roll moment that tips the bike into the intended direction. Motorcycle-dynamics analysis (e.g. Cossalter) shows this contact-patch effect accounts for roughly 80-90% of the roll moment at normal riding speed, with gyroscopic precession contributing only a smaller share (roughly 10-15%). Both effects act together during countersteering - the lean is not explained by gyroscopic precession alone."
+  },
+  "motorrad-fahrphysik-17": {
+    "question": "At very low speed (e.g. walking-pace manoeuvring), steering a motorcycle through a turn works largely differently than at normal speed. How?",
+    "options": {
+      "a": "Exactly the same as at normal speed, just performed more slowly",
+      "b": "Mainly by turning the handlebars directly into the intended direction (classic steering), since countersteering barely works at very low speed",
+      "c": "Purely by shifting body weight, with the handlebars held rigidly straight",
+      "d": "By briefly tapping the front brake mid-turn"
+    },
+    "explanation": "The countersteering effect relies on gyroscopic forces that depend on wheel rotation speed. At very low speed (walking pace, manoeuvring) these forces are too weak, so classic, direct steering-input-into-the-turn works considerably better than countersteering."
+  },
+  "motorrad-fahrphysik-18": {
+    "question": "Why does braking hard on a motorcycle shift weight noticeably onto the front wheel, allowing the front brake to provide a much larger share of the braking force than the rear brake?",
+    "options": {
+      "a": "Deceleration produces an inertial force that tips the centre of mass forward, loading the front wheel further while unloading the rear wheel",
+      "b": "Because the front brake is always built stronger than the rear brake as standard",
+      "c": "Because braking automatically shifts more fuel toward the front",
+      "d": "Because the front wheel always has a larger diameter than the rear wheel"
+    },
+    "explanation": "During braking, inertia acts on rider and motorcycle: the mass 'wants' to keep moving forward. This shifts the dynamic axle load forward - the front wheel is loaded more heavily and can transmit more braking force, while the rear wheel is unloaded and prone to locking under hard braking. That is why the front brake typically provides 70-90% of stopping power in an emergency stop."
+  },
+  "motorrad-fahrphysik-19": {
+    "question": "Since when has an anti-lock braking system (ABS) been mandatory in the EU for newly type-approved motorcycles over 125cc?",
+    "options": {
+      "a": "There has never been an EU-wide ABS requirement for motorcycles",
+      "b": "Since 1 January 2016 for new vehicle types (from 1 January 2017 for all first registrations), based on Regulation (EU) No. 168/2013",
+      "c": "Only since 2023, as part of the Euro 5 emissions standard",
+      "d": "Only for class A1 motorcycles (up to 125cc)"
+    },
+    "explanation": "Regulation (EU) No. 168/2013 requires ABS on newly type-approved motorcycles over 125cc and over 11 kW from 1 January 2016, and for all corresponding first registrations from 1 January 2017 (with exceptions, e.g. for competition enduro/trial machines). Motorcycles up to 125cc may instead be fitted with either ABS or a combined braking system (CBS)."
+  },
+  "motorrad-fahrphysik-20": {
+    "question": "Which statement about the braking equipment of light motorcycles up to 125cc under EU law is correct?",
+    "options": {
+      "a": "They may never be fitted with ABS",
+      "b": "They must have both ABS and a combined braking system at the same time",
+      "c": "The manufacturer can choose: either ABS or a combined braking system (CBS) that partially applies both brakes when one lever is operated",
+      "d": "No EU requirements on braking equipment apply to them at all"
+    },
+    "explanation": "Under Regulation (EU) No. 168/2013, manufacturers of light motorcycles up to 125cc may choose between ABS and a combined braking system (CBS), where operating one brake lever also partially applies the other brake."
+  },
+  "motorrad-fahrphysik-21": {
+    "question": "What is one of the main functions of ABS on a motorcycle compared with car ABS?",
+    "options": {
+      "a": "It always shortens stopping distance on dry roads more than car ABS does",
+      "b": "It removes the need to use both brakes",
+      "c": "It automatically prevents any lean-angle correction mid-corner",
+      "d": "It prevents wheel lock even during a sudden, hard grab of the brake lever in an emergency, helping avoid the critical fall caused by a locked front wheel"
+    },
+    "explanation": "A locked front wheel is especially critical on a motorcycle, since the bike instantly loses balance and steering control and falls. ABS prevents this lockup even during abrupt, hard braking grabs triggered by panic, and has been shown to reduce fall-related crashes - though it does not automatically shorten stopping distance on every surface."
+  },
+  "motorrad-fahrphysik-22": {
+    "question": "What happens physically when a motorcycle leaned over in a corner brakes harder than the current cornering radius and tyre grip allow?",
+    "options": {
+      "a": "Nothing, modern tyres compensate for this automatically",
+      "b": "The tyre's available grip is shared between cornering forces and braking forces (the 'friction circle'); if the combined demand exceeds maximum grip, the wheel slides out",
+      "c": "The motorcycle automatically stands itself upright",
+      "d": "Only the rear wheel can ever slide while leaned over"
+    },
+    "explanation": "A tyre's maximum grip is limited (simplified as the 'friction circle' or Kamm's circle) and must be shared between lateral forces (cornering) and longitudinal forces (braking/accelerating). Braking hard while leaned over can push the combined force demand past the available grip, causing the wheel to lose traction and slide out. That is why an emergency stop should, if at all possible, be performed upright."
+  },
+  "motorrad-fahrphysik-23": {
+    "question": "Why is it recommended to complete most braking before a corner while still upright, and to significantly ease off or release the brakes once actually leaned over?",
+    "options": {
+      "a": "Because upright, the tyre can use its full available grip for braking force, whereas leaned over, part of that grip is already committed to cornering force",
+      "b": "Because brakes technically do not work while leaned over",
+      "c": "Because braking while leaned over is legally prohibited",
+      "d": "Because it automatically increases riding speed"
+    },
+    "explanation": "Upright, the tyre's full available grip is free for braking. Leaned over, part of that grip is already committed to cornering force (see the friction-circle concept), leaving less reserve for additional braking - so hard braking while leaned over noticeably increases the risk of sliding out."
+  },
+  "motorrad-fahrphysik-24": {
+    "question": "Why is an emergency stop using only the rear brake particularly risky on a motorcycle?",
+    "options": {
+      "a": "Because using the rear brake is not legally permitted at all",
+      "b": "Because forward weight transfer quickly unloads the rear wheel, making it easy to lock and slide sideways, which can lead to a highside crash",
+      "c": "Because it automatically locks the front wheel",
+      "d": "Because it always lengthens stopping distance regardless of how hard it's applied"
+    },
+    "explanation": "Braking shifts load from the rear to the front wheel. Using only the rear brake (hard) easily locks the unloaded rear wheel, causing it to slide sideways; if the rider then releases the brake at that moment, the wheel can suddenly regain grip and violently right the bike, throwing the rider off (a highside)."
+  },
+  "motorrad-fahrphysik-25": {
+    "question": "What does the riding technique 'look through the corner' mean when leaned over?",
+    "options": {
+      "a": "Fixing your gaze on the front wheel to monitor lean angle",
+      "b": "Looking as far down as possible at the road surface directly in front of the front wheel",
+      "c": "Looking early through the corner toward the exit, since head and upper-body orientation unconsciously help steer the line, producing a smoother and more precise ride",
+      "d": "Alternating your gaze between the speedometer and the road"
+    },
+    "explanation": "Where the eyes go, the riding line tends to follow (a positive form of target fixation). Looking early through a corner toward its exit, rather than at the immediate road surface, produces a smoother ride, makes finding the correct line easier, and speeds up reaction to how the corner continues."
+  },
+  "motorrad-fahrphysik-26": {
+    "question": "Why is an unexpected road surface irregularity or pothole more dangerous while leaned over than while riding upright?",
+    "options": {
+      "a": "Because while leaned over the contact patch sits off to the side, so even a small grip reduction from the irregularity can exceed the already-reduced lateral grip reserve",
+      "b": "Because potholes are visually harder to spot while leaned over, but make no technical difference otherwise",
+      "c": "Because a motorcycle always rides slower while leaned over, so bumps are simply felt harder",
+      "d": "Because ABS is automatically disabled while leaned over"
+    },
+    "explanation": "While leaned over, the tyre already commits part of its grip to cornering force. A sudden irregularity can briefly shrink the contact patch or reduce grip - if the remaining traction can no longer supply the needed lateral force, the wheel slides out. That is why unfamiliar stretches of road should be ridden with extra caution while leaned over."
+  },
+  "motorrad-fahrphysik-27": {
+    "question": "What effect does accelerating (opening the throttle) on a straight typically have on a motorcycle's ride stability?",
+    "options": {
+      "a": "It always makes the motorcycle less stable than braking does",
+      "b": "It has no effect at all on wheel load distribution",
+      "c": "It shifts additional load onto the front wheel",
+      "d": "It shifts load onto the rear wheel and tends to increase its grip, while the front wheel is unloaded"
+    },
+    "explanation": "Accelerating produces inertia acting opposite to braking: the mass 'pushes' rearward, shifting dynamic axle load onto the rear wheel. This tends to increase rear-wheel traction for drive power, but simultaneously unloads the front wheel, which can reduce steering precision."
+  },
+  "motorrad-schutzausruestung-16": {
+    "question": "Under § 21a(2) StVO, who is generally required to wear a suitable protective helmet while riding?",
+    "options": {
+      "a": "Only the rider; passengers are exempt",
+      "b": "Only outside built-up areas; there is no helmet requirement within towns",
+      "c": "Anyone riding or being carried on motorcycles or open three-/four-wheeled motor vehicles with a design top speed above 20 km/h",
+      "d": "Only riders of motorcycles over 125cc"
+    },
+    "explanation": "§ 21a(2) StVO requires everyone riding or being carried on motorcycles or open three-/four-wheeled motor vehicles with a design top speed above 20 km/h to wear a suitable protective helmet while riding - this explicitly includes passengers and applies regardless of engine displacement class or road type."
+  },
+  "motorrad-schutzausruestung-17": {
+    "question": "At what design top speed does the helmet requirement under § 21a(2) StVO apply to open three-/four-wheeled motor vehicles and motorcycles?",
+    "options": {
+      "a": "Above 20 km/h",
+      "b": "Above 45 km/h",
+      "c": "Above 50 km/h",
+      "d": "Above 60 km/h"
+    },
+    "explanation": "The helmet requirement is tied to a design top speed above 20 km/h. This covers practically all motorised two-wheelers above that threshold, including slower mopeds - not only from 45 km/h, which is where the insurance-plate-required class begins."
+  },
+  "motorrad-schutzausruestung-18": {
+    "question": "What does the term 'ATGATT' mean as a core principle of motorcycle protective gear?",
+    "options": {
+      "a": "A technical standard for carbon-fibre helmet shells",
+      "b": "'All The Gear, All The Time' - the principle of always wearing complete protective gear (helmet, jacket, gloves, trousers, boots) on every ride, even short ones",
+      "c": "A statutory labelling requirement for motorcycle clothing under StVZO",
+      "d": "A term for the combination of ABS and traction control"
+    },
+    "explanation": "ATGATT ('All The Gear, All The Time') is not a legal term but an established motorcycle-safety behavioural principle: consistently wearing full protective gear on every ride, since crashes also happen on short, familiar routes, and most crash injuries occur when full protective clothing is not worn."
+  },
+  "motorrad-schutzausruestung-19": {
+    "question": "Which of the following is generally NOT a 'suitable protective helmet' within the meaning of § 21a(2) StVO?",
+    "options": {
+      "a": "A full-face helmet with a fixed chin bar",
+      "b": "An open-face (jet) helmet",
+      "c": "A plain bicycle helmet or a construction hard hat with no approval mark for motorised two-wheeler use",
+      "d": "A flip-up (modular) helmet with a lift-up chin bar"
+    },
+    "explanation": "A 'suitable' helmet is generally one carrying a recognised approval mark for motorcycle use (e.g. under ECE Regulation No. 22). Bicycle helmets or construction hard hats are neither designed nor tested for the impact forces occurring in motorcycle road traffic and do not meet the requirement."
+  },
+  "motorrad-schutzausruestung-20": {
+    "question": "What is ECE Regulation No. 22 (currently in its 22.06 revision) in relation to motorcycle helmets?",
+    "options": {
+      "a": "An EU rule about the maximum permitted helmet colour",
+      "b": "An internationally recognised technical approval standard that motorcycle helmets must pass to be considered road-legal",
+      "c": "The maximum speed at which a helmet must be worn",
+      "d": "A mandatory ten-year manufacturer warranty requirement"
+    },
+    "explanation": "ECE Regulation No. 22 is an internationally recognised technical test standard for motorcycle helmets (impact absorption, penetration resistance, chin-strap strength, field of vision, among others). Helmets carrying a valid ECE 22 approval mark are generally regarded as 'suitable' helmets within the meaning of § 21a(2) StVO."
+  },
+  "motorrad-schutzausruestung-21": {
+    "question": "Why is it recommended to wear motorcycle gloves with reinforced knuckle and palm protection, even though there is no explicit statutory requirement to do so?",
+    "options": {
+      "a": "Because in a crash, riders instinctively brace with their hands first, making hand injuries among the most common and often most consequential crash injuries",
+      "b": "Because the clutch lever cannot technically be operated without gloves",
+      "c": "Because gloves legally replace turn-signal indicators",
+      "d": "Because they improve the motorcycle's braking performance"
+    },
+    "explanation": "In a fall, riders instinctively brace themselves with their hands, making palms, the heel of the hand, and finger knuckles especially prone to injury. Even without an explicit statutory glove requirement (unlike the helmet), reinforced motorcycle gloves are therefore part of generally recommended protective gear."
+  },
+  "motorrad-schutzausruestung-22": {
+    "question": "What is the primary purpose of protectors (shoulder, elbow, back, knee protectors) in motorcycle clothing?",
+    "options": {
+      "a": "They improve aerodynamics at high speeds",
+      "b": "They remove the need for a helmet at those body locations",
+      "c": "They spread and cushion impact energy during a crash and subsequent slide across asphalt, reducing bruising, fractures, and soft-tissue injuries at particularly exposed joints",
+      "d": "They serve solely to improve night-time visibility"
+    },
+    "explanation": "Impact-absorbing protectors spread the forces generated during impact and the subsequent slide across asphalt over a larger area and cushion peak loads, significantly reducing the risk of fractures, bruising, and abrasions at particularly exposed joints."
+  },
+  "motorrad-schutzausruestung-23": {
+    "question": "Why is bright or retroreflective clothing especially recommended for motorcyclists, even though the motorcycle itself must run with its lights on during the day?",
+    "options": {
+      "a": "Because dark clothing is legally prohibited for motorcyclists",
+      "b": "Because a motorcycle's small frontal silhouette makes it considerably harder and slower for other road users - especially turning drivers - to notice than a car; bright/reflective clothing improves conspicuity in addition to the running lights",
+      "c": "Because bright clothing improves braking performance",
+      "d": "Because reflective clothing may officially replace the protective helmet"
+    },
+    "explanation": "Seen head-on, a motorcycle presents a much smaller silhouette than a car and is therefore often noticed later or not at all by other road users - especially in turning and merging situations ('looked but failed to see'). Bright or retroreflective clothing increases contrast against the surroundings and improves conspicuity in addition to the already-mandatory daytime running lights."
+  },
+  "motorrad-schutzausruestung-24": {
+    "question": "A full-face helmet's chin strap is adjusted loosely enough that the helmet can be pushed forward off the forehead by hand. Which statement is correct?",
+    "options": {
+      "a": "This is harmless as long as the helmet visually appears to be worn correctly",
+      "b": "This only affects comfort, not the protective effect",
+      "c": "A loosely fitted helmet still automatically satisfies § 21a(2) StVO as long as some helmet is being worn",
+      "d": "A helmet fitted too loosely can come off or shift during a crash and thereby fail its protective purpose - it effectively no longer counts as a 'suitable' helmet under the rule"
+    },
+    "explanation": "A helmet's protective effect crucially depends on a correct fit and a securely fastened chin strap. A helmet adjusted too loosely can come off or shift during a crash so that it no longer effectively protects the head - it then effectively fails to meet the requirement of being a 'suitable' helmet, even if it is nominally being worn."
+  },
+  "motorrad-schutzausruestung-25": {
+    "question": "Why is suitable, sturdy footwear (motorcycle boots rather than, e.g., sandals) important when riding?",
+    "options": {
+      "a": "Because feet and ankles are especially exposed in a crash or tip-over, and motorcycle boots additionally protect the ankle, shin, and forefoot from burns (hot exhaust parts) and mechanical injury",
+      "b": "Because sandals are legally prohibited for all vehicle classes",
+      "c": "Because boots technically affect engine power",
+      "d": "Because open footwear automatically results in loss of the driving licence"
+    },
+    "explanation": "Feet and lower legs are especially at risk in crashes, when bracing at junctions, or if the motorcycle tips over - and there is an additional risk of burns from hot engine/exhaust parts. Sturdy, ankle-high motorcycle boots offer significantly better protection here than open or low-cut footwear."
+  },
+  "motorrad-schutzausruestung-26": {
+    "question": "Which statement about a motorcycle helmet's lifespan/need for replacement after a significant impact is correct?",
+    "options": {
+      "a": "A helmet technically lasts indefinitely and never needs replacing",
+      "b": "A helmet should generally be replaced after a significant impact or crash, since the energy-absorbing inner shell is usually compressed irreversibly, even if no external damage is visible",
+      "c": "Only the outer shell can be swapped out separately after a crash, with the rest staying the same",
+      "d": "Replacement is only necessary if visible cracks appear in the outer shell"
+    },
+    "explanation": "The energy-absorbing inner liner (typically hard EPS foam) in most helmets is designed to absorb a single significant impact effectively, and is microscopically compressed in doing so - often with no visible external damage. Its protective performance is therefore usually significantly reduced after a notable crash or impact, which is why manufacturers and safety experts recommend replacement."
+  },
+  "motorrad-schutzausruestung-27": {
+    "question": "Why is a badly scratched, pitted, or hazy helmet visor a safety concern even if the helmet shell itself is still intact?",
+    "options": {
+      "a": "It has no effect on safety, only on appearance",
+      "b": "It only reduces the helmet's resale value",
+      "c": "It can significantly worsen visibility when glared by backlight (e.g. low sun, oncoming headlights) and lengthen reaction time to hazards",
+      "d": "It automatically renders the chin strap ineffective"
+    },
+    "explanation": "A scratched or hazy visor scatters incoming light more strongly and can significantly impair vision in glare situations - such as low sun or oncoming high-beam headlights. This delays hazard recognition and shortens the available reaction time, which is why a damaged visor should be replaced promptly."
+  },
+  "motorrad-verkehrsverhalten-16": {
+    "question": "What does 'hazard perception' primarily mean in the context of motorcycle riding?",
+    "options": {
+      "a": "Only recognising official hazard warning signs under the StVO",
+      "b": "Actively and continuously scanning the traffic situation for early signs of potential danger before they become acute - e.g. a parked car with someone in the driver's seat who might open the door",
+      "c": "Waiting until a hazard has already occurred, and only reacting then",
+      "d": "A function of modern motorcycle rider-assistance systems that the rider no longer needs to perform"
+    },
+    "explanation": "Hazard perception means actively scanning the traffic environment for early warning signs - e.g. brake lights far ahead, a car door starting to open, a child near the roadside, reflective glare suggesting a wet surface - and adjusting your own riding (speed, position, gaze) before a sign turns into an acute danger. This skill is especially critical for motorcyclists, who are more exposed and harder for others to see."
+  },
+  "motorrad-verkehrsverhalten-17": {
+    "question": "Why are junctions and intersections statistically especially crash-prone for motorcyclists?",
+    "options": {
+      "a": "Because higher speeds are generally permitted there",
+      "b": "Because motorcycles technically brake worse at junctions",
+      "c": "Because other road users - especially drivers turning or entering the road - often overlook a motorcycle due to its small frontal profile and misjudge its speed ('looked but failed to see')",
+      "d": "Because right-of-way rules generally do not apply at junctions"
+    },
+    "explanation": "A common crash pattern is that a yielding driver turning or entering a road visually scans traffic but overlooks or spots too late an approaching motorcycle, because of its narrow silhouette and an often-underestimated closing speed. Motorcyclists should therefore try to position themselves visibly at junctions, seek eye contact, and stay ready to brake."
+  },
+  "motorrad-verkehrsverhalten-18": {
+    "question": "Is it legal in Germany to ride a motorcycle 'through' stopped or slow-moving lines of traffic between lanes (filtering/lane-splitting), as is permitted in some other countries?",
+    "options": {
+      "a": "Yes, without restriction, as long as the motorcycle stays under 30 km/h",
+      "b": "Yes, but only on motorways",
+      "c": "No, German law does not recognise general lane-filtering between traffic lanes; passing a line of vehicles within the same lane or with insufficient side clearance can be treated as unlawful overtaking or a violation of the keep-right rule",
+      "d": "Yes, because motorcycles are generally exempt from the lane-discipline requirement"
+    },
+    "explanation": "Unlike, for example, some US states or France, German law has no legal basis permitting routine lane-filtering in traffic jams. Passing within a lane with insufficient safety clearance to the vehicles around you can be penalised as risky, unlawful conduct - only regular overtaking, following the general overtaking rules (lane change, adequate clearance, no overtaking in unclear traffic situations), is permitted."
+  },
+  "motorrad-verkehrsverhalten-19": {
+    "question": "Why should motorcyclists deliberately choose an offset position within their own lane (e.g. toward the left or right rather than dead centre)?",
+    "options": {
+      "a": "To see further into and around the vehicles ahead (better view of hazards ahead) and to be more visible to following and crossing traffic, while keeping an escape space to the side",
+      "b": "Because riding in the centre of the lane is legally prohibited",
+      "c": "Because it automatically raises the permitted maximum speed",
+      "d": "Purely for visual/stylistic reasons; lane position has no safety relevance"
+    },
+    "explanation": "A slightly offset position within your own lane can improve sightlines around vehicles ahead, increases your visibility in other drivers' mirrors, and leaves lateral escape space. The exact position should be chosen situationally (road surface, wind, visibility, other traffic) rather than always riding dead-centre in the lane."
+  },
+  "motorrad-verkehrsverhalten-20": {
+    "question": "Why is the 'blind spot' of trucks and buses especially dangerous for motorcyclists?",
+    "options": {
+      "a": "Because motorcycles technically cannot brake while in that zone",
+      "b": "Because a motorcycle's small size means it can become completely invisible to a large vehicle's mirrors and camera systems within its blind spot, even though that driver believes they've looked carefully",
+      "c": "Because the blind spot is always larger for motorcycles specifically",
+      "d": "Because blind spots are only relevant at night"
+    },
+    "explanation": "The blind spot refers to areas beside and behind a vehicle that cannot be seen either directly or via the mirrors. A relatively small motorcycle can disappear entirely within that zone, especially alongside trucks and buses - the large vehicle's driver simply cannot see it, even when checking mirrors carefully. Motorcyclists should therefore avoid lingering in large vehicles' blind spots for extended periods."
+  },
+  "motorrad-verkehrsverhalten-21": {
+    "question": "Which dangerous behaviour by many drivers when turning is often cited as an explanation for collisions with oncoming motorcycles?",
+    "options": {
+      "a": "Drivers generally turn left too slowly",
+      "b": "Drivers turn on their hazard lights too early when turning",
+      "c": "The driver misjudges the closing speed of the smaller, narrower motorcycle or overlooks it among other vehicles, and turns left even though the motorcycle has not yet passed",
+      "d": "Drivers are generally no longer allowed to turn left at intersections"
+    },
+    "explanation": "A recurring crash pattern is an oncoming car turning left in front of an approaching motorcycle: the motorcycle's smaller silhouette and its frequently underestimated closing speed lead drivers to misjudge the remaining time gap, or simply overlook the motorcycle among other traffic."
+  },
+  "motorrad-verkehrsverhalten-22": {
+    "question": "How should the safety distance between riders generally be handled when riding together as a motorcycle group?",
+    "options": {
+      "a": "Each rider individually maintains sufficient distance to the rider ahead to allow adequate reaction and braking distance; riding in a staggered formation rather than directly in line can additionally improve forward visibility and conspicuity to other road users",
+      "b": "All riders in the group must follow each other at the exact spacing prescribed by road traffic law for truck convoys",
+      "c": "Spacing is irrelevant as long as the group as a whole rides slower than the surrounding traffic",
+      "d": "Only the last rider in the group needs to watch spacing; the others rely entirely on the group leader"
+    },
+    "explanation": "Even within a group, each rider individually is required to maintain sufficient safety distance appropriate to speed and conditions. A staggered, slightly offset riding formation rather than strict single file often improves mutual visibility and conspicuity to other road users, but it does not replace the required braking-distance spacing."
+  },
+  "motorrad-verkehrsverhalten-23": {
+    "question": "Why should you not rely solely on the brake light of the rider directly ahead when riding in a motorcycle group?",
+    "options": {
+      "a": "Because motorcycle brake lights are generally too dim to be noticed at all",
+      "b": "Because that only reveals the rider ahead's deceleration relatively late; also scanning further ahead and the overall traffic situation allows earlier, calmer reactions than fixating on a single tail light",
+      "c": "Because it is legally prohibited",
+      "d": "Because brake lights may not be used at all when riding in groups"
+    },
+    "explanation": "Fixating on the rider ahead's tail light means you only react once that rider is already braking - relatively late. Looking further ahead at the overall traffic situation in front of the group makes it possible to anticipate braking manoeuvres earlier and react more calmly, with a larger safety margin."
+  },
+  "motorrad-verkehrsverhalten-24": {
+    "question": "What does the riding-technique recommendation to look far ahead, rather than focusing on the immediate road surface, actually mean?",
+    "options": {
+      "a": "Reading the traffic situation, road surface condition, and potential hazards early and far ahead, so there is enough time to adjust your riding calmly and in good time instead of reacting only at the last moment",
+      "b": "Looking only straight into the distance and ignoring the nearby surroundings entirely",
+      "c": "Fixing your gaze on the speedometer to control speed precisely",
+      "d": "Only relevant at night; gaze direction plays no role during the day"
+    },
+    "explanation": "Looking far ahead - combined with regularly scanning the closer surroundings and mirrors - gives more time to spot hazards early and adjust your riding (speed, position, readiness to brake) in good time, instead of having to react abruptly at the last moment."
+  },
+  "motorrad-verkehrsverhalten-25": {
+    "question": "Which road surface features carry an elevated slip risk for motorcyclists that drivers of cars often barely notice?",
+    "options": {
+      "a": "Only freshly laid asphalt sections",
+      "b": "Only areas with visible snow or ice",
+      "c": "Road markings, manhole covers, tram rails, and patches of gravel or oil, especially when wet, since they offer significantly less grip than normal asphalt but usually go unnoticed by a driver on four tyres",
+      "d": "Only unpaved farm tracks"
+    },
+    "explanation": "Road markings, metal surfaces such as manhole covers or tram rails, and patches of gravel or oil offer significantly less grip, especially when wet. A car on four tyres usually compensates for this unnoticed, whereas a motorcycle with only two, narrower contact patches can easily lose traction there - particularly critical while leaned over."
+  },
+  "motorrad-verkehrsverhalten-26": {
+    "question": "Why is it useful to regularly check the mirrors as well as looking ahead when approaching a junction or intersection?",
+    "options": {
+      "a": "Because the traffic regulations explicitly require checking mirrors as part of a signalling duty at every junction",
+      "b": "To know how closely following traffic is riding, so you're prepared for a sudden, necessary braking manoeuvre and can dose a possible emergency stop appropriately or look for an escape route",
+      "c": "Because it automatically improves the motorcycle's braking performance",
+      "d": "Only relevant on motorways"
+    },
+    "explanation": "Knowing how closely following traffic is riding lets you dose a necessary braking manoeuvre appropriately - e.g. braking more gently at first if a tailgating vehicle might otherwise rear-end you - or find an escape route in time. Regularly checking the mirrors is therefore part of anticipatory riding, not just a formality."
+  },
+  "motorrad-verkehrsverhalten-27": {
+    "question": "A parked car at the roadside has its engine running, and the silhouette of a person is visible in the driver's seat via the mirror. How should a motorcyclist respond, applying anticipatory hazard perception?",
+    "options": {
+      "a": "Ignore it, as long as the driver's door has not already opened",
+      "b": "Increase speed to pass the area as quickly as possible",
+      "c": "This is only relevant if the car is a taxi",
+      "d": "Treat the vehicle as a potential hazard (sudden door opening, pulling out into traffic), allow extra lateral clearance in good time, and slightly reduce speed to gain reaction time"
+    },
+    "explanation": "Signs such as a running engine or a visible person in the driver's seat of a parked car are classic early-warning signs of a possible sudden door opening or pulling away. Anticipatory riding means recognising such signs early and adjusting your own position and speed accordingly, rather than reacting only once the hazard has already materialised."
+  },
+  "motorrad-fahrerlaubnis-16": {
+    "question": "What is the purpose of a technical visual check of a motorcycle before riding off, such as one following a 'tyres, controls, lights, oil/fluids, chain/drive, stands' checklist?",
+    "options": {
+      "a": "It is purely optional and serves only cosmetic engine maintenance",
+      "b": "It completely replaces the regular periodic technical inspection (HU)",
+      "c": "It is meant to catch obvious technical defects (e.g. a flat tyre, a broken light, a loose chain, low oil) before they become an acute danger while riding",
+      "d": "It is legally required only for motorcycles over 125cc"
+    },
+    "explanation": "A systematic quick check before every ride (often following the widely known 'T-CLOCS' scheme: Tires, Controls, Lights, Oil, Chassis, Stands) is meant to catch obvious technical defects early, before they become an acute hazard on the road - for example, low tyre pressure, a failed brake light, or a chain that is too loose."
+  },
+  "motorrad-fahrerlaubnis-17": {
+    "question": "Why is checking tyre pressure before setting off especially important on a motorcycle?",
+    "options": {
+      "a": "Because tyre pressure can be reliably estimated just by looking at the tyre",
+      "b": "Because incorrect tyre pressure (too low or too high) can significantly worsen the tyre's contact patch and thus grip, ride stability, and braking behaviour, and this effect is far more immediate with only two wheels than with a four-wheeled vehicle",
+      "c": "Because tyre pressure only limits top speed",
+      "d": "Because tyre pressure has no effect on riding safety as long as the tyres aren't flat"
+    },
+    "explanation": "Correct tyre pressure is crucial for contact patch size, grip, and heat build-up in the tyre. On a motorcycle with only two, narrower tyres, a deviation affects ride stability, cornering behaviour, and stopping distance far more directly than on a car - and pressure cannot be reliably judged by eye, so it should be checked with a gauge before riding."
+  },
+  "motorrad-fahrerlaubnis-18": {
+    "question": "What should be checked about a drive chain (on chain-driven motorcycles) before riding?",
+    "options": {
+      "a": "The chain must always be pulled taut; any slack at all indicates a defect",
+      "b": "The chain needs no maintenance at all as long as it isn't visibly rusty",
+      "c": "Appropriate, manufacturer-specified slack and adequate lubrication matter; a chain that is too tight or too loose and dry can cause increased wear, jerky power delivery, or in extreme cases the chain coming off",
+      "d": "Chain slack is only relevant to fuel consumption"
+    },
+    "explanation": "Drive chains require a manufacturer-specified amount of slack and regular lubrication. Chains pulled too tight overstress the sprockets and gearbox, while chains that are too loose or dry can cause jerky power delivery, wear faster, or in extreme cases come off - directly affecting riding safety."
+  },
+  "motorrad-fahrerlaubnis-19": {
+    "question": "Why should you check before riding whether the brake light, turn signals, and tail light are working?",
+    "options": {
+      "a": "Because other road users primarily recognise braking intent, turning intent, and the motorcycle's presence through these light signals - a failure delays or prevents their timely reaction",
+      "b": "Because faulty lights reduce engine power",
+      "c": "Because light checks are only relevant during the periodic technical inspection",
+      "d": "Because turn signals are purely optional in Germany as long as hand signals are given"
+    },
+    "explanation": "The brake light, turn signals, and tail light are the primary way other road users recognise braking intent, a change of direction, and the motorcycle's presence - especially at dusk or in the dark. A faulty light can cause following or crossing traffic to react too late or incorrectly."
+  },
+  "motorrad-fahrerlaubnis-20": {
+    "question": "How can you roughly check before riding whether there is enough brake fluid in the braking system and the brake feels functional?",
+    "options": {
+      "a": "The fluid level is irrelevant as long as the brake lever moves at all",
+      "b": "A visual check of the fluid level in the reservoir (between the min/max marks) plus a test squeeze of the brake lever: it should have a firm, noticeable pressure point and not pull all the way back to the grip",
+      "c": "Only by listening for a warning tone on start-up",
+      "d": "Only by doing a high-speed test ride"
+    },
+    "explanation": "A quick look at the fluid level in the hydraulic brake's reservoir (should sit between the min and max marks) and a test squeeze of the brake lever - it should offer noticeable resistance with a clear pressure point and not pull all the way back to the handlebar - give an initial indication of brake function, but do not replace proper professional servicing."
+  },
+  "motorrad-fahrerlaubnis-21": {
+    "question": "What should be checked when visually inspecting the engine oil level before riding off?",
+    "options": {
+      "a": "The oil level is only relevant for two-stroke engines",
+      "b": "The engine must always be running while checking the oil level",
+      "c": "The oil level should sit within the manufacturer-specified range (e.g. on the sight glass or dipstick); too little oil can cause insufficient lubrication and engine damage, and too much oil can also damage the engine",
+      "d": "The oil level can be safely ignored as long as no warning light is illuminated"
+    },
+    "explanation": "Engine oil level should be checked regularly - usually via the sight glass or dipstick, following the manufacturer's specification for cold or warm engine and whether the bike should be upright or on its stand. Both too little and too much oil can damage the engine; a correct level within the specified range is a prerequisite for adequate lubrication."
+  },
+  "motorrad-fahrerlaubnis-22": {
+    "question": "Why is it important to check before setting off that the side or centre stand is fully retracted?",
+    "options": {
+      "a": "Because an extended stand throttles engine power",
+      "b": "Because an extended stand is legally subject to a fine even without any actual danger arising",
+      "c": "Because an extended stand blocks the view of the speedometer",
+      "d": "Because a not-fully-retracted side stand can touch the ground when leaning into a corner on that side, abruptly losing grip or lifting the rear wheel, which can cause a sudden crash"
+    },
+    "explanation": "A not-fully-retracted side stand can touch down even at moderate lean angles. The resulting leverage can briefly lift the rear wheel off the ground or cause it to abruptly lock/slide - which is why many motorcycles have a side-stand cut-off switch that interrupts ignition while a gear is engaged and the stand is extended."
+  },
+  "motorrad-fahrerlaubnis-23": {
+    "question": "What should be checked during a visual inspection of tyre tread before riding?",
+    "options": {
+      "a": "Only tyre colour matters; tread has no relevance",
+      "b": "The tread should clearly exceed the legal minimum depth, and you should look for uneven wear, embedded foreign objects (e.g. nails), cracks, or bulges in the sidewall - bulges in particular indicate dangerous carcass damage",
+      "c": "A tyre only needs checking once it is visibly flat",
+      "d": "Tread depth is only relevant at the periodic inspection, not for everyday riding"
+    },
+    "explanation": "Besides adequate tread depth (well above the legal minimum, since motorcycle tyres lose grip especially quickly once tread runs low), you should check for uneven wear, embedded foreign objects, cracks in the rubber, and above all bulges in the sidewall - the latter indicate a damaged, potentially failing carcass and call for immediate tyre replacement."
+  },
+  "motorrad-fahrerlaubnis-24": {
+    "question": "Why should the handlebars, brake lever, and clutch lever be briefly checked for secure mounting and smooth operation before riding off?",
+    "options": {
+      "a": "Because a loose steering head, bent levers, or stiff controls can impair precise control over steering, braking, and clutch operation while riding",
+      "b": "Because this must legally be logged in writing before every ride",
+      "c": "Because this determines the motorcycle's top speed",
+      "d": "Because a loose handlebar automatically switches off the lights"
+    },
+    "explanation": "Steering, brake lever, and clutch lever are core control elements. A loose steering head, bent or sticking levers, or worn bearings can impair precise, immediate control over steering and braking at exactly the moment it matters most - a brief visual and functional check before riding can catch such defects early."
+  },
+  "motorrad-fahrerlaubnis-25": {
+    "question": "Why should mirrors be correctly adjusted and checked for a secure mount before riding off, even though they are not technically required for propulsion?",
+    "options": {
+      "a": "Because incorrectly adjusted mirrors automatically trigger a traffic sign",
+      "b": "Because mirrors are purely cosmetic and have no safety-relevant function",
+      "c": "Because correctly adjusted, securely mounted mirrors are the only practical way to notice traffic behind and to the side in time - including blind-spot-relevant approaching vehicles - before changing lanes or turning",
+      "d": "Because they must be remounted on the handlebars before every ride"
+    },
+    "explanation": "Since a motorcyclist has only limited ability to turn and look back, well-adjusted, securely mounted mirrors are the primary source of information about traffic behind. Mirrors that have shifted or are loosely mounted give an unreliable or distorted picture while riding and increase the risk of overlooking an approaching vehicle."
+  },
+  "motorrad-fahrerlaubnis-26": {
+    "question": "What should be checked about coolant level before riding a liquid-cooled motorcycle (where fitted)?",
+    "options": {
+      "a": "Coolant level is irrelevant as long as the engine starts at all",
+      "b": "The level should sit between the min/max marks on the reservoir; too low a level can lead to overheating and engine damage on a longer ride",
+      "c": "Coolant must be completely refilled before every single ride",
+      "d": "A low coolant level only affects fuel consumption"
+    },
+    "explanation": "On liquid-cooled engines, the coolant level in the reservoir should be checked regularly (usually between the min and max marks with the engine cold). Too low a level can impair cooling performance and, during a longer or demanding ride (e.g. in traffic jams or hot weather), lead to overheating and consequent engine damage."
+  },
+  "motorrad-fahrerlaubnis-27": {
+    "question": "Why is it recommended to run a technical pre-ride check using a fixed sequence (e.g. always in the same order: tyres, controls, lights, fluids, chassis/frame, stands) rather than spontaneously and unsystematically?",
+    "options": {
+      "a": "Because a fixed sequence is legally required and must be documented before every single ride",
+      "b": "Because a fixed sequence shortens ride time",
+      "c": "Because only a fixed sequence is recognised by the vehicle registration authority",
+      "d": "Because a recurring, systematic routine significantly reduces the chance of forgetting a single important check point out of habit or time pressure, compared with an unsystematic, spontaneous check that differs every time"
+    },
+    "explanation": "A systematic checklist run in the same order every time (like the well-known T-CLOCS principle) exploits the benefit of routine: working through each point in the same sequence significantly lowers the chance of overlooking a safety-relevant item under time pressure or out of habit, compared with an unsystematic, spontaneous check."
   }
 }
