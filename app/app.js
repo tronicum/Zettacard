@@ -5479,8 +5479,14 @@ function wireStaticControls() {
     if (state.detailIndex !== null) closeDetail();
     if (!el("#exam-picker").hidden) closeExamPicker();
     if (!el("#exam-view").hidden || !el("#exam-results").hidden) exitExam();
-    if (!el("#practice-picker").hidden) closePracticePicker();
-    if (!el("#practice-view").hidden || !el("#practice-results").hidden) exitPracticeQuiz();
+    // Same missing-HTML situation as the wireStaticControls() practice-quiz
+    // guard above (#practice-picker/#practice-view/#practice-results don't
+    // exist in app.html yet) - this popstate handler runs on EVERY back
+    // navigation anywhere in the app, so the previous unguarded el(...).hidden
+    // here crashed on every single back press/gesture, not just ones
+    // touching the practice quiz. Existence-checked the same way.
+    if (el("#practice-picker") && !el("#practice-picker").hidden) closePracticePicker();
+    if ((el("#practice-view") && !el("#practice-view").hidden) || (el("#practice-results") && !el("#practice-results").hidden)) exitPracticeQuiz();
     if (!el("#module-intro").hidden) closeModuleIntro();
     if (!el("#certificates-view").hidden) closeCertificates();
     if (!el("#sign-reference-view").hidden) closeSignReferenceView();
@@ -5506,13 +5512,24 @@ function wireStaticControls() {
   el("#exam-skip-btn").addEventListener("click", examSkip);
   el("#exam-results-close-btn").addEventListener("click", exitExam);
 
-  // DN-52 Phase 2: practice-quiz tier wiring.
-  el("#exam-pick-practice").addEventListener("click", openPracticePicker);
-  el("#practice-picker-cancel").addEventListener("click", () => history.back());
-  el("#practice-exit-btn").addEventListener("click", exitPracticeQuiz);
-  el("#practice-check-btn").addEventListener("click", practiceCheckAnswer);
-  el("#practice-next-btn").addEventListener("click", practiceNext);
-  el("#practice-results-close-btn").addEventListener("click", exitPracticeQuiz);
+  // DN-52 Phase 2: practice-quiz tier wiring. Guarded the same way the
+  // other el("#exam-pick-practice") lookup already is (see renderExamPicker
+  // above) - app.html doesn't actually have this feature's markup yet (23
+  // related ids, #practice-picker/#practice-view/#practice-results and
+  // friends, are all missing), so this whole block was previously an
+  // unguarded null.addEventListener() crash INSIDE init() - it threw before
+  // the module picker ever opened, breaking the entire app on first load
+  // (found 2026-08-12 from a user report of a blank/broken app). No-ops
+  // cleanly until the feature's HTML actually ships.
+  const practiceEntryBtn = el("#exam-pick-practice");
+  if (practiceEntryBtn) {
+    practiceEntryBtn.addEventListener("click", openPracticePicker);
+    el("#practice-picker-cancel").addEventListener("click", () => history.back());
+    el("#practice-exit-btn").addEventListener("click", exitPracticeQuiz);
+    el("#practice-check-btn").addEventListener("click", practiceCheckAnswer);
+    el("#practice-next-btn").addEventListener("click", practiceNext);
+    el("#practice-results-close-btn").addEventListener("click", exitPracticeQuiz);
+  }
 
   el("#reveal-btn").addEventListener("click", () => {
     state.revealed = true;
