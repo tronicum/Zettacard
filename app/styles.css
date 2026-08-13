@@ -751,7 +751,21 @@ main {
 
 .exam-modal {
   display: flex;
-  align-items: center;
+  /* Bug found 2026-08-13 from a live user report ("normal driving licence
+     is unpickable") after the module list grew past one screen's worth of
+     items: plain `align-items: center` on a flex container with
+     `overflow-y: auto` is a well-known trap - when the centered child
+     (.exam-modal-card, here holding the scrollable #module-picker-body
+     list) is taller than the viewport, flexbox centers it by pushing the
+     overflow equally above AND below the container. The part pushed above
+     y=0 has no scroll position that reaches it (scrollTop can't go
+     negative), so top-of-list items - confirmed via live DOM inspection to
+     be "Driving licence", the very first module - render fully off-screen
+     and are permanently unclickable/unreadable, while later items that
+     still fit in view work fine. `safe center` keeps the centering when
+     content fits, but falls back to start-alignment (scrollable from the
+     top) once content overflows, so nothing is ever trapped off-screen. */
+  align-items: safe center;
   justify-content: center;
   padding: 20px;
 }
