@@ -398,5 +398,245 @@
       "d": "Möglichst genaue Angaben zu Zeitpunkt, beobachteten Auffälligkeiten und betroffenen Systemen oder Daten"
     },
     "explanation": "Konkrete Angaben zu Zeitpunkt, beobachtetem Verhalten (z. B. ungewöhnliche Pop-ups, unerklärliche Dateiänderungen) und den betroffenen Systemen oder Daten helfen der zuständigen Stelle, den Vorfall schnell einzuordnen, das Ausmaß abzuschätzen und geeignete Gegenmaßnahmen einzuleiten. Der eigene Name allein reicht dafür nicht aus, eine Meldung ohne Zeitangabe erschwert die zeitliche Einordnung, und Vermutungen über eine \"Schuldfrage\" sind für die technische Bearbeitung des Vorfalls nicht der entscheidende Punkt."
+  },
+  "it_sicherheit-social_engineering-01": {
+    "question": "Ein Anrufer gibt sich als IT-Support aus und bittet Sie dringend, ihm Ihr aktuelles Passwort zu nennen, um ein angebliches Sicherheitsproblem zu beheben. Wie reagieren Sie?",
+    "options": {
+      "a": "Das Passwort nennen, da IT-Support-Anfragen meist dringend sind",
+      "b": "Das Passwort nicht nennen und die Anfrage über einen bekannten, unabhängigen Kanal (z. B. offizielle IT-Hotline) überprüfen",
+      "c": "Ein neues, ähnliches Passwort erfinden und dieses stattdessen weitergeben",
+      "d": "Nur den Benutzernamen nennen, das Passwort aber weglassen"
+    },
+    "explanation": "Kein legitimer IT-Support benötigt jemals Ihr Passwort im Klartext - das ist ein klassisches Pretexting-Muster (Vortäuschen einer falschen Identität/Dringlichkeit). Echte Anfragen lassen sich immer über einen unabhängigen, bereits bekannten Kanal zurückverifizieren, statt der im Anruf selbst genannten Nummer zu vertrauen."
+  },
+  "it_sicherheit-social_engineering-02": {
+    "question": "Sie betreten das Bürogebäude mit Ihrer Zugangskarte. Eine unbekannte Person ohne sichtbaren Ausweis läuft dicht hinter Ihnen mit durch die Tür ('Tailgating'). Was ist die richtige Reaktion?",
+    "options": {
+      "a": "Die Tür einfach offen halten, Höflichkeit hat Vorrang",
+      "b": "Nichts tun, das ist Aufgabe des Empfangs",
+      "c": "Die Person freundlich nach ihrem Ausweis/Anliegen fragen oder das Ereignis der Security/dem Empfang melden",
+      "d": "Die Person ignorieren, solange sie nicht verdächtig aussieht"
+    },
+    "explanation": "Tailgating ist eine der häufigsten Methoden, physische Zutrittskontrollen zu umgehen - 'verdächtig aussehen' ist kein verlässliches Kriterium, da Angreifer bewusst unauffällig auftreten. Ein freundliches Nachfragen oder eine Meldung an Security kostet wenig und schließt eine reale Sicherheitslücke."
+  },
+  "it_sicherheit-social_engineering-03": {
+    "question": "Sie finden einen unbeschrifteten USB-Stick auf dem Firmenparkplatz. Was tun Sie?",
+    "options": {
+      "a": "Den Stick an Ihrem Arbeitsrechner anschließen, um den Besitzer über die Dateien zu ermitteln",
+      "b": "Den Stick nicht anschließen und stattdessen der IT-Sicherheit melden bzw. übergeben",
+      "c": "Den Stick an einem privaten Rechner zu Hause prüfen, dort besteht kein Firmenrisiko",
+      "d": "Den Stick wegwerfen, damit niemand sonst ihn findet"
+    },
+    "explanation": "Ein absichtlich 'verlorener' USB-Stick ist ein bekannter Angriffsweg ('USB-Drop-Attack'), um Schadsoftware einzuschleusen, sobald jemand ihn aus Neugier ansteckt. Das gilt genauso an einem privaten Rechner, da darüber gestohlene Daten oder Zugänge abfließen können. Die IT-Sicherheit kann den Stick sicher (isoliert) prüfen."
+  },
+  "it_sicherheit-social_engineering-04": {
+    "question": "Sie erhalten einen Anruf einer angeblichen Bank-Mitarbeiterin, die Sie bittet, 'zur Sicherheit' Ihre PIN am Telefon zu bestätigen ('Vishing'). Wie reagieren Sie richtig?",
+    "options": {
+      "a": "Die PIN nennen, da die Anruferin den Kontostand bereits genannt hat und das vertrauenswürdig wirkte",
+      "b": "Nur die letzten beiden Ziffern der PIN nennen, das sei sicher genug",
+      "c": "Die PIN keinesfalls am Telefon nennen und selbst über die offizielle, bekannte Bank-Telefonnummer zurückrufen",
+      "d": "Auflegen und die PIN sicherheitshalber sofort ändern, ohne die Bank zu informieren"
+    },
+    "explanation": "Banken fragen niemals die vollständige PIN am Telefon ab - auch teilweise Angaben oder scheinbar bekannte Kontodaten (die z. B. aus Datenlecks stammen können) beweisen keine echte Identität des Anrufers. Der sichere Weg ist immer der selbst initiierte Rückruf über eine unabhängig verifizierte Nummer."
+  },
+  "it_sicherheit-social_engineering-05": {
+    "question": "Sie erhalten eine SMS von einem angeblichen Paketdienst: 'Ihr Paket konnte nicht zugestellt werden, bestätigen Sie Ihre Adresse und Zahlungsdaten über diesen Link' ('Smishing'). Was ist die richtige Reaktion?",
+    "options": {
+      "a": "Den Link öffnen, aber keine Zahlungsdaten eingeben",
+      "b": "Den Link nicht öffnen und die Sendungsnummer stattdessen direkt auf der offiziellen Website des Paketdienstes prüfen",
+      "c": "Die SMS an Kollegen weiterleiten, damit diese den Link testen",
+      "d": "Auf 'Stop' antworten, um sich von der Liste abzumelden"
+    },
+    "explanation": "Auch nur das Öffnen eines Links kann bereits Geräteinformationen preisgeben oder zu einer täuschend echten Fake-Seite führen, die Zugangsdaten abgreift. Die sichere Prüfung erfolgt immer über die selbst eingegebene, offizielle Adresse - nie über einen Link aus einer unaufgeforderten Nachricht."
+  },
+  "it_sicherheit-social_engineering-06": {
+    "question": "Sie erhalten eine E-Mail, die angeblich von der Geschäftsführung stammt: 'Dringend und vertraulich - bitte sofort eine Überweisung von 45.000 € auf dieses neue Konto veranlassen, ich bin gerade nicht erreichbar' ('CEO-Fraud' / Business Email Compromise). Wie handeln Sie?",
+    "options": {
+      "a": "Die Überweisung sofort ausführen, da Vertraulichkeit und Dringlichkeit betont wurden",
+      "b": "Auf die E-Mail antworten und um weitere Details bitten, dann überweisen",
+      "c": "Die Anfrage über einen unabhängigen, bekannten Kanal (z. B. Rückruf auf bekannter Nummer) verifizieren und den regulären Freigabeprozess einhalten, auch unter Zeitdruck",
+      "d": "Einen Kollegen bitten, die Überweisung ohne Rückfrage zu übernehmen, um Zeit zu sparen"
+    },
+    "explanation": "Dringlichkeit, Vertraulichkeit und Unerreichbarkeit der angeblichen Absenderperson sind die klassischen Druckmittel bei CEO-Fraud - sie sollen genau verhindern, dass der reguläre Freigabeprozess (z. B. Vier-Augen-Prinzip) eingehalten wird. Ein Angreifer, der auf eine E-Mail antwortet, bleibt derselbe Angreifer; nur ein unabhängiger Rückkanal schafft echte Sicherheit."
+  },
+  "it_sicherheit-social_engineering-07": {
+    "question": "Eine E-Mail, angeblich von einem langjährigen Lieferanten, teilt mit, dass sich die Bankverbindung geändert hat, und bittet, künftige Zahlungen auf das neue Konto zu leisten. Was ist der richtige erste Schritt?",
+    "options": {
+      "a": "Die Zahlungsdaten im System sofort aktualisieren, da der Lieferant bekannt ist",
+      "b": "Die Änderung über einen unabhängigen, bereits bekannten Kontakt beim Lieferanten (Telefonnummer aus früheren Unterlagen, nicht aus der E-Mail) verifizieren, bevor irgendetwas geändert wird",
+      "c": "Eine kleine Testüberweisung auf das neue Konto senden, um es zu prüfen",
+      "d": "Die E-Mail ignorieren, aber die alte Bankverbindung vorsichtshalber trotzdem sperren"
+    },
+    "explanation": "Änderungen von Bankverbindungen sind ein bevorzugtes Ziel für Business-Email-Compromise-Angriffe, da E-Mail-Konten von Lieferanten kompromittiert und Rechnungen täuschend echt nachgebaut werden können. Eine Verifizierung über einen unabhängigen, aus früherer Zusammenarbeit bekannten Kanal ist der einzige verlässliche Schutz - eine Testüberweisung schützt nicht vor dem eigentlichen Betrag."
+  },
+  "it_sicherheit-social_engineering-08": {
+    "question": "Ein Kollege hat seine Zugangskarte vergessen und bittet Sie, ihn einfach mit Ihrer eigenen Karte durch die Sicherheitstür zu lassen ('Badge Sharing'). Was ist die richtige Reaktion?",
+    "options": {
+      "a": "Ihn einfach mitgehen lassen, es ist schließlich ein bekannter Kollege",
+      "b": "Ihm Ihre Karte für den Tag ausleihen",
+      "c": "Ihn an den Empfang oder die Security verweisen, damit dort ein regulärer temporärer Zugang ausgestellt wird",
+      "d": "Die Tür für ihn aufhalten, solange niemand sonst zusieht"
+    },
+    "explanation": "Zugangskarten sind personenbezogen, damit im Ernstfall (z. B. Vorfallaufklärung) nachvollziehbar bleibt, wer wann wo war - Badge Sharing untergräbt das, selbst unter Kollegen, und ist zudem ein Muster, das Social Engineers gezielt ausnutzen ('ich hab meine Karte vergessen'). Der reguläre Weg über Empfang/Security bleibt schnell und sicher zugleich."
+  },
+  "it_sicherheit-ransomware-01": {
+    "question": "Auf Ihrem Bildschirm erscheint plötzlich eine Nachricht, dass alle Ihre Dateien verschlüsselt wurden und nur gegen Zahlung eines Lösegelds ('Ransomware') wieder freigegeben werden. Was ist Ihr allererster Schritt?",
+    "options": {
+      "a": "Sofort versuchen, das geforderte Lösegeld zu zahlen, um Zeit zu sparen",
+      "b": "Das Gerät umgehend vom Netzwerk trennen (Netzwerkkabel ziehen / WLAN deaktivieren) und sofort die IT-Sicherheit informieren",
+      "c": "Den Rechner neu starten, um zu sehen, ob das Problem verschwindet",
+      "d": "Selbst versuchen, die Dateien mit einer im Internet gefundenen Software zu entschlüsseln"
+    },
+    "explanation": "Die sofortige Trennung vom Netzwerk verhindert, dass sich die Ransomware auf weitere Systeme im Firmennetz ausbreitet - das ist der wichtigste Sofortschritt vor jeder weiteren Maßnahme. Die IT-Sicherheit kann dann den Vorfall fachgerecht eindämmen; eigenmächtige Entschlüsselungsversuche oder ein Neustart können Spuren zerstören oder die Lage verschlimmern."
+  },
+  "it_sicherheit-ransomware-02": {
+    "question": "Sollte ein Unternehmen bei einem Ransomware-Angriff das geforderte Lösegeld zahlen?",
+    "options": {
+      "a": "Ja, das ist immer der schnellste und sicherste Weg, um wieder an die Daten zu kommen",
+      "b": "Ja, aber nur wenn der geforderte Betrag niedrig genug erscheint",
+      "c": "Das BSI rät grundsätzlich von Zahlungen ab - sie garantieren keine Datenfreigabe, finanzieren weitere Angriffe und können erneut ins Visier geraten lassen; die Entscheidung liegt bei Geschäftsführung/IT-Sicherheit im Rahmen des Notfallplans, nicht bei Einzelpersonen",
+      "d": "Das spielt keine Rolle, da Backups eine Zahlung ohnehin immer überflüssig machen"
+    },
+    "explanation": "Eine Zahlung ist keine Garantie für die Wiederherstellung der Daten und finanziert kriminelle Infrastruktur weiter. Selbst mit guten Backups bleibt die Zahlungsentscheidung im Ernstfall komplex (z. B. wegen exfiltrierter Daten) und ist daher immer eine Entscheidung der Unternehmensleitung im Rahmen des dokumentierten Notfallplans, nicht einer einzelnen Person vor Ort."
+  },
+  "it_sicherheit-ransomware-03": {
+    "question": "Über welchen Weg gelangt Ransomware am häufigsten in Unternehmensnetzwerke?",
+    "options": {
+      "a": "Über Phishing-E-Mails mit schädlichem Anhang oder Link sowie über ungepatchte, aus dem Internet erreichbare Systeme",
+      "b": "Fast ausschließlich über physisch gestohlene Laptops",
+      "c": "Fast ausschließlich über kompromittierte Druckerkabel",
+      "d": "Ransomware verbreitet sich grundsätzlich nur über bereits infizierte USB-Sticks"
+    },
+    "explanation": "Phishing-E-Mails und ungepatchte, extern erreichbare Systeme (z. B. Fernzugriffslösungen) sind laut BSI-Lageberichten die dominierenden Einfallstore. Das macht sowohl wachsame Mitarbeitende beim Öffnen von Anhängen/Links als auch zeitnahes Einspielen von Sicherheitsupdates zu zentralen Schutzmaßnahmen."
+  },
+  "it_sicherheit-ransomware-04": {
+    "question": "Warum sind regelmäßige, vom Netzwerk getrennte ('offline') oder unveränderbare ('immutable') Backups besonders wichtig für den Schutz vor Ransomware?",
+    "options": {
+      "a": "Sie sind es nicht - jede Art von Backup reicht aus, solange sie regelmäßig läuft",
+      "b": "Nur damit die IT-Abteilung Speicherplatz sparen kann",
+      "c": "Weil Ransomware gezielt versucht, auch im Netzwerk erreichbare Backups zu verschlüsseln - nur getrennte oder unveränderbare Kopien bleiben im Ernstfall garantiert nutzbar",
+      "d": "Ausschließlich aus Compliance-Gründen, technisch spielt der Backup-Typ keine Rolle"
+    },
+    "explanation": "Moderne Ransomware sucht aktiv nach erreichbaren Netzlaufwerken und Backup-Systemen, um auch diese zu verschlüsseln und den Druck zur Lösegeldzahlung zu erhöhen. Ein Backup, das offline oder technisch unveränderbar ist, kann davon nicht betroffen sein und ermöglicht eine Wiederherstellung ohne Zahlung."
+  },
+  "it_sicherheit-ransomware-05": {
+    "question": "Sie bemerken eine Ransomware-Infektion auf Ihrem Firmenrechner. Sollten Sie den Rechner neu starten, um das Problem selbst zu beheben?",
+    "options": {
+      "a": "Ja, ein Neustart behebt die meisten Softwareprobleme",
+      "b": "Nein - ein Neustart oder Herunterfahren kann laufende Verschlüsselungsprozesse beschleunigen oder wichtige forensische Spuren zerstören; stattdessen vom Netzwerk trennen und den Vorfall melden",
+      "c": "Ja, aber nur im abgesicherten Modus",
+      "d": "Das ist egal, solange man danach ein Antivirenprogramm laufen lässt"
+    },
+    "explanation": "Manche Ransomware-Varianten setzen die Verschlüsselung nach einem Neustart fort oder löschen dabei Hinweise, die für die spätere Analyse des Angriffswegs wichtig wären. Die IT-Sicherheit trifft die Entscheidung über die nächsten Schritte auf Basis des unveränderten Systemzustands."
+  },
+  "it_sicherheit-ransomware-06": {
+    "question": "Ein Kollege bittet Sie, bei einem vermuteten Ransomware-Vorfall auf seinem Rechner zu helfen, ohne die IT-Sicherheit einzuschalten, 'um keinen Ärger zu bekommen'. Wie reagieren Sie?",
+    "options": {
+      "a": "Helfen, wie gewünscht, und die Sache diskret unter sich behalten",
+      "b": "Selbst eine im Internet gefundene Anleitung zur Entschlüsselung ausprobieren",
+      "c": "Auf einer sofortigen Meldung an die IT-Sicherheit bestehen - schnelles Melden verringert den Schaden und ist wichtiger als mögliche Unannehmlichkeiten",
+      "d": "Den Rechner einfach ausschalten und das Thema damit als erledigt betrachten"
+    },
+    "explanation": "Verzögertes oder unterlassenes Melden ist eines der größten Risiken bei Sicherheitsvorfällen, da sich Ransomware in der verstreichenden Zeit im Netzwerk weiter ausbreiten kann. Eine gute Sicherheitskultur behandelt schnelles Melden als erwünschtes Verhalten, nicht als etwas, das Ärger nach sich zieht."
+  },
+  "it_sicherheit-ransomware-07": {
+    "question": "Welches Anzeichen deutet am ehesten darauf hin, dass ein System sich möglicherweise in einer frühen Phase eines Ransomware-Angriffs befindet, noch bevor eine Lösegeldforderung erscheint?",
+    "options": {
+      "a": "Der Bildschirmschoner hat sich geändert",
+      "b": "Auffällig viele Dateien werden in kurzer Zeit umbenannt oder erhalten ungewöhnliche neue Dateiendungen, das System wird spürbar langsamer, und das Antivirenprogramm meldet mehrfach blockierte verdächtige Prozesse",
+      "c": "Der Rechner ist etwas leiser als sonst",
+      "d": "Es gibt keine erkennbaren Anzeichen vor der Lösegeldforderung"
+    },
+    "explanation": "Die eigentliche Verschlüsselung läuft oft im Hintergrund, bevor die Lösegeldforderung sichtbar wird - massenhaftes Umbenennen von Dateien, spürbare Verlangsamung und wiederholte Antivirenwarnungen sind frühe Warnsignale, bei denen sofortiges Melden den entstehenden Schaden noch begrenzen kann."
+  },
+  "it_sicherheit-ransomware-08": {
+    "question": "Welche der folgenden Maßnahmen senken das Risiko, dass Ransomware sich im Firmennetzwerk ausbreitet? (Mehrfachauswahl)",
+    "options": {
+      "a": "Zeitnahes Einspielen von Sicherheitsupdates auf allen Systemen",
+      "b": "Nutzerkonten nur mit den tatsächlich benötigten Rechten ausstatten (Prinzip der geringsten Rechte)",
+      "c": "Alle Mitarbeitenden mit Administratorrechten auf ihrem Arbeitsrechner ausstatten, damit sie IT-Probleme selbst lösen können",
+      "d": "Regelmäßige, getrennte Backups mit getesteter Wiederherstellung"
+    },
+    "explanation": "Aktuelle Systeme, minimale Rechte und getestete Backups gehören zu den wirksamsten technischen Schutzmaßnahmen. Breite Administratorrechte für alle wirken genau entgegengesetzt: Sie erleichtern es Ransomware, sich mit denselben erhöhten Rechten im Netzwerk auszubreiten."
+  },
+  "it_sicherheit-ki_bedrohungen-01": {
+    "question": "Was ist im Sicherheitskontext mit einem 'Deepfake' gemeint?",
+    "options": {
+      "a": "Ein besonders raffiniert gefälschtes physisches Dokument",
+      "b": "Ein mittels künstlicher Intelligenz erzeugtes, täuschend echtes Audio-, Bild- oder Videomaterial, das eine reale Person imitiert",
+      "c": "Ein technischer Fachbegriff für besonders tief verschachtelte Phishing-Links",
+      "d": "Ein veralteter Begriff, der in der Praxis keine Rolle mehr spielt"
+    },
+    "explanation": "Deepfakes nutzen KI-Modelle, um Stimme, Gesicht oder Bewegungen einer realen Person nachzubilden - inzwischen mit so geringem Aufwand, dass sie zunehmend für gezielte Betrugsversuche wie gefälschte Anrufe oder Videobotschaften eingesetzt werden."
+  },
+  "it_sicherheit-ki_bedrohungen-02": {
+    "question": "Sie erhalten einen Telefonanruf, dessen Stimme exakt wie die Ihrer Geschäftsführung klingt und der eine dringende, ungewöhnliche Überweisung fordert - eine Rückrufnummer wird explizit abgelehnt ('Ich bin gleich im Flugzeug'). Was ist die richtige Reaktion?",
+    "options": {
+      "a": "Handeln, da die Stimme zweifelsfrei erkannt wurde",
+      "b": "Die Überweisung ausführen, aber nur die Hälfte des geforderten Betrags",
+      "c": "Der Anfrage nicht folgen und die Identität über einen unabhängigen, bereits bekannten Kanal verifizieren - Stimmerkennung allein ist durch KI-Stimmklonung keine verlässliche Bestätigung mehr",
+      "d": "Die Anfrage ignorieren, ohne sie zu melden"
+    },
+    "explanation": "KI-Stimmklonung kann mit wenigen Sekunden echten Audiomaterials eine täuschend echte Stimme erzeugen - genau die Kombination aus Dringlichkeit, ungewöhnlicher Forderung und Ablehnung eines Rückrufs ist ein typisches Warnsignal, unabhängig davon, wie echt die Stimme klingt. Auch ein Nicht-Handeln sollte gemeldet werden, damit weitere Kolleginnen und Kollegen gewarnt werden können."
+  },
+  "it_sicherheit-ki_bedrohungen-03": {
+    "question": "Früher galten Rechtschreib- und Grammatikfehler als zuverlässiges Erkennungsmerkmal von Phishing-E-Mails. Warum reicht dieses Kriterium heute allein nicht mehr aus?",
+    "options": {
+      "a": "Weil E-Mail-Programme Rechtschreibfehler inzwischen automatisch korrigieren",
+      "b": "Weil Rechtschreibfehler ohnehin nie ein zuverlässiges Kriterium waren",
+      "c": "Weil KI-Sprachmodelle sprachlich einwandfreie, personalisierte Phishing-Texte erzeugen können - andere Warnsignale wie abweichende Absenderadresse, ungewöhnliche Links oder unerwartete Dringlichkeit werden dadurch wichtiger",
+      "d": "Weil moderne Phishing-Angriffe grundsätzlich ohne Text auskommen"
+    },
+    "explanation": "KI-generierte Texte sind sprachlich oft nicht mehr von echter Kommunikation zu unterscheiden und können zudem individuell auf die Zielperson zugeschnitten werden. Die verlässlicheren Prüfpunkte bleiben deshalb die tatsächliche Absenderadresse, die Ziel-URL eines Links und ob die Anfrage inhaltlich plausibel und über den erwarteten Kanal kommt."
+  },
+  "it_sicherheit-ki_bedrohungen-04": {
+    "question": "In einem spontan angesetzten Videoanruf fordert eine Person, die optisch und stimmlich wie ein bekannter Vorgesetzter wirkt, die sofortige Weitergabe vertraulicher Kundendaten. Die Bild-/Tonqualität ist leicht ungewöhnlich. Wie reagieren Sie?",
+    "options": {
+      "a": "Die Daten weitergeben, da Bild und Stimme übereinstimmten",
+      "b": "Die Weitergabe verweigern oder verzögern und die Anfrage über einen unabhängigen, bereits bekannten Kanal (z. B. Rückruf, persönliches Gespräch) verifizieren",
+      "c": "Nur einen Teil der Daten weitergeben, um das Risiko zu begrenzen",
+      "d": "Im Anruf direkt nachfragen, ob es sich um einen Deepfake handelt, und der Antwort vertrauen"
+    },
+    "explanation": "Leicht unstimmige Bild-/Tonqualität, eine spontane Ansetzung und eine ungewöhnliche vertrauliche Anfrage sind zusammen typische Warnsignale für einen Deepfake-Angriff. Ein Angreifer, der eine Person täuschend echt imitiert, wird auf direkte Nachfrage im Anruf selbstverständlich ebenfalls verneinen - nur ein unabhängiger Kanal schafft echte Klarheit."
+  },
+  "it_sicherheit-ki_bedrohungen-05": {
+    "question": "Warum wird Social Engineering durch den Einsatz von KI-Werkzeugen allgemein als größeres Risiko eingeschätzt als zuvor?",
+    "options": {
+      "a": "Weil KI-Werkzeuge ausschließlich von IT-Sicherheitsteams genutzt werden können",
+      "b": "Weil KI-Werkzeuge es Angreifern erlauben, überzeugende, individuell zugeschnittene Angriffe (Text, Stimme, Video) in großem Umfang und mit geringem Aufwand zu erstellen",
+      "c": "Weil KI-Werkzeuge Social-Engineering-Angriffe grundsätzlich unmöglich machen",
+      "d": "Das Risiko hat sich durch KI-Werkzeuge nicht verändert"
+    },
+    "explanation": "Was früher hohen manuellen Aufwand erforderte (z. B. das Nachahmen einer Stimme oder das Verfassen überzeugender, fehlerfreier Texte in einer Fremdsprache), lässt sich heute mit KI-Werkzeugen schnell und in großer Zahl automatisieren - das erhöht sowohl die Menge als auch die Qualität der Angriffe."
+  },
+  "it_sicherheit-ki_bedrohungen-06": {
+    "question": "Was ist der wirksamste Schutz gegen Betrug per Deepfake-Anruf oder -Videobotschaft?",
+    "options": {
+      "a": "Genau darauf achten, ob die Stimme oder das Bild 'echt genug' klingt bzw. aussieht",
+      "b": "Feste, im Voraus vereinbarte Verifizierungsverfahren (z. B. Rückruf über eine bekannte Nummer, ein vorab vereinbartes Codewort) für ungewöhnliche oder finanzielle Anfragen konsequent einhalten - unabhängig davon, wie echt Stimme oder Bild wirken",
+      "c": "Anrufe grundsätzlich nur noch schriftlich per E-Mail bestätigen lassen",
+      "d": "Es gibt derzeit keinen wirksamen Schutz dagegen"
+    },
+    "explanation": "Da Deepfakes gezielt darauf ausgelegt sind, menschliche Erkennung zu täuschen, ist das eigene Urteil über 'Echtheit' kein verlässlicher Schutz mehr. Vorab vereinbarte, von der jeweiligen Kommunikationsform unabhängige Verifizierungsverfahren funktionieren dagegen unabhängig davon, wie überzeugend eine Fälschung ist."
+  },
+  "it_sicherheit-ki_bedrohungen-07": {
+    "question": "Sie möchten einen öffentlich zugänglichen KI-Chatbot nutzen, um schnell einen internen Bericht mit vertraulichen Kundendaten zusammenzufassen. Ist das unbedenklich?",
+    "options": {
+      "a": "Ja, öffentliche KI-Chatbots speichern grundsätzlich keine eingegebenen Daten",
+      "b": "Ja, solange man die Kundennamen vorher durch Platzhalter ersetzt, ist alles Weitere unkritisch",
+      "c": "Nein - vertrauliche oder personenbezogene Daten sollten nur in von der eigenen Organisation freigegebene KI-Werkzeuge eingegeben werden, da bei öffentlichen Diensten unklar sein kann, wie die Eingaben weiterverarbeitet werden",
+      "d": "Das ist ausschließlich eine Frage des Datenschutzbeauftragten und betrifft normale Mitarbeitende nicht"
+    },
+    "explanation": "Bei öffentlichen KI-Diensten ist oft nicht transparent, ob und wie eingegebene Daten gespeichert, zur Modellverbesserung genutzt oder anderweitig weiterverarbeitet werden. Vertrauliche oder personenbezogene Daten gehören deshalb nur in von der eigenen Organisation geprüfte und freigegebene Werkzeuge - eine unternehmensweite Richtlinie dazu betrifft alle Mitarbeitenden, nicht nur Fachabteilungen."
+  },
+  "it_sicherheit-ki_bedrohungen-08": {
+    "question": "Sie vermuten, dass Sie soeben Ziel eines KI-gestützten Betrugsversuchs (z. B. Deepfake-Anruf oder täuschend echte KI-Phishing-Mail) geworden sind, konnten den Betrug aber rechtzeitig erkennen und haben nicht reagiert. Sollten Sie den Vorfall trotzdem melden?",
+    "options": {
+      "a": "Nein, da nichts passiert ist, besteht kein Handlungsbedarf",
+      "b": "Ja - der gleiche Meldeweg wie bei jedem anderen Social-Engineering-Versuch gilt auch hier, damit andere Kolleginnen und Kollegen gewarnt und ähnliche Angriffe erkannt werden können",
+      "c": "Nur melden, wenn tatsächlich ein finanzieller Schaden entstanden ist",
+      "d": "Nur melden, wenn die IT-Abteilung ausdrücklich danach fragt"
+    },
+    "explanation": "Auch ein abgewehrter Angriffsversuch liefert wertvolle Informationen - etwa welche Masche gerade im Umlauf ist oder ob mehrere Mitarbeitende gleichzeitig angegriffen wurden. Frühzeitiges Melden erkannter, aber erfolgloser Versuche ist ein zentraler Baustein einer wirksamen Sicherheitskultur."
   }
 }

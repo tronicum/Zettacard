@@ -831,6 +831,16 @@ const TOPIC_LABELS = {
     datensicherung: { de: "Datensicherung und Geräte", en: "Backups & devices", uk: "Резервне копіювання та пристрої", pl: "Kopie zapasowe i urządzenia", ar: "النسخ الاحتياطي والأجهزة", zh: "数据备份与设备", hi: "बैकअप और उपकरण", tr: "Yedekleme ve cihazlar", fr: "Sauvegardes et appareils", ru: "Резервное копирование и устройства", es: "Copias de seguridad y dispositivos", it: "Backup e dispositivi" },
     mobil_homeoffice: { de: "Mobile Geräte und Home-Office", en: "Mobile devices & home office", uk: "Мобільні пристрої та дистанційна робота", pl: "Urządzenia mobilne i praca zdalna", ar: "الأجهزة المحمولة والعمل عن بُعد", zh: "移动设备与居家办公", hi: "मोबाइल उपकरण और होम-ऑफिस", tr: "Mobil cihazlar ve evden çalışma", fr: "Appareils mobiles et télétravail", ru: "Мобильные устройства и удалённая работа", es: "Dispositivos móviles y teletrabajo", it: "Dispositivi mobili e lavoro da remoto" },
     meldepflicht_it: { de: "Meldung von Sicherheitsvorfällen", en: "Incident reporting", uk: "Повідомлення про інциденти безпеки", pl: "Zgłaszanie incydentów bezpieczeństwa", ar: "الإبلاغ عن حوادث الأمان", zh: "安全事件报告", hi: "सुरक्षा घटना की रिपोर्टिंग", tr: "Güvenlik olaylarının bildirilmesi", fr: "Signalement des incidents de sécurité", ru: "Уведомление об инцидентах безопасности", es: "Notificación de incidentes de seguridad", it: "Segnalazione di incidenti di sicurezza" },
+    // 2026-08-13: 3 new topics closing a documented content gap vs. the
+    // closest EU competitor (SoSafe) - see compliance-competitor-pricing-
+    // and-course-gaps.md section 3. Deliberately distinct labels from the
+    // existing "phishing" topic (whose DE label already says "... und
+    // Social Engineering") since these cover the broader non-email playbook
+    // (pretexting/tailgating/BEC/vishing/smishing) rather than email
+    // phishing specifically.
+    social_engineering: { de: "Telefon- und Vor-Ort-Betrug", en: "Phone & in-person fraud", uk: "Шахрайство по телефону і особисто", pl: "Oszustwa telefoniczne i osobiste", ar: "الاحتيال الهاتفي والمباشر", zh: "电话与当面诈骗", hi: "फ़ोन और आमने-सामने की धोखाधड़ी", tr: "Telefon ve yüz yüze dolandırıcılık", fr: "Fraude téléphonique et en personne", ru: "Мошенничество по телефону и лично", es: "Fraude telefónico y presencial", it: "Frode telefonica e di persona" },
+    ransomware: { de: "Ransomware", en: "Ransomware", uk: "Програми-вимагачі", pl: "Ransomware", ar: "برامج الفدية", zh: "勒索软件", hi: "रैनसमवेयर", tr: "Fidye yazılımı", fr: "Rançongiciels", ru: "Программы-вымогатели", es: "Ransomware", it: "Ransomware" },
+    ki_bedrohungen: { de: "KI-gestützte Bedrohungen", en: "AI-powered threats", uk: "Загрози на основі ШІ", pl: "Zagrożenia oparte na AI", ar: "التهديدات المدعومة بالذكاء الاصطناعي", zh: "人工智能驱动的威胁", hi: "एआई-संचालित खतरे", tr: "Yapay zekâ destekli tehditler", fr: "Menaces basées sur l'IA", ru: "Угрозы на основе ИИ", es: "Amenazas impulsadas por IA", it: "Minacce basate sull'IA" },
   },
   // 2026-08-08: added via a full translation audit (PO asked to check all
   // translations) - motorrad/lkw had NO entry in this object at all, which

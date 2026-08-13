@@ -671,6 +671,19 @@
           fuehrerschein: CLASS_B[lang] || CLASS_B.en,
           motorrad: s.theoryExam,
           lkw: s.theoryExam,
+          // 2026-08-13: found while answering a user question about why
+          // some "Betriebliche Pflichtschulung" cards showed the subtitle
+          // badge and others didn't - datenschutz/ki_act are both listed in
+          // the groupCompliance group below (same heading, same shared
+          // disclaimer paragraph as arbeitssicherheit/it_sicherheit/
+          // hinweisgeberschutz) but had no entry here at all, so their
+          // cards silently rendered with no subtitle span (see the
+          // `if (subtitles[mod])` guard further down - undefined just skips
+          // creating the span). Nothing suggested this was intentional; all
+          // 5 modules in that group are workplace-mandated training in the
+          // same sense. Added rather than left as a stale gap.
+          datenschutz: s.compliance,
+          ki_act: s.compliance,
           arbeitssicherheit: s.compliance,
           it_sicherheit: s.compliance,
           hinweisgeberschutz: s.compliance,

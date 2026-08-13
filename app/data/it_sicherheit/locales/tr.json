@@ -398,5 +398,245 @@
       "d": "Zaman, gözlemlenen anormallikler ve etkilenen sistemler veya veriler hakkında mümkün olduğunca kesin bilgiler"
     },
     "explanation": "Zaman, gözlemlenen davranış (örneğin olağan dışı açılır pencereler, açıklanamayan dosya değişiklikleri) ve etkilenen sistemler veya veriler hakkında somut bilgiler, ilgili birimin olayı hızla sınıflandırmasına, kapsamını tahmin etmesine ve uygun karşı önlemleri başlatmasına yardımcı olur. Yalnızca ad bunun için yeterli değildir, zaman belirtilmeden yapılan bir bildirim zamansal sınıflandırmayı zorlaştırır ve bir \"suç meselesi\" hakkındaki tahminler olayın teknik olarak işlenmesi için belirleyici nokta değildir."
+  },
+  "it_sicherheit-social_engineering-01": {
+    "question": "Bir arayan kişi kendisini BT desteği olarak tanıtıyor ve sözde bir güvenlik sorununu çözmek için acilen mevcut şifrenizi söylemenizi istiyor. Nasıl tepki verirsiniz?",
+    "options": {
+      "a": "Şifreyi söylemek, çünkü BT destek talepleri genellikle acildir",
+      "b": "Şifreyi söylememek ve talebi bilinen, bağımsız bir kanal üzerinden (ör. resmi BT yardım hattı) doğrulamak",
+      "c": "Bunun yerine benzer görünümlü yeni bir şifre uydurup onu vermek",
+      "d": "Yalnızca kullanıcı adını söylemek, şifreyi ise atlamak"
+    },
+    "explanation": "Hiçbir meşru BT desteği asla şifrenizi düz metin olarak istemez - bu klasik bir pretexting (sahte kimlik/aciliyet uydurma) örüntüsüdür. Gerçek talepler her zaman, aramada verilen numaraya güvenmek yerine, zaten bilinen bağımsız bir kanal üzerinden yeniden doğrulanabilir."
+  },
+  "it_sicherheit-social_engineering-02": {
+    "question": "Ofis binasına erişim kartınızla giriyorsunuz. Görünürde bir kimlik kartı olmayan tanımadığınız bir kişi, kapıdan sizin hemen arkanızdan içeri giriyor ('tailgating'). Doğru tepki nedir?",
+    "options": {
+      "a": "Kapıyı sadece açık tutmak, nezaket her şeyden önce gelir",
+      "b": "Hiçbir şey yapmamak, bu resepsiyonun görevidir",
+      "c": "Kişiye nazikçe kimliğini/amacını sormak veya durumu güvenlik/resepsiyona bildirmek",
+      "d": "Şüpheli görünmediği sürece kişiyi görmezden gelmek"
+    },
+    "explanation": "Tailgating, fiziksel giriş kontrollerini aşmanın en yaygın yollarından biridir - 'şüpheli görünmek' güvenilir bir kriter değildir, çünkü saldırganlar bilinçli olarak göze batmamaya çalışır. Nazikçe sormak veya güvenliğe bildirmek çok az çaba gerektirir ve gerçek bir güvenlik açığını kapatır."
+  },
+  "it_sicherheit-social_engineering-03": {
+    "question": "Şirket otoparkında üzerinde etiket olmayan bir USB bellek buluyorsunuz. Ne yaparsınız?",
+    "options": {
+      "a": "Sahibini dosyalardan tespit etmek için belleği iş bilgisayarınıza takmak",
+      "b": "Belleği takmamak, bunun yerine BT güvenliğine bildirmek/teslim etmek",
+      "c": "Belleği evde kişisel bir bilgisayarda kontrol etmek, orada şirket riski yoktur",
+      "d": "Belleği atmak, böylece başka kimse bulamaz"
+    },
+    "explanation": "Kasıtlı olarak 'kaybedilmiş' bir USB bellek, birisi merakla takar takmaz kötü amaçlı yazılım bulaştırmak için kullanılan bilinen bir saldırı yöntemidir ('USB drop attack'). Bu risk kişisel bir bilgisayarda da aynen geçerlidir, çünkü çalınan veriler veya erişim bilgileri oradan da sızabilir. BT güvenliği belleği güvenli (izole) şekilde inceleyebilir."
+  },
+  "it_sicherheit-social_engineering-04": {
+    "question": "Sözde bir banka çalışanından, 'güvenlik amacıyla' PIN'inizi telefonda onaylamanızı isteyen bir arama alıyorsunuz ('vishing'). Doğru şekilde nasıl tepki verirsiniz?",
+    "options": {
+      "a": "PIN'i söylemek, çünkü arayan kişi hesap bakiyesini zaten biliyordu ve bu güvenilir görünüyordu",
+      "b": "PIN'in yalnızca son iki rakamını söylemek, bunun yeterince güvenli olduğunu düşünmek",
+      "c": "PIN'i kesinlikle telefonda söylememek ve bankayı, resmi ve bilinen telefon numarasından kendiniz aramak",
+      "d": "Telefonu kapatmak ve bankayı bilgilendirmeden, önlem olarak PIN'i hemen değiştirmek"
+    },
+    "explanation": "Bankalar telefonda asla tam PIN sormaz - kısmi bilgiler veya (ör. veri sızıntılarından elde edilebilecek) görünürde bilinen hesap bilgileri bile arayanın gerçek kimliğini kanıtlamaz. Güvenli yol her zaman, bağımsız olarak doğrulanmış bir numara üzerinden kendiniz başlattığınız geri aramadır."
+  },
+  "it_sicherheit-social_engineering-05": {
+    "question": "Sözde bir kargo şirketinden şu SMS'i alıyorsunuz: 'Paketiniz teslim edilemedi, lütfen adresinizi ve ödeme bilgilerinizi bu bağlantı üzerinden onaylayın' ('smishing'). Doğru tepki nedir?",
+    "options": {
+      "a": "Bağlantıyı açmak ama ödeme bilgilerini girmemek",
+      "b": "Bağlantıyı açmamak ve bunun yerine takip numarasını doğrudan kargo şirketinin resmi web sitesinde kontrol etmek",
+      "c": "SMS'i, bağlantıyı test etmeleri için meslektaşlara iletmek",
+      "d": "Listeden çıkmak için 'Stop' yazarak yanıt vermek"
+    },
+    "explanation": "Sadece bir bağlantıyı açmak bile cihaz bilgilerini ifşa edebilir veya erişim bilgilerini çalmayı amaçlayan gerçeğine çok benzeyen sahte bir sayfaya yönlendirebilir. Güvenli kontrol her zaman kendinizin girdiği resmi adres üzerinden yapılır - talep edilmemiş bir mesajdaki bağlantı üzerinden asla."
+  },
+  "it_sicherheit-social_engineering-06": {
+    "question": "Görünüşte üst yönetimden gelen bir e-posta alıyorsunuz: 'Acil ve gizli - lütfen derhal bu yeni hesaba 45.000 € tutarında bir havale yapılmasını sağlayın, şu anda ulaşılamıyorum' ('CEO dolandırıcılığı' / Business Email Compromise). Nasıl davranırsınız?",
+    "options": {
+      "a": "Gizlilik ve aciliyet vurgulandığı için havaleyi hemen gerçekleştirmek",
+      "b": "E-postayı yanıtlayıp daha fazla ayrıntı istemek, ardından havale yapmak",
+      "c": "Talebi bağımsız, bilinen bir kanal üzerinden (ör. bilinen bir numaradan geri arama) doğrulamak ve zaman baskısı altında dahi olağan onay sürecine uymak",
+      "d": "Zaman kazanmak için bir meslektaştan, soru sormadan havaleyi üstlenmesini istemek"
+    },
+    "explanation": "Aciliyet, gizlilik ve sözde gönderenin ulaşılamaz olması, CEO dolandırıcılığında kullanılan klasik baskı unsurlarıdır - bunlar tam olarak olağan onay sürecine (ör. dört göz ilkesi) uyulmasını engellemek için kullanılır. Bir e-postayı yanıtlayan kişi yine aynı saldırgana ulaşır; gerçek güvenliği ancak bağımsız bir geri doğrulama kanalı sağlar."
+  },
+  "it_sicherheit-social_engineering-07": {
+    "question": "Uzun süredir çalıştığınız bir tedarikçiden geldiği belirtilen bir e-posta, banka bilgilerinin değiştiğini bildiriyor ve gelecekteki ödemelerin yeni hesaba yapılmasını istiyor. Doğru ilk adım nedir?",
+    "options": {
+      "a": "Tedarikçi bilindiği için sistemdeki ödeme bilgilerini hemen güncellemek",
+      "b": "Herhangi bir şey değiştirilmeden önce, değişikliği tedarikçideki bağımsız, önceden bilinen bir irtibat kişisi üzerinden (e-postadan değil, önceki belgelerden alınan bir telefon numarasından) doğrulamak",
+      "c": "Yeni hesabı kontrol etmek için küçük bir test havalesi göndermek",
+      "d": "E-postayı görmezden gelmek, ancak eski banka bilgilerini yine de önlem olarak engellemek"
+    },
+    "explanation": "Banka bilgisi değişiklikleri, Business Email Compromise saldırılarının tercih ettiği bir hedeftir, çünkü tedarikçilerin e-posta hesapları ele geçirilebilir ve faturalar gerçeğine çok benzer şekilde sahtelenebilir. Önceki iş birliğinden bilinen bağımsız bir kanal üzerinden doğrulama tek güvenilir korumadır - test havalesi asıl tutarı korumaz."
+  },
+  "it_sicherheit-social_engineering-08": {
+    "question": "Bir meslektaşınız erişim kartını unutmuş ve kendi kartınızla onu güvenlik kapısından içeri almanızı istiyor ('badge sharing'). Doğru tepki nedir?",
+    "options": {
+      "a": "Onu içeri almak, sonuçta tanıdığınız bir meslektaş",
+      "b": "Kartınızı gün boyunca ona ödünç vermek",
+      "c": "Onu resepsiyona veya güvenliğe yönlendirmek, böylece orada geçici bir erişim düzenli olarak verilebilir",
+      "d": "Kimse görmediği sürece kapıyı onun için tutmak"
+    },
+    "explanation": "Erişim kartları kişiye özeldir, böylece olası bir olay incelemesinde kimin ne zaman nerede olduğu izlenebilir - badge sharing, meslektaşlar arasında bile olsa bunu baltalar ve ayrıca sosyal mühendislerin bilinçli olarak kullandığı bir örüntüdür ('kartımı unuttum'). Resepsiyon/güvenlik üzerinden olağan yol hem hızlı hem de güvenli kalır."
+  },
+  "it_sicherheit-ransomware-01": {
+    "question": "Ekranınızda aniden tüm dosyalarınızın şifrelendiğini ve yalnızca bir fidye ödenmesi karşılığında ('ransomware') tekrar serbest bırakılacağını belirten bir mesaj çıkıyor. İlk yapmanız gereken nedir?",
+    "options": {
+      "a": "Zaman kazanmak için istenen fidyeyi hemen ödemeye çalışmak",
+      "b": "Cihazı derhal ağdan ayırmak (ağ kablosunu çekmek / Wi-Fi'yi kapatmak) ve hemen BT güvenliğini bilgilendirmek",
+      "c": "Sorunun kaybolup kaybolmadığını görmek için bilgisayarı yeniden başlatmak",
+      "d": "İnternette bulunan bir yazılımla dosyaları kendiniz çözmeye çalışmak"
+    },
+    "explanation": "Ağ bağlantısının hemen kesilmesi, fidye yazılımının şirket ağındaki diğer sistemlere yayılmasını önler - bu, başka herhangi bir işlemden önce atılması gereken en önemli ilk adımdır. BT güvenliği daha sonra olayı doğru şekilde sınırlandırabilir; kendi başına şifre çözme girişimleri veya bir yeniden başlatma izleri yok edebilir ya da durumu kötüleştirebilir."
+  },
+  "it_sicherheit-ransomware-02": {
+    "question": "Bir şirket, bir fidye yazılımı saldırısında istenen fidyeyi ödemeli midir?",
+    "options": {
+      "a": "Evet, verilere yeniden ulaşmanın her zaman en hızlı ve en güvenli yolu budur",
+      "b": "Evet, ama sadece istenen tutar yeterince düşük görünüyorsa",
+      "c": "BSI, ödemeleri genel olarak önermez - ödeme verilerin serbest bırakılacağını garanti etmez, yeni saldırıları finanse eder ve tekrar hedef haline gelinmesine yol açabilir; karar bireylere değil, acil durum planı kapsamında üst yönetime/BT güvenliğine aittir",
+      "d": "Bunun bir önemi yok, çünkü yedeklemeler zaten ödemeyi her zaman gereksiz kılar"
+    },
+    "explanation": "Bir ödeme, verilerin geri getirileceğine dair bir garanti değildir ve suç altyapısını finanse etmeye devam eder. İyi yedeklemeler olsa bile, gerçek bir olayda ödeme kararı karmaşık kalır (ör. dışarı sızdırılmış veriler nedeniyle) ve bu yüzden her zaman sahadaki bir bireyin değil, belgelenmiş acil durum planı kapsamında şirket yönetiminin kararıdır."
+  },
+  "it_sicherheit-ransomware-03": {
+    "question": "Fidye yazılımı, şirket ağlarına en sık hangi yoldan bulaşır?",
+    "options": {
+      "a": "Kötü amaçlı ek veya bağlantı içeren kimlik avı (phishing) e-postaları ile internetten erişilebilen, yamaları yapılmamış sistemler üzerinden",
+      "b": "Neredeyse yalnızca fiziksel olarak çalınan dizüstü bilgisayarlar üzerinden",
+      "c": "Neredeyse yalnızca ele geçirilmiş yazıcı kabloları üzerinden",
+      "d": "Fidye yazılımı temelde yalnızca zaten enfekte olmuş USB bellekler üzerinden yayılır"
+    },
+    "explanation": "BSI durum raporlarına göre, kimlik avı e-postaları ile internetten erişilebilen, yamaları yapılmamış sistemler (ör. uzaktan erişim çözümleri) en yaygın giriş noktalarıdır. Bu durum, hem eklerin/bağlantıların açılmasında dikkatli çalışanları hem de güvenlik güncellemelerinin zamanında uygulanmasını temel koruma önlemleri haline getirir."
+  },
+  "it_sicherheit-ransomware-04": {
+    "question": "Düzenli olarak alınan, ağdan bağlantısı kesilmiş ('çevrimdışı') veya değiştirilemez ('immutable') yedeklemeler neden fidye yazılımına karşı korumada özellikle önemlidir?",
+    "options": {
+      "a": "Önemli değildir - düzenli olarak çalıştığı sürece herhangi bir tür yedekleme yeterlidir",
+      "b": "Sadece BT departmanının depolama alanından tasarruf edebilmesi için",
+      "c": "Çünkü fidye yazılımı, ağ üzerinden erişebildiği yedeklemeleri de kasıtlı olarak şifrelemeye çalışır - gerçek bir olayda yalnızca bağlantısı kesilmiş veya değiştirilemez kopyaların kullanılabilir kalacağı garanti edilir",
+      "d": "Yalnızca uyumluluk (compliance) nedenleriyle, teknik açıdan yedekleme türünün bir önemi yoktur"
+    },
+    "explanation": "Modern fidye yazılımları, ağ üzerinden erişilebilen sürücüleri ve yedekleme sistemlerini aktif olarak arar, bunları da şifreleyerek fidye ödeme baskısını artırmayı amaçlar. Çevrimdışı veya teknik olarak değiştirilemez bir yedekleme bundan etkilenemez ve ödeme yapmadan geri yükleme yapılmasını sağlar."
+  },
+  "it_sicherheit-ransomware-05": {
+    "question": "Şirket bilgisayarınızda bir fidye yazılımı bulaşması fark ediyorsunuz. Sorunu kendiniz çözmek için bilgisayarı yeniden başlatmalı mısınız?",
+    "options": {
+      "a": "Evet, yeniden başlatma çoğu yazılım sorununu çözer",
+      "b": "Hayır - yeniden başlatma veya kapatma, devam eden şifreleme sürecini hızlandırabilir veya önemli adli izleri yok edebilir; bunun yerine ağdan bağlantıyı kesin ve olayı bildirin",
+      "c": "Evet, ama yalnızca güvenli modda",
+      "d": "Bunun bir önemi yok, sonrasında bir antivirüs programı çalıştırdığınız sürece"
+    },
+    "explanation": "Bazı fidye yazılımı türleri, yeniden başlatmadan sonra şifrelemeye devam eder ya da bu sırada saldırı yolunun sonradan analiz edilmesi için önemli olacak ipuçlarını siler. BT güvenliği, bir sonraki adımlara sistemin değiştirilmemiş durumuna dayanarak karar verir."
+  },
+  "it_sicherheit-ransomware-06": {
+    "question": "Bir meslektaşınız, bilgisayarında şüphelenilen bir fidye yazılımı olayında, 'başının derde girmemesi için' BT güvenliğini devreye sokmadan yardım etmenizi istiyor. Nasıl tepki verirsiniz?",
+    "options": {
+      "a": "İstendiği gibi yardım etmek ve konuyu aranızda gizli tutmak",
+      "b": "İnternette bulunan bir şifre çözme kılavuzunu kendiniz denemek",
+      "c": "BT güvenliğine derhal bildirim yapılması konusunda ısrar etmek - hızlı bildirim, oluşabilecek zararı azaltır ve olası sıkıntılardan daha önemlidir",
+      "d": "Bilgisayarı sadece kapatmak ve konuyu bu şekilde çözülmüş saymak"
+    },
+    "explanation": "Gecikmiş veya yapılmayan bildirim, güvenlik olaylarındaki en büyük risklerden biridir, çünkü fidye yazılımı geçen zaman içinde ağda yayılmaya devam edebilir. İyi bir güvenlik kültürü, hızlı bildirimi sıkıntı yaratan bir şey olarak değil, istenen bir davranış olarak ele alır."
+  },
+  "it_sicherheit-ransomware-07": {
+    "question": "Bir fidye talebi görünmeden önce, bir sistemin muhtemelen bir fidye yazılımı saldırısının erken aşamasında olduğuna en çok hangi belirti işaret eder?",
+    "options": {
+      "a": "Ekran koruyucu değişti",
+      "b": "Kısa sürede dikkat çekici sayıda dosya yeniden adlandırılıyor veya alışılmadık yeni dosya uzantıları alıyor, sistem belirgin şekilde yavaşlıyor ve antivirüs programı tekrar tekrar engellenmiş şüpheli süreçler bildiriyor",
+      "c": "Bilgisayar her zamankinden biraz daha sessiz",
+      "d": "Fidye talebinden önce fark edilebilir herhangi bir belirti yoktur"
+    },
+    "explanation": "Asıl şifreleme genellikle fidye talebi görünür hale gelmeden önce arka planda çalışır - toplu dosya yeniden adlandırma, belirgin yavaşlama ve tekrarlanan antivirüs uyarıları erken uyarı işaretleridir; bu aşamada hemen bildirim yapmak, oluşan zararı henüz sınırlayabilir."
+  },
+  "it_sicherheit-ransomware-08": {
+    "question": "Aşağıdaki önlemlerden hangileri, fidye yazılımının şirket ağında yayılma riskini azaltır? (Birden fazla seçim)",
+    "options": {
+      "a": "Tüm sistemlerde güvenlik güncellemelerinin zamanında uygulanması",
+      "b": "Kullanıcı hesaplarına yalnızca gerçekten ihtiyaç duyulan yetkilerin verilmesi (en az yetki ilkesi)",
+      "c": "Tüm çalışanlara, BT sorunlarını kendileri çözebilsinler diye iş bilgisayarlarında yönetici yetkileri verilmesi",
+      "d": "Test edilmiş geri yükleme ile düzenli, bağlantısı kesilmiş yedeklemeler"
+    },
+    "explanation": "Güncel sistemler, minimum yetkiler ve test edilmiş yedeklemeler en etkili teknik koruma önlemleri arasındadır. Herkese geniş yönetici yetkileri verilmesi ise tam tersi bir etki yaratır: fidye yazılımının aynı yükseltilmiş yetkilerle ağda yayılmasını kolaylaştırır."
+  },
+  "it_sicherheit-ki_bedrohungen-01": {
+    "question": "Güvenlik bağlamında 'deepfake' ile ne kastedilir?",
+    "options": {
+      "a": "Özellikle ustaca sahtelenmiş fiziksel bir belge",
+      "b": "Yapay zeka kullanılarak üretilen, gerçek bir kişiyi taklit eden, gerçeğine çok benzeyen ses, görüntü veya video materyali",
+      "c": "Özellikle derinlemesine iç içe geçmiş phishing bağlantıları için teknik bir terim",
+      "d": "Pratikte artık bir önemi olmayan eski bir terim"
+    },
+    "explanation": "Deepfake'ler, gerçek bir kişinin sesini, yüzünü veya hareketlerini yeniden oluşturmak için yapay zeka modellerini kullanır - artık o kadar az çabayla üretilebiliyor ki, sahte aramalar veya video mesajları gibi hedefli dolandırıcılık girişimlerinde giderek daha fazla kullanılıyor."
+  },
+  "it_sicherheit-ki_bedrohungen-02": {
+    "question": "Sesinin tam olarak üst yönetiminizin sesi gibi geldiği ve acil, olağandışı bir havale talep eden bir telefon görüşmesi alıyorsunuz - bir geri arama numarası açıkça reddediliyor ('Az sonra uçağa bineceğim'). Doğru tepki nedir?",
+    "options": {
+      "a": "Ses hiç şüphesiz tanındığı için harekete geçmek",
+      "b": "Havaleyi yapmak ama sadece istenen tutarın yarısı kadar",
+      "c": "Talebe uymamak ve kimliği bağımsız, önceden bilinen bir kanal üzerinden doğrulamak - yapay zeka ses klonlaması nedeniyle yalnızca sesin tanınması artık güvenilir bir doğrulama değildir",
+      "d": "Talebi bildirmeden görmezden gelmek"
+    },
+    "explanation": "Yapay zeka ses klonlaması, birkaç saniyelik gerçek ses kaydından bile gerçeğine çok benzeyen bir ses üretebilir - sesin ne kadar gerçek çıktığından bağımsız olarak, aciliyet, olağandışı talep ve geri aramanın reddedilmesi bileşiminin tam olarak kendisi tipik bir uyarı işaretidir. Harekete geçilmese bile, diğer meslektaşların uyarılabilmesi için durum yine de bildirilmelidir."
+  },
+  "it_sicherheit-ki_bedrohungen-03": {
+    "question": "Eskiden yazım ve dil bilgisi hataları, phishing e-postalarını tanımada güvenilir bir işaret olarak kabul edilirdi. Bu kriter neden artık tek başına yeterli değil?",
+    "options": {
+      "a": "Çünkü e-posta programları artık yazım hatalarını otomatik olarak düzeltiyor",
+      "b": "Çünkü yazım hataları zaten hiçbir zaman güvenilir bir kriter olmamıştı",
+      "c": "Çünkü yapay zeka dil modelleri dilbilgisi açısından kusursuz, kişiselleştirilmiş phishing metinleri üretebiliyor - bu da yanlış gönderen adresi, olağandışı bağlantılar veya beklenmedik aciliyet gibi diğer uyarı işaretlerini daha önemli hale getiriyor",
+      "d": "Çünkü modern phishing saldırıları temelde metin içermiyor"
+    },
+    "explanation": "Yapay zeka tarafından üretilen metinler, dil açısından çoğu zaman gerçek iletişimden ayırt edilemez hale gelmiştir ve ayrıca hedef kişiye özel olarak da uyarlanabilir. Bu nedenle daha güvenilir kontrol noktaları, gerçek gönderen adresi, bir bağlantının hedef URL'si ve talebin içerik olarak makul olup olmadığı ile beklenen kanal üzerinden gelip gelmediğidir."
+  },
+  "it_sicherheit-ki_bedrohungen-04": {
+    "question": "Aniden ayarlanan bir görüntülü görüşmede, görünüş ve ses olarak bilinen bir yöneticiyi andıran bir kişi, gizli müşteri verilerinin derhal paylaşılmasını talep ediyor. Görüntü/ses kalitesi hafifçe olağandışı. Nasıl tepki verirsiniz?",
+    "options": {
+      "a": "Görüntü ve ses uyuştuğu için verileri paylaşmak",
+      "b": "Paylaşımı reddetmek veya ertelemek ve talebi bağımsız, önceden bilinen bir kanal üzerinden (ör. geri arama, yüz yüze görüşme) doğrulamak",
+      "c": "Riski sınırlamak için verilerin yalnızca bir kısmını paylaşmak",
+      "d": "Görüşme sırasında doğrudan bunun bir deepfake olup olmadığını sormak ve verilen yanıta güvenmek"
+    },
+    "explanation": "Hafifçe uyumsuz görüntü/ses kalitesi, aniden ayarlanmış bir görüşme ve olağandışı, gizli bir talep bir araya geldiğinde, bunlar birlikte tipik bir deepfake saldırısı uyarı işaretleridir. Bir kişiyi gerçeğine çok benzer şekilde taklit eden bir saldırgan, görüşme sırasında doğrudan sorulduğunda tabii ki bunu inkar edecektir - gerçek netliği yalnızca bağımsız bir kanal sağlar."
+  },
+  "it_sicherheit-ki_bedrohungen-05": {
+    "question": "Yapay zeka araçlarının kullanımı nedeniyle sosyal mühendislik genel olarak neden öncekinden daha büyük bir risk olarak değerlendiriliyor?",
+    "options": {
+      "a": "Çünkü yapay zeka araçları yalnızca BT güvenliği ekipleri tarafından kullanılabilir",
+      "b": "Çünkü yapay zeka araçları, saldırganların ikna edici, kişiye özel olarak uyarlanmış saldırıları (metin, ses, video) büyük ölçekte ve az bir çabayla oluşturmasına olanak tanır",
+      "c": "Çünkü yapay zeka araçları sosyal mühendislik saldırılarını temelde imkansız hale getiriyor",
+      "d": "Yapay zeka araçları nedeniyle risk değişmedi"
+    },
+    "explanation": "Eskiden yüksek manuel çaba gerektiren şeyler (ör. bir sesi taklit etmek veya yabancı bir dilde ikna edici, hatasız metinler yazmak), bugün yapay zeka araçlarıyla hızlı ve büyük sayılarda otomatikleştirilebiliyor - bu hem saldırıların miktarını hem de kalitesini artırıyor."
+  },
+  "it_sicherheit-ki_bedrohungen-06": {
+    "question": "Deepfake araması veya video mesajı yoluyla yapılan dolandırıcılığa karşı en etkili koruma nedir?",
+    "options": {
+      "a": "Sesin veya görüntünün 'yeterince gerçek' gelip gelmediğine dikkatlice bakmak",
+      "b": "Olağandışı veya finansal talepler için önceden kararlaştırılmış, sabit doğrulama prosedürlerine (ör. bilinen bir numaradan geri arama, önceden kararlaştırılmış bir kod kelimesi) sesin veya görüntünün ne kadar gerçek göründüğünden bağımsız olarak tutarlı bir şekilde uymak",
+      "c": "Aramaları temelde artık yalnızca e-posta yoluyla yazılı olarak onaylatmak",
+      "d": "Şu anda buna karşı etkili bir koruma yoktur"
+    },
+    "explanation": "Deepfake'ler bilinçli olarak insan algısını yanıltmak üzere tasarlandığından, 'gerçeklik' konusundaki kendi kararınız artık güvenilir bir koruma değildir. Buna karşılık, ilgili iletişim biçiminden bağımsız olarak önceden kararlaştırılmış doğrulama prosedürleri, bir sahtekarlığın ne kadar ikna edici olduğundan bağımsız olarak işe yarar."
+  },
+  "it_sicherheit-ki_bedrohungen-07": {
+    "question": "Gizli müşteri verileri içeren dahili bir raporu hızlıca özetlemek için herkese açık bir yapay zeka sohbet botu kullanmak istiyorsunuz. Bu sakıncalı mıdır?",
+    "options": {
+      "a": "Evet, herkese açık yapay zeka sohbet botları girilen verileri temelde hiç saklamaz",
+      "b": "Evet, müşteri isimlerini önceden yer tutucularla değiştirdiğiniz sürece geri kalan her şey sorun teşkil etmez",
+      "c": "Hayır - gizli veya kişisel veriler yalnızca kendi kurumunuzun onayladığı yapay zeka araçlarına girilmelidir, çünkü herkese açık hizmetlerde girilen verilerin nasıl işlendiği belirsiz olabilir",
+      "d": "Bu tamamen veri koruma sorumlusunu ilgilendiren bir konudur ve normal çalışanları ilgilendirmez"
+    },
+    "explanation": "Herkese açık yapay zeka hizmetlerinde, girilen verilerin saklanıp saklanmadığı, model geliştirmede kullanılıp kullanılmadığı veya başka şekilde işlenip işlenmediği çoğu zaman şeffaf değildir. Bu nedenle gizli veya kişisel veriler yalnızca kendi kurumunuzun incelediği ve onayladığı araçlara girilmelidir - bu konudaki şirket çapında bir politika yalnızca uzman departmanları değil, tüm çalışanları ilgilendirir."
+  },
+  "it_sicherheit-ki_bedrohungen-08": {
+    "question": "Az önce yapay zeka destekli bir dolandırıcılık girişiminin (ör. deepfake araması veya gerçeğine çok benzeyen yapay zeka phishing e-postası) hedefi olduğunuzu düşünüyorsunuz, ancak dolandırıcılığı zamanında fark edip tepki vermediniz. Olayı yine de bildirmeli misiniz?",
+    "options": {
+      "a": "Hayır, hiçbir şey olmadığı için harekete geçmeye gerek yoktur",
+      "b": "Evet - diğer sosyal mühendislik girişimlerinde olduğu gibi aynı bildirim yolu burada da geçerlidir, böylece diğer meslektaşlar uyarılabilir ve benzer saldırılar tanınabilir",
+      "c": "Yalnızca gerçekten mali bir zarar oluşmuşsa bildirin",
+      "d": "Yalnızca BT departmanı açıkça sorarsa bildirin"
+    },
+    "explanation": "Başarısızlığa uğratılmış bir saldırı girişimi bile değerli bilgiler sağlar - ör. şu anda hangi dolandırıcılık yönteminin dolaşımda olduğu veya birden fazla çalışanın aynı anda hedef alınıp alınmadığı gibi. Fark edilen ama başarısız olan girişimlerin erken bildirilmesi, etkili bir güvenlik kültürünün temel bir parçasıdır."
   }
 }

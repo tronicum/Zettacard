@@ -398,5 +398,245 @@
       "d": "As precise details as possible about the time, the observed anomalies, and the affected systems or data"
     },
     "explanation": "Concrete details about the time, the observed behaviour (e.g. unusual pop-ups, unexplained file changes), and the affected systems or data help the responsible team quickly assess the incident, estimate its scope, and initiate suitable countermeasures. Your name alone is not sufficient, a report without timing information makes it harder to establish a timeline, and speculating about \"who is to blame\" is not the decisive point for the technical handling of the incident."
+  },
+  "it_sicherheit-social_engineering-01": {
+    "question": "A caller claims to be from IT support and urgently asks you for your current password to fix an alleged security issue. What do you do?",
+    "options": {
+      "a": "Give the password, since IT support requests are usually urgent",
+      "b": "Do not give the password, and verify the request through a known, independent channel (e.g. the official IT hotline)",
+      "c": "Make up a similar-looking password and give that instead",
+      "d": "Give only the username but leave out the password"
+    },
+    "explanation": "No legitimate IT support ever needs your password in plain text - this is a classic pretexting pattern (impersonating an authority and manufacturing urgency). A genuine request can always be re-verified through an independent channel you already know, rather than trusting a number given during the call itself."
+  },
+  "it_sicherheit-social_engineering-02": {
+    "question": "You enter the office building with your access card. An unknown person with no visible badge follows closely behind you through the door ('tailgating'). What is the correct response?",
+    "options": {
+      "a": "Just hold the door open, politeness comes first",
+      "b": "Do nothing, that is reception's job",
+      "c": "Politely ask the person for their badge/purpose, or report the incident to security/reception",
+      "d": "Ignore the person as long as they don't look suspicious"
+    },
+    "explanation": "Tailgating is one of the most common ways to bypass physical access controls - 'looking suspicious' is not a reliable signal, since attackers deliberately try to blend in. A polite question or a report to security costs little and closes a real security gap."
+  },
+  "it_sicherheit-social_engineering-03": {
+    "question": "You find an unlabeled USB stick in the company parking lot. What do you do?",
+    "options": {
+      "a": "Plug it into your work computer to identify the owner from the files on it",
+      "b": "Do not plug it in, and instead report/hand it over to IT security",
+      "c": "Check it on a private computer at home, since that carries no company risk",
+      "d": "Throw it away so no one else finds it"
+    },
+    "explanation": "A deliberately 'lost' USB stick is a known attack method ('USB drop attack') to introduce malware once someone plugs it in out of curiosity. The same risk applies on a private computer, since stolen data or credentials can leak from there too. IT security can examine the stick safely, in isolation."
+  },
+  "it_sicherheit-social_engineering-04": {
+    "question": "You receive a call from someone claiming to be a bank employee, asking you to confirm your PIN over the phone 'for security purposes' ('vishing'). What is the correct response?",
+    "options": {
+      "a": "Give the PIN, since the caller already knew your account balance, which seemed trustworthy",
+      "b": "Give only the last two digits of the PIN, that should be safe enough",
+      "c": "Never give the PIN over the phone, and instead call back yourself using the bank's official, known phone number",
+      "d": "Hang up and change the PIN immediately yourself, without informing the bank"
+    },
+    "explanation": "Banks never ask for a complete PIN over the phone - and even partial disclosures or seemingly-known account details (which can come from data leaks) do not prove the caller's real identity. The safe approach is always a self-initiated callback using an independently verified number."
+  },
+  "it_sicherheit-social_engineering-05": {
+    "question": "You receive a text message from an alleged parcel delivery company: 'Your parcel could not be delivered, confirm your address and payment details via this link' ('smishing'). What is the correct response?",
+    "options": {
+      "a": "Open the link, but don't enter any payment details",
+      "b": "Do not open the link, and instead check the tracking number directly on the delivery company's official website",
+      "c": "Forward the text to colleagues so they can test the link",
+      "d": "Reply 'Stop' to unsubscribe from the list"
+    },
+    "explanation": "Even just opening a link can leak device information or lead to a convincing fake page designed to harvest credentials. The safe way to check is always to type in the official address yourself - never to follow a link from an unsolicited message."
+  },
+  "it_sicherheit-social_engineering-06": {
+    "question": "You receive an email that appears to be from senior management: 'Urgent and confidential - please arrange an immediate transfer of €45,000 to this new account, I can't be reached right now' ('CEO fraud' / Business Email Compromise). What do you do?",
+    "options": {
+      "a": "Execute the transfer immediately, since confidentiality and urgency were emphasized",
+      "b": "Reply to the email asking for more details, then transfer the money",
+      "c": "Verify the request through an independent, known channel (e.g. a callback to a known number) and follow the normal approval process, even under time pressure",
+      "d": "Ask a colleague to process the transfer without asking questions, to save time"
+    },
+    "explanation": "Urgency, confidentiality, and the sender's supposed unavailability are the classic pressure tactics in CEO fraud - they exist specifically to prevent the normal approval process (e.g. a four-eyes/dual-approval principle) from being followed. Replying to the same email still reaches the same attacker; only an independent verification channel provides real assurance."
+  },
+  "it_sicherheit-social_engineering-07": {
+    "question": "An email, apparently from a long-standing supplier, states that their bank details have changed and asks that future payments go to the new account. What is the correct first step?",
+    "options": {
+      "a": "Update the payment details in the system immediately, since the supplier is known",
+      "b": "Verify the change through an independent, already-known contact at the supplier (a phone number from earlier records, not from the email) before changing anything",
+      "c": "Send a small test transfer to the new account to check it",
+      "d": "Ignore the email, but block the old bank details as a precaution anyway"
+    },
+    "explanation": "Bank-detail changes are a prime target for business-email-compromise attacks, since a supplier's email account can be compromised and invoices convincingly forged. Verification through an independent contact channel already known from prior dealings is the only reliable protection - a test transfer does nothing to protect the real payment."
+  },
+  "it_sicherheit-social_engineering-08": {
+    "question": "A colleague forgot their access badge and asks you to just let them through the secure door with your own card ('badge sharing'). What is the correct response?",
+    "options": {
+      "a": "Just let them in, they're a known colleague after all",
+      "b": "Lend them your card for the day",
+      "c": "Direct them to reception or security so a proper temporary access can be issued",
+      "d": "Hold the door for them, as long as no one else is watching"
+    },
+    "explanation": "Access badges are tied to individuals precisely so that, in an incident investigation, who was where and when remains traceable - badge sharing undermines that even between colleagues, and is also a pattern social engineers deliberately exploit ('I forgot my badge'). The normal route through reception/security stays both quick and secure."
+  },
+  "it_sicherheit-ransomware-01": {
+    "question": "A message suddenly appears on your screen stating that all your files have been encrypted and will only be released if you pay a ransom ('ransomware'). What is your very first step?",
+    "options": {
+      "a": "Try to pay the demanded ransom immediately, to save time",
+      "b": "Disconnect the device from the network right away (unplug the network cable / turn off Wi-Fi) and immediately inform IT security",
+      "c": "Restart the computer to see if the problem goes away",
+      "d": "Try to decrypt the files yourself using software found online"
+    },
+    "explanation": "Disconnecting from the network immediately prevents the ransomware from spreading to other systems on the company network - this is the single most important first action before anything else. IT security can then contain the incident properly; unauthorized decryption attempts or a restart can destroy evidence or make things worse."
+  },
+  "it_sicherheit-ransomware-02": {
+    "question": "Should a company pay the ransom demanded in a ransomware attack?",
+    "options": {
+      "a": "Yes, that's always the fastest and safest way to get the data back",
+      "b": "Yes, but only if the amount demanded seems low enough",
+      "c": "The BSI generally advises against paying - it doesn't guarantee data will be released, funds further attacks, and can mark the victim as a repeat target; the decision belongs to management/IT security within the incident-response plan, not to individuals",
+      "d": "It doesn't matter, since backups always make payment unnecessary anyway"
+    },
+    "explanation": "Payment is no guarantee that data will actually be restored, and it further funds criminal infrastructure. Even with good backups, the payment decision in a real incident stays complex (e.g. because of exfiltrated data), so it is always a decision for company leadership within the documented incident-response plan, not for an individual on the spot."
+  },
+  "it_sicherheit-ransomware-03": {
+    "question": "What is the most common way ransomware gets into company networks?",
+    "options": {
+      "a": "Through phishing emails with a malicious attachment or link, and through unpatched systems reachable from the internet",
+      "b": "Almost exclusively through physically stolen laptops",
+      "c": "Almost exclusively through compromised printer cables",
+      "d": "Ransomware only ever spreads via already-infected USB sticks"
+    },
+    "explanation": "According to BSI situation reports, phishing emails and unpatched, externally reachable systems (e.g. remote-access solutions) are the dominant entry points. This makes both employee vigilance around attachments/links and timely security patching central protective measures."
+  },
+  "it_sicherheit-ransomware-04": {
+    "question": "Why are regular, network-disconnected ('offline') or tamper-proof ('immutable') backups especially important for ransomware protection?",
+    "options": {
+      "a": "They aren't - any kind of backup is enough as long as it runs regularly",
+      "b": "Only so the IT department can save on storage space",
+      "c": "Because ransomware deliberately tries to encrypt any backups it can also reach over the network - only disconnected or immutable copies are guaranteed to remain usable in a real incident",
+      "d": "Purely for compliance reasons, the backup type makes no technical difference"
+    },
+    "explanation": "Modern ransomware actively searches for reachable network drives and backup systems to encrypt those too, increasing the pressure to pay the ransom. A backup that is offline or technically immutable cannot be affected by this, enabling recovery without payment."
+  },
+  "it_sicherheit-ransomware-05": {
+    "question": "You notice a ransomware infection on your work computer. Should you restart the computer to try to fix it yourself?",
+    "options": {
+      "a": "Yes, a restart fixes most software problems",
+      "b": "No - restarting or shutting down can accelerate an in-progress encryption process or destroy important forensic evidence; disconnect from the network instead and report the incident",
+      "c": "Yes, but only in safe mode",
+      "d": "It doesn't matter, as long as you run antivirus software afterward"
+    },
+    "explanation": "Some ransomware variants continue encrypting after a restart, or a restart can erase clues important for later analysis of how the attack happened. IT security decides the next steps based on the system's unaltered state."
+  },
+  "it_sicherheit-ransomware-06": {
+    "question": "A colleague asks you to help with a suspected ransomware incident on their computer without involving IT security, 'to avoid getting in trouble'. What do you do?",
+    "options": {
+      "a": "Help as requested and keep it between the two of you",
+      "b": "Try a decryption guide found online yourself",
+      "c": "Insist on reporting it to IT security immediately - fast reporting limits the damage and matters more than potential inconvenience",
+      "d": "Just turn the computer off and consider the matter closed"
+    },
+    "explanation": "Delayed or withheld reporting is one of the biggest risks in a security incident, since ransomware can keep spreading across the network in the meantime. A healthy security culture treats fast reporting as desired behavior, not as something that causes trouble."
+  },
+  "it_sicherheit-ransomware-07": {
+    "question": "Which sign most likely indicates a system may be in the early stages of a ransomware attack, before any ransom note appears?",
+    "options": {
+      "a": "The screensaver has changed",
+      "b": "An unusually large number of files get renamed or receive strange new extensions in a short time, the system becomes noticeably slower, and antivirus software repeatedly flags blocked suspicious processes",
+      "c": "The computer is a bit quieter than usual",
+      "d": "There are no detectable signs before the ransom note appears"
+    },
+    "explanation": "The actual encryption often runs in the background before the ransom note becomes visible - mass file renaming, noticeable slowdowns, and repeated antivirus warnings are early warning signs where immediate reporting can still limit the damage as it happens."
+  },
+  "it_sicherheit-ransomware-08": {
+    "question": "Which of the following measures reduce the risk of ransomware spreading across the company network? (Select all that apply)",
+    "options": {
+      "a": "Timely security updates applied across all systems",
+      "b": "Giving user accounts only the access rights they actually need (principle of least privilege)",
+      "c": "Giving every employee administrator rights on their work computer so they can fix IT problems themselves",
+      "d": "Regular, disconnected backups with tested restoration"
+    },
+    "explanation": "Up-to-date systems, minimal access rights, and tested backups are among the most effective technical safeguards. Broad administrator rights for everyone work in exactly the opposite direction: they make it easier for ransomware to spread across the network using those same elevated rights."
+  },
+  "it_sicherheit-ki_bedrohungen-01": {
+    "question": "In a security context, what is meant by a 'deepfake'?",
+    "options": {
+      "a": "A particularly sophisticated forged physical document",
+      "b": "AI-generated audio, image, or video content designed to convincingly imitate a real person",
+      "c": "A technical term for phishing links nested unusually deeply",
+      "d": "An outdated term with no practical relevance anymore"
+    },
+    "explanation": "Deepfakes use AI models to recreate a real person's voice, face, or movements - now achievable with so little effort that they're increasingly used in targeted fraud attempts such as faked calls or video messages."
+  },
+  "it_sicherheit-ki_bedrohungen-02": {
+    "question": "You receive a phone call in a voice that sounds exactly like your senior management, urgently requesting an unusual transfer - a callback number is explicitly refused ('I'm about to board a flight'). What is the correct response?",
+    "options": {
+      "a": "Act on it, since the voice was recognized without doubt",
+      "b": "Make the transfer, but only for half the requested amount",
+      "c": "Do not act on the request, and verify identity through an independent, already-known channel - voice recognition alone is no longer a reliable confirmation because of AI voice cloning",
+      "d": "Ignore the request without reporting it"
+    },
+    "explanation": "AI voice cloning can produce a convincing fake voice from just a few seconds of real audio - the combination of urgency, an unusual request, and refusing a callback is a typical warning sign regardless of how genuine the voice sounds. Even if you don't act on it, it should still be reported so other colleagues can be warned."
+  },
+  "it_sicherheit-ki_bedrohungen-03": {
+    "question": "Spelling and grammar mistakes used to be considered a reliable way to spot phishing emails. Why isn't that criterion enough on its own anymore?",
+    "options": {
+      "a": "Because email programs now automatically correct spelling mistakes",
+      "b": "Because spelling mistakes were never a reliable criterion in the first place",
+      "c": "Because AI language models can generate grammatically flawless, personalized phishing text - making other warning signs like a mismatched sender address, unusual links, or unexpected urgency more important",
+      "d": "Because modern phishing attacks fundamentally don't use text anymore"
+    },
+    "explanation": "AI-generated text is often no longer linguistically distinguishable from genuine communication, and can also be tailored individually to the target. The more reliable checks remain the actual sender address, a link's real destination URL, and whether the request is plausible in content and arrives through the expected channel."
+  },
+  "it_sicherheit-ki_bedrohungen-04": {
+    "question": "In a spontaneously arranged video call, a person who looks and sounds like a known manager demands the immediate handover of confidential customer data. The audio/video quality is slightly unusual. What do you do?",
+    "options": {
+      "a": "Hand over the data, since the image and voice matched",
+      "b": "Refuse or delay the handover and verify the request through an independent, already-known channel (e.g. a callback, an in-person conversation)",
+      "c": "Hand over only part of the data, to limit the risk",
+      "d": "Ask directly during the call whether it's a deepfake, and trust the answer"
+    },
+    "explanation": "Slightly off audio/video quality, a spontaneous setup, and an unusual confidential request together are typical warning signs of a deepfake attack. An attacker convincingly impersonating someone will, of course, also deny it if asked directly during the call - only an independent channel provides real clarity."
+  },
+  "it_sicherheit-ki_bedrohungen-05": {
+    "question": "Why is social engineering generally considered a greater risk now that AI tools are widely available?",
+    "options": {
+      "a": "Because AI tools can only be used by IT security teams",
+      "b": "Because AI tools let attackers create convincing, individually tailored attacks (text, voice, video) at scale and with little effort",
+      "c": "Because AI tools make social-engineering attacks fundamentally impossible",
+      "d": "The risk has not changed because of AI tools"
+    },
+    "explanation": "What used to require significant manual effort (e.g. imitating a voice or writing convincing, error-free text in a foreign language) can now be automated quickly and at scale with AI tools - increasing both the volume and the quality of attacks."
+  },
+  "it_sicherheit-ki_bedrohungen-06": {
+    "question": "What is the most effective protection against deepfake call or video-message fraud?",
+    "options": {
+      "a": "Carefully judging whether the voice or image 'sounds/looks real enough'",
+      "b": "Consistently following fixed, pre-agreed verification procedures (e.g. a callback to a known number, a pre-agreed codeword) for unusual or financial requests - regardless of how genuine the voice or image seems",
+      "c": "Only ever confirming calls in writing by email",
+      "d": "There is currently no effective protection against this"
+    },
+    "explanation": "Since deepfakes are deliberately designed to fool human perception, your own judgment of 'authenticity' is no longer a reliable safeguard. Pre-agreed verification procedures that are independent of the communication channel in question, by contrast, work regardless of how convincing a fake is."
+  },
+  "it_sicherheit-ki_bedrohungen-07": {
+    "question": "You want to use a publicly available AI chatbot to quickly summarize an internal report containing confidential customer data. Is that safe to do?",
+    "options": {
+      "a": "Yes, public AI chatbots never store any data that is entered",
+      "b": "Yes, as long as you replace customer names with placeholders first, everything else is fine",
+      "c": "No - confidential or personal data should only be entered into AI tools approved by your own organization, since it can be unclear how a public service further processes what you type in",
+      "d": "That's purely a question for the data protection officer and doesn't concern regular employees"
+    },
+    "explanation": "With public AI services it's often unclear whether and how entered data is stored, used to improve the model, or otherwise further processed. Confidential or personal data therefore belongs only in tools that your own organization has reviewed and approved - a company-wide policy on this concerns every employee, not just specialist departments."
+  },
+  "it_sicherheit-ki_bedrohungen-08": {
+    "question": "You suspect you were just targeted by an AI-assisted fraud attempt (e.g. a deepfake call or a convincing AI-generated phishing email), but you recognized it in time and didn't act on it. Should you still report the incident?",
+    "options": {
+      "a": "No, since nothing happened, there's no need to act",
+      "b": "Yes - the same reporting path as for any other social-engineering attempt applies here too, so other colleagues can be warned and similar attacks recognized",
+      "c": "Only report it if actual financial damage occurred",
+      "d": "Only report it if the IT department explicitly asks"
+    },
+    "explanation": "Even a successfully deflected attack attempt provides valuable information - such as which scam pattern is currently circulating, or whether multiple employees were targeted at the same time. Promptly reporting recognized-but-unsuccessful attempts is a key part of an effective security culture."
   }
 }

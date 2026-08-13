@@ -398,5 +398,245 @@
       "d": "Informazioni il più precise possibile su orario, anomalie osservate e sistemi o dati coinvolti"
     },
     "explanation": "Informazioni concrete su orario, comportamento osservato (ad esempio finestre pop-up insolite, modifiche di file inspiegabili) e sistemi o dati coinvolti aiutano l'unità competente a classificare rapidamente l'incidente, a stimarne la portata e ad avviare contromisure adeguate. Il solo nome non basta a questo scopo, una segnalazione senza indicazione dell'orario complica la classificazione cronologica, e le supposizioni su una \"questione di colpa\" non sono il punto decisivo per la gestione tecnica dell'incidente."
+  },
+  "it_sicherheit-social_engineering-01": {
+    "question": "Una persona al telefono si spaccia per il supporto IT e le chiede con urgenza di comunicare la sua password attuale per risolvere un presunto problema di sicurezza. Come reagisce?",
+    "options": {
+      "a": "Comunicare la password, poiché le richieste del supporto IT sono di solito urgenti",
+      "b": "Non comunicare la password e verificare la richiesta tramite un canale noto e indipendente (ad es. la hotline IT ufficiale)",
+      "c": "Inventare una nuova password simile e comunicare quella al suo posto",
+      "d": "Comunicare solo il nome utente, omettendo la password"
+    },
+    "explanation": "Nessun supporto IT legittimo ha mai bisogno della sua password in chiaro: si tratta di un classico schema di pretexting (finta identità/urgenza artificiale). Una richiesta autentica può sempre essere riverificata tramite un canale indipendente già noto, invece di fidarsi del numero fornito durante la chiamata stessa."
+  },
+  "it_sicherheit-social_engineering-02": {
+    "question": "Entra nell'edificio uffici con il suo badge d'accesso. Una persona sconosciuta, senza tesserino visibile, la segue da vicino attraverso la porta ('tailgating'). Qual è la reazione corretta?",
+    "options": {
+      "a": "Tenere semplicemente la porta aperta, la cortesia viene prima di tutto",
+      "b": "Non fare nulla, è compito della reception",
+      "c": "Chiedere gentilmente alla persona il tesserino/il motivo della visita, oppure segnalare l'episodio alla security/reception",
+      "d": "Ignorare la persona finché non sembra sospetta"
+    },
+    "explanation": "Il tailgating è uno dei metodi più comuni per aggirare i controlli di accesso fisico - 'sembrare sospetto' non è un criterio affidabile, poiché gli aggressori cercano deliberatamente di non farsi notare. Chiedere gentilmente o segnalare alla security costa poco e chiude una reale falla di sicurezza."
+  },
+  "it_sicherheit-social_engineering-03": {
+    "question": "Trova una chiavetta USB senza etichetta nel parcheggio aziendale. Cosa fa?",
+    "options": {
+      "a": "Collegarla al proprio computer di lavoro per risalire al proprietario dai file",
+      "b": "Non collegarla e segnalarla/consegnarla alla sicurezza IT",
+      "c": "Controllarla su un computer personale a casa, poiché lì non c'è alcun rischio per l'azienda",
+      "d": "Gettarla via, così nessun altro la trova"
+    },
+    "explanation": "Una chiavetta USB 'persa' intenzionalmente è un metodo di attacco noto ('USB drop attack') per introdurre malware non appena qualcuno la collega per curiosità. Lo stesso rischio vale anche su un computer personale, poiché da lì possono comunque trapelare dati o credenziali rubate. La sicurezza IT può esaminare la chiavetta in modo sicuro e isolato."
+  },
+  "it_sicherheit-social_engineering-04": {
+    "question": "Riceve una telefonata da una presunta dipendente della banca che le chiede di confermare il PIN al telefono 'per motivi di sicurezza' ('vishing'). Qual è la reazione corretta?",
+    "options": {
+      "a": "Comunicare il PIN, poiché la persona conosceva già il saldo del conto e questo sembrava affidabile",
+      "b": "Comunicare solo le ultime due cifre del PIN, dovrebbe essere abbastanza sicuro",
+      "c": "Non comunicare mai il PIN al telefono e richiamare personalmente utilizzando il numero ufficiale e noto della banca",
+      "d": "Riagganciare e cambiare subito il PIN da soli, senza informare la banca"
+    },
+    "explanation": "Le banche non chiedono mai il PIN completo al telefono - e anche indicazioni parziali o dati del conto apparentemente noti (che possono provenire, ad esempio, da fughe di dati) non dimostrano la reale identità di chi chiama. Il metodo sicuro è sempre richiamare personalmente utilizzando un numero verificato in modo indipendente."
+  },
+  "it_sicherheit-social_engineering-05": {
+    "question": "Riceve un SMS da un presunto corriere: 'Il pacco non è stato consegnato, confermi il suo indirizzo e i dati di pagamento tramite questo link' ('smishing'). Qual è la reazione corretta?",
+    "options": {
+      "a": "Aprire il link, ma senza inserire i dati di pagamento",
+      "b": "Non aprire il link e verificare invece il numero di tracciamento direttamente sul sito ufficiale del corriere",
+      "c": "Inoltrare l'SMS ai colleghi affinché testino il link",
+      "d": "Rispondere 'Stop' per cancellarsi dalla lista"
+    },
+    "explanation": "Anche il solo fatto di aprire un link può rivelare informazioni sul dispositivo o portare a una pagina falsa ingannevolmente autentica progettata per sottrarre credenziali. La verifica sicura consiste sempre nel digitare personalmente l'indirizzo ufficiale, mai nel seguire un link ricevuto in un messaggio non richiesto."
+  },
+  "it_sicherheit-social_engineering-06": {
+    "question": "Riceve un'email apparentemente proveniente dalla direzione: 'Urgente e riservato - la prego di disporre immediatamente un bonifico di 45.000 € su questo nuovo conto, al momento non sono raggiungibile' ('CEO fraud' / Business Email Compromise). Come si comporta?",
+    "options": {
+      "a": "Eseguire subito il bonifico, poiché sono state sottolineate riservatezza e urgenza",
+      "b": "Rispondere all'email chiedendo maggiori dettagli, e poi eseguire il bonifico",
+      "c": "Verificare la richiesta tramite un canale indipendente e noto (ad es. richiamando un numero conosciuto) e rispettare il normale processo di approvazione, anche sotto pressione di tempo",
+      "d": "Chiedere a un collega di occuparsi del bonifico senza fare domande, per risparmiare tempo"
+    },
+    "explanation": "Urgenza, riservatezza e l'apparente irraggiungibilità del presunto mittente sono le classiche leve di pressione del CEO fraud - servono proprio a impedire che venga rispettato il normale processo di approvazione (ad es. il principio dei quattro occhi). Un aggressore che risponde a un'email resta lo stesso aggressore; solo un canale di verifica indipendente offre una reale garanzia."
+  },
+  "it_sicherheit-social_engineering-07": {
+    "question": "Un'email, apparentemente inviata da un fornitore di lunga data, comunica che le coordinate bancarie sono cambiate e chiede che i pagamenti futuri siano effettuati sul nuovo conto. Qual è il primo passo corretto?",
+    "options": {
+      "a": "Aggiornare subito i dati di pagamento nel sistema, poiché il fornitore è noto",
+      "b": "Verificare la modifica tramite un contatto indipendente e già noto presso il fornitore (un numero di telefono ricavato da documenti precedenti, non dall'email) prima di modificare qualsiasi cosa",
+      "c": "Inviare un piccolo bonifico di prova sul nuovo conto per verificarlo",
+      "d": "Ignorare l'email, ma bloccare comunque le vecchie coordinate bancarie per precauzione"
+    },
+    "explanation": "Le modifiche delle coordinate bancarie sono un obiettivo privilegiato per gli attacchi di tipo Business Email Compromise, poiché l'account email di un fornitore può essere compromesso e le fatture ricostruite in modo estremamente convincente. La verifica tramite un canale indipendente già noto da una collaborazione precedente è l'unica protezione affidabile - un bonifico di prova non protegge in alcun modo l'importo reale."
+  },
+  "it_sicherheit-social_engineering-08": {
+    "question": "Un collega ha dimenticato il proprio tesserino d'accesso e le chiede semplicemente di farlo passare dalla porta di sicurezza usando il suo tesserino ('badge sharing'). Qual è la reazione corretta?",
+    "options": {
+      "a": "Farlo entrare senza problemi, dopotutto è un collega conosciuto",
+      "b": "Prestargli il proprio tesserino per la giornata",
+      "c": "Indirizzarlo alla reception o alla security, affinché gli venga rilasciato un accesso temporaneo regolare",
+      "d": "Tenergli la porta aperta, purché nessun altro stia guardando"
+    },
+    "explanation": "I tesserini d'accesso sono personali proprio affinché, in caso di indagine su un incidente, resti tracciabile chi si trovava dove e quando - il badge sharing compromette questo principio anche tra colleghi, ed è inoltre uno schema che gli ingegneri sociali sfruttano deliberatamente ('ho dimenticato il tesserino'). Il percorso regolare tramite reception/security resta al contempo rapido e sicuro."
+  },
+  "it_sicherheit-ransomware-01": {
+    "question": "Sul suo schermo compare improvvisamente un messaggio che indica che tutti i suoi file sono stati crittografati e verranno rilasciati solo dietro pagamento di un riscatto ('ransomware'). Qual è il suo primissimo passo?",
+    "options": {
+      "a": "Cercare di pagare subito il riscatto richiesto, per risparmiare tempo",
+      "b": "Scollegare immediatamente il dispositivo dalla rete (staccare il cavo di rete / disattivare il Wi-Fi) e informare subito la sicurezza IT",
+      "c": "Riavviare il computer per vedere se il problema scompare",
+      "d": "Provare a decrittografare i file da soli con un software trovato online"
+    },
+    "explanation": "Scollegare subito il dispositivo dalla rete impedisce al ransomware di diffondersi ad altri sistemi della rete aziendale - è la prima e più importante azione da compiere, prima di qualsiasi altra misura. La sicurezza IT può quindi contenere l'incidente in modo professionale; tentativi di decrittazione non autorizzati o un riavvio possono distruggere prove o peggiorare la situazione."
+  },
+  "it_sicherheit-ransomware-02": {
+    "question": "In caso di attacco ransomware, un'azienda dovrebbe pagare il riscatto richiesto?",
+    "options": {
+      "a": "Sì, è sempre il modo più rapido e sicuro per riottenere i dati",
+      "b": "Sì, ma solo se l'importo richiesto sembra sufficientemente basso",
+      "c": "Il BSI sconsiglia in linea di principio di pagare - non garantisce il rilascio dei dati, finanzia nuovi attacchi e può rendere l'azienda un bersaglio ricorrente; la decisione spetta alla direzione/sicurezza IT nell'ambito del piano di gestione degli incidenti, non ai singoli individui",
+      "d": "Non ha importanza, poiché i backup rendono comunque sempre superfluo il pagamento"
+    },
+    "explanation": "Un pagamento non garantisce che i dati vengano effettivamente ripristinati e continua a finanziare l'infrastruttura criminale. Anche con buoni backup, la decisione di pagare resta complessa in un incidente reale (ad es. a causa di dati esfiltrati) ed è quindi sempre una decisione della direzione aziendale nell'ambito del piano di gestione degli incidenti documentato, non di un singolo individuo sul posto."
+  },
+  "it_sicherheit-ransomware-03": {
+    "question": "Qual è la via più comune attraverso cui il ransomware entra nelle reti aziendali?",
+    "options": {
+      "a": "Tramite email di phishing con allegati o link dannosi, e tramite sistemi non aggiornati raggiungibili da internet",
+      "b": "Quasi esclusivamente tramite laptop rubati fisicamente",
+      "c": "Quasi esclusivamente tramite cavi di stampante compromessi",
+      "d": "Il ransomware si diffonde fondamentalmente solo tramite chiavette USB già infette"
+    },
+    "explanation": "Secondo i rapporti sulla situazione del BSI, le email di phishing e i sistemi non aggiornati raggiungibili dall'esterno (ad es. soluzioni di accesso remoto) sono i principali punti di ingresso. Questo rende sia la vigilanza dei dipendenti nell'aprire allegati/link sia l'installazione tempestiva degli aggiornamenti di sicurezza misure di protezione fondamentali."
+  },
+  "it_sicherheit-ransomware-04": {
+    "question": "Perché i backup regolari, scollegati dalla rete ('offline') o non modificabili ('immutabili'), sono particolarmente importanti per la protezione dal ransomware?",
+    "options": {
+      "a": "Non lo sono: qualsiasi tipo di backup è sufficiente, purché venga eseguito regolarmente",
+      "b": "Solo per permettere al reparto IT di risparmiare spazio di archiviazione",
+      "c": "Perché il ransomware cerca deliberatamente di crittografare anche i backup raggiungibili tramite rete - solo le copie scollegate o immutabili restano garantite utilizzabili in un incidente reale",
+      "d": "Esclusivamente per motivi di conformità, tecnicamente il tipo di backup non fa alcuna differenza"
+    },
+    "explanation": "Il ransomware moderno cerca attivamente unità di rete e sistemi di backup raggiungibili per crittografare anche quelli, aumentando così la pressione a pagare il riscatto. Un backup offline o tecnicamente immutabile non può essere colpito da questo, consentendo il ripristino senza pagare."
+  },
+  "it_sicherheit-ransomware-05": {
+    "question": "Nota un'infezione da ransomware sul suo computer aziendale. Dovrebbe riavviare il computer per cercare di risolvere il problema da solo?",
+    "options": {
+      "a": "Sì, un riavvio risolve la maggior parte dei problemi software",
+      "b": "No - un riavvio o uno spegnimento può accelerare un processo di crittografia in corso o distruggere importanti tracce forensi; scolleghi invece il dispositivo dalla rete e segnali l'incidente",
+      "c": "Sì, ma solo in modalità provvisoria",
+      "d": "Non ha importanza, purché in seguito esegua un programma antivirus"
+    },
+    "explanation": "Alcune varianti di ransomware continuano a crittografare dopo un riavvio, oppure un riavvio può cancellare indizi importanti per analizzare in seguito le modalità dell'attacco. La sicurezza IT decide i passi successivi in base allo stato non alterato del sistema."
+  },
+  "it_sicherheit-ransomware-06": {
+    "question": "Un collega le chiede di aiutarlo con un sospetto incidente ransomware sul suo computer senza coinvolgere la sicurezza IT, 'per non finire nei guai'. Come reagisce?",
+    "options": {
+      "a": "Aiutarlo come richiesto e tenere la cosa tra voi",
+      "b": "Provare da soli una guida alla decrittazione trovata online",
+      "c": "Insistere per segnalare subito l'incidente alla sicurezza IT - una segnalazione tempestiva limita il danno ed è più importante di eventuali seccature",
+      "d": "Spegnere semplicemente il computer e considerare la questione chiusa"
+    },
+    "explanation": "Una segnalazione ritardata o omessa è uno dei rischi maggiori in un incidente di sicurezza, poiché nel frattempo il ransomware può continuare a diffondersi nella rete. Una buona cultura della sicurezza considera la segnalazione tempestiva un comportamento desiderato, non qualcosa che causa problemi."
+  },
+  "it_sicherheit-ransomware-07": {
+    "question": "Quale segnale indica più probabilmente che un sistema potrebbe trovarsi in una fase iniziale di un attacco ransomware, ancora prima che compaia una richiesta di riscatto?",
+    "options": {
+      "a": "Il salvaschermo è cambiato",
+      "b": "Un numero insolitamente elevato di file viene rinominato o riceve nuove estensioni insolite in poco tempo, il sistema diventa sensibilmente più lento e l'antivirus segnala ripetutamente processi sospetti bloccati",
+      "c": "Il computer è leggermente più silenzioso del solito",
+      "d": "Non esiste alcun segnale rilevabile prima della comparsa della richiesta di riscatto"
+    },
+    "explanation": "La vera e propria crittografia spesso viene eseguita in background prima che la richiesta di riscatto diventi visibile - la ridenominazione massiva di file, un rallentamento evidente e ripetuti avvisi dell'antivirus sono segnali di allarme precoci, in cui una segnalazione immediata può ancora limitare il danno in corso."
+  },
+  "it_sicherheit-ransomware-08": {
+    "question": "Quali delle seguenti misure riducono il rischio che il ransomware si diffonda nella rete aziendale? (Selezione multipla)",
+    "options": {
+      "a": "Installazione tempestiva degli aggiornamenti di sicurezza su tutti i sistemi",
+      "b": "Assegnare agli account utente solo i diritti effettivamente necessari (principio del privilegio minimo)",
+      "c": "Dare a tutti i dipendenti diritti di amministratore sul proprio computer di lavoro affinché possano risolvere da soli i problemi IT",
+      "d": "Backup regolari e scollegati, con ripristino testato"
+    },
+    "explanation": "Sistemi aggiornati, diritti minimi e backup testati sono tra le misure di protezione tecniche più efficaci. Ampi diritti di amministratore per tutti producono invece l'effetto opposto: facilitano la diffusione del ransomware nella rete con quegli stessi diritti elevati."
+  },
+  "it_sicherheit-ki_bedrohungen-01": {
+    "question": "Cosa si intende, in un contesto di sicurezza, con il termine 'deepfake'?",
+    "options": {
+      "a": "Un documento fisico falsificato in modo particolarmente sofisticato",
+      "b": "Contenuti audio, immagini o video generati con l'intelligenza artificiale che imitano in modo ingannevolmente realistico una persona reale",
+      "c": "Un termine tecnico per indicare link di phishing particolarmente annidati",
+      "d": "Un termine ormai obsoleto e privo di rilevanza pratica"
+    },
+    "explanation": "I deepfake utilizzano modelli di IA per ricreare la voce, il volto o i movimenti di una persona reale, ormai ottenibili con uno sforzo talmente ridotto da essere sempre più utilizzati in tentativi di frode mirati, come chiamate o messaggi video falsificati."
+  },
+  "it_sicherheit-ki_bedrohungen-02": {
+    "question": "Riceve una telefonata la cui voce suona esattamente come quella della sua direzione e che richiede un bonifico urgente e insolito - un numero di richiamata viene esplicitamente rifiutato ('Sto per salire in aereo'). Qual è la reazione corretta?",
+    "options": {
+      "a": "Agire, poiché la voce è stata riconosciuta senza alcun dubbio",
+      "b": "Eseguire il bonifico, ma solo per metà dell'importo richiesto",
+      "c": "Non assecondare la richiesta e verificare l'identità tramite un canale indipendente e già noto - il solo riconoscimento vocale non è più una conferma affidabile a causa della clonazione vocale tramite IA",
+      "d": "Ignorare la richiesta senza segnalarla"
+    },
+    "explanation": "La clonazione vocale tramite IA può produrre, a partire da pochi secondi di audio reale, una voce ingannevolmente autentica - la combinazione di urgenza, richiesta insolita e rifiuto di una richiamata è proprio un tipico segnale d'allarme, indipendentemente da quanto genuina suoni la voce. Anche se non si agisce, l'episodio va comunque segnalato affinché altri colleghi possano essere avvisati."
+  },
+  "it_sicherheit-ki_bedrohungen-03": {
+    "question": "In passato, gli errori di ortografia e grammatica erano considerati un segnale affidabile per riconoscere le email di phishing. Perché oggi questo criterio da solo non è più sufficiente?",
+    "options": {
+      "a": "Perché i programmi di posta elettronica ora correggono automaticamente gli errori di ortografia",
+      "b": "Perché gli errori di ortografia non sono mai stati comunque un criterio affidabile",
+      "c": "Perché i modelli linguistici IA possono generare testi di phishing linguisticamente impeccabili e personalizzati - rendendo così più importanti altri segnali d'allarme, come un indirizzo del mittente diverso, link insoliti o urgenza inaspettata",
+      "d": "Perché gli attacchi di phishing moderni fondamentalmente non utilizzano più testo"
+    },
+    "explanation": "I testi generati dall'IA spesso non sono più distinguibili, dal punto di vista linguistico, da una comunicazione autentica, e possono inoltre essere adattati individualmente al destinatario. I punti di verifica più affidabili restano quindi l'indirizzo effettivo del mittente, l'URL di destinazione reale di un link e se la richiesta è plausibile nel contenuto e arriva tramite il canale previsto."
+  },
+  "it_sicherheit-ki_bedrohungen-04": {
+    "question": "In una videochiamata organizzata in modo spontaneo, una persona dall'aspetto e dalla voce simili a quelli di un noto superiore chiede la trasmissione immediata di dati riservati dei clienti. La qualità audio/video è leggermente insolita. Come reagisce?",
+    "options": {
+      "a": "Trasmettere i dati, poiché immagine e voce corrispondevano",
+      "b": "Rifiutare o rimandare la trasmissione e verificare la richiesta tramite un canale indipendente e già noto (ad es. una richiamata, un colloquio di persona)",
+      "c": "Trasmettere solo una parte dei dati, per limitare il rischio",
+      "d": "Chiedere direttamente durante la chiamata se si tratta di un deepfake e fidarsi della risposta"
+    },
+    "explanation": "Una qualità audio/video leggermente discordante, un'organizzazione spontanea e una richiesta riservata insolita costituiscono insieme tipici segnali d'allarme di un attacco deepfake. Un aggressore che imita una persona in modo ingannevolmente realistico negherà ovviamente anche se interpellato direttamente durante la chiamata - solo un canale indipendente offre reale chiarezza."
+  },
+  "it_sicherheit-ki_bedrohungen-05": {
+    "question": "Perché l'ingegneria sociale è generalmente considerata un rischio maggiore rispetto a prima, a seguito della diffusione degli strumenti di IA?",
+    "options": {
+      "a": "Perché gli strumenti di IA possono essere utilizzati solo dai team di sicurezza IT",
+      "b": "Perché gli strumenti di IA permettono agli aggressori di creare attacchi convincenti e personalizzati (testo, voce, video) su larga scala e con poco sforzo",
+      "c": "Perché gli strumenti di IA rendono fondamentalmente impossibili gli attacchi di ingegneria sociale",
+      "d": "Il rischio non è cambiato a causa degli strumenti di IA"
+    },
+    "explanation": "Ciò che un tempo richiedeva un notevole sforzo manuale (ad es. imitare una voce o scrivere testi convincenti e privi di errori in una lingua straniera) oggi può essere automatizzato rapidamente e su larga scala grazie agli strumenti di IA, aumentando sia il volume sia la qualità degli attacchi."
+  },
+  "it_sicherheit-ki_bedrohungen-06": {
+    "question": "Qual è la protezione più efficace contro le frodi tramite chiamate o messaggi video deepfake?",
+    "options": {
+      "a": "Valutare attentamente se la voce o l'immagine 'sembrano abbastanza reali'",
+      "b": "Seguire in modo coerente procedure di verifica fisse e concordate in anticipo (ad es. una richiamata a un numero noto, una parola in codice concordata in precedenza) per richieste insolite o finanziarie - indipendentemente da quanto genuina sembri la voce o l'immagine",
+      "c": "Far confermare le chiamate esclusivamente per iscritto via email d'ora in poi",
+      "d": "Al momento non esiste alcuna protezione efficace contro questo fenomeno"
+    },
+    "explanation": "Poiché i deepfake sono deliberatamente progettati per ingannare la percezione umana, il proprio giudizio sull'\"autenticità\" non è più una protezione affidabile. Le procedure di verifica concordate in anticipo, indipendenti dal canale di comunicazione specifico, funzionano invece indipendentemente da quanto sia convincente un falso."
+  },
+  "it_sicherheit-ki_bedrohungen-07": {
+    "question": "Vuole utilizzare un chatbot IA accessibile al pubblico per riassumere velocemente un report interno con dati riservati dei clienti. È una cosa sicura da fare?",
+    "options": {
+      "a": "Sì, i chatbot IA pubblici in linea di principio non memorizzano mai i dati inseriti",
+      "b": "Sì, purché sostituisca prima i nomi dei clienti con dei segnaposto, tutto il resto non è un problema",
+      "c": "No - i dati riservati o personali dovrebbero essere inseriti solo in strumenti IA approvati dalla propria organizzazione, poiché non è sempre chiaro come un servizio pubblico elabori in seguito quanto inserito",
+      "d": "È una questione esclusivamente del responsabile della protezione dei dati e non riguarda i normali dipendenti"
+    },
+    "explanation": "Con i servizi IA pubblici spesso non è chiaro se e come i dati inseriti vengano memorizzati, utilizzati per migliorare il modello o elaborati in altro modo. I dati riservati o personali dovrebbero quindi essere inseriti solo in strumenti verificati e approvati dalla propria organizzazione - una policy aziendale in merito riguarda tutti i dipendenti, non solo i reparti specialistici."
+  },
+  "it_sicherheit-ki_bedrohungen-08": {
+    "question": "Sospetta di essere stato appena bersaglio di un tentativo di frode basato sull'IA (ad es. una chiamata deepfake o un'email di phishing generata dall'IA in modo ingannevolmente realistico), ma è riuscito a riconoscerlo in tempo e non ha reagito. Dovrebbe comunque segnalare l'episodio?",
+    "options": {
+      "a": "No, poiché non è successo nulla, non c'è bisogno di agire",
+      "b": "Sì - vale lo stesso canale di segnalazione previsto per qualsiasi altro tentativo di ingegneria sociale, così da poter avvisare altri colleghi e riconoscere attacchi simili",
+      "c": "Segnalarlo solo se si è verificato un effettivo danno finanziario",
+      "d": "Segnalarlo solo se il reparto IT lo chiede espressamente"
+    },
+    "explanation": "Anche un tentativo di attacco sventato fornisce informazioni preziose - ad esempio su quale schema di truffa sia attualmente in circolazione, o se più dipendenti siano stati presi di mira contemporaneamente. Segnalare tempestivamente i tentativi riconosciuti ma non riusciti è un elemento centrale di una cultura della sicurezza efficace."
   }
 }

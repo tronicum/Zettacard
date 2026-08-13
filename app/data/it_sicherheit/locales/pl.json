@@ -398,5 +398,245 @@
       "d": "Możliwie dokładne informacje o czasie, zaobserwowanych nieprawidłowościach i dotkniętych systemach lub danych"
     },
     "explanation": "Konkretne informacje o czasie, zaobserwowanym zachowaniu (np. nietypowe okienka pop-up, niewyjaśnione zmiany plików) oraz dotkniętych systemach lub danych pomagają odpowiedniej jednostce szybko sklasyfikować incydent, oszacować zakres i podjąć odpowiednie przeciwdziałania. Samo nazwisko do tego nie wystarcza, zgłoszenie bez podania czasu utrudnia klasyfikację chronologiczną, a przypuszczenia co do \"winy\" nie są decydującym punktem dla technicznego opracowania incydentu."
+  },
+  "it_sicherheit-social_engineering-01": {
+    "question": "Osoba dzwoniąca podaje się za pracownika działu IT i pilnie prosi o podanie aktualnego hasła, aby rzekomo usunąć problem z bezpieczeństwem. Jak reagujesz?",
+    "options": {
+      "a": "Podać hasło, ponieważ prośby działu IT zwykle są pilne",
+      "b": "Nie podawać hasła i zweryfikować prośbę za pomocą znanego, niezależnego kanału (np. oficjalnej infolinii IT)",
+      "c": "Wymyślić nowe, podobne hasło i podać je zamiast prawdziwego",
+      "d": "Podać tylko nazwę użytkownika, a hasło pominąć"
+    },
+    "explanation": "Żaden prawdziwy dział wsparcia IT nigdy nie potrzebuje Twojego hasła w postaci jawnej - to klasyczny wzorzec pretextingu (podszywanie się pod inną tożsamość i wywoływanie sztucznej pilności). Prawdziwą prośbę zawsze można zweryfikować za pomocą niezależnego, już znanego kanału, zamiast ufać numerowi podanemu podczas samej rozmowy."
+  },
+  "it_sicherheit-social_engineering-02": {
+    "question": "Wchodzisz do budynku biurowego za pomocą swojej karty dostępu. Nieznana osoba bez widocznego identyfikatora wchodzi tuż za Tobą przez drzwi ('tailgating'). Jaka jest właściwa reakcja?",
+    "options": {
+      "a": "Po prostu przytrzymać drzwi, uprzejmość jest najważniejsza",
+      "b": "Nic nie robić, to zadanie recepcji",
+      "c": "Grzecznie zapytać osobę o identyfikator/cel wizyty lub zgłosić zdarzenie ochronie/recepcji",
+      "d": "Zignorować osobę, dopóki nie wygląda podejrzanie"
+    },
+    "explanation": "Tailgating to jedna z najczęstszych metod obchodzenia fizycznej kontroli dostępu - 'wyglądanie podejrzanie' nie jest wiarygodnym kryterium, ponieważ napastnicy celowo starają się nie wyróżniać. Grzeczne zapytanie lub zgłoszenie do ochrony kosztuje niewiele, a zamyka realną lukę w bezpieczeństwie."
+  },
+  "it_sicherheit-social_engineering-03": {
+    "question": "Znajdujesz nieoznaczony nośnik USB na firmowym parkingu. Co robisz?",
+    "options": {
+      "a": "Podłączyć nośnik do swojego komputera służbowego, aby ustalić właściciela na podstawie plików",
+      "b": "Nie podłączać nośnika, tylko zgłosić go lub przekazać działowi bezpieczeństwa IT",
+      "c": "Sprawdzić go na prywatnym komputerze w domu, ponieważ nie stanowi to ryzyka dla firmy",
+      "d": "Wyrzucić nośnik, aby nikt inny go nie znalazł"
+    },
+    "explanation": "Celowo 'zgubiony' nośnik USB to znana metoda ataku ('USB drop attack'), mająca na celu wprowadzenie złośliwego oprogramowania, gdy ktoś podłączy go z ciekawości. To samo ryzyko dotyczy komputera prywatnego, ponieważ i stamtąd mogą wyciec skradzione dane lub dane dostępowe. Dział bezpieczeństwa IT może sprawdzić nośnik bezpiecznie, w izolowanym środowisku."
+  },
+  "it_sicherheit-social_engineering-04": {
+    "question": "Otrzymujesz telefon od osoby podającej się za pracownicę banku, która prosi o potwierdzenie PIN-u przez telefon 'dla bezpieczeństwa' ('vishing'). Jaka jest właściwa reakcja?",
+    "options": {
+      "a": "Podać PIN, ponieważ dzwoniąca znała już saldo konta, co wydawało się wiarygodne",
+      "b": "Podać tylko dwie ostatnie cyfry PIN-u, to powinno być wystarczająco bezpieczne",
+      "c": "W żadnym wypadku nie podawać PIN-u przez telefon, tylko samodzielnie oddzwonić na oficjalny, znany numer banku",
+      "d": "Rozłączyć się i od razu zmienić PIN dla bezpieczeństwa, bez informowania banku"
+    },
+    "explanation": "Banki nigdy nie pytają o pełny PIN przez telefon - nawet częściowe dane lub pozornie znane informacje o koncie (które mogą pochodzić np. z wycieków danych) nie dowodzą prawdziwej tożsamości dzwoniącego. Bezpieczny sposób to zawsze samodzielnie zainicjowane oddzwonienie na niezależnie zweryfikowany numer."
+  },
+  "it_sicherheit-social_engineering-05": {
+    "question": "Otrzymujesz SMS-a od rzekomej firmy kurierskiej: 'Twoja paczka nie mogła zostać dostarczona, potwierdź swój adres i dane płatnicze pod tym linkiem' ('smishing'). Jaka jest właściwa reakcja?",
+    "options": {
+      "a": "Otworzyć link, ale nie podawać danych płatniczych",
+      "b": "Nie otwierać linku, tylko sprawdzić numer przesyłki bezpośrednio na oficjalnej stronie firmy kurierskiej",
+      "c": "Przesłać SMS-a do kolegów, aby sprawdzili link",
+      "d": "Odpisać 'Stop', aby wypisać się z listy"
+    },
+    "explanation": "Samo otwarcie linku może już ujawnić informacje o urządzeniu lub prowadzić do przekonującej fałszywej strony, która przechwytuje dane logowania. Bezpieczna weryfikacja odbywa się zawsze poprzez samodzielnie wpisany, oficjalny adres - nigdy poprzez link z niechcianej wiadomości."
+  },
+  "it_sicherheit-social_engineering-06": {
+    "question": "Otrzymujesz e-mail rzekomo od zarządu firmy: 'Pilne i poufne - proszę natychmiast zlecić przelew 45 000 € na to nowe konto, obecnie jestem nieosiągalny(-a)' ('oszustwo na prezesa' / Business Email Compromise). Jak postępujesz?",
+    "options": {
+      "a": "Wykonać przelew natychmiast, ponieważ podkreślono poufność i pilność",
+      "b": "Odpowiedzieć na e-mail z prośbą o więcej szczegółów, a następnie wykonać przelew",
+      "c": "Zweryfikować prośbę za pomocą niezależnego, znanego kanału (np. oddzwonienie na znany numer) i przestrzegać standardowego procesu autoryzacji, nawet pod presją czasu",
+      "d": "Poprosić kolegę o wykonanie przelewu bez zadawania pytań, aby zaoszczędzić czas"
+    },
+    "explanation": "Pilność, poufność i niedostępność rzekomego nadawcy to klasyczne narzędzia presji w oszustwie na prezesa - mają na celu właśnie uniemożliwienie przestrzegania standardowego procesu autoryzacji (np. zasady podwójnej kontroli). Napastnik, który odpowiada na e-mail, pozostaje tym samym napastnikiem; prawdziwe bezpieczeństwo zapewnia tylko niezależny kanał zwrotny."
+  },
+  "it_sicherheit-social_engineering-07": {
+    "question": "E-mail, rzekomo od wieloletniego dostawcy, informuje, że zmienił się jego numer konta bankowego, i prosi o kierowanie przyszłych płatności na nowe konto. Jaki jest właściwy pierwszy krok?",
+    "options": {
+      "a": "Natychmiast zaktualizować dane płatnicze w systemie, ponieważ dostawca jest znany",
+      "b": "Zweryfikować zmianę za pomocą niezależnego, już znanego kontaktu u dostawcy (numer telefonu z wcześniejszej dokumentacji, nie z e-maila), zanim cokolwiek zostanie zmienione",
+      "c": "Wysłać niewielki przelew testowy na nowe konto, aby je sprawdzić",
+      "d": "Zignorować e-mail, ale mimo to zablokować stare dane bankowe na wszelki wypadek"
+    },
+    "explanation": "Zmiany danych bankowych to ulubiony cel ataków typu Business Email Compromise, ponieważ skrzynka e-mail dostawcy może zostać przejęta, a faktury przekonująco podrobione. Weryfikacja za pomocą niezależnego kanału znanego z wcześniejszej współpracy to jedyna wiarygodna ochrona - przelew testowy nie chroni przed utratą właściwej kwoty."
+  },
+  "it_sicherheit-social_engineering-08": {
+    "question": "Kolega zapomniał swojej karty dostępu i prosi Cię, abyś po prostu przeprowadził/-a go przez drzwi zabezpieczające swoją kartą ('badge sharing'). Jaka jest właściwa reakcja?",
+    "options": {
+      "a": "Po prostu go wpuścić, to w końcu znajomy kolega",
+      "b": "Pożyczyć mu swoją kartę na ten dzień",
+      "c": "Skierować go do recepcji lub ochrony, aby wystawiono tam regularny dostęp tymczasowy",
+      "d": "Przytrzymać dla niego drzwi, dopóki nikt inny nie patrzy"
+    },
+    "explanation": "Karty dostępu są przypisane do konkretnej osoby, aby w razie potrzeby (np. wyjaśniania incydentu) można było ustalić, kto, kiedy i gdzie się znajdował - 'badge sharing' podważa to nawet między kolegami, a dodatkowo jest wzorcem, który inżynierowie społeczni celowo wykorzystują ('zapomniałem karty'). Standardowa droga przez recepcję/ochronę pozostaje jednocześnie szybka i bezpieczna."
+  },
+  "it_sicherheit-ransomware-01": {
+    "question": "Na Twoim ekranie nagle pojawia się komunikat, że wszystkie Twoje pliki zostały zaszyfrowane i zostaną odblokowane dopiero po zapłaceniu okupu ('ransomware'). Jaki jest Twój pierwszy krok?",
+    "options": {
+      "a": "Natychmiast spróbować zapłacić żądany okup, aby zaoszczędzić czas",
+      "b": "Natychmiast odłączyć urządzenie od sieci (wyciągnąć kabel sieciowy / wyłączyć Wi-Fi) i od razu poinformować dział bezpieczeństwa IT",
+      "c": "Zrestartować komputer, aby sprawdzić, czy problem zniknie",
+      "d": "Spróbować samodzielnie odszyfrować pliki za pomocą oprogramowania znalezionego w internecie"
+    },
+    "explanation": "Natychmiastowe odłączenie od sieci zapobiega rozprzestrzenianiu się ransomware na inne systemy w sieci firmowej - to najważniejszy pierwszy krok przed jakimkolwiek innym działaniem. Dział bezpieczeństwa IT może następnie profesjonalnie opanować incydent; samodzielne próby odszyfrowania lub restart mogą zniszczyć ślady lub pogorszyć sytuację."
+  },
+  "it_sicherheit-ransomware-02": {
+    "question": "Czy firma powinna płacić okup żądany podczas ataku ransomware?",
+    "options": {
+      "a": "Tak, to zawsze najszybszy i najbezpieczniejszy sposób odzyskania danych",
+      "b": "Tak, ale tylko jeśli żądana kwota wydaje się wystarczająco niska",
+      "c": "BSI zasadniczo odradza płacenie - nie gwarantuje to udostępnienia danych, finansuje kolejne ataki i może sprawić, że firma ponownie stanie się celem; decyzja należy do zarządu/działu bezpieczeństwa IT w ramach planu reagowania na incydenty, a nie do pojedynczych osób",
+      "d": "To nie ma znaczenia, ponieważ kopie zapasowe zawsze i tak czynią płatność zbędną"
+    },
+    "explanation": "Zapłata nie gwarantuje odzyskania danych i dodatkowo finansuje przestępczą infrastrukturę. Nawet przy dobrych kopiach zapasowych decyzja o zapłacie w realnym incydencie pozostaje złożona (np. z powodu wykradzionych danych), dlatego zawsze jest to decyzja kierownictwa firmy w ramach udokumentowanego planu reagowania, a nie pojedynczej osoby na miejscu."
+  },
+  "it_sicherheit-ransomware-03": {
+    "question": "Jaką drogą ransomware najczęściej dostaje się do sieci firmowych?",
+    "options": {
+      "a": "Poprzez e-maile phishingowe ze złośliwym załącznikiem lub linkiem oraz przez niezałatane systemy dostępne z internetu",
+      "b": "Niemal wyłącznie poprzez fizycznie skradzione laptopy",
+      "c": "Niemal wyłącznie poprzez skompromitowane kable drukarek",
+      "d": "Ransomware rozprzestrzenia się zasadniczo wyłącznie poprzez już zainfekowane nośniki USB"
+    },
+    "explanation": "Według raportów sytuacyjnych BSI, e-maile phishingowe oraz niezałatane, dostępne z zewnątrz systemy (np. rozwiązania zdalnego dostępu) są dominującymi punktami wejścia. To sprawia, że zarówno czujność pracowników przy otwieraniu załączników/linków, jak i terminowe wgrywanie aktualizacji zabezpieczeń, są kluczowymi środkami ochrony."
+  },
+  "it_sicherheit-ransomware-04": {
+    "question": "Dlaczego regularne, odłączone od sieci ('offline') lub niezmienialne ('immutable') kopie zapasowe są szczególnie ważne dla ochrony przed ransomware?",
+    "options": {
+      "a": "Nie są - wystarczy każdy rodzaj kopii zapasowej, o ile jest wykonywana regularnie",
+      "b": "Tylko po to, aby dział IT mógł oszczędzać miejsce na dysku",
+      "c": "Ponieważ ransomware celowo próbuje zaszyfrować także kopie zapasowe dostępne przez sieć - tylko odłączone lub niezmienialne kopie są gwarantowanie użyteczne w realnym incydencie",
+      "d": "Wyłącznie z powodów zgodności z przepisami, technicznie rodzaj kopii zapasowej nie ma znaczenia"
+    },
+    "explanation": "Nowoczesne ransomware aktywnie poszukuje dostępnych dysków sieciowych i systemów kopii zapasowych, aby zaszyfrować także je i zwiększyć presję na zapłacenie okupu. Kopia zapasowa, która jest offline lub technicznie niezmienialna, nie może zostać tym dotknięta i umożliwia odzyskanie danych bez płacenia."
+  },
+  "it_sicherheit-ransomware-05": {
+    "question": "Zauważasz infekcję ransomware na swoim komputerze służbowym. Czy powinieneś/powinnaś zrestartować komputer, aby samodzielnie rozwiązać problem?",
+    "options": {
+      "a": "Tak, restart rozwiązuje większość problemów z oprogramowaniem",
+      "b": "Nie - restart lub wyłączenie może przyspieszyć trwający proces szyfrowania lub zniszczyć ważne ślady kryminalistyczne; zamiast tego należy odłączyć urządzenie od sieci i zgłosić incydent",
+      "c": "Tak, ale tylko w trybie awaryjnym",
+      "d": "To nie ma znaczenia, o ile potem uruchomi się program antywirusowy"
+    },
+    "explanation": "Niektóre warianty ransomware kontynuują szyfrowanie po restarcie, a sam restart może usunąć ślady ważne dla późniejszej analizy przebiegu ataku. Dział bezpieczeństwa IT podejmuje decyzję o dalszych krokach na podstawie niezmienionego stanu systemu."
+  },
+  "it_sicherheit-ransomware-06": {
+    "question": "Kolega prosi Cię o pomoc w podejrzewanym incydencie ransomware na jego komputerze, bez angażowania działu bezpieczeństwa IT, 'żeby nie mieć kłopotów'. Jak reagujesz?",
+    "options": {
+      "a": "Pomóc zgodnie z prośbą i zachować to między sobą",
+      "b": "Samodzielnie wypróbować znalezioną w internecie instrukcję odszyfrowania",
+      "c": "Nalegać na natychmiastowe zgłoszenie do działu bezpieczeństwa IT - szybkie zgłoszenie ogranicza szkody i jest ważniejsze niż ewentualne niedogodności",
+      "d": "Po prostu wyłączyć komputer i uznać sprawę za zamkniętą"
+    },
+    "explanation": "Opóźnione lub zaniechane zgłoszenie to jedno z największych zagrożeń przy incydentach bezpieczeństwa, ponieważ w tym czasie ransomware może dalej rozprzestrzeniać się w sieci. Dobra kultura bezpieczeństwa traktuje szybkie zgłaszanie jako pożądane zachowanie, a nie jako coś, co powoduje kłopoty."
+  },
+  "it_sicherheit-ransomware-07": {
+    "question": "Który sygnał najprawdopodobniej wskazuje, że system może znajdować się we wczesnej fazie ataku ransomware, jeszcze zanim pojawi się żądanie okupu?",
+    "options": {
+      "a": "Zmienił się wygaszacz ekranu",
+      "b": "W krótkim czasie zauważalnie dużo plików zostaje przemianowanych lub otrzymuje nietypowe nowe rozszerzenia, system wyraźnie zwalnia, a program antywirusowy wielokrotnie zgłasza zablokowane podejrzane procesy",
+      "c": "Komputer jest nieco cichszy niż zwykle",
+      "d": "Nie ma żadnych rozpoznawalnych oznak przed pojawieniem się żądania okupu"
+    },
+    "explanation": "Właściwe szyfrowanie często przebiega w tle, zanim żądanie okupu stanie się widoczne - masowe przemianowywanie plików, wyraźne spowolnienie i powtarzające się ostrzeżenia antywirusa to wczesne sygnały ostrzegawcze, przy których natychmiastowe zgłoszenie może jeszcze ograniczyć powstającą szkodę."
+  },
+  "it_sicherheit-ransomware-08": {
+    "question": "Które z poniższych działań zmniejszają ryzyko rozprzestrzeniania się ransomware w sieci firmowej? (można wybrać kilka)",
+    "options": {
+      "a": "Terminowe wgrywanie aktualizacji zabezpieczeń na wszystkich systemach",
+      "b": "Nadawanie kontom użytkowników wyłącznie faktycznie potrzebnych uprawnień (zasada najmniejszych uprawnień)",
+      "c": "Nadanie wszystkim pracownikom uprawnień administratora na komputerze służbowym, aby mogli sami rozwiązywać problemy IT",
+      "d": "Regularne, odłączone kopie zapasowe z przetestowanym przywracaniem"
+    },
+    "explanation": "Aktualne systemy, minimalne uprawnienia i przetestowane kopie zapasowe należą do najskuteczniejszych technicznych środków ochrony. Szerokie uprawnienia administratora dla wszystkich działają dokładnie odwrotnie: ułatwiają ransomware rozprzestrzenianie się w sieci z tymi samymi podwyższonymi uprawnieniami."
+  },
+  "it_sicherheit-ki_bedrohungen-01": {
+    "question": "Co w kontekście bezpieczeństwa oznacza pojęcie 'deepfake'?",
+    "options": {
+      "a": "Szczególnie wyrafinowanie sfałszowany dokument fizyczny",
+      "b": "Wygenerowany za pomocą sztucznej inteligencji, przekonująco realistyczny materiał audio, zdjęciowy lub wideo, imitujący prawdziwą osobę",
+      "c": "Fachowe określenie szczególnie głęboko zagnieżdżonych linków phishingowych",
+      "d": "Przestarzały termin, który w praktyce nie ma już znaczenia"
+    },
+    "explanation": "Deepfake'i wykorzystują modele sztucznej inteligencji do odtworzenia głosu, twarzy lub ruchów prawdziwej osoby - obecnie da się to zrobić tak niewielkim nakładem pracy, że są coraz częściej wykorzystywane w ukierunkowanych próbach oszustwa, takich jak sfałszowane rozmowy telefoniczne czy wiadomości wideo."
+  },
+  "it_sicherheit-ki_bedrohungen-02": {
+    "question": "Otrzymujesz telefon, którego głos brzmi dokładnie jak głos Twojego przełożonego, żądający natychmiastowego, nietypowego przelewu - możliwość oddzwonienia zostaje wyraźnie odrzucona ('Zaraz wsiadam do samolotu'). Jaka jest właściwa reakcja?",
+    "options": {
+      "a": "Działać, ponieważ głos został rozpoznany bez wątpliwości",
+      "b": "Wykonać przelew, ale tylko na połowę żądanej kwoty",
+      "c": "Nie realizować prośby i zweryfikować tożsamość za pomocą niezależnego, już znanego kanału - samo rozpoznanie głosu nie jest już wiarygodnym potwierdzeniem ze względu na klonowanie głosu przez AI",
+      "d": "Zignorować prośbę, nie zgłaszając jej"
+    },
+    "explanation": "Klonowanie głosu przez AI potrafi z zaledwie kilku sekund prawdziwego nagrania audio stworzyć przekonująco realistyczny głos - właśnie połączenie pilności, nietypowego żądania i odrzucenia oddzwonienia jest typowym sygnałem ostrzegawczym, niezależnie od tego, jak autentycznie brzmi głos. Nawet brak działania powinien zostać zgłoszony, aby ostrzec innych współpracowników."
+  },
+  "it_sicherheit-ki_bedrohungen-03": {
+    "question": "Wcześniej błędy ortograficzne i gramatyczne uznawano za wiarygodną cechę rozpoznawczą e-maili phishingowych. Dlaczego samo to kryterium dziś już nie wystarcza?",
+    "options": {
+      "a": "Ponieważ programy pocztowe automatycznie poprawiają teraz błędy ortograficzne",
+      "b": "Ponieważ błędy ortograficzne i tak nigdy nie były wiarygodnym kryterium",
+      "c": "Ponieważ modele językowe AI potrafią tworzyć językowo bezbłędne, spersonalizowane teksty phishingowe - dzięki temu inne sygnały ostrzegawcze, jak niepasujący adres nadawcy, nietypowe linki czy nieoczekiwana pilność, stają się ważniejsze",
+      "d": "Ponieważ nowoczesne ataki phishingowe zasadniczo obywają się bez tekstu"
+    },
+    "explanation": "Teksty generowane przez AI są pod względem językowym często nie do odróżnienia od prawdziwej komunikacji, a dodatkowo mogą być indywidualnie dopasowane do celu. Bardziej wiarygodnymi punktami weryfikacji pozostają więc rzeczywisty adres nadawcy, docelowy adres URL linku oraz to, czy prośba jest treściowo wiarygodna i czy dociera oczekiwanym kanałem."
+  },
+  "it_sicherheit-ki_bedrohungen-04": {
+    "question": "Podczas spontanicznie zorganizowanej rozmowy wideo osoba, która wygląda i brzmi jak znany przełożony, żąda natychmiastowego przekazania poufnych danych klientów. Jakość obrazu/dźwięku jest lekko nietypowa. Jak reagujesz?",
+    "options": {
+      "a": "Przekazać dane, ponieważ obraz i głos się zgadzały",
+      "b": "Odmówić lub opóźnić przekazanie i zweryfikować prośbę za pomocą niezależnego, już znanego kanału (np. oddzwonienie, rozmowa osobista)",
+      "c": "Przekazać tylko część danych, aby ograniczyć ryzyko",
+      "d": "Zapytać wprost podczas rozmowy, czy to deepfake, i zaufać odpowiedzi"
+    },
+    "explanation": "Lekko niespójna jakość obrazu/dźwięku, spontaniczne zorganizowanie i nietypowa poufna prośba razem stanowią typowe sygnały ostrzegawcze ataku typu deepfake. Napastnik, który przekonująco podszywa się pod daną osobę, oczywiście również zaprzeczy temu, gdy zostanie o to zapytany wprost podczas rozmowy - prawdziwą jasność daje tylko niezależny kanał."
+  },
+  "it_sicherheit-ki_bedrohungen-05": {
+    "question": "Dlaczego inżynieria społeczna jest ogólnie uważana za większe zagrożenie od czasu powszechnej dostępności narzędzi AI?",
+    "options": {
+      "a": "Ponieważ narzędzia AI mogą być używane wyłącznie przez zespoły bezpieczeństwa IT",
+      "b": "Ponieważ narzędzia AI pozwalają napastnikom tworzyć przekonujące, indywidualnie dopasowane ataki (tekst, głos, wideo) na dużą skalę i przy niewielkim nakładzie pracy",
+      "c": "Ponieważ narzędzia AI zasadniczo uniemożliwiają ataki socjotechniczne",
+      "d": "Ryzyko nie zmieniło się z powodu narzędzi AI"
+    },
+    "explanation": "To, co wcześniej wymagało znacznego wysiłku ręcznego (np. imitowanie głosu lub pisanie przekonującego, bezbłędnego tekstu w obcym języku), można dziś szybko i na dużą skalę zautomatyzować za pomocą narzędzi AI - zwiększa to zarówno ilość, jak i jakość ataków."
+  },
+  "it_sicherheit-ki_bedrohungen-06": {
+    "question": "Jaka ochrona jest najskuteczniejsza przeciwko oszustwom typu deepfake podczas rozmowy telefonicznej lub wiadomości wideo?",
+    "options": {
+      "a": "Uważne ocenianie, czy głos lub obraz 'brzmi/wygląda wystarczająco realnie'",
+      "b": "Konsekwentne przestrzeganie ustalonych z góry, stałych procedur weryfikacji (np. oddzwonienie na znany numer, wcześniej uzgodnione hasło) w przypadku nietypowych lub finansowych próśb - niezależnie od tego, jak autentycznie brzmi lub wygląda głos czy obraz",
+      "c": "Potwierdzanie rozmów zasadniczo tylko pisemnie, za pomocą e-maila",
+      "d": "Obecnie nie ma skutecznej ochrony przed tym zagrożeniem"
+    },
+    "explanation": "Ponieważ deepfake'i są celowo zaprojektowane tak, by zwodzić ludzką percepcję, własna ocena 'autentyczności' nie jest już wiarygodnym zabezpieczeniem. Ustalone wcześniej procedury weryfikacji, niezależne od danej formy komunikacji, działają natomiast niezależnie od tego, jak przekonujący jest fałszywy materiał."
+  },
+  "it_sicherheit-ki_bedrohungen-07": {
+    "question": "Chcesz skorzystać z publicznie dostępnego chatbota AI, aby szybko podsumować wewnętrzny raport zawierający poufne dane klientów. Czy to bezpieczne?",
+    "options": {
+      "a": "Tak, publiczne chatboty AI zasadniczo nie przechowują wprowadzanych danych",
+      "b": "Tak, wystarczy wcześniej zastąpić nazwiska klientów symbolami zastępczymi, reszta nie jest istotna",
+      "c": "Nie - poufne lub osobowe dane powinny być wprowadzane wyłącznie do narzędzi AI zatwierdzonych przez własną organizację, ponieważ w przypadku usług publicznych często nie wiadomo, jak dalej przetwarzane są wprowadzone dane",
+      "d": "To wyłącznie kwestia inspektora ochrony danych i nie dotyczy zwykłych pracowników"
+    },
+    "explanation": "W przypadku publicznych usług AI często nie jest przejrzyste, czy i jak wprowadzone dane są przechowywane, wykorzystywane do ulepszania modelu lub przetwarzane w inny sposób. Poufne lub osobowe dane powinny więc trafiać wyłącznie do narzędzi sprawdzonych i zatwierdzonych przez własną organizację - ogólnofirmowa polityka w tej sprawie dotyczy wszystkich pracowników, a nie tylko działów specjalistycznych."
+  },
+  "it_sicherheit-ki_bedrohungen-08": {
+    "question": "Podejrzewasz, że przed chwilą byłeś/-aś celem oszustwa wspomaganego przez AI (np. rozmowy telefonicznej typu deepfake lub przekonująco realistycznego e-maila phishingowego wygenerowanego przez AI), ale rozpoznałeś/-aś oszustwo na czas i nie zareagowałeś/-aś na nie. Czy mimo to powinieneś/-aś zgłosić ten incydent?",
+    "options": {
+      "a": "Nie, skoro nic się nie stało, nie ma potrzeby działania",
+      "b": "Tak - ta sama droga zgłaszania co przy każdej innej próbie inżynierii społecznej obowiązuje również tutaj, aby ostrzec innych współpracowników i umożliwić rozpoznawanie podobnych ataków",
+      "c": "Zgłaszać tylko wtedy, gdy faktycznie doszło do szkody finansowej",
+      "d": "Zgłaszać tylko wtedy, gdy dział IT wyraźnie o to poprosi"
+    },
+    "explanation": "Nawet odparta próba ataku dostarcza cennych informacji - na przykład jaki schemat oszustwa obecnie krąży lub czy zaatakowano jednocześnie kilku pracowników. Wczesne zgłaszanie rozpoznanych, lecz nieudanych prób ataku jest kluczowym elementem skutecznej kultury bezpieczeństwa."
   }
 }
