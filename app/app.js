@@ -4817,6 +4817,12 @@ function renderPracticeQuestion() {
   const isMultiSelect = q.question_type === "multi_choice";
   const isChecked = !!pq.checked[q.id];
 
+  // Gap found while wiring up the missing HTML this round (2026-08-13):
+  // #practice-exit-btn's label was never set anywhere, even though
+  // PRACTICE_QUIZ_STRINGS.exit already existed for exactly this - the
+  // button would have rendered blank. Set here, mirroring how
+  // renderExamQuestion() sets #exam-exit-btn's text on every render.
+  el("#practice-exit-btn").textContent = PQ.exit;
   el("#practice-progress").textContent = PQ.progress(pq.index + 1, pq.questions.length);
   el("#practice-meta").innerHTML = `
     <span class="badge topic">${topicLabel}</span>

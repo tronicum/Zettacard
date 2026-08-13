@@ -270,7 +270,60 @@
       <p id="exam-picker-desc"></p>
       <button class="exam-mode-btn" id="exam-pick-training"></button>
       <button class="exam-mode-btn" id="exam-pick-simulation"></button>
+      <!-- DN-52 Phase 2: practice-quiz entry point, same mode-choice card as
+           Training/Simulation - see renderExamPicker()/openPracticePicker()
+           in app.js. -->
+      <button class="exam-mode-btn" id="exam-pick-practice"></button>
       <button class="back-btn" id="exam-picker-cancel"></button>
+    </div>
+  </div>
+
+  <!-- DN-52 Phase 2: practice-quiz scope picker - "mixed" plus one button per
+       topic (same topic set/labels the topic-filter chips use), reusing the
+       exam-modal look. See renderPracticePicker() in app.js. -->
+  <div class="exam-modal" id="practice-picker" hidden role="dialog" aria-modal="true" aria-labelledby="practice-picker-title">
+    <div class="exam-modal-card">
+      <h2 id="practice-picker-title"></h2>
+      <p id="practice-picker-desc"></p>
+      <div id="practice-picker-topics" style="display:flex; flex-direction:column; gap:8px; max-height:50vh; overflow-y:auto;"></div>
+      <button class="back-btn" id="practice-picker-cancel"></button>
+    </div>
+  </div>
+
+  <!-- DN-52 Phase 2: practice-quiz run - one question at a time with
+       IMMEDIATE per-question feedback (unlike exam mode's reveal-at-the-end),
+       reusing the flashcard self-answer visual language. No timer, no
+       skip button, no pass/fail - see renderPracticeQuestion() in app.js. -->
+  <div class="exam-view" id="practice-view" hidden role="dialog" aria-modal="true" aria-labelledby="practice-question">
+    <div class="detail-header">
+      <button class="back-btn" id="practice-exit-btn"></button>
+      <div class="progress-bar" id="practice-progress" style="margin:0; flex:1;"></div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-meta" id="practice-meta"></div>
+      <p class="detail-question" id="practice-question" tabindex="-1"></p>
+      <div class="image-note" id="practice-image-note"></div>
+      <div class="options" id="practice-options"></div>
+      <div class="explanation" id="practice-explanation" hidden tabindex="-1" aria-live="polite"></div>
+      <div style="display:flex; gap:10px; margin-top:20px;">
+        <button class="back-btn" id="practice-check-btn" style="flex:1;" hidden></button>
+        <button class="back-btn" id="practice-next-btn" style="flex:1;" hidden></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DN-52 Phase 2: practice-quiz results - plain score summary, deliberately
+       has NO certificate section at all (unlike #exam-results), so there's
+       structurally nothing here that could grow into one by accident. See
+       renderPracticeResults() in app.js. -->
+  <div class="exam-view" id="practice-results" hidden role="dialog" aria-modal="true" aria-labelledby="practice-results-title">
+    <div class="detail-header">
+      <button class="back-btn" id="practice-results-close-btn"></button>
+      <div style="flex:1;"></div>
+    </div>
+    <div class="detail-body">
+      <h2 id="practice-results-title"></h2>
+      <div id="practice-results-summary"></div>
     </div>
   </div>
 
