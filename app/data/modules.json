@@ -984,6 +984,82 @@
           }
         }
       ]
+    },
+    {
+      "exam_type": "dora",
+      "label": {
+        "de": "DORA (Digitale operationale Resilienz)",
+        "en": "Digital Operational Resilience Act (DORA)",
+        "uk": "Закон про цифрову операційну стійкість (DORA)",
+        "pl": "Ustawa o cyfrowej odporności operacyjnej (DORA)",
+        "ar": "قانون المرونة التشغيلية الرقمية (DORA)",
+        "zh": "数字运营弹性法案 (DORA)",
+        "hi": "डिजिटल परिचालन लचीलापन अधिनियम (DORA)",
+        "tr": "Dijital Operasyonel Dayanıklılık Yasası (DORA)",
+        "fr": "Règlement sur la résilience opérationnelle numérique (DORA)",
+        "ru": "Закон о цифровой операционной устойчивости (DORA)",
+        "es": "Reglamento de Resiliencia Operativa Digital (DORA)",
+        "it": "Regolamento sulla resilienza operativa digitale (DORA)"
+      },
+      "_comment": "DN-70: 9th compliance module, first cybersecurity/operational-resilience-focused one - DORA (Regulation (EU) 2022/2554, Digital Operational Resilience Act). Directly applicable EU Regulation (no national transposition), in force since 17 Jan 2025, covering ~20 types of financial entities. Art. 13(6) DORA mandates ICT security awareness/resilience training as a compulsory part of staff training for ALL employees and senior management - the strongest explicit all-staff training mandate found in this project's research so far. Started as a 20-question DE/EN-only pilot (data/dora_pilot.json), same launch pattern as kyc_aml/kartellrecht/lksg. AI-drafted, NOT legally reviewed yet - see claude/dora-pilot-pre-review-dossier-2026-08-13.md for the citation ledger and confidence tiers per question. Ships free for now, same MVP posture as the rest of the catalog. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
+    },
+    {
+      "exam_type": "nis2",
+      "label": {
+        "de": "NIS2 (Cybersicherheit kritischer Einrichtungen)",
+        "en": "NIS2 (Cybersecurity Directive)",
+        "uk": "NIS2 (Директива про кібербезпеку)",
+        "pl": "NIS2 (Dyrektywa o cyberbezpieczeństwie)",
+        "ar": "NIS2 (توجيه الأمن السيبراني)",
+        "zh": "NIS2（网络安全指令）",
+        "hi": "NIS2 (साइबर सुरक्षा निर्देश)",
+        "tr": "NIS2 (Siber Güvenlik Direktifi)",
+        "fr": "NIS2 (directive sur la cybersécurité)",
+        "ru": "NIS2 (Директива о кибербезопасности)",
+        "es": "NIS2 (Directiva de ciberseguridad)",
+        "it": "NIS2 (Direttiva sulla cybersicurezza)"
+      },
+      "_comment": "DN-71: 10th compliance module, second cybersecurity-focused one - NIS2 (Directive (EU) 2022/2555) as transposed into the revised German BSIG ('NIS2UmsuCG'), binding since 6 Dec 2025 with no transition period, covering an estimated ~29,500 companies across 11+ sectors (energy, transport, banking, health, digital infrastructure, manufacturing, etc.). Unlike DORA, NIS2 Art. 20(2) only mandates training for management-body members personally; Art. 21(2)(g) separately requires every in-scope entity to maintain cybersecurity training as one of ten mandatory risk-management measures. Started as a 20-question DE/EN-only pilot (data/nis2_pilot.json), same launch pattern as the other enterprise compliance modules. AI-drafted, NOT legally reviewed yet - the German BSIG-specific citations (§33, §38) rest on secondary legal-analysis sources rather than a direct read of the enacted statute text; see claude/nis2-pilot-pre-review-dossier-2026-08-13.md for the full citation ledger. Ships free for now, same MVP posture as the rest of the catalog.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ]
     }
   ]
 }

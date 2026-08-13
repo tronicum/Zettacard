@@ -1,0 +1,202 @@
+{
+  "dora-grundlagen-01": {
+    "question": "What is DORA legally, and since when has it applied?",
+    "options": {
+      "a": "An EU directive that only applies once transposed into German law",
+      "b": "A directly applicable EU Regulation (Regulation (EU) 2022/2554), in force since 17 January 2025",
+      "c": "A voluntary industry self-commitment with no legal force",
+      "d": "A purely German banking-supervision law"
+    },
+    "explanation": "DORA is a Regulation, not a directive - it applies directly across all EU member states without a national transposition law. Applicable since 17 Jan 2025."
+  },
+  "dora-grundlagen-02": {
+    "question": "Which entities generally fall within DORA's scope?",
+    "options": {
+      "a": "Only credit institutions (banks)",
+      "b": "Around 20 types of financial entities - incl. banks, payment institutions, investment firms, insurers, crypto-asset providers - plus their critical ICT third-party providers",
+      "c": "Exclusively publicly listed companies in any industry",
+      "d": "Only companies headquartered in Frankfurt"
+    },
+    "explanation": "Art. 2 DORA lists the personal scope in detail - it goes far beyond classic banks and explicitly includes ICT third-party providers."
+  },
+  "dora-grundlagen-03": {
+    "question": "How does DORA account for a company's size and risk profile?",
+    "options": {
+      "a": "There's no difference - every requirement applies identically regardless of size",
+      "b": "The proportionality principle scales requirements to size, risk, scale and complexity - some smaller entities may use a simplified framework",
+      "c": "Only microenterprises must comply with DORA, large banks are exempt",
+      "d": "Each company sets its own requirements freely"
+    },
+    "explanation": "Art. 4 establishes the proportionality principle; Art. 16 provides a simplified ICT risk management framework for certain smaller/less interconnected entities."
+  },
+  "dora-grundlagen-04": {
+    "question": "Why do you, as an employee of a DORA-covered company, have to take training like this?",
+    "options": {
+      "a": "It's purely voluntary, only informally recommended by the employer",
+      "b": "Art. 13(6) DORA requires financial entities to make ICT security awareness programmes and digital operational resilience training a compulsory part of staff training schemes for ALL employees and senior management",
+      "c": "Only IT staff need to be trained, everyone else is exempt",
+      "d": "The training duty applies only to senior management members, not regular staff"
+    },
+    "explanation": "Unlike NIS2 (which only mandates training for management bodies), DORA Art. 13(6) explicitly requires training for ALL staff AND senior management - with complexity matched to each person's role."
+  },
+  "dora-risikomanagement-01": {
+    "question": "Under DORA, who bears ultimate responsibility for a financial entity's ICT risk management?",
+    "options": {
+      "a": "Exclusively the IT department",
+      "b": "The management body (executive/supervisory board) - this responsibility cannot be outsourced",
+      "c": "The external ICT third-party provider",
+      "d": "The national supervisory authority itself"
+    },
+    "explanation": "Art. 5 makes clear the management body bears ultimate responsibility and cannot delegate it away, even where operational tasks are delegated."
+  },
+  "dora-risikomanagement-02": {
+    "question": "What core functions must the ICT risk management framework cover under DORA?",
+    "options": {
+      "a": "Only customer-data encryption",
+      "b": "Identification, protection/prevention, detection, response/recovery, and learning/evolving in handling ICT risk",
+      "c": "Exclusively the annual financial audit",
+      "d": "Only the selection of a cloud provider"
+    },
+    "explanation": "Art. 6-14 structure the framework along these functions - a scheme similar to the well-known identify-protect-detect-respond-recover cycle."
+  },
+  "dora-risikomanagement-03": {
+    "question": "How often must the ICT risk management framework be reviewed at minimum?",
+    "options": {
+      "a": "Only once, when first introduced",
+      "b": "At least once a year, plus after major ICT incidents or significant changes",
+      "c": "Every 10 years",
+      "d": "A review isn't required at all"
+    },
+    "explanation": "Art. 6(5) requires at least an annual review, additionally triggered by major incidents or significant changes."
+  },
+  "dora-risikomanagement-04": {
+    "question": "What does DORA require regarding backup policies and disaster recovery?",
+    "options": {
+      "a": "Entities must establish and regularly test backup policies, recovery procedures, and business continuity plans for critical/important functions",
+      "b": "Backups are explicitly not required under DORA",
+      "c": "Only physical paper documents need to be backed up",
+      "d": "Backup duties only apply to companies outside the EU"
+    },
+    "explanation": "Art. 11-12 require documented backup policies, recovery procedures, and business continuity plans that must be tested regularly."
+  },
+  "dora-meldepflichten-01": {
+    "question": "What criteria determine whether an ICT incident is classified as 'major'?",
+    "options": {
+      "a": "Solely the IT lead's personal judgment",
+      "b": "Among others: number of clients/counterparts affected, duration and downtime, geographic spread, data losses, and economic/reputational impact",
+      "c": "Solely the number of staff involved",
+      "d": "There are no defined criteria"
+    },
+    "explanation": "Art. 18 DORA together with RTS (EU) 2024/1772 sets out concrete, multi-dimensional classification criteria, not a single metric."
+  },
+  "dora-meldepflichten-02": {
+    "question": "Within what timeframe must a major ICT incident first be reported to the competent authority?",
+    "options": {
+      "a": "Within 4 hours of classification as major",
+      "b": "Only at year-end in the annual report",
+      "c": "There is no reporting deadline, only a recommendation",
+      "d": "Within 30 days of the incident"
+    },
+    "explanation": "The clock starts at classification, not detection - though classification itself should happen without undue delay (commonly cited as roughly 24 hours after detection in practice). REVIEW NOTE: this deadline is flagged Tier C (secondary-source only) in the pre-review dossier - verify against the primary text of RTS (EU) 2025/301 before use."
+  },
+  "dora-meldepflichten-03": {
+    "question": "What happens after the initial notification of a major ICT incident?",
+    "options": {
+      "a": "An intermediate report follows within 72 hours of classification, and a final report within one month of the intermediate report",
+      "b": "The initial notification already satisfies all reporting duties",
+      "c": "Only a summary report after 5 years follows",
+      "d": "An intermediate report is only required for cyberattacks, not other ICT incidents"
+    },
+    "explanation": "The three-stage reporting cascade (initial, intermediate, final) is a core mechanism of Art. 19. REVIEW NOTE: see the Tier C note on meldepflichten-02, same sourcing situation."
+  },
+  "dora-meldepflichten-04": {
+    "question": "Who receives major ICT incident reports, and what applies to significant cyber threats that haven't (yet) become an incident?",
+    "options": {
+      "a": "Exclusively the press, to warn customers",
+      "b": "The competent national supervisory authority (e.g. BaFin); significant cyber threats may additionally be reported voluntarily",
+      "c": "Only the entity's own supervisory board, never an external authority",
+      "d": "Reports are by design anonymous with no designated recipient"
+    },
+    "explanation": "Reports go to the competent authority (in Germany, typically BaFin); Art. 19(2) additionally opens a voluntary reporting channel for significant cyber threats."
+  },
+  "dora-testing-01": {
+    "question": "How often must financial entities (other than microenterprises) at minimum test the ICT systems supporting critical or important functions?",
+    "options": {
+      "a": "At least once a year",
+      "b": "Only once, when a system is first deployed",
+      "c": "Every 10 years",
+      "d": "Testing duties only apply to cloud systems"
+    },
+    "explanation": "Art. 24 requires a comprehensive, risk-based testing programme with at least yearly tests for critical/important functions."
+  },
+  "dora-testing-02": {
+    "question": "What is threat-led penetration testing (TLPT) under DORA, and who must perform it?",
+    "options": {
+      "a": "A simple automated virus scan every company must run weekly",
+      "b": "A realistic, coordinated advanced test mandatory only for entities specifically designated by the competent authority (typically large, systemically important ones)",
+      "c": "A test only the European Central Bank runs on itself",
+      "d": "A test mandatory for every DORA-covered entity without exception"
+    },
+    "explanation": "TLPT is not a standard test for everyone, but a targeted, supervisor-coordinated exercise for specifically designated entities."
+  },
+  "dora-testing-03": {
+    "question": "At what minimum interval must designated entities perform a TLPT?",
+    "options": {
+      "a": "At least every 3 years",
+      "b": "Only once, at company founding",
+      "c": "Daily",
+      "d": "Every 20 years"
+    },
+    "explanation": "Art. 26(1) sets a minimum 3-year interval; the competent authority may require more frequent testing case by case."
+  },
+  "dora-testing-04": {
+    "question": "What requirement applies to who performs ICT resilience tests under DORA?",
+    "options": {
+      "a": "Tests may only be performed by the CEO personally",
+      "b": "They must be performed by independent parties - internal testers with dedicated resources and no conflicts of interest, or external auditors",
+      "c": "Tests may only be performed by the entity's own competitors",
+      "d": "Independence is not required under DORA"
+    },
+    "explanation": "Art. 24-25 require independent testing to avoid conflicts of interest and self-review."
+  },
+  "dora-drittparteien-01": {
+    "question": "What must financial entities maintain and keep current regarding their ICT third-party providers?",
+    "options": {
+      "a": "Nothing at all - third-party relationships aren't subject to a documentation duty",
+      "b": "A Register of Information covering all contractual arrangements with ICT third-party providers",
+      "c": "Only a verbal list that doesn't need to be documented",
+      "d": "A register only for providers based outside the EU"
+    },
+    "explanation": "Art. 28(3) requires an up-to-date register of all ICT third-party contracts - a central basis for supervisory oversight."
+  },
+  "dora-drittparteien-02": {
+    "question": "What elements must contracts with ICT third-party providers include at minimum under DORA?",
+    "options": {
+      "a": "Only the price of the service",
+      "b": "Among others: a clear service description, audit rights, sub-outsourcing conditions, and exit strategies",
+      "c": "Contract duration is irrelevant under DORA",
+      "d": "Exclusively a confidentiality clause, all other content is optional"
+    },
+    "explanation": "Art. 30 sets binding minimum contract contents for ICT third-party contracts, specifically to ensure exit capability and control rights."
+  },
+  "dora-drittparteien-03": {
+    "question": "What happens when an ICT third-party provider is designated 'critical' (CTPP)?",
+    "options": {
+      "a": "It's subject to no additional oversight",
+      "b": "It becomes subject to direct EU-level oversight by one of the European Supervisory Authorities acting as Lead Overseer",
+      "c": "It's automatically barred from being used by financial entities",
+      "d": "Only non-EU national authorities may oversee it"
+    },
+    "explanation": "Art. 31-44 establish a dedicated oversight framework for critical ICT third-party providers, with direct supervision by one of the three ESAs."
+  },
+  "dora-drittparteien-04": {
+    "question": "Why is ICT third-party concentration risk relevant for financial entities under DORA?",
+    "options": {
+      "a": "It's irrelevant, DORA doesn't address this topic",
+      "b": "Over-reliance on a small number of (especially critical) ICT providers can pose a systemic risk to the financial sector and must be factored into risk assessment",
+      "c": "Concentration risk only applies to equity portfolios, not IT service providers",
+      "d": "Only providers with fewer than 10 employees count as concentration risk"
+    },
+    "explanation": "DORA explicitly addresses the systemic risk that arises when a large share of the financial sector depends on the same small set of ICT providers."
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "nis2-grundlagen-01": {
+    "question": "What is NIS2 legally, and how was it implemented in Germany?",
+    "options": {
+      "a": "A directly applicable EU Regulation like DORA, with no national transposition law",
+      "b": "An EU Directive (Directive (EU) 2022/2555), transposed via an amendment to the BSI Act ('NIS2UmsuCG') - binding since 6 December 2025 with no transition period",
+      "c": "A purely voluntary IT-industry self-commitment",
+      "d": "A regulation that applies only to public authorities"
+    },
+    "explanation": "Unlike DORA (a Regulation), NIS2 is a Directive and had to be transposed into national law - in Germany via the BSIG amendment, binding since 6 Dec 2025 with no transition period."
+  },
+  "nis2-grundlagen-02": {
+    "question": "Roughly how large is the scope of Germany's NIS2 implementation, and which sectors are among those covered?",
+    "options": {
+      "a": "About 500 companies, banks only",
+      "b": "An estimated ~29,500 companies - roughly five times the prior regime - covering energy, transport, banking, financial market infrastructure, healthcare, digital infrastructure, and (newly) parts of manufacturing",
+      "c": "Only companies headquartered in Berlin",
+      "d": "Only critical-infrastructure operators under the old, narrow KRITIS definition"
+    },
+    "explanation": "The revised BSIG massively expands the pool of covered companies compared to the previous, narrower KRITIS regime."
+  },
+  "nis2-grundlagen-03": {
+    "question": "What basic registration duty applies to a company covered by NIS2/BSIG?",
+    "options": {
+      "a": "None - NIS2 doesn't provide for registration",
+      "b": "Registration with the BSI within three months - either from 6 December 2025 (for entities already in scope) or from when the entity first becomes in scope",
+      "c": "A one-time filing with the local tax office suffices",
+      "d": "Only 'essential entities' must register, 'important entities' are exempt"
+    },
+    "explanation": "The registration duty in principle applies to both categories and is distinct from the substantive security measures - a standalone formal obligation."
+  },
+  "nis2-grundlagen-04": {
+    "question": "Why is training under NIS2/BSIG relevant to you at all - regardless of whether you're part of management?",
+    "options": {
+      "a": "NIS2 requires every single person in the company, without exception, to personally attend certified training",
+      "b": "Every in-scope company must maintain 'basic cyber hygiene practices and cybersecurity training' as one of ten mandatory risk-management measures (Art. 21(2)(g)); separately, members of the management body must personally undergo training (Art. 20(2)) - training for the rest of the workforce is only 'encouraged,' not individually mandated",
+      "c": "Training is completely unregulated and purely voluntary under NIS2, even for management",
+      "d": "Only external contractors need to be trained, never a company's own employees"
+    },
+    "explanation": "Two separate provisions work together: Art. 21(2)(g) obligates the company as a whole (which includes you), and Art. 20(2) additionally personally obligates each individual management-body member."
+  },
+  "nis2-risikomanagement-01": {
+    "question": "How many categories of minimum risk-management measures does Art. 21(2) NIS2 require, and what determines their concrete shape?",
+    "options": {
+      "a": "Exactly one blanket measure, identical for every company",
+      "b": "Ten categories (a-j, incl. risk analysis, incident handling, business continuity, supply chain security) - shaped by the state of the art and proportionate to risk, size, and likelihood of incidents",
+      "c": "Fifty highly detailed technical rules with no discretion at all",
+      "d": "There's no substantive content, only a general statement of intent"
+    },
+    "explanation": "Art. 21(2)(a)-(j) lists ten measure categories; para. 1 anchors the 'state of the art' and proportionality standard."
+  },
+  "nis2-risikomanagement-02": {
+    "question": "What does Art. 21(2)(d) NIS2 require regarding the supply chain?",
+    "options": {
+      "a": "Companies only need to secure their own internal IT, suppliers are irrelevant",
+      "b": "Companies must address security-relevant aspects of relationships with their direct suppliers and service providers (supply chain security)",
+      "c": "Only non-EU suppliers need to be assessed",
+      "d": "Supply chain security only applies to automotive manufacturers"
+    },
+    "explanation": "Supply chain security is one of the ten mandatory categories and explicitly covers the relationship with direct suppliers/service providers."
+  },
+  "nis2-risikomanagement-03": {
+    "question": "What does Art. 21(2)(j) NIS2 require regarding authentication and communication, where appropriate?",
+    "options": {
+      "a": "The use of multi-factor or continuous authentication, plus secured voice, video and text communication and secured emergency communication systems",
+      "b": "Exclusively the use of one single, EU-wide standardized password manager",
+      "c": "Communication must exclusively happen unencrypted via email",
+      "d": "MFA is explicitly banned under NIS2 because it reduces usability"
+    },
+    "explanation": "The provision is deliberately technology-neutral ('where appropriate') but names MFA/continuous authentication and secured communication channels as examples."
+  },
+  "nis2-risikomanagement-04": {
+    "question": "What determines the concrete scope of the measures a company must take under Art. 21(1) NIS2?",
+    "options": {
+      "a": "Exclusively the company's annual revenue, no other factor counts",
+      "b": "The state of the art, proportionate to risk exposure, size, likelihood and severity of incidents, and their societal and economic impact",
+      "c": "The management's free discretion, with no legal constraint at all",
+      "d": "Exclusively the number of IT staff employed"
+    },
+    "explanation": "Art. 21(1) sets a risk-based, proportionate standard rather than rigid one-size-fits-all rules."
+  },
+  "nis2-meldepflichten-01": {
+    "question": "Within what timeframe must an initial early warning be submitted after a significant security incident?",
+    "options": {
+      "a": "Without undue delay, but no later than 24 hours after becoming aware",
+      "b": "Only after 30 days",
+      "c": "There's no deadline at all",
+      "d": "Within 6 months"
+    },
+    "explanation": "The 24-hour early warning is the first stage of NIS2's three-stage reporting cascade."
+  },
+  "nis2-meldepflichten-02": {
+    "question": "What follows the early warning, and within what timeframe?",
+    "options": {
+      "a": "An incident notification with updated information and an initial severity assessment, no later than 72 hours after becoming aware",
+      "b": "Nothing else, the early warning alone suffices",
+      "c": "A final report within 72 hours, after which the matter is closed",
+      "d": "A mandatory press release"
+    },
+    "explanation": "The second stage (72h) updates and deepens the initial report, including a first severity assessment and, where relevant, indicators of compromise."
+  },
+  "nis2-meldepflichten-03": {
+    "question": "By when must a final report be submitted at the latest?",
+    "options": {
+      "a": "No later than one month after submitting the incident notification (for still-ongoing incidents: a progress report plus a final update within one month of resolution)",
+      "b": "No final report is required at all",
+      "c": "Only after 5 years, in the next compliance audit",
+      "d": "Only if the press asks about it"
+    },
+    "explanation": "The third stage closes the reporting cascade and requires a detailed description, threat analysis, and mitigation information."
+  },
+  "nis2-meldepflichten-04": {
+    "question": "Who is the competent reporting authority for NIS2/BSIG incident notifications in Germany?",
+    "options": {
+      "a": "The Federal Office for Information Security (BSI)",
+      "b": "The Federal Criminal Police Office, only for criminal offences",
+      "c": "There is no competent authority, reports go voluntarily to the press",
+      "d": "Exclusively the entity's own foreign parent company"
+    },
+    "explanation": "The BSI is the central national authority/CSIRT for NIS2/BSIG reports in Germany."
+  },
+  "nis2-governance-01": {
+    "question": "What role does the management body have under Art. 20(1) NIS2 regarding risk-management measures?",
+    "options": {
+      "a": "None - operational IT matters are only the IT department's concern",
+      "b": "It must approve the risk-management measures, oversee their implementation, and bears responsibility for the company's NIS2 breaches",
+      "c": "It should deliberately avoid engaging with cybersecurity to limit its own liability",
+      "d": "Its role is limited to an annual signature with no substantive review"
+    },
+    "explanation": "Art. 20(1) makes the management body the responsible approving and overseeing organ, not a passive bystander."
+  },
+  "nis2-governance-02": {
+    "question": "What does Art. 20(2) NIS2 personally require of management-body members?",
+    "options": {
+      "a": "Nothing, training is explicitly voluntary for management",
+      "b": "They are required to follow training to gain sufficient knowledge to identify risks and assess cybersecurity practices",
+      "c": "This duty applies only to the IT board member, not other management members",
+      "d": "The training duty only applies once, before first appointment, never afterward"
+    },
+    "explanation": "Art. 20(2) establishes a personal knowledge duty for management-body members, not merely a company-level measure."
+  },
+  "nis2-governance-03": {
+    "question": "What does the personal accountability provision in §38 BSIG (revised) concretely mean for management?",
+    "options": {
+      "a": "It's a purely symbolic rule with no practical consequences",
+      "b": "Natural persons who, by law, articles of association, or partnership agreement, manage and represent the company can be held personally responsible for failing to ensure implementation of the required measures",
+      "c": "It only applies to supervisory board members in two-tier structures, never to executive management itself",
+      "d": "It completely replaces the company's own liability, the company itself is no longer liable"
+    },
+    "explanation": "REVIEW NOTE: this question rests on a secondary source (law-firm analysis), not a direct read of the BSIG statute text - verify before use."
+  },
+  "nis2-governance-04": {
+    "question": "How do the two training provisions in Art. 20(2) and Art. 21(2)(g) NIS2 differ?",
+    "options": {
+      "a": "They're the same provision, just cited twice",
+      "b": "Art. 20(2) personally obligates individual management-body members to attend training; Art. 21(2)(g) obligates the company as a whole to maintain corresponding procedures and training as one of ten risk-management measures",
+      "c": "Both provisions apply exclusively to external contractors",
+      "d": "Art. 21(2)(g) was dropped without replacement in the German transposition"
+    },
+    "explanation": "This distinction is the core of the 'why am I taking this' question from Topic 1 (grundlagen-04), revisited here in more depth."
+  },
+  "nis2-sanktionen-01": {
+    "question": "How high can fines for NIS2/BSIG violations be at most?",
+    "options": {
+      "a": "A flat 500 euros, regardless of company size",
+      "b": "Up to €10 million or 2% of global annual turnover for essential/particularly important entities, up to €7 million or 1.4% for important entities - whichever figure is higher",
+      "c": "Fines are legally excluded under NIS2",
+      "d": "A maximum of €1,000 per incident"
+    },
+    "explanation": "The fine structure is modeled on the GDPR approach (percentage vs. fixed amount, whichever is higher)."
+  },
+  "nis2-sanktionen-02": {
+    "question": "What additional sanction does Art. 32 NIS2 provide for essential entities when other enforcement measures prove ineffective?",
+    "options": {
+      "a": "Only a higher fine, never a measure targeting an individual person",
+      "b": "A temporary ban on natural persons at CEO or legal-representative level from exercising managerial functions",
+      "c": "Immediate nationalization of the company",
+      "d": "A lifetime, EU-wide professional ban with no further conditions"
+    },
+    "explanation": "This person-targeted sanction is standalone and operates in addition to, not instead of, fines."
+  },
+  "nis2-sanktionen-03": {
+    "question": "What powers does the competent authority (the BSI in Germany) typically have over essential/important entities?",
+    "options": {
+      "a": "None, the BSI can only issue non-binding recommendations",
+      "b": "Among others, on-site inspections and audits and orders to remedy deficiencies, on top of the fine and (for essential entities) further sanction powers already noted",
+      "c": "The BSI may only conduct its own criminal investigations",
+      "d": "Its powers are limited to receiving voluntary reports"
+    },
+    "explanation": "Art. 32-33 equip the authority with a toolkit of inspection, order, and sanction powers."
+  },
+  "nis2-sanktionen-04": {
+    "question": "What happens if an in-scope company misses the three-month BSI registration deadline?",
+    "options": {
+      "a": "No consequences at all, the deadline is purely declaratory",
+      "b": "Missing registration can lead to fines and supervisory measures - registration is a standalone legal duty, independent of the substantive security measures",
+      "c": "The company automatically and permanently falls out of NIS2's scope",
+      "d": "Only a written warning with no further consequence is provided for"
+    },
+    "explanation": "Registration and substantive security measures are two separate sets of duties - both can be sanctioned independently of each other."
+  }
+}

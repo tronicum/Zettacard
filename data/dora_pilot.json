@@ -1,0 +1,906 @@
+{
+  "meta": {
+    "app": "Zettacard / dora-lernmodul",
+    "version": "0.1-draft",
+    "generated": "2026-08-13",
+    "description": "Draft Pilot-Fragenkatalog zur Verordnung (EU) 2022/2554 (Digital Operational Resilience Act, DORA). Eigenstaendig formuliert, gestuetzt auf den oeffentlich zugaenglichen Verordnungstext sowie amtliche/anerkannte Sekundaerquellen. Kein Fragentext eines kommerziellen Anbieters uebernommen. NICHT rechtlich geprueft - siehe Pre-Review-Dossier fuer Konfidenz je Frage.",
+    "class": "ALL",
+    "locales": [
+      "de",
+      "en"
+    ],
+    "canonical_locale": "de",
+    "point_system": "2-3 points per question, matching this app's existing compliance-module style",
+    "legal_review_status": "DRAFT - NOT legally reviewed. See dora-pilot-pre-review-dossier-2026-08-13.md citation ledger before any use.",
+    "total_questions": 20,
+    "renewal_months": null,
+    "renewal_basis": "not_specified_in_statute",
+    "renewal_note": "Art. 13(6) DORA requires training be a compulsory part of staff training schemes but does not itself specify a recurrence interval - unlike Arbeitssicherheit's DGUV V1 'at least annually' rule. A recurrence cadence would be a Zettacard product decision, not a direct statutory mirror.",
+    "pass_rule_note": "Provisional: same generic mechanics as this app's other compliance modules used as a placeholder pending a real workplace-training design pass - see legal_review_status.",
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome."
+  },
+  "questions": [
+    {
+      "id": "dora-grundlagen-01",
+      "topic": "Grundlagen",
+      "topic_code": "grundlagen",
+      "legal_basis": "Art. 1, Art. 64 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Was ist DORA rechtlich gesehen, und seit wann gilt sie?",
+          "options": {
+            "a": "Eine EU-Richtlinie, die erst nach Umsetzung durch ein deutsches Gesetz gilt",
+            "b": "Eine unmittelbar geltende EU-Verordnung (Verordnung (EU) 2022/2554), anwendbar seit dem 17. Januar 2025",
+            "c": "Eine freiwillige Selbstverpflichtung der Finanzbranche ohne Gesetzeskraft",
+            "d": "Ein rein deutsches Gesetz zur Bankenaufsicht"
+          }
+        },
+        "en": {
+          "question": "What is DORA legally, and since when has it applied?",
+          "options": {
+            "a": "An EU directive that only applies once transposed into German law",
+            "b": "A directly applicable EU Regulation (Regulation (EU) 2022/2554), in force since 17 January 2025",
+            "c": "A voluntary industry self-commitment with no legal force",
+            "d": "A purely German banking-supervision law"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "DORA ist eine Verordnung, keine Richtlinie - sie gilt unmittelbar in allen EU-Mitgliedstaaten ohne nationales Umsetzungsgesetz. Anwendbar seit 17.1.2025.",
+        "en": "DORA is a Regulation, not a directive - it applies directly across all EU member states without a national transposition law. Applicable since 17 Jan 2025."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-grundlagen-02",
+      "topic": "Grundlagen",
+      "topic_code": "grundlagen",
+      "legal_basis": "Art. 2 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Welche Einrichtungen fallen grundsaetzlich in den Anwendungsbereich von DORA?",
+          "options": {
+            "a": "Nur Kreditinstitute (Banken)",
+            "b": "Rund 20 Arten von Finanzunternehmen - u.a. Banken, Zahlungsinstitute, Wertpapierfirmen, Versicherer, Krypto-Dienstleister - sowie deren kritische IKT-Drittanbieter",
+            "c": "Ausschliesslich boersennotierte Unternehmen jeder Branche",
+            "d": "Nur Unternehmen mit Sitz in Frankfurt am Main"
+          }
+        },
+        "en": {
+          "question": "Which entities generally fall within DORA's scope?",
+          "options": {
+            "a": "Only credit institutions (banks)",
+            "b": "Around 20 types of financial entities - incl. banks, payment institutions, investment firms, insurers, crypto-asset providers - plus their critical ICT third-party providers",
+            "c": "Exclusively publicly listed companies in any industry",
+            "d": "Only companies headquartered in Frankfurt"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Art. 2 DORA listet den persoenlichen Anwendungsbereich detailliert auf - er reicht weit ueber klassische Banken hinaus und schliesst IKT-Drittanbieter mit ein.",
+        "en": "Art. 2 DORA lists the personal scope in detail - it goes far beyond classic banks and explicitly includes ICT third-party providers."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-grundlagen-03",
+      "topic": "Grundlagen",
+      "topic_code": "grundlagen",
+      "legal_basis": "Art. 4, Art. 16 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Wie beruecksichtigt DORA die Groesse und das Risikoprofil eines Unternehmens?",
+          "options": {
+            "a": "Es gibt keine Unterschiede - jede Anforderung gilt identisch, unabhaengig von der Groesse",
+            "b": "Der Verhaeltnismaessigkeitsgrundsatz erlaubt eine Anwendung proportional zu Groesse, Risiko, Umfang und Komplexitaet - manche kleineren Unternehmen koennen ein vereinfachtes Rahmenwerk nutzen",
+            "c": "Nur Kleinstunternehmen muessen DORA einhalten, grosse Banken sind ausgenommen",
+            "d": "Die Anforderungen werden von jedem Unternehmen frei selbst festgelegt"
+          }
+        },
+        "en": {
+          "question": "How does DORA account for a company's size and risk profile?",
+          "options": {
+            "a": "There's no difference - every requirement applies identically regardless of size",
+            "b": "The proportionality principle scales requirements to size, risk, scale and complexity - some smaller entities may use a simplified framework",
+            "c": "Only microenterprises must comply with DORA, large banks are exempt",
+            "d": "Each company sets its own requirements freely"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Art. 4 verankert den Verhaeltnismaessigkeitsgrundsatz, Art. 16 sieht fuer bestimmte kleinere/weniger vernetzte Unternehmen ein vereinfachtes IKT-Risikomanagement-Rahmenwerk vor.",
+        "en": "Art. 4 establishes the proportionality principle; Art. 16 provides a simplified ICT risk management framework for certain smaller/less interconnected entities."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-grundlagen-04",
+      "topic": "Grundlagen",
+      "topic_code": "grundlagen",
+      "legal_basis": "Art. 13 Abs. 6 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "text": {
+        "de": {
+          "question": "Warum muessen Sie als Mitarbeitende(r) eines von DORA erfassten Unternehmens an einer Schulung wie dieser teilnehmen?",
+          "options": {
+            "a": "Es ist rein freiwillig und wird vom Arbeitgeber nur unverbindlich empfohlen",
+            "b": "Art. 13 Abs. 6 DORA verpflichtet Finanzunternehmen, Sensibilisierungsprogramme und Schulungen zur digitalen operationalen Resilienz als verpflichtenden Bestandteil der Mitarbeiterschulung fuer ALLE Beschaeftigten und die Geschaeftsleitung anzubieten",
+            "c": "Nur IT-Mitarbeitende muessen geschult werden, alle anderen sind ausgenommen",
+            "d": "Die Schulungspflicht gilt nur fuer Geschaeftsleitungsmitglieder, nicht fuer normale Angestellte"
+          }
+        },
+        "en": {
+          "question": "Why do you, as an employee of a DORA-covered company, have to take training like this?",
+          "options": {
+            "a": "It's purely voluntary, only informally recommended by the employer",
+            "b": "Art. 13(6) DORA requires financial entities to make ICT security awareness programmes and digital operational resilience training a compulsory part of staff training schemes for ALL employees and senior management",
+            "c": "Only IT staff need to be trained, everyone else is exempt",
+            "d": "The training duty applies only to senior management members, not regular staff"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Anders als etwa NIS2 (wo nur die Geschaeftsleitung verpflichtend geschult werden muss) schreibt DORA Art. 13(6) die Schulung ausdruecklich fuer ALLE Mitarbeitenden UND die Geschaeftsleitung vor - mit einem Schwierigkeitsgrad passend zur jeweiligen Funktion.",
+        "en": "Unlike NIS2 (which only mandates training for management bodies), DORA Art. 13(6) explicitly requires training for ALL staff AND senior management - with complexity matched to each person's role."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-risikomanagement-01",
+      "topic": "IKT-Risikomanagement-Rahmenwerk",
+      "topic_code": "risikomanagement",
+      "legal_basis": "Art. 5 Abs. 1-2 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Wer traegt nach DORA die letztverantwortliche Verantwortung fuer das IKT-Risikomanagement eines Finanzunternehmens?",
+          "options": {
+            "a": "Ausschliesslich die IT-Abteilung",
+            "b": "Das Leitungsorgan (Geschaeftsleitung/Vorstand) - diese Verantwortung kann nicht ausgelagert werden",
+            "c": "Der externe IKT-Drittanbieter",
+            "d": "Die nationale Aufsichtsbehoerde selbst"
+          }
+        },
+        "en": {
+          "question": "Under DORA, who bears ultimate responsibility for a financial entity's ICT risk management?",
+          "options": {
+            "a": "Exclusively the IT department",
+            "b": "The management body (executive/supervisory board) - this responsibility cannot be outsourced",
+            "c": "The external ICT third-party provider",
+            "d": "The national supervisory authority itself"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Art. 5 stellt klar, dass das Leitungsorgan die Endverantwortung traegt und diese nicht delegiert werden kann, auch wenn operative Aufgaben delegiert werden.",
+        "en": "Art. 5 makes clear the management body bears ultimate responsibility and cannot delegate it away, even where operational tasks are delegated."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-risikomanagement-02",
+      "topic": "IKT-Risikomanagement-Rahmenwerk",
+      "topic_code": "risikomanagement",
+      "legal_basis": "Art. 6-14 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Welche Funktionen muss das IKT-Risikomanagement-Rahmenwerk nach DORA im Kern umfassen?",
+          "options": {
+            "a": "Nur Verschluesselung von Kundendaten",
+            "b": "Identifizierung, Schutz/Praevention, Erkennung, Reaktion/Wiederherstellung sowie Lernen und Weiterentwicklung im Umgang mit IKT-Risiken",
+            "c": "Ausschliesslich die jaehrliche Bilanzpruefung",
+            "d": "Nur die Auswahl eines Cloud-Anbieters"
+          }
+        },
+        "en": {
+          "question": "What core functions must the ICT risk management framework cover under DORA?",
+          "options": {
+            "a": "Only customer-data encryption",
+            "b": "Identification, protection/prevention, detection, response/recovery, and learning/evolving in handling ICT risk",
+            "c": "Exclusively the annual financial audit",
+            "d": "Only the selection of a cloud provider"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Art. 6-14 strukturieren das Rahmenwerk entlang dieser Funktionen - eine Systematik, die dem bekannten Identify-Protect-Detect-Respond-Recover-Zyklus aehnelt.",
+        "en": "Art. 6-14 structure the framework along these functions - a scheme similar to the well-known identify-protect-detect-respond-recover cycle."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-risikomanagement-03",
+      "topic": "IKT-Risikomanagement-Rahmenwerk",
+      "topic_code": "risikomanagement",
+      "legal_basis": "Art. 6 Abs. 5 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Wie oft muss das IKT-Risikomanagement-Rahmenwerk mindestens ueberprueft werden?",
+          "options": {
+            "a": "Nur einmalig bei Einfuehrung",
+            "b": "Mindestens einmal jaehrlich sowie nach schwerwiegenden IKT-Vorfaellen oder wesentlichen Aenderungen",
+            "c": "Alle 10 Jahre",
+            "d": "Eine Ueberpruefung ist nicht vorgeschrieben"
+          }
+        },
+        "en": {
+          "question": "How often must the ICT risk management framework be reviewed at minimum?",
+          "options": {
+            "a": "Only once, when first introduced",
+            "b": "At least once a year, plus after major ICT incidents or significant changes",
+            "c": "Every 10 years",
+            "d": "A review isn't required at all"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Art. 6 Abs. 5 verlangt eine mindestens jaehrliche Ueberpruefung, zusaetzlich ausgeloest durch schwerwiegende Vorfaelle oder wesentliche Aenderungen.",
+        "en": "Art. 6(5) requires at least an annual review, additionally triggered by major incidents or significant changes."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-risikomanagement-04",
+      "topic": "IKT-Risikomanagement-Rahmenwerk",
+      "topic_code": "risikomanagement",
+      "legal_basis": "Art. 11-12 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Was verlangt DORA hinsichtlich Backup-Richtlinien und Notfallwiederherstellung?",
+          "options": {
+            "a": "Unternehmen muessen Backup-Richtlinien, Wiederherstellungsverfahren sowie Business-Continuity-Plaene fuer kritische/wichtige Funktionen einrichten und regelmaessig testen",
+            "b": "Backups sind nach DORA ausdruecklich nicht erforderlich",
+            "c": "Nur physische Papierdokumente muessen gesichert werden",
+            "d": "Backup-Pflichten gelten nur fuer Unternehmen ausserhalb der EU"
+          }
+        },
+        "en": {
+          "question": "What does DORA require regarding backup policies and disaster recovery?",
+          "options": {
+            "a": "Entities must establish and regularly test backup policies, recovery procedures, and business continuity plans for critical/important functions",
+            "b": "Backups are explicitly not required under DORA",
+            "c": "Only physical paper documents need to be backed up",
+            "d": "Backup duties only apply to companies outside the EU"
+          }
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "de": "Art. 11-12 verlangen dokumentierte Backup-Richtlinien, Wiederherstellungsverfahren und Business-Continuity-Plaene, die regelmaessig getestet werden muessen.",
+        "en": "Art. 11-12 require documented backup policies, recovery procedures, and business continuity plans that must be tested regularly."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-meldepflichten-01",
+      "topic": "Meldung von IKT-Vorfaellen",
+      "topic_code": "meldepflichten",
+      "legal_basis": "Art. 18 Verordnung (EU) 2022/2554 i.V.m. RTS (EU) 2024/1772",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Anhand welcher Kriterien wird ein IKT-Vorfall als 'schwerwiegend' (major) eingestuft?",
+          "options": {
+            "a": "Ausschliesslich anhand der Einschaetzung des IT-Leiters",
+            "b": "U.a. Anzahl betroffener Kunden/Gegenparteien, Dauer und Ausfallzeit, geografische Verbreitung, Datenverluste sowie wirtschaftliche und reputative Auswirkungen",
+            "c": "Allein anhand der Anzahl beteiligter Mitarbeitender",
+            "d": "Es gibt keine festgelegten Kriterien"
+          }
+        },
+        "en": {
+          "question": "What criteria determine whether an ICT incident is classified as 'major'?",
+          "options": {
+            "a": "Solely the IT lead's personal judgment",
+            "b": "Among others: number of clients/counterparts affected, duration and downtime, geographic spread, data losses, and economic/reputational impact",
+            "c": "Solely the number of staff involved",
+            "d": "There are no defined criteria"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Art. 18 DORA i.V.m. RTS (EU) 2024/1772 legt konkrete, mehrdimensionale Klassifizierungskriterien fest, nicht eine einzelne Kennzahl.",
+        "en": "Art. 18 DORA together with RTS (EU) 2024/1772 sets out concrete, multi-dimensional classification criteria, not a single metric."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-meldepflichten-02",
+      "topic": "Meldung von IKT-Vorfaellen",
+      "topic_code": "meldepflichten",
+      "legal_basis": "Art. 19 Verordnung (EU) 2022/2554 i.V.m. Art. 5 RTS (EU) 2025/301",
+      "points": 3,
+      "text": {
+        "de": {
+          "question": "Innerhalb welcher Frist muss ein als schwerwiegend eingestufter IKT-Vorfall der zustaendigen Behoerde erstmals gemeldet werden?",
+          "options": {
+            "a": "Innerhalb von 4 Stunden nach der Einstufung (Klassifizierung) als schwerwiegend",
+            "b": "Erst am Ende des Geschaeftsjahres im Jahresbericht",
+            "c": "Es besteht keine Meldefrist, nur eine Empfehlung",
+            "d": "Innerhalb von 30 Tagen nach dem Vorfall"
+          }
+        },
+        "en": {
+          "question": "Within what timeframe must a major ICT incident first be reported to the competent authority?",
+          "options": {
+            "a": "Within 4 hours of classification as major",
+            "b": "Only at year-end in the annual report",
+            "c": "There is no reporting deadline, only a recommendation",
+            "d": "Within 30 days of the incident"
+          }
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "de": "Die Uhr beginnt mit der Klassifizierung, nicht mit der Entdeckung - die Klassifizierung selbst soll aber ohne schuldhaftes Zoegern erfolgen (in der Praxis meist binnen rund 24 Stunden nach Entdeckung). PRUEFHINWEIS: Diese Frist ist im Pre-Review-Dossier als Tier C (nur sekundaerquellenbasiert) markiert - vor Verwendung gegen den Primaertext der RTS (EU) 2025/301 gegenpruefen.",
+        "en": "The clock starts at classification, not detection - though classification itself should happen without undue delay (commonly cited as roughly 24 hours after detection in practice). REVIEW NOTE: this deadline is flagged Tier C (secondary-source only) in the pre-review dossier - verify against the primary text of RTS (EU) 2025/301 before use."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-meldepflichten-03",
+      "topic": "Meldung von IKT-Vorfaellen",
+      "topic_code": "meldepflichten",
+      "legal_basis": "Art. 19 Verordnung (EU) 2022/2554 i.V.m. Art. 5 RTS (EU) 2025/301",
+      "points": 3,
+      "text": {
+        "de": {
+          "question": "Wie geht es nach der Erstmeldung eines schwerwiegenden IKT-Vorfalls weiter?",
+          "options": {
+            "a": "Es folgt ein Zwischenbericht innerhalb von 72 Stunden nach Klassifizierung und ein Abschlussbericht innerhalb eines Monats nach dem Zwischenbericht",
+            "b": "Mit der Erstmeldung sind alle Meldepflichten bereits erfuellt",
+            "c": "Es folgt erst nach 5 Jahren ein zusammenfassender Bericht",
+            "d": "Ein Zwischenbericht ist nur bei Cyberangriffen, nicht bei anderen IKT-Vorfaellen erforderlich"
+          }
+        },
+        "en": {
+          "question": "What happens after the initial notification of a major ICT incident?",
+          "options": {
+            "a": "An intermediate report follows within 72 hours of classification, and a final report within one month of the intermediate report",
+            "b": "The initial notification already satisfies all reporting duties",
+            "c": "Only a summary report after 5 years follows",
+            "d": "An intermediate report is only required for cyberattacks, not other ICT incidents"
+          }
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "de": "Die dreistufige Meldekaskade (Erst-, Zwischen-, Abschlussbericht) ist ein Kernmechanismus von Art. 19. PRUEFHINWEIS: siehe Tier-C-Hinweis zu meldepflichten-02, gleiche Quellenlage.",
+        "en": "The three-stage reporting cascade (initial, intermediate, final) is a core mechanism of Art. 19. REVIEW NOTE: see the Tier C note on meldepflichten-02, same sourcing situation."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-meldepflichten-04",
+      "topic": "Meldung von IKT-Vorfaellen",
+      "topic_code": "meldepflichten",
+      "legal_basis": "Art. 19-20 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "An wen werden schwerwiegende IKT-Vorfaelle gemeldet, und was gilt fuer erhebliche Cyberbedrohungen, die (noch) nicht zu einem Vorfall gefuehrt haben?",
+          "options": {
+            "a": "Ausschliesslich an die Presse, um Kunden zu warnen",
+            "b": "An die zustaendige nationale Aufsichtsbehoerde (z.B. BaFin); erhebliche Cyberbedrohungen koennen zusaetzlich freiwillig gemeldet werden",
+            "c": "Nur an den eigenen Aufsichtsrat, nie an eine externe Behoerde",
+            "d": "Meldungen sind grundsaetzlich anonym und ohne Empfaenger vorgesehen"
+          }
+        },
+        "en": {
+          "question": "Who receives major ICT incident reports, and what applies to significant cyber threats that haven't (yet) become an incident?",
+          "options": {
+            "a": "Exclusively the press, to warn customers",
+            "b": "The competent national supervisory authority (e.g. BaFin); significant cyber threats may additionally be reported voluntarily",
+            "c": "Only the entity's own supervisory board, never an external authority",
+            "d": "Reports are by design anonymous with no designated recipient"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Meldungen gehen an die zustaendige Behoerde (in Deutschland i.d.R. die BaFin); Art. 19 Abs. 2 eroeffnet zusaetzlich eine freiwillige Meldemoeglichkeit fuer erhebliche Cyberbedrohungen.",
+        "en": "Reports go to the competent authority (in Germany, typically BaFin); Art. 19(2) additionally opens a voluntary reporting channel for significant cyber threats."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-testing-01",
+      "topic": "Testing der digitalen operationalen Resilienz",
+      "topic_code": "testing",
+      "legal_basis": "Art. 24 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Wie oft muessen Finanzunternehmen (ausser Kleinstunternehmen) mindestens Tests ihrer IKT-Systeme durchfuehren, die kritische oder wichtige Funktionen unterstuetzen?",
+          "options": {
+            "a": "Mindestens einmal jaehrlich",
+            "b": "Nur einmalig beim erstmaligen Einsatz eines Systems",
+            "c": "Alle 10 Jahre",
+            "d": "Testpflichten bestehen nur fuer Cloud-Systeme"
+          }
+        },
+        "en": {
+          "question": "How often must financial entities (other than microenterprises) at minimum test the ICT systems supporting critical or important functions?",
+          "options": {
+            "a": "At least once a year",
+            "b": "Only once, when a system is first deployed",
+            "c": "Every 10 years",
+            "d": "Testing duties only apply to cloud systems"
+          }
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "de": "Art. 24 verlangt ein umfassendes, risikobasiertes Testprogramm mit mindestens jaehrlichen Tests fuer kritische/wichtige Funktionen.",
+        "en": "Art. 24 requires a comprehensive, risk-based testing programme with at least yearly tests for critical/important functions."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-testing-02",
+      "topic": "Testing der digitalen operationalen Resilienz",
+      "topic_code": "testing",
+      "legal_basis": "Art. 26-27 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Was ist ein bedrohungsgeleiteter Penetrationstest (Threat-Led Penetration Testing, TLPT) nach DORA, und wer muss ihn durchfuehren?",
+          "options": {
+            "a": "Ein einfacher automatisierter Virenscan, den jedes Unternehmen woechentlich durchfuehren muss",
+            "b": "Ein realitaetsnaher, koordinierter fortgeschrittener Test, der nur fuer von der zustaendigen Behoerde eigens dazu benannte (i.d.R. grosse, systemrelevante) Unternehmen verpflichtend ist",
+            "c": "Ein Test, den ausschliesslich die Europaeische Zentralbank an sich selbst durchfuehrt",
+            "d": "Ein Test, der fuer alle DORA-erfassten Unternehmen ausnahmslos verpflichtend ist"
+          }
+        },
+        "en": {
+          "question": "What is threat-led penetration testing (TLPT) under DORA, and who must perform it?",
+          "options": {
+            "a": "A simple automated virus scan every company must run weekly",
+            "b": "A realistic, coordinated advanced test mandatory only for entities specifically designated by the competent authority (typically large, systemically important ones)",
+            "c": "A test only the European Central Bank runs on itself",
+            "d": "A test mandatory for every DORA-covered entity without exception"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "TLPT ist kein Standardtest fuer alle, sondern eine gezielte, aufsichtlich koordinierte Massnahme fuer eigens benannte Unternehmen.",
+        "en": "TLPT is not a standard test for everyone, but a targeted, supervisor-coordinated exercise for specifically designated entities."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-testing-03",
+      "topic": "Testing der digitalen operationalen Resilienz",
+      "topic_code": "testing",
+      "legal_basis": "Art. 26 Abs. 1 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "In welchem Mindestintervall muessen dafuer benannte Unternehmen einen TLPT durchfuehren?",
+          "options": {
+            "a": "Mindestens alle 3 Jahre",
+            "b": "Nur einmalig bei Unternehmensgruendung",
+            "c": "Taeglich",
+            "d": "Alle 20 Jahre"
+          }
+        },
+        "en": {
+          "question": "At what minimum interval must designated entities perform a TLPT?",
+          "options": {
+            "a": "At least every 3 years",
+            "b": "Only once, at company founding",
+            "c": "Daily",
+            "d": "Every 20 years"
+          }
+        }
+      },
+      "correct": [
+        "a"
+      ],
+      "explanation": {
+        "de": "Art. 26 Abs. 1 sieht ein Mindestintervall von 3 Jahren vor; die zustaendige Behoerde kann im Einzelfall haeufigere Tests verlangen.",
+        "en": "Art. 26(1) sets a minimum 3-year interval; the competent authority may require more frequent testing case by case."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-testing-04",
+      "topic": "Testing der digitalen operationalen Resilienz",
+      "topic_code": "testing",
+      "legal_basis": "Art. 24-25 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Welche Anforderung gilt fuer die Durchfuehrenden von IKT-Resilienztests nach DORA?",
+          "options": {
+            "a": "Tests duerfen ausschliesslich vom CEO persoenlich durchgefuehrt werden",
+            "b": "Sie muessen von unabhaengigen Personen durchgefuehrt werden - intern mit eigenen Ressourcen und ohne Interessenkonflikte, oder durch externe Pruefer",
+            "c": "Tests duerfen nur von Wettbewerbern des eigenen Unternehmens durchgefuehrt werden",
+            "d": "Unabhaengigkeit ist nach DORA nicht vorgeschrieben"
+          }
+        },
+        "en": {
+          "question": "What requirement applies to who performs ICT resilience tests under DORA?",
+          "options": {
+            "a": "Tests may only be performed by the CEO personally",
+            "b": "They must be performed by independent parties - internal testers with dedicated resources and no conflicts of interest, or external auditors",
+            "c": "Tests may only be performed by the entity's own competitors",
+            "d": "Independence is not required under DORA"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Art. 24-25 verlangen unabhaengige Testdurchfuehrung, um Interessenkonflikte und Selbstpruefung zu vermeiden.",
+        "en": "Art. 24-25 require independent testing to avoid conflicts of interest and self-review."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-drittparteien-01",
+      "topic": "IKT-Drittparteienrisiko",
+      "topic_code": "drittparteien",
+      "legal_basis": "Art. 28 Abs. 3 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Was muessen Finanzunternehmen bezueglich ihrer IKT-Drittanbieter fuehren und aktuell halten?",
+          "options": {
+            "a": "Gar nichts - Drittanbieterbeziehungen unterliegen keiner Dokumentationspflicht",
+            "b": "Ein Informationsregister (Register of Information) ueber alle vertraglichen Vereinbarungen mit IKT-Drittanbietern",
+            "c": "Nur eine muendliche Liste, die nicht dokumentiert werden muss",
+            "d": "Ein Register nur fuer Anbieter ausserhalb der EU"
+          }
+        },
+        "en": {
+          "question": "What must financial entities maintain and keep current regarding their ICT third-party providers?",
+          "options": {
+            "a": "Nothing at all - third-party relationships aren't subject to a documentation duty",
+            "b": "A Register of Information covering all contractual arrangements with ICT third-party providers",
+            "c": "Only a verbal list that doesn't need to be documented",
+            "d": "A register only for providers based outside the EU"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Art. 28 Abs. 3 verlangt ein aktuell gehaltenes Register aller IKT-Drittanbieter-Vertraege - eine zentrale Grundlage fuer die aufsichtliche Ueberwachung.",
+        "en": "Art. 28(3) requires an up-to-date register of all ICT third-party contracts - a central basis for supervisory oversight."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-drittparteien-02",
+      "topic": "IKT-Drittparteienrisiko",
+      "topic_code": "drittparteien",
+      "legal_basis": "Art. 30 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Welche Elemente muessen Vertraege mit IKT-Drittanbietern nach DORA mindestens enthalten?",
+          "options": {
+            "a": "Nur den Preis der Dienstleistung",
+            "b": "U.a. eine klare Leistungsbeschreibung, Auditrechte, Bedingungen fuer Unter-Auslagerung sowie Ausstiegsstrategien (Exit-Strategien)",
+            "c": "Vertragslaufzeiten sind nach DORA irrelevant",
+            "d": "Ausschliesslich eine Vertraulichkeitsklausel, weitere Inhalte sind freigestellt"
+          }
+        },
+        "en": {
+          "question": "What elements must contracts with ICT third-party providers include at minimum under DORA?",
+          "options": {
+            "a": "Only the price of the service",
+            "b": "Among others: a clear service description, audit rights, sub-outsourcing conditions, and exit strategies",
+            "c": "Contract duration is irrelevant under DORA",
+            "d": "Exclusively a confidentiality clause, all other content is optional"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Art. 30 legt verbindliche Mindestinhalte fuer IKT-Drittanbieterver-traege fest, gerade um Exit-Faehigkeit und Kontrollrechte sicherzustellen.",
+        "en": "Art. 30 sets binding minimum contract contents for ICT third-party contracts, specifically to ensure exit capability and control rights."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-drittparteien-03",
+      "topic": "IKT-Drittparteienrisiko",
+      "topic_code": "drittparteien",
+      "legal_basis": "Art. 31-44 Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Was passiert, wenn ein IKT-Drittanbieter als 'kritisch' (critical ICT third-party provider, CTPP) eingestuft wird?",
+          "options": {
+            "a": "Er unterliegt keiner zusaetzlichen Aufsicht",
+            "b": "Er unterliegt einer direkten Ueberwachung durch eine der Europaeischen Aufsichtsbehoerden (Lead Overseer) auf EU-Ebene",
+            "c": "Er wird automatisch von der Nutzung durch Finanzunternehmen ausgeschlossen",
+            "d": "Nur nationale Behoerden ausserhalb der EU duerfen ihn beaufsichtigen"
+          }
+        },
+        "en": {
+          "question": "What happens when an ICT third-party provider is designated 'critical' (CTPP)?",
+          "options": {
+            "a": "It's subject to no additional oversight",
+            "b": "It becomes subject to direct EU-level oversight by one of the European Supervisory Authorities acting as Lead Overseer",
+            "c": "It's automatically barred from being used by financial entities",
+            "d": "Only non-EU national authorities may oversee it"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "Art. 31-44 richten ein eigenes Oversight-Framework fuer als kritisch eingestufte IKT-Drittanbieter ein, mit direkter Aufsicht durch eine der drei ESAs.",
+        "en": "Art. 31-44 establish a dedicated oversight framework for critical ICT third-party providers, with direct supervision by one of the three ESAs."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-drittparteien-04",
+      "topic": "IKT-Drittparteienrisiko",
+      "topic_code": "drittparteien",
+      "legal_basis": "Art. 29 und Erwaegungsgruende Verordnung (EU) 2022/2554",
+      "points": 2,
+      "text": {
+        "de": {
+          "question": "Warum ist das Konzentrationsrisiko bei IKT-Drittanbietern fuer Finanzunternehmen nach DORA relevant?",
+          "options": {
+            "a": "Es ist irrelevant, DORA behandelt dieses Thema nicht",
+            "b": "Eine zu starke Abhaengigkeit von wenigen (insb. kritischen) IKT-Anbietern kann ein systemisches Risiko fuer den Finanzsektor darstellen und muss bei der Risikobewertung beruecksichtigt werden",
+            "c": "Konzentrationsrisiko betrifft ausschliesslich Aktienportfolios, nicht IT-Dienstleister",
+            "d": "Nur Anbieter mit weniger als 10 Mitarbeitenden zaehlen als Konzentrationsrisiko"
+          }
+        },
+        "en": {
+          "question": "Why is ICT third-party concentration risk relevant for financial entities under DORA?",
+          "options": {
+            "a": "It's irrelevant, DORA doesn't address this topic",
+            "b": "Over-reliance on a small number of (especially critical) ICT providers can pose a systemic risk to the financial sector and must be factored into risk assessment",
+            "c": "Concentration risk only applies to equity portfolios, not IT service providers",
+            "d": "Only providers with fewer than 10 employees count as concentration risk"
+          }
+        }
+      },
+      "correct": [
+        "b"
+      ],
+      "explanation": {
+        "de": "DORA adressiert explizit die Systemrisiken, die entstehen, wenn ein grosser Teil des Finanzsektors von denselben wenigen IKT-Anbietern abhaengt.",
+        "en": "DORA explicitly addresses the systemic risk that arises when a large share of the financial sector depends on the same small set of ICT providers."
+      },
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "roles": [
+        "all"
+      ]
+    }
+  ]
+}

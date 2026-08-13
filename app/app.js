@@ -896,6 +896,29 @@ const TOPIC_LABELS = {
     beschwerdeverfahren: { de: "Beschwerdeverfahren", en: "Grievance mechanism" },
     sanktionen: { de: "Bußgelder und Sanktionen", en: "Fines & sanctions" },
   },
+  // DN-70: 9th compliance module, first cybersecurity/operational-resilience
+  // one - DORA (Regulation (EU) 2022/2554). DE/EN-only 20-question pilot,
+  // same launch pattern as kyc_aml/kartellrecht/lksg above - topic labels
+  // DE/EN only for now too. AI-drafted, NOT legally reviewed yet - see
+  // claude/dora-pilot-pre-review-dossier-2026-08-13.md.
+  dora: {
+    grundlagen: { de: "Grundlagen und Anwendungsbereich", en: "Basics & scope" },
+    risikomanagement: { de: "IKT-Risikomanagement-Rahmenwerk", en: "ICT risk management framework" },
+    meldepflichten: { de: "Meldung von IKT-Vorfällen", en: "ICT incident reporting" },
+    testing: { de: "Testing der digitalen operationalen Resilienz", en: "Digital operational resilience testing" },
+    drittparteien: { de: "IKT-Drittparteienrisiko", en: "ICT third-party risk" },
+  },
+  // DN-71: 10th compliance module, second cybersecurity one - NIS2
+  // (Directive (EU) 2022/2555 / revised BSIG). DE/EN-only 20-question
+  // pilot, same launch pattern as dora above. AI-drafted, NOT legally
+  // reviewed yet - see claude/nis2-pilot-pre-review-dossier-2026-08-13.md.
+  nis2: {
+    grundlagen: { de: "Grundlagen und Anwendungsbereich", en: "Basics & scope" },
+    risikomanagement: { de: "Risikomanagementmaßnahmen", en: "Risk-management measures" },
+    meldepflichten: { de: "Meldepflichten", en: "Reporting obligations" },
+    governance: { de: "Governance und Haftung der Geschäftsleitung", en: "Governance & management liability" },
+    sanktionen: { de: "Sanktionen und Bußgelder", en: "Sanctions & fines" },
+  },
 };
 
 // Looks up a topic label for the CURRENT module/locale, falling back to EN
@@ -916,7 +939,7 @@ function getTopicLabel(topicCode, fallbackTopic) {
 // for those modules (originally 4 under DN-44, now 5 since DN-50 added
 // hinweisgeberschutz with its own roles field), layered on top of the
 // existing topic filter (a learner can combine both) rather than replacing it.
-const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz", "kyc_aml", "kartellrecht", "lksg"]);
+const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz", "kyc_aml", "kartellrecht", "lksg", "dora", "nis2"]);
 
 // Role codes in a fixed display order - "all" here means "no role filter
 // applied" (show every question regardless of its own roles tag), NOT to be
