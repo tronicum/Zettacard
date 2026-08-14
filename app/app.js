@@ -929,6 +929,44 @@ const TOPIC_LABELS = {
     governance: { de: "Governance und Haftung der Geschäftsleitung", en: "Governance & management liability" },
     sanktionen: { de: "Sanktionen und Bußgelder", en: "Sanctions & fines" },
   },
+  // 2026-08-14: ELWIS catalog scale-up (515 verbatim official questions,
+  // see data/sportboot_binnen_pilot.json / sportboot_see_pilot.json meta
+  // for full sourcing) replaced the prior 50/30-question hand-authored
+  // pools and, with them, the old 5/4-topic taxonomy (vorfahrt/bezeichnung/
+  // schallzeichen/betonnung/seemannschaft for binnen; betonnung/
+  // seefunk_vorfahrt/gezeiten/seewetter for see). Neither module had ANY
+  // TOPIC_LABELS entry before this - the filter chips were silently
+  // rendering raw topic_code strings (getTopicLabel()'s fallbackTopic path)
+  // since the module was originally built/deployed straight to production
+  // without ever adding one here. Both modules now share the SAME 9-theme
+  // taxonomy (verkehrsregeln/lichter_signale/seemannschaft/
+  // schifffahrtszeichen/recht_dokumente/wetterkunde/gezeiten/navigation/
+  // umweltschutz), inherited from the source ingestion pipeline
+  // (HugoFara/boating-licence) and harmonized across both catalogs.
+  // DE/EN only for now, matching the question content's own locale scope
+  // this round - getTopicLabel() already falls back en->de->raw safely.
+  sportboot_binnen: {
+    verkehrsregeln: { de: "Verkehrsregeln", en: "Traffic and right-of-way rules" },
+    lichter_signale: { de: "Lichter- und Schallsignale", en: "Lights and sound signals" },
+    seemannschaft: { de: "Seemannschaft", en: "Seamanship" },
+    schifffahrtszeichen: { de: "Schifffahrtszeichen", en: "Waterway signs and markings" },
+    recht_dokumente: { de: "Vorschriften und Dokumente", en: "Regulations and documents" },
+    wetterkunde: { de: "Wetterkunde", en: "Weather knowledge" },
+    gezeiten: { de: "Gezeiten", en: "Tides" },
+    navigation: { de: "Navigation", en: "Navigation" },
+    umweltschutz: { de: "Umweltschutz", en: "Environmental protection" },
+  },
+  sportboot_see: {
+    verkehrsregeln: { de: "Verkehrsregeln", en: "Traffic and right-of-way rules" },
+    lichter_signale: { de: "Lichter- und Schallsignale", en: "Lights and sound signals" },
+    seemannschaft: { de: "Seemannschaft", en: "Seamanship" },
+    schifffahrtszeichen: { de: "Schifffahrtszeichen", en: "Waterway signs and markings" },
+    recht_dokumente: { de: "Vorschriften und Dokumente", en: "Regulations and documents" },
+    wetterkunde: { de: "Wetterkunde", en: "Weather knowledge" },
+    gezeiten: { de: "Gezeiten", en: "Tides" },
+    navigation: { de: "Navigation", en: "Navigation" },
+    umweltschutz: { de: "Umweltschutz", en: "Environmental protection" },
+  },
 };
 
 // Looks up a topic label for the CURRENT module/locale, falling back to EN
@@ -4121,25 +4159,40 @@ const EXAM_TOPIC_DRAW = {
     beschwerdeverfahren: 1,
     sanktionen: 1,
   },
-  // 2026-08 content expansion: draws proportional to each module's real
-  // topic_code distribution in its pilot pool (see data/<module>_pilot.json
-  // meta.topic_breakdown / question counts per topic_code).
-  // sportboot_binnen pool: vorfahrt10, bezeichnung10, schallzeichen10,
-  // betonnung10, seemannschaft10 - even split, 6 each = 30.
+  // 2026-08-14: ELWIS catalog scale-up replaced both pools' topic_code sets
+  // (see TOPIC_LABELS.sportboot_binnen/see comment above for why). Draw
+  // targets recomputed proportional to the new pool's real per-topic
+  // question counts (binnen 300 total: verkehrsregeln111/lichter_signale61/
+  // seemannschaft56/schifffahrtszeichen45/recht_dokumente13/wetterkunde11/
+  // gezeiten1/navigation1/umweltschutz1; see 215 total: verkehrsregeln77/
+  // lichter_signale58/schifffahrtszeichen35/seemannschaft14/wetterkunde11/
+  // gezeiten9/navigation9/recht_dokumente2), then nudged so every topic
+  // that has at least 1 question in the pool draws at least 1 in a run
+  // (pure proportional rounding zeroed out binnen's gezeiten/navigation/
+  // umweltschutz and see's recht_dokumente, each 1-2-question edge topics
+  // that would otherwise never appear in Exam Simulation) - the 1-2
+  // questions stolen back to hit each module's fixed draw-pool size came
+  // off the largest topic (verkehrsregeln) in both.
   sportboot_binnen: {
-    vorfahrt: 6,
-    bezeichnung: 6,
-    schallzeichen: 6,
-    betonnung: 6,
+    verkehrsregeln: 8,
+    lichter_signale: 6,
     seemannschaft: 6,
+    schifffahrtszeichen: 5,
+    recht_dokumente: 1,
+    wetterkunde: 1,
+    gezeiten: 1,
+    navigation: 1,
+    umweltschutz: 1,
   },
-  // sportboot_see pool: betonnung8, seefunk_vorfahrt8, gezeiten7, seewetter7
-  // - even split, 5 each = 20.
   sportboot_see: {
-    betonnung: 5,
-    seefunk_vorfahrt: 5,
-    gezeiten: 5,
-    seewetter: 5,
+    verkehrsregeln: 6,
+    lichter_signale: 6,
+    schifffahrtszeichen: 3,
+    seemannschaft: 1,
+    wetterkunde: 1,
+    gezeiten: 1,
+    navigation: 1,
+    recht_dokumente: 1,
   },
   // waffensachkunde pool: grundlagen13, aufbewahrung_transport13,
   // munition_ballistik12, handhabung_sicherheit12 - proportional, 8/8/7/7 = 30.

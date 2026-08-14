@@ -1,0 +1,4327 @@
+{
+  "meta": {
+    "app": "Zettacard / sportboot_see-lernmodul",
+    "version": "0.2",
+    "generated": "2026-08-14",
+    "description": "Verbatim official-catalog MCQs for the German Sportbootfuehrerschein See (coastal/sea) exam, sourced from the official WSV/BMDV Fragenkatalog fuer den amtlichen Sportbootfuehrerschein See (Stand 2023-08), the same catalog edition (https://www.elwis.de/DE/Sportschifffahrt/Sportbootfuehrerscheine/Fragenkatalog-See/Fragenkatalog-See-August-2023.pdf) used to structure this app's original 2026-08 sportboot_see module. This 2026-08-14 revision REPLACES that original ~30-question independently-authored pool with the full 215-question official catalog, reproduced via an open-source ingestion pipeline (HugoFara/boating-licence, https://github.com/HugoFara/boating-licence, MIT-licensed tooling) that fetched and sha256-fingerprinted the official ELWIS PDF catalog and mapped each question to its official catalog number under Sec. 5(2) UrhG amtliches Werk status (verbatim reuse, including commercial, permitted with citation to www.elwis.de, unmodified question/option text). Question and option TEXT is therefore the official catalog's own verbatim wording (not an independent paraphrase, unlike this app's other modules) - legal_basis on each question cites the specific catalog question number. KNOWN GAP, disclosed rather than hidden: the official catalog itself contains NO explanations - every explanation in this module is newly authored (2026-08-14, AI-assisted, grounded in BinSchStrO/SeeSchStrO/COLREG rule areas) specifically for this app, and has NOT been independently legally reviewed. KNOWN SCOPE LIMIT: this revision ships German + English only; the previous module version had all 12 app locales, the other 10 are a tracked follow-up, not yet done - see BACKLOG.md. The app's existing locale-fallback mechanism (fetchLocaleTextWithFallback in app.js) means non-DE/EN users still see working English text rather than a broken page.",
+    "class": "ALL",
+    "canonical_locale": "de",
+    "point_system": "2-4 points per question, matching this app's existing style",
+    "pass_rule_note": "215-question pool (gezeiten, lichter_signale, navigation, recht_dokumente, schifffahrtszeichen, seemannschaft, verkehrsregeln, wetterkunde), replacing the prior smaller hand-authored pool. Exam Simulation/Training draw config unchanged in app.js (EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW) - topic_code set changed, so EXAM_TOPIC_DRAW's per-topic draw targets need re-checking against the new topic distribution (see topic counts in this file).",
+    "legal_review_status": "NOT legally reviewed. Question/option TEXT is verbatim official-catalog content (WSV/BMDV Fragenkatalog, Stand 2023-08) via a third-party ingestion pipeline (HugoFara/boating-licence) - not independently re-verified against the primary PDF by Zettacard. EXPLANATIONS are newly AI-authored for this app (2026-08-14), grounded in the general BinSchStrO/SeeSchStrO/COLREG rule areas but NOT independently legally reviewed and NOT part of the official catalog. Both should be independently re-verified before production/commercial use.",
+    "total_questions": 215,
+    "license": "Official catalog text: Sec. 5(2) UrhG amtliches Werk (verbatim reuse permitted with citation to www.elwis.de, unmodified). Explanations and this specific data structuring: CC BY-NC-SA 4.0 (matching this app's other modules).",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Question/option text is the official ELWIS catalog's own wording (public-sector amtliches Werk, not this app's copyright to license) - cite www.elwis.de if reproducing it elsewhere unmodified. Explanations are CC BY-NC-SA 4.0 like the rest of this app.",
+    "attribution": "Question/option data ingested via HugoFara/boating-licence (https://github.com/HugoFara/boating-licence, MIT-licensed tooling), sourced from the official WSV/BMDV ELWIS Fragenkatalog.",
+    "renewal_months": 24,
+    "renewal_basis": "regulatory_update",
+    "renewal_note": "The official Fragenkatalog is updated periodically by the WSV/BMDV. Re-review whenever a new edition is published, and at minimum every 24 months.",
+    "locales": [
+      "de",
+      "en"
+    ]
+  },
+  "questions": [
+    {
+      "id": "sportboot-see-elwis-233",
+      "topic": "Gezeiten",
+      "topic_code": "gezeiten",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 233)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-249",
+      "topic": "Gezeiten",
+      "topic_code": "gezeiten",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 249)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-250",
+      "topic": "Gezeiten",
+      "topic_code": "gezeiten",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 250)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-251",
+      "topic": "Gezeiten",
+      "topic_code": "gezeiten",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 251)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-252",
+      "topic": "Gezeiten",
+      "topic_code": "gezeiten",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 252)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-253",
+      "topic": "Gezeiten",
+      "topic_code": "gezeiten",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 253)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-254",
+      "topic": "Gezeiten",
+      "topic_code": "gezeiten",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 254)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-255",
+      "topic": "Gezeiten",
+      "topic_code": "gezeiten",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 255)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-261",
+      "topic": "Gezeiten",
+      "topic_code": "gezeiten",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 261)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-85",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 85)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-86",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 86)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-91",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 91)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-92",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 92)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-93",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 93)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-94",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 94)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-95",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 95)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-97",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 97)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-98",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 98)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-99",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 99)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-100",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 100)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-101",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 101)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-102",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 102)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-103",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 103)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-104",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 104)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-105",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 105)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-106",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 106)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-107",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 107)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-108",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 108)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-109",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 109)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-110",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 110)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-111",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 111)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-112",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 112)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-113",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 113)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-115",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 115)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-116",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 116)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Schallsignal-11.gif",
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-117",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 117)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Schallsignal-122.gif",
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-118",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 118)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-120",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 120)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-121",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 121)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-122",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 122)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-123",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 123)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-124",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 124)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-137",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 137)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-138",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 138)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-139",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 139)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-140",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 140)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-141",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 141)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-155",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 155)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-159",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 159)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-160",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 160)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-161",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 161)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-162",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 162)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-171",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 171)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-173",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 173)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-175",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 175)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-177",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 177)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Gebotszeichen-A04b.gif",
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-178",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 178)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-179",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 179)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Gebotszeichen-A05.gif",
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-185",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 185)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-186",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 186)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-187",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 187)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-188",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 188)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-189",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 189)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Warnzeichen-B06-Tag.gif",
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-279",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 279)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-280",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 280)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-282",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 282)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-284",
+      "topic": "Lichter- und Schallsignale",
+      "topic_code": "lichter_signale",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 284)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-125",
+      "topic": "Navigation",
+      "topic_code": "navigation",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 125)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-234",
+      "topic": "Navigation",
+      "topic_code": "navigation",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 234)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-235",
+      "topic": "Navigation",
+      "topic_code": "navigation",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 235)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-239",
+      "topic": "Navigation",
+      "topic_code": "navigation",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 239)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-240",
+      "topic": "Navigation",
+      "topic_code": "navigation",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 240)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-242",
+      "topic": "Navigation",
+      "topic_code": "navigation",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 242)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-243",
+      "topic": "Navigation",
+      "topic_code": "navigation",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 243)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-244",
+      "topic": "Navigation",
+      "topic_code": "navigation",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 244)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-247",
+      "topic": "Navigation",
+      "topic_code": "navigation",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 247)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-74",
+      "topic": "Vorschriften und Dokumente",
+      "topic_code": "recht_dokumente",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 74)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-144",
+      "topic": "Vorschriften und Dokumente",
+      "topic_code": "recht_dokumente",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 144)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-87",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 87)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-153",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 153)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-156",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 156)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-157",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 157)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-164",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 164)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-165",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 165)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-166",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 166)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-169",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 169)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-176",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 176)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Gebotszeichen-B06.gif",
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-180",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 180)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Gebotszeichen-A17aa.gif",
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-182",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 182)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-184",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 184)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Gebotszeichen-A17ba.gif",
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-190",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 190)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-191",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 191)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-192",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 192)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-193",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 193)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-194",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 194)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-195",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 195)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-196",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 196)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-200",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 200)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Warnzeichen-B15a.gif",
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-201",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 201)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Warnzeichen-B15b.gif",
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-202",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 202)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Warnzeichen-B15c.gif",
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-203",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 203)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Warnzeichen-B15d.gif",
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-204",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 204)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-205",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 205)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-206",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 206)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-207",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 207)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-208",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 208)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Warnzeichen-B15e.gif",
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-209",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 209)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-210",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 210)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-212",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 212)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-213",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 213)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-232",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 232)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-238",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 238)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-271",
+      "topic": "Schifffahrtszeichen",
+      "topic_code": "schifffahrtszeichen",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 271)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-75",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 75)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-77",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 77)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-79",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 79)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-80",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 80)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-82",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 82)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-83",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 83)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-119",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 119)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-136",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 136)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-145",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 145)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-181",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 181)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-229",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 229)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-241",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 241)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-260",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 260)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-285",
+      "topic": "Seemannschaft",
+      "topic_code": "seemannschaft",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 285)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-4",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": true,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 4)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Schallsignal-723.gif",
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-5",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": true,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 5)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": "assets/elwis/see/de/Schallsignal-728.gif",
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-73",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 73)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-76",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 76)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-78",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 78)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-81",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 81)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-84",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 84)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-88",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 88)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-90",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 90)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-96",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 96)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-114",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 114)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-126",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 126)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-127",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 127)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-128",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 128)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-129",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 129)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-130",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 130)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-131",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 131)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-132",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 132)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-133",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 133)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-134",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 134)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-135",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 135)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-142",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 142)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-143",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 143)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-146",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 146)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-147",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 147)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-148",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 148)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-149",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 149)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-150",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 150)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-151",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 151)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-152",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 152)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-154",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 154)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-158",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 158)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-163",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 163)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-167",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 167)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-168",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 168)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-170",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 170)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-172",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 172)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-174",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 174)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-183",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 183)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-197",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 197)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-198",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 198)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-199",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 199)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-211",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 211)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-214",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 214)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-215",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 215)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-216",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 216)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-217",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 217)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-218",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 218)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-219",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 219)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-220",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 220)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-221",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 221)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-222",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 222)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-223",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 223)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-224",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 224)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-225",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 225)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-226",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 226)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-227",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 227)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-228",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 228)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-230",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 230)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-231",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 231)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-236",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 236)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-237",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 237)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-245",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 245)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-246",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 246)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-248",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 248)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-257",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 257)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-258",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 258)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-262",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 262)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-265",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 265)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-270",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 270)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-272",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 272)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-273",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 273)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-274",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 274)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-276",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 276)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-277",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 277)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-281",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 281)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-283",
+      "topic": "Verkehrsregeln",
+      "topic_code": "verkehrsregeln",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 283)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-89",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 89)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-256",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 256)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-259",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 259)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-263",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 263)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-264",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 264)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-266",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 266)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-267",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 267)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-268",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 268)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-269",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 269)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-275",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 275)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "sportboot-see-elwis-278",
+      "topic": "Wetterkunde",
+      "topic_code": "wetterkunde",
+      "grundstoff": false,
+      "legal_basis": "ELWIS Fragenkatalog SBF See, Stand 01.08.2023 (GDWS/WSV des Bundes) (Frage 278)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    }
+  ]
+}
