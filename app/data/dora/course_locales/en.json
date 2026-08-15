@@ -1,0 +1,121 @@
+{
+  "dora-all": {
+    "title": "DORA – Digital operational resilience",
+    "description": "Mandatory training under DORA Art. 13(6) – for all staff and senior management. Five lessons take you from \"why does this apply to me?\" through the risk management framework and reporting duties to testing and third-party risk."
+  },
+  "zc:concept:dora/scope-and-proportionality": {
+    "label": "Scope & proportionality"
+  },
+  "zc:concept:dora/management-body-accountability": {
+    "label": "Management body accountability"
+  },
+  "zc:concept:dora/ict-risk-framework": {
+    "label": "ICT risk management framework"
+  },
+  "zc:concept:dora/incident-classification": {
+    "label": "Major-incident classification"
+  },
+  "zc:concept:dora/tlpt": {
+    "label": "Threat-led penetration testing"
+  },
+  "zc:concept:dora/roi-register": {
+    "label": "Register of Information"
+  },
+  "zc:concept:cyber/incident-reporting-cascade": {
+    "label": "Reporting cascade"
+  },
+  "zc:concept:cyber/root-cause-analysis": {
+    "label": "Root-cause analysis / post-mortem"
+  },
+  "zc:concept:audit/independent-testing": {
+    "label": "Independent testing"
+  },
+  "zc:concept:audit/evidence-trail": {
+    "label": "Audit evidence & audit rights"
+  },
+  "zc:concept:supplychain/sbom": {
+    "label": "SBOM – software bill of materials"
+  },
+  "dora-u1": {
+    "title": "Foundations and accountability"
+  },
+  "dora-u2": {
+    "title": "Operations: incidents, testing, third parties"
+  },
+  "dora-l1": {
+    "title": "Why you're here: Art. 13(6)"
+  },
+  "dora-l1-s1": {
+    "title": "A Regulation, not a directive – since 17 Jan 2025",
+    "body": "DORA is not a directive awaiting transposition into German law – it is an EU Regulation, so it has applied directly, word-for-word, and without a national translation step in every member state since 17 January 2025. This reaches well beyond classic banks: Art. 2 lists roughly 20 types of financial entities, from payment institutions to insurers to crypto-asset providers, plus their critical ICT third-party providers. If your employer falls within that scope, DORA applies to you from day one, whether or not an internal policy has caught up yet. This lesson lays the groundwork: what DORA is, who it covers, and why the proportionality principle (Art. 4, 16) eases the burden for smaller entities without exempting them entirely."
+  },
+  "dora-l1-s2": {
+    "title": "Training duty for ALL staff",
+    "body": "Art. 13(6) DORA requires covered financial entities to make ICT security awareness and digital operational resilience training a compulsory part of staff training schemes – for all employees and senior management, at a level of complexity matched to each person's role. That is a deliberate contrast with NIS2: its Art. 20(2) only mandates training for the management body and merely 'encourages' extending similar training to the rest of the workforce. DORA draws no such distinction – the training duty reaches everyone employed by the covered entity, from intern to board member. That is precisely why you are taking this course, regardless of your role in the company."
+  },
+  "dora-l1-rel-nis2-lexspecialis": {
+    "body": "NIS2 has a similar reporting cascade – but it does not apply to DORA-regulated financial entities: Germany's NIS2UmsuCG contains a lex-specialis carve-out under which DORA-covered financial entities are exempted from NIS2's core ICT risk-management and incident-reporting obligations, because DORA already regulates that ground more specifically. NIS2's registration duty and general cooperation obligations can still apply if the entity separately qualifies as an essential or important entity – but the substantive risk-management and reporting content for these entities comes from DORA, not NIS2."
+  },
+  "dora-l2": {
+    "title": "The framework, and who answers for it"
+  },
+  "dora-l2-s1": {
+    "title": "Non-delegable",
+    "body": "Art. 5(1)-(2) DORA makes clear that the management body – the executive or supervisory board – bears ultimate responsibility for the entity's ICT risk management, and that responsibility cannot be handed off to the IT department, an external provider, or a compliance team. Operational tasks may be delegated; accountability itself may not. In practice, that means if something goes wrong in the framework, 'that was IT's problem' is not a defence – the management body must know, approve, and regularly review the framework. This non-delegable nature is one reason Art. 13(6) explicitly includes senior management in the training duty as well."
+  },
+  "dora-l2-s2": {
+    "title": "\"Learning and evolving\" means post-mortem",
+    "body": "Art. 13 requires that findings from incidents and tests feed back into the framework – operationally that is a root-cause analysis with documented follow-up actions, not a one-off checkbox. For example: after a payment-provider outage, the team records which control was missing, which remediation applies, and by when it will be implemented – and that finding feeds into the framework's next annual review (Art. 6(5)). The framework's own functions – identify, protect, detect, respond/recover, and learn and evolve (Art. 6-14) – deliberately echo the well-known identify-protect-detect-respond-recover cycle many security teams already use."
+  },
+  "dora-l2-rel-rca": {
+    "body": "The root-cause analysis Art. 13 DORA requires after an incident is the same skill as a technical post-mortem after an IT outage – just with a regulatory documentation duty layered on top."
+  },
+  "dora-l3": {
+    "title": "When is an incident \"major\" – and then what?"
+  },
+  "dora-l3-s1": {
+    "title": "Classification comes before notification",
+    "body": "Not every ICT incident must be reported to the supervisory authority – only classification as \"major\" under Art. 18 triggers the reporting duty. The criteria are multi-dimensional: number of clients and counterparts affected, duration and downtime, geographic spread, data losses, and economic/reputational impact. Once an incident is classified as major, the reporting cascade begins: an initial notification, followed by an intermediate report, and finally a final report. REVIEW NOTE: the specific deadlines named in this section (among them \"4 hours from classification\" for the initial notification, \"72 hours\" for the intermediate report, and \"1 month\" for the final report) are flagged Tier C in the 2026-08-13 pre-review dossier – meaning they come only from secondary legal-analysis sources and have not been checked directly against the primary text of RTS (EU) 2025/301. A legal review against the EUR-Lex primary text is mandatory before these numbers are used in any production context (training materials, internal processes, or customer-facing communication)."
+  },
+  "dora-l3-s2": {
+    "title": "The final report needs a root cause, not a guess",
+    "body": "The final report closes the reporting cascade and must name the actual root cause of the incident, document the remediation measures taken, and – where relevant – quantify the financial impact. A phrase like \"probably a configuration error\" does not suffice; a defensible root-cause analysis is expected, drawing on the same \"learning and evolving\" mechanism from Art. 13 covered in Lesson 2. It is precisely this link – incident, root-cause analysis, feedback into the framework – that turns DORA from a mere reporting duty into an actual learning cycle."
+  },
+  "dora-l3-rel-nis2": {
+    "body": "NIS2 has its own reporting cascade (24h early warning / 72h report / 1-month final report) – but DORA-regulated financial entities follow DORA's own cascade covered in this lesson, not NIS2's (see the lex-specialis note in Lesson 1)."
+  },
+  "dora-l3-rel-cra": {
+    "body": "The Cyber Resilience Act imposes its own, similarly staged reporting cascade on manufacturers of digital products for actively exploited vulnerabilities. For a financial entity that also distributes software as a product, both reporting duties can apply side by side – unlike the DORA/NIS2 relationship, neither duty takes precedence over the other here."
+  },
+  "dora-l4": {
+    "title": "Testing – and who is allowed to test"
+  },
+  "dora-l4-s1": {
+    "title": "Annual testing programme vs. TLPT every three years",
+    "body": "DORA distinguishes two levels of testing. At the first level, financial entities – other than microenterprises – must test, at least annually, the ICT systems that support critical or important functions (Art. 24). At the second, considerably more demanding level sits threat-led penetration testing (TLPT, Art. 26-27): a realistic test, coordinated by the competent authority, that simulates how a real attacker would operate. TLPT is not a standard test for every entity but mandatory only for entities specifically designated by their national competent authority – typically large, systemically important institutions. For those entities, a minimum three-year interval applies."
+  },
+  "dora-l4-s2": {
+    "title": "Independence is a requirement, not a style",
+    "body": "Who performs the tests is not a free choice: Art. 24-25 require testers to be independent – either internal staff with dedicated resources and no conflicts of interest, or an external auditor. Someone who built a system themselves may not also be its sole tester. This independence requirement is not a nice-to-have for test quality; it is an explicit legal requirement meant to prevent conflicts of interest and pure self-review."
+  },
+  "dora-l4-rel-audit": {
+    "body": "The independence requirement for testers (Art. 24-25 DORA) is a specific instance of the general audit principle that testers must not evaluate their own work – the same principle that underpins classic audit frameworks."
+  },
+  "dora-l5": {
+    "title": "Third parties, registers, concentration risk"
+  },
+  "dora-l5-s1": {
+    "title": "The Register of Information is the audit evidence",
+    "body": "Financial entities must maintain an up-to-date Register of Information (RoI) covering all contractual arrangements with ICT third-party providers (Art. 28(3)). The register is not bureaucratic box-ticking – it is the central piece of audit evidence for the supervisory authority, and the basis for making concentration risk visible at all: if a large share of critical services depends on a handful of providers, that only becomes apparent once every contract is brought together in one place. Art. 30 additionally sets binding minimum content for those contracts, including a clear service description, audit rights, sub-outsourcing conditions, and exit strategies – so an entity can actually switch providers if it has to."
+  },
+  "dora-l5-s2": {
+    "title": "Where the SBOM enters the picture",
+    "body": "DORA does not require an SBOM (software bill of materials). But demonstrating the Art. 28/30 requirements to an auditor – which components and dependencies actually sit inside a deployed ICT system – needs the same inventory work the Cyber Resilience Act (CRA) mandates as an SBOM. The cross-reference exists because both frameworks address the same underlying problem, transparency over components and dependencies, not because DORA itself demands an SBOM."
+  },
+  "dora-l5-rel-sbom": {
+    "body": "DORA does not require an SBOM. But demonstrating Art. 28/30 to an auditor needs the same inventory the CRA mandates as an SBOM – hence the cross-reference, not because DORA demands it."
+  },
+  "dora-l5-rel-audit-evidence": {
+    "body": "The Register of Information under Art. 28(3) functions as audit evidence: the same kind of complete, traceable documentation a classic audit expects from an entity, just tailored specifically to ICT third-party providers."
+  }
+}

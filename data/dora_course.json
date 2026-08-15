@@ -1,0 +1,396 @@
+{
+  "meta": {
+    "app": "Zettacard / dora-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-sonnet/2026-08-15",
+    "canonical_locale": "de",
+    "locales": ["de", "en"]
+  },
+  "courses": [
+    {
+      "course_id": "dora-all",
+      "module_ref": "dora",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 95,
+      "title": { "de": "DORA – Digitale operationale Resilienz", "en": "DORA – Digital operational resilience" },
+      "description": {
+        "de": "Pflichtschulung nach Art. 13 Abs. 6 DORA – für alle Beschäftigten und die Geschäftsleitung. Fünf Lektionen führen von der Frage „Warum betrifft mich das?“ über das Risikomanagement-Rahmenwerk und die Meldepflichten bis zu Tests und Drittparteienrisiko.",
+        "en": "Mandatory training under DORA Art. 13(6) – for all staff and senior management. Five lessons take you from \"why does this apply to me?\" through the risk management framework and reporting duties to testing and third-party risk."
+      },
+
+      "concepts": [
+        { "concept_id": "zc:concept:dora/scope-and-proportionality",
+          "label": { "de": "Anwendungsbereich & Verhältnismäßigkeit", "en": "Scope & proportionality" } },
+        { "concept_id": "zc:concept:dora/management-body-accountability",
+          "label": { "de": "Letztverantwortung des Leitungsorgans", "en": "Management body accountability" } },
+        { "concept_id": "zc:concept:dora/ict-risk-framework",
+          "label": { "de": "IKT-Risikomanagement-Rahmenwerk", "en": "ICT risk management framework" } },
+        { "concept_id": "zc:concept:dora/incident-classification",
+          "label": { "de": "Vorfallklassifizierung (schwerwiegend)", "en": "Major-incident classification" } },
+        { "concept_id": "zc:concept:dora/tlpt",
+          "label": { "de": "Bedrohungsgeleitete Penetrationstests (TLPT)", "en": "Threat-led penetration testing" } },
+        { "concept_id": "zc:concept:dora/roi-register",
+          "label": { "de": "Informationsregister (RoI)", "en": "Register of Information" } },
+        { "concept_id": "zc:concept:cyber/incident-reporting-cascade",
+          "label": { "de": "Meldekaskade", "en": "Reporting cascade" } },
+        { "concept_id": "zc:concept:cyber/root-cause-analysis",
+          "label": { "de": "Ursachenanalyse / Post-Mortem", "en": "Root-cause analysis / post-mortem" } },
+        { "concept_id": "zc:concept:audit/independent-testing",
+          "label": { "de": "Unabhängige Prüfung", "en": "Independent testing" } },
+        { "concept_id": "zc:concept:audit/evidence-trail",
+          "label": { "de": "Prüfnachweis & Auditrechte", "en": "Audit evidence & audit rights" } },
+        { "concept_id": "zc:concept:supplychain/sbom",
+          "label": { "de": "SBOM – Software-Stückliste", "en": "SBOM – software bill of materials" } }
+      ],
+
+      "units": [
+        { "unit_id": "dora-u1", "order": 1, "unit_kind": "foundation",
+          "title": { "de": "Grundlagen und Verantwortung", "en": "Foundations and accountability" } },
+        { "unit_id": "dora-u2", "order": 2, "unit_kind": "operations",
+          "title": { "de": "Betrieb: Vorfälle, Tests, Dritte", "en": "Operations: incidents, testing, third parties" } }
+      ],
+
+      "lessons": [
+        {
+          "lesson_id": "dora-l1",
+          "unit_ref": "dora-u1",
+          "order": 1,
+          "title": { "de": "Warum Sie hier sind: Art. 13 Abs. 6", "en": "Why you're here: Art. 13(6)" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 12,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": ["zc:concept:dora/scope-and-proportionality"],
+          "sections": [
+            {
+              "section_id": "dora-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "dora-l1-s1",
+              "legal_basis": "Art. 1, 2, 64 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Verordnung, nicht Richtlinie – seit 17.01.2025", "en": "A Regulation, not a directive – since 17 Jan 2025" },
+              "body": {
+                "de": "DORA ist keine Richtlinie, die erst durch ein deutsches Gesetz umgesetzt werden muss – sie ist eine EU-Verordnung und gilt deshalb seit dem 17. Januar 2025 unmittelbar, wortgleich und ohne nationalen Übersetzungsschritt in jedem Mitgliedstaat. Das betrifft nicht nur klassische Banken: Art. 2 zählt rund 20 Arten von Finanzunternehmen auf, von Zahlungsinstituten über Versicherer bis zu Krypto-Dienstleistern, sowie deren kritische IKT-Drittanbieter. Wenn Ihr Arbeitgeber unter diesen Anwendungsbereich fällt, gilt DORA für Sie ab dem ersten Tag – unabhängig davon, ob es schon eine interne Richtlinie dazu gibt. Diese Lektion legt die Grundlage: was DORA ist, wen sie erfasst, und warum die Verhältnismäßigkeit (Art. 4, 16) kleinere Unternehmen entlastet, ohne sie ganz auszunehmen.",
+                "en": "DORA is not a directive awaiting transposition into German law – it is an EU Regulation, so it has applied directly, word-for-word, and without a national translation step in every member state since 17 January 2025. This reaches well beyond classic banks: Art. 2 lists roughly 20 types of financial entities, from payment institutions to insurers to crypto-asset providers, plus their critical ICT third-party providers. If your employer falls within that scope, DORA applies to you from day one, whether or not an internal policy has caught up yet. This lesson lays the groundwork: what DORA is, who it covers, and why the proportionality principle (Art. 4, 16) eases the burden for smaller entities without exempting them entirely."
+              }
+            },
+            {
+              "section_id": "dora-l1-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "dora-l1-s2",
+              "legal_basis": "Art. 13 Abs. 6 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Schulungspflicht für ALLE Beschäftigten", "en": "Training duty for ALL staff" },
+              "body": {
+                "de": "Art. 13 Abs. 6 DORA verpflichtet erfasste Finanzunternehmen, IKT-Sicherheitssensibilisierung und Schulungen zur digitalen operationalen Resilienz zu einem verpflichtenden Bestandteil ihrer Mitarbeiterschulung zu machen – für alle Beschäftigten und für die Geschäftsleitung, mit einem Schwierigkeitsgrad, der zur jeweiligen Funktion passt. Das ist ein bewusster Unterschied zu NIS2: Deren Art. 20 Abs. 2 verpflichtet ausdrücklich nur das Leitungsorgan zur Schulung und ‚ermutigt‘ lediglich dazu, ähnliche Schulungen auch der übrigen Belegschaft anzubieten. Bei DORA gibt es diese Abstufung nicht – die Schulungspflicht trifft von der Praktikantin bis zum Vorstand jeden, der beim erfassten Unternehmen beschäftigt ist. Genau deshalb sitzen Sie gerade in diesem Kurs, unabhängig von Ihrer Rolle im Unternehmen.",
+                "en": "Art. 13(6) DORA requires covered financial entities to make ICT security awareness and digital operational resilience training a compulsory part of staff training schemes – for all employees and senior management, at a level of complexity matched to each person's role. That is a deliberate contrast with NIS2: its Art. 20(2) only mandates training for the management body and merely 'encourages' extending similar training to the rest of the workforce. DORA draws no such distinction – the training duty reaches everyone employed by the covered entity, from intern to board member. That is precisely why you are taking this course, regardless of your role in the company."
+              }
+            }
+          ],
+          "select": {
+            "concepts": ["zc:concept:dora/scope-and-proportionality"],
+            "topic_codes": ["grundlagen"],
+            "question_ids": ["dora-grundlagen-04"],
+            "count": 4
+          },
+          "related": [
+            {
+              "kind": "contrast",
+              "module": "nis2",
+              "concept": "zc:concept:cyber/incident-reporting-cascade",
+              "note_key": "dora-l1-rel-nis2-lexspecialis",
+              "body": {
+                "de": "NIS2 kennt eine ähnliche Meldekaskade – für DORA-regulierte Finanzunternehmen gilt sie jedoch nicht: Deutschlands NIS2UmsuCG enthält einen Lex-specialis-Vorrang, wonach DORA-erfasste Finanzunternehmen von den zentralen IKT-Risikomanagement- und Meldepflichten der NIS2 ausgenommen sind, weil DORA diesen Bereich bereits spezieller regelt. Registrierungspflichten und allgemeine Kooperationspflichten nach NIS2 können trotzdem greifen, wenn das Unternehmen auch eigenständig als wesentliche oder wichtige Einrichtung gilt – aber die inhaltlichen Risikomanagement- und Meldepflichten kommen für diese Unternehmen aus DORA, nicht aus NIS2.",
+                "en": "NIS2 has a similar reporting cascade – but it does not apply to DORA-regulated financial entities: Germany's NIS2UmsuCG contains a lex-specialis carve-out under which DORA-covered financial entities are exempted from NIS2's core ICT risk-management and incident-reporting obligations, because DORA already regulates that ground more specifically. NIS2's registration duty and general cooperation obligations can still apply if the entity separately qualifies as an essential or important entity – but the substantive risk-management and reporting content for these entities comes from DORA, not NIS2."
+              }
+            }
+          ]
+        },
+        {
+          "lesson_id": "dora-l2",
+          "unit_ref": "dora-u1",
+          "order": 2,
+          "title": { "de": "Das Rahmenwerk und wer dafür geradesteht", "en": "The framework, and who answers for it" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 18,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:dora/ict-risk-framework",
+            "zc:concept:dora/management-body-accountability",
+            "zc:concept:cyber/root-cause-analysis"
+          ],
+          "prereqs": [ { "requires_lesson": "dora-l1", "hardness": "advice" } ],
+          "sections": [
+            {
+              "section_id": "dora-l2-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "dora-l2-s1",
+              "legal_basis": "Art. 5 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Nicht delegierbar", "en": "Non-delegable" },
+              "body": {
+                "de": "Art. 5 Abs. 1–2 DORA stellt klar: Das Leitungsorgan – also Geschäftsleitung oder Vorstand – trägt die letztverantwortliche Verantwortung für das IKT-Risikomanagement des Unternehmens, und diese Verantwortung kann nicht an die IT-Abteilung, an einen externen Dienstleister oder an ein Compliance-Team weitergereicht werden. Operative Aufgaben dürfen delegiert werden, die Rechenschaftspflicht selbst nicht. Praktisch bedeutet das: Wenn im Rahmenwerk etwas schiefgeht, reicht es nicht zu sagen ‚das war die IT‘ – das Leitungsorgan muss das Rahmenwerk kennen, genehmigen und regelmäßig überprüfen. Diese Nicht-Delegierbarkeit ist einer der Gründe, warum Art. 13 Abs. 6 auch die Geschäftsleitung ausdrücklich in die Schulungspflicht einbezieht.",
+                "en": "Art. 5(1)-(2) DORA makes clear that the management body – the executive or supervisory board – bears ultimate responsibility for the entity's ICT risk management, and that responsibility cannot be handed off to the IT department, an external provider, or a compliance team. Operational tasks may be delegated; accountability itself may not. In practice, that means if something goes wrong in the framework, 'that was IT's problem' is not a defence – the management body must know, approve, and regularly review the framework. This non-delegable nature is one reason Art. 13(6) explicitly includes senior management in the training duty as well."
+              }
+            },
+            {
+              "section_id": "dora-l2-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "dora-l2-s2",
+              "legal_basis": "Art. 13 Abs. 1–2 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "„Lernen und Weiterentwickeln“ heißt Post-Mortem", "en": "\"Learning and evolving\" means post-mortem" },
+              "body": {
+                "de": "Art. 13 verlangt, dass Erkenntnisse aus Vorfällen und Tests ins Rahmenwerk zurückfließen – operativ ist das eine Ursachenanalyse (Root-Cause-Analysis) mit dokumentierten Maßnahmen, kein einmaliges Abhaken. Ein Beispiel: Nach einem Ausfall eines Zahlungsdienstleisters hält das Team fest, welche Kontrolle gefehlt hat, welche Abhilfemaßnahme greift und bis wann sie umgesetzt wird – und diese Erkenntnis fließt in die nächste jährliche Überprüfung des Rahmenwerks (Art. 6 Abs. 5) ein. Die Funktionen des Rahmenwerks selbst – identifizieren, schützen, erkennen, reagieren/wiederherstellen, lernen und weiterentwickeln (Art. 6–14) – ähneln bewusst dem bekannten Identify-Protect-Detect-Respond-Recover-Zyklus, den viele Sicherheitsteams bereits kennen.",
+                "en": "Art. 13 requires that findings from incidents and tests feed back into the framework – operationally that is a root-cause analysis with documented follow-up actions, not a one-off checkbox. For example: after a payment-provider outage, the team records which control was missing, which remediation applies, and by when it will be implemented – and that finding feeds into the framework's next annual review (Art. 6(5)). The framework's own functions – identify, protect, detect, respond/recover, and learn and evolve (Art. 6-14) – deliberately echo the well-known identify-protect-detect-respond-recover cycle many security teams already use."
+              }
+            }
+          ],
+          "select": {
+            "concepts": ["zc:concept:dora/ict-risk-framework", "zc:concept:dora/management-body-accountability"],
+            "topic_codes": ["risikomanagement"],
+            "count": 6
+          },
+          "related": [
+            {
+              "kind": "deep_dive",
+              "module": "it_sicherheit",
+              "concept": "zc:concept:cyber/root-cause-analysis",
+              "note_key": "dora-l2-rel-rca",
+              "body": {
+                "de": "Die Ursachenanalyse, die Art. 13 DORA nach einem Vorfall verlangt, ist dieselbe Fertigkeit wie ein technisches Post-Mortem nach einem IT-Ausfall – nur mit einer aufsichtsrechtlichen Dokumentationspflicht obendrauf.",
+                "en": "The root-cause analysis Art. 13 DORA requires after an incident is the same skill as a technical post-mortem after an IT outage – just with a regulatory documentation duty layered on top."
+              }
+            }
+          ]
+        },
+        {
+          "lesson_id": "dora-l3",
+          "unit_ref": "dora-u2",
+          "order": 3,
+          "title": { "de": "Wann ist ein Vorfall „schwerwiegend“ – und dann?", "en": "When is an incident \"major\" – and then what?" },
+          "lesson_kind": "scenario",
+          "estimated_minutes": 20,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:dora/incident-classification",
+            "zc:concept:cyber/incident-reporting-cascade",
+            "zc:concept:cyber/root-cause-analysis"
+          ],
+          "prereqs": [ { "requires_lesson": "dora-l2", "hardness": "advice" } ],
+          "sections": [
+            {
+              "section_id": "dora-l3-s1",
+              "order": 0,
+              "section_kind": "decision_flow",
+              "body_key": "dora-l3-s1",
+              "legal_basis": "Art. 18–19 VO (EU) 2022/2554 i.V.m. RTS (EU) 2024/1772, 2025/301",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Klassifizieren kommt vor Melden", "en": "Classification comes before notification" },
+              "body": {
+                "de": "Nicht jeder IKT-Vorfall muss der Aufsichtsbehörde gemeldet werden – erst die Einstufung als „schwerwiegend“ (major) nach Art. 18 löst die Meldepflicht aus. Die Kriterien dafür sind mehrdimensional: Anzahl betroffener Kunden und Gegenparteien, Dauer und Ausfallzeit, geografische Verbreitung, Datenverluste sowie wirtschaftliche und reputative Auswirkungen. Ist ein Vorfall als schwerwiegend eingestuft, beginnt die Meldekaskade: eine Erstmeldung, gefolgt von einem Zwischenbericht und schließlich einem Abschlussbericht. PRÜFHINWEIS: Die konkreten Fristangaben in diesem Abschnitt (u. a. „4 Stunden nach Klassifizierung“ für die Erstmeldung, „72 Stunden“ für den Zwischenbericht, „1 Monat“ für den Abschlussbericht) sind im Pre-Review-Dossier vom 2026-08-13 als Tier C markiert – das heißt, sie stammen ausschließlich aus sekundären Rechtsanalyse-Quellen und wurden nicht direkt gegen den Primärtext der RTS (EU) 2025/301 geprüft. Vor jeder produktiven Nutzung dieser Zahlen (Schulungsunterlagen, interne Prozesse, Kundenkommunikation) ist eine anwaltliche Prüfung gegen den EUR-Lex-Primärtext zwingend erforderlich.",
+                "en": "Not every ICT incident must be reported to the supervisory authority – only classification as \"major\" under Art. 18 triggers the reporting duty. The criteria are multi-dimensional: number of clients and counterparts affected, duration and downtime, geographic spread, data losses, and economic/reputational impact. Once an incident is classified as major, the reporting cascade begins: an initial notification, followed by an intermediate report, and finally a final report. REVIEW NOTE: the specific deadlines named in this section (among them \"4 hours from classification\" for the initial notification, \"72 hours\" for the intermediate report, and \"1 month\" for the final report) are flagged Tier C in the 2026-08-13 pre-review dossier – meaning they come only from secondary legal-analysis sources and have not been checked directly against the primary text of RTS (EU) 2025/301. A legal review against the EUR-Lex primary text is mandatory before these numbers are used in any production context (training materials, internal processes, or customer-facing communication)."
+              }
+            },
+            {
+              "section_id": "dora-l3-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "dora-l3-s2",
+              "legal_basis": "Art. 19 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Der Abschlussbericht braucht eine Ursache, keine Vermutung", "en": "The final report needs a root cause, not a guess" },
+              "body": {
+                "de": "Der Abschlussbericht schließt die Meldekaskade ab und muss die eigentliche Ursache des Vorfalls benennen, die getroffenen Abhilfemaßnahmen dokumentieren und – wo relevant – die finanziellen Auswirkungen beziffern. Eine Formulierung wie „vermutlich ein Konfigurationsfehler“ genügt hier nicht; erwartet wird eine belastbare Ursachenanalyse, die auf denselben „Lernen und Weiterentwickeln“-Mechanismus aus Art. 13 zurückgreift, den Lektion 2 bereits behandelt hat. Genau diese Verbindung – Vorfall, Ursachenanalyse, Rückfluss ins Rahmenwerk – ist es, die DORA von einer reinen Meldepflicht zu einem tatsächlichen Lernzyklus macht.",
+                "en": "The final report closes the reporting cascade and must name the actual root cause of the incident, document the remediation measures taken, and – where relevant – quantify the financial impact. A phrase like \"probably a configuration error\" does not suffice; a defensible root-cause analysis is expected, drawing on the same \"learning and evolving\" mechanism from Art. 13 covered in Lesson 2. It is precisely this link – incident, root-cause analysis, feedback into the framework – that turns DORA from a mere reporting duty into an actual learning cycle."
+              }
+            }
+          ],
+          "select": {
+            "concepts": ["zc:concept:dora/incident-classification"],
+            "topic_codes": ["meldepflichten"],
+            "question_ids": ["dora-meldepflichten-02", "dora-meldepflichten-03"],
+            "count": 6
+          },
+          "related": [
+            {
+              "kind": "contrast",
+              "module": "nis2",
+              "concept": "zc:concept:cyber/incident-reporting-cascade",
+              "note_key": "dora-l3-rel-nis2",
+              "body": {
+                "de": "NIS2 kennt eine eigene Meldekaskade (24h-Frühwarnung / 72h-Meldung / 1-Monats-Abschlussbericht) – für DORA-regulierte Finanzunternehmen gilt jedoch die DORA-eigene Kaskade aus dieser Lektion, nicht die von NIS2 (siehe Lex-specialis-Hinweis in Lektion 1).",
+                "en": "NIS2 has its own reporting cascade (24h early warning / 72h report / 1-month final report) – but DORA-regulated financial entities follow DORA's own cascade covered in this lesson, not NIS2's (see the lex-specialis note in Lesson 1)."
+              }
+            },
+            {
+              "kind": "applies_also",
+              "module": "cra",
+              "concept": "zc:concept:cyber/incident-reporting-cascade",
+              "note_key": "dora-l3-rel-cra",
+              "body": {
+                "de": "Der Cyber Resilience Act verlangt von Herstellern digitaler Produkte eine eigene, ähnlich gestufte Meldekaskade für aktiv ausgenutzte Schwachstellen. Für ein Finanzunternehmen, das zugleich Software als Produkt vertreibt, können beide Meldepflichten nebeneinander greifen – anders als im DORA/NIS2-Verhältnis gibt es hier keinen Vorrang der einen vor der anderen Pflicht.",
+                "en": "The Cyber Resilience Act imposes its own, similarly staged reporting cascade on manufacturers of digital products for actively exploited vulnerabilities. For a financial entity that also distributes software as a product, both reporting duties can apply side by side – unlike the DORA/NIS2 relationship, neither duty takes precedence over the other here."
+              }
+            }
+          ]
+        },
+        {
+          "lesson_id": "dora-l4",
+          "unit_ref": "dora-u2",
+          "order": 4,
+          "title": { "de": "Testen – und wer testen darf", "en": "Testing – and who is allowed to test" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 20,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": ["zc:concept:dora/tlpt", "zc:concept:audit/independent-testing"],
+          "prereqs": [ { "requires_lesson": "dora-l3", "hardness": "advice" } ],
+          "sections": [
+            {
+              "section_id": "dora-l4-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "dora-l4-s1",
+              "legal_basis": "Art. 24–27 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Jährliches Testprogramm vs. TLPT alle drei Jahre", "en": "Annual testing programme vs. TLPT every three years" },
+              "body": {
+                "de": "DORA unterscheidet zwei Ebenen des Testens. Auf der ersten Ebene müssen Finanzunternehmen – außer Kleinstunternehmen – mindestens jährlich ihre IKT-Systeme testen, die kritische oder wichtige Funktionen unterstützen (Art. 24). Auf der zweiten, deutlich anspruchsvolleren Ebene steht der bedrohungsgeleitete Penetrationstest (Threat-Led Penetration Testing, TLPT, Art. 26–27): ein realitätsnaher, von der zuständigen Behörde koordinierter Test, der simuliert, wie ein echter Angreifer vorgehen würde. TLPT ist kein Standardtest für alle Unternehmen, sondern verpflichtend nur für Unternehmen, die von ihrer nationalen Aufsichtsbehörde eigens dafür benannt wurden – typischerweise große, systemrelevante Institute. Für diese gilt ein Mindestintervall von drei Jahren.",
+                "en": "DORA distinguishes two levels of testing. At the first level, financial entities – other than microenterprises – must test, at least annually, the ICT systems that support critical or important functions (Art. 24). At the second, considerably more demanding level sits threat-led penetration testing (TLPT, Art. 26-27): a realistic test, coordinated by the competent authority, that simulates how a real attacker would operate. TLPT is not a standard test for every entity but mandatory only for entities specifically designated by their national competent authority – typically large, systemically important institutions. For those entities, a minimum three-year interval applies."
+              }
+            },
+            {
+              "section_id": "dora-l4-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "dora-l4-s2",
+              "legal_basis": "Art. 24–25 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Unabhängigkeit ist eine Anforderung, kein Stil", "en": "Independence is a requirement, not a style" },
+              "body": {
+                "de": "Wer die Tests durchführt, ist nicht beliebig: Art. 24–25 verlangen, dass Testende unabhängig sind – entweder intern mit eigenen Ressourcen und ohne Interessenkonflikte, oder extern über einen Prüfer. Wer ein System selbst gebaut hat, darf es also nicht auch selbst als alleiniger Prüfer abnehmen. Diese Unabhängigkeitspflicht ist kein Nice-to-have für die Prüfungsqualität, sondern eine ausdrückliche gesetzliche Anforderung, die Interessenkonflikte und reine Selbstprüfung verhindern soll.",
+                "en": "Who performs the tests is not a free choice: Art. 24-25 require testers to be independent – either internal staff with dedicated resources and no conflicts of interest, or an external auditor. Someone who built a system themselves may not also be its sole tester. This independence requirement is not a nice-to-have for test quality; it is an explicit legal requirement meant to prevent conflicts of interest and pure self-review."
+              }
+            }
+          ],
+          "select": {
+            "concepts": ["zc:concept:dora/tlpt", "zc:concept:audit/independent-testing"],
+            "topic_codes": ["testing"],
+            "count": 6
+          },
+          "related": [
+            {
+              "kind": "deep_dive",
+              "module": "audit_grundlagen",
+              "concept": "zc:concept:audit/independent-testing",
+              "note_key": "dora-l4-rel-audit",
+              "body": {
+                "de": "Die Unabhängigkeitsanforderung an Testende (Art. 24–25 DORA) ist ein Spezialfall des allgemeinen Prüfungsgrundsatzes, dass Prüfer nicht ihre eigene Arbeit bewerten dürfen – derselbe Grundsatz, der auch in klassischen Audit-Rahmenwerken gilt.",
+                "en": "The independence requirement for testers (Art. 24-25 DORA) is a specific instance of the general audit principle that testers must not evaluate their own work – the same principle that underpins classic audit frameworks."
+              }
+            }
+          ]
+        },
+        {
+          "lesson_id": "dora-l5",
+          "unit_ref": "dora-u2",
+          "order": 5,
+          "title": { "de": "Dritte, Register, Konzentrationsrisiko", "en": "Third parties, registers, concentration risk" },
+          "lesson_kind": "checkpoint",
+          "estimated_minutes": 25,
+          "completion_rule": "quiz_pass:0.8",
+          "concepts": ["zc:concept:dora/roi-register", "zc:concept:audit/evidence-trail", "zc:concept:supplychain/sbom"],
+          "prereqs": [ { "requires_lesson": "dora-l4", "hardness": "advice" } ],
+          "sections": [
+            {
+              "section_id": "dora-l5-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "dora-l5-s1",
+              "legal_basis": "Art. 28 Abs. 3, Art. 30 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Das Informationsregister ist der Prüfnachweis", "en": "The Register of Information is the audit evidence" },
+              "body": {
+                "de": "Finanzunternehmen müssen ein Informationsregister (Register of Information, RoI) über alle vertraglichen Vereinbarungen mit IKT-Drittanbietern führen und aktuell halten (Art. 28 Abs. 3). Das Register ist kein bürokratischer Selbstzweck – es ist der zentrale Prüfnachweis gegenüber der Aufsichtsbehörde und die Grundlage, um Konzentrationsrisiko überhaupt sichtbar zu machen: Wenn ein Großteil der kritischen Dienstleistungen an wenige Anbieter hängt, zeigt sich das erst, wenn man alle Verträge an einem Ort zusammengeführt hat. Ergänzend schreibt Art. 30 verbindliche Mindestinhalte für diese Verträge vor, u. a. eine klare Leistungsbeschreibung, Auditrechte, Bedingungen für Unter-Auslagerung und Exit-Strategien – damit ein Unternehmen einen Anbieter im Ernstfall auch tatsächlich wechseln kann.",
+                "en": "Financial entities must maintain an up-to-date Register of Information (RoI) covering all contractual arrangements with ICT third-party providers (Art. 28(3)). The register is not bureaucratic box-ticking – it is the central piece of audit evidence for the supervisory authority, and the basis for making concentration risk visible at all: if a large share of critical services depends on a handful of providers, that only becomes apparent once every contract is brought together in one place. Art. 30 additionally sets binding minimum content for those contracts, including a clear service description, audit rights, sub-outsourcing conditions, and exit strategies – so an entity can actually switch providers if it has to."
+              }
+            },
+            {
+              "section_id": "dora-l5-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "dora-l5-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Wo die SBOM ins Bild kommt", "en": "Where the SBOM enters the picture" },
+              "body": {
+                "de": "DORA verlangt keine SBOM (Software-Stückliste). Wer aber gegenüber einem Prüfer die Anforderungen aus Art. 28/30 belegen will – welche Komponenten und Abhängigkeiten stecken tatsächlich in einem eingesetzten IKT-System – braucht dieselbe Bestandsaufnahme, die der Cyber Resilience Act (CRA) als SBOM vorschreibt. Der Querverweis existiert deshalb, weil beide Regelwerke am selben zugrunde liegenden Problem arbeiten – Transparenz über Bestandteile und Abhängigkeiten –, nicht weil DORA selbst eine SBOM fordert.",
+                "en": "DORA does not require an SBOM (software bill of materials). But demonstrating the Art. 28/30 requirements to an auditor – which components and dependencies actually sit inside a deployed ICT system – needs the same inventory work the Cyber Resilience Act (CRA) mandates as an SBOM. The cross-reference exists because both frameworks address the same underlying problem, transparency over components and dependencies, not because DORA itself demands an SBOM."
+              }
+            }
+          ],
+          "select": {
+            "concepts": ["zc:concept:dora/roi-register"],
+            "topic_codes": ["drittparteien"],
+            "count": 8
+          },
+          "related": [
+            {
+              "kind": "deep_dive",
+              "module": "cra",
+              "concept": "zc:concept:supplychain/sbom",
+              "note_key": "dora-l5-rel-sbom",
+              "body": {
+                "de": "DORA verlangt keine SBOM. Wer aber Art. 28/30 gegenüber einem Prüfer belegen will, braucht dieselbe Bestandsaufnahme, die der CRA als SBOM vorschreibt – deshalb der Querverweis, nicht weil DORA es fordert.",
+                "en": "DORA does not require an SBOM. But demonstrating Art. 28/30 to an auditor needs the same inventory the CRA mandates as an SBOM – hence the cross-reference, not because DORA demands it."
+              }
+            },
+            {
+              "kind": "deep_dive",
+              "module": "audit_grundlagen",
+              "concept": "zc:concept:audit/evidence-trail",
+              "note_key": "dora-l5-rel-audit-evidence",
+              "body": {
+                "de": "Das Informationsregister aus Art. 28 Abs. 3 ist funktional ein Prüfnachweis: dieselbe Art von lückenlosem, nachvollziehbarem Nachweis, den auch ein klassisches Audit von einem Unternehmen verlangt, nur speziell auf IKT-Drittanbieter zugeschnitten.",
+                "en": "The Register of Information under Art. 28(3) functions as audit evidence: the same kind of complete, traceable documentation a classic audit expects from an entity, just tailored specifically to ICT third-party providers."
+              }
+            }
+          ]
+        }
+      ],
+
+      "exam_blueprint": {
+        "question_count": 12,
+        "time_limit_minutes": 18,
+        "max_error_points": 8,
+        "auto_fail_high_stakes": 2,
+        "topic_draw": { "grundlagen": 2, "risikomanagement": 3, "meldepflichten": 3, "testing": 2, "drittparteien": 2 },
+        "derived_from_lessons": false
+      }
+    }
+  ]
+}

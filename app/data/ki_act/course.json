@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "app": "Zettacard / ki-act-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-sonnet/2026-08-15",
+    "canonical_locale": "de",
+    "locales": [
+      "de",
+      "en"
+    ]
+  },
+  "courses": [
+    {
+      "course_id": "ki_act-all",
+      "module_ref": "ki_act",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 15,
+      "lessons": [
+        {
+          "lesson_id": "ki_act-l1",
+          "order": 1,
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "ki_act-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "legal_basis": "Art. 4 VO (EU) 2024/1689",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "ki_act-l1-s1",
+              "body_key": "ki_act-l1-s1"
+            },
+            {
+              "section_id": "ki_act-l1-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "ki_act-l1-s2",
+              "body_key": "ki_act-l1-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "grundlagen",
+              "ki_kompetenz"
+            ],
+            "count": 6
+          },
+          "title_key": "ki_act-l1"
+        }
+      ],
+      "title_key": "ki_act-all",
+      "description_key": "ki_act-all"
+    }
+  ]
+}

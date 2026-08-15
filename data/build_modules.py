@@ -93,6 +93,85 @@ def split_module(src_path, exam_type, locales, out_meta_extra=None):
     return len(core_questions), missing_locale_count
 
 
+def split_course(exam_type, locales):
+    """2026-08-15: optional v1 "course" sidecar layer, see
+    claude/modular-course-architecture-v1-2026-08-15.md (Opus design doc,
+    scoped explicitly as authoring scaffolding, NOT the SQLite migration).
+    A module with no <exam_type>_course.json in data/ produces byte-identical
+    output to before this function existed - this is opt-in per module via
+    the "hasCourse" flag on its modules_manifest.json entry, set by hand
+    alongside adding the course file, same as "feature_flag" is set by hand.
+
+    Folded into build_modules.py rather than a fourth build script on
+    purpose - the design doc explicitly calls out not repeating the mistake
+    that silently dropped primers/sign_reference/dora/nis2/sportboot output
+    twice this same week because they lived in separate scripts nothing
+    reminded you to re-run.
+
+    Returns True/False so main() can print progress; return value is
+    otherwise unused there since hasCourse is set on the manifest by hand,
+    not derived here (keeps this function read-only w.r.t. modules_manifest.json).
+    """
+    src_path = os.path.join(HERE, f"{exam_type}_course.json")
+    if not os.path.exists(src_path):
+        return False
+
+    src = json.load(open(src_path, encoding="utf-8"))
+    module_dir = os.path.join(APP_DATA, exam_type)
+    locales_dir = os.path.join(module_dir, "course_locales")
+    os.makedirs(locales_dir, exist_ok=True)
+
+    per_locale = {loc: {} for loc in locales}
+
+    def pull(entity, entity_id, field, key_field=None):
+        """Pop a {locale: text} object off entity[field], fan each locale's
+        text out into per_locale[loc][entity_id][field], and leave
+        `<field>_key` (or key_field) pointing at entity_id - same
+        key-is-the-entity-id convention build_modules.py already uses for
+        primers, so app.js resolves course text the same way it resolves
+        primer text (Rule 1/§4 of the design doc)."""
+        if field not in entity:
+            return
+        val = entity.pop(field)
+        for loc in locales:
+            text = val.get(loc)
+            if text is None:
+                continue
+            per_locale[loc].setdefault(entity_id, {})[field] = text
+        entity[key_field or f"{field}_key"] = entity_id
+
+    for course in src.get("courses", []):
+        cid = course["course_id"]
+        pull(course, cid, "title")
+        pull(course, cid, "description")
+
+        for concept in course.get("concepts", []):
+            pull(concept, concept["concept_id"], "label")
+
+        for unit in course.get("units", []):
+            pull(unit, unit["unit_id"], "title")
+
+        for lesson in course.get("lessons", []):
+            lid = lesson["lesson_id"]
+            pull(lesson, lid, "title")
+            for section in lesson.get("sections", []):
+                sid = section["section_id"]
+                pull(section, sid, "title")
+                pull(section, sid, "body")
+            for rel in lesson.get("related", []):
+                nk = rel.get("note_key")
+                if nk:
+                    pull(rel, nk, "body", key_field="body_key")
+
+    json.dump(src, open(os.path.join(module_dir, "course.json"), "w", encoding="utf-8"),
+              ensure_ascii=False, indent=2)
+    for loc in locales:
+        json.dump(per_locale[loc],
+                  open(os.path.join(locales_dir, f"{loc}.json"), "w", encoding="utf-8"),
+                  ensure_ascii=False, indent=2)
+    return True
+
+
 def main():
     if os.path.exists(APP_DATA):
         shutil.rmtree(APP_DATA)
@@ -153,6 +232,8 @@ def main():
     kiact_count, kiact_missing = split_module(
         os.path.join(HERE, "ki_act_pilot.json"), "ki_act", compliance_locales)
     print(f"ki_act: {kiact_count} questions, locale gaps: {kiact_missing}")
+    if split_course("ki_act", ["de", "en"]):
+        print("ki_act: course layer built (de, en)")
 
     itsec_count, itsec_missing = split_module(
         os.path.join(HERE, "it_sicherheit_pilot.json"), "it_sicherheit", compliance_locales)
@@ -167,6 +248,8 @@ def main():
     dora_count, dora_missing = split_module(
         os.path.join(HERE, "dora_pilot.json"), "dora", ["de", "en"])
     print(f"dora: {dora_count} questions, locale gaps: {dora_missing}")
+    if split_course("dora", ["de", "en"]):
+        print("dora: course layer built (de, en)")
 
     nis2_count, nis2_missing = split_module(
         os.path.join(HERE, "nis2_pilot.json"), "nis2", ["de", "en"])

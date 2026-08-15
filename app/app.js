@@ -1576,6 +1576,16 @@ function offlineAssetUrls() {
     urls.push(`data/fuehrerschein/primers.json`, `data/fuehrerschein/primers_locales/${lang}.json`);
   }
 
+  // 2026-08-15 (v1 course layer, see claude/modular-course-architecture-v1-2026-08-15.md):
+  // same "prepare for offline" gap the primers feature hit once already
+  // (design doc §2's own warning) - a module with hasCourse:true fetches
+  // its own course.json/course_locales/<lang>.json sidecar, so those need
+  // to be in the offline-prep list explicitly, same shape as primers above.
+  const moduleDef = state.modulesManifest?.modules?.find((m) => m.exam_type === state.examType);
+  if (moduleDef?.hasCourse) {
+    urls.push(`data/${state.examType}/course.json`, `data/${state.examType}/course_locales/${lang}.json`);
+  }
+
   return urls;
 }
 

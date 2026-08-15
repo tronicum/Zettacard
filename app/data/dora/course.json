@@ -1,0 +1,423 @@
+{
+  "meta": {
+    "app": "Zettacard / dora-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-sonnet/2026-08-15",
+    "canonical_locale": "de",
+    "locales": [
+      "de",
+      "en"
+    ]
+  },
+  "courses": [
+    {
+      "course_id": "dora-all",
+      "module_ref": "dora",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 95,
+      "concepts": [
+        {
+          "concept_id": "zc:concept:dora/scope-and-proportionality",
+          "label_key": "zc:concept:dora/scope-and-proportionality"
+        },
+        {
+          "concept_id": "zc:concept:dora/management-body-accountability",
+          "label_key": "zc:concept:dora/management-body-accountability"
+        },
+        {
+          "concept_id": "zc:concept:dora/ict-risk-framework",
+          "label_key": "zc:concept:dora/ict-risk-framework"
+        },
+        {
+          "concept_id": "zc:concept:dora/incident-classification",
+          "label_key": "zc:concept:dora/incident-classification"
+        },
+        {
+          "concept_id": "zc:concept:dora/tlpt",
+          "label_key": "zc:concept:dora/tlpt"
+        },
+        {
+          "concept_id": "zc:concept:dora/roi-register",
+          "label_key": "zc:concept:dora/roi-register"
+        },
+        {
+          "concept_id": "zc:concept:cyber/incident-reporting-cascade",
+          "label_key": "zc:concept:cyber/incident-reporting-cascade"
+        },
+        {
+          "concept_id": "zc:concept:cyber/root-cause-analysis",
+          "label_key": "zc:concept:cyber/root-cause-analysis"
+        },
+        {
+          "concept_id": "zc:concept:audit/independent-testing",
+          "label_key": "zc:concept:audit/independent-testing"
+        },
+        {
+          "concept_id": "zc:concept:audit/evidence-trail",
+          "label_key": "zc:concept:audit/evidence-trail"
+        },
+        {
+          "concept_id": "zc:concept:supplychain/sbom",
+          "label_key": "zc:concept:supplychain/sbom"
+        }
+      ],
+      "units": [
+        {
+          "unit_id": "dora-u1",
+          "order": 1,
+          "unit_kind": "foundation",
+          "title_key": "dora-u1"
+        },
+        {
+          "unit_id": "dora-u2",
+          "order": 2,
+          "unit_kind": "operations",
+          "title_key": "dora-u2"
+        }
+      ],
+      "lessons": [
+        {
+          "lesson_id": "dora-l1",
+          "unit_ref": "dora-u1",
+          "order": 1,
+          "lesson_kind": "primer",
+          "estimated_minutes": 12,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:dora/scope-and-proportionality"
+          ],
+          "sections": [
+            {
+              "section_id": "dora-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "dora-l1-s1",
+              "legal_basis": "Art. 1, 2, 64 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "dora-l1-s1"
+            },
+            {
+              "section_id": "dora-l1-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "dora-l1-s2",
+              "legal_basis": "Art. 13 Abs. 6 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "dora-l1-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:dora/scope-and-proportionality"
+            ],
+            "topic_codes": [
+              "grundlagen"
+            ],
+            "question_ids": [
+              "dora-grundlagen-04"
+            ],
+            "count": 4
+          },
+          "related": [
+            {
+              "kind": "contrast",
+              "module": "nis2",
+              "concept": "zc:concept:cyber/incident-reporting-cascade",
+              "note_key": "dora-l1-rel-nis2-lexspecialis",
+              "body_key": "dora-l1-rel-nis2-lexspecialis"
+            }
+          ],
+          "title_key": "dora-l1"
+        },
+        {
+          "lesson_id": "dora-l2",
+          "unit_ref": "dora-u1",
+          "order": 2,
+          "lesson_kind": "primer",
+          "estimated_minutes": 18,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:dora/ict-risk-framework",
+            "zc:concept:dora/management-body-accountability",
+            "zc:concept:cyber/root-cause-analysis"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "dora-l1",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "dora-l2-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "dora-l2-s1",
+              "legal_basis": "Art. 5 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "dora-l2-s1"
+            },
+            {
+              "section_id": "dora-l2-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "dora-l2-s2",
+              "legal_basis": "Art. 13 Abs. 1–2 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "dora-l2-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:dora/ict-risk-framework",
+              "zc:concept:dora/management-body-accountability"
+            ],
+            "topic_codes": [
+              "risikomanagement"
+            ],
+            "count": 6
+          },
+          "related": [
+            {
+              "kind": "deep_dive",
+              "module": "it_sicherheit",
+              "concept": "zc:concept:cyber/root-cause-analysis",
+              "note_key": "dora-l2-rel-rca",
+              "body_key": "dora-l2-rel-rca"
+            }
+          ],
+          "title_key": "dora-l2"
+        },
+        {
+          "lesson_id": "dora-l3",
+          "unit_ref": "dora-u2",
+          "order": 3,
+          "lesson_kind": "scenario",
+          "estimated_minutes": 20,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:dora/incident-classification",
+            "zc:concept:cyber/incident-reporting-cascade",
+            "zc:concept:cyber/root-cause-analysis"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "dora-l2",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "dora-l3-s1",
+              "order": 0,
+              "section_kind": "decision_flow",
+              "body_key": "dora-l3-s1",
+              "legal_basis": "Art. 18–19 VO (EU) 2022/2554 i.V.m. RTS (EU) 2024/1772, 2025/301",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "dora-l3-s1"
+            },
+            {
+              "section_id": "dora-l3-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "dora-l3-s2",
+              "legal_basis": "Art. 19 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "dora-l3-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:dora/incident-classification"
+            ],
+            "topic_codes": [
+              "meldepflichten"
+            ],
+            "question_ids": [
+              "dora-meldepflichten-02",
+              "dora-meldepflichten-03"
+            ],
+            "count": 6
+          },
+          "related": [
+            {
+              "kind": "contrast",
+              "module": "nis2",
+              "concept": "zc:concept:cyber/incident-reporting-cascade",
+              "note_key": "dora-l3-rel-nis2",
+              "body_key": "dora-l3-rel-nis2"
+            },
+            {
+              "kind": "applies_also",
+              "module": "cra",
+              "concept": "zc:concept:cyber/incident-reporting-cascade",
+              "note_key": "dora-l3-rel-cra",
+              "body_key": "dora-l3-rel-cra"
+            }
+          ],
+          "title_key": "dora-l3"
+        },
+        {
+          "lesson_id": "dora-l4",
+          "unit_ref": "dora-u2",
+          "order": 4,
+          "lesson_kind": "primer",
+          "estimated_minutes": 20,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:dora/tlpt",
+            "zc:concept:audit/independent-testing"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "dora-l3",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "dora-l4-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "dora-l4-s1",
+              "legal_basis": "Art. 24–27 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "dora-l4-s1"
+            },
+            {
+              "section_id": "dora-l4-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "dora-l4-s2",
+              "legal_basis": "Art. 24–25 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "dora-l4-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:dora/tlpt",
+              "zc:concept:audit/independent-testing"
+            ],
+            "topic_codes": [
+              "testing"
+            ],
+            "count": 6
+          },
+          "related": [
+            {
+              "kind": "deep_dive",
+              "module": "audit_grundlagen",
+              "concept": "zc:concept:audit/independent-testing",
+              "note_key": "dora-l4-rel-audit",
+              "body_key": "dora-l4-rel-audit"
+            }
+          ],
+          "title_key": "dora-l4"
+        },
+        {
+          "lesson_id": "dora-l5",
+          "unit_ref": "dora-u2",
+          "order": 5,
+          "lesson_kind": "checkpoint",
+          "estimated_minutes": 25,
+          "completion_rule": "quiz_pass:0.8",
+          "concepts": [
+            "zc:concept:dora/roi-register",
+            "zc:concept:audit/evidence-trail",
+            "zc:concept:supplychain/sbom"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "dora-l4",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "dora-l5-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "dora-l5-s1",
+              "legal_basis": "Art. 28 Abs. 3, Art. 30 VO (EU) 2022/2554",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "dora-l5-s1"
+            },
+            {
+              "section_id": "dora-l5-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "dora-l5-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "dora-l5-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:dora/roi-register"
+            ],
+            "topic_codes": [
+              "drittparteien"
+            ],
+            "count": 8
+          },
+          "related": [
+            {
+              "kind": "deep_dive",
+              "module": "cra",
+              "concept": "zc:concept:supplychain/sbom",
+              "note_key": "dora-l5-rel-sbom",
+              "body_key": "dora-l5-rel-sbom"
+            },
+            {
+              "kind": "deep_dive",
+              "module": "audit_grundlagen",
+              "concept": "zc:concept:audit/evidence-trail",
+              "note_key": "dora-l5-rel-audit-evidence",
+              "body_key": "dora-l5-rel-audit-evidence"
+            }
+          ],
+          "title_key": "dora-l5"
+        }
+      ],
+      "exam_blueprint": {
+        "question_count": 12,
+        "time_limit_minutes": 18,
+        "max_error_points": 8,
+        "auto_fail_high_stakes": 2,
+        "topic_draw": {
+          "grundlagen": 2,
+          "risikomanagement": 3,
+          "meldepflichten": 3,
+          "testing": 2,
+          "drittparteien": 2
+        },
+        "derived_from_lessons": false
+      },
+      "title_key": "dora-all",
+      "description_key": "dora-all"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "app": "Zettacard / ki-act-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-sonnet/2026-08-15",
+    "canonical_locale": "de",
+    "locales": ["de", "en"]
+  },
+  "courses": [
+    {
+      "course_id": "ki_act-all",
+      "module_ref": "ki_act",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 15,
+      "title": {
+        "de": "KI-Kompetenz in 15 Minuten",
+        "en": "AI literacy in 15 minutes"
+      },
+      "description": {
+        "de": "Ein kurzer Einstieg, bevor du die 40 Prüfungsfragen zur KI-Verordnung übst.",
+        "en": "A short primer before you practise the 40 AI Act questions."
+      },
+      "lessons": [
+        {
+          "lesson_id": "ki_act-l1",
+          "order": 1,
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "title": {
+            "de": "Warum diese Schulung Pflicht ist",
+            "en": "Why this training is mandatory"
+          },
+          "sections": [
+            {
+              "section_id": "ki_act-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "legal_basis": "Art. 4 VO (EU) 2024/1689",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": {
+                "de": "Art. 4 KI-VO: KI-Kompetenz ist eine Anbieter- und Betreiberpflicht",
+                "en": "Art. 4 AI Act: AI literacy is a provider and deployer duty"
+              },
+              "body": {
+                "de": "Die KI-Verordnung verpflichtet Anbieter und Betreiber von KI-Systemen dazu, nach besten Kräften sicherzustellen, dass ihr Personal und andere Personen, die in ihrem Auftrag mit dem Betrieb und der Nutzung von KI-Systemen befasst sind, über ein ausreichendes Maß an KI-Kompetenz verfügen. Diese Pflicht gilt gestuft: Was „ausreichend“ ist, hängt von den technischen Vorkenntnissen, der Erfahrung, der Ausbildung und Schulung der jeweiligen Person sowie vom Kontext ab, in dem das KI-System eingesetzt wird, und von den Personen oder Personengruppen, bei denen es zur Anwendung kommen soll. Es gibt also kein einheitliches Schulungsprogramm, das für jede Rolle gleichermaßen passt – eine Entwicklerin, die ein Hochrisiko-System konfiguriert, braucht ein anderes Kompetenzniveau als jemand, der ein Chatbot-Ergebnis lediglich liest. Diese Lektion vermittelt die Grundbegriffe, die du brauchst, um die folgenden Prüfungsfragen einzuordnen – Details zu Fristen und zur genauen Ausgestaltung solltest du im Zweifel anhand des Verordnungstextes selbst prüfen.",
+                "en": "The AI Act obliges providers and deployers of AI systems to take measures, to their best extent, to ensure a sufficient level of AI literacy among their staff and other persons dealing with the operation and use of AI systems on their behalf. This duty is scaled: what counts as \"sufficient\" depends on the technical knowledge, experience, education, and training of the people involved, as well as the context the AI system is meant to be used in and the persons or groups it will be used on or with. There is no single training programme that fits every role equally — a developer configuring a high-risk system needs a different level of competence than someone who merely reads a chatbot's output. This lesson covers the basic vocabulary you need to make sense of the questions that follow; for exact deadlines and the fine detail of how this duty is worded, check the regulation's own text if you're unsure."
+              }
+            },
+            {
+              "section_id": "ki_act-l1-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": {
+                "de": "Vier Risikostufen, eine Merkregel",
+                "en": "Four risk tiers, one mnemonic"
+              },
+              "body": {
+                "de": "Verboten – Hochrisiko – Transparenzpflicht – minimal. Die KI-Verordnung ordnet KI-Systeme grob nach diesen vier Stufen ein, und die Höhe des Risikos bestimmt, welche Pflichten greifen: Verbotene Praktiken (z. B. bestimmte Formen von Social Scoring oder manipulative Techniken) sind schlicht untersagt. Hochrisiko-Systeme unterliegen den strengsten Auflagen – von Risikomanagement bis menschlicher Aufsicht. Systeme mit Transparenzpflicht (etwa Chatbots oder Deepfake-Erzeugung) müssen offenlegen, dass Nutzer es mit KI zu tun haben. Für alles andere – die minimal-risikoreichen Anwendungen – gelten keine zusätzlichen Pflichten aus der Verordnung, auch wenn freiwillige Verhaltenskodizes empfohlen werden. Diese vierstufige Einteilung ist der rote Faden, an dem sich die meisten Prüfungsfragen der übrigen Themenbereiche orientieren – wenn du eine Frage nicht sofort einordnen kannst, frag dich zuerst: Welcher der vier Stufen würde dieses System zugeordnet?",
+                "en": "Prohibited – high-risk – transparency duty – minimal. The AI Act sorts AI systems roughly into these four tiers, and the tier determines which obligations apply. Prohibited practices (for example certain forms of social scoring or manipulative techniques) are simply banned outright. High-risk systems face the strictest requirements, from risk management to human oversight. Systems subject to a transparency duty (such as chatbots or deepfake generators) must disclose that users are interacting with AI. Everything else — minimal-risk applications — carries no additional obligations under the regulation, though voluntary codes of conduct are encouraged. This four-tier split is the thread running through most of the other question topics: if you can't immediately place a question, start by asking which of the four tiers the system in front of you would fall into."
+              }
+            }
+          ],
+          "select": {
+            "topic_codes": ["grundlagen", "ki_kompetenz"],
+            "count": 6
+          }
+        }
+      ]
+    }
+  ]
+}
