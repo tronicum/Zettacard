@@ -967,6 +967,18 @@ const TOPIC_LABELS = {
     navigation: { de: "Navigation", en: "Navigation" },
     umweltschutz: { de: "Umweltschutz", en: "Environmental protection" },
   },
+  // 2026-08-15: CKA concept-check pilot, first module with en/de/ja/zh
+  // label coverage (matching its 4-locale question content) rather than
+  // de/en-only - see modules_manifest.json's cka entry for full context.
+  cka: {
+    core_concepts: { en: "Core Concepts", de: "Grundkonzepte", ja: "コアコンセプト", zh: "核心概念" },
+    workloads: { en: "Workloads", de: "Workloads", ja: "ワークロード", zh: "工作负载" },
+    config_scheduling: { en: "Configuration & Scheduling", de: "Konfiguration & Scheduling", ja: "設定とスケジューリング", zh: "配置与调度" },
+    networking: { en: "Networking", de: "Networking", ja: "ネットワーキング", zh: "网络" },
+    storage: { en: "Storage", de: "Storage", ja: "ストレージ", zh: "存储" },
+    troubleshooting: { en: "Troubleshooting", de: "Troubleshooting", ja: "トラブルシューティング", zh: "故障排查" },
+    security_admin: { en: "Security & Administration", de: "Sicherheit & Administration", ja: "セキュリティと管理", zh: "安全与管理" },
+  },
 };
 
 // Looks up a topic label for the CURRENT module/locale, falling back to EN

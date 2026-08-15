@@ -1,0 +1,1312 @@
+{
+  "cka-config_scheduling-01": {
+    "question": "Kubernetes Namespace 的主要用途是什么？",
+    "options": {
+      "a": "加密不同节点上运行的 Pod 之间的流量",
+      "b": "将单个集群划分为多个虚拟集群，以便组织和隔离资源组",
+      "c": "为集群中的每个节点分配唯一的 IP 地址范围",
+      "d": "限制集群可拥有的节点总数"
+    },
+    "explanation": "Namespace 提供了一种逻辑分区集群资源（Pod、Service、ConfigMap 等）的方式，使多个团队或项目可以共享一个集群，而不会出现命名冲突，并能实现范围化的访问控制。它们不会加密流量（a），不会分配节点 IP 范围（c），也不会限制节点数量（d）。"
+  },
+  "cka-config_scheduling-02": {
+    "question": "如果创建 Pod 时未显式指定 Namespace，它会被放入哪个 Namespace？",
+    "options": {
+      "a": "kube-system",
+      "b": "kube-public",
+      "c": "default",
+      "d": "它会被放置在任何 Namespace 之外"
+    },
+    "explanation": "Kubernetes 会自动将未指定归属的对象放入 \"default\" Namespace。\"kube-system\" 用于存放集群基础设施组件，\"kube-public\" 是一个特殊的 Namespace，所有用户都可读取，通常用于存放公开的集群信息。每个具有 Namespace 属性的对象都必须归属于某个 Namespace，因此 (d) 不正确。"
+  },
+  "cka-config_scheduling-03": {
+    "question": "以下哪一项在 Kubernetes 中不属于 Namespace 范围（即在整个集群范围内存在）？",
+    "options": {
+      "a": "Node",
+      "b": "Pod",
+      "c": "ConfigMap",
+      "d": "Service"
+    },
+    "explanation": "Node 代表属于整个集群的物理机或虚拟机，而不属于某个单独的 Namespace，因此它是集群范围的资源。Pod、ConfigMap 和 Service 都是具有 Namespace 属性的对象，存在于特定的 Namespace 中。"
+  },
+  "cka-config_scheduling-04": {
+    "question": "Kubernetes 中的 Label 用于什么？",
+    "options": {
+      "a": "它们是对象创建后无法修改的内部系统标识符",
+      "b": "附加在对象上的键值对，使其能够被其他资源识别、组织和选择",
+      "c": "一种加密敏感对象元数据的机制",
+      "d": "一种限制哪些用户可以查看指定对象的方式"
+    },
+    "explanation": "Label 是附加在 Pod 等对象上的、用户自定义的任意键值对；它们通过 Label 选择器（label selector）实现分组和选择（例如被 Service 或 ReplicaSet 选中）。它们是可变的，与加密无关，本身也不是一种访问控制机制。"
+  },
+  "cka-config_scheduling-05": {
+    "question": "Service 通常如何知道要将流量路由到哪些 Pod？",
+    "options": {
+      "a": "它扫描集群中的所有 Pod，并路由到 CPU 使用率最低的那些",
+      "b": "它通过手动配置一份静态的 Pod IP 地址列表",
+      "c": "它使用 Label 选择器来匹配那些标签与 Service 选择器相符的 Pod",
+      "d": "它无条件路由到同一 Namespace 中的每一个 Pod，而不管标签如何"
+    },
+    "explanation": "Service 定义了一个 Label 选择器，任何标签与该选择器匹配的 Pod 都会成为 Service 路由流量的目标端点（endpoint）。这是动态的（Pod 可能会不断创建和销毁），而不是静态 IP 列表，也不基于资源使用情况或笼统的 Namespace 归属。"
+  },
+  "cka-config_scheduling-06": {
+    "question": "ConfigMap 的主要用途是什么？",
+    "options": {
+      "a": "以加密格式存储敏感凭据",
+      "b": "为容器定义资源请求（request）和限制（limit）",
+      "c": "控制 Pod 被调度到哪个节点",
+      "d": "将非敏感的配置数据与应用程序代码解耦，以便注入到 Pod 中"
+    },
+    "explanation": "ConfigMap 用于将非机密的配置数据（如配置文件或设置项）与容器镜像分开保存，使同一镜像可以在不同环境中复用。它们不用于存放机密信息（a，应使用 Secret），不用于资源限制（b），也不用于调度决策（c）。"
+  },
+  "cka-config_scheduling-07": {
+    "question": "ConfigMap 的数据可以通过哪两种常见方式提供给容器？",
+    "options": {
+      "a": "作为环境变量，或作为通过 volume 挂载的文件",
+      "b": "作为内核模块，或作为网络路由",
+      "c": "只能作为环境变量；不支持 volume 挂载",
+      "d": "作为 DNS 记录，或作为防火墙规则"
+    },
+    "explanation": "ConfigMap 的键值对可以以两种方式暴露给容器：作为环境变量，或作为挂载 volume 内的独立文件，可根据应用需求灵活选择。选项 (c) 错误，因为 volume 挂载实际上是支持的，且是常见用法。"
+  },
+  "cka-config_scheduling-08": {
+    "question": "Secret 与 ConfigMap 之间在概念上的关键区别是什么？",
+    "options": {
+      "a": "Secret 只能以环境变量方式使用，而 ConfigMap 只能以 volume 方式挂载",
+      "b": "Secret 用于存放密码、令牌等敏感数据，而 ConfigMap 用于存放非敏感的配置数据",
+      "c": "ConfigMap 具有 Namespace 属性，而 Secret 是集群范围的",
+      "d": "Secret 会在 24 小时后自动删除，而 ConfigMap 会永久保留"
+    },
+    "explanation": "这两种对象类型都存储键值数据，且使用方式相同（环境变量或 volume），但 Secret 专门用于保存诸如凭据或令牌之类的敏感值，其处理约定也是围绕这种敏感性而设计的。两者都具有 Namespace 属性，且都不会在 24 小时后自动过期。"
+  },
+  "cka-config_scheduling-09": {
+    "question": "一位初级工程师注意到 Secret 的值是以 base64 编码而非明文存储，因此得出结论认为数据因此是加密的。这个结论正确吗？",
+    "options": {
+      "a": "是的，base64 编码是被批准用于生产环境机密数据的强加密算法",
+      "b": "是的，因为 base64 编码后的数据在没有私钥的情况下无法解码",
+      "c": "不对，base64 只是一种编码方式，不是加密——任何能够访问该 Secret 对象的人都可以轻易将其解码回明文",
+      "d": "不对，base64 编码实际上会破坏数据，因此必须由专门的控制器解密后才能使用"
+    },
+    "explanation": "base64 是一种可逆的编码方式，不是加密——它不需要任何密钥或秘密就能解码，因此本身不提供任何保密性。Secret 的真正保护来自静态加密（encryption at rest）、RBAC 限制以及外部密钥管理系统等机制。选项 (a) 和 (b) 错误地将 base64 描述为加密，(d) 也不正确，因为解码不需要任何专门的控制器。"
+  },
+  "cka-config_scheduling-10": {
+    "question": "从概念上讲，容器的 \"resource request\" 代表什么？",
+    "options": {
+      "a": "容器被允许使用的 CPU/内存的绝对最大值",
+      "b": "调度器在将容器放置到某个节点时，为该容器保证预留的 CPU/内存数量",
+      "c": "容器只有在集群负载较高时期才能获得的 CPU/内存数量",
+      "d": "一个调度器可以完全忽略的可选提示"
+    },
+    "explanation": "resource request 是调度器用来判断哪个节点有足够容量容纳该容器的依据；这部分资源实际上会为容器预留出来。容器可使用的最大资源量由它的 \"limit\" 决定，而不是它的 request（a），并且 request 在正常调度过程中就会被考虑，而不仅仅是在高负载时（c）。调度器确实会考虑 request，因此 (d) 错误。"
+  },
+  "cka-config_scheduling-11": {
+    "question": "当容器尝试使用超过其配置限制的 CPU 时，通常会发生什么？",
+    "options": {
+      "a": "容器会被限流（throttled）——它不会被杀死，但其 CPU 使用会被限制上限，从而运行得更慢",
+      "b": "容器会立即被 OOM killer 终止",
+      "c": "节点会自动提高 CPU 限制以匹配需求",
+      "d": "Pod 会被从集群中驱逐并在另一个节点上重新调度"
+    },
+    "explanation": "CPU 是一种可压缩资源：超过 CPU 限制会导致限流（容器被降速），而不是终止。OOM killer（b）适用于内存限制，而非 CPU。限制是固定值，不会被节点自动调整（c），并且仅 CPU 限流本身不会触发 Pod 驱逐（d）。"
+  },
+  "cka-config_scheduling-12": {
+    "question": "当容器尝试使用超过其配置限制的内存时，通常会发生什么？",
+    "options": {
+      "a": "它会像 CPU 使用超限一样被限流",
+      "b": "Kubernetes 会自动压缩容器的内存页以适应限制",
+      "c": "容器很可能会被 OOM（内存溢出）killer 杀死，因为内存无法像 CPU 那样被限流",
+      "d": "什么都不会发生，因为内存限制只是建议性的"
+    },
+    "explanation": "内存是一种不可压缩资源——无法像 CPU 那样被限流，因此当容器超出其内存限制时，内核的 OOM killer 通常会终止它（表现为 OOMKilled 状态）。限流（a）适用于 CPU，而非内存；不存在自动内存压缩机制（b）；内存限制是强制执行的，而不仅仅是建议性的（d）。"
+  },
+  "cka-config_scheduling-13": {
+    "question": "为什么容器的 resource limit 有时会被设置得高于其 resource request？",
+    "options": {
+      "a": "request 和 limit 必须始终相等；设置不同的值属于无效配置",
+      "b": "limit 决定计费，而 request 只决定调度优先级",
+      "c": "这没有任何实际效果，纯粹是装饰性的",
+      "d": "它允许容器在节点有空闲容量时，在其有保证的基线之上突发使用更多资源，同时仍然限制其最坏情况下的使用量"
+    },
+    "explanation": "将 limit 设置得高于 request，可以让容器在节点有空闲容量时机会性地使用额外资源，同时 request 仍然为调度保证了其基线份额。request 和 limit 可以合理地不同（a 错误），limit 不仅仅是一种计费构造（b），并且该设置会实质性地影响运行时行为（c 错误）。"
+  },
+  "cka-config_scheduling-14": {
+    "question": "从概念上讲，Kubernetes 调度器（scheduler）的作用是什么？",
+    "options": {
+      "a": "它在部署前构建容器镜像并将其推送到镜像仓库",
+      "b": "它监视尚未分配节点的新建 Pod，并根据资源可用性和已配置的约束条件为每个 Pod 选择合适的节点",
+      "c": "它监控应用日志，并重启打印错误信息的容器",
+      "d": "它负责 Kubernetes API 的用户认证和授权"
+    },
+    "explanation": "调度器的工作是为每个尚未调度的 Pod 找到一个满足其资源需求和调度约束（affinity、taint/toleration 等）的节点，然后将 Pod 绑定到该节点。它不参与镜像构建（a）、基于日志的重启（c，这是 kubelet 的存活探针职责），也不参与认证/授权（d，由 API server 负责）。"
+  },
+  "cka-config_scheduling-15": {
+    "question": "大体上，一旦调度器得到了满足 Pod 硬性要求的节点列表，它是如何决定将 Pod 放置在哪里的？",
+    "options": {
+      "a": "它根据一组优先级标准对符合条件（\"可行\"）的节点进行打分，并选择总体得分最高的节点",
+      "b": "它总是选择运行 Pod 总数最少的节点，而不考虑资源使用情况",
+      "c": "它在集群的所有节点中完全随机选择一个节点",
+      "d": "它要求每个节点的 kubelet 为该 Pod 出价，类似于拍卖"
+    },
+    "explanation": "在过滤掉不满足 Pod 要求的节点之后（过滤阶段），调度器使用优先级函数（例如资源均衡、亲和性偏好）对剩余的可行节点进行打分，并选择得分最高的节点（打分阶段）。它并不单纯依赖 Pod 数量（b）、纯随机性（c），也不依赖节点端的竞价机制（d）。"
+  },
+  "cka-config_scheduling-16": {
+    "question": "Node Affinity 能表达什么？",
+    "options": {
+      "a": "一条规则，防止具有相同标签的两个 Pod 永远运行在同一节点上",
+      "b": "一条自动扩缩集群节点数量的规则",
+      "c": "一条规则，指定 Pod 应该（或必须）被调度到匹配特定标签的节点上，例如具有特定磁盘类型或可用区的节点",
+      "d": "一条限制 Pod 在某节点上可消耗多少网络带宽的规则"
+    },
+    "explanation": "Node affinity 让你可以根据节点标签来约束 Pod 有资格被调度到哪些节点上——这对于将工作负载放置到具有特定硬件或位于特定可用区的节点上很有用。防止具有相同标签的 Pod 共存描述的是 Pod 反亲和性（anti-affinity），而不是 node affinity（a）；它与集群自动扩缩容（b）或带宽限制（d）无关。"
+  },
+  "cka-config_scheduling-17": {
+    "question": "Pod 反亲和性（anti-affinity）的典型使用场景是什么？",
+    "options": {
+      "a": "确保 Pod 只被调度到位于特定云区域的节点上",
+      "b": "防止 Pod 被管理员删除",
+      "c": "保证 Pod 始终拥有固定的 IP 地址",
+      "d": "将同一应用的多个副本分散到不同节点上，使得一个节点的故障不会导致所有副本同时下线"
+    },
+    "explanation": "Pod 反亲和性通常用于阻止或劝阻带有特定标签的 Pod 相互共处，通过将副本分散到不同节点或可用区来提高可用性。基于节点标签将放置限制在某个区域是 node affinity 的功能（a），Pod 反亲和性与删除保护（b）或静态 IP 分配（c）无关。"
+  },
+  "cka-config_scheduling-18": {
+    "question": "从概念上讲，施加在节点上的 Taint 的目的是什么？",
+    "options": {
+      "a": "它们将节点标记为不健康，从而自动从集群中移除",
+      "b": "除非 Pod 具有匹配的 Toleration，否则它们会排斥 Pod 被调度到该节点上",
+      "c": "它们设置该节点被允许运行的最大 Pod 数量",
+      "d": "它们会加密存储在该节点本地磁盘上的所有数据"
+    },
+    "explanation": "Taint 会标记一个节点，使得默认情况下不会有 Pod 被调度到该节点上，除非该 Pod 明确容忍（tolerate）该 taint。例如，这可用于为特定工作负载预留专用节点。Taint 不会将节点从集群中移除（a），不会限制 Pod 数量（c），也与磁盘加密无关（d）。"
+  },
+  "cka-config_scheduling-19": {
+    "question": "Taint/Toleration 之间的关系与 Node Affinity 所表达的关系在概念上有何不同？",
+    "options": {
+      "a": "它们在功能上完全相同；Taint/Toleration 只是 Node Affinity 的旧式、已弃用的写法",
+      "b": "Taint/Toleration 将 Pod 吸引到特定节点，而 Node Affinity 则将其排斥",
+      "c": "Taint/Toleration 从节点一侧发挥作用，排斥 Pod，除非它们明确容忍该 taint；而 Node Affinity 从 Pod 一侧发挥作用，表达 Pod 希望（或必须）被吸引到某些节点的偏好或要求",
+      "d": "Node Affinity 只能用于 StatefulSet，而 Taint/Toleration 只能用于 Deployment"
+    },
+    "explanation": "Taint 设置在节点上，起到一种排斥力的作用，Pod 必须明确容忍才能被允许运行在该节点上；Node Affinity 设置在 Pod 上，表达该 Pod 想要（或必须）运行在哪些节点上。它们是互补关系，而非可互换或已弃用的关系（a），选项 (b) 中吸引/排斥的方向是相反的，且这两种机制都不限于特定的工作负载控制器类型（d）。"
+  },
+  "cka-config_scheduling-20": {
+    "question": "一个团队希望专用的 \"gpu-only\" 节点池中的每个节点只运行 GPU 工作负载，同时让非 GPU 的 Pod 完全避开这些节点，并且还要主动将 GPU Pod 引导到这些节点上。以下哪种概念组合最适合实现这一目标？",
+    "options": {
+      "a": "对 GPU 节点打上 taint，使只有具备匹配 Toleration 的 Pod 才能被调度到那里，另外在 GPU Pod 上使用 Node Affinity，使其被吸引到标记为 GPU 节点的节点上",
+      "b": "使用 ConfigMap 在每个 Pod 的配置中列出 GPU 节点的名称",
+      "c": "仅使用 Namespace，因为将 GPU Pod 放入单独的 Namespace 会自动将其限制在 GPU 节点上",
+      "d": "仅使用 resource limit，因为设置较高的内存限制会迫使调度器选择 GPU 节点"
+    },
+    "explanation": "Taint/Toleration 使非 GPU Pod 远离专用节点（带有明确选择加入机制的排斥），而 GPU Pod 上的 Node Affinity 则主动将其吸引到那些已打标签的节点——两者结合起来既能实现专用隔离，又能实现引导。ConfigMap 承载的是配置数据，而不是调度逻辑（b）；Namespace 提供逻辑隔离，但对节点放置没有任何影响（c）；resource limit 只是限制使用量上限，并不会影响选择哪种类型的节点（d）。"
+  },
+  "cka-core_concepts-01": {
+    "question": "Kubernetes 主要解决的核心问题是什么？",
+    "options": {
+      "a": "将应用程序源代码编译成容器镜像",
+      "b": "自动化容器化应用程序在一组机器上的部署、扩缩和运维",
+      "c": "取代软件项目中对版本控制系统的需求",
+      "d": "提供用于编写应用程序代码的图形化文本编辑器"
+    },
+    "explanation": "Kubernetes 是一个容器编排平台：它在一组机器上自动化容器化工作负载的部署、扩缩、自愈和管理。它不构建镜像（那是 Docker/Buildpacks 等工具的工作）、不管理源代码历史，也不充当编辑器。"
+  },
+  "cka-core_concepts-02": {
+    "question": "在 Kubernetes 声明式的期望状态（desired-state）模型中，用户通常如何让系统达到目标配置？",
+    "options": {
+      "a": "编写一个按顺序发出所需每条命令的分步脚本",
+      "b": "在每个节点上手动逐一启动和停止容器",
+      "c": "在一份清单（manifest）中描述期望的最终状态，并让 Kubernetes 持续努力使现实与之匹配",
+      "d": "调度一个一次性的 cron 任务，用于配置资源后即退出"
+    },
+    "explanation": "声明式管理意味着你陈述你想要什么（例如\"该容器的 3 个副本\"），而不是陈述达成目标所需的命令式步骤。Kubernetes 控制器会持续将实际状态向期望状态进行协调（reconcile）。编写有序的命令式脚本、逐节点手动管理容器，以及一次性的配置任务，都属于命令式方式，而不是声明式模型。"
+  },
+  "cka-core_concepts-03": {
+    "question": "哪些组件共同构成 Kubernetes 的控制平面（control plane）？",
+    "options": {
+      "a": "kube-apiserver、etcd、kube-scheduler，以及 controller manager",
+      "b": "kubelet、kube-proxy，以及容器运行时（container runtime）",
+      "c": "容器镜像仓库和 CI/CD 流水线",
+      "d": "负载均衡器和集群的 DNS 服务器"
+    },
+    "explanation": "控制平面由 API server、etcd、scheduler 和 controller manager 组成（在适用情况下还包括 cloud-controller-manager）。kubelet、kube-proxy 和容器运行时运行在工作节点上，而不属于控制平面。镜像仓库和 CI/CD 流水线是外部工具，不属于控制平面。"
+  },
+  "cka-core_concepts-04": {
+    "question": "kube-apiserver 的主要作用是什么？",
+    "options": {
+      "a": "它直接在工作节点上执行容器",
+      "b": "它将所有持久化的集群状态作为唯一真实来源存储在磁盘上",
+      "c": "它决定新建的 Pod 应该运行在哪个节点上",
+      "d": "它暴露 Kubernetes 的 REST API，并作为所有组件读写集群状态的核心入口"
+    },
+    "explanation": "API server 是集群的前门：每个组件（kubectl、控制器、kubelet、调度器）都通过其 REST API 与之通信，它在通过 etcd 持久化请求之前会先对其进行验证和处理。运行容器是 kubelet 的工作，存储持久化状态是 etcd 的工作，而将 Pod 分配到节点是调度器的工作。"
+  },
+  "cka-core_concepts-05": {
+    "question": "etcd 在 Kubernetes 集群中的作用是什么？",
+    "options": {
+      "a": "它是一个仅在控制平面节点上使用的轻量级容器运行时",
+      "b": "它是一个分布式的、一致性的键值存储，保存集群的持久化配置和状态数据",
+      "c": "它是定期重新构建容器镜像的组件",
+      "d": "它是将流量路由到 Pod 的负载均衡代理"
+    },
+    "explanation": "etcd 是一个分布式键值存储，用作 Kubernetes 保存所有集群数据的后端存储——API server 从中读取并向其写入数据。它不是容器运行时，不是镜像构建器，也不是网络代理。"
+  },
+  "cka-core_concepts-06": {
+    "question": "kube-scheduler 的主要工作是什么？",
+    "options": {
+      "a": "它持续重启在节点上崩溃的容器",
+      "b": "它在用户提交的期望状态写入 etcd 之前对其进行存储",
+      "c": "它监视尚未分配节点的新建 Pod，并为它们选择合适的节点来运行",
+      "d": "它管理每个节点上 Service 的网络路由规则"
+    },
+    "explanation": "调度器根据资源需求、约束条件和策略，将尚未调度的 Pod 分配到节点。重启崩溃的容器是 kubelet 的工作，逐节点的网络规则是 kube-proxy 的工作，调度器本身并不存储期望状态，它只是决定放置位置。"
+  },
+  "cka-core_concepts-07": {
+    "question": "kube-controller-manager 的作用是什么？",
+    "options": {
+      "a": "它运行多个控制器循环（例如 ReplicaSet 控制器和 Node 控制器），监视集群状态并采取行动使其趋向期望状态",
+      "b": "它是安装在每个工作节点上、负责启动和停止容器的代理",
+      "c": "它提供用户输入命令的命令行界面",
+      "d": "它从源代码仓库构建容器镜像"
+    },
+    "explanation": "controller manager 运行一系列控制循环（Node 控制器、ReplicaSet 控制器、Endpoints 控制器等），每一个都在监视集群的当前状态，并使其向期望状态协调。那个逐节点的容器代理是 kubelet，命令行界面是 kubectl，镜像构建与该组件无关。"
+  },
+  "cka-core_concepts-08": {
+    "question": "什么是 kubelet？",
+    "options": {
+      "a": "一个控制平面组件，决定每个 Pod 应运行在哪个节点上",
+      "b": "API server 用于读请求的内部缓存层",
+      "c": "一个运行在每个工作节点上的代理，确保分配给该节点的 Pod 规范（Pod spec）中所描述的容器确实在运行且健康",
+      "d": "管理员用来发出 kubectl 命令的命令行工具"
+    },
+    "explanation": "kubelet 运行在每个节点上，负责确保分配给该节点的 Pod 中描述的容器正在运行，并将节点和 Pod 的状态报告回控制平面。它不是调度器，不是 API server 的缓存，也不是 kubectl 命令行工具。"
+  },
+  "cka-core_concepts-09": {
+    "question": "kube-proxy 的主要功能是什么？",
+    "options": {
+      "a": "它根据可用的 CPU 和内存将 Pod 调度到节点上",
+      "b": "它在每个节点上维护网络规则，使发送到 Service 的流量能正确路由到某个后端 Pod",
+      "c": "它持久化存储集群的配置数据",
+      "d": "它在容器运行时启动容器之前从镜像仓库拉取容器镜像"
+    },
+    "explanation": "kube-proxy 运行在每个节点上，管理网络规则（通过 iptables、IPVS 或类似机制），实现 Service 抽象，将流量转发到正确的后端 Pod。调度是调度器的工作，持久化存储是 etcd 的工作，拉取镜像由容器运行时处理。"
+  },
+  "cka-core_concepts-10": {
+    "question": "容器运行时（例如 containerd 或 CRI-O）在 Kubernetes 节点中的作用是什么？",
+    "options": {
+      "a": "它决定哪些节点有资格成为控制平面成员",
+      "b": "它监视 etcd 的变化并相应地更新 DNS 记录",
+      "c": "它向外部客户端暴露集群的 REST API",
+      "d": "它是真正执行拉取容器镜像、创建、启动和停止容器工作的底层软件，由 kubelet 调用"
+    },
+    "explanation": "容器运行时是实际执行运行容器工作的引擎，kubelet 通过容器运行时接口（CRI）调用它来拉取镜像及启动/停止容器。它在控制平面成员资格、DNS 更新或提供 API 服务方面都不起作用。"
+  },
+  "cka-core_concepts-11": {
+    "question": "简单来说，什么是 Kubernetes 集群（cluster）？",
+    "options": {
+      "a": "一组机器（节点）——分为控制平面和工作节点角色——被联合在一起，作为单一系统进行管理，以运行容器化工作负载",
+      "b": "一台承载组织所有容器的单一物理服务器",
+      "c": "一个将应用程序与 Kubernetes 二进制文件打包在一起的容器镜像",
+      "d": "用于在一个节点内对 Pod 进行逻辑分组的 Namespace"
+    },
+    "explanation": "集群是一组机器的集合，通常一部分运行控制平面组件，另一部分作为工作节点运行工作负载，Kubernetes 将它们作为一个系统进行协调。它不是单台服务器，不是容器镜像，而 Namespace 是集群内部的逻辑分区，而不是集群本身。"
+  },
+  "cka-core_concepts-12": {
+    "question": "在典型的 Kubernetes YAML 清单中，顶层的 'kind' 字段指定的是什么？",
+    "options": {
+      "a": "清单所测试针对的 Kubernetes 集群版本",
+      "b": "该对象应创建在哪个 Namespace 中",
+      "c": "所定义对象的类型，例如 Pod、Deployment 或 Service",
+      "d": "该对象应运行的容器镜像"
+    },
+    "explanation": "'kind' 告诉 API server 该清单描述的资源类型（Pod、Deployment、Service 等），而这又决定了该对象将如何被处理。这里不会指定 Kubernetes 集群版本，Namespace 通常位于 'metadata' 下，容器镜像则在更深层的 'spec' 中指定。"
+  },
+  "cka-core_concepts-13": {
+    "question": "在 Kubernetes 清单中，'metadata' 部分应包含哪类信息？",
+    "options": {
+      "a": "期望的副本数量和要运行的容器镜像",
+      "b": "用于标识对象的信息，例如其名称、Namespace 和 Label",
+      "c": "Kubernetes 为该对象记录的运行时状态",
+      "d": "该对象必须运行的确切节点"
+    },
+    "explanation": "'metadata' 保存用于标识和组织对象的数据：名称、Namespace、Label 和注解（annotation）。副本数量和镜像属于 'spec'，运行时状态在 'status' 下报告（由 Kubernetes 管理，而非由用户编写），节点放置通常通过 'spec' 中的调度字段表达，而不是 metadata。"
+  },
+  "cka-core_concepts-14": {
+    "question": "Kubernetes 清单的 'spec' 部分代表什么？",
+    "options": {
+      "a": "该对象所有先前版本的历史记录",
+      "b": "kubelet 最后一次报告的该对象当前观测状态",
+      "c": "该对象的 Label 和注解列表",
+      "d": "该对象的期望配置，即用户希望 Kubernetes 实现的状态"
+    },
+    "explanation": "'spec' 是用户声明期望状态的地方，例如副本数量、使用哪个镜像、哪些端口。这与 'status' 部分不同，后者由 Kubernetes 填充观测到的当前状态。这里没有内置的版本历史字段，Label/注解则位于 'metadata' 下。"
+  },
+  "cka-core_concepts-15": {
+    "question": "从概念上讲，Kubernetes Namespace 的用途是什么？",
+    "options": {
+      "a": "它提供了一种将单个集群划分为多个虚拟隔离分组的方式，从而使资源名称、访问控制和配额可以在每个分组内单独限定范围",
+      "b": "它定义了集群中不同工作节点之间的物理边界",
+      "c": "它是用于将控制平面与工作节点隔离的机制",
+      "d": "它是容器镜像仓库的同义词"
+    },
+    "explanation": "Namespace 是一种在单个集群内进行逻辑分区的方式（例如按团队或环境划分），使对象名称只需在一个 Namespace 内唯一，且策略/配额可以按 Namespace 应用。它们是逻辑上的划分，而非物理划分，不会将控制平面与工作节点分开，也与镜像仓库毫无关系。"
+  },
+  "cka-core_concepts-16": {
+    "question": "Kubernetes 控制器所依赖的\"协调循环\"（reconciliation loop，即控制循环）模式是什么？",
+    "options": {
+      "a": "在安装期间配置集群、之后再也不运行的一次性脚本",
+      "b": "一个持续循环的过程，控制器观察当前状态，将其与期望状态进行比较，并采取行动来减少两者之间的差异，如此无限重复",
+      "c": "操作员定期手动应用 YAML 文件以修复漂移的人工过程",
+      "d": "按固定计划对 etcd 数据进行快照的备份过程"
+    },
+    "explanation": "协调循环是 Kubernetes 自愈行为背后的核心机制：控制器持续观察实际状态与期望状态的差异，并采取行动使其收敛，而无需人工重新运行任何东西。它不是一次性的安装步骤，不是人工手动过程，也与 etcd 备份无关。"
+  },
+  "cka-core_concepts-17": {
+    "question": "一位初级工程师删除了一个直接创建（未由 Deployment 或 ReplicaSet 管理）的 Pod。会发生什么？",
+    "options": {
+      "a": "API server 会在几秒钟内自动重新创建一个完全相同的 Pod",
+      "b": "同一节点上的 kubelet 会在不联系控制平面的情况下立即重新创建该 Pod",
+      "c": "该 Pod 就此彻底消失；不会有任何东西重新创建它，因为没有控制器在管理其期望副本数",
+      "d": "调度器会在另一个节点上重新创建该 Pod 以实现负载均衡"
+    },
+    "explanation": "独立的 Pod 没有控制器在监视并强制执行期望副本数，因此删除它只会将其永久移除。只有当某个控制器（例如 Deployment 背后的 ReplicaSet）负责维护该 Pod 的存在时，才会发生自愈式的重新创建。API server、kubelet 和调度器都不会自主决定重新创建一个无人管理的 Pod。"
+  },
+  "cka-core_concepts-18": {
+    "question": "为什么 Kubernetes 几乎将所有内部组件通信（调度器、controller manager、kubelet）都路由经过 kube-apiserver，而不是让这些组件直接与 etcd 或彼此通信？",
+    "options": {
+      "a": "因为 etcd 一次只能处理一个连接",
+      "b": "因为 kubelet 和调度器在物理上无法发出网络请求",
+      "c": "这纯粹是历史遗留问题，如今已没有设计上的好处",
+      "d": "API server 集中处理认证、授权、校验以及对状态的一致访问，因此各组件不需要各自对数据存储拥有直接、不受管控的访问权限"
+    },
+    "explanation": "通过 API server 集中访问意味着每一次读写都要经受一致的认证、准入控制和校验，并且只有 API server 需要直接访问 etcd，这简化了安全性和一致性。etcd 可以服务多个客户端，各组件确实能够（也确实会）发出网络请求，而这是一个深思熟虑的架构选择，而不是意外。"
+  },
+  "cka-networking-01": {
+    "question": "Pod 是短暂存在的，每次重建都会获得新的 IP 地址。哪个 Kubernetes 对象解决了可靠地访问一组不断变化的 Pod 这一问题？",
+    "options": {
+      "a": "ReplicaSet",
+      "b": "Service",
+      "c": "ConfigMap",
+      "d": "Namespace"
+    },
+    "explanation": "Service 提供了一个稳定的虚拟 IP 和 DNS 名称，即使底层 Pod 被替换或重新调度，该 IP 和名称也保持不变，从而将客户端与单个 Pod 的 IP 解耦。ReplicaSet 只管理 Pod 副本数量，与网络无关。ConfigMap 存储配置数据，Namespace 是一种逻辑分组机制，二者都不提供稳定的网络能力。"
+  },
+  "cka-networking-02": {
+    "question": "Service 通过什么机制来选择 Pod？",
+    "options": {
+      "a": "与 Pod 标签匹配的 Label 选择器",
+      "b": "精确匹配的 Pod 名称",
+      "c": "Pod 被调度到的节点",
+      "d": "Pod 使用的容器镜像"
+    },
+    "explanation": "Service 使用 Label 选择器动态发现并将流量路由到任何标签匹配的 Pod，而不管 Pod 名称或它运行在哪个节点上。按精确 Pod 名称匹配会在 Pod 以新名称重建时失效，而按节点或镜像匹配也不是 Service 到 Pod 路由的方式。"
+  },
+  "cka-networking-03": {
+    "question": "Kubernetes 中默认的 Service 类型是哪一种，它仅在集群内部可达的虚拟 IP 上暴露该 Service？",
+    "options": {
+      "a": "NodePort",
+      "b": "LoadBalancer",
+      "c": "ClusterIP",
+      "d": "ExternalName"
+    },
+    "explanation": "ClusterIP 是默认的 Service 类型，只能从集群内部访问，适合微服务之间的内部通信。NodePort 和 LoadBalancer 都会将 Service 对外暴露，而 ExternalName 根本不会代理到 Pod，而是映射到一个外部 DNS 名称。"
+  },
+  "cka-networking-04": {
+    "question": "一位初级工程师需要在每个集群节点的静态端口上快速暴露一个应用程序，以便进行基本测试，且不希望配置任何云基础设施。哪种 Service 类型最合适？",
+    "options": {
+      "a": "ClusterIP",
+      "b": "ExternalName",
+      "c": "LoadBalancer",
+      "d": "NodePort"
+    },
+    "explanation": "NodePort 会在每个节点的 IP 上开放一个静态端口（在指定范围内），因此应用无需云负载均衡器即可从外部访问。ClusterIP 仅限内部访问，LoadBalancer 需要云提供商集成来配置外部负载均衡器，而 ExternalName 根本不会暴露 Pod。"
+  },
+  "cka-networking-05": {
+    "question": "在云环境中，LoadBalancer 类型的 Service 通常会做什么？",
+    "options": {
+      "a": "它创建一个允许所有入站流量的 NetworkPolicy",
+      "b": "它配置一个外部云负载均衡器，将流量路由进入集群",
+      "c": "它将 Pod 重命名为符合 DNS 规范的格式",
+      "d": "它将 Pod 网络转换为 overlay 网络"
+    },
+    "explanation": "LoadBalancer 类型的 Service 请求云提供商的集成组件配置一个外部负载均衡器（例如 ELB 或等效产品），将流量转发到该 Service，再由 Service 转发到 Pod。它与 NetworkPolicy、Pod 命名或底层网络实现（overlay 与否）无关，这些是各自独立的关注点。"
+  },
+  "cka-networking-06": {
+    "question": "ExternalName Service 的用途是什么？",
+    "options": {
+      "a": "在集群内部创建一个 DNS 别名，解析为外部主机名，而不通过 Pod 代理流量",
+      "b": "在不停机的情况下重命名现有的 Service",
+      "c": "在一系列外部端口上暴露一个 Service",
+      "d": "在多个外部云提供商之间对流量进行负载均衡"
+    },
+    "explanation": "ExternalName 通过类似 CNAME 的记录将 Service 名称映射到外部 DNS 名称，使集群内的应用可以使用集群内部 DNS 访问集群外的资源（例如外部数据库），不涉及选择器、endpoint 或代理。它不是重命名机制，不是端口暴露机制，也不是多云负载均衡器。"
+  },
+  "cka-networking-07": {
+    "question": "普通 Service 和 Ingress 之间在概念上的主要区别是什么？",
+    "options": {
+      "a": "Service 只能用于内部流量，而 Ingress 也只能用于内部流量",
+      "b": "Ingress 完全取代了对 Pod 的需求",
+      "c": "Service 主要在传输层为单个应用工作，而 Ingress 提供跨多个 Service 的 HTTP/HTTPS 感知路由（例如按主机名或路径）",
+      "d": "Service 需要控制器才能工作，而 Ingress 不需要"
+    },
+    "explanation": "Ingress 工作在应用层，理解主机名和 URL 路径等 HTTP 概念，使一个入口点可以路由到多个后端 Service，而 Service 主要是指向一组 Pod 的四层（TCP/UDP）构造。其他选项都错误地描述了这种关系：Ingress 并不能取代 Pod，而恰恰是 Ingress（而非 Service）需要控制器才能起作用。"
+  },
+  "cka-networking-08": {
+    "question": "一个团队在一个全新的集群中创建了一个 Ingress 资源，但流量始终无法到达任何后端，并且该 Ingress 也没有被分配任何地址。最可能的原因是什么？",
+    "options": {
+      "a": "Ingress 资源已被弃用，不再起作用",
+      "b": "Ingress 背后的 Pod 没有 Label",
+      "c": "NetworkPolicy 默认阻止了所有流量",
+      "d": "集群中未安装用于实现该 Ingress 资源的 Ingress 控制器"
+    },
+    "explanation": "Ingress 资源本身只是一组路由规则，它自身不会做任何事情。它需要集群中运行一个 Ingress 控制器（例如 NGINX Ingress、Traefik、HAProxy 等）来监视 Ingress 对象并真正实现路由。Ingress 并未被弃用，虽然缺少 Pod 标签或 NetworkPolicy 可能造成问题，但它们无法解释 Ingress 自身完全没有分配地址或路由行为的情况。"
+  },
+  "cka-networking-09": {
+    "question": "以下哪一项是 Ingress 通常会新增、而单纯的 Service 无法提供的能力？",
+    "options": {
+      "a": "分配 Pod IP 地址",
+      "b": "根据请求的主机名或 URL 路径，将请求路由到不同的后端 Service",
+      "c": "将 Pod 调度到节点上",
+      "d": "存储持久化的应用数据"
+    },
+    "explanation": "Ingress 让单一入口点可以根据 HTTP 主机或路径规则，将流量分发到不同的后端 Service，而普通 Service 无法做到这一点，因为它只会转发到一组被选中的 Pod。Pod IP 分配、调度和持久化存储是由其他组件（网络插件、调度器和存储子系统）负责的无关职责。"
+  },
+  "cka-networking-10": {
+    "question": "是什么使应用 Pod 仅通过名称（例如连接到 \"my-database\"）就能访问 Service，而无需使用 IP 地址？",
+    "options": {
+      "a": "Kubernetes 集群 DNS，它会自动为 Service 创建 DNS 记录",
+      "b": "每个 Pod 都维护一份手动更新的 /etc/hosts 文件",
+      "c": "容器运行时无需 DNS 即可原生解析 Service 名称",
+      "d": "NetworkPolicy 对象负责名称解析"
+    },
+    "explanation": "Kubernetes 运行一个集群内 DNS 服务（例如 CoreDNS），会自动为每个 Service 创建 DNS 记录，因此 Pod 无需手动配置即可将 Service 名称解析为其 ClusterIP。Pod 并不依赖手动维护的 hosts 文件，容器运行时也不负责 Kubernetes 感知的名称解析，而 NetworkPolicy 管理的是流量许可，而不是名称解析。"
+  },
+  "cka-networking-11": {
+    "question": "在默认的集群 DNS 方案中，\"billing\" Namespace 中名为 \"payments\" 的 Service 在集群内部可通过哪种通用模式进行完整寻址？",
+    "options": {
+      "a": "payments.billing.pod.local",
+      "b": "billing-payments.internal",
+      "c": "payments.billing.svc.cluster.local",
+      "d": "svc.payments.billing.cluster.local"
+    },
+    "explanation": "Service 的常规 Kubernetes DNS 模式是 <service-name>.<namespace>.svc.cluster.local，因此 \"billing\" Namespace 中名为 \"payments\" 的 Service 会解析为 payments.billing.svc.cluster.local。其他选项使用了错误的顺序或无效的后缀，与集群 DNS 构造 Service 名称的方式不符。"
+  },
+  "cka-networking-12": {
+    "question": "\"frontend\" Namespace 中的一个 Pod 想要访问位于 \"backend\" Namespace 中名为 \"cache\" 的 Service，仅使用不带 Namespace 限定符的短名称 \"cache\"。通常会发生什么？",
+    "options": {
+      "a": "它能正确解析，因为 Service 名称在所有 Namespace 中是全局唯一的",
+      "b": "它不会解析到预期的 Service，因为裸短名称默认会在发起请求的 Pod 自身的 Namespace 内查找",
+      "c": "它会自动解析，因为集群 DNS 会搜索每一个 Namespace 来寻找匹配项",
+      "d": "它会永久失败，即使使用完全限定名称也无法修复"
+    },
+    "explanation": "集群 DNS 的搜索域默认在发起请求的 Pod 自身的 Namespace 内解析不带限定符的名称，因此从 \"frontend\" Namespace 发起的裸 \"cache\" 查询会在 \"frontend\" 中寻找名为 \"cache\" 的 Service，而不是在 \"backend\" 中。使用带 Namespace 限定的名称（cache.backend）或完全限定名称（cache.backend.svc.cluster.local）即可正确解析，因此这并非永久性故障，而且 Service 名称只在 Namespace 内唯一，并非全局唯一。"
+  },
+  "cka-networking-13": {
+    "question": "默认情况下，在某个 Namespace 中创建任何 NetworkPolicy 对象之前，Pod 之间的流量行为是怎样的？",
+    "options": {
+      "a": "所有流量都被拒绝，直到管理员显式允许",
+      "b": "只允许同一节点内的流量",
+      "c": "所有流量都被允许；Pod 之间可以自由通信",
+      "d": "只允许流向和来自 Service 的流量，直接的 Pod 间流量会被阻止"
+    },
+    "explanation": "Kubernetes 网络默认是\"默认允许\"的：在没有任何 NetworkPolicy 资源的情况下，所有 Pod 都可以向任何其他 Pod 发送和接收流量，而不管它们处于哪个 Namespace 或节点。NetworkPolicy 的存在正是为了限制这种默认开放的行为；默认情况下不会阻止任何流量，Pod 间流量也不局限于同节点或经由 Service 中转的路径。"
+  },
+  "cka-networking-14": {
+    "question": "NetworkPolicy 资源的一般用途是什么？",
+    "options": {
+      "a": "根据选择器和规则，限制哪些 Pod 可以与哪些其他 Pod（以及在哪些端口上）通信",
+      "b": "为 Pod 分配静态 IP 地址",
+      "c": "在一个 Service 的多个副本之间负载均衡流量",
+      "d": "根据流量自动扩缩 Pod 副本数量"
+    },
+    "explanation": "NetworkPolicy 定义了基于 Pod/Namespace 选择器和端口/协议的规则，限制哪些流量被允许进出被选中的 Pod，实际上实现了网络分段。它不分配 IP 地址（由 CNI 插件负责），不执行负载均衡（那是 Service 的职责），也与自动扩缩容无关。"
+  },
+  "cka-networking-15": {
+    "question": "一个团队创建了一个 NetworkPolicy，选中带有 \"role=database\" 标签的 Pod，只允许来自带有 \"role=backend\" 标签的 Pod、通过 5432 端口的入站流量。对于那些未带 \"role=backend\" 标签的 Pod，流向这些数据库 Pod 的流量会受到什么影响？",
+    "options": {
+      "a": "仍然被允许，因为 NetworkPolicy 只能新增允许的流量，永远不能限制流量",
+      "b": "不受影响，因为 NetworkPolicy 只适用于离开 Pod 的流量，而不适用于到达 Pod 的流量",
+      "c": "只有在流量经过 Service 而不是直接连接到 Pod IP 时才被允许",
+      "d": "被拒绝，因为一旦某个 Pod 被任何带有 ingress 规则的 NetworkPolicy 选中，就只有显式允许的流量才能到达它，其余所有入站流量都会被阻止"
+    },
+    "explanation": "一旦某个 Pod 被指定了 ingress 规则的 NetworkPolicy 选中，该 Pod 就会从默认允许切换为默认拒绝入站流量，只有匹配显式规则的流量（此处为来自 role=backend、端口 5432 的流量）才被允许；其余流量全部被阻止。NetworkPolicy 可以限制流量，而不仅仅是新增流量，它们既可应用于 ingress 也可应用于 egress，具体取决于其编写方式，并且该限制在 Pod 层面生效，与流量是经由 Service 还是直接到达无关。"
+  },
+  "cka-networking-16": {
+    "question": "在标准的 Kubernetes Pod 网络模型中，IP 地址是如何分配给 Pod 的？",
+    "options": {
+      "a": "同一节点上的所有 Pod 共享一个 IP 地址，通过端口号区分",
+      "b": "每个 Pod 都获得自己独有的唯一 IP 地址，Pod 之间可以直接互相访问而无需 NAT，无论它们运行在哪个节点上",
+      "c": "Pod 只有在通过 Service 暴露后才会获得 IP 地址",
+      "d": "Pod 共享其被调度到的那个节点的 IP 地址"
+    },
+    "explanation": "Kubernetes 网络要求采用一种扁平模型，每个 Pod 都获得一个集群范围内唯一的 IP 地址，任何 Pod 都可以直接与任何其他 Pod 的 IP 通信而无需 NAT，无论节点如何放置。Pod 不会共享节点的 IP，也不会共用一个基于端口区分的共享 IP，并且 Pod 一旦被调度并运行就会获得 IP，与是否存在对应的 Service 无关。"
+  },
+  "cka-networking-17": {
+    "question": "为什么扁平的、无 NAT 的 Pod 网络模型（每个 Pod 都获得一个可路由的 IP，可被任何其他 Pod 访问）被认为是 Kubernetes 网络的基础性要求？",
+    "options": {
+      "a": "它完全消除了对 Service 对象的需求",
+      "b": "它保证 Pod 之间的流量会自动被加密",
+      "c": "它简化了应用设计，因为 Pod 可以直接互相寻址，而无需转换端口或管理逐节点的 NAT 规则",
+      "d": "它确保每个 Pod 都自动获得面向公共互联网的 IP"
+    },
+    "explanation": "由于每个 Pod 都可以直接访问任何其他 Pod 的 IP 而无需 NAT 转换，应用程序和集群组件都不必处理端口重映射或逐节点的 NAT 记录管理，这极大简化了网络逻辑。要实现稳定寻址和跨不断变化 Pod 集合的负载均衡，仍然非常需要 Service，该模型对加密没有任何规定，而且 Pod IP 是集群内部的，不会自动面向公网。"
+  },
+  "cka-networking-18": {
+    "question": "一个前端应用需要调用一个作为 Deployment 运行、拥有多个副本 Pod 的后端 API，纯粹用于内部的、仅限集群内的通信，并要求跨副本自动负载均衡。以下哪种方案最适合这一需求？",
+    "options": {
+      "a": "在后端 Pod 前面创建一个 ClusterIP Service，并让前端调用该 Service 的 DNS 名称",
+      "b": "将某个后端 Pod 的 IP 地址硬编码到前端的配置中",
+      "c": "创建一个 NodePort Service 并将其暴露到互联网",
+      "d": "创建一个未定义任何后端 Service 的 Ingress 资源"
+    },
+    "explanation": "ClusterIP Service 正是为了以稳定、仅限内部、负载均衡的方式访问一组副本 Pod 而设计的，通过一致的 DNS 名称即可实现，这正是这个纯内部使用场景所需要的。硬编码单个 Pod 的 IP 会在 Pod 被替换时失效，且不提供负载均衡；将 NodePort 暴露到互联网对于仅限内部的流量来说既没必要也不够安全；而没有后端 Service 的 Ingress 也无法将流量路由到任何有意义的地方。"
+  },
+  "cka-security_admin-01": {
+    "question": "一个团队想要授予某用户列出并监视（list 和 watch）PersistentVolume 的权限，而 PersistentVolume 是集群范围（非 Namespace 化）的资源。必须使用哪个 RBAC 对象来定义这些权限？",
+    "options": {
+      "a": "Role，因为它更严格，因此默认更安全",
+      "b": "Role 或 ClusterRole 均可，因为两者都可以引用任意资源类型",
+      "c": "ClusterRole，因为 Role 只能授予对具有 Namespace 属性的资源的权限",
+      "d": "带有授予集群范围只读访问权限注解的 ServiceAccount"
+    },
+    "explanation": "Role 是具有 Namespace 属性的对象，只能授予对属于某个 Namespace 内资源的访问权限。诸如 Node、PersistentVolume 以及 Namespace 本身这样的集群范围资源，只能通过 ClusterRole 授权。选项 a 错误，因为无论意图如何，Role 根本无法表达这种权限。选项 b 错误，因为 Role 无法针对集群范围的资源。选项 d 混淆了 ServiceAccount（身份）与权限定义（始终是 RBAC 的 Role/ClusterRole 对象）。"
+  },
+  "cka-security_admin-02": {
+    "question": "一位管理员在 'billing' Namespace 中创建了一个 RoleBinding，引用了一个已存在的名为 'edit' 的 ClusterRole（而不是 Role）。效果是什么？",
+    "options": {
+      "a": "这是无效的；RoleBinding 只能引用 Role，绝不能引用 ClusterRole",
+      "b": "该主体获得 'edit' ClusterRole 中定义的权限，但仅应用于 'billing' Namespace 内的资源",
+      "c": "该主体获得 'edit' 中定义的权限，并在整个集群范围内的每个 Namespace 生效",
+      "d": "Kubernetes 会静默地将该 ClusterRole 转换为其自身的一个 Namespace 本地副本"
+    },
+    "explanation": "这是一种受支持且常见的模式：RoleBinding 可以引用 ClusterRole 以复用一组通用权限集（例如内置的 'edit' 或 'view' ClusterRole），同时将其效果限定在单个 Namespace 内。它不会授予集群范围的访问权限——那需要改用 ClusterRoleBinding。选项 a 在事实上是错误的（这种引用是被明确允许的），选项 c 描述的是 ClusterRoleBinding 会做的事情，选项 d 描述的行为并不存在。"
+  },
+  "cka-security_admin-03": {
+    "question": "一个 ClusterRoleBinding 授予某个组内置的 'view' ClusterRole。由此产生的访问权限的实际范围是什么？",
+    "options": {
+      "a": "对集群中所有 Namespace 内大多数资源的只读访问权限",
+      "b": "仅限于 'default' Namespace 的只读访问权限",
+      "c": "对所有具有 Namespace 属性的资源的读写权限，但不包括集群范围资源",
+      "d": "在每个 Namespace 中还需另外创建一个 RoleBinding 之前，没有任何访问权限"
+    },
+    "explanation": "ClusterRoleBinding 会将其引用的 ClusterRole 的权限应用于整个集群，横跨所有 Namespace——这正是它与 RoleBinding 的关键区别，后者即使引用了 ClusterRole，效果也始终限定在单个 Namespace 内。选项 b 描述的是 Namespace 范围的行为，这里并不适用。选项 c 错误，因为 'view' 只授予只读权限，不包括写权限。选项 d 错误；ClusterRoleBinding 生效于整个集群不需要额外的 RoleBinding。"
+  },
+  "cka-security_admin-04": {
+    "question": "一个 CI/CD 流水线只需要在 'staging' Namespace 中创建和更新 Deployment。按照最小权限原则，最合适的 RBAC 配置是什么？",
+    "options": {
+      "a": "为简化起见，将该流水线的 ServiceAccount 绑定到内置的 'cluster-admin' ClusterRole",
+      "b": "通过 ClusterRoleBinding 将该流水线的 ServiceAccount 绑定到内置的 'view' ClusterRole",
+      "c": "创建一个具有完整 Deployment 权限的 ClusterRole，并通过 ClusterRoleBinding 在集群范围内绑定它",
+      "d": "创建一个限定在 'staging' Namespace 内的 Role，只授予所需的动词（verb）权限操作 Deployment，并在该 Namespace 内通过 RoleBinding 绑定"
+    },
+    "explanation": "最小权限意味着只授予确切所需的访问权限，不多不少：一个限定在 Namespace 范围内的 Role，只包含 Deployment 所需的动词（例如 create、update、get、list），并且只在 'staging' 内绑定。选项 a 授予了不受限制的集群范围管理权限，如果流水线的凭据被泄露，将带来严重风险。选项 b 只授予只读访问权限，不足以完成任务。选项 c 授予了正确的动词权限，但不必要地暴露了集群中的每一个 Namespace。"
+  },
+  "cka-security_admin-05": {
+    "question": "一个 Pod 的清单中没有指定 'serviceAccountName'。当该 Pod 的进程从容器内部调用 Kubernetes API 时，使用的是什么身份？",
+    "options": {
+      "a": "没有身份；除非显式设置了 ServiceAccount，否则 Pod 无法向 API server 进行身份认证",
+      "b": "Pod 所在 Namespace 的 'default' ServiceAccount，除非被禁用，否则会自动挂载",
+      "c": "最后一次使用 kubectl 应用该清单的用户的身份",
+      "d": "一个自动为未分配的 Pod 创建的 cluster-admin ServiceAccount"
+    },
+    "explanation": "每个 Namespace 都会自动创建一个 'default' ServiceAccount，任何未另行指定的 Pod 都会自动被分配这个 ServiceAccount，其令牌会被挂载到 Pod 中（除非显式禁用自动挂载）。这也是为什么让 'default' 拥有过宽权限是一种常见的安全配置错误。选项 a 错误，因为 ServiceAccount 会被自动分配。选项 c 混淆了人类操作者的身份与正在运行的 Pod 的身份。选项 d 错误；默认情况下不会创建具有更高权限的 ServiceAccount。"
+  },
+  "cka-security_admin-06": {
+    "question": "为什么 'kubectl get users' 并不存在作为列出人类用户账户的方式，而 'kubectl get serviceaccounts' 却可以使用？",
+    "options": {
+      "a": "这是一个 bug，将在未来的 Kubernetes 版本中修复",
+      "b": "用户账户存储在 etcd 中，但位于需要特殊权限的受限 API 路径下",
+      "c": "Kubernetes 没有内置的 User API 对象；人类身份是通过外部方式（证书、OIDC 等）进行认证的，而 ServiceAccount 是 Kubernetes 自身管理的一等 API 对象",
+      "d": "User 和 ServiceAccount 其实是同一种对象类型，只是被 RBAC 以不同方式过滤"
+    },
+    "explanation": "Kubernetes 有意在其 API 中不设置 'User' 资源；它假定用户身份由外部系统管理和认证（客户端证书、通过 OIDC 的身份提供方、webhook 等），并且只是信任认证后所呈现的用户名/组信息。相比之下，ServiceAccount 是 Kubernetes 原生对象，旨在为 Pod 等集群内进程提供身份。选项 a 和 b 在事实上是错误的，选项 d 错误地声称它们是同一种对象类型。"
+  },
+  "cka-security_admin-07": {
+    "question": "一个 Namespace 中根本没有定义任何 NetworkPolicy 对象。假设 CNI 插件支持 NetworkPolicy 强制执行，该 Namespace 中 Pod 的默认网络行为是什么？",
+    "options": {
+      "a": "默认允许所有入站和出站流量；NetworkPolicy 是可选启用（opt-in）的，在有策略选中某个 Pod 之前，流量不受限制",
+      "b": "默认拒绝所有流量，直到至少有一个 NetworkPolicy 明确允许为止",
+      "c": "默认只允许来自同一 Namespace 内 Pod 的流量",
+      "d": "默认只允许知名端口（80、443）上的流量"
+    },
+    "explanation": "Kubernetes 网络默认是扁平且开放的：在没有任何 NetworkPolicy 选中某个 Pod 的情况下，该 Pod 的所有入站和出站流量都被允许。NetworkPolicy 是叠加式的限制——一旦某个策略针对某个流量方向选中了某个 Pod，该方向上只有明确允许的流量才被允许（仅对实际被选中的 pod/方向生效默认拒绝模型）。选项 b、c 和 d 描述的限制性默认行为并不存在，除非管理员创建了明确的默认拒绝策略。"
+  },
+  "cka-security_admin-08": {
+    "question": "两个独立的 NetworkPolicy 对象都为 ingress 选中了同一个 Pod：策略 A 允许来自 'frontend' Namespace 的流量，策略 B 允许来自 'monitoring' Namespace 的流量。实际上会有哪些流量被允许到达该 Pod？",
+    "options": {
+      "a": "只有同时满足两个策略的流量才被允许，因为策略是以逻辑 AND 方式组合的",
+      "b": "只有最近创建的策略生效；另一个会被忽略",
+      "c": "两个策略都不生效，因为一个 Pod 不能被多个 NetworkPolicy 选中",
+      "d": "来自 'frontend' 或 'monitoring' 的流量都会被允许，因为匹配的 NetworkPolicy 是以叠加方式组合的（逻辑 OR）"
+    },
+    "explanation": "当多个 NetworkPolicy 选中同一个 Pod 时，它们的规则是叠加的：只要连接匹配任意一个适用策略的规则，就会被允许。这是一个常见的混淆和配置错误来源——管理员有时会误以为策略是取交集（AND），而实际上它们是取并集（OR）。选项 a、b 和 c 都错误地描述了这种组合行为。"
+  },
+  "cka-security_admin-09": {
+    "question": "在当前的 Kubernetes 中，Pod Security Standards（Privileged、Baseline、Restricted）通常是如何在 Namespace 上强制执行的？",
+    "options": {
+      "a": "通过创建一个 PodSecurityPolicy 对象并将其绑定到该 Namespace 的 ServiceAccount",
+      "b": "通过在该 Namespace 上应用 'pod-security.kubernetes.io/enforce'（及相关）标签，由内置的 Pod Security Admission 控制器读取",
+      "c": "通过编写自定义的准入 webhook，因为 Kubernetes 没有内置机制来实现这一点",
+      "d": "通过在该 Namespace 上设置资源配额，间接限制特权工作负载"
+    },
+    "explanation": "PodSecurityPolicy 已被弃用并移除；它已被内置的 Pod Security Admission（PSA）控制器取代，该控制器通过在 Namespace 本身上使用类似 'pod-security.kubernetes.io/enforce=restricted' 的标签以声明方式配置——无需单独创建或绑定策略对象。选项 a 描述的是已被移除的旧机制。选项 c 错误，因为存在内置控制器。选项 d 混淆了资源配额（限制计算资源消耗）与安全态势的强制执行。"
+  },
+  "cka-security_admin-10": {
+    "question": "为什么 etcd 被称为 Kubernetes 集群的\"唯一真实来源\"（single source of truth）？",
+    "options": {
+      "a": "它缓存 API 响应以加快 kubectl 命令的速度，但真正的状态存在于各个 kubelet 中",
+      "b": "它只存储集群的审计日志，这些日志对合规是必需的，但对运行并非必需",
+      "c": "它是持久保存完整集群状态的唯一存储——每一个对象定义、Secret、ConfigMap 和 RBAC 绑定——而 API server 本身在很大程度上是无状态的",
+      "d": "它存储容器镜像，使节点无需从镜像仓库拉取"
+    },
+    "explanation": "etcd 是持久、一致的键值存储，保存着集群的全部声明状态和观测状态；kube-apiserver 从 etcd 读取并向其写入，但自身并不持久保存超出 etcd 之外的状态。这正是为什么 etcd 备份对灾难恢复至关重要。选项 a 颠倒了这种关系（kubelet 并不持有集群范围的真实状态）。选项 b 低估了 etcd 的作用，仅将其视为日志记录。选项 d 描述的是容器镜像存储，与 etcd 的功能无关。"
+  },
+  "cka-security_admin-11": {
+    "question": "一个 etcd 集群发生了不可恢复的数据丢失且没有可用的备份，而工作节点及其已运行的容器仍然物理在线。实际后果是什么？",
+    "options": {
+      "a": "已经运行的容器可能会短暂继续执行，但集群会丢失所有关于期望状态的记录——调度、自愈、Deployment、Secret 和 RBAC 规则实际上都不复存在，相当于从头开始",
+      "b": "什么都不会丢失，因为 kubelet 会在每个节点上独立持久化一份完整的集群状态副本",
+      "c": "只会丢失指标和日志；所有对象定义都会自动从正在运行的容器中重新同步",
+      "d": "API server 会通过检查每个节点上的容器运行时，自动重建 etcd 的内容"
+    },
+    "explanation": "由于 etcd 是集群状态的唯一权威存储，在没有备份的情况下丢失它意味着控制平面不再知道应该存在什么。已运行的容器可能会继续运行一段时间，因为 kubelet 在本地管理它们，但集群将无法再协调、重新调度或重建那部分状态——没有任何机制可以仅从正在运行的容器中重建 RBAC 规则、Secret 或 Deployment 规范。选项 b、c 和 d 描述的恢复机制在 Kubernetes 中并不存在。"
+  },
+  "cka-security_admin-12": {
+    "question": "在规划小版本集群升级时，为什么通常必须先升级控制平面组件，再升级工作节点的 kubelet？",
+    "options": {
+      "a": "这在实际中没有区别；顺序纯粹是一种风格惯例",
+      "b": "API server 的版本必须始终等于或高于与其通信的 kubelet 版本，因为 Kubernetes 只支持版本等于或低于 API server 版本的 kubelet（在受支持的偏差范围内）",
+      "c": "工作节点会自动从 etcd 获取它们的 kubelet 版本，因此 etcd 必须最后升级",
+      "d": "运行较新版本的 kubelet 会拒绝接受来自任何版本 API server 的连接"
+    },
+    "explanation": "Kubernetes 强制执行一种版本偏差策略，要求 kube-apiserver 的版本必须等于或高于 kube-controller-manager/scheduler 以及集群中任何 kubelet 的版本；kubelet 不得运行比 API server 更新的版本。先升级控制平面组件（apiserver、controller-manager、scheduler、etcd），可确保工作节点上运行的组件版本永远不会超出控制平面所支持的范围。选项 a 低估了一个真实存在的兼容性要求。选项 c 和 d 描述的机制并不存在。"
+  },
+  "cka-security_admin-13": {
+    "question": "在因硬件维护而将某个工作节点下线之前，管理员先对该节点执行 cordon，然后再执行 drain。除了 cordon 之外，为什么还需要 drain？",
+    "options": {
+      "a": "仅 cordon 就已经终止了该节点上的所有 Pod；drain 只是用于移除该节点对象本身",
+      "b": "drain 会自动安装维护补丁，而 cordon 只是重启节点",
+      "c": "cordon 只会阻止新 Pod 被调度到该节点上；已存在的 Pod 会继续运行，直到 drain 将其驱逐，从而使它们可以被优雅地重新调度到别处",
+      "d": "drain 是在关机之前撤销该节点 TLS 证书所必需的"
+    },
+    "explanation": "cordon（将节点标记为不可调度）只会阻止未来的 Pod 落到该节点上——它对该节点上已经运行的 Pod 没有任何影响。drain 会主动驱逐这些已存在的 Pod（遵循 PodDisruptionBudget 和优雅终止），以便在节点下线之前将工作负载重新安置到别处，避免突然、不受控的终止。选项 a 对 cordon 的效果描述错误。选项 b 和 d 描述的是无关或不存在的行为。"
+  },
+  "cka-security_admin-14": {
+    "question": "一个 Deployment 只有 2 个副本，并有一个要求 'minAvailable: 2' 的 PodDisruptionBudget。管理员尝试对运行其中一个副本的节点执行常规维护性 drain。会发生什么？",
+    "options": {
+      "a": "驱逐会立即无条件进行，因为 PodDisruptionBudget 只适用于崩溃等非自愿性中断",
+      "b": "该节点会被自动 uncordon，以阻止 drain 开始",
+      "c": "Kubernetes 会自动删除该 PodDisruptionBudget，以便维护能够继续进行",
+      "d": "对该 Pod 的驱逐请求会被阻止，因为驱逐它会违反 minAvailable 的要求；drain 会停滞，直到该约束能够被满足（例如通过扩容或等待），或者由管理员强制执行，从而接受可用性降低"
+    },
+    "explanation": "PodDisruptionBudget 专门用于防范自愿性中断，例如维护期间的节点 drain。'kubectl drain' 所使用的驱逐 API 会在驱逐 Pod 之前检查 PDB；如果驱逐会使可用副本数低于 'minAvailable'，驱逐请求会被拒绝，drain 会停滞/重试，直到情况改变。选项 a 错误地描述了 PDB 所保护的对象。选项 b 和 c 描述的行为不会自动发生。"
+  },
+  "cka-security_admin-15": {
+    "question": "一个节点用于向 API server 认证的 kubelet 客户端证书被允许过期而未轮换。最可能的后果是什么？",
+    "options": {
+      "a": "kubelet 无法再向 API server 进行身份认证，该节点通常会转变为 NotReady 状态，因为控制平面不再收到来自它的状态更新",
+      "b": "没有任何变化；证书只用于 etcd 之间的通信，不用于 kubelet 与 API server 之间的通信",
+      "c": "API server 会自动签发一个永久、不过期的证书作为后备方案",
+      "d": "只有该节点上新的 Pod 调度会受到影响；已有的 Pod 和状态报告继续正常进行"
+    },
+    "explanation": "kubelet 使用客户端证书向 API server 进行身份认证，如果这些证书过期而未轮换，认证就会失败——kubelet 将无法再报告节点/Pod 状态或接收更新，该节点通常会被标记为 NotReady。Kubernetes 支持自动的 kubelet 证书轮换来防止这种情况，但该机制必须已启用且正常运作。选项 b 错误地描述了这些证书的用途。选项 c 和 d 描述的行为并不会发生。"
+  },
+  "cka-security_admin-16": {
+    "question": "在典型的 kubeadm 部署的集群中，诸如 kube-apiserver、kube-scheduler 以及 etcd 本身这样的核心控制平面组件通常是如何运行的？",
+    "options": {
+      "a": "作为由 kube-scheduler 管理的 Deployment，就像任何应用工作负载一样",
+      "b": "作为静态 Pod（static Pod）：清单文件被放置在一个目录中（例如 /etc/kubernetes/manifests），该节点本地的 kubelet 直接读取并运行它们，完全不经过调度器",
+      "c": "作为完全在 Pod 抽象之外运行的主机级 systemd 服务，根本看不到对应的 Pod 对象",
+      "d": "作为 DaemonSet，确保集群中每个节点（包括工作节点）都恰好运行一个实例"
+    },
+    "explanation": "静态 Pod 直接由特定节点上的 kubelet 管理，从一个受监视的本地目录中读取 Pod 清单，完全绕过 API server 和调度器进行放置。这正是 kubeadm 引导并运行核心控制平面组件的方式。选项 a 错误，因为静态 Pod 不经由调度器调度。选项 c 错误，因为静态 Pod 确实会通过 API 呈现出一个对应的（镜像）Pod 对象。选项 d 将静态 Pod 与 DaemonSet 控制器（一种不同的机制）混淆了。"
+  },
+  "cka-security_admin-17": {
+    "question": "管理员针对控制平面节点上代表某个静态 Pod（例如 kube-apiserver）的镜像 Pod 对象运行 'kubectl delete pod'。会发生什么？",
+    "options": {
+      "a": "该静态 Pod 被永久移除，该组件停止运行，直到通过 API 手动重新创建",
+      "b": "该删除请求会被 API server 直接拒绝，并返回校验错误",
+      "c": "该 API 对象会短暂消失，但该节点上的 kubelet 会根据其本地清单文件重新创建该镜像 Pod，因为实际容器会继续运行，或根据该本地清单被重启",
+      "d": "该静态 Pod 会被转换为此后由调度器管理的普通 Pod"
+    },
+    "explanation": "通过 API 看到的静态 Pod 对象只是一个\"镜像\"，反映的是由 kubelet 管理的 Pod；真正的真实来源是该节点文件系统上的清单文件。通过 API 删除镜像 Pod 并不会停止底层的静态 Pod——kubelet 会根据本地清单简单地重新创建该镜像（并管理该容器）。要真正移除或更改一个静态 Pod，必须在该节点上编辑或删除清单文件本身。选项 a、b 和 d 描述的行为都与这一机制不符。"
+  },
+  "cka-security_admin-18": {
+    "question": "一个团队正在设计一个高可用的 etcd 集群，并在使用 4 个成员还是 5 个成员之间进行权衡。为什么 etcd 部署通常使用奇数个成员而不是偶数个？",
+    "options": {
+      "a": "quorum（法定人数）需要严格多数；偶数成员的集群（例如 4 个）所能容忍的成员故障数量，与比它少一个的奇数成员集群（例如 3 个）相同，因此多出的那个成员只会增加成本和共识开销，而不会提高容错能力",
+      "b": "etcd 的 Raft 共识算法在技术上无法以偶数个成员启动，会拒绝初始化",
+      "c": "偶数在容错方面没有问题，但由于 etcd 中一项硬编码的校验检查而被禁止",
+      "d": "奇数允许 etcd 同时选举两个领导者，以获得更好的读取吞吐量"
+    },
+    "explanation": "基于 Raft 的 quorum 需要严格多数成员达成一致。对于 N 个成员，容错能力为 floor((N-1)/2)。3 成员集群可以容忍 1 个故障（quorum=2）；4 成员集群同样只能容忍 1 个故障（quorum=3），并没有获得容错能力上的提升，却额外增加了一个节点的资源成本以及略高的共识延迟。因此，奇数在每个部署节点上能最大化容错能力。选项 b 在事实上是错误的（偶数成员的集群在技术上可以运行，只是效率较低）。选项 c 编造了一个不存在的限制。选项 d 错误；etcd/Raft 始终只选举单一领导者。"
+  },
+  "cka-security_admin-19": {
+    "question": "一个 ClusterRole 定义了单一规则：apiGroups: [\"*\"], resources: [\"*\"], verbs: [\"*\"]。通过 ClusterRoleBinding 将这个 ClusterRole 绑定给某个主体，会带来什么安全隐患？",
+    "options": {
+      "a": "这是无害的，因为通配符规则只适用于规则创建时尚不存在的资源",
+      "b": "它只授予读取权限，因为 RBAC 通配符默认采用最安全的动词集合",
+      "c": "它会授予实际上不受限制的、超级用户级别的集群范围访问权限——实际效果等同于内置的 'cluster-admin' 角色——因此应仅保留给可信的管理身份使用",
+      "d": "它只会在该主体的 ServiceAccount 所在的 Namespace 内授予访问权限，从而自动限制影响范围"
+    },
+    "explanation": "apiGroups、resources 和 verbs 中的通配符会匹配一切，因此这条规则会授予对每个 API 组中每种资源类型执行任何可能操作的权限——在集群范围绑定时，实际效果等同于内置的 'cluster-admin' ClusterRole。如果绑定范围较广（例如绑定给某个 CI 的 ServiceAccount 或某个大范围的组），这会带来严重的安全风险，因为一旦凭据泄露，就会授予对整个集群的完全控制权。选项 a 描述的是虚构行为。选项 b 错误，因为动词通配符也包括写入和删除操作。选项 d 错误，因为 ClusterRoleBinding 本质上是集群范围的，而不是限定在某个 Namespace 内。"
+  },
+  "cka-storage-01": {
+    "question": "为什么 Kubernetes Pod 通常需要某种形式的外部存储来支持有状态应用？",
+    "options": {
+      "a": "因为容器根本无法写入磁盘",
+      "b": "因为容器的文件系统是短暂的，当容器重启或 Pod 被重新调度时，其内容会丢失",
+      "c": "因为 Kubernetes API server 要求所有数据都必须存储在集群之外",
+      "d": "因为容器镜像是只读的，永远不能包含可写层"
+    },
+    "explanation": "容器的可写层与该容器的生命周期绑定：如果容器崩溃并重启，或 Pod 被重新调度到另一个节点，该文件系统的内容就会消失。需要外部存储（volume）来使数据在单个容器的生命周期之外持久保存。(a) 错误，因为容器可以写入磁盘，只是不持久。(c) 错误地描述了 API server 的作用。(d) 错误，因为镜像在运行时确实会获得可写层，只是它不是持久性的。"
+  },
+  "cka-storage-02": {
+    "question": "在 Kubernetes 中，直接在 Pod spec 中挂载的 'Volume' 概念最准确的描述是什么？",
+    "options": {
+      "a": "一个集群范围的存储池，所有 Pod 无需配置即可同时访问",
+      "b": "由云提供商自动配置并计费的网络附加磁盘",
+      "c": "一种生命周期与定义它的 Pod 绑定的存储抽象，使该 Pod 内的容器能够共享和/或跨容器重启持久化数据",
+      "d": "部署前对容器镜像所做的快照"
+    },
+    "explanation": "经典 Pod-spec 意义上的 Volume 会一直存在，只要 Pod 存在（它的生命周期与 Pod 绑定，而不是与某个单独的容器绑定），它使同一 Pod 内的容器可以共享文件，或在单个容器重启后依然保留数据。它不会自动成为集群范围的资源（a），也不天然是云计费磁盘（b，这取决于 volume 类型），并且与镜像快照无关（d）。"
+  },
+  "cka-storage-03": {
+    "question": "PersistentVolume（PV）和 PersistentVolumeClaim（PVC）主要解决什么问题？",
+    "options": {
+      "a": "它们将存储的配置和管理方式，与应用程序请求和使用存储的方式解耦，使开发者无需了解底层存储细节",
+      "b": "它们确保每个 Pod 都自动获得唯一的网络身份",
+      "c": "它们取代了工作节点上对容器运行时的需求",
+      "d": "它们保证 Pod 始终会被调度到与其数据相同的节点上"
+    },
+    "explanation": "PV 代表集群中实际的存储资源（由管理员或动态方式配置），而 PVC 是用户/应用发出的存储请求。这种分离将存储配置的关注点与存储消费的关注点解耦。(b) 描述的是无关的内容（例如 StatefulSet 的网络身份），(c) 与容器运行时无关，(d) 并非仅靠 PV/PVC 就能保证的（这取决于访问模式和拓扑，而非其核心用途）。"
+  },
+  "cka-storage-04": {
+    "question": "一位开发者创建了一个请求 10Gi 存储的 PersistentVolumeClaim。此时在概念上发生了什么？",
+    "options": {
+      "a": "开发者正在直接格式化工作节点上的一块物理磁盘",
+      "b": "开发者正在为整个集群定义一个新的 StorageClass",
+      "c": "开发者正在创建一个永久绑定到某个特定 Pod 的 Volume",
+      "d": "开发者正在请求一个具有特定特征（大小、访问模式）的存储资源，Kubernetes 会将其绑定到一个匹配的 PersistentVolume，无论该 PV 是预先存在的还是动态创建的"
+    },
+    "explanation": "PVC 是对存储的请求；Kubernetes 会将其匹配（绑定）到一个合适的 PV，可以是已经存在的，也可以是通过 StorageClass 动态配置的。它不涉及手动格式化磁盘（a），也不定义 StorageClass（b，这是一个独立的对象），也不绑定到单个 Pod（c）——PVC 与 Pod 的生命周期是解耦的，因此在 Pod 被删除后仍可被复用。"
+  },
+  "cka-storage-05": {
+    "question": "StorageClass 在 Kubernetes 中的主要用途是什么？",
+    "options": {
+      "a": "定义应用于挂载存储的 Pod 的 CPU 和内存限制",
+      "b": "一种限制哪些 Namespace 可以创建 PersistentVolumeClaim 的安全策略",
+      "c": "描述一种存储的\"类别\"或类型（例如其 provisioner 和参数），以便在 PVC 提出请求时可以按需动态配置 PersistentVolume",
+      "d": "一种按固定时间间隔对所有 PersistentVolume 进行快照的备份计划"
+    },
+    "explanation": "StorageClass 为管理员提供了一种描述不同存储\"类别\"（例如高速 SSD 与较慢的 HDD）以及对应 provisioner 的方式，使得当 PVC 引用该类别时能够自动动态配置 PV。它与 CPU/内存限制（a）、Namespace 安全策略（b）或备份调度（d）都无关。"
+  },
+  "cka-storage-06": {
+    "question": "在没有通过 StorageClass 进行动态配置的情况下，PersistentVolume 通常是如何产生的？",
+    "options": {
+      "a": "首次拉取任何容器镜像时会自动生成",
+      "b": "集群管理员事先手动创建 PersistentVolume，描述集群中实际可用的存储资源",
+      "c": "每当创建一个 Namespace 时会自动创建",
+      "d": "从 Deployment 中定义的资源请求自动派生"
+    },
+    "explanation": "在\"静态配置\"（static provisioning）中，管理员会预先创建代表真实、可用存储资源的 PV，随后可以被 PVC 申领。这与镜像拉取（a）、Namespace 创建（c）或 Deployment 的资源请求（d，那管理的是 CPU/内存，而非存储）都无关。"
+  },
+  "cka-storage-07": {
+    "question": "从概念上讲，访问模式 'ReadWriteOnce'（RWO）对 PersistentVolume 意味着什么？",
+    "options": {
+      "a": "该 volume 一次只能被单个节点以读写方式挂载",
+      "b": "该 volume 只能被读取一次，此后就会永久变为只读",
+      "c": "该 volume 可以同时被任意数量的节点以读写方式挂载",
+      "d": "该 volume 只允许整个集群中的一个 Pod 使用它，即使该 Pod 被删除后也是如此"
+    },
+    "explanation": "ReadWriteOnce 意味着该 volume 可以被单个节点以读写方式挂载（同一节点上的多个 Pod 通常仍可共享它）。它并不意味着\"仅能读取一次\"（b），它与允许多个节点同时读写访问（c）恰恰相反，也不会将该 volume 永久锁定给某一个特定 Pod（d）——之后可以有新的 Pod 挂载它，只是不能从多个节点并发挂载。"
+  },
+  "cka-storage-08": {
+    "question": "一个应用需要多个分布在不同节点上的 Pod 同时对同一共享存储进行读写。哪种访问模式概念符合这一需求？",
+    "options": {
+      "a": "ReadWriteOnce (RWO)",
+      "b": "ReadOnlyMany (ROX)",
+      "c": "ReadWriteMany (RWX)",
+      "d": "WriteOnlyOnce (WOO)"
+    },
+    "explanation": "ReadWriteMany（RWX）允许该 volume 同时被多个节点以读写方式挂载，这正是并发多节点写入访问所需要的。ReadWriteOnce（a）将写入访问限制在单个节点。ReadOnlyMany（b）允许多个节点访问，但只能读取，不能写入。WriteOnlyOnce（d）并不是一种真实存在的 Kubernetes 访问模式。"
+  },
+  "cka-storage-09": {
+    "question": "从概念上讲，PersistentVolume 的\"回收策略\"（reclaim policy）控制的是什么？",
+    "options": {
+      "a": "该 volume 备份到外部存储的频率",
+      "b": "哪些节点可以挂载该 volume",
+      "c": "该 volume 随时间可以增长到多大存储容量",
+      "d": "绑定到该 volume 的 PersistentVolumeClaim 被删除后，底层存储资源会发生什么"
+    },
+    "explanation": "回收策略定义了 PV 在其 claim 被释放后的命运，例如底层存储应该被保留还是被移除。它与备份频率（a）、节点挂载权限（b，那是访问模式/亲和性管的）或存储容量增长（c）都无关。"
+  },
+  "cka-storage-10": {
+    "question": "一个 PersistentVolume 的回收策略为 'Retain'。当其绑定的 PersistentVolumeClaim 被删除时，会发生什么？",
+    "options": {
+      "a": "该 PersistentVolume 及其数据会随该 claim 一起立即被删除",
+      "b": "该 PersistentVolume 会被保留下来，包括其数据，但它不会自动变为可供新 claim 使用，直到管理员手动介入",
+      "c": "该 PersistentVolume 会自动重置其数据，并立即可供下一个 claim 复用",
+      "d": "该 PersistentVolume 会被自动转换为一个 StorageClass"
+    },
+    "explanation": "在 'Retain' 策略下，PV 及其数据会在 PVC 被删除后依然保留，但该 PV 不会自动被回收以供复用；需要管理员进行手动清理或回收操作。(a) 描述的其实是 'Delete' 策略的行为。(c) 描述的更接近旧版、已弃用的 'Recycle' 策略的行为，而不是 Retain 的工作方式。(d) 不是一种真实存在的转换。"
+  },
+  "cka-storage-11": {
+    "question": "一个 PersistentVolume 的回收策略为 'Delete'。一旦其绑定的 claim 被删除，预期的行为是什么？",
+    "options": {
+      "a": "PersistentVolume 对象及其关联的底层存储资源（例如云磁盘）都会被自动移除",
+      "b": "只有 PersistentVolumeClaim 会被移除；PersistentVolume 会被永久原封不动地保留",
+      "c": "数据会被删除，但 PersistentVolume 对象本身会保持 'Available' 状态以供复用",
+      "d": "回收策略对 claim 删除后发生的事情没有任何影响"
+    },
+    "explanation": "在 'Delete' 策略下，移除 PVC 会触发 PV 对象及其所代表的底层存储资产被自动删除。(b) 把 Delete 与完全没有策略时的效果混淆了。(c) 把这种行为与 'Retain' 的行为搞混了。(d) 错误，因为回收策略正是决定这一结果的关键。"
+  },
+  "cka-storage-12": {
+    "question": "为什么 PersistentVolumeClaim 的生命周期独立于任何单个 Pod 的生命周期会很有用？",
+    "options": {
+      "a": "它使 PVC 可以像 Pod 一样被调度到节点上",
+      "b": "它意味着 PVC 会自动继承首次使用它们的 Pod 的 CPU 和内存限制",
+      "c": "它使数据能够持久保存，并可以重新附加到一个新 Pod 上（例如在崩溃、更新或重新调度之后），因为该 claim 及其绑定的存储比任何单个 Pod 存续的时间都长",
+      "d": "它免除了在 claim 上指定任何访问模式的需要"
+    },
+    "explanation": "因为 PVC 独立于使用它的 Pod 而存在，所以同一底层存储可以在一个 Pod 消失后被分离，然后重新附加到一个替代的 Pod 上，这对于有状态工作负载在重启、重新调度或更新后能够存续下来至关重要。PVC 不会像 Pod 那样被调度（a），也不会继承计算资源限制（b），并且仍然需要指定访问模式（d）。"
+  },
+  "cka-troubleshooting-01": {
+    "question": "一个 Pod 已经处于 `Pending` 状态数分钟。describe 该 Pod 显示只有一个事件：`0/5 nodes are available: 5 Insufficient cpu.` 最可能的根本原因是什么？",
+    "options": {
+      "a": "无法从镜像仓库拉取容器镜像",
+      "b": "Pod 的存活探针反复失败",
+      "c": "集群中目前没有任何节点拥有足够的可分配 CPU 来满足该 Pod 的 CPU request",
+      "d": "该 Pod 引用了一个不存在的 ConfigMap"
+    },
+    "explanation": "调度器明确报告，全部 5 个节点都没有足够的 CPU 来满足该 Pod 所请求的资源，因此它无法将该 Pod 绑定到任何节点，导致其停留在 Pending 状态。这是调度阶段的失败，发生在任何容器启动之前，因此镜像拉取错误（a）和探针失败（b）都不相关（那些只会在调度完成之后发生）。缺失的 ConfigMap（d）会产生 `CreateContainerConfigError` 状态，而不是关于 CPU 的调度事件。"
+  },
+  "cka-troubleshooting-02": {
+    "question": "一个 Pod 的状态显示为 `CrashLoopBackOff`，且其重启次数在持续增加。这个状态具体说明了容器的什么情况？",
+    "options": {
+      "a": "无法从镜像仓库拉取容器镜像",
+      "b": "容器启动后又退出（无论是带错误退出还是正常退出），kubelet 会以逐渐增加的退避延迟不断重启它",
+      "c": "该 Pod 所在节点的磁盘空间已耗尽",
+      "d": "该 Pod 的准入 webhook 反复拒绝该请求"
+    },
+    "explanation": "CrashLoopBackOff 意味着容器被成功创建并启动，但随后终止（崩溃、配置错误、缺少依赖、启动命令失败），kubelet 会以指数退避的方式重试它。镜像拉取失败会产生 `ImagePullBackOff`/`ErrImagePull`（a），磁盘耗尽通常会产生节点级的 `DiskPressure` 条件或驱逐（c），而 webhook 拒绝发生在准入阶段，甚至在 Pod 对象被创建之前，而不是表现为重启循环（d）。"
+  },
+  "cka-troubleshooting-03": {
+    "question": "一个 Deployment 的 Pod 反复出现 `ImagePullBackOff`。describe 某个 Pod 显示事件：`Failed to pull image \"myregistry.io/app:v2\": unauthorized: authentication required`。以下哪一项最可能是根本原因？",
+    "options": {
+      "a": "该 Pod（或其 ServiceAccount）没有引用一个对该私有镜像仓库有效的 `imagePullSecret`",
+      "b": "镜像仓库中不存在标签 `v2`",
+      "c": "该节点缺少 CNI 插件二进制文件",
+      "d": "该 Pod 的资源限制设置得太低，以致无法拉取镜像"
+    },
+    "explanation": "'unauthorized: authentication required' 错误是一种镜像仓库认证失败，意味着 kubelet 没有可用于从私有镜像仓库拉取镜像的有效凭据——通过附加正确的 `imagePullSecret` 即可解决。不存在的标签（b）通常会产生 'manifest not found' 或 'not found' 错误，而不是认证错误。缺少 CNI 二进制文件（c）会导致网络/沙箱失败，而不是镜像拉取错误。资源限制（d）与镜像拉取过程无关，该过程发生在节点上，独立于容器资源约束。"
+  },
+  "cka-troubleshooting-04": {
+    "question": "一个 Pod 的状态显示为 `Evicted`，消息为 `The node was low on resource: memory`。这个 Pod 实际上发生了什么？",
+    "options": {
+      "a": "Pod 内的容器进程超出了它自身的内存限制，被内核的 OOM killer 杀死",
+      "b": "调度器找不到一个内存足够的节点来放置该 Pod",
+      "c": "该 Pod 的存活探针因内存压力而超时，kubelet 重启了它",
+      "d": "kubelet 主动终止了该 Pod，因为整个节点的内存使用量超过了驱逐阈值，从而回收资源以保护节点稳定性"
+    },
+    "explanation": "节点级驱逐是 kubelet 对整个节点资源压力（内存、磁盘、PID）的主动响应——它会对 Pod 进行排序并终止部分 Pod，以缓解压力，这与任何单个容器自身的限制无关。这与 OOMKilled（a）不同，后者发生在某个特定容器超出其自身内存限制/cgroup 并被内核杀死时，其终止原因显示为 `OOMKilled` 而非 `Evicted`。选项（b）描述的是调度阶段的 Pending 状态，而不是对一个正在运行的 Pod 的驱逐。选项（c）错误地将驱逐描述为探针驱动的重启，这并不是 Evicted 状态的含义。"
+  },
+  "cka-troubleshooting-05": {
+    "question": "一个容器被终止，`kubectl describe pod` 显示 `Last State: Terminated, Reason: OOMKilled, Exit Code: 137`。对此的正确解读是什么？",
+    "options": {
+      "a": "节点本身内存耗尽，kubelet 驱逐了整个 Pod",
+      "b": "这个特定容器超出了自己配置的内存限制，内核的 cgroup 内存溢出杀手（OOM killer）终止了它的进程",
+      "c": "该容器的就绪探针因内存耗尽而失败，因此 Kubernetes 重启了它",
+      "d": "容器镜像太大，在拉取过程中无法装入节点的可用内存"
+    },
+    "explanation": "退出码为 137 的 OOMKilled 是一个容器级别的事件：该容器的内存使用量达到了它自己的 cgroup 限制，内核的 OOM killer 终止了该进程，之后 kubelet 会将原因报告为 OOMKilled，并（根据重启策略）可能重启它。这与节点级驱逐（a）不同，后者产生的是 `Evicted` 状态，而不是针对特定容器的 Terminated/OOMKilled 原因。探针失败（c）永远不会将原因报告为 OOMKilled。拉取过程中的镜像大小（d）与运行时的 OOM 终止毫无关系。"
+  },
+  "cka-troubleshooting-06": {
+    "question": "一个 Pod 卡在 `Pending` 状态，`kubectl describe pod` 在 Events 部分完全没有显示任何与调度相关的事件。该 Pod 是不到一分钟前创建的，且集群拥有充足的空闲 CPU 和内存。你应该首先怀疑什么？",
+    "options": {
+      "a": "选择器不匹配导致 Service 找不到该 Pod",
+      "b": "该节点无法访问镜像仓库",
+      "c": "该事件可能只是尚未传播或尚未被记录，或者事件已经过期/被垃圾回收——稍后再检查一次，并直接查看 kube-scheduler 的日志",
+      "d": "该 Pod 的 PriorityClass 太低，永远无法被调度"
+    },
+    "explanation": "事件是尽力而为、最终一致的（并且默认在大约一小时后过期）；一个真正新建不久的 Pod 可能尚未显示事件，因此在假设某个具体根本原因之前，重新检查或直接查看 kube-scheduler 日志是合理的诊断做法。Service 选择器不匹配（a）影响的是流量路由，而不是调度，因此不会导致 Pending。镜像仓库无法访问（b）只有在调度完成之后、拉取镜像期间才有意义，而且通常仍会产生一个事件。较低的 PriorityClass（d）本身不会阻止调度，除非资源存在争用，而场景中说明并非如此。"
+  },
+  "cka-troubleshooting-07": {
+    "question": "客户端无法访问某个 ClusterIP Service，尽管其后端 Pod 都处于 Running 且 Ready 状态。`kubectl get endpoints <svc-name>` 返回一个空的 endpoints 列表。最可能的解释是什么？",
+    "options": {
+      "a": "该 Service 的 `type` 字段被设置为 `ClusterIP` 而不是 `NodePort`",
+      "b": "kube-proxy 未在托管该客户端 Pod 的节点上运行",
+      "c": "该 Service 的 `spec.selector` 与实际应用于这些 Pod 的标签不匹配",
+      "d": "这些 Pod 没有设置 `resources.requests` 字段"
+    },
+    "explanation": "一个空的 Endpoints 对象几乎总是意味着 Service 的 Label 选择器没有匹配到任何 Pod 的标签，因此 endpoint 控制器没有任何内容可填充——这是典型的\"无 endpoint\"故障模式。ClusterIP（a）是一种完全有效且常见的类型；它不会导致 endpoint 为空。缺少 kube-proxy（b）会导致尽管存在 endpoint 但连接失败（不会进行代理），而不是导致 endpoint 列表为空，该列表是由 endpoint 控制器独立于 kube-proxy 填充的。缺少资源请求（d）对 Service/Endpoints 的填充没有任何影响。"
+  },
+  "cka-troubleshooting-08": {
+    "question": "一个 Service 已正确填充了与其 Pod 匹配的 endpoint，但在 80 端口上连接该 Service 却超时。调查发现，这些 Pod 的容器实际监听的是 8080 端口，而不是 80。正确的修复方法是什么？",
+    "options": {
+      "a": "将该 Service 的 `type` 更改为 `LoadBalancer`",
+      "b": "添加一个明确允许 80 端口的 NetworkPolicy",
+      "c": "将容器的 `livenessProbe` 改为检查 80 端口",
+      "d": "将该 Service 的 `targetPort` 设置为 8080，使其正确地将流量转发到容器实际监听的端口"
+    },
+    "explanation": "Service 的 `port` 是客户端连接的端口，而 `targetPort` 是流量被转发到 Pod 上的端口；如果它与容器实际监听的端口不匹配，即使 endpoint 正确，连接也会超时。更改 Service 类型（a）无法解决端口不匹配的问题。NetworkPolicy（b）是关于允许/拒绝流量的，而不是端口转换，无法修复不匹配的 targetPort。调整存活探针（c）会影响 Pod 的重启行为，而不是 Service 的流量转发。"
+  },
+  "cka-troubleshooting-09": {
+    "question": "`kubectl get nodes` 显示某个工作节点的状态为 `NotReady`。以下哪一项最不可能是该状况的直接原因？",
+    "options": {
+      "a": "该节点上的 kubelet 进程已崩溃或停止",
+      "b": "该节点上的某个 Deployment 使用了一个不存在的镜像标签",
+      "c": "该节点与控制平面之间失去了网络连通性（或反之），导致 kubelet 无法上报心跳",
+      "d": "该节点上的容器运行时（例如 containerd）无响应或已崩溃"
+    },
+    "explanation": "某个工作负载使用了错误的镜像标签只会影响那一个特定的 Pod（产生 ImagePullBackOff），与反映 kubelet 自身健康状况和心跳上报的节点级 Ready 状态无关。kubelet 崩溃（a）、与 API server 失去网络连通性（c）以及容器运行时故障（d）都是导致 NotReady 的典型、有据可查的原因，因为 kubelet 依赖容器运行时来管理容器，并依赖网络连通性通过心跳/租约来更新 Node 的状态。"
+  },
+  "cka-troubleshooting-10": {
+    "question": "一个 Pod 可以通过 IP 地址访问其他 Pod 和 Service，但对 Service 名称的 DNS 查询（例如 `curl http://my-svc`）却以解析错误失败。你应该首先调查什么？",
+    "options": {
+      "a": "CoreDNS 的 Pod 是否处于 Running 且 Ready 状态，以及 `kube-dns` Service 是否有健康的 endpoint",
+      "b": "该 Pod 的容器镜像是否包含一个 web 服务器",
+      "c": "该节点是否有足够的磁盘空间用于镜像拉取",
+      "d": "该 Service 是否属于 `LoadBalancer` 类型"
+    },
+    "explanation": "既然原始 IP 连通性正常而名称解析失败，问题就被隔离在 DNS 本身——首先、也是最直接的检查方式是查看 CoreDNS 是否健康，以及 kube-dns Service 是否有 endpoint，因为这正是负责集群内名称解析的部分。目标是否有 web 服务器（b）与 DNS 解析在任何连接尝试之前就失败无关。节点磁盘空间（c）影响的是镜像拉取，而不是名称解析。Service 类型（d）影响的是 Service 如何对外暴露，但不会阻止对基于 ClusterIP 的名称进行内部 DNS 解析。"
+  },
+  "cka-troubleshooting-11": {
+    "question": "一个 Pod 的 `/etc/resolv.conf` 正确指向了集群 DNS 服务的 IP，CoreDNS 的 Pod 也健康并有已填充的 endpoint，但来自这一个特定 Pod 的 DNS 查询仍然超时，而来自其他节点上其他 Pod 的查询却能成功。你应该怀疑什么？",
+    "options": {
+      "a": "CoreDNS 使用的 `Corefile` ConfigMap 格式有误",
+      "b": "该 Pod 尝试解析的 Service 不存在",
+      "c": "某个 NetworkPolicy 或该节点的 CNI/网络路径正在阻止从该特定 Pod 或节点到 CoreDNS Pod 的 UDP/TCP 53 端口流量",
+      "d": "该 Pod 的 `dnsPolicy` 被设置为 `ClusterFirst`"
+    },
+    "explanation": "既然 CoreDNS 以及其他 Pod 的解析都工作正常，问题就被隔离在从这一特定 Pod/节点到 CoreDNS 53 端口的网络可达性上——常见原因是过于严格的 NetworkPolicy，或某个节点特有的网络/CNI 问题。格式有误的 Corefile（a）会导致整个集群范围内的 DNS 中断，而不仅仅是某一个 Pod。不存在的 Service（b）会产生一个干净的 NXDOMAIN 响应，而不是超时，并且无论从哪个 Pod 发起都会同样失败。`dnsPolicy: ClusterFirst`（d）实际上是使用集群 DNS 时正确的默认设置，因此它不是问题的原因。"
+  },
+  "cka-troubleshooting-12": {
+    "question": "一个用户运行 `kubectl get pods -n finance`，收到：`Error from server (Forbidden): pods is forbidden: User \"jane\" cannot list resource \"pods\" in API group \"\" in the namespace \"finance\"`。这个错误最精确地说明了什么？",
+    "options": {
+      "a": "该用户的客户端证书已过期，认证失败",
+      "b": "认证已经成功（该用户被识别为 \"jane\"），但没有任何 RBAC Role/ClusterRole 绑定授予她在 `finance` Namespace 中对 `pods` 的 `list` 动词权限",
+      "c": "`finance` Namespace 在集群中不存在",
+      "d": "API server 因网络问题而无法访问"
+    },
+    "explanation": "一个带有具名用户的 `Forbidden`（HTTP 403）响应意味着认证已经成功——API server 已将请求者识别为 \"jane\"——而失败纯粹发生在授权阶段：没有任何 RoleBinding/ClusterRoleBinding 授予在该 Namespace 中对 pods 的 `list` 动词权限。过期的证书（a）反而会导致认证失败，通常表现为 `Unauthorized`（401）或 TLS 握手错误，而不是一个具名用户的 Forbidden 消息。缺失的 Namespace（c）通常会产生 `NotFound` 错误。网络/API server 中断（d）会产生连接层面的错误，而不是服务器返回的结构化 Forbidden 响应。"
+  },
+  "cka-troubleshooting-13": {
+    "question": "一个 Pod 的应用日志中反复出现类似这样的错误：`Error from server (Forbidden): configmaps \"app-config\" is forbidden: User \"system:serviceaccount:default:app-sa\" cannot get resource \"configmaps\"`。该应用程序本身正在从 Pod 内部调用 Kubernetes API。最直接的修复方法是什么？",
+    "options": {
+      "a": "创建或更新一个 Role 和 RoleBinding，授予 `app-sa` ServiceAccount 在相关 Namespace 中对 `configmaps` 的 `get`（很可能还需要 `list`/`watch`）权限",
+      "b": "重启托管该 Pod 的节点上的 kubelet",
+      "c": "增加该 Pod 的 CPU 和内存限制",
+      "d": "删除并重新创建 ConfigMap `app-config`"
+    },
+    "explanation": "该错误清楚地表明是该 Pod 的 ServiceAccount 身份出现了授权失败，因此修复方法是通过 Role/RoleBinding（或 ClusterRole/ClusterRoleBinding）为其授予缺失的 RBAC 权限。重启 kubelet（b）对 API 授权决策没有任何影响，那是由 API server 做出的。资源限制（c）与权限无关。重新创建 ConfigMap（d）不会改变该 ServiceAccount 的 RBAC 授权，错误会原样重现。"
+  },
+  "cka-troubleshooting-14": {
+    "question": "在一个 etcd 与 API server 之间完全无法通信的集群上，以下哪种说法最准确地描述了集群的行为？",
+    "options": {
+      "a": "所有节点上已存在的 Pod 会立即被终止",
+      "b": "kube-scheduler 会开始绕过 API server，直接将 Pod 调度到节点上",
+      "c": "已经在运行的 Pod 会继续在其节点上运行（kubelet 独立管理它们），但 API server 无法再读取或持久化集群状态，因此创建、更新、列出或调度新对象等操作都会失败",
+      "d": "每个节点上的 kubelet 都会立即自我 drain 并 cordon"
+    },
+    "explanation": "etcd 是集群的唯一真实来源；如果 API server 无法访问它，需要读写状态的 API 操作就会失败，但 kubelet 已经在本地拥有其所需的 Pod 规范，会独立继续运行现有容器——因此集群在短期内仍能在工作负载层面保持功能，而控制平面操作则会停滞。Pod 不会被立即终止（a），因为 kubelet 并不直接依赖 etcd。调度器始终通过 API server 运作，从不会绕过它直接与 etcd 或节点通信（b）。节点不会因 etcd 无法访问而自动 cordon/drain（d）；这不是与 etcd 可达性挂钩的自动行为。"
+  },
+  "cka-troubleshooting-15": {
+    "question": "kube-scheduler 组件已崩溃且未被重启（例如它是一个陷入崩溃循环的静态 Pod）。你会最直接预期出现什么症状？",
+    "options": {
+      "a": "集群中所有已存在的 Pod 立即停止响应流量",
+      "b": "新创建的 Pod（以及需要重新调度的 Pod，例如节点故障后的 Pod）会无限期地卡在 `Pending` 状态，因为没有任何东西在为它们分配节点",
+      "c": "kube-proxy 停止在每个节点上更新 iptables/IPVS 规则",
+      "d": "etcd 无法再持久化新数据"
+    },
+    "explanation": "调度器唯一的工作就是监视尚未调度的 Pod 并将其绑定到合适的节点；没有它，新的或需要重新调度的 Pod 就没有任何组件为它们分配节点，因而永远停留在 Pending 状态，而已经在运行/已调度的 Pod 不受影响。对已运行 Pod 的现有流量（a）不受影响，因为 Service/kube-proxy 并不依赖调度器。kube-proxy（c）是一个独立组件，响应的是 Service/Endpoints 的变化，而不是调度器的决策。etcd（d）也是独立的，无论调度器的健康状况如何都会继续正常运作。"
+  },
+  "cka-troubleshooting-16": {
+    "question": "针对某个集群的每一条 `kubectl` 命令都突然开始失败，报错类似 `x509: certificate has expired or is not yet valid`。最可能的原因是什么？",
+    "options": {
+      "a": "用于内部 Service 解析的 CoreDNS 证书已过期",
+      "b": "容器运行时用于镜像拉取的 TLS 证书已过期",
+      "c": "某个 NetworkPolicy 正在阻止流向 API server 的流量",
+      "d": "API server 的服务证书（或 kubectl 使用的客户端证书，或共享的集群 CA）已过期，导致 API 通信的 TLS 握手失败"
+    },
+    "explanation": "每一次 kubectl 调用都出现 x509 过期错误，直接指向用于 API server 通信的 TLS 材料——无论是 API server 自身的服务证书、kubectl 呈现的客户端证书，还是签发/校验它们的 CA——因为这正是每一次 API 请求握手所涉及的证书链。CoreDNS 证书（a）与 kubectl 到 API server 的通信无关。容器运行时的镜像拉取证书（b）影响的是镜像拉取，而不是 kubectl/API server 的 TLS 握手。NetworkPolicy（c）会产生连接超时/拒绝，而不是 x509 证书有效性错误，后者是 TLS 层面而非网络层面的症状。"
+  },
+  "cka-troubleshooting-17": {
+    "question": "一个节点在过去一小时里持续将 `MemoryPressure` 和 `DiskPressure` 条件报告为 `True`。新调度到其他健康节点的 Pod 运行正常，但这个承压节点却不断驱逐工作负载。以下哪一项对正在发生的情况描述最准确？",
+    "options": {
+      "a": "kubelet 检测到该节点的可用内存和/或磁盘已降至配置的驱逐阈值以下，正在主动回收资源，驱逐优先级较低或资源占用较高的 Pod，以保持节点稳定",
+      "b": "该节点的 kube-proxy 因资源争用而停止转发流量",
+      "c": "调度器正故意让这个节点过载，以测试其极限",
+      "d": "容器运行时的镜像缓存已损坏，导致压力条件被错误地报告"
+    },
+    "explanation": "MemoryPressure/DiskPressure 是 kubelet 在实际资源使用超过配置的驱逐阈值时设置的真实节点 Condition，kubelet 会通过驱逐 Pod（首先是那些超出 request 或优先级较低的）作出响应，以回收资源并避免整个节点故障。kube-proxy（b）管理的是 Service 流量规则，不是压力驱动驱逐背后的机制。调度器（c）不会故意让节点过载——那不是真实存在的行为。损坏的镜像缓存（d）不是触发或被这些压力条件所衡量的因素，这些条件基于实际的内存/磁盘/inode 使用情况，而非缓存完整性。"
+  },
+  "cka-troubleshooting-18": {
+    "question": "根据 `kubectl get pods`，一个 Pod 处于 Running 且 Ready 状态，但它从未从其 Service 收到过流量，尽管该 Service 的 Endpoints 列表正确包含了该 Pod 的 IP。进一步检查发现，该 Pod 的就绪探针正在通过。接下来你最应该检查的可能原因是什么？",
+    "options": {
+      "a": "该 Pod 的镜像是否从正确的镜像仓库拉取",
+      "b": "该 Namespace 中是否有 NetworkPolicy 正在拒绝来自客户端流向该 Pod 的入站流量，或客户端所在节点上的 kube-proxy 是否存在过时/不正确的代理规则",
+      "c": "该 Pod 是否将 `terminationGracePeriodSeconds` 设置得过低",
+      "d": "挂载到该 Pod 中的 ConfigMap 是否是最新的"
+    },
+    "explanation": "既然 Endpoints 已正确填充且就绪探针通过，那么剩下常见的罪魁祸首就是流量路径问题：限制性的 NetworkPolicy 阻止了流向该 Pod 的入站流量，或者客户端节点上的 kube-proxy 存在过时的 iptables/IPVS 规则（例如在 kube-proxy 重启失败或同步问题之后）。镜像来源（a）在确认该 Pod 处于 Running 且 Ready 状态后就已经无关紧要。`terminationGracePeriodSeconds`（c）只影响关闭行为，而不影响稳态下的流量路由。过时的 ConfigMap（d）可能会影响应用行为，但不会阻止流量首先到达该 Pod。"
+  },
+  "cka-troubleshooting-19": {
+    "question": "一个 Pod 的状态显示为 `Init:CrashLoopBackOff`。这具体说明了什么？",
+    "options": {
+      "a": "主应用容器在启动后反复崩溃",
+      "b": "该 Pod 通过了所有 init 容器，但主容器的镜像无法被拉取",
+      "c": "该 Pod 的某个 init 容器正在反复失败（以非零代码退出），由于 init 容器必须按顺序全部成功完成，主容器尚未启动",
+      "d": "该 Pod 的 PersistentVolumeClaim 卡在 Pending 状态，阻塞了整个 Pod"
+    },
+    "explanation": "CrashLoopBackOff 前面的 `Init:` 前缀表明故障发生在 init 容器阶段——某个 init 容器正以错误退出并被重试，由于 init 容器按顺序运行且必须全部成功后才能启动任何主容器，应用容器甚至从未开始运行。选项 (a) 描述的是不带 `Init:` 前缀的普通 `CrashLoopBackOff`，指的是主容器，而不是 init 容器。选项 (b) 描述的是主容器的 `Init:ImagePullBackOff`，是另一种不同的状态。挂起的 PVC (d) 通常会显示为带有关于卷绑定事件的 `Pending` Pod 状态，而不是 Init:CrashLoopBackOff 状态。"
+  },
+  "cka-troubleshooting-20": {
+    "question": "一个三节点集群包含一个控制平面节点和两个工作节点。一位用户报告说，任何地方都无法调度新的 Pod，对待处理 Pod 执行 `kubectl describe pod` 显示：`0/3 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 2 node(s) had taint {node.kubernetes.io/unschedulable: }.` 最准确的诊断是什么？",
+    "options": {
+      "a": "两个工作节点已崩溃并离线",
+      "b": "控制平面节点带有正常的 taint（这是预期行为，会阻止在该节点上调度），但两个工作节点都被 cordon（标记为不可调度），导致新 Pod 无处可去",
+      "c": "这些 Pod 的资源请求超过了任何节点所能提供的资源",
+      "d": "某个 NetworkPolicy 正在阻止调度器与工作节点通信"
+    },
+    "explanation": "该事件区分了两种不同的 taint：控制平面的 taint 是标准的、预期存在的，只是让普通工作负载远离该节点；而两个工作节点上的 `node.kubernetes.io/unschedulable` 是由 `kubectl cordon`（或手动进入维护模式）自动施加的 taint，这意味着有人或某个流程将两个工作节点都标记为不可调度，导致新 Pod 没有任何有效目标。节点完全离线（a）会显示为 NotReady/不可达，而不是显示为调度器仍在评估的节点上的一个特定不可调度 taint。超出的资源请求（c）会产生 'Insufficient cpu/memory' 消息，而不是与 taint 相关的消息。NetworkPolicy（d）管理的是 Pod 间流量，而不是调度器与节点之间的通信，也不会产生与 taint 相关的消息。"
+  },
+  "cka-workloads-01": {
+    "question": "在 Kubernetes 中，可以创建和管理的最小可部署单元是什么？",
+    "options": {
+      "a": "一个容器",
+      "b": "一个 Pod",
+      "c": "一个 Node",
+      "d": "一个 Deployment"
+    },
+    "explanation": "Pod 是 Kubernetes 中最小的可部署单元；它包裹一个或多个共享存储/网络的容器。单独的容器不会被 Kubernetes 直接管理，Node 是一台工作机器，而 Deployment 是管理一组 Pod 的更高层控制器。"
+  },
+  "cka-workloads-02": {
+    "question": "为什么 Kubernetes 将容器分组为 Pod，而不是直接调度单个容器？",
+    "options": {
+      "a": "因为容器在运行时层面无法在没有 Pod 包裹的情况下运行",
+      "b": "因为这减少了需要拉取到某个节点上的镜像总数",
+      "c": "因为需要共享网络命名空间和存储的紧密耦合容器，能从被共同放置和共同调度为一个单元中受益",
+      "d": "因为 Pod 允许容器同时在多个节点上运行"
+    },
+    "explanation": "Pod 之所以存在，是为了让紧密关联的容器（例如一个主应用和一个辅助容器）能够共享网络命名空间（同一 IP、可通过 localhost 通信）和 volume，并作为一个原子单元一起被调度、启动和停止。容器运行时在技术上是可以单独运行容器的；选项 a 是错误的。Pod 不会减少镜像拉取次数，也不会跨多个节点运行。"
+  },
+  "cka-workloads-03": {
+    "question": "在一个多容器 Pod 中，容器之间默认共享什么？",
+    "options": {
+      "a": "相同的网络命名空间（IP 地址和端口空间），以及挂载相同 volume 的能力",
+      "b": "相同的文件系统根以及完全相同的环境变量",
+      "c": "除非显式禁用，否则共享同一个进程命名空间",
+      "d": "相同的容器镜像，但使用不同的入口点"
+    },
+    "explanation": "同一 Pod 中的容器共享网络命名空间，这意味着它们使用相同的 IP，并可以通过 localhost 相互访问，并且它们可以挂载相同的 volume。它们不会自动共享文件系统根、完全相同的环境变量，也不会自动共享进程命名空间（这需要显式启用 shareProcessNamespace）。"
+  },
+  "cka-workloads-04": {
+    "question": "Pod 中 init 容器的定义性特征是什么？",
+    "options": {
+      "a": "它在 Pod 的整个生命周期中与主容器一起持续运行",
+      "b": "如果主容器启动失败，它会替代主容器",
+      "c": "出于隔离目的，它被调度在与主容器不同的节点上",
+      "d": "它会在 Pod 中的主应用容器启动之前运行至完成，并且每一个都必须成功完成后才能启动下一个"
+    },
+    "explanation": "init 容器会在主容器启动之前按顺序运行，每一个都必须成功完成后，下一个（或主容器）才会开始运行。它们不像常规容器那样长期运行，不会替代失败的主容器，并且与 Pod 的其余部分运行在同一个节点上。"
+  },
+  "cka-workloads-05": {
+    "question": "init 容器的一个常见用例是什么？",
+    "options": {
+      "a": "处理副本之间正在进行的流量负载均衡",
+      "b": "等待某个依赖服务变得可用，或在主应用启动之前执行下载配置等准备工作",
+      "c": "持续监控主容器的健康状况并重启它",
+      "d": "在正常运行期间，将应用日志持久化到外部存储"
+    },
+    "explanation": "init 容器通常用于一次性的准备工作，例如等待某个依赖项就绪，或在主容器启动之前准备配置/数据。负载均衡、持续健康监控和持续日志传输是其他组件（Service、kubelet 探针、sidecar 容器）的任务，而不是 init 容器的任务。"
+  },
+  "cka-workloads-06": {
+    "question": "ReplicaSet 的主要职责是什么？",
+    "options": {
+      "a": "管理应用不同版本之间的滚动更新",
+      "b": "根据资源可用性将 Pod 调度到特定节点",
+      "c": "确保在任何给定时刻都有指定数量的相同 Pod 副本在运行",
+      "d": "为一组 Pod 暴露一个稳定的网络端点"
+    },
+    "explanation": "ReplicaSet 的工作只是维持指定数量的相同 Pod 副本，根据需要创建或删除 Pod。滚动更新由 Deployment（管理 ReplicaSet）处理，节点调度由调度器完成，稳定的网络端点由 Service 提供。"
+  },
+  "cka-workloads-07": {
+    "question": "在日常使用中，为什么工程师很少直接创建 ReplicaSet？",
+    "options": {
+      "a": "Deployment 会自动管理 ReplicaSet，并添加诸如滚动更新和回滚等 ReplicaSet 本身不提供的功能",
+      "b": "ReplicaSet 是一个已弃用的 API，在当前的 Kubernetes 版本中已不再起作用",
+      "c": "ReplicaSet 一次只能管理单个 Pod 副本",
+      "d": "ReplicaSet 要求为它创建的每个 Pod 手动指定节点"
+    },
+    "explanation": "Deployment 建立在 ReplicaSet 之上，添加了滚动更新和回滚能力，因此工程师通常管理的是 Deployment，并让它在底层创建/管理 ReplicaSet。ReplicaSet 并未被弃用，可以管理大量副本，也不需要手动分配节点。"
+  },
+  "cka-workloads-08": {
+    "question": "Deployment 默认的滚动更新策略执行期间会发生什么？",
+    "options": {
+      "a": "所有旧 Pod 立即被删除，然后所有新 Pod 一次性创建",
+      "b": "新 Pod 逐步被创建，同时旧 Pod 逐步被终止，在整个更新过程中保持应用可用性",
+      "c": "Deployment 会暂停所有流量，直到每个新 Pod 都通过其存活探针",
+      "d": "会创建一个全新的 Deployment 对象，并删除旧对象"
+    },
+    "explanation": "RollingUpdate 会逐步用新 Pod 替换旧 Pod，由 maxSurge 和 maxUnavailable 控制，因此应用在更新期间保持可用。它不会一次性删除所有内容（那是 Recreate 策略的行为），不需要暂停所有流量，也不会创建全新的 Deployment 对象。"
+  },
+  "cka-workloads-09": {
+    "question": "是什么使 Deployment 能够回滚到之前的版本？",
+    "options": {
+      "a": "Kubernetes 每小时自动对集群状态进行快照",
+      "b": "每个 Pod 都会在本地存储一份先前容器镜像的备份",
+      "c": "kubelet 会无限期缓存它运行过的最后一个容器",
+      "d": "Deployment 会保留一份 ReplicaSet 的修订历史，每个 ReplicaSet 代表 Pod 模板的一个先前版本，可以被重新激活"
+    },
+    "explanation": "Deployment 会保留旧的 ReplicaSet（数量可配置的历史上限），代表 Pod 模板先前的修订版本，因此回滚意味着扩容一个旧的 ReplicaSet，同时缩容当前的 ReplicaSet。这个机制不涉及自动集群快照、逐 Pod 的镜像备份或无限期的 kubelet 缓存。"
+  },
+  "cka-workloads-10": {
+    "question": "一个团队希望运行一个无状态的 Web 应用，拥有三个可互换的副本，任何副本都可以处理任何请求，并且 Pod 可以被替换而无需保留身份。哪种工作负载类型最自然地适合这一需求？",
+    "options": {
+      "a": "StatefulSet",
+      "b": "DaemonSet",
+      "c": "Deployment",
+      "d": "Job"
+    },
+    "explanation": "Deployment 专为无状态、可互换的副本设计，Pod 身份并不重要。StatefulSet 适用于需要稳定身份和顺序的工作负载，DaemonSet 在每个节点上运行一个用于节点级代理的 Pod，而 Job 适用于运行至完成的任务，而不是持续提供服务。"
+  },
+  "cka-workloads-11": {
+    "question": "StatefulSet 管理的 Pod 与 Deployment 管理的 Pod 有什么区别？",
+    "options": {
+      "a": "StatefulSet 的 Pod 拥有稳定、可预测的网络身份和持久化存储，这些在重启和重新调度过程中始终与同一个 Pod 相关联",
+      "b": "StatefulSet 的 Pod 出于性能考虑，总是被调度到彼此相同的节点上",
+      "c": "StatefulSet 的 Pod 一旦创建就无法更新",
+      "d": "StatefulSet 的 Pod 不支持就绪或存活探针"
+    },
+    "explanation": "StatefulSet 为每个 Pod 提供稳定的主机名/身份（例如 web-0、web-1），并且通常还提供一个跟随该特定 Pod 在重新调度中始终存在的持久化 volume，这与 Deployment 的 Pod 不同，后者是可互换的，并获得随机名称。StatefulSet 的 Pod 不要求运行在同一节点上，它们可以被更新，并且完全支持探针。"
+  },
+  "cka-workloads-12": {
+    "question": "以下哪一项是通常优先选择 StatefulSet 而不是 Deployment 的典型用例？",
+    "options": {
+      "a": "运行一个水平扩展的、位于负载均衡器后面的无状态 REST API",
+      "b": "运行一个集群化的数据库，例如一个具有主/副本结构的复制数据库，其中每个实例都需要稳定的身份和自己的持久化存储",
+      "c": "运行一个处理一次队列项目后就退出的批处理任务",
+      "d": "运行一个必须存在于集群每个节点上的日志收集代理"
+    },
+    "explanation": "集群化/复制型数据库需要每个成员在重启后保持稳定的身份和专属的存储，这正是 StatefulSet 所提供的。无状态 REST API 适合用 Deployment，一次性批处理任务适合用 Job，而每节点代理适合用 DaemonSet。"
+  },
+  "cka-workloads-13": {
+    "question": "默认情况下，StatefulSet 如何处理其 Pod 的创建和扩容？",
+    "options": {
+      "a": "所有 Pod 以随机顺序同时创建",
+      "b": "Pod 按名称的反字母顺序创建",
+      "c": "Pod 只有在管理员手动触发时才会创建",
+      "d": "Pod 按顺序（0、1、2、……）依次创建，并且每个 Pod 必须达到 Running 且 Ready 状态后，才会创建下一个"
+    },
+    "explanation": "默认情况下，StatefulSet 按照升序的序号一次创建一个 Pod，等待每一个都达到 Running 且 Ready 状态后再启动下一个，这支持需要有序启动的用例（例如数据库集群的引导）。它们不是同时创建的，不是按反向顺序创建的，也不是仅通过手动触发才创建。"
+  },
+  "cka-workloads-14": {
+    "question": "DaemonSet 的主要用途是什么？",
+    "options": {
+      "a": "无论集群中存在多少个节点，都运行固定数量的副本",
+      "b": "只运行某个 Pod 一次，成功完成后将其终止",
+      "c": "确保某个特定 Pod 的一个副本在集群中的所有（或选定子集的）节点上运行",
+      "d": "为有状态应用提供有序、稳定的网络身份"
+    },
+    "explanation": "DaemonSet 确保某个 Pod 的一个副本在每个节点（或通过节点选择器/亲和性匹配的一个子集节点）上运行，随着节点加入自动新增 Pod，随着节点离开自动移除 Pod。它不是与节点数量无关的固定副本数，它不会像 Job 那样运行至完成，稳定身份是 StatefulSet 的特性。"
+  },
+  "cka-workloads-15": {
+    "question": "以下哪一项是最适合 DaemonSet 的经典工作负载示例？",
+    "options": {
+      "a": "一个必须从集群每个节点收集日志的日志收集代理（例如 Fluentd）",
+      "b": "一个需要三个副本以实现冗余的无状态 Web 前端",
+      "c": "一个每天凌晨 2 点运行一次的夜间报表生成任务",
+      "d": "一个需要每实例稳定存储的主/副本数据库集群"
+    },
+    "explanation": "诸如日志收集器、监控代理或网络插件等节点级基础设施代理，每个节点恰好需要一个实例，这正是 DaemonSet 的用途。无状态前端适合用 Deployment，定时的夜间任务适合用 CronJob，而数据库集群适合用 StatefulSet。"
+  },
+  "cka-workloads-16": {
+    "question": "Job 与 Deployment 之间的关键区别是什么？",
+    "options": {
+      "a": "Job 只能运行单个容器，而 Deployment 可以在每个 Pod 中运行多个容器",
+      "b": "Job 运行 Pod 来执行一项任务，直到成功完成后就停止，而 Deployment 会持续保持 Pod 运行，并在其退出时重启它们",
+      "c": "Job 无法使用来自私有镜像仓库的容器镜像",
+      "d": "Job 总是在每个节点上运行，而 Deployment 只运行在单个节点上"
+    },
+    "explanation": "Job 适用于运行至完成的工作负载：它们跟踪成功完成的次数，任务完成后就停止，而 Deployment 的目标是持续保持一组 Pod 处于运行状态。两者都支持多容器 Pod 和私有镜像仓库，且都不天然绑定于\"每个节点\"或\"单个节点\"运行。"
+  },
+  "cka-workloads-17": {
+    "question": "在 Job 中，'completions' 这个概念通常代表什么？",
+    "options": {
+      "a": "单个 Pod 在 Job 被放弃之前允许失败的次数",
+      "b": "Job 的 Pod 必须分布到的节点数量",
+      "c": "Job 整体被视为完成之前所需要的成功 Pod 完成次数",
+      "d": "Job 被允许运行的最长时间（以秒为单位）"
+    },
+    "explanation": "'completions' 指定了 Job 被标记为完成所需的成功 Pod 完成次数，适用于处理固定数量工作项的场景。允许的失败次数与 backoffLimit 有关，节点分布与此无关，最长运行时间由 activeDeadlineSeconds 控制。"
+  },
+  "cka-workloads-18": {
+    "question": "在 Job 中，'parallelism' 这个概念控制的是什么？",
+    "options": {
+      "a": "单个 Pod 中可以使用多少种不同的容器镜像",
+      "b": "Job 的 Pod 是否可以跨多个可用区调度",
+      "c": "如果 Job 整体失败，会被重试多少次",
+      "d": "Job 在朝所需完成次数推进的过程中，允许同时运行多少个 Pod"
+    },
+    "explanation": "'parallelism' 设置了 Job 可以同时运行的 Pod 数量，使工作项可以并发处理，而不是一次处理一个。它不控制每个 Pod 的镜像数量、可用区分布或 Job 整体的重试次数。"
+  },
+  "cka-workloads-19": {
+    "question": "CronJob 与 Job 之间的关系是什么？",
+    "options": {
+      "a": "CronJob 会根据定义的时间表创建一个新的 Job 对象，然后由该 Job 创建并管理实际的 Pod",
+      "b": "CronJob 和 Job 是同一个对象的两个名称，没有功能上的区别",
+      "c": "CronJob 直接创建 Pod，从不创建 Job 对象",
+      "d": "CronJob 只能触发一次某个 Job，无法重复"
+    },
+    "explanation": "CronJob 是一个根据基于时间的计划（使用 cron 语法）创建 Job 对象的控制器；每个被触发的 Job 随后管理自己的 Pod 直至完成。CronJob 和 Job 是不同的对象，CronJob 是通过 Job 而不是直接创建 Pod，并且它们本来就是为了按计划重复执行而设计的。"
+  },
+  "cka-workloads-20": {
+    "question": "以下哪种场景最适合使用 CronJob？",
+    "options": {
+      "a": "持续提供一个具有自动扩缩容能力的无状态 API",
+      "b": "每晚在固定时间自动运行一次数据库备份任务",
+      "c": "在每个节点上运行一个用于网络配置的单一代理 Pod",
+      "d": "为一个集群化缓存维护稳定的网络身份"
+    },
+    "explanation": "CronJob 是为周期性、按时间调度的任务而存在的，例如夜间备份或定期报表生成。持续的 API 服务适合用 Deployment，每节点代理适合用 DaemonSet，而集群化缓存的稳定身份适合用 StatefulSet。"
+  },
+  "cka-workloads-21": {
+    "question": "一个 Pod 被报告处于 'Pending' 阶段。这通常意味着什么？",
+    "options": {
+      "a": "该 Pod 已经运行结束并成功终止",
+      "b": "该 Pod 的容器正在运行，但尚未通过其就绪探针",
+      "c": "该 Pod 已被集群接受，但其一个或多个容器尚未运行，例如因为它仍在等待被调度，或其镜像仍在被拉取",
+      "d": "该 Pod 已永久失败，不会被重试"
+    },
+    "explanation": "Pending 意味着该 Pod 对象已经被创建并被集群接受，但至少有一个容器尚未运行，通常是因为调度尚未完成，或镜像仍在下载中。成功终止属于 Succeeded 阶段，运行中但未就绪属于 Running 阶段的一部分，而永久失败属于 Failed 阶段。"
+  },
+  "cka-workloads-22": {
+    "question": "一个 Pod 配置了 restartPolicy: OnFailure。这描述的是什么行为？",
+    "options": {
+      "a": "kubelet 只在节点本身重启时才重启该 Pod 的容器",
+      "b": "无论退出是否成功，容器在每次退出后都会被重启",
+      "c": "无论容器如何退出，都不会被重启",
+      "d": "当容器以错误状态终止时，kubelet 会重启它，但成功退出时不会重启"
+    },
+    "explanation": "OnFailure 告诉 kubelet 只有当容器以非零（失败）状态退出时才重启它，成功完成的情况则保持不变；这在批处理类工作负载中很常见。无论退出状态如何都始终重启是 'Always' 策略，从不重启是 'Never' 策略，并且重启行为并不局限于节点重启的情况。"
+  },
+  "cka-workloads-23": {
+    "question": "从概念上讲，存活探针（liveness probe）回答的是什么问题？",
+    "options": {
+      "a": "容器是否仍在正常运作，或者是否已进入某种损坏状态，应该被重启？",
+      "b": "容器是否已准备好开始从 Service 接收流量？",
+      "c": "容器是否已完成所有启动初始化任务？",
+      "d": "节点上是否有足够的 CPU 和内存来继续运行该容器？"
+    },
+    "explanation": "存活探针检查一个正在运行的容器是否仍然健康；如果它反复失败，kubelet 会杀死并重启该容器。是否应该发送流量是就绪探针（readiness probe）关心的问题，启动是否完成是启动探针（startup probe）关心的问题，而资源可用性与探针无关。"
+  },
+  "cka-workloads-24": {
+    "question": "就绪探针（readiness probe）在所控制的内容上与存活探针有何不同？",
+    "options": {
+      "a": "就绪探针决定容器何时应该被杀死并重启，而存活探针对容器的生命周期没有影响",
+      "b": "就绪探针和存活探针在失败时都会触发完全相同的动作：重启容器",
+      "c": "就绪探针决定一个 Pod 是否应该通过 Service 的 endpoint 接收流量，而不会在失败时导致容器被重启",
+      "d": "就绪探针只在容器启动时运行一次，之后再也不会运行"
+    },
+    "explanation": "就绪探针失败会将该 Pod 从 Service 的 endpoint 中移除，使其停止接收流量，但不会导致重启；容器继续运行，一旦再次就绪即可重新加入。这与存活探针不同，后者失败会导致重启。就绪探针会在 Pod 的整个生命周期中反复运行，而不仅仅运行一次，并且这两种探针类型不会触发相同的动作。"
+  }
+}

@@ -1,0 +1,1312 @@
+{
+  "cka-config_scheduling-01": {
+    "question": "Was ist der primäre Zweck von Kubernetes Namespaces?",
+    "options": {
+      "a": "Den Datenverkehr zwischen Pods auf unterschiedlichen Nodes zu verschlüsseln",
+      "b": "Einen einzelnen Cluster in mehrere virtuelle Cluster zu unterteilen, um Gruppen von Ressourcen zu organisieren und voneinander zu isolieren",
+      "c": "Jedem Node im Cluster einen eindeutigen IP-Adressbereich zuzuweisen",
+      "d": "Die Gesamtzahl der Nodes zu begrenzen, die ein Cluster haben darf"
+    },
+    "explanation": "Namespaces bieten eine Möglichkeit, die Ressourcen eines Clusters (Pods, Services, ConfigMaps usw.) logisch zu unterteilen, sodass mehrere Teams oder Projekte sich einen Cluster teilen können, ohne dass Namenskonflikte entstehen, und mit einer auf den jeweiligen Bereich beschränkten Zugriffskontrolle. Sie verschlüsseln keinen Datenverkehr (a), weisen keine Node-IP-Bereiche zu (c) und begrenzen nicht die Anzahl der Nodes (d)."
+  },
+  "cka-config_scheduling-02": {
+    "question": "Wenn ein Pod erstellt wird, ohne explizit einen Namespace anzugeben, in welchem Namespace wird er dann platziert?",
+    "options": {
+      "a": "kube-system",
+      "b": "kube-public",
+      "c": "default",
+      "d": "Er wird außerhalb jeglichen Namespace platziert"
+    },
+    "explanation": "Kubernetes platziert nicht qualifizierte Objekte automatisch im Namespace „default“. „kube-system“ enthält Infrastrukturkomponenten des Clusters, und „kube-public“ ist ein spezieller, für alle Benutzer lesbarer Namespace, der typischerweise öffentliche Clusterinformationen enthält. Jedes namespaced Objekt muss zu irgendeinem Namespace gehören, daher ist (d) falsch."
+  },
+  "cka-config_scheduling-03": {
+    "question": "Welches der folgenden Objekte ist in Kubernetes NICHT namespaced (existiert also clusterweit)?",
+    "options": {
+      "a": "Nodes",
+      "b": "Pods",
+      "c": "ConfigMaps",
+      "d": "Services"
+    },
+    "explanation": "Nodes repräsentieren physische oder virtuelle Maschinen, die zum gesamten Cluster gehören und nicht zu einem einzelnen Namespace, daher sind sie clusterweit gültig (cluster-scoped). Pods, ConfigMaps und Services sind alle namespaced Objekte, die innerhalb eines bestimmten Namespace existieren."
+  },
+  "cka-config_scheduling-04": {
+    "question": "Wofür werden Labels in Kubernetes verwendet?",
+    "options": {
+      "a": "Es sind interne Systemkennungen, die nach der Objekterstellung nicht mehr geändert werden können",
+      "b": "Schlüssel-Wert-Paare, die an Objekten angebracht werden und es ermöglichen, sie zu identifizieren, zu organisieren und von anderen Ressourcen ausgewählt zu werden",
+      "c": "Ein Mechanismus zur Verschlüsselung sensibler Objektmetadaten",
+      "d": "Eine Möglichkeit, einzuschränken, welche Benutzer ein bestimmtes Objekt einsehen dürfen"
+    },
+    "explanation": "Labels sind beliebige, benutzerdefinierte Schlüssel-Wert-Paare, die an Objekten wie Pods angebracht werden; sie ermöglichen Gruppierung und Auswahl (z. B. durch Services oder ReplicaSets) mittels Label-Selektoren. Sie sind veränderbar, haben nichts mit Verschlüsselung zu tun und sind für sich genommen kein Zugriffskontrollmechanismus."
+  },
+  "cka-config_scheduling-05": {
+    "question": "Wie weiß ein Service typischerweise, an welche Pods er den Datenverkehr weiterleiten soll?",
+    "options": {
+      "a": "Er scannt alle Pods im Cluster und leitet an diejenigen mit der niedrigsten CPU-Auslastung weiter",
+      "b": "Er wird manuell mit einer statischen Liste von Pod-IP-Adressen konfiguriert",
+      "c": "Er verwendet einen Label-Selektor, um Pods zu finden, deren Labels dem Selektor des Service entsprechen",
+      "d": "Er leitet an jeden Pod im selben Namespace weiter, unabhängig von den Labels"
+    },
+    "explanation": "Ein Service definiert einen Label-Selektor, und jeder Pod, dessen Labels mit diesem Selektor übereinstimmen, wird zu einem Endpunkt, an den der Service Datenverkehr weiterleitet. Dies ist dynamisch (Pods können kommen und gehen) statt einer statischen IP-Liste, und es basiert weder auf der Ressourcennutzung noch auf einer pauschalen Namespace-Zugehörigkeit."
+  },
+  "cka-config_scheduling-06": {
+    "question": "Was ist der Hauptzweck einer ConfigMap?",
+    "options": {
+      "a": "Sensible Zugangsdaten in verschlüsselter Form zu speichern",
+      "b": "Ressourcenanfragen und -limits für einen Container festzulegen",
+      "c": "Zu steuern, auf welchem Node ein Pod eingeplant wird",
+      "d": "Nicht-sensible Konfigurationsdaten vom Anwendungscode zu entkoppeln, damit sie in Pods eingebunden werden können"
+    },
+    "explanation": "ConfigMaps enthalten nicht vertrauliche Konfigurationsdaten (wie Konfigurationsdateien oder Einstellungen) getrennt von Container-Images, sodass dasselbe Image über verschiedene Umgebungen hinweg wiederverwendet werden kann. Sie sind nicht für Geheimnisse gedacht (a, dafür gibt es Secrets), nicht für Ressourcenlimits (b) und nicht für Scheduling-Entscheidungen (c)."
+  },
+  "cka-config_scheduling-07": {
+    "question": "Auf welche zwei grundsätzlichen Arten können die Daten einer ConfigMap einem Container zur Verfügung gestellt werden?",
+    "options": {
+      "a": "Als Umgebungsvariablen oder als über ein Volume gemountete Dateien",
+      "b": "Als Kernel-Module oder als Netzwerkrouten",
+      "c": "Nur als Umgebungsvariablen; das Mounten als Volume wird nicht unterstützt",
+      "d": "Als DNS-Einträge oder als Firewall-Regeln"
+    },
+    "explanation": "Die Schlüssel-Wert-Paare einer ConfigMap können einem Container entweder als Umgebungsvariablen oder als einzelne Dateien innerhalb eines gemounteten Volumes zugänglich gemacht werden, was je nach Anwendungsanforderung Flexibilität bietet. Option (c) ist falsch, da das Mounten als Volume tatsächlich unterstützt wird und häufig verwendet wird."
+  },
+  "cka-config_scheduling-08": {
+    "question": "Was ist der wesentliche konzeptionelle Unterschied zwischen einem Secret und einer ConfigMap?",
+    "options": {
+      "a": "Secrets können nur als Umgebungsvariablen verwendet werden, während ConfigMaps nur als Volumes gemountet werden können",
+      "b": "Secrets sind für sensible Daten wie Passwörter oder Tokens gedacht, während ConfigMaps für nicht-sensible Konfigurationsdaten gedacht sind",
+      "c": "ConfigMaps sind namespaced, während Secrets clusterweit gelten",
+      "d": "Secrets werden automatisch nach 24 Stunden gelöscht, während ConfigMaps unbegrenzt bestehen bleiben"
+    },
+    "explanation": "Beide Objekttypen speichern Schlüssel-Wert-Daten und können auf dieselbe Weise verwendet werden (Umgebungsvariablen oder Volumes), aber Secrets existieren speziell als Ort, um sensible Werte wie Zugangsdaten oder Tokens zu halten, mit Handhabungskonventionen, die sich an dieser Sensibilität orientieren. Beide sind namespaced, und keines von beiden läuft automatisch nach 24 Stunden ab."
+  },
+  "cka-config_scheduling-09": {
+    "question": "Ein Junior-Engineer stellt fest, dass Secret-Werte base64-kodiert statt im Klartext gespeichert werden, und schließt daraus, dass die Daten verschlüsselt sind. Ist das korrekt?",
+    "options": {
+      "a": "Ja, base64-Kodierung ist ein starker Verschlüsselungsalgorithmus, der für produktive Secrets zugelassen ist",
+      "b": "Ja, da base64-kodierte Daten nicht ohne privaten Schlüssel dekodiert werden können",
+      "c": "Nein, base64 ist lediglich ein Kodierungsschema, keine Verschlüsselung — jeder mit Zugriff auf das Secret-Objekt kann es problemlos wieder in Klartext dekodieren",
+      "d": "Nein, base64-Kodierung beschädigt die Daten tatsächlich, sodass sie vor der Verwendung von einem speziellen Controller entschlüsselt werden müssen"
+    },
+    "explanation": "Base64 ist eine umkehrbare Kodierung, keine Verschlüsselung — sie erfordert keinen Schlüssel und kein Geheimnis zum Dekodieren und bietet daher für sich genommen keine Vertraulichkeit. Echter Schutz für Secrets entsteht durch Mechanismen wie Verschlüsselung im Ruhezustand (Encryption at Rest), RBAC-Einschränkungen und externe Secret-Manager. Die Optionen (a) und (b) beschreiben base64 fälschlich als Verschlüsselung, und (d) ist falsch, da das Dekodieren keinen speziellen Controller erfordert."
+  },
+  "cka-config_scheduling-10": {
+    "question": "Was repräsentiert die „Resource Request“ eines Containers konzeptionell?",
+    "options": {
+      "a": "Die absolute Obergrenze an CPU/Arbeitsspeicher, die der Container jemals nutzen darf",
+      "b": "Die Menge an CPU/Arbeitsspeicher, die der Scheduler bei der Platzierung des Containers als für ihn reserviert garantiert",
+      "c": "Die Menge an CPU/Arbeitsspeicher, die der Container nur in Phasen hoher Clusterauslastung erhält",
+      "d": "Ein optionaler Hinweis, den der Scheduler vollständig ignorieren kann"
+    },
+    "explanation": "Eine Resource Request ist das, was der Scheduler nutzt, um zu entscheiden, welcher Node genug Kapazität hat, um den Container aufzunehmen; diese Menge wird effektiv für ihn reserviert. Das Maximum, das ein Container nutzen darf, wird durch sein „Limit“ bestimmt, nicht durch seine Request (a), und Requests werden beim normalen Scheduling berücksichtigt, nicht nur bei hoher Auslastung (c). Der Scheduler berücksichtigt Requests durchaus, daher ist (d) falsch."
+  },
+  "cka-config_scheduling-11": {
+    "question": "Was passiert im Allgemeinen mit einem Container, der versucht, mehr CPU zu nutzen als sein konfiguriertes Limit erlaubt?",
+    "options": {
+      "a": "Der Container wird gedrosselt (throttled) — er wird nicht beendet, aber seine CPU-Nutzung wird begrenzt, sodass er langsamer läuft",
+      "b": "Der Container wird sofort vom OOM-Killer beendet",
+      "c": "Der Node erhöht das CPU-Limit automatisch entsprechend dem Bedarf",
+      "d": "Der Pod wird aus dem Cluster verdrängt (evicted) und auf einem anderen Node neu eingeplant"
+    },
+    "explanation": "CPU ist eine komprimierbare Ressource: Das Überschreiten eines CPU-Limits führt zu Drosselung (der Container wird verlangsamt), nicht zur Beendigung. Der OOM-Killer (b) betrifft Arbeitsspeicherlimits, nicht CPU. Limits sind feste Werte, die vom Node nicht automatisch angepasst werden (c), und CPU-Drosselung allein löst keine Pod-Eviction aus (d)."
+  },
+  "cka-config_scheduling-12": {
+    "question": "Was passiert im Allgemeinen mit einem Container, der versucht, mehr Arbeitsspeicher zu nutzen als sein konfiguriertes Limit erlaubt?",
+    "options": {
+      "a": "Er wird auf dieselbe Weise gedrosselt wie bei CPU-Nutzung",
+      "b": "Kubernetes komprimiert automatisch die Speicherseiten des Containers, um innerhalb des Limits zu bleiben",
+      "c": "Der Container wird wahrscheinlich vom OOM-Killer (Out Of Memory) beendet, da Arbeitsspeicher nicht wie CPU gedrosselt werden kann",
+      "d": "Es passiert nichts, da Arbeitsspeicherlimits nur als Empfehlung gelten"
+    },
+    "explanation": "Arbeitsspeicher ist eine nicht komprimierbare Ressource — er kann nicht wie CPU gedrosselt werden. Überschreitet ein Container also sein Speicherlimit, beendet der OOM-Killer des Kernels ihn in der Regel (sichtbar als Status „OOMKilled“). Drosselung (a) betrifft CPU, nicht Arbeitsspeicher; es gibt keine automatische Speicherkomprimierung (b); und Arbeitsspeicherlimits werden durchgesetzt, sie sind nicht bloß eine Empfehlung (d)."
+  },
+  "cka-config_scheduling-13": {
+    "question": "Warum könnte das Ressourcenlimit eines Containers höher gesetzt sein als seine Resource Request?",
+    "options": {
+      "a": "Requests und Limits müssen immer gleich sein; sie unterschiedlich zu setzen, ist eine ungültige Konfiguration",
+      "b": "Das Limit bestimmt die Abrechnung, während die Request nur die Scheduling-Priorität bestimmt",
+      "c": "Es hat keine praktische Auswirkung und ist rein kosmetisch",
+      "d": "Es erlaubt dem Container, über seine garantierte Grundlinie hinaus zu „bursten“ und freie Kapazität auf dem Node zu nutzen, wenn diese verfügbar ist, während die maximale Nutzung im ungünstigsten Fall dennoch begrenzt bleibt"
+    },
+    "explanation": "Ein höher als die Request gesetztes Limit erlaubt es einem Container, bei Bedarf opportunistisch zusätzliche Ressourcen zu nutzen, wenn der Node freie Kapazität hat, während die Request weiterhin seinen Grundanteil für das Scheduling garantiert. Requests und Limits können sich legitim unterscheiden (a ist falsch), Limits sind nicht einfach ein Abrechnungskonstrukt (b), und die Einstellung wirkt sich maßgeblich auf das Laufzeitverhalten aus (c ist falsch)."
+  },
+  "cka-config_scheduling-14": {
+    "question": "Was ist auf konzeptioneller Ebene die Rolle des Kubernetes-Schedulers?",
+    "options": {
+      "a": "Er baut Container-Images und pusht sie vor dem Deployment in eine Registry",
+      "b": "Er beobachtet neu erstellte Pods ohne zugewiesenen Node und wählt für jeden einen geeigneten Node aus, basierend auf verfügbaren Ressourcen und konfigurierten Einschränkungen",
+      "c": "Er überwacht Anwendungslogs und startet Container neu, die Fehlermeldungen ausgeben",
+      "d": "Er übernimmt die Authentifizierung und Autorisierung der Benutzer für die Kubernetes-API"
+    },
+    "explanation": "Die Aufgabe des Schedulers ist es, für jeden noch nicht eingeplanten Pod einen Node zu finden, der dessen Ressourcenanforderungen und Scheduling-Einschränkungen (Affinity, Taints/Tolerations usw.) erfüllt, und den Pod dann an diesen Node zu binden. Er ist nicht am Image-Bau beteiligt (a), nicht an log-basierten Neustarts (c, das ist die Aufgabe des Liveness-Probings durch den kubelet) und nicht an Authentifizierung/Autorisierung (d, das übernimmt der API-Server)."
+  },
+  "cka-config_scheduling-15": {
+    "question": "Wie entscheidet der Scheduler grob gesagt, wo ein Pod platziert wird, sobald er eine Liste von Nodes hat, die die harten Anforderungen des Pods erfüllen?",
+    "options": {
+      "a": "Er bewertet die geeigneten („feasible“) Nodes anhand einer Reihe von Prioritätskriterien und wählt den Node mit der besten Gesamtbewertung",
+      "b": "Er wählt immer den Node mit der geringsten Gesamtzahl laufender Pods, unabhängig von der Ressourcennutzung",
+      "c": "Er wählt einen Node völlig zufällig unter allen Nodes im Cluster aus",
+      "d": "Er lässt jeden kubelet eines Node ein Gebot für den Pod abgeben, ähnlich einer Auktion"
+    },
+    "explanation": "Nachdem Nodes herausgefiltert wurden, die die Anforderungen eines Pods nicht erfüllen (Filterphase), bewertet der Scheduler die verbleibenden geeigneten Nodes mithilfe von Prioritätsfunktionen (z. B. Ressourcenbalance, Affinity-Präferenzen) und wählt den Node mit der höchsten Bewertung (Scoring-Phase). Er verlässt sich weder allein auf die Pod-Anzahl (b) noch auf reinen Zufall (c) oder einen node-seitigen Gebotsmechanismus (d)."
+  },
+  "cka-config_scheduling-16": {
+    "question": "Was ermöglicht es, mit Node Affinity auszudrücken?",
+    "options": {
+      "a": "Eine Regel, die verhindert, dass zwei Pods mit demselben Label jemals auf demselben Node laufen",
+      "b": "Eine Regel, die die Anzahl der Nodes im Cluster automatisch hoch- oder herunterskaliert",
+      "c": "Eine Regel, die festlegt, dass ein Pod auf Nodes eingeplant werden soll (oder muss), die bestimmten Labels entsprechen, z. B. Nodes mit einem bestimmten Festplattentyp oder in einer bestimmten Availability Zone",
+      "d": "Eine Regel, die begrenzt, wie viel Netzwerkbandbreite ein Pod auf einem Node verbrauchen darf"
+    },
+    "explanation": "Node Affinity ermöglicht es, einzuschränken, auf welchen Nodes ein Pod eingeplant werden darf, basierend auf Node-Labels — nützlich, um Workloads auf Nodes mit bestimmter Hardware oder in bestimmten Zonen zu platzieren. Zu verhindern, dass Pods mit demselben Label gemeinsam platziert werden, beschreibt Pod-Anti-Affinity, nicht Node Affinity (a); es hat nichts mit Cluster-Autoscaling (b) oder Bandbreitenbegrenzung (d) zu tun."
+  },
+  "cka-config_scheduling-17": {
+    "question": "Was ist ein typischer Anwendungsfall für Pod-Anti-Affinity?",
+    "options": {
+      "a": "Sicherzustellen, dass ein Pod nur auf Nodes in einer bestimmten Cloud-Region eingeplant wird",
+      "b": "Zu verhindern, dass ein Pod jemals von einem Administrator gelöscht wird",
+      "c": "Zu garantieren, dass ein Pod immer eine feste IP-Adresse hat",
+      "d": "Replicas derselben Anwendung über verschiedene Nodes zu verteilen, sodass der Ausfall eines Node nicht alle Replicas gleichzeitig lahmlegt"
+    },
+    "explanation": "Pod-Anti-Affinity wird häufig verwendet, um zu verhindern, dass Pods mit bestimmten Labels gemeinsam platziert werden, was die Verfügbarkeit verbessert, indem Replicas über Nodes oder Zonen verteilt werden. Die Platzierung auf eine Region anhand von Node-Labels zu beschränken, ist Node Affinity (a), und Pod-Anti-Affinity hat nichts mit Löschschutz (b) oder statischer IP-Zuweisung (c) zu tun."
+  },
+  "cka-config_scheduling-18": {
+    "question": "Was ist konzeptionell der Zweck von Taints, die auf einen Node angewendet werden?",
+    "options": {
+      "a": "Sie markieren einen Node als fehlerhaft, sodass er automatisch aus dem Cluster entfernt wird",
+      "b": "Sie halten Pods davon ab, auf diesem Node eingeplant zu werden, es sei denn, der Pod hat eine passende Toleration",
+      "c": "Sie legen die maximale Anzahl an Pods fest, die der Node ausführen darf",
+      "d": "Sie verschlüsseln alle Daten auf den lokalen Festplatten dieses Node"
+    },
+    "explanation": "Ein Taint markiert einen Node so, dass standardmäßig kein Pod darauf eingeplant wird, es sei denn, der Pod toleriert diesen Taint explizit. Dies wird zum Beispiel genutzt, um dedizierte Nodes für bestimmte Workloads zu reservieren. Taints entfernen keine Nodes aus dem Cluster (a), begrenzen nicht die Pod-Anzahl (c) und haben nichts mit Festplattenverschlüsselung zu tun (d)."
+  },
+  "cka-config_scheduling-19": {
+    "question": "Wie unterscheidet sich die Beziehung zwischen Taints/Tolerations konzeptionell von der durch Node Affinity ausgedrückten Beziehung?",
+    "options": {
+      "a": "Sie sind funktional identisch; Taints/Tolerations ist nur ältere, veraltete Syntax für Node Affinity",
+      "b": "Taints/Tolerations ziehen Pods zu bestimmten Nodes hin, während Node Affinity sie abstößt",
+      "c": "Taints/Tolerations wirken von der Node-Seite aus und stoßen Pods ab, sofern diese den Taint nicht explizit tolerieren, während Node Affinity von der Pod-Seite aus eine Präferenz oder Anforderung ausdrückt, zu bestimmten Nodes hingezogen zu werden",
+      "d": "Node Affinity kann nur mit StatefulSets verwendet werden, während Taints/Tolerations nur mit Deployments verwendet werden können"
+    },
+    "explanation": "Taints werden auf Nodes gesetzt und wirken als abstoßende Kraft, die Pods explizit tolerieren müssen, um auf diesem Node zugelassen zu werden; Node Affinity wird auf Pods gesetzt und drückt aus, welche Nodes der Pod möchte (oder muss). Sie ergänzen sich, sind aber nicht austauschbar oder veraltet (a), die Richtung von Anziehung/Abstoßung in (b) ist vertauscht, und keiner der beiden Mechanismen ist auf einen bestimmten Controller-Typ beschränkt (d)."
+  },
+  "cka-config_scheduling-20": {
+    "question": "Ein Team möchte, dass jeder Node in einem dedizierten „gpu-only“-Pool nur GPU-Workloads ausführt, während Nicht-GPU-Pods komplett von diesen Nodes ferngehalten werden und GPU-Pods gleichzeitig aktiv zu diesen Nodes hingesteuert werden. Welche Kombination von Konzepten eignet sich am besten, um dies zu erreichen?",
+    "options": {
+      "a": "Die GPU-Nodes mit einem Taint versehen, sodass nur Pods mit passender Toleration dort eingeplant werden können, und zusätzlich Node Affinity auf den GPU-Pods verwenden, damit sie zu als GPU-Node gelabelten Nodes hingezogen werden",
+      "b": "ConfigMaps verwenden, um die Namen der GPU-Nodes in der Konfiguration jedes Pods aufzulisten",
+      "c": "Nur Namespaces verwenden, da das Platzieren von GPU-Pods in einem eigenen Namespace sie automatisch auf GPU-Nodes beschränkt",
+      "d": "Nur Ressourcenlimits verwenden, da ein hohes Speicherlimit den Scheduler dazu zwingt, GPU-Nodes auszuwählen"
+    },
+    "explanation": "Taints/Tolerations halten Nicht-GPU-Pods von den dedizierten Nodes fern (Abstoßung mit explizitem Opt-in), während Node Affinity auf den GPU-Pods diese aktiv zu den gelabelten Nodes hinzieht — zusammen erreichen sie sowohl dedizierte Isolation als auch Steuerung. ConfigMaps enthalten Konfigurationsdaten, keine Scheduling-Logik (b); Namespaces bieten logische Isolation, haben aber keine Auswirkung auf die Node-Platzierung (c); und Ressourcenlimits begrenzen lediglich die Nutzung, sie beeinflussen nicht, welcher Node-Typ gewählt wird (d)."
+  },
+  "cka-core_concepts-01": {
+    "question": "Welches Kernproblem löst Kubernetes hauptsächlich?",
+    "options": {
+      "a": "Das Kompilieren von Anwendungsquellcode in Container-Images",
+      "b": "Die Automatisierung von Deployment, Skalierung und Betrieb containerisierter Anwendungen über eine Gruppe von Maschinen hinweg",
+      "c": "Den Bedarf an einem Versionskontrollsystem in Softwareprojekten zu ersetzen",
+      "d": "Einen grafischen Texteditor zum Schreiben von Anwendungscode bereitzustellen"
+    },
+    "explanation": "Kubernetes ist eine Container-Orchestrierungsplattform: Sie automatisiert das Deployment, die Skalierung, die Selbstheilung und die Verwaltung containerisierter Workloads über eine Flotte von Maschinen hinweg. Es baut keine Images (dafür gibt es Tools wie Docker/Buildpacks), verwaltet keine Quellcode-Historie und dient nicht als Editor."
+  },
+  "cka-core_concepts-02": {
+    "question": "Wie gelangt ein Benutzer im deklarativen Desired-State-Modell von Kubernetes typischerweise zu einer Zielkonfiguration?",
+    "options": {
+      "a": "Indem er ein Schritt-für-Schritt-Skript schreibt, das jeden zum Erreichen des Zielzustands nötigen Befehl in der richtigen Reihenfolge ausgibt",
+      "b": "Indem er Container auf jedem Node einzeln manuell startet und stoppt",
+      "c": "Indem er den gewünschten Endzustand in einem Manifest beschreibt und Kubernetes kontinuierlich dafür sorgen lässt, dass die Realität diesem entspricht",
+      "d": "Indem er einen einmaligen Cron-Job plant, der Ressourcen bereitstellt und sich dann beendet"
+    },
+    "explanation": "Deklaratives Management bedeutet, dass man angibt, was man möchte (z. B. „3 Replicas dieses Containers“), nicht die imperativen Schritte, um dorthin zu gelangen. Kubernetes-Controller gleichen kontinuierlich den tatsächlichen Zustand mit diesem gewünschten Zustand ab. Das Schreiben geordneter imperativer Skripte, manuelle Container-Verwaltung pro Node und einmalige Bereitstellungsjobs sind allesamt imperative Ansätze, nicht das deklarative Modell."
+  },
+  "cka-core_concepts-03": {
+    "question": "Welche Gruppe von Komponenten bildet zusammen die Control Plane von Kubernetes?",
+    "options": {
+      "a": "kube-apiserver, etcd, kube-scheduler und der Controller Manager",
+      "b": "kubelet, kube-proxy und die Container-Laufzeitumgebung (Container Runtime)",
+      "c": "Die Container-Image-Registry und die CI/CD-Pipeline",
+      "d": "Der Load Balancer und der DNS-Server des Clusters"
+    },
+    "explanation": "Die Control Plane besteht aus dem API-Server, etcd, dem Scheduler und dem Controller Manager (plus gegebenenfalls dem Cloud Controller Manager). kubelet, kube-proxy und die Container Runtime laufen auf Worker-Nodes, nicht auf der Control Plane. Image-Registries und CI/CD-Pipelines sind externe Werkzeuge und kein Teil der Control Plane."
+  },
+  "cka-core_concepts-04": {
+    "question": "Was ist die primäre Rolle des kube-apiserver?",
+    "options": {
+      "a": "Er führt Container direkt auf Worker-Nodes aus",
+      "b": "Er speichert den gesamten dauerhaften Clusterzustand als Source of Truth auf der Festplatte",
+      "c": "Er entscheidet, auf welchem Node ein neu erstellter Pod laufen soll",
+      "d": "Er stellt die Kubernetes-REST-API bereit und fungiert als zentraler Punkt, über den alle Komponenten den Clusterzustand lesen und schreiben"
+    },
+    "explanation": "Der API-Server ist die Eingangstür zum Cluster: Jede Komponente (kubectl, Controller, kubelet, Scheduler) kommuniziert über seine REST-API mit ihm, und er validiert und verarbeitet Anfragen, bevor er sie über etcd persistiert. Das Ausführen von Containern ist Aufgabe des kubelet, das Speichern des dauerhaften Zustands ist Aufgabe von etcd, und die Zuweisung von Pods zu Nodes ist Aufgabe des Schedulers."
+  },
+  "cka-core_concepts-05": {
+    "question": "Welche Rolle spielt etcd in einem Kubernetes-Cluster?",
+    "options": {
+      "a": "Es ist eine schlanke Container-Laufzeitumgebung, die nur auf den Control-Plane-Nodes verwendet wird",
+      "b": "Es ist ein verteilter, konsistenter Key-Value-Store, der die dauerhafte Konfiguration und Zustandsdaten des Clusters enthält",
+      "c": "Es ist die Komponente, die regelmäßig Container-Images neu baut",
+      "d": "Es ist der Load-Balancing-Proxy, der Datenverkehr an Pods weiterleitet"
+    },
+    "explanation": "etcd ist ein verteilter Key-Value-Store, der als Kubernetes' Backing Store für alle Clusterdaten dient — der API-Server liest von ihm und schreibt in ihn. Es ist keine Container Runtime, kein Image-Builder und kein Netzwerk-Proxy."
+  },
+  "cka-core_concepts-06": {
+    "question": "Was ist die Hauptaufgabe des kube-scheduler?",
+    "options": {
+      "a": "Er startet kontinuierlich Container neu, die auf einem Node abstürzen",
+      "b": "Er speichert den von Benutzern übermittelten gewünschten Zustand, bevor dieser in etcd geschrieben wird",
+      "c": "Er beobachtet neu erstellte Pods ohne zugewiesenen Node und wählt einen geeigneten Node aus, auf dem sie laufen sollen",
+      "d": "Er verwaltet Netzwerk-Routing-Regeln für Services auf jedem Node"
+    },
+    "explanation": "Der Scheduler weist nicht eingeplante Pods anhand von Ressourcenanforderungen, Einschränkungen und Richtlinien Nodes zu. Das Neustarten abgestürzter Container ist Aufgabe des kubelet, node-spezifische Netzwerkregeln sind Aufgabe von kube-proxy, und der Scheduler speichert keinen gewünschten Zustand, er entscheidet lediglich über die Platzierung."
+  },
+  "cka-core_concepts-07": {
+    "question": "Was macht der kube-controller-manager?",
+    "options": {
+      "a": "Er führt mehrere Control-Loops aus (etwa den ReplicaSet- und den Node-Controller), die den Clusterzustand beobachten und Maßnahmen ergreifen, um ihn zum gewünschten Zustand hin zu bewegen",
+      "b": "Er ist der auf jedem Worker-Node installierte Agent, der Container startet und stoppt",
+      "c": "Er stellt die Kommandozeilenschnittstelle bereit, in die Benutzer Befehle eingeben",
+      "d": "Er baut Container-Images aus Quellcode-Repositories"
+    },
+    "explanation": "Der Controller Manager führt eine Sammlung von Control-Loops aus (Node-Controller, ReplicaSet-Controller, Endpoints-Controller usw.), die jeweils den aktuellen Zustand des Clusters beobachten und ihn in Richtung des gewünschten Zustands abgleichen. Der Agent pro Node ist das kubelet, die CLI ist kubectl, und der Image-Bau steht in keinem Zusammenhang mit dieser Komponente."
+  },
+  "cka-core_concepts-08": {
+    "question": "Was ist das kubelet?",
+    "options": {
+      "a": "Eine Control-Plane-Komponente, die entscheidet, auf welchem Node jeder Pod laufen soll",
+      "b": "Die interne Caching-Schicht des API-Servers für Lesezugriffe",
+      "c": "Ein Agent, der auf jedem Worker-Node läuft und sicherstellt, dass die in den zugewiesenen Pod-Spezifikationen beschriebenen Container tatsächlich laufen und gesund sind",
+      "d": "Ein Kommandozeilenwerkzeug, mit dem Administratoren kubectl-Befehle ausführen"
+    },
+    "explanation": "kubelet läuft auf jedem Node und ist dafür verantwortlich, sicherzustellen, dass die in den diesem Node zugewiesenen Pods beschriebenen Container laufen, und meldet Node- und Pod-Status an die Control Plane zurück. Es ist weder der Scheduler noch ein Cache des API-Servers noch das kubectl-CLI-Werkzeug."
+  },
+  "cka-core_concepts-09": {
+    "question": "Was ist die primäre Funktion von kube-proxy?",
+    "options": {
+      "a": "Er plant Pods anhand verfügbarer CPU und verfügbarem Arbeitsspeicher auf Nodes ein",
+      "b": "Er pflegt Netzwerkregeln auf jedem Node, sodass an einen Service gesendeter Datenverkehr korrekt an einen der zugrunde liegenden Pods weitergeleitet wird",
+      "c": "Er speichert die Konfigurationsdaten des Clusters dauerhaft",
+      "d": "Er zieht Container-Images aus einer Registry, bevor die Container Runtime sie startet"
+    },
+    "explanation": "kube-proxy läuft auf jedem Node und verwaltet Netzwerkregeln (über iptables, IPVS o. Ä.), die die Service-Abstraktion umsetzen und Datenverkehr an die richtigen Backend-Pods weiterleiten. Das Scheduling ist Aufgabe des Schedulers, dauerhafte Speicherung ist Aufgabe von etcd, und das Ziehen von Images übernimmt die Container Runtime."
+  },
+  "cka-core_concepts-10": {
+    "question": "Welche Rolle spielt eine Container Runtime (wie containerd oder CRI-O) auf einem Kubernetes-Node?",
+    "options": {
+      "a": "Sie entscheidet, welche Nodes als Control-Plane-Mitglieder infrage kommen",
+      "b": "Sie beobachtet etcd auf Änderungen und aktualisiert entsprechend die DNS-Einträge",
+      "c": "Sie stellt die REST-API des Clusters für externe Clients bereit",
+      "d": "Sie ist die Low-Level-Software, die tatsächlich Container-Images zieht und Container erstellt, startet und stoppt, aufgerufen vom kubelet"
+    },
+    "explanation": "Die Container Runtime ist die Engine, die die eigentliche Arbeit des Ausführens von Containern übernimmt; das kubelet ruft sie über das Container Runtime Interface (CRI) auf, um Images zu ziehen und Container zu starten/stoppen. Sie hat keine Rolle bei der Control-Plane-Mitgliedschaft, bei DNS-Aktualisierungen oder beim Bereitstellen der API."
+  },
+  "cka-core_concepts-11": {
+    "question": "Was ist ein Kubernetes-Cluster, einfach ausgedrückt?",
+    "options": {
+      "a": "Eine Menge von Maschinen (Nodes) — unterteilt in Control-Plane- und Worker-Rollen —, die zusammengeschlossen und als ein einziges System verwaltet werden, um containerisierte Workloads auszuführen",
+      "b": "Ein einzelner physischer Server, der alle Container einer Organisation hostet",
+      "c": "Ein Container-Image, das eine Anwendung mit den Kubernetes-Binärdateien bündelt",
+      "d": "Ein Namespace, der zur logischen Gruppierung von Pods innerhalb eines Node dient"
+    },
+    "explanation": "Ein Cluster ist die Ansammlung von Maschinen — typischerweise laufen einige davon als Control-Plane-Komponenten und andere als Worker-Nodes mit Workloads —, die Kubernetes als ein einziges System koordiniert. Er ist kein einzelner Server, kein Container-Image, und ein Namespace ist eine logische Unterteilung innerhalb eines Clusters, nicht der Cluster selbst."
+  },
+  "cka-core_concepts-12": {
+    "question": "Was gibt in einem typischen Kubernetes-YAML-Manifest das Top-Level-Feld „kind“ an?",
+    "options": {
+      "a": "Die Version des Kubernetes-Clusters, gegen die das Manifest getestet wurde",
+      "b": "Den Namespace, in dem das Objekt erstellt werden soll",
+      "c": "Den Typ des definierten Objekts, etwa Pod, Deployment oder Service",
+      "d": "Das Container-Image, das das Objekt ausführen soll"
+    },
+    "explanation": "„kind“ teilt dem API-Server mit, welchen Ressourcentyp das Manifest beschreibt (Pod, Deployment, Service usw.), was wiederum bestimmt, wie das Objekt verarbeitet wird. Die Kubernetes-Cluster-Version wird hier nicht angegeben, der Namespace steht normalerweise unter „metadata“, und das Container-Image wird tiefer, unter „spec“, angegeben."
+  },
+  "cka-core_concepts-13": {
+    "question": "Welche Art von Information gehört in einem Kubernetes-Manifest in den Abschnitt „metadata“?",
+    "options": {
+      "a": "Die gewünschte Anzahl der Replicas und das auszuführende Container-Image",
+      "b": "Identifizierende Informationen über das Objekt, wie sein Name, Namespace und seine Labels",
+      "c": "Der von Kubernetes erfasste Laufzeitstatus des Objekts",
+      "d": "Der exakte Node, auf dem das Objekt laufen muss"
+    },
+    "explanation": "„metadata“ enthält Daten, die das Objekt identifizieren und organisieren: Name, Namespace, Labels und Annotationen. Replica-Anzahl und Images gehören unter „spec“, der Laufzeitstatus wird unter „status“ gemeldet (von Kubernetes verwaltet, nicht vom Benutzer verfasst), und die Node-Platzierung wird typischerweise über Scheduling-Felder in „spec“ ausgedrückt, nicht in metadata."
+  },
+  "cka-core_concepts-14": {
+    "question": "Was repräsentiert der Abschnitt „spec“ eines Kubernetes-Manifests?",
+    "options": {
+      "a": "Ein historisches Protokoll aller früheren Versionen des Objekts",
+      "b": "Den aktuell beobachteten Zustand des Objekts, wie zuletzt vom kubelet gemeldet",
+      "c": "Eine Liste der Labels und Annotationen des Objekts",
+      "d": "Die gewünschte Konfiguration des Objekts, also das, was der Benutzer von Kubernetes umgesetzt haben möchte"
+    },
+    "explanation": "„spec“ ist der Bereich, in dem der Benutzer den gewünschten Zustand deklariert, z. B. wie viele Replicas, welches Image, welche Ports. Dies unterscheidet sich vom Abschnitt „status“, den Kubernetes mit dem beobachteten aktuellen Zustand befüllt. Es gibt hier kein eingebautes Feld für die Versionshistorie, und Labels/Annotationen befinden sich unter „metadata“."
+  },
+  "cka-core_concepts-15": {
+    "question": "Wofür wird ein Kubernetes-Namespace konzeptionell verwendet?",
+    "options": {
+      "a": "Er bietet eine Möglichkeit, einen einzelnen Cluster in mehrere virtuelle, isolierte Gruppierungen zu unterteilen, sodass Ressourcennamen, Zugriffskontrollen und Quotas innerhalb jeder Gruppe separat gültig sein können",
+      "b": "Er definiert eine physische Grenze zwischen verschiedenen Worker-Nodes im Cluster",
+      "c": "Er ist der Mechanismus, mit dem die Control Plane von den Worker-Nodes isoliert wird",
+      "d": "Er ist ein Synonym für ein Container-Image-Repository"
+    },
+    "explanation": "Namespaces sind eine Möglichkeit, einen einzelnen Cluster logisch zu unterteilen (z. B. nach Team oder Umgebung), sodass Objektnamen nur innerhalb eines Namespace eindeutig sein müssen und Richtlinien/Quotas pro Namespace gelten können. Sie sind eine logische, keine physische Unterteilung, sie trennen nicht die Control Plane von den Workern, und sie haben nichts mit Image-Repositories zu tun."
+  },
+  "cka-core_concepts-16": {
+    "question": "Was ist das Muster der „Reconciliation Loop“ (Regelkreis/Control Loop), auf das sich Kubernetes-Controller stützen?",
+    "options": {
+      "a": "Ein einmaliges Skript, das den Cluster bei der Installation bereitstellt und danach nie wieder läuft",
+      "b": "Ein fortlaufender Zyklus, in dem ein Controller den aktuellen Zustand beobachtet, ihn mit dem gewünschten Zustand vergleicht und Maßnahmen ergreift, um jede Differenz zwischen beiden zu verringern, und dies unbegrenzt wiederholt",
+      "c": "Ein manueller Prozess, bei dem ein Operator regelmäßig YAML-Dateien von Hand anwendet, um Drift zu beheben",
+      "d": "Ein Backup-Prozess, der etcd-Daten nach einem festen Zeitplan sichert"
+    },
+    "explanation": "Die Reconciliation Loop ist der zentrale Mechanismus hinter dem selbstheilenden Verhalten von Kubernetes: Controller beobachten kontinuierlich den tatsächlichen Zustand im Vergleich zum gewünschten Zustand und handeln, um beide anzugleichen, ohne dass ein Mensch etwas erneut ausführen muss. Es ist kein einmaliger Installationsschritt, kein manueller menschlicher Prozess und steht in keinem Zusammenhang mit etcd-Backups."
+  },
+  "cka-core_concepts-17": {
+    "question": "Ein Junior-Engineer löscht einen Pod, der direkt erstellt wurde (nicht von einem Deployment oder ReplicaSet verwaltet). Was passiert?",
+    "options": {
+      "a": "Der API-Server erstellt innerhalb von Sekunden automatisch einen identischen Pod neu",
+      "b": "Das kubelet auf demselben Node erstellt den Pod sofort neu, ohne die Control Plane zu kontaktieren",
+      "c": "Der Pod ist einfach weg; nichts erstellt ihn neu, da kein Controller die gewünschte Replica-Anzahl verwaltet hat",
+      "d": "Der Scheduler erstellt den Pod zur Lastverteilung auf einem anderen Node neu"
+    },
+    "explanation": "Ein eigenständiger Pod hat keinen Controller, der über ihn wacht und eine gewünschte Replica-Anzahl durchsetzt, daher entfernt das Löschen ihn einfach dauerhaft. Selbstheilende Neuerstellung erfolgt nur, wenn ein Controller (wie ein ReplicaSet hinter einem Deployment) für die Existenz dieses Pods verantwortlich ist. Weder der API-Server noch das kubelet noch der Scheduler entscheiden eigenständig, einen nicht verwalteten Pod neu zu erstellen."
+  },
+  "cka-core_concepts-18": {
+    "question": "Warum leitet Kubernetes fast die gesamte interne Kommunikation zwischen Komponenten (Scheduler, Controller Manager, kubelet) über den kube-apiserver, statt diese Komponenten direkt mit etcd oder untereinander kommunizieren zu lassen?",
+    "options": {
+      "a": "Weil etcd nicht mehr als eine Verbindung gleichzeitig verarbeiten kann",
+      "b": "Weil kubelet und der Scheduler physisch nicht in der Lage sind, Netzwerkanfragen zu stellen",
+      "c": "Es ist reiner historischer Zufall ohne heutigen Design-Vorteil",
+      "d": "Der API-Server zentralisiert Authentifizierung, Autorisierung, Validierung und einen konsistenten Zugriff auf den Zustand, sodass nicht jede Komponente einen direkten, ungefilterten Zugriff auf den Datenspeicher benötigt"
+    },
+    "explanation": "Die Zentralisierung des Zugriffs über den API-Server bedeutet, dass jeder Lese-/Schreibvorgang konsistenter Authentifizierung, Admission Control und Validierung unterliegt, und nur der API-Server benötigt direkten Zugriff auf etcd, was Sicherheit und Konsistenz vereinfacht. etcd kann durchaus mehrere Clients bedienen, Komponenten können und tun Netzwerkanfragen stellen, und dies ist eine bewusste architektonische Entscheidung, kein Zufall."
+  },
+  "cka-networking-01": {
+    "question": "Pods sind vergänglich (ephemeral) und erhalten bei jeder Neuerstellung eine neue IP-Adresse. Welches Kubernetes-Objekt löst das Problem, eine sich ändernde Menge von Pods zuverlässig zu erreichen?",
+    "options": {
+      "a": "Ein ReplicaSet",
+      "b": "Ein Service",
+      "c": "Eine ConfigMap",
+      "d": "Ein Namespace"
+    },
+    "explanation": "Ein Service bietet eine stabile virtuelle IP-Adresse und einen DNS-Namen, die konstant bleiben, auch wenn die zugrunde liegenden Pods ersetzt oder neu eingeplant werden, und entkoppelt so Clients von einzelnen Pod-IPs. Ein ReplicaSet verwaltet nur die Pod-Replica-Anzahl, nicht das Networking. Eine ConfigMap speichert Konfigurationsdaten, und ein Namespace ist ein logischer Gruppierungsmechanismus — keines von beiden bietet stabiles Networking."
+  },
+  "cka-networking-02": {
+    "question": "Über welchen Mechanismus wählt ein Service Pods aus?",
+    "options": {
+      "a": "Label-Selektoren, die mit Pod-Labels übereinstimmen",
+      "b": "Den Namen des Pods, exakt übereinstimmend",
+      "c": "Den Node, auf dem der Pod eingeplant ist",
+      "d": "Das vom Pod verwendete Container-Image"
+    },
+    "explanation": "Services verwenden Label-Selektoren, um dynamisch jeden Pod zu finden und an ihn Datenverkehr weiterzuleiten, dessen Labels übereinstimmen, unabhängig vom Pod-Namen oder dem Node, auf dem er läuft. Ein Abgleich anhand des exakten Pod-Namens würde nicht funktionieren, sobald Pods mit neuen Namen neu erstellt werden, und ein Abgleich anhand von Node oder Image entspricht nicht der Art, wie Service-zu-Pod-Routing funktioniert."
+  },
+  "cka-networking-03": {
+    "question": "Welcher Service-Typ ist in Kubernetes der Standard und macht den Service nur über eine interne, im Cluster erreichbare virtuelle IP verfügbar?",
+    "options": {
+      "a": "NodePort",
+      "b": "LoadBalancer",
+      "c": "ClusterIP",
+      "d": "ExternalName"
+    },
+    "explanation": "ClusterIP ist der Standard-Service-Typ und ist nur aus dem Cluster heraus erreichbar, was sich für die interne Kommunikation zwischen Microservices eignet. Sowohl NodePort als auch LoadBalancer machen den Service extern verfügbar, und ExternalName leitet überhaupt nicht an Pods weiter, sondern bildet einen externen DNS-Namen ab."
+  },
+  "cka-networking-04": {
+    "question": "Ein Junior-Engineer muss eine Anwendung für einfache Tests schnell auf einem statischen Port auf jedem Cluster-Node verfügbar machen, ohne Cloud-Infrastruktur bereitzustellen. Welcher Service-Typ passt am besten?",
+    "options": {
+      "a": "ClusterIP",
+      "b": "ExternalName",
+      "c": "LoadBalancer",
+      "d": "NodePort"
+    },
+    "explanation": "NodePort öffnet einen statischen Port (in einem festgelegten Bereich) auf der IP jedes Node, sodass die Anwendung extern erreichbar wird, ohne dass ein Cloud-Load-Balancer benötigt wird. ClusterIP ist nur intern erreichbar, LoadBalancer erfordert eine Cloud-Provider-Integration zur Bereitstellung eines externen Balancers, und ExternalName macht überhaupt keine Pods verfügbar."
+  },
+  "cka-networking-05": {
+    "question": "Was macht ein Service vom Typ LoadBalancer typischerweise in einer Cloud-Umgebung?",
+    "options": {
+      "a": "Er erstellt eine NetworkPolicy, die den gesamten eingehenden Datenverkehr erlaubt",
+      "b": "Er stellt einen externen Cloud-Load-Balancer bereit, der Datenverkehr in den Cluster leitet",
+      "c": "Er benennt die Pods in ein DNS-freundliches Format um",
+      "d": "Er wandelt das Pod-Netzwerk in ein Overlay-Netzwerk um"
+    },
+    "explanation": "Ein LoadBalancer-Service beauftragt die Cloud-Provider-Integration, einen externen Load Balancer (z. B. einen ELB oder ein Äquivalent) bereitzustellen, der Datenverkehr an den Service weiterleitet, der ihn dann an die Pods weitergibt. Er hat nichts mit NetworkPolicies, der Pod-Benennung oder der zugrunde liegenden Netzwerkimplementierung (Overlay vs. flach) zu tun, das sind separate Belange."
+  },
+  "cka-networking-06": {
+    "question": "Wofür dient ein Service vom Typ ExternalName?",
+    "options": {
+      "a": "Um einen DNS-Alias innerhalb des Clusters zu erstellen, der zu einem externen Hostnamen aufgelöst wird, ohne Datenverkehr über Pods zu leiten",
+      "b": "Um einen bestehenden Service ohne Ausfallzeit umzubenennen",
+      "c": "Um einen Service über einen Bereich externer Ports verfügbar zu machen",
+      "d": "Um Datenverkehr über mehrere externe Cloud-Provider hinweg zu verteilen"
+    },
+    "explanation": "ExternalName bildet einen Service-Namen über einen CNAME-ähnlichen Eintrag auf einen externen DNS-Namen ab, sodass Anwendungen im Cluster über clusterinternes DNS etwas außerhalb des Clusters erreichen können (z. B. eine externe Datenbank), ohne Selektoren, Endpunkte oder Proxying. Es ist kein Umbenennungsmechanismus, kein Mechanismus zur Port-Freischaltung und kein Multi-Cloud-Load-Balancer."
+  },
+  "cka-networking-07": {
+    "question": "Was ist der wesentliche konzeptionelle Unterschied zwischen einem einfachen Service und einem Ingress?",
+    "options": {
+      "a": "Ein Service kann nur für internen Datenverkehr verwendet werden, während ein Ingress ebenfalls nur für internen Datenverkehr verwendet werden kann",
+      "b": "Ein Ingress macht Pods vollständig überflüssig",
+      "c": "Ein Service arbeitet hauptsächlich auf der Transportschicht für eine einzelne Anwendung, während ein Ingress HTTP/HTTPS-bewusstes Routing (z. B. nach Hostname oder Pfad) über mehrere Services hinweg bietet",
+      "d": "Ein Service benötigt einen Controller, um zu funktionieren, ein Ingress dagegen nicht"
+    },
+    "explanation": "Ingress arbeitet auf der Anwendungsschicht und versteht HTTP-Konzepte wie Hostnamen und URL-Pfade, sodass ein einzelner Einstiegspunkt an viele Backend-Services weiterleiten kann, während ein Service in erster Linie ein Layer-4-Konstrukt (TCP/UDP) ist, das auf eine einzige Menge von Pods zeigt. Die anderen Optionen beschreiben die Beziehung falsch: Ingress ersetzt keine Pods, und es ist Ingress (nicht ein Service), das einen Controller benötigt, um überhaupt etwas zu bewirken."
+  },
+  "cka-networking-08": {
+    "question": "Ein Team erstellt in einem brandneuen Cluster eine Ingress-Ressource, aber der Datenverkehr erreicht nie ein Backend, und der Ingress erhält keine zugewiesene Adresse. Was ist die wahrscheinlichste Erklärung?",
+    "options": {
+      "a": "Ingress-Ressourcen sind veraltet und funktionieren nicht mehr",
+      "b": "Die Pods hinter dem Ingress haben keine Labels",
+      "c": "Eine NetworkPolicy blockiert standardmäßig den gesamten Datenverkehr",
+      "d": "Im Cluster ist kein Ingress Controller installiert, der die Ingress-Ressource umsetzen könnte"
+    },
+    "explanation": "Eine Ingress-Ressource ist nur eine Menge von Routing-Regeln; sie bewirkt für sich genommen nichts. Sie benötigt einen im Cluster laufenden Ingress Controller (etwa NGINX Ingress, Traefik, HAProxy usw.), der Ingress-Objekte beobachtet und das Routing tatsächlich umsetzt. Ingress ist nicht veraltet, und obwohl fehlende Pod-Labels oder eine NetworkPolicy Probleme verursachen könnten, würden sie nicht erklären, dass dem Ingress selbst überhaupt keine Adresse zugewiesen wird und kein Routing-Verhalten auftritt."
+  },
+  "cka-networking-09": {
+    "question": "Welche der folgenden Fähigkeiten fügt Ingress typischerweise hinzu, die ein einfacher Service allein nicht bietet?",
+    "options": {
+      "a": "Die Zuweisung von Pod-IP-Adressen",
+      "b": "Das Weiterleiten von Anfragen an unterschiedliche Backend-Services basierend auf dem Hostnamen oder URL-Pfad der Anfrage",
+      "c": "Das Einplanen von Pods auf Nodes",
+      "d": "Das dauerhafte Speichern von Anwendungsdaten"
+    },
+    "explanation": "Ingress ermöglicht es einem einzelnen Einstiegspunkt, Datenverkehr je nach HTTP-Host- oder Pfadregeln an unterschiedliche Backend-Services zu verteilen, was ein einfacher Service nicht kann, da er nur an eine ausgewählte Menge von Pods weiterleitet. Die Zuweisung von Pod-IPs, das Scheduling und dauerhafte Speicherung sind unabhängige Zuständigkeiten, die von anderen Komponenten übernommen werden (dem Netzwerk-Plugin, dem Scheduler bzw. den Speicher-Subsystemen)."
+  },
+  "cka-networking-10": {
+    "question": "Was ermöglicht es einem Anwendungs-Pod, einen Service einfach über dessen Namen zu erreichen (z. B. eine Verbindung zu „my-database“) statt über eine IP-Adresse?",
+    "options": {
+      "a": "Das Cluster-DNS von Kubernetes, das automatisch DNS-Einträge für Services erstellt",
+      "b": "Jeder Pod pflegt eine manuell aktualisierte /etc/hosts-Datei",
+      "c": "Die Container Runtime löst Service-Namen nativ auf, ohne DNS",
+      "d": "NetworkPolicy-Objekte übernehmen die Namensauflösung"
+    },
+    "explanation": "Kubernetes betreibt einen clusterinternen DNS-Dienst (wie CoreDNS), der automatisch DNS-Einträge für jeden Service erstellt, sodass Pods Service-Namen ohne manuelle Konfiguration zu deren ClusterIP auflösen können. Pods verlassen sich nicht auf manuell gepflegte hosts-Dateien, die Container Runtime ist nicht für Kubernetes-bewusste Namensauflösung zuständig, und NetworkPolicy regelt Datenverkehrsberechtigungen, nicht die Namensauflösung."
+  },
+  "cka-networking-11": {
+    "question": "Im standardmäßigen Cluster-DNS-Schema ist ein Service namens „payments“ im Namespace „billing“ innerhalb des Clusters über welches allgemeine Muster vollständig adressierbar?",
+    "options": {
+      "a": "payments.billing.pod.local",
+      "b": "billing-payments.internal",
+      "c": "payments.billing.svc.cluster.local",
+      "d": "svc.payments.billing.cluster.local"
+    },
+    "explanation": "Das übliche Kubernetes-DNS-Muster für Services lautet <service-name>.<namespace>.svc.cluster.local, sodass ein Service namens „payments“ im Namespace „billing“ als payments.billing.svc.cluster.local aufgelöst wird. Die anderen Optionen verwenden die falsche Reihenfolge oder ungültige Suffixe, die nicht der Struktur der Cluster-DNS-Service-Namen entsprechen."
+  },
+  "cka-networking-12": {
+    "question": "Ein Pod im Namespace „frontend“ möchte einen Service namens „cache“ erreichen, der sich im Namespace „backend“ befindet, und verwendet dabei nur den kurzen Namen „cache“ (ohne Namespace-Qualifikator). Was passiert typischerweise?",
+    "options": {
+      "a": "Er wird korrekt aufgelöst, da Service-Namen namespaceübergreifend global eindeutig sind",
+      "b": "Er wird nicht zum gewünschten Service aufgelöst, da ein bloßer kurzer Name standardmäßig im eigenen Namespace des Pods nachgeschlagen wird",
+      "c": "Er wird automatisch aufgelöst, da das Cluster-DNS jeden Namespace nach einer Übereinstimmung durchsucht",
+      "d": "Es schlägt dauerhaft fehl und kann selbst mit einem vollqualifizierten Namen nie behoben werden"
+    },
+    "explanation": "Cluster-DNS-Suchdomänen lösen unqualifizierte Namen standardmäßig innerhalb des eigenen Namespace des anfragenden Pods auf, sodass eine bloße „cache“-Abfrage aus dem Namespace „frontend“ nach einem Service namens „cache“ in „frontend“ suchen würde, nicht in „backend“. Die Verwendung des namespace-qualifizierten Namens (cache.backend) oder des vollqualifizierten Namens (cache.backend.svc.cluster.local) löst dies korrekt auf — es handelt sich also nicht um einen dauerhaften Fehler, und Service-Namen sind nur innerhalb eines Namespace eindeutig, nicht global."
+  },
+  "cka-networking-13": {
+    "question": "Wie verhält sich der Datenverkehr zwischen Pods standardmäßig, bevor in einem Namespace irgendwelche NetworkPolicy-Objekte erstellt wurden?",
+    "options": {
+      "a": "Der gesamte Datenverkehr wird verweigert, bis ein Administrator ihn explizit erlaubt",
+      "b": "Nur Datenverkehr innerhalb desselben Node ist erlaubt",
+      "c": "Der gesamte Datenverkehr ist erlaubt; Pods können frei miteinander kommunizieren",
+      "d": "Nur Datenverkehr zu und von Services ist erlaubt, direkter Pod-zu-Pod-Verkehr wird blockiert"
+    },
+    "explanation": "Kubernetes-Networking ist standardmäßig erlaubend (default-allow): Ohne jegliche NetworkPolicy-Ressourcen können alle Pods Datenverkehr an jeden anderen Pod senden und von ihm empfangen, unabhängig von Namespace oder Node. NetworkPolicies existieren speziell, um dieses standardmäßig offene Verhalten einzuschränken; standardmäßig wird nichts blockiert, und Pod-zu-Pod-Verkehr ist nicht auf denselben Node oder über Services vermittelte Pfade beschränkt."
+  },
+  "cka-networking-14": {
+    "question": "Was ist der allgemeine Zweck einer NetworkPolicy-Ressource?",
+    "options": {
+      "a": "Einzuschränken, welche Pods mit welchen anderen Pods (und über welche Ports) kommunizieren dürfen, basierend auf Selektoren und Regeln",
+      "b": "Pods statische IP-Adressen zuzuweisen",
+      "c": "Datenverkehr über mehrere Replicas eines Service hinweg zu verteilen",
+      "d": "Die Anzahl der Pod-Replicas automatisch basierend auf dem Datenverkehr zu skalieren"
+    },
+    "explanation": "NetworkPolicy definiert Regeln, basierend auf Pod-/Namespace-Selektoren und Ports/Protokollen, die einschränken, welcher Datenverkehr zu und von ausgewählten Pods zulässig ist, und setzt damit effektiv eine Netzwerksegmentierung um. Sie weist keine IP-Adressen zu (das übernimmt das CNI-Plugin), sie führt kein Load Balancing durch (das ist Aufgabe eines Service), und sie hat nichts mit Autoscaling zu tun."
+  },
+  "cka-networking-15": {
+    "question": "Ein Team erstellt eine NetworkPolicy, die die mit „role=database“ gelabelten Pods auswählt und eingehenden Datenverkehr nur von Pods mit dem Label „role=backend“ auf Port 5432 erlaubt. Welche Auswirkung hat das auf Datenverkehr zu diesen Datenbank-Pods von Pods OHNE das Label „role=backend“?",
+    "options": {
+      "a": "Er bleibt erlaubt, da NetworkPolicies nur zusätzlichen erlaubten Datenverkehr hinzufügen, ihn aber niemals einschränken können",
+      "b": "Es hat keine Auswirkung, da NetworkPolicies nur für Datenverkehr gelten, der Pods verlässt, nicht für ankommenden Verkehr",
+      "c": "Er ist nur erlaubt, wenn der Datenverkehr einen Service verwendet, statt sich direkt mit der Pod-IP zu verbinden",
+      "d": "Er wird verweigert, denn sobald ein Pod von irgendeiner NetworkPolicy mit Ingress-Regeln ausgewählt wird, erreicht ihn nur noch explizit erlaubter Datenverkehr, aller anderer eingehender Verkehr wird blockiert"
+    },
+    "explanation": "Sobald ein Pod von einer NetworkPolicy mit Ingress-Regeln ausgewählt wird, wechselt dieser Pod für eingehenden Datenverkehr von „standardmäßig erlaubt“ zu „standardmäßig verweigert“, und nur Datenverkehr, der einer expliziten Regel entspricht (hier: von role=backend auf Port 5432), ist zulässig; alles andere wird blockiert. NetworkPolicies können Datenverkehr einschränken, nicht nur hinzufügen, sie gelten je nach Formulierung sowohl für Ingress als auch für Egress, und die Einschränkung gilt auf Pod-Ebene, unabhängig davon, ob der Datenverkehr über einen Service oder direkt ankommt."
+  },
+  "cka-networking-16": {
+    "question": "Wie werden im Standard-Pod-Netzwerkmodell von Kubernetes IP-Adressen an Pods vergeben?",
+    "options": {
+      "a": "Alle Pods auf demselben Node teilen sich eine IP-Adresse und werden anhand der Portnummer unterschieden",
+      "b": "Jeder Pod erhält seine eigene, eindeutige IP-Adresse, und Pods können sich gegenseitig direkt erreichen, ohne NAT, unabhängig davon, auf welchem Node sie laufen",
+      "c": "Pods erhalten erst dann eine IP-Adresse, wenn sie über einen Service verfügbar gemacht werden",
+      "d": "Pods teilen sich die IP-Adresse des Node, auf dem sie eingeplant sind"
+    },
+    "explanation": "Kubernetes-Networking erfordert ein flaches Modell, bei dem jeder Pod eine eigene, clusterweit eindeutige IP-Adresse erhält, und jeder Pod kann direkt mit der IP jedes anderen Pods kommunizieren, ohne NAT, unabhängig von der Node-Platzierung. Pods teilen sich weder die IP eines Node noch eine gemeinsame, portbasiert unterschiedene IP, und Pods erhalten eine IP, sobald sie eingeplant sind und laufen, unabhängig davon, ob für sie ein Service existiert."
+  },
+  "cka-networking-17": {
+    "question": "Warum gilt das flache, NAT-freie Pod-Netzwerkmodell (jeder Pod erhält eine routbare IP, erreichbar von jedem anderen Pod) als grundlegende Voraussetzung des Kubernetes-Networkings?",
+    "options": {
+      "a": "Es macht Service-Objekte vollständig überflüssig",
+      "b": "Es garantiert, dass der Datenverkehr zwischen Pods automatisch verschlüsselt wird",
+      "c": "Es vereinfacht das Anwendungsdesign, da Pods sich direkt gegenseitig adressieren können, ohne Ports übersetzen oder NAT-Regeln pro Node verwalten zu müssen",
+      "d": "Es stellt sicher, dass jeder Pod automatisch eine öffentliche, internetfähige IP erhält"
+    },
+    "explanation": "Da jeder Pod die IP jedes anderen Pods direkt erreichen kann, ohne NAT-Übersetzung, müssen sich Anwendungen und Cluster-Komponenten nicht mit Port-Remapping oder NAT-Buchführung pro Node auseinandersetzen, was das Networking erheblich vereinfacht. Services werden nach wie vor dringend für stabile Adressierung und Lastverteilung über wechselnde Pod-Mengen benötigt, das Modell sagt nichts über Verschlüsselung aus, und Pod-IPs sind clusterintern, nicht automatisch öffentlich/internetfähig."
+  },
+  "cka-networking-18": {
+    "question": "Eine Frontend-Anwendung muss eine Backend-API aufrufen, die als Deployment mit mehreren Replica-Pods läuft, rein für interne, clusterinterne Kommunikation mit automatischer Lastverteilung über die Replicas. Welcher Ansatz eignet sich am besten für diesen Bedarf?",
+    "options": {
+      "a": "Einen ClusterIP-Service vor den Backend-Pods erstellen und das Frontend den DNS-Namen des Service aufrufen lassen",
+      "b": "Die IP-Adresse eines Backend-Pods fest in die Konfiguration des Frontends einprogrammieren",
+      "c": "Einen NodePort-Service erstellen und ihn dem Internet zugänglich machen",
+      "d": "Eine Ingress-Ressource ohne definierten Backend-Service erstellen"
+    },
+    "explanation": "Ein ClusterIP-Service ist genau für einen stabilen, nur internen, lastverteilten Zugriff auf eine Menge von Replica-Pods über einen konsistenten DNS-Namen konzipiert, was genau diesem rein internen Anwendungsfall entspricht. Die IP-Adresse eines einzelnen Pods fest einzuprogrammieren, funktioniert nicht mehr, sobald Pods ersetzt werden, und bietet keine Lastverteilung; einen NodePort dem Internet auszusetzen, ist für rein internen Datenverkehr unnötig und weniger sicher; und ein Ingress ohne Backend-Service würde Datenverkehr nirgendwohin Sinnvolles leiten."
+  },
+  "cka-security_admin-01": {
+    "question": "Ein Team möchte einem Benutzer die Berechtigung erteilen, PersistentVolumes aufzulisten und zu beobachten (watch) — eine clusterweit gültige (nicht namespaced) Ressource. Welches RBAC-Objekt muss verwendet werden, um diese Berechtigungen zu definieren?",
+    "options": {
+      "a": "Eine Role, da sie restriktiver und daher standardmäßig sicherer ist",
+      "b": "Entweder eine Role oder eine ClusterRole, da beide auf jeden Ressourcentyp verweisen können",
+      "c": "Eine ClusterRole, da Roles nur Berechtigungen für namespaced Ressourcen erteilen können",
+      "d": "Ein ServiceAccount mit einer Annotation, die clusterweiten Lesezugriff gewährt"
+    },
+    "explanation": "Roles sind namespaced Objekte und können nur Zugriff auf Ressourcen gewähren, die innerhalb eines Namespace existieren. Clusterweit gültige Ressourcen wie Nodes, PersistentVolumes und Namespaces selbst können nur über eine ClusterRole gewährt werden. Option a ist falsch, da eine Role diese Berechtigung gar nicht ausdrücken kann, unabhängig von der Absicht. Option b ist falsch, da Roles nicht auf clusterweit gültige Ressourcen zielen können. Option d verwechselt ServiceAccounts (Identitäten) mit Berechtigungsdefinitionen, die immer RBAC-Role-/ClusterRole-Objekte sind."
+  },
+  "cka-security_admin-02": {
+    "question": "Ein Administrator erstellt im Namespace „billing“ eine RoleBinding, die auf eine bestehende ClusterRole namens „edit“ verweist (statt auf eine Role). Was ist die Auswirkung?",
+    "options": {
+      "a": "Es ist ungültig; eine RoleBinding darf nur auf eine Role verweisen, niemals auf eine ClusterRole",
+      "b": "Das Subjekt erhält die in der ClusterRole „edit“ definierten Berechtigungen, jedoch nur angewendet auf Ressourcen innerhalb des Namespace „billing“",
+      "c": "Das Subjekt erhält die in „edit“ definierten Berechtigungen clusterweit, über jeden Namespace hinweg",
+      "d": "Kubernetes wandelt die ClusterRole stillschweigend in eine namespace-lokale Kopie ihrer selbst um"
+    },
+    "explanation": "Dies ist ein unterstütztes und gängiges Muster: Eine RoleBinding kann auf eine ClusterRole verweisen, um eine gemeinsame Berechtigungsmenge (wie die eingebauten ClusterRoles „edit“ oder „view“) wiederzuverwenden und ihre Wirkung dabei auf einen einzelnen Namespace zu beschränken. Sie gewährt keinen clusterweiten Zugriff — dafür wäre stattdessen eine ClusterRoleBinding erforderlich. Option a ist sachlich falsch (dieser Verweis ist ausdrücklich erlaubt), Option c beschreibt, was eine ClusterRoleBinding bewirken würde, und Option d beschreibt ein Verhalten, das nicht auftritt."
+  },
+  "cka-security_admin-03": {
+    "question": "Eine ClusterRoleBinding gewährt einer Gruppe die eingebaute ClusterRole „view“. Wie weit reicht der resultierende Zugriff in der Praxis?",
+    "options": {
+      "a": "Lesezugriff auf die meisten Ressourcen über alle Namespaces im Cluster hinweg",
+      "b": "Lesezugriff, beschränkt nur auf den Namespace „default“",
+      "c": "Lese- und Schreibzugriff auf alle namespaced Ressourcen, aber nicht auf clusterweit gültige",
+      "d": "Kein Zugriff, bis zusätzlich in jedem Namespace eine separate RoleBinding erstellt wird"
+    },
+    "explanation": "Eine ClusterRoleBinding wendet die Berechtigungen der referenzierten ClusterRole über den gesamten Cluster hinweg an, über alle Namespaces hinweg — das ist der entscheidende Unterschied zu einer RoleBinding, die ihre Wirkung immer auf einen einzelnen Namespace beschränkt, selbst wenn sie auf eine ClusterRole verweist. Option b beschreibt namespace-beschränktes Verhalten, das hier nicht zutrifft. Option c ist falsch, da „view“ nur Lesezugriff gewährt, keinen Schreibzugriff. Option d ist falsch; es sind keine zusätzlichen RoleBindings nötig, damit die ClusterRoleBinding clusterweit wirksam wird."
+  },
+  "cka-security_admin-04": {
+    "question": "Eine CI/CD-Pipeline muss lediglich Deployments im Namespace „staging“ erstellen und aktualisieren. Was ist nach dem Prinzip der geringsten Rechte (Least Privilege) die geeignetste RBAC-Konfiguration?",
+    "options": {
+      "a": "Das ServiceAccount der Pipeline der Einfachheit halber an die eingebaute ClusterRole „cluster-admin“ binden",
+      "b": "Das ServiceAccount der Pipeline über eine ClusterRoleBinding an die eingebaute ClusterRole „view“ binden",
+      "c": "Eine ClusterRole mit vollständigen Deployment-Berechtigungen erstellen und sie über eine ClusterRoleBinding clusterweit binden",
+      "d": "Eine auf den Namespace „staging“ beschränkte Role erstellen, die nur die benötigten Verbs für Deployments gewährt, gebunden über eine RoleBinding in diesem Namespace"
+    },
+    "explanation": "Least Privilege bedeutet, genau den benötigten Zugriff zu gewähren und nicht mehr: eine namespace-beschränkte Role mit nur den erforderlichen Verbs (z. B. create, update, get, list) auf Deployments, gebunden ausschließlich innerhalb von „staging“. Option a gewährt uneingeschränkte, clusterweite administrative Macht — ein ernsthaftes Risiko, falls die Zugangsdaten der Pipeline kompromittiert werden. Option b gewährt nur Lesezugriff, was für die Aufgabe nicht ausreicht. Option c gewährt zwar die richtigen Verbs, setzt aber unnötigerweise jeden Namespace im Cluster diesem Zugriff aus."
+  },
+  "cka-security_admin-05": {
+    "question": "Das Manifest eines Pods gibt „serviceAccountName“ nicht an. Welche Identität verwendet der Prozess des Pods, wenn er von innerhalb des Containers die Kubernetes-API aufruft?",
+    "options": {
+      "a": "Keine; der Pod kann sich beim API-Server nicht authentifizieren, sofern nicht explizit ein ServiceAccount gesetzt ist",
+      "b": "Das „default“-ServiceAccount des Namespace des Pods, das automatisch eingebunden wird, sofern dies nicht deaktiviert ist",
+      "c": "Die Identität des Benutzers, der das Manifest zuletzt mit kubectl angewendet hat",
+      "d": "Ein automatisch für nicht zugewiesene Pods erstelltes cluster-admin-ServiceAccount"
+    },
+    "explanation": "Jeder Namespace verfügt über ein automatisch erstelltes „default“-ServiceAccount, und jeder Pod, der nichts anderes angibt, wird automatisch diesem ServiceAccount zugewiesen, wobei dessen Token in den Pod eingebunden wird (sofern das automatische Einbinden nicht explizit deaktiviert ist). Deshalb ist es eine verbreitete Sicherheitsfehlkonfiguration, „default“ mit weitreichenden Berechtigungen zu belassen. Option a ist falsch, da automatisch ein ServiceAccount zugewiesen wird. Option c verwechselt die Identität des menschlichen Bedieners mit der Identität des laufenden Pods. Option d ist falsch; es wird standardmäßig kein privilegiertes ServiceAccount erstellt."
+  },
+  "cka-security_admin-06": {
+    "question": "Warum existiert „kubectl get users“ nicht als Möglichkeit, menschliche Benutzerkonten aufzulisten, während „kubectl get serviceaccounts“ funktioniert?",
+    "options": {
+      "a": "Es handelt sich um einen Fehler, der in einer zukünftigen Kubernetes-Version behoben wird",
+      "b": "Benutzerkonten werden in etcd gespeichert, allerdings unter einem eingeschränkten API-Pfad, der besondere Berechtigungen erfordert",
+      "c": "Kubernetes hat kein eingebautes User-API-Objekt; menschliche Identitäten werden extern authentifiziert (Zertifikate, OIDC usw.), während ServiceAccounts erstklassige API-Objekte sind, die Kubernetes selbst verwaltet",
+      "d": "Users und ServiceAccounts sind derselbe Objekttyp, der nur unterschiedlich per RBAC gefiltert wird"
+    },
+    "explanation": "Kubernetes hat bewusst keine „User“-Ressource in seiner API; es geht davon aus, dass Benutzeridentitäten von einem externen System verwaltet und authentifiziert werden (Client-Zertifikate, ein Identitätsanbieter über OIDC, ein Webhook usw.) und vertraut einfach dem nach der Authentifizierung präsentierten Benutzernamen/den Gruppen. ServiceAccounts hingegen sind Kubernetes-native Objekte, die clusterinternen Prozessen wie Pods eine Identität geben sollen. Option a und b sind sachlich falsch, und Option d behauptet fälschlich, es handle sich um denselben Objekttyp."
+  },
+  "cka-security_admin-07": {
+    "question": "Für einen Namespace sind überhaupt keine NetworkPolicy-Objekte definiert. Wie verhält sich das Networking für Pods in diesem Namespace standardmäßig, vorausgesetzt das CNI-Plugin unterstützt die Durchsetzung von NetworkPolicy?",
+    "options": {
+      "a": "Der gesamte Ingress- und Egress-Datenverkehr ist standardmäßig erlaubt; NetworkPolicy ist Opt-in, und der Datenverkehr ist uneingeschränkt, bis eine Policy einen Pod auswählt",
+      "b": "Der gesamte Datenverkehr wird standardmäßig verweigert, bis mindestens eine NetworkPolicy ihn explizit erlaubt",
+      "c": "Standardmäßig ist nur Datenverkehr von Pods im selben Namespace erlaubt",
+      "d": "Standardmäßig ist nur Datenverkehr auf bekannten Ports (80, 443) erlaubt"
+    },
+    "explanation": "Kubernetes-Networking ist flach und standardmäßig offen: Ohne dass eine NetworkPolicy einen Pod auswählt, ist der gesamte Ingress- und Egress-Datenverkehr zu/von diesem Pod erlaubt. NetworkPolicies sind additive Einschränkungen — sobald eine Policy einen Pod für eine bestimmte Verkehrsrichtung auswählt, ist nur noch explizit erlaubter Datenverkehr in dieser Richtung zulässig (ein Default-Deny-Modell greift nur für den tatsächlich ausgewählten Pod/die Richtung). Die Optionen b, c und d beschreiben restriktive Standardeinstellungen, die nicht existieren, sofern ein Administrator nicht ausdrücklich eine Default-Deny-Policy erstellt."
+  },
+  "cka-security_admin-08": {
+    "question": "Zwei separate NetworkPolicy-Objekte wählen beide denselben Pod für Ingress aus: Policy A erlaubt Datenverkehr aus dem Namespace „frontend“, und Policy B erlaubt Datenverkehr aus dem Namespace „monitoring“. Welcher Datenverkehr erreicht den Pod tatsächlich?",
+    "options": {
+      "a": "Nur Datenverkehr, der beide Policies gleichzeitig erfüllt, da Policies mit logischem UND kombiniert werden",
+      "b": "Nur die zuletzt erstellte Policy gilt; die andere wird ignoriert",
+      "c": "Keine der beiden Policies greift, da ein Pod nicht von mehr als einer NetworkPolicy ausgewählt werden kann",
+      "d": "Datenverkehr aus „frontend“ oder „monitoring“ ist erlaubt, da passende NetworkPolicies additiv kombiniert werden (logisches ODER)"
+    },
+    "explanation": "Wenn mehrere NetworkPolicies denselben Pod auswählen, werden ihre Regeln additiv kombiniert: Eine Verbindung ist erlaubt, wenn sie den Regeln irgendeiner der anwendbaren Policies entspricht. Dies ist eine häufige Quelle von Verwirrung und Fehlkonfiguration — Administratoren nehmen manchmal an, dass sich Policies überschneiden (UND), obwohl sie sich tatsächlich vereinigen (ODER). Die Optionen a, b und c beschreiben dieses Kombinationsverhalten fehlerhaft."
+  },
+  "cka-security_admin-09": {
+    "question": "Wie werden die Pod Security Standards (Privileged, Baseline, Restricted) im aktuellen Kubernetes typischerweise auf einen Namespace angewendet?",
+    "options": {
+      "a": "Durch Erstellen eines PodSecurityPolicy-Objekts und dessen Bindung an die ServiceAccounts des Namespace",
+      "b": "Durch Anwenden der Labels „pod-security.kubernetes.io/enforce“ (und verwandter) auf den Namespace, die vom eingebauten Pod Security Admission Controller gelesen werden",
+      "c": "Durch das Schreiben eines eigenen Admission-Webhooks, da Kubernetes hierfür keinen eingebauten Mechanismus hat",
+      "d": "Durch das Setzen von Resource Quotas auf den Namespace, die privilegierte Workloads indirekt einschränken"
+    },
+    "explanation": "PodSecurityPolicy wurde als veraltet markiert und entfernt; sie wurde durch den eingebauten Pod Security Admission (PSA) Controller ersetzt, der deklarativ über Labels wie „pod-security.kubernetes.io/enforce=restricted“ direkt am Namespace konfiguriert wird — es muss kein separates Policy-Objekt erstellt oder gebunden werden. Option a beschreibt den entfernten Legacy-Mechanismus. Option c ist falsch, da ein eingebauter Controller existiert. Option d verwechselt Resource Quotas (die den Ressourcenverbrauch begrenzen) mit der Durchsetzung der Sicherheitslage."
+  },
+  "cka-security_admin-10": {
+    "question": "Warum wird etcd als „Single Source of Truth“ eines Kubernetes-Clusters bezeichnet?",
+    "options": {
+      "a": "Es zwischenspeichert API-Antworten, um kubectl-Befehle zu beschleunigen, aber der eigentliche Zustand liegt in den kubelets",
+      "b": "Es speichert nur die Audit-Logs des Clusters, die für Compliance benötigt werden, nicht aber für den Betrieb",
+      "c": "Es ist der einzige dauerhafte Speicher, der den vollständigen Clusterzustand enthält — jede Objektdefinition, jedes Secret, jede ConfigMap und jede RBAC-Bindung —, während der API-Server selbst weitgehend zustandslos ist",
+      "d": "Es speichert Container-Images, damit Nodes sie nicht aus einer Registry ziehen müssen"
+    },
+    "explanation": "etcd ist der dauerhafte, konsistente Key-Value-Store, der den gesamten deklarierten und beobachteten Zustand des Clusters enthält; der kube-apiserver liest von etcd und schreibt in etcd, persistiert selbst aber keinen Zustand darüber hinaus. Genau deshalb sind etcd-Backups für die Notfallwiederherstellung entscheidend. Option a kehrt die Beziehung um (kubelets besitzen keine clusterweite Wahrheit). Option b unterschätzt die Rolle von etcd auf reines Logging. Option d beschreibt Container-Image-Speicherung, die nichts mit der Funktion von etcd zu tun hat."
+  },
+  "cka-security_admin-11": {
+    "question": "Ein etcd-Cluster erleidet einen nicht wiederherstellbaren Datenverlust ohne verfügbares Backup, während Worker-Nodes und ihre bereits laufenden Container physisch aktiv bleiben. Was sind die praktischen Folgen?",
+    "options": {
+      "a": "Bereits laufende Container können unter Umständen noch kurz weiterlaufen, aber der Cluster verliert jegliche Aufzeichnung des gewünschten Zustands — Scheduling, Selbstheilung, Deployments, Secrets und RBAC-Regeln sind faktisch weg, vergleichbar mit einem Neustart bei null",
+      "b": "Nichts geht verloren, da kubelets unabhängig voneinander eine vollständige Kopie des Clusterzustands auf jedem Node persistieren",
+      "c": "Nur Metriken und Logs gehen verloren; alle Objektdefinitionen werden automatisch aus laufenden Containern resynchronisiert",
+      "d": "Der API-Server baut die Inhalte von etcd automatisch wieder auf, indem er die Container Runtime auf jedem Node untersucht"
+    },
+    "explanation": "Da etcd der einzige maßgebliche Speicher für den Clusterzustand ist, bedeutet dessen Verlust ohne Backup, dass die Control Plane nicht mehr weiß, was existieren sollte. Laufende Container können eine Zeit lang weiterlaufen, da kubelets sie lokal verwalten, aber der Cluster kann diesen Zustand nicht mehr abgleichen, neu einplanen oder rekonstruieren — es gibt keinen Mechanismus, um RBAC-Regeln, Secrets oder Deployment-Spezifikationen allein aus laufenden Containern wiederherzustellen. Die Optionen b, c und d beschreiben Wiederherstellungsmechanismen, die in Kubernetes nicht existieren."
+  },
+  "cka-security_admin-12": {
+    "question": "Warum müssen bei der Planung eines Minor-Version-Cluster-Upgrades die Control-Plane-Komponenten im Allgemeinen vor den kubelets der Worker-Nodes aktualisiert werden?",
+    "options": {
+      "a": "Es macht in der Praxis keinen Unterschied; die Reihenfolge ist reine Stilkonvention",
+      "b": "Der API-Server muss stets eine Version besitzen, die gleich neu oder neuer ist als die der kubelets, mit denen er kommuniziert, da Kubernetes nur kubelets unterstützt, die dieselbe Version wie der API-Server oder eine ältere haben (innerhalb des unterstützten Versionsabstands)",
+      "c": "Worker-Nodes beziehen ihre kubelet-Version automatisch aus etcd, daher muss etcd zuletzt aktualisiert werden",
+      "d": "kubelets mit neueren Versionen lehnen Verbindungen von jedem API-Server ab, unabhängig von dessen Version"
+    },
+    "explanation": "Kubernetes setzt eine Versionsabstand-Richtlinie durch, nach der der kube-apiserver dieselbe Version wie kube-controller-manager/scheduler und alle kubelets im Cluster haben muss oder neuer sein muss; ein kubelet darf keine neuere Version als der API-Server ausführen. Die Control-Plane-Komponenten zuerst zu aktualisieren (apiserver, controller-manager, scheduler, etcd) stellt sicher, dass Worker-Nodes nie Komponenten ausführen, die neuer sind, als die Control Plane unterstützt. Option a unterschätzt eine echte Kompatibilitätsanforderung. Die Optionen c und d beschreiben Mechanismen, die nicht existieren."
+  },
+  "cka-security_admin-13": {
+    "question": "Bevor ein Administrator einen Worker-Node für Hardwarewartung offline nimmt, führt er cordon und anschließend drain aus. Warum ist drain zusätzlich zu cordon notwendig?",
+    "options": {
+      "a": "Cordon allein beendet bereits alle Pods auf dem Node; drain wird nur benötigt, um das Node-Objekt selbst zu entfernen",
+      "b": "Drain installiert automatisch die Wartungs-Patches, während cordon nur den Node neu startet",
+      "c": "Cordon verhindert nur, dass neue Pods auf dem Node eingeplant werden; bereits laufende Pods laufen dort weiter, bis drain sie verdrängt (evicted), damit sie geordnet an anderer Stelle neu eingeplant werden können",
+      "d": "Drain ist erforderlich, um vor dem Herunterfahren das TLS-Zertifikat des Node zu widerrufen"
+    },
+    "explanation": "Cordon (Markieren eines Node als nicht einplanbar) verhindert nur, dass zukünftige Pods dort landen — es hat keine Auswirkung auf bereits auf diesem Node laufende Pods. Drain verdrängt diese bestehenden Pods aktiv (unter Berücksichtigung von PodDisruptionBudgets und geordneter Beendigung), sodass Workloads verlagert werden, bevor der Node heruntergefahren wird, und ein abruptes, unkontrolliertes Beenden vermieden wird. Option a ist bezüglich der Wirkung von cordon falsch. Die Optionen b und d beschreiben nicht zusammenhängendes oder nicht existierendes Verhalten."
+  },
+  "cka-security_admin-14": {
+    "question": "Ein Deployment hat nur 2 Replicas und ein PodDisruptionBudget mit „minAvailable: 2“. Ein Administrator versucht, einen Node zu draindern, auf dem eine dieser Replicas für routinemäßige Wartung läuft. Was passiert?",
+    "options": {
+      "a": "Die Eviction erfolgt sofort und bedingungslos, da PodDisruptionBudgets nur für unfreiwillige Störungen wie Abstürze gelten",
+      "b": "Der Node wird automatisch entsperrt (uncordoned), um den Start des Drains zu verhindern",
+      "c": "Kubernetes löscht das PodDisruptionBudget automatisch, damit die Wartung fortgesetzt werden kann",
+      "d": "Die Eviction-Anfrage für diesen Pod wird blockiert, weil das Verdrängen minAvailable verletzen würde; der Drain stockt, bis die Einschränkung erfüllt werden kann (z. B. durch Hochskalieren oder Abwarten) oder ein Administrator ihn erzwingt und dabei eine geringere Verfügbarkeit in Kauf nimmt"
+    },
+    "explanation": "PodDisruptionBudgets sind speziell dafür konzipiert, vor freiwilligen Störungen wie Node-Drains während Wartungsarbeiten zu schützen. Die von „kubectl drain“ verwendete Eviction-API prüft das PDB, bevor sie einen Pod verdrängt; würde die Verdrängung die verfügbaren Replicas unter „minAvailable“ senken, wird die Eviction verweigert, und der Drain stockt/wiederholt den Versuch, bis sich die Situation ändert. Option a beschreibt fälschlich, wogegen PDBs schützen. Die Optionen b und c beschreiben Verhalten, das nicht automatisch auftritt."
+  },
+  "cka-security_admin-15": {
+    "question": "Das Client-Zertifikat des kubelet eines Node, das zur Authentifizierung beim API-Server dient, läuft ab, ohne rotiert zu werden. Was ist die wahrscheinlichste Folge?",
+    "options": {
+      "a": "Das kubelet kann sich nicht mehr beim API-Server authentifizieren, und der Node wechselt typischerweise in den Status NotReady, da die Control Plane keine Statusaktualisierungen mehr von ihm erhält",
+      "b": "Es ändert sich nichts; Zertifikate werden nur für die etcd-zu-etcd-Kommunikation verwendet, nicht für den Verkehr zwischen kubelet und API-Server",
+      "c": "Der API-Server stellt als Fallback automatisch ein permanentes, nicht ablaufendes Zertifikat aus",
+      "d": "Nur das Einplanen neuer Pods auf diesem Node ist betroffen; bestehende Pods und die Statusmeldung laufen normal weiter"
+    },
+    "explanation": "kubelets authentifizieren sich beim API-Server mittels Client-Zertifikaten, und wenn diese ohne Rotation ablaufen, schlägt diese Authentifizierung fehl — das kubelet kann dann weder Node-/Pod-Status melden noch Updates empfangen, und der Node wird im Allgemeinen als NotReady markiert. Kubernetes unterstützt die automatische Rotation von kubelet-Zertifikaten, um dies zu verhindern, aber diese muss aktiviert sein und funktionieren. Option b beschreibt falsch, wofür diese Zertifikate verwendet werden. Die Optionen c und d beschreiben Verhalten, das nicht auftritt."
+  },
+  "cka-security_admin-16": {
+    "question": "Wie laufen in einem typischen, mit kubeadm bereitgestellten Cluster zentrale Control-Plane-Komponenten wie kube-apiserver, kube-scheduler und etcd selbst normalerweise?",
+    "options": {
+      "a": "Als Deployments, die vom kube-scheduler verwaltet werden, genau wie jeder Anwendungs-Workload",
+      "b": "Als Static Pods: Manifestdateien, die in einem Verzeichnis (z. B. /etc/kubernetes/manifests) abgelegt werden, das das lokale kubelet auf diesem Node direkt liest und ausführt, ohne über den Scheduler zu laufen",
+      "c": "Als systemd-Dienste vollständig außerhalb der Pod-Abstraktion, ohne dass überhaupt entsprechende Pod-Objekte sichtbar sind",
+      "d": "Als DaemonSets, wodurch sichergestellt wird, dass genau eine Instanz auf jedem Node im Cluster läuft, einschließlich der Worker-Nodes"
+    },
+    "explanation": "Static Pods werden direkt vom kubelet auf einem bestimmten Node verwaltet, das Pod-Manifeste aus einem überwachten lokalen Verzeichnis liest und dabei den API-Server und den Scheduler für die Platzierung vollständig umgeht. Genau so bootstrapt kubeadm zentrale Control-Plane-Komponenten und betreibt sie. Option a ist falsch, da Static Pods nicht über den Scheduler eingeplant werden. Option c ist falsch, da Static Pods durchaus ein entsprechendes (Mirror-)Pod-Objekt erhalten, das über die API sichtbar ist. Option d verwechselt Static Pods mit dem DaemonSet-Controller, einem anderen Mechanismus."
+  },
+  "cka-security_admin-17": {
+    "question": "Ein Administrator führt „kubectl delete pod“ gegen das Mirror-Pod-Objekt aus, das einen Static Pod (z. B. kube-apiserver) auf einem Control-Plane-Node repräsentiert. Was passiert?",
+    "options": {
+      "a": "Der Static Pod wird dauerhaft entfernt, und die Komponente stoppt, bis sie manuell über die API neu erstellt wird",
+      "b": "Die Löschanfrage wird vom API-Server direkt mit einem Validierungsfehler abgelehnt",
+      "c": "Das API-Objekt verschwindet kurz, aber das kubelet auf diesem Node erstellt den Mirror-Pod aus seiner lokalen Manifestdatei neu, da der eigentliche Container weiterläuft oder basierend auf diesem lokalen Manifest neu gestartet wird",
+      "d": "Der Static Pod wird in einen regulären, ab sofort vom Scheduler verwalteten Pod umgewandelt"
+    },
+    "explanation": "Das über die API sichtbare Objekt eines Static Pod ist nur ein „Mirror“, der den vom kubelet verwalteten Pod widerspiegelt; die eigentliche Quelle der Wahrheit ist die Manifestdatei im Dateisystem dieses Node. Das Löschen des Mirror-Pod über die API stoppt den zugrunde liegenden Static Pod nicht — das kubelet erstellt den Mirror einfach anhand des lokalen Manifests neu (und verwaltet den Container weiter). Um einen Static Pod tatsächlich zu entfernen oder zu ändern, muss die Manifestdatei selbst auf dem Node bearbeitet oder entfernt werden. Die Optionen a, b und d beschreiben Verhalten, das diesem Mechanismus nicht entspricht."
+  },
+  "cka-security_admin-18": {
+    "question": "Ein Team plant einen hochverfügbaren etcd-Cluster und diskutiert, ob 4 oder 5 Mitglieder verwendet werden sollen. Warum verwenden etcd-Deployments üblicherweise eine ungerade statt einer geraden Anzahl von Mitgliedern?",
+    "options": {
+      "a": "Quorum erfordert eine strikte Mehrheit; ein Cluster mit gerader Mitgliederzahl (z. B. 4) verträgt den gleichen Ausfall an Mitgliedern wie ein Cluster mit einem Mitglied weniger und ungerader Zahl (z. B. 3), sodass das zusätzliche Mitglied Kosten und Konsens-Overhead hinzufügt, ohne die Fehlertoleranz zu verbessern",
+      "b": "Der Raft-Konsensalgorithmus von etcd kann technisch nicht mit einer geraden Mitgliederzahl starten und verweigert die Initialisierung",
+      "c": "Gerade Zahlen sind für die Fehlertoleranz in Ordnung, sind aber rein aufgrund einer fest codierten Validierungsprüfung in etcd nicht erlaubt",
+      "d": "Ungerade Zahlen erlauben es etcd, für bessere Lesedurchsätze gleichzeitig zwei Leader zu wählen"
+    },
+    "explanation": "Raft-basiertes Quorum benötigt eine strikte Mehrheit der Mitglieder, die zustimmen. Für N Mitglieder beträgt die Fehlertoleranz floor((N-1)/2). Ein Cluster mit 3 Mitgliedern verträgt 1 Ausfall (Quorum=2); ein Cluster mit 4 Mitgliedern verträgt ebenfalls nur 1 Ausfall (Quorum=3) und gewinnt somit keinen Fehlertoleranz-Vorteil, während er die Ressourcenkosten eines zusätzlichen Nodes und eine etwas höhere Konsens-Latenz mit sich bringt. Ungerade Zahlen maximieren daher die Fehlertoleranz pro eingesetztem Node. Option b ist sachlich falsch (ein Cluster mit gerader Mitgliederzahl kann technisch laufen, nur ineffizient). Option c erfindet eine nicht existierende Einschränkung. Option d ist falsch; etcd/Raft wählt immer einen einzelnen Leader."
+  },
+  "cka-security_admin-19": {
+    "question": "Eine ClusterRole ist mit einer einzigen Regel definiert: apiGroups: [\"*\"], resources: [\"*\"], verbs: [\"*\"]. Welche sicherheitsrelevante Auswirkung hat es, diese ClusterRole über eine ClusterRoleBinding an ein Subjekt zu binden?",
+    "options": {
+      "a": "Es ist harmlos, da Wildcard-Regeln nur für Ressourcen gelten, die zum Zeitpunkt der Regelerstellung noch nicht existierten",
+      "b": "Es gewährt nur Lesezugriff, da RBAC-Wildcards standardmäßig auf die sicherste Verb-Menge zurückgreifen",
+      "c": "Es gewährt praktisch uneingeschränkten Zugriff auf Superuser-Niveau über den gesamten Cluster — im Wesentlichen gleichwertig mit der eingebauten Rolle „cluster-admin“ — und sollte nur vertrauenswürdigen administrativen Identitäten vorbehalten sein",
+      "d": "Es gewährt Zugriff nur innerhalb des Namespace des ServiceAccounts des Subjekts, wodurch der Wirkungsbereich automatisch begrenzt wird"
+    },
+    "explanation": "Wildcards in apiGroups, resources und verbs stimmen mit allem überein, sodass diese Regel jede mögliche Aktion auf jedem Ressourcentyp in jeder API-Gruppe gewährt — funktional gleichwertig mit der eingebauten ClusterRole „cluster-admin“, wenn sie clusterweit gebunden wird. Dies ist ein ernstes Sicherheitsrisiko, wenn es breit gebunden wird (z. B. an ein CI-ServiceAccount oder eine weit gefasste Gruppe), da kompromittierte Zugangsdaten dann die volle Kontrolle über den Cluster gewähren würden. Option a beschreibt fiktives Verhalten. Option b ist falsch, da die Verb-Wildcard auch Schreib- und Löschaktionen einschließt. Option d ist falsch, da eine ClusterRoleBinding von Natur aus clusterweit gilt und nicht namespace-begrenzt ist."
+  },
+  "cka-storage-01": {
+    "question": "Warum benötigen Kubernetes-Pods für zustandsbehaftete (stateful) Anwendungen im Allgemeinen eine Form von externem Storage?",
+    "options": {
+      "a": "Weil Container überhaupt nicht auf die Festplatte schreiben können",
+      "b": "Weil das Dateisystem eines Containers vergänglich (ephemeral) ist und sein Inhalt verloren geht, wenn der Container neu gestartet wird oder der Pod neu eingeplant wird",
+      "c": "Weil der Kubernetes-API-Server verlangt, dass alle Daten außerhalb des Clusters gespeichert werden",
+      "d": "Weil Container-Images schreibgeschützt sind und niemals eine beschreibbare Schicht enthalten können"
+    },
+    "explanation": "Die beschreibbare Schicht eines Containers ist an dessen Lebenszyklus gebunden: Stürzt der Container ab und wird neu gestartet oder wird der Pod auf einen anderen Node umgeplant, ist der Inhalt dieses Dateisystems weg. Externer Storage (Volumes) wird benötigt, um Daten über die Lebensdauer eines einzelnen Containers hinaus persistent zu halten. (a) ist falsch, da Container durchaus auf die Festplatte schreiben können, nur nicht dauerhaft. (c) beschreibt die Rolle des API-Servers falsch. (d) ist falsch, da Images zur Laufzeit durchaus eine beschreibbare Schicht erhalten, sie ist nur nicht persistent."
+  },
+  "cka-storage-02": {
+    "question": "Was beschreibt in Kubernetes das Konzept eines direkt in einer Pod-Spezifikation eingebundenen „Volumes“ am besten?",
+    "options": {
+      "a": "Ein clusterweiter Storage-Pool, auf den alle Pods gleichzeitig ohne Konfiguration zugreifen können",
+      "b": "Eine netzwerkgebundene Festplatte, die automatisch vom Cloud-Provider bereitgestellt und abgerechnet wird",
+      "c": "Eine Storage-Abstraktion, deren Lebenszyklus an den Pod gebunden ist, der sie definiert, sodass Container innerhalb dieses Pods Daten gemeinsam nutzen und/oder über Container-Neustarts hinweg persistieren können",
+      "d": "Ein Snapshot eines Container-Images, der vor dem Deployment erstellt wird"
+    },
+    "explanation": "Ein Volume im klassischen Sinne der Pod-Spezifikation existiert so lange wie der Pod (sein Lebenszyklus ist an den Pod gebunden, nicht an einen einzelnen Container), und es ermöglicht Containern im selben Pod, Dateien gemeinsam zu nutzen oder einzelne Container-Neustarts zu überstehen. Es ist nicht automatisch clusterweit (a), nicht inhärent eine cloud-abgerechnete Festplatte (b, das hängt vom Volume-Typ ab) und hat nichts mit Image-Snapshots zu tun (d)."
+  },
+  "cka-storage-03": {
+    "question": "Welches Problem lösen PersistentVolumes (PVs) und PersistentVolumeClaims (PVCs) hauptsächlich?",
+    "options": {
+      "a": "Sie entkoppeln, wie Storage bereitgestellt und verwaltet wird, von der Art und Weise, wie Anwendungen Storage anfordern und nutzen, sodass Entwickler die zugrunde liegenden Storage-Details nicht kennen müssen",
+      "b": "Sie stellen sicher, dass jeder Pod automatisch eine eindeutige Netzwerkidentität erhält",
+      "c": "Sie machen eine Container Runtime auf Worker-Nodes überflüssig",
+      "d": "Sie garantieren, dass ein Pod immer auf demselben Node wie seine Daten eingeplant wird"
+    },
+    "explanation": "PVs repräsentieren tatsächliche Storage-Ressourcen im Cluster (bereitgestellt von einem Administrator oder dynamisch), während PVCs Anfragen nach Storage sind, die von Benutzern/Anwendungen gestellt werden. Diese Trennung entkoppelt Belange der Storage-Bereitstellung von Belangen der Storage-Nutzung. (b) beschreibt etwas Unabhängiges (z. B. die Netzwerkidentität eines StatefulSet), (c) hat nichts mit Container Runtimes zu tun, und (d) wird durch PV/PVC allein nicht garantiert (das hängt von Access Modes und Topologie ab, nicht vom Kernzweck)."
+  },
+  "cka-storage-04": {
+    "question": "Ein Entwickler erstellt einen PersistentVolumeClaim, der 10Gi Storage anfordert. Was passiert an dieser Stelle konzeptionell?",
+    "options": {
+      "a": "Der Entwickler formatiert direkt eine physische Festplatte auf einem Worker-Node",
+      "b": "Der Entwickler definiert eine neue StorageClass für den gesamten Cluster",
+      "c": "Der Entwickler erstellt ein Volume, das dauerhaft an einen bestimmten Pod gebunden ist",
+      "d": "Der Entwickler fordert eine Storage-Ressource mit bestimmten Eigenschaften (Größe, Access Mode) an, die Kubernetes an ein passendes PersistentVolume bindet, egal ob dieses bereits existiert oder dynamisch erstellt wird"
+    },
+    "explanation": "Ein PVC ist eine Anfrage nach Storage; Kubernetes gleicht (bindet) ihn an ein passendes PV ab, entweder ein bereits vorhandenes oder eines, das dynamisch über eine StorageClass bereitgestellt wird. Es geht nicht um das manuelle Formatieren von Festplatten (a), es definiert keine StorageClass (b, das ist ein eigenes Objekt), und es ist nicht an einen einzelnen Pod gebunden (c) — PVCs sind vom Pod-Lebenszyklus entkoppelt, sodass sie nach dem Löschen eines Pods wiederverwendet werden können."
+  },
+  "cka-storage-05": {
+    "question": "Was ist der Hauptzweck einer StorageClass in Kubernetes?",
+    "options": {
+      "a": "Sie legt die CPU- und Arbeitsspeicherlimits fest, die für Pods gelten, die Storage mounten",
+      "b": "Sie ist eine Sicherheitsrichtlinie, die einschränkt, welche Namespaces PersistentVolumeClaims erstellen dürfen",
+      "c": "Sie beschreibt eine „Klasse“ bzw. einen Typ von Storage (z. B. dessen Provisioner und Parameter), sodass PersistentVolumes bei Bedarf dynamisch bereitgestellt werden können, wenn ein PVC dies anfordert",
+      "d": "Sie ist ein Backup-Zeitplan, der alle PersistentVolumes in festen Intervallen als Snapshot sichert"
+    },
+    "explanation": "Eine StorageClass ermöglicht es Administratoren, unterschiedliche „Klassen“ von Storage zu beschreiben (z. B. schnelle SSD vs. langsamere HDD) zusammen mit einem Provisioner, was die automatische dynamische Bereitstellung von PVs ermöglicht, sobald ein PVC auf diese Klasse verweist. Sie hat nichts mit CPU-/Speicherlimits (a), Namespace-Sicherheitsrichtlinien (b) oder Backup-Zeitplänen (d) zu tun."
+  },
+  "cka-storage-06": {
+    "question": "Wie muss ein PersistentVolume ohne dynamische Bereitstellung über eine StorageClass typischerweise entstehen?",
+    "options": {
+      "a": "Es wird automatisch generiert, sobald zum ersten Mal ein Container-Image gezogen wird",
+      "b": "Ein Cluster-Administrator erstellt das PersistentVolume manuell im Voraus und beschreibt dabei die tatsächlich im Cluster verfügbare Storage-Ressource",
+      "c": "Es wird automatisch erstellt, sobald ein Namespace erstellt wird",
+      "d": "Es wird automatisch aus den in einem Deployment definierten Resource Requests abgeleitet"
+    },
+    "explanation": "Bei der „statischen Bereitstellung“ erstellt ein Administrator im Voraus PVs, die reale, verfügbare Storage-Ressourcen repräsentieren und dann von PVCs beansprucht werden können. Dies steht in keinem Zusammenhang mit Image-Pulls (a), der Namespace-Erstellung (c) oder Resource Requests eines Deployments (d), die CPU/Arbeitsspeicher betreffen, nicht Storage."
+  },
+  "cka-storage-07": {
+    "question": "Was bedeutet der Access Mode „ReadWriteOnce“ (RWO) für ein PersistentVolume konzeptionell?",
+    "options": {
+      "a": "Das Volume kann jeweils von einem einzigen Node als Read-Write gemountet werden",
+      "b": "Das Volume kann nur ein einziges Mal gelesen werden und wird danach dauerhaft schreibgeschützt",
+      "c": "Das Volume kann von einer beliebigen Anzahl von Nodes gleichzeitig als Read-Write gemountet werden",
+      "d": "Das Volume erlaubt nur einem einzigen Pod im gesamten Cluster, es jemals zu verwenden, selbst nachdem dieser Pod gelöscht wurde"
+    },
+    "explanation": "ReadWriteOnce bedeutet, dass das Volume von einem einzigen Node als Read-Write gemountet werden kann (mehrere Pods auf demselben Node können es typischerweise dennoch gemeinsam nutzen). Es bedeutet nicht „einmal lesen für immer“ (b), es ist das Gegenteil davon, vielen Nodes gleichzeitig Read-Write-Zugriff zu erlauben (c), und es sperrt das Volume nicht dauerhaft auf einen bestimmten Pod (d) — ein neuer Pod kann es später mounten, nur nicht gleichzeitig von mehreren Nodes aus."
+  },
+  "cka-storage-08": {
+    "question": "Eine Anwendung benötigt mehrere Pods, die auf unterschiedlichen Nodes eingeplant sind, um gleichzeitig aus demselben gemeinsam genutzten Storage zu lesen und in ihn zu schreiben. Welches Access-Mode-Konzept erfüllt diese Anforderung?",
+    "options": {
+      "a": "ReadWriteOnce (RWO)",
+      "b": "ReadOnlyMany (ROX)",
+      "c": "ReadWriteMany (RWX)",
+      "d": "WriteOnlyOnce (WOO)"
+    },
+    "explanation": "ReadWriteMany (RWX) erlaubt es, das Volume von vielen Nodes gleichzeitig als Read-Write zu mounten, was für gleichzeitigen Schreibzugriff von mehreren Nodes erforderlich ist. ReadWriteOnce (a) beschränkt Schreibzugriff auf einen einzigen Node. ReadOnlyMany (b) erlaubt viele Nodes, aber nur Lesezugriff, keine Schreibzugriffe. WriteOnlyOnce (d) ist kein tatsächlicher Kubernetes-Access-Mode."
+  },
+  "cka-storage-09": {
+    "question": "Was steuert konzeptionell die „Reclaim Policy“ eines PersistentVolume?",
+    "options": {
+      "a": "Wie oft das Volume auf externem Storage gesichert wird",
+      "b": "Welche Nodes das Volume mounten dürfen",
+      "c": "Wie stark die Storage-Kapazität des Volumes im Laufe der Zeit wachsen darf",
+      "d": "Was mit der zugrunde liegenden Storage-Ressource passiert, nachdem der an sie gebundene PersistentVolumeClaim gelöscht wurde"
+    },
+    "explanation": "Die Reclaim Policy legt fest, was mit dem PV geschieht, sobald sein Claim freigegeben wird, zum Beispiel ob der zugrunde liegende Storage beibehalten oder entfernt werden soll. Sie hat nichts mit der Backup-Häufigkeit (a), Node-Mounting-Berechtigungen (b, das sind Access Modes/Affinity) oder dem Wachstum der Storage-Kapazität (c) zu tun."
+  },
+  "cka-storage-10": {
+    "question": "Ein PersistentVolume hat die Reclaim Policy „Retain“. Was passiert, wenn der daran gebundene PersistentVolumeClaim gelöscht wird?",
+    "options": {
+      "a": "Das PersistentVolume und seine Daten werden zusammen mit dem Claim sofort gelöscht",
+      "b": "Das PersistentVolume wird samt seinen Daten beibehalten, wird aber nicht automatisch für einen neuen Claim verfügbar gemacht, bis ein Administrator manuell eingreift",
+      "c": "Das PersistentVolume setzt seine Daten automatisch zurück und wird sofort für den nächsten Claim wiederverwendbar",
+      "d": "Das PersistentVolume wird automatisch in eine StorageClass umgewandelt"
+    },
+    "explanation": "Bei der Policy „Retain“ überleben das PV und seine Daten das Löschen des PVC, aber das PV wird nicht automatisch für die Wiederverwendung freigegeben; es ist eine manuelle Bereinigung bzw. ein Reclaiming-Vorgang durch einen Administrator erforderlich. (a) beschreibt stattdessen die Policy „Delete“. (c) beschreibt eher das Verhalten der älteren, veralteten Policy „Recycle“, nicht das von Retain. (d) ist kein tatsächlicher Übergang."
+  },
+  "cka-storage-11": {
+    "question": "Ein PersistentVolume hat die Reclaim Policy „Delete“. Welches Verhalten wird erwartet, sobald der daran gebundene Claim gelöscht wird?",
+    "options": {
+      "a": "Sowohl das PersistentVolume-Objekt als auch die zugehörige zugrunde liegende Storage-Ressource (z. B. die Cloud-Festplatte) werden automatisch entfernt",
+      "b": "Nur der PersistentVolumeClaim wird entfernt; das PersistentVolume bleibt für immer vollständig unangetastet",
+      "c": "Die Daten werden gelöscht, aber das PersistentVolume-Objekt selbst bleibt im Status „Available“ zur Wiederverwendung erhalten",
+      "d": "Die Reclaim Policy hat keine Auswirkung darauf, was nach dem Löschen des Claims passiert"
+    },
+    "explanation": "Bei „Delete“ löst das Entfernen des PVC die automatische Löschung sowohl des PV-Objekts als auch der von ihm repräsentierten zugrunde liegenden Storage-Ressource aus. (b) vermischt Delete mit dem Effekt, der bei völligem Fehlen einer Policy einträte. (c) verwechselt das Verhalten mit „Retain“. (d) ist falsch, da die Reclaim Policy genau dieses Ergebnis bestimmt."
+  },
+  "cka-storage-12": {
+    "question": "Warum ist es nützlich, dass der Lebenszyklus eines PersistentVolumeClaim unabhängig vom Lebenszyklus eines einzelnen Pods ist?",
+    "options": {
+      "a": "Es ermöglicht, PVCs genau wie Pods auf Nodes einzuplanen",
+      "b": "Es bedeutet, dass PVCs automatisch die CPU- und Speicherlimits des Pods übernehmen, der sie zuerst verwendet hat",
+      "c": "Es ermöglicht, dass Daten persistieren und an einen neuen Pod angehängt werden können (zum Beispiel nach einem Absturz, Update oder einer Neuplanung), da der Claim und der an ihn gebundene Storage jeden einzelnen Pod überdauern",
+      "d": "Es macht es überflüssig, einen Access Mode für den Claim anzugeben"
+    },
+    "explanation": "Da ein PVC unabhängig von den Pods existiert, die ihn verwenden, kann derselbe zugrunde liegende Storage von einem verschwindenden Pod getrennt und an einen Ersatz-Pod neu angehängt werden — das ist essenziell, damit zustandsbehaftete Workloads Neustarts, Neuplanungen oder Updates überstehen. PVCs werden nicht wie Pods eingeplant (a), übernehmen keine Compute-Ressourcenlimits (b), und Access Modes sind unabhängig davon weiterhin erforderlich (d)."
+  },
+  "cka-troubleshooting-01": {
+    "question": "Ein Pod verharrt seit mehreren Minuten im Status `Pending`. Ein `describe pod` zeigt ein einzelnes Event: `0/5 nodes are available: 5 Insufficient cpu.` Was ist die WAHRSCHEINLICHSTE zugrunde liegende Ursache?",
+    "options": {
+      "a": "Das Container-Image kann nicht aus der Registry gezogen werden",
+      "b": "Der Liveness-Probe des Pods schlägt wiederholt fehl",
+      "c": "Kein Node im Cluster verfügt derzeit über genügend zuweisbare CPU, um die CPU-Anforderung des Pods zu erfüllen",
+      "d": "Der Pod verweist auf eine ConfigMap, die nicht existiert"
+    },
+    "explanation": "Der Scheduler meldet ausdrücklich, dass alle 5 Nodes nicht über genügend CPU verfügen, um die angeforderten Ressourcen des Pods zu erfüllen, sodass er den Pod nirgends binden kann und dieser Pending bleibt. Dies ist ein Fehler in der Scheduling-Phase, bevor überhaupt ein Container startet, daher sind Image-Pull-Fehler (a) und Probe-Fehler (b) irrelevant (diese treten erst nach dem Scheduling auf). Eine fehlende ConfigMap (d) würde einen `CreateContainerConfigError`-Status erzeugen, kein Scheduling-Event über CPU."
+  },
+  "cka-troubleshooting-02": {
+    "question": "Der Status eines Pods zeigt `CrashLoopBackOff`, und sein Restart-Zähler steigt kontinuierlich. Was sagt dieser Status konkret über den Container aus?",
+    "options": {
+      "a": "Das Container-Image konnte nicht aus der Registry gezogen werden",
+      "b": "Der Container startet, beendet sich (entweder mit einem Fehler oder normal), und das kubelet startet ihn mit zunehmender Verzögerung (Backoff) zwischen den Versuchen immer wieder neu",
+      "c": "Dem Node, auf dem der Pod eingeplant ist, ist der Festplattenspeicher ausgegangen",
+      "d": "Der Admission-Webhook des Pods lehnt die Anfrage wiederholt ab"
+    },
+    "explanation": "CrashLoopBackOff bedeutet, dass der Container erfolgreich erstellt und gestartet wurde, sich dann aber beendet (Absturz, Fehlkonfiguration, fehlende Abhängigkeit, fehlgeschlagener Startbefehl), und das kubelet ihn mit exponentiellem Backoff erneut versucht. Fehler beim Image-Pull erzeugen stattdessen `ImagePullBackOff`/`ErrImagePull` (a), Speichererschöpfung erzeugt typischerweise node-seitige `DiskPressure`-Bedingungen oder Eviction (c), und Webhook-Ablehnungen erfolgen zur Admission-Zeit, bevor das Pod-Objekt überhaupt erstellt wird, nicht als Neustart-Schleife (d)."
+  },
+  "cka-troubleshooting-03": {
+    "question": "Die Pods eines Deployments zeigen wiederholt `ImagePullBackOff`. Ein `describe pod` zeigt das Event: `Failed to pull image \"myregistry.io/app:v2\": unauthorized: authentication required`. Was ist die WAHRSCHEINLICHSTE Grundursache?",
+    "options": {
+      "a": "Der Pod (oder sein ServiceAccount) referenziert kein für diese private Registry gültiges `imagePullSecret`",
+      "b": "Der Image-Tag `v2` existiert nicht in der Registry",
+      "c": "Dem Node fehlen die CNI-Plugin-Binärdateien",
+      "d": "Die Ressourcenlimits des Pods sind zu niedrig gesetzt, um das Image zu ziehen"
+    },
+    "explanation": "Ein Fehler „unauthorized: authentication required“ ist ein Authentifizierungsfehler der Registry, was bedeutet, dass das kubelet keine gültigen Zugangsdaten hat, um von einer privaten Registry zu ziehen — behoben wird dies durch ein korrektes `imagePullSecret`. Ein nicht existierender Tag (b) würde typischerweise einen Fehler wie „manifest not found“ oder „not found“ erzeugen statt eines Authentifizierungsfehlers. Fehlende CNI-Binärdateien (c) verursachen Netzwerk-/Sandbox-Fehler, keine Image-Pull-Fehler. Ressourcenlimits (d) haben keinen Einfluss auf den Image-Pull-Prozess, der auf dem Node unabhängig von Container-Ressourcenbeschränkungen abläuft."
+  },
+  "cka-troubleshooting-04": {
+    "question": "Der Status eines Pods zeigt `Evicted` mit der Meldung `The node was low on resource: memory`. Was ist mit diesem Pod tatsächlich passiert?",
+    "options": {
+      "a": "Der Container-Prozess im Pod hat sein eigenes Speicherlimit überschritten und wurde vom OOM-Killer des Kernels beendet",
+      "b": "Der Scheduler konnte keinen Node mit genug Arbeitsspeicher finden, um den Pod zu platzieren",
+      "c": "Der Liveness-Probe des Pods lief aufgrund von Speicherdruck in ein Timeout, und das kubelet hat ihn neu gestartet",
+      "d": "Das kubelet hat den Pod proaktiv beendet, weil die gesamte Arbeitsspeichernutzung des Node einen Eviction-Schwellenwert überschritten hat, um Ressourcen freizugeben und die Node-Stabilität zu schützen"
+    },
+    "explanation": "Node-seitige Eviction ist die proaktive Reaktion des kubelet auf Ressourcendruck (Arbeitsspeicher, Festplatte, PID) auf dem Node insgesamt — es bewertet und beendet Pods, um den Druck zu verringern, unabhängig vom eigenen Limit eines einzelnen Containers. Dies unterscheidet sich von OOMKilled (a), was auftritt, wenn ein bestimmter Container sein eigenes Speicherlimit/seine Cgroup überschreitet und vom Kernel beendet wird, was zum Beendigungsgrund `OOMKilled` führt, nicht zu `Evicted`. Option (b) beschreibt einen Pending-Status zur Scheduling-Zeit, nicht die Eviction eines laufenden Pods. Option (c) beschreibt Eviction fälschlich als probe-gesteuerten Neustart, was nicht dem Status Evicted entspricht."
+  },
+  "cka-troubleshooting-05": {
+    "question": "Ein Container wurde beendet, und `kubectl describe pod` zeigt `Last State: Terminated, Reason: OOMKilled, Exit Code: 137`. Was ist die korrekte Interpretation davon?",
+    "options": {
+      "a": "Dem Node selbst ist der Arbeitsspeicher ausgegangen, und das kubelet hat den gesamten Pod verdrängt",
+      "b": "Dieser spezifische Container hat sein eigenes konfiguriertes Speicherlimit überschritten, und der Out-of-Memory-Killer der Cgroup des Kernels hat seinen Prozess beendet",
+      "c": "Der Readiness-Probe des Containers ist aufgrund von Speichererschöpfung fehlgeschlagen, sodass Kubernetes ihn neu gestartet hat",
+      "d": "Das Container-Image war zu groß, um während des Pulls in den verfügbaren Arbeitsspeicher des Node zu passen"
+    },
+    "explanation": "OOMKilled mit Exit Code 137 ist ein Ereignis auf Container-Ebene: Die Speichernutzung des Containers hat sein eigenes Cgroup-Limit erreicht, und der OOM-Killer des Kernels hat den Prozess beendet, woraufhin das kubelet den Grund als OOMKilled meldet und ihn (gemäß Restart-Policy) unter Umständen neu startet. Dies unterscheidet sich von node-seitiger Eviction (a), die zum Status `Evicted` führt, nicht zu einem Terminated/OOMKilled-Grund an einem bestimmten Container. Probe-Fehler (c) melden nie OOMKilled als Grund. Die Image-Größe beim Pull (d) hat nichts mit einem Laufzeit-OOM-Kill zu tun."
+  },
+  "cka-troubleshooting-06": {
+    "question": "Ein Pod hängt in `Pending` fest, und `kubectl describe pod` zeigt im Abschnitt Events überhaupt keine Scheduling-bezogenen Ereignisse. Der Pod wurde vor weniger als einer Minute erstellt, und der Cluster verfügt über reichlich freie CPU und freien Arbeitsspeicher. Was sollten Sie ZUERST vermuten?",
+    "options": {
+      "a": "Eine Selektor-Fehlübereinstimmung verhindert, dass der Service den Pod findet",
+      "b": "Die Image-Registry ist vom Node aus nicht erreichbar",
+      "c": "Das Event ist möglicherweise einfach noch nicht propagiert oder erfasst worden, oder Events sind bereits abgelaufen bzw. per Garbage Collection entfernt worden — kurz erneut prüfen und direkt die kube-scheduler-Logs inspizieren",
+      "d": "Die PriorityClass des Pods ist zu niedrig, um jemals eingeplant zu werden"
+    },
+    "explanation": "Events sind Best-Effort und eventually consistent (und laufen nach einer TTL ab, standardmäßig etwa eine Stunde); ein wirklich frischer Pod zeigt möglicherweise noch keine Events, daher ist erneutes Prüfen oder ein direkter Blick in die kube-scheduler-Logs die sinnvolle diagnostische Maßnahme, bevor man von einer bestimmten Grundursache ausgeht. Service-Selektor-Fehlübereinstimmungen (a) betreffen das Traffic-Routing, nicht das Scheduling, würden also kein Pending verursachen. Nicht erreichbare Registry (b) würde erst nach dem Scheduling beim Image-Pull relevant werden und normalerweise trotzdem ein Event erzeugen. Eine niedrige PriorityClass (d) verhindert das Scheduling nicht von sich aus, sofern keine Ressourcenkonkurrenz besteht, was das Szenario ausdrücklich verneint."
+  },
+  "cka-troubleshooting-07": {
+    "question": "Clients können einen ClusterIP-Service nicht erreichen, obwohl seine unterstützenden Pods Running und Ready sind. `kubectl get endpoints <svc-name>` liefert eine leere Endpoints-Liste. Was ist die WAHRSCHEINLICHSTE Erklärung?",
+    "options": {
+      "a": "Das Feld `type` des Service ist auf `ClusterIP` statt auf `NodePort` gesetzt",
+      "b": "kube-proxy läuft nicht auf dem Node, der den Client-Pod hostet",
+      "c": "Der `spec.selector` des Service stimmt nicht mit den tatsächlich auf die Pods angewendeten Labels überein",
+      "d": "Für die Pods ist kein `resources.requests`-Feld gesetzt"
+    },
+    "explanation": "Ein leeres Endpoints-Objekt bedeutet fast immer, dass der Label-Selektor des Service mit keinem Pod-Label übereinstimmt, sodass der Endpoint-Controller nichts zu befüllen hat — dies ist das klassische Fehlerbild „keine Endpoints“. ClusterIP (a) ist ein völlig gültiger und gängiger Typ; er verursacht keine leeren Endpoints. Ein fehlendes kube-proxy (b) würde trotz vorhandener Endpoints zu Verbindungsfehlern führen (das Proxying würde nicht stattfinden), nicht zu einer leeren Endpoints-Liste, die unabhängig von kube-proxy vom Endpoint-Controller befüllt wird. Fehlende Resource Requests (d) haben keine Auswirkung auf die Befüllung von Service/Endpoints."
+  },
+  "cka-troubleshooting-08": {
+    "question": "Ein Service hat korrekt befüllte Endpoints, die seinen Pods entsprechen, aber Verbindungen zum Service auf Port 80 laufen in ein Timeout. Die Untersuchung zeigt, dass die Container der Pods tatsächlich auf Port 8080 lauschen, nicht auf Port 80. Was ist die richtige Lösung?",
+    "options": {
+      "a": "Den `type` des Service auf `LoadBalancer` ändern",
+      "b": "Eine NetworkPolicy hinzufügen, die Port 80 explizit erlaubt",
+      "c": "Den `livenessProbe` des Containers so ändern, dass er Port 80 prüft",
+      "d": "Den `targetPort` des Service auf 8080 setzen, sodass er den Datenverkehr korrekt an den Port weiterleitet, auf dem die Container tatsächlich lauschen"
+    },
+    "explanation": "Der `port` des Service ist das, womit sich Clients verbinden, aber `targetPort` ist das, wohin der Datenverkehr am Pod weitergeleitet wird; stimmt dieser nicht mit dem tatsächlichen Lauschport des Containers überein, laufen Verbindungen selbst bei korrekten Endpoints in ein Timeout. Das Ändern des Service-Typs (a) behebt die Port-Fehlübereinstimmung nicht. Eine NetworkPolicy (b) betrifft das Erlauben/Verweigern von Datenverkehr, nicht die Port-Übersetzung, und würde einen falschen targetPort nicht beheben. Die Anpassung des Liveness-Probes (c) beeinflusst das Neustartverhalten des Pods, nicht die Weiterleitung des Service-Datenverkehrs."
+  },
+  "cka-troubleshooting-09": {
+    "question": "`kubectl get nodes` zeigt einen Worker-Node mit dem Status `NotReady`. Welche der folgenden Optionen ist die AM WENIGSTEN wahrscheinliche direkte Ursache für diesen Zustand?",
+    "options": {
+      "a": "Der kubelet-Prozess auf diesem Node ist abgestürzt oder gestoppt",
+      "b": "Ein Deployment auf diesem Node hat einen Image-Tag, der nicht existiert",
+      "c": "Der Node hat die Netzwerkverbindung zur Control Plane verloren (oder umgekehrt), sodass das kubelet keine Heartbeats melden kann",
+      "d": "Die Container Runtime (z. B. containerd) auf diesem Node reagiert nicht oder ist abgestürzt"
+    },
+    "explanation": "Ein fehlerhafter Image-Tag bei einem Workload betrifft nur diesen bestimmten Pod (und erzeugt ImagePullBackOff) und hat keinen Einfluss auf den node-seitigen Ready-Status, der die eigene Gesundheit des kubelet und dessen Heartbeat-Meldung widerspiegelt. Ein abgestürztes kubelet (a), eine verlorene Netzwerkverbindung zum API-Server (c) und eine defekte Container Runtime (d) sind allesamt klassische, gut dokumentierte Ursachen für NotReady, da das kubelet auf die Runtime angewiesen ist, um Container zu verwalten, und auf die Netzwerkverbindung, um den Node-Status per Heartbeat/Lease zu aktualisieren."
+  },
+  "cka-troubleshooting-10": {
+    "question": "Ein Pod kann andere Pods und Services per IP-Adresse erreichen, aber DNS-Abfragen von Service-Namen (z. B. `curl http://my-svc`) schlagen mit einem Auflösungsfehler fehl. Was sollten Sie ZUERST untersuchen?",
+    "options": {
+      "a": "Ob die CoreDNS-Pods Running und Ready sind und ob der `kube-dns`-Service gesunde Endpoints hat",
+      "b": "Ob das Container-Image des Pods einen Webserver enthält",
+      "c": "Ob der Node genug Festplattenspeicher für Image-Pulls hat",
+      "d": "Ob der betreffende Service vom Typ `LoadBalancer` ist"
+    },
+    "explanation": "Da die reine IP-Konnektivität funktioniert, die Namensauflösung aber fehlschlägt, ist der Fehler auf DNS selbst isoliert — die erste und direkteste Prüfung ist, ob die CoreDNS-Pods gesund sind und der kube-dns-Service Endpoints hat, da dies die clusterinterne Namensauflösung übernimmt. Ob das Ziel einen Webserver hat (b), ist irrelevant, wenn die DNS-Auflösung schon vor jedem Verbindungsversuch fehlschlägt. Freier Festplattenspeicher auf dem Node (c) betrifft Image-Pulls, nicht die Namensauflösung. Der Service-Typ (d) beeinflusst, wie ein Service extern zugänglich gemacht wird, verhindert aber nicht die interne DNS-Auflösung von auf ClusterIP basierenden Namen."
+  },
+  "cka-troubleshooting-11": {
+    "question": "Die Datei `/etc/resolv.conf` eines Pods verweist korrekt auf die IP des Cluster-DNS-Service, und die CoreDNS-Pods sind gesund mit befüllten Endpoints, dennoch laufen DNS-Abfragen von genau diesem einen Pod weiterhin in ein Timeout, während Abfragen von anderen Pods auf anderen Nodes erfolgreich sind. Was sollten Sie vermuten?",
+    "options": {
+      "a": "Die von CoreDNS verwendete `Corefile`-ConfigMap ist fehlerhaft",
+      "b": "Der Service, den der Pod aufzulösen versucht, existiert nicht",
+      "c": "Eine NetworkPolicy oder der CNI-/Netzwerkpfad des Node blockiert UDP/TCP-Verkehr auf Port 53 von genau diesem Pod oder Node zu den CoreDNS-Pods",
+      "d": "Die `dnsPolicy` des Pods ist auf `ClusterFirst` gesetzt"
+    },
+    "explanation": "Da die Auflösung bei CoreDNS und anderen Pods einwandfrei funktioniert, liegt das Problem isoliert bei der Netzwerkerreichbarkeit von genau diesem Pod/Node zu CoreDNS auf Port 53 — häufig verursacht durch eine zu restriktive NetworkPolicy oder ein node-spezifisches Netzwerk-/CNI-Problem. Eine fehlerhafte Corefile (a) würde DNS clusterweit beeinträchtigen, nicht nur für einen Pod. Ein nicht existierender Service (b) würde eine saubere NXDOMAIN-Antwort erzeugen, kein Timeout, und würde von jedem Pod aus identisch fehlschlagen. `dnsPolicy: ClusterFirst` (d) ist tatsächlich die korrekte Standardeinstellung für die Nutzung von Cluster-DNS, ist also keine Ursache des Problems."
+  },
+  "cka-troubleshooting-12": {
+    "question": "Ein Benutzer führt `kubectl get pods -n finance` aus und erhält: `Error from server (Forbidden): pods is forbidden: User \"jane\" cannot list resource \"pods\" in API group \"\" in the namespace \"finance\"`. Was sagt dieser Fehler am genauesten aus?",
+    "options": {
+      "a": "Das Client-Zertifikat des Benutzers ist abgelaufen, und die Authentifizierung ist fehlgeschlagen",
+      "b": "Die Authentifizierung war erfolgreich (der Benutzer wurde als „jane“ identifiziert), aber keine RBAC-Role-/ClusterRole-Bindung gewährt ihr das Verb `list` für `pods` im Namespace `finance`",
+      "c": "Der Namespace `finance` existiert nicht im Cluster",
+      "d": "Der API-Server ist aufgrund eines Netzwerkproblems nicht erreichbar"
+    },
+    "explanation": "Eine `Forbidden`-Antwort (HTTP 403) mit einem genannten Benutzer bedeutet, dass die Authentifizierung bereits erfolgreich war — der API-Server hat den Anfragenden als „jane“ identifiziert —, und der Fehler liegt rein auf der Autorisierungsebene: Keine RoleBinding/ClusterRoleBinding gewährt das Verb `list` für Pods in diesem Namespace. Ein abgelaufenes Zertifikat (a) würde stattdessen einen Authentifizierungsfehler verursachen, typischerweise als `Unauthorized` (401) oder TLS-Handshake-Fehler sichtbar, nicht als Forbidden-Meldung mit Benutzernamen. Ein fehlender Namespace (c) würde typischerweise einen `NotFound`-Fehler erzeugen. Ein Netzwerk-/API-Server-Ausfall (d) würde einen Fehler auf Verbindungsebene erzeugen, keine strukturierte Forbidden-Antwort vom Server."
+  },
+  "cka-troubleshooting-13": {
+    "question": "Die Anwendungslogs eines Pods zeigen wiederholt Fehler wie `Error from server (Forbidden): configmaps \"app-config\" is forbidden: User \"system:serviceaccount:default:app-sa\" cannot get resource \"configmaps\"`. Die Anwendung selbst ruft von innerhalb des Pods die Kubernetes-API auf. Was ist die direkteste Lösung?",
+    "options": {
+      "a": "Eine Role und RoleBinding erstellen oder aktualisieren, die dem ServiceAccount `app-sa` die Berechtigung `get` (und wahrscheinlich `list`/`watch`) für `configmaps` im relevanten Namespace gewähren",
+      "b": "Das kubelet auf dem Node, der den Pod hostet, neu starten",
+      "c": "Die CPU- und Arbeitsspeicherlimits des Pods erhöhen",
+      "d": "Die ConfigMap `app-config` löschen und neu erstellen"
+    },
+    "explanation": "Der Fehler zeigt eindeutig einen Autorisierungsfehler für die ServiceAccount-Identität des Pods an, daher besteht die Lösung darin, ihm die fehlenden RBAC-Berechtigungen über eine Role/RoleBinding (oder ClusterRole/ClusterRoleBinding) zu gewähren. Ein Neustart des kubelet (b) hat keine Auswirkung auf API-Autorisierungsentscheidungen, die vom API-Server getroffen werden. Ressourcenlimits (c) stehen in keinem Zusammenhang mit Berechtigungen. Das Neuerstellen der ConfigMap (d) ändert nichts an den RBAC-Berechtigungen des ServiceAccounts, und der Fehler würde identisch erneut auftreten."
+  },
+  "cka-troubleshooting-14": {
+    "question": "In einem Cluster, in dem etcd vom API-Server aus vollständig unerreichbar geworden ist, welche der folgenden Aussagen über das Verhalten des Clusters ist AM ZUTREFFENDSTEN?",
+    "options": {
+      "a": "Bestehende Pods werden auf allen Nodes sofort beendet",
+      "b": "kube-scheduler beginnt, Pods direkt auf Nodes einzuplanen, ohne den API-Server zu durchlaufen",
+      "c": "Bereits laufende Pods laufen auf ihren Nodes weiter (das kubelet verwaltet sie unabhängig), aber der API-Server kann den Clusterzustand nicht mehr lesen oder persistieren, sodass Vorgänge wie das Erstellen, Aktualisieren, Auflisten oder Einplanen neuer Objekte fehlschlagen",
+      "d": "Das kubelet auf jedem Node drained und cordoned sich selbst sofort"
+    },
+    "explanation": "etcd ist die Single Source of Truth des Clusters; kann der API-Server nicht darauf zugreifen, schlagen API-Vorgänge fehl, die Zustand lesen/schreiben müssen, aber das kubelet besitzt bereits die benötigten Pod-Spezifikationen lokal und führt bestehende Container unabhängig weiter aus — der Cluster funktioniert also kurzfristig auf Workload-Ebene weiter, während Control-Plane-Vorgänge stocken. Pods werden nicht sofort beendet (a), da das kubelet nicht direkt von etcd abhängt. Der Scheduler arbeitet immer über den API-Server und umgeht ihn nie, um direkt mit etcd oder Nodes zu sprechen (b). Nodes cordonen/drainen sich bei etcd-Verlust nicht selbst (d); das ist kein automatisches, an die etcd-Erreichbarkeit gebundenes Verhalten."
+  },
+  "cka-troubleshooting-15": {
+    "question": "Die Komponente kube-scheduler ist abgestürzt und wird nicht neu gestartet (z. B. steckt sie als Static Pod in einer Absturzschleife fest). Welches Symptom würden Sie AM DIREKTESTEN erwarten?",
+    "options": {
+      "a": "Alle bestehenden Pods im gesamten Cluster reagieren sofort nicht mehr auf Datenverkehr",
+      "b": "Neu erstellte Pods (und Pods, die neu eingeplant werden müssen, z. B. nach einem Node-Ausfall) bleiben unbegrenzt in `Pending` stecken, da nichts sie einem Node zuweist",
+      "c": "kube-proxy hört auf jedem Node auf, iptables-/IPVS-Regeln zu aktualisieren",
+      "d": "etcd kann keine neuen Daten mehr persistieren"
+    },
+    "explanation": "Die alleinige Aufgabe des Schedulers ist es, nicht eingeplante Pods zu beobachten und sie einem geeigneten Node zuzuweisen; ohne ihn haben neue oder neu einzuplanende Pods keine Komponente mehr, die ihnen einen Node zuweist, und bleiben für immer Pending, während bereits laufende/eingeplante Pods davon unberührt bleiben. Bestehender Datenverkehr zu bereits laufenden Pods (a) ist unbeeinträchtigt, da Services/kube-proxy nicht vom Scheduler abhängen. kube-proxy (c) ist eine unabhängige Komponente, die auf Änderungen an Service/Endpoints reagiert, nicht auf Scheduler-Entscheidungen. etcd (d) ist ebenfalls unabhängig und funktioniert unabhängig von der Gesundheit des Schedulers normal weiter."
+  },
+  "cka-troubleshooting-16": {
+    "question": "Jeder `kubectl`-Befehl gegen einen Cluster schlägt plötzlich mit einem Fehler ähnlich `x509: certificate has expired or is not yet valid` fehl. Was ist die WAHRSCHEINLICHSTE Ursache?",
+    "options": {
+      "a": "Das von CoreDNS für die interne Service-Auflösung verwendete Zertifikat ist abgelaufen",
+      "b": "Das TLS-Zertifikat der Container Runtime für Image-Pulls ist abgelaufen",
+      "c": "Eine NetworkPolicy blockiert den Datenverkehr zum API-Server",
+      "d": "Das Serving-Zertifikat des API-Servers (oder das von kubectl verwendete Client-Zertifikat oder die gemeinsame Cluster-CA) ist abgelaufen und bricht dadurch den TLS-Handshake für die API-Kommunikation"
+    },
+    "explanation": "Ein x509-Ablauffehler, der bei jedem kubectl-Aufruf auftritt, weist direkt auf das für die API-Server-Kommunikation verwendete TLS-Material hin — entweder das eigene Serving-Zertifikat des API-Servers, das von kubectl vorgelegte Client-Zertifikat oder die CA, die diese signiert/validiert —, da dies die Zertifikatskette ist, die beim Handshake jeder API-Anfrage beteiligt ist. CoreDNS-Zertifikate (a) haben nichts mit der Kommunikation zwischen kubectl und dem API-Server zu tun. Zertifikate der Container Runtime für Image-Pulls (b) betreffen das Ziehen von Images, nicht den TLS-Handshake zwischen kubectl und API-Server. Eine NetworkPolicy (c) würde Verbindungs-Timeouts/-Ablehnungen erzeugen, keinen x509-Zertifikatsgültigkeitsfehler, der ein Symptom der TLS-Schicht ist, nicht der Netzwerkschicht."
+  },
+  "cka-troubleshooting-17": {
+    "question": "Ein Node meldet seit einer Stunde die Bedingungen `MemoryPressure` und `DiskPressure` als `True`. Neu auf andere, gesunde Nodes eingeplante Pods laufen problemlos, aber der unter Druck stehende Node verdrängt weiterhin Workloads. Was ist die GENAUESTE Beschreibung dessen, was hier passiert?",
+    "options": {
+      "a": "Das kubelet erkennt, dass der verfügbare Arbeitsspeicher und/oder Festplattenspeicher auf dem Node unter die konfigurierten Eviction-Schwellenwerte gefallen ist, und gibt proaktiv Ressourcen frei, indem es Pods mit niedrigerer Priorität oder hohem Ressourcenverbrauch verdrängt, um den Node stabil zu halten",
+      "b": "Das kube-proxy des Node hat aufgrund von Ressourcenkonkurrenz aufgehört, Datenverkehr weiterzuleiten",
+      "c": "Der Scheduler überlastet diesen Node absichtlich, um seine Grenzen zu testen",
+      "d": "Die Container Runtime hat einen beschädigten Image-Cache, wodurch Druckbedingungen fälschlicherweise gemeldet werden"
+    },
+    "explanation": "MemoryPressure/DiskPressure sind reale Node-Bedingungen (Conditions), die das kubelet setzt, wenn die tatsächliche Ressourcennutzung die konfigurierten Eviction-Schwellenwerte überschreitet, und das kubelet reagiert, indem es Pods verdrängt (beginnend mit solchen, die ihre Requests überschreiten, oder mit niedrigerer Priorität), um Ressourcen freizugeben und einen vollständigen Node-Ausfall zu vermeiden. kube-proxy (b) verwaltet Service-Verkehrsregeln und ist nicht der Mechanismus hinter druckgesteuerter Eviction. Der Scheduler (c) überlastet Nodes nicht absichtlich — das ist kein reales Verhalten. Ein beschädigter Image-Cache (d) löst diese Druckbedingungen weder aus noch wird er von ihnen gemessen, da diese auf tatsächlicher Arbeitsspeicher-/Festplatten-/Inode-Nutzung basieren, nicht auf Cache-Integrität."
+  },
+  "cka-troubleshooting-18": {
+    "question": "Ein Pod ist laut `kubectl get pods` Running und Ready, erhält aber nie Datenverkehr von seinem Service, obwohl die Endpoints-Liste des Service die IP des Pods korrekt enthält. Bei weiterer Prüfung besteht der Readiness-Probe des Pods. Was sollten Sie ALS NÄCHSTES als wahrscheinlichste verbleibende Ursache prüfen?",
+    "options": {
+      "a": "Ob das Image des Pods aus der richtigen Registry gezogen wurde",
+      "b": "Ob eine NetworkPolicy im Namespace eingehenden Datenverkehr zum Pod vom Client aus verweigert, oder ob kube-proxy auf dem Node des Clients veraltete/fehlerhafte Proxy-Regeln hat",
+      "c": "Ob für den Pod eine zu niedrige `terminationGracePeriodSeconds` gesetzt ist",
+      "d": "Ob die in den Pod gemountete ConfigMap aktuell ist"
+    },
+    "explanation": "Da die Endpoints korrekt befüllt sind und der Readiness-Check besteht, sind die verbleibenden häufigen Übeltäter Probleme im Verkehrspfad: eine restriktive NetworkPolicy, die eingehenden Verkehr zum Pod blockiert, oder ein kube-proxy mit veralteten iptables-/IPVS-Regeln auf dem Node des Clients (z. B. nach einem fehlgeschlagenen kube-proxy-Neustart oder Synchronisationsproblem). Die Herkunft des Images (a) ist irrelevant, sobald bestätigt ist, dass der Pod Running und Ready ist. `terminationGracePeriodSeconds` (c) beeinflusst nur das Herunterfahrverhalten, nicht das Traffic-Routing im stabilen Zustand. Eine veraltete ConfigMap (d) könnte das Anwendungsverhalten beeinflussen, würde aber nicht verhindern, dass Datenverkehr überhaupt den Pod erreicht."
+  },
+  "cka-troubleshooting-19": {
+    "question": "Der Status eines Pods zeigt `Init:CrashLoopBackOff`. Was sagt dies konkret aus?",
+    "options": {
+      "a": "Der Hauptanwendungscontainer stürzt nach dem Start wiederholt ab",
+      "b": "Der Pod hat alle Init-Container durchlaufen, aber das Image des Hauptcontainers konnte nicht gezogen werden",
+      "c": "Einer der Init-Container des Pods schlägt wiederholt fehl (beendet sich mit einem Exit-Code ungleich null), und da alle Init-Container der Reihe nach erfolgreich abgeschlossen werden müssen, haben die Hauptcontainer noch nicht gestartet",
+      "d": "Der PersistentVolumeClaim des Pods hängt in Pending fest und blockiert den gesamten Pod"
+    },
+    "explanation": "Das Präfix `Init:` bei CrashLoopBackOff zeigt an, dass der Fehler in der Init-Container-Phase auftritt — ein Init-Container beendet sich mit einem Fehler und wird erneut versucht, und da Init-Container sequenziell laufen und alle erfolgreich sein müssen, bevor irgendein Hauptcontainer startet, beginnen die Anwendungscontainer noch gar nicht. Option (a) beschreibt schlichtes `CrashLoopBackOff` ohne das Präfix `Init:`, was sich auf den/die Hauptcontainer bezieht, nicht auf Init-Container. Option (b) beschreibt `Init:ImagePullBackOff` für den Hauptcontainer, einen anderen Status. Ein hängender PVC (d) würde typischerweise einen Pod-Status `Pending` mit einem Event zur Volume-Bindung zeigen, keinen Status Init:CrashLoopBackOff."
+  },
+  "cka-troubleshooting-20": {
+    "question": "Ein Drei-Node-Cluster besteht aus einem Control-Plane-Node und zwei Worker-Nodes. Ein Benutzer meldet, dass nirgends neue Pods eingeplant werden können, und `kubectl describe pod` zeigt für ausstehende Pods: `0/3 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 2 node(s) had taint {node.kubernetes.io/unschedulable: }.` Was ist die GENAUESTE Diagnose?",
+    "options": {
+      "a": "Die beiden Worker-Nodes sind abgestürzt und offline",
+      "b": "Der Control-Plane-Node ist wie üblich mit einem Taint versehen (erwartet, verhindert dort das Scheduling), aber die beiden Worker-Nodes wurden jeweils cordoned (als nicht einplanbar markiert), sodass nirgends Platz für neue Pods ist",
+      "c": "Die Resource Requests der Pods übersteigen das, was ein Node bereitstellen kann",
+      "d": "Eine NetworkPolicy blockiert die Kommunikation des Schedulers mit den Worker-Nodes"
+    },
+    "explanation": "Das Event unterscheidet zwei verschiedene Taints: Der Control-Plane-Taint ist Standard/erwartet und hält lediglich normale Workloads von diesem Node fern, während `node.kubernetes.io/unschedulable` auf beiden Workern der Taint ist, der automatisch durch `kubectl cordon` (oder manuellen Wartungsmodus) angewendet wird — das bedeutet, jemand oder etwas hat beide Worker als nicht einplanbar markiert, sodass kein gültiges Ziel für neue Pods bleibt. Dass die Nodes vollständig offline sind (a), würde sich als NotReady/unerreichbar zeigen, nicht als spezifischer Unschedulable-Taint auf Nodes, die ansonsten vom Scheduler bewertet werden. Übermäßige Resource Requests (c) würden eine Meldung „Insufficient cpu/memory“ erzeugen, keine Taint-bezogene. NetworkPolicies (d) regeln den Pod-zu-Pod-Verkehr, nicht die Kommunikation zwischen Scheduler und Node, und würden keine Taint-Meldungen erzeugen."
+  },
+  "cka-workloads-01": {
+    "question": "Was ist die kleinste einplanbare Einheit, die Sie in Kubernetes erstellen und verwalten können?",
+    "options": {
+      "a": "Ein Container",
+      "b": "Ein Pod",
+      "c": "Ein Node",
+      "d": "Ein Deployment"
+    },
+    "explanation": "Der Pod ist die kleinste einplanbare Einheit in Kubernetes; er umschließt einen oder mehrere Container mit gemeinsamem Storage/Netzwerk. Ein einzelner Container wird nicht direkt von Kubernetes verwaltet, ein Node ist eine Worker-Maschine, und ein Deployment ist ein übergeordneter Controller, der Mengen von Pods verwaltet."
+  },
+  "cka-workloads-02": {
+    "question": "Warum gruppiert Kubernetes Container in Pods, anstatt einzelne Container direkt einzuplanen?",
+    "options": {
+      "a": "Weil Container auf Laufzeitebene nicht ohne eine Pod-Hülle laufen können",
+      "b": "Weil dies die Gesamtzahl der Images reduziert, die auf einen Node gezogen werden müssen",
+      "c": "Weil eng gekoppelte Container, die sich Netzwerk-Namespace und Storage teilen müssen, davon profitieren, gemeinsam platziert und gemeinsam eingeplant zu werden, als eine Einheit",
+      "d": "Weil Pods es Containern erlauben, gleichzeitig auf mehreren Nodes zu laufen"
+    },
+    "explanation": "Pods existieren, damit eng verwandte Container (z. B. eine Hauptanwendung und ein Hilfscontainer) sich einen Netzwerk-Namespace teilen können (dieselbe IP, Kommunikation über localhost) sowie Volumes, und als eine atomare Einheit gemeinsam gestartet, gestoppt und eingeplant werden können. Container Runtimes können technisch auch Container allein ausführen; Option a ist falsch. Pods reduzieren nicht die Anzahl der Image-Pulls und erstrecken sich nicht über mehrere Nodes."
+  },
+  "cka-workloads-03": {
+    "question": "Was teilen sich Container in einem Multi-Container-Pod standardmäßig?",
+    "options": {
+      "a": "Denselben Netzwerk-Namespace (IP-Adresse und Portraum) sowie die Möglichkeit, dieselben Volumes zu mounten",
+      "b": "Dasselbe Dateisystem-Root und identische Umgebungsvariablen",
+      "c": "Einen einzelnen gemeinsamen Prozess-Namespace, sofern dies nicht explizit deaktiviert wird",
+      "d": "Dasselbe Container-Image, aber unterschiedliche Entrypoints"
+    },
+    "explanation": "Container im selben Pod teilen sich den Netzwerk-Namespace, das heißt, sie verwenden dieselbe IP und können sich über localhost gegenseitig erreichen, und sie können dieselben Volumes mounten. Sie teilen sich nicht automatisch ein Dateisystem-Root, identische Umgebungsvariablen oder einen Prozess-Namespace (das erfordert die explizite Aktivierung von shareProcessNamespace)."
+  },
+  "cka-workloads-04": {
+    "question": "Was ist das entscheidende Merkmal eines Init-Containers in einem Pod?",
+    "options": {
+      "a": "Er läuft für die gesamte Lebensdauer des Pods dauerhaft parallel zu den Hauptcontainern",
+      "b": "Er ersetzt den Hauptcontainer, wenn dieser nicht starten kann",
+      "c": "Er wird zur Isolation auf einem separaten Node von den Hauptcontainern eingeplant",
+      "d": "Er läuft vollständig ab, bevor die Hauptanwendungscontainer im Pod gestartet werden, und jeder Init-Container muss erfolgreich abgeschlossen sein, bevor der nächste startet"
+    },
+    "explanation": "Init-Container laufen sequenziell ab, bevor die Hauptcontainer starten, und jeder muss erfolgreich abgeschlossen sein, bevor der nächste (oder die Hauptcontainer) beginnt. Sie laufen nicht dauerhaft wie reguläre Container, ersetzen keine fehlgeschlagenen Hauptcontainer und laufen auf demselben Node wie der Rest des Pods."
+  },
+  "cka-workloads-05": {
+    "question": "Was ist ein gängiger Anwendungsfall für einen Init-Container?",
+    "options": {
+      "a": "Die fortlaufende Lastverteilung zwischen Replicas übernehmen",
+      "b": "Auf die Verfügbarkeit eines abhängigen Dienstes warten oder Vorbereitungsaufgaben wie das Herunterladen von Konfiguration ausführen, bevor die Hauptanwendung startet",
+      "c": "Kontinuierlich die Gesundheit des Hauptcontainers überwachen und ihn neu starten",
+      "d": "Anwendungslogs während des normalen Betriebs auf externem Storage persistieren"
+    },
+    "explanation": "Init-Container werden typischerweise für einmalige Vorbereitungsarbeiten verwendet, etwa das Warten auf eine bereite Abhängigkeit oder das Vorbereiten von Konfiguration/Daten, bevor der Hauptcontainer startet. Lastverteilung, fortlaufende Gesundheitsüberwachung und kontinuierlicher Log-Versand sind Aufgaben anderer Komponenten (Services, kubelet-Probes, Sidecar-Container), nicht von Init-Containern."
+  },
+  "cka-workloads-06": {
+    "question": "Was ist die primäre Verantwortung eines ReplicaSet?",
+    "options": {
+      "a": "Rolling Updates zwischen unterschiedlichen Anwendungsversionen zu verwalten",
+      "b": "Pods anhand verfügbarer Ressourcen auf bestimmte Nodes einzuplanen",
+      "c": "Sicherzustellen, dass jederzeit eine festgelegte Anzahl identischer Pod-Replicas läuft",
+      "d": "Einen stabilen Netzwerk-Endpunkt für eine Menge von Pods bereitzustellen"
+    },
+    "explanation": "Die Aufgabe eines ReplicaSet ist es schlicht, eine gewünschte Anzahl identischer Pod-Replicas aufrechtzuerhalten, indem es Pods nach Bedarf erstellt oder löscht. Rolling Updates werden von Deployments verwaltet (die ReplicaSets verwalten), die Node-Einplanung übernimmt der Scheduler, und stabile Netzwerk-Endpunkte werden von Services bereitgestellt."
+  },
+  "cka-workloads-07": {
+    "question": "Warum erstellen Engineers im täglichen Gebrauch selten direkt ReplicaSets?",
+    "options": {
+      "a": "Deployments verwalten ReplicaSets automatisch und fügen Funktionen wie Rolling Updates und Rollback hinzu, die ReplicaSets allein nicht bieten",
+      "b": "ReplicaSets sind eine veraltete API und funktionieren in aktuellen Kubernetes-Versionen nicht mehr",
+      "c": "ReplicaSets können jeweils nur eine einzige Pod-Replica verwalten",
+      "d": "ReplicaSets erfordern eine manuelle Node-Zuweisung für jeden Pod, den sie erstellen"
+    },
+    "explanation": "Deployments setzen auf ReplicaSets auf und fügen Rolling-Update- und Rollback-Fähigkeiten hinzu, sodass Engineers normalerweise Deployments verwalten und diese die darunterliegenden ReplicaSets erstellen und verwalten lassen. ReplicaSets sind nicht veraltet, können viele Replicas verwalten und erfordern keine manuelle Node-Zuweisung."
+  },
+  "cka-workloads-08": {
+    "question": "Was passiert bei der standardmäßigen Rolling-Update-Strategie eines Deployments?",
+    "options": {
+      "a": "Alle alten Pods werden sofort gelöscht, dann werden alle neuen Pods auf einmal erstellt",
+      "b": "Neue Pods werden schrittweise erstellt, während alte Pods schrittweise beendet werden, wodurch die Verfügbarkeit der Anwendung während des gesamten Updates erhalten bleibt",
+      "c": "Das Deployment pausiert den gesamten Datenverkehr, bis jeder neue Pod seinen Liveness-Probe besteht",
+      "d": "Es wird ein komplett neues Deployment-Objekt erstellt, und das alte wird gelöscht"
+    },
+    "explanation": "RollingUpdate ersetzt alte Pods schrittweise durch neue, gesteuert über maxSurge und maxUnavailable, sodass die Anwendung während des Updates verfügbar bleibt. Es wird nicht alles auf einmal gelöscht (das wäre die Recreate-Strategie), es ist keine Pause des gesamten Datenverkehrs erforderlich, und es wird kein völlig neues Deployment-Objekt erstellt."
+  },
+  "cka-workloads-09": {
+    "question": "Was ermöglicht es, ein Deployment auf eine vorherige Version zurückzurollen?",
+    "options": {
+      "a": "Kubernetes erstellt automatisch stündlich Snapshots des Clusterzustands",
+      "b": "Jeder Pod speichert lokal eine Sicherungskopie des vorherigen Container-Images",
+      "c": "Das kubelet behält den zuletzt ausgeführten Container unbegrenzt zwischengespeichert",
+      "d": "Das Deployment behält eine Revisionshistorie von ReplicaSets, von denen jedes eine frühere Version des Pod-Templates repräsentiert und die reaktiviert werden kann"
+    },
+    "explanation": "Ein Deployment behält alte ReplicaSets (bis zu einem konfigurierbaren Historien-Limit), die frühere Revisionen des Pod-Templates repräsentieren, sodass ein Rollback bedeutet, ein altes ReplicaSet hoch- und das aktuelle herunterzuskalieren. Es gibt keine automatischen Cluster-Snapshots, keine Image-Sicherungen pro Pod und kein unbegrenztes kubelet-Caching, die an diesem Mechanismus beteiligt wären."
+  },
+  "cka-workloads-10": {
+    "question": "Ein Team möchte eine zustandslose Webanwendung mit drei austauschbaren Replicas betreiben, bei der jede Replica jede Anfrage bedienen kann und Pods ersetzt werden können, ohne ihre Identität zu bewahren. Welcher Workload-Typ passt am natürlichsten?",
+    "options": {
+      "a": "StatefulSet",
+      "b": "DaemonSet",
+      "c": "Deployment",
+      "d": "Job"
+    },
+    "explanation": "Ein Deployment ist für zustandslose, austauschbare Replicas konzipiert, bei denen die Pod-Identität keine Rolle spielt. StatefulSets sind für Workloads gedacht, die stabile Identität und Reihenfolge benötigen, DaemonSets führen einen Pod pro Node für node-seitige Agenten aus, und Jobs sind für Run-to-Completion-Aufgaben gedacht, statt kontinuierlich Datenverkehr zu bedienen."
+  },
+  "cka-workloads-11": {
+    "question": "Was unterscheidet die von einem StatefulSet verwalteten Pods von denen eines Deployment?",
+    "options": {
+      "a": "StatefulSet-Pods erhalten stabile, vorhersehbare Netzwerkidentitäten und persistenten Storage, die über Neustarts und Neuplanungen hinweg mit demselben Pod verknüpft bleiben",
+      "b": "StatefulSet-Pods werden aus Performance-Gründen immer auf demselben Node wie die jeweils anderen eingeplant",
+      "c": "StatefulSet-Pods können nach der Erstellung nicht mehr aktualisiert werden",
+      "d": "StatefulSet-Pods unterstützen keine Readiness- oder Liveness-Probes"
+    },
+    "explanation": "StatefulSets geben jedem Pod einen stabilen Hostnamen/eine stabile Identität (z. B. web-0, web-1) und typischerweise ein Persistent Volume, das diesem bestimmten Pod über Neuplanungen hinweg folgt, im Gegensatz zu Deployment-Pods, die austauschbar sind und zufällige Namen erhalten. StatefulSet-Pods müssen nicht auf demselben Node laufen, sie können aktualisiert werden, und sie unterstützen Probes vollständig."
+  },
+  "cka-workloads-12": {
+    "question": "Welcher der folgenden Fälle ist ein typischer Anwendungsfall, bei dem ein StatefulSet einem Deployment vorgezogen wird?",
+    "options": {
+      "a": "Der Betrieb einer horizontal skalierten, zustandslosen REST-API hinter einem Load Balancer",
+      "b": "Der Betrieb einer geclusterten Datenbank wie einer replizierten Primär-/Replica-Datenbank, bei der jede Instanz eine stabile Identität und eigenen persistenten Storage benötigt",
+      "c": "Der Betrieb eines Batch-Jobs, der eine Warteschlange von Elementen einmal verarbeitet und sich beendet",
+      "d": "Der Betrieb eines Log-Sammel-Agenten, der auf jedem Node im Cluster vorhanden sein muss"
+    },
+    "explanation": "Geclusterte/replizierte Datenbanken benötigen, dass jedes Mitglied eine stabile Identität und dedizierten Storage über Neustarts hinweg behält — genau das, was StatefulSets bieten. Eine zustandslose REST-API passt zu einem Deployment, eine einmalige Batch-Aufgabe passt zu einem Job, und ein Agent pro Node passt zu einem DaemonSet."
+  },
+  "cka-workloads-13": {
+    "question": "Wie handhabt ein StatefulSet standardmäßig die Erstellung und Skalierung seiner Pods?",
+    "options": {
+      "a": "Alle Pods werden gleichzeitig in zufälliger Reihenfolge erstellt",
+      "b": "Pods werden in umgekehrt alphabetischer Reihenfolge ihrer Namen erstellt",
+      "c": "Pods werden nur erstellt, wenn ein Administrator dies manuell auslöst",
+      "d": "Pods werden sequenziell in Reihenfolge (0, 1, 2, …) erstellt, und jeder Pod muss Running und Ready sein, bevor der nächste erstellt wird"
+    },
+    "explanation": "Standardmäßig erstellen StatefulSets Pods einzeln in aufsteigender Ordinalreihenfolge und warten, bis jeder Pod Running und Ready ist, bevor der nächste gestartet wird — das unterstützt Anwendungsfälle, die einen geordneten Start benötigen (wie das Bootstrapping eines Datenbankclusters). Sie werden nicht gleichzeitig, nicht in umgekehrter Reihenfolge und nicht nur durch manuelle Auslösung erstellt."
+  },
+  "cka-workloads-14": {
+    "question": "Was ist der Hauptzweck eines DaemonSet?",
+    "options": {
+      "a": "Eine feste Anzahl von Replicas auszuführen, unabhängig davon, wie viele Nodes im Cluster existieren",
+      "b": "Einen Pod genau einmal auszuführen und ihn nach erfolgreichem Abschluss zu beenden",
+      "c": "Sicherzustellen, dass eine Kopie eines bestimmten Pods auf allen (oder einer ausgewählten Teilmenge von) Nodes im Cluster läuft",
+      "d": "Geordnete, stabile Netzwerkidentitäten für zustandsbehaftete Anwendungen bereitzustellen"
+    },
+    "explanation": "Ein DaemonSet sorgt dafür, dass eine Kopie eines Pods auf jedem Node läuft (oder einer passenden Teilmenge über Node-Selektoren/Affinity), wobei automatisch Pods hinzugefügt werden, sobald Nodes dem Cluster beitreten, und entfernt werden, sobald Nodes ihn verlassen. Es geht nicht um eine feste, vom Node-Bestand unabhängige Replica-Anzahl, es läuft nicht Run-to-Completion wie ein Job, und stabile Identität ist ein Merkmal von StatefulSets."
+  },
+  "cka-workloads-15": {
+    "question": "Welches der folgenden Beispiele ist ein klassisches Beispiel für einen Workload, der sich besonders für ein DaemonSet eignet?",
+    "options": {
+      "a": "Ein Log-Sammel-Agent (wie Fluentd), der Logs von jedem Node im Cluster einsammeln muss",
+      "b": "Ein zustandsloses Web-Frontend, das für Redundanz drei Replicas benötigt",
+      "c": "Eine nächtliche Berichtserstellungsaufgabe, die einmal um 2 Uhr morgens läuft",
+      "d": "Ein Primär-/Replica-Datenbankcluster, der stabilen Storage pro Instanz benötigt"
+    },
+    "explanation": "Node-seitige Infrastruktur-Agenten wie Log-Sammler, Monitoring-Agenten oder Netzwerk-Plugins benötigen genau eine Instanz pro Node, was dem Zweck des DaemonSet entspricht. Ein zustandsloses Frontend passt zu einem Deployment, eine geplante nächtliche Aufgabe passt zu einem CronJob, und ein Datenbankcluster passt zu einem StatefulSet."
+  },
+  "cka-workloads-16": {
+    "question": "Was ist der wesentliche Unterschied zwischen einem Job und einem Deployment?",
+    "options": {
+      "a": "Ein Job kann nur einen einzigen Container ausführen, während ein Deployment mehrere Container pro Pod ausführen kann",
+      "b": "Ein Job führt Pods aus, um eine Aufgabe zu erledigen, bis sie erfolgreich abgeschlossen ist, und stoppt dann, während ein Deployment Pods kontinuierlich am Laufen hält und sie bei Beendigung neu startet",
+      "c": "Ein Job kann keine Container-Images aus privaten Registries verwenden",
+      "d": "Ein Job läuft immer auf jedem Node, während ein Deployment auf einem einzelnen Node läuft"
+    },
+    "explanation": "Jobs sind für Run-to-Completion-Workloads gedacht: Sie verfolgen erfolgreiche Abschlüsse und stoppen, sobald die Aufgabe erledigt ist, während Deployments darauf abzielen, eine Menge von Pods dauerhaft am Laufen zu halten. Beide unterstützen Multi-Container-Pods und private Registries, und keines von beiden ist von Natur aus an „jeden Node“ oder „einen einzelnen Node“ gebunden."
+  },
+  "cka-workloads-17": {
+    "question": "Was repräsentiert das Konzept „completions“ bei einem Job im Allgemeinen?",
+    "options": {
+      "a": "Die Anzahl, wie oft ein einzelner Pod fehlschlagen darf, bevor der Job aufgegeben wird",
+      "b": "Die Anzahl der Nodes, über die die Pods des Jobs verteilt werden müssen",
+      "c": "Die Anzahl erfolgreicher Pod-Abschlüsse, die erforderlich ist, damit der Job insgesamt als abgeschlossen gilt",
+      "d": "Die maximale Zeit in Sekunden, die der Job laufen darf"
+    },
+    "explanation": "„completions“ legt fest, wie viele erfolgreiche Pod-Abschlüsse benötigt werden, damit der Job als abgeschlossen markiert wird, nützlich für die Verarbeitung einer festen Anzahl von Arbeitselementen. Erlaubte Fehlschläge betreffen backoffLimit, die Node-Verteilung ist nicht relevant, und eine maximale Laufzeit wird über activeDeadlineSeconds gesteuert."
+  },
+  "cka-workloads-18": {
+    "question": "Was steuert das Konzept „parallelism“ bei einem Job?",
+    "options": {
+      "a": "Wie viele unterschiedliche Container-Images innerhalb eines einzelnen Pods verwendet werden können",
+      "b": "Ob die Pods des Jobs über mehrere Availability Zones hinweg eingeplant werden können",
+      "c": "Wie oft der Job insgesamt wiederholt wird, falls er vollständig fehlschlägt",
+      "d": "Wie viele Pods der Job gleichzeitig laufen lassen darf, während er auf die erforderliche Anzahl an Abschlüssen hinarbeitet"
+    },
+    "explanation": "„parallelism“ legt die Anzahl der Pods fest, die für einen Job gleichzeitig laufen dürfen, wodurch Arbeitselemente gleichzeitig statt nacheinander verarbeitet werden können. Es steuert weder Images pro Pod, noch die Verteilung über Zonen, noch die Gesamtwiederholungen des Jobs."
+  },
+  "cka-workloads-19": {
+    "question": "Wie ist die Beziehung zwischen einem CronJob und einem Job?",
+    "options": {
+      "a": "Ein CronJob erstellt gemäß einem definierten Zeitplan ein neues Job-Objekt, und dieser Job erstellt und verwaltet dann die eigentlichen Pods",
+      "b": "Ein CronJob und ein Job sind zwei Bezeichnungen für dasselbe Objekt ohne funktionalen Unterschied",
+      "c": "Ein CronJob erstellt direkt Pods, ohne jemals Job-Objekte zu erstellen",
+      "d": "Ein CronJob kann nur einen einzigen Job einmalig auslösen und nicht wiederholen"
+    },
+    "explanation": "Ein CronJob ist ein Controller, der auf Basis eines zeitgesteuerten Zeitplans (mit Cron-Syntax) Job-Objekte erstellt; jeder ausgelöste Job verwaltet dann seine eigenen Pods bis zum Abschluss. CronJobs und Jobs sind eigenständige Objekte, CronJobs gehen über Jobs statt Pods direkt zu erstellen, und sie sind dafür gedacht, sich nach einem Zeitplan zu wiederholen."
+  },
+  "cka-workloads-20": {
+    "question": "Welches Szenario eignet sich am besten für einen CronJob?",
+    "options": {
+      "a": "Eine zustandslose API kontinuierlich mit automatischer Skalierung bedienen",
+      "b": "Eine Datenbank-Backup-Aufgabe automatisch jede Nacht zu einer festen Uhrzeit ausführen",
+      "c": "Einen einzelnen Agenten-Pod auf jedem Node für die Netzwerkkonfiguration ausführen",
+      "d": "Stabile Netzwerkidentitäten für einen geclusterten Cache aufrechterhalten"
+    },
+    "explanation": "CronJobs existieren für wiederkehrende, zeitgesteuerte Aufgaben wie nächtliche Backups oder periodische Berichtserstellung. Kontinuierliches API-Serving passt zu einem Deployment, Agenten pro Node passen zu einem DaemonSet, und stabile Identitäten für einen geclusterten Cache passen zu einem StatefulSet."
+  },
+  "cka-workloads-21": {
+    "question": "Ein Pod wird als in der Phase „Pending“ gemeldet. Was bedeutet das im Allgemeinen?",
+    "options": {
+      "a": "Der Pod hat seine Ausführung beendet und wurde erfolgreich terminiert",
+      "b": "Die Container des Pods laufen, haben aber ihren Readiness-Probe noch nicht bestanden",
+      "c": "Der Pod wurde vom Cluster akzeptiert, aber ein oder mehrere seiner Container laufen noch nicht, zum Beispiel weil er noch auf das Scheduling wartet oder sein Image noch gezogen wird",
+      "d": "Der Pod ist dauerhaft fehlgeschlagen und wird nicht erneut versucht"
+    },
+    "explanation": "Pending bedeutet, dass das Pod-Objekt erstellt und vom Cluster akzeptiert wurde, aber mindestens ein Container noch nicht läuft, häufig weil das Scheduling noch nicht abgeschlossen ist oder Images noch heruntergeladen werden. Erfolgreiche Terminierung ist die Phase Succeeded, laufend-aber-nicht-bereit ist Teil der Phase Running, und dauerhaftes Fehlschlagen ist die Phase Failed."
+  },
+  "cka-workloads-22": {
+    "question": "Ein Pod ist mit restartPolicy: OnFailure konfiguriert. Welches Verhalten beschreibt dies?",
+    "options": {
+      "a": "Das kubelet startet die Container des Pods nur neu, wenn der Node selbst neu startet",
+      "b": "Container werden nach jeder Beendigung neu gestartet, unabhängig davon, ob die Beendigung erfolgreich war oder nicht",
+      "c": "Container werden nie neu gestartet, unabhängig davon, wie sie sich beenden",
+      "d": "Container werden vom kubelet neu gestartet, wenn sie mit einem Fehler enden, aber nicht, wenn sie sich erfolgreich beenden"
+    },
+    "explanation": "OnFailure weist das kubelet an, einen Container nur dann neu zu starten, wenn er mit einem Status ungleich null (Fehler) endet, und erfolgreiche Abschlüsse unangetastet zu lassen; dies ist bei Batch-artigen Workloads üblich. Immer neu zu starten, unabhängig vom Beendigungsstatus, ist die Policy „Always“, nie neu zu starten ist die Policy „Never“, und das Neustartverhalten ist nicht auf Node-Neustarts beschränkt."
+  },
+  "cka-workloads-23": {
+    "question": "Welche Frage beantwortet ein Liveness-Probe konzeptionell?",
+    "options": {
+      "a": "Funktioniert der Container noch korrekt, oder ist er in einen fehlerhaften Zustand geraten, in dem er neu gestartet werden sollte?",
+      "b": "Ist der Container bereit, Datenverkehr von Services zu empfangen?",
+      "c": "Hat der Container alle Startinitialisierungsaufgaben abgeschlossen?",
+      "d": "Ist genug CPU und Arbeitsspeicher auf dem Node verfügbar, um den Container weiter auszuführen?"
+    },
+    "explanation": "Ein Liveness-Probe prüft, ob ein laufender Container noch gesund ist; schlägt er wiederholt fehl, beendet und startet das kubelet den Container neu. Ob Datenverkehr gesendet werden sollte, ist die Aufgabe eines Readiness-Probes, ob der Start abgeschlossen ist, die Aufgabe eines Startup-Probes, und die Ressourcenverfügbarkeit hat nichts mit Probes zu tun."
+  },
+  "cka-workloads-24": {
+    "question": "Wie unterscheidet sich ein Readiness-Probe von einem Liveness-Probe hinsichtlich dessen, was er steuert?",
+    "options": {
+      "a": "Ein Readiness-Probe bestimmt, wann ein Container beendet und neu gestartet werden soll, während ein Liveness-Probe keine Auswirkung auf den Lebenszyklus des Containers hat",
+      "b": "Ein Readiness-Probe und ein Liveness-Probe lösen bei einem Fehlschlag genau dieselbe Aktion aus: den Neustart des Containers",
+      "c": "Ein Readiness-Probe bestimmt, ob ein Pod Datenverkehr über die Endpoints eines Service erhalten soll, ohne dass der Container bei einem Fehlschlag neu gestartet wird",
+      "d": "Ein Readiness-Probe läuft nur einmal, wenn der Container startet, und danach nie wieder"
+    },
+    "explanation": "Ein fehlgeschlagener Readiness-Probe entfernt den Pod aus den Endpoints eines Service, sodass er keinen Datenverkehr mehr erhält, führt aber nicht zu einem Neustart; der Container läuft weiter und kann wieder aufgenommen werden, sobald er erneut bereit ist. Dies unterscheidet sich von einem Liveness-Probe, dessen Fehlschlag zu einem Neustart führt. Readiness-Probes laufen wiederholt während der gesamten Lebensdauer des Pods, nicht nur einmal, und die beiden Probe-Typen lösen nicht dieselbe Aktion aus."
+  }
+}

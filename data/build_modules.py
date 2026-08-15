@@ -129,6 +129,14 @@ def main():
         os.path.join(HERE, "lkw_pilot.json"), "lkw", lkw_locales)
     print(f"lkw: {lkw_count} questions, locale gaps: {lkw_missing}")
 
+    # 2026-08-15 bugfix, same class as dora/nis2/sportboot below: this call
+    # was also missing despite app/data/fuehrerschein_bus being committed
+    # with full 12-locale output already.
+    bus_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
+    bus_count, bus_missing = split_module(
+        os.path.join(HERE, "fuehrerschein_bus_pilot.json"), "fuehrerschein_bus", bus_locales)
+    print(f"fuehrerschein_bus: {bus_count} questions, locale gaps: {bus_missing}")
+
     # DN-44: 4 fully separate workplace-compliance modules. Originally a
     # 20-question/DE-EN-only pilot batch; DN-48 (2026-08-05) scaled each to
     # 40 questions (clearing the 30-question exam-mode threshold) and added
@@ -150,11 +158,50 @@ def main():
         os.path.join(HERE, "it_sicherheit_pilot.json"), "it_sicherheit", compliance_locales)
     print(f"it_sicherheit: {itsec_count} questions, locale gaps: {itsec_missing}")
 
+    # 2026-08-15 bugfix: dora/nis2 split_module() calls had gone missing from
+    # this script even though app/data/dora and app/data/nis2 were already
+    # committed (built by some earlier version of this file). Since main()
+    # rmtree()s APP_DATA unconditionally at the top, running the script
+    # as-checked-in would have silently deleted both live modules and never
+    # regenerated them - caught while wiring up CKA below, restored here.
+    dora_count, dora_missing = split_module(
+        os.path.join(HERE, "dora_pilot.json"), "dora", ["de", "en"])
+    print(f"dora: {dora_count} questions, locale gaps: {dora_missing}")
+
+    nis2_count, nis2_missing = split_module(
+        os.path.join(HERE, "nis2_pilot.json"), "nis2", ["de", "en"])
+    print(f"nis2: {nis2_count} questions, locale gaps: {nis2_missing}")
+
+    # 2026-08-15 bugfix, same class as dora/nis2 above: sportboot_binnen/
+    # sportboot_see (this week's 515-question ELWIS import, DE/EN pilot)
+    # were ALSO missing from this script despite being live/committed -
+    # caught by actually running this script and watching app/data/
+    # sportboot_binnen vanish after the rmtree() with nothing rebuilding it.
+    sb_count, sb_missing = split_module(
+        os.path.join(HERE, "sportboot_binnen_pilot.json"), "sportboot_binnen", ["de", "en"])
+    print(f"sportboot_binnen: {sb_count} questions, locale gaps: {sb_missing}")
+
+    ss_count, ss_missing = split_module(
+        os.path.join(HERE, "sportboot_see_pilot.json"), "sportboot_see", ["de", "en"])
+    print(f"sportboot_see: {ss_count} questions, locale gaps: {ss_missing}")
+
+    # 2026-08-15: CKA (Certified Kubernetes Administrator) concept-check
+    # pilot - first module authored via the zettacard-kb kb->JSON->staging
+    # pipeline (see claude/cka-amateurfunk-kb-pipeline-mvp-2026-08-15.md),
+    # first module with EN as canonical/source locale rather than DE, and
+    # first with a minimal 4-locale set (en/de/ja/zh) rather than the full
+    # 12 - deliberately scoped smaller for this alpha round, see
+    # claude/cka-i18n-minimal-schema-and-translation-plan-2026-08-15.md.
+    cka_count, cka_missing = split_module(
+        os.path.join(HERE, "cka_pilot.json"), "cka", ["en", "de", "ja", "zh"])
+    print(f"cka: {cka_count} questions, locale gaps: {cka_missing}")
+
     # Sanity: every core question must resolve in at least its canonical
     # locale, and every core question's scope field must be present -
     # otherwise the app would silently render a blank question.
-    for exam_type in ("fuehrerschein", "angelschein", "motorrad", "lkw",
-                       "datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit"):
+    for exam_type in ("fuehrerschein", "angelschein", "motorrad", "lkw", "fuehrerschein_bus",
+                       "datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit",
+                       "dora", "nis2", "sportboot_binnen", "sportboot_see", "cka"):
         core = json.load(open(os.path.join(APP_DATA, exam_type, "core.json"), encoding="utf-8"))
         for q in core["questions"]:
             if not any(sf in q for sf in SCOPE_FIELDS):

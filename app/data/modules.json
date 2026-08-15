@@ -1060,6 +1060,69 @@
           }
         }
       ]
+    },
+    {
+      "exam_type": "cka",
+      "label": {
+        "de": "CKA (Kubernetes-Grundlagen)",
+        "en": "CKA (Kubernetes fundamentals)",
+        "uk": "CKA (основи Kubernetes)",
+        "pl": "CKA (podstawy Kubernetes)",
+        "ar": "CKA (أساسيات Kubernetes)",
+        "zh": "CKA（Kubernetes 基础）",
+        "hi": "CKA (Kubernetes की मूल बातें)",
+        "tr": "CKA (Kubernetes temelleri)",
+        "fr": "CKA (fondamentaux Kubernetes)",
+        "ru": "CKA (основы Kubernetes)",
+        "es": "CKA (fundamentos de Kubernetes)",
+        "it": "CKA (fondamenti di Kubernetes)"
+      },
+      "_comment": "2026-08-15: first module from the zettacard-kb kb->JSON->staging pipeline MVP (see claude/cka-amateurfunk-kb-pipeline-mvp-2026-08-15.md and claude/cka-i18n-minimal-schema-and-translation-plan-2026-08-15.md). 131-question concept-check pilot for CKA (Certified Kubernetes Administrator) fundamentals, sourced from CNCF's curriculum (cncf/curriculum, CC-BY 4.0+), original phrasing, licensed CC-BY-NC-SA-4.0 like Zettacard's other modules. AI-authored, NOT legally reviewed (not law-based content, so no counsel-review track applies the way it does for the compliance modules). IMPORTANT: the real CKA exam is 100% performance-based (live kubectl tasks against a real cluster) and is NEVER multiple-choice -- this module is honestly framed as a concept-check quiz, not an exam simulator, per explicit PO direction. First module with EN as canonical/source locale (every other module is DE-canonical) and first with a deliberately minimal 4-locale set (en/de/ja/zh) rather than the full 12 -- translations two-stage subagent translate+verify, 131/131 passed on all three non-English locales. course_ref: 'cka' on each question is a placeholder for a future hands-on course/lesson layer, not yet built. Ships free, alpha/MVP posture.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagen (Concept-Check)",
+            "en": "Fundamentals (concept-check)",
+            "uk": "Основи (перевірка знань)",
+            "pl": "Podstawy (sprawdzian pojęć)",
+            "ar": "الأساسيات (فحص المفاهيم)",
+            "zh": "基础（概念自查）",
+            "hi": "बुनियादी बातें (कॉन्सेप्ट-चेक)",
+            "tr": "Temel bilgiler (kavram kontrolü)",
+            "fr": "Fondamentaux (contrôle de concepts)",
+            "ru": "Основы (проверка концепций)",
+            "es": "Fundamentos (repaso de conceptos)",
+            "it": "Fondamenti (verifica dei concetti)"
+          }
+        }
+      ],
+      "intro": {
+        "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages.",
+        "steps": [
+          {
+            "de": {
+              "title": "Willkommen beim CKA-Modul",
+              "body": "Dieses Modul testet dein Grundlagenwissen zu Kubernetes fuer die CKA-Zertifizierung (Certified Kubernetes Administrator). Wichtig: Die echte CKA-Pruefung ist eine reine Praxispruefung (echtes kubectl an einem echten Cluster) und NIEMALS Multiple-Choice - dieses Modul ist ein Konzept-Check zum Lernen der Grundlagen, kein Pruefungssimulator."
+            },
+            "en": {
+              "title": "Welcome to the CKA module",
+              "body": "This module tests your Kubernetes fundamentals for the CKA (Certified Kubernetes Administrator) certification. Important: the real CKA exam is 100% hands-on (real kubectl against a real cluster) and NEVER multiple-choice - this module is a concept-check for learning the fundamentals, not an exam simulator."
+            }
+          },
+          {
+            "de": {
+              "title": "Was wird abgefragt?",
+              "body": "7 Themenbereiche: Core Concepts, Workloads, Konfiguration & Scheduling, Networking, Storage, Troubleshooting und Security/Administration - orientiert am offiziellen CNCF-Curriculum."
+            },
+            "en": {
+              "title": "What's covered",
+              "body": "7 topic areas: core concepts, workloads, configuration & scheduling, networking, storage, troubleshooting, and security/administration - aligned to the official CNCF curriculum."
+            }
+          }
+        ]
+      }
     }
   ]
 }
