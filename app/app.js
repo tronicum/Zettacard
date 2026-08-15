@@ -1059,6 +1059,89 @@ function questionMatchesRole(q, roleCode) {
   return roles.includes("all") || roles.includes(roleCode);
 }
 
+// --- Feature flags (2026-08-15) -----------------------------------------
+// Static-site-only environment split (no build step - see netlify.toml's
+// own comment on that), so environment is resolved at RUNTIME from the
+// hostname rather than injected at build/deploy time. "live" is the
+// fallback bucket (not an exact-match allowlist) so a future custom domain
+// (e.g. zettacard.de) or a Netlify site-slug rename doesn't silently need
+// this list updated to keep working.
+function currentEnv() {
+  const h = (typeof location !== "undefined" && location.hostname) || "";
+  if (h.includes("staging")) return "staging";
+  if (h === "localhost" || h === "127.0.0.1" || h === "") return "dev";
+  return "live";
+}
+
+// Per-flag default by environment. Add new flags here; anything not listed
+// defaults to OFF everywhere (fail closed, not open) via isFeatureEnabled()
+// below. cert_email defaults OFF even on staging deliberately: the actual
+// send-certificate-email.mjs backend it POSTs to (Resend-based, see
+// sendCertificateEmail() below) isn't in version control anywhere found
+// (checked both this repo and the Mac checkout, 2026-08-15) - safer to
+// require an explicit per-device unlock than have it on by default while
+// that's unresolved.
+const FEATURE_FLAGS_CONFIG = {
+  cka: { dev: true, staging: true, live: false },
+  cert_email: { dev: false, staging: false, live: false },
+};
+
+const FEATURE_OVERRIDES_KEY = "zc-feature-overrides"; // deliberately device-level, NOT profileKey()'d - a deep-link unlock shouldn't vanish when switching study profiles.
+
+function loadFeatureOverrides() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(FEATURE_OVERRIDES_KEY) || "{}");
+    return raw && typeof raw === "object" ? raw : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function setFeatureOverride(name, enabled) {
+  try {
+    const overrides = loadFeatureOverrides();
+    overrides[name] = !!enabled;
+    localStorage.setItem(FEATURE_OVERRIDES_KEY, JSON.stringify(overrides));
+  } catch (e) { /* storage unavailable - override just won't persist */ }
+}
+
+function isFeatureEnabled(name) {
+  const overrides = loadFeatureOverrides();
+  if (Object.prototype.hasOwnProperty.call(overrides, name)) return !!overrides[name];
+  const cfg = FEATURE_FLAGS_CONFIG[name];
+  if (!cfg) return false; // unknown flag - fail closed
+  return !!cfg[currentEnv()];
+}
+
+// "Magic cookie" deep-link unlock: visiting ?ff_<name>=on|off (1/0/true/false
+// all accepted) sets a STICKY local override that persists on this device
+// until explicitly cleared - same idea as a cookie, implemented as
+// localStorage like everything else in this app (no real cookies anywhere,
+// see the 2026-08-15 conversation on this). Multiple ff_ params in one URL
+// are all applied. Consumed and stripped from the URL immediately via
+// history.replaceState, same pattern as the existing ?exam=/?scope= deep
+// link (DN-57) - but only strips the ff_ params it recognizes, leaving any
+// other query params (like that same exam/scope pair) intact for whatever
+// consumes those separately.
+function consumeFeatureFlagDeepLinks() {
+  try {
+    const params = new URLSearchParams(location.search);
+    let consumedAny = false;
+    for (const [key, value] of [...params.entries()]) {
+      if (!key.startsWith("ff_")) continue;
+      const name = key.slice(3);
+      const truthy = ["on", "1", "true", "yes"].includes(String(value).toLowerCase());
+      setFeatureOverride(name, truthy);
+      params.delete(key);
+      consumedAny = true;
+    }
+    if (consumedAny) {
+      const qs = params.toString();
+      history.replaceState(null, "", location.pathname + (qs ? `?${qs}` : "") + location.hash);
+    }
+  } catch (e) { /* URL/history/storage API unavailable - deep link just won't apply */ }
+}
+
 const state = {
   lang: "de",
   topicFilter: "all",
@@ -1621,7 +1704,11 @@ function renderModulePicker() {
   if (state.modulePickerStep === "module") {
     el("#module-picker-title").textContent = MODULE_PICKER_STRINGS[state.lang]?.chooseModule
       || MODULE_PICKER_STRINGS.en.chooseModule;
-    M.forEach((mod) => {
+    // 2026-08-15: a module can carry an optional feature_flag (see
+    // modules_manifest.json) to gate its picker visibility - modules with
+    // none are always shown, unchanged from prior behavior. CKA is the
+    // first user of this (alpha, staging-only by default).
+    M.filter((mod) => !mod.feature_flag || isFeatureEnabled(mod.feature_flag)).forEach((mod) => {
       const btn = document.createElement("button");
       btn.className = "exam-mode-btn";
       const label = mod.label[state.lang] || mod.label.en;
@@ -3145,6 +3232,15 @@ const CERT_EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // addresses typed or pasted at once.
 function renderEmailCertRow(slot, record, C) {
   if (!slot) return;
+  // 2026-08-15: gated behind the cert_email feature flag, default OFF
+  // everywhere - see FEATURE_FLAGS_CONFIG's comment for why (the backend
+  // this posts to isn't in version control anywhere found). Hides the
+  // whole row rather than just disabling the button, so it's not visible
+  // UI clutter for a feature that's off.
+  if (!isFeatureEnabled("cert_email")) {
+    slot.innerHTML = "";
+    return;
+  }
   slot.innerHTML = `
     <div class="cert-email-form">
       <input type="email" multiple class="cert-email-input" placeholder="${C.emailPlaceholder}" maxlength="1000">
@@ -5787,6 +5883,7 @@ async function loadActiveProfileState() {
 }
 
 async function init() {
+  consumeFeatureFlagDeepLinks();
   migrateOrInitProfiles();
 
   document.documentElement.setAttribute("lang", state.lang);
