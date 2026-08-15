@@ -99,3 +99,25 @@ list so a future session doesn't have to reconstruct it from chat history.
    into an earlier session has been revoked; confirm whether any of this
    session's bundled commits have actually been merged/pushed to GitHub
    yet.
+
+10. **zettacard-kb's eventual role: still an open design question, deliberately
+    not decided 2026-08-15 (2:39am, PO explicitly deferred it).** Two framings
+    surfaced in conversation, not yet reconciled:
+    - Narrow/near-term: zettacard-kb as a place to hold most of Zettacard's
+      material - started 2026-08-15 with a `content-backup/<date>/` snapshot
+      of `Zettacard/data/*.json` (66 files, ~20MB), git-tracked, safety-net
+      style, not a restructuring.
+    - Wider/later: zettacard-kb as the "zentral" backend the PWA's
+      `app/data/*.json` gets generated FROM, not just mirrors - which is the
+      same question as design-doc `course-layer-and-content-schema-design-
+      2026-08-14.md` §8.6 ("does DB-authoritative mean the JSON stops being
+      hand-editable?"), just phrased as "should zettacard-kb become that for
+      every module" rather than per-module. PO's own framing: **"we will move
+      a lot of data forth and back so this is not a fire and forget setup"**
+      - explicitly not a one-time migration, an ongoing bidirectional pipeline.
+      PO wants this designed with an Opus subagent's help, not decided ad hoc
+      inside another task. Needs: the translation-pipeline plan
+      (`claude/content-pipeline-rough-plan-2026-08-15.md`) and this decision
+      are linked - a bidirectional zettacard-kb pipeline is exactly where
+      translation staleness (`source_revision`) and multi-provider translation
+      would actually live operationally, not just in the schema.
