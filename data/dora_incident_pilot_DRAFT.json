@@ -1,0 +1,908 @@
+{
+ "meta": {
+  "app": "Zettacard / dora-incident-lernmodul",
+  "version": "0.1-draft",
+  "generated": "2026-08-16",
+  "description": "DRAFT Pilot-Fragenkatalog für das Modul 'DORA Art. 17-20 - Meldung von IKT-Vorfällen' (dora_incident, Modul 5 der B2B-DORA/CRA-Roadmap). Zielgruppe: IT-Betrieb, Helpdesk/SOC und Incident-Manager in EU-Finanzunternehmen, die Vorfälle tatsächlich klassifizieren und fristgerecht melden müssen - nicht die allgemeine Belegschaft und nicht das Leitungsorgan. Grundlage sind ausschließlich die amtlichen Amtsblatt-Texte der Verordnung (EU) 2022/2554 (Art. 16-23), der Delegierten Verordnung (EU) 2024/1772 (RTS Klassifizierung), der Delegierten Verordnung (EU) 2025/301 (RTS Inhalt und Fristen) und der Durchführungsverordnung (EU) 2025/302 (ITS Formulare, Vorlagen und Verfahren), jeweils in der englischen und der deutschen Sprachfassung gelesen. Kein Fragentext eines kommerziellen Anbieters übernommen. Dieses Schulungsmaterial dient reinen Ausbildungs- und Informationszwecken und stellt keine Rechts- oder Compliance-Beratung dar. Die regulatorischen Anforderungen sind im Einzelfall durch qualifizierte Juristen oder Wirtschaftsprüfer zu validieren.",
+  "legal_disclaimer": "Dieses Schulungsmaterial dient reinen Ausbildungs- und Informationszwecken und stellt keine Rechts- oder Compliance-Beratung dar. Die regulatorischen Anforderungen sind im Einzelfall durch qualifizierte Juristen oder Wirtschaftsprüfer zu validieren.",
+  "class": "ALL",
+  "locales": [
+   "de",
+   "en"
+  ],
+  "canonical_locale": "de",
+  "point_system": "3-4 points per question, matching this app's existing compliance-module style",
+  "total_questions": 20,
+  "legal_review_status": "DRAFT - NOT legally reviewed. Primary-source verification performed 2026-08-16 against the Official Journal texts retrieved from the EU Publications Office Cellar repository (publications.europa.eu/resource/celex/<CELEX>, Accept: application/xhtml+xml, Accept-Language: eng / deu): Regulation (EU) 2022/2554 (CELEX 32022R2554, OJ L 333, 27.12.2022, p. 1); Commission Delegated Regulation (EU) 2024/1772 of 13 March 2024 (CELEX 32024R1772, OJ L, 2024/1772, 25.6.2024); Commission Delegated Regulation (EU) 2025/301 of 23 October 2024 (CELEX 32025R0301, OJ L, 2025/301, 20.2.2025); Commission Implementing Regulation (EU) 2025/302 of 23 October 2024 (CELEX 32025R0302, OJ L, 2025/302, 20.2.2025). No consolidated version exists for any of the three Level 2 instruments as at 2026-08-16, i.e. no amendment or corrigendum has been applied to them. See docs/dora-incident-pre-review-dossier-2026-08-16.md for the per-question confidence-tier ledger before any use.",
+  "renewal_months": null,
+  "renewal_basis": "not_specified_in_statute",
+  "renewal_note": "Weder Art. 13 Abs. 6 DORA noch Kapitel III (Art. 17-23) noch eine der drei Level-2-Verordnungen schreiben ein Schulungsintervall vor. Die einzigen ausdrücklichen Wiederholungstakte in diesem Themenfeld sind die monatliche Bewertung wiederholter Vorfälle nach Art. 8 Abs. 2 der Delegierten Verordnung (EU) 2024/1772 und die jährliche Berichterstattung der ESA nach Art. 22 Abs. 2 DORA - beides sind keine Schulungsfristen. Ein Wiederholungstakt wäre eine Produktentscheidung.",
+  "pass_rule_note": "Offen. Bewusst werden hier keine EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TOPIC_DRAW-Werte vorgeschlagen; die 4x5-Themenaufteilung legt einen Zug nahe, der alle vier Themen berührt, das ist aber eine Produktentscheidung nach der Rechtsprüfung.",
+  "draft_note": "Nicht in data/build_modules.py registriert, nicht in data/modules_manifest.json, kein Build ausgeführt, nichts committet. Dateiname bewusst mit _DRAFT-Suffix, damit die Datei nicht in den Live-Build-Pfad gerät.",
+  "license": "CC BY-NC-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome."
+ },
+ "questions": [
+  {
+   "id": "dora-incident-vorfallmanagement-01",
+   "topic": "Vorfallmanagement und Erkennung",
+   "topic_code": "vorfallmanagement",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "Art. 17 Abs. 1 und 2 Verordnung (EU) 2022/2554",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche IKT-Ereignisse muss ein Finanzunternehmen nach Art. 17 DORA erfassen?",
+     "options": {
+      "a": "Nur Vorfälle, die bereits als schwerwiegend eingestuft wurden",
+      "b": "Nur Cyberangriffe durch externe Angreifer",
+      "c": "Alle IKT-bezogenen Vorfälle und alle erheblichen Cyberbedrohungen - unabhängig davon, ob sie schwerwiegend sind",
+      "d": "Nur Vorfälle, bei denen Kundendaten abgeflossen sind"
+     }
+    },
+    "en": {
+     "question": "Which ICT events must a financial entity record under Art. 17 DORA?",
+     "options": {
+      "a": "Only incidents already classified as major",
+      "b": "Only cyber attacks by external threat actors",
+      "c": "All ICT-related incidents and all significant cyber threats - regardless of whether they are major",
+      "d": "Only incidents involving a leak of client data"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 17 Abs. 2 Satz 1 lautet im amtlichen deutschen Wortlaut: 'Finanzunternehmen erfassen alle IKT-bezogenen Vorfälle und erheblichen Cyberbedrohungen.' Die Erfassungspflicht ist damit deutlich weiter als die Meldepflicht: gemeldet wird nach Art. 19 Abs. 1 nur der als schwerwiegend eingestufte Vorfall, erfasst wird jeder. Praktisch heißt das: das Vorfallregister ist die Grundlage, aus der später die Klassifizierung nach Art. 18, die monatliche Prüfung wiederholter Vorfälle nach Art. 8 Abs. 2 der Delegierten Verordnung (EU) 2024/1772 und die Ursachenanalyse gespeist werden. Wer nur schwerwiegende Vorfälle dokumentiert, kann die Wiederholungsprüfung strukturell nicht durchführen.",
+    "en": "Art. 17(2), first sentence, reads verbatim: 'Financial entities shall record all ICT-related incidents and significant cyber threats.' The recording duty is therefore considerably broader than the reporting duty: only an incident classified as major is reported under Art. 19(1), but every incident is recorded. In practice the incident register is the basis for later classification under Art. 18, for the monthly recurring-incident assessment under Art. 8(2) of Delegated Regulation (EU) 2024/1772, and for root-cause analysis. An entity that documents only major incidents structurally cannot perform the recurrence assessment."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-vorfallmanagement-02",
+   "topic": "Vorfallmanagement und Erkennung",
+   "topic_code": "vorfallmanagement",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 17 Abs. 3 Buchst. a bis f Verordnung (EU) 2022/2554",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Was muss der Prozess zur Behandlung IKT-bezogener Vorfälle nach Art. 17 Abs. 3 DORA mindestens leisten?",
+     "options": {
+      "a": "Frühwarnindikatoren einsetzen, Verfahren zur Ermittlung, Nachverfolgung, Protokollierung, Kategorisierung und Klassifizierung nach den Kriterien des Art. 18 Abs. 1 einrichten sowie Funktionen und Zuständigkeiten für die verschiedenen Vorfallarten zuweisen",
+      "b": "Ausschließlich eine Rufnummer für Störungsmeldungen bereitstellen",
+      "c": "Ausschließlich die technische Wiederherstellung des Dienstes regeln; Kommunikation und Eskalation sind nicht Teil des Prozesses",
+      "d": "Zuständigkeiten bewusst offenlassen, damit im Ernstfall flexibel entschieden werden kann"
+     }
+    },
+    "en": {
+     "question": "What must the ICT-related incident management process achieve as a minimum under Art. 17(3) DORA?",
+     "options": {
+      "a": "Put in place early warning indicators, establish procedures to identify, track, log, categorise and classify incidents in accordance with the criteria in Art. 18(1), and assign roles and responsibilities for the different incident types",
+      "b": "Merely provide a telephone number for reporting outages",
+      "c": "Only govern technical service restoration; communication and escalation are not part of the process",
+      "d": "Deliberately leave responsibilities open so that decisions can be taken flexibly in a crisis"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 17 Abs. 3 zählt sechs Bestandteile auf: Buchst. a Frühwarnindikatoren; Buchst. b Verfahren zur Ermittlung, Nachverfolgung, Protokollierung, Kategorisierung und Klassifizierung 'entsprechend ihrer Priorität und Schwere und entsprechend der Kritikalität der betroffenen Dienste entsprechend den in Artikel 18 Absatz 1 genannten Kriterien'; Buchst. c Zuweisung von Funktionen und Zuständigkeiten, 'die bei verschiedenen Arten von IKT-bezogenen Vorfällen und -Szenarien aktiviert werden müssen'; Buchst. d Kommunikations- und Eskalationspläne einschließlich Kundenbenachrichtigung; Buchst. e Meldung an die höhere Führungsebene und Information der Geschäftsleitung bei zumindest schwerwiegenden Vorfällen; Buchst. f Reaktionsverfahren. Die Klassifizierungslogik ist also bereits im Prozess zu verankern - nicht erst im Ernstfall zu erfinden.",
+    "en": "Art. 17(3) enumerates six components: (a) early warning indicators; (b) procedures to identify, track, log, categorise and classify incidents 'according to their priority and severity and according to the criticality of the services impacted, in accordance with the criteria set out in Article 18(1)'; (c) assignment of roles and responsibilities 'that need to be activated for different ICT-related incident types and scenarios'; (d) communication and escalation plans including client notification; (e) reporting at least major incidents to relevant senior management and informing the management body; (f) incident response procedures. The classification logic must therefore be built into the process in advance - not improvised during the crisis."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-vorfallmanagement-03",
+   "topic": "Vorfallmanagement und Erkennung",
+   "topic_code": "vorfallmanagement",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 17 Abs. 2 Verordnung (EU) 2022/2554",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr SOC stellt nach einem Ausfall den Dienst per Failover wieder her und schließt das Ticket mit dem Vermerk 'Dienst wieder verfügbar'. Genügt das den Anforderungen des Art. 17 DORA?",
+     "options": {
+      "a": "Ja - sobald der Dienst wieder läuft, ist der Vorfall abgeschlossen",
+      "b": "Nein - Art. 17 Abs. 2 verlangt zusätzlich eine kohärente und integrierte Weiterverfolgung, bei der Ursachen ermittelt, dokumentiert und angegangen werden, um erneutes Auftreten zu verhindern",
+      "c": "Ja, sofern der Ausfall kürzer als zwei Stunden gedauert hat",
+      "d": "Nein, aber nur dann, wenn der Vorfall bereits an die Aufsicht gemeldet wurde"
+     }
+    },
+    "en": {
+     "question": "After an outage your SOC restores the service via failover and closes the ticket with the note 'service available again'. Does that satisfy Art. 17 DORA?",
+     "options": {
+      "a": "Yes - once the service is running again the incident is closed",
+      "b": "No - Art. 17(2) additionally requires consistent and integrated follow-up ensuring that root causes are identified, documented and addressed in order to prevent recurrence",
+      "c": "Yes, provided the outage lasted less than two hours",
+      "d": "No, but only where the incident has already been reported to the supervisor"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 17 Abs. 2 Satz 2 im amtlichen Wortlaut: 'Finanzunternehmen richten angemessene Verfahren und Prozesse ein, um die kohärente und integrierte Überwachung, Handhabung und Weiterverfolgung IKT-bezogener Vorfälle zu gewährleisten, um sicherzustellen, dass Ursachen ermittelt, dokumentiert und angegangen werden, um das Auftreten solcher Vorfälle zu verhindern.' Wiederherstellung ist Reaktion, nicht Weiterverfolgung. Die Zwei-Stunden-Marke in Antwort c ist eine Wesentlichkeitsschwelle für die Klassifizierung (Art. 9 Abs. 3 Buchst. b der Delegierten Verordnung (EU) 2024/1772), keine Grenze für die Ursachenanalyse - und die Ursachenanalyse ist außerdem Voraussetzung der Abschlussmeldung nach Art. 4 der Delegierten Verordnung (EU) 2025/301.",
+    "en": "Art. 17(2), second sentence, verbatim: 'Financial entities shall establish appropriate procedures and processes to ensure a consistent and integrated monitoring, handling and follow-up of ICT-related incidents, to ensure that root causes are identified, documented and addressed in order to prevent the occurrence of such incidents.' Restoration is response, not follow-up. The two-hour mark in option (c) is a materiality threshold for classification (Art. 9(3)(b) of Delegated Regulation (EU) 2024/1772), not a limit on root-cause work - and root-cause analysis is in any event the precondition for the final report under Art. 4 of Delegated Regulation (EU) 2025/301."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-vorfallmanagement-04",
+   "topic": "Vorfallmanagement und Erkennung",
+   "topic_code": "vorfallmanagement",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 16 Abs. 1 Verordnung (EU) 2022/2554 i.V.m. Art. 8 Abs. 2 Delegierte Verordnung (EU) 2024/1772",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein kleines, nicht verflochtenes Wertpapierdienstleistungsunternehmen fällt unter den vereinfachten IKT-Risikomanagementrahmen des Art. 16 DORA. Was folgt daraus für die Meldung von IKT-Vorfällen (Kapitel III, Art. 17 bis 23)?",
+     "options": {
+      "a": "Kapitel III gilt für dieses Unternehmen überhaupt nicht",
+      "b": "Es gilt eine verlängerte Erstmeldefrist von 72 Stunden",
+      "c": "Es genügt eine jährliche Sammelmeldung aller Vorfälle",
+      "d": "Kapitel III gilt unverändert - Art. 16 Abs. 1 nimmt ausdrücklich nur die Artikel 5 bis 15 aus; die einzige ausdrückliche Erleichterung in diesem Bereich betrifft die Zusammenfassung wiederholter Vorfälle nach Art. 8 Abs. 2 der Delegierten Verordnung (EU) 2024/1772"
+     }
+    },
+    "en": {
+     "question": "A small and non-interconnected investment firm falls under the simplified ICT risk management framework in Art. 16 DORA. What follows for ICT incident reporting (Chapter III, Arts. 17-23)?",
+     "options": {
+      "a": "Chapter III does not apply to that firm at all",
+      "b": "An extended initial-notification deadline of 72 hours applies",
+      "c": "An annual aggregated report of all incidents is sufficient",
+      "d": "Chapter III applies unchanged - Art. 16(1) expressly disapplies only Articles 5 to 15; the only express relief in this area concerns the aggregation of recurring incidents under Art. 8(2) of Delegated Regulation (EU) 2024/1772"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 16 Abs. 1 Unterabs. 1 benennt die ausgenommenen Vorschriften abschließend: 'Die Artikel 5 bis 15 dieser Verordnung gelten nicht für kleine und nicht verflochtene Wertpapierfirmen ...'. Kapitel III (Art. 17 bis 23) ist davon nicht erfasst - Erfassungs-, Klassifizierungs- und Meldepflichten gelten also in vollem Umfang, ebenso die Fristen der Delegierten Verordnung (EU) 2025/301. Die einzige textlich verankerte Erleichterung steht in Art. 8 Abs. 2 letzter Unterabsatz der Delegierten Verordnung (EU) 2024/1772: 'Dieser Absatz gilt nicht für Kleinstunternehmen und die in Artikel 16 Absatz 1 der Verordnung (EU) 2022/2554 genannten Finanzunternehmen.' Diese Ausnahme betrifft ausschließlich die Zusammenfassung wiederholter Vorfälle, nicht die Meldepflicht als solche. Anmerkung für die Rechtsprüfung: Erwägungsgrund 5 der Delegierten Verordnung (EU) 2025/301 nennt Verhältnismäßigkeit gegenüber Kleinstunternehmen als Motiv der Fristenregelung, setzt aber keine abweichende Frist.",
+    "en": "Art. 16(1), first subparagraph, lists the disapplied provisions exhaustively: 'Articles 5 to 15 of this Regulation shall not apply to small and non-interconnected investment firms ...'. Chapter III (Arts. 17-23) is not among them, so recording, classification and reporting duties apply in full, as do the time limits in Delegated Regulation (EU) 2025/301. The only relief anchored in the text is Art. 8(2), final subparagraph, of Delegated Regulation (EU) 2024/1772: 'This paragraph does not apply to microenterprises and to financial entities listed in Article 16(1) of Regulation (EU) 2022/2554.' That carve-out concerns only the aggregation of recurring incidents, not the reporting duty itself. Note for legal review: recital 5 of Delegated Regulation (EU) 2025/301 cites proportionality towards microenterprises as a motive for the timing rules but does not set a different deadline."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-vorfallmanagement-05",
+   "topic": "Vorfallmanagement und Erkennung",
+   "topic_code": "vorfallmanagement",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 19 Abs. 3 Verordnung (EU) 2022/2554",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Wann müssen Kunden über einen schwerwiegenden IKT-bezogenen Vorfall unterrichtet werden?",
+     "options": {
+      "a": "Wenn der Vorfall Auswirkungen auf die finanziellen Interessen von Kunden hat - dann unverzüglich, sobald das Finanzunternehmen hiervon Kenntnis erlangt hat, und zwar über den Vorfall und die zur Minderung ergriffenen Maßnahmen",
+      "b": "Erst nachdem die Abschlussmeldung an die zuständige Behörde übermittelt wurde",
+      "c": "Nur wenn die zuständige Behörde die Kundeninformation anordnet",
+      "d": "Bei jedem schwerwiegenden Vorfall, unabhängig davon, ob finanzielle Interessen von Kunden berührt sind"
+     }
+    },
+    "en": {
+     "question": "When must clients be informed about a major ICT-related incident?",
+     "options": {
+      "a": "Where the incident has an impact on the financial interests of clients - then without undue delay as soon as the financial entity becomes aware of it, informing them about the incident and about the mitigating measures taken",
+      "b": "Only after the final report has been submitted to the competent authority",
+      "c": "Only where the competent authority orders client notification",
+      "d": "For every major incident, irrespective of whether clients' financial interests are affected"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 19 Abs. 3 Unterabs. 1 im amtlichen deutschen Wortlaut: 'Wenn ein schwerwiegender IKT-bezogener Vorfall auftritt und Auswirkungen auf die finanziellen Interessen von Kunden hat, unterrichten die Finanzunternehmen, sobald sie hiervon Kenntnis erlangt haben, ihre Kunden unverzüglich über den schwerwiegenden IKT-bezogenen Vorfall und die Maßnahmen, die ergriffen wurden, um die nachteiligen Auswirkungen eines solchen Vorfalls zu mindern.' Zwei Punkte für die Praxis: erstens ist die Kundeninformation eine eigenständige Pflicht, die neben der Aufsichtsmeldung läuft und nicht auf deren Freigabe wartet; zweitens hat sie einen eigenen Auslöser - die Berührung finanzieller Kundeninteressen -, weshalb nicht jeder schwerwiegende Vorfall eine Kundeninformation nach sich zieht. Bei einer erheblichen Cyberbedrohung sind nach Unterabs. 2 gegebenenfalls potenziell betroffene Kunden über angemessene Schutzmaßnahmen zu unterrichten.",
+    "en": "Art. 19(3), first subparagraph, verbatim: 'Where a major ICT-related incident occurs and has an impact on the financial interests of clients, financial entities shall, without undue delay as soon as they become aware of it, inform their clients about the major ICT-related incident and about the measures that have been taken to mitigate the adverse effects of such incident.' Two practical points: first, client information is a standalone duty that runs alongside the supervisory report and does not wait for supervisory clearance; second, it has its own trigger - impact on clients' financial interests - so not every major incident produces a client notification. For a significant cyber threat, the second subparagraph requires informing potentially affected clients, where applicable, of appropriate protection measures."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-klassifizierung-01",
+   "topic": "Klassifizierung und Wesentlichkeitsschwellen",
+   "topic_code": "klassifizierung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "Art. 8 Abs. 1 Delegierte Verordnung (EU) 2024/1772 i.V.m. Art. 18 Abs. 1 und Art. 19 Abs. 1 Verordnung (EU) 2022/2554",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Nach welchem Test gilt ein IKT-bezogener Vorfall als schwerwiegend im Sinne des Art. 19 Abs. 1 DORA?",
+     "options": {
+      "a": "Sobald zwei beliebige der sechs Kriterien des Art. 18 Abs. 1 DORA irgendwie berührt sind",
+      "b": "Sobald mindestens drei Wesentlichkeitsschwellen erreicht sind",
+      "c": "Wenn kritische Dienste im Sinne des Art. 6 der Delegierten Verordnung (EU) 2024/1772 beeinträchtigt sind und zusätzlich entweder allein die Schwelle nach Art. 9 Abs. 5 Buchst. b oder aber zwei oder mehr der übrigen Wesentlichkeitsschwellen erreicht sind",
+      "d": "Wenn die Geschäftsleitung den Vorfall nach eigenem Ermessen als schwerwiegend bezeichnet"
+     }
+    },
+    "en": {
+     "question": "Under what test does an ICT-related incident count as major for the purposes of Art. 19(1) DORA?",
+     "options": {
+      "a": "As soon as any two of the six criteria in Art. 18(1) DORA are somehow touched",
+      "b": "As soon as at least three materiality thresholds are met",
+      "c": "Where critical services within the meaning of Art. 6 of Delegated Regulation (EU) 2024/1772 have been affected and, in addition, either the threshold in Art. 9(5)(b) alone is met or two or more of the other materiality thresholds are met",
+      "d": "Where senior management decides at its own discretion to label the incident major"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 8 Abs. 1 der Delegierten Verordnung (EU) 2024/1772 im amtlichen deutschen Wortlaut: 'Ein Vorfall wird für die Zwecke von Artikel 19 Absatz 1 der Verordnung (EU) 2022/2554 als schwerwiegender Vorfall angesehen, wenn die in Artikel 6 genannten kritischen Dienste beeinträchtigt und eine der folgenden beiden Bedingungen erfüllt ist: a) Die in Artikel 9 Absatz 5 Buchstabe b genannte Wesentlichkeitsschwelle ist erreicht; b) zwei oder mehr der in Artikel 9 Absätze 1 bis 6 genannten anderen Wesentlichkeitsschwellen sind erreicht.' Entscheidend ist die Struktur: die Beeinträchtigung kritischer Dienste ist ein vorgeschaltetes Eingangstor und zählt nicht als eine der zwei Schwellen mit. Art. 6 definiert 'kritische Dienste' dabei weiter als der Alltagssprachgebrauch - erfasst sind Buchst. a IKT-Dienste und Systeme zur Unterstützung kritischer oder wichtiger Funktionen, Buchst. b zulassungspflichtige oder beaufsichtigte Finanzdienstleistungen und Buchst. c ein erfolgreicher böswilliger und unbefugter Zugriff auf Netzwerk- und Informationssysteme.",
+    "en": "Art. 8(1) of Delegated Regulation (EU) 2024/1772 verbatim: 'An incident shall be considered a major incident for the purposes of Article 19(1) of Regulation (EU) 2022/2554 where it has affected critical services as referred to in Article 6 and where either of the following conditions is fulfilled: (a) the materiality threshold referred to in Article 9(5), point (b), is met; (b) two or more of the other materiality thresholds referred to in Articles 9(1) to (6) are met.' The structure is what matters: the critical-services element is a gate that must be passed first and does not itself count as one of the two thresholds. Art. 6 defines 'critical services' more broadly than everyday usage - it covers (a) ICT services and systems supporting critical or important functions, (b) financial services requiring authorisation, registration or subject to supervision, and (c) a successful, malicious and unauthorised access to network and information systems."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-klassifizierung-02",
+   "topic": "Klassifizierung und Wesentlichkeitsschwellen",
+   "topic_code": "klassifizierung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 9 Abs. 3 i.V.m. Art. 3 Delegierte Verordnung (EU) 2024/1772",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche Zeitschwellen gelten für das Klassifizierungskriterium 'Dauer und Ausfallzeiten'?",
+     "options": {
+      "a": "Dauer über 4 Stunden oder Ausfallzeit über 1 Stunde",
+      "b": "Dauer des Vorfalls über 24 Stunden oder Ausfallzeit über 2 Stunden bei IKT-Diensten zur Unterstützung kritischer oder wichtiger Funktionen",
+      "c": "Dauer über 2 Stunden oder Ausfallzeit über 24 Stunden",
+      "d": "Es gibt keine festen Zeitschwellen; die Bewertung ist rein qualitativ"
+     }
+    },
+    "en": {
+     "question": "What time thresholds apply to the classification criterion 'duration and service downtime'?",
+     "options": {
+      "a": "Duration over 4 hours or downtime over 1 hour",
+      "b": "Incident duration longer than 24 hours, or service downtime longer than 2 hours for ICT services supporting critical or important functions",
+      "c": "Duration over 2 hours or downtime over 24 hours",
+      "d": "There are no fixed time thresholds; the assessment is purely qualitative"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 9 Abs. 3 der Delegierten Verordnung (EU) 2024/1772: 'a) Der Vorfall dauert mehr als 24 Stunden; b) die Ausfallzeiten bei IKT-Diensten zur Unterstützung kritischer oder wichtiger Funktionen betragen mehr als zwei Stunden.' Die beiden Größen werden unterschiedlich gemessen (Art. 3): die Dauer läuft vom Eintritt des Vorfalls bis zur Behebung - lässt sich der Eintritt nicht bestimmen, ab Feststellung, und bei nachträglich erkanntem früherem Eintritt ab dem Zeitpunkt der Protokollierung in Logs oder anderen Datenquellen. Die Ausfallzeit läuft ab dem Moment, in dem der Dienst für Kunden, Gegenparteien oder interne bzw. externe Nutzer ganz oder teilweise nicht verfügbar ist, bis zur Wiederherstellung des vorherigen Serviceniveaus; verzögert sich die Leistungserbringung darüber hinaus, läuft sie bis zur vollständigen Erbringung. Ist die Behebung noch offen, sind Schätzungen zu verwenden - Unsicherheit ist also kein Grund, die Klassifizierung aufzuschieben.",
+    "en": "Art. 9(3) of Delegated Regulation (EU) 2024/1772: '(a) the duration of the incident is longer than 24 hours; (b) the service downtime is longer than 2 hours for ICT services that support critical or important functions.' The two are measured differently (Art. 3): duration runs from the moment the incident occurs until it is resolved - where the moment of occurrence cannot be determined, from detection, and where the entity later becomes aware that the incident occurred earlier, from the moment it is recorded in network or system logs or other data sources. Downtime runs from the moment the service is fully or partially unavailable to clients, financial counterparts or other internal or external users, until the prior service level is restored; where a delay in service provision persists, it runs until that delayed service is fully provided. Where resolution is still open, estimates must be applied - uncertainty is therefore not a reason to defer classification."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-klassifizierung-03",
+   "topic": "Klassifizierung und Wesentlichkeitsschwellen",
+   "topic_code": "klassifizierung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 9 Abs. 1 und 6 Delegierte Verordnung (EU) 2024/1772",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche Werte nennt Art. 9 Abs. 1 der Delegierten Verordnung (EU) 2024/1772 für das Kriterium 'Kunden, finanzielle Gegenparteien und Transaktionen'?",
+     "options": {
+      "a": "Mehr als 1 % der Kunden oder mehr als 1 000 betroffene Kunden",
+      "b": "Mehr als 50 % der Kunden oder mehr als 1 Mio. betroffene Kunden",
+      "c": "Ausschließlich einen absoluten Wert von 10 000 betroffenen Kunden",
+      "d": "Unter anderem mehr als 10 % aller Kunden der betroffenen Dienstleistung, mehr als 100 000 betroffene Kunden, mehr als 30 % der finanziellen Gegenparteien sowie mehr als 10 % der täglichen durchschnittlichen Zahl oder des täglichen Durchschnittswerts der Transaktionen"
+     }
+    },
+    "en": {
+     "question": "What figures does Art. 9(1) of Delegated Regulation (EU) 2024/1772 set for the criterion 'clients, financial counterparts and transactions'?",
+     "options": {
+      "a": "More than 1 % of clients or more than 1,000 affected clients",
+      "b": "More than 50 % of clients or more than 1 million affected clients",
+      "c": "Only an absolute figure of 10,000 affected clients",
+      "d": "Among others: more than 10 % of all clients using the affected service, more than 100,000 affected clients, more than 30 % of financial counterparts, and more than 10 % of the daily average number or daily average value of transactions"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 9 Abs. 1 nennt sechs alternative Bedingungen; eine genügt, damit diese Schwelle als erreicht gilt: Buchst. a mehr als 10 % aller Kunden, die die betroffene Dienstleistung nutzen; Buchst. b mehr als 100 000 betroffene Kunden; Buchst. c mehr als 30 % der finanziellen Gegenparteien; Buchst. d mehr als 10 % der täglichen durchschnittlichen Zahl der Transaktionen; Buchst. e mehr als 10 % des täglichen Durchschnittswerts der Transaktionen; Buchst. f Betroffenheit von Kunden oder Gegenparteien, die nach Art. 1 Abs. 3 als relevant eingestuft wurden. Der Relativwert und der Absolutwert stehen nebeneinander - ein großes Haus kann die 10-Prozent-Marke verfehlen und trotzdem über die 100 000 kommen. Lässt sich die tatsächliche Zahl nicht bestimmen, ist sie auf Basis vergleichbarer Referenzzeiträume zu schätzen. Die wirtschaftliche Schwelle ist davon getrennt und liegt nach Art. 9 Abs. 6 bei Kosten und Verlusten, die 100 000 EUR übersteigen oder wahrscheinlich übersteigen werden.",
+    "en": "Art. 9(1) lists six alternative conditions; meeting one suffices for the threshold: (a) more than 10 % of all clients using the affected service; (b) more than 100,000 affected clients; (c) more than 30 % of financial counterparts; (d) more than 10 % of the daily average number of transactions; (e) more than 10 % of the daily average value of transactions; (f) clients or financial counterparts identified as relevant under Art. 1(3) have been affected. The relative and absolute figures sit side by side - a large institution may fall short of the 10 % mark and still exceed 100,000. Where the actual figure cannot be determined, it must be estimated from comparable reference periods. The economic threshold is separate and sits, under Art. 9(6), at costs and losses that have exceeded or are likely to exceed EUR 100,000."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-klassifizierung-04",
+   "topic": "Klassifizierung und Wesentlichkeitsschwellen",
+   "topic_code": "klassifizierung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 6 Buchst. c i.V.m. Art. 8 Abs. 1 Buchst. a und Art. 9 Abs. 5 Buchst. b Delegierte Verordnung (EU) 2024/1772",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Angreifer hat sich erfolgreich und unbefugt Zugang zu einem Server verschafft, der eine kritische Funktion unterstützt; der Zugriff kann zu Datenverlusten führen. Der Dienst war zu keinem Zeitpunkt gestört, Kunden sind nicht betroffen, die Kosten liegen deutlich unter 100 000 EUR. Kann der Vorfall trotzdem schwerwiegend sein?",
+     "options": {
+      "a": "Ja - ein erfolgreicher böswilliger und unbefugter Zugriff erfüllt zugleich das Eingangstor 'kritische Dienste' (Art. 6 Buchst. c) und die Schwelle nach Art. 9 Abs. 5 Buchst. b, die nach Art. 8 Abs. 1 Buchst. a allein ausreicht",
+      "b": "Nein - ohne Ausfallzeit und ohne betroffene Kunden kann kein schwerwiegender Vorfall vorliegen",
+      "c": "Nein - es fehlt an der wirtschaftlichen Schwelle von 100 000 EUR",
+      "d": "Nur wenn zusätzlich mindestens zwei weitere Wesentlichkeitsschwellen erreicht sind"
+     }
+    },
+    "en": {
+     "question": "An attacker has gained successful, unauthorised access to a server supporting a critical function; the access may result in data losses. The service was never disrupted, no clients were affected, and costs are well below EUR 100,000. Can the incident nevertheless be major?",
+     "options": {
+      "a": "Yes - a successful, malicious and unauthorised access satisfies both the 'critical services' gate (Art. 6(c)) and the threshold in Art. 9(5)(b), which under Art. 8(1)(a) suffices on its own",
+      "b": "No - without downtime and without affected clients there can be no major incident",
+      "c": "No - the EUR 100,000 economic threshold is not met",
+      "d": "Only if at least two further materiality thresholds are also met"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Die Kette steht vollständig im Verordnungstext. Art. 6 Buchst. c: der Vorfall 'stellt einen erfolgreichen böswilligen und unbefugten Zugriff auf die Netzwerk- und Informationssysteme des Finanzunternehmens dar oder stellte einen solchen dar'. Art. 9 Abs. 5 Buchst. b: die Schwelle 'Verluste von Daten' ist erreicht, wenn 'ein nicht unter Buchstabe a fallender erfolgreicher böswilliger und unbefugter Zugriff auf Netzwerk- und Informationssysteme' stattfindet, 'sofern dieser Zugriff zu Verlusten von Daten führen kann'. Art. 8 Abs. 1 Buchst. a: allein diese Schwelle genügt - eine zweite ist nicht erforderlich. Erwägungsgrund 10 der Delegierten Verordnung (EU) 2024/1772 bestätigt die Absicht: böswilliger unbefugter Zugriff auf Systeme, die kritische oder wichtige Funktionen unterstützen, 'sollte immer als schwerwiegender Vorfall betrachtet werden'. Für SOC-Teams ist das die praktisch wichtigste Konsequenz: eine Intrusion ohne sichtbare Betriebsstörung ist der Regelfall einer schwerwiegenden Meldung, nicht die Ausnahme.",
+    "en": "The whole chain sits in the enacting text. Art. 6(c): the incident 'constitutes or has constituted a successful, malicious and unauthorised access to the network and information systems of the financial entity'. Art. 9(5)(b): the 'data losses' threshold is met where 'any successful, malicious and unauthorised access not covered by point (a) occurs to network and information systems, where such access may result in data losses'. Art. 8(1)(a): that threshold alone suffices - no second threshold is required. Recital 10 of Delegated Regulation (EU) 2024/1772 confirms the intent: malicious, unauthorised access to systems supporting critical or important functions 'should always be considered as major incidents which are to be reported'. For SOC teams this is the most consequential point: an intrusion with no visible service disruption is the normal case for a major report, not the exception."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-klassifizierung-05",
+   "topic": "Klassifizierung und Wesentlichkeitsschwellen",
+   "topic_code": "klassifizierung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 8 Abs. 2 Delegierte Verordnung (EU) 2024/1772 i.V.m. Art. 3 Durchfuehrungsverordnung (EU) 2025/302",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr Zahlungs-Gateway fällt seit Januar viermal wegen desselben Konfigurationsfehlers kurz aus. Kein einzelner Ausfall erreicht für sich die Wesentlichkeitsschwellen. Wie ist damit umzugehen?",
+     "options": {
+      "a": "Solange kein Einzelvorfall die Schwellen erreicht, entsteht keine Meldepflicht",
+      "b": "Wiederholte Vorfälle gelten zusammengenommen als ein schwerwiegender Vorfall, wenn sie innerhalb von sechs Monaten mindestens zweimal aufgetreten sind, dieselbe offensichtliche Ursache haben und zusammengenommen die Kriterien erfüllen; die Prüfung ist monatlich vorzunehmen und die Meldung erfolgt in aggregierter Form",
+      "c": "Wiederholte Vorfälle sind einmal jährlich in einer Sammelmeldung zusammenzufassen",
+      "d": "Wiederholte Vorfälle sind nur bei Cyberangriffen zu betrachten"
+     }
+    },
+    "en": {
+     "question": "Your payment gateway has failed briefly four times since January because of the same configuration fault. No single outage meets the materiality thresholds on its own. How must this be handled?",
+     "options": {
+      "a": "As long as no individual incident meets the thresholds, no reporting duty arises",
+      "b": "Recurring incidents are treated collectively as one major incident where they have occurred at least twice within six months, have the same apparent root cause and collectively fulfil the criteria; the assessment must be performed monthly and the report is submitted in aggregated form",
+      "c": "Recurring incidents must be summarised once a year in a collective report",
+      "d": "Recurring incidents only need to be considered for cyber attacks"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 8 Abs. 2 der Delegierten Verordnung (EU) 2024/1772 nennt drei kumulative Bedingungen: Buchst. a mindestens zweimal innerhalb von sechs Monaten aufgetreten; Buchst. b dieselbe offensichtliche Ursache im Sinne von Art. 20 Abs. 1 Buchst. b DORA; Buchst. c zusammengenommen Erfüllung der Kriterien des Art. 8 Abs. 1. Ausdrücklich angeordnet ist außerdem: 'Die Finanzunternehmen bewerten das Vorliegen wiederholter Vorfälle monatlich.' Die Übermittlung erfolgt nach Art. 3 der Durchführungsverordnung (EU) 2025/302 'in aggregierter Form'. Der Absatz gilt nicht für Kleinstunternehmen und für Finanzunternehmen nach Art. 16 Abs. 1 DORA. Wichtig für die Fristenrechnung: Datenfeld 2.2 der Meldevorlage verlangt bei wiederholten Vorfällen Datum und Uhrzeit der Feststellung des letzten dieser Vorfälle.",
+    "en": "Art. 8(2) of Delegated Regulation (EU) 2024/1772 sets three cumulative conditions: (a) they have occurred at least twice within 6 months; (b) they have the same apparent root cause as referred to in Art. 20, first subparagraph, point (b), DORA; (c) they collectively fulfil the Art. 8(1) criteria. It also expressly orders: 'Financial entities shall assess the existence of recurring incidents on a monthly basis.' Submission is 'in an aggregated form' under Art. 3 of Implementing Regulation (EU) 2025/302. The paragraph does not apply to microenterprises or to financial entities listed in Art. 16(1) DORA. Relevant for the clock: template data field 2.2 requires, for recurring incidents, the date and time at which the last of those incidents was detected."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-meldefristen-01",
+   "topic": "Meldefristen und Meldekaskade",
+   "topic_code": "meldefristen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "Art. 5 Abs. 1 Buchst. a Delegierte Verordnung (EU) 2025/301 i.V.m. Art. 19 Abs. 4 und Art. 20 Verordnung (EU) 2022/2554",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche Frist gilt für die Erstmeldung eines schwerwiegenden IKT-bezogenen Vorfalls an die zuständige Behörde?",
+     "options": {
+      "a": "Vier Stunden ab Entdeckung des Vorfalls",
+      "b": "Vier Stunden ab Einstufung als schwerwiegend - eine weitere Frist besteht daneben nicht",
+      "c": "24 Stunden ab Einstufung als schwerwiegend",
+      "d": "So früh wie möglich, in jedem Fall aber innerhalb von vier Stunden nach der Einstufung als schwerwiegend und spätestens 24 Stunden nach dem Zeitpunkt, zu dem das Finanzunternehmen Kenntnis von dem Vorfall erlangt hat"
+     }
+    },
+    "en": {
+     "question": "What deadline applies to the initial notification of a major ICT-related incident to the competent authority?",
+     "options": {
+      "a": "Four hours from detection of the incident",
+      "b": "Four hours from classification as major - no other time limit applies alongside it",
+      "c": "24 hours from classification as major",
+      "d": "As early as possible, but in any case within four hours from the classification of the incident as major and no later than 24 hours from the moment the financial entity became aware of the incident"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 5 Abs. 1 Buchst. a der Delegierten Verordnung (EU) 2025/301 im amtlichen deutschen Wortlaut: 'bei der Erstmeldung: so früh wie möglich, in jedem Fall aber innerhalb von vier Stunden nach Einstufung des IKT-bezogenen Vorfalls als schwerwiegend und spätestens 24 Stunden nach dem Zeitpunkt, zu dem das Finanzunternehmen Kenntnis von dem IKT-bezogenen Vorfall erlangt hat'. Englisch: '... within four hours from the classification of the ICT-related incident as a major ICT-related incident and no later than 24 hours from the moment the financial entity has become aware of the ICT-related incident.' Es handelt sich um zwei nebeneinander stehende Fristen, verbunden durch 'und', nicht um eine Frist mit einem Anhaltspunkt: die früher ablaufende ist maßgeblich. Antwort a ist die klassische Fehlvorstellung ('Vier-Stunden-Regel ab Entdeckung'); Antwort b unterschlägt die 24-Stunden-Außengrenze. Zur Einordnung: die DORA-Grundverordnung selbst enthält keine einzige Stundenangabe zur Meldung - Art. 19 Abs. 4 verweist ausdrücklich auf die 'innerhalb der in Artikel 20 Absatz 1 Buchstabe a Ziffer ii festzulegenden Fristen', und diese Fristen stehen erst in der Delegierten Verordnung (EU) 2025/301.",
+    "en": "Art. 5(1)(a) of Delegated Regulation (EU) 2025/301 verbatim: 'for the initial report: as early as possible, but in any case, within four hours from the classification of the ICT-related incident as a major ICT-related incident and no later than 24 hours from the moment the financial entity has become aware of the ICT-related incident'. These are two time limits standing side by side, joined by 'and' - not one limit with a reference point: whichever expires first governs. Option (a) is the classic misconception ('four-hour rule from detection'); option (b) drops the 24-hour outer limit. For context: the DORA base Regulation contains no hour figure for reporting at all - Art. 19(4) expressly refers to 'the time limits to be laid down in accordance with Article 20, first paragraph, point (a), point (ii)', and those time limits appear only in Delegated Regulation (EU) 2025/301."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-meldefristen-02",
+   "topic": "Meldefristen und Meldekaskade",
+   "topic_code": "meldefristen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 5 Abs. 1 Buchst. a i.V.m. Art. 5 Abs. 2 Delegierte Verordnung (EU) 2025/301",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr SOC erlangt am Montag um 08:00 Uhr Kenntnis von einem Vorfall. Die formale Einstufung als schwerwiegend erfolgt am Dienstag um 06:00 Uhr. Wann läuft die Frist für die Erstmeldung ab?",
+     "options": {
+      "a": "Dienstag, 10:00 Uhr - vier Stunden nach der Einstufung",
+      "b": "Dienstag, 12:00 Uhr",
+      "c": "Dienstag, 08:00 Uhr - die 24-Stunden-Grenze ab Kenntniserlangung läuft früher ab als die Vier-Stunden-Frist ab Einstufung, und beide Fristen des Art. 5 Abs. 1 Buchst. a gelten nebeneinander",
+      "d": "Mittwoch, 06:00 Uhr"
+     }
+    },
+    "en": {
+     "question": "Your SOC becomes aware of an incident at 08:00 on Monday. Formal classification as major happens at 06:00 on Tuesday. When does the initial-notification deadline expire?",
+     "options": {
+      "a": "Tuesday 10:00 - four hours after classification",
+      "b": "Tuesday 12:00",
+      "c": "Tuesday 08:00 - the 24-hour limit from becoming aware expires earlier than the four-hour limit from classification, and both limbs of Art. 5(1)(a) apply side by side",
+      "d": "Wednesday 06:00"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Rechnung: vier Stunden ab Einstufung ergibt Dienstag 10:00 Uhr; 24 Stunden ab Kenntniserlangung ergibt Dienstag 08:00 Uhr. Da Art. 5 Abs. 1 Buchst. a beide Fristen mit 'und' verknüpft, ist die früher endende maßgeblich - im Beispiel bleiben also nach der Einstufung nur zwei Stunden. Bestätigt wird diese Lesart durch Art. 5 Abs. 2: dieser Absatz stellt allein für den Fall, dass die Einstufung erst nach Ablauf der 24 Stunden erfolgt, wieder auf die Vier-Stunden-Frist ab - er wäre überflüssig, wenn die 24-Stunden-Grenze ohnehin nachrangig wäre. Betriebliche Konsequenz: die Vier-Stunden-Frist ist keine Planungsgröße. Wer die Klassifizierung an das Ende des Kenntnistages legt, verkürzt sich die eigene Meldefrist. PRÜFHINWEIS: die Verrechnung beider Fristen ist eine Auslegung des Wortlauts und im Dossier bewusst als Tier B geführt.",
+    "en": "The arithmetic: four hours from classification gives Tuesday 10:00; 24 hours from becoming aware gives Tuesday 08:00. Because Art. 5(1)(a) joins the two with 'and', the one expiring earlier governs - in this example only two hours remain after classification. That reading is confirmed by Art. 5(2), which restores the four-hour limit only for the case where classification happens after the 24 hours have already run; it would be redundant if the 24-hour limb were subordinate anyway. Operational consequence: the four-hour limit is not a planning figure. Pushing classification to the end of the day on which you became aware shortens your own reporting window. REVIEW NOTE: the interaction of the two limbs is an interpretation of the wording and is deliberately recorded as Tier B in the dossier."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-meldefristen-03",
+   "topic": "Meldefristen und Meldekaskade",
+   "topic_code": "meldefristen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 5 Abs. 2 Delegierte Verordnung (EU) 2025/301",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Vorfall wird erst am vierten Tag nach Kenntniserlangung als schwerwiegend eingestuft, weil die Auswirkungen zunächst nicht absehbar waren. Welche Frist gilt dann für die Erstmeldung?",
+     "options": {
+      "a": "Vier Stunden ab der Einstufung als schwerwiegend - Art. 5 Abs. 2 der Delegierten Verordnung (EU) 2025/301 regelt genau diesen Fall ausdrücklich",
+      "b": "Die Frist ist bereits abgelaufen; eine Erstmeldung ist nicht mehr vorgesehen",
+      "c": "24 Stunden ab der Einstufung als schwerwiegend",
+      "d": "Ein Monat ab Kenntniserlangung"
+     }
+    },
+    "en": {
+     "question": "An incident is only classified as major on the fourth day after the entity became aware of it, because the impact was not initially foreseeable. What deadline then applies to the initial notification?",
+     "options": {
+      "a": "Four hours from classification as major - Art. 5(2) of Delegated Regulation (EU) 2025/301 expressly governs exactly this case",
+      "b": "The deadline has already passed; no initial notification is provided for any more",
+      "c": "24 hours from classification as major",
+      "d": "One month from becoming aware"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 5 Abs. 2 im amtlichen deutschen Wortlaut: 'Hat das Finanzunternehmen einen IKT-bezogenen Vorfall nicht innerhalb von 24 Stunden nach dem Zeitpunkt, zu dem es Kenntnis von dem IKT-bezogenen Vorfall erlangt hat, sondern erst zu einem späteren Zeitpunkt als schwerwiegend eingestuft, übermittelt es die Erstmeldung innerhalb von vier Stunden, nachdem es den IKT-bezogenen Vorfall als schwerwiegend eingestuft hat.' Die Meldepflicht entfällt also nicht - sie knüpft dann allein an die Einstufung an. Das ist aber kein Freibrief für späte Klassifizierung: Art. 17 Abs. 3 Buchst. b DORA verlangt eingerichtete Klassifizierungsverfahren, und die Meldevorlage nach der Durchführungsverordnung (EU) 2025/302 verlangt in den Feldern 2.2 und 2.3 sowohl den Zeitpunkt der Kenntnisnahme als auch den der Einstufung. Ein großer Abstand zwischen beiden Zeitstempeln ist für die Aufsicht unmittelbar sichtbar.",
+    "en": "Art. 5(2) verbatim: 'Where the financial entity has not classified an ICT-related incident as major within 24 hours from the moment the financial entity has become aware of the ICT-related incident but classifies that ICT-related incident as major at a later stage, the financial entity shall submit the initial notification within four hours from the classification of the ICT-related incident as a major incident.' The duty does not lapse - it simply attaches to classification alone. That is not a licence for late classification, though: Art. 17(3)(b) DORA requires established classification procedures, and the reporting template under Implementing Regulation (EU) 2025/302 requires, in fields 2.2 and 2.3, both the time of becoming aware and the time of classification. A wide gap between the two timestamps is immediately visible to the supervisor."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-meldefristen-04",
+   "topic": "Meldefristen und Meldekaskade",
+   "topic_code": "meldefristen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 5 Abs. 1 Buchst. b und c Delegierte Verordnung (EU) 2025/301 i.V.m. Art. 19 Abs. 4 Buchst. b und c Verordnung (EU) 2022/2554",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Woran knüpfen die Fristen für Zwischen- und Abschlussmeldung an?",
+     "options": {
+      "a": "Zwischenmeldung 72 Stunden nach der Einstufung als schwerwiegend, Abschlussmeldung einen Monat nach dem Vorfall",
+      "b": "Zwischenmeldung spätestens 72 Stunden nach Übermittlung der Erstmeldung - auch dann, wenn sich Status oder Handhabung des Vorfalls nicht geändert haben; Abschlussmeldung spätestens einen Monat nach der Zwischenmeldung bzw. nach der letzten aktualisierten Zwischenmeldung",
+      "c": "Beide Meldungen werden erst fällig, wenn die Ursachenanalyse abgeschlossen ist",
+      "d": "Es bestehen keine Fristen; Zwischen- und Abschlussmeldung erfolgen nur auf Aufforderung der Behörde"
+     }
+    },
+    "en": {
+     "question": "What are the intermediate and final report deadlines anchored to?",
+     "options": {
+      "a": "Intermediate report 72 hours after classification as major; final report one month after the incident",
+      "b": "Intermediate report at the latest within 72 hours from submission of the initial notification - even where the status or handling of the incident has not changed; final report no later than one month after the intermediate report or, where applicable, after the latest updated intermediate report",
+      "c": "Both only fall due once root-cause analysis has been completed",
+      "d": "There are no deadlines; intermediate and final reports are submitted only upon request of the authority"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 5 Abs. 1 Buchst. b der Delegierten Verordnung (EU) 2025/301: 'bei der Zwischenmeldung: spätestens 72 Stunden nach Übermittlung der Erstmeldung, auch wenn sich gemäß Artikel 19 Absatz 4 Buchstabe b der Verordnung (EU) 2022/2554 der Status oder die Handhabung des Vorfalls nicht geändert hat. Die Finanzunternehmen übermitteln unverzüglich etwaige aktualisierte Zwischenmeldungen, in jedem Fall aber, sobald der reguläre Geschäftsbetrieb wiederaufgenommen wurde'. Buchst. c: 'bei der Abschlussmeldung: spätestens einen Monat nach Übermittlung der Zwischenmeldung oder gegebenenfalls nach der letzten aktualisierten Zwischenmeldung.' Zwei häufige Fehler stecken in Antwort a: der Anker der 72 Stunden ist die Übermittlung der Erstmeldung, nicht die Einstufung, und der Anker des Monats ist die Zwischenmeldung, nicht der Vorfall. Beachtenswert ist zudem das Verhältnis zur Grundverordnung: Art. 19 Abs. 4 Buchst. b DORA knüpft die Zwischenmeldung dem Wortlaut nach an eine erhebliche Statusänderung - die Delegierte Verordnung stellt ausdrücklich klar, dass die 72-Stunden-Frist auch ohne jede Änderung läuft.",
+    "en": "Art. 5(1)(b) of Delegated Regulation (EU) 2025/301: 'for the intermediate report: at the latest within 72 hours from the submission of the initial notification, even where the status or the handling of the incident have not changed as referred to in Article 19(4), point (b), of Regulation (EU) 2022/2554. Financial entities shall submit an updated intermediate report without undue delay, and in any case when the regular activities have been recovered'. Point (c): 'for the final report: no later than one month after either the submission of the intermediate report, or, where applicable, after the latest updated intermediate report.' Option (a) contains two common errors: the 72-hour anchor is submission of the initial notification, not classification, and the one-month anchor is the intermediate report, not the incident. Note also the relationship to the base Regulation: on its wording, Art. 19(4)(b) DORA ties the intermediate report to a significant change of status - the Delegated Regulation expressly clarifies that the 72-hour clock runs even without any change."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-meldefristen-05",
+   "topic": "Meldefristen und Meldekaskade",
+   "topic_code": "meldefristen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 5 Abs. 4, 5 und 6 Delegierte Verordnung (EU) 2025/301",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Die Frist für eine Erstmeldung fällt auf einen Sonntag. Wer kann sich auf die Wochenend- und Feiertagsregelung des Art. 5 Abs. 4 der Delegierten Verordnung (EU) 2025/301 berufen?",
+     "options": {
+      "a": "Alle Finanzunternehmen ohne Ausnahme",
+      "b": "Nur Kreditinstitute",
+      "c": "Niemand - die Regelung betrifft ausschließlich die Abschlussmeldung",
+      "d": "Grundsätzlich alle Finanzunternehmen; die Meldung darf dann bis 12.00 Uhr des darauffolgenden Arbeitstages erfolgen. Für Erst- und Zwischenmeldungen gilt sie jedoch nicht für Kreditinstitute, zentrale Gegenparteien, Betreiber von Handelsplätzen und Finanzunternehmen, die nach Art. 3 der Richtlinie (EU) 2022/2555 als wesentliche oder wichtige Einrichtungen eingestuft sind"
+     }
+    },
+    "en": {
+     "question": "The deadline for an initial notification falls on a Sunday. Who can rely on the weekend and bank-holiday rule in Art. 5(4) of Delegated Regulation (EU) 2025/301?",
+     "options": {
+      "a": "All financial entities without exception",
+      "b": "Credit institutions only",
+      "c": "Nobody - the rule concerns the final report only",
+      "d": "In principle all financial entities; the report may then be submitted by noon of the next working day. For initial notifications and intermediate reports, however, it does not apply to credit institutions, central counterparties, operators of trading venues, or financial entities identified as essential or important entities pursuant to Art. 3 of Directive (EU) 2022/2555"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 5 Abs. 4: 'Fällt die Frist für die Übermittlung der Erstmeldung, der Zwischenmeldung oder der Abschlussmeldung auf ein Wochenende oder einen Feiertag im Mitgliedstaat des meldenden Finanzunternehmens, so kann das Finanzunternehmen die ... Meldung bis 12.00 Uhr des darauffolgenden Arbeitstages übermitteln.' Art. 5 Abs. 5 nimmt davon Erst- und Zwischenmeldungen der genannten Institutsgruppen aus - für sie gilt die Wochenendregelung also nur noch bei der Abschlussmeldung. Art. 5 Abs. 6 erlaubt den zuständigen Behörden zudem, Absatz 4 für weitere bedeutende oder systemrelevante Finanzunternehmen auszuschließen; ein solcher Beschluss ist dem Unternehmen mitzuteilen und gilt nur für Vorfälle nach der Mitteilung. Betrieblich heißt das: die Rufbereitschaft am Wochenende ist für Banken, CCPs, Handelsplatzbetreiber und NIS-2-Einrichtungen keine Option, sondern Voraussetzung der Fristenwahrung.",
+    "en": "Art. 5(4): 'Where the time limit for the submission of an initial notification, intermediate report, or a final report falls on a weekend day or a bank holiday in the Member State of the reporting financial entity, the financial entity may submit the ... report by noon of the next working day.' Art. 5(5) excludes initial notifications and intermediate reports by the listed groups - for them the weekend rule survives only for the final report. Art. 5(6) additionally lets competent authorities disapply paragraph 4 for other significant or systemically relevant financial entities; such a decision must be notified to the entity and applies only to incidents reported after that notification. Operationally: weekend on-call cover is not optional for banks, CCPs, trading venue operators and NIS2 entities - it is a precondition for meeting the deadline."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-meldeinhalt-01",
+   "topic": "Meldeinhalte, Vorlagen und Verfahren",
+   "topic_code": "meldeinhalt",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "Art. 2 und Art. 4 Delegierte Verordnung (EU) 2025/301 i.V.m. Art. 1 Abs. 3 Durchfuehrungsverordnung (EU) 2025/302",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr Team hat einen Vorfall als schwerwiegend eingestuft, kennt aber die Ursache noch nicht und hat noch keine belastbaren Zahlen. Darf die Erstmeldung deshalb zurückgestellt werden?",
+     "options": {
+      "a": "Ja - ohne abgeschlossene Ursachenanalyse ist eine Meldung nicht möglich",
+      "b": "Ja, bis der Dienst wiederhergestellt ist und die tatsächlichen Auswirkungen feststehen",
+      "c": "Nein - Art. 2 der Delegierten Verordnung (EU) 2025/301 verlangt für die Erstmeldung gerade keine Ursachenanalyse; Angaben zu den Ursachen gehören nach Art. 4 in die Abschlussmeldung, und fehlende Werte sind nach Art. 1 Abs. 3 der Durchführungsverordnung (EU) 2025/302 zu schätzen",
+      "d": "Nein, aber die Frist verlängert sich in diesem Fall auf 72 Stunden"
+     }
+    },
+    "en": {
+     "question": "Your team has classified an incident as major but does not yet know the root cause and has no reliable figures. May the initial notification be deferred for that reason?",
+     "options": {
+      "a": "Yes - no report is possible without a completed root-cause analysis",
+      "b": "Yes, until the service is restored and the actual impact is known",
+      "c": "No - Art. 2 of Delegated Regulation (EU) 2025/301 precisely does not require root-cause analysis for the initial notification; root causes belong in the final report under Art. 4, and missing values must be estimated under Art. 1(3) of Implementing Regulation (EU) 2025/302",
+      "d": "No, but in that case the deadline is extended to 72 hours"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 2 der Delegierten Verordnung (EU) 2025/301 listet den Inhalt der Erstmeldung abschließend: Referenzcode des Vorfalls; Datum und Uhrzeit der Feststellung sowie der Einstufung nach Art. 8 der Delegierten Verordnung (EU) 2024/1772; Beschreibung des Vorfalls; die herangezogenen Einstufungskriterien; betroffene Mitgliedstaaten; wie der Vorfall entdeckt wurde; sofern verfügbar Angaben zum Ursprung; ob ein Notfallplan aktiviert wurde; gegebenenfalls Angaben zu einer Rückstufung; sowie sonstige relevante Informationen, sofern verfügbar. Ursachen ('information about the root causes') verlangt erst Art. 4 für die Abschlussmeldung, ebenso die Kosten- und Verlustangaben. Art. 1 Abs. 3 der Durchführungsverordnung (EU) 2025/302 ordnet ausdrücklich an, dass für Erst- und Zwischenmeldung Schätzwerte auf Grundlage anderer verfügbarer Daten anzugeben sind, wenn genaue Daten zum Meldezeitpunkt nicht vorliegen. Erwägungsgrund 2 der Delegierten Verordnung (EU) 2025/301 benennt dieselbe Absicht: der Inhalt der Erstmeldung soll bewusst auf die wichtigsten Informationen begrenzt sein, damit die Meldung die laufende Vorfallbearbeitung nicht behindert.",
+    "en": "Art. 2 of Delegated Regulation (EU) 2025/301 lists the content of the initial notification exhaustively: the incident reference code; the date and time of detection and of classification pursuant to Art. 8 of Delegated Regulation (EU) 2024/1772; a description of the incident; the criteria relied on for classifying it as major; the Member States impacted; how the incident was discovered; where available, information about its origin; whether a business continuity plan was activated; where applicable, information about reclassification; and, where available, any other relevant information. Root causes are required only by Art. 4, for the final report, as are cost and loss figures. Art. 1(3) of Implementing Regulation (EU) 2025/302 expressly requires estimated values based on other available data for the initial notification and the intermediate report where accurate data are not available at the time of reporting. Recital 2 of Delegated Regulation (EU) 2025/301 states the same intent: the content of the initial notification is deliberately limited to the most significant information so that reporting does not obstruct ongoing incident handling."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-meldeinhalt-02",
+   "topic": "Meldeinhalte, Vorlagen und Verfahren",
+   "topic_code": "meldeinhalt",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 5 Abs. 3 Delegierte Verordnung (EU) 2025/301 i.V.m. Art. 4 Durchfuehrungsverordnung (EU) 2025/302",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr Unternehmen kann eine Meldefrist absehbar nicht einhalten. Was ist zu tun?",
+     "options": {
+      "a": "Nichts Besonderes - die Meldung wird einfach nachgeholt",
+      "b": "Der Vorfall ist vorsorglich auf 'nicht schwerwiegend' zurückzustufen",
+      "c": "Die zuständige Behörde ist unverzüglich, spätestens jedoch innerhalb der jeweiligen Frist zu unterrichten, und die Gründe für die Verzögerung sind anzugeben",
+      "d": "Die Meldung ist stattdessen unmittelbar an die zuständige Europäische Aufsichtsbehörde zu richten"
+     }
+    },
+    "en": {
+     "question": "Your entity foresees that it will not be able to meet a reporting deadline. What must be done?",
+     "options": {
+      "a": "Nothing in particular - the report is simply submitted late",
+      "b": "The incident must be reclassified to 'non-major' as a precaution",
+      "c": "The competent authority must be informed without undue delay and in any case no later than the respective deadline, stating the reasons for the delay",
+      "d": "The report must instead be submitted directly to the relevant European Supervisory Authority"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 5 Abs. 3 der Delegierten Verordnung (EU) 2025/301: 'Finanzunternehmen, die nicht in der Lage sind, die Erstmeldung, die Zwischenmeldung oder die Abschlussmeldung innerhalb der in Absatz 1 genannten Fristen zu übermitteln, teilen dies der zuständigen Behörde unverzüglich, spätestens jedoch innerhalb der jeweiligen Fristen für die Übermittlung der Meldung mit und geben die Gründe für die Verzögerung an.' Die Unterrichtung über die Verzögerung unterliegt also derselben Frist wie die Meldung selbst - Schweigen ist keine Option. Parallel dazu regelt Art. 4 der Durchführungsverordnung (EU) 2025/302 den technischen Ausfall: grundsätzlich sind die von der zuständigen Behörde bereitgestellten sicheren elektronischen Kanäle zu nutzen; ist das nicht möglich, ist die Behörde im Einvernehmen auf anderem sicheren Weg zu unterrichten und die Meldung auf Verlangen später über den sicheren Kanal erneut zu übermitteln. Auch Art. 19 Abs. 1 Unterabs. 4 DORA sieht für den Fall technischer Unmöglichkeit die Meldung 'auf anderem Wege' vor. Adressat bleibt in allen Fällen die zuständige nationale Behörde; die Weiterleitung an EBA, ESMA, EIOPA und EZB erfolgt nach Art. 19 Abs. 6 DORA durch die Behörde selbst.",
+    "en": "Art. 5(3) of Delegated Regulation (EU) 2025/301: 'Financial entities that are unable to submit the initial notification, intermediate report, or final report within the time limits set out in paragraph 1, shall inform the competent authority thereof without undue delay, but no later than the respective time limits for the submission of the notification or report, and shall explain the reasons for the delay.' The notification of delay is therefore subject to the same deadline as the report itself - silence is not an option. In parallel, Art. 4 of Implementing Regulation (EU) 2025/302 governs technical failure: secure electronic channels made available by the competent authority must be used in principle; where that is impossible, the authority must be informed through other secure means in agreement with it, and the report resubmitted through the secure channel on request. Art. 19(1), fourth subparagraph, DORA likewise provides for notification 'via alternative means' where technical impossibility prevents use of the template. The addressee remains the national competent authority in all cases; onward transmission to EBA, ESMA, EIOPA and the ECB is done by that authority under Art. 19(6) DORA."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-meldeinhalt-03",
+   "topic": "Meldeinhalte, Vorlagen und Verfahren",
+   "topic_code": "meldeinhalt",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Anhang I und Anhang II (Datenfelder 2.2 und 2.3) Durchfuehrungsverordnung (EU) 2025/302",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche Zeitangaben verlangt die Meldevorlage der Durchführungsverordnung (EU) 2025/302 bereits in der Erstmeldung?",
+     "options": {
+      "a": "Nur den Zeitpunkt der Einstufung als schwerwiegend",
+      "b": "Nur den Zeitpunkt der Feststellung des Vorfalls",
+      "c": "Nur den Zeitpunkt der Wiederherstellung des Regelbetriebs",
+      "d": "Sowohl Datum und Uhrzeit der Feststellung - also der Kenntnisnahme durch das Finanzunternehmen - als auch Datum und Uhrzeit der Einstufung als schwerwiegend; beide Felder sind Pflichtangaben im ISO-8601-UTC-Format"
+     }
+    },
+    "en": {
+     "question": "Which timestamps does the reporting template under Implementing Regulation (EU) 2025/302 require already in the initial notification?",
+     "options": {
+      "a": "Only the time of classification as major",
+      "b": "Only the time of detection of the incident",
+      "c": "Only the time at which regular operations were restored",
+      "d": "Both the date and time of detection - i.e. of the financial entity becoming aware - and the date and time of classification as major; both fields are mandatory, in ISO 8601 UTC format"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Anhang I führt unter 'Inhalt der Erstmeldung' die Felder 2.2 'Datum und Uhrzeit der Feststellung des IKT-bezogenen Vorfalls' und 2.3 'Datum und Uhrzeit der Einstufung des Vorfalls als schwerwiegend'. Anhang II definiert Feld 2.2 als 'Datum und Uhrzeit der Kenntnisnahme des IKT-bezogenen Vorfalls durch das Finanzunternehmen' und Feld 2.3 als den Zeitpunkt der Einstufung nach den Kriterien der Delegierten Verordnung (EU) 2024/1772; beide sind für Erst-, Zwischen- und Abschlussmeldung mit 'Ja' als Pflichtfeld gekennzeichnet, Feldtyp 'ISO 8601 UTC-Format'. Genau diese Feldpaarung macht die zweigliedrige Frist des Art. 5 Abs. 1 Buchst. a der Delegierten Verordnung (EU) 2025/301 für die Aufsicht nachrechenbar: aus den beiden Zeitstempeln und dem Eingangszeitpunkt der Meldung ergibt sich unmittelbar, ob beide Fristen eingehalten wurden. Der Zeitpunkt der Wiederherstellung (Feld 3.3) und der Eintrittszeitpunkt (Feld 3.2) gehören dagegen erst in die Zwischenmeldung.",
+    "en": "Annex I lists, under 'Content of the initial notification', field 2.2 'Date and time of detection of the major ICT-related incident' and field 2.3 'Date and time of classification of the ICT-related incident as major'. Annex II defines field 2.2 as 'Date and time at which the financial entity has become aware of the ICT-related incident' and field 2.3 as the time of classification according to the criteria in Delegated Regulation (EU) 2024/1772; both are marked 'Yes' as mandatory for the initial notification and the intermediate and final reports, with field type 'ISO 8601 standard UTC'. This pair of fields is exactly what makes the two-limbed deadline in Art. 5(1)(a) of Delegated Regulation (EU) 2025/301 auditable: from the two timestamps and the time of receipt, the supervisor can compute directly whether both limits were met. The recovery timestamp (field 3.3) and the time of occurrence (field 3.2), by contrast, belong to the intermediate report."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-meldeinhalt-04",
+   "topic": "Meldeinhalte, Vorlagen und Verfahren",
+   "topic_code": "meldeinhalt",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 19 Abs. 5 Verordnung (EU) 2022/2554 i.V.m. Art. 6 und Art. 7 Durchfuehrungsverordnung (EU) 2025/302",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr Unternehmen lagert die Vorfallmeldung an einen Dienstleister aus. Was gilt?",
+     "options": {
+      "a": "Die Auslagerung ist zulässig, das Finanzunternehmen bleibt aber in vollem Umfang für die Erfüllung der Meldepflichten verantwortlich; die zuständige Behörde ist über die Auslagerungsvereinbarung zu unterrichten, sobald sie geschlossen wurde, spätestens vor der ersten Meldung, unter Angabe von Name, Kontaktdaten und Identifikationscode des Dritten",
+      "b": "Die Auslagerung ist unzulässig; die Meldung muss stets durch das Finanzunternehmen selbst erfolgen",
+      "c": "Mit der Auslagerung geht die Verantwortung für die Einhaltung der Meldepflichten auf den Dienstleister über",
+      "d": "Die Auslagerung ist zulässig und muss der Behörde nicht angezeigt werden"
+     }
+    },
+    "en": {
+     "question": "Your entity outsources incident reporting to a service provider. What applies?",
+     "options": {
+      "a": "Outsourcing is permitted, but the financial entity remains fully responsible for fulfilling the reporting requirements; the competent authority must be informed of the outsourcing arrangement as soon as it has been concluded and at the latest prior to the first report, stating the third party's name, contact details and identification code",
+      "b": "Outsourcing is not permitted; the report must always be made by the financial entity itself",
+      "c": "On outsourcing, responsibility for compliance with the reporting duties passes to the service provider",
+      "d": "Outsourcing is permitted and need not be notified to the authority"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 19 Abs. 5 DORA im amtlichen deutschen Wortlaut: 'Finanzunternehmen dürfen im Einklang mit den sektorspezifischen Rechtsvorschriften der Union und der Mitgliedstaaten die Meldepflichten nach diesem Artikel an einen Drittdienstleister auslagern. Bei einer solchen Auslagerung bleibt das Finanzunternehmen in vollem Umfang für die Erfüllung der Anforderungen für die Meldung von Vorfällen verantwortlich.' Art. 6 der Durchführungsverordnung (EU) 2025/302 ergänzt die Anzeigepflichten: Unterrichtung der Behörde, sobald die Vereinbarung geschlossen wurde und spätestens vor der ersten Meldung (Abs. 1), Angabe von Name, Kontaktdaten und Identifikationscode des Dritten (Abs. 2) sowie Unterrichtung, sobald nicht mehr ausgelagert wird (Abs. 3). Art. 7 erlaubt einem solchen Dienstleister unter fünf kumulativen Voraussetzungen eine aggregierte Meldung für mehrere betroffene Finanzunternehmen - unter anderem muss der Vorfall bei jedem einzelnen Unternehmen als schwerwiegend eingestuft sein und die zuständige Behörde muss dies ausdrücklich gestattet haben. Bedeutende Kreditinstitute, Betreiber von Handelsplätzen und zentrale Gegenparteien sind davon ausgenommen und melden stets einzeln.",
+    "en": "Art. 19(5) DORA verbatim: 'Financial entities may outsource, in accordance with Union and national sectoral law, the reporting obligations under this Article to a third-party service provider. In case of such outsourcing, the financial entity remains fully responsible for the fulfilment of the incident reporting requirements.' Art. 6 of Implementing Regulation (EU) 2025/302 adds the notification duties: inform the authority as soon as the arrangement has been concluded and at the latest prior to the first report (para. 1), provide the third party's name, contact details and identification code (para. 2), and inform the authority as soon as reporting is no longer outsourced (para. 3). Art. 7 allows such a provider, under five cumulative conditions, to submit an aggregated report covering several affected financial entities - among other things the incident must be classified as major by each of them and the competent authority must have explicitly permitted it. Credit institutions of significant relevance, operators of trading venues and central counterparties are excluded and always report individually."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-incident-meldeinhalt-05",
+   "topic": "Meldeinhalte, Vorlagen und Verfahren",
+   "topic_code": "meldeinhalt",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 5 Durchfuehrungsverordnung (EU) 2025/302 i.V.m. Art. 2 Buchst. i Delegierte Verordnung (EU) 2025/301",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Unter welcher Voraussetzung darf ein bereits als schwerwiegend gemeldeter Vorfall gegenüber der Behörde auf 'nicht schwerwiegend' zurückgestuft werden?",
+     "options": {
+      "a": "Sobald der Dienst wiederhergestellt ist und keine weiteren Auswirkungen mehr eintreten",
+      "b": "Nur wenn das Finanzunternehmen nach eingehender Prüfung zu dem Schluss kommt, dass der Vorfall zu keinem Zeitpunkt die Einstufungskriterien und Schwellenwerte des Art. 8 der Delegierten Verordnung (EU) 2024/1772 erfüllt hat",
+      "c": "Wenn sich die zunächst geschätzten Kosten im Nachhinein als niedriger herausstellen als angenommen",
+      "d": "Eine Rückstufung ist in keinem Fall vorgesehen"
+     }
+    },
+    "en": {
+     "question": "Under what condition may an incident already reported as major be reclassified to 'non-major' vis-a-vis the authority?",
+     "options": {
+      "a": "As soon as the service is restored and no further impact occurs",
+      "b": "Only where the financial entity concludes, after further assessment, that the incident at no time fulfilled the classification criteria and thresholds set out in Art. 8 of Delegated Regulation (EU) 2024/1772",
+      "c": "Where the initially estimated costs subsequently turn out to be lower than assumed",
+      "d": "Reclassification is never provided for"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 5 der Durchführungsverordnung (EU) 2025/302: 'Kommt das Finanzunternehmen nach eingehender Prüfung zu dem Schluss, dass der zuvor als schwerwiegend gemeldete IKT-bezogene Vorfall zu keinem Zeitpunkt die in Artikel 8 der Delegierten Verordnung (EU) 2024/1772 festgelegten Einstufungskriterien und Schwellenwerte erfüllte, so teilt es der zuständigen Behörde mit, dass es den IKT-bezogenen Vorfall von schwerwiegend auf nicht schwerwiegend zurückgestuft hat', und macht die Angaben in den Feldern 'Art der Meldung' und 'Sonstige Informationen'. Maßgeblich ist damit ein rückblickender Test: nicht 'der Vorfall ist vorbei', sondern 'die Schwelle war nie erreicht'. Antwort c beschreibt den häufigsten Irrtum - Schätzwerte sind nach Art. 1 Abs. 3 der Durchführungsverordnung ausdrücklich vorgesehen, und eine nachträglich niedrigere Zahl macht die ursprüngliche Einstufung nicht unrichtig, solange andere Schwellen erfüllt waren. Die Auswahlliste im Feld 1.1 sieht die Rückstufung als eigenen Meldungstyp vor; Art. 2 Buchst. i der Delegierten Verordnung (EU) 2025/301 nennt Angaben zur Rückstufung außerdem als Inhalt der Erstmeldung, sofern einschlägig. REDAKTIONELLER HINWEIS FÜR DIE PRÜFUNG: Art. 5 der Durchführungsverordnung verweist im Wortlaut auf 'die Vorlage in Anhang II', während die Meldevorlage in Anhang I steht und Anhang II das Datenglossar enthält; auf die Antwort wirkt sich das nicht aus.",
+    "en": "Art. 5 of Implementing Regulation (EU) 2025/302: 'Where after further assessment, the financial entity concludes that the ICT-related incident previously reported as major, at no time fulfilled the classification criteria and thresholds set out in Article 8 of Delegated Regulation (EU) 2024/1772, the financial entity shall notify to the competent authority that it has reclassified the ICT-related incident from major to non-major', providing the information in the 'type of report' and 'other information' fields. The test is therefore retrospective: not 'the incident is over' but 'the threshold was never met'. Option (c) describes the most common error - estimates are expressly provided for by Art. 1(3) of the Implementing Regulation, and a subsequently lower figure does not make the original classification wrong so long as other thresholds were met. The choice list in field 1.1 provides for reclassification as its own submission type; Art. 2(i) of Delegated Regulation (EU) 2025/301 additionally lists reclassification information as content of the initial notification, where applicable. EDITORIAL NOTE FOR REVIEW: Art. 5 of the Implementing Regulation refers on its face to 'the template laid down in Annex II', whereas the reporting template is in Annex I and Annex II contains the data glossary; this has no effect on the answer."
+   },
+   "roles": [
+    "all"
+   ]
+  }
+ ]
+}
