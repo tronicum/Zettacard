@@ -1,0 +1,278 @@
+{
+  "meta": {
+    "app": "Zettacard / arbeitssicherheit-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-sonnet/2026-08-15",
+    "canonical_locale": "de",
+    "locales": ["de", "en"]
+  },
+  "courses": [
+    {
+      "course_id": "arbeitssicherheit-all",
+      "module_ref": "arbeitssicherheit",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 69,
+      "title": {
+        "de": "Arbeitssicherheit – Grundlagen für Beschäftigte und Führungskräfte",
+        "en": "Workplace safety – fundamentals for staff and management"
+      },
+      "description": {
+        "de": "Fünf Lektionen von der rechtlichen Grundstruktur des Arbeitsschutzgesetzes über die jährliche Unterweisungspflicht nach DGUV Vorschrift 1 bis zur Gefährdungsbeurteilung, persönlichen Schutzausrüstung, Notfallvorsorge und Bildschirmarbeitsplätzen. Konzipiert als wiederkehrende Pflichtschulung – die DGUV Vorschrift 1 verlangt eine mindestens jährliche Unterweisung, die zweite Lektion erklärt genau das.",
+        "en": "Five lessons moving from the legal architecture of the Arbeitsschutzgesetz through the annual training duty under DGUV Vorschrift 1, to risk assessment, personal protective equipment, emergency preparedness, and display-screen workstations. Designed as recurring mandatory training – DGUV Vorschrift 1 requires instruction at least once a year, which the second lesson covers directly."
+      },
+
+      "concepts": [
+        { "concept_id": "zc:concept:arbeitssicherheit/employer-duties",
+          "label": { "de": "Arbeitgeberpflichten nach ArbSchG", "en": "Employer duties under the Arbeitsschutzgesetz" } },
+        { "concept_id": "zc:concept:arbeitssicherheit/employee-duties",
+          "label": { "de": "Beschäftigtenpflichten nach ArbSchG", "en": "Employee duties under the Arbeitsschutzgesetz" } },
+        { "concept_id": "zc:concept:arbeitssicherheit/unterweisung",
+          "label": { "de": "Unterweisungspflicht (DGUV Vorschrift 1)", "en": "Instruction/training duty (DGUV Vorschrift 1)" } },
+        { "concept_id": "zc:concept:arbeitssicherheit/gefaehrdungsbeurteilung",
+          "label": { "de": "Gefährdungsbeurteilung", "en": "Risk assessment" } },
+        { "concept_id": "zc:concept:arbeitssicherheit/psa",
+          "label": { "de": "Persönliche Schutzausrüstung", "en": "Personal protective equipment" } },
+        { "concept_id": "zc:concept:arbeitssicherheit/notfallvorsorge",
+          "label": { "de": "Notfall- und Brandschutzvorsorge", "en": "Emergency and fire-safety preparedness" } },
+        { "concept_id": "zc:concept:arbeitssicherheit/bildschirmarbeit",
+          "label": { "de": "Bildschirmarbeitsplätze", "en": "Display-screen workstations" } }
+      ],
+
+      "lessons": [
+        {
+          "lesson_id": "arbeitssicherheit-l1",
+          "order": 1,
+          "title": { "de": "Wer schuldet wem was? Die Grundpflichten des ArbSchG", "en": "Who owes whom what? Basic duties under the ArbSchG" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 12,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": ["zc:concept:arbeitssicherheit/employer-duties", "zc:concept:arbeitssicherheit/employee-duties"],
+          "sections": [
+            {
+              "section_id": "arbeitssicherheit-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "arbeitssicherheit-l1-s1",
+              "legal_basis": "§3, §7, §13 ArbSchG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Die Grundpflicht des Arbeitgebers – und wer sie tragen darf", "en": "The employer's basic duty – and who may carry it" },
+              "body": {
+                "de": "§3 Abs. 1 ArbSchG verpflichtet den Arbeitgeber, die für die Sicherheit und Gesundheit der Beschäftigten erforderlichen Maßnahmen des Arbeitsschutzes zu treffen – unter Berücksichtigung der Umstände, die Sicherheit und Gesundheit der Beschäftigten bei der Arbeit beeinflussen. Das ist keine einmalige Pflicht: Abs. 1 verlangt ausdrücklich, die Maßnahmen auf ihre Wirksamkeit zu überprüfen und veränderten Gegebenheiten anzupassen, und Abs. 2 verlangt eine geeignete Organisation und die Bereitstellung der erforderlichen Mittel. Diese Grundpflicht liegt zunächst beim Arbeitgeber selbst – §7 verpflichtet ihn außerdem, bei der Übertragung von Aufgaben an Beschäftigte deren Qualifikation und bisherige Unterweisung zu berücksichtigen. §13 Abs. 2 erlaubt es zusätzlich, Aufgaben des Arbeitgebers im Arbeitsschutz schriftlich auf zuverlässige und fachkundige Personen zu übertragen; die Verantwortung dafür, dass ein solches Delegationssystem überhaupt funktioniert, bleibt aber beim Arbeitgeber.",
+                "en": "§3(1) ArbSchG requires the employer to take the occupational-safety measures necessary for employees' safety and health, taking into account the circumstances affecting their safety and health at work. This is not a one-off duty: §3(1) explicitly requires measures to be checked for effectiveness and adapted to changing conditions, and §3(2) requires a suitable organisational structure and the necessary resources. This basic duty sits with the employer in the first instance – §7 additionally requires the employer to take employees' qualifications and prior instruction into account when assigning tasks. §13(2) further allows the employer's occupational-safety tasks to be delegated in writing to reliable, competent persons, but responsibility for making sure such a delegation system actually works stays with the employer."
+              }
+            },
+            {
+              "section_id": "arbeitssicherheit-l1-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "arbeitssicherheit-l1-s2",
+              "legal_basis": "§15, §16 ArbSchG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Pflichten der Beschäftigten – keine Einbahnstraße", "en": "Employee duties – not a one-way street" },
+              "body": {
+                "de": "Arbeitsschutz ist keine reine Arbeitgeberpflicht. §15 Abs. 1 ArbSchG verpflichtet jede Beschäftigte und jeden Beschäftigten, nach ihren beziehungsweise seinen Möglichkeiten sowie gemäß der Unterweisung und Weisung des Arbeitgebers für die eigene Sicherheit und Gesundheit bei der Arbeit Sorge zu tragen – und ebenso für die Sicherheit und Gesundheit der Personen, die von den eigenen Handlungen oder Unterlassungen bei der Arbeit betroffen sind. §16 konkretisiert das: Maschinen, Werkzeuge, Gefahrstoffe und persönliche Schutzausrüstung sind bestimmungsgemäß zu verwenden, und festgestellte unmittelbare erhebliche Gefahren sowie Defekte an Schutzsystemen sind dem Arbeitgeber oder der zuständigen Person unverzüglich zu melden. Diese Mitwirkungspflicht ist die Kehrseite der Unterweisung aus Lektion 2: Ohne sie bleibt jede noch so gute Unterweisung wirkungslos.",
+                "en": "Occupational safety is not purely an employer duty. §15(1) ArbSchG obliges every employee, to the extent of their own ability and in line with the employer's instruction and directions, to take care of their own safety and health at work – and equally of the safety and health of other persons affected by their acts or omissions at work. §16 spells this out further: machinery, tools, hazardous substances and personal protective equipment must be used as intended, and any immediate significant danger or defect in protective systems must be reported to the employer or the responsible person without delay. This duty to cooperate is the flip side of the instruction duty covered in Lesson 2: without it, even the best instruction has no effect."
+              }
+            }
+          ],
+          "select": {
+            "topic_codes": ["grundpflichten"],
+            "question_ids": ["arbeitssicherheit-grundpflichten-02"],
+            "count": 8
+          }
+        },
+        {
+          "lesson_id": "arbeitssicherheit-l2",
+          "order": 2,
+          "title": { "de": "Warum Sie hier sind: die jährliche Unterweisungspflicht", "en": "Why you're here: the annual training duty" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": ["zc:concept:arbeitssicherheit/unterweisung"],
+          "prereqs": [ { "requires_lesson": "arbeitssicherheit-l1", "hardness": "advice" } ],
+          "sections": [
+            {
+              "section_id": "arbeitssicherheit-l2-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "arbeitssicherheit-l2-s1",
+              "legal_basis": "§12 ArbSchG i. V. m. §4 DGUV Vorschrift 1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "§12 ArbSchG plus §4 DGUV Vorschrift 1: eine harte Wiederholungspflicht", "en": "§12 ArbSchG plus §4 DGUV Vorschrift 1: a hard recurring duty" },
+              "body": {
+                "de": "§12 Abs. 1 ArbSchG verpflichtet den Arbeitgeber, Beschäftigte ausreichend und angemessen über Sicherheit und Gesundheitsschutz bei der Arbeit zu unterweisen – insbesondere bei Einstellung, bei Veränderungen im Aufgabenbereich, bei Einführung neuer Arbeitsmittel oder einer neuen Technologie, und zwar an den jeweiligen Arbeitsplatz beziehungsweise Aufgabenbereich der Beschäftigten ausgerichtet. Das Gesetz selbst nennt diese Anlässe, ist aber bei der Frage „wie oft“ eher offen formuliert. Genau hier setzt §4 Abs. 1 DGUV Vorschrift 1 an und macht daraus eine feste Zahl: Unternehmerinnen und Unternehmer haben die Versicherten bei Bedarf, mindestens jedoch einmal jährlich, über die bei ihrer Tätigkeit auftretenden Unfall- und Gesundheitsgefahren sowie über die Maßnahmen und Einrichtungen zur Abwendung dieser Gefahren zu unterweisen. „Mindestens einmal jährlich“ ist damit keine Empfehlung, sondern eine verbindliche Unfallverhütungsvorschrift der gesetzlichen Unfallversicherung – und der Grund, warum dieser Kurs für Sie als wiederkehrende Pflichtschulung konzipiert ist, unabhängig von Ihrer Rolle im Betrieb.",
+                "en": "§12(1) ArbSchG requires the employer to give employees sufficient and appropriate instruction on safety and health at work – in particular on recruitment, on changes to their area of responsibility, and when new work equipment or new technology is introduced, tailored to each employee's actual workplace and tasks. The statute names these triggers but leaves the question of \"how often\" relatively open. That is exactly where §4(1) DGUV Vorschrift 1 steps in and turns it into a hard number: employers must instruct insured persons as needed, but at least once a year, on the accident and health hazards arising from their work and on the measures and facilities in place to avert those hazards. \"At least once a year\" is therefore not a recommendation but a binding accident-prevention regulation (Unfallverhütungsvorschrift) of the statutory accident insurance system – and it is why this course is designed as a recurring mandatory training, regardless of your role in the company."
+              }
+            },
+            {
+              "section_id": "arbeitssicherheit-l2-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "arbeitssicherheit-l2-s2",
+              "legal_basis": "§12 Abs. 1, Abs. 2 ArbSchG; §4 DGUV Vorschrift 1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Mehr als der Jahrestermin: Anlässe, Nachweis, Zielgruppen", "en": "More than the annual date: triggers, evidence, audience" },
+              "body": {
+                "de": "Die jährliche Mindestunterweisung ist die Untergrenze, nicht die ganze Pflicht. §12 Abs. 1 ArbSchG verlangt zusätzliche, anlassbezogene Unterweisungen etwa bei neuen Beschäftigten, bei einem Wechsel des Aufgabenbereichs, bei neuen Arbeitsmitteln oder Technologien – und in der Praxis ebenso nach Beinaheunfällen oder erkennbar veränderten Gefährdungen. Für bestimmte Personengruppen gelten zudem kürzere Intervalle oder besondere Anforderungen, etwa für Jugendliche oder bei besonders gefährdeten Tätigkeiten; die konkreten Fristen dafür sind in den jeweiligen Spezialvorschriften zu prüfen und werden hier bewusst nicht beziffert. §12 Abs. 2 ArbSchG stellt außerdem klar, dass die Unterweisung während der Arbeitszeit zu erfolgen hat und erforderlichenfalls zu wiederholen ist. Dass die Unterweisung tatsächlich stattgefunden hat – wer, wann, zu welchem Inhalt – lässt sich im Streit- oder Kontrollfall nur belegen, wenn sie dokumentiert wurde; auch wenn der genaue Dokumentationsumfang nicht in jedem Detail gesetzlich vorgeschrieben ist, gilt eine schriftliche oder elektronische Nachweisführung in der betrieblichen Praxis als unverzichtbar.",
+                "en": "The annual minimum instruction is the floor, not the entire duty. §12(1) ArbSchG also requires additional, trigger-based instruction – for new employees, on a change of role, when new work equipment or technology is introduced – and in practice also after near-misses or a noticeably changed hazard picture. Shorter intervals or special requirements apply to certain groups, for example minors or particularly hazardous tasks; the specific timeframes for those cases sit in dedicated special rules and are deliberately not given a number here. §12(2) ArbSchG also makes clear that instruction must take place during working hours and be repeated where necessary. Whether instruction actually happened – who, when, on what content – can generally only be proven in a dispute or an inspection if it was documented; even though the exact scope of documentation is not spelled out in every detail by statute, keeping a written or electronic record is treated as indispensable in workplace practice."
+              }
+            }
+          ],
+          "select": {
+            "topic_codes": ["unterweisung"],
+            "question_ids": ["arbeitssicherheit-unterweisung-03", "arbeitssicherheit-unterweisung-08"],
+            "count": 8
+          }
+        },
+        {
+          "lesson_id": "arbeitssicherheit-l3",
+          "order": 3,
+          "title": { "de": "Die Gefährdungsbeurteilung: Pflicht vor jeder Maßnahme", "en": "Risk assessment: a duty before every measure" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": ["zc:concept:arbeitssicherheit/gefaehrdungsbeurteilung"],
+          "prereqs": [ { "requires_lesson": "arbeitssicherheit-l2", "hardness": "advice" } ],
+          "sections": [
+            {
+              "section_id": "arbeitssicherheit-l3-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "arbeitssicherheit-l3-s1",
+              "legal_basis": "§5 ArbSchG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Erst beurteilen, dann handeln", "en": "Assess first, act second" },
+              "body": {
+                "de": "§5 Abs. 1 ArbSchG verpflichtet den Arbeitgeber, durch eine Beurteilung der für die Beschäftigten mit ihrer Arbeit verbundenen Gefährdungen zu ermitteln, welche Maßnahmen des Arbeitsschutzes erforderlich sind. Diese Gefährdungsbeurteilung ist damit kein optionales Zusatzdokument, sondern die gesetzliche Voraussetzung für praktisch alles Weitere in diesem Kurs: Erst aus ihr ergibt sich, worüber überhaupt unterwiesen werden muss (Lektion 2), welche persönliche Schutzausrüstung erforderlich ist (Lektion 4) und welche Anforderungen ein konkreter Bildschirmarbeitsplatz erfüllen muss (Lektion 5). §5 Abs. 3 nennt dafür eine nicht abschließende Liste möglicher Gefährdungsquellen – von der Gestaltung und Einrichtung der Arbeitsstätte über physikalische, chemische und biologische Einwirkungen, die Gestaltung von Arbeits- und Fertigungsverfahren, unzureichende Qualifikation und Unterweisung bis hin zu psychischen Belastungen bei der Arbeit. Wichtig: Eine Gefährdungsbeurteilung ist nach §3 Abs. 1 kein einmaliger Vorgang, sondern muss bei veränderten Gegebenheiten – neue Arbeitsmittel, neue Prozesse, ein Unfall – überprüft und angepasst werden.",
+                "en": "§5(1) ArbSchG requires the employer to determine, through an assessment of the hazards employees face in their work, which occupational-safety measures are necessary. This risk assessment is therefore not an optional add-on document but the statutory precondition for practically everything else in this course: it is what determines what actually needs to be covered in instruction (Lesson 2), what personal protective equipment is required (Lesson 4), and what requirements a specific display-screen workstation must meet (Lesson 5). §5(3) gives a non-exhaustive list of possible hazard sources for this purpose – from the design and layout of the workplace, to physical, chemical and biological effects, the design of work and production processes, insufficient qualification and instruction, through to psychological strain at work. Importantly, under §3(1) a risk assessment is not a one-off exercise; it must be reviewed and adapted whenever circumstances change – new equipment, new processes, or after an accident."
+              }
+            },
+            {
+              "section_id": "arbeitssicherheit-l3-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "arbeitssicherheit-l3-s2",
+              "legal_basis": "§6 ArbSchG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Dokumentation: das Ergebnis muss nachvollziehbar sein", "en": "Documentation: the result must be traceable" },
+              "body": {
+                "de": "§6 Abs. 1 ArbSchG verlangt, dass der Arbeitgeber über die Ergebnisse der Gefährdungsbeurteilung, die von ihm festgelegten Maßnahmen des Arbeitsschutzes und das Ergebnis ihrer Überprüfung die erforderlichen Unterlagen zusammenstellt – in einer Form und einem Umfang, die der Art der Tätigkeiten und der Zahl der Beschäftigten angemessen sind. Ein Beispiel: In einem Büro mit Bildschirmarbeitsplätzen wird die Gefährdungsbeurteilung typischerweise ergonomische Faktoren (Lektion 5), Beleuchtung und Brandschutz (Lektion 4) sowie psychische Belastungsfaktoren umfassen; in einer Werkstatt mit Maschineneinsatz kommen mechanische, elektrische und stoffliche Gefährdungen hinzu. Der genaue Umfang der Dokumentationspflicht – etwa mögliche vereinfachte Formen für kleinere Betriebe – hängt von den konkreten Umständen ab und wird hier bewusst nicht pauschal beziffert; im Zweifel gilt: Je nachvollziehbarer die Beurteilung dokumentiert ist, desto belastbarer ist sie gegenüber Aufsichtsbehörden und im Streitfall.",
+                "en": "§6(1) ArbSchG requires the employer to compile the necessary documentation on the results of the risk assessment, the occupational-safety measures determined by the employer, and the results of their review – in a form and to an extent appropriate to the type of activities and the number of employees. For example: in an office with display-screen workstations, the risk assessment will typically cover ergonomic factors (Lesson 5), lighting and fire safety (Lesson 4), and psychological strain factors; in a workshop using machinery, mechanical, electrical and substance-related hazards are added on top. The precise scope of the documentation duty – including possible simplified forms for smaller businesses – depends on the concrete circumstances and is deliberately not given a blanket figure here; as a rule of thumb, the more traceable the documentation, the more it will hold up to a supervisory authority or in a dispute."
+              }
+            }
+          ],
+          "select": {
+            "topic_codes": ["gefaehrdungsbeurteilung"],
+            "count": 8
+          }
+        },
+        {
+          "lesson_id": "arbeitssicherheit-l4",
+          "order": 4,
+          "title": { "de": "Schutzausrüstung und Notfall: wenn es darauf ankommt", "en": "Protective equipment and emergencies: when it counts" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": ["zc:concept:arbeitssicherheit/psa", "zc:concept:arbeitssicherheit/notfallvorsorge"],
+          "prereqs": [ { "requires_lesson": "arbeitssicherheit-l3", "hardness": "advice" } ],
+          "sections": [
+            {
+              "section_id": "arbeitssicherheit-l4-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "arbeitssicherheit-l4-s1",
+              "legal_basis": "§4 Nr. 5, §15 Abs. 2 ArbSchG; PSA-Benutzungsverordnung",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Persönliche Schutzausrüstung ist die letzte Verteidigungslinie", "en": "Personal protective equipment is the last line of defence" },
+              "body": {
+                "de": "§4 Nr. 5 ArbSchG legt einen der allgemeinen Grundsätze des Arbeitsschutzes fest: individuelle Schutzmaßnahmen sind anderen Maßnahmen nachzuordnen. Das heißt in der Praxis, dass persönliche Schutzausrüstung (PSA) erst dann zum Einsatz kommen soll, wenn technische und organisatorische Maßnahmen die Gefährdung nicht ausreichend beseitigen oder verringern können – sie ist die letzte, nicht die erste Verteidigungslinie. Ergibt die Gefährdungsbeurteilung aus Lektion 3, dass PSA erforderlich ist, muss der Arbeitgeber sie nach der PSA-Benutzungsverordnung geeignet auswählen und den Beschäftigten kostenlos zur Verfügung stellen. Auf der anderen Seite steht die Nutzungspflicht der Beschäftigten: §15 Abs. 2 ArbSchG verpflichtet sie, die ihnen zur Verfügung gestellte persönliche Schutzausrüstung bestimmungsgemäß zu benutzen. Bereitstellung ohne Nutzung – und Nutzung ohne Bereitstellung – schützen beide niemanden.",
+                "en": "§4 No. 5 ArbSchG sets out one of the general principles of occupational safety: individual protective measures rank behind other measures. In practice, this means personal protective equipment (PPE) should only be used once technical and organisational measures cannot sufficiently eliminate or reduce the hazard – it is the last line of defence, not the first. Where the risk assessment from Lesson 3 shows PPE is required, the employer must select suitable equipment under the PSA-Benutzungsverordnung and provide it to employees free of charge. On the other side sits the employees' duty to use it: §15(2) ArbSchG requires them to use the personal protective equipment provided to them as intended. Provision without use – and use without provision – protects nobody."
+              }
+            },
+            {
+              "section_id": "arbeitssicherheit-l4-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "arbeitssicherheit-l4-s2",
+              "legal_basis": "ASR A2.2, ASR A2.3; §26 DGUV Vorschrift 1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Fluchtwege, Brandschutz und Erste Hilfe: Vorsorge vor dem Ernstfall", "en": "Escape routes, fire safety and first aid: preparing before the emergency" },
+              "body": {
+                "de": "Die Technischen Regeln für Arbeitsstätten konkretisieren die Arbeitsstättenverordnung mit Vorgaben, die im Ernstfall zählen. ASR A2.3 verlangt gekennzeichnete, jederzeit freizuhaltende Fluchtwege und Notausgänge, deren Anzahl, Breite und Länge sich nach Nutzung, Abmessung und Zahl der anwesenden Personen richten. ASR A2.2 fordert Maßnahmen gegen Brände, unter anderem geeignete und ausreichend vorhandene Feuerlöscheinrichtungen sowie Flucht- und Rettungspläne, wo dies nach Art der Nutzung erforderlich ist. Für den medizinischen Notfall verpflichtet §26 DGUV Vorschrift 1 den Unternehmer, für eine ausreichende Anzahl an Ersthelferinnen und Ersthelfern zu sorgen; die konkrete Anzahl richtet sich nach betrieblichen Faktoren wie Beschäftigtenzahl und Gefährdungslage und wird hier bewusst nicht pauschal beziffert. Ergänzend beschreibt DGUV Information 204-022, welche Erste-Hilfe-Ausstattung – etwa Verbandkästen – im Betrieb vorzuhalten ist. Wichtig für alle Beschäftigten: Wissen, wo diese Einrichtungen sind, ist Teil der Unterweisung aus Lektion 2, nicht ein separates Thema.",
+                "en": "The Technical Rules for Workplaces (ASR) flesh out the Arbeitsstättenverordnung with requirements that matter in an emergency. ASR A2.3 requires clearly marked escape routes and emergency exits that must be kept clear at all times, with their number, width and length depending on usage, dimensions and the number of people present. ASR A2.2 requires measures against fire, including suitable and sufficient fire-extinguishing equipment and escape/rescue plans where the type of use calls for them. For medical emergencies, §26 DGUV Vorschrift 1 requires the employer to ensure a sufficient number of trained first-aiders; the exact number depends on workplace factors such as headcount and hazard profile and is deliberately not given a blanket figure here. DGUV Information 204-022 further describes the first-aid equipment – such as first-aid kits – that a workplace should keep on hand. Important for every employee: knowing where these facilities are is part of the instruction covered in Lesson 2, not a separate topic."
+              }
+            }
+          ],
+          "select": {
+            "topic_codes": ["psa_notfall"],
+            "count": 8
+          }
+        },
+        {
+          "lesson_id": "arbeitssicherheit-l5",
+          "order": 5,
+          "title": { "de": "Bildschirmarbeitsplätze: Ergonomie ist keine Kür", "en": "Display-screen workstations: ergonomics is not optional" },
+          "lesson_kind": "checkpoint",
+          "estimated_minutes": 12,
+          "completion_rule": "quiz_pass:0.8",
+          "concepts": ["zc:concept:arbeitssicherheit/bildschirmarbeit"],
+          "prereqs": [ { "requires_lesson": "arbeitssicherheit-l4", "hardness": "advice" } ],
+          "sections": [
+            {
+              "section_id": "arbeitssicherheit-l5-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "arbeitssicherheit-l5-s1",
+              "legal_basis": "Arbeitsstättenverordnung (ArbStättV), Anhang Nr. 6",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Was Anhang Nr. 6 ArbStättV an einem Bildschirmarbeitsplatz voraussetzt", "en": "What Annex No. 6 ArbStättV expects of a display-screen workstation" },
+              "body": {
+                "de": "Anhang Nr. 6 der Arbeitsstättenverordnung stellt konkrete Mindestanforderungen an Bildschirmarbeitsplätze auf, die aus der Gefährdungsbeurteilung dieses Arbeitsplatztyps folgen: der Bildschirm muss frei von störendem Flimmern und Reflexionen sein, in Neigung und Blickabstand anpassbar; die Tastatur muss vom Bildschirm getrennt und in Neigung verstellbar sein, um eine ermüdungsarme Handhaltung zu ermöglichen; Arbeitsfläche und Arbeitsstuhl müssen ausreichend Bewegungsfreiheit und eine gesunde Körperhaltung erlauben; die Beleuchtung muss ausreichend sein und darf keine störenden Blendungen oder Spiegelungen auf dem Bildschirm erzeugen. Der Anhang stellt außerdem Anforderungen an die eingesetzte Software – sie muss unter anderem der auszuführenden Arbeitsaufgabe angepasst und benutzerfreundlich gestaltet sein. Diese Vorgaben sind kein Gestaltungsvorschlag, sondern rechtsverbindliche Mindestanforderungen, gegen die ein konkreter Arbeitsplatz im Zweifel überprüft werden kann.",
+                "en": "Annex No. 6 of the Arbeitsstättenverordnung sets concrete minimum requirements for display-screen workstations that follow from the risk assessment for this type of workplace: the screen must be free of disturbing flicker and reflections, and adjustable in tilt and viewing distance; the keyboard must be separate from the screen and tiltable, to allow a hand position that avoids fatigue; the work surface and chair must allow sufficient freedom of movement and a healthy posture; lighting must be adequate and must not create disturbing glare or reflections on the screen. The Annex also sets requirements for the software used – among other things, it must be suited to the task being carried out and designed to be user-friendly. These are not design suggestions but legally binding minimum requirements against which a specific workstation can, if in doubt, be checked."
+              }
+            },
+            {
+              "section_id": "arbeitssicherheit-l5-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "arbeitssicherheit-l5-s2",
+              "legal_basis": "ArbMedVV, Anhang Teil 4",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Der Sehtest-Anspruch: Angebotsvorsorge, kein Zwang", "en": "The eye-test entitlement: an offer, not a requirement" },
+              "body": {
+                "de": "Anhang Teil 4 der Verordnung zur arbeitsmedizinischen Vorsorge (ArbMedVV) ordnet Bildschirmarbeit als Tätigkeit mit sogenannter Angebotsvorsorge ein: Der Arbeitgeber muss Beschäftigten, die regelmäßig an Bildschirmgeräten arbeiten, eine arbeitsmedizinische Vorsorge – unter anderem eine Untersuchung der Augen und des Sehvermögens – anbieten, bevor die Tätigkeit aufgenommen wird und danach in regelmäßigen Abständen. Wichtig ist der Unterschied zur Pflichtvorsorge: Beschäftigte können das Angebot annehmen oder ablehnen, ein Wahrnehmungszwang besteht nicht. Ergibt die Untersuchung, dass eine normale Sehhilfe für die Bildschirmarbeit nicht ausreicht, hat der Arbeitgeber eine spezielle Sehhilfe für diese Tätigkeit zur Verfügung zu stellen. Die konkreten Wiederholungsabstände der Angebotsvorsorge richten sich nach ärztlicher Einschätzung und werden hier daher bewusst nicht mit einer festen Zahl von Jahren beziffert.",
+                "en": "Annex Part 4 of the Ordinance on Occupational Health Care (ArbMedVV) classifies display-screen work as an activity subject to so-called \"offered\" health surveillance (Angebotsvorsorge): the employer must offer employees who regularly work at display screens an occupational health check – including an eye and vision examination – before they start the activity and at regular intervals afterwards. The key distinction from mandatory health surveillance is that employees may accept or decline the offer; there is no requirement to take it up. If the examination shows that normal vision aids are not sufficient for display-screen work, the employer must provide special vision aids for that work. The specific interval at which the offer must be repeated depends on medical assessment, and is therefore deliberately not given as a fixed number of years here."
+              }
+            }
+          ],
+          "select": {
+            "topic_codes": ["bildschirmarbeit"],
+            "count": 8
+          }
+        }
+      ]
+    }
+  ]
+}

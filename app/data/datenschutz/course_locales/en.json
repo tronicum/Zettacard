@@ -1,0 +1,72 @@
+{
+  "datenschutz-all": {
+    "title": "Data protection / GDPR for employees",
+    "description": "Six lessons on GDPR at work: starting from its status as an EU-wide Regulation, through the core principles, data subject rights, data security, and breach-notification duties, to processor relationships."
+  },
+  "datenschutz-l0": {
+    "title": "GDPR is an EU Regulation, not a German law"
+  },
+  "datenschutz-l0-s1": {
+    "title": "A Regulation applies directly – word-for-word in all 27 member states",
+    "body": "GDPR (in EU law, \"Regulation (EU) 2016/679\") is not a directive that each country first had to translate into its own national law – it is a Regulation, and has therefore applied directly and word-for-word in all 27 EU member states since 25 May 2018. A company in Warsaw, Dublin, or Vienna reads the same Art. 5 and the same Art. 32 as a company in Munich. That sets GDPR apart from its predecessor, Directive 95/46/EC, which had to be transposed nationally and therefore looked somewhat different in each country. That said, this doesn't mean EU data protection law is fully uniform: GDPR contains roughly 70 so-called opening clauses that let member states regulate certain points nationally – for example the age of digital consent for minors using online services (Art. 8), employee data protection (Art. 88), or the processing of national identification numbers (Art. 87). It is exactly these opening clauses that Germany's implementing act, the BDSG (Bundesdatenschutzgesetz), builds on – and it is, EU-wide, one of the most extensive and detailed national implementing laws for GDPR."
+  },
+  "datenschutz-l0-s2": {
+    "title": "Useful context for EU-wide operations – not legal advice on other countries",
+    "body": "Anyone working at a company with locations or customers across several EU countries will occasionally run into national differences that stem from exactly these opening clauses – not from a different GDPR. Three examples for orientation, kept deliberately brief and explicitly not a statement about the law in force in any specific other country: first, the digital age of consent for minors ranges from 13 to 16 depending on the member state, because Art. 8 GDPR leaves states this margin. Second, because so many US tech companies have their EU headquarters there, Ireland frequently holds the lead supervisory authority role under the \"one-stop-shop\" mechanism for their cross-border processing – a structural quirk that follows from corporate organisation, not from different law. Third, Austria's implementing act, the Datenschutzgesetz (DSG), is noticeably shorter and leaner than Germany's BDSG – a useful contrast showing that \"same Regulation\" does not mean \"equally thick implementing law\" everywhere. This lesson and its questions continue to test German data protection law only (GDPR + BDSG); the three points above are background for EU-wide context, not a verified statement about a foreign legal system, and certainly not legal advice. For concrete questions about another member state, consult that country's supervisory authority or local legal counsel."
+  },
+  "datenschutz-l1": {
+    "title": "The core principles of GDPR"
+  },
+  "datenschutz-l1-s1": {
+    "title": "Seven principles plus accountability",
+    "body": "Art. 5(1) GDPR distils what every processing of personal data must satisfy into seven principles: lawfulness, fairness and transparency (lit. a); purpose limitation – data may only be collected for specified, explicit and legitimate purposes (lit. b); data minimisation – no more data than the purpose requires (lit. c); accuracy (lit. d); storage limitation – not kept longer than necessary (lit. e); and integrity and confidentiality, i.e. adequate security (lit. f). Art. 5(2) adds an eighth, structurally different principle: accountability. The controller must not only ensure compliance with the other principles but must also be able to demonstrate it – for example through records of processing, documented decisions, and retention/deletion concepts. In practice, if you cannot show why data was collected and when it will be deleted, you are arguably already in breach of accountability, even if the underlying processing itself was fine."
+  },
+  "datenschutz-l1-s2": {
+    "title": "No processing without a lawful basis",
+    "body": "Art. 6(1) GDPR sets out an exhaustive list of six lawful bases, at least one of which must apply to any processing of personal data: consent (lit. a); performance of a contract or pre-contractual steps (lit. b); legal obligation (lit. c); vital interests (lit. d); performance of a task carried out in the public interest (lit. e); and legitimate interests of the controller or a third party, provided they are not overridden by the data subject's interests or fundamental rights (lit. f). A workplace example: payroll processing rests on the employment contract (lit. b) and on tax/social-security obligations (lit. c) – not on consent, because in an employment relationship consent is usually not \"freely given\" within the meaning of Art. 4(11) GDPR, given the imbalance between employer and employee. Choosing the right lawful basis is not a formality: among other things, it determines which data subject rights apply and whether an objection is possible."
+  },
+  "datenschutz-l2": {
+    "title": "Data subject rights"
+  },
+  "datenschutz-l2-s1": {
+    "title": "Seven rights, one shared chapter",
+    "body": "Chapter III of GDPR (Art. 12-23) groups the data subject rights: the right of access (Art. 15) – what is being processed about me, for what purpose, disclosed to whom; the right to rectification (Art. 16); the right to erasure, colloquially the \"right to be forgotten\" (Art. 17), which is subject to several conditions and is by no means absolute; the right to restriction of processing (Art. 18) for transitional situations, for instance while the accuracy of data is being contested; the right to data portability (Art. 20), which only applies to processing based on consent or contract and only where processing is automated; and the right to object (Art. 21), which is absolute for direct marketing but, for other processing based on legitimate interest, triggers a case-by-case balancing of interests. Art. 12 sets out the shared procedural rules: requests must be answered in a concise, transparent, intelligible form, and normally free of charge."
+  },
+  "datenschutz-l2-s2": {
+    "title": "A one-month deadline, and a special case for automated decisions",
+    "body": "Art. 12(3) GDPR sets a one-month deadline for most data subject requests, counted from receipt; that deadline can be extended by a further two months for complex or numerous requests, provided the data subject is informed. Anyone at work who receives an access request should therefore forward it to the responsible unit (often the data protection officer) immediately – not let it sit, because the clock starts at receipt, not when work on it begins. Art. 22 is a special case of its own: data subjects generally have the right not to be subject to a decision based solely on automated processing that produces legal effects concerning them or similarly significantly affects them – for example a fully automated rejection of a credit application with no human involvement. Exceptions exist for contractual necessity, legal authorisation, or explicit consent, each requiring additional safeguards such as the right to obtain human intervention."
+  },
+  "datenschutz-l3": {
+    "title": "Data security and technical/organisational measures"
+  },
+  "datenschutz-l3-s1": {
+    "title": "An appropriate level of security, not a rigid checklist",
+    "body": "Art. 32 GDPR requires controllers and processors to implement appropriate technical and organisational measures (TOMs) to ensure a level of security appropriate to the risk. The article gives examples: pseudonymisation and encryption; the ability to ensure ongoing confidentiality, integrity, availability and resilience of systems; the ability to restore availability of personal data promptly after a physical or technical incident; and a process for regularly testing, assessing, and evaluating the effectiveness of the measures. The key idea is risk orientation: Art. 32 does not mandate any specific technology, but requires a balancing exercise based on the state of the art, implementation cost, the nature, scope, context and purposes of processing, and the likelihood and severity of risk to individuals' rights and freedoms. A small company handling a few, non-sensitive data points needs different measures than a hospital processing health data."
+  },
+  "datenschutz-l3-s2": {
+    "title": "Special categories and data protection by design",
+    "body": "Art. 9(1) GDPR places certain \"special categories of personal data\" under a general processing prohibition – for example health data, biometric data used for unique identification, and data revealing racial or ethnic origin, political opinions, religious belief, trade union membership, or sex life. They may only be processed if one of the narrowly drawn exceptions in Art. 9(2) applies, such as explicit consent or – particularly relevant in an employment context – necessity under employment law in conjunction with §26 BDSG. In addition, Art. 25 requires \"data protection by design and by default\": data protection requirements must be built in from the point a system is designed, and default settings must themselves be data-minimising – a newly delivered system must not, by default, collect more data or retain it for longer than the specific purpose requires."
+  },
+  "datenschutz-l4": {
+    "title": "Breach-notification duties"
+  },
+  "datenschutz-l4-s1": {
+    "title": "72 hours to the supervisory authority – with one exception",
+    "body": "Art. 33(1) GDPR requires the controller to notify the competent supervisory authority of a personal data breach without undue delay and, where feasible, within 72 hours of becoming aware of it. The clock starts from awareness, not from the underlying event – if an incident is only discovered days after it actually occurred, the entity still has 72 hours from the moment of discovery. An exception applies only where the breach is unlikely to result in a risk to the rights and freedoms of natural persons – an encrypted, unrecoverable laptop containing personal data is a commonly cited example where, arguably, no notification duty arises because the actual risk is low. If the 72-hour deadline is exceeded, Art. 33(1) requires reasons for the delay to accompany the notification. Art. 33(5) additionally requires every breach – including ones that are not notifiable – to be documented internally, so the supervisory authority can verify compliance."
+  },
+  "datenschutz-l4-s2": {
+    "title": "When does the notification go to the individual directly?",
+    "body": "In addition to notifying the supervisory authority, Art. 34 GDPR requires directly informing the affected individuals, but only above a higher threshold: where the breach is likely to result in a high risk to their rights and freedoms. Example: if customer passwords are stolen unencrypted and without effective additional safeguards, that is typically a high risk (identity theft, account takeover) and triggers direct notification; if the same dataset were instead strongly encrypted with the key uncompromised, Art. 34(3)(a) allows skipping direct notification, because the data is practically inaccessible to third parties. Art. 34(2) requires the notification to be in clear, plain language and to include at least the nature of the breach plus the information listed in Art. 33(3)(b)-(d) – a contact point, likely consequences, and measures taken or proposed. This two-tier structure – authority for every notifiable incident, individuals only for high risk – is the core of GDPR's breach-notification system."
+  },
+  "datenschutz-l5": {
+    "title": "Processor relationships under Art. 28 GDPR"
+  },
+  "datenschutz-l5-s1": {
+    "title": "The data processing agreement is mandatory, not optional",
+    "body": "As soon as a controller has an external service provider process personal data on its behalf – for instance a cloud provider, a payroll company, or an IT support vendor – a processor relationship under Art. 28 GDPR arises, provided the provider acts strictly on the controller's instructions and pursues no purposes of its own. Art. 28(3) requires this relationship to be governed by a contract or other legal act that must include certain minimum content: the subject-matter and duration of processing, its nature and purpose, the type of data and categories of data subjects, the obligations and rights of the controller, and – among other things – the processor's duty to implement appropriate TOMs under Art. 32, ensure confidentiality, assist the controller in fulfilling data subject rights, and delete or return all data at the end of the contract (Art. 28(3)(a)-(h)). An informal \"we've got data protection covered\" is not enough – without the contract content Art. 28 mandates, there is typically a standalone GDPR violation, regardless of whether the actual processing was secure."
+  },
+  "datenschutz-l5-s2": {
+    "title": "Sub-processors need permission, not surprise",
+    "body": "A processor may only engage a further processor (a sub-processor) with the controller's prior specific or general written authorisation (Art. 28(2)). Where general authorisation is given, the processor must inform the controller of any intended changes concerning the addition or replacement of sub-processors, giving the controller the opportunity to object. Where a sub-processor is engaged, the same data protection obligations set out in the original processing agreement must be imposed on it by contract (Art. 28(4)) – the chain of obligations must not break when work is passed further down the chain. In practical terms: a vendor register that only tracks direct processors but not their sub-processors is incomplete – and a cloud sub-processor that suddenly turns up without the controller having known about it is a typical sign of poorly managed processor governance."
+  }
+}

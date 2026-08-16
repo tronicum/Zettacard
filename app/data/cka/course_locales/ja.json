@@ -1,0 +1,178 @@
+{
+  "cka-all": {
+    "title": "4週間でCKA",
+    "description": "Certified Kubernetes Administrator 試験に向けた、概念と実習で進む学習コースです。Zettacard は概念と用語を扱います。試験そのものは 100% 実技なので、毎週の概念レッスンには、kind・minikube・あるいは 2 台の VM で自分の手で実行するラボが組み合わせてあります。4 週間の構成は、実際にクラスターを学ぶ順序に沿っています。コントロールプレーンの役割、その上で動くもの、トラフィックとデータの到達経路、そして最後に、壊れたときの原因の切り分け方です。"
+  },
+  "zc:concept:k8s/control-plane-components": {
+    "label": "コントロールプレーンのコンポーネント"
+  },
+  "zc:concept:k8s/workload-controllers": {
+    "label": "ワークロードコントローラー"
+  },
+  "zc:concept:k8s/scheduling-constraints": {
+    "label": "スケジューリング制約とワークロード構成"
+  },
+  "zc:concept:k8s/service-networking": {
+    "label": "サービスネットワーキング"
+  },
+  "zc:concept:k8s/persistent-storage": {
+    "label": "永続ストレージ"
+  },
+  "zc:concept:k8s/rbac": {
+    "label": "RBAC とサービスアカウント"
+  },
+  "zc:concept:k8s/cluster-troubleshooting": {
+    "label": "体系的なクラスターのトラブルシューティング"
+  },
+  "zc:concept:cyber/root-cause-analysis": {
+    "label": "根本原因分析 / ポストモーテム"
+  },
+  "cka-w1": {
+    "title": "第1週 — クラスターと、その上で動くもの"
+  },
+  "cka-w2": {
+    "title": "第2週 — ワークロード、スケジューリング、構成"
+  },
+  "cka-w3": {
+    "title": "第3週 — ネットワーク、ストレージ、RBAC"
+  },
+  "cka-w4": {
+    "title": "第4週 — 時間的プレッシャーの中でのトラブルシューティング"
+  },
+  "cka-l1": {
+    "title": "コントロールプレーンが実際にしていること"
+  },
+  "cka-l1-s1": {
+    "title": "kube-apiserver、etcd、スケジューラー、コントローラーマネージャー",
+    "body": "Kubernetes クラスターへのあらゆるリクエストは kube-apiserver に到達します。etcd と会話する唯一のコンポーネントが API サーバーであり、etcd にはクラスターの宣言された状態と観測された状態のすべてが保存されています。他のコンポーネントはすべて、API サーバーの REST インターフェイス経由でその状態を読み書きします。kube-scheduler はまだノードが割り当てられていない Pod を監視し、それぞれにノードを選びます。コンテナを起動することは決してなく、割り当て（バインディング）を API サーバー経由で書き戻すだけです。kube-controller-manager は 1 つのプロセスの中で数十の制御ループ（Deployment、ReplicaSet、Node、Job、EndpointSlice、ServiceAccount などのコントローラー）を動かし、それぞれが宣言された状態と観測された状態を比較して差分に対して動作します。cloud-controller-manager は、クラウド事業者固有のループを分離したものです。覚えておく価値のある帰結はこれです。コントロールプレーンが失われても、すでに実行中の Pod は止まりません。止まるのは「変更」です。"
+  },
+  "cka-l1-s2": {
+    "title": "ノード側: kubelet、kube-proxy、コンテナランタイム、CNI",
+    "body": "各ノードでは kubelet が API サーバーを監視し、自ノードにバインドされた Pod を見つけると、CRI（containerd、CRI-O）経由でコンテナランタイムを操作し、現実が宣言に一致するまで動かします。さらにノードと Pod の状態を報告し、Liveness／Readiness プローブを実行し、ボリュームをマウントします。API サーバーがなくても行う仕事が 1 つあります。静的 Pod 用ディレクトリ（通常は /etc/kubernetes/manifests）に置かれたマニフェストは直接起動されるのです。kubeadm が最初のコントロールプレーンノード上でコントロールプレーンを静的 Pod として起動するのは、まさにこの仕組みです。kube-proxy は Service オブジェクトを iptables または IPVS のルールに変換し、ClusterIP 宛てのトラフィックが実際の Pod IP に届くようにします。一方、Pod 間の疎通そのものは Kubernetes の担当ではなく、CNI プラグイン（Calico、Cilium、Flannel など）の役割です。初期化直後で CNI プラグインが入っていないクラスターでは、ノードが「container runtime network not ready」というメッセージとともに NotReady のままになります。これは想定どおりであり、故障ではありません。"
+  },
+  "cka-l1-s3": {
+    "title": "命令ではなく宣言された状態: リコンサイルのループ",
+    "body": "kubectl apply は何かをデプロイするコマンドではありません。API サーバー経由で etcd にオブジェクトを書き込み、そこで戻ります。その後、いずれかのコントローラーが「宣言された状態」と「実在する状態」の差に気づき、その差を埋めます。kubectl get -o yaml で表示されるオブジェクトが、自分が所有する spec とシステムが所有する status の 2 つの半分から成っているのはそのためであり、ReplicaSet に所有された Pod を削除しても 1 秒ほどで代わりが現れるのもそのためです。これを作業手順に変えましょう。オブジェクトは存在するのに何も起きていないときは、コマンドを打ち直さないこと。どのコントローラーが反応すべきだったのかを問い、kubectl describe <kind> <name> や kubectl get events --sort-by=.metadata.creationTimestamp でイベントを読むことです。なお、出発点となるマニフェストを作るには命令的コマンドが最速です。kubectl create deployment web --image=nginx --dry-run=client -o yaml > web.yaml として生成し、そこから編集します。生成して直すほうが、記憶から YAML を打つより速い。試験でも実務でも同じです。"
+  },
+  "cka-l2": {
+    "title": "ラボ: クラスターを構築し、一度わざと壊す"
+  },
+  "cka-l2-s1": {
+    "title": "kubeadm init のあと、読んだ内容を自分の目で確かめる",
+    "body": "これは自分のマシンで実行してください。Zettacard は何も実行しません。CKA 試験は 100% 実技なので、このレッスンはシミュレーターではなく手順書です。kind、minikube、あるいは小さな VM 2 台のうち、すぐ作り直せるものを使ってください。VM の場合: swap を無効化し、コンテナランタイムを入れ、kubeadm init --pod-network-cidr=10.244.0.0/16 を実行し、管理者用 kubeconfig を $HOME/.kube/config にコピーして、CNI プラグインを適用します。そのうえで、前のレッスンの内容を鵜呑みにせず自分で確認します。kubectl get pods -n kube-system には kube-apiserver、etcd、kube-scheduler、kube-controller-manager に加えて kube-proxy と CoreDNS が並びます。ls /etc/kubernetes/manifests を見れば、先頭 4 つを生み出したファイルが確認できます。コントロールプレーンの健全性は kubectl get --raw='/readyz?verbose' で確認してください。kubectl get componentstatuses は多くのクラスターでまだ何かを出力しますが非推奨であり、習慣にすべきではありません。ノードは CNI プラグインが動くまで NotReady のままです。kubectl get nodes -w でその切り替わりを観察しましょう。"
+  },
+  "cka-l2-s2": {
+    "title": "一度壊す: API サーバーのマニフェストを退避する",
+    "body": "次は意図的に障害を起こします。落ち着いた状況で一度これを見ておくと、第4週が格段に楽になるからです。コントロールプレーンノードで /etc/kubernetes/manifests/kube-apiserver.yaml を /tmp へ移動し、観察してください。数秒のうちに kubelet が API サーバーの Pod を停止し、あらゆる kubectl コマンドが「connection refused」で失敗します。それ以外は何も死にません。ワークロードの Pod はトラフィックを処理し続けます。これが「コントロールプレーンが管理するのは変更であってトラフィックではない」ということの実際的な意味です。停止している間に、API サーバーを必要としない道具を練習しましょう。systemctl status kubelet、journalctl -u kubelet -f、ランタイムに対する crictl ps と crictl logs、そして /var/log/pods 配下のコンテナログです。その後、ファイルを元に戻せば、kubelet は次の同期で拾い上げ、kubectl は再び応答します。壊れている間に各コマンドが何を示したかを書き留めてください。そのメモが第4週のチートシートになり、自分で書いたからこそ記憶に残ります。"
+  },
+  "cka-l3": {
+    "title": "Deployment、ReplicaSet、Pod — そして残りの家族"
+  },
+  "cka-l3-s1": {
+    "title": "誰が誰を所有するか: ownerReferences とコントローラーの動物園",
+    "body": "素の Pod を自分で作ることはほとんどありません。Deployment が ReplicaSet を作って管理し、ReplicaSet が決まった数の Pod レプリカを維持します。子オブジェクトは metadata.ownerReferences で親を指しており、これがカスケード削除を成り立たせ、ロールアウトのたびに kubectl get replicaset が履歴を見せてくれる理由でもあります。その周りには役割の異なるコントローラーが並びます。DaemonSet は条件に合うすべてのノードでちょうど 1 つの Pod を動かします。ログ収集エージェント、node exporter、CNI エージェントはこうして配られます。StatefulSet は Pod に安定した序数名（web-0、web-1）、volumeClaimTemplates による Pod ごとの安定したストレージ、そして順序付きのロールアウトを与え、通常は安定した DNS 名のためにヘッドレス Service と組み合わせます。Job は Pod を完了まで実行し、backoffLimit の範囲で再試行します。CronJob はスケジュールに従って Job を作ります。試験で時間を失いがちな落とし穴が 1 つ。Deployment と StatefulSet の spec.selector は変更不可です。ラベルを間違えたら、パッチではなく削除して作り直すことになります。"
+  },
+  "cka-l3-s2": {
+    "title": "ローリングアップデート — そして実際に止めているもの",
+    "body": "kubectl set image deployment/web web=nginx:1.27 は、すべての Pod を一度に置き換えるわけではありません。既定の RollingUpdate 戦略は 2 つ目の ReplicaSet を作り、maxSurge（余分に存在してよい Pod の数）と maxUnavailable（欠けてよい Pod の数、いずれも既定は 25%）の範囲でレプリカを移していきます。kubectl rollout status deployment/web は新しい ReplicaSet が完全に利用可能になるまでブロックし、kubectl rollout history は revisionHistoryLimit の範囲で保持されたリビジョンを一覧し、kubectl rollout undo は 1 つ前の ReplicaSet を再びスケールアップします。古い ReplicaSet が削除されずレプリカ 0 のまま残されているのは、まさにこのためです。ロールアウトが進まないとき、原因はほぼ次の 3 つのどれかです。新しい Pod が readinessProbe を通らない、そもそもスケジュールできない、イメージを取得できない。progressDeadlineSeconds（既定 600 秒）を過ぎると、Deployment に ProgressDeadlineExceeded という condition が付きます。kubectl describe deployment web でそれを読み、原因を直してください。コマンドを打ち直しても何も変わりません。"
+  },
+  "cka-l4": {
+    "title": "Pod がノードを得るまで — そして何を携えていくか"
+  },
+  "cka-l4-s1": {
+    "title": "まず絞り込み、次に採点: nodeSelector、アフィニティ、Taint、分散",
+    "body": "スケジューリングは 2 段階です。まずスケジューラーが、その Pod を収容できないノードをすべて除外し（フィルタリング）、次に残ったノードを採点して最良のノードに Pod をバインドします。あなたが書いた制約が効くのはフィルタリングの段階です。リソースの requests（limits ではありません。スケジューリングの計算に使われるのは requests です）、素朴なラベル一致である nodeSelector、必須条件と優先条件を書ける nodeAffinity、他の Pod の近くに置く／遠ざけるための Pod アフィニティとアンチアフィニティ、そしてノード側の Taint と Pod 側の Toleration です。効果が NoSchedule の Taint は新しい Pod を寄せ付けず、PreferNoSchedule は避けさせるだけ、NoExecute はすでに動いている Pod も追い出します。コントロールプレーンノードが通常のワークロードから守られているのは、まさにこの仕組みです。さらに topologySpreadConstraints が、レプリカをゾーンやノードに均等に分散させます。スケジューラーを完全に迂回する抜け道が 2 つあります。spec.nodeName を直接指定することと、kubelet がディスクから起動する静的 Pod です。後者はスケジューラーに一度も問い合わせません。"
+  },
+  "cka-l4-s2": {
+    "title": "一緒に運ばれる構成: ConfigMap、Secret、requests と limits",
+    "body": "ConfigMap や Secret がコンテナに届く経路は 2 つあり、その違いは重要です。環境変数として注入した場合、値はコンテナ起動時に固定されます。ConfigMap を更新しても、Pod が再起動するまで何も変わりません。ボリュームとしてマウントした場合、kubelet が短い遅延のあとファイルをその場で更新するため、設定ファイルを読み直すアプリケーションは再起動なしに変更を取り込めます（例外は subPath マウントで、こちらは更新されません）。Secret は base64 でエンコードされているだけで、暗号化されてはいません。オブジェクトを読める者は値を読めるので、守りは RBAC と、API サーバー側で設定する保存時暗号化によって成り立ちます。requests と limits は Pod の QoS クラスを決めます。すべてのコンテナで requests と limits が等しければ Guaranteed、何も設定しなければ BestEffort、その中間が Burstable であり、このクラスがノード逼迫時に誰から追い出されるかを決めます。メモリ制限の超過は即座に OOMKilled を意味し、CPU の超過はスロットリングにとどまります。"
+  },
+  "cka-l4-s3": {
+    "title": "Pending は待機状態ではなくメッセージである",
+    "body": "Pending のまま止まっている Pod は、遅いのではありません。スケジューラーはすでに試して失敗し、その理由を書き残しています。kubectl describe pod の末尾には、たとえば「0/3 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 2 Insufficient cpu」といったイベントが出ます。この 1 行がノードのグループごとに件数と理由を示しており、前述のフィルターにそのまま対応します。Insufficient cpu／memory は requests が大きすぎるかノードが満杯、untolerated taint は Toleration の欠如、no nodes match node selector はラベルの打ち間違いです。第2週の今のうちに習慣にしてください。マニフェストに触る前に、まずイベントを読むこと。第4週には同じ一文が時間的プレッシャーの中で現れます。合格する人と時間切れになる人を分けるのは、その一文を読んだか、当て推量をしたかです。"
+  },
+  "cka-l5": {
+    "title": "ラボ: ロールアウト、ロールバック、そしてスケジューラーに「ノー」と言わせる"
+  },
+  "cka-l5-s1": {
+    "title": "2 つの ReplicaSet が入れ替わる様子を観察する",
+    "body": "自分のクラスターで実行してください。Zettacard は代わりに何も実行しません。まず kubectl create deployment web --image=nginx:1.25 --replicas=4 で Deployment を作り、別のターミナルで kubectl get pods,replicaset -w を開いておきます。最初のターミナルで kubectl set image deployment/web nginx=nginx:1.27 を実行し、2 つ目の ReplicaSet が現れ、1 つ目が削除されないままゼロへ減っていく様子を観察します。kubectl rollout history deployment/web でリビジョンを確認したら、kubectl rollout undo deployment/web を実行し、古い ReplicaSet が再びスケールアップするのを見てください。次はわざと壊します。kubectl set image deployment/web nginx=nginx:doesnotexist。ロールアウトは止まり、kubectl rollout status は返ってこず、kubectl get pods は ImagePullBackOff を示します。ただし、稼働中の 4 つの Pod はまだ残っているはずです。maxUnavailable が 1 つしか手放さなかったからです。kubectl rollout undo で復旧します。壊れたロールアウトがサービスを道連れにしない、というこの非対称性こそが、この戦略の狙いです。"
+  },
+  "cka-l5-s2": {
+    "title": "スケジュールできない 3 つの理由をつくる",
+    "body": "Pending の理由を 1 つずつ意図的に作り、そのたびにイベントを読みましょう。1 つ目はリソースです。kubectl create deployment fat --image=nginx を作り、CPU を 100 個要求するよう編集します。kubectl describe pod は Insufficient cpu と告げます。2 つ目は Taint です。kubectl taint nodes <worker> tier=db:NoSchedule を実行し、素の Deployment をもう一度作って「untolerated taint」を読みます。続いて Pod spec に対応する Toleration を書き加え、スケジュールされる様子を確認します。3 つ目はラベルです。その値を持つノードがない状態で Pod に nodeSelector: disktype=ssd を設定し、「node(s) didn't match Pod's node affinity/selector」を読みます。そのあと kubectl label node <worker> disktype=ssd を実行すると、Pod 側を一切変更していないのに数秒で配置されます。最後に片付けを。kubectl taint nodes <worker> tier=db:NoSchedule-（末尾のマイナスが削除を意味します）と kubectl label node <worker> disktype- です。いま読んだ 3 つのイベントで、遭遇するスケジューリング問題の大半はカバーできます。"
+  },
+  "cka-l6": {
+    "title": "Service、エンドポイント、そして Pod から届かない理由"
+  },
+  "cka-l6-s1": {
+    "title": "ClusterIP → NodePort → LoadBalancer → Ingress、この順序で",
+    "body": "Service の各タイプは、1 つ前のタイプにちょうど 1 つずつ機能を足していきます。4 つの選択肢ではなく、はしごとして覚えてください。既定の ClusterIP は、クラスター内部で安定した仮想 IP と DNS 名を与えます。kube-proxy がその IP 宛てのトラフィックを、背後の Pod IP のいずれかに書き換えます。NodePort はそれをすべて保ったまま、さらにすべてのノードで同じ高位ポート（30000〜32767）を開きます。LoadBalancer は NodePort を保ったまま、その前段の外部アドレスをクラウド事業者に要求します。事業者連携のないベアメタルや kind のクラスターでは、単に Pending のままになりますが、それは想定どおりです。Ingress はそもそも Service のタイプではありません。自分でインストールした Ingress コントローラーが評価する HTTP ルーティング用のオブジェクトで、ホストやパスのルールを ClusterIP Service へ振り分けます。コントローラーが入っていなければ、Ingress オブジェクトはただの無反応な YAML です。問題を解決できる最も下の段を選びましょう。試験もそれを評価しますし、本番運用でも同じです。"
+  },
+  "cka-l6-s2": {
+    "title": "Service が何も返さないときの 4 つの確認",
+    "body": "Service とは、仮想 IP を前に置いたラベルセレクターです。したがって障害の原因は少数の箇所に集中し、確認する順序も決まっています。1 つ目。その Service にエンドポイントはありますか。kubectl get endpointslices -l kubernetes.io/service-name=<svc> の結果が空なら、セレクターが Ready な Pod を 1 つも捕まえていないということで、DNS をいくら調べても解決しません。2 つ目。ラベルは本当に一致していますか。Pod は readinessProbe を通っていますか。プローブが失敗すると、Pod は Running のままエンドポイントから外されます。3 つ目。targetPort はコンテナの実際のポートですか。Service の port と targetPort は別のフィールドで、食い違いは curl するまで見えません。4 つ目。DNS は解決しますか。使い捨ての Pod（kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- sh）から nslookup <svc>.<namespace>.svc.cluster.local を試し、失敗するなら kube-system の CoreDNS Pod が Running かを確認します。NetworkPolicy や CNI プラグインを疑うのは、この 4 つを終えたあとです。"
+  },
+  "cka-l6-s3": {
+    "title": "NetworkPolicy: 最初の 1 本が現れるまで、すべては許可されている",
+    "body": "既定では、クラスター内のすべての Pod が互いに通信できます。NetworkPolicy がそれを変えるのは、podSelector が一致した Pod についてだけであり、しかもポリシーが列挙した方向についてだけです。ingress セクションしかないポリシーは egress に手を触れませんし、その逆も同様です。ある方向についてポリシーが 1 つでも Pod を選択した時点で、その方向は既定拒否になり、列挙されたルールだけが通ります。だからこそ「この Namespace の受信をすべて拒否する」という定番のポリシーは、podSelector が {} で ingress が空リスト、という形になります。ルールは podSelector、namespaceSelector、ipBlock で相手を選びます。1 つのルール要素の中に podSelector と namespaceSelector を並べれば AND、別々の要素として並べれば OR です。ここが、書かれたポリシーで最も多い間違いです。半日を溶かしかねないインフラ側の注意点も 1 つ。NetworkPolicy を実際に適用するのは CNI プラグインであり、Kubernetes 本体ではありません。実装していないプラグインを使っていると、ポリシーは API サーバーに受理され、kubectl get netpol にも現れますが、効果はまったくありません。"
+  },
+  "cka-l7": {
+    "title": "PV、PVC、StorageClass: 提供する側と要求する側"
+  },
+  "cka-l7-s1": {
+    "title": "2 つのオブジェクトと 1 つのバインド — その間にある StorageClass",
+    "body": "PersistentVolume はクラスター内に存在するストレージそのもの、PersistentVolumeClaim はアプリケーションをデプロイする人が書くストレージ要求です。コントローラーは 1 つの Claim を 1 つの Volume に、排他的に、その Claim の生存期間にわたってバインドします。PV が生まれる道筋は 2 つあります。静的プロビジョニング: 管理者が PV を手で作成し、容量・アクセスモード・storageClassName が合致するものに Claim がバインドされます。動的プロビジョニング: Claim が StorageClass を指定する（あるいは省略してクラスター既定のクラス、すなわち storageclass.kubernetes.io/is-default-class アノテーションが付いたものを使う）と、CSI プロビジョナーが必要に応じてボリュームを作ります。アクセスモードが表すのは「いくつの Pod か」ではなく「いくつのノードがマウントできるか」です。ReadWriteOnce は 1 ノード、ReadWriteOncePod は文字どおり 1 Pod、ReadWriteMany は複数ノードで、NFS のように実際にそれを実現できるバックエンドが必要です。最後を決めるのが reclaim policy です。Delete は Claim とともにボリュームを削除し、Retain はデータを残して PV を Released 状態にし、人間の判断に委ねます。"
+  },
+  "cka-l7-s2": {
+    "title": "Pod の内側: emptyDir、hostPath、projected、volumeClaimTemplates",
+    "body": "すべてのボリュームが永続的なわけではありません。emptyDir は Pod とともに生まれ、Pod とともに消えます。1 つの Pod 内の 2 つのコンテナが作業用ディレクトリを共有する、ごく普通の方法です。hostPath はノード自身のディレクトリをマウントします。ノード上のエージェントには有用ですが、それ以外には危険です。Pod が特定ノードのファイルシステムに縛られ、見るべきでないものを読めてしまうからです。projected ボリュームは、ConfigMap、Secret、Downward API、ServiceAccount トークンを 1 つのディレクトリツリーにまとめます。永続性は persistentVolumeClaim 型のボリュームから入ってきます。StatefulSet はこれを volumeClaimTemplates で自動化し、各レプリカが Pod 名にちなんだ自分専用の PVC を持ち、再起動や再配置をまたいでそれを保持します。StatefulSet を削除してもこれらの Claim が消えないのは、意図した設計です。運用上の細部を 2 つ。PVC は拡張のみ可能で縮小はできず、しかも StorageClass が allowVolumeExpansion: true を設定している場合に限られます。また volumeBindingMode: WaitForFirstConsumer は、Pod がスケジュールされるまでプロビジョニングを遅らせ、Pod が実際に配置されたゾーンにボリュームを作らせます。"
+  },
+  "cka-l8": {
+    "title": "RBAC: 誰が、どのリソースに対して、どこで、何をしてよいか"
+  },
+  "cka-l8-s1": {
+    "title": "4 つのオブジェクトからなる表: Role、ClusterRole とそれぞれの Binding",
+    "body": "Role は権限のまとまりで、Namespace の中に存在します。ClusterRole は同じ種類の権限を持ちますが、スコープはクラスター全体で、nodes や persistentvolumes のようなクラスタースコープのリソースも対象にできます。RoleBinding は 1 つの Namespace の中でサブジェクトにロールを与え、ClusterRoleBinding はクラスター全体で与えます。ここから、覚える価値のある表と、その便利な対角線が出てきます。RoleBinding は ClusterRole を参照でき、その場合、権限はその Binding の Namespace の中だけで有効になります。再利用可能な「view」や「edit」の定義 1 つが、重複なしに多数の Namespace で使えるのはこの仕組みです。ルール自体は apiGroups、resources、verbs（get、list、watch、create、update、patch、delete）の 3 つ組で、コア API グループは空文字列 \"\" と書きます。サブリソースは別の文字列です。pods を許可しても pods/log や pods/exec は許可されません。試験の答えの多くは次の 2 つの性質で決まります。RBAC は純粋に加算的で拒否ルールが存在しないこと、そしてサブジェクトの権限はすべての Binding の和集合であることです。頭で推論するより kubectl auth can-i で確かめましょう。"
+  },
+  "cka-l8-s2": {
+    "title": "ServiceAccount、トークン、そして必要になる前に権限を試す",
+    "body": "人間のユーザーは Kubernetes のオブジェクトではありません。API サーバーは証明書、トークン、あるいは外部プロバイダーによって人間を認証し、RBAC はその結果として得られた名前に何が許されるかを決めるだけです。一方、クラスター内の識別子はオブジェクトです。すべての Pod は ServiceAccount として動作し、spec.serviceAccountName で明示しない限り、その Namespace の default が使われます。そのトークンは、有効期間が短く audience が限定された projected トークンとして Pod にマウントされ、kubelet がローテーションします。ワークロードが API を呼ばないなら（ほとんどのワークロードがそうです）、ServiceAccount か Pod に automountServiceAccountToken: false を設定してください。そして推論ではなく検証を。kubectl auth can-i list pods --as=system:serviceaccount:dev:builder -n dev は 1 行で yes か no を返し、kubectl auth can-i --list --as=<subject> はその識別子に許されたすべてを列挙します。ここから 2 つの習慣が導かれます。default を使い回さずワークロードごとに専用の ServiceAccount を作ること、そして Binding を作ったら直後に can-i で確認することです。サブジェクト名の打ち間違いは無言で失敗します。RBAC はエラーを出さず、ただ拒否するだけだからです。"
+  },
+  "cka-l9": {
+    "title": "ラボ: 公開する、保存する、締める"
+  },
+  "cka-l9-s1": {
+    "title": "わざとセレクターを壊し、エンドポイントが消えるのを見る",
+    "body": "自分のクラスター、自分のキーボードで。Zettacard は何も実行しません。まず kubectl create deployment web --image=nginx --replicas=2 と kubectl expose deployment web --port=80 --target-port=80 から始めます。使い捨て Pod でクラスター内部から確認します。kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- wget -qO- web.default.svc.cluster.local。次に、実際のクラスターが壊れるのと同じ壊し方をします。kubectl edit service web でセレクターを app=web-typo に変更してください。Service は依然として存在し、ClusterIP も持ち、DNS でも解決します。それでも何も返しません。レッスン 6 の 4 つの確認を順に実行し、1 つ目の時点で答えが出ることを確かめましょう。kubectl get endpointslices -l kubernetes.io/service-name=web が空です。セレクターを直してエンドポイントが戻るのを見届けたら、kubectl patch svc web -p '{\"spec\":{\"type\":\"NodePort\"}}' で種別を変え、ノードから curl <node-ip>:<nodePort> で到達してみます。DNS 名は健在なのにエンドポイントが空、というのがこの分野の典型的な故障の形です。"
+  },
+  "cka-l9-s2": {
+    "title": "Pod より長生きするデータと、それを削除できない ServiceAccount",
+    "body": "第 2 部も、引き続き自分のクラスターで。storageClassName を書かずに 1Gi の PVC を作り（既定クラスが使われます）、kubectl get pvc を確認します。kind や minikube なら Bound になるはずで、Pending のままなら kubectl describe pvc が理由を教えてくれます（多くは既定 StorageClass がない、または WaitForFirstConsumer が Pod を待っている、のどちらかです）。それを Pod の /data にマウントし、ファイルを 1 つ書き込み、Pod を削除し、同じマニフェストから作り直して、ファイルが残っていることを確認します。この一度きりの実験こそが永続ストレージの本質で、所要は 4 分です。続いて RBAC の後半。kubectl create serviceaccount reader -n default、kubectl create role pod-reader --verb=get,list,watch --resource=pods -n default、kubectl create rolebinding reader-binding --role=pod-reader --serviceaccount=default:reader -n default。両方向を試します。kubectl auth can-i list pods --as=system:serviceaccount:default:reader は yes を返さなければならず、kubectl auth can-i delete pvc --as=system:serviceaccount:default:reader は no を返さなければなりません。最小権限とは、意図するものではなく検証するものです。"
+  },
+  "cka-l10": {
+    "title": "外側から内側へ進めるトラブルシューティング"
+  },
+  "cka-l10-s1": {
+    "title": "クラスター → ノード → Pod → コンテナ、常にこの順で",
+    "body": "トラブルシューティングは試験で最も配分の大きい領域ですが、解き切る受験者はタイピングが速いのではなく、当てずっぽうをやめて決まった順序で進んでいるだけです。まずクラスターから。kubectl get nodes を実行し、そもそも kubectl 自体が失敗するなら、問題はワークロードではなく API サーバーか自分の kubeconfig です。次にノード。kubectl describe node <name> で Conditions ブロックを読みます。Ready、MemoryPressure、DiskPressure、PIDPressure はそれぞれ別の原因を指しています。NotReady のノードは、可能性の高い順に kubelet、CNI、ディスク満杯であることがほとんどです。続いて Pod。フェーズとノードは kubectl get pod -o wide、イベントは kubectl describe pod、単一オブジェクトではなく時系列が必要なときは kubectl get events --sort-by=.metadata.creationTimestamp -A です。コンテナを見るのはその後です。kubectl logs <pod> -c <container>、そしてすでに再起動している場合は kubectl logs --previous。理由が書かれているのは、クラッシュした側のインスタンスのログです。どの段階も、障害を説明するか、1 つの層を除外するかのどちらかであり、いずれも前進です。"
+  },
+  "cka-l10-s2": {
+    "title": "ステータスを読む: Pending、ImagePullBackOff、CrashLoopBackOff、OOMKilled、Terminating",
+    "body": "ステータス欄は気分ではなく、次の一手が付随した診断結果です。Pending はスケジューラーが Pod を配置できなかったという意味で、理由はイベントに書かれています。リソース、Taint、セレクター、あるいは未バインドの PVC のいずれかです。ImagePullBackOff と ErrImagePull は kubelet がイメージを取得できないことを示します。名前やタグの誤り、imagePullSecret のないプライベートレジストリ、あるいはノードから外部へ出られない、が典型です。CrashLoopBackOff はコンテナが起動と終了を繰り返している状態で、コンテナ自体ではなく中のプロセスに問題があります。kubectl logs --previous と、kubectl describe pod に出る終了コードが答えを持っています。終了コード 137 と理由 OOMKilled は、コンテナがメモリ制限を超えたという意味であり、これは制限値かアプリケーションの問題で、スケジューリングの問題では決してありません。Terminating のまま止まる Pod は、たいていファイナライザーが何かを待っているか、終わらない graceful shutdown です。Init:Error や Init:CrashLoopBackOff は init コンテナを指しており、そのログを見るには -c <init コンテナ名> が必要です。"
+  },
+  "cka-l10-s3": {
+    "title": "クラスター自体が患者のとき: コントロールプレーン、証明書、etcd、ノード",
+    "body": "障害の中には、API より下の層で起きるものがあります。kubectl が connection refused を返すなら API サーバーが落ちています。kubeadm クラスターでは静的 Pod なので、まず /etc/kubernetes/manifests/kube-apiserver.yaml に誤った編集がないかを確認し、次に crictl ps -a と crictl logs で、起動し続けられないコンテナを調べます。第1週のラボでやった手順そのものです。kubectl が証明書の期限切れを訴えるなら、kubeadm certs check-expiration を実行して更新します。コントロールプレーンの証明書の有効期間は 1 年で、誕生日をまたいで放置されたクラスターは応答しなくなります。etcd については 2 つのコマンドと、それらがピア証明書・クライアント証明書を必要とすることを覚えてください。バックアップの etcdctl snapshot save と、新しいデータディレクトリへ復元する etcdctl snapshot restore で、復元後は etcd の静的 Pod をそのディレクトリに向けます。NotReady のノードは Kubernetes の問題ではなくノードの問題です。systemctl status kubelet、journalctl -u kubelet、ディスク空き容量、そしてそのノードで CNI エージェントの Pod が動いているかを見ます。メンテナンス前には kubectl drain <node> --ignore-daemonsets、作業後には kubectl uncordon <node> を。後者を忘れるのは、よくある自作自演の障害です。"
+  },
+  "cka-l11": {
+    "title": "チェックポイント: 当てずっぽうではなく診断する"
+  },
+  "cka-l11-s1": {
+    "title": "原因を言葉にできるまで、その修正は答えではない",
+    "body": "このコースのすべては、1 つの習慣に収束します。仮説を立て、それを裏づける証拠が何かを言葉にし、その証拠を取りに行き、そのうえで初めて何かを変える、という習慣です。Pod を再起動したら直った、では何もわかりません。説明を握っていた状態そのものを壊してしまったからです。この規律を文書にした形がポストモーテムです。何がいつ起きたかの時系列、観測された症状、ログやイベントの中で指し示せる原因、小さな不具合を障害へ育ててしまった寄与要因、そして担当者付きの対策。これを儀式ではなく実用にするルールが 2 つあります。人ではなくシステムと意思決定を記述すること、そして原因と引き金を分けることです。火曜日に切れた証明書は、いずれにせよ切れる運命でした。この最終クイズはトラブルシューティングの問題プールから出題され、症状を読んでそれがどの層の問題かを言い当てることを求めます。当てずっぽうに感じる問題があれば、それは答えを急ぐ合図ではなく、レッスン 10 の決まった順序に戻る合図です。"
+  },
+  "cka-l11-rel-dora": {
+    "body": "同じ技能が、Zettacard の DORA コースでは別の装いで現れます。Kubernetes のポストモーテムと、重大な ICT インシデントののちに金融企業が DORA 第19条に基づいて提出する最終報告書は、どちらも同じものを要求します。もっともらしい物語ではなく、証拠で示せる原因です。語彙は異なります。一方は Pod、ノード、イベント、もう一方は分類のしきい値と監督当局への提出期限です。そして DORA 版には、こちらにはない法的な帰結があります。それでも、症状・原因・引き金を切り分ける規律はそのまま移し替えられます。両方のコースが同じ概念を挙げているのは、そのためです。"
+  }
+}

@@ -1,0 +1,303 @@
+{
+  "meta": {
+    "app": "Zettacard / it-sicherheit-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-sonnet/2026-08-15",
+    "canonical_locale": "de",
+    "locales": [
+      "de",
+      "en"
+    ]
+  },
+  "courses": [
+    {
+      "course_id": "it_sicherheit-all",
+      "module_ref": "it_sicherheit",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 78,
+      "concepts": [
+        {
+          "concept_id": "zc:concept:cyber/access-control-hygiene",
+          "label_key": "zc:concept:cyber/access-control-hygiene"
+        },
+        {
+          "concept_id": "zc:concept:cyber/remote-work-security",
+          "label_key": "zc:concept:cyber/remote-work-security"
+        },
+        {
+          "concept_id": "zc:concept:cyber/phishing-recognition",
+          "label_key": "zc:concept:cyber/phishing-recognition"
+        },
+        {
+          "concept_id": "zc:concept:cyber/social-engineering",
+          "label_key": "zc:concept:cyber/social-engineering"
+        },
+        {
+          "concept_id": "zc:concept:cyber/ransomware-response",
+          "label_key": "zc:concept:cyber/ransomware-response"
+        },
+        {
+          "concept_id": "zc:concept:cyber/backup-discipline",
+          "label_key": "zc:concept:cyber/backup-discipline"
+        },
+        {
+          "concept_id": "zc:concept:cyber/ai-threats",
+          "label_key": "zc:concept:cyber/ai-threats"
+        },
+        {
+          "concept_id": "zc:concept:it_sicherheit/incident-reporting-duty",
+          "label_key": "zc:concept:it_sicherheit/incident-reporting-duty"
+        },
+        {
+          "concept_id": "zc:concept:cyber/root-cause-analysis",
+          "label_key": "zc:concept:cyber/root-cause-analysis"
+        }
+      ],
+      "lessons": [
+        {
+          "lesson_id": "it_sicherheit-l1",
+          "order": 1,
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:cyber/access-control-hygiene",
+            "zc:concept:cyber/remote-work-security"
+          ],
+          "sections": [
+            {
+              "section_id": "it_sicherheit-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "it_sicherheit-l1-s1",
+              "body_key": "it_sicherheit-l1-s1"
+            },
+            {
+              "section_id": "it_sicherheit-l1-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "it_sicherheit-l1-s2",
+              "body_key": "it_sicherheit-l1-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "zugriffsschutz",
+              "mobil_homeoffice"
+            ],
+            "count": 8
+          },
+          "title_key": "it_sicherheit-l1"
+        },
+        {
+          "lesson_id": "it_sicherheit-l2",
+          "order": 2,
+          "lesson_kind": "scenario",
+          "estimated_minutes": 18,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:cyber/phishing-recognition",
+            "zc:concept:cyber/social-engineering"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "it_sicherheit-l1",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "it_sicherheit-l2-s1",
+              "order": 0,
+              "section_kind": "worked_example",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "it_sicherheit-l2-s1",
+              "body_key": "it_sicherheit-l2-s1"
+            },
+            {
+              "section_id": "it_sicherheit-l2-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "it_sicherheit-l2-s2",
+              "body_key": "it_sicherheit-l2-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "phishing",
+              "social_engineering"
+            ],
+            "count": 9
+          },
+          "title_key": "it_sicherheit-l2"
+        },
+        {
+          "lesson_id": "it_sicherheit-l3",
+          "order": 3,
+          "lesson_kind": "scenario",
+          "estimated_minutes": 18,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:cyber/ransomware-response",
+            "zc:concept:cyber/backup-discipline"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "it_sicherheit-l2",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "it_sicherheit-l3-s1",
+              "order": 0,
+              "section_kind": "decision_flow",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "it_sicherheit-l3-s1",
+              "body_key": "it_sicherheit-l3-s1"
+            },
+            {
+              "section_id": "it_sicherheit-l3-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "it_sicherheit-l3-s2",
+              "body_key": "it_sicherheit-l3-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "ransomware",
+              "datensicherung"
+            ],
+            "count": 9
+          },
+          "title_key": "it_sicherheit-l3"
+        },
+        {
+          "lesson_id": "it_sicherheit-l4",
+          "order": 4,
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:cyber/ai-threats"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "it_sicherheit-l2",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "it_sicherheit-l4-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "it_sicherheit-l4-s1",
+              "body_key": "it_sicherheit-l4-s1"
+            },
+            {
+              "section_id": "it_sicherheit-l4-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "it_sicherheit-l4-s2",
+              "body_key": "it_sicherheit-l4-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "ki_bedrohungen"
+            ],
+            "count": 7
+          },
+          "title_key": "it_sicherheit-l4"
+        },
+        {
+          "lesson_id": "it_sicherheit-l5",
+          "order": 5,
+          "lesson_kind": "checkpoint",
+          "estimated_minutes": 12,
+          "completion_rule": "quiz_pass:0.8",
+          "concepts": [
+            "zc:concept:it_sicherheit/incident-reporting-duty",
+            "zc:concept:cyber/root-cause-analysis"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "it_sicherheit-l3",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "it_sicherheit-l4",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "it_sicherheit-l5-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "it_sicherheit-l5-s1",
+              "body_key": "it_sicherheit-l5-s1"
+            },
+            {
+              "section_id": "it_sicherheit-l5-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "it_sicherheit-l5-s2",
+              "body_key": "it_sicherheit-l5-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "meldepflicht_it"
+            ],
+            "count": 7
+          },
+          "related": [
+            {
+              "kind": "applies_also",
+              "module": "dora",
+              "concept": "zc:concept:cyber/root-cause-analysis",
+              "note_key": "it_sicherheit-l5-rel-dora",
+              "body_key": "it_sicherheit-l5-rel-dora"
+            }
+          ],
+          "title_key": "it_sicherheit-l5"
+        }
+      ],
+      "title_key": "it_sicherheit-all",
+      "description_key": "it_sicherheit-all"
+    }
+  ]
+}

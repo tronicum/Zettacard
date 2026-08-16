@@ -1,0 +1,324 @@
+{
+  "meta": {
+    "app": "Zettacard / nis2-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-sonnet/2026-08-15",
+    "canonical_locale": "de",
+    "locales": [
+      "de",
+      "en"
+    ]
+  },
+  "courses": [
+    {
+      "course_id": "nis2-all",
+      "module_ref": "nis2",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 73,
+      "concepts": [
+        {
+          "concept_id": "zc:concept:nis2/scope-and-registration",
+          "label_key": "zc:concept:nis2/scope-and-registration"
+        },
+        {
+          "concept_id": "zc:concept:nis2/training-duty-split",
+          "label_key": "zc:concept:nis2/training-duty-split"
+        },
+        {
+          "concept_id": "zc:concept:nis2/risk-management-measures",
+          "label_key": "zc:concept:nis2/risk-management-measures"
+        },
+        {
+          "concept_id": "zc:concept:cyber/incident-reporting-cascade",
+          "label_key": "zc:concept:cyber/incident-reporting-cascade"
+        },
+        {
+          "concept_id": "zc:concept:nis2/management-body-accountability",
+          "label_key": "zc:concept:nis2/management-body-accountability"
+        },
+        {
+          "concept_id": "zc:concept:nis2/personal-liability",
+          "label_key": "zc:concept:nis2/personal-liability"
+        },
+        {
+          "concept_id": "zc:concept:nis2/sanctions-and-liability",
+          "label_key": "zc:concept:nis2/sanctions-and-liability"
+        },
+        {
+          "concept_id": "zc:concept:cra/manufacturer-obligations",
+          "label_key": "zc:concept:cra/manufacturer-obligations"
+        }
+      ],
+      "lessons": [
+        {
+          "lesson_id": "nis2-l1",
+          "order": 1,
+          "lesson_kind": "primer",
+          "estimated_minutes": 12,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:nis2/scope-and-registration",
+            "zc:concept:nis2/training-duty-split"
+          ],
+          "sections": [
+            {
+              "section_id": "nis2-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "nis2-l1-s1",
+              "legal_basis": "Richtlinie (EU) 2022/2555; BSIG n.F. (NIS2UmsuCG)",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "nis2-l1-s1"
+            },
+            {
+              "section_id": "nis2-l1-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "nis2-l1-s2",
+              "legal_basis": "Art. 21 Abs. 2 lit. g, Art. 20 Abs. 2 Richtlinie (EU) 2022/2555",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "nis2-l1-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:nis2/scope-and-registration"
+            ],
+            "topic_codes": [
+              "grundlagen"
+            ],
+            "question_ids": [
+              "nis2-grundlagen-04"
+            ],
+            "count": 4
+          },
+          "title_key": "nis2-l1"
+        },
+        {
+          "lesson_id": "nis2-l2",
+          "order": 2,
+          "lesson_kind": "primer",
+          "estimated_minutes": 16,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:nis2/risk-management-measures",
+            "zc:concept:cra/manufacturer-obligations"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "nis2-l1",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "nis2-l2-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "nis2-l2-s1",
+              "legal_basis": "Art. 21 Abs. 1-2 Richtlinie (EU) 2022/2555",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "nis2-l2-s1"
+            },
+            {
+              "section_id": "nis2-l2-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "nis2-l2-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "nis2-l2-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:nis2/risk-management-measures"
+            ],
+            "topic_codes": [
+              "risikomanagement"
+            ],
+            "count": 4
+          },
+          "related": [
+            {
+              "kind": "deep_dive",
+              "module": "cra",
+              "concept": "zc:concept:cra/manufacturer-obligations",
+              "note_key": "nis2-l2-rel-cra",
+              "body_key": "nis2-l2-rel-cra"
+            }
+          ],
+          "title_key": "nis2-l2"
+        },
+        {
+          "lesson_id": "nis2-l3",
+          "order": 3,
+          "lesson_kind": "scenario",
+          "estimated_minutes": 18,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:cyber/incident-reporting-cascade"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "nis2-l2",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "nis2-l3-s1",
+              "order": 0,
+              "section_kind": "decision_flow",
+              "body_key": "nis2-l3-s1",
+              "legal_basis": "Art. 23 Richtlinie (EU) 2022/2555; BSIG n.F.",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "nis2-l3-s1"
+            },
+            {
+              "section_id": "nis2-l3-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "nis2-l3-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "nis2-l3-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:cyber/incident-reporting-cascade"
+            ],
+            "topic_codes": [
+              "meldepflichten"
+            ],
+            "question_ids": [
+              "nis2-meldepflichten-02",
+              "nis2-meldepflichten-03"
+            ],
+            "count": 4
+          },
+          "related": [
+            {
+              "kind": "contrast",
+              "module": "dora",
+              "concept": "zc:concept:cyber/incident-reporting-cascade",
+              "note_key": "nis2-l3-rel-dora",
+              "body_key": "nis2-l3-rel-dora"
+            }
+          ],
+          "title_key": "nis2-l3"
+        },
+        {
+          "lesson_id": "nis2-l4",
+          "order": 4,
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:nis2/management-body-accountability",
+            "zc:concept:nis2/personal-liability"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "nis2-l3",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "nis2-l4-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "nis2-l4-s1",
+              "legal_basis": "Art. 20 Abs. 1-2 Richtlinie (EU) 2022/2555",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "nis2-l4-s1"
+            },
+            {
+              "section_id": "nis2-l4-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "nis2-l4-s2",
+              "legal_basis": "§38 BSIG n.F.",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "nis2-l4-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:nis2/management-body-accountability",
+              "zc:concept:nis2/personal-liability"
+            ],
+            "topic_codes": [
+              "governance"
+            ],
+            "question_ids": [
+              "nis2-governance-02",
+              "nis2-governance-04"
+            ],
+            "count": 4
+          },
+          "title_key": "nis2-l4"
+        },
+        {
+          "lesson_id": "nis2-l5",
+          "order": 5,
+          "lesson_kind": "checkpoint",
+          "estimated_minutes": 12,
+          "completion_rule": "quiz_pass:0.8",
+          "concepts": [
+            "zc:concept:nis2/sanctions-and-liability"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "nis2-l4",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "nis2-l5-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "nis2-l5-s1",
+              "legal_basis": "Art. 32-34 Richtlinie (EU) 2022/2555; §33 BSIG n.F.",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "nis2-l5-s1"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:nis2/sanctions-and-liability"
+            ],
+            "topic_codes": [
+              "sanktionen"
+            ],
+            "count": 4
+          },
+          "title_key": "nis2-l5"
+        }
+      ],
+      "title_key": "nis2-all",
+      "description_key": "nis2-all"
+    }
+  ]
+}

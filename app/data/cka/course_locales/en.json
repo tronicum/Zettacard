@@ -1,0 +1,178 @@
+{
+  "cka-all": {
+    "title": "CKA in four weeks",
+    "description": "A concept-and-lab journey toward the Certified Kubernetes Administrator exam. Zettacard covers the concepts and the vocabulary; the exam itself is 100% hands-on, so every week pairs concept lessons with a lab you run yourself on kind, minikube, or a pair of VMs. Four weeks follow the order a cluster is actually learned in: what the control plane does, what runs on it, how traffic and data reach it, and finally how to diagnose it when it breaks."
+  },
+  "zc:concept:k8s/control-plane-components": {
+    "label": "Control plane components"
+  },
+  "zc:concept:k8s/workload-controllers": {
+    "label": "Workload controllers"
+  },
+  "zc:concept:k8s/scheduling-constraints": {
+    "label": "Scheduling constraints and workload configuration"
+  },
+  "zc:concept:k8s/service-networking": {
+    "label": "Service networking"
+  },
+  "zc:concept:k8s/persistent-storage": {
+    "label": "Persistent storage"
+  },
+  "zc:concept:k8s/rbac": {
+    "label": "RBAC and service accounts"
+  },
+  "zc:concept:k8s/cluster-troubleshooting": {
+    "label": "Systematic cluster troubleshooting"
+  },
+  "zc:concept:cyber/root-cause-analysis": {
+    "label": "Root-cause analysis / post-mortem"
+  },
+  "cka-w1": {
+    "title": "Week 1 — the cluster and what runs on it"
+  },
+  "cka-w2": {
+    "title": "Week 2 — workloads, scheduling and configuration"
+  },
+  "cka-w3": {
+    "title": "Week 3 — networking, storage and RBAC"
+  },
+  "cka-w4": {
+    "title": "Week 4 — troubleshooting under time pressure"
+  },
+  "cka-l1": {
+    "title": "What the control plane actually does"
+  },
+  "cka-l1-s1": {
+    "title": "kube-apiserver, etcd, scheduler, controller-manager",
+    "body": "Every request into a Kubernetes cluster ends at the kube-apiserver. It is the only component that talks to etcd, the key-value store holding the cluster's entire declared and observed state; everything else reads and writes that state through the API server's REST interface. The kube-scheduler watches for Pods that have no node assigned yet and picks a node for each one — it never starts a container, it only writes the binding back through the API server. The kube-controller-manager runs dozens of control loops inside a single process (Deployment, ReplicaSet, Node, Job, EndpointSlice, service-account controllers and more), each comparing declared state with observed state and acting on the difference. A cloud-controller-manager splits out the provider-specific loops. The consequence worth memorising: losing the control plane does not stop Pods that are already running — it stops change."
+  },
+  "cka-l1-s2": {
+    "title": "The node side: kubelet, kube-proxy, container runtime, CNI",
+    "body": "On every node the kubelet watches the API server for Pods bound to its own node and drives the container runtime through the CRI (containerd, CRI-O) until reality matches. It also reports node and Pod status back, executes liveness and readiness probes, and mounts volumes. One thing it does entirely without the API server: any manifest dropped into its static-Pod directory, usually /etc/kubernetes/manifests, is started directly — which is exactly how kubeadm bootstraps the control plane, as static Pods on the first control-plane node. kube-proxy turns Service objects into iptables or IPVS rules so that traffic to a ClusterIP lands on a real Pod IP. Pod-to-Pod connectivity itself is not Kubernetes' job at all: it belongs to the CNI plugin (Calico, Cilium, Flannel and others). A freshly initialised cluster with no CNI plugin has nodes stuck in NotReady with a 'container runtime network not ready' message — expected, not broken."
+  },
+  "cka-l1-s3": {
+    "title": "Declared state, not commands: the reconciliation loop",
+    "body": "kubectl apply does not deploy anything. It writes an object into etcd through the API server and returns; some controller then notices the gap between what you declared and what exists, and closes it. That is why every object printed with kubectl get -o yaml has two halves — a spec you own and a status the system owns — and why deleting a Pod owned by a ReplicaSet gets you a replacement within a second. Turn this into a working method: if an object exists but nothing happened, do not re-run the command. Ask which controller should have reacted, then read the events with kubectl describe <kind> <name> or kubectl get events --sort-by=.metadata.creationTimestamp. Imperative commands remain the fastest way to produce a starting manifest — kubectl create deployment web --image=nginx --dry-run=client -o yaml > web.yaml, then edit. Generating and editing beats typing YAML from memory, in the exam and in real life."
+  },
+  "cka-l2": {
+    "title": "Lab: stand up a cluster and break it once"
+  },
+  "cka-l2-s1": {
+    "title": "kubeadm init, then verify what you just read",
+    "body": "Run this on your own machine — Zettacard executes nothing. The CKA exam is 100% hands-on, so this lesson is instructions, not a simulator; use kind, minikube, or two small VMs, whichever you can rebuild quickly. On VMs: disable swap, install a container runtime, then kubeadm init --pod-network-cidr=10.244.0.0/16, copy the admin kubeconfig to $HOME/.kube/config, and apply a CNI plugin. Now verify the previous lesson instead of trusting it. kubectl get pods -n kube-system shows kube-apiserver, etcd, kube-scheduler and kube-controller-manager, plus kube-proxy and CoreDNS; ls /etc/kubernetes/manifests shows the four files that produced the first four. Check control-plane health with kubectl get --raw='/readyz?verbose' — kubectl get componentstatuses still prints on many clusters but is deprecated and should not become your habit. Nodes stay NotReady until the CNI plugin runs; watch that flip with kubectl get nodes -w."
+  },
+  "cka-l2-s2": {
+    "title": "Break it once: move the API server manifest away",
+    "body": "Now cause an outage on purpose, because week 4 is far easier if you have seen this once in calm conditions. On the control-plane node, move /etc/kubernetes/manifests/kube-apiserver.yaml to /tmp and watch: within seconds the kubelet stops the API server Pod and every kubectl command fails with 'connection refused'. Nothing else dies — your workload Pods keep serving traffic, which is the practical meaning of 'the control plane manages change, not traffic'. While it is down, practise the tools that do not need the API server: systemctl status kubelet, journalctl -u kubelet -f, crictl ps and crictl logs against the runtime, and the container logs under /var/log/pods. Then move the file back; the kubelet picks it up on its next sync and kubectl answers again. Write down what each command showed while the cluster was broken — that note is your week-4 cheat sheet, and you wrote it yourself, which is why you will remember it."
+  },
+  "cka-l3": {
+    "title": "Deployment, ReplicaSet, Pod — and the rest of the family"
+  },
+  "cka-l3-s1": {
+    "title": "Who owns whom: ownerReferences and the controller zoo",
+    "body": "You almost never create a bare Pod. A Deployment creates and manages a ReplicaSet, and the ReplicaSet keeps a fixed number of Pod replicas alive; each child links to its parent through metadata.ownerReferences, which is what makes cascading deletion work and what kubectl get replicaset shows you after every rollout. Around that sit controllers with different jobs. A DaemonSet runs exactly one Pod on every matching node — how log shippers, node exporters and CNI agents get deployed. A StatefulSet gives Pods stable ordinal names (web-0, web-1), stable per-Pod storage via volumeClaimTemplates, and ordered rollout, usually paired with a headless Service for stable DNS. A Job runs Pods to completion and retries with backoffLimit; a CronJob creates Jobs on a schedule. One trap that costs exam minutes: spec.selector on a Deployment or StatefulSet is immutable — wrong labels mean delete and recreate, not patch."
+  },
+  "cka-l3-s2": {
+    "title": "Rolling updates — and what actually blocks them",
+    "body": "kubectl set image deployment/web web=nginx:1.27 does not replace all Pods at once. The default RollingUpdate strategy creates a second ReplicaSet and shifts replicas across, bounded by maxSurge (how many extra Pods may exist) and maxUnavailable (how many may be missing) — both default to 25%. kubectl rollout status deployment/web blocks until the new ReplicaSet is fully available; kubectl rollout history lists the revisions kept under revisionHistoryLimit; kubectl rollout undo scales the previous ReplicaSet back up, which is why the old ReplicaSet is deliberately kept at zero replicas rather than deleted. When a rollout hangs, the cause is almost always one of three: the new Pods never pass their readinessProbe, they cannot be scheduled at all, or the image will not pull. After progressDeadlineSeconds (600 by default) the Deployment gains a ProgressDeadlineExceeded condition. Read it with kubectl describe deployment web and fix the cause — re-running the command changes nothing."
+  },
+  "cka-l4": {
+    "title": "How a Pod gets a node — and what it carries with it"
+  },
+  "cka-l4-s1": {
+    "title": "Filter, then score: nodeSelector, affinity, taints, spread",
+    "body": "Scheduling is two phases. First the scheduler filters out every node that cannot host the Pod, then it scores the survivors and binds the Pod to the best one. Filtering is where your constraints act: resource requests (not limits — requests are what scheduling arithmetic uses), nodeSelector as the blunt label match, nodeAffinity for required and preferred rules, pod affinity and anti-affinity to place Pods near or away from other Pods, and taints on the node paired with tolerations on the Pod. A taint with effect NoSchedule keeps new Pods off, PreferNoSchedule only discourages them, and NoExecute also evicts Pods already running there — which is exactly how control-plane nodes stay clear of ordinary workloads. topologySpreadConstraints then spread replicas evenly across zones or nodes. Two escape hatches bypass the scheduler entirely: setting spec.nodeName directly, and static Pods, which the kubelet starts from disk without ever asking the scheduler."
+  },
+  "cka-l4-s2": {
+    "title": "Configuration that rides along: ConfigMaps, Secrets, requests and limits",
+    "body": "A ConfigMap or Secret reaches a container in one of two ways, and the difference matters. Injected as environment variables, values are frozen when the container starts — updating the ConfigMap changes nothing until the Pod restarts. Mounted as a volume, the kubelet refreshes the files in place after a short delay, so an application that re-reads its config file picks the change up without a restart (subPath mounts are the exception and never update). Secrets are base64-encoded, not encrypted: anyone who can read the object can read the value, so protection comes from RBAC plus encryption at rest configured on the API server. Requests and limits set the Pod's QoS class — Guaranteed when every container sets requests equal to limits, BestEffort when nothing is set, Burstable in between — and that class decides who gets evicted first under node pressure. Exceeding a memory limit means an immediate OOMKilled; exceeding CPU only means throttling."
+  },
+  "cka-l4-s3": {
+    "title": "Pending is a message, not a state of waiting",
+    "body": "A Pod stuck in Pending is not being slow — the scheduler has already tried and failed, and it wrote down why. kubectl describe pod ends with an event such as '0/3 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 2 Insufficient cpu'. That single line names both the count and the reason per group of nodes, and it maps directly onto the filters above: insufficient cpu or memory means requests too large or a full node, untolerated taint means a missing toleration, no nodes match node selector means a label typo. Get into the habit now, in week 2: read the event before touching the manifest. In week 4 the same sentence will appear under time pressure, and the difference between candidates who pass and candidates who run out of time is largely whether they read it or guessed."
+  },
+  "cka-l5": {
+    "title": "Lab: roll out, roll back, and make the scheduler say no"
+  },
+  "cka-l5-s1": {
+    "title": "Watch two ReplicaSets trade places",
+    "body": "On your own cluster — Zettacard runs nothing for you. Create a Deployment with kubectl create deployment web --image=nginx:1.25 --replicas=4, then open a second terminal running kubectl get pods,replicaset -w. In the first terminal run kubectl set image deployment/web nginx=nginx:1.27 and watch the second ReplicaSet appear and the first drain to zero without ever being deleted. Confirm the revisions with kubectl rollout history deployment/web, then run kubectl rollout undo deployment/web and watch the old ReplicaSet scale back up. Next, break it deliberately: kubectl set image deployment/web nginx=nginx:doesnotexist. The rollout stalls, kubectl rollout status never returns, and kubectl get pods shows ImagePullBackOff — but note that your four serving Pods are still there, because maxUnavailable only allowed one to go. Recover with kubectl rollout undo. That asymmetry, a broken rollout that does not take the service down, is the whole point of the strategy."
+  },
+  "cka-l5-s2": {
+    "title": "Three ways to be unschedulable",
+    "body": "Produce each Pending reason on purpose and read the event each time. First, resources: kubectl create deployment fat --image=nginx, then edit it to request 100 CPUs; kubectl describe pod will say Insufficient cpu. Second, taints: kubectl taint nodes <worker> tier=db:NoSchedule, redeploy something plain, and read 'untolerated taint'; then add the matching toleration to the Pod spec and watch it schedule. Third, labels: set nodeSelector: disktype=ssd on a Pod when no node carries that label, read 'node(s) didn't match Pod's node affinity/selector', then kubectl label node <worker> disktype=ssd and see the Pod schedule within seconds, without any change to the Pod. Finish by cleaning up: kubectl taint nodes <worker> tier=db:NoSchedule- (the trailing minus removes it) and kubectl label node <worker> disktype-. The three events you just read cover most scheduling questions you will meet."
+  },
+  "cka-l6": {
+    "title": "Services, endpoints, and why your Pod can't reach it"
+  },
+  "cka-l6-s1": {
+    "title": "ClusterIP → NodePort → LoadBalancer → Ingress, in that order",
+    "body": "Each Service type adds exactly one thing to the previous one, so learn them as a ladder rather than four options. ClusterIP, the default, gives a stable virtual IP and DNS name inside the cluster; kube-proxy rewrites traffic for that IP onto one of the backing Pod IPs. NodePort keeps all of that and additionally opens the same high port (30000–32767) on every node. LoadBalancer keeps the NodePort and asks the cloud provider for an external address in front of it — on a bare-metal or kind cluster with no provider integration, it simply stays Pending forever, which is expected. Ingress is not a Service type at all: it is an HTTP routing object, evaluated by an ingress controller you must install yourself, which routes host and path rules to ClusterIP Services. If nothing is installed, an Ingress object is inert YAML. Pick the lowest rung that solves the problem; the exam rewards that, and so does production."
+  },
+  "cka-l6-s2": {
+    "title": "Four checks when a Service returns nothing",
+    "body": "A Service is a label selector with a virtual IP in front of it, so failures land in a small number of places and there is a fixed order to check them. One: does the Service have endpoints? kubectl get endpointslices -l kubernetes.io/service-name=<svc> — an empty list means the selector matches no ready Pod, and no amount of DNS debugging will help. Two: do the labels actually match, and are the Pods passing their readinessProbe? A failing probe removes a Pod from the endpoints while it stays Running. Three: is targetPort the container's real port? Service port and targetPort are different fields and a mismatch is invisible until you curl. Four: does DNS resolve? From a throwaway Pod (kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- sh) try nslookup <svc>.<namespace>.svc.cluster.local, and if that fails check that CoreDNS Pods in kube-system are Running. Only after those four is it worth suspecting a NetworkPolicy or the CNI plugin."
+  },
+  "cka-l6-s3": {
+    "title": "NetworkPolicy: everything is allowed until the first policy",
+    "body": "By default every Pod can talk to every other Pod in the cluster. A NetworkPolicy changes that only for the Pods its podSelector matches, and only for the directions it lists: a policy with just an ingress section leaves egress untouched, and vice versa. Once any policy selects a Pod for a direction, that direction becomes deny-by-default and only the listed rules pass — which makes the classic 'deny all ingress in this namespace' policy a podSelector of {} with an empty ingress list. Rules select peers by podSelector, namespaceSelector or ipBlock, and combining a podSelector and a namespaceSelector inside one rule element means AND, while listing them as separate elements means OR; this is the single most common mistake in written policies. One infrastructure caveat that costs people whole afternoons: NetworkPolicy is enforced by the CNI plugin, not by Kubernetes. With a plugin that does not implement it, your policy is accepted by the API server, appears in kubectl get netpol, and does exactly nothing."
+  },
+  "cka-l7": {
+    "title": "PV, PVC, StorageClass: who provides, who claims"
+  },
+  "cka-l7-s1": {
+    "title": "Two objects, one binding — and the StorageClass in between",
+    "body": "A PersistentVolume is a piece of storage that exists in the cluster; a PersistentVolumeClaim is a request for storage written by whoever deploys the application. The controller binds one claim to one volume, exclusively and for the claim's lifetime. There are two ways a PV comes into being. Static provisioning: an administrator creates PVs by hand and claims bind to whichever one fits capacity, access mode and storageClassName. Dynamic provisioning: the claim names a StorageClass (or omits it and gets the cluster's default, marked by the storageclass.kubernetes.io/is-default-class annotation) and a CSI provisioner creates the volume on demand. Access modes describe how many nodes may mount it, not how many Pods: ReadWriteOnce means one node, ReadWriteOncePod means literally one Pod, ReadWriteMany means many nodes and requires a backend such as NFS that can actually do it. The reclaim policy decides the ending: Delete removes the volume with the claim, Retain keeps the data and leaves the PV Released for a human to handle."
+  },
+  "cka-l7-s2": {
+    "title": "Inside the Pod: emptyDir, hostPath, projected, volumeClaimTemplates",
+    "body": "Not every volume is persistent. An emptyDir lives and dies with the Pod and is the normal way two containers in one Pod share a scratch directory. A hostPath mounts a directory from the node itself: useful for node agents, dangerous for everything else, because the Pod is now tied to one node's filesystem and can read what it should not. A projected volume combines ConfigMaps, Secrets, the downward API and service-account tokens into one directory tree. Persistence enters through a volume of type persistentVolumeClaim, and a StatefulSet automates that with volumeClaimTemplates: each replica gets its own PVC, named after the Pod, and keeps it across restarts and rescheduling — deleting the StatefulSet deliberately does not delete those claims. Two operational details worth knowing: a PVC can only be grown, never shrunk, and only if its StorageClass sets allowVolumeExpansion: true; and volumeBindingMode: WaitForFirstConsumer delays provisioning until a Pod is scheduled, so the volume is created in the zone the Pod actually landed in."
+  },
+  "cka-l8": {
+    "title": "RBAC: who may do what, to which resource, where"
+  },
+  "cka-l8-s1": {
+    "title": "Four objects, one matrix: Role, ClusterRole, and their bindings",
+    "body": "A Role holds permissions and lives in a namespace; a ClusterRole holds the same kind of permissions but is cluster-scoped and can also cover cluster-scoped resources such as nodes and persistentvolumes. A RoleBinding grants a role to subjects inside one namespace; a ClusterRoleBinding grants it across the whole cluster. That gives the matrix worth memorising, including its useful diagonal: a RoleBinding may reference a ClusterRole, which grants those permissions only within the binding's namespace — that is how one reusable 'view' or 'edit' definition serves many namespaces without duplication. Rules themselves are triples of apiGroups, resources and verbs (get, list, watch, create, update, patch, delete), where the core API group is written as the empty string \"\". Subresources are separate strings: granting pods does not grant pods/log or pods/exec. Two properties decide most exam answers: RBAC is purely additive with no deny rules, and permissions are the union of every binding a subject has. Verify with kubectl auth can-i rather than by reasoning."
+  },
+  "cka-l8-s2": {
+    "title": "ServiceAccounts, tokens, and testing a permission before you need it",
+    "body": "Human users are not Kubernetes objects — the API server authenticates them from certificates, tokens or an external provider, and RBAC only decides what the resulting name may do. In-cluster identities are objects: every Pod runs as a ServiceAccount, the namespace's default one unless spec.serviceAccountName says otherwise. That token is mounted into the Pod as a short-lived, audience-bound projected token that the kubelet rotates; set automountServiceAccountToken: false on the ServiceAccount or the Pod when the workload never calls the API, which is most workloads. Then test rather than reason: kubectl auth can-i list pods --as=system:serviceaccount:dev:builder -n dev answers yes or no in one line, and kubectl auth can-i --list --as=<subject> prints everything an identity may do. Two habits from this: grant a dedicated ServiceAccount per workload rather than reusing default, and check a binding with can-i immediately after creating it, because a typo in a subject name fails silently — RBAC never errors, it just denies."
+  },
+  "cka-l9": {
+    "title": "Lab: expose it, store it, lock it down"
+  },
+  "cka-l9-s1": {
+    "title": "Break the selector on purpose, then watch the endpoints vanish",
+    "body": "Your cluster, your keyboard — Zettacard executes nothing. Start from kubectl create deployment web --image=nginx --replicas=2 and kubectl expose deployment web --port=80 --target-port=80. Verify from inside the cluster with a throwaway Pod: kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- wget -qO- web.default.svc.cluster.local. Now break it in the way real clusters break: kubectl edit service web and change the selector to app=web-typo. The Service still exists, still has a ClusterIP, still resolves in DNS — and returns nothing. Run the four checks from lesson 6 in order and confirm that check one already tells you the answer: kubectl get endpointslices -l kubernetes.io/service-name=web is empty. Repair the selector, watch the endpoints come back, then convert the Service with kubectl patch svc web -p '{\"spec\":{\"type\":\"NodePort\"}}' and reach it from the node with curl <node-ip>:<nodePort>. Empty endpoints plus a healthy DNS name is the signature failure of this whole topic."
+  },
+  "cka-l9-s2": {
+    "title": "Data that survives the Pod, and a ServiceAccount that cannot delete it",
+    "body": "Part two, still on your own cluster. Create a PVC of 1Gi with no storageClassName so it takes the default class, and check kubectl get pvc: on kind or minikube it should reach Bound, and if it sits Pending, kubectl describe pvc names the reason (usually no default StorageClass, or WaitForFirstConsumer waiting for a Pod). Mount it in a Pod at /data, write a file into it, delete the Pod, recreate it from the same manifest, and confirm the file is still there. That single experiment is the whole point of persistent storage, and it takes four minutes. Then the RBAC half: kubectl create serviceaccount reader -n default, kubectl create role pod-reader --verb=get,list,watch --resource=pods -n default, kubectl create rolebinding reader-binding --role=pod-reader --serviceaccount=default:reader -n default. Test both directions: kubectl auth can-i list pods --as=system:serviceaccount:default:reader must answer yes, and kubectl auth can-i delete pvc --as=system:serviceaccount:default:reader must answer no. Least privilege is a thing you verify, not a thing you intend."
+  },
+  "cka-l10": {
+    "title": "Troubleshooting from the outside in"
+  },
+  "cka-l10-s1": {
+    "title": "Cluster → node → Pod → container, always in that order",
+    "body": "Troubleshooting is the largest domain of the exam, and the candidates who finish it are not faster typists — they follow a fixed order instead of guessing. Start at the cluster: kubectl get nodes, and if kubectl itself fails, the problem is the API server or your kubeconfig, not the workload. Then the node: kubectl describe node <name> and read the Conditions block, where Ready, MemoryPressure, DiskPressure and PIDPressure each name a different cause; a NotReady node usually means kubelet, CNI or a full disk, in that order of likelihood. Then the Pod: kubectl get pod -o wide for its phase and node, kubectl describe pod for events, and kubectl get events --sort-by=.metadata.creationTimestamp -A when you need the timeline rather than one object. Only then the container: kubectl logs <pod> -c <container>, and kubectl logs --previous when it has already restarted — the log of the crashed instance is the one that holds the reason. Each step either explains the failure or eliminates a layer; both outcomes are progress."
+  },
+  "cka-l10-s2": {
+    "title": "Read the status: Pending, ImagePullBackOff, CrashLoopBackOff, OOMKilled, Terminating",
+    "body": "The status column is not a mood, it is a diagnosis with a next step attached. Pending means the scheduler could not place the Pod; the reason is in the events, and it is resources, a taint, a selector, or an unbound PVC. ImagePullBackOff and ErrImagePull mean the kubelet cannot fetch the image: wrong name or tag, a private registry with no imagePullSecret, or no egress from the node. CrashLoopBackOff means the container starts and exits repeatedly, so the container itself is fine and the process inside is not — kubectl logs --previous and the exit code in kubectl describe pod carry the answer. Exit code 137 with reason OOMKilled means the container exceeded its memory limit, which is a limit or an application problem, never a scheduling one. A Pod stuck Terminating is usually a finalizer waiting on something or a graceful shutdown that never ends. Init:Error or Init:CrashLoopBackOff points at an init container, whose logs need -c <init-container-name>."
+  },
+  "cka-l10-s3": {
+    "title": "When the cluster itself is the patient: control plane, certificates, etcd, nodes",
+    "body": "Some failures are below the API. If kubectl reports connection refused, the API server is down: on a kubeadm cluster it is a static Pod, so check /etc/kubernetes/manifests/kube-apiserver.yaml for a bad edit, then crictl ps -a and crictl logs for the container that will not stay up — exactly the drill from the week-1 lab. If kubectl reports certificate expired, run kubeadm certs check-expiration and renew; control-plane certificates are valid for one year and a cluster left idle over a birthday stops answering. For etcd, know two commands and that they need the peer and client certificates: etcdctl snapshot save to take a backup and etcdctl snapshot restore into a new data directory, after which you point the etcd static Pod at that directory. A NotReady node is a node-level question, not a Kubernetes one: systemctl status kubelet, journalctl -u kubelet, disk space, and whether the CNI agent Pod is running there. Before maintenance use kubectl drain <node> --ignore-daemonsets, and afterwards kubectl uncordon <node> — forgetting the second is a common self-inflicted outage."
+  },
+  "cka-l11": {
+    "title": "Checkpoint: diagnose, don't guess"
+  },
+  "cka-l11-s1": {
+    "title": "A fix is not an answer until you can name the cause",
+    "body": "Everything in this course converges on one habit: form a hypothesis, name the evidence that would confirm it, go get that evidence, and only then change something. Restarting a Pod that then works tells you nothing, because you have destroyed the state that held the explanation. The written form of this discipline is the post-mortem: a timeline of what happened and when, the symptom as observed, the cause you can point at in a log or an event, the contributing factors that let a small fault become an outage, and actions with owners. Two rules make it useful rather than ceremonial — describe systems and decisions instead of people, and separate the cause from the trigger, since a certificate that expires on a Tuesday was already going to expire. This final quiz draws from the troubleshooting pool and asks you to read a symptom and name the layer it belongs to. If a question feels like a guess, that is the signal to go back to lesson 10's fixed order, not to answer faster."
+  },
+  "cka-l11-rel-dora": {
+    "body": "The same skill appears in Zettacard's DORA course in different clothes. A Kubernetes post-mortem and the final report a financial entity owes under DORA Art. 19 after a major ICT incident both demand the same thing: a cause you can evidence, not a plausible story. The vocabulary differs — Pods, nodes and events on one side, classification thresholds and supervisory deadlines on the other — and the DORA version carries legal consequences this one does not. But the discipline of separating symptom, cause and trigger transfers directly, which is why both courses name the same concept."
+  }
+}

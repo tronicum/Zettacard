@@ -1,0 +1,87 @@
+{
+  "nis2-all": {
+    "title": "NIS2 – Cybersecurity for essential and important entities",
+    "description": "Five lessons following the structure of Directive (EU) 2022/2555 as transposed into German law (revised BSIG, \"NIS2UmsuCG\"): scope, the ten risk-management measures, the reporting cascade, management-body accountability, and sanctions. Citations were checked mostly against the Directive's own text on 2026-08-13; the BSIG-specific details (incl. §33, §38) still rest on secondary sources and should be verified against the consolidated statute text before production use – flagged per section."
+  },
+  "zc:concept:nis2/scope-and-registration": {
+    "label": "Scope & registration duty"
+  },
+  "zc:concept:nis2/training-duty-split": {
+    "label": "Split training duty (entity vs. management body)"
+  },
+  "zc:concept:nis2/risk-management-measures": {
+    "label": "Ten risk-management measures"
+  },
+  "zc:concept:cyber/incident-reporting-cascade": {
+    "label": "Reporting cascade"
+  },
+  "zc:concept:nis2/management-body-accountability": {
+    "label": "Management body accountability"
+  },
+  "zc:concept:nis2/personal-liability": {
+    "label": "Personal liability under §38 BSIG"
+  },
+  "zc:concept:nis2/sanctions-and-liability": {
+    "label": "Sanctions and fines"
+  },
+  "zc:concept:cra/manufacturer-obligations": {
+    "label": "Manufacturer obligations"
+  },
+  "nis2-l1": {
+    "title": "Why NIS2 concerns you"
+  },
+  "nis2-l1-s1": {
+    "title": "A Directive, not a Regulation – transposed with no grace period",
+    "body": "Unlike DORA, NIS2 is not a directly applicable EU Regulation but a Directive (Directive (EU) 2022/2555) – it first had to be transposed into national law. In Germany that happened via an amendment to the BSI Act known as the NIS2UmsuCG, binding since 6 December 2025 with no transition period. The German transposition massively expands the pool of covered companies: secondary sources (including DLA Piper) put the figure at roughly 29,500 companies – about five times the prior, narrower KRITIS regime – spread across eleven sectors of \"essential\" entities (energy, transport, banking, financial market infrastructure, health, drinking water and wastewater, digital infrastructure, ICT service management, public administration, space) plus further sectors of \"important\" entities such as postal and courier services, waste management, chemicals, food, manufacturing (including motor vehicles), and digital platforms. That figure is a secondary-source estimate and has not been cross-checked against a second primary source – but it clearly conveys the scale of the expansion. Covered entities also face a duty to register with the BSI within three months; the exact section number (§33 BSIG n.F.) and the BSIG-specific detail generally still come from secondary sources and have not yet been checked directly against the consolidated statute text on gesetze-im-internet.de."
+  },
+  "nis2-l1-s2": {
+    "title": "Why training concerns you – even without a leadership role",
+    "body": "Unlike DORA, whose Art. 13(6) explicitly mandates training for all employees and senior management, NIS2 has no blanket training duty for the whole workforce. Still, the topic concerns you for two separate reasons: first, every in-scope entity as a whole must maintain – under Art. 21(2)(g) – \"basic cyber hygiene practices and cybersecurity training\" as one of ten mandatory risk-management measures; that is an entity-wide duty, not one aimed at you individually, but it applies to every role in the company that helps carry out this measure. Second, Art. 20(2) personally obligates each member of the management body to undergo training so they can identify risks and assess cybersecurity practices. For the rest of the workforce, the Directive only \"encourages\" similar training, without individually mandating it. In short: the individual legal compulsion falls only on the management body personally – but the entity-wide duty under Art. 21(2)(g) is why a training offering like this one is actually required for the whole company under the ten mandatory measures, not just a nice-to-have."
+  },
+  "nis2-l2": {
+    "title": "The ten mandatory measures – and where the Cyber Resilience Act picks up"
+  },
+  "nis2-l2-s1": {
+    "title": "Ten mandatory measures, one proportionality standard",
+    "body": "Art. 21(2) NIS2 lists ten categories of minimum risk-management measures (points a-j): among others, risk analysis and information system security, incident handling, business continuity (backup management, crisis management), supply chain security toward direct suppliers and service providers (point d), security in acquiring, developing, and maintaining IT systems including vulnerability handling, assessing the effectiveness of measures, basic cyber hygiene and training (point g, see Lesson 1), policies on cryptography and encryption, human resources security and access control, and – where appropriate – multi-factor or continuous authentication and secured communication (point j). How far an individual company must go on each of these ten categories is set by Art. 21(1) according to the state of the art, and must be proportionate to risk, company size, and the likelihood and severity of possible incidents and their societal and economic impact – so there is no single checklist identical for every company."
+  },
+  "nis2-l2-s2": {
+    "title": "Entity-wide risk management vs. product security",
+    "body": "The ten measures under Art. 21(2) NIS2 target the organization as a whole: processes, governance, supply-chain relationships, access control – regardless of which specific products the company itself manufactures. The Cyber Resilience Act (CRA) picks up at a different point: it obligates manufacturers of digital products to meet concrete security requirements for that specific product – secure by design, vulnerability handling across the product lifecycle, conformity assessment before market entry. For a company that is both an operator of a NIS2-covered essential or important entity AND a manufacturer of digital products, both sets of obligations apply side by side and complement rather than overlap each other: NIS2 governs how the company as an organization manages cyber risk, while the CRA governs what has to be built into the products it manufactures before they reach the market."
+  },
+  "nis2-l2-rel-cra": {
+    "body": "NIS2 governs organization-wide risk management for operators of essential and important entities; the Cyber Resilience Act governs security requirements for a manufacturer's individual product. Both sets of obligations are complementary, not overlapping, and can apply to the same company at the same time."
+  },
+  "nis2-l3": {
+    "title": "The reporting cascade – and who it does not apply to"
+  },
+  "nis2-l3-s1": {
+    "title": "The three-stage reporting cascade: 24 hours, 72 hours, one month",
+    "body": "A significant security incident triggers a three-stage reporting duty toward the competent authority under Art. 23 NIS2 – the BSI in Germany. Stage one is an early warning without undue delay and no later than 24 hours after becoming aware (Art. 23(4)(a)). Stage two is an incident notification with updated information and an initial severity assessment, no later than 72 hours (point b). Stage three is a final report no later than one month after the incident notification – for still-ongoing incidents, a progress report plus a final update within one month of resolution (point c). These three deadlines were checked directly against the Directive's own text in the 2026-08-13 pre-review dossier and rated highly reliable. The BSI's role as the competent German authority/CSIRT, by contrast, is only backed by medium confidence – it comes from secondary sources and has not yet been checked directly against the consolidated BSIG text."
+  },
+  "nis2-l3-s2": {
+    "title": "This cascade does not apply to DORA-regulated financial entities",
+    "body": "As clear as this three-stage cascade sounds, it generally does not apply to financial entities covered by DORA (banks, payment institutions, insurers, crypto-asset providers, and others). Germany's NIS2UmsuCG contains a lex-specialis carve-out under which DORA-regulated financial entities are exempted from NIS2's core ICT risk-management and reporting obligations – including the cascade described here – because DORA already regulates that ground more specifically. General duties such as BSI registration and cooperation obligations can still apply if the entity separately qualifies as an essential or important entity – but the substantive reporting and risk-management duties for these entities come from DORA (Art. 17-23 VO (EU) 2022/2554), not from NIS2. Anyone working for a DORA-covered financial entity should therefore not assume the 24h/72h/1-month cascade in this lesson is the deadline that applies to their own employer."
+  },
+  "nis2-l3-rel-dora": {
+    "body": "DORA-regulated financial entities are exempt from NIS2's reporting cascade and its other core ICT risk-management obligations (a lex-specialis carve-out in the NIS2UmsuCG) – DORA's own reporting cascade under Art. 17-23 applies to them instead."
+  },
+  "nis2-l4": {
+    "title": "Management-body accountability and liability"
+  },
+  "nis2-l4-s1": {
+    "title": "Approve, oversee, answer for it: the management body's role",
+    "body": "Art. 20(1) NIS2 makes the management body – the executive or supervisory board – the responsible approving and overseeing organ for the company's risk-management measures: it must approve the measures, oversee their implementation, and bears responsibility for the company's NIS2 breaches. Art. 20(2) additionally obligates each individual member of the management body personally to undergo training in order to gain sufficient knowledge to identify risks and assess cybersecurity practices – this duty exists independently of the entity-wide measure under Art. 21(2)(g) (see Lesson 1) and is the only individual, personal training duty NIS2 contains at all."
+  },
+  "nis2-l4-s2": {
+    "title": "§38 BSIG: personal accountability – with a review caveat",
+    "body": "The German transposition goes a step further than the Directive itself in §38 BSIG (revised): natural persons who, by law, articles of association, or partnership agreement, manage and represent the company can be held personally responsible for failing to ensure implementation of the required risk-management measures. REVIEW NOTE: as documented in the 2026-08-13 pre-review dossier, this statement rests on a law-firm analysis (secondary source) rather than a direct reading of the consolidated BSIG statute text; the exact scope and any available defenses should be checked against the primary text on gesetze-im-internet.de before this statement is used in any production context."
+  },
+  "nis2-l5": {
+    "title": "Sanctions: fines, personal bans, missed registration"
+  },
+  "nis2-l5-s1": {
+    "title": "Fines, personal sanctions, and the consequences of a missed registration",
+    "body": "Violations of NIS2/BSIG can be sanctioned with fines of up to €10 million or 2% of global annual turnover for essential and particularly important entities, or up to €7 million or 1.4% for important entities – whichever figure is higher (Art. 34; rated medium-to-high confidence in the pre-review dossier, cross-confirmed via a law-firm analysis but not yet checked directly against the article text itself). In addition to fines, the competent authority may, under Art. 32(5)(b), impose a temporary ban on natural persons at CEO or legal-representative level from exercising managerial functions at essential entities where other enforcement measures prove ineffective – a person-targeted sanction that operates in addition to, not instead of, fines. The BSI also holds general inspection and order powers, including on-site checks and orders to remedy deficiencies (Art. 32-33 – characterized here only in general terms, not checked in detail against the full article text). Finally, the registration duty itself (see Lesson 1) is a standalone set of obligations: a missed registration can be sanctioned independently of the substantive risk-management and reporting duties."
+  }
+}

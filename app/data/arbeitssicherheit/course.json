@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "app": "Zettacard / arbeitssicherheit-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-sonnet/2026-08-15",
+    "canonical_locale": "de",
+    "locales": [
+      "de",
+      "en"
+    ]
+  },
+  "courses": [
+    {
+      "course_id": "arbeitssicherheit-all",
+      "module_ref": "arbeitssicherheit",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 69,
+      "concepts": [
+        {
+          "concept_id": "zc:concept:arbeitssicherheit/employer-duties",
+          "label_key": "zc:concept:arbeitssicherheit/employer-duties"
+        },
+        {
+          "concept_id": "zc:concept:arbeitssicherheit/employee-duties",
+          "label_key": "zc:concept:arbeitssicherheit/employee-duties"
+        },
+        {
+          "concept_id": "zc:concept:arbeitssicherheit/unterweisung",
+          "label_key": "zc:concept:arbeitssicherheit/unterweisung"
+        },
+        {
+          "concept_id": "zc:concept:arbeitssicherheit/gefaehrdungsbeurteilung",
+          "label_key": "zc:concept:arbeitssicherheit/gefaehrdungsbeurteilung"
+        },
+        {
+          "concept_id": "zc:concept:arbeitssicherheit/psa",
+          "label_key": "zc:concept:arbeitssicherheit/psa"
+        },
+        {
+          "concept_id": "zc:concept:arbeitssicherheit/notfallvorsorge",
+          "label_key": "zc:concept:arbeitssicherheit/notfallvorsorge"
+        },
+        {
+          "concept_id": "zc:concept:arbeitssicherheit/bildschirmarbeit",
+          "label_key": "zc:concept:arbeitssicherheit/bildschirmarbeit"
+        }
+      ],
+      "lessons": [
+        {
+          "lesson_id": "arbeitssicherheit-l1",
+          "order": 1,
+          "lesson_kind": "primer",
+          "estimated_minutes": 12,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:arbeitssicherheit/employer-duties",
+            "zc:concept:arbeitssicherheit/employee-duties"
+          ],
+          "sections": [
+            {
+              "section_id": "arbeitssicherheit-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "arbeitssicherheit-l1-s1",
+              "legal_basis": "§3, §7, §13 ArbSchG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "arbeitssicherheit-l1-s1"
+            },
+            {
+              "section_id": "arbeitssicherheit-l1-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "arbeitssicherheit-l1-s2",
+              "legal_basis": "§15, §16 ArbSchG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "arbeitssicherheit-l1-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "grundpflichten"
+            ],
+            "question_ids": [
+              "arbeitssicherheit-grundpflichten-02"
+            ],
+            "count": 8
+          },
+          "title_key": "arbeitssicherheit-l1"
+        },
+        {
+          "lesson_id": "arbeitssicherheit-l2",
+          "order": 2,
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:arbeitssicherheit/unterweisung"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "arbeitssicherheit-l1",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "arbeitssicherheit-l2-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "arbeitssicherheit-l2-s1",
+              "legal_basis": "§12 ArbSchG i. V. m. §4 DGUV Vorschrift 1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "arbeitssicherheit-l2-s1"
+            },
+            {
+              "section_id": "arbeitssicherheit-l2-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "arbeitssicherheit-l2-s2",
+              "legal_basis": "§12 Abs. 1, Abs. 2 ArbSchG; §4 DGUV Vorschrift 1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "arbeitssicherheit-l2-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "unterweisung"
+            ],
+            "question_ids": [
+              "arbeitssicherheit-unterweisung-03",
+              "arbeitssicherheit-unterweisung-08"
+            ],
+            "count": 8
+          },
+          "title_key": "arbeitssicherheit-l2"
+        },
+        {
+          "lesson_id": "arbeitssicherheit-l3",
+          "order": 3,
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:arbeitssicherheit/gefaehrdungsbeurteilung"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "arbeitssicherheit-l2",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "arbeitssicherheit-l3-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "arbeitssicherheit-l3-s1",
+              "legal_basis": "§5 ArbSchG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "arbeitssicherheit-l3-s1"
+            },
+            {
+              "section_id": "arbeitssicherheit-l3-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "arbeitssicherheit-l3-s2",
+              "legal_basis": "§6 ArbSchG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "arbeitssicherheit-l3-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "gefaehrdungsbeurteilung"
+            ],
+            "count": 8
+          },
+          "title_key": "arbeitssicherheit-l3"
+        },
+        {
+          "lesson_id": "arbeitssicherheit-l4",
+          "order": 4,
+          "lesson_kind": "primer",
+          "estimated_minutes": 15,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:arbeitssicherheit/psa",
+            "zc:concept:arbeitssicherheit/notfallvorsorge"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "arbeitssicherheit-l3",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "arbeitssicherheit-l4-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "arbeitssicherheit-l4-s1",
+              "legal_basis": "§4 Nr. 5, §15 Abs. 2 ArbSchG; PSA-Benutzungsverordnung",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "arbeitssicherheit-l4-s1"
+            },
+            {
+              "section_id": "arbeitssicherheit-l4-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "arbeitssicherheit-l4-s2",
+              "legal_basis": "ASR A2.2, ASR A2.3; §26 DGUV Vorschrift 1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "arbeitssicherheit-l4-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "psa_notfall"
+            ],
+            "count": 8
+          },
+          "title_key": "arbeitssicherheit-l4"
+        },
+        {
+          "lesson_id": "arbeitssicherheit-l5",
+          "order": 5,
+          "lesson_kind": "checkpoint",
+          "estimated_minutes": 12,
+          "completion_rule": "quiz_pass:0.8",
+          "concepts": [
+            "zc:concept:arbeitssicherheit/bildschirmarbeit"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "arbeitssicherheit-l4",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "arbeitssicherheit-l5-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "arbeitssicherheit-l5-s1",
+              "legal_basis": "Arbeitsstättenverordnung (ArbStättV), Anhang Nr. 6",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "arbeitssicherheit-l5-s1"
+            },
+            {
+              "section_id": "arbeitssicherheit-l5-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "arbeitssicherheit-l5-s2",
+              "legal_basis": "ArbMedVV, Anhang Teil 4",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title_key": "arbeitssicherheit-l5-s2"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "bildschirmarbeit"
+            ],
+            "count": 8
+          },
+          "title_key": "arbeitssicherheit-l5"
+        }
+      ],
+      "title_key": "arbeitssicherheit-all",
+      "description_key": "arbeitssicherheit-all"
+    }
+  ]
+}

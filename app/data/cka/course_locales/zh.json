@@ -1,0 +1,178 @@
+{
+  "cka-all": {
+    "title": "四周备考 CKA",
+    "description": "一条通往 Certified Kubernetes Administrator 认证的「概念 + 实操」学习路径。Zettacard 负责概念与术语；考试本身是 100% 实操，因此每一周的概念课都配有一个由你自己在 kind、minikube 或两台虚拟机上完成的实验。四周的顺序遵循真正学习集群的路径：控制平面做什么、其上运行着什么、流量与数据如何抵达，最后是出问题时如何定位根因。"
+  },
+  "zc:concept:k8s/control-plane-components": {
+    "label": "控制平面组件"
+  },
+  "zc:concept:k8s/workload-controllers": {
+    "label": "工作负载控制器"
+  },
+  "zc:concept:k8s/scheduling-constraints": {
+    "label": "调度约束与工作负载配置"
+  },
+  "zc:concept:k8s/service-networking": {
+    "label": "服务网络"
+  },
+  "zc:concept:k8s/persistent-storage": {
+    "label": "持久化存储"
+  },
+  "zc:concept:k8s/rbac": {
+    "label": "RBAC 与服务账号"
+  },
+  "zc:concept:k8s/cluster-troubleshooting": {
+    "label": "系统化的集群故障排查"
+  },
+  "zc:concept:cyber/root-cause-analysis": {
+    "label": "根因分析 / 事后复盘"
+  },
+  "cka-w1": {
+    "title": "第 1 周 — 集群，以及运行在其上的东西"
+  },
+  "cka-w2": {
+    "title": "第 2 周 — 工作负载、调度与配置"
+  },
+  "cka-w3": {
+    "title": "第 3 周 — 网络、存储与 RBAC"
+  },
+  "cka-w4": {
+    "title": "第 4 周 — 时间压力下的故障排查"
+  },
+  "cka-l1": {
+    "title": "控制平面到底做了什么"
+  },
+  "cka-l1-s1": {
+    "title": "kube-apiserver、etcd、调度器、控制器管理器",
+    "body": "进入 Kubernetes 集群的每一个请求最终都会到达 kube-apiserver。它是唯一与 etcd 通信的组件，而 etcd 这个键值存储保存着集群全部的声明状态与观测状态；其他所有组件都通过 API Server 的 REST 接口读写这些状态。kube-scheduler 监视尚未分配节点的 Pod 并为每个 Pod 选出一个节点——它从不启动容器，只是把绑定结果经由 API Server 写回。kube-controller-manager 在单个进程中运行着数十个控制回路（Deployment、ReplicaSet、Node、Job、EndpointSlice、ServiceAccount 等控制器），每个回路都在比较声明状态与观测状态，并针对差异采取动作。cloud-controller-manager 则把云厂商相关的回路拆分出来。值得记住的结论是：控制平面失效并不会让已经在运行的 Pod 停止——停止的是「变更」。"
+  },
+  "cka-l1-s2": {
+    "title": "节点一侧：kubelet、kube-proxy、容器运行时、CNI",
+    "body": "在每个节点上，kubelet 监视 API Server 中绑定到本节点的 Pod，并通过 CRI（containerd、CRI-O）驱动容器运行时，直到现实与声明一致。它还负责上报节点与 Pod 状态、执行存活探针和就绪探针，以及挂载卷。有一件事它完全不依赖 API Server：放入静态 Pod 目录（通常是 /etc/kubernetes/manifests）的任何清单都会被直接启动——kubeadm 正是以此在第一个控制平面节点上把控制平面拉起为静态 Pod。kube-proxy 把 Service 对象转换成 iptables 或 IPVS 规则，使发往 ClusterIP 的流量落到真实的 Pod IP 上。而 Pod 与 Pod 之间的连通性根本不归 Kubernetes 管：那是 CNI 插件（Calico、Cilium、Flannel 等）的职责。刚初始化、尚未安装 CNI 插件的集群，其节点会以「container runtime network not ready」的消息停留在 NotReady 状态——这是预期行为，不是故障。"
+  },
+  "cka-l1-s3": {
+    "title": "声明状态而非命令：调谐循环",
+    "body": "kubectl apply 并不部署任何东西。它只是通过 API Server 把一个对象写入 etcd 然后返回；随后某个控制器注意到「你声明的」与「实际存在的」之间的差距，并把它抹平。这就是为什么用 kubectl get -o yaml 打印出的每个对象都有两半——由你拥有的 spec 和由系统拥有的 status——也是为什么删除一个归属于 ReplicaSet 的 Pod 后一秒内就会出现替代品。把它变成工作方法：如果对象存在却什么也没发生，不要重复执行命令。先问哪个控制器本应作出反应，然后用 kubectl describe <kind> <name> 或 kubectl get events --sort-by=.metadata.creationTimestamp 去读事件。命令式命令仍然是产出初始清单最快的方式：kubectl create deployment web --image=nginx --dry-run=client -o yaml > web.yaml，然后再编辑。先生成再修改，胜过凭记忆手敲 YAML——考试如此，实际工作也如此。"
+  },
+  "cka-l2": {
+    "title": "实验：搭起一个集群，并故意弄坏一次"
+  },
+  "cka-l2-s1": {
+    "title": "kubeadm init，然后亲手验证你刚读到的内容",
+    "body": "请在你自己的机器上执行——Zettacard 不执行任何东西。CKA 考试是 100% 实操，所以这一课是操作说明而不是模拟器；使用 kind、minikube 或两台小虚拟机，选你能快速重建的那种。若用虚拟机：关闭 swap，安装容器运行时，然后执行 kubeadm init --pod-network-cidr=10.244.0.0/16，把管理员 kubeconfig 复制到 $HOME/.kube/config，再部署一个 CNI 插件。接着，不要轻信上一课，而要亲手验证它。kubectl get pods -n kube-system 会列出 kube-apiserver、etcd、kube-scheduler 和 kube-controller-manager，以及 kube-proxy 和 CoreDNS；ls /etc/kubernetes/manifests 则会显示产生前四者的那几个文件。用 kubectl get --raw='/readyz?verbose' 检查控制平面健康状况——kubectl get componentstatuses 在许多集群上仍有输出，但它已被弃用，不应成为你的习惯。在 CNI 插件运行起来之前节点会一直是 NotReady；用 kubectl get nodes -w 观察它翻转的那一刻。"
+  },
+  "cka-l2-s2": {
+    "title": "故意弄坏一次：把 API Server 的清单文件移走",
+    "body": "现在故意制造一次故障，因为在平静状态下见过一次，第 4 周会轻松得多。在控制平面节点上，把 /etc/kubernetes/manifests/kube-apiserver.yaml 移动到 /tmp，然后观察：几秒内 kubelet 就会停掉 API Server 的 Pod，所有 kubectl 命令都会以「connection refused」失败。除此之外什么也没死——你的业务 Pod 仍在正常提供服务，这正是「控制平面管理的是变更，而不是流量」的实际含义。趁它宕着的时候，练习那些不依赖 API Server 的工具：systemctl status kubelet、journalctl -u kubelet -f、对运行时执行 crictl ps 与 crictl logs，以及 /var/log/pods 下的容器日志。然后把文件移回去；kubelet 会在下一次同步时重新拾起它，kubectl 也会重新响应。把集群损坏期间每条命令的输出记录下来——这份笔记就是你第 4 周的速查表，而且是你自己写的，所以你会记得住。"
+  },
+  "cka-l3": {
+    "title": "Deployment、ReplicaSet、Pod——以及这一家子的其他成员"
+  },
+  "cka-l3-s1": {
+    "title": "谁拥有谁：ownerReferences 与控制器家族",
+    "body": "你几乎不会直接创建裸 Pod。Deployment 创建并管理 ReplicaSet，ReplicaSet 维持固定数量的 Pod 副本；每个子对象通过 metadata.ownerReferences 指向父对象——级联删除因此成立，每次滚动更新后 kubectl get replicaset 能看到历史也因此而来。围绕它的是职责不同的其他控制器。DaemonSet 在每个匹配的节点上恰好运行一个 Pod——日志采集器、node exporter 和 CNI agent 就是这样铺开的。StatefulSet 为 Pod 提供稳定的序号名称（web-0、web-1）、通过 volumeClaimTemplates 提供每个 Pod 独有的稳定存储，以及有序的滚动更新，通常再配一个 headless Service 来获得稳定 DNS。Job 把 Pod 运行到完成，并在 backoffLimit 范围内重试；CronJob 按计划创建 Job。有一个在考试中会白白吃掉几分钟的坑：Deployment 和 StatefulSet 的 spec.selector 不可变更——标签写错了就只能删掉重建，而不是打补丁。"
+  },
+  "cka-l3-s2": {
+    "title": "滚动更新——以及真正卡住它的是什么",
+    "body": "kubectl set image deployment/web web=nginx:1.27 并不会一次性替换所有 Pod。默认的 RollingUpdate 策略会创建第二个 ReplicaSet，并在 maxSurge（允许额外存在多少 Pod）与 maxUnavailable（允许缺少多少 Pod）的约束下逐步迁移副本——两者默认都是 25%。kubectl rollout status deployment/web 会阻塞直到新 ReplicaSet 完全可用；kubectl rollout history 列出在 revisionHistoryLimit 范围内保留的历史版本；kubectl rollout undo 则把上一个 ReplicaSet 重新扩容回去——这正是旧 ReplicaSet 被刻意保留为 0 副本而不是删除的原因。滚动更新卡住时，原因几乎总是三者之一：新 Pod 始终通不过就绪探针、根本无法被调度、或者镜像拉不下来。超过 progressDeadlineSeconds（默认 600 秒）后，Deployment 会出现 ProgressDeadlineExceeded 状态条件。用 kubectl describe deployment web 读它，然后去修根因——重复执行命令不会改变任何事情。"
+  },
+  "cka-l4": {
+    "title": "Pod 如何拿到节点——以及它随身带了什么"
+  },
+  "cka-l4-s1": {
+    "title": "先过滤再打分：nodeSelector、亲和性、污点、拓扑分布",
+    "body": "调度分两个阶段。调度器先过滤掉所有无法容纳该 Pod 的节点，再给剩下的节点打分，并把 Pod 绑定到得分最高的那个。你写的各种约束作用在过滤阶段：资源 requests（不是 limits——调度算术用的是 requests）、作为粗粒度标签匹配的 nodeSelector、可写必需与偏好规则的 nodeAffinity、用于把 Pod 放在其他 Pod 附近或远离它们的 Pod 亲和性与反亲和性，以及节点上的污点（taint）配合 Pod 上的容忍（toleration）。效果为 NoSchedule 的污点会挡住新 Pod，PreferNoSchedule 只是尽量劝退，NoExecute 还会驱逐已经运行在上面的 Pod——控制平面节点之所以能远离普通业务负载，靠的正是这一点。随后 topologySpreadConstraints 会把副本均匀铺开到不同可用区或节点上。有两个后门可以完全绕过调度器：直接设置 spec.nodeName，以及静态 Pod——kubelet 从磁盘启动它们，从不询问调度器。"
+  },
+  "cka-l4-s2": {
+    "title": "随行的配置：ConfigMap、Secret、requests 与 limits",
+    "body": "ConfigMap 或 Secret 抵达容器有两种方式，二者的差别很重要。以环境变量注入时，值在容器启动那一刻就被固定——更新 ConfigMap 在 Pod 重启前不会有任何效果。以卷方式挂载时，kubelet 会在短暂延迟后就地刷新文件，因此会重新读取配置文件的应用无需重启即可获得新值（subPath 挂载是例外，它永远不会更新）。Secret 只是 base64 编码，并非加密：能读到该对象的人就能读到值，所以真正的保护来自 RBAC，加上在 API Server 上配置的静态加密。requests 与 limits 决定 Pod 的 QoS 等级——所有容器的 requests 等于 limits 时是 Guaranteed，什么都不设时是 BestEffort，介于两者之间是 Burstable——而这个等级决定了节点资源紧张时谁先被驱逐。超出内存限制会立刻 OOMKilled；超出 CPU 限制只会被限流。"
+  },
+  "cka-l4-s3": {
+    "title": "Pending 是一条消息，不是「在等」",
+    "body": "卡在 Pending 的 Pod 不是「慢」——调度器已经尝试过并且失败了，而且把原因写下来了。kubectl describe pod 的末尾会有类似这样的事件：「0/3 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 2 Insufficient cpu」。这一行按节点分组给出了数量和原因，并且能直接对应上面讲的各个过滤条件：Insufficient cpu/memory 表示 requests 太大或节点已满，untolerated taint 表示缺少容忍，no nodes match node selector 表示标签写错了。现在，在第 2 周就养成习惯：先读事件，再动清单。到第 4 周，同样的句子会在时间压力下出现，而通过考试的人和做不完的人，差别很大程度上就在于他们是读了它，还是靠猜。"
+  },
+  "cka-l5": {
+    "title": "实验：发布、回滚，并逼调度器说「不」"
+  },
+  "cka-l5-s1": {
+    "title": "看两个 ReplicaSet 交接班",
+    "body": "在你自己的集群上做——Zettacard 不会替你执行任何东西。先用 kubectl create deployment web --image=nginx:1.25 --replicas=4 创建一个 Deployment，再开第二个终端运行 kubectl get pods,replicaset -w。在第一个终端执行 kubectl set image deployment/web nginx=nginx:1.27，观察第二个 ReplicaSet 出现、第一个逐步归零却始终没有被删除。用 kubectl rollout history deployment/web 确认历史版本，然后执行 kubectl rollout undo deployment/web，看着旧的 ReplicaSet 重新扩容回来。接着故意弄坏它：kubectl set image deployment/web nginx=nginx:doesnotexist。发布卡住，kubectl rollout status 永远不返回，kubectl get pods 显示 ImagePullBackOff——但请注意，你那四个正在提供服务的 Pod 还在，因为 maxUnavailable 只放行了一个。用 kubectl rollout undo 恢复。这种不对称——发布坏了却没有把服务一起拖下水——正是这个策略存在的意义。"
+  },
+  "cka-l5-s2": {
+    "title": "制造三种「调度不出去」",
+    "body": "把每一种 Pending 原因都故意造出来，并且每次都读事件。第一种是资源：kubectl create deployment fat --image=nginx，然后改成申请 100 个 CPU；kubectl describe pod 会说 Insufficient cpu。第二种是污点：kubectl taint nodes <worker> tier=db:NoSchedule，再部署一个普通应用，读到「untolerated taint」；接着在 Pod spec 里加上对应的容忍，看它被调度出去。第三种是标签：在没有任何节点带该标签时给 Pod 设置 nodeSelector: disktype=ssd，读到「node(s) didn't match Pod's node affinity/selector」，然后执行 kubectl label node <worker> disktype=ssd，你会看到 Pod 在几秒内被调度，而你根本没有改动 Pod。最后清理：kubectl taint nodes <worker> tier=db:NoSchedule-（结尾的减号表示删除）和 kubectl label node <worker> disktype-。你刚刚读到的这三条事件，覆盖了你将遇到的大多数调度问题。"
+  },
+  "cka-l6": {
+    "title": "Service、端点，以及你的 Pod 为何连不上"
+  },
+  "cka-l6-s1": {
+    "title": "ClusterIP → NodePort → LoadBalancer → Ingress，按这个顺序理解",
+    "body": "每种 Service 类型都只在前一种的基础上多加一样东西，所以把它们当成一架梯子来学，而不是四个并列选项。默认的 ClusterIP 在集群内部提供稳定的虚拟 IP 和 DNS 名；kube-proxy 把发往该 IP 的流量改写到背后某个 Pod IP 上。NodePort 保留上述全部能力，并额外在每个节点上打开同一个高位端口（30000–32767）。LoadBalancer 保留 NodePort，并向云厂商申请一个位于其前面的外部地址——在没有厂商集成的裸金属或 kind 集群上，它会一直停在 Pending，这是预期行为。Ingress 根本不是 Service 类型：它是一个 HTTP 路由对象，由你自己安装的 Ingress 控制器来解析，把主机名和路径规则转发到 ClusterIP Service。如果没装控制器，Ingress 对象就只是一段不起作用的 YAML。选择能解决问题的最低那一级；考试会为此加分，生产环境同样如此。"
+  },
+  "cka-l6-s2": {
+    "title": "Service 没有响应时的四步检查",
+    "body": "Service 本质上是一个带虚拟 IP 的标签选择器，因此故障只会落在少数几个位置，而且检查顺序是固定的。第一：这个 Service 有端点吗？kubectl get endpointslices -l kubernetes.io/service-name=<svc>——列表为空说明选择器没有匹配到任何就绪的 Pod，此时再怎么排查 DNS 也没用。第二：标签是否真的匹配，Pod 是否通过了就绪探针？探针失败会把 Pod 从端点中摘掉，尽管它仍然是 Running。第三：targetPort 是不是容器真正监听的端口？Service 的 port 和 targetPort 是两个不同字段，写错了在你 curl 之前根本看不出来。第四：DNS 能解析吗？从一个一次性 Pod（kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- sh）里执行 nslookup <svc>.<namespace>.svc.cluster.local；若失败，检查 kube-system 中的 CoreDNS Pod 是否处于 Running。只有走完这四步，才值得去怀疑 NetworkPolicy 或 CNI 插件。"
+  },
+  "cka-l6-s3": {
+    "title": "NetworkPolicy：在第一条策略出现之前，一切都是放行的",
+    "body": "默认情况下，集群里每个 Pod 都能和其他任意 Pod 通信。NetworkPolicy 只会改变被其 podSelector 选中的 Pod，而且只改变它所列出的方向：只有 ingress 段的策略不会影响 egress，反之亦然。一旦有任何策略在某个方向上选中了某个 Pod，该方向就变成默认拒绝，只有列出的规则才能放行——这也是为什么经典的「拒绝本命名空间所有入站流量」策略写成 podSelector 为 {} 且 ingress 为空列表。规则通过 podSelector、namespaceSelector 或 ipBlock 来选择对端；把 podSelector 和 namespaceSelector 写在同一个规则元素里表示「与」，写成两个独立元素则表示「或」——这是编写策略时最常见的错误。还有一个能让人白耗一下午的基础设施注意事项：NetworkPolicy 由 CNI 插件执行，而不是由 Kubernetes 本身执行。如果所用插件没有实现它，你的策略会被 API Server 接受、能在 kubectl get netpol 里看到，却什么作用也没有。"
+  },
+  "cka-l7": {
+    "title": "PV、PVC、StorageClass：谁提供，谁申领"
+  },
+  "cka-l7-s1": {
+    "title": "两个对象、一次绑定——中间还有一个 StorageClass",
+    "body": "PersistentVolume 是集群中实际存在的一块存储；PersistentVolumeClaim 则是部署应用的人写下的存储申请。控制器把一个 PVC 独占地绑定到一个 PV 上，并在该 PVC 的整个生命周期内保持绑定。PV 有两种产生方式。静态供给：管理员手工创建 PV，PVC 会绑定到容量、访问模式和 storageClassName 都匹配的那一个。动态供给：PVC 指定一个 StorageClass（或者不写，从而使用集群默认类，即带有 storageclass.kubernetes.io/is-default-class 注解的那个），由 CSI 供给器按需创建卷。访问模式描述的是「多少个节点可以挂载」，而不是「多少个 Pod」：ReadWriteOnce 表示一个节点，ReadWriteOncePod 表示字面意义上的一个 Pod，ReadWriteMany 表示多个节点，并且需要 NFS 之类真正支持它的后端。回收策略决定结局：Delete 会随 PVC 一起删除卷，Retain 会保留数据并把 PV 留在 Released 状态，交给人来处理。"
+  },
+  "cka-l7-s2": {
+    "title": "Pod 内部：emptyDir、hostPath、projected、volumeClaimTemplates",
+    "body": "并不是每个卷都是持久的。emptyDir 与 Pod 同生共死，是同一个 Pod 内两个容器共享临时目录的常规做法。hostPath 挂载节点自身的目录：对节点级代理有用，对其他一切都危险，因为这样 Pod 就被绑死在某个节点的文件系统上，还能读到它不该读的东西。projected 卷把 ConfigMap、Secret、Downward API 和服务账号令牌合并成一棵目录树。持久性通过类型为 persistentVolumeClaim 的卷进入，而 StatefulSet 用 volumeClaimTemplates 把这件事自动化了：每个副本获得以 Pod 命名的专属 PVC，并在重启和重新调度之间一直保留它——删除 StatefulSet 时刻意不会删除这些 PVC。还有两个值得记住的运维细节：PVC 只能扩容不能缩容，而且必须其 StorageClass 设置了 allowVolumeExpansion: true；以及 volumeBindingMode: WaitForFirstConsumer 会把供给推迟到 Pod 被调度之后，使卷创建在 Pod 实际落到的那个可用区里。"
+  },
+  "cka-l8": {
+    "title": "RBAC：谁能对哪些资源、在哪里、做什么"
+  },
+  "cka-l8-s1": {
+    "title": "四个对象组成的矩阵：Role、ClusterRole 及其绑定",
+    "body": "Role 承载权限并存在于某个命名空间中；ClusterRole 承载同类权限，但作用域是整个集群，还可以覆盖 nodes、persistentvolumes 这类集群级资源。RoleBinding 在一个命名空间内把角色授予主体；ClusterRoleBinding 则在整个集群范围内授予。由此得到值得背下来的那张矩阵，以及它有用的对角线：RoleBinding 可以引用 ClusterRole，此时这些权限只在该绑定所在的命名空间内生效——这正是一份可复用的「view」或「edit」定义能服务多个命名空间而无需重复定义的原因。规则本身是 apiGroups、resources、verbs（get、list、watch、create、update、patch、delete）的三元组，其中核心 API 组写成空字符串 \"\"。子资源是独立的字符串：授予 pods 并不等于授予 pods/log 或 pods/exec。有两个性质决定了大多数考题的答案：RBAC 是纯粹叠加的，没有拒绝规则；主体的权限是其所有绑定的并集。请用 kubectl auth can-i 去验证，而不是靠推理。"
+  },
+  "cka-l8-s2": {
+    "title": "服务账号、令牌，以及在需要之前先验证权限",
+    "body": "人类用户不是 Kubernetes 对象——API Server 通过证书、令牌或外部身份提供方来认证他们，RBAC 只决定由此得到的名字可以做什么。而集群内部的身份则是对象：每个 Pod 都以某个 ServiceAccount 运行，除非 spec.serviceAccountName 另有指定，否则就是该命名空间的 default。该令牌以短期有效、绑定受众的 projected 令牌形式挂载进 Pod，并由 kubelet 轮换；如果工作负载从不调用 API（大多数工作负载都是如此），就在 ServiceAccount 或 Pod 上设置 automountServiceAccountToken: false。然后是验证而非推理：kubectl auth can-i list pods --as=system:serviceaccount:dev:builder -n dev 会用一行给出 yes 或 no，而 kubectl auth can-i --list --as=<subject> 会列出某个身份被允许的全部操作。由此养成两个习惯：为每个工作负载单独创建 ServiceAccount，而不是复用 default；以及创建绑定后立刻用 can-i 检查，因为主体名称写错时会静默失败——RBAC 从不报错，它只是拒绝。"
+  },
+  "cka-l9": {
+    "title": "实验：暴露它、存住它、锁紧它"
+  },
+  "cka-l9-s1": {
+    "title": "故意改坏选择器，然后看着端点消失",
+    "body": "你的集群，你的键盘——Zettacard 不执行任何东西。先执行 kubectl create deployment web --image=nginx --replicas=2 和 kubectl expose deployment web --port=80 --target-port=80。再用一次性 Pod 从集群内部验证：kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- wget -qO- web.default.svc.cluster.local。现在按真实集群损坏的方式把它弄坏：kubectl edit service web，把选择器改成 app=web-typo。Service 依然存在，依然有 ClusterIP，依然能在 DNS 中解析——但什么也返回不了。按第 6 课的四步依次检查，你会确认第一步就已经给出答案：kubectl get endpointslices -l kubernetes.io/service-name=web 是空的。修好选择器，看着端点回来，然后用 kubectl patch svc web -p '{\"spec\":{\"type\":\"NodePort\"}}' 转换类型，并在节点上用 curl <node-ip>:<nodePort> 访问它。端点为空而 DNS 名称健康，是这一整个主题最典型的故障特征。"
+  },
+  "cka-l9-s2": {
+    "title": "比 Pod 活得更久的数据，以及一个删不掉它的服务账号",
+    "body": "第二部分，仍然在你自己的集群上。创建一个 1Gi 的 PVC，不写 storageClassName，让它使用默认存储类，然后查看 kubectl get pvc：在 kind 或 minikube 上它应当变为 Bound；如果停在 Pending，kubectl describe pvc 会说明原因（通常是没有默认 StorageClass，或者 WaitForFirstConsumer 正在等待 Pod）。把它挂到某个 Pod 的 /data，写入一个文件，删除该 Pod，再用同一份清单重建它，确认文件仍在。这一个实验就是持久化存储的全部意义所在，只需四分钟。然后是 RBAC 部分：kubectl create serviceaccount reader -n default，kubectl create role pod-reader --verb=get,list,watch --resource=pods -n default，kubectl create rolebinding reader-binding --role=pod-reader --serviceaccount=default:reader -n default。双向验证：kubectl auth can-i list pods --as=system:serviceaccount:default:reader 必须回答 yes，而 kubectl auth can-i delete pvc --as=system:serviceaccount:default:reader 必须回答 no。最小权限是一件你去验证的事，而不是一件你打算做到的事。"
+  },
+  "cka-l10": {
+    "title": "由外向内的故障排查"
+  },
+  "cka-l10-s1": {
+    "title": "集群 → 节点 → Pod → 容器，永远按这个顺序",
+    "body": "故障排查是考试中占比最大的领域，而能做完的考生并不是打字更快——他们只是按固定顺序推进，而不是猜。先从集群开始：kubectl get nodes；如果连 kubectl 本身都失败，那问题出在 API Server 或你的 kubeconfig，而不是工作负载。然后是节点：kubectl describe node <name>，读 Conditions 块，其中 Ready、MemoryPressure、DiskPressure、PIDPressure 各自指向不同的原因；NotReady 的节点通常意味着 kubelet、CNI 或磁盘写满，按可能性从高到低就是这个顺序。接着是 Pod：用 kubectl get pod -o wide 看阶段和所在节点，用 kubectl describe pod 看事件，当你需要的是时间线而不是单个对象时，用 kubectl get events --sort-by=.metadata.creationTimestamp -A。最后才是容器：kubectl logs <pod> -c <container>，如果它已经重启过，就用 kubectl logs --previous——写着原因的，是那个已崩溃实例的日志。每一步要么解释了故障，要么排除了一层；两种结果都是进展。"
+  },
+  "cka-l10-s2": {
+    "title": "读懂状态：Pending、ImagePullBackOff、CrashLoopBackOff、OOMKilled、Terminating",
+    "body": "状态列不是情绪，而是一个附带下一步动作的诊断。Pending 表示调度器无法安置该 Pod；原因写在事件里，无非是资源、污点、选择器，或者未绑定的 PVC。ImagePullBackOff 和 ErrImagePull 表示 kubelet 拉不到镜像：名字或标签写错、私有仓库缺少 imagePullSecret，或者节点没有出网。CrashLoopBackOff 表示容器反复启动又退出，所以容器本身没问题，有问题的是里面的进程——kubectl logs --previous 以及 kubectl describe pod 中的退出码里藏着答案。退出码 137 且原因为 OOMKilled，意味着容器超出了内存限制，这是限额或应用的问题，绝不是调度问题。卡在 Terminating 的 Pod 通常是某个 finalizer 在等待，或者是一个永远结束不了的优雅停机。Init:Error 或 Init:CrashLoopBackOff 指向的是 init 容器，看它的日志需要加上 -c <init 容器名>。"
+  },
+  "cka-l10-s3": {
+    "title": "当集群本身就是病人时：控制平面、证书、etcd、节点",
+    "body": "有些故障发生在 API 之下。如果 kubectl 报 connection refused，说明 API Server 挂了：在 kubeadm 集群上它是静态 Pod，所以先检查 /etc/kubernetes/manifests/kube-apiserver.yaml 是否被改坏，再用 crictl ps -a 和 crictl logs 查看那个起不来的容器——正是第 1 周实验里练过的套路。如果 kubectl 报证书过期，执行 kubeadm certs check-expiration 并续签；控制平面证书有效期为一年，一个搁置到「过生日」的集群会直接不再应答。关于 etcd，请记住两条命令，以及它们需要 peer 与 client 证书：用 etcdctl snapshot save 备份，用 etcdctl snapshot restore 恢复到一个新的数据目录，随后把 etcd 静态 Pod 指向该目录。NotReady 的节点是节点层面的问题，不是 Kubernetes 的问题：systemctl status kubelet、journalctl -u kubelet、磁盘空间，以及该节点上的 CNI agent Pod 是否在运行。维护前执行 kubectl drain <node> --ignore-daemonsets，完成后执行 kubectl uncordon <node>——忘了后一条是常见的自己给自己制造的故障。"
+  },
+  "cka-l11": {
+    "title": "检查点：去诊断，别去猜"
+  },
+  "cka-l11-s1": {
+    "title": "在你能说出原因之前，修好了也不算答案",
+    "body": "这门课的一切最终都汇聚到一个习惯上：提出假设，说清什么证据能证实它，去把证据取回来，然后才动手改东西。重启一个 Pod 之后它好了，这什么也说明不了，因为你恰好销毁了那个握有解释的状态。这套纪律写成文字，就是事后复盘：事情何时发生的时间线、观测到的症状、你能在日志或事件里指出来的原因、让一个小故障演变成事故的促成因素，以及带责任人的改进项。有两条规则能让它变得有用而不是流于形式——描述系统和决策而不是人，以及把原因和触发条件区分开，因为一张在周二过期的证书，本来就是要过期的。这份最终测验从故障排查题库中抽题，要求你读一个症状并说出它属于哪一层。如果某道题让你觉得是在猜，那是提醒你回到第 10 课那套固定顺序的信号，而不是提醒你答得更快。"
+  },
+  "cka-l11-rel-dora": {
+    "body": "同一项能力在 Zettacard 的 DORA 课程中换了身衣服出现。Kubernetes 的事后复盘，与金融机构在重大 ICT 事件后依据 DORA 第 19 条须提交的最终报告，要求的是同一件东西：一个能拿出证据的原因，而不是一个说得通的故事。词汇不同——一边是 Pod、节点和事件，另一边是分类阈值与监管报送期限——而且 DORA 那一版还带有这里所没有的法律后果。但把症状、原因和触发条件区分开的这套纪律可以直接迁移，这正是两门课程指向同一个概念的原因。"
+  }
+}

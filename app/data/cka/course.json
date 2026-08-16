@@ -1,0 +1,749 @@
+{
+  "meta": {
+    "app": "Zettacard / cka-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-opus/2026-08-15",
+    "canonical_locale": "en",
+    "locales": [
+      "en",
+      "de",
+      "ja",
+      "zh"
+    ]
+  },
+  "courses": [
+    {
+      "course_id": "cka-all",
+      "module_ref": "cka",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 570,
+      "cadence_hint": "4 weeks, ~2.5 h of course time per week plus your own hands-on lab practice",
+      "canonical_locale": "en",
+      "locales": [
+        "en",
+        "de",
+        "ja",
+        "zh"
+      ],
+      "concepts": [
+        {
+          "concept_id": "zc:concept:k8s/control-plane-components",
+          "label_key": "zc:concept:k8s/control-plane-components"
+        },
+        {
+          "concept_id": "zc:concept:k8s/workload-controllers",
+          "label_key": "zc:concept:k8s/workload-controllers"
+        },
+        {
+          "concept_id": "zc:concept:k8s/scheduling-constraints",
+          "label_key": "zc:concept:k8s/scheduling-constraints"
+        },
+        {
+          "concept_id": "zc:concept:k8s/service-networking",
+          "label_key": "zc:concept:k8s/service-networking"
+        },
+        {
+          "concept_id": "zc:concept:k8s/persistent-storage",
+          "label_key": "zc:concept:k8s/persistent-storage"
+        },
+        {
+          "concept_id": "zc:concept:k8s/rbac",
+          "label_key": "zc:concept:k8s/rbac"
+        },
+        {
+          "concept_id": "zc:concept:k8s/cluster-troubleshooting",
+          "label_key": "zc:concept:k8s/cluster-troubleshooting"
+        },
+        {
+          "concept_id": "zc:concept:cyber/root-cause-analysis",
+          "label_key": "zc:concept:cyber/root-cause-analysis"
+        }
+      ],
+      "units": [
+        {
+          "unit_id": "cka-w1",
+          "order": 1,
+          "unit_kind": "week",
+          "title_key": "cka-w1"
+        },
+        {
+          "unit_id": "cka-w2",
+          "order": 2,
+          "unit_kind": "week",
+          "title_key": "cka-w2"
+        },
+        {
+          "unit_id": "cka-w3",
+          "order": 3,
+          "unit_kind": "week",
+          "title_key": "cka-w3"
+        },
+        {
+          "unit_id": "cka-w4",
+          "order": 4,
+          "unit_kind": "week",
+          "title_key": "cka-w4"
+        }
+      ],
+      "lessons": [
+        {
+          "lesson_id": "cka-l1",
+          "unit_ref": "cka-w1",
+          "order": 1,
+          "lesson_kind": "primer",
+          "estimated_minutes": 45,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/control-plane-components"
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l1-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l1-s1"
+            },
+            {
+              "section_id": "cka-l1-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "body_key": "cka-l1-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l1-s2"
+            },
+            {
+              "section_id": "cka-l1-s3",
+              "order": 2,
+              "section_kind": "decision_flow",
+              "body_key": "cka-l1-s3",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l1-s3"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/control-plane-components"
+            ],
+            "topic_codes": [
+              "core_concepts"
+            ],
+            "count": 10
+          },
+          "title_key": "cka-l1"
+        },
+        {
+          "lesson_id": "cka-l2",
+          "unit_ref": "cka-w1",
+          "order": 2,
+          "lesson_kind": "lab",
+          "estimated_minutes": 60,
+          "completion_rule": "read",
+          "concepts": [
+            "zc:concept:k8s/control-plane-components"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l1",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l2-s1",
+              "order": 0,
+              "section_kind": "worked_example",
+              "body_key": "cka-l2-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l2-s1"
+            },
+            {
+              "section_id": "cka-l2-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "cka-l2-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l2-s2"
+            }
+          ],
+          "select": null,
+          "practice_ref": {
+            "kind": "external_hands_on",
+            "note_key": "cka-l2-practice",
+            "body": {
+              "en": "This lab runs outside Zettacard: there is no sandbox, no launcher and no progress tracking here. Budget about an hour — roughly 20 minutes to build the cluster, 10 minutes to break and repair it, and the rest to actually read the output. Keep the cluster; weeks 2 to 4 assume you still have it.",
+              "de": "Dieses Labor läuft außerhalb von Zettacard: Es gibt hier keine Sandbox, keinen Starter und keine Fortschrittsverfolgung. Plane etwa eine Stunde ein – rund 20 Minuten für den Aufbau des Clusters, 10 Minuten zum Kaputtmachen und Reparieren, den Rest, um die Ausgaben tatsächlich zu lesen. Behalte den Cluster; die Wochen 2 bis 4 setzen ihn voraus.",
+              "ja": "このラボは Zettacard の外で行います。ここにはサンドボックスも起動ボタンも進捗記録もありません。所要は約 1 時間を見込んでください。クラスター構築に約 20 分、破壊と復旧に 10 分、残りは出力をきちんと読む時間です。クラスターはそのまま残しておいてください。第2週から第4週はそれが手元にある前提で進みます。",
+              "zh": "本实验在 Zettacard 之外进行：这里没有沙箱、没有启动器，也不记录进度。预留大约一小时——搭建集群约 20 分钟，弄坏并修复约 10 分钟，其余时间用来认真阅读输出。请保留这个集群；第 2 到第 4 周都假设它还在。"
+            }
+          },
+          "title_key": "cka-l2"
+        },
+        {
+          "lesson_id": "cka-l3",
+          "unit_ref": "cka-w2",
+          "order": 3,
+          "lesson_kind": "primer",
+          "estimated_minutes": 45,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/workload-controllers"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l1",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l3-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l3-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l3-s1"
+            },
+            {
+              "section_id": "cka-l3-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "cka-l3-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l3-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/workload-controllers"
+            ],
+            "topic_codes": [
+              "workloads"
+            ],
+            "count": 12
+          },
+          "title_key": "cka-l3"
+        },
+        {
+          "lesson_id": "cka-l4",
+          "unit_ref": "cka-w2",
+          "order": 4,
+          "lesson_kind": "primer",
+          "estimated_minutes": 50,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/scheduling-constraints"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l1",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l4-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l4-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l4-s1"
+            },
+            {
+              "section_id": "cka-l4-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "body_key": "cka-l4-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l4-s2"
+            },
+            {
+              "section_id": "cka-l4-s3",
+              "order": 2,
+              "section_kind": "callout",
+              "body_key": "cka-l4-s3",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l4-s3"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/scheduling-constraints"
+            ],
+            "topic_codes": [
+              "config_scheduling"
+            ],
+            "count": 12
+          },
+          "title_key": "cka-l4"
+        },
+        {
+          "lesson_id": "cka-l5",
+          "unit_ref": "cka-w2",
+          "order": 5,
+          "lesson_kind": "lab",
+          "estimated_minutes": 60,
+          "completion_rule": "read",
+          "concepts": [
+            "zc:concept:k8s/workload-controllers",
+            "zc:concept:k8s/scheduling-constraints"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l4",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l5-s1",
+              "order": 0,
+              "section_kind": "worked_example",
+              "body_key": "cka-l5-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l5-s1"
+            },
+            {
+              "section_id": "cka-l5-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "cka-l5-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l5-s2"
+            }
+          ],
+          "select": null,
+          "practice_ref": {
+            "kind": "external_hands_on",
+            "note_key": "cka-l5-practice",
+            "body": {
+              "en": "Do this on the cluster you built in week 1; nothing here is executed or graded by Zettacard. About 45 minutes of typing plus 15 of reading events. If you only have time for half of it, do the three Pending reasons — they carry more exam weight than the rollout does.",
+              "de": "Mach das auf dem Cluster, den du in Woche 1 gebaut hast; nichts davon wird von Zettacard ausgeführt oder bewertet. Rund 45 Minuten Tippen plus 15 Minuten Events lesen. Reicht die Zeit nur für die Hälfte, nimm die drei Pending-Gründe – sie haben mehr Prüfungsgewicht als das Rollout.",
+              "ja": "第1週に作ったクラスターで実施してください。ここに書かれたことを Zettacard が実行したり採点したりすることはありません。入力に約 45 分、イベントを読むのに 15 分ほどを見込んでください。半分しか時間が取れないなら、Pending の 3 パターンを選んでください。ロールアウトより試験での比重が大きいからです。",
+              "zh": "请在第 1 周搭好的集群上完成；这里的任何操作 Zettacard 都不会执行也不会评分。敲命令约 45 分钟，读事件约 15 分钟。如果只够做一半，就做那三种 Pending 原因——它们在考试中的分量比滚动发布更重。"
+            }
+          },
+          "title_key": "cka-l5"
+        },
+        {
+          "lesson_id": "cka-l6",
+          "unit_ref": "cka-w3",
+          "order": 6,
+          "lesson_kind": "primer",
+          "estimated_minutes": 50,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/service-networking"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l4",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l6-s1",
+              "order": 0,
+              "section_kind": "decision_flow",
+              "body_key": "cka-l6-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Services & Networking domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l6-s1"
+            },
+            {
+              "section_id": "cka-l6-s2",
+              "order": 1,
+              "section_kind": "decision_flow",
+              "body_key": "cka-l6-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Services & Networking domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l6-s2"
+            },
+            {
+              "section_id": "cka-l6-s3",
+              "order": 2,
+              "section_kind": "prose",
+              "body_key": "cka-l6-s3",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Services & Networking domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l6-s3"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/service-networking"
+            ],
+            "topic_codes": [
+              "networking"
+            ],
+            "count": 12
+          },
+          "title_key": "cka-l6"
+        },
+        {
+          "lesson_id": "cka-l7",
+          "unit_ref": "cka-w3",
+          "order": 7,
+          "lesson_kind": "primer",
+          "estimated_minutes": 40,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/persistent-storage"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l7-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l7-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Storage domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l7-s1"
+            },
+            {
+              "section_id": "cka-l7-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "body_key": "cka-l7-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Storage domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l7-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/persistent-storage"
+            ],
+            "topic_codes": [
+              "storage"
+            ],
+            "count": 10
+          },
+          "title_key": "cka-l7"
+        },
+        {
+          "lesson_id": "cka-l8",
+          "unit_ref": "cka-w3",
+          "order": 8,
+          "lesson_kind": "primer",
+          "estimated_minutes": 45,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/rbac"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l1",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l8-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l8-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l8-s1"
+            },
+            {
+              "section_id": "cka-l8-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "cka-l8-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l8-s2"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/rbac"
+            ],
+            "topic_codes": [
+              "security_admin"
+            ],
+            "count": 12
+          },
+          "title_key": "cka-l8"
+        },
+        {
+          "lesson_id": "cka-l9",
+          "unit_ref": "cka-w3",
+          "order": 9,
+          "lesson_kind": "lab",
+          "estimated_minutes": 75,
+          "completion_rule": "read",
+          "concepts": [
+            "zc:concept:k8s/service-networking",
+            "zc:concept:k8s/persistent-storage",
+            "zc:concept:k8s/rbac"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l6",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l7",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l8",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l9-s1",
+              "order": 0,
+              "section_kind": "worked_example",
+              "body_key": "cka-l9-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Services & Networking domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l9-s1"
+            },
+            {
+              "section_id": "cka-l9-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "cka-l9-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Storage domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l9-s2"
+            }
+          ],
+          "select": null,
+          "practice_ref": {
+            "kind": "external_hands_on",
+            "note_key": "cka-l9-practice",
+            "body": {
+              "en": "Three exercises, about 75 minutes, all on your own cluster — Zettacard has no sandbox and records no lab progress. Keep the Deployment and the PVC around: week 4 is easier to practise on a cluster that already has something running in it worth diagnosing.",
+              "de": "Drei Übungen, rund 75 Minuten, alle auf deinem eigenen Cluster – Zettacard hat keine Sandbox und speichert keinen Laborfortschritt. Behalte Deployment und PVC: Woche 4 übt sich leichter auf einem Cluster, auf dem bereits etwas läuft, das sich zu diagnostizieren lohnt.",
+              "ja": "演習は 3 つ、所要は約 75 分、いずれも自分のクラスターで行います。Zettacard にサンドボックスはなく、ラボの進捗も記録しません。Deployment と PVC はそのまま残しておいてください。診断する価値のあるものが動いているクラスターのほうが、第4週の練習ははかどります。",
+              "zh": "三个练习，约 75 分钟，全部在你自己的集群上完成——Zettacard 没有沙箱，也不记录实验进度。请保留这个 Deployment 和 PVC：第 4 周在一个已经跑着值得诊断的东西的集群上练习会顺手得多。"
+            }
+          },
+          "title_key": "cka-l9"
+        },
+        {
+          "lesson_id": "cka-l10",
+          "unit_ref": "cka-w4",
+          "order": 10,
+          "lesson_kind": "primer",
+          "estimated_minutes": 55,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/cluster-troubleshooting",
+            "zc:concept:cyber/root-cause-analysis"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l1",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l4",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l6",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l7",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l8",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l10-s1",
+              "order": 0,
+              "section_kind": "decision_flow",
+              "body_key": "cka-l10-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Troubleshooting domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l10-s1"
+            },
+            {
+              "section_id": "cka-l10-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "body_key": "cka-l10-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Troubleshooting domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l10-s2"
+            },
+            {
+              "section_id": "cka-l10-s3",
+              "order": 2,
+              "section_kind": "prose",
+              "body_key": "cka-l10-s3",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Troubleshooting domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l10-s3"
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/cluster-troubleshooting"
+            ],
+            "topic_codes": [
+              "troubleshooting"
+            ],
+            "count": 12
+          },
+          "title_key": "cka-l10"
+        },
+        {
+          "lesson_id": "cka-l11",
+          "unit_ref": "cka-w4",
+          "order": 11,
+          "lesson_kind": "checkpoint",
+          "estimated_minutes": 45,
+          "completion_rule": "quiz_pass:0.8",
+          "concepts": [
+            "zc:concept:cyber/root-cause-analysis",
+            "zc:concept:k8s/cluster-troubleshooting"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l9",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l10",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l11-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l11-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title_key": "cka-l11-s1"
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "troubleshooting"
+            ],
+            "count": 20
+          },
+          "related": [
+            {
+              "kind": "applies_also",
+              "module": "dora",
+              "concept": "zc:concept:cyber/root-cause-analysis",
+              "note_key": "cka-l11-rel-dora",
+              "body_key": "cka-l11-rel-dora"
+            }
+          ],
+          "title_key": "cka-l11"
+        }
+      ],
+      "exam_blueprint": null,
+      "title_key": "cka-all",
+      "description_key": "cka-all"
+    }
+  ]
+}

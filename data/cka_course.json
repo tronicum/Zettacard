@@ -1,0 +1,1154 @@
+{
+  "meta": {
+    "app": "Zettacard / cka-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-opus/2026-08-15",
+    "canonical_locale": "en",
+    "locales": [
+      "en",
+      "de",
+      "ja",
+      "zh"
+    ]
+  },
+  "courses": [
+    {
+      "course_id": "cka-all",
+      "module_ref": "cka",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 570,
+      "cadence_hint": "4 weeks, ~2.5 h of course time per week plus your own hands-on lab practice",
+      "canonical_locale": "en",
+      "locales": [
+        "en",
+        "de",
+        "ja",
+        "zh"
+      ],
+      "title": {
+        "en": "CKA in four weeks",
+        "de": "CKA in vier Wochen",
+        "ja": "4週間でCKA",
+        "zh": "四周备考 CKA"
+      },
+      "description": {
+        "en": "A concept-and-lab journey toward the Certified Kubernetes Administrator exam. Zettacard covers the concepts and the vocabulary; the exam itself is 100% hands-on, so every week pairs concept lessons with a lab you run yourself on kind, minikube, or a pair of VMs. Four weeks follow the order a cluster is actually learned in: what the control plane does, what runs on it, how traffic and data reach it, and finally how to diagnose it when it breaks.",
+        "de": "Ein Weg aus Konzepten und Laboren hin zur Prüfung „Certified Kubernetes Administrator“. Zettacard vermittelt die Konzepte und das Vokabular; die Prüfung selbst ist zu 100 % praktisch, deshalb steht in jeder Woche neben den Konzeptlektionen ein Labor, das du selbst auf kind, minikube oder zwei VMs durchführst. Die vier Wochen folgen der Reihenfolge, in der man einen Cluster tatsächlich lernt: was die Control Plane tut, was darauf läuft, wie Datenverkehr und Daten dorthin gelangen – und schließlich, wie man Fehler findet, wenn etwas kaputtgeht.",
+        "ja": "Certified Kubernetes Administrator 試験に向けた、概念と実習で進む学習コースです。Zettacard は概念と用語を扱います。試験そのものは 100% 実技なので、毎週の概念レッスンには、kind・minikube・あるいは 2 台の VM で自分の手で実行するラボが組み合わせてあります。4 週間の構成は、実際にクラスターを学ぶ順序に沿っています。コントロールプレーンの役割、その上で動くもの、トラフィックとデータの到達経路、そして最後に、壊れたときの原因の切り分け方です。",
+        "zh": "一条通往 Certified Kubernetes Administrator 认证的「概念 + 实操」学习路径。Zettacard 负责概念与术语；考试本身是 100% 实操，因此每一周的概念课都配有一个由你自己在 kind、minikube 或两台虚拟机上完成的实验。四周的顺序遵循真正学习集群的路径：控制平面做什么、其上运行着什么、流量与数据如何抵达，最后是出问题时如何定位根因。"
+      },
+      "concepts": [
+        {
+          "concept_id": "zc:concept:k8s/control-plane-components",
+          "label": {
+            "en": "Control plane components",
+            "de": "Control-Plane-Komponenten",
+            "ja": "コントロールプレーンのコンポーネント",
+            "zh": "控制平面组件"
+          }
+        },
+        {
+          "concept_id": "zc:concept:k8s/workload-controllers",
+          "label": {
+            "en": "Workload controllers",
+            "de": "Workload-Controller",
+            "ja": "ワークロードコントローラー",
+            "zh": "工作负载控制器"
+          }
+        },
+        {
+          "concept_id": "zc:concept:k8s/scheduling-constraints",
+          "label": {
+            "en": "Scheduling constraints and workload configuration",
+            "de": "Scheduling-Constraints und Workload-Konfiguration",
+            "ja": "スケジューリング制約とワークロード構成",
+            "zh": "调度约束与工作负载配置"
+          }
+        },
+        {
+          "concept_id": "zc:concept:k8s/service-networking",
+          "label": {
+            "en": "Service networking",
+            "de": "Service-Networking",
+            "ja": "サービスネットワーキング",
+            "zh": "服务网络"
+          }
+        },
+        {
+          "concept_id": "zc:concept:k8s/persistent-storage",
+          "label": {
+            "en": "Persistent storage",
+            "de": "Persistenter Speicher",
+            "ja": "永続ストレージ",
+            "zh": "持久化存储"
+          }
+        },
+        {
+          "concept_id": "zc:concept:k8s/rbac",
+          "label": {
+            "en": "RBAC and service accounts",
+            "de": "RBAC und Service Accounts",
+            "ja": "RBAC とサービスアカウント",
+            "zh": "RBAC 与服务账号"
+          }
+        },
+        {
+          "concept_id": "zc:concept:k8s/cluster-troubleshooting",
+          "label": {
+            "en": "Systematic cluster troubleshooting",
+            "de": "Systematische Fehlersuche im Cluster",
+            "ja": "体系的なクラスターのトラブルシューティング",
+            "zh": "系统化的集群故障排查"
+          }
+        },
+        {
+          "concept_id": "zc:concept:cyber/root-cause-analysis",
+          "label": {
+            "en": "Root-cause analysis / post-mortem",
+            "de": "Ursachenanalyse / Post-Mortem",
+            "ja": "根本原因分析 / ポストモーテム",
+            "zh": "根因分析 / 事后复盘"
+          }
+        }
+      ],
+      "units": [
+        {
+          "unit_id": "cka-w1",
+          "order": 1,
+          "unit_kind": "week",
+          "title": {
+            "en": "Week 1 — the cluster and what runs on it",
+            "de": "Woche 1 — Der Cluster und was darauf läuft",
+            "ja": "第1週 — クラスターと、その上で動くもの",
+            "zh": "第 1 周 — 集群，以及运行在其上的东西"
+          }
+        },
+        {
+          "unit_id": "cka-w2",
+          "order": 2,
+          "unit_kind": "week",
+          "title": {
+            "en": "Week 2 — workloads, scheduling and configuration",
+            "de": "Woche 2 — Workloads, Scheduling und Konfiguration",
+            "ja": "第2週 — ワークロード、スケジューリング、構成",
+            "zh": "第 2 周 — 工作负载、调度与配置"
+          }
+        },
+        {
+          "unit_id": "cka-w3",
+          "order": 3,
+          "unit_kind": "week",
+          "title": {
+            "en": "Week 3 — networking, storage and RBAC",
+            "de": "Woche 3 — Networking, Storage und RBAC",
+            "ja": "第3週 — ネットワーク、ストレージ、RBAC",
+            "zh": "第 3 周 — 网络、存储与 RBAC"
+          }
+        },
+        {
+          "unit_id": "cka-w4",
+          "order": 4,
+          "unit_kind": "week",
+          "title": {
+            "en": "Week 4 — troubleshooting under time pressure",
+            "de": "Woche 4 — Fehlersuche unter Zeitdruck",
+            "ja": "第4週 — 時間的プレッシャーの中でのトラブルシューティング",
+            "zh": "第 4 周 — 时间压力下的故障排查"
+          }
+        }
+      ],
+      "lessons": [
+        {
+          "lesson_id": "cka-l1",
+          "unit_ref": "cka-w1",
+          "order": 1,
+          "title": {
+            "en": "What the control plane actually does",
+            "de": "Was die Control Plane wirklich tut",
+            "ja": "コントロールプレーンが実際にしていること",
+            "zh": "控制平面到底做了什么"
+          },
+          "lesson_kind": "primer",
+          "estimated_minutes": 45,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/control-plane-components"
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l1-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "kube-apiserver, etcd, scheduler, controller-manager",
+                "de": "kube-apiserver, etcd, Scheduler, Controller-Manager",
+                "ja": "kube-apiserver、etcd、スケジューラー、コントローラーマネージャー",
+                "zh": "kube-apiserver、etcd、调度器、控制器管理器"
+              },
+              "body": {
+                "en": "Every request into a Kubernetes cluster ends at the kube-apiserver. It is the only component that talks to etcd, the key-value store holding the cluster's entire declared and observed state; everything else reads and writes that state through the API server's REST interface. The kube-scheduler watches for Pods that have no node assigned yet and picks a node for each one — it never starts a container, it only writes the binding back through the API server. The kube-controller-manager runs dozens of control loops inside a single process (Deployment, ReplicaSet, Node, Job, EndpointSlice, service-account controllers and more), each comparing declared state with observed state and acting on the difference. A cloud-controller-manager splits out the provider-specific loops. The consequence worth memorising: losing the control plane does not stop Pods that are already running — it stops change.",
+                "de": "Jede Anfrage an einen Kubernetes-Cluster endet beim kube-apiserver. Er ist die einzige Komponente, die mit etcd spricht – dem Key-Value-Store, der den gesamten deklarierten und beobachteten Zustand des Clusters hält; alles andere liest und schreibt diesen Zustand über die REST-Schnittstelle des API-Servers. Der kube-scheduler beobachtet Pods, denen noch kein Node zugewiesen ist, und wählt für jeden einen Node aus – er startet nie einen Container, sondern schreibt lediglich die Zuordnung über den API-Server zurück. Der kube-controller-manager betreibt Dutzende Regelkreise in einem einzigen Prozess (Deployment, ReplicaSet, Node, Job, EndpointSlice, Service-Account-Controller und weitere); jeder vergleicht deklarierten mit beobachtetem Zustand und handelt entlang der Differenz. Ein Cloud-Controller-Manager lagert die anbieterspezifischen Schleifen aus. Die Konsequenz, die man sich merken sollte: Der Ausfall der Control Plane stoppt keine bereits laufenden Pods – er stoppt Veränderung.",
+                "ja": "Kubernetes クラスターへのあらゆるリクエストは kube-apiserver に到達します。etcd と会話する唯一のコンポーネントが API サーバーであり、etcd にはクラスターの宣言された状態と観測された状態のすべてが保存されています。他のコンポーネントはすべて、API サーバーの REST インターフェイス経由でその状態を読み書きします。kube-scheduler はまだノードが割り当てられていない Pod を監視し、それぞれにノードを選びます。コンテナを起動することは決してなく、割り当て（バインディング）を API サーバー経由で書き戻すだけです。kube-controller-manager は 1 つのプロセスの中で数十の制御ループ（Deployment、ReplicaSet、Node、Job、EndpointSlice、ServiceAccount などのコントローラー）を動かし、それぞれが宣言された状態と観測された状態を比較して差分に対して動作します。cloud-controller-manager は、クラウド事業者固有のループを分離したものです。覚えておく価値のある帰結はこれです。コントロールプレーンが失われても、すでに実行中の Pod は止まりません。止まるのは「変更」です。",
+                "zh": "进入 Kubernetes 集群的每一个请求最终都会到达 kube-apiserver。它是唯一与 etcd 通信的组件，而 etcd 这个键值存储保存着集群全部的声明状态与观测状态；其他所有组件都通过 API Server 的 REST 接口读写这些状态。kube-scheduler 监视尚未分配节点的 Pod 并为每个 Pod 选出一个节点——它从不启动容器，只是把绑定结果经由 API Server 写回。kube-controller-manager 在单个进程中运行着数十个控制回路（Deployment、ReplicaSet、Node、Job、EndpointSlice、ServiceAccount 等控制器），每个回路都在比较声明状态与观测状态，并针对差异采取动作。cloud-controller-manager 则把云厂商相关的回路拆分出来。值得记住的结论是：控制平面失效并不会让已经在运行的 Pod 停止——停止的是「变更」。"
+              }
+            },
+            {
+              "section_id": "cka-l1-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "body_key": "cka-l1-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "The node side: kubelet, kube-proxy, container runtime, CNI",
+                "de": "Die Node-Seite: kubelet, kube-proxy, Container-Runtime, CNI",
+                "ja": "ノード側: kubelet、kube-proxy、コンテナランタイム、CNI",
+                "zh": "节点一侧：kubelet、kube-proxy、容器运行时、CNI"
+              },
+              "body": {
+                "en": "On every node the kubelet watches the API server for Pods bound to its own node and drives the container runtime through the CRI (containerd, CRI-O) until reality matches. It also reports node and Pod status back, executes liveness and readiness probes, and mounts volumes. One thing it does entirely without the API server: any manifest dropped into its static-Pod directory, usually /etc/kubernetes/manifests, is started directly — which is exactly how kubeadm bootstraps the control plane, as static Pods on the first control-plane node. kube-proxy turns Service objects into iptables or IPVS rules so that traffic to a ClusterIP lands on a real Pod IP. Pod-to-Pod connectivity itself is not Kubernetes' job at all: it belongs to the CNI plugin (Calico, Cilium, Flannel and others). A freshly initialised cluster with no CNI plugin has nodes stuck in NotReady with a 'container runtime network not ready' message — expected, not broken.",
+                "de": "Auf jedem Node beobachtet das kubelet den API-Server auf Pods, die dem eigenen Node zugewiesen sind, und steuert die Container-Runtime über die CRI (containerd, CRI-O), bis die Realität passt. Es meldet außerdem Node- und Pod-Status zurück, führt Liveness- und Readiness-Probes aus und hängt Volumes ein. Eines tut es vollständig ohne API-Server: Jedes Manifest im Verzeichnis für statische Pods – üblicherweise /etc/kubernetes/manifests – wird direkt gestartet. Genau so bootstrappt kubeadm die Control Plane, nämlich als statische Pods auf dem ersten Control-Plane-Node. kube-proxy übersetzt Service-Objekte in iptables- oder IPVS-Regeln, damit Datenverkehr an eine ClusterIP bei einer echten Pod-IP ankommt. Die Pod-zu-Pod-Konnektivität selbst ist gar nicht Aufgabe von Kubernetes: Sie gehört dem CNI-Plugin (Calico, Cilium, Flannel und andere). Ein frisch initialisierter Cluster ohne CNI-Plugin hat Nodes, die mit der Meldung „container runtime network not ready“ in NotReady hängen – das ist erwartet und kein Defekt.",
+                "ja": "各ノードでは kubelet が API サーバーを監視し、自ノードにバインドされた Pod を見つけると、CRI（containerd、CRI-O）経由でコンテナランタイムを操作し、現実が宣言に一致するまで動かします。さらにノードと Pod の状態を報告し、Liveness／Readiness プローブを実行し、ボリュームをマウントします。API サーバーがなくても行う仕事が 1 つあります。静的 Pod 用ディレクトリ（通常は /etc/kubernetes/manifests）に置かれたマニフェストは直接起動されるのです。kubeadm が最初のコントロールプレーンノード上でコントロールプレーンを静的 Pod として起動するのは、まさにこの仕組みです。kube-proxy は Service オブジェクトを iptables または IPVS のルールに変換し、ClusterIP 宛てのトラフィックが実際の Pod IP に届くようにします。一方、Pod 間の疎通そのものは Kubernetes の担当ではなく、CNI プラグイン（Calico、Cilium、Flannel など）の役割です。初期化直後で CNI プラグインが入っていないクラスターでは、ノードが「container runtime network not ready」というメッセージとともに NotReady のままになります。これは想定どおりであり、故障ではありません。",
+                "zh": "在每个节点上，kubelet 监视 API Server 中绑定到本节点的 Pod，并通过 CRI（containerd、CRI-O）驱动容器运行时，直到现实与声明一致。它还负责上报节点与 Pod 状态、执行存活探针和就绪探针，以及挂载卷。有一件事它完全不依赖 API Server：放入静态 Pod 目录（通常是 /etc/kubernetes/manifests）的任何清单都会被直接启动——kubeadm 正是以此在第一个控制平面节点上把控制平面拉起为静态 Pod。kube-proxy 把 Service 对象转换成 iptables 或 IPVS 规则，使发往 ClusterIP 的流量落到真实的 Pod IP 上。而 Pod 与 Pod 之间的连通性根本不归 Kubernetes 管：那是 CNI 插件（Calico、Cilium、Flannel 等）的职责。刚初始化、尚未安装 CNI 插件的集群，其节点会以「container runtime network not ready」的消息停留在 NotReady 状态——这是预期行为，不是故障。"
+              }
+            },
+            {
+              "section_id": "cka-l1-s3",
+              "order": 2,
+              "section_kind": "decision_flow",
+              "body_key": "cka-l1-s3",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Declared state, not commands: the reconciliation loop",
+                "de": "Deklarierter Zustand statt Befehle: die Reconciliation-Schleife",
+                "ja": "命令ではなく宣言された状態: リコンサイルのループ",
+                "zh": "声明状态而非命令：调谐循环"
+              },
+              "body": {
+                "en": "kubectl apply does not deploy anything. It writes an object into etcd through the API server and returns; some controller then notices the gap between what you declared and what exists, and closes it. That is why every object printed with kubectl get -o yaml has two halves — a spec you own and a status the system owns — and why deleting a Pod owned by a ReplicaSet gets you a replacement within a second. Turn this into a working method: if an object exists but nothing happened, do not re-run the command. Ask which controller should have reacted, then read the events with kubectl describe <kind> <name> or kubectl get events --sort-by=.metadata.creationTimestamp. Imperative commands remain the fastest way to produce a starting manifest — kubectl create deployment web --image=nginx --dry-run=client -o yaml > web.yaml, then edit. Generating and editing beats typing YAML from memory, in the exam and in real life.",
+                "de": "kubectl apply deployt nichts. Es schreibt ein Objekt über den API-Server nach etcd und kehrt zurück; irgendein Controller bemerkt anschließend die Lücke zwischen dem, was du deklariert hast, und dem, was existiert, und schließt sie. Deshalb hat jedes mit kubectl get -o yaml ausgegebene Objekt zwei Hälften – eine spec, die dir gehört, und einen status, der dem System gehört – und deshalb bekommst du innerhalb einer Sekunde Ersatz, wenn du einen Pod löschst, der zu einem ReplicaSet gehört. Mach daraus eine Arbeitsmethode: Wenn ein Objekt existiert, aber nichts passiert ist, wiederhole nicht den Befehl. Frage, welcher Controller hätte reagieren müssen, und lies die Events mit kubectl describe <kind> <name> oder kubectl get events --sort-by=.metadata.creationTimestamp. Imperative Befehle bleiben der schnellste Weg zu einem Ausgangsmanifest: kubectl create deployment web --image=nginx --dry-run=client -o yaml > web.yaml, dann bearbeiten. Erzeugen und anpassen schlägt YAML-aus-dem-Kopf-Tippen – in der Prüfung wie im Alltag.",
+                "ja": "kubectl apply は何かをデプロイするコマンドではありません。API サーバー経由で etcd にオブジェクトを書き込み、そこで戻ります。その後、いずれかのコントローラーが「宣言された状態」と「実在する状態」の差に気づき、その差を埋めます。kubectl get -o yaml で表示されるオブジェクトが、自分が所有する spec とシステムが所有する status の 2 つの半分から成っているのはそのためであり、ReplicaSet に所有された Pod を削除しても 1 秒ほどで代わりが現れるのもそのためです。これを作業手順に変えましょう。オブジェクトは存在するのに何も起きていないときは、コマンドを打ち直さないこと。どのコントローラーが反応すべきだったのかを問い、kubectl describe <kind> <name> や kubectl get events --sort-by=.metadata.creationTimestamp でイベントを読むことです。なお、出発点となるマニフェストを作るには命令的コマンドが最速です。kubectl create deployment web --image=nginx --dry-run=client -o yaml > web.yaml として生成し、そこから編集します。生成して直すほうが、記憶から YAML を打つより速い。試験でも実務でも同じです。",
+                "zh": "kubectl apply 并不部署任何东西。它只是通过 API Server 把一个对象写入 etcd 然后返回；随后某个控制器注意到「你声明的」与「实际存在的」之间的差距，并把它抹平。这就是为什么用 kubectl get -o yaml 打印出的每个对象都有两半——由你拥有的 spec 和由系统拥有的 status——也是为什么删除一个归属于 ReplicaSet 的 Pod 后一秒内就会出现替代品。把它变成工作方法：如果对象存在却什么也没发生，不要重复执行命令。先问哪个控制器本应作出反应，然后用 kubectl describe <kind> <name> 或 kubectl get events --sort-by=.metadata.creationTimestamp 去读事件。命令式命令仍然是产出初始清单最快的方式：kubectl create deployment web --image=nginx --dry-run=client -o yaml > web.yaml，然后再编辑。先生成再修改，胜过凭记忆手敲 YAML——考试如此，实际工作也如此。"
+              }
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/control-plane-components"
+            ],
+            "topic_codes": [
+              "core_concepts"
+            ],
+            "count": 10
+          }
+        },
+        {
+          "lesson_id": "cka-l2",
+          "unit_ref": "cka-w1",
+          "order": 2,
+          "title": {
+            "en": "Lab: stand up a cluster and break it once",
+            "de": "Labor: Cluster aufbauen und einmal kaputt machen",
+            "ja": "ラボ: クラスターを構築し、一度わざと壊す",
+            "zh": "实验：搭起一个集群，并故意弄坏一次"
+          },
+          "lesson_kind": "lab",
+          "estimated_minutes": 60,
+          "completion_rule": "read",
+          "concepts": [
+            "zc:concept:k8s/control-plane-components"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l1",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l2-s1",
+              "order": 0,
+              "section_kind": "worked_example",
+              "body_key": "cka-l2-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "kubeadm init, then verify what you just read",
+                "de": "kubeadm init – und dann nachprüfen, was du gerade gelesen hast",
+                "ja": "kubeadm init のあと、読んだ内容を自分の目で確かめる",
+                "zh": "kubeadm init，然后亲手验证你刚读到的内容"
+              },
+              "body": {
+                "en": "Run this on your own machine — Zettacard executes nothing. The CKA exam is 100% hands-on, so this lesson is instructions, not a simulator; use kind, minikube, or two small VMs, whichever you can rebuild quickly. On VMs: disable swap, install a container runtime, then kubeadm init --pod-network-cidr=10.244.0.0/16, copy the admin kubeconfig to $HOME/.kube/config, and apply a CNI plugin. Now verify the previous lesson instead of trusting it. kubectl get pods -n kube-system shows kube-apiserver, etcd, kube-scheduler and kube-controller-manager, plus kube-proxy and CoreDNS; ls /etc/kubernetes/manifests shows the four files that produced the first four. Check control-plane health with kubectl get --raw='/readyz?verbose' — kubectl get componentstatuses still prints on many clusters but is deprecated and should not become your habit. Nodes stay NotReady until the CNI plugin runs; watch that flip with kubectl get nodes -w.",
+                "de": "Führe das auf deiner eigenen Maschine aus – Zettacard führt nichts aus. Die CKA-Prüfung ist zu 100 % praktisch, deshalb ist diese Lektion eine Anleitung und kein Simulator; nimm kind, minikube oder zwei kleine VMs – was immer du schnell neu aufsetzen kannst. Auf VMs: Swap deaktivieren, Container-Runtime installieren, dann kubeadm init --pod-network-cidr=10.244.0.0/16, die Admin-kubeconfig nach $HOME/.kube/config kopieren und ein CNI-Plugin ausrollen. Prüfe nun die vorige Lektion nach, statt ihr zu glauben. kubectl get pods -n kube-system zeigt kube-apiserver, etcd, kube-scheduler und kube-controller-manager sowie kube-proxy und CoreDNS; ls /etc/kubernetes/manifests zeigt die vier Dateien, aus denen die ersten vier entstanden sind. Die Gesundheit der Control Plane prüfst du mit kubectl get --raw='/readyz?verbose' – kubectl get componentstatuses gibt auf vielen Clustern noch etwas aus, ist aber deprecated und sollte dir nicht zur Gewohnheit werden. Nodes bleiben NotReady, bis das CNI-Plugin läuft; beobachte den Umschwung mit kubectl get nodes -w.",
+                "ja": "これは自分のマシンで実行してください。Zettacard は何も実行しません。CKA 試験は 100% 実技なので、このレッスンはシミュレーターではなく手順書です。kind、minikube、あるいは小さな VM 2 台のうち、すぐ作り直せるものを使ってください。VM の場合: swap を無効化し、コンテナランタイムを入れ、kubeadm init --pod-network-cidr=10.244.0.0/16 を実行し、管理者用 kubeconfig を $HOME/.kube/config にコピーして、CNI プラグインを適用します。そのうえで、前のレッスンの内容を鵜呑みにせず自分で確認します。kubectl get pods -n kube-system には kube-apiserver、etcd、kube-scheduler、kube-controller-manager に加えて kube-proxy と CoreDNS が並びます。ls /etc/kubernetes/manifests を見れば、先頭 4 つを生み出したファイルが確認できます。コントロールプレーンの健全性は kubectl get --raw='/readyz?verbose' で確認してください。kubectl get componentstatuses は多くのクラスターでまだ何かを出力しますが非推奨であり、習慣にすべきではありません。ノードは CNI プラグインが動くまで NotReady のままです。kubectl get nodes -w でその切り替わりを観察しましょう。",
+                "zh": "请在你自己的机器上执行——Zettacard 不执行任何东西。CKA 考试是 100% 实操，所以这一课是操作说明而不是模拟器；使用 kind、minikube 或两台小虚拟机，选你能快速重建的那种。若用虚拟机：关闭 swap，安装容器运行时，然后执行 kubeadm init --pod-network-cidr=10.244.0.0/16，把管理员 kubeconfig 复制到 $HOME/.kube/config，再部署一个 CNI 插件。接着，不要轻信上一课，而要亲手验证它。kubectl get pods -n kube-system 会列出 kube-apiserver、etcd、kube-scheduler 和 kube-controller-manager，以及 kube-proxy 和 CoreDNS；ls /etc/kubernetes/manifests 则会显示产生前四者的那几个文件。用 kubectl get --raw='/readyz?verbose' 检查控制平面健康状况——kubectl get componentstatuses 在许多集群上仍有输出，但它已被弃用，不应成为你的习惯。在 CNI 插件运行起来之前节点会一直是 NotReady；用 kubectl get nodes -w 观察它翻转的那一刻。"
+              }
+            },
+            {
+              "section_id": "cka-l2-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "cka-l2-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Break it once: move the API server manifest away",
+                "de": "Einmal kaputt machen: das API-Server-Manifest wegschieben",
+                "ja": "一度壊す: API サーバーのマニフェストを退避する",
+                "zh": "故意弄坏一次：把 API Server 的清单文件移走"
+              },
+              "body": {
+                "en": "Now cause an outage on purpose, because week 4 is far easier if you have seen this once in calm conditions. On the control-plane node, move /etc/kubernetes/manifests/kube-apiserver.yaml to /tmp and watch: within seconds the kubelet stops the API server Pod and every kubectl command fails with 'connection refused'. Nothing else dies — your workload Pods keep serving traffic, which is the practical meaning of 'the control plane manages change, not traffic'. While it is down, practise the tools that do not need the API server: systemctl status kubelet, journalctl -u kubelet -f, crictl ps and crictl logs against the runtime, and the container logs under /var/log/pods. Then move the file back; the kubelet picks it up on its next sync and kubectl answers again. Write down what each command showed while the cluster was broken — that note is your week-4 cheat sheet, and you wrote it yourself, which is why you will remember it.",
+                "de": "Provoziere jetzt bewusst einen Ausfall, denn Woche 4 fällt deutlich leichter, wenn du das einmal in Ruhe gesehen hast. Verschiebe auf dem Control-Plane-Node /etc/kubernetes/manifests/kube-apiserver.yaml nach /tmp und beobachte: Innerhalb von Sekunden stoppt das kubelet den API-Server-Pod, und jeder kubectl-Befehl scheitert mit „connection refused“. Sonst stirbt nichts – deine Workload-Pods bedienen weiterhin Anfragen, und genau das ist die praktische Bedeutung von „die Control Plane verwaltet Veränderung, nicht Datenverkehr“. Übe währenddessen die Werkzeuge, die keinen API-Server brauchen: systemctl status kubelet, journalctl -u kubelet -f, crictl ps und crictl logs gegen die Runtime sowie die Container-Logs unter /var/log/pods. Schiebe die Datei anschließend zurück; das kubelet greift sie beim nächsten Sync auf, und kubectl antwortet wieder. Notiere, was jeder Befehl im kaputten Zustand gezeigt hat – diese Notiz ist dein Spickzettel für Woche 4, und du hast sie selbst geschrieben, weshalb du sie behalten wirst.",
+                "ja": "次は意図的に障害を起こします。落ち着いた状況で一度これを見ておくと、第4週が格段に楽になるからです。コントロールプレーンノードで /etc/kubernetes/manifests/kube-apiserver.yaml を /tmp へ移動し、観察してください。数秒のうちに kubelet が API サーバーの Pod を停止し、あらゆる kubectl コマンドが「connection refused」で失敗します。それ以外は何も死にません。ワークロードの Pod はトラフィックを処理し続けます。これが「コントロールプレーンが管理するのは変更であってトラフィックではない」ということの実際的な意味です。停止している間に、API サーバーを必要としない道具を練習しましょう。systemctl status kubelet、journalctl -u kubelet -f、ランタイムに対する crictl ps と crictl logs、そして /var/log/pods 配下のコンテナログです。その後、ファイルを元に戻せば、kubelet は次の同期で拾い上げ、kubectl は再び応答します。壊れている間に各コマンドが何を示したかを書き留めてください。そのメモが第4週のチートシートになり、自分で書いたからこそ記憶に残ります。",
+                "zh": "现在故意制造一次故障，因为在平静状态下见过一次，第 4 周会轻松得多。在控制平面节点上，把 /etc/kubernetes/manifests/kube-apiserver.yaml 移动到 /tmp，然后观察：几秒内 kubelet 就会停掉 API Server 的 Pod，所有 kubectl 命令都会以「connection refused」失败。除此之外什么也没死——你的业务 Pod 仍在正常提供服务，这正是「控制平面管理的是变更，而不是流量」的实际含义。趁它宕着的时候，练习那些不依赖 API Server 的工具：systemctl status kubelet、journalctl -u kubelet -f、对运行时执行 crictl ps 与 crictl logs，以及 /var/log/pods 下的容器日志。然后把文件移回去；kubelet 会在下一次同步时重新拾起它，kubectl 也会重新响应。把集群损坏期间每条命令的输出记录下来——这份笔记就是你第 4 周的速查表，而且是你自己写的，所以你会记得住。"
+              }
+            }
+          ],
+          "select": null,
+          "practice_ref": {
+            "kind": "external_hands_on",
+            "note_key": "cka-l2-practice",
+            "body": {
+              "en": "This lab runs outside Zettacard: there is no sandbox, no launcher and no progress tracking here. Budget about an hour — roughly 20 minutes to build the cluster, 10 minutes to break and repair it, and the rest to actually read the output. Keep the cluster; weeks 2 to 4 assume you still have it.",
+              "de": "Dieses Labor läuft außerhalb von Zettacard: Es gibt hier keine Sandbox, keinen Starter und keine Fortschrittsverfolgung. Plane etwa eine Stunde ein – rund 20 Minuten für den Aufbau des Clusters, 10 Minuten zum Kaputtmachen und Reparieren, den Rest, um die Ausgaben tatsächlich zu lesen. Behalte den Cluster; die Wochen 2 bis 4 setzen ihn voraus.",
+              "ja": "このラボは Zettacard の外で行います。ここにはサンドボックスも起動ボタンも進捗記録もありません。所要は約 1 時間を見込んでください。クラスター構築に約 20 分、破壊と復旧に 10 分、残りは出力をきちんと読む時間です。クラスターはそのまま残しておいてください。第2週から第4週はそれが手元にある前提で進みます。",
+              "zh": "本实验在 Zettacard 之外进行：这里没有沙箱、没有启动器，也不记录进度。预留大约一小时——搭建集群约 20 分钟，弄坏并修复约 10 分钟，其余时间用来认真阅读输出。请保留这个集群；第 2 到第 4 周都假设它还在。"
+            }
+          }
+        },
+        {
+          "lesson_id": "cka-l3",
+          "unit_ref": "cka-w2",
+          "order": 3,
+          "title": {
+            "en": "Deployment, ReplicaSet, Pod — and the rest of the family",
+            "de": "Deployment, ReplicaSet, Pod – und der Rest der Familie",
+            "ja": "Deployment、ReplicaSet、Pod — そして残りの家族",
+            "zh": "Deployment、ReplicaSet、Pod——以及这一家子的其他成员"
+          },
+          "lesson_kind": "primer",
+          "estimated_minutes": 45,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/workload-controllers"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l1",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l3-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l3-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Who owns whom: ownerReferences and the controller zoo",
+                "de": "Wer wem gehört: ownerReferences und der Controller-Zoo",
+                "ja": "誰が誰を所有するか: ownerReferences とコントローラーの動物園",
+                "zh": "谁拥有谁：ownerReferences 与控制器家族"
+              },
+              "body": {
+                "en": "You almost never create a bare Pod. A Deployment creates and manages a ReplicaSet, and the ReplicaSet keeps a fixed number of Pod replicas alive; each child links to its parent through metadata.ownerReferences, which is what makes cascading deletion work and what kubectl get replicaset shows you after every rollout. Around that sit controllers with different jobs. A DaemonSet runs exactly one Pod on every matching node — how log shippers, node exporters and CNI agents get deployed. A StatefulSet gives Pods stable ordinal names (web-0, web-1), stable per-Pod storage via volumeClaimTemplates, and ordered rollout, usually paired with a headless Service for stable DNS. A Job runs Pods to completion and retries with backoffLimit; a CronJob creates Jobs on a schedule. One trap that costs exam minutes: spec.selector on a Deployment or StatefulSet is immutable — wrong labels mean delete and recreate, not patch.",
+                "de": "Einen nackten Pod erstellt man fast nie. Ein Deployment erzeugt und verwaltet ein ReplicaSet, und das ReplicaSet hält eine feste Anzahl Pod-Repliken am Leben; jedes Kind verweist über metadata.ownerReferences auf sein Elternobjekt – daher funktioniert das kaskadierende Löschen, und daher zeigt dir kubectl get replicaset nach jedem Rollout die Historie. Drumherum stehen Controller mit anderen Aufgaben. Ein DaemonSet betreibt genau einen Pod auf jedem passenden Node – so werden Log-Shipper, Node-Exporter und CNI-Agents ausgerollt. Ein StatefulSet gibt Pods stabile Ordinalnamen (web-0, web-1), stabilen Pod-eigenen Speicher über volumeClaimTemplates und ein geordnetes Rollout, üblicherweise zusammen mit einem Headless Service für stabiles DNS. Ein Job führt Pods bis zum Abschluss aus und wiederholt sie im Rahmen des backoffLimit; ein CronJob erzeugt Jobs nach Zeitplan. Eine Falle, die in der Prüfung Minuten kostet: spec.selector ist bei Deployment und StatefulSet unveränderlich – falsche Labels bedeuten löschen und neu anlegen, nicht patchen.",
+                "ja": "素の Pod を自分で作ることはほとんどありません。Deployment が ReplicaSet を作って管理し、ReplicaSet が決まった数の Pod レプリカを維持します。子オブジェクトは metadata.ownerReferences で親を指しており、これがカスケード削除を成り立たせ、ロールアウトのたびに kubectl get replicaset が履歴を見せてくれる理由でもあります。その周りには役割の異なるコントローラーが並びます。DaemonSet は条件に合うすべてのノードでちょうど 1 つの Pod を動かします。ログ収集エージェント、node exporter、CNI エージェントはこうして配られます。StatefulSet は Pod に安定した序数名（web-0、web-1）、volumeClaimTemplates による Pod ごとの安定したストレージ、そして順序付きのロールアウトを与え、通常は安定した DNS 名のためにヘッドレス Service と組み合わせます。Job は Pod を完了まで実行し、backoffLimit の範囲で再試行します。CronJob はスケジュールに従って Job を作ります。試験で時間を失いがちな落とし穴が 1 つ。Deployment と StatefulSet の spec.selector は変更不可です。ラベルを間違えたら、パッチではなく削除して作り直すことになります。",
+                "zh": "你几乎不会直接创建裸 Pod。Deployment 创建并管理 ReplicaSet，ReplicaSet 维持固定数量的 Pod 副本；每个子对象通过 metadata.ownerReferences 指向父对象——级联删除因此成立，每次滚动更新后 kubectl get replicaset 能看到历史也因此而来。围绕它的是职责不同的其他控制器。DaemonSet 在每个匹配的节点上恰好运行一个 Pod——日志采集器、node exporter 和 CNI agent 就是这样铺开的。StatefulSet 为 Pod 提供稳定的序号名称（web-0、web-1）、通过 volumeClaimTemplates 提供每个 Pod 独有的稳定存储，以及有序的滚动更新，通常再配一个 headless Service 来获得稳定 DNS。Job 把 Pod 运行到完成，并在 backoffLimit 范围内重试；CronJob 按计划创建 Job。有一个在考试中会白白吃掉几分钟的坑：Deployment 和 StatefulSet 的 spec.selector 不可变更——标签写错了就只能删掉重建，而不是打补丁。"
+              }
+            },
+            {
+              "section_id": "cka-l3-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "cka-l3-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Rolling updates — and what actually blocks them",
+                "de": "Rolling Updates – und was sie tatsächlich blockiert",
+                "ja": "ローリングアップデート — そして実際に止めているもの",
+                "zh": "滚动更新——以及真正卡住它的是什么"
+              },
+              "body": {
+                "en": "kubectl set image deployment/web web=nginx:1.27 does not replace all Pods at once. The default RollingUpdate strategy creates a second ReplicaSet and shifts replicas across, bounded by maxSurge (how many extra Pods may exist) and maxUnavailable (how many may be missing) — both default to 25%. kubectl rollout status deployment/web blocks until the new ReplicaSet is fully available; kubectl rollout history lists the revisions kept under revisionHistoryLimit; kubectl rollout undo scales the previous ReplicaSet back up, which is why the old ReplicaSet is deliberately kept at zero replicas rather than deleted. When a rollout hangs, the cause is almost always one of three: the new Pods never pass their readinessProbe, they cannot be scheduled at all, or the image will not pull. After progressDeadlineSeconds (600 by default) the Deployment gains a ProgressDeadlineExceeded condition. Read it with kubectl describe deployment web and fix the cause — re-running the command changes nothing.",
+                "de": "kubectl set image deployment/web web=nginx:1.27 ersetzt nicht alle Pods auf einmal. Die Standardstrategie RollingUpdate erzeugt ein zweites ReplicaSet und verschiebt die Repliken hinüber, begrenzt durch maxSurge (wie viele zusätzliche Pods existieren dürfen) und maxUnavailable (wie viele fehlen dürfen) – beide standardmäßig 25 %. kubectl rollout status deployment/web blockiert, bis das neue ReplicaSet vollständig verfügbar ist; kubectl rollout history listet die Revisionen im Rahmen von revisionHistoryLimit; kubectl rollout undo skaliert das vorherige ReplicaSet wieder hoch – deshalb bleibt das alte ReplicaSet bewusst mit null Repliken bestehen, statt gelöscht zu werden. Hängt ein Rollout, liegt es fast immer an einem von drei Dingen: Die neuen Pods bestehen ihre readinessProbe nie, sie lassen sich gar nicht schedulen, oder das Image lässt sich nicht ziehen. Nach progressDeadlineSeconds (standardmäßig 600) erhält das Deployment die Condition ProgressDeadlineExceeded. Lies sie mit kubectl describe deployment web und behebe die Ursache – den Befehl zu wiederholen ändert nichts.",
+                "ja": "kubectl set image deployment/web web=nginx:1.27 は、すべての Pod を一度に置き換えるわけではありません。既定の RollingUpdate 戦略は 2 つ目の ReplicaSet を作り、maxSurge（余分に存在してよい Pod の数）と maxUnavailable（欠けてよい Pod の数、いずれも既定は 25%）の範囲でレプリカを移していきます。kubectl rollout status deployment/web は新しい ReplicaSet が完全に利用可能になるまでブロックし、kubectl rollout history は revisionHistoryLimit の範囲で保持されたリビジョンを一覧し、kubectl rollout undo は 1 つ前の ReplicaSet を再びスケールアップします。古い ReplicaSet が削除されずレプリカ 0 のまま残されているのは、まさにこのためです。ロールアウトが進まないとき、原因はほぼ次の 3 つのどれかです。新しい Pod が readinessProbe を通らない、そもそもスケジュールできない、イメージを取得できない。progressDeadlineSeconds（既定 600 秒）を過ぎると、Deployment に ProgressDeadlineExceeded という condition が付きます。kubectl describe deployment web でそれを読み、原因を直してください。コマンドを打ち直しても何も変わりません。",
+                "zh": "kubectl set image deployment/web web=nginx:1.27 并不会一次性替换所有 Pod。默认的 RollingUpdate 策略会创建第二个 ReplicaSet，并在 maxSurge（允许额外存在多少 Pod）与 maxUnavailable（允许缺少多少 Pod）的约束下逐步迁移副本——两者默认都是 25%。kubectl rollout status deployment/web 会阻塞直到新 ReplicaSet 完全可用；kubectl rollout history 列出在 revisionHistoryLimit 范围内保留的历史版本；kubectl rollout undo 则把上一个 ReplicaSet 重新扩容回去——这正是旧 ReplicaSet 被刻意保留为 0 副本而不是删除的原因。滚动更新卡住时，原因几乎总是三者之一：新 Pod 始终通不过就绪探针、根本无法被调度、或者镜像拉不下来。超过 progressDeadlineSeconds（默认 600 秒）后，Deployment 会出现 ProgressDeadlineExceeded 状态条件。用 kubectl describe deployment web 读它，然后去修根因——重复执行命令不会改变任何事情。"
+              }
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/workload-controllers"
+            ],
+            "topic_codes": [
+              "workloads"
+            ],
+            "count": 12
+          }
+        },
+        {
+          "lesson_id": "cka-l4",
+          "unit_ref": "cka-w2",
+          "order": 4,
+          "title": {
+            "en": "How a Pod gets a node — and what it carries with it",
+            "de": "Wie ein Pod zu seinem Node kommt – und was er mitbringt",
+            "ja": "Pod がノードを得るまで — そして何を携えていくか",
+            "zh": "Pod 如何拿到节点——以及它随身带了什么"
+          },
+          "lesson_kind": "primer",
+          "estimated_minutes": 50,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/scheduling-constraints"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l1",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l4-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l4-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Filter, then score: nodeSelector, affinity, taints, spread",
+                "de": "Erst filtern, dann bewerten: nodeSelector, Affinity, Taints, Spread",
+                "ja": "まず絞り込み、次に採点: nodeSelector、アフィニティ、Taint、分散",
+                "zh": "先过滤再打分：nodeSelector、亲和性、污点、拓扑分布"
+              },
+              "body": {
+                "en": "Scheduling is two phases. First the scheduler filters out every node that cannot host the Pod, then it scores the survivors and binds the Pod to the best one. Filtering is where your constraints act: resource requests (not limits — requests are what scheduling arithmetic uses), nodeSelector as the blunt label match, nodeAffinity for required and preferred rules, pod affinity and anti-affinity to place Pods near or away from other Pods, and taints on the node paired with tolerations on the Pod. A taint with effect NoSchedule keeps new Pods off, PreferNoSchedule only discourages them, and NoExecute also evicts Pods already running there — which is exactly how control-plane nodes stay clear of ordinary workloads. topologySpreadConstraints then spread replicas evenly across zones or nodes. Two escape hatches bypass the scheduler entirely: setting spec.nodeName directly, and static Pods, which the kubelet starts from disk without ever asking the scheduler.",
+                "de": "Scheduling läuft in zwei Phasen. Zuerst filtert der Scheduler alle Nodes heraus, die den Pod nicht aufnehmen können, dann bewertet er die verbleibenden und bindet den Pod an den besten. In der Filterphase wirken deine Constraints: Resource-Requests (nicht Limits – für die Scheduling-Arithmetik zählen die Requests), nodeSelector als grober Label-Abgleich, nodeAffinity für erforderliche und bevorzugte Regeln, Pod-Affinity und -Anti-Affinity, um Pods nahe bei oder fern von anderen Pods zu platzieren, sowie Taints auf dem Node zusammen mit Tolerations auf dem Pod. Ein Taint mit dem Effekt NoSchedule hält neue Pods fern, PreferNoSchedule schreckt sie nur ab, und NoExecute vertreibt zusätzlich bereits laufende Pods – genau so bleiben Control-Plane-Nodes frei von gewöhnlichen Workloads. topologySpreadConstraints verteilen Repliken anschließend gleichmäßig über Zonen oder Nodes. Zwei Notausgänge umgehen den Scheduler vollständig: spec.nodeName direkt setzen und statische Pods, die das kubelet von der Festplatte startet, ohne den Scheduler je zu fragen.",
+                "ja": "スケジューリングは 2 段階です。まずスケジューラーが、その Pod を収容できないノードをすべて除外し（フィルタリング）、次に残ったノードを採点して最良のノードに Pod をバインドします。あなたが書いた制約が効くのはフィルタリングの段階です。リソースの requests（limits ではありません。スケジューリングの計算に使われるのは requests です）、素朴なラベル一致である nodeSelector、必須条件と優先条件を書ける nodeAffinity、他の Pod の近くに置く／遠ざけるための Pod アフィニティとアンチアフィニティ、そしてノード側の Taint と Pod 側の Toleration です。効果が NoSchedule の Taint は新しい Pod を寄せ付けず、PreferNoSchedule は避けさせるだけ、NoExecute はすでに動いている Pod も追い出します。コントロールプレーンノードが通常のワークロードから守られているのは、まさにこの仕組みです。さらに topologySpreadConstraints が、レプリカをゾーンやノードに均等に分散させます。スケジューラーを完全に迂回する抜け道が 2 つあります。spec.nodeName を直接指定することと、kubelet がディスクから起動する静的 Pod です。後者はスケジューラーに一度も問い合わせません。",
+                "zh": "调度分两个阶段。调度器先过滤掉所有无法容纳该 Pod 的节点，再给剩下的节点打分，并把 Pod 绑定到得分最高的那个。你写的各种约束作用在过滤阶段：资源 requests（不是 limits——调度算术用的是 requests）、作为粗粒度标签匹配的 nodeSelector、可写必需与偏好规则的 nodeAffinity、用于把 Pod 放在其他 Pod 附近或远离它们的 Pod 亲和性与反亲和性，以及节点上的污点（taint）配合 Pod 上的容忍（toleration）。效果为 NoSchedule 的污点会挡住新 Pod，PreferNoSchedule 只是尽量劝退，NoExecute 还会驱逐已经运行在上面的 Pod——控制平面节点之所以能远离普通业务负载，靠的正是这一点。随后 topologySpreadConstraints 会把副本均匀铺开到不同可用区或节点上。有两个后门可以完全绕过调度器：直接设置 spec.nodeName，以及静态 Pod——kubelet 从磁盘启动它们，从不询问调度器。"
+              }
+            },
+            {
+              "section_id": "cka-l4-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "body_key": "cka-l4-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Configuration that rides along: ConfigMaps, Secrets, requests and limits",
+                "de": "Konfiguration, die mitreist: ConfigMaps, Secrets, Requests und Limits",
+                "ja": "一緒に運ばれる構成: ConfigMap、Secret、requests と limits",
+                "zh": "随行的配置：ConfigMap、Secret、requests 与 limits"
+              },
+              "body": {
+                "en": "A ConfigMap or Secret reaches a container in one of two ways, and the difference matters. Injected as environment variables, values are frozen when the container starts — updating the ConfigMap changes nothing until the Pod restarts. Mounted as a volume, the kubelet refreshes the files in place after a short delay, so an application that re-reads its config file picks the change up without a restart (subPath mounts are the exception and never update). Secrets are base64-encoded, not encrypted: anyone who can read the object can read the value, so protection comes from RBAC plus encryption at rest configured on the API server. Requests and limits set the Pod's QoS class — Guaranteed when every container sets requests equal to limits, BestEffort when nothing is set, Burstable in between — and that class decides who gets evicted first under node pressure. Exceeding a memory limit means an immediate OOMKilled; exceeding CPU only means throttling.",
+                "de": "Eine ConfigMap oder ein Secret erreicht einen Container auf zwei Wegen, und der Unterschied ist wichtig. Als Umgebungsvariablen eingespeist, sind die Werte beim Start des Containers eingefroren – eine Änderung der ConfigMap bewirkt nichts, bis der Pod neu startet. Als Volume gemountet, aktualisiert das kubelet die Dateien nach kurzer Verzögerung an Ort und Stelle, sodass eine Anwendung, die ihre Konfigurationsdatei erneut liest, die Änderung ohne Neustart übernimmt (Ausnahme sind subPath-Mounts, die nie aktualisiert werden). Secrets sind base64-kodiert, nicht verschlüsselt: Wer das Objekt lesen darf, liest den Wert – Schutz entsteht durch RBAC plus Verschlüsselung im Ruhezustand, die am API-Server konfiguriert wird. Requests und Limits bestimmen die QoS-Klasse des Pods – Guaranteed, wenn in jedem Container Requests gleich Limits sind, BestEffort, wenn nichts gesetzt ist, Burstable dazwischen – und diese Klasse entscheidet, wer bei Node-Druck zuerst verdrängt wird. Ein überschrittenes Memory-Limit bedeutet sofort OOMKilled; ein überschrittenes CPU-Limit bedeutet nur Drosselung.",
+                "ja": "ConfigMap や Secret がコンテナに届く経路は 2 つあり、その違いは重要です。環境変数として注入した場合、値はコンテナ起動時に固定されます。ConfigMap を更新しても、Pod が再起動するまで何も変わりません。ボリュームとしてマウントした場合、kubelet が短い遅延のあとファイルをその場で更新するため、設定ファイルを読み直すアプリケーションは再起動なしに変更を取り込めます（例外は subPath マウントで、こちらは更新されません）。Secret は base64 でエンコードされているだけで、暗号化されてはいません。オブジェクトを読める者は値を読めるので、守りは RBAC と、API サーバー側で設定する保存時暗号化によって成り立ちます。requests と limits は Pod の QoS クラスを決めます。すべてのコンテナで requests と limits が等しければ Guaranteed、何も設定しなければ BestEffort、その中間が Burstable であり、このクラスがノード逼迫時に誰から追い出されるかを決めます。メモリ制限の超過は即座に OOMKilled を意味し、CPU の超過はスロットリングにとどまります。",
+                "zh": "ConfigMap 或 Secret 抵达容器有两种方式，二者的差别很重要。以环境变量注入时，值在容器启动那一刻就被固定——更新 ConfigMap 在 Pod 重启前不会有任何效果。以卷方式挂载时，kubelet 会在短暂延迟后就地刷新文件，因此会重新读取配置文件的应用无需重启即可获得新值（subPath 挂载是例外，它永远不会更新）。Secret 只是 base64 编码，并非加密：能读到该对象的人就能读到值，所以真正的保护来自 RBAC，加上在 API Server 上配置的静态加密。requests 与 limits 决定 Pod 的 QoS 等级——所有容器的 requests 等于 limits 时是 Guaranteed，什么都不设时是 BestEffort，介于两者之间是 Burstable——而这个等级决定了节点资源紧张时谁先被驱逐。超出内存限制会立刻 OOMKilled；超出 CPU 限制只会被限流。"
+              }
+            },
+            {
+              "section_id": "cka-l4-s3",
+              "order": 2,
+              "section_kind": "callout",
+              "body_key": "cka-l4-s3",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Pending is a message, not a state of waiting",
+                "de": "Pending ist eine Nachricht, kein Wartezustand",
+                "ja": "Pending は待機状態ではなくメッセージである",
+                "zh": "Pending 是一条消息，不是「在等」"
+              },
+              "body": {
+                "en": "A Pod stuck in Pending is not being slow — the scheduler has already tried and failed, and it wrote down why. kubectl describe pod ends with an event such as '0/3 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 2 Insufficient cpu'. That single line names both the count and the reason per group of nodes, and it maps directly onto the filters above: insufficient cpu or memory means requests too large or a full node, untolerated taint means a missing toleration, no nodes match node selector means a label typo. Get into the habit now, in week 2: read the event before touching the manifest. In week 4 the same sentence will appear under time pressure, and the difference between candidates who pass and candidates who run out of time is largely whether they read it or guessed.",
+                "de": "Ein Pod, der in Pending hängt, ist nicht langsam – der Scheduler hat es bereits versucht, ist gescheitert und hat aufgeschrieben, warum. kubectl describe pod endet mit einem Event wie „0/3 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 2 Insufficient cpu“. Diese eine Zeile nennt Anzahl und Grund je Node-Gruppe und lässt sich direkt auf die obigen Filter abbilden: „Insufficient cpu/memory“ heißt zu große Requests oder ein voller Node, „untolerated taint“ heißt fehlende Toleration, „no nodes match node selector“ heißt Tippfehler im Label. Gewöhne es dir jetzt in Woche 2 an: erst das Event lesen, dann das Manifest anfassen. In Woche 4 taucht derselbe Satz unter Zeitdruck wieder auf, und der Unterschied zwischen bestandenen und abgelaufenen Prüfungen liegt vor allem darin, ob man ihn gelesen oder geraten hat.",
+                "ja": "Pending のまま止まっている Pod は、遅いのではありません。スケジューラーはすでに試して失敗し、その理由を書き残しています。kubectl describe pod の末尾には、たとえば「0/3 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 2 Insufficient cpu」といったイベントが出ます。この 1 行がノードのグループごとに件数と理由を示しており、前述のフィルターにそのまま対応します。Insufficient cpu／memory は requests が大きすぎるかノードが満杯、untolerated taint は Toleration の欠如、no nodes match node selector はラベルの打ち間違いです。第2週の今のうちに習慣にしてください。マニフェストに触る前に、まずイベントを読むこと。第4週には同じ一文が時間的プレッシャーの中で現れます。合格する人と時間切れになる人を分けるのは、その一文を読んだか、当て推量をしたかです。",
+                "zh": "卡在 Pending 的 Pod 不是「慢」——调度器已经尝试过并且失败了，而且把原因写下来了。kubectl describe pod 的末尾会有类似这样的事件：「0/3 nodes are available: 1 node(s) had untolerated taint {node-role.kubernetes.io/control-plane: }, 2 Insufficient cpu」。这一行按节点分组给出了数量和原因，并且能直接对应上面讲的各个过滤条件：Insufficient cpu/memory 表示 requests 太大或节点已满，untolerated taint 表示缺少容忍，no nodes match node selector 表示标签写错了。现在，在第 2 周就养成习惯：先读事件，再动清单。到第 4 周，同样的句子会在时间压力下出现，而通过考试的人和做不完的人，差别很大程度上就在于他们是读了它，还是靠猜。"
+              }
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/scheduling-constraints"
+            ],
+            "topic_codes": [
+              "config_scheduling"
+            ],
+            "count": 12
+          }
+        },
+        {
+          "lesson_id": "cka-l5",
+          "unit_ref": "cka-w2",
+          "order": 5,
+          "title": {
+            "en": "Lab: roll out, roll back, and make the scheduler say no",
+            "de": "Labor: ausrollen, zurückrollen und den Scheduler Nein sagen lassen",
+            "ja": "ラボ: ロールアウト、ロールバック、そしてスケジューラーに「ノー」と言わせる",
+            "zh": "实验：发布、回滚，并逼调度器说「不」"
+          },
+          "lesson_kind": "lab",
+          "estimated_minutes": 60,
+          "completion_rule": "read",
+          "concepts": [
+            "zc:concept:k8s/workload-controllers",
+            "zc:concept:k8s/scheduling-constraints"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l4",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l5-s1",
+              "order": 0,
+              "section_kind": "worked_example",
+              "body_key": "cka-l5-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Watch two ReplicaSets trade places",
+                "de": "Zwei ReplicaSets beim Platztausch beobachten",
+                "ja": "2 つの ReplicaSet が入れ替わる様子を観察する",
+                "zh": "看两个 ReplicaSet 交接班"
+              },
+              "body": {
+                "en": "On your own cluster — Zettacard runs nothing for you. Create a Deployment with kubectl create deployment web --image=nginx:1.25 --replicas=4, then open a second terminal running kubectl get pods,replicaset -w. In the first terminal run kubectl set image deployment/web nginx=nginx:1.27 and watch the second ReplicaSet appear and the first drain to zero without ever being deleted. Confirm the revisions with kubectl rollout history deployment/web, then run kubectl rollout undo deployment/web and watch the old ReplicaSet scale back up. Next, break it deliberately: kubectl set image deployment/web nginx=nginx:doesnotexist. The rollout stalls, kubectl rollout status never returns, and kubectl get pods shows ImagePullBackOff — but note that your four serving Pods are still there, because maxUnavailable only allowed one to go. Recover with kubectl rollout undo. That asymmetry, a broken rollout that does not take the service down, is the whole point of the strategy.",
+                "de": "Auf deinem eigenen Cluster – Zettacard führt nichts für dich aus. Lege ein Deployment an mit kubectl create deployment web --image=nginx:1.25 --replicas=4 und öffne ein zweites Terminal mit kubectl get pods,replicaset -w. Führe im ersten Terminal kubectl set image deployment/web nginx=nginx:1.27 aus und beobachte, wie das zweite ReplicaSet erscheint und das erste auf null leerläuft, ohne je gelöscht zu werden. Prüfe die Revisionen mit kubectl rollout history deployment/web, führe dann kubectl rollout undo deployment/web aus und sieh zu, wie das alte ReplicaSet wieder hochskaliert. Danach machst du es absichtlich kaputt: kubectl set image deployment/web nginx=nginx:doesnotexist. Das Rollout bleibt stehen, kubectl rollout status kehrt nie zurück, und kubectl get pods zeigt ImagePullBackOff – doch achte darauf, dass deine vier ausliefernden Pods noch da sind, weil maxUnavailable nur einen davon freigegeben hat. Erhole dich mit kubectl rollout undo. Genau diese Asymmetrie – ein kaputtes Rollout, das den Dienst nicht mitreißt – ist der Sinn der Strategie.",
+                "ja": "自分のクラスターで実行してください。Zettacard は代わりに何も実行しません。まず kubectl create deployment web --image=nginx:1.25 --replicas=4 で Deployment を作り、別のターミナルで kubectl get pods,replicaset -w を開いておきます。最初のターミナルで kubectl set image deployment/web nginx=nginx:1.27 を実行し、2 つ目の ReplicaSet が現れ、1 つ目が削除されないままゼロへ減っていく様子を観察します。kubectl rollout history deployment/web でリビジョンを確認したら、kubectl rollout undo deployment/web を実行し、古い ReplicaSet が再びスケールアップするのを見てください。次はわざと壊します。kubectl set image deployment/web nginx=nginx:doesnotexist。ロールアウトは止まり、kubectl rollout status は返ってこず、kubectl get pods は ImagePullBackOff を示します。ただし、稼働中の 4 つの Pod はまだ残っているはずです。maxUnavailable が 1 つしか手放さなかったからです。kubectl rollout undo で復旧します。壊れたロールアウトがサービスを道連れにしない、というこの非対称性こそが、この戦略の狙いです。",
+                "zh": "在你自己的集群上做——Zettacard 不会替你执行任何东西。先用 kubectl create deployment web --image=nginx:1.25 --replicas=4 创建一个 Deployment，再开第二个终端运行 kubectl get pods,replicaset -w。在第一个终端执行 kubectl set image deployment/web nginx=nginx:1.27，观察第二个 ReplicaSet 出现、第一个逐步归零却始终没有被删除。用 kubectl rollout history deployment/web 确认历史版本，然后执行 kubectl rollout undo deployment/web，看着旧的 ReplicaSet 重新扩容回来。接着故意弄坏它：kubectl set image deployment/web nginx=nginx:doesnotexist。发布卡住，kubectl rollout status 永远不返回，kubectl get pods 显示 ImagePullBackOff——但请注意，你那四个正在提供服务的 Pod 还在，因为 maxUnavailable 只放行了一个。用 kubectl rollout undo 恢复。这种不对称——发布坏了却没有把服务一起拖下水——正是这个策略存在的意义。"
+              }
+            },
+            {
+              "section_id": "cka-l5-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "cka-l5-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Workloads & Scheduling domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Three ways to be unschedulable",
+                "de": "Drei Arten, nicht schedulebar zu sein",
+                "ja": "スケジュールできない 3 つの理由をつくる",
+                "zh": "制造三种「调度不出去」"
+              },
+              "body": {
+                "en": "Produce each Pending reason on purpose and read the event each time. First, resources: kubectl create deployment fat --image=nginx, then edit it to request 100 CPUs; kubectl describe pod will say Insufficient cpu. Second, taints: kubectl taint nodes <worker> tier=db:NoSchedule, redeploy something plain, and read 'untolerated taint'; then add the matching toleration to the Pod spec and watch it schedule. Third, labels: set nodeSelector: disktype=ssd on a Pod when no node carries that label, read 'node(s) didn't match Pod's node affinity/selector', then kubectl label node <worker> disktype=ssd and see the Pod schedule within seconds, without any change to the Pod. Finish by cleaning up: kubectl taint nodes <worker> tier=db:NoSchedule- (the trailing minus removes it) and kubectl label node <worker> disktype-. The three events you just read cover most scheduling questions you will meet.",
+                "de": "Erzeuge jeden Pending-Grund absichtlich und lies jedes Mal das Event. Erstens Ressourcen: kubectl create deployment fat --image=nginx, dann so bearbeiten, dass 100 CPUs angefordert werden; kubectl describe pod meldet „Insufficient cpu“. Zweitens Taints: kubectl taint nodes <worker> tier=db:NoSchedule, etwas Einfaches erneut ausrollen und „untolerated taint“ lesen; danach die passende Toleration in die Pod-Spec eintragen und zusehen, wie er scheduled wird. Drittens Labels: setze nodeSelector: disktype=ssd auf einen Pod, während kein Node dieses Label trägt, lies „node(s) didn't match Pod's node affinity/selector“, dann kubectl label node <worker> disktype=ssd – und der Pod wird binnen Sekunden platziert, ohne dass du den Pod geändert hast. Räume zum Schluss auf: kubectl taint nodes <worker> tier=db:NoSchedule- (das angehängte Minus entfernt ihn) und kubectl label node <worker> disktype-. Die drei Events, die du gerade gelesen hast, decken die meisten Scheduling-Fragen ab, die dir begegnen werden.",
+                "ja": "Pending の理由を 1 つずつ意図的に作り、そのたびにイベントを読みましょう。1 つ目はリソースです。kubectl create deployment fat --image=nginx を作り、CPU を 100 個要求するよう編集します。kubectl describe pod は Insufficient cpu と告げます。2 つ目は Taint です。kubectl taint nodes <worker> tier=db:NoSchedule を実行し、素の Deployment をもう一度作って「untolerated taint」を読みます。続いて Pod spec に対応する Toleration を書き加え、スケジュールされる様子を確認します。3 つ目はラベルです。その値を持つノードがない状態で Pod に nodeSelector: disktype=ssd を設定し、「node(s) didn't match Pod's node affinity/selector」を読みます。そのあと kubectl label node <worker> disktype=ssd を実行すると、Pod 側を一切変更していないのに数秒で配置されます。最後に片付けを。kubectl taint nodes <worker> tier=db:NoSchedule-（末尾のマイナスが削除を意味します）と kubectl label node <worker> disktype- です。いま読んだ 3 つのイベントで、遭遇するスケジューリング問題の大半はカバーできます。",
+                "zh": "把每一种 Pending 原因都故意造出来，并且每次都读事件。第一种是资源：kubectl create deployment fat --image=nginx，然后改成申请 100 个 CPU；kubectl describe pod 会说 Insufficient cpu。第二种是污点：kubectl taint nodes <worker> tier=db:NoSchedule，再部署一个普通应用，读到「untolerated taint」；接着在 Pod spec 里加上对应的容忍，看它被调度出去。第三种是标签：在没有任何节点带该标签时给 Pod 设置 nodeSelector: disktype=ssd，读到「node(s) didn't match Pod's node affinity/selector」，然后执行 kubectl label node <worker> disktype=ssd，你会看到 Pod 在几秒内被调度，而你根本没有改动 Pod。最后清理：kubectl taint nodes <worker> tier=db:NoSchedule-（结尾的减号表示删除）和 kubectl label node <worker> disktype-。你刚刚读到的这三条事件，覆盖了你将遇到的大多数调度问题。"
+              }
+            }
+          ],
+          "select": null,
+          "practice_ref": {
+            "kind": "external_hands_on",
+            "note_key": "cka-l5-practice",
+            "body": {
+              "en": "Do this on the cluster you built in week 1; nothing here is executed or graded by Zettacard. About 45 minutes of typing plus 15 of reading events. If you only have time for half of it, do the three Pending reasons — they carry more exam weight than the rollout does.",
+              "de": "Mach das auf dem Cluster, den du in Woche 1 gebaut hast; nichts davon wird von Zettacard ausgeführt oder bewertet. Rund 45 Minuten Tippen plus 15 Minuten Events lesen. Reicht die Zeit nur für die Hälfte, nimm die drei Pending-Gründe – sie haben mehr Prüfungsgewicht als das Rollout.",
+              "ja": "第1週に作ったクラスターで実施してください。ここに書かれたことを Zettacard が実行したり採点したりすることはありません。入力に約 45 分、イベントを読むのに 15 分ほどを見込んでください。半分しか時間が取れないなら、Pending の 3 パターンを選んでください。ロールアウトより試験での比重が大きいからです。",
+              "zh": "请在第 1 周搭好的集群上完成；这里的任何操作 Zettacard 都不会执行也不会评分。敲命令约 45 分钟，读事件约 15 分钟。如果只够做一半，就做那三种 Pending 原因——它们在考试中的分量比滚动发布更重。"
+            }
+          }
+        },
+        {
+          "lesson_id": "cka-l6",
+          "unit_ref": "cka-w3",
+          "order": 6,
+          "title": {
+            "en": "Services, endpoints, and why your Pod can't reach it",
+            "de": "Services, Endpoints – und warum dein Pod nicht hinkommt",
+            "ja": "Service、エンドポイント、そして Pod から届かない理由",
+            "zh": "Service、端点，以及你的 Pod 为何连不上"
+          },
+          "lesson_kind": "primer",
+          "estimated_minutes": 50,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/service-networking"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l4",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l6-s1",
+              "order": 0,
+              "section_kind": "decision_flow",
+              "body_key": "cka-l6-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Services & Networking domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "ClusterIP → NodePort → LoadBalancer → Ingress, in that order",
+                "de": "ClusterIP → NodePort → LoadBalancer → Ingress, in dieser Reihenfolge",
+                "ja": "ClusterIP → NodePort → LoadBalancer → Ingress、この順序で",
+                "zh": "ClusterIP → NodePort → LoadBalancer → Ingress，按这个顺序理解"
+              },
+              "body": {
+                "en": "Each Service type adds exactly one thing to the previous one, so learn them as a ladder rather than four options. ClusterIP, the default, gives a stable virtual IP and DNS name inside the cluster; kube-proxy rewrites traffic for that IP onto one of the backing Pod IPs. NodePort keeps all of that and additionally opens the same high port (30000–32767) on every node. LoadBalancer keeps the NodePort and asks the cloud provider for an external address in front of it — on a bare-metal or kind cluster with no provider integration, it simply stays Pending forever, which is expected. Ingress is not a Service type at all: it is an HTTP routing object, evaluated by an ingress controller you must install yourself, which routes host and path rules to ClusterIP Services. If nothing is installed, an Ingress object is inert YAML. Pick the lowest rung that solves the problem; the exam rewards that, and so does production.",
+                "de": "Jeder Service-Typ ergänzt genau eine Sache gegenüber dem vorigen – lerne sie deshalb als Leiter, nicht als vier Optionen. ClusterIP, der Standard, liefert eine stabile virtuelle IP und einen DNS-Namen innerhalb des Clusters; kube-proxy schreibt Verkehr an diese IP auf eine der dahinterliegenden Pod-IPs um. NodePort behält all das und öffnet zusätzlich denselben hohen Port (30000–32767) auf jedem Node. LoadBalancer behält den NodePort und fordert beim Cloud-Anbieter eine externe Adresse davor an – auf Bare-Metal oder in kind ohne Anbieterintegration bleibt er schlicht dauerhaft Pending, und das ist erwartbar. Ingress ist überhaupt kein Service-Typ: Es ist ein HTTP-Routing-Objekt, das von einem selbst zu installierenden Ingress-Controller ausgewertet wird und Host- und Pfadregeln auf ClusterIP-Services verteilt. Ist keiner installiert, ist ein Ingress-Objekt nur wirkungsloses YAML. Wähle die unterste Sprosse, die das Problem löst; das belohnt die Prüfung – und der Produktivbetrieb auch.",
+                "ja": "Service の各タイプは、1 つ前のタイプにちょうど 1 つずつ機能を足していきます。4 つの選択肢ではなく、はしごとして覚えてください。既定の ClusterIP は、クラスター内部で安定した仮想 IP と DNS 名を与えます。kube-proxy がその IP 宛てのトラフィックを、背後の Pod IP のいずれかに書き換えます。NodePort はそれをすべて保ったまま、さらにすべてのノードで同じ高位ポート（30000〜32767）を開きます。LoadBalancer は NodePort を保ったまま、その前段の外部アドレスをクラウド事業者に要求します。事業者連携のないベアメタルや kind のクラスターでは、単に Pending のままになりますが、それは想定どおりです。Ingress はそもそも Service のタイプではありません。自分でインストールした Ingress コントローラーが評価する HTTP ルーティング用のオブジェクトで、ホストやパスのルールを ClusterIP Service へ振り分けます。コントローラーが入っていなければ、Ingress オブジェクトはただの無反応な YAML です。問題を解決できる最も下の段を選びましょう。試験もそれを評価しますし、本番運用でも同じです。",
+                "zh": "每种 Service 类型都只在前一种的基础上多加一样东西，所以把它们当成一架梯子来学，而不是四个并列选项。默认的 ClusterIP 在集群内部提供稳定的虚拟 IP 和 DNS 名；kube-proxy 把发往该 IP 的流量改写到背后某个 Pod IP 上。NodePort 保留上述全部能力，并额外在每个节点上打开同一个高位端口（30000–32767）。LoadBalancer 保留 NodePort，并向云厂商申请一个位于其前面的外部地址——在没有厂商集成的裸金属或 kind 集群上，它会一直停在 Pending，这是预期行为。Ingress 根本不是 Service 类型：它是一个 HTTP 路由对象，由你自己安装的 Ingress 控制器来解析，把主机名和路径规则转发到 ClusterIP Service。如果没装控制器，Ingress 对象就只是一段不起作用的 YAML。选择能解决问题的最低那一级；考试会为此加分，生产环境同样如此。"
+              }
+            },
+            {
+              "section_id": "cka-l6-s2",
+              "order": 1,
+              "section_kind": "decision_flow",
+              "body_key": "cka-l6-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Services & Networking domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Four checks when a Service returns nothing",
+                "de": "Vier Prüfschritte, wenn ein Service nichts zurückgibt",
+                "ja": "Service が何も返さないときの 4 つの確認",
+                "zh": "Service 没有响应时的四步检查"
+              },
+              "body": {
+                "en": "A Service is a label selector with a virtual IP in front of it, so failures land in a small number of places and there is a fixed order to check them. One: does the Service have endpoints? kubectl get endpointslices -l kubernetes.io/service-name=<svc> — an empty list means the selector matches no ready Pod, and no amount of DNS debugging will help. Two: do the labels actually match, and are the Pods passing their readinessProbe? A failing probe removes a Pod from the endpoints while it stays Running. Three: is targetPort the container's real port? Service port and targetPort are different fields and a mismatch is invisible until you curl. Four: does DNS resolve? From a throwaway Pod (kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- sh) try nslookup <svc>.<namespace>.svc.cluster.local, and if that fails check that CoreDNS Pods in kube-system are Running. Only after those four is it worth suspecting a NetworkPolicy or the CNI plugin.",
+                "de": "Ein Service ist ein Label-Selektor mit einer virtuellen IP davor; Fehler landen deshalb an wenigen Stellen, und es gibt eine feste Prüfreihenfolge. Erstens: Hat der Service überhaupt Endpoints? kubectl get endpointslices -l kubernetes.io/service-name=<svc> – eine leere Liste heißt, der Selektor trifft keinen bereiten Pod, und keine DNS-Fehlersuche der Welt hilft dann weiter. Zweitens: Passen die Labels tatsächlich, und bestehen die Pods ihre readinessProbe? Eine fehlschlagende Probe entfernt den Pod aus den Endpoints, obwohl er weiterhin Running ist. Drittens: Ist targetPort der echte Container-Port? Service-Port und targetPort sind verschiedene Felder, und eine Abweichung bleibt unsichtbar, bis du curl benutzt. Viertens: Löst DNS auf? Aus einem Wegwerf-Pod (kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- sh) nslookup <svc>.<namespace>.svc.cluster.local versuchen; scheitert das, prüfe, ob die CoreDNS-Pods in kube-system laufen. Erst nach diesen vier Schritten lohnt der Verdacht auf eine NetworkPolicy oder das CNI-Plugin.",
+                "ja": "Service とは、仮想 IP を前に置いたラベルセレクターです。したがって障害の原因は少数の箇所に集中し、確認する順序も決まっています。1 つ目。その Service にエンドポイントはありますか。kubectl get endpointslices -l kubernetes.io/service-name=<svc> の結果が空なら、セレクターが Ready な Pod を 1 つも捕まえていないということで、DNS をいくら調べても解決しません。2 つ目。ラベルは本当に一致していますか。Pod は readinessProbe を通っていますか。プローブが失敗すると、Pod は Running のままエンドポイントから外されます。3 つ目。targetPort はコンテナの実際のポートですか。Service の port と targetPort は別のフィールドで、食い違いは curl するまで見えません。4 つ目。DNS は解決しますか。使い捨ての Pod（kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- sh）から nslookup <svc>.<namespace>.svc.cluster.local を試し、失敗するなら kube-system の CoreDNS Pod が Running かを確認します。NetworkPolicy や CNI プラグインを疑うのは、この 4 つを終えたあとです。",
+                "zh": "Service 本质上是一个带虚拟 IP 的标签选择器，因此故障只会落在少数几个位置，而且检查顺序是固定的。第一：这个 Service 有端点吗？kubectl get endpointslices -l kubernetes.io/service-name=<svc>——列表为空说明选择器没有匹配到任何就绪的 Pod，此时再怎么排查 DNS 也没用。第二：标签是否真的匹配，Pod 是否通过了就绪探针？探针失败会把 Pod 从端点中摘掉，尽管它仍然是 Running。第三：targetPort 是不是容器真正监听的端口？Service 的 port 和 targetPort 是两个不同字段，写错了在你 curl 之前根本看不出来。第四：DNS 能解析吗？从一个一次性 Pod（kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- sh）里执行 nslookup <svc>.<namespace>.svc.cluster.local；若失败，检查 kube-system 中的 CoreDNS Pod 是否处于 Running。只有走完这四步，才值得去怀疑 NetworkPolicy 或 CNI 插件。"
+              }
+            },
+            {
+              "section_id": "cka-l6-s3",
+              "order": 2,
+              "section_kind": "prose",
+              "body_key": "cka-l6-s3",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Services & Networking domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "NetworkPolicy: everything is allowed until the first policy",
+                "de": "NetworkPolicy: Alles ist erlaubt – bis zur ersten Policy",
+                "ja": "NetworkPolicy: 最初の 1 本が現れるまで、すべては許可されている",
+                "zh": "NetworkPolicy：在第一条策略出现之前，一切都是放行的"
+              },
+              "body": {
+                "en": "By default every Pod can talk to every other Pod in the cluster. A NetworkPolicy changes that only for the Pods its podSelector matches, and only for the directions it lists: a policy with just an ingress section leaves egress untouched, and vice versa. Once any policy selects a Pod for a direction, that direction becomes deny-by-default and only the listed rules pass — which makes the classic 'deny all ingress in this namespace' policy a podSelector of {} with an empty ingress list. Rules select peers by podSelector, namespaceSelector or ipBlock, and combining a podSelector and a namespaceSelector inside one rule element means AND, while listing them as separate elements means OR; this is the single most common mistake in written policies. One infrastructure caveat that costs people whole afternoons: NetworkPolicy is enforced by the CNI plugin, not by Kubernetes. With a plugin that does not implement it, your policy is accepted by the API server, appears in kubectl get netpol, and does exactly nothing.",
+                "de": "Standardmäßig darf jeder Pod mit jedem anderen Pod im Cluster sprechen. Eine NetworkPolicy ändert das nur für die Pods, die ihr podSelector trifft, und nur für die Richtungen, die sie aufführt: Eine Policy mit ausschließlich einem ingress-Abschnitt lässt egress unangetastet – und umgekehrt. Sobald irgendeine Policy einen Pod für eine Richtung auswählt, gilt für diese Richtung deny-by-default, und nur die aufgeführten Regeln passieren. Deshalb ist die klassische Policy „alles eingehende in diesem Namespace verbieten“ ein podSelector {} mit leerer ingress-Liste. Regeln wählen Gegenstellen über podSelector, namespaceSelector oder ipBlock aus; podSelector und namespaceSelector innerhalb eines Regelelements bedeuten UND, als getrennte Elemente aufgeführt bedeuten sie ODER – das ist der mit Abstand häufigste Fehler in geschriebenen Policies. Ein Infrastrukturvorbehalt, der Leute ganze Nachmittage kostet: NetworkPolicy wird vom CNI-Plugin durchgesetzt, nicht von Kubernetes. Mit einem Plugin, das sie nicht implementiert, wird deine Policy vom API-Server akzeptiert, erscheint in kubectl get netpol – und bewirkt exakt nichts.",
+                "ja": "既定では、クラスター内のすべての Pod が互いに通信できます。NetworkPolicy がそれを変えるのは、podSelector が一致した Pod についてだけであり、しかもポリシーが列挙した方向についてだけです。ingress セクションしかないポリシーは egress に手を触れませんし、その逆も同様です。ある方向についてポリシーが 1 つでも Pod を選択した時点で、その方向は既定拒否になり、列挙されたルールだけが通ります。だからこそ「この Namespace の受信をすべて拒否する」という定番のポリシーは、podSelector が {} で ingress が空リスト、という形になります。ルールは podSelector、namespaceSelector、ipBlock で相手を選びます。1 つのルール要素の中に podSelector と namespaceSelector を並べれば AND、別々の要素として並べれば OR です。ここが、書かれたポリシーで最も多い間違いです。半日を溶かしかねないインフラ側の注意点も 1 つ。NetworkPolicy を実際に適用するのは CNI プラグインであり、Kubernetes 本体ではありません。実装していないプラグインを使っていると、ポリシーは API サーバーに受理され、kubectl get netpol にも現れますが、効果はまったくありません。",
+                "zh": "默认情况下，集群里每个 Pod 都能和其他任意 Pod 通信。NetworkPolicy 只会改变被其 podSelector 选中的 Pod，而且只改变它所列出的方向：只有 ingress 段的策略不会影响 egress，反之亦然。一旦有任何策略在某个方向上选中了某个 Pod，该方向就变成默认拒绝，只有列出的规则才能放行——这也是为什么经典的「拒绝本命名空间所有入站流量」策略写成 podSelector 为 {} 且 ingress 为空列表。规则通过 podSelector、namespaceSelector 或 ipBlock 来选择对端；把 podSelector 和 namespaceSelector 写在同一个规则元素里表示「与」，写成两个独立元素则表示「或」——这是编写策略时最常见的错误。还有一个能让人白耗一下午的基础设施注意事项：NetworkPolicy 由 CNI 插件执行，而不是由 Kubernetes 本身执行。如果所用插件没有实现它，你的策略会被 API Server 接受、能在 kubectl get netpol 里看到，却什么作用也没有。"
+              }
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/service-networking"
+            ],
+            "topic_codes": [
+              "networking"
+            ],
+            "count": 12
+          }
+        },
+        {
+          "lesson_id": "cka-l7",
+          "unit_ref": "cka-w3",
+          "order": 7,
+          "title": {
+            "en": "PV, PVC, StorageClass: who provides, who claims",
+            "de": "PV, PVC, StorageClass: Wer bereitstellt, wer anfordert",
+            "ja": "PV、PVC、StorageClass: 提供する側と要求する側",
+            "zh": "PV、PVC、StorageClass：谁提供，谁申领"
+          },
+          "lesson_kind": "primer",
+          "estimated_minutes": 40,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/persistent-storage"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l7-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l7-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Storage domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Two objects, one binding — and the StorageClass in between",
+                "de": "Zwei Objekte, eine Bindung – und dazwischen die StorageClass",
+                "ja": "2 つのオブジェクトと 1 つのバインド — その間にある StorageClass",
+                "zh": "两个对象、一次绑定——中间还有一个 StorageClass"
+              },
+              "body": {
+                "en": "A PersistentVolume is a piece of storage that exists in the cluster; a PersistentVolumeClaim is a request for storage written by whoever deploys the application. The controller binds one claim to one volume, exclusively and for the claim's lifetime. There are two ways a PV comes into being. Static provisioning: an administrator creates PVs by hand and claims bind to whichever one fits capacity, access mode and storageClassName. Dynamic provisioning: the claim names a StorageClass (or omits it and gets the cluster's default, marked by the storageclass.kubernetes.io/is-default-class annotation) and a CSI provisioner creates the volume on demand. Access modes describe how many nodes may mount it, not how many Pods: ReadWriteOnce means one node, ReadWriteOncePod means literally one Pod, ReadWriteMany means many nodes and requires a backend such as NFS that can actually do it. The reclaim policy decides the ending: Delete removes the volume with the claim, Retain keeps the data and leaves the PV Released for a human to handle.",
+                "de": "Ein PersistentVolume ist Speicher, der im Cluster existiert; ein PersistentVolumeClaim ist eine Speicheranforderung, geschrieben von dem, der die Anwendung ausrollt. Der Controller bindet genau einen Claim an genau ein Volume – exklusiv und für die Lebensdauer des Claims. Ein PV entsteht auf zwei Wegen. Statische Bereitstellung: Eine Administratorin legt PVs von Hand an, und Claims binden an dasjenige, das zu Kapazität, Access Mode und storageClassName passt. Dynamische Bereitstellung: Der Claim nennt eine StorageClass (oder lässt sie weg und bekommt die Standardklasse des Clusters, erkennbar an der Annotation storageclass.kubernetes.io/is-default-class), und ein CSI-Provisioner erzeugt das Volume bei Bedarf. Access Modes beschreiben, wie viele Nodes es einhängen dürfen, nicht wie viele Pods: ReadWriteOnce heißt ein Node, ReadWriteOncePod heißt buchstäblich ein Pod, ReadWriteMany heißt viele Nodes und verlangt ein Backend wie NFS, das das tatsächlich kann. Die Reclaim Policy entscheidet über das Ende: Delete entfernt das Volume mit dem Claim, Retain bewahrt die Daten und lässt das PV im Zustand Released für eine manuelle Entscheidung zurück.",
+                "ja": "PersistentVolume はクラスター内に存在するストレージそのもの、PersistentVolumeClaim はアプリケーションをデプロイする人が書くストレージ要求です。コントローラーは 1 つの Claim を 1 つの Volume に、排他的に、その Claim の生存期間にわたってバインドします。PV が生まれる道筋は 2 つあります。静的プロビジョニング: 管理者が PV を手で作成し、容量・アクセスモード・storageClassName が合致するものに Claim がバインドされます。動的プロビジョニング: Claim が StorageClass を指定する（あるいは省略してクラスター既定のクラス、すなわち storageclass.kubernetes.io/is-default-class アノテーションが付いたものを使う）と、CSI プロビジョナーが必要に応じてボリュームを作ります。アクセスモードが表すのは「いくつの Pod か」ではなく「いくつのノードがマウントできるか」です。ReadWriteOnce は 1 ノード、ReadWriteOncePod は文字どおり 1 Pod、ReadWriteMany は複数ノードで、NFS のように実際にそれを実現できるバックエンドが必要です。最後を決めるのが reclaim policy です。Delete は Claim とともにボリュームを削除し、Retain はデータを残して PV を Released 状態にし、人間の判断に委ねます。",
+                "zh": "PersistentVolume 是集群中实际存在的一块存储；PersistentVolumeClaim 则是部署应用的人写下的存储申请。控制器把一个 PVC 独占地绑定到一个 PV 上，并在该 PVC 的整个生命周期内保持绑定。PV 有两种产生方式。静态供给：管理员手工创建 PV，PVC 会绑定到容量、访问模式和 storageClassName 都匹配的那一个。动态供给：PVC 指定一个 StorageClass（或者不写，从而使用集群默认类，即带有 storageclass.kubernetes.io/is-default-class 注解的那个），由 CSI 供给器按需创建卷。访问模式描述的是「多少个节点可以挂载」，而不是「多少个 Pod」：ReadWriteOnce 表示一个节点，ReadWriteOncePod 表示字面意义上的一个 Pod，ReadWriteMany 表示多个节点，并且需要 NFS 之类真正支持它的后端。回收策略决定结局：Delete 会随 PVC 一起删除卷，Retain 会保留数据并把 PV 留在 Released 状态，交给人来处理。"
+              }
+            },
+            {
+              "section_id": "cka-l7-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "body_key": "cka-l7-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Storage domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Inside the Pod: emptyDir, hostPath, projected, volumeClaimTemplates",
+                "de": "Im Pod: emptyDir, hostPath, projected, volumeClaimTemplates",
+                "ja": "Pod の内側: emptyDir、hostPath、projected、volumeClaimTemplates",
+                "zh": "Pod 内部：emptyDir、hostPath、projected、volumeClaimTemplates"
+              },
+              "body": {
+                "en": "Not every volume is persistent. An emptyDir lives and dies with the Pod and is the normal way two containers in one Pod share a scratch directory. A hostPath mounts a directory from the node itself: useful for node agents, dangerous for everything else, because the Pod is now tied to one node's filesystem and can read what it should not. A projected volume combines ConfigMaps, Secrets, the downward API and service-account tokens into one directory tree. Persistence enters through a volume of type persistentVolumeClaim, and a StatefulSet automates that with volumeClaimTemplates: each replica gets its own PVC, named after the Pod, and keeps it across restarts and rescheduling — deleting the StatefulSet deliberately does not delete those claims. Two operational details worth knowing: a PVC can only be grown, never shrunk, and only if its StorageClass sets allowVolumeExpansion: true; and volumeBindingMode: WaitForFirstConsumer delays provisioning until a Pod is scheduled, so the volume is created in the zone the Pod actually landed in.",
+                "de": "Nicht jedes Volume ist persistent. Ein emptyDir lebt und stirbt mit dem Pod und ist der normale Weg, wie sich zwei Container in einem Pod ein Arbeitsverzeichnis teilen. Ein hostPath hängt ein Verzeichnis des Nodes selbst ein: nützlich für Node-Agents, gefährlich für alles andere, weil der Pod damit an das Dateisystem eines bestimmten Nodes gebunden ist und lesen kann, was er nicht sollte. Ein projected Volume fasst ConfigMaps, Secrets, die Downward API und Service-Account-Tokens zu einem Verzeichnisbaum zusammen. Persistenz kommt über ein Volume vom Typ persistentVolumeClaim ins Spiel, und ein StatefulSet automatisiert das mit volumeClaimTemplates: Jede Replik erhält ihren eigenen, nach dem Pod benannten PVC und behält ihn über Neustarts und Neuplatzierungen hinweg – das Löschen des StatefulSets löscht diese Claims bewusst nicht. Zwei betriebliche Details lohnen sich: Ein PVC lässt sich nur vergrößern, nie verkleinern, und auch das nur, wenn seine StorageClass allowVolumeExpansion: true setzt; und volumeBindingMode: WaitForFirstConsumer verzögert die Bereitstellung, bis ein Pod gescheduled ist, damit das Volume in der Zone entsteht, in der der Pod tatsächlich gelandet ist.",
+                "ja": "すべてのボリュームが永続的なわけではありません。emptyDir は Pod とともに生まれ、Pod とともに消えます。1 つの Pod 内の 2 つのコンテナが作業用ディレクトリを共有する、ごく普通の方法です。hostPath はノード自身のディレクトリをマウントします。ノード上のエージェントには有用ですが、それ以外には危険です。Pod が特定ノードのファイルシステムに縛られ、見るべきでないものを読めてしまうからです。projected ボリュームは、ConfigMap、Secret、Downward API、ServiceAccount トークンを 1 つのディレクトリツリーにまとめます。永続性は persistentVolumeClaim 型のボリュームから入ってきます。StatefulSet はこれを volumeClaimTemplates で自動化し、各レプリカが Pod 名にちなんだ自分専用の PVC を持ち、再起動や再配置をまたいでそれを保持します。StatefulSet を削除してもこれらの Claim が消えないのは、意図した設計です。運用上の細部を 2 つ。PVC は拡張のみ可能で縮小はできず、しかも StorageClass が allowVolumeExpansion: true を設定している場合に限られます。また volumeBindingMode: WaitForFirstConsumer は、Pod がスケジュールされるまでプロビジョニングを遅らせ、Pod が実際に配置されたゾーンにボリュームを作らせます。",
+                "zh": "并不是每个卷都是持久的。emptyDir 与 Pod 同生共死，是同一个 Pod 内两个容器共享临时目录的常规做法。hostPath 挂载节点自身的目录：对节点级代理有用，对其他一切都危险，因为这样 Pod 就被绑死在某个节点的文件系统上，还能读到它不该读的东西。projected 卷把 ConfigMap、Secret、Downward API 和服务账号令牌合并成一棵目录树。持久性通过类型为 persistentVolumeClaim 的卷进入，而 StatefulSet 用 volumeClaimTemplates 把这件事自动化了：每个副本获得以 Pod 命名的专属 PVC，并在重启和重新调度之间一直保留它——删除 StatefulSet 时刻意不会删除这些 PVC。还有两个值得记住的运维细节：PVC 只能扩容不能缩容，而且必须其 StorageClass 设置了 allowVolumeExpansion: true；以及 volumeBindingMode: WaitForFirstConsumer 会把供给推迟到 Pod 被调度之后，使卷创建在 Pod 实际落到的那个可用区里。"
+              }
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/persistent-storage"
+            ],
+            "topic_codes": [
+              "storage"
+            ],
+            "count": 10
+          }
+        },
+        {
+          "lesson_id": "cka-l8",
+          "unit_ref": "cka-w3",
+          "order": 8,
+          "title": {
+            "en": "RBAC: who may do what, to which resource, where",
+            "de": "RBAC: Wer darf was, mit welcher Ressource, wo",
+            "ja": "RBAC: 誰が、どのリソースに対して、どこで、何をしてよいか",
+            "zh": "RBAC：谁能对哪些资源、在哪里、做什么"
+          },
+          "lesson_kind": "primer",
+          "estimated_minutes": 45,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/rbac"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l1",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l8-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l8-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Four objects, one matrix: Role, ClusterRole, and their bindings",
+                "de": "Vier Objekte, eine Matrix: Role, ClusterRole und ihre Bindings",
+                "ja": "4 つのオブジェクトからなる表: Role、ClusterRole とそれぞれの Binding",
+                "zh": "四个对象组成的矩阵：Role、ClusterRole 及其绑定"
+              },
+              "body": {
+                "en": "A Role holds permissions and lives in a namespace; a ClusterRole holds the same kind of permissions but is cluster-scoped and can also cover cluster-scoped resources such as nodes and persistentvolumes. A RoleBinding grants a role to subjects inside one namespace; a ClusterRoleBinding grants it across the whole cluster. That gives the matrix worth memorising, including its useful diagonal: a RoleBinding may reference a ClusterRole, which grants those permissions only within the binding's namespace — that is how one reusable 'view' or 'edit' definition serves many namespaces without duplication. Rules themselves are triples of apiGroups, resources and verbs (get, list, watch, create, update, patch, delete), where the core API group is written as the empty string \"\". Subresources are separate strings: granting pods does not grant pods/log or pods/exec. Two properties decide most exam answers: RBAC is purely additive with no deny rules, and permissions are the union of every binding a subject has. Verify with kubectl auth can-i rather than by reasoning.",
+                "de": "Eine Role enthält Berechtigungen und lebt in einem Namespace; eine ClusterRole enthält dieselbe Art von Berechtigungen, gilt aber clusterweit und kann zusätzlich clusterweite Ressourcen wie nodes oder persistentvolumes abdecken. Ein RoleBinding vergibt eine Rolle an Subjekte innerhalb eines Namespaces; ein ClusterRoleBinding vergibt sie im gesamten Cluster. Daraus ergibt sich die merkenswerte Matrix samt ihrer nützlichen Diagonale: Ein RoleBinding darf auf eine ClusterRole verweisen und gewährt deren Rechte dann nur im Namespace des Bindings – so bedient eine einzige wiederverwendbare „view“- oder „edit“-Definition viele Namespaces ohne Duplikate. Die Regeln selbst sind Tripel aus apiGroups, resources und verbs (get, list, watch, create, update, patch, delete); die Kern-API-Gruppe schreibt man als leeren String \"\". Subresourcen sind eigene Strings: Wer pods erlaubt, erlaubt nicht pods/log oder pods/exec. Zwei Eigenschaften entscheiden die meisten Prüfungsantworten: RBAC ist rein additiv und kennt keine Deny-Regeln, und die Rechte eines Subjekts sind die Vereinigung all seiner Bindings. Prüfe mit kubectl auth can-i, statt zu argumentieren.",
+                "ja": "Role は権限のまとまりで、Namespace の中に存在します。ClusterRole は同じ種類の権限を持ちますが、スコープはクラスター全体で、nodes や persistentvolumes のようなクラスタースコープのリソースも対象にできます。RoleBinding は 1 つの Namespace の中でサブジェクトにロールを与え、ClusterRoleBinding はクラスター全体で与えます。ここから、覚える価値のある表と、その便利な対角線が出てきます。RoleBinding は ClusterRole を参照でき、その場合、権限はその Binding の Namespace の中だけで有効になります。再利用可能な「view」や「edit」の定義 1 つが、重複なしに多数の Namespace で使えるのはこの仕組みです。ルール自体は apiGroups、resources、verbs（get、list、watch、create、update、patch、delete）の 3 つ組で、コア API グループは空文字列 \"\" と書きます。サブリソースは別の文字列です。pods を許可しても pods/log や pods/exec は許可されません。試験の答えの多くは次の 2 つの性質で決まります。RBAC は純粋に加算的で拒否ルールが存在しないこと、そしてサブジェクトの権限はすべての Binding の和集合であることです。頭で推論するより kubectl auth can-i で確かめましょう。",
+                "zh": "Role 承载权限并存在于某个命名空间中；ClusterRole 承载同类权限，但作用域是整个集群，还可以覆盖 nodes、persistentvolumes 这类集群级资源。RoleBinding 在一个命名空间内把角色授予主体；ClusterRoleBinding 则在整个集群范围内授予。由此得到值得背下来的那张矩阵，以及它有用的对角线：RoleBinding 可以引用 ClusterRole，此时这些权限只在该绑定所在的命名空间内生效——这正是一份可复用的「view」或「edit」定义能服务多个命名空间而无需重复定义的原因。规则本身是 apiGroups、resources、verbs（get、list、watch、create、update、patch、delete）的三元组，其中核心 API 组写成空字符串 \"\"。子资源是独立的字符串：授予 pods 并不等于授予 pods/log 或 pods/exec。有两个性质决定了大多数考题的答案：RBAC 是纯粹叠加的，没有拒绝规则；主体的权限是其所有绑定的并集。请用 kubectl auth can-i 去验证，而不是靠推理。"
+              }
+            },
+            {
+              "section_id": "cka-l8-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "cka-l8-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Cluster Architecture, Installation & Configuration domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "ServiceAccounts, tokens, and testing a permission before you need it",
+                "de": "Service Accounts, Tokens – und Rechte testen, bevor man sie braucht",
+                "ja": "ServiceAccount、トークン、そして必要になる前に権限を試す",
+                "zh": "服务账号、令牌，以及在需要之前先验证权限"
+              },
+              "body": {
+                "en": "Human users are not Kubernetes objects — the API server authenticates them from certificates, tokens or an external provider, and RBAC only decides what the resulting name may do. In-cluster identities are objects: every Pod runs as a ServiceAccount, the namespace's default one unless spec.serviceAccountName says otherwise. That token is mounted into the Pod as a short-lived, audience-bound projected token that the kubelet rotates; set automountServiceAccountToken: false on the ServiceAccount or the Pod when the workload never calls the API, which is most workloads. Then test rather than reason: kubectl auth can-i list pods --as=system:serviceaccount:dev:builder -n dev answers yes or no in one line, and kubectl auth can-i --list --as=<subject> prints everything an identity may do. Two habits from this: grant a dedicated ServiceAccount per workload rather than reusing default, and check a binding with can-i immediately after creating it, because a typo in a subject name fails silently — RBAC never errors, it just denies.",
+                "de": "Menschliche Nutzer sind keine Kubernetes-Objekte – der API-Server authentifiziert sie über Zertifikate, Tokens oder einen externen Anbieter, und RBAC entscheidet nur, was der resultierende Name darf. Identitäten innerhalb des Clusters sind dagegen Objekte: Jeder Pod läuft unter einem Service Account, standardmäßig dem default des Namespaces, sofern spec.serviceAccountName nichts anderes sagt. Dessen Token wird als kurzlebiges, an eine Audience gebundenes projected Token in den Pod gemountet und vom kubelet rotiert; setze automountServiceAccountToken: false am Service Account oder am Pod, wenn der Workload die API nie aufruft – was auf die meisten zutrifft. Und dann teste, statt zu argumentieren: kubectl auth can-i list pods --as=system:serviceaccount:dev:builder -n dev antwortet in einer Zeile mit yes oder no, und kubectl auth can-i --list --as=<subject> listet alles auf, was eine Identität darf. Zwei Gewohnheiten folgen daraus: pro Workload einen eigenen Service Account vergeben statt default wiederzuverwenden, und ein Binding sofort nach dem Anlegen mit can-i prüfen – denn ein Tippfehler im Subjektnamen schlägt lautlos fehl. RBAC meldet keinen Fehler, es verweigert einfach.",
+                "ja": "人間のユーザーは Kubernetes のオブジェクトではありません。API サーバーは証明書、トークン、あるいは外部プロバイダーによって人間を認証し、RBAC はその結果として得られた名前に何が許されるかを決めるだけです。一方、クラスター内の識別子はオブジェクトです。すべての Pod は ServiceAccount として動作し、spec.serviceAccountName で明示しない限り、その Namespace の default が使われます。そのトークンは、有効期間が短く audience が限定された projected トークンとして Pod にマウントされ、kubelet がローテーションします。ワークロードが API を呼ばないなら（ほとんどのワークロードがそうです）、ServiceAccount か Pod に automountServiceAccountToken: false を設定してください。そして推論ではなく検証を。kubectl auth can-i list pods --as=system:serviceaccount:dev:builder -n dev は 1 行で yes か no を返し、kubectl auth can-i --list --as=<subject> はその識別子に許されたすべてを列挙します。ここから 2 つの習慣が導かれます。default を使い回さずワークロードごとに専用の ServiceAccount を作ること、そして Binding を作ったら直後に can-i で確認することです。サブジェクト名の打ち間違いは無言で失敗します。RBAC はエラーを出さず、ただ拒否するだけだからです。",
+                "zh": "人类用户不是 Kubernetes 对象——API Server 通过证书、令牌或外部身份提供方来认证他们，RBAC 只决定由此得到的名字可以做什么。而集群内部的身份则是对象：每个 Pod 都以某个 ServiceAccount 运行，除非 spec.serviceAccountName 另有指定，否则就是该命名空间的 default。该令牌以短期有效、绑定受众的 projected 令牌形式挂载进 Pod，并由 kubelet 轮换；如果工作负载从不调用 API（大多数工作负载都是如此），就在 ServiceAccount 或 Pod 上设置 automountServiceAccountToken: false。然后是验证而非推理：kubectl auth can-i list pods --as=system:serviceaccount:dev:builder -n dev 会用一行给出 yes 或 no，而 kubectl auth can-i --list --as=<subject> 会列出某个身份被允许的全部操作。由此养成两个习惯：为每个工作负载单独创建 ServiceAccount，而不是复用 default；以及创建绑定后立刻用 can-i 检查，因为主体名称写错时会静默失败——RBAC 从不报错，它只是拒绝。"
+              }
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/rbac"
+            ],
+            "topic_codes": [
+              "security_admin"
+            ],
+            "count": 12
+          }
+        },
+        {
+          "lesson_id": "cka-l9",
+          "unit_ref": "cka-w3",
+          "order": 9,
+          "title": {
+            "en": "Lab: expose it, store it, lock it down",
+            "de": "Labor: veröffentlichen, speichern, absichern",
+            "ja": "ラボ: 公開する、保存する、締める",
+            "zh": "实验：暴露它、存住它、锁紧它"
+          },
+          "lesson_kind": "lab",
+          "estimated_minutes": 75,
+          "completion_rule": "read",
+          "concepts": [
+            "zc:concept:k8s/service-networking",
+            "zc:concept:k8s/persistent-storage",
+            "zc:concept:k8s/rbac"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l6",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l7",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l8",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l9-s1",
+              "order": 0,
+              "section_kind": "worked_example",
+              "body_key": "cka-l9-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Services & Networking domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Break the selector on purpose, then watch the endpoints vanish",
+                "de": "Den Selektor absichtlich zerstören und den Endpoints beim Verschwinden zusehen",
+                "ja": "わざとセレクターを壊し、エンドポイントが消えるのを見る",
+                "zh": "故意改坏选择器，然后看着端点消失"
+              },
+              "body": {
+                "en": "Your cluster, your keyboard — Zettacard executes nothing. Start from kubectl create deployment web --image=nginx --replicas=2 and kubectl expose deployment web --port=80 --target-port=80. Verify from inside the cluster with a throwaway Pod: kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- wget -qO- web.default.svc.cluster.local. Now break it in the way real clusters break: kubectl edit service web and change the selector to app=web-typo. The Service still exists, still has a ClusterIP, still resolves in DNS — and returns nothing. Run the four checks from lesson 6 in order and confirm that check one already tells you the answer: kubectl get endpointslices -l kubernetes.io/service-name=web is empty. Repair the selector, watch the endpoints come back, then convert the Service with kubectl patch svc web -p '{\"spec\":{\"type\":\"NodePort\"}}' and reach it from the node with curl <node-ip>:<nodePort>. Empty endpoints plus a healthy DNS name is the signature failure of this whole topic.",
+                "de": "Dein Cluster, deine Tastatur – Zettacard führt nichts aus. Starte mit kubectl create deployment web --image=nginx --replicas=2 und kubectl expose deployment web --port=80 --target-port=80. Prüfe aus dem Cluster heraus mit einem Wegwerf-Pod: kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- wget -qO- web.default.svc.cluster.local. Mach es nun so kaputt, wie echte Cluster kaputtgehen: kubectl edit service web und den Selektor auf app=web-typo ändern. Der Service existiert weiterhin, hat weiterhin eine ClusterIP, löst weiterhin im DNS auf – und liefert nichts. Gehe die vier Prüfschritte aus Lektion 6 der Reihe nach durch und bestätige, dass bereits Schritt eins die Antwort liefert: kubectl get endpointslices -l kubernetes.io/service-name=web ist leer. Repariere den Selektor, sieh die Endpoints zurückkommen, wandle den Service dann mit kubectl patch svc web -p '{\"spec\":{\"type\":\"NodePort\"}}' um und erreiche ihn vom Node aus mit curl <node-ip>:<nodePort>. Leere Endpoints bei gesundem DNS-Namen sind das Signaturversagen dieses gesamten Themenbereichs.",
+                "ja": "自分のクラスター、自分のキーボードで。Zettacard は何も実行しません。まず kubectl create deployment web --image=nginx --replicas=2 と kubectl expose deployment web --port=80 --target-port=80 から始めます。使い捨て Pod でクラスター内部から確認します。kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- wget -qO- web.default.svc.cluster.local。次に、実際のクラスターが壊れるのと同じ壊し方をします。kubectl edit service web でセレクターを app=web-typo に変更してください。Service は依然として存在し、ClusterIP も持ち、DNS でも解決します。それでも何も返しません。レッスン 6 の 4 つの確認を順に実行し、1 つ目の時点で答えが出ることを確かめましょう。kubectl get endpointslices -l kubernetes.io/service-name=web が空です。セレクターを直してエンドポイントが戻るのを見届けたら、kubectl patch svc web -p '{\"spec\":{\"type\":\"NodePort\"}}' で種別を変え、ノードから curl <node-ip>:<nodePort> で到達してみます。DNS 名は健在なのにエンドポイントが空、というのがこの分野の典型的な故障の形です。",
+                "zh": "你的集群，你的键盘——Zettacard 不执行任何东西。先执行 kubectl create deployment web --image=nginx --replicas=2 和 kubectl expose deployment web --port=80 --target-port=80。再用一次性 Pod 从集群内部验证：kubectl run tmp --rm -it --image=busybox:1.36 --restart=Never -- wget -qO- web.default.svc.cluster.local。现在按真实集群损坏的方式把它弄坏：kubectl edit service web，把选择器改成 app=web-typo。Service 依然存在，依然有 ClusterIP，依然能在 DNS 中解析——但什么也返回不了。按第 6 课的四步依次检查，你会确认第一步就已经给出答案：kubectl get endpointslices -l kubernetes.io/service-name=web 是空的。修好选择器，看着端点回来，然后用 kubectl patch svc web -p '{\"spec\":{\"type\":\"NodePort\"}}' 转换类型，并在节点上用 curl <node-ip>:<nodePort> 访问它。端点为空而 DNS 名称健康，是这一整个主题最典型的故障特征。"
+              }
+            },
+            {
+              "section_id": "cka-l9-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "cka-l9-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Storage domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Data that survives the Pod, and a ServiceAccount that cannot delete it",
+                "de": "Daten, die den Pod überleben – und ein Service Account, der sie nicht löschen darf",
+                "ja": "Pod より長生きするデータと、それを削除できない ServiceAccount",
+                "zh": "比 Pod 活得更久的数据，以及一个删不掉它的服务账号"
+              },
+              "body": {
+                "en": "Part two, still on your own cluster. Create a PVC of 1Gi with no storageClassName so it takes the default class, and check kubectl get pvc: on kind or minikube it should reach Bound, and if it sits Pending, kubectl describe pvc names the reason (usually no default StorageClass, or WaitForFirstConsumer waiting for a Pod). Mount it in a Pod at /data, write a file into it, delete the Pod, recreate it from the same manifest, and confirm the file is still there. That single experiment is the whole point of persistent storage, and it takes four minutes. Then the RBAC half: kubectl create serviceaccount reader -n default, kubectl create role pod-reader --verb=get,list,watch --resource=pods -n default, kubectl create rolebinding reader-binding --role=pod-reader --serviceaccount=default:reader -n default. Test both directions: kubectl auth can-i list pods --as=system:serviceaccount:default:reader must answer yes, and kubectl auth can-i delete pvc --as=system:serviceaccount:default:reader must answer no. Least privilege is a thing you verify, not a thing you intend.",
+                "de": "Teil zwei, weiterhin auf deinem eigenen Cluster. Lege einen PVC über 1Gi ohne storageClassName an, damit er die Standardklasse nimmt, und schau in kubectl get pvc: Auf kind oder minikube sollte er Bound erreichen; bleibt er Pending, nennt kubectl describe pvc den Grund (meist keine Standard-StorageClass oder WaitForFirstConsumer, das auf einen Pod wartet). Hänge ihn in einem Pod unter /data ein, schreibe eine Datei hinein, lösche den Pod, erstelle ihn aus demselben Manifest neu und bestätige, dass die Datei noch da ist. Genau dieses eine Experiment ist der Sinn von persistentem Speicher, und es dauert vier Minuten. Dann die RBAC-Hälfte: kubectl create serviceaccount reader -n default, kubectl create role pod-reader --verb=get,list,watch --resource=pods -n default, kubectl create rolebinding reader-binding --role=pod-reader --serviceaccount=default:reader -n default. Teste beide Richtungen: kubectl auth can-i list pods --as=system:serviceaccount:default:reader muss yes ergeben, kubectl auth can-i delete pvc --as=system:serviceaccount:default:reader muss no ergeben. Least Privilege ist etwas, das man überprüft, nicht etwas, das man beabsichtigt.",
+                "ja": "第 2 部も、引き続き自分のクラスターで。storageClassName を書かずに 1Gi の PVC を作り（既定クラスが使われます）、kubectl get pvc を確認します。kind や minikube なら Bound になるはずで、Pending のままなら kubectl describe pvc が理由を教えてくれます（多くは既定 StorageClass がない、または WaitForFirstConsumer が Pod を待っている、のどちらかです）。それを Pod の /data にマウントし、ファイルを 1 つ書き込み、Pod を削除し、同じマニフェストから作り直して、ファイルが残っていることを確認します。この一度きりの実験こそが永続ストレージの本質で、所要は 4 分です。続いて RBAC の後半。kubectl create serviceaccount reader -n default、kubectl create role pod-reader --verb=get,list,watch --resource=pods -n default、kubectl create rolebinding reader-binding --role=pod-reader --serviceaccount=default:reader -n default。両方向を試します。kubectl auth can-i list pods --as=system:serviceaccount:default:reader は yes を返さなければならず、kubectl auth can-i delete pvc --as=system:serviceaccount:default:reader は no を返さなければなりません。最小権限とは、意図するものではなく検証するものです。",
+                "zh": "第二部分，仍然在你自己的集群上。创建一个 1Gi 的 PVC，不写 storageClassName，让它使用默认存储类，然后查看 kubectl get pvc：在 kind 或 minikube 上它应当变为 Bound；如果停在 Pending，kubectl describe pvc 会说明原因（通常是没有默认 StorageClass，或者 WaitForFirstConsumer 正在等待 Pod）。把它挂到某个 Pod 的 /data，写入一个文件，删除该 Pod，再用同一份清单重建它，确认文件仍在。这一个实验就是持久化存储的全部意义所在，只需四分钟。然后是 RBAC 部分：kubectl create serviceaccount reader -n default，kubectl create role pod-reader --verb=get,list,watch --resource=pods -n default，kubectl create rolebinding reader-binding --role=pod-reader --serviceaccount=default:reader -n default。双向验证：kubectl auth can-i list pods --as=system:serviceaccount:default:reader 必须回答 yes，而 kubectl auth can-i delete pvc --as=system:serviceaccount:default:reader 必须回答 no。最小权限是一件你去验证的事，而不是一件你打算做到的事。"
+              }
+            }
+          ],
+          "select": null,
+          "practice_ref": {
+            "kind": "external_hands_on",
+            "note_key": "cka-l9-practice",
+            "body": {
+              "en": "Three exercises, about 75 minutes, all on your own cluster — Zettacard has no sandbox and records no lab progress. Keep the Deployment and the PVC around: week 4 is easier to practise on a cluster that already has something running in it worth diagnosing.",
+              "de": "Drei Übungen, rund 75 Minuten, alle auf deinem eigenen Cluster – Zettacard hat keine Sandbox und speichert keinen Laborfortschritt. Behalte Deployment und PVC: Woche 4 übt sich leichter auf einem Cluster, auf dem bereits etwas läuft, das sich zu diagnostizieren lohnt.",
+              "ja": "演習は 3 つ、所要は約 75 分、いずれも自分のクラスターで行います。Zettacard にサンドボックスはなく、ラボの進捗も記録しません。Deployment と PVC はそのまま残しておいてください。診断する価値のあるものが動いているクラスターのほうが、第4週の練習ははかどります。",
+              "zh": "三个练习，约 75 分钟，全部在你自己的集群上完成——Zettacard 没有沙箱，也不记录实验进度。请保留这个 Deployment 和 PVC：第 4 周在一个已经跑着值得诊断的东西的集群上练习会顺手得多。"
+            }
+          }
+        },
+        {
+          "lesson_id": "cka-l10",
+          "unit_ref": "cka-w4",
+          "order": 10,
+          "title": {
+            "en": "Troubleshooting from the outside in",
+            "de": "Fehlersuche von außen nach innen",
+            "ja": "外側から内側へ進めるトラブルシューティング",
+            "zh": "由外向内的故障排查"
+          },
+          "lesson_kind": "primer",
+          "estimated_minutes": 55,
+          "completion_rule": "quiz_pass:0.7",
+          "concepts": [
+            "zc:concept:k8s/cluster-troubleshooting",
+            "zc:concept:cyber/root-cause-analysis"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l1",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l3",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l4",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l6",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l7",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l8",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l10-s1",
+              "order": 0,
+              "section_kind": "decision_flow",
+              "body_key": "cka-l10-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Troubleshooting domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Cluster → node → Pod → container, always in that order",
+                "de": "Cluster → Node → Pod → Container, immer in dieser Reihenfolge",
+                "ja": "クラスター → ノード → Pod → コンテナ、常にこの順で",
+                "zh": "集群 → 节点 → Pod → 容器，永远按这个顺序"
+              },
+              "body": {
+                "en": "Troubleshooting is the largest domain of the exam, and the candidates who finish it are not faster typists — they follow a fixed order instead of guessing. Start at the cluster: kubectl get nodes, and if kubectl itself fails, the problem is the API server or your kubeconfig, not the workload. Then the node: kubectl describe node <name> and read the Conditions block, where Ready, MemoryPressure, DiskPressure and PIDPressure each name a different cause; a NotReady node usually means kubelet, CNI or a full disk, in that order of likelihood. Then the Pod: kubectl get pod -o wide for its phase and node, kubectl describe pod for events, and kubectl get events --sort-by=.metadata.creationTimestamp -A when you need the timeline rather than one object. Only then the container: kubectl logs <pod> -c <container>, and kubectl logs --previous when it has already restarted — the log of the crashed instance is the one that holds the reason. Each step either explains the failure or eliminates a layer; both outcomes are progress.",
+                "de": "Troubleshooting ist der größte Prüfungsbereich, und wer ihn schafft, tippt nicht schneller – sondern arbeitet in fester Reihenfolge, statt zu raten. Beginne beim Cluster: kubectl get nodes; scheitert schon kubectl selbst, liegt das Problem beim API-Server oder deiner kubeconfig, nicht beim Workload. Dann der Node: kubectl describe node <name> und den Conditions-Block lesen, in dem Ready, MemoryPressure, DiskPressure und PIDPressure jeweils eine andere Ursache benennen; ein NotReady-Node bedeutet meist kubelet, CNI oder eine volle Platte – in dieser Reihenfolge der Wahrscheinlichkeit. Dann der Pod: kubectl get pod -o wide für Phase und Node, kubectl describe pod für die Events und kubectl get events --sort-by=.metadata.creationTimestamp -A, wenn du den zeitlichen Verlauf statt eines einzelnen Objekts brauchst. Erst danach der Container: kubectl logs <pod> -c <container> und kubectl logs --previous, wenn er bereits neu gestartet ist – das Log der abgestürzten Instanz enthält den Grund. Jeder Schritt erklärt entweder den Fehler oder schließt eine Ebene aus; beides ist Fortschritt.",
+                "ja": "トラブルシューティングは試験で最も配分の大きい領域ですが、解き切る受験者はタイピングが速いのではなく、当てずっぽうをやめて決まった順序で進んでいるだけです。まずクラスターから。kubectl get nodes を実行し、そもそも kubectl 自体が失敗するなら、問題はワークロードではなく API サーバーか自分の kubeconfig です。次にノード。kubectl describe node <name> で Conditions ブロックを読みます。Ready、MemoryPressure、DiskPressure、PIDPressure はそれぞれ別の原因を指しています。NotReady のノードは、可能性の高い順に kubelet、CNI、ディスク満杯であることがほとんどです。続いて Pod。フェーズとノードは kubectl get pod -o wide、イベントは kubectl describe pod、単一オブジェクトではなく時系列が必要なときは kubectl get events --sort-by=.metadata.creationTimestamp -A です。コンテナを見るのはその後です。kubectl logs <pod> -c <container>、そしてすでに再起動している場合は kubectl logs --previous。理由が書かれているのは、クラッシュした側のインスタンスのログです。どの段階も、障害を説明するか、1 つの層を除外するかのどちらかであり、いずれも前進です。",
+                "zh": "故障排查是考试中占比最大的领域，而能做完的考生并不是打字更快——他们只是按固定顺序推进，而不是猜。先从集群开始：kubectl get nodes；如果连 kubectl 本身都失败，那问题出在 API Server 或你的 kubeconfig，而不是工作负载。然后是节点：kubectl describe node <name>，读 Conditions 块，其中 Ready、MemoryPressure、DiskPressure、PIDPressure 各自指向不同的原因；NotReady 的节点通常意味着 kubelet、CNI 或磁盘写满，按可能性从高到低就是这个顺序。接着是 Pod：用 kubectl get pod -o wide 看阶段和所在节点，用 kubectl describe pod 看事件，当你需要的是时间线而不是单个对象时，用 kubectl get events --sort-by=.metadata.creationTimestamp -A。最后才是容器：kubectl logs <pod> -c <container>，如果它已经重启过，就用 kubectl logs --previous——写着原因的，是那个已崩溃实例的日志。每一步要么解释了故障，要么排除了一层；两种结果都是进展。"
+              }
+            },
+            {
+              "section_id": "cka-l10-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "body_key": "cka-l10-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Troubleshooting domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "Read the status: Pending, ImagePullBackOff, CrashLoopBackOff, OOMKilled, Terminating",
+                "de": "Den Status lesen: Pending, ImagePullBackOff, CrashLoopBackOff, OOMKilled, Terminating",
+                "ja": "ステータスを読む: Pending、ImagePullBackOff、CrashLoopBackOff、OOMKilled、Terminating",
+                "zh": "读懂状态：Pending、ImagePullBackOff、CrashLoopBackOff、OOMKilled、Terminating"
+              },
+              "body": {
+                "en": "The status column is not a mood, it is a diagnosis with a next step attached. Pending means the scheduler could not place the Pod; the reason is in the events, and it is resources, a taint, a selector, or an unbound PVC. ImagePullBackOff and ErrImagePull mean the kubelet cannot fetch the image: wrong name or tag, a private registry with no imagePullSecret, or no egress from the node. CrashLoopBackOff means the container starts and exits repeatedly, so the container itself is fine and the process inside is not — kubectl logs --previous and the exit code in kubectl describe pod carry the answer. Exit code 137 with reason OOMKilled means the container exceeded its memory limit, which is a limit or an application problem, never a scheduling one. A Pod stuck Terminating is usually a finalizer waiting on something or a graceful shutdown that never ends. Init:Error or Init:CrashLoopBackOff points at an init container, whose logs need -c <init-container-name>.",
+                "de": "Die Statusspalte ist keine Stimmung, sondern eine Diagnose mit angehängtem nächsten Schritt. Pending heißt, der Scheduler konnte den Pod nicht platzieren; der Grund steht in den Events und lautet Ressourcen, Taint, Selektor oder ein ungebundener PVC. ImagePullBackOff und ErrImagePull heißen, das kubelet kann das Image nicht holen: falscher Name oder Tag, eine private Registry ohne imagePullSecret oder kein ausgehender Netzwerkzugang vom Node. CrashLoopBackOff heißt, der Container startet und beendet sich immer wieder – der Container selbst ist also in Ordnung, der Prozess darin nicht; kubectl logs --previous und der Exit-Code in kubectl describe pod tragen die Antwort. Exit-Code 137 mit dem Grund OOMKilled bedeutet, dass der Container sein Memory-Limit überschritten hat – ein Limit- oder Anwendungsproblem, nie ein Scheduling-Problem. Ein Pod, der in Terminating hängt, wartet meist auf einen Finalizer oder auf ein Graceful Shutdown, das nie endet. Init:Error oder Init:CrashLoopBackOff verweist auf einen Init-Container, dessen Logs man mit -c <init-container-name> abruft.",
+                "ja": "ステータス欄は気分ではなく、次の一手が付随した診断結果です。Pending はスケジューラーが Pod を配置できなかったという意味で、理由はイベントに書かれています。リソース、Taint、セレクター、あるいは未バインドの PVC のいずれかです。ImagePullBackOff と ErrImagePull は kubelet がイメージを取得できないことを示します。名前やタグの誤り、imagePullSecret のないプライベートレジストリ、あるいはノードから外部へ出られない、が典型です。CrashLoopBackOff はコンテナが起動と終了を繰り返している状態で、コンテナ自体ではなく中のプロセスに問題があります。kubectl logs --previous と、kubectl describe pod に出る終了コードが答えを持っています。終了コード 137 と理由 OOMKilled は、コンテナがメモリ制限を超えたという意味であり、これは制限値かアプリケーションの問題で、スケジューリングの問題では決してありません。Terminating のまま止まる Pod は、たいていファイナライザーが何かを待っているか、終わらない graceful shutdown です。Init:Error や Init:CrashLoopBackOff は init コンテナを指しており、そのログを見るには -c <init コンテナ名> が必要です。",
+                "zh": "状态列不是情绪，而是一个附带下一步动作的诊断。Pending 表示调度器无法安置该 Pod；原因写在事件里，无非是资源、污点、选择器，或者未绑定的 PVC。ImagePullBackOff 和 ErrImagePull 表示 kubelet 拉不到镜像：名字或标签写错、私有仓库缺少 imagePullSecret，或者节点没有出网。CrashLoopBackOff 表示容器反复启动又退出，所以容器本身没问题，有问题的是里面的进程——kubectl logs --previous 以及 kubectl describe pod 中的退出码里藏着答案。退出码 137 且原因为 OOMKilled，意味着容器超出了内存限制，这是限额或应用的问题，绝不是调度问题。卡在 Terminating 的 Pod 通常是某个 finalizer 在等待，或者是一个永远结束不了的优雅停机。Init:Error 或 Init:CrashLoopBackOff 指向的是 init 容器，看它的日志需要加上 -c <init 容器名>。"
+              }
+            },
+            {
+              "section_id": "cka-l10-s3",
+              "order": 2,
+              "section_kind": "prose",
+              "body_key": "cka-l10-s3",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "source_ref": "CNCF curriculum (cncf/curriculum), Troubleshooting domain",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "When the cluster itself is the patient: control plane, certificates, etcd, nodes",
+                "de": "Wenn der Cluster selbst der Patient ist: Control Plane, Zertifikate, etcd, Nodes",
+                "ja": "クラスター自体が患者のとき: コントロールプレーン、証明書、etcd、ノード",
+                "zh": "当集群本身就是病人时：控制平面、证书、etcd、节点"
+              },
+              "body": {
+                "en": "Some failures are below the API. If kubectl reports connection refused, the API server is down: on a kubeadm cluster it is a static Pod, so check /etc/kubernetes/manifests/kube-apiserver.yaml for a bad edit, then crictl ps -a and crictl logs for the container that will not stay up — exactly the drill from the week-1 lab. If kubectl reports certificate expired, run kubeadm certs check-expiration and renew; control-plane certificates are valid for one year and a cluster left idle over a birthday stops answering. For etcd, know two commands and that they need the peer and client certificates: etcdctl snapshot save to take a backup and etcdctl snapshot restore into a new data directory, after which you point the etcd static Pod at that directory. A NotReady node is a node-level question, not a Kubernetes one: systemctl status kubelet, journalctl -u kubelet, disk space, and whether the CNI agent Pod is running there. Before maintenance use kubectl drain <node> --ignore-daemonsets, and afterwards kubectl uncordon <node> — forgetting the second is a common self-inflicted outage.",
+                "de": "Manche Fehler liegen unterhalb der API. Meldet kubectl „connection refused“, ist der API-Server unten: Auf einem kubeadm-Cluster ist er ein statischer Pod, prüfe also /etc/kubernetes/manifests/kube-apiserver.yaml auf eine fehlerhafte Änderung und danach crictl ps -a und crictl logs für den Container, der nicht oben bleibt – genau die Übung aus dem Labor in Woche 1. Meldet kubectl ein abgelaufenes Zertifikat, hilft kubeadm certs check-expiration und anschließendes Erneuern; Control-Plane-Zertifikate gelten ein Jahr, und ein Cluster, der über seinen Geburtstag hinweg ungenutzt lag, antwortet nicht mehr. Für etcd solltest du zwei Befehle kennen – und dass sie Peer- und Client-Zertifikate brauchen: etcdctl snapshot save für ein Backup und etcdctl snapshot restore in ein neues Datenverzeichnis, auf das du anschließend den statischen etcd-Pod zeigen lässt. Ein NotReady-Node ist eine Node-Frage, keine Kubernetes-Frage: systemctl status kubelet, journalctl -u kubelet, Plattenplatz und ob dort der CNI-Agent-Pod läuft. Vor Wartungsarbeiten kubectl drain <node> --ignore-daemonsets, danach kubectl uncordon <node> – das Zweite zu vergessen ist ein verbreiteter selbstverschuldeter Ausfall.",
+                "ja": "障害の中には、API より下の層で起きるものがあります。kubectl が connection refused を返すなら API サーバーが落ちています。kubeadm クラスターでは静的 Pod なので、まず /etc/kubernetes/manifests/kube-apiserver.yaml に誤った編集がないかを確認し、次に crictl ps -a と crictl logs で、起動し続けられないコンテナを調べます。第1週のラボでやった手順そのものです。kubectl が証明書の期限切れを訴えるなら、kubeadm certs check-expiration を実行して更新します。コントロールプレーンの証明書の有効期間は 1 年で、誕生日をまたいで放置されたクラスターは応答しなくなります。etcd については 2 つのコマンドと、それらがピア証明書・クライアント証明書を必要とすることを覚えてください。バックアップの etcdctl snapshot save と、新しいデータディレクトリへ復元する etcdctl snapshot restore で、復元後は etcd の静的 Pod をそのディレクトリに向けます。NotReady のノードは Kubernetes の問題ではなくノードの問題です。systemctl status kubelet、journalctl -u kubelet、ディスク空き容量、そしてそのノードで CNI エージェントの Pod が動いているかを見ます。メンテナンス前には kubectl drain <node> --ignore-daemonsets、作業後には kubectl uncordon <node> を。後者を忘れるのは、よくある自作自演の障害です。",
+                "zh": "有些故障发生在 API 之下。如果 kubectl 报 connection refused，说明 API Server 挂了：在 kubeadm 集群上它是静态 Pod，所以先检查 /etc/kubernetes/manifests/kube-apiserver.yaml 是否被改坏，再用 crictl ps -a 和 crictl logs 查看那个起不来的容器——正是第 1 周实验里练过的套路。如果 kubectl 报证书过期，执行 kubeadm certs check-expiration 并续签；控制平面证书有效期为一年，一个搁置到「过生日」的集群会直接不再应答。关于 etcd，请记住两条命令，以及它们需要 peer 与 client 证书：用 etcdctl snapshot save 备份，用 etcdctl snapshot restore 恢复到一个新的数据目录，随后把 etcd 静态 Pod 指向该目录。NotReady 的节点是节点层面的问题，不是 Kubernetes 的问题：systemctl status kubelet、journalctl -u kubelet、磁盘空间，以及该节点上的 CNI agent Pod 是否在运行。维护前执行 kubectl drain <node> --ignore-daemonsets，完成后执行 kubectl uncordon <node>——忘了后一条是常见的自己给自己制造的故障。"
+              }
+            }
+          ],
+          "select": {
+            "concepts": [
+              "zc:concept:k8s/cluster-troubleshooting"
+            ],
+            "topic_codes": [
+              "troubleshooting"
+            ],
+            "count": 12
+          }
+        },
+        {
+          "lesson_id": "cka-l11",
+          "unit_ref": "cka-w4",
+          "order": 11,
+          "title": {
+            "en": "Checkpoint: diagnose, don't guess",
+            "de": "Checkpoint: diagnostizieren statt raten",
+            "ja": "チェックポイント: 当てずっぽうではなく診断する",
+            "zh": "检查点：去诊断，别去猜"
+          },
+          "lesson_kind": "checkpoint",
+          "estimated_minutes": 45,
+          "completion_rule": "quiz_pass:0.8",
+          "concepts": [
+            "zc:concept:cyber/root-cause-analysis",
+            "zc:concept:k8s/cluster-troubleshooting"
+          ],
+          "prereqs": [
+            {
+              "requires_lesson": "cka-l9",
+              "hardness": "advice"
+            },
+            {
+              "requires_lesson": "cka-l10",
+              "hardness": "advice"
+            }
+          ],
+          "sections": [
+            {
+              "section_id": "cka-l11-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "cka-l11-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-opus/2026-08-15",
+              "title": {
+                "en": "A fix is not an answer until you can name the cause",
+                "de": "Eine Reparatur ist keine Antwort, solange die Ursache keinen Namen hat",
+                "ja": "原因を言葉にできるまで、その修正は答えではない",
+                "zh": "在你能说出原因之前，修好了也不算答案"
+              },
+              "body": {
+                "en": "Everything in this course converges on one habit: form a hypothesis, name the evidence that would confirm it, go get that evidence, and only then change something. Restarting a Pod that then works tells you nothing, because you have destroyed the state that held the explanation. The written form of this discipline is the post-mortem: a timeline of what happened and when, the symptom as observed, the cause you can point at in a log or an event, the contributing factors that let a small fault become an outage, and actions with owners. Two rules make it useful rather than ceremonial — describe systems and decisions instead of people, and separate the cause from the trigger, since a certificate that expires on a Tuesday was already going to expire. This final quiz draws from the troubleshooting pool and asks you to read a symptom and name the layer it belongs to. If a question feels like a guess, that is the signal to go back to lesson 10's fixed order, not to answer faster.",
+                "de": "Alles in diesem Kurs läuft auf eine Gewohnheit hinaus: eine Hypothese bilden, benennen, welcher Beleg sie bestätigen würde, diesen Beleg holen – und erst dann etwas verändern. Einen Pod neu zu starten, der danach funktioniert, sagt dir nichts, denn du hast genau den Zustand zerstört, der die Erklärung enthielt. Die schriftliche Form dieser Disziplin ist das Post-Mortem: eine Zeitleiste, was wann geschah, das beobachtete Symptom, die Ursache, auf die du in einem Log oder Event zeigen kannst, die begünstigenden Faktoren, die aus einem kleinen Fehler einen Ausfall werden ließen, und Maßnahmen mit Verantwortlichen. Zwei Regeln machen es nützlich statt zeremoniell: Beschreibe Systeme und Entscheidungen statt Personen, und trenne die Ursache vom Auslöser – ein Zertifikat, das an einem Dienstag abläuft, wäre ohnehin abgelaufen. Dieses Abschlussquiz zieht aus dem Troubleshooting-Pool und verlangt, ein Symptom zu lesen und die zugehörige Ebene zu benennen. Fühlt sich eine Frage wie Raten an, ist das das Signal, zur festen Reihenfolge aus Lektion 10 zurückzukehren – nicht, schneller zu antworten.",
+                "ja": "このコースのすべては、1 つの習慣に収束します。仮説を立て、それを裏づける証拠が何かを言葉にし、その証拠を取りに行き、そのうえで初めて何かを変える、という習慣です。Pod を再起動したら直った、では何もわかりません。説明を握っていた状態そのものを壊してしまったからです。この規律を文書にした形がポストモーテムです。何がいつ起きたかの時系列、観測された症状、ログやイベントの中で指し示せる原因、小さな不具合を障害へ育ててしまった寄与要因、そして担当者付きの対策。これを儀式ではなく実用にするルールが 2 つあります。人ではなくシステムと意思決定を記述すること、そして原因と引き金を分けることです。火曜日に切れた証明書は、いずれにせよ切れる運命でした。この最終クイズはトラブルシューティングの問題プールから出題され、症状を読んでそれがどの層の問題かを言い当てることを求めます。当てずっぽうに感じる問題があれば、それは答えを急ぐ合図ではなく、レッスン 10 の決まった順序に戻る合図です。",
+                "zh": "这门课的一切最终都汇聚到一个习惯上：提出假设，说清什么证据能证实它，去把证据取回来，然后才动手改东西。重启一个 Pod 之后它好了，这什么也说明不了，因为你恰好销毁了那个握有解释的状态。这套纪律写成文字，就是事后复盘：事情何时发生的时间线、观测到的症状、你能在日志或事件里指出来的原因、让一个小故障演变成事故的促成因素，以及带责任人的改进项。有两条规则能让它变得有用而不是流于形式——描述系统和决策而不是人，以及把原因和触发条件区分开，因为一张在周二过期的证书，本来就是要过期的。这份最终测验从故障排查题库中抽题，要求你读一个症状并说出它属于哪一层。如果某道题让你觉得是在猜，那是提醒你回到第 10 课那套固定顺序的信号，而不是提醒你答得更快。"
+              }
+            }
+          ],
+          "select": {
+            "topic_codes": [
+              "troubleshooting"
+            ],
+            "count": 20
+          },
+          "related": [
+            {
+              "kind": "applies_also",
+              "module": "dora",
+              "concept": "zc:concept:cyber/root-cause-analysis",
+              "note_key": "cka-l11-rel-dora",
+              "body": {
+                "en": "The same skill appears in Zettacard's DORA course in different clothes. A Kubernetes post-mortem and the final report a financial entity owes under DORA Art. 19 after a major ICT incident both demand the same thing: a cause you can evidence, not a plausible story. The vocabulary differs — Pods, nodes and events on one side, classification thresholds and supervisory deadlines on the other — and the DORA version carries legal consequences this one does not. But the discipline of separating symptom, cause and trigger transfers directly, which is why both courses name the same concept.",
+                "de": "Dieselbe Fähigkeit taucht in Zettacards DORA-Kurs in anderem Gewand auf. Ein Kubernetes-Post-Mortem und der Abschlussbericht, den ein Finanzunternehmen nach Art. 19 DORA für einen schwerwiegenden IKT-Vorfall schuldet, verlangen dasselbe: eine belegbare Ursache statt einer plausiblen Geschichte. Das Vokabular unterscheidet sich – hier Pods, Nodes und Events, dort Klassifizierungsschwellen und Aufsichtsfristen – und die DORA-Variante hat rechtliche Folgen, die diese hier nicht hat. Doch die Disziplin, Symptom, Ursache und Auslöser zu trennen, überträgt sich unmittelbar; deshalb benennen beide Kurse dasselbe Konzept.",
+                "ja": "同じ技能が、Zettacard の DORA コースでは別の装いで現れます。Kubernetes のポストモーテムと、重大な ICT インシデントののちに金融企業が DORA 第19条に基づいて提出する最終報告書は、どちらも同じものを要求します。もっともらしい物語ではなく、証拠で示せる原因です。語彙は異なります。一方は Pod、ノード、イベント、もう一方は分類のしきい値と監督当局への提出期限です。そして DORA 版には、こちらにはない法的な帰結があります。それでも、症状・原因・引き金を切り分ける規律はそのまま移し替えられます。両方のコースが同じ概念を挙げているのは、そのためです。",
+                "zh": "同一项能力在 Zettacard 的 DORA 课程中换了身衣服出现。Kubernetes 的事后复盘，与金融机构在重大 ICT 事件后依据 DORA 第 19 条须提交的最终报告，要求的是同一件东西：一个能拿出证据的原因，而不是一个说得通的故事。词汇不同——一边是 Pod、节点和事件，另一边是分类阈值与监管报送期限——而且 DORA 那一版还带有这里所没有的法律后果。但把症状、原因和触发条件区分开的这套纪律可以直接迁移，这正是两门课程指向同一个概念的原因。"
+              }
+            }
+          ]
+        }
+      ],
+      "exam_blueprint": null
+    }
+  ]
+}

@@ -224,10 +224,14 @@ def main():
     dsg_count, dsg_missing = split_module(
         os.path.join(HERE, "datenschutz_pilot.json"), "datenschutz", compliance_locales)
     print(f"datenschutz: {dsg_count} questions, locale gaps: {dsg_missing}")
+    if split_course("datenschutz", ["de", "en"]):
+        print("datenschutz: course layer built (de, en)")
 
     asig_count, asig_missing = split_module(
         os.path.join(HERE, "arbeitssicherheit_pilot.json"), "arbeitssicherheit", compliance_locales)
     print(f"arbeitssicherheit: {asig_count} questions, locale gaps: {asig_missing}")
+    if split_course("arbeitssicherheit", ["de", "en"]):
+        print("arbeitssicherheit: course layer built (de, en)")
 
     kiact_count, kiact_missing = split_module(
         os.path.join(HERE, "ki_act_pilot.json"), "ki_act", compliance_locales)
@@ -238,6 +242,8 @@ def main():
     itsec_count, itsec_missing = split_module(
         os.path.join(HERE, "it_sicherheit_pilot.json"), "it_sicherheit", compliance_locales)
     print(f"it_sicherheit: {itsec_count} questions, locale gaps: {itsec_missing}")
+    if split_course("it_sicherheit", ["de", "en"]):
+        print("it_sicherheit: course layer built (de, en)")
 
     # 2026-08-15 bugfix: dora/nis2 split_module() calls had gone missing from
     # this script even though app/data/dora and app/data/nis2 were already
@@ -254,6 +260,8 @@ def main():
     nis2_count, nis2_missing = split_module(
         os.path.join(HERE, "nis2_pilot.json"), "nis2", ["de", "en"])
     print(f"nis2: {nis2_count} questions, locale gaps: {nis2_missing}")
+    if split_course("nis2", ["de", "en"]):
+        print("nis2: course layer built (de, en)")
 
     # 2026-08-15 bugfix, same class as dora/nis2 above: sportboot_binnen/
     # sportboot_see (this week's 515-question ELWIS import, DE/EN pilot)
@@ -278,6 +286,8 @@ def main():
     cka_count, cka_missing = split_module(
         os.path.join(HERE, "cka_pilot.json"), "cka", ["en", "de", "ja", "zh"])
     print(f"cka: {cka_count} questions, locale gaps: {cka_missing}")
+    if split_course("cka", ["en", "de", "ja", "zh"]):
+        print("cka: course layer built (en, de, ja, zh)")
 
     # Sanity: every core question must resolve in at least its canonical
     # locale, and every core question's scope field must be present -

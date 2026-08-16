@@ -1,0 +1,271 @@
+{
+  "meta": {
+    "app": "Zettacard / datenschutz-kurs",
+    "version": "0.1",
+    "generated": "2026-08-15",
+    "generator": "authored:claude-sonnet/2026-08-15",
+    "canonical_locale": "de",
+    "locales": ["de", "en"]
+  },
+  "courses": [
+    {
+      "course_id": "datenschutz-all",
+      "module_ref": "datenschutz",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 78,
+      "title": { "de": "Datenschutz / DSGVO für Beschäftigte", "en": "Data protection / GDPR for employees" },
+      "description": {
+        "de": "Sechs Lektionen zur DSGVO am Arbeitsplatz: von der Einordnung als EU-weit geltende Verordnung über die Grundprinzipien, die Rechte der betroffenen Personen, Datensicherheit und Meldepflichten bis zur Auftragsverarbeitung.",
+        "en": "Six lessons on GDPR at work: starting from its status as an EU-wide Regulation, through the core principles, data subject rights, data security, and breach-notification duties, to processor relationships."
+      },
+
+      "lessons": [
+        {
+          "lesson_id": "datenschutz-l0",
+          "order": 0,
+          "title": { "de": "Die DSGVO ist eine EU-Verordnung, kein deutsches Gesetz", "en": "GDPR is an EU Regulation, not a German law" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 10,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "datenschutz-l0-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "datenschutz-l0-s1",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Eine Verordnung gilt unmittelbar – in allen 27 Mitgliedstaaten wortgleich", "en": "A Regulation applies directly – word-for-word in all 27 member states" },
+              "body": {
+                "de": "Die DSGVO (Datenschutz-Grundverordnung, im EU-Recht „Verordnung (EU) 2016/679“) ist keine Richtlinie, die jedes Land erst in eigenes nationales Recht übersetzen musste – sie ist eine Verordnung und gilt deshalb seit dem 25. Mai 2018 unmittelbar und wortgleich in allen 27 EU-Mitgliedstaaten. Ein Unternehmen in Warschau, Dublin oder Wien liest denselben Art. 5 und denselben Art. 32 wie ein Unternehmen in München. Das unterscheidet die DSGVO von ihrer Vorgängerin, der Datenschutzrichtlinie 95/46/EG, die noch national umgesetzt werden musste und dadurch in jedem Land etwas anders aussah. Das bedeutet aber nicht, dass Datenschutzrecht in der EU vollständig einheitlich ist: Die DSGVO enthält rund 70 sogenannte Öffnungsklauseln, die den Mitgliedstaaten erlauben, bestimmte Punkte national zu regeln – etwa das Schutzalter für die Einwilligung Minderjähriger in Online-Diensten (Art. 8), Beschäftigtendatenschutz (Art. 88) oder die Verarbeitung nationaler Kennziffern (Art. 87). Genau an diesen Öffnungsklauseln setzt Deutschlands Umsetzungsgesetz, das BDSG (Bundesdatenschutzgesetz), an – und es zählt EU-weit zu den ausführlichsten und detailliertesten nationalen Ausführungsgesetzen zur DSGVO.",
+                "en": "GDPR (in EU law, \"Regulation (EU) 2016/679\") is not a directive that each country first had to translate into its own national law – it is a Regulation, and has therefore applied directly and word-for-word in all 27 EU member states since 25 May 2018. A company in Warsaw, Dublin, or Vienna reads the same Art. 5 and the same Art. 32 as a company in Munich. That sets GDPR apart from its predecessor, Directive 95/46/EC, which had to be transposed nationally and therefore looked somewhat different in each country. That said, this doesn't mean EU data protection law is fully uniform: GDPR contains roughly 70 so-called opening clauses that let member states regulate certain points nationally – for example the age of digital consent for minors using online services (Art. 8), employee data protection (Art. 88), or the processing of national identification numbers (Art. 87). It is exactly these opening clauses that Germany's implementing act, the BDSG (Bundesdatenschutzgesetz), builds on – and it is, EU-wide, one of the most extensive and detailed national implementing laws for GDPR."
+              }
+            },
+            {
+              "section_id": "datenschutz-l0-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "datenschutz-l0-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Nützlicher Kontext für EU-weit tätige Unternehmen – keine Rechtsberatung zu anderen Ländern", "en": "Useful context for EU-wide operations – not legal advice on other countries" },
+              "body": {
+                "de": "Wer in einem Unternehmen mit Standorten oder Kunden in mehreren EU-Ländern arbeitet, stößt gelegentlich auf nationale Unterschiede, die aus genau diesen Öffnungsklauseln stammen – nicht aus einer anderen DSGVO. Drei Beispiele zur Einordnung, bewusst knapp gehalten und ausdrücklich nicht als Aussage über geltendes Recht in einem bestimmten anderen Land zu verstehen: Erstens variiert das digitale Einwilligungsalter für Minderjährige je nach Mitgliedstaat zwischen 13 und 16 Jahren, weil Art. 8 DSGVO den Staaten hier einen Spielraum lässt. Zweitens hat Irland wegen der dortigen EU-Hauptsitze vieler US-Technologiekonzerne über den „One-Stop-Shop“-Mechanismus häufig die Rolle der federführenden Aufsichtsbehörde für deren grenzüberschreitende Verarbeitungen inne – eine strukturelle Besonderheit, die sich aus der Konzernorganisation ergibt, nicht aus abweichendem Recht. Drittens ist Österreichs Umsetzungsgesetz, das Datenschutzgesetz (DSG), spürbar kürzer und schlanker als das deutsche BDSG – ein Kontrastbeispiel dafür, dass „dieselbe Verordnung“ nicht „gleich dickes Ausführungsgesetz“ bedeutet. Diese Lektion und ihre Fragen prüfen weiterhin ausschließlich deutsches Datenschutzrecht (DSGVO + BDSG); die drei Punkte oben sind Hintergrundwissen für den EU-Kontext, keine geprüfte Aussage zu einer fremden Rechtsordnung und erst recht keine Rechtsberatung. Bei konkreten Fragen zu einem anderen Mitgliedstaat gilt: die dortige Aufsichtsbehörde oder eine lokale Rechtsberatung konsultieren.",
+                "en": "Anyone working at a company with locations or customers across several EU countries will occasionally run into national differences that stem from exactly these opening clauses – not from a different GDPR. Three examples for orientation, kept deliberately brief and explicitly not a statement about the law in force in any specific other country: first, the digital age of consent for minors ranges from 13 to 16 depending on the member state, because Art. 8 GDPR leaves states this margin. Second, because so many US tech companies have their EU headquarters there, Ireland frequently holds the lead supervisory authority role under the \"one-stop-shop\" mechanism for their cross-border processing – a structural quirk that follows from corporate organisation, not from different law. Third, Austria's implementing act, the Datenschutzgesetz (DSG), is noticeably shorter and leaner than Germany's BDSG – a useful contrast showing that \"same Regulation\" does not mean \"equally thick implementing law\" everywhere. This lesson and its questions continue to test German data protection law only (GDPR + BDSG); the three points above are background for EU-wide context, not a verified statement about a foreign legal system, and certainly not legal advice. For concrete questions about another member state, consult that country's supervisory authority or local legal counsel."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["grundprinzipien"], "count": 4 }
+        },
+        {
+          "lesson_id": "datenschutz-l1",
+          "order": 1,
+          "title": { "de": "Die Grundprinzipien der DSGVO", "en": "The core principles of GDPR" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 14,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "datenschutz-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "datenschutz-l1-s1",
+              "legal_basis": "Art. 5 DSGVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Sieben Grundsätze plus Rechenschaftspflicht", "en": "Seven principles plus accountability" },
+              "body": {
+                "de": "Art. 5 Abs. 1 DSGVO fasst in sieben Grundsätzen zusammen, was jede Verarbeitung personenbezogener Daten erfüllen muss: Rechtmäßigkeit, Verarbeitung nach Treu und Glauben und Transparenz (lit. a), Zweckbindung – Daten dürfen nur für festgelegte, eindeutige und legitime Zwecke erhoben werden (lit. b), Datenminimierung – nur so viele Daten wie für den Zweck nötig (lit. c), Richtigkeit (lit. d), Speicherbegrenzung – nicht länger als nötig aufbewahren (lit. e), sowie Integrität und Vertraulichkeit, also angemessene Sicherheit (lit. f). Art. 5 Abs. 2 fügt einen achten, strukturell anderen Grundsatz hinzu: die Rechenschaftspflicht. Der Verantwortliche muss die Einhaltung der übrigen Grundsätze nicht nur sicherstellen, sondern auch nachweisen können – etwa durch Verarbeitungsverzeichnisse, dokumentierte Entscheidungen und Löschkonzepte. Wer im Alltag nicht belegen kann, warum Daten erhoben wurden und wann sie gelöscht werden, verstößt im Zweifel bereits gegen die Rechenschaftspflicht, selbst wenn die Verarbeitung inhaltlich in Ordnung wäre.",
+                "en": "Art. 5(1) GDPR distils what every processing of personal data must satisfy into seven principles: lawfulness, fairness and transparency (lit. a); purpose limitation – data may only be collected for specified, explicit and legitimate purposes (lit. b); data minimisation – no more data than the purpose requires (lit. c); accuracy (lit. d); storage limitation – not kept longer than necessary (lit. e); and integrity and confidentiality, i.e. adequate security (lit. f). Art. 5(2) adds an eighth, structurally different principle: accountability. The controller must not only ensure compliance with the other principles but must also be able to demonstrate it – for example through records of processing, documented decisions, and retention/deletion concepts. In practice, if you cannot show why data was collected and when it will be deleted, you are arguably already in breach of accountability, even if the underlying processing itself was fine."
+              }
+            },
+            {
+              "section_id": "datenschutz-l1-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "datenschutz-l1-s2",
+              "legal_basis": "Art. 6 Abs. 1 DSGVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Ohne Rechtsgrundlage keine Verarbeitung", "en": "No processing without a lawful basis" },
+              "body": {
+                "de": "Art. 6 Abs. 1 DSGVO listet abschließend sechs Rechtsgrundlagen auf, von denen mindestens eine für jede Verarbeitung personenbezogener Daten vorliegen muss: Einwilligung (lit. a), Vertragserfüllung oder vorvertragliche Maßnahmen (lit. b), rechtliche Verpflichtung (lit. c), lebenswichtige Interessen (lit. d), Wahrnehmung einer im öffentlichen Interesse liegenden Aufgabe (lit. e) sowie berechtigte Interessen des Verantwortlichen oder eines Dritten, sofern sie nicht von den Interessen oder Grundrechten der betroffenen Person überwogen werden (lit. f). Ein Beispiel aus dem Arbeitsalltag: Die Gehaltsabrechnung stützt sich auf den Arbeitsvertrag (lit. b) und auf steuer-/sozialversicherungsrechtliche Pflichten (lit. c) – nicht auf eine Einwilligung, denn die wäre im Beschäftigungsverhältnis wegen des Ungleichgewichts zwischen Arbeitgeber und Arbeitnehmer ohnehin meist nicht „freiwillig“ im Sinne von Art. 4 Nr. 11 DSGVO. Die Wahl der richtigen Rechtsgrundlage ist keine Formsache: Sie bestimmt unter anderem, welche Betroffenenrechte greifen und ob ein Widerspruch möglich ist.",
+                "en": "Art. 6(1) GDPR sets out an exhaustive list of six lawful bases, at least one of which must apply to any processing of personal data: consent (lit. a); performance of a contract or pre-contractual steps (lit. b); legal obligation (lit. c); vital interests (lit. d); performance of a task carried out in the public interest (lit. e); and legitimate interests of the controller or a third party, provided they are not overridden by the data subject's interests or fundamental rights (lit. f). A workplace example: payroll processing rests on the employment contract (lit. b) and on tax/social-security obligations (lit. c) – not on consent, because in an employment relationship consent is usually not \"freely given\" within the meaning of Art. 4(11) GDPR, given the imbalance between employer and employee. Choosing the right lawful basis is not a formality: among other things, it determines which data subject rights apply and whether an objection is possible."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["grundprinzipien"], "count": 8 }
+        },
+        {
+          "lesson_id": "datenschutz-l2",
+          "order": 2,
+          "title": { "de": "Rechte der betroffenen Person", "en": "Data subject rights" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 14,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "datenschutz-l2-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "datenschutz-l2-s1",
+              "legal_basis": "Art. 12-21 DSGVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Sieben Rechte, ein gemeinsames Kapitel", "en": "Seven rights, one shared chapter" },
+              "body": {
+                "de": "Kapitel III der DSGVO (Art. 12-23) bündelt die Rechte der betroffenen Person: das Auskunftsrecht (Art. 15) – was wird über mich verarbeitet, zu welchem Zweck, an wen weitergegeben; das Recht auf Berichtigung (Art. 16); das Recht auf Löschung, umgangssprachlich „Recht auf Vergessenwerden“ (Art. 17), das aber unter mehreren Bedingungen steht und keineswegs absolut ist; das Recht auf Einschränkung der Verarbeitung (Art. 18) für Übergangsfälle, etwa während die Richtigkeit von Daten strittig geprüft wird; das Recht auf Datenübertragbarkeit (Art. 20), das nur bei Verarbeitung auf Basis von Einwilligung oder Vertrag und nur bei automatisierter Verarbeitung greift; und das Widerspruchsrecht (Art. 21), das bei Direktwerbung absolut wirkt, bei anderen auf berechtigtem Interesse beruhenden Verarbeitungen aber eine Interessenabwägung im Einzelfall auslöst. Art. 12 legt die gemeinsamen Verfahrensregeln fest: Anträge müssen in präziser, transparenter, verständlicher Form und in der Regel unentgeltlich beantwortet werden.",
+                "en": "Chapter III of GDPR (Art. 12-23) groups the data subject rights: the right of access (Art. 15) – what is being processed about me, for what purpose, disclosed to whom; the right to rectification (Art. 16); the right to erasure, colloquially the \"right to be forgotten\" (Art. 17), which is subject to several conditions and is by no means absolute; the right to restriction of processing (Art. 18) for transitional situations, for instance while the accuracy of data is being contested; the right to data portability (Art. 20), which only applies to processing based on consent or contract and only where processing is automated; and the right to object (Art. 21), which is absolute for direct marketing but, for other processing based on legitimate interest, triggers a case-by-case balancing of interests. Art. 12 sets out the shared procedural rules: requests must be answered in a concise, transparent, intelligible form, and normally free of charge."
+              }
+            },
+            {
+              "section_id": "datenschutz-l2-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "datenschutz-l2-s2",
+              "legal_basis": "Art. 12 Abs. 3, Art. 22 DSGVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Ein Monat Frist, und ein Sonderfall für automatisierte Entscheidungen", "en": "A one-month deadline, and a special case for automated decisions" },
+              "body": {
+                "de": "Art. 12 Abs. 3 DSGVO setzt für die meisten Betroffenenanfragen eine Frist von einem Monat ab Antragseingang; bei komplexen oder zahlreichen Anfragen kann diese Frist um zwei weitere Monate verlängert werden, wenn die betroffene Person darüber informiert wird. Wer im Betrieb eine Auskunftsanfrage erhält, sollte sie deshalb sofort an die zuständige Stelle (häufig den Datenschutzbeauftragten) weiterleiten – nicht liegen lassen, denn die Frist läuft ab Eingang, nicht ab Bearbeitungsbeginn. Ein eigener Sonderfall ist Art. 22: Betroffene haben grundsätzlich das Recht, nicht einer ausschließlich automatisierten Entscheidung unterworfen zu werden, die ihnen gegenüber rechtliche Wirkung entfaltet oder sie in ähnlicher Weise erheblich beeinträchtigt – etwa eine vollautomatische Ablehnung eines Kreditantrags ohne menschliche Beteiligung. Ausnahmen bestehen bei Vertragsnotwendigkeit, gesetzlicher Erlaubnis oder ausdrücklicher Einwilligung, jeweils mit zusätzlichen Schutzmaßnahmen wie dem Recht auf menschliches Eingreifen.",
+                "en": "Art. 12(3) GDPR sets a one-month deadline for most data subject requests, counted from receipt; that deadline can be extended by a further two months for complex or numerous requests, provided the data subject is informed. Anyone at work who receives an access request should therefore forward it to the responsible unit (often the data protection officer) immediately – not let it sit, because the clock starts at receipt, not when work on it begins. Art. 22 is a special case of its own: data subjects generally have the right not to be subject to a decision based solely on automated processing that produces legal effects concerning them or similarly significantly affects them – for example a fully automated rejection of a credit application with no human involvement. Exceptions exist for contractual necessity, legal authorisation, or explicit consent, each requiring additional safeguards such as the right to obtain human intervention."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["betroffenenrechte"], "count": 8 }
+        },
+        {
+          "lesson_id": "datenschutz-l3",
+          "order": 3,
+          "title": { "de": "Datensicherheit und technisch-organisatorische Maßnahmen", "en": "Data security and technical/organisational measures" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 13,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "datenschutz-l3-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "datenschutz-l3-s1",
+              "legal_basis": "Art. 32 DSGVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Angemessenes Schutzniveau statt starrer Checkliste", "en": "An appropriate level of security, not a rigid checklist" },
+              "body": {
+                "de": "Art. 32 DSGVO verpflichtet Verantwortliche und Auftragsverarbeiter, geeignete technische und organisatorische Maßnahmen (TOMs) zu treffen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten. Der Artikel nennt beispielhaft: Pseudonymisierung und Verschlüsselung; die Fähigkeit, Vertraulichkeit, Integrität, Verfügbarkeit und Belastbarkeit der Systeme dauerhaft sicherzustellen; die Fähigkeit, die Verfügbarkeit personenbezogener Daten bei einem physischen oder technischen Zwischenfall rasch wiederherzustellen; sowie ein Verfahren zur regelmäßigen Überprüfung, Bewertung und Evaluierung der Wirksamkeit der Maßnahmen. Entscheidend ist die Risikoorientierung: Art. 32 schreibt keine konkrete Technologie vor, sondern verlangt eine Abwägung nach Stand der Technik, Implementierungskosten, Art, Umfang, Umständen und Zwecken der Verarbeitung sowie der Eintrittswahrscheinlichkeit und Schwere des Risikos für die Rechte und Freiheiten natürlicher Personen. Ein kleines Unternehmen mit wenigen, unkritischen Daten braucht andere Maßnahmen als ein Krankenhaus, das Gesundheitsdaten verarbeitet.",
+                "en": "Art. 32 GDPR requires controllers and processors to implement appropriate technical and organisational measures (TOMs) to ensure a level of security appropriate to the risk. The article gives examples: pseudonymisation and encryption; the ability to ensure ongoing confidentiality, integrity, availability and resilience of systems; the ability to restore availability of personal data promptly after a physical or technical incident; and a process for regularly testing, assessing, and evaluating the effectiveness of the measures. The key idea is risk orientation: Art. 32 does not mandate any specific technology, but requires a balancing exercise based on the state of the art, implementation cost, the nature, scope, context and purposes of processing, and the likelihood and severity of risk to individuals' rights and freedoms. A small company handling a few, non-sensitive data points needs different measures than a hospital processing health data."
+              }
+            },
+            {
+              "section_id": "datenschutz-l3-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "datenschutz-l3-s2",
+              "legal_basis": "Art. 9, Art. 25 DSGVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Besondere Kategorien und Datenschutz durch Technikgestaltung", "en": "Special categories and data protection by design" },
+              "body": {
+                "de": "Art. 9 Abs. 1 DSGVO stellt bestimmte „besondere Kategorien personenbezogener Daten“ unter ein grundsätzliches Verarbeitungsverbot – etwa Gesundheitsdaten, biometrische Daten zur eindeutigen Identifizierung, Daten zu ethnischer Herkunft, politischer Meinung, religiöser Überzeugung, Gewerkschaftszugehörigkeit oder Sexualleben. Verarbeitet werden dürfen sie nur, wenn eine der eng gefassten Ausnahmen in Art. 9 Abs. 2 greift, etwa ausdrückliche Einwilligung oder – im Beschäftigungskontext besonders relevant – Erforderlichkeit im Arbeitsrecht in Verbindung mit § 26 BDSG. Ergänzend verlangt Art. 25 „Datenschutz durch Technikgestaltung und durch datenschutzfreundliche Voreinstellungen“ (privacy by design/by default): Datenschutzanforderungen sind bereits bei der Entwicklung eines Systems einzuplanen, und Voreinstellungen müssen von sich aus datensparsam sein – ein neu ausgeliefertes System darf nicht standardmäßig mehr Daten sammeln oder länger speichern, als für den jeweiligen Zweck nötig.",
+                "en": "Art. 9(1) GDPR places certain \"special categories of personal data\" under a general processing prohibition – for example health data, biometric data used for unique identification, and data revealing racial or ethnic origin, political opinions, religious belief, trade union membership, or sex life. They may only be processed if one of the narrowly drawn exceptions in Art. 9(2) applies, such as explicit consent or – particularly relevant in an employment context – necessity under employment law in conjunction with §26 BDSG. In addition, Art. 25 requires \"data protection by design and by default\": data protection requirements must be built in from the point a system is designed, and default settings must themselves be data-minimising – a newly delivered system must not, by default, collect more data or retain it for longer than the specific purpose requires."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["datensicherheit"], "count": 8 }
+        },
+        {
+          "lesson_id": "datenschutz-l4",
+          "order": 4,
+          "title": { "de": "Meldepflichten bei Datenpannen", "en": "Breach-notification duties" },
+          "lesson_kind": "scenario",
+          "estimated_minutes": 14,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "datenschutz-l4-s1",
+              "order": 0,
+              "section_kind": "decision_flow",
+              "body_key": "datenschutz-l4-s1",
+              "legal_basis": "Art. 33 DSGVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "72 Stunden an die Aufsichtsbehörde – mit einer Ausnahme", "en": "72 hours to the supervisory authority – with one exception" },
+              "body": {
+                "de": "Art. 33 Abs. 1 DSGVO verpflichtet den Verantwortlichen, eine Verletzung des Schutzes personenbezogener Daten unverzüglich und, wenn möglich, binnen 72 Stunden nach Bekanntwerden der zuständigen Aufsichtsbehörde zu melden. Die Frist läuft ab Kenntnis, nicht ab dem eigentlichen Vorfall – wer einen Vorfall erst Tage nach dem eigentlichen Ereignis entdeckt, hat trotzdem erst ab Entdeckung 72 Stunden Zeit. Eine Ausnahme besteht nur, wenn die Verletzung voraussichtlich nicht zu einem Risiko für die Rechte und Freiheiten natürlicher Personen führt – ein verschlüsselter, unauffindbarer Laptop mit personenbezogenen Daten ist ein häufig genanntes Beispiel für einen Fall, in dem im Zweifel keine Meldepflicht besteht, weil das tatsächliche Risiko gering ist. Wird die 72-Stunden-Frist überschritten, verlangt Art. 33 Abs. 1 eine Begründung für die Verspätung. Art. 33 Abs. 5 verpflichtet außerdem, jede Datenpanne – auch eine nicht meldepflichtige – intern zu dokumentieren, damit die Aufsichtsbehörde die Einhaltung überprüfen kann.",
+                "en": "Art. 33(1) GDPR requires the controller to notify the competent supervisory authority of a personal data breach without undue delay and, where feasible, within 72 hours of becoming aware of it. The clock starts from awareness, not from the underlying event – if an incident is only discovered days after it actually occurred, the entity still has 72 hours from the moment of discovery. An exception applies only where the breach is unlikely to result in a risk to the rights and freedoms of natural persons – an encrypted, unrecoverable laptop containing personal data is a commonly cited example where, arguably, no notification duty arises because the actual risk is low. If the 72-hour deadline is exceeded, Art. 33(1) requires reasons for the delay to accompany the notification. Art. 33(5) additionally requires every breach – including ones that are not notifiable – to be documented internally, so the supervisory authority can verify compliance."
+              }
+            },
+            {
+              "section_id": "datenschutz-l4-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "datenschutz-l4-s2",
+              "legal_basis": "Art. 34 DSGVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Wann trifft es die betroffene Person direkt?", "en": "When does the notification go to the individual directly?" },
+              "body": {
+                "de": "Art. 34 DSGVO verlangt zusätzlich zur Meldung an die Aufsichtsbehörde eine direkte Benachrichtigung der betroffenen Personen, aber nur unter einer höheren Schwelle: wenn die Datenpanne voraussichtlich ein hohes Risiko für ihre Rechte und Freiheiten zur Folge hat. Ein Beispiel: Werden Kundenpasswörter unverschlüsselt und ohne wirksame Zusatzsicherung entwendet, ist das typischerweise ein hohes Risiko (Identitätsdiebstahl, Kontoübernahme) und löst eine Direktbenachrichtigung aus; ist derselbe Datensatz dagegen stark verschlüsselt und der Schlüssel nicht kompromittiert, kann laut Art. 34 Abs. 3 lit. a auf eine Direktbenachrichtigung verzichtet werden, weil die Daten für Dritte praktisch unzugänglich sind. Art. 34 Abs. 2 verlangt, dass die Benachrichtigung in klarer, einfacher Sprache erfolgt und mindestens die Art der Verletzung sowie die in Art. 33 Abs. 3 lit. b–d genannten Angaben enthält – Kontaktstelle, wahrscheinliche Folgen, ergriffene oder vorgeschlagene Maßnahmen. Diese zweistufige Struktur – Behörde bei jedem meldepflichtigen Vorfall, Betroffene nur bei hohem Risiko – ist der Kern des Meldepflichten-Systems der DSGVO.",
+                "en": "In addition to notifying the supervisory authority, Art. 34 GDPR requires directly informing the affected individuals, but only above a higher threshold: where the breach is likely to result in a high risk to their rights and freedoms. Example: if customer passwords are stolen unencrypted and without effective additional safeguards, that is typically a high risk (identity theft, account takeover) and triggers direct notification; if the same dataset were instead strongly encrypted with the key uncompromised, Art. 34(3)(a) allows skipping direct notification, because the data is practically inaccessible to third parties. Art. 34(2) requires the notification to be in clear, plain language and to include at least the nature of the breach plus the information listed in Art. 33(3)(b)-(d) – a contact point, likely consequences, and measures taken or proposed. This two-tier structure – authority for every notifiable incident, individuals only for high risk – is the core of GDPR's breach-notification system."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["meldepflichten"], "count": 8 }
+        },
+        {
+          "lesson_id": "datenschutz-l5",
+          "order": 5,
+          "title": { "de": "Auftragsverarbeitung nach Art. 28 DSGVO", "en": "Processor relationships under Art. 28 GDPR" },
+          "lesson_kind": "checkpoint",
+          "estimated_minutes": 13,
+          "completion_rule": "quiz_pass:0.8",
+          "sections": [
+            {
+              "section_id": "datenschutz-l5-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "datenschutz-l5-s1",
+              "legal_basis": "Art. 28 DSGVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Der Auftragsverarbeitungsvertrag ist Pflicht, kein Kann", "en": "The data processing agreement is mandatory, not optional" },
+              "body": {
+                "de": "Sobald ein Verantwortlicher personenbezogene Daten durch einen externen Dienstleister verarbeiten lässt – etwa einen Cloud-Anbieter, ein Lohnbuchhaltungsunternehmen oder einen IT-Support-Dienstleister –, entsteht eine Auftragsverarbeitung im Sinne von Art. 28 DSGVO, sofern der Dienstleister ausschließlich nach Weisung des Verantwortlichen handelt und keine eigenen Zwecke verfolgt. Art. 28 Abs. 3 schreibt vor, dass diese Beziehung durch einen Vertrag oder ein anderes Rechtsinstrument geregelt sein muss, der bestimmte Mindestinhalte zwingend enthält: Gegenstand und Dauer der Verarbeitung, Art und Zweck, die Art der Daten und Kategorien betroffener Personen, die Pflichten und Rechte des Verantwortlichen sowie – unter anderem – die Verpflichtung des Auftragsverarbeiters, geeignete TOMs nach Art. 32 zu treffen, Vertraulichkeit sicherzustellen, den Verantwortlichen bei der Erfüllung von Betroffenenrechten zu unterstützen und nach Ende der Vertragslaufzeit alle Daten zu löschen oder zurückzugeben (Art. 28 Abs. 3 lit. a-h). Ein formloses „wir kümmern uns schon um Datenschutz“ genügt nicht – ohne den in Art. 28 vorgeschriebenen Vertragsinhalt liegt regelmäßig ein eigenständiger DSGVO-Verstoß vor, unabhängig davon, ob die tatsächliche Verarbeitung sicher war.",
+                "en": "As soon as a controller has an external service provider process personal data on its behalf – for instance a cloud provider, a payroll company, or an IT support vendor – a processor relationship under Art. 28 GDPR arises, provided the provider acts strictly on the controller's instructions and pursues no purposes of its own. Art. 28(3) requires this relationship to be governed by a contract or other legal act that must include certain minimum content: the subject-matter and duration of processing, its nature and purpose, the type of data and categories of data subjects, the obligations and rights of the controller, and – among other things – the processor's duty to implement appropriate TOMs under Art. 32, ensure confidentiality, assist the controller in fulfilling data subject rights, and delete or return all data at the end of the contract (Art. 28(3)(a)-(h)). An informal \"we've got data protection covered\" is not enough – without the contract content Art. 28 mandates, there is typically a standalone GDPR violation, regardless of whether the actual processing was secure."
+              }
+            },
+            {
+              "section_id": "datenschutz-l5-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "datenschutz-l5-s2",
+              "legal_basis": "Art. 28 Abs. 2, Abs. 4 DSGVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-sonnet/2026-08-15",
+              "title": { "de": "Unterauftragsverarbeiter brauchen eine Erlaubnis, keine Überraschung", "en": "Sub-processors need permission, not surprise" },
+              "body": {
+                "de": "Ein Auftragsverarbeiter darf einen weiteren Auftragsverarbeiter (Unterauftragsverarbeiter) nur mit vorheriger schriftlicher – allgemeiner oder spezifischer – Genehmigung des Verantwortlichen einsetzen (Art. 28 Abs. 2). Bei allgemeiner Genehmigung muss der Auftragsverarbeiter den Verantwortlichen über beabsichtigte Änderungen bei Unterauftragsverarbeitern informieren und ihm Gelegenheit geben, Einwände zu erheben. Wird ein Unterauftragsverarbeiter eingesetzt, müssen ihm dieselben Datenschutzpflichten vertraglich auferlegt werden, die der ursprüngliche Auftragsverarbeitungsvertrag vorsieht (Art. 28 Abs. 4) – die Kette der Verpflichtungen darf beim Weiterreichen an Subunternehmer nicht abreißen. Für die betriebliche Praxis heißt das: Ein Lieferantenverzeichnis, das nur die direkten Auftragsverarbeiter erfasst, aber nicht deren Subunternehmer, ist unvollständig – und ein plötzlich neu auftauchender Cloud-Subunternehmer, von dem der Verantwortliche nichts wusste, ist ein typisches Anzeichen für eine mangelhaft gelebte Auftragsverarbeitung.",
+                "en": "A processor may only engage a further processor (a sub-processor) with the controller's prior specific or general written authorisation (Art. 28(2)). Where general authorisation is given, the processor must inform the controller of any intended changes concerning the addition or replacement of sub-processors, giving the controller the opportunity to object. Where a sub-processor is engaged, the same data protection obligations set out in the original processing agreement must be imposed on it by contract (Art. 28(4)) – the chain of obligations must not break when work is passed further down the chain. In practical terms: a vendor register that only tracks direct processors but not their sub-processors is incomplete – and a cloud sub-processor that suddenly turns up without the controller having known about it is a typical sign of poorly managed processor governance."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["auftragsverarbeitung"], "count": 8 }
+        }
+      ]
+    }
+  ]
+}
