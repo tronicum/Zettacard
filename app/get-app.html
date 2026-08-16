@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zettacard auf dem iPhone installieren</title>
+<meta name="robots" content="noindex,nofollow">
+<style>
+  :root {
+    --bg: #f5f7fb; --card: #ffffff; --border: #d7deec;
+    --text: #1a2233; --text-dim: #5b6478; --accent: #2f6fed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0b1220; --card: #141c2e; --border: #23304d; --text: #eef2fb; --text-dim: #9aa5bd; --accent: #6f97f5; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55;
+  }
+  main { max-width: 520px; margin: 0 auto; padding: 32px 20px 64px; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; }
+  p.lede { color: var(--text-dim); margin-top: 0; }
+  .qr-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; margin: 24px 0; text-align: center;
+  }
+  .qr-card img { width: 220px; height: 220px; border-radius: 8px; }
+  .qr-card .url { margin-top: 12px; font-size: 0.85rem; word-break: break-all; color: var(--text-dim); }
+  .qr-card a.url-link { color: var(--accent); text-decoration: none; }
+  ol { padding-left: 22px; }
+  ol li { margin-bottom: 14px; }
+  ol li strong { display: block; margin-bottom: 2px; }
+  .step-note { font-size: 0.85rem; color: var(--text-dim); margin: 2px 0 0; }
+  .callout {
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 12px 14px; margin: 20px 0; font-size: 0.88rem;
+  }
+  .callout.warn { border-color: #e0a634; }
+  h2 { font-size: 1.05rem; margin: 32px 0 8px; }
+  footer { margin-top: 40px; font-size: 0.78rem; color: var(--text-dim); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Zettacard auf dem iPhone installieren</h1>
+  <p class="lede">Als App-Icon zum Home-Bildschirm hinzufügen — läuft dann offline, ganz ohne App Store.</p>
+
+  <div class="qr-card">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyCAIAAABnRsZeAAAHz0lEQVR4nO3cO45tNRRFUQq9kIwW0P9G0QIy8kOKhGSh52ltn1tj5PdfNeVgyV/P8/wC0Pl1+g0An0ZWgJisADFZAWKyAsRkBYjJChCTFSAmK0BMVoCYrAAxWQFisgLEZAWIyQoQkxUgJitATFaAmKwAsR87D/7t9z+q93GJv//686cfu/421s889di1O3/fqd9o55nfaOfbcFoBYrICxGQFiMkKEJMVICYrQExWgJisADFZAWJbK9u1nZXeOefWkDtb2LWpx9657j33ic75bv8LTitATFaAmKwAMVkBYrICxGQFiMkKEJMVICYrQOzgynZtau2649yu9M47dM+te9fv6txeee3c77vzujum1r1OK0BMVoCYrAAxWQFisgLEZAWIyQoQkxUgJitAbGxly7+9cZN655r53Ofl/3NaAWKyAsRkBYjJChCTFSAmK0BMVoCYrAAxWQFiVraZczeh7ixHdzapUzfsnnvPU7fVfjdOK0BMVoCYrAAxWQFisgLEZAWIyQoQkxUgJitAbGxl+3mLxnOfaGqhe27du/O6O8985wb38/4XnFaAmKwAMVkBYrICxGQFiMkKEJMVICYrQExWgNjBle3ORvPz3HkD6+fdGnvnbbXf7X/BaQWIyQoQkxUgJitATFaAmKwAMVkBYrICxGQFiG2tbD/vDs7Pc+d+d+ex5xarU5/38zitADFZAWKyAsRkBYjJChCTFSAmK0BMVoCYrACxr+d5fvrB5+46nTJ1x+qab/L/m7p/16/wb04rQExWgJisADFZAWKyAsRkBYjJChCTFSAmK0Bsa2W7NrUr/W5L2anP+8YbZ8/95bzxb+Pct+G0AsRkBYjJChCTFSAmK0BMVoCYrAAxWQFisgLEfuw8+NwKc2rfOXX359RideoG1jfuWdePndr+3vnX7rQCxGQFiMkKEJMVICYrQExWgJisADFZAWKyAsS27rKduq/0zmXh2hvv31278z3febPvzjOfY2ULvIasADFZAWKyAsRkBYjJChCTFSAmK0BMVoDY1l22O77b2vXcLap3vu65e2GnNqk77tw6n/v1nVaAmKwAMVkBYrICxGQFiMkKEJMVICYrQExWgNjBle2dW8lzq9M7158772rqTtlz3+Sdq+KdZz732B1OK0BMVoCYrAAxWQFisgLEZAWIyQoQkxUgJitAbGtlO3Xz69p6WXjnunfH1O28a+cWunc+844771fe4bQCxGQFiMkKEJMVICYrQExWgJisADFZAWKyAsS+nueZfg+xc/fRTt1IOnXH6p3fxo6ple2dr3uO0woQkxUgJitATFaAmKwAMVkBYrICxGQFiMkKEDu4sv28zeLa1KJxyrn97tqdzzz1rnacW1E7rQAxWQFisgLEZAWIyQoQkxUgJitATFaAmKwAsR9TL3znKvHOJeXUfbQ7n2hq6zzlzt3wFKcVICYrQExWgJisADFZAWKyAsRkBYjJChCTFSC2tbI9dxfmzuvueON9tOe2sOf2u2t33oJ87hPdue3e4bQCxGQFiMkKEJMVICYrQExWgJisADFZAWKyAsS+nucZeeE7b35du3NXeuddtjveuHVeu/ObPPf37LQCxGQFiMkKEJMVICYrQExWgJisADFZAWKyAsS27rJdu3PfufOuzq0/77z5de3z7iq+817Yndedum3aaQWIyQoQkxUgJitATFaAmKwAMVkBYrICxGQFiG3dZTu1hjznjZ/ou21Sz623p5bfb/w21pxWgJisADFZAWKyAsRkBYjJChCTFSAmK0BMVoDYwZXtndvBtTtvBp36nndM/fo73vhXt8NdtsBryAoQkxUgJitATFaAmKwAMVkBYrICxGQFiP2YeuE3LhrvvNt17Y03zk79RlM3KJ/jLlvgQ8gKEJMVICYrQExWgJisADFZAWKyAsRkBYiNrWynFo3nbgZd2/m8dy6DP+8m46m/jTfeg7vmtALEZAWIyQoQkxUgJitATFaAmKwAMVkBYrICxL6e55l+D69x5023n7d23fF59w2/8WZfpxUgJitATFaAmKwAMVkBYrICxGQFiMkKEJMVILZ1l+3UkvKc9bLwjWvXqWdeu3Ohu2Pqm1ybeldOK0BMVoCYrAAxWQFisgLEZAWIyQoQkxUgJitAbGtluza1LFzbWXBOPfbcunfqmc+58w7dHW/cHDutADFZAWKyAsRkBYjJChCTFSAmK0BMVoCYrACxgyvbtXPbwal957k7Ze+8cXbtzlXx2s6vMOXOm4ydVoCYrAAxWQFisgLEZAWIyQoQkxUgJitATFaA2NjK9ruZ2mhOrZmnFrpvvMt2Z+06tcBec1oBYrICxGQFiMkKEJMVICYrQExWgJisADFZAWJWtplzt7fuOPfMU9vQO3e0d/76U6/rtALEZAWIyQoQkxUgJitATFaAmKwAMVkBYrICxMZWtlPLwh3n7iudWp3eeU/qd1usTu2Gz3FaAWKyAsRkBYjJChCTFSAmK0BMVoCYrAAxWQFiX8/z/PSDP28deOeedeeZzzn369/5ic7taKfu/XWXLfAasgLEZAWIyQoQkxUgJitATFaAmKwAMVkBYlsrW4D/cloBYrICxGQFiMkKEJMVICYrQExWgJisADFZAWKyAsRkBYjJChCTFSAmK0BMVoCYrAAxWQFisgLEZAWI/QNOZCJQvv+pTQAAAABJRU5ErkJggg==" alt="QR-Code zu Zettacard" />
+    <div class="url">
+      <a class="url-link" href="https://zettacard-staging.netlify.app/app.html">zettacard-staging.netlify.app/app.html</a>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <strong>Wichtig:</strong> Der Code muss mit der <strong>Kamera-App</strong> oder in <strong>Safari</strong>
+    geöffnet werden. In Chrome oder anderen Browsern auf dem iPhone funktioniert "Zum Home-Bildschirm" nicht.
+  </div>
+
+  <h2>So geht's</h2>
+  <ol>
+    <li>
+      <strong>1. QR-Code scannen</strong>
+      <p class="step-note">iPhone-Kamera öffnen und auf den Code richten — der Link öffnet sich automatisch in Safari.</p>
+    </li>
+    <li>
+      <strong>2. Teilen-Symbol antippen</strong>
+      <p class="step-note">Unten in Safari das Symbol mit dem Pfeil nach oben (□ mit ↑) antippen.</p>
+    </li>
+    <li>
+      <strong>3. "Zum Home-Bildschirm"</strong>
+      <p class="step-note">In der Liste nach unten scrollen und "Zum Home-Bildschirm" auswählen, dann "Hinzufügen" bestätigen.</p>
+    </li>
+    <li>
+      <strong>4. Fertig</strong>
+      <p class="step-note">Das Zettacard-Icon erscheint auf dem Home-Bildschirm und startet wie eine normale App — auch offline nutzbar.</p>
+    </li>
+  </ol>
+
+  <h2>English</h2>
+  <p class="lede">Add Zettacard to your iPhone home screen — works offline, no App Store needed.</p>
+  <div class="callout warn">
+    <strong>Important:</strong> Open the code with the <strong>Camera app</strong> or in <strong>Safari</strong>.
+    "Add to Home Screen" is not available in Chrome or other iOS browsers.
+  </div>
+  <ol>
+    <li><strong>1. Scan the QR code</strong><p class="step-note">Open the iPhone Camera app and point it at the code — the link opens in Safari automatically.</p></li>
+    <li><strong>2. Tap the Share icon</strong><p class="step-note">At the bottom of Safari, tap the square-with-arrow icon.</p></li>
+    <li><strong>3. "Add to Home Screen"</strong><p class="step-note">Scroll down the list, tap "Add to Home Screen", then confirm "Add".</p></li>
+    <li><strong>4. Done</strong><p class="step-note">The Zettacard icon appears on your home screen and launches like a normal app — works offline too.</p></li>
+  </ol>
+
+  <footer>
+    Diese Seite ist bewusst nicht verlinkt (kein Eintrag in der Navigation) und dient nur zum Teilen des
+    Installationslinks. / This page is intentionally unlinked from site navigation and exists only to
+    share the install link.
+  </footer>
+</main>
+</body>
+</html>
