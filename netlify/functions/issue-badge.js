@@ -61,6 +61,26 @@ const ISSUER_URL = process.env.URL || "https://zettacard.netlify.app";
 const JWKS_PATH = "/.well-known/jwks.json";
 
 const BLOBS_STORE_NAME = "test-badges";
+// This repo deploys via the Netlify CLI/API zip-upload method (see
+// docs/netlify-deploy-status.md), not git-triggered continuous deployment -
+// confirmed live (2026-08-16) that Netlify only auto-injects Blobs
+// credentials for the latter; a zip deploy throws
+// MissingBlobsEnvironmentError from getStore() with no explicit siteID/
+// token. Netlify's Functions runtime does still auto-provide SITE_ID
+// (a standard Netlify build/runtime env var, unrelated to Blobs) for
+// whichever site is actually running the function, so no hardcoding is
+// needed there. NETLIFY_BLOBS_TOKEN is a Personal Access Token, set once
+// as a secret env var (Netlify UI, scoped to Functions only) - see
+// docs/open-badges-signing-setup.md-style handling: never logged, never
+// returned in any response. Falls back to automatic getStore(name) (no
+// options) if either is somehow missing, in case Netlify ever extends
+// auto-injection to zip deploys - that path just goes back to throwing
+// the same clear MissingBlobsEnvironmentError it does today.
+function blobsStoreOptions() {
+  const siteID = process.env.SITE_ID;
+  const token = process.env.NETLIFY_BLOBS_TOKEN;
+  return siteID && token ? { siteID, token } : undefined;
+}
 
 const MAX_NAME_LEN = 200;
 const MAX_ACHIEVEMENT_NAME_LEN = 200;
@@ -285,17 +305,10 @@ exports.handler = async (event) => {
     // now. Storage is a nice-to-have retrieval convenience (get-badge.js),
     // not a correctness requirement of the signature itself.
     let blobStored = false;
-    // TEMP DEBUG (2026-08-16): surfacing the actual storage error in the
-    // response body, not just server logs, since this sandbox has no way
-    // to read Netlify's live function logs directly. Remove blobError from
-    // the response once the real cause is found and fixed - this endpoint
-    // should never leak internal error detail to callers long-term, same
-    // as sign-credential.js's existing "log server-side, stay generic to
-    // the caller" convention.
-    let blobError;
     try {
       const { getStore } = await loadBlobs();
-      const store = getStore(BLOBS_STORE_NAME);
+      const storeOpts = blobsStoreOptions();
+      const store = storeOpts ? getStore(BLOBS_STORE_NAME, storeOpts) : getStore(BLOBS_STORE_NAME);
       // Only what's already going into the public JWT anyway (the hash,
       // never the raw value) plus non-PII metadata - deliberately NOT the
       // plaintext name or email, even though this is a test-badge-only
@@ -314,7 +327,6 @@ exports.handler = async (event) => {
       blobStored = true;
     } catch (storageErr) {
       console.error("issue-badge: failed to store badge in Netlify Blobs:", storageErr);
-      blobError = String((storageErr && storageErr.stack) || storageErr);
     }
 
     return jsonResponse(200, {
@@ -326,7 +338,6 @@ exports.handler = async (event) => {
       jwksUrl,
       issuedAt,
       blobStored,
-      ...(blobError ? { blobError } : {}),
     });
   } catch (e) {
     console.error("issue-badge: signing failed:", e);

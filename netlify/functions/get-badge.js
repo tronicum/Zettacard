@@ -28,6 +28,16 @@ function loadBlobs() {
 }
 
 const BLOBS_STORE_NAME = "test-badges";
+// See issue-badge.js's blobsStoreOptions() comment for the full story:
+// this repo's zip-upload deploy method doesn't get Netlify's automatic
+// Blobs credential injection, so siteID/token must be passed explicitly.
+// Mirrored here rather than shared, same "keep each function a single
+// self-contained unit" reasoning as the rest of this file.
+function blobsStoreOptions() {
+  const siteID = process.env.SITE_ID;
+  const token = process.env.NETLIFY_BLOBS_TOKEN;
+  return siteID && token ? { siteID, token } : undefined;
+}
 
 // crypto.randomUUID() output shape: 8-4-4-4-12 lowercase hex, hyphen-
 // separated (e.g. "3fa85f64-5717-4562-b3fc-2c963f66afa6"). Validating
@@ -57,7 +67,8 @@ exports.handler = async (event) => {
 
   try {
     const { getStore } = await loadBlobs();
-    const store = getStore(BLOBS_STORE_NAME);
+    const storeOpts = blobsStoreOptions();
+    const store = storeOpts ? getStore(BLOBS_STORE_NAME, storeOpts) : getStore(BLOBS_STORE_NAME);
     const record = await store.get(id, { type: "json" });
 
     if (!record) {
