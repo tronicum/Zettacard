@@ -32,17 +32,19 @@
         <div class="subtitle" id="app-subtitle"></div>
       </div>
       <div style="display:flex; gap:8px; align-items:center;">
-        <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
-        <button class="module-switch-btn" id="primers-btn" hidden aria-label="Learn the basics">🧭 Learn</button>
-        <button class="module-switch-btn" id="course-btn" hidden aria-label="Course">📘 Course</button>
-        <button class="module-switch-btn" id="sign-reference-btn" hidden aria-label="Sign reference">📚 Signs</button>
-        <span class="offline-prep-wrap">
-          <button class="module-switch-btn" id="offline-prep-btn" hidden aria-label="Make available offline">📥</button>
-          <span class="offline-prep-status" id="offline-prep-status" hidden></span>
-        </span>
-        <button class="module-switch-btn" id="certificates-btn" aria-label="My certificates">🎓</button>
-        <button class="review-btn" id="review-btn" aria-label="Review due questions"></button>
-        <button class="module-switch-btn" id="profile-switch-btn" aria-label="Switch profile"></button>
+        <!-- 2026-08-16: was a flat row of up to 11 icon-buttons here
+             (module-info/learn/course/signs/offline-prep/certificates/
+             review/profile-switch, plus these 4) - on a narrow phone that
+             row has no wrap and no scroll affordance, so most buttons
+             render fully off-screen and unreachable (confirmed by a live
+             iPhone Safari screenshot: only the offline-prep button was
+             visible, everything else invisible). Kept the 4 most-used
+             controls (change exam / start exam / theme / language) here;
+             everything else moved into #app-menu below, opened via this
+             hamburger button - same .exam-modal list pattern already used
+             for the module picker/certificates/primers, so it looks native
+             rather than bolted on. -->
+        <button class="theme-toggle" id="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
         <button class="module-switch-btn" id="module-switch-btn"></button>
         <button class="exam-start-btn" id="exam-start-btn"></button>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme"></button>
@@ -83,6 +85,35 @@
          before the first render() call for another module. -->
     <div class="filters role-filters" id="role-filters" hidden></div>
   </header>
+
+  <!-- App menu (2026-08-16): everything that used to crowd the header icon
+       row now lives here instead, opened via the ☰ button above. These are
+       the SAME elements/ids as before (just relocated + restyled as list
+       rows via #app-menu-list's CSS) - every render()/wiring call that
+       targets them by id (visibility toggling, textContent, click
+       handlers) is unchanged. Clicking an item opens its own modal on top
+       of this one (same 2-level stacking as #course-view/#course-reader) -
+       no extra close-then-open choreography needed, the existing
+       pushState/popstate guards already handle it. -->
+  <div class="exam-modal" id="app-menu" hidden role="dialog" aria-modal="true" aria-labelledby="app-menu-title">
+    <div class="exam-modal-card" style="max-width:420px;">
+      <h2 id="app-menu-title" tabindex="-1"></h2>
+      <div id="app-menu-list">
+        <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
+        <button class="module-switch-btn" id="primers-btn" hidden aria-label="Learn the basics">🧭 Learn</button>
+        <button class="module-switch-btn" id="course-btn" hidden aria-label="Course">📘 Course</button>
+        <button class="module-switch-btn" id="sign-reference-btn" hidden aria-label="Sign reference">📚 Signs</button>
+        <span class="offline-prep-wrap">
+          <button class="module-switch-btn" id="offline-prep-btn" hidden aria-label="Make available offline">📥</button>
+          <span class="offline-prep-status" id="offline-prep-status" hidden></span>
+        </span>
+        <button class="module-switch-btn" id="certificates-btn" aria-label="My certificates">🎓</button>
+        <button class="review-btn" id="review-btn" aria-label="Review due questions"></button>
+        <button class="module-switch-btn" id="profile-switch-btn" aria-label="Switch profile"></button>
+      </div>
+      <button class="back-btn" id="app-menu-close-btn"></button>
+    </div>
+  </div>
 
   <main>
     <div class="list" id="list"></div>

@@ -4181,78 +4181,78 @@ function renderCourseBodyHtml(text) {
   });
 }
 
-const COURSE_LESSON_KIND_KEY = { primer: "kindPrimer", checkpoint: "kindCheckpoint" };
+const COURSE_LESSON_KIND_KEY = { primer: "kindPrimer", checkpoint: "kindCheckpoint", scenario: "kindScenario" };
 
 const COURSE_STRINGS = {
   de: {
     btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Noch kein Kursinhalt verfügbar.",
-    close: "← Zurück", kindPrimer: "Lektion", kindCheckpoint: "Checkpoint",
+    close: "← Zurück", kindPrimer: "Lektion", kindCheckpoint: "Checkpoint", kindScenario: "Szenario",
     minutes: (n) => `~${n} Min.`, back: "← Zurück", exit: "Beenden", next: "Weiter", done: "Fertig",
     practiceNow: "Jetzt Übungsfragen dazu starten", relatedTitle: "Auch relevant",
   },
   en: {
     btn: "📘 Course", ariaLabel: "Course", title: "Course", empty: "No course content available yet.",
-    close: "← Back", kindPrimer: "Lesson", kindCheckpoint: "Checkpoint",
+    close: "← Back", kindPrimer: "Lesson", kindCheckpoint: "Checkpoint", kindScenario: "Scenario",
     minutes: (n) => `~${n} min`, back: "← Back", exit: "Exit", next: "Next", done: "Done",
     practiceNow: "Practice this lesson now", relatedTitle: "Also relevant",
   },
   uk: {
     btn: "📘 Курс", ariaLabel: "Курс", title: "Курс", empty: "Вміст курсу поки що недоступний.",
-    close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольна точка",
+    close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольна точка", kindScenario: "Сценарій",
     minutes: (n) => `~${n} хв`, back: "← Назад", exit: "Вийти", next: "Далі", done: "Готово",
     practiceNow: "Практикувати цей урок зараз", relatedTitle: "Також актуально",
   },
   pl: {
     btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Treści kursu nie są jeszcze dostępne.",
-    close: "← Wstecz", kindPrimer: "Lekcja", kindCheckpoint: "Punkt kontrolny",
+    close: "← Wstecz", kindPrimer: "Lekcja", kindCheckpoint: "Punkt kontrolny", kindScenario: "Scenariusz",
     minutes: (n) => `~${n} min`, back: "← Wstecz", exit: "Zakończ", next: "Dalej", done: "Gotowe",
     practiceNow: "Ćwicz tę lekcję teraz", relatedTitle: "Zobacz też",
   },
   ar: {
     btn: "📘 الدورة", ariaLabel: "الدورة", title: "الدورة", empty: "لا يوجد محتوى للدورة بعد.",
-    close: "← رجوع", kindPrimer: "درس", kindCheckpoint: "نقطة تحقق",
+    close: "← رجوع", kindPrimer: "درس", kindCheckpoint: "نقطة تحقق", kindScenario: "سيناريو",
     minutes: (n) => `~${n} دقيقة`, back: "← رجوع", exit: "خروج", next: "التالي", done: "تم",
     practiceNow: "تدرّب على هذا الدرس الآن", relatedTitle: "ذو صلة أيضًا",
   },
   zh: {
     btn: "📘 课程", ariaLabel: "课程", title: "课程", empty: "课程内容暂未提供。",
-    close: "← 返回", kindPrimer: "课时", kindCheckpoint: "检查点",
+    close: "← 返回", kindPrimer: "课时", kindCheckpoint: "检查点", kindScenario: "情景案例",
     minutes: (n) => `约 ${n} 分钟`, back: "← 返回", exit: "退出", next: "下一步", done: "完成",
     practiceNow: "现在练习这一课", relatedTitle: "另请参见",
   },
   hi: {
     btn: "📘 कोर्स", ariaLabel: "कोर्स", title: "कोर्स", empty: "अभी तक कोई कोर्स सामग्री उपलब्ध नहीं है।",
-    close: "← वापस", kindPrimer: "पाठ", kindCheckpoint: "चेकपॉइंट",
+    close: "← वापस", kindPrimer: "पाठ", kindCheckpoint: "चेकपॉइंट", kindScenario: "परिदृश्य",
     minutes: (n) => `~${n} मिनट`, back: "← वापस", exit: "बाहर निकलें", next: "आगे", done: "पूर्ण",
     practiceNow: "अभी इस पाठ का अभ्यास करें", relatedTitle: "यह भी प्रासंगिक",
   },
   tr: {
     btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Henüz kurs içeriği yok.",
-    close: "← Geri", kindPrimer: "Ders", kindCheckpoint: "Kontrol noktası",
+    close: "← Geri", kindPrimer: "Ders", kindCheckpoint: "Kontrol noktası", kindScenario: "Senaryo",
     minutes: (n) => `~${n} dk`, back: "← Geri", exit: "Çık", next: "İleri", done: "Bitti",
     practiceNow: "Bu dersi şimdi pratik et", relatedTitle: "Ayrıca ilgili",
   },
   fr: {
     btn: "📘 Cours", ariaLabel: "Cours", title: "Cours", empty: "Aucun contenu de cours disponible pour le moment.",
-    close: "← Retour", kindPrimer: "Leçon", kindCheckpoint: "Point de contrôle",
+    close: "← Retour", kindPrimer: "Leçon", kindCheckpoint: "Point de contrôle", kindScenario: "Scénario",
     minutes: (n) => `~${n} min`, back: "← Retour", exit: "Quitter", next: "Suivant", done: "Terminé",
     practiceNow: "Pratiquer cette leçon maintenant", relatedTitle: "Voir aussi",
   },
   ru: {
     btn: "📘 Курс", ariaLabel: "Курс", title: "Курс", empty: "Содержимое курса пока недоступно.",
-    close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольная точка",
+    close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольная точка", kindScenario: "Сценарий",
     minutes: (n) => `~${n} мин`, back: "← Назад", exit: "Выйти", next: "Далее", done: "Готово",
     practiceNow: "Практиковать этот урок сейчас", relatedTitle: "Также по теме",
   },
   es: {
     btn: "📘 Curso", ariaLabel: "Curso", title: "Curso", empty: "Aún no hay contenido del curso disponible.",
-    close: "← Atrás", kindPrimer: "Lección", kindCheckpoint: "Punto de control",
+    close: "← Atrás", kindPrimer: "Lección", kindCheckpoint: "Punto de control", kindScenario: "Escenario",
     minutes: (n) => `~${n} min`, back: "← Atrás", exit: "Salir", next: "Siguiente", done: "Listo",
     practiceNow: "Practicar esta lección ahora", relatedTitle: "También relevante",
   },
   it: {
     btn: "📘 Corso", ariaLabel: "Corso", title: "Corso", empty: "Nessun contenuto del corso disponibile per ora.",
-    close: "← Indietro", kindPrimer: "Lezione", kindCheckpoint: "Checkpoint",
+    close: "← Indietro", kindPrimer: "Lezione", kindCheckpoint: "Checkpoint", kindScenario: "Scenario",
     minutes: (n) => `~${n} min`, back: "← Indietro", exit: "Esci", next: "Avanti", done: "Fatto",
     practiceNow: "Esercitati ora su questa lezione", relatedTitle: "Vedi anche",
   },
@@ -4303,8 +4303,13 @@ async function renderCourseView() {
   el("#course-intro").textContent = courseText(bundle, course.course_id, "description") || "";
 
   const unitsById = new Map((course.units || []).map((u) => [u.unit_id, u]));
+  // "scenario" added 2026-08-16: found while checking this view against the
+  // other hasCourse modules (datenschutz/it_sicherheit/dora/nis2 all use
+  // it) - it carries a real `select` block exactly like primer/checkpoint,
+  // so excluding it was a silent content-loss bug, not an intentional
+  // scope boundary the way "lab" (no select, external_hands_on) is.
   const lessons = (course.lessons || []).filter(
-    (l) => l.lesson_kind === "primer" || l.lesson_kind === "checkpoint"
+    (l) => l.lesson_kind === "primer" || l.lesson_kind === "checkpoint" || l.lesson_kind === "scenario"
   );
 
   if (lessons.length === 0) {
@@ -5617,6 +5622,19 @@ function render() {
   courseBtn.title = CS.title;
   courseBtn.setAttribute("aria-label", CS.ariaLabel);
 
+  // 2026-08-16: now a full-width row inside #app-menu rather than a
+  // cramped header icon, so it needs real label text, not just the bare
+  // "ⓘ"/"🎓" glyph the old compact header button got away with.
+  infoBtn.textContent = `ⓘ ${introStrings(state.lang).aboutBtn}`;
+  const certBtn = el("#certificates-btn");
+  certBtn.textContent = `🎓 ${certStrings(state.lang).btn}`;
+  certBtn.title = certStrings(state.lang).btn;
+  certBtn.setAttribute("aria-label", certStrings(state.lang).btn);
+
+  const MS = menuStrings(state.lang);
+  el("#app-menu-title").textContent = MS.title;
+  el("#app-menu-close-btn").textContent = MS.close;
+
   // DN-46: "prepare for offline" button/status - shown for every module
   // (not Fuehrerschein-only like Sign Reference above), hidden only when no
   // module is loaded. Pure repaint from state.offlinePrep - never re-checks
@@ -6034,11 +6052,52 @@ function closeDetail() {
   }
 }
 
+// App menu (2026-08-16) - see #app-menu's comment in app.html for why this
+// exists. Plain pushState/popstate modal, same as every other dialog in
+// this file (openPrimersView() etc.) - deliberately does NOT close itself
+// before a menu item's own click handler runs, since that handler pushes
+// its own history state and its own .exam-modal on top, which fully
+// covers this one visually (same 2-level stacking #course-view/
+// #course-reader already rely on). A single back-step from the item
+// closes it and lands back on this menu; a second closes the menu itself.
+const MENU_STRINGS = {
+  de: { title: "Menü", close: "← Zurück" },
+  en: { title: "Menu", close: "← Back" },
+  uk: { title: "Меню", close: "← Назад" },
+  pl: { title: "Menu", close: "← Wstecz" },
+  ar: { title: "القائمة", close: "← رجوع" },
+  zh: { title: "菜单", close: "← 返回" },
+  hi: { title: "मेनू", close: "← वापस" },
+  tr: { title: "Menü", close: "← Geri" },
+  fr: { title: "Menu", close: "← Retour" },
+  ru: { title: "Меню", close: "← Назад" },
+  es: { title: "Menú", close: "← Atrás" },
+  it: { title: "Menu", close: "← Indietro" },
+};
+
+function menuStrings(lang) {
+  return MENU_STRINGS[lang] || MENU_STRINGS.en;
+}
+
+function openAppMenu() {
+  el("#app-menu").hidden = false;
+  history.pushState({ view: "app-menu" }, "");
+  setInertBehindDialog(true);
+  el("#app-menu-title").focus();
+}
+
+function closeAppMenu() {
+  el("#app-menu").hidden = true;
+  setInertBehindDialog(false);
+}
+
 function wireStaticControls() {
   el("#lang-select").addEventListener("change", (e) => setLang(e.target.value));
   el("#detail-lang-select").addEventListener("change", (e) => setLang(e.target.value));
   el("#module-switch-btn").addEventListener("click", openModulePicker);
   el("#module-picker-cancel").addEventListener("click", () => history.back());
+  el("#menu-btn").addEventListener("click", openAppMenu);
+  el("#app-menu-close-btn").addEventListener("click", () => history.back());
   wireModuleIntroControls();
   el("#certificates-btn").addEventListener("click", openCertificates);
   el("#certificates-close-btn").addEventListener("click", () => history.back());
@@ -6088,6 +6147,7 @@ function wireStaticControls() {
     if (!el("#primers-view").hidden) closePrimersView();
     if (el("#course-reader") && !el("#course-reader").hidden) closeCourseLesson();
     if (el("#course-view") && !el("#course-view").hidden) closeCourseView();
+    if (el("#app-menu") && !el("#app-menu").hidden) closeAppMenu();
     if (!el("#profile-view").hidden) closeProfileSwitcher();
     if (!el("#module-picker").hidden) {
       // On first-ever visit the module picker is mandatory (no content is

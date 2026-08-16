@@ -681,6 +681,57 @@ main {
   text-overflow: ellipsis;
 }
 
+/* App menu (2026-08-16) - the header's secondary controls (About/Learn/
+   Course/Signs/offline-prep/certificates/review/profile-switch), now
+   reachable via the ☰ button instead of a header row that overflowed on
+   narrow phones. #app-menu-list's children are the SAME .module-switch-btn/
+   .review-btn elements the old header row used - this just overrides their
+   compact-pill sizing (max-width/ellipsis/nowrap, meant for a cramped
+   header) into full-width, left-aligned list rows, same visual weight as
+   .exam-mode-btn elsewhere in this file. */
+#app-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  max-height: 60vh;
+  overflow-y: auto;
+  margin-bottom: 4px;
+}
+
+#app-menu-list > .module-switch-btn,
+#app-menu-list > .review-btn,
+#app-menu-list > .offline-prep-wrap {
+  width: 100%;
+  max-width: none;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+#app-menu-list > .offline-prep-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  border: 1px solid var(--border);
+}
+
+#app-menu-list > .offline-prep-wrap > .module-switch-btn {
+  border: none;
+  padding: 0;
+  width: auto;
+}
+
+#app-menu-list > .offline-prep-wrap > .offline-prep-status {
+  max-width: none;
+  white-space: normal;
+}
+
 .review-actions {
   margin: 14px 0 18px;
 }

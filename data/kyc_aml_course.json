@@ -1,0 +1,274 @@
+{
+  "meta": {
+    "app": "Zettacard / kyc-aml-kurs",
+    "version": "0.1",
+    "generated": "2026-08-16",
+    "generator": "authored:claude-sonnet/2026-08-16",
+    "canonical_locale": "de",
+    "locales": ["de", "en"]
+  },
+  "courses": [
+    {
+      "course_id": "kyc_aml-all",
+      "module_ref": "kyc_aml",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 83,
+      "title": { "de": "KYC/AML – Geldwäscheprävention für Compliance-Teams", "en": "KYC/AML – anti-money-laundering compliance for financial-services staff" },
+      "description": {
+        "de": "Sechs Lektionen zur Geldwäscheprävention nach GwG und §261 StGB: von den Grundlagen des All-Crimes-Ansatzes über die allgemeinen Sorgfaltspflichten und die Verdachtsmeldung bis zu verstärkter Sorgfalt bei PEPs und den tatsächlichen Bußgeldrisiken – zugeschnitten auf Bank- und Fintech-Compliance-Personal.",
+        "en": "Six lessons on anti-money-laundering compliance under the GwG and Sec. 261 StGB: from the all-crimes approach through general due diligence and suspicious-activity reporting to enhanced due diligence for PEPs and real-world fine exposure – built for bank and fintech compliance staff."
+      },
+
+      "lessons": [
+        {
+          "lesson_id": "kyc_aml-l0",
+          "order": 0,
+          "title": { "de": "Geldwäsche ist kein Nischenthema mehr: der All-Crimes-Ansatz", "en": "Money laundering is no longer a niche topic: the all-crimes approach" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 12,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "kyc_aml-l0-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "kyc_aml-l0-s1",
+              "legal_basis": "§261 StGB",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "Seit 18. März 2021: jede rechtswidrige Tat kann Vortat sein", "en": "Since 18 March 2021: any unlawful act can be a predicate offense" },
+              "body": {
+                "de": "Bis zum 18. März 2021 war Geldwäsche nach §261 StGB nur strafbar, wenn das eingeschleuste Vermögen aus einem im Gesetz abschließend aufgezählten Katalog von Vortaten stammte – etwa aus Betäubungsmittelhandel, Bandenkriminalität oder bestimmten Steuerdelikten. Mit der Reform vom 18. März 2021 wurde dieser Katalog abgeschafft und durch den sogenannten All-Crimes-Ansatz ersetzt: Seither reicht jede rechtswidrige Tat als Vortat aus, aus der ein Vermögensgegenstand „herrührt“ (§261 Abs. 1 StGB) – eine deutliche und bewusste Ausweitung der Strafbarkeit, die Compliance-Abteilungen seither in praktisch jedem Geschäftsvorfall mitdenken müssen. Der Strafrahmen differenziert dabei klar nach der Schuldform: Vorsätzliche Geldwäsche wird nach dem Grundtatbestand des §261 Abs. 1 StGB bestraft, besonders schwere Fälle – etwa gewerbs- oder bandenmäßige Begehung – verschärfen sich nach §261 Abs. 5 StGB auf sechs Monate bis zehn Jahre Freiheitsstrafe. Für die betriebliche Praxis mindestens ebenso wichtig ist §261 Abs. 6 StGB: die leichtfertige, also grob fahrlässige Geldwäsche, mit einem deutlich milderen Rahmen von bis zu zwei Jahren Freiheitsstrafe oder Geldstrafe. Einfache Fahrlässigkeit dagegen bleibt straflos – wer sorgfältig, aber im Ergebnis erfolglos prüft, macht sich nicht strafbar. Diese Abgrenzung zwischen „leichtfertig“ und „einfach fahrlässig“ ist keine akademische Feinheit, sondern entscheidet in der Praxis, ob ein Mitarbeiter, der eine Auffälligkeit übersehen hat, strafrechtlich belangt werden kann.",
+                "en": "Before 18 March 2021, money laundering under Sec. 261 StGB was only punishable if the funds involved derived from an exhaustively enumerated statutory catalogue of predicate offenses – for example drug trafficking, organised crime, or certain tax offenses. The 18 March 2021 reform abolished that catalogue and replaced it with the so-called all-crimes approach: since then, any unlawful act suffices as a predicate offense from which an asset \"derives\" (Sec. 261(1) StGB) – a deliberate and significant expansion of criminal liability that compliance functions now have to factor into practically every business event. The sentencing framework differs clearly by mental state: intentional money laundering is punished under the basic offense of Sec. 261(1) StGB, and especially serious cases – for example commercial or gang-based commission – escalate under Sec. 261(5) StGB to six months to ten years' imprisonment. At least as important for day-to-day practice is Sec. 261(6) StGB: reckless (leichtfertig, i.e. grossly negligent) money laundering, carrying a markedly more lenient framework of up to two years' imprisonment or a fine. Ordinary negligence, by contrast, remains unpunished – someone who checks carefully but ultimately misses something is not criminally liable. This distinction between \"reckless\" and \"ordinarily negligent\" is not an academic nicety; in practice it decides whether an employee who overlooked a red flag can face criminal liability at all."
+              }
+            },
+            {
+              "section_id": "kyc_aml-l0-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "kyc_aml-l0-s2",
+              "legal_basis": "§2 Abs. 1 GwG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "16 Nummern entscheiden, wer überhaupt Verpflichteter ist", "en": "16 numbered categories decide who counts as an obligated entity at all" },
+              "body": {
+                "de": "Wer überhaupt den Pflichten des GwG unterliegt, regelt §2 Abs. 1 GwG in 16 Nummern abschließend: Kredit- und Finanzdienstleistungsinstitute, Versicherungsunternehmen, Rechtsanwälte und Notare (nur für bestimmte, im Gesetz benannte Geschäfte wie Immobilientransaktionen oder Firmengründungen), Steuerberater, Immobilienmakler und Güterhändler gehören ausdrücklich dazu. Journalistinnen und Journalisten, niedergelassene Ärztinnen und Ärzte sowie Lehrkräfte tauchen in der Liste dagegen nicht auf – ein Punkt, an dem Verwechslungen in der Praxis erstaunlich häufig vorkommen. Zwei ergänzende Bausteine gehören zu diesem Grundgerüst: Erstens das Transparenzregister nach §§18 ff. GwG, das seit dem 1. August 2021 (TraFinG) ein echtes Vollregister ist – juristische Personen des Privatrechts und eingetragene Personengesellschaften müssen ihre wirtschaftlich Berechtigten aktiv melden; die frühere Mitteilungsfiktion über das Handelsregister genügt nicht mehr. Zweitens das spezielle Barzahlungsverbot des §16a GwG (seit 28. Dezember 2022): Beim Erwerb inländischer Immobilien – auch bei Share Deals an immobilienhaltenden Gesellschaften – darf die Gegenleistung nicht mit Bargeld, Kryptowerten, Gold, Platin oder Edelsteinen erbracht werden. Ein allgemeines, geschäftsübergreifendes 10.000-Euro-Bargeldlimit für alle Transaktionen existiert in Deutschland dagegen noch nicht; das kommt erst EU-weit mit der Geldwäscheverordnung (EU) 2024/1624 ab dem 10. Juli 2027.",
+                "en": "Sec. 2(1) GwG exhaustively lists, in 16 numbered categories, who is subject to GwG duties at all: credit and financial services institutions, insurance undertakings, lawyers and notaries (only for specified transactions such as real-estate deals or company formations), tax advisors, real-estate brokers, and goods dealers are explicitly included. Journalists, physicians in private practice, and teachers do not appear on the list – a distinction that gets mixed up surprisingly often in practice. Two additional building blocks round out this baseline: first, the transparency register (Transparenzregister) under Sec. 18 et seq. GwG, which has been a genuine full register since 1 August 2021 (TraFinG) – legal persons under private law and registered partnerships must actively report their beneficial owners; the former notification fiction via the commercial register no longer suffices. Second, the specific cash-payment ban under Sec. 16a GwG (in force since 28 December 2022): when acquiring domestic real estate – including share deals in real-estate-holding companies – the consideration may not be paid in cash, crypto-assets, gold, platinum, or precious stones. A general, transaction-wide EUR 10,000 cash limit does not yet exist in Germany; that arrives EU-wide only with the Anti-Money Laundering Regulation (EU) 2024/1624 from 10 July 2027."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["grundlagen"], "count": 6 }
+        },
+        {
+          "lesson_id": "kyc_aml-l1",
+          "order": 1,
+          "title": { "de": "Die fünf Sorgfaltspflichten und wann sie greifen", "en": "The five due-diligence duties and when they apply" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 14,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "kyc_aml-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "kyc_aml-l1-s1",
+              "legal_basis": "§10 Abs. 1 GwG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "Was auf der Liste steht – und was bewusst fehlt", "en": "What's on the list – and what's deliberately missing" },
+              "body": {
+                "de": "§10 Abs. 1 GwG bündelt fünf allgemeine Sorgfaltspflichten, die jeder Verpflichtete bei jeder erfassten Geschäftsbeziehung erfüllen muss: die Identifizierung des Vertragspartners; die Feststellung, ob ein wirtschaftlich Berechtigter vorhanden ist, und dessen Identifizierung; die Einholung und Bewertung von Informationen über Zweck und angestrebte Art der Geschäftsbeziehung; die Prüfung, ob eine politisch exponierte Person (PEP) vorliegt, mit angemessenen, risikoorientierten Verfahren; sowie die kontinuierliche Überwachung der Geschäftsbeziehung einschließlich der Transaktionen und, soweit erforderlich, der Herkunft der eingesetzten Mittel. Was auf dieser Liste bewusst fehlt, ist ebenso lehrreich wie das, was draufsteht: Eine automatische Meldung der Geschäftsbeziehung an das Finanzamt ist keine GwG-Sorgfaltspflicht – wer das verwechselt, vermischt zwei völlig unterschiedliche Rechtsregime (Steuerrecht vs. Geldwäscheprävention). Ergänzt werden diese kundenbezogenen Pflichten durch zwei kundenunabhängige Bausteine: die Identitätsprüfung nach §12 GwG (amtlicher Lichtbildausweis, eID, qualifizierte elektronische Signatur – Video-Ident ist dabei kein eigener Gesetzesbegriff, sondern eine von der BaFin anerkannte praktische Ausprägung) und die unternehmenseigene Risikoanalyse nach §5 GwG, die unabhängig von jedem einzelnen Kunden die Geldwäsche- und Terrorismusfinanzierungsrisiken des eigenen Geschäfts ermittelt, bewertet und dokumentiert.",
+                "en": "Sec. 10(1) GwG bundles five general due-diligence duties that every obligated entity must fulfil for every relevant business relationship: identifying the contracting party; determining whether a beneficial owner exists and identifying them; obtaining and assessing information on the purpose and intended nature of the business relationship; checking whether the party is a politically exposed person (PEP), using appropriate, risk-based procedures; and ongoing monitoring of the business relationship, including transactions and, where necessary, the origin of the funds used. What is deliberately absent from this list is just as instructive as what's on it: automatically reporting the business relationship to the tax office is not a GwG due-diligence duty – conflating the two mixes up two entirely different legal regimes (tax law vs. anti-money-laundering compliance). These customer-level duties are supplemented by two customer-independent building blocks: identity verification under Sec. 12 GwG (official photo ID, eID, qualified electronic signature – video identification is not a defined statutory term but a practical form recognised by BaFin) and the entity's own risk analysis under Sec. 5 GwG, which identifies, assesses, and documents the money-laundering and terrorist-financing risks of its own business, independently of any individual customer."
+              }
+            },
+            {
+              "section_id": "kyc_aml-l1-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "kyc_aml-l1-s2",
+              "legal_basis": "§10 Abs. 3 GwG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "15.000 Euro, 1.000 Euro, oder gar kein Schwellenwert", "en": "EUR 15,000, EUR 1,000, or no threshold at all" },
+              "body": {
+                "de": "Die Sorgfaltspflichten aus Abs. 1 greifen nicht nur innerhalb laufender Geschäftsbeziehungen, sondern auch bei einzelnen, isolierten Transaktionen – abhängig von Schwellenwerten, die §10 Abs. 3 GwG festlegt. Der allgemeine Schwellenwert liegt bei 15.000 Euro: Wer außerhalb einer bestehenden Geschäftsbeziehung eine Transaktion in dieser Höhe abwickelt, muss die vollen Sorgfaltspflichten anwenden. Für Geldtransfers (im Sinne von Art. 3 Nr. 9 der EU-Verordnung 2023/1113) und für Übertragungen von Kryptowerten gilt dagegen ein deutlich niedrigerer Schwellenwert von 1.000 Euro – eine bewusste regulatorische Reaktion auf die höhere Missbrauchsanfälligkeit schneller, oft grenzüberschreitender Transfers. Ein Beispiel: Eine Bareinzahlung von 12.000 Euro durch eine Laufkundschaft ohne bestehendes Konto löst noch keine Sorgfaltspflicht nach der 15.000-Euro-Schwelle aus – ein Krypto-Transfer von nur 1.500 Euro dagegen schon, weil er weit über der 1.000-Euro-Schwelle liegt. Am wichtigsten für die Praxis: Alle Schwellenwerte werden komplett irrelevant, sobald ein konkreter Verdacht auf Geldwäsche oder Terrorismusfinanzierung besteht – dann greifen die Sorgfaltspflichten unabhängig vom Transaktionswert, und zwar unmittelbar, nicht erst nach Erreichen einer Grenze.",
+                "en": "The due-diligence duties from subsection 1 apply not only within ongoing business relationships but also to single, isolated transactions – depending on thresholds set out in Sec. 10(3) GwG. The general threshold is EUR 15,000: anyone carrying out a transaction of that size outside an existing business relationship must apply the full due-diligence duties. Money transfers (within the meaning of Art. 3 No. 9 of EU Regulation 2023/1113) and crypto-asset transfers, by contrast, are subject to a markedly lower threshold of EUR 1,000 – a deliberate regulatory response to the higher abuse potential of fast, often cross-border transfers. An example: a EUR 12,000 cash deposit by a walk-in customer with no existing account does not yet trigger a duty under the EUR 15,000 threshold – but a crypto transfer of only EUR 1,500 does, because it is well above the EUR 1,000 threshold. Most important for practice: every threshold becomes completely irrelevant the moment a concrete suspicion of money laundering or terrorist financing exists – due-diligence duties then apply regardless of the transaction value, and immediately, not only once a limit is reached."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["sorgfaltspflichten"], "count": 6 }
+        },
+        {
+          "lesson_id": "kyc_aml-l2",
+          "order": 2,
+          "title": { "de": "Die Verdachtsmeldung: kein Schwellenwert, keine Warnung an den Kunden", "en": "The suspicious activity report: no threshold, no tipping off the customer" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 14,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "kyc_aml-l2-s1",
+              "order": 0,
+              "section_kind": "decision_flow",
+              "body_key": "kyc_aml-l2-s1",
+              "legal_basis": "§43 Abs. 1 GwG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "An die FIU, unverzüglich, unabhängig vom Betrag", "en": "To the FIU, without delay, regardless of amount" },
+              "body": {
+                "de": "Entsteht bei einem Verpflichteten der Verdacht, dass ein Vermögensgegenstand aus einer strafbaren Handlung herrührt, mit Geldwäsche oder Terrorismusfinanzierung im Zusammenhang steht, oder dass ein Vertragspartner seine Pflicht zur Offenlegung des wirtschaftlich Berechtigten nicht erfüllt hat, muss er dies nach §43 Abs. 1 GwG unverzüglich der Zentralstelle für Finanztransaktionsuntersuchungen (FIU) melden – der deutschen Financial Intelligence Unit, angesiedelt bei der Generalzolldirektion. Zwei Eigenschaften dieser Pflicht überraschen Neulinge häufig: Erstens gibt es keinen Mindesttransaktionswert. Anders als die allgemeinen Sorgfaltspflichten aus §10 GwG kennt die Meldepflicht keine 15.000-Euro- oder 1.000-Euro-Schwelle – ein Verdachtsfall über 50 Euro ist ebenso meldepflichtig wie einer über 5 Millionen Euro. Zweitens ist die Meldung nach §45 Abs. 1 GwG elektronisch über das Portal goAML einzureichen; seit dem 1. Januar 2024 müssen sich alle Verpflichteten dort registrieren, unabhängig davon, ob sie jemals tatsächlich eine Meldung abgeben. Wichtig für die Zuständigkeit: Die BaFin ist Aufsichtsbehörde und überwacht, ob Institute ihre GwG-Pflichten einhalten – sie nimmt selbst aber keine Verdachtsmeldungen entgegen. Meldeadressat ist ausschließlich die FIU.",
+                "en": "If an obligated entity develops a suspicion that an asset derives from a criminal act, is connected to money laundering or terrorist financing, or that a contracting party has failed to disclose its beneficial owner, it must report this without delay to the Zentralstelle für Finanztransaktionsuntersuchungen (FIU) under Sec. 43(1) GwG – Germany's Financial Intelligence Unit, housed within the Generalzolldirektion (Central Customs Authority). Two features of this duty regularly surprise newcomers. First, there is no minimum transaction value. Unlike the general due-diligence duties in Sec. 10 GwG, the reporting duty has no EUR 15,000 or EUR 1,000 threshold – a suspected case involving EUR 50 is just as reportable as one involving EUR 5 million. Second, under Sec. 45(1) GwG the report must be filed electronically via the goAML portal; since 1 January 2024, all obligated entities must register there regardless of whether they ever actually file a report. Important for jurisdiction: BaFin is the supervisory authority and monitors whether institutions comply with their GwG duties – but it does not itself receive suspicious activity reports. The sole recipient of reports is the FIU."
+              }
+            },
+            {
+              "section_id": "kyc_aml-l2-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "kyc_aml-l2-s2",
+              "legal_basis": "§46, §47 GwG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "Stillhalten, und den Kunden nicht warnen", "en": "Stand still, and do not tip off the customer" },
+              "body": {
+                "de": "An die Meldung schließen sich zwei weitere Pflichten an, die in der Praxis leicht übersehen werden. Erstens die Stillhaltepflicht nach §46 Abs. 1 GwG: Eine gemeldete Transaktion darf frühestens durchgeführt werden, wenn die FIU oder die Staatsanwaltschaft ausdrücklich zustimmt oder der dritte Werktag nach dem Abgangstag der Meldung verstrichen ist, ohne dass die Durchführung untersagt wurde (Samstage zählen dabei nicht als Werktag). §46 Abs. 2 GwG lässt eine Ausnahme zu, wenn ein Aufschub nicht möglich ist oder die Strafverfolgung behindern könnte – dann darf die Transaktion durchgeführt werden, die Meldung muss aber unverzüglich nachgeholt werden. Zweitens das Tipping-off-Verbot nach §47 GwG: Der Verpflichtete darf den betroffenen Kunden, andere Transaktionsbeteiligte oder sonstige Dritte nicht über eine beabsichtigte oder bereits erstattete Meldung informieren – auch nicht indirekt, etwa durch auffällig zögerliches Verhalten mit erkennbarem Grund. Ausdrücklich ausgenommen sind die Kommunikation mit Behörden sowie, unter bestimmten Voraussetzungen, die gruppeninterne Weitergabe innerhalb desselben Konzerns. Wer diese beiden Pflichten missachtet – eine gemeldete Transaktion vorzeitig ausführt oder den Kunden warnt – gefährdet nicht nur die eigene Verdachtsmeldung, sondern macht sich selbst angreifbar.",
+                "en": "Two further duties follow on from the report and are easily overlooked in practice. First, the standstill duty under Sec. 46(1) GwG: a reported transaction may be executed at the earliest once the FIU or the public prosecutor's office has expressly consented, or once the third working day after the report's dispatch date has elapsed without a prohibition (Saturdays do not count as working days here). Sec. 46(2) GwG allows an exception where postponement is not possible or could obstruct criminal prosecution – the transaction may then be executed, but the report must be filed without delay afterwards. Second, the tipping-off prohibition under Sec. 47 GwG: the obligated entity may not inform the affected customer, other transaction parties, or any other third party about an intended or already-filed report – not even indirectly, for example through conspicuously stalling behaviour with a recognisable reason. Explicitly exempted are communication with authorities and, under certain conditions, group-internal sharing within the same corporate group. Disregarding either duty – executing a reported transaction early, or warning the customer – doesn't just jeopardise the report itself, it exposes the entity to liability of its own."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["verdachtsmeldung"], "count": 6 }
+        },
+        {
+          "lesson_id": "kyc_aml-l3",
+          "order": 3,
+          "title": { "de": "Verstärkte Sorgfaltspflichten: PEP, Hochrisikoländer, Führungsebene", "en": "Enhanced due diligence: PEPs, high-risk countries, senior management" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 14,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "kyc_aml-l3-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "kyc_aml-l3-s1",
+              "legal_basis": "§1 Abs. 12-14 GwG, §15 Abs. 3 GwG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "Drei unabhängige Auslöser für verstärkte Sorgfalt", "en": "Three independent triggers for enhanced due diligence" },
+              "body": {
+                "de": "Politisch exponierte Personen (PEPs) lösen nach §15 GwG verstärkte, über die Grundpflichten aus §10 GwG hinausgehende Sorgfaltspflichten aus – und dieser erweiterte Kreis endet nicht bei der PEP selbst. §1 Abs. 12 GwG definiert, wer als PEP gilt (Personen mit hochrangigen politischen, gerichtlichen oder militärischen Ämtern, im In- oder Ausland sowie bei internationalen Organisationen); §1 Abs. 13 GwG erweitert die verstärkte Prüfung auf Familienmitglieder – Ehe- oder Lebenspartner, Kinder und deren Partner sowie Eltern; §1 Abs. 14 GwG erfasst zusätzlich bekanntermaßen nahestehende Personen, etwa bei gemeinsamer wirtschaftlicher Berechtigung oder engen Geschäftsbeziehungen. Alle drei Gruppen unterliegen denselben verstärkten Maßnahmen. Ein zweiter, unabhängiger Auslöser sind Drittstaaten mit hohem Risiko – wobei das GwG selbst keine eigene Länderliste enthält. Maßgeblich ist ausschließlich die Liste, die die Europäische Kommission per delegierter Verordnung festlegt (§15 Abs. 3 Nr. 2 GwG); eine eigene Hausliste oder eine FIU-Liste genügt nicht. Ein dritter, transaktionsbezogener Auslöser läuft komplett unabhängig vom Herkunftsland: besonders komplexe, ungewöhnlich große Transaktionen ohne erkennbaren wirtschaftlichen oder rechtmäßigen Zweck (§15 Abs. 3 Nr. 3 GwG) – ein klassisches Layering-Muster im Sinne des FATF-Modells.",
+                "en": "Politically exposed persons (PEPs) trigger enhanced due diligence under Sec. 15 GwG, going beyond the baseline duties in Sec. 10 GwG – and that expanded circle does not stop at the PEP alone. Sec. 1(12) GwG defines who counts as a PEP (people holding prominent political, judicial, or military positions, domestically or abroad, or at international organisations); Sec. 1(13) GwG extends enhanced scrutiny to family members – spouses or registered partners, children and their partners, and parents; Sec. 1(14) GwG additionally covers persons known to be close associates, for example through joint beneficial ownership or close business relationships. All three groups are subject to the same enhanced measures. A second, independent trigger is high-risk third countries – the GwG itself contains no country list of its own. What matters exclusively is the list the European Commission sets via a delegated regulation (Sec. 15(3) No. 2 GwG); an entity's own internal list or an FIU list is not sufficient. A third, transaction-based trigger runs entirely independently of country of origin: especially complex, unusually large transactions with no apparent economic or lawful purpose (Sec. 15(3) No. 3 GwG) – a textbook layering pattern in the sense of the FATF model."
+              }
+            },
+            {
+              "section_id": "kyc_aml-l3-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "kyc_aml-l3-s2",
+              "legal_basis": "§15 Abs. 4 GwG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "Führungsebene zuerst zustimmen lassen, nicht nachträglich absegnen", "en": "Get senior management to approve first, not sign off afterwards" },
+              "body": {
+                "de": "Wurde ein erhöhtes Risiko festgestellt – ob durch PEP-Bezug, Hochrisikoland oder auffällige Transaktion –, schreibt §15 Abs. 4 GwG für PEP-Geschäftsbeziehungen konkrete Maßnahmen vor: Vor Begründung oder Fortführung der Geschäftsbeziehung ist zwingend die Zustimmung eines Mitglieds der Führungsebene (Senior Management) einzuholen, es sind angemessene Maßnahmen zur Bestimmung der Herkunft von Vermögen und eingesetzten Mitteln zu treffen, und die Geschäftsbeziehung ist einer verstärkten kontinuierlichen Überwachung zu unterziehen. Das ist keine theoretische Anforderung: Genau diese Vorgabe – die fehlende Zustimmung der Führungsebene bei einer PEP-Geschäftsbeziehung – war 2025 Teil eines BaFin-Bußgeldbescheids gegen ein deutsches Kreditinstitut, das auch wegen weiterer Verstöße ein Gesamtbußgeld im sechsstelligen Bereich erhielt. Für grenzüberschreitende Korrespondenzbankbeziehungen gilt eine strukturell ähnliche, aber eigenständige Regel nach §15 Abs. 3 Nr. 4 und Abs. 7 GwG: Bei Respondenten aus einem Drittstaat greifen verstärkte Sorgfaltspflichten immer, bei Respondenten aus dem EWR nur nach eigener Risikoeinschätzung des Verpflichteten – in beiden Fällen inklusive Zustimmung der Führungsebene und der Pflicht, sicherzustellen, dass der Respondent keine Bank-Mantelgesellschaften (Shell Banks) bedient.",
+                "en": "Once an increased risk has been identified – whether through PEP status, a high-risk country, or a flagged transaction – Sec. 15(4) GwG prescribes concrete measures for PEP business relationships: before establishing or continuing the relationship, approval from a member of senior management is mandatory, appropriate measures must be taken to establish the source of wealth and of the funds used, and the relationship must be subject to enhanced ongoing monitoring. This is not a theoretical requirement: exactly this requirement – missing senior-management approval for a PEP business relationship – was part of a 2025 BaFin fine against a German credit institution, which also received a total fine in the six-figure range for further violations. A structurally similar but distinct rule applies to cross-border correspondent banking relationships under Sec. 15(3) No. 4 and (7) GwG: for respondents seated in a third country, enhanced due diligence always applies; for respondents in the EEA, only following the obligated entity's own risk assessment – in both cases including senior-management approval and a duty to ensure the respondent does not permit shell-bank accounts."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["verstaerkte_sorgfalt"], "count": 6 }
+        },
+        {
+          "lesson_id": "kyc_aml-l4",
+          "order": 4,
+          "title": { "de": "Bußgelder: von 150.000 Euro bis 45 Millionen Euro", "en": "Fines: from EUR 150,000 to EUR 45 million" },
+          "lesson_kind": "primer",
+          "estimated_minutes": 13,
+          "completion_rule": "quiz_pass:0.7",
+          "sections": [
+            {
+              "section_id": "kyc_aml-l4-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "kyc_aml-l4-s1",
+              "legal_basis": "§56 Abs. 1, Abs. 3 GwG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "Zwei Bußgeldstufen, und ein Geldwäschebeauftragter als Gegenmaßnahme", "en": "Two fine tiers, and an AML officer as a countermeasure" },
+              "body": {
+                "de": "Das GwG staffelt seine Bußgelder in zwei Stufen. Die Grundstufe nach §56 Abs. 1 GwG erfasst zahlreiche Ordnungswidrigkeitstatbestände – etwa Verstöße gegen die Risikoanalyse, interne Sicherungsmaßnahmen oder die Sorgfaltspflichten – mit einem Rahmen von bis zu 150.000 Euro bei vorsätzlicher und bis zu 100.000 Euro bei leichtfertiger Begehung; einfache Fahrlässigkeit ist hier nicht bußgeldbewehrt. Die verschärfte Stufe nach §56 Abs. 3 GwG greift erst bei schwerwiegenden, wiederholten oder systematischen Verstößen und hebt den Rahmen für die meisten Verpflichteten auf bis zu 1 Million Euro oder das Zweifache des aus dem Verstoß gezogenen wirtschaftlichen Vorteils, je nachdem, welcher Betrag höher liegt. Für Kredit- und Finanzdienstleistungsinstitute – und für natürliche Personen in diesem Bereich – steigt dieser verschärfte Rahmen sogar auf bis zu 5 Millionen Euro oder 10 % des jährlichen Gesamtumsatzes. Eine zentrale organisatorische Vorkehrung gegen genau solche Verstöße ist der Geldwäschebeauftragte nach §7 GwG: Bestimmte Verpflichtete – darunter Kredit- und Finanzdienstleistungsinstitute sowie Versicherungsunternehmen – müssen ihn und einen Stellvertreter bestellen; er ist der Geschäftsleitung unmittelbar nachgeordnet, seine Bestellung ist der Aufsichtsbehörde vorab mitzuteilen, und er genießt besonderen Kündigungsschutz bis ein Jahr nach seiner Abberufung.",
+                "en": "The GwG structures its fines in two tiers. The base tier under Sec. 56(1) GwG covers numerous administrative-offense provisions – for example violations of the risk analysis, internal safeguards, or due-diligence duties – with a framework of up to EUR 150,000 for intentional conduct and up to EUR 100,000 for reckless (leichtfertig) conduct; ordinary negligence does not trigger a fine here. The aggravated tier under Sec. 56(3) GwG applies only to serious, repeated, or systematic violations and raises the framework for most obligated entities to up to EUR 1 million, or twice the economic benefit derived from the violation, whichever is higher. For credit institutions and financial services institutions – and for natural persons in this sector – this aggravated framework rises even further, to up to EUR 5 million or 10% of total annual turnover. A key organisational safeguard against exactly these violations is the anti-money-laundering officer under Sec. 7 GwG: certain obligated entities – including credit and financial services institutions and insurance undertakings – must appoint one, plus a deputy; the officer reports directly to senior management, the appointment must be notified to the supervisory authority in advance, and the officer enjoys special dismissal protection lasting until one year after removal from office."
+              }
+            },
+            {
+              "section_id": "kyc_aml-l4-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "kyc_aml-l4-s2",
+              "legal_basis": "BaFin-Verfügungen: KT Bank AG (2025), J.P. Morgan SE (2025)",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "Zwei reale Fälle, zwei völlig unterschiedliche Größenordnungen", "en": "Two real cases, two very different orders of magnitude" },
+              "body": {
+                "de": "Zwei aktuelle BaFin-Verfahren zeigen, wie unterschiedlich hoch die tatsächlichen Bußgelder je nach Art des Verstoßes ausfallen können. Am 23. Januar 2025 verhängte die BaFin gegen die KT Bank AG ein Gesamtbußgeld von 600.000 Euro, zusammengesetzt aus 30 Einzelbußgeldern zu je 20.000 Euro – wegen unzureichender interner Sicherungsmaßnahmen, mangelhafter Aufzeichnungspflichten und der bereits erwähnten fehlenden Zustimmung der Führungsebene bei PEP-Geschäftsbeziehungen. Am 6. November 2025 gab die BaFin ein Bußgeld gegen die J.P. Morgan SE in Höhe von 45 Millionen Euro bekannt – bestandskräftig seit dem 30. Oktober 2025 – wegen in zahlreichen Fällen nicht rechtzeitig abgegebener Verdachtsmeldungen nach §43 Abs. 1 GwG im Zeitraum Oktober 2021 bis September 2022, verursacht durch systemische Mängel in den internen Kontrollmechanismen. Der Größenunterschied ist lehrreich: 600.000 Euro betrafen überwiegend Dokumentations- und Governance-Mängel, 45 Millionen Euro betrafen die verspätete Erfüllung der Kernpflicht des gesamten GwG-Systems – der unverzüglichen Verdachtsmeldung. Beide Fälle sind öffentlich dokumentierte, rechtskräftige Verwaltungsakte; wie bei jedem Einzelfall können sich Details ändern, wenn neue Erkenntnisse oder Rechtsmittelentscheidungen hinzukommen.",
+                "en": "Two recent BaFin proceedings show how differently sized the actual fines can be depending on the type of violation. On 23 January 2025, BaFin imposed a total fine of EUR 600,000 on KT Bank AG, made up of 30 individual fines of EUR 20,000 each – for inadequate internal safeguards, deficient record-keeping duties, and the missing senior-management approval for PEP business relationships already mentioned above. On 6 November 2025, BaFin announced a fine of EUR 45 million against J.P. Morgan SE – final and binding since 30 October 2025 – for failing, in numerous cases, to file suspicious activity reports on time under Sec. 43(1) GwG during the period from October 2021 to September 2022, caused by systemic deficiencies in internal control mechanisms. The size difference is instructive: the EUR 600,000 fine mainly concerned documentation and governance shortcomings, while the EUR 45 million fine concerned the delayed fulfilment of the core duty of the entire GwG system – the timely suspicious activity report. Both cases are publicly documented, final administrative decisions; as with any individual case, details can shift if new findings or appellate decisions emerge."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["sanktionen"], "count": 6 }
+        },
+        {
+          "lesson_id": "kyc_aml-l5",
+          "order": 5,
+          "title": { "de": "Wo das eigentliche Haftungsrisiko liegt: Meldepflicht und verstärkte Sorgfalt", "en": "Where the real liability risk sits: the reporting duty and enhanced due diligence" },
+          "lesson_kind": "checkpoint",
+          "estimated_minutes": 16,
+          "completion_rule": "quiz_pass:0.8",
+          "sections": [
+            {
+              "section_id": "kyc_aml-l5-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "kyc_aml-l5-s1",
+              "legal_basis": "§43 Abs. 1, §15 Abs. 4 GwG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "Nicht die KYC-Aufnahme ist das Risiko, sondern was danach passiert", "en": "The risk isn't the KYC onboarding, it's what happens after" },
+              "body": {
+                "de": "Diese Schulung endet dort, wo das tatsächliche Haftungsrisiko eines GwG-Verpflichteten am größten ist – nicht bei der Basis-KYC-Aufnahme eines neuen Kunden, sondern bei der Verdachtsmeldung und der verstärkten Sorgfalt gegenüber PEPs, Hochrisikoländern und auffälligen Transaktionen. Der Vergleich der beiden BaFin-Fälle aus der vorigen Lektion macht das konkret: Das größte Einzelbußgeld in diesem Modul, 45 Millionen Euro gegen die J.P. Morgan SE, entstand nicht durch fehlerhafte KYC-Formulare, sondern durch verspätete Verdachtsmeldungen nach §43 Abs. 1 GwG – die Kernpflicht des gesamten Systems. Das andere Verfahren traf unter anderem die fehlende Zustimmung der Führungsebene bei einer PEP-Geschäftsbeziehung nach §15 Abs. 4 GwG – eine Pflicht, die viele Häuser als organisatorische Formalie unterschätzen, bis eine Aufsichtsbehörde genau danach fragt. Beide Bereiche teilen ein gemeinsames Muster: Sie verlangen nicht nur, eine Pflicht zu kennen, sondern sie im Ernstfall unter Zeitdruck korrekt umzusetzen – unverzüglich zu melden, ohne den Kunden zu warnen, oder rechtzeitig die Führungsebene einzubinden, bevor eine PEP-Beziehung beginnt. Die folgende Prüfung zieht deshalb bewusst überproportional viele Fragen aus genau diesen beiden Themenfeldern.",
+                "en": "This training ends where a GwG-obligated entity's real liability risk is greatest – not at the basic KYC onboarding of a new customer, but in suspicious activity reporting and enhanced due diligence for PEPs, high-risk countries, and flagged transactions. Comparing the two BaFin cases from the previous lesson makes this concrete: the largest single fine in this module, EUR 45 million against J.P. Morgan SE, did not arise from flawed KYC paperwork but from late suspicious activity reports under Sec. 43(1) GwG – the core duty of the entire system. The other case involved, among other things, the missing senior-management approval for a PEP business relationship under Sec. 15(4) GwG – a duty many institutions underestimate as an organisational formality, until a supervisor asks about exactly that. Both areas share a common pattern: they don't just require knowing a duty, they require executing it correctly under time pressure in a real incident – reporting without delay, without warning the customer, or bringing in senior management in time, before a PEP relationship begins. The quiz that follows therefore deliberately draws a disproportionate share of its questions from exactly these two topic areas."
+              }
+            },
+            {
+              "section_id": "kyc_aml-l5-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "kyc_aml-l5-s2",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "self_reviewed",
+              "generator": "authored:claude-sonnet/2026-08-16",
+              "title": { "de": "Zwei Merksätze für den Ernstfall", "en": "Two rules of thumb for a real incident" },
+              "body": {
+                "de": "Ein praktischer Merksatz für den Arbeitsalltag: Bei der Verdachtsmeldung zählt jede Stunde – unverzüglich bedeutet ohne schuldhaftes Zögern, nicht „irgendwann diese Woche“, und die Stillhaltepflicht nach §46 GwG sowie das Tipping-off-Verbot nach §47 GwG laufen ab dem Moment, in dem der Verdacht entsteht, nicht erst nach interner Abstimmung. Bei verstärkter Sorgfalt zählt dagegen vor allem die Reihenfolge: Die Zustimmung der Führungsebene muss VOR Begründung oder Fortführung einer PEP-Geschäftsbeziehung eingeholt werden, nicht danach als nachträgliche Absegnung. Wer beide Regeln verinnerlicht hat – Meldepflicht ohne Schwellenwert und ohne Verzögerung, verstärkte Sorgfalt mit vorheriger Führungsebenen-Zustimmung –, deckt den Kern dessen ab, wofür Aufsichtsbehörden in der Praxis tatsächlich Bußgelder verhängen.",
+                "en": "A practical rule of thumb for daily work: for suspicious activity reports, every hour counts – \"without delay\" means without culpable hesitation, not \"sometime this week\", and both the standstill duty under Sec. 46 GwG and the tipping-off prohibition under Sec. 47 GwG start running the moment the suspicion arises, not after internal sign-off. For enhanced due diligence, by contrast, sequence is what matters most: senior-management approval must be obtained BEFORE establishing or continuing a PEP business relationship, not afterwards as a retroactive rubber stamp. Anyone who has internalised both rules – a reporting duty with no threshold and no delay, and enhanced due diligence with prior senior-management approval – has covered the core of what supervisory authorities actually fine in practice."
+              }
+            }
+          ],
+          "select": { "topic_codes": ["verdachtsmeldung", "verstaerkte_sorgfalt"], "count": 12 }
+        }
+      ],
+
+      "exam_blueprint": null
+    }
+  ]
+}

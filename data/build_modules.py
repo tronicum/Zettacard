@@ -260,14 +260,20 @@ def main():
     hgs_count, hgs_missing = split_module(
         os.path.join(HERE, "hinweisgeberschutz_pilot.json"), "hinweisgeberschutz", compliance_locales)
     print(f"hinweisgeberschutz: {hgs_count} questions, locale gaps: {hgs_missing}")
+    if split_course("hinweisgeberschutz", ["de", "en"]):
+        print("hinweisgeberschutz: course layer built (de, en)")
 
     kyc_count, kyc_missing = split_module(
         os.path.join(HERE, "kyc_aml_pilot.json"), "kyc_aml", ["de", "en"])
     print(f"kyc_aml: {kyc_count} questions, locale gaps: {kyc_missing}")
+    if split_course("kyc_aml", ["de", "en"]):
+        print("kyc_aml: course layer built (de, en)")
 
     kartell_count, kartell_missing = split_module(
         os.path.join(HERE, "kartellrecht_pilot.json"), "kartellrecht", ["de", "en"])
     print(f"kartellrecht: {kartell_count} questions, locale gaps: {kartell_missing}")
+    if split_course("kartellrecht", ["de", "en"]):
+        print("kartellrecht: course layer built (de, en)")
 
     # 2026-08-15 bugfix: dora/nis2 split_module() calls had gone missing from
     # this script even though app/data/dora and app/data/nis2 were already
