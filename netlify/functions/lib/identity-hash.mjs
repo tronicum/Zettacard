@@ -8,21 +8,12 @@
 // reversible via a rainbow table, which defeats the point of hashing it in
 // the first place - the salt is what makes that infeasible).
 //
-// This exact scheme (`sha256$` prefix, crypto.randomBytes(16) salt) was
-// already the documented design intent for this project - see BACKLOG.md's
-// "Optional multi-email identity binding for wallet-import badges" entry -
-// but that entry's implementation was never actually committed anywhere in
-// this repo (there is no prior hashing code to reuse; grep the repo before
-// assuming otherwise). This module is a fresh, from-scratch implementation
-// of the same convention, factored out here so netlify/functions/issue-
-// badge.js (and any future function needing the same hashed-identity
-// shape) doesn't have to duplicate it.
-//
-// Plain Node built-in `crypto` only - no external dependency, no ESM
-// concerns, safe to `require()` normally at the top of a file (unlike
-// `jose` or `@netlify/blobs`, which need the lazy-import-with-cache
-// pattern documented at the top of sign-credential.js and issue-badge.js).
-const crypto = require("crypto");
+// ESM version of the original identity-hash.js (CommonJS), created
+// 2026-08-16 when issue-badge.js was converted to a Functions v2 (.mjs)
+// module - see issue-badge.mjs's top-of-file comment for why. Logic is
+// byte-for-byte identical to the retired .js version; only the
+// require()/module.exports wrapper changed to import/export.
+import crypto from "node:crypto";
 
 // Hashes a single identity value (an email address, a display name, etc.)
 // with a fresh random salt. Returns { hash, salt } where `hash` is already
@@ -31,14 +22,12 @@ const crypto = require("crypto");
 // for matching purposes without the salt that produced it.
 //
 // Note this intentionally does NOT normalize/trim the input - callers
-// (e.g. issue-badge.js) are responsible for normalizing a value (such as
+// (e.g. issue-badge.mjs) are responsible for normalizing a value (such as
 // lowercasing + trimming an email address) *before* calling this, so the
 // normalization policy lives with the caller who knows the field's
 // semantics, not buried in a generic hashing helper.
-function hashIdentity(value) {
+export function hashIdentity(value) {
   const salt = crypto.randomBytes(16).toString("hex");
   const digest = crypto.createHash("sha256").update(value + salt).digest("hex");
   return { hash: `sha256$${digest}`, salt };
 }
-
-module.exports = { hashIdentity };

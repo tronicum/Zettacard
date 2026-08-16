@@ -1,55 +1,61 @@
 // Netlify Function: manually issues a signed, salted-hash-identity TEST
 // badge, used to verify the identity-hashing + signing + Blobs-storage
 // pipeline end-to-end (crypto.randomUUID() badge id -> hashed identity ->
-// ES256-signed JWT -> Netlify Blobs -> get-badge.js retrieval), NOT for
+// ES256-signed JWT -> Netlify Blobs -> get-badge.mjs retrieval), NOT for
 // real exam-completion credentials.
 //
 // -----------------------------------------------------------------------
 // Why this is a SEPARATE function from sign-credential.js, not a mode/flag
-// on it:
-//
-// sign-credential.js is already live in production signing real exam-
-// completion credentials (see its own top-of-file comment for the full
-// trust-boundary discussion). Bolting a "test badge" branch onto that
-// file's request handling would risk regressing the one thing it must
-// never do - sign or mis-shape a real completion credential - for the sake
-// of a feature that has nothing to do with exam completions. Keeping this
-// entirely separate means a bug here (bad validation, a hashing mistake, a
-// Blobs outage) cannot touch the live exam-signing path at all. The two
-// functions do share the same signing key/JWKS (there is only one
-// Zettacard issuer identity to verify against) and the same jose-loading
-// and ES256/JWT conventions, mirrored deliberately for consistency - see
-// sign-credential.js for the canonical version of those conventions.
+// on it: see the original 2026-08-16 issue-badge.js's comment (same
+// reasoning, unchanged) - sign-credential.js is already live signing real
+// exam-completion credentials, and bolting a test-badge branch onto it
+// would risk regressing the one thing it must never do, for the sake of a
+// feature that has nothing to do with exam completions.
 // -----------------------------------------------------------------------
-
-// jose v6 ships as an ESM-only package - a top-level `require("jose")`
-// crashes Netlify's bundled CommonJS function at runtime with a raw
-// ERR_REQUIRE_ESM stack trace (confirmed live on sign-credential.js's first
-// real deploy, 2026-08-06 - see that file's comment for the full story). A
-// dynamic import() works from CommonJS and is cached after the first call
-// within a given function instance, so this has no real per-request cost
-// beyond the first invocation. Mirrored here exactly for the same reason.
-let _josePromise;
-function loadJose() {
-  if (!_josePromise) _josePromise = import("jose");
-  return _josePromise;
-}
-
-// @netlify/blobs actually ships a dual CJS/ESM build (unlike jose, which is
-// ESM-only), so a top-level require() would probably work today - but
-// "probably works with this particular bundler" is exactly the assumption
-// that already broke sign-credential.js's first real deploy for jose, and
-// this project isn't interested in re-learning that lesson a second time
-// for a different package. Same lazy-import-with-cache treatment, for
-// consistency and safety, whether or not it's strictly required.
-let _blobsPromise;
-function loadBlobs() {
-  if (!_blobsPromise) _blobsPromise = import("@netlify/blobs");
-  return _blobsPromise;
-}
-
-const crypto = require("crypto");
-const { hashIdentity } = require("./lib/identity-hash");
+//
+// -----------------------------------------------------------------------
+// 2026-08-16, round 3: converted from Functions v1 (exports.handler,
+// event/callback style) to Functions v2 (export default, Request/Response
+// style) SPECIFICALLY to fix a real, root-caused Netlify Blobs bug, not as
+// a style preference:
+//
+// The v1 version passed an explicit { siteID, token } to getStore(),
+// reading the token from a manually-created NETLIFY_BLOBS_TOKEN secret env
+// var, because v1 functions never get Netlify's automatic Blobs credential
+// injection (confirmed via Netlify's own official coding-context guidance:
+// "This does NOT apply to legacy V1 functions which require manual
+// siteID/token configuration"). That part worked as designed. What did NOT
+// work: the token never actually reached process.env at runtime
+// (getStore() kept throwing MissingBlobsEnvironmentError with
+// hasToken: false), even after two rounds of fixing/broadening the env
+// var's scopes. Root-caused this round via a set of harmless non-secret
+// probe env vars deployed alongside a temporary diagnostic: a probe named
+// with the exact same "NETLIFY_" and even "NETLIFY_BLOBS_" prefix as the
+// real token reached process.env fine, ruling out any name-reservation
+// theory - but a probe var created with envVarIsSecret: true (matching the
+// real token's own "secret" flag, everything else identical) did NOT reach
+// process.env. Conclusion: this project's zip/API deploy method (see
+// docs/netlify-deploy-status.md) does not inject secret-flagged env vars
+// into function runtimes at all - a Netlify platform behavior, not a
+// config mistake in this repo. The two fixes available were (a) un-mark
+// the token as non-secret, which trades a real security property (a
+// Netlify Personal Access Token sitting in cleartext in the dashboard) for
+// convenience - a decision for a human, not this session - or (b) stop
+// needing a manually-managed secret at all by switching to Functions v2,
+// which gets Netlify's automatic, zero-config, per-deploy-scoped Blobs
+// credentials. Verified live via a throwaway blobs-v2-probe.mjs function
+// (deployed, called getStore() with zero options, wrote+read a blob
+// successfully) before converting this real function, precisely to avoid
+// discovering a v2-specific problem only after committing to the rewrite.
+// (b) was chosen: no secret to manage, no token to rotate or leak, works
+// identically for this site's non-git-linked deploy method. The
+// NETLIFY_BLOBS_TOKEN env var itself and the old blobsStoreOptions()
+// helper are gone - genuinely unneeded now, not just unused.
+// -----------------------------------------------------------------------
+import crypto from "node:crypto";
+import { importJWK, SignJWT } from "jose";
+import { getStore } from "@netlify/blobs";
+import { hashIdentity } from "./lib/identity-hash.mjs";
 
 const ALG = "ES256";
 // Same issuer identity/JWKS as sign-credential.js - see that file's
@@ -61,26 +67,6 @@ const ISSUER_URL = process.env.URL || "https://zettacard.netlify.app";
 const JWKS_PATH = "/.well-known/jwks.json";
 
 const BLOBS_STORE_NAME = "test-badges";
-// This repo deploys via the Netlify CLI/API zip-upload method (see
-// docs/netlify-deploy-status.md), not git-triggered continuous deployment -
-// confirmed live (2026-08-16) that Netlify only auto-injects Blobs
-// credentials for the latter; a zip deploy throws
-// MissingBlobsEnvironmentError from getStore() with no explicit siteID/
-// token. Netlify's Functions runtime does still auto-provide SITE_ID
-// (a standard Netlify build/runtime env var, unrelated to Blobs) for
-// whichever site is actually running the function, so no hardcoding is
-// needed there. NETLIFY_BLOBS_TOKEN is a Personal Access Token, set once
-// as a secret env var (Netlify UI, scoped to Functions only) - see
-// docs/open-badges-signing-setup.md-style handling: never logged, never
-// returned in any response. Falls back to automatic getStore(name) (no
-// options) if either is somehow missing, in case Netlify ever extends
-// auto-injection to zip deploys - that path just goes back to throwing
-// the same clear MissingBlobsEnvironmentError it does today.
-function blobsStoreOptions() {
-  const siteID = process.env.SITE_ID;
-  const token = process.env.NETLIFY_BLOBS_TOKEN;
-  return siteID && token ? { siteID, token } : undefined;
-}
 
 const MAX_NAME_LEN = 200;
 const MAX_ACHIEVEMENT_NAME_LEN = 200;
@@ -93,11 +79,10 @@ const MAX_EMAIL_LEN = 320;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function jsonResponse(statusCode, body) {
-  return {
-    statusCode,
+  return new Response(JSON.stringify(body), {
+    status: statusCode,
     headers: { "content-type": "application/json" },
-    body: JSON.stringify(body),
-  };
+  });
 }
 
 // Validates shape/types/plausibility of the client-submitted test-badge
@@ -223,8 +208,8 @@ function buildCredentialClaims({ name, achievementName, achievementDescription, 
   };
 }
 
-exports.handler = async (event) => {
-  if (event.httpMethod !== "POST") {
+export default async (request) => {
+  if (request.method !== "POST") {
     return jsonResponse(405, { error: "Method not allowed. Use POST." });
   }
 
@@ -239,7 +224,7 @@ exports.handler = async (event) => {
 
   let payload;
   try {
-    payload = JSON.parse(event.body || "{}");
+    payload = await request.json();
   } catch (e) {
     return jsonResponse(400, { error: "Request body must be valid JSON." });
   }
@@ -272,7 +257,6 @@ exports.handler = async (event) => {
   const badgeId = crypto.randomUUID();
 
   try {
-    const { importJWK, SignJWT } = await loadJose();
     const privateKey = await importJWK(privateJwk, ALG);
     const now = Math.floor(Date.now() / 1000);
     const issuedAt = new Date(now * 1000).toISOString();
@@ -302,13 +286,16 @@ exports.handler = async (event) => {
     // below must NOT fail the whole request, since the caller's actual
     // deliverable (a verifiable credential) already exists and is correct
     // regardless of whether Netlify Blobs happens to be reachable right
-    // now. Storage is a nice-to-have retrieval convenience (get-badge.js),
+    // now. Storage is a nice-to-have retrieval convenience (get-badge.mjs),
     // not a correctness requirement of the signature itself.
     let blobStored = false;
+    let blobError;
     try {
-      const { getStore } = await loadBlobs();
-      const storeOpts = blobsStoreOptions();
-      const store = storeOpts ? getStore(BLOBS_STORE_NAME, storeOpts) : getStore(BLOBS_STORE_NAME);
+      // No explicit siteID/token - see the top-of-file comment. Functions
+      // v2 gets these auto-injected by Netlify, confirmed working live for
+      // this site's own deploy method via the throwaway blobs-v2-probe.mjs
+      // test before this file was converted.
+      const store = getStore(BLOBS_STORE_NAME);
       // Only what's already going into the public JWT anyway (the hash,
       // never the raw value) plus non-PII metadata - deliberately NOT the
       // plaintext name or email, even though this is a test-badge-only
@@ -327,18 +314,11 @@ exports.handler = async (event) => {
       blobStored = true;
     } catch (storageErr) {
       console.error("issue-badge: failed to store badge in Netlify Blobs:", storageErr);
-      // TEMP DEBUG round 2 - first fix (missing "runtime" scope) didn't
-      // resolve it, so surfacing the real error + presence (not value) of
-      // the two inputs to see what's actually still missing/wrong.
-      var __blobDebug = {
-        message: String((storageErr && storageErr.message) || storageErr),
-        hasSiteId: !!process.env.SITE_ID,
-        hasToken: !!process.env.NETLIFY_BLOBS_TOKEN,
-      };
+      blobError = String((storageErr && storageErr.message) || storageErr);
     }
 
     return jsonResponse(200, {
-      ...(typeof __blobDebug !== "undefined" ? { blobDebug: __blobDebug } : {}),
+      ...(blobError ? { blobError } : {}),
       verified: true,
       jwt,
       badgeId,
