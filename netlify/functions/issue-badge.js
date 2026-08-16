@@ -285,6 +285,14 @@ exports.handler = async (event) => {
     // now. Storage is a nice-to-have retrieval convenience (get-badge.js),
     // not a correctness requirement of the signature itself.
     let blobStored = false;
+    // TEMP DEBUG (2026-08-16): surfacing the actual storage error in the
+    // response body, not just server logs, since this sandbox has no way
+    // to read Netlify's live function logs directly. Remove blobError from
+    // the response once the real cause is found and fixed - this endpoint
+    // should never leak internal error detail to callers long-term, same
+    // as sign-credential.js's existing "log server-side, stay generic to
+    // the caller" convention.
+    let blobError;
     try {
       const { getStore } = await loadBlobs();
       const store = getStore(BLOBS_STORE_NAME);
@@ -306,6 +314,7 @@ exports.handler = async (event) => {
       blobStored = true;
     } catch (storageErr) {
       console.error("issue-badge: failed to store badge in Netlify Blobs:", storageErr);
+      blobError = String((storageErr && storageErr.stack) || storageErr);
     }
 
     return jsonResponse(200, {
@@ -317,6 +326,7 @@ exports.handler = async (event) => {
       jwksUrl,
       issuedAt,
       blobStored,
+      ...(blobError ? { blobError } : {}),
     });
   } catch (e) {
     console.error("issue-badge: signing failed:", e);
