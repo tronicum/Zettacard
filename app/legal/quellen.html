@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amtliche Quellen / Official Sources — Zettacard</title>
+<meta name="robots" content="index,follow">
+<style>
+  :root {
+    --bg: #f5f7fb; --card: #ffffff; --border: #d7deec;
+    --text: #1a2233; --text-dim: #5b6478; --accent: #2f6fed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0b1220; --card: #141c2e; --border: #23304d; --text: #eef2fb; --text-dim: #9aa5bd; --accent: #6f97f5; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.55;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+  a { color: var(--accent); }
+  a.back { display: inline-block; margin-bottom: 20px; font-size: 0.9rem; }
+  h1 { font-size: 1.5rem; margin: 0 0 4px; }
+  h2 { font-size: 1.15rem; margin: 36px 0 6px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  h2 .lang { font-weight: 400; font-size: 0.8rem; color: var(--text-dim); }
+  h3 { font-size: 1rem; margin: 24px 0 6px; }
+  h3 .flag { font-size: 1.1em; margin-right: 4px; }
+  p.lede { color: var(--text-dim); margin-top: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 4px; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { color: var(--text-dim); font-weight: 600; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.02em; }
+  tr[id] { scroll-margin-top: 16px; }
+  tr[id]:target { background: var(--accent); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+  footer { margin-top: 48px; font-size: 0.8rem; color: var(--text-dim); }
+  .note { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin: 14px 0; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <a class="back" href="./index.html">&larr; Zettacard</a>
+  <h1>Amtliche Quellen / Official Sources</h1>
+  <p class="lede">
+    Deutsch zuerst, English below. Letzte Aktualisierung / Last updated: 2026-08-16. Siehe auch:
+    <a href="./trademarks.html">Markenhinweise / Trademark Notice</a> für privatrechtliche
+    Zertifizierungsmarken (Kubernetes, CKA, künftig ggf. CISSP u. a.).
+  </p>
+
+  <h2>Deutsch</h2>
+  <p>
+    Zettacard zitiert für Prüfungsfragen und Lektionsinhalte Gesetzestexte und Fragenkataloge
+    verschiedener staatlicher und supranationaler Stellen. Diese Liste nennt die Quellen je Land,
+    damit auch bei wachsender Länderabdeckung (z. B. bei einem künftigen FR/CH-Import) klar bleibt,
+    woher ein Inhalt stammt. Die Nennung ist eine <strong>reine Quellenangabe</strong> und bedeutet
+    nicht, dass die genannte Stelle Zettacard billigt, prüft oder mit Zettacard zusammenarbeitet.
+  </p>
+
+  <h3><span class="flag">🇩🇪</span> Deutschland</h3>
+  <table>
+    <tr><th>Kürzel</th><th>Stelle</th><th>Bezug bei Zettacard</th></tr>
+    <tr id="bafin"><td>BaFin</td><td>Bundesanstalt für Finanzdienstleistungsaufsicht</td><td>DORA-Modul (Aufsichtsbehörde, Meldewege)</td></tr>
+    <tr id="bsi"><td>BSI</td><td>Bundesamt für Sicherheit in der Informationstechnik</td><td>IT-Sicherheit-, NIS2-Modul (zuständige Behörde/CSIRT)</td></tr>
+    <tr id="dguv"><td>DGUV</td><td>Deutsche Gesetzliche Unfallversicherung</td><td>Arbeitssicherheit-Modul (DGUV Vorschrift 1, Schulungspflicht)</td></tr>
+    <tr id="elwis"><td>ELWIS / WSV / BMDV</td><td>Wasserstraßen- und Schifffahrtsverwaltung des Bundes / Bundesministerium für Digitales und Verkehr</td><td>Sportboot-Module (Fragenkatalog-Quelle, § 5(2) UrhG amtliches Werk – wortgleich zu zitieren)</td></tr>
+  </table>
+
+  <h3><span class="flag">🇨🇭🇫🇷</span> Schweiz &amp; Frankreich (Bootsführerschein, geplant)</h3>
+  <p class="lede">
+    Noch nicht importiert – Zettacard hat mit dem Rechteinhaber des Projekts
+    <a href="https://github.com/HugoFara/boating-licence">boating-licence</a> Kontakt aufgenommen
+    und die Erlaubnis erhalten, dessen Fragenkatalog zu übernehmen (siehe
+    <code>boating-licence-permission-and-licensing</code>-Dossier). Die dort dokumentierten Quellen
+    sind bereits hier gelistet, damit ein künftiger Import direkt auf bestehende Anker verlinken
+    kann, statt diese Seite nachträglich neu aufzubauen.
+  </p>
+  <table>
+    <tr><th>Quelle</th><th>Stelle / Lizenz</th><th>Besonderheit</th></tr>
+    <tr id="fedlex"><td>Fedlex</td><td>Schweizer Bundesrecht (BSV, SVV, BSO)</td><td>gemeinfrei</td></tr>
+    <tr id="legifrance"><td>Légifrance / DILA LEGI</td><td>Französische Rechtsakte</td><td>Licence Ouverte / Etalab 2.0, Namensnennung</td></tr>
+    <tr id="colreg"><td>COLREG 1972</td><td>US Coast Guard (Reproduktion)</td><td>gemeinfrei – 17 USC § 105</td></tr>
+    <tr id="meteosuisse"><td>MétéoSuisse / Kantone</td><td>Amtliche Schweizer Stellen</td><td>Nutzung mit Quellenangabe</td></tr>
+  </table>
+
+  <h3><span class="flag">🇪🇺</span> EU-Institutionen</h3>
+  <p class="lede">
+    Noch nicht in Lektionstexten verlinkt, aber bereits recherchiert (siehe
+    <code>gdpr-eu-country-comparison-research</code>-Dossier) – gelistet, falls Datenschutz oder
+    andere EU-weite Module künftig direkt auf einzelne nationale Aufsichtsbehörden verweisen.
+  </p>
+  <table>
+    <tr><th>Kürzel</th><th>Stelle</th><th>Land</th></tr>
+    <tr id="edpb"><td>EDPB</td><td>Europäischer Datenschutzausschuss</td><td>EU</td></tr>
+    <tr id="cnil"><td>CNIL</td><td>Commission Nationale de l'Informatique et des Libertés</td><td>🇫🇷 Frankreich</td></tr>
+    <tr id="garante"><td>Garante</td><td>Garante per la protezione dei dati personali</td><td>🇮🇹 Italien</td></tr>
+    <tr id="aepd"><td>AEPD</td><td>Agencia Española de Protección de Datos</td><td>🇪🇸 Spanien</td></tr>
+    <tr id="ap-nl"><td>AP</td><td>Autoriteit Persoonsgegevens</td><td>🇳🇱 Niederlande</td></tr>
+    <tr id="dpc-ie"><td>DPC</td><td>Data Protection Commission</td><td>🇮🇪 Irland</td></tr>
+    <tr id="dsb-at"><td>DSB</td><td>Österreichische Datenschutzbehörde</td><td>🇦🇹 Österreich</td></tr>
+    <tr id="uodo-pl"><td>UODO</td><td>Urząd Ochrony Danych Osobowych</td><td>🇵🇱 Polen</td></tr>
+  </table>
+
+  <div class="note">
+    <strong>Hinweis für Lektionstexte:</strong> Wird eine hier gelistete Stelle erstmals innerhalb
+    einer Lektion erwähnt, wird sie als Fußnoten-Link auf den passenden Anker dieser Seite verlinkt
+    (z. B. <code>legal/quellen.html#bsi</code>). Spätere Erwähnungen derselben Stelle in derselben
+    Lektion werden nicht erneut verlinkt. Neue Länder/Quellen werden als eigener Abschnitt mit
+    Flagge ergänzt, sobald ein Modul sie tatsächlich zitiert (z. B. 🇫🇷/🇨🇭 bei einem künftigen
+    Bootsführerschein-Import).
+  </div>
+
+  <h2>English <span class="lang">(unofficial translation, German text is authoritative)</span></h2>
+  <p>
+    Zettacard's exam questions and lesson content cite statutes and question catalogues from various
+    state and supranational bodies. This page lists sources by country so that, as country coverage
+    grows (e.g. a future FR/CH import), it stays clear where a given piece of content comes from.
+    Listing a body here is a <strong>source citation only</strong> and does not mean that body
+    reviews, approves, or cooperates with Zettacard.
+  </p>
+
+  <h3><span class="flag">🇩🇪</span> Germany</h3>
+  <table>
+    <tr><th>Short name</th><th>Body</th><th>Where Zettacard cites it</th></tr>
+    <tr><td>BaFin</td><td>Federal Financial Supervisory Authority</td><td>DORA module (supervisory authority, reporting channels)</td></tr>
+    <tr><td>BSI</td><td>Federal Office for Information Security</td><td>IT-Sicherheit, NIS2 modules (competent authority/CSIRT)</td></tr>
+    <tr><td>DGUV</td><td>German Social Accident Insurance</td><td>Arbeitssicherheit module (DGUV Vorschrift 1, training duty)</td></tr>
+    <tr><td>ELWIS / WSV / BMDV</td><td>German Federal Waterways and Shipping Administration / Federal Ministry for Digital and Transport</td><td>Sportboot modules (question-catalogue source, § 5(2) UrhG official work – must be cited verbatim)</td></tr>
+  </table>
+
+  <h3><span class="flag">🇨🇭🇫🇷</span> Switzerland &amp; France (boating licence, planned)</h3>
+  <p class="lede">
+    Not imported yet — Zettacard contacted the rights holder of the
+    <a href="https://github.com/HugoFara/boating-licence">boating-licence</a> project and received
+    permission to reuse its question catalogue (see the
+    <code>boating-licence-permission-and-licensing</code> dossier). The sources documented there are
+    already listed here so a future import can link straight to existing anchors instead of this
+    page being rebuilt after the fact.
+  </p>
+  <table>
+    <tr><th>Source</th><th>Body / licence</th><th>Note</th></tr>
+    <tr><td>Fedlex</td><td>Swiss federal law (BSV, SVV, BSO)</td><td>public domain</td></tr>
+    <tr><td>Légifrance / DILA LEGI</td><td>French official acts</td><td>Licence Ouverte / Etalab 2.0, attribution required</td></tr>
+    <tr><td>COLREG 1972</td><td>US Coast Guard (reproduction)</td><td>public domain – 17 USC § 105</td></tr>
+    <tr><td>MétéoSuisse / cantons</td><td>Official Swiss public-sector bodies</td><td>reuse with attribution</td></tr>
+  </table>
+
+  <h3><span class="flag">🇪🇺</span> EU institutions</h3>
+  <p class="lede">
+    Not yet linked from any lesson text, but already researched (see the
+    <code>gdpr-eu-country-comparison-research</code> dossier) — listed in case Datenschutz or a
+    future EU-wide module references a specific national authority directly.
+  </p>
+  <table>
+    <tr><th>Short name</th><th>Body</th><th>Country</th></tr>
+    <tr><td>EDPB</td><td>European Data Protection Board</td><td>EU</td></tr>
+    <tr><td>CNIL</td><td>Commission Nationale de l'Informatique et des Libertés</td><td>🇫🇷 France</td></tr>
+    <tr><td>Garante</td><td>Garante per la protezione dei dati personali</td><td>🇮🇹 Italy</td></tr>
+    <tr><td>AEPD</td><td>Agencia Española de Protección de Datos</td><td>🇪🇸 Spain</td></tr>
+    <tr><td>AP</td><td>Autoriteit Persoonsgegevens</td><td>🇳🇱 Netherlands</td></tr>
+    <tr><td>DPC</td><td>Data Protection Commission</td><td>🇮🇪 Ireland</td></tr>
+    <tr><td>DSB</td><td>Austrian Data Protection Authority</td><td>🇦🇹 Austria</td></tr>
+    <tr><td>UODO</td><td>Personal Data Protection Office</td><td>🇵🇱 Poland</td></tr>
+  </table>
+
+  <footer>
+    Fragen zu dieser Seite / Questions about this page: siehe Impressum / see legal notice.
+    Diese Liste wächst mit jedem neuen Land bzw. jeder neuen Quelle — sie ist nicht abschließend.
+    / This list grows with every new country or source — it is not exhaustive.
+  </footer>
+</main>
+</body>
+</html>

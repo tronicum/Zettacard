@@ -470,6 +470,10 @@
       <a href="./impressum.html" id="legal-link-impressum"></a>
       <span aria-hidden="true"> · </span>
       <a href="./datenschutzerklaerung.html" id="legal-link-privacy"></a>
+      <span aria-hidden="true"> · </span>
+      <a href="./legal/trademarks.html" id="legal-link-trademarks"></a>
+      <span aria-hidden="true"> · </span>
+      <a href="./legal/quellen.html" id="legal-link-quellen"></a>
     </nav>
   </footer>
 
@@ -592,19 +596,24 @@
       // held to the 12-locale-from-day-one bar - a link labeled in the
       // user's own language is still a real usability improvement even
       // when the destination page itself is DE/EN.
+      // 2026-08-16: added a third legal link (trademarks.html, see that
+      // file's own comment) alongside the pre-existing impressum/privacy
+      // pair - same DE/EN-authoritative-only scope decision as those two,
+      // labels still translated to all 12 locales per the usability point
+      // made above.
       var LEGAL_LABELS = {
-        de: { impressum: "Impressum", privacy: "Datenschutzerklärung" },
-        en: { impressum: "Legal notice", privacy: "Privacy policy" },
-        uk: { impressum: "Правова інформація", privacy: "Політика конфіденційності" },
-        pl: { impressum: "Nota prawna", privacy: "Polityka prywatności" },
-        ar: { impressum: "بيانات قانونية", privacy: "سياسة الخصوصية" },
-        zh: { impressum: "法律声明", privacy: "隐私政策" },
-        hi: { impressum: "कानूनी सूचना", privacy: "गोपनीयता नीति" },
-        tr: { impressum: "Yasal bilgiler", privacy: "Gizlilik politikası" },
-        fr: { impressum: "Mentions légales", privacy: "Politique de confidentialité" },
-        ru: { impressum: "Правовая информация", privacy: "Политика конфиденциальности" },
-        es: { impressum: "Aviso legal", privacy: "Política de privacidad" },
-        it: { impressum: "Note legali", privacy: "Informativa sulla privacy" },
+        de: { impressum: "Impressum", privacy: "Datenschutzerklärung", trademarks: "Markenhinweise", quellen: "Amtliche Quellen" },
+        en: { impressum: "Legal notice", privacy: "Privacy policy", trademarks: "Trademark notice", quellen: "Official sources" },
+        uk: { impressum: "Правова інформація", privacy: "Політика конфіденційності", trademarks: "Повідомлення про торгові марки", quellen: "Офіційні джерела" },
+        pl: { impressum: "Nota prawna", privacy: "Polityka prywatności", trademarks: "Informacja o znakach towarowych", quellen: "Źródła urzędowe" },
+        ar: { impressum: "بيانات قانونية", privacy: "سياسة الخصوصية", trademarks: "إشعار العلامات التجارية", quellen: "المصادر الرسمية" },
+        zh: { impressum: "法律声明", privacy: "隐私政策", trademarks: "商标声明", quellen: "官方来源" },
+        hi: { impressum: "कानूनी सूचना", privacy: "गोपनीयता नीति", trademarks: "ट्रेडमार्क सूचना", quellen: "आधिकारिक स्रोत" },
+        tr: { impressum: "Yasal bilgiler", privacy: "Gizlilik politikası", trademarks: "Ticari marka bildirimi", quellen: "Resmi kaynaklar" },
+        fr: { impressum: "Mentions légales", privacy: "Politique de confidentialité", trademarks: "Mentions relatives aux marques", quellen: "Sources officielles" },
+        ru: { impressum: "Правовая информация", privacy: "Политика конфиденциальности", trademarks: "Уведомление о товарных знаках", quellen: "Официальные источники" },
+        es: { impressum: "Aviso legal", privacy: "Política de privacidad", trademarks: "Aviso de marcas registradas", quellen: "Fuentes oficiales" },
+        it: { impressum: "Note legali", privacy: "Informativa sulla privacy", trademarks: "Nota sui marchi", quellen: "Fonti ufficiali" },
       };
 
       function detectLang() {
@@ -632,6 +641,8 @@
         var legalLabels = LEGAL_LABELS[lang] || LEGAL_LABELS.en;
         document.getElementById("legal-link-impressum").textContent = legalLabels.impressum;
         document.getElementById("legal-link-privacy").textContent = legalLabels.privacy;
+        document.getElementById("legal-link-trademarks").textContent = legalLabels.trademarks;
+        document.getElementById("legal-link-quellen").textContent = legalLabels.quellen;
 
         var featsEl = document.getElementById("features-list");
         featsEl.innerHTML = "";
