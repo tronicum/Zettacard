@@ -245,6 +245,30 @@ def main():
     if split_course("it_sicherheit", ["de", "en"]):
         print("it_sicherheit: course layer built (de, en)")
 
+    # 2026-08-16 recovery: hinweisgeberschutz/kyc_aml/kartellrecht (DN-50/
+    # DN-53) were authored in a past session but only ever committed to a
+    # stranded backup branch (origin/backup/cloud-session-46-2026-08-12),
+    # never merged into main - modules_manifest.json still listed all 3 as
+    # live modules even though neither their pilot source nor this script's
+    # split_module() calls for them existed on this branch, so a build here
+    # would have produced a manifest entry with no backing data (a picker
+    # option that 404s). Pilot JSON + the smoke test script recovered
+    # verbatim from that backup branch; build_modules.py calls re-added here
+    # to match. LkSG (also in the manifest) has no pilot anywhere, including
+    # that backup branch - not recoverable the same way, needs an actual
+    # question-bank authored from scratch first.
+    hgs_count, hgs_missing = split_module(
+        os.path.join(HERE, "hinweisgeberschutz_pilot.json"), "hinweisgeberschutz", compliance_locales)
+    print(f"hinweisgeberschutz: {hgs_count} questions, locale gaps: {hgs_missing}")
+
+    kyc_count, kyc_missing = split_module(
+        os.path.join(HERE, "kyc_aml_pilot.json"), "kyc_aml", ["de", "en"])
+    print(f"kyc_aml: {kyc_count} questions, locale gaps: {kyc_missing}")
+
+    kartell_count, kartell_missing = split_module(
+        os.path.join(HERE, "kartellrecht_pilot.json"), "kartellrecht", ["de", "en"])
+    print(f"kartellrecht: {kartell_count} questions, locale gaps: {kartell_missing}")
+
     # 2026-08-15 bugfix: dora/nis2 split_module() calls had gone missing from
     # this script even though app/data/dora and app/data/nis2 were already
     # committed (built by some earlier version of this file). Since main()
@@ -294,6 +318,7 @@ def main():
     # otherwise the app would silently render a blank question.
     for exam_type in ("fuehrerschein", "angelschein", "motorrad", "lkw", "fuehrerschein_bus",
                        "datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit",
+                       "hinweisgeberschutz", "kyc_aml", "kartellrecht",
                        "dora", "nis2", "sportboot_binnen", "sportboot_see", "cka"):
         core = json.load(open(os.path.join(APP_DATA, exam_type, "core.json"), encoding="utf-8"))
         for q in core["questions"]:

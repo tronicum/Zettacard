@@ -1,0 +1,1346 @@
+{
+  "meta": {
+    "app": "Zettacard / kartellrecht-lernmodul",
+    "version": "0.2",
+    "generated": "2026-08-10",
+    "description": "Original MCQs for a German antitrust/competition-law (Kartellrecht) compliance-training module, covering the cartel prohibition and the market-dominance test (Sec. 1/18 GWB, mirroring Art. 101 TFEU; Sec. 19 GWB's specific abuse-of-dominance categories and Art. 102 TFEU are researched but not yet covered by a dedicated question in this pilot round - flagged as a gap for the next scale-up), hardcore restrictions and real-world risk scenarios (trade-association information exchange, no-poach agreements, non-price cartels), the fine framework and the role of compliance programs in fine mitigation (Sec. 81c/81d GWB), self-cleaning for regaining public-tender eligibility (Sec. 125 GWB), and individual criminal liability for bid-rigging (Sec. 298 StGB) - including three real, named 2025-2026 enforcement examples (German road-construction bid-rigging, EU automotive-recycling cartel, Delivery Hero/Glovo no-poach case). Content is independently phrased and grounded directly in GWB/StGB statute text and primary enforcement sources (Bundeskartellamt press releases, EU Commission press releases), cross-checked via dejure.org and named case sources, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module - separate content pool, separate exam simulation from every other module. Confirmed: unlike the GwG (money-laundering law), there is no statutorily fixed training-frequency mandate for antitrust compliance training.",
+    "class": "ALL",
+    "locales": [
+      "de",
+      "en"
+    ],
+    "canonical_locale": "de",
+    "point_system": "3-4 points per question, matching this app's existing style",
+    "pass_rule_note": "DN-54 (2026-08-10): scaled from a 20-question DE/EN pilot to a 30-question pool (6 per topic) sized for a corporate compliance knowledge-check rather than a driving-exam-length test. Exam Simulation/Training now draws 6 questions per run (one topic gets 2, the other four get 1 each - every run touches all 5 topics), max 4 error points to pass (roughly a \"5 of 6 correct\" bar), auto-fail on 2+ wrong high_stakes questions, 10-minute time limit in Simulation mode. See app/app.js's EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW for the exact per-module config.",
+    "legal_review_status": "Reviewed 2026-08-10 via an AI legal-review pass (fable model, see BACKLOG.md DN-53 second-module entry), grounded in current GWB/StGB statute text and the three named enforcement sources. 17/20 questions confirmed accurate on first pass. Fixed 2 citation/wording defects that didn't change any answer key: kartellrecht-straftaten-04's legal_basis corrected from the wrong §81b GWB (association-fine liability) to §§81h ff. GWB (the actual Kronzeugenprogramm/Bonusregelung provisions); kartellrecht-selbstreinigung-03's claimed 'schriftlich' (written-form) requirement for §125 Abs. 2 GWB's reasons obligation removed - the statute does not in fact prescribe a specific form. Also fixed a garbled explanation sentence in kartellrecht-kernbeschraenkungen-03 (automotive-recycling cartel: manufacturers agreed among themselves not to advertise recyclability to customers, not 'to each other'). Still NOT reviewed by a licensed lawyer or Kartellrechts-Compliance-Beauftragter - that human-review gate remains before commercial/production use. Follow-up (2026-08-10): a second, independent fable-model pre-review-dossier pass re-verified all 20 citations with zero new substantive errors, but found 2 wording-precision issues (both fixed, no answer-key changes): kartellrecht-selbstreinigung-04 now distinguishes §123 GWB's mandatory exclusion grounds from §124 GWB's facultative ones (cartel offenses typically fall under the discretionary §124 ground, not an automatic §123 exclusion); kartellrecht-selbstreinigung-02 now describes training as part of the combined \"technical, organizational, and personnel measures\" requirement rather than implying a separate formal \"personnel measures\" category. Also corrected the module description's overclaim of Sec. 19 GWB / Art. 102 TFEU coverage (researched but no dedicated question exists yet - flagged for the next round). Full dossier: claude/kartellrecht-pre-review-dossier-2026-08-10.md (Claude Project).",
+    "total_questions": 30,
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+    "renewal_months": 12,
+    "renewal_basis": "best_practice",
+    "renewal_note": "GWB imposes no fixed statutory training-refresher interval for antitrust compliance (confirmed - Bundeskartellamt's own guidance explicitly declines to prescribe one, scaling expectations to company size/structure/risk instead); annual refresher is used here purely as a de facto best-practice standard analogous to other compliance-training areas, not a hard statutory number."
+  },
+  "questions": [
+    {
+      "id": "kartellrecht-grundlagen-01",
+      "topic": "Grundlagen des Kartellverbots",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§1 GWB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche drei Verhaltensformen erfasst das Kartellverbot nach §1 GWB?",
+          "options": {
+            "a": "Nur schriftliche Verträge zwischen Wettbewerbern",
+            "b": "Vereinbarungen, Beschlüsse von Unternehmensvereinigungen und aufeinander abgestimmte Verhaltensweisen",
+            "c": "Ausschließlich Preisabsprachen im Einzelhandel",
+            "d": "Nur Verhalten marktbeherrschender Unternehmen"
+          }
+        },
+        "en": {
+          "question": "What three categories of conduct does the cartel prohibition under Sec. 1 GWB cover?",
+          "options": {
+            "a": "Only written contracts between competitors",
+            "b": "Agreements, decisions by associations of undertakings, and concerted practices",
+            "c": "Only price-fixing in retail trade",
+            "d": "Only conduct by dominant undertakings"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§1 GWB verbietet Vereinbarungen zwischen Unternehmen, Beschlüsse von Unternehmensvereinigungen und aufeinander abgestimmte Verhaltensweisen, die eine Verhinderung, Einschränkung oder Verfälschung des Wettbewerbs bezwecken oder bewirken - fast wortgleich mit Art. 101 Abs. 1 AEUV. Wichtig: schon der bloße Zweck (nicht nur die tatsächliche Wirkung) reicht aus.",
+        "en": "Sec. 1 GWB prohibits agreements between undertakings, decisions by associations of undertakings, and concerted practices that have the object or effect of preventing, restricting, or distorting competition - almost identical wording to Art. 101(1) TFEU. Important: the mere object (not only an actual effect) is sufficient."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-grundlagen-02",
+      "topic": "Grundlagen des Kartellverbots",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§1 GWB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Was bedeutet die Formulierung \"bezwecken oder bewirken\" in §1 GWB für sogenannte Kernbeschränkungen (z. B. Preisabsprachen)?",
+          "options": {
+            "a": "Es muss stets ein tatsächlicher wirtschaftlicher Schaden nachgewiesen werden",
+            "b": "Die Vereinbarung ist nur verboten, wenn beide Parteien vorsätzlich handelten",
+            "c": "Schon der wettbewerbsbeschränkende Zweck genügt - eine Marktanalyse zur tatsächlichen Wirkung ist bei Kernbeschränkungen nicht erforderlich",
+            "d": "Es gilt eine Bagatellgrenze von 10% Marktanteil, unterhalb derer keine Prüfung stattfindet"
+          }
+        },
+        "en": {
+          "question": "What does the \"object or effect\" wording in Sec. 1 GWB mean for so-called hardcore restrictions (e.g. price-fixing)?",
+          "options": {
+            "a": "Actual economic harm must always be proven",
+            "b": "The agreement is only prohibited if both parties acted with intent",
+            "c": "The anticompetitive object alone suffices - for hardcore restrictions, no market analysis of actual effect is required",
+            "d": "A 10% market-share de minimis threshold applies below which no review takes place"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Kernbeschränkungen (hardcore restrictions) wie Preisfestsetzung, Markt-/Kundenaufteilung oder Submissionsabsprachen gelten als \"bezweckte\" Wettbewerbsbeschränkungen: Eine Marktanalyse-Verteidigung (\"wir hatten keine tatsächliche Auswirkung\") greift hier nicht - der wettbewerbswidrige Zweck allein begründet den Verstoß.",
+        "en": "Hardcore restrictions such as price-fixing, market/customer allocation, or bid-rigging are treated as \"by object\" restrictions of competition: a market-analysis defense (\"there was no actual effect\") is not available here - the anticompetitive object alone establishes the violation."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-grundlagen-03",
+      "topic": "Grundlagen des Kartellverbots",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§18 GWB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Ab welchem Marktanteil greift nach §18 Abs. 4 GWB die widerlegbare Vermutung der Marktbeherrschung eines einzelnen Unternehmens?",
+          "options": {
+            "a": "Ab 25 Prozent",
+            "b": "Ab 40 Prozent",
+            "c": "Ab 60 Prozent",
+            "d": "Erst ab 75 Prozent"
+          }
+        },
+        "en": {
+          "question": "Under Sec. 18(4) GWB, at what market share does the rebuttable presumption of single-firm dominance apply?",
+          "options": {
+            "a": "From 25 percent",
+            "b": "From 40 percent",
+            "c": "From 60 percent",
+            "d": "Only from 75 percent"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§18 Abs. 4 GWB vermutet ein Unternehmen als marktbeherrschend, wenn es einen Marktanteil von mindestens 40 Prozent hat - eine widerlegbare Vermutung, kein automatischer Verstoß. §18 Abs. 5-6 kennt zusätzlich Vermutungen für kollektive Marktbeherrschung (z. B. bis zu 3 Unternehmen mit zusammen 50% oder bis zu 5 Unternehmen mit zusammen zwei Dritteln Marktanteil).",
+        "en": "Sec. 18(4) GWB presumes an undertaking to be dominant if it holds a market share of at least 40 percent - a rebuttable presumption, not an automatic violation. Sec. 18(5)-(6) additionally sets presumption thresholds for collective dominance (e.g. up to 3 undertakings with a combined 50% share, or up to 5 undertakings with a combined two-thirds share)."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-grundlagen-04",
+      "topic": "Grundlagen des Kartellverbots",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§1 GWB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Vertriebsleiter tauscht sich bei einem Branchentreffen informell mit einem Wettbewerber über zukünftige Preiserhöhungspläne aus - es kommt zu keiner ausdrücklichen Vereinbarung. Ist das rechtlich unbedenklich?",
+          "options": {
+            "a": "Ja, ohne schriftliche Vereinbarung liegt nie ein Kartellverstoß vor",
+            "b": "Nein - der Austausch zukünftiger Preisabsichten kann bereits eine \"aufeinander abgestimmte Verhaltensweise\" nach §1 GWB darstellen, auch ohne ausdrückliche Vereinbarung",
+            "c": "Ja, solange keine konkreten Zahlen genannt werden",
+            "d": "Nein, das ist nur bei mehr als drei beteiligten Unternehmen relevant"
+          }
+        },
+        "en": {
+          "question": "A sales director informally discusses future price-increase plans with a competitor at an industry event, with no explicit agreement reached. Is this legally unproblematic?",
+          "options": {
+            "a": "Yes, without a written agreement there is never a cartel violation",
+            "b": "No - exchanging future pricing intentions can itself constitute a prohibited \"concerted practice\" under Sec. 1 GWB, even without an explicit agreement",
+            "c": "Yes, as long as no specific figures are mentioned",
+            "d": "No, this is only relevant if more than three undertakings are involved"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§1 GWB erfasst ausdrücklich \"aufeinander abgestimmte Verhaltensweisen\" - eine explizite Vereinbarung ist nicht erforderlich. Der Austausch von Informationen über zukünftige (nicht bloß vergangene) Preisabsichten mit einem Wettbewerber, selbst informell bei einem Branchentreffen, kann bereits die verbotene Koordination begründen. Genau deshalb gelten Verbandstreffen als klassisches Kartellrisiko.",
+        "en": "Sec. 1 GWB expressly covers \"concerted practices\" - an explicit agreement is not required. Exchanging information about future (not merely past) pricing intentions with a competitor, even informally at an industry event, can itself constitute the prohibited coordination. This is precisely why trade-association meetings are treated as a classic cartel-risk scenario."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-kernbeschraenkungen-01",
+      "topic": "Kernbeschränkungen und Risikoszenarien",
+      "topic_code": "kernbeschraenkungen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§1 GWB / Art. 101 AEUV",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Welches der folgenden Beispiele gilt NICHT als klassische Kernbeschränkung (\"Kernbeschränkung\"/hardcore restriction) des Kartellrechts?",
+          "options": {
+            "a": "Preisfestsetzung zwischen Wettbewerbern",
+            "b": "Aufteilung von Kunden oder Gebieten zwischen Wettbewerbern",
+            "c": "Der einseitige interne Entschluss eines Unternehmens, seine eigenen Preise zu senken",
+            "d": "Abgestimmte Angebote bei Ausschreibungen (Submissionsabsprachen)"
+          }
+        },
+        "en": {
+          "question": "Which of the following is NOT considered a classic hardcore restriction under competition law?",
+          "options": {
+            "a": "Price-fixing between competitors",
+            "b": "Allocating customers or territories between competitors",
+            "c": "An undertaking's unilateral internal decision to lower its own prices",
+            "d": "Coordinated bids in public tenders (bid-rigging)"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Ein einseitiger unternehmensinterner Preisentschluss ist schlicht normaler Wettbewerb und keine Vereinbarung oder abgestimmte Verhaltensweise zwischen mehreren Unternehmen - es fehlt am notwendigen Zwei-Unternehmen-Element des §1 GWB. Preisfestsetzung, Markt-/Kundenaufteilung und Submissionsabsprachen sind dagegen anerkannte Kernbeschränkungen.",
+        "en": "A unilateral internal pricing decision by one undertaking is simply normal competitive conduct, not an agreement or concerted practice between multiple undertakings - it lacks the necessary two-undertaking element of Sec. 1 GWB. Price-fixing, market/customer allocation, and bid-rigging, by contrast, are all recognized hardcore restrictions."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-kernbeschraenkungen-02",
+      "topic": "Kernbeschränkungen und Risikoszenarien",
+      "topic_code": "kernbeschraenkungen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 101 AEUV",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Die EU-Kommission verhängte im Juni 2025 gegen Delivery Hero und Glovo eine Geldbuße von 329 Millionen Euro. Worum ging es in diesem Verfahren?",
+          "options": {
+            "a": "Um überhöhte Lieferpreise gegenüber Endkunden",
+            "b": "Um eine Kartellabsprache zur Nicht-Abwerbung von Mitarbeitern (\"No-Poach\") und Marktaufteilung zwischen den beiden Unternehmen",
+            "c": "Um Verstöße gegen Datenschutzvorschriften bei der Essenslieferung",
+            "d": "Um eine unzulässige Fusion ohne Anmeldung bei der Kommission"
+          }
+        },
+        "en": {
+          "question": "In June 2025 the EU Commission fined Delivery Hero and Glovo EUR 329 million. What was this case about?",
+          "options": {
+            "a": "Excessive delivery prices charged to end customers",
+            "b": "A cartel agreement not to poach each other's employees (\"no-poach\") and to allocate markets between the two companies",
+            "c": "Data-protection violations related to food delivery",
+            "d": "An unlawful merger that was never notified to the Commission"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Es war die erste EU-Kommissionsentscheidung überhaupt zu einem reinen Arbeitsmarktkartell (\"Labour-Market Cartel\") nach Art. 101 AEUV: Delivery Hero und Glovo vereinbarten, sich gegenseitig keine Mitarbeiter abzuwerben, und teilten zudem nationale Märkte untereinander auf - obwohl Delivery Hero nur eine Minderheitsbeteiligung an Glovo hielt (also keine vollständige fusionskontrollrechtliche Kontrolle). No-Poach-Absprachen zwischen Wettbewerbern sind damit ein bestätigtes, aktiv verfolgtes Kartellrisiko, kein theoretisches Randthema.",
+        "en": "This was the EU Commission's first-ever decision on a pure labour-market cartel under Art. 101 TFEU: Delivery Hero and Glovo agreed not to poach each other's employees and additionally allocated national markets between themselves - even though Delivery Hero held only a minority stake in Glovo (i.e. not full merger-control-level control). No-poach agreements between competitors are therefore a confirmed, actively enforced cartel risk, not a theoretical edge case."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-kernbeschraenkungen-03",
+      "topic": "Kernbeschränkungen und Risikoszenarien",
+      "topic_code": "kernbeschraenkungen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 101 AEUV",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Im April 2025 verhängte die EU-Kommission eine Geldbuße von 458 Millionen Euro gegen 15 Autohersteller sowie den Branchenverband ACEA. Was war das Besondere an dieser Kartellabsprache?",
+          "options": {
+            "a": "Es ging um eine klassische Preisabsprache bei Neuwagenpreisen",
+            "b": "Die Hersteller vereinbarten über 15 Jahre, nicht mit der Recyclingfähigkeit ihrer Fahrzeuge zu werben und nicht über Altfahrzeug-Recyclingzahlungen zu konkurrieren - ein Kartell über Nichtwettbewerb bei Umweltinformationen statt über Preise",
+            "c": "Es ging um eine unzulässige gemeinsame Forschungskooperation zu Elektrofahrzeugen",
+            "d": "Die Hersteller einigten sich auf gemeinsame Mindestgarantiezeiten"
+          }
+        },
+        "en": {
+          "question": "In April 2025 the EU Commission fined 15 car manufacturers plus the industry association ACEA EUR 458 million. What made this cartel unusual?",
+          "options": {
+            "a": "It was a classic price-fixing agreement on new-car prices",
+            "b": "For over 15 years, the manufacturers agreed not to advertise their vehicles' recyclability and not to compete on end-of-life-vehicle recycling payments - a cartel over non-competition on environmental information rather than price",
+            "c": "It concerned an unlawful joint research cooperation on electric vehicles",
+            "d": "The manufacturers agreed on common minimum warranty periods"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Dieses Verfahren zeigt, dass Kartelle nicht nur Preisabsprachen sein müssen: Die Hersteller (u. a. VW als größter Einzelbetrag, Mercedes-Benz erhielt volle Kronzeugenimmunität) vereinbarten untereinander, über mehr als 15 Jahre gegenüber Kunden nicht mit der Recyclingfähigkeit ihrer Fahrzeuge zu werben und keinen Wettbewerb um Altfahrzeug-Recyclingzahlungen zu führen - ein Beispiel für ein Informationsunterdrückungskartell nach Art. 101 AEUV.",
+        "en": "This case shows cartels are not always about price: the manufacturers (VW receiving the largest individual amount, Mercedes-Benz obtaining full leniency immunity) agreed among themselves, for more than 15 years, not to advertise their vehicles' recyclability to customers and not to compete on end-of-life-vehicle recycling payments - an example of an information-suppression cartel under Art. 101 TFEU."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-kernbeschraenkungen-04",
+      "topic": "Kernbeschränkungen und Risikoszenarien",
+      "topic_code": "kernbeschraenkungen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§1 GWB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Warum gelten Treffen von Branchenverbänden (Verbandstreffen) als klassisches Kartellrisiko-Szenario?",
+          "options": {
+            "a": "Weil Branchenverbände nach deutschem Recht grundsätzlich verboten sind",
+            "b": "Weil dort informell wettbewerbsrelevante Informationen (z. B. zukünftige Preisabsichten) zwischen Wettbewerbern ausgetauscht werden können, was bereits eine abgestimmte Verhaltensweise begründen kann",
+            "c": "Weil jede Teilnahme an einem Verbandstreffen automatisch als Kartellverstoß gilt",
+            "d": "Weil Verbandstreffen nur für staatliche Unternehmen zulässig sind"
+          }
+        },
+        "en": {
+          "question": "Why are trade-association meetings considered a classic cartel-risk scenario?",
+          "options": {
+            "a": "Because trade associations are fundamentally prohibited under German law",
+            "b": "Because they can involve informal exchanges of competitively sensitive information (e.g. future pricing intentions) between competitors, which can itself constitute a concerted practice",
+            "c": "Because mere attendance at a trade-association meeting is automatically a cartel violation",
+            "d": "Because trade-association meetings are only permitted for state-owned undertakings"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das Bundeskartellamt veröffentlicht eigene Hinweise zur kartellrechtskonformen Verbandsarbeit, weil genau dieses Szenario real ist: Wettbewerber sitzen bei Verbandstreffen regelmäßig zusammen, und der informelle Austausch über künftige Preise, Kapazitäten oder Konditionen kann - auch ohne formellen Beschluss - eine verbotene abgestimmte Verhaltensweise sein. Reine Teilnahme ist kein Verstoß; entscheidend ist der Inhalt des Austauschs.",
+        "en": "The Bundeskartellamt publishes its own guidance on competition-law-compliant trade-association work precisely because this scenario is real: competitors regularly sit together at association meetings, and informal exchanges about future prices, capacity, or terms can - even without a formal resolution - constitute a prohibited concerted practice. Mere attendance is not itself a violation; what matters is the substance of what is exchanged."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-bussgelder-01",
+      "topic": "Bußgelder und Haftungsrahmen",
+      "topic_code": "bussgelder",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§81c Abs. 2 GWB",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Wie hoch ist die gesetzliche Bußgeldobergrenze nach §81c Abs. 2 GWB für schwerwiegende Kartellrechtsverstöße?",
+          "options": {
+            "a": "1 Million Euro pro Verstoß, unabhängig vom Unternehmensumsatz",
+            "b": "10 Prozent des weltweiten Gesamtumsatzes der gesamten Unternehmensgruppe im vorausgegangenen Geschäftsjahr",
+            "c": "5 Prozent des deutschen Inlandsumsatzes des betroffenen Konzerns",
+            "d": "Es gibt keine gesetzliche Obergrenze, das Bundeskartellamt entscheidet frei"
+          }
+        },
+        "en": {
+          "question": "What is the statutory fine cap under Sec. 81c(2) GWB for serious competition-law violations?",
+          "options": {
+            "a": "EUR 1 million per violation, regardless of the undertaking's turnover",
+            "b": "10 percent of the worldwide total turnover of the entire corporate group in the preceding business year",
+            "c": "5 percent of the affected group's domestic German turnover",
+            "d": "There is no statutory cap - the Bundeskartellamt decides freely"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§81c Abs. 2 GWB deckelt die Geldbuße auf 10 Prozent des im vorausgegangenen Geschäftsjahr erzielten Gesamtumsatzes des Unternehmens oder der Unternehmensvereinigung. Nach Abs. 5 ist damit der weltweite Umsatz der gesamten wirtschaftlichen Einheit (Konzern) gemeint, nicht nur der einzelnen beteiligten Gesellschaft. Für weniger schwerwiegende Verstöße gilt nach Abs. 3 eine niedrigere 1%-Obergrenze.",
+        "en": "Sec. 81c(2) GWB caps the fine at 10 percent of the total turnover achieved by the undertaking or association of undertakings in the preceding business year. Per Abs. 5, this means the worldwide turnover of the entire economic unit (corporate group), not just the individual participating legal entity. For less serious violations, Abs. 3 sets a lower 1% cap."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-bussgelder-02",
+      "topic": "Bußgelder und Haftungsrahmen",
+      "topic_code": "bussgelder",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§81d GWB",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche Rolle spielt ein wirksames Compliance-Programm nach §81d GWB bei der Bußgeldbemessung?",
+          "options": {
+            "a": "Ein Compliance-Programm hat keinerlei rechtliche Relevanz für die Bußgeldhöhe",
+            "b": "Angemessene und wirksame Vorkehrungen zur Vermeidung und Aufdeckung von Verstößen - sowohl vor als auch nach der Tat getroffen - können bei der Bemessung der Geldbuße mildernd berücksichtigt werden",
+            "c": "Ein Compliance-Programm garantiert automatisch eine Bußgeldbefreiung",
+            "d": "Nur staatlich zertifizierte Compliance-Programme dürfen berücksichtigt werden"
+          }
+        },
+        "en": {
+          "question": "What role does an effective compliance program play in fine assessment under Sec. 81d GWB?",
+          "options": {
+            "a": "A compliance program has no legal relevance whatsoever to the fine amount",
+            "b": "Appropriate and effective precautions to prevent and detect violations - taken both before and after the offense - can be considered as a mitigating factor when assessing the fine",
+            "c": "A compliance program automatically guarantees full immunity from fines",
+            "d": "Only state-certified compliance programs may be taken into account"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§81d GWB (eingeführt durch die 10. GWB-Novelle 2021) nennt \"angemessene und wirksame Vorkehrungen zur Vermeidung und Aufdeckung von Zuwiderhandlungen\" ausdrücklich als bei der Bußgeldbemessung zu berücksichtigenden Umstand - sowohl vor der Tat getroffene Vorkehrungen als auch Aufklärungs-/Kooperationsbemühungen danach. Das ist eine Milderung, keine Garantie: Wurde der Verstoß von der Unternehmensleitung selbst initiiert, greift die Milderung praktisch nicht.",
+        "en": "Sec. 81d GWB (introduced by the 10th GWB amendment, 2021) expressly names \"appropriate and effective precautions to prevent and detect violations\" as a circumstance to be considered in fine assessment - both precautions taken before the violation and clarification/cooperation efforts afterward. This is a mitigation, not a guarantee: if the violation was orchestrated by company management itself, the mitigation effectively does not apply."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-bussgelder-03",
+      "topic": "Bußgelder und Haftungsrahmen",
+      "topic_code": "bussgelder",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§1 GWB / §298 StGB",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Im August 2026 verhängte das Bundeskartellamt gegen sechs Straßenbau-Unternehmen ein Bußgeld von 60,3 Millionen Euro wegen jahrelanger Kundenaufteilung und Submissionsabsprachen. Wie tarnten die beteiligten Unternehmen laut Bundeskartellamt ihre Preisabsprachen?",
+          "options": {
+            "a": "Sie nutzten ausschließlich verschlüsselte E-Mail-Software",
+            "b": "Sie trafen sich nur einmal jährlich auf einer offiziellen Branchenmesse",
+            "c": "Sie trafen sich monatlich in Kassel und verwendeten Codeworte wie Kilometerstände, Bier- oder Wurstpreise als Tarnbegriffe für Angebotszahlen",
+            "d": "Die Absprachen erfolgten ausschließlich über einen zwischengeschalteten Rechtsanwalt"
+          }
+        },
+        "en": {
+          "question": "In August 2026 the Bundeskartellamt fined six road-construction companies EUR 60.3 million for years of customer allocation and bid-rigging. How, per the Bundeskartellamt, did the companies disguise their price coordination?",
+          "options": {
+            "a": "They exclusively used encrypted email software",
+            "b": "They met only once a year at an official trade fair",
+            "c": "They met monthly in Kassel and used coded terms such as mileage readings, beer, or sausage prices as stand-ins for bid figures",
+            "d": "The coordination was conducted exclusively through an intermediary lawyer"
+          }
+        }
+      },
+      "explanation": {
+        "de": "In diesem Fall trafen sich Wettbewerber monatlich während der Bausaison in Kassel und übermittelten Absprachen per Telefon, E-Mail oder Messenger unter Verwendung von Codeworten (Kilometerstände, Bier- oder Wurstpreise, Sponsoringbeträge, Hotelzimmerpreise) als Tarnung für tatsächliche Angebotszahlen - ein Lehrbuchbeispiel dafür, wie Kartellabsprachen in der Praxis verschleiert werden. Neben dem Bußgeld nach §1 GWB gegen die Unternehmen wird gegen beteiligte Einzelpersonen wegen möglicher Submissionsabsprachen nach §298 StGB ermittelt.",
+        "en": "In this case, competitors met monthly during the construction season in Kassel and communicated coordination by phone, email, or messenger using coded terms (mileage readings, beer or sausage prices, sponsorship amounts, hotel room rates) as cover for actual bid figures - a textbook example of how cartel coordination is disguised in practice. Alongside the corporate fine under Sec. 1 GWB, individuals involved are under investigation for possible bid-rigging under Sec. 298 StGB."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-bussgelder-04",
+      "topic": "Bußgelder und Haftungsrahmen",
+      "topic_code": "bussgelder",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "kein GWB-Paragraf (Verwaltungspraxis)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Wie positioniert sich das Bundeskartellamt zu \"Checkbox-Compliance\" (dem schematischen Abhaken möglichst vieler Maßnahmen)?",
+          "options": {
+            "a": "Es verlangt genau 9 verpflichtende Maßnahmen von jedem Unternehmen unabhängig von dessen Größe",
+            "b": "Es schreibt eine feste jährliche Schulungspflicht für alle Mitarbeiter vor",
+            "c": "Es lehnt ein schematisches Abhaken möglichst vieler Maßnahmen ausdrücklich ab und verlangt stattdessen ein an Größe, Organisation und Risiko des Unternehmens angepasstes, tatsächlich wirksames Programm",
+            "d": "Es überlässt Unternehmen komplett die Entscheidung, ob überhaupt ein Compliance-Programm sinnvoll ist"
+          }
+        },
+        "en": {
+          "question": "What is the Bundeskartellamt's stance on \"checkbox compliance\" (mechanically ticking off as many measures as possible)?",
+          "options": {
+            "a": "It requires exactly 9 mandatory measures from every undertaking regardless of size",
+            "b": "It mandates a fixed annual training requirement for all employees",
+            "c": "It explicitly rejects mechanically implementing as many measures as possible, instead requiring a program genuinely tailored - and effective - relative to the undertaking's size, organization, and risk",
+            "d": "It leaves it entirely up to undertakings whether a compliance program makes sense at all"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das Bundeskartellamt betont ausdrücklich, dass effektive Compliance nicht darin besteht, schematisch möglichst viele Maßnahmen umzusetzen. Es nennt neun flexible, nicht verpflichtende \"Bausteine\" (u. a. Risikoanalyse, Tone-from-the-top, Schulung/Auswahl von Personal, Hinweisgebersysteme) - schreibt aber weder eine bestimmte Schulungshäufigkeit noch ein festes Prüfintervall vor. Das unterscheidet sich deutlich vom GwG, das für Geldwäsche-Prävention eine ausdrückliche fortlaufende Schulungspflicht kennt.",
+        "en": "The Bundeskartellamt explicitly stresses that effective compliance does not consist of mechanically implementing as many measures as possible. It names nine flexible, non-mandatory \"building blocks\" (including risk analysis, tone from the top, staff training/selection, whistleblower systems) - but does not prescribe any specific training frequency or fixed review interval. This differs markedly from the GwG, which imposes an explicit ongoing training duty for anti-money-laundering compliance."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-selbstreinigung-01",
+      "topic": "Selbstreinigung nach Kartellverstößen",
+      "topic_code": "selbstreinigung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§125 Abs. 1 GWB",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche drei Voraussetzungen muss ein Unternehmen nach §125 Abs. 1 GWB erfüllen, um trotz eines Kartellverstoßes wieder für öffentliche Aufträge zugelassen zu werden (\"Selbstreinigung\")?",
+          "options": {
+            "a": "Entlassung der Geschäftsführung, Zahlung einer Strafe an den Staat, Auflösung der betroffenen Abteilung",
+            "b": "Ausschließlich die vollständige Zahlung des verhängten Bußgelds",
+            "c": "Ein öffentliches Schuldeingeständnis, eine interne Untersuchung und eine Entschuldigung bei Wettbewerbern",
+            "d": "Schadensausgleich, umfassende Aufklärung der Tatsachen durch aktive Kooperation, und konkrete technische, organisatorische sowie personelle Maßnahmen zur Verhinderung künftiger Verstöße"
+          }
+        },
+        "en": {
+          "question": "What three requirements must an undertaking satisfy under Sec. 125(1) GWB to regain eligibility for public contracts despite a competition-law violation (\"self-cleaning\")?",
+          "options": {
+            "a": "Dismissal of management, payment of a state penalty, and dissolution of the affected department",
+            "b": "Only full payment of the imposed fine",
+            "c": "A public admission of guilt, an internal investigation, and an apology to competitors",
+            "d": "Compensation for damage, comprehensive clarification of the facts through active cooperation, and concrete technical, organizational, and personnel measures to prevent future violations"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§125 Abs. 1 GWB verlangt kumulativ: (1) Ausgleich jedes durch die Tat verursachten Schadens, (2) umfassende Aufklärung der Tatsachen und Umstände durch aktive Zusammenarbeit mit den Ermittlungsbehörden, und (3) konkrete technische, organisatorische und personelle Maßnahmen, die geeignet sind, weitere Verstöße zu verhindern. Alle drei Voraussetzungen müssen zusammen erfüllt sein - keine allein genügt.",
+        "en": "Sec. 125(1) GWB cumulatively requires: (1) compensation for any damage caused by the offense, (2) comprehensive clarification of the facts and circumstances through active cooperation with the investigating authorities, and (3) concrete technical, organizational, and personnel measures suitable to prevent further violations. All three requirements must be satisfied together - none alone suffices."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-selbstreinigung-02",
+      "topic": "Selbstreinigung nach Kartellverstößen",
+      "topic_code": "selbstreinigung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§125 Abs. 1 Nr. 3 GWB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Wo genau ordnet sich eine verbesserte Kartellrechts-Schulung der Mitarbeiter im Rahmen der Selbstreinigung nach §125 GWB ein?",
+          "options": {
+            "a": "Sie ist eine eigenständig ausreichende Voraussetzung, unabhängig von den anderen beiden Anforderungen",
+            "b": "Sie ist Teil der \"konkreten technischen, organisatorischen und personellen Maßnahmen\" (Nr. 3) - einer von drei gleichzeitig zu erfüllenden Anforderungen, nicht allein ausreichend",
+            "c": "Sie ist im Gesetz überhaupt nicht erwähnt und rein freiwillig",
+            "d": "Sie ersetzt die Pflicht zur Schadenskompensation vollständig"
+          }
+        },
+        "en": {
+          "question": "Where exactly does improved employee competition-law training fit within self-cleaning under Sec. 125 GWB?",
+          "options": {
+            "a": "It is a standalone-sufficient requirement, independent of the other two requirements",
+            "b": "It forms part of the \"concrete technical, organizational, and personnel measures\" (No. 3) - one of three requirements that must all be satisfied simultaneously, not sufficient on its own",
+            "c": "It is not mentioned in the statute at all and is purely voluntary",
+            "d": "It fully substitutes for the duty to compensate damage"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Verbesserte Schulung ist Teil der in §125 Abs. 1 Nr. 3 GWB genannten technischen, organisatorischen und personellen Maßnahmen - der Gesetzestext nennt diese drei Aspekte gemeinsam als eine einheitliche dritte Voraussetzung, nicht als getrennt benannte Kategorien. Sie allein genügt aber nicht: Schadensausgleich (Nr. 1) und umfassende Sachverhaltsaufklärung durch Kooperation (Nr. 2) müssen zusätzlich erfüllt sein.",
+        "en": "Improved training is part of the technical, organizational, and personnel measures named in Sec. 125(1) No. 3 GWB - the statute names these three aspects together as one combined third requirement, not as separately labeled categories. It is not sufficient alone, however: compensation for damage (No. 1) and comprehensive fact clarification through cooperation (No. 2) must also be satisfied."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-selbstreinigung-03",
+      "topic": "Selbstreinigung nach Kartellverstößen",
+      "topic_code": "selbstreinigung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§125 Abs. 2 GWB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Was muss der öffentliche Auftraggeber (oder das Bundeskartellamt) nach §125 Abs. 2 GWB tun, wenn er die vom Unternehmen ergriffenen Selbstreinigungsmaßnahmen für unzureichend hält?",
+          "options": {
+            "a": "Er darf das Unternehmen ohne weitere Begründung dauerhaft von allen Vergabeverfahren ausschließen",
+            "b": "Er muss dem Unternehmen die Gründe für diese Entscheidung mitteilen",
+            "c": "Er muss automatisch ein neues Bußgeldverfahren einleiten",
+            "d": "Er muss die Entscheidung einem Gericht zur verbindlichen Bestätigung vorlegen, bevor sie wirksam wird"
+          }
+        },
+        "en": {
+          "question": "What must the contracting authority (or the Bundeskartellamt) do under Sec. 125(2) GWB if it considers the self-cleaning measures taken by the undertaking insufficient?",
+          "options": {
+            "a": "It may permanently exclude the undertaking from all tender procedures without further justification",
+            "b": "It must give the undertaking the reasons for that decision",
+            "c": "It must automatically initiate a new fine proceeding",
+            "d": "It must submit the decision to a court for binding confirmation before it becomes effective"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§125 Abs. 2 GWB verpflichtet den Auftraggeber bzw. das Bundeskartellamt, die ergriffenen Maßnahmen unter Berücksichtigung der Schwere und besonderen Umstände der Tat zu bewerten - hält er sie für unzureichend, muss er dem Unternehmen die Gründe hierfür mitteilen - das Gesetz verlangt hierfür keine bestimmte Form (kein ausdrückliches Schriftformerfordernis). Das schafft Transparenz und eine Grundlage für das Unternehmen, nachzubessern oder die Entscheidung anzufechten.",
+        "en": "Sec. 125(2) GWB requires the contracting authority or the Bundeskartellamt to evaluate the measures taken, considering the severity and particular circumstances of the offense - if it considers them insufficient, it must give the undertaking the reasons for that decision - the statute does not prescribe a specific form (no explicit written-form requirement). This creates transparency and a basis for the undertaking to improve its measures or challenge the decision."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-selbstreinigung-04",
+      "topic": "Selbstreinigung nach Kartellverstößen",
+      "topic_code": "selbstreinigung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§123, §124, §125 GWB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Wozu dient die Selbstreinigung (\"Selbstreinigung\") nach §125 GWB praktisch - wovon kann sie ein Unternehmen befreien?",
+          "options": {
+            "a": "Von der Zahlung eines bereits rechtskräftig verhängten Bußgelds",
+            "b": "Von einem Ausschluss von öffentlichen Vergabeverfahren, der andernfalls wegen des Kartellverstoßes drohen würde - zwingend nach §123 GWB oder im Ermessen des Auftraggebers nach §124 GWB",
+            "c": "Von der strafrechtlichen Verantwortlichkeit beteiligter Einzelpersonen nach §298 StGB",
+            "d": "Von der Verpflichtung, künftige Fusionen beim Bundeskartellamt anzumelden"
+          }
+        },
+        "en": {
+          "question": "What does self-cleaning under Sec. 125 GWB practically achieve - what can it exempt an undertaking from?",
+          "options": {
+            "a": "Payment of an already legally binding fine",
+            "b": "From an exclusion from public tender procedures that would otherwise apply because of the competition-law violation - mandatory under Sec. 123 GWB, or at the contracting authority's discretion under Sec. 124 GWB",
+            "c": "The individual criminal liability of involved persons under Sec. 298 StGB",
+            "d": "The obligation to notify future mergers to the Bundeskartellamt"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§125 GWB betrifft die Vergaberechtsseite: Ein Unternehmen, das wegen eines Kartellverstoßes von öffentlichen Vergabeverfahren auszuschließen wäre, kann durch erfolgreiche Selbstreinigung seine Zugangsberechtigung zurückerlangen. Zur Präzisierung: §123 GWB nennt zwingende Ausschlussgründe, während §124 GWB fakultative (im Ermessen des Auftraggebers stehende) Ausschlussgründe enthält - reine Kartell-Ordnungswidrigkeiten fallen typischerweise unter den fakultativen Ausschlussgrund des §124 GWB, sind also nicht in jedem Fall automatisch zwingend. Das Bußgeld selbst und eine mögliche strafrechtliche Verantwortlichkeit einzelner Personen (§298 StGB) bleiben von der Selbstreinigung unberührt.",
+        "en": "Sec. 125 GWB concerns the public-procurement side: an undertaking that would otherwise have to be excluded from public tender procedures because of a competition-law violation can regain its eligibility through successful self-cleaning. To be precise: Sec. 123 GWB lists mandatory exclusion grounds, while Sec. 124 GWB lists facultative (discretionary, contracting-authority's-choice) exclusion grounds - pure competition-law administrative offenses typically fall under the discretionary exclusion ground in Sec. 124 GWB, so exclusion is not automatically mandatory in every case. The fine itself, and any individual criminal liability under Sec. 298 StGB, remain unaffected by self-cleaning."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-straftaten-01",
+      "topic": "Individuelle Haftung und Durchsetzungspraxis",
+      "topic_code": "straftaten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§298 StGB",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche strafrechtliche Konsequenz droht einer natürlichen Person nach §298 StGB für die Abgabe eines auf einer rechtswidrigen Absprache beruhenden Angebots bei einer Ausschreibung?",
+          "options": {
+            "a": "Ausschließlich ein Bußgeld von maximal 1.000 Euro",
+            "b": "Freiheitsstrafe bis zu 5 Jahren oder Geldstrafe",
+            "c": "Zwingend eine Freiheitsstrafe von mindestens 2 Jahren ohne Bewährung",
+            "d": "Keine strafrechtlichen Konsequenzen, nur die beteiligten Unternehmen können belangt werden"
+          }
+        },
+        "en": {
+          "question": "What criminal consequence does an individual face under Sec. 298 StGB for submitting a tender offer based on an unlawful agreement?",
+          "options": {
+            "a": "Only a fine of at most EUR 1,000",
+            "b": "Imprisonment of up to 5 years, or a fine",
+            "c": "Mandatorily at least 2 years' imprisonment without suspension",
+            "d": "No criminal consequences at all - only the involved undertakings can be held liable"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§298 StGB (Wettbewerbsbeschränkende Absprachen bei Ausschreibungen) macht die Abgabe eines auf einer rechtswidrigen (Kartell-)Absprache beruhenden Angebots bei einer Ausschreibung strafbar - Freiheitsstrafe bis zu 5 Jahren oder Geldstrafe (Abs. 1). Abs. 2 erstreckt dies auch auf freihändige Vergaben nach vorherigem Teilnahmewettbewerb. Das ist eine individuelle strafrechtliche Verantwortlichkeit, zusätzlich zum Bußgeld gegen das Unternehmen nach GWB.",
+        "en": "Sec. 298 StGB (bid-rigging in public tenders) criminalizes submitting a tender offer based on an unlawful (cartel) agreement - imprisonment of up to 5 years, or a fine (Abs. 1). Abs. 2 extends this to negotiated-award procedures following a prior competitive process. This is individual criminal liability, in addition to the corporate fine under the GWB."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-straftaten-02",
+      "topic": "Individuelle Haftung und Durchsetzungspraxis",
+      "topic_code": "straftaten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§298 Abs. 3 StGB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche Möglichkeit sieht §298 Abs. 3 StGB für eine Person vor, die an einer Ausschreibungsabsprache beteiligt war, dies aber freiwillig rückgängig macht?",
+          "options": {
+            "a": "Eine solche Möglichkeit gibt es im Gesetz nicht",
+            "b": "Automatische Straffreiheit allein durch nachträgliche Reue, ohne weiteres Handeln",
+            "c": "Straffreiheit, wenn die Person freiwillig die Annahme des abgesprochenen Angebots verhindert oder sich freiwillig und ernsthaft darum bemüht",
+            "d": "Nur eine Reduzierung der Strafe um die Hälfte, niemals vollständige Straffreiheit"
+          }
+        },
+        "en": {
+          "question": "What possibility does Sec. 298(3) StGB provide for a person who was involved in a bid-rigging agreement but voluntarily reverses it?",
+          "options": {
+            "a": "No such possibility exists under the statute",
+            "b": "Automatic exemption from punishment through mere subsequent regret, without further action",
+            "c": "Exemption from punishment if the person voluntarily prevents the rigged offer's acceptance, or voluntarily and genuinely attempts to do so",
+            "d": "Only a 50% reduction in sentence, never full exemption from punishment"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§298 Abs. 3 StGB enthält eine Rücktrittsregelung: Wer freiwillig verhindert, dass das abgesprochene Angebot angenommen wird, oder sich freiwillig und ernsthaft darum bemüht, bleibt straffrei. Das ist ein aktives Handelnserfordernis - bloße innere Reue ohne Handlung genügt nicht.",
+        "en": "Sec. 298(3) StGB contains a voluntary-withdrawal provision: a person who voluntarily prevents the rigged offer's acceptance, or genuinely and seriously attempts to do so, remains exempt from punishment. This requires active conduct - mere internal regret without action does not suffice."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-straftaten-03",
+      "topic": "Individuelle Haftung und Durchsetzungspraxis",
+      "topic_code": "straftaten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "kein GWB-Paragraf (Verwaltungspraxis)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Gibt es - anders als im Geldwäscherecht (GwG) - eine gesetzlich festgelegte Mindesthäufigkeit für kartellrechtliche Compliance-Schulungen?",
+          "options": {
+            "a": "Ja, mindestens einmal jährlich für alle Mitarbeiter mit Kundenkontakt",
+            "b": "Nein - weder das GWB noch die Verwaltungspraxis des Bundeskartellamts schreiben eine bestimmte Schulungshäufigkeit vor; Erwartungen richten sich nach Größe, Struktur und Risiko des Unternehmens",
+            "c": "Ja, alle zwei Jahre laut einer verbindlichen EU-Richtlinie",
+            "d": "Nein, Schulungen sind im Kartellrecht komplett irrelevant und werden nie berücksichtigt"
+          }
+        },
+        "en": {
+          "question": "Unlike money-laundering law (GwG), is there a statutorily fixed minimum frequency for competition-law compliance training?",
+          "options": {
+            "a": "Yes, at least once a year for all customer-facing employees",
+            "b": "No - neither the GWB nor the Bundeskartellamt's administrative practice prescribes a specific training frequency; expectations scale to the undertaking's size, structure, and risk",
+            "c": "Yes, every two years under a binding EU directive",
+            "d": "No, training is entirely irrelevant in competition law and is never taken into account"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Anders als §6 Abs. 2 Nr. 6 GwG (das eine ausdrückliche, fortlaufende Schulungspflicht für Geldwäsche-Prävention vorschreibt) gibt es im Kartellrecht keine feste, gesetzlich vorgeschriebene Schulungshäufigkeit. Das Bundeskartellamt bewertet die Wirksamkeit eines Compliance-Programms - einschließlich Schulung - im Einzelfall anhand von Größe, Struktur und Risikoprofil des Unternehmens, nicht anhand eines starren Kalenderintervalls.",
+        "en": "Unlike Sec. 6(2) No. 6 GwG (which prescribes an explicit, ongoing training duty for anti-money-laundering compliance), competition law has no fixed, statutorily mandated training frequency. The Bundeskartellamt assesses the effectiveness of a compliance program - including training - case by case, based on the undertaking's size, structure, and risk profile, not on a rigid calendar interval."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-straftaten-04",
+      "topic": "Individuelle Haftung und Durchsetzungspraxis",
+      "topic_code": "straftaten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§§81h ff. GWB (Kronzeugenprogramm/Bonusregelung)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Im Straßenbau-Kartellfall erhielten vier der beteiligten Unternehmen eine Reduzierung ihres Bußgelds. Über welches Instrument wird eine solche Reduzierung typischerweise erreicht?",
+          "options": {
+            "a": "Durch eine außergerichtliche Einigung direkt mit den geschädigten Kunden",
+            "b": "Durch das Kronzeugenprogramm (Bonusregelung) - ein Unternehmen, das seine Beteiligung an einem Kartell aufdeckt und aktiv mit den Behörden kooperiert, kann eine Geldbußenreduzierung oder vollständige Erlassung erhalten",
+            "c": "Durch den Nachweis, dass der Wettbewerb tatsächlich nicht beeinträchtigt wurde",
+            "d": "Durch die Zahlung einer freiwilligen Zusatzsumme an die Staatskasse"
+          }
+        },
+        "en": {
+          "question": "In the road-construction cartel case, four of the involved companies received a reduction in their fine. Through which instrument is such a reduction typically achieved?",
+          "options": {
+            "a": "Through an out-of-court settlement directly with the harmed customers",
+            "b": "Through the leniency program (Bonusregelung) - an undertaking that discloses its involvement in a cartel and actively cooperates with the authorities can receive a fine reduction or full immunity",
+            "c": "By proving that competition was not actually affected in practice",
+            "d": "By making a voluntary additional payment to the state treasury"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das Kronzeugenprogramm (Bonusregelung) des Bundeskartellamts belohnt Unternehmen, die als erste ihre Kartellbeteiligung offenlegen und umfassend kooperieren, mit einer Bußgeldreduzierung bis hin zum vollständigen Erlass. Im Straßenbau-Fall erhielten vier Unternehmen auf diesem Weg eine Reduzierung - ein starker Anreiz, Verstöße frühzeitig selbst aufzudecken, statt sie zu vertuschen.",
+        "en": "The Bundeskartellamt's leniency program (Bonusregelung) rewards undertakings that are first to disclose their cartel involvement and cooperate comprehensively with a fine reduction, up to and including full immunity. In the road-construction case, four companies obtained a reduction this way - a strong incentive to self-report violations early rather than conceal them."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-grundlagen-05",
+      "topic": "Grundlagen des Kartellverbots",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§19 GWB",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "§18 GWB definiert, wann ein Unternehmen marktbeherrschend ist. Was verbietet §19 GWB einem solchen Unternehmen - und was gerade nicht?",
+          "options": {
+            "a": "§19 GWB verbietet bereits das Innehaben einer marktbeherrschenden Stellung als solches",
+            "b": "§19 GWB verbietet marktbeherrschenden Unternehmen jede Preiserhöhung ohne Genehmigung des Bundeskartellamts",
+            "c": "Verboten ist nur der Missbrauch der Stellung (§19 Abs. 1 GWB) - Abs. 2 nennt Beispiele wie die unbillige Behinderung oder sachlich ungerechtfertigte Ungleichbehandlung anderer Unternehmen (Behinderungsmissbrauch) und das Fordern von Entgelten, die von denen bei wirksamem Wettbewerb abweichen (Ausbeutungsmissbrauch); die beherrschende Stellung selbst bleibt legal",
+            "d": "§19 GWB richtet sich ausschließlich gegen Kartellabsprachen zwischen mehreren marktbeherrschenden Unternehmen"
+          }
+        },
+        "en": {
+          "question": "Sec. 18 GWB defines when an undertaking is dominant. What does Sec. 19 GWB prohibit such an undertaking from doing - and what, notably, does it not prohibit?",
+          "options": {
+            "a": "Sec. 19 GWB already prohibits holding a dominant position as such",
+            "b": "Sec. 19 GWB prohibits dominant undertakings from any price increase without Bundeskartellamt approval",
+            "c": "Only the abuse of the position is prohibited (Sec. 19(1) GWB) - subsection 2 lists examples such as unfairly impeding or, without objective justification, treating other undertakings differently (exclusionary abuse) and demanding prices or terms deviating from those that would result under effective competition (exploitative abuse); the dominant position itself remains lawful",
+            "d": "Sec. 19 GWB is directed exclusively at cartel agreements between multiple dominant undertakings"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§19 Abs. 1 GWB verbietet den Missbrauch einer marktbeherrschenden Stellung, nicht die Stellung selbst - Marktführerschaft durch bessere Leistung ist erlaubt. §19 Abs. 2 GWB nennt Regelbeispiele: Nr. 1 erfasst den Behinderungsmissbrauch (unbillige Behinderung oder Diskriminierung anderer Unternehmen), Nr. 2 den Ausbeutungsmissbrauch (Entgelte oder Geschäftsbedingungen, die von denen bei wirksamem Wettbewerb abweichen würden), Nr. 4 u. a. die Verweigerung des Zugangs zu Daten, Netzen oder Infrastruktureinrichtungen gegen angemessenes Entgelt, Nr. 5 das sogenannte Anzapfverbot (Aufforderung, ohne sachlichen Grund Vorteile zu gewähren). Die Norm spiegelt Art. 102 AEUV und betrifft einseitiges Verhalten - anders als §1 GWB ist keine Vereinbarung zwischen mehreren Unternehmen erforderlich.",
+        "en": "Sec. 19(1) GWB prohibits the abuse of a dominant position, not the position itself - market leadership earned through superior performance is lawful. Sec. 19(2) GWB lists standard examples: No. 1 covers exclusionary abuse (unfairly impeding or discriminating against other undertakings), No. 2 exploitative abuse (prices or terms deviating from those that would very likely result under effective competition), No. 4 includes refusing access to data, networks, or infrastructure facilities for adequate remuneration, and No. 5 the so-called \"tapping\" prohibition (demanding advantages without objective justification). The provision mirrors Art. 102 TFEU and targets unilateral conduct - unlike Sec. 1 GWB, no agreement between multiple undertakings is required."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-grundlagen-06",
+      "topic": "Grundlagen des Kartellverbots",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§1 GWB / Art. 101 AEUV / Art. 4 lit. a VO (EU) 2022/720",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Hersteller schreibt seinen Händlern verbindlich vor, zu welchem Endverkaufspreis sie seine Produkte weiterverkaufen müssen. Ist das zulässig, weil Hersteller und Händler keine Wettbewerber sind?",
+          "options": {
+            "a": "Ja - das Kartellverbot gilt nur für horizontale Absprachen zwischen Wettbewerbern",
+            "b": "Nein - die Preisbindung der zweiten Hand (Vorgabe fester Preise oder Mindestpreise für den Weiterverkauf) ist auch als vertikale Vereinbarung eine Kernbeschränkung nach §1 GWB / Art. 101 AEUV; zulässig sind nur unverbindliche Preisempfehlungen und Höchstpreise ohne Druck oder Anreize",
+            "c": "Ja, solange der vorgegebene Preis marktüblich ist",
+            "d": "Nein, aber nur wenn der Hersteller zugleich marktbeherrschend nach §18 GWB ist"
+          }
+        },
+        "en": {
+          "question": "A manufacturer contractually dictates to its dealers the exact retail price at which they must resell its products. Is this permissible because manufacturer and dealer are not competitors?",
+          "options": {
+            "a": "Yes - the cartel prohibition applies only to horizontal agreements between competitors",
+            "b": "No - resale price maintenance (imposing fixed or minimum resale prices) is a hardcore restriction under Sec. 1 GWB / Art. 101 TFEU even as a vertical agreement; only non-binding recommended prices and maximum prices without pressure or incentives are permitted",
+            "c": "Yes, as long as the imposed price is in line with the market",
+            "d": "No, but only if the manufacturer is also dominant under Sec. 18 GWB"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§1 GWB und Art. 101 AEUV erfassen nicht nur horizontale Absprachen zwischen Wettbewerbern, sondern auch vertikale Vereinbarungen zwischen verschiedenen Marktstufen (z. B. Hersteller und Händler). Die Preisbindung der zweiten Hand - die Vorgabe fester Weiterverkaufspreise oder Mindestpreise - ist nach Art. 4 lit. a der Vertikal-GVO (VO (EU) 2022/720) ausdrücklich eine Kernbeschränkung, die der Vereinbarung die Freistellung entzieht: Sie nimmt dem Händler seine Preissetzungsfreiheit als zentralen Wettbewerbsparameter. Zulässig bleiben Höchstpreise und unverbindliche Preisempfehlungen (UVP) - aber nur, solange sie nicht durch Druck (z. B. Lieferstopp-Drohungen) oder Anreize faktisch wie Fest- oder Mindestpreise wirken.",
+        "en": "Sec. 1 GWB and Art. 101 TFEU cover not only horizontal agreements between competitors but also vertical agreements between different market levels (e.g. manufacturer and dealer). Resale price maintenance - imposing fixed resale prices or minimum resale prices - is expressly a hardcore restriction under Art. 4(a) of the Vertical Block Exemption Regulation (Regulation (EU) 2022/720), removing the agreement's exemption: it deprives the dealer of pricing freedom as a central parameter of competition. Maximum prices and non-binding recommended retail prices remain permissible - but only as long as they do not effectively operate as fixed or minimum prices through pressure (e.g. threats to cut off supply) or incentives."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-kernbeschraenkungen-05",
+      "topic": "Kernbeschränkungen und Risikoszenarien",
+      "topic_code": "kernbeschraenkungen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§59b GWB / Art. 20, 23 VO (EG) Nr. 1/2003",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Das Bundeskartellamt oder die EU-Kommission erscheint unangekündigt zu einer Durchsuchung (\"Dawn Raid\") in Ihren Geschäftsräumen. Wie verhält sich das Unternehmen richtig?",
+          "options": {
+            "a": "Mitarbeiter dürfen belastende Dokumente noch schnell löschen, solange die Prüfer den Raum noch nicht betreten haben",
+            "b": "Das Unternehmen darf den Zutritt verweigern, bis der eigene Anwalt eingetroffen ist - die Behörde muss beliebig lange warten",
+            "c": "Die Durchsuchung dulden und kooperieren: Prüfer dürfen Räume betreten, Unterlagen einsehen und kopieren sowie Räume und Unterlagen versiegeln; ein Anwalt darf hinzugezogen werden, aber Behinderung - etwa Siegelbruch oder das Löschen von Daten - wird eigenständig mit Geldbußen geahndet",
+            "d": "Nur bei Durchsuchungen der EU-Kommission besteht eine Duldungspflicht, das Bundeskartellamt benötigt stets die Zustimmung der Geschäftsführung"
+          }
+        },
+        "en": {
+          "question": "The Bundeskartellamt or the EU Commission arrives unannounced to search your business premises (a \"dawn raid\"). What is the correct way for the company to respond?",
+          "options": {
+            "a": "Employees may quickly delete incriminating documents as long as the inspectors have not yet entered the room",
+            "b": "The company may refuse entry until its own lawyer arrives - the authority must wait as long as necessary",
+            "c": "Submit to the inspection and cooperate: inspectors may enter premises, examine and copy records, and seal premises and records; counsel may be called in, but obstruction - such as breaking a seal or deleting data - is punished with separate fines of its own",
+            "d": "Only EU Commission inspections must be tolerated - the Bundeskartellamt always needs management's consent"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Nach §59b GWB darf die Kartellbehörde Geschäftsräume durchsuchen - grundsätzlich mit richterlicher Anordnung des Amtsgerichts, bei Gefahr im Verzug ausnahmsweise auch ohne. Die EU-Kommission hat nach Art. 20 VO (EG) Nr. 1/2003 entsprechende Nachprüfungsbefugnisse: Räume betreten, Geschäftsunterlagen prüfen und kopieren, Räume und Unterlagen versiegeln, Erklärungen verlangen. Ein Anwalt darf hinzugezogen werden, die Prüfer müssen dessen Eintreffen aber nicht unbegrenzt abwarten. Behinderung ist teuer: Nach Art. 23 Abs. 1 VO (EG) Nr. 1/2003 drohen dafür Geldbußen bis zu 1 Prozent des Gesamtumsatzes - die Kommission verhängte 2008 gegen E.ON allein wegen eines gebrochenen Siegels 38 Millionen Euro Geldbuße, vom EuGH bestätigt. Praxisregel: kooperieren, nichts vernichten, nichts versiegeltes öffnen, sofort Rechtsabteilung und externen Anwalt informieren.",
+        "en": "Under Sec. 59b GWB the competition authority may search business premises - in principle with a judicial warrant from the local court, and in exigent circumstances (Gefahr im Verzug) exceptionally without one. The EU Commission has corresponding inspection powers under Art. 20 of Regulation (EC) No 1/2003: entering premises, examining and copying business records, sealing premises and records, and requesting explanations. Counsel may be called in, but inspectors are not required to wait indefinitely for their arrival. Obstruction is expensive: under Art. 23(1) of Regulation (EC) No 1/2003 it carries fines of up to 1 percent of total turnover - in 2008 the Commission fined E.ON EUR 38 million for a single broken seal, upheld by the EU courts. Practical rule: cooperate, destroy nothing, open nothing that has been sealed, and immediately inform the legal department and external counsel."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-kernbeschraenkungen-06",
+      "topic": "Kernbeschränkungen und Risikoszenarien",
+      "topic_code": "kernbeschraenkungen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 1, 4, 7 VO (EG) Nr. 139/2004 (FKVO)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Wann muss ein Unternehmenszusammenschluss bei der EU-Kommission angemeldet werden - und wie unterscheidet sich die Fusionskontrolle vom Kartellverbot?",
+          "options": {
+            "a": "Jede Übernahme eines Unternehmens mit Sitz in der EU muss angemeldet werden, unabhängig vom Umsatz",
+            "b": "Bei Erreichen der Umsatzschwellen der FKVO - im Hauptfall über 5 Milliarden Euro weltweiter Gesamtumsatz aller Beteiligten und mindestens 250 Millionen Euro unionsweiter Umsatz von mindestens zwei Beteiligten - besteht eine Pflicht zur vorherigen Anmeldung mit Vollzugsverbot; die Fusionskontrolle prüft geplante Zusammenschlüsse vorab, während das Kartellverbot verbotene Koordinierung zwischen selbstständig bleibenden Unternehmen sanktioniert",
+            "c": "Eine Anmeldung ist stets freiwillig - die Kommission kann Fusionen nur nachträglich untersagen",
+            "d": "Fusionen sind ein Unterfall des Kartellverbots nach Art. 101 AEUV und werden nach denselben Regeln gebüßt"
+          }
+        },
+        "en": {
+          "question": "When must a merger be notified to the European Commission - and how does merger control differ from the cartel prohibition?",
+          "options": {
+            "a": "Every acquisition of an EU-based company must be notified, regardless of turnover",
+            "b": "Once the EUMR turnover thresholds are met - in the primary case a combined worldwide turnover of all parties above EUR 5 billion and an EU-wide turnover of at least EUR 250 million for each of at least two parties - prior notification is mandatory and the transaction may not be implemented until cleared (standstill obligation); merger control reviews planned concentrations in advance, whereas the cartel prohibition sanctions prohibited coordination between undertakings that remain independent",
+            "c": "Notification is always voluntary - the Commission can only prohibit mergers after the fact",
+            "d": "Mergers are a sub-category of the cartel prohibition under Art. 101 TFEU and are fined under the same rules"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Die EU-Fusionskontrollverordnung (VO (EG) Nr. 139/2004, FKVO) ist ein eigenständiges Präventivregime neben dem Kartellverbot: Zusammenschlüsse mit unionsweiter Bedeutung müssen nach Art. 4 Abs. 1 FKVO vor dem Vollzug angemeldet werden und dürfen nach Art. 7 Abs. 1 FKVO erst nach Freigabe vollzogen werden. Unionsweite Bedeutung liegt nach Art. 1 Abs. 2 FKVO im Hauptfall vor, wenn der weltweite Gesamtumsatz aller Beteiligten 5 Milliarden Euro und der unionsweite Umsatz von mindestens zwei Beteiligten jeweils 250 Millionen Euro übersteigt (Ausnahme: Zwei-Drittel-Regel, wenn alle Beteiligten mehr als zwei Drittel ihres Unionsumsatzes in ein und demselben Mitgliedstaat erzielen; Art. 1 Abs. 3 enthält alternative, niedrigere Schwellen). Verstöße gegen Anmeldepflicht oder Vollzugsverbot (\"Gun Jumping\") können nach Art. 14 FKVO mit bis zu 10 Prozent des Gesamtumsatzes gebüßt werden. Der Unterschied zum Kartellverbot: Die Fusionskontrolle prüft eine dauerhafte Strukturveränderung vorab, das Kartellverbot ahndet Koordinierung zwischen Unternehmen, die rechtlich selbstständig bleiben.",
+        "en": "The EU Merger Regulation (Regulation (EC) No 139/2004, EUMR) is a standalone preventive regime alongside the cartel prohibition: concentrations with a Union dimension must be notified before implementation under Art. 4(1) EUMR and may only be implemented after clearance under Art. 7(1) EUMR. A Union dimension exists in the primary case under Art. 1(2) EUMR where the parties' combined worldwide turnover exceeds EUR 5 billion and at least two parties each have an EU-wide turnover above EUR 250 million (exception: the two-thirds rule, where each party achieves more than two-thirds of its EU turnover in one and the same Member State; Art. 1(3) contains alternative, lower thresholds). Breaching the notification duty or the standstill obligation (\"gun jumping\") can be fined with up to 10 percent of total turnover under Art. 14 EUMR. The difference from the cartel prohibition: merger control reviews a lasting structural change in advance, while the cartel prohibition sanctions coordination between undertakings that remain legally independent."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-bussgelder-05",
+      "topic": "Bußgelder und Haftungsrahmen",
+      "topic_code": "bussgelder",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§81 GWB / §298 StGB / Sec. 1 Sherman Act / s. 188 Enterprise Act 2002 (UK)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein international tätiger Vertriebsmitarbeiter meint: \"Kartellverstöße sind doch überall nur eine Sache der Unternehmensbußgelder.\" Warum ist das für einen multinationalen Konzern eine gefährliche Fehleinschätzung?",
+          "options": {
+            "a": "Weil auch in Deutschland jede Kartellabsprache für die Beteiligten automatisch eine Freiheitsstrafe nach sich zieht",
+            "b": "Weil Bußgelder nur gegen Einzelpersonen, nie gegen Unternehmen verhängt werden können",
+            "c": "Weil die individuelle Strafbarkeit je nach Rechtsordnung stark abweicht: In Deutschland sind Kartellverstöße für Unternehmen Ordnungswidrigkeiten und nur Submissionsabsprachen nach §298 StGB individuell strafbar - in den USA drohen Einzelpersonen für Preis-, Markt- und Submissionsabsprachen dagegen bis zu 10 Jahre Haft und 1 Million US-Dollar Geldstrafe, im Vereinigten Königreich nach der \"cartel offence\" bis zu 5 Jahre Haft",
+            "d": "Weil Kartellverstöße außerhalb Deutschlands generell nicht verfolgt werden"
+          }
+        },
+        "en": {
+          "question": "An internationally active sales employee claims: \"Cartel violations are just a matter of corporate fines everywhere.\" Why is this a dangerous misconception for a multinational group?",
+          "options": {
+            "a": "Because in Germany, too, every cartel agreement automatically results in imprisonment for those involved",
+            "b": "Because fines can only be imposed on individuals, never on companies",
+            "c": "Because individual criminal exposure differs sharply between jurisdictions: in Germany, cartel violations are administrative offenses (Ordnungswidrigkeiten) for companies, and only bid-rigging is individually criminal under Sec. 298 StGB - whereas in the US, individuals face up to 10 years' imprisonment and a USD 1 million fine for price-fixing, market-allocation, and bid-rigging conspiracies, and in the UK the \"cartel offence\" carries up to 5 years' imprisonment",
+            "d": "Because cartel violations are generally not prosecuted outside Germany"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Deutschland behandelt Kartellverstöße gegenüber Unternehmen als Ordnungswidrigkeiten (Bußgeld nach §81 ff. GWB); eine allgemeine Kartellstraftat für Einzelpersonen gibt es nicht - individuell strafbar sind nur wettbewerbsbeschränkende Absprachen bei Ausschreibungen nach §298 StGB. Andere Rechtsordnungen gehen deutlich weiter: In den USA ist ein Verstoß gegen Sec. 1 Sherman Act ein Verbrechen (Felony) - Einzelpersonen drohen bis zu 10 Jahre Freiheitsstrafe und bis zu 1 Million US-Dollar Geldstrafe (Unternehmen bis zu 100 Millionen US-Dollar, jeweils erhöhbar auf das Doppelte des Gewinns oder Schadens), und das Department of Justice verfolgt Manager aktiv. Im Vereinigten Königreich stellt die \"cartel offence\" nach s. 188 Enterprise Act 2002 die individuelle Beteiligung an Preisabsprachen, Marktaufteilung, Angebotsbeschränkung und Submissionsabsprachen unter Strafe - bis zu 5 Jahre Freiheitsstrafe (s. 190). Für Mitarbeiter mit internationalem Geschäft ist die persönliche Strafbarkeit also real - nicht nur ein Unternehmensrisiko.",
+        "en": "Germany treats cartel violations by companies as administrative offenses (fines under Sec. 81 ff. GWB); there is no general individual cartel crime - only bid-rigging in tenders is individually criminal under Sec. 298 StGB. Other jurisdictions go considerably further: in the US, a violation of Sec. 1 of the Sherman Act is a felony - individuals face up to 10 years' imprisonment and fines of up to USD 1 million (corporations up to USD 100 million, in each case increasable to twice the gain or loss), and the Department of Justice actively prosecutes managers. In the United Kingdom, the \"cartel offence\" under s. 188 Enterprise Act 2002 criminalizes individual participation in price-fixing, market-sharing, output-limitation, and bid-rigging arrangements - up to 5 years' imprisonment (s. 190). For employees with international business, personal criminal liability is therefore real - not merely a corporate risk."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-bussgelder-06",
+      "topic": "Bußgelder und Haftungsrahmen",
+      "topic_code": "bussgelder",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§§33a, 33b, 33e GWB",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Mit dem behördlichen Bußgeld ist ein Kartellfall für das Unternehmen häufig nicht beendet. Was gilt für private Schadensersatzklagen von Kartellgeschädigten nach §§33a ff. GWB?",
+          "options": {
+            "a": "Schadensersatz können nur staatliche Stellen verlangen, nicht private Abnehmer",
+            "b": "Geschädigte (z. B. Abnehmer) können Schadensersatz verlangen; es wird widerleglich vermutet, dass ein Kartell einen Schaden verursacht (§33a Abs. 2 GWB), und die bestandskräftige Verstoßfeststellung der Kartellbehörde bindet das Zivilgericht (§33b GWB) - \"Follow-on\"-Klagen müssen den Verstoß also nicht erneut beweisen",
+            "c": "Schadensersatzklagen sind ausgeschlossen, sobald das Unternehmen das Bußgeld vollständig bezahlt hat",
+            "d": "Das Zivilgericht muss den Kartellverstoß in jedem Schadensersatzprozess vollständig neu ermitteln - Behördenentscheidungen haben keinerlei Wirkung"
+          }
+        },
+        "en": {
+          "question": "The authority's fine often does not end a cartel case for the company. What applies to private damages actions by cartel victims under Secs. 33a ff. GWB?",
+          "options": {
+            "a": "Only state bodies can claim damages, not private customers",
+            "b": "Injured parties (e.g. customers) can claim damages; it is rebuttably presumed that a cartel causes damage (Sec. 33a(2) GWB), and the competition authority's final infringement finding binds the civil court (Sec. 33b GWB) - so \"follow-on\" claimants do not have to prove the violation again",
+            "c": "Damages actions are barred once the company has paid the fine in full",
+            "d": "The civil court must re-investigate the cartel violation from scratch in every damages case - authority decisions have no effect whatsoever"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§33a Abs. 1 GWB verpflichtet zum Ersatz des Schadens, der durch einen vorsätzlichen oder fahrlässigen Kartellverstoß entsteht; §33a Abs. 2 GWB enthält die widerlegliche Vermutung, dass ein Kartell einen Schaden verursacht - der Kläger muss den Schadenseintritt also nicht von Grund auf beweisen. Nach §33b GWB ist das Zivilgericht an die bestandskräftige Feststellung des Verstoßes durch die Kartellbehörde, die EU-Kommission oder eine Wettbewerbsbehörde eines anderen EU-Mitgliedstaats gebunden - die praktische Grundlage der Follow-on-Klage. Eine wichtige Ausnahme enthält §33e GWB: Der Kronzeuge, dem die Geldbuße vollständig erlassen wurde, haftet grundsätzlich nur seinen eigenen unmittelbaren und mittelbaren Abnehmern und Lieferanten - anderen Geschädigten nur, soweit sie von den übrigen Kartellanten keinen vollständigen Ersatz erlangen können. Kartellschadensersatz kann die Bußgeldsumme erheblich übersteigen und ist damit ein eigenständiges Compliance-Argument.",
+        "en": "Sec. 33a(1) GWB imposes liability for damage caused by an intentional or negligent competition-law violation; Sec. 33a(2) GWB contains the rebuttable presumption that a cartel causes damage - so the claimant does not have to prove the occurrence of harm from scratch. Under Sec. 33b GWB, the civil court is bound by the final infringement finding of the competition authority, the EU Commission, or a competition authority of another EU Member State - the practical foundation of the follow-on action. Sec. 33e GWB contains an important exception: a leniency applicant granted full immunity from the fine is in principle liable only to its own direct and indirect customers and suppliers - to other injured parties only insofar as they cannot obtain full compensation from the remaining cartel members. Cartel damages can substantially exceed the fine itself, making them a compliance argument in their own right."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-selbstreinigung-05",
+      "topic": "Selbstreinigung nach Kartellverstößen",
+      "topic_code": "selbstreinigung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§§7, 8 WRegG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Unternehmen ist wegen eines Kartellbußgelds in das Wettbewerbsregister beim Bundeskartellamt eingetragen worden. Wie lange bleibt die Eintragung bestehen - und wie kommt das Unternehmen vorzeitig wieder heraus?",
+          "options": {
+            "a": "Eintragungen bleiben dauerhaft bestehen und können nie gelöscht werden",
+            "b": "Eintragungen werden nach 10 Jahren gelöscht, eine vorzeitige Löschung ist gesetzlich nicht vorgesehen",
+            "c": "Bußgeldentscheidungen werden spätestens nach 3 Jahren ab Erlass gelöscht, Eintragungen wegen bestimmter Straftaten spätestens nach 5 Jahren (§7 WRegG); vorzeitig gelöscht wird auf Antrag bei der Registerbehörde, wenn das Unternehmen eine erfolgreiche Selbstreinigung nachweist (§8 WRegG)",
+            "d": "Die Löschung erfolgt automatisch, sobald das Bußgeld bezahlt ist"
+          }
+        },
+        "en": {
+          "question": "A company has been entered into the competition register (Wettbewerbsregister) at the Bundeskartellamt because of a cartel fine. How long does the entry remain - and how can the company get it removed early?",
+          "options": {
+            "a": "Entries remain permanently and can never be deleted",
+            "b": "Entries are deleted after 10 years; early deletion is not provided for by law",
+            "c": "Fine decisions are deleted at the latest 3 years after they are issued, entries based on certain criminal convictions at the latest after 5 years (Sec. 7 WRegG); early deletion is available on application to the register authority if the company demonstrates successful self-cleaning (Sec. 8 WRegG)",
+            "d": "Deletion happens automatically as soon as the fine is paid"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Das Wettbewerbsregistergesetz (WRegG) regelt das bundesweite Register beim Bundeskartellamt, das öffentliche Auftraggeber vor der Vergabe abfragen. §7 WRegG staffelt die Löschungsfristen: Eintragungen von Bußgeldentscheidungen (dazu zählen Kartellbußgelder) werden spätestens nach Ablauf von 3 Jahren ab Erlass der Bußgeldentscheidung gelöscht; Eintragungen wegen bestimmter Straftaten spätestens nach 5 Jahren ab Rechts- oder Bestandskraft. Vor Fristablauf hilft §8 WRegG: Das Unternehmen kann bei der Registerbehörde die vorzeitige Löschung wegen Selbstreinigung beantragen und muss dafür die Selbstreinigungsmaßnahmen nachweisen - für vergaberechtliche Ausschlussgründe nach dem Maßstab des §125 GWB (Schadensausgleich, aktive Aufklärungskooperation, konkrete Präventionsmaßnahmen). Der Antrag ist gebührenpflichtig. Nach der Löschung darf der Sachverhalt dem Unternehmen im Vergabeverfahren nicht mehr entgegengehalten werden.",
+        "en": "The Competition Register Act (WRegG) governs the nationwide register at the Bundeskartellamt, which contracting authorities must consult before awarding public contracts. Sec. 7 WRegG staggers the deletion periods: entries based on fine decisions (which include cartel fines) are deleted at the latest 3 years after the fine decision is issued; entries based on certain criminal convictions at the latest 5 years after the decision becomes final. Before the period expires, Sec. 8 WRegG offers a route out: the company can apply to the register authority for early deletion based on self-cleaning and must demonstrate its self-cleaning measures - for procurement-law exclusion grounds, measured against the standard of Sec. 125 GWB (compensation for damage, active clarification cooperation, concrete preventive measures). The application is subject to fees. Once the entry is deleted, the underlying facts may no longer be held against the company in tender procedures."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-selbstreinigung-06",
+      "topic": "Selbstreinigung nach Kartellverstößen",
+      "topic_code": "selbstreinigung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 57 Abs. 6, 7 Richtlinie 2014/24/EU / §125 GWB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "In welchem Verhältnis steht die Selbstreinigung nach §125 GWB zum EU-Recht?",
+          "options": {
+            "a": "Die Selbstreinigung ist eine rein deutsche Erfindung ohne europäische Grundlage",
+            "b": "§125 GWB setzt Art. 57 Abs. 6 der EU-Vergaberichtlinie 2014/24/EU um - die Richtlinie garantiert Unternehmen unionsweit das Recht, durch Schadensausgleich, aktive Aufklärungskooperation und konkrete Präventionsmaßnahmen ihre Zuverlässigkeit nachzuweisen, und begrenzt zugleich die maximale Ausschlussdauer (5 Jahre bei zwingenden, 3 Jahre bei fakultativen Ausschlussgründen)",
+            "c": "EU-Recht verbietet die Selbstreinigung - §125 GWB gilt daher nur für rein nationale Vergaben",
+            "d": "Die EU-Richtlinie regelt nur Bußgelder; für die Vergabesperre gibt es kein EU-Recht"
+          }
+        },
+        "en": {
+          "question": "How does self-cleaning under Sec. 125 GWB relate to EU law?",
+          "options": {
+            "a": "Self-cleaning is a purely German invention with no European basis",
+            "b": "Sec. 125 GWB implements Art. 57(6) of the EU Public Procurement Directive 2014/24/EU - the Directive guarantees undertakings across the Union the right to demonstrate their reliability through compensation for damage, active clarification cooperation, and concrete preventive measures, and additionally caps the maximum exclusion period (5 years for mandatory, 3 years for facultative exclusion grounds)",
+            "c": "EU law prohibits self-cleaning - Sec. 125 GWB therefore applies only to purely national tenders",
+            "d": "The EU Directive governs only fines; there is no EU law on procurement debarment"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 57 Abs. 6 der Richtlinie 2014/24/EU ist die unionsrechtliche Grundlage der Selbstreinigung: Ein Wirtschaftsteilnehmer, bei dem ein Ausschlussgrund vorliegt, kann nachweisen, dass er einen Ausgleich für verursachte Schäden gezahlt oder sich dazu verpflichtet hat, die Tatsachen und Umstände durch aktive Zusammenarbeit mit den Ermittlungsbehörden umfassend geklärt hat und konkrete technische, organisatorische und personelle Maßnahmen zur Verhinderung weiterer Verfehlungen ergriffen hat - exakt die drei Voraussetzungen, die §125 Abs. 1 GWB ins deutsche Recht übernimmt. Auch die Begründungspflicht bei Ablehnung (§125 Abs. 2 GWB) stammt aus der Richtlinie. Art. 57 Abs. 7 begrenzt zudem die maximale Ausschlussdauer: höchstens 5 Jahre bei zwingenden und höchstens 3 Jahre bei fakultativen Ausschlussgründen - in Deutschland umgesetzt in §126 GWB. Für international tätige Unternehmen bedeutet das: Die Selbstreinigungslogik gilt EU-weit in jedem Mitgliedstaat, nicht nur in Deutschland.",
+        "en": "Art. 57(6) of Directive 2014/24/EU is the EU-law foundation of self-cleaning: an economic operator affected by an exclusion ground may prove that it has paid or undertaken to pay compensation for damage caused, has comprehensively clarified the facts and circumstances by actively collaborating with the investigating authorities, and has taken concrete technical, organisational, and personnel measures appropriate to prevent further misconduct - exactly the three requirements Sec. 125(1) GWB transposes into German law. The duty to give reasons when measures are deemed insufficient (Sec. 125(2) GWB) also stems from the Directive. Art. 57(7) additionally caps the maximum exclusion period: at most 5 years for mandatory and at most 3 years for facultative exclusion grounds - implemented in Germany in Sec. 126 GWB. For internationally active companies this means the self-cleaning logic applies EU-wide in every Member State, not only in Germany."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-straftaten-05",
+      "topic": "Individuelle Haftung und Durchsetzungspraxis",
+      "topic_code": "straftaten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§§81h ff. GWB / §298 StGB",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Unternehmen deckt seine Beteiligung an Submissionsabsprachen über das Kronzeugenprogramm auf und erhält den vollständigen Bußgelderlass. Sind damit auch die beteiligten Mitarbeiter vor Strafverfolgung nach §298 StGB geschützt?",
+          "options": {
+            "a": "Ja - der Kronzeugenstatus des Unternehmens erstreckt sich automatisch auf alle Mitarbeiter",
+            "b": "Nein - das Kronzeugenprogramm der §§81h ff. GWB betrifft nur den Erlass oder die Ermäßigung von Geldbußen im Kartellordnungswidrigkeitenverfahren; über die Strafverfolgung wegen §298 StGB entscheidet die Staatsanwaltschaft, und eine formelle, automatische Straffreiheitsgarantie für die beteiligten Einzelpersonen gibt es im deutschen Recht nicht",
+            "c": "Ja, aber nur für Mitarbeiter der Führungsebene",
+            "d": "Nein, denn das Kronzeugenprogramm schließt bei Submissionsabsprachen jede Bußgeldreduzierung von vornherein aus"
+          }
+        },
+        "en": {
+          "question": "A company discloses its involvement in bid-rigging through the leniency program and receives full immunity from the corporate fine. Does this also protect the employees involved from criminal prosecution under Sec. 298 StGB?",
+          "options": {
+            "a": "Yes - the company's leniency status automatically extends to all employees",
+            "b": "No - the leniency program of Secs. 81h ff. GWB concerns only the remission or reduction of fines in cartel administrative-offense proceedings; prosecution under Sec. 298 StGB is a matter for the public prosecutor's office, and German law contains no formal, automatic immunity guarantee for the individuals involved",
+            "c": "Yes, but only for management-level employees",
+            "d": "No, because the leniency program categorically excludes any fine reduction in bid-rigging cases"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Die §§81h ff. GWB kodifizieren das Kronzeugenprogramm ausschließlich für das Kartellbußgeldverfahren: Belohnt wird die Kooperation mit dem Erlass oder der Ermäßigung der Geldbuße - einer Ordnungswidrigkeitensanktion. Die Strafverfolgung wegen wettbewerbsbeschränkender Absprachen bei Ausschreibungen (§298 StGB) liegt dagegen bei der Staatsanwaltschaft, die dem Legalitätsprinzip unterliegt; das Bundeskartellamt kann hierüber nicht disponieren. Anders als etwa das US-Leniency-Programm, das dem ersten Antragsteller auch die Nichtverfolgung kooperierender Mitarbeiter zusagt, kennt das deutsche Recht keine formelle individuelle Straffreiheitsgarantie als Anhängsel der Unternehmens-Kronzeugenstellung. Die Kooperation der Einzelperson kann strafmildernd wirken oder zu einer Einstellung führen - eine Garantie ist das nicht. Für Compliance-Verantwortliche heißt das: Die Kronzeugenentscheidung des Unternehmens und die Verteidigungsinteressen der beteiligten Mitarbeiter müssen getrennt betrachtet und beraten werden.",
+        "en": "Secs. 81h ff. GWB codify the leniency program exclusively for cartel fine proceedings: cooperation is rewarded with remission or reduction of the fine - an administrative-offense sanction. Criminal prosecution for bid-rigging (Sec. 298 StGB), by contrast, lies with the public prosecutor's office, which is bound by the principle of mandatory prosecution; the Bundeskartellamt cannot dispose of it. Unlike, for example, the US leniency program, which promises the first applicant non-prosecution of its cooperating employees as well, German law has no formal individual immunity guarantee attached to the company's leniency status. An individual's cooperation may mitigate the sentence or lead to a discontinuation - but that is not a guarantee. For compliance officers this means: the company's leniency decision and the defense interests of the individual employees involved must be assessed and advised on separately."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "kartellrecht-straftaten-06",
+      "topic": "Individuelle Haftung und Durchsetzungspraxis",
+      "topic_code": "straftaten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§81m GWB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Unternehmen entdeckt intern Hinweise auf eine Kartellbeteiligung, hat den Sachverhalt aber noch nicht vollständig aufgearbeitet. Warum kann sich in dieser Lage der sogenannte Marker nach §81m GWB entscheidend auszahlen?",
+          "options": {
+            "a": "Der Marker verpflichtet die Behörde, das Verfahren für mindestens ein Jahr auszusetzen",
+            "b": "Der Marker ersetzt den späteren Kronzeugenantrag vollständig - weitere Angaben sind nicht mehr nötig",
+            "c": "Mit dem Marker erklärt das Unternehmen mit wenigen Mindestangaben zunächst nur seine Kooperationsbereitschaft und sichert sich dadurch seinen Rang in der Reihenfolge der Kronzeugenanträge; reicht es den ausgearbeiteten Antrag fristgerecht nach, zählt der Marker-Zeitpunkt - entscheidend, weil regelmäßig nur der erste Antragsteller den vollständigen Bußgelderlass erhalten kann, spätere nur eine Ermäßigung",
+            "d": "Der Marker schützt automatisch alle beteiligten Mitarbeiter vor Strafverfolgung"
+          }
+        },
+        "en": {
+          "question": "A company internally discovers indications of cartel involvement but has not yet fully worked through the facts. Why can the so-called marker under Sec. 81m GWB be decisive in this situation?",
+          "options": {
+            "a": "The marker obliges the authority to suspend proceedings for at least one year",
+            "b": "The marker fully replaces the later leniency application - no further submissions are needed",
+            "c": "With the marker, the company initially only declares its willingness to cooperate, using a few minimum details, and thereby secures its rank in the order of leniency applications; if it files the fully worked-out application within the deadline set, the marker's timestamp counts - decisive, because as a rule only the first applicant can obtain full immunity from the fine, while later applicants get only a reduction",
+            "d": "The marker automatically shields all involved employees from criminal prosecution"
+          }
+        }
+      },
+      "explanation": {
+        "de": "§81m GWB kodifiziert das Marker-System: Ein Kartellbeteiligter kann sich an die Kartellbehörde wenden, um zunächst nur seine Kooperationsbereitschaft zu erklären und so einen Rang in der Reihenfolge des Eingangs der Kronzeugenanträge zu erhalten. Der Marker muss Mindestangaben enthalten - u. a. Name und Anschrift, die anderen Kartellbeteiligten, betroffene Produkte und Gebiete, Dauer und Art der Tat sowie Angaben zu Kronzeugenanträgen bei anderen Behörden. Die Behörde setzt dann eine angemessene Frist für den ausgearbeiteten Antrag; wird sie eingehalten, ist für den Rang der Zeitpunkt des Markers maßgeblich. Das ist praktisch entscheidend, weil das Kronzeugenprogramm ein Windhundrennen ist: Der vollständige Erlass ist regelmäßig dem ersten Antragsteller vorbehalten, alle späteren können nur noch eine Ermäßigung erreichen. Wer also erst \"alles intern fertig aufklären\" will, bevor er die Behörde kontaktiert, riskiert, dass ein anderer Kartellbeteiligter zuerst kommt - und den Erlass mitnimmt.",
+        "en": "Sec. 81m GWB codifies the marker system: a cartel participant can approach the competition authority to initially declare only its willingness to cooperate and thereby obtain a rank in the order of receipt of leniency applications. The marker must contain minimum details - including name and address, the other cartel participants, the products and territories affected, the duration and nature of the conduct, and information on leniency applications filed with other authorities. The authority then sets a reasonable deadline for the fully worked-out application; if it is met, the marker's timestamp determines the application's rank. This matters enormously in practice because the leniency program is a race: full immunity is as a rule reserved for the first applicant, and all later applicants can only obtain a reduction. A company that wants to \"finish clarifying everything internally\" before contacting the authority risks another cartel member getting there first - and taking the immunity with them."
+      },
+      "roles": [
+        "all"
+      ]
+    }
+  ]
+}
