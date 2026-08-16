@@ -144,7 +144,7 @@ function validateIssueBadgePayload(payload) {
 // type: ["VerifiableCredential", "OpenBadgeCredential"]), but with a
 // credentialSubject shaped for a hashed, privacy-preserving identity
 // rather than sign-credential.js's fully anonymous default.
-function buildCredentialClaims({ name, achievementName, achievementDescription, emailHash, emailSalt, nameHash, nameSalt, issuedAtIso }) {
+function buildCredentialClaims({ name, achievementName, achievementDescription, emailHash, emailSalt, nameHash, nameSalt, issuedAtIso, badgeId }) {
   const identifier = [
     {
       type: "IdentityObject",
@@ -184,6 +184,19 @@ function buildCredentialClaims({ name, achievementName, achievementDescription, 
     // exists purely to prove the pipeline works, not to record a real
     // achievement date.
     validFrom: issuedAtIso,
+    // 2026-08-16, round 4: added `id` on the top-level credential.
+    // BACKLOG.md's DN-51 re-verification round (2026-08-11) already found,
+    // via real runs of the 1EdTech (vc.1ed.tech) and CertLister external
+    // OB3 validators against sign-credential.js's output, that a credential
+    // with no `vc.id` fails 1EdTech's JSON Schema check outright ("required
+    // property 'id' not found") - that validator schema-checks the decoded
+    // `vc` object directly and does not do the jti->id promotion VC-JWT
+    // notionally allows. That fix was written up as a follow-up for
+    // sign-credential.js at the time but this file (built later, 2026-08-16)
+    // was never updated to include it - the same gap, unfixed, in a second
+    // place. Using a urn:uuid: URI from the same badgeId already used for
+    // the JWT's own `jti` claim, so both identifiers agree.
+    id: `urn:uuid:${badgeId}`,
     credentialSubject: {
       type: "AchievementSubject",
       // Only include `name` here if the caller supplied one - this is the
@@ -261,6 +274,9 @@ export default async (request) => {
     const now = Math.floor(Date.now() / 1000);
     const issuedAt = new Date(now * 1000).toISOString();
 
+    const kid = privateJwk.kid;
+    const jwksUrl = `${ISSUER_URL}${JWKS_PATH}`;
+
     const vc = buildCredentialClaims({
       name,
       achievementName,
@@ -270,17 +286,23 @@ export default async (request) => {
       nameHash: nameHashResult ? nameHashResult.hash : undefined,
       nameSalt: nameHashResult ? nameHashResult.salt : undefined,
       issuedAtIso: issuedAt,
+      badgeId,
     });
 
     const jwt = await new SignJWT({ vc })
-      .setProtectedHeader({ alg: ALG, kid: privateJwk.kid, typ: "JWT" })
+      // `jku` (JWK Set URL) added 2026-08-16, round 4 - same DN-51 gap as
+      // the `vc.id` fix above. Without it, a verifier has no *standard*
+      // way to discover this issuer's JWKS from the JWT alone - it would
+      // have to already know, out of band, that this project's `kid`
+      // convention resolves against jwksUrl. Both 1EdTech's and CertLister's
+      // validators flagged exactly this when testing sign-credential.js's
+      // output; a third-party importer (e.g. Credly) choking on a badge
+      // with an undiscoverable issuer key is the same failure mode.
+      .setProtectedHeader({ alg: ALG, kid, typ: "JWT", jku: jwksUrl })
       .setIssuedAt(now)
       .setIssuer(ISSUER_URL)
       .setJti(badgeId)
       .sign(privateKey);
-
-    const kid = privateJwk.kid;
-    const jwksUrl = `${ISSUER_URL}${JWKS_PATH}`;
 
     // The JWT is already validly signed at this point - a storage failure
     // below must NOT fail the whole request, since the caller's actual
