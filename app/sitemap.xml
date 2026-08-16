@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Zettacard sitemap.xml
+
+  Deliberately short. This is a single-page app - app.html renders every
+  module/course/exam from JSON fetched at runtime (see netlify.toml's own
+  comment: "no client-side router with deep-linkable routes yet"), so
+  there is no per-module URL to list (e.g. no /app.html?module=dora is a
+  real, distinct, bookmarkable page today). Listing one of these per
+  module would be fabricating URLs that don't exist and that Google would
+  just 404 or redirect-loop on via the SPA catch-all in netlify.toml.
+
+  What's listed below is only the small set of real, distinct, indexable
+  pages that exist as of 2026-08-16:
+    - the marketing landing page (index.html) - the primary entry point,
+      already carries canonical/OG/JSON-LD SEO tags
+    - the app shell (app.html) - a single generic entry point into the
+      app, not per-module content, but not noindex'd either
+    - the two legal pages, both explicitly marked <meta name="robots"
+      content="index,follow"> already, so they're meant to be indexed
+
+  get-app.html (iPhone install instructions) is deliberately NOT listed -
+  it already carries <meta name="robots" content="noindex,nofollow">, and
+  a sitemap entry would contradict that.
+
+  If per-module deep links ever ship (tracked as a "not strictly needed
+  today" item in netlify.toml's SPA-fallback comment), this file should
+  grow real <url> entries for them then - not before.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://zettacard.de/</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zettacard.de/app.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://zettacard.de/legal/quellen.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://zettacard.de/legal/trademarks.html</loc>
+    <lastmod>2026-08-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
