@@ -327,9 +327,18 @@ exports.handler = async (event) => {
       blobStored = true;
     } catch (storageErr) {
       console.error("issue-badge: failed to store badge in Netlify Blobs:", storageErr);
+      // TEMP DEBUG round 2 - first fix (missing "runtime" scope) didn't
+      // resolve it, so surfacing the real error + presence (not value) of
+      // the two inputs to see what's actually still missing/wrong.
+      var __blobDebug = {
+        message: String((storageErr && storageErr.message) || storageErr),
+        hasSiteId: !!process.env.SITE_ID,
+        hasToken: !!process.env.NETLIFY_BLOBS_TOKEN,
+      };
     }
 
     return jsonResponse(200, {
+      ...(typeof __blobDebug !== "undefined" ? { blobDebug: __blobDebug } : {}),
       verified: true,
       jwt,
       badgeId,
