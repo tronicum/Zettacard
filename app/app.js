@@ -4099,6 +4099,379 @@ function wirePrimerControls() {
   el("#primer-reader-exit").addEventListener("click", () => history.back());
 }
 
+// --- v1 course layer (modular-course-architecture-v1, 2026-08-15) -------
+// Presentation layer for the course.json/course_locales sidecar built by
+// data/build_modules.py's split_course() - a browsable, exam-prep-focused
+// view of a module's lessons, and a direct hand-off from a lesson into a
+// practice-quiz run scoped to that lesson's topic_codes. Shown only for
+// modules with "hasCourse": true in modules_manifest.json (currently
+// ki_act, dora, nis2, it_sicherheit, arbeitssicherheit, datenschutz, cka -
+// this round's actual content/testing focus is CKA, but the view itself is
+// generic off that flag, not CKA-specific).
+//
+// Deliberately v1-scoped to MCQ exam-prep: only lesson_kind "primer" and
+// "checkpoint" lessons are listed (the ones with a real "select" block and
+// a completion_rule of quiz_pass:N). "lab" lessons (external_hands_on,
+// run on the learner's own cluster/VM, see practice_ref) have no in-app
+// presentation yet - that's a distinct, larger UI (a real hands-on
+// tracker) intentionally left for a later round, not silently dropped:
+// the data already carries practice_ref text for exactly that future use.
+
+// Fetched once per (examType) / (examType, lang) - same cache shape and
+// fallback chain (state.lang -> en -> de) as fetchLocaleTextWithFallback()/
+// loadPrimerChunks() above, so a UI language without its own course
+// translation still shows real content instead of an empty lesson.
+const courseCoreCache = {};
+const courseLocaleCache = {};
+
+async function loadCourseCore(examType) {
+  if (courseCoreCache[examType]) return courseCoreCache[examType];
+  const data = await fetchJson(`data/${examType}/course.json`);
+  courseCoreCache[examType] = data;
+  return data;
+}
+
+async function loadCourseLocaleWithFallback(examType, lang) {
+  const cacheKey = `${examType}:${lang}`;
+  if (courseLocaleCache[cacheKey]) return courseLocaleCache[cacheKey];
+  const candidates = [...new Set([lang, "en", "de"])];
+  let lastErr;
+  for (const candidate of candidates) {
+    try {
+      const data = await fetchJson(`data/${examType}/course_locales/${candidate}.json`);
+      courseLocaleCache[cacheKey] = data;
+      return data;
+    } catch (err) {
+      lastErr = err;
+    }
+  }
+  throw lastErr;
+}
+
+// entity id (course_id/unit_id/lesson_id/section_id/note_key) -> field
+// text ("title"/"description"/"body") in the resolved locale bundle - "the
+// key IS the entity id" convention from the design doc, matching the
+// primers precedent.
+function courseText(bundle, id, field) {
+  const entry = bundle && bundle[id];
+  return entry ? entry[field] : undefined;
+}
+
+function escapeHtml(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+// Minimal markdown-style `[label](url)` -> <a> renderer for course body
+// text. Course content is authored in-house (not user input) and only uses
+// this one pattern - the first-mention footnote links to
+// legal/trademarks.html/legal/quellen.html the trademarks-policy round
+// added (see e.g. nis2_course.json's "[BSI](legal/quellen.html#bsi)") -
+// not a general markdown parser. Everything else is HTML-escaped first, so
+// no other markup can slip through; the url is restricted to a small
+// allow-list of schemes/prefixes as a second layer of defense.
+function renderCourseBodyHtml(text) {
+  const escaped = escapeHtml(text);
+  return escaped.replace(/\[([^\]\[]+)\]\(([^()\s]+)\)/g, (whole, label, url) => {
+    const safe = /^(https?:\/\/|\.?\/|legal\/)/.test(url);
+    if (!safe) return whole;
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+  });
+}
+
+const COURSE_LESSON_KIND_KEY = { primer: "kindPrimer", checkpoint: "kindCheckpoint" };
+
+const COURSE_STRINGS = {
+  de: {
+    btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Noch kein Kursinhalt verfügbar.",
+    close: "← Zurück", kindPrimer: "Lektion", kindCheckpoint: "Checkpoint",
+    minutes: (n) => `~${n} Min.`, back: "← Zurück", exit: "Beenden", next: "Weiter", done: "Fertig",
+    practiceNow: "Jetzt Übungsfragen dazu starten", relatedTitle: "Auch relevant",
+  },
+  en: {
+    btn: "📘 Course", ariaLabel: "Course", title: "Course", empty: "No course content available yet.",
+    close: "← Back", kindPrimer: "Lesson", kindCheckpoint: "Checkpoint",
+    minutes: (n) => `~${n} min`, back: "← Back", exit: "Exit", next: "Next", done: "Done",
+    practiceNow: "Practice this lesson now", relatedTitle: "Also relevant",
+  },
+  uk: {
+    btn: "📘 Курс", ariaLabel: "Курс", title: "Курс", empty: "Вміст курсу поки що недоступний.",
+    close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольна точка",
+    minutes: (n) => `~${n} хв`, back: "← Назад", exit: "Вийти", next: "Далі", done: "Готово",
+    practiceNow: "Практикувати цей урок зараз", relatedTitle: "Також актуально",
+  },
+  pl: {
+    btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Treści kursu nie są jeszcze dostępne.",
+    close: "← Wstecz", kindPrimer: "Lekcja", kindCheckpoint: "Punkt kontrolny",
+    minutes: (n) => `~${n} min`, back: "← Wstecz", exit: "Zakończ", next: "Dalej", done: "Gotowe",
+    practiceNow: "Ćwicz tę lekcję teraz", relatedTitle: "Zobacz też",
+  },
+  ar: {
+    btn: "📘 الدورة", ariaLabel: "الدورة", title: "الدورة", empty: "لا يوجد محتوى للدورة بعد.",
+    close: "← رجوع", kindPrimer: "درس", kindCheckpoint: "نقطة تحقق",
+    minutes: (n) => `~${n} دقيقة`, back: "← رجوع", exit: "خروج", next: "التالي", done: "تم",
+    practiceNow: "تدرّب على هذا الدرس الآن", relatedTitle: "ذو صلة أيضًا",
+  },
+  zh: {
+    btn: "📘 课程", ariaLabel: "课程", title: "课程", empty: "课程内容暂未提供。",
+    close: "← 返回", kindPrimer: "课时", kindCheckpoint: "检查点",
+    minutes: (n) => `约 ${n} 分钟`, back: "← 返回", exit: "退出", next: "下一步", done: "完成",
+    practiceNow: "现在练习这一课", relatedTitle: "另请参见",
+  },
+  hi: {
+    btn: "📘 कोर्स", ariaLabel: "कोर्स", title: "कोर्स", empty: "अभी तक कोई कोर्स सामग्री उपलब्ध नहीं है।",
+    close: "← वापस", kindPrimer: "पाठ", kindCheckpoint: "चेकपॉइंट",
+    minutes: (n) => `~${n} मिनट`, back: "← वापस", exit: "बाहर निकलें", next: "आगे", done: "पूर्ण",
+    practiceNow: "अभी इस पाठ का अभ्यास करें", relatedTitle: "यह भी प्रासंगिक",
+  },
+  tr: {
+    btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Henüz kurs içeriği yok.",
+    close: "← Geri", kindPrimer: "Ders", kindCheckpoint: "Kontrol noktası",
+    minutes: (n) => `~${n} dk`, back: "← Geri", exit: "Çık", next: "İleri", done: "Bitti",
+    practiceNow: "Bu dersi şimdi pratik et", relatedTitle: "Ayrıca ilgili",
+  },
+  fr: {
+    btn: "📘 Cours", ariaLabel: "Cours", title: "Cours", empty: "Aucun contenu de cours disponible pour le moment.",
+    close: "← Retour", kindPrimer: "Leçon", kindCheckpoint: "Point de contrôle",
+    minutes: (n) => `~${n} min`, back: "← Retour", exit: "Quitter", next: "Suivant", done: "Terminé",
+    practiceNow: "Pratiquer cette leçon maintenant", relatedTitle: "Voir aussi",
+  },
+  ru: {
+    btn: "📘 Курс", ariaLabel: "Курс", title: "Курс", empty: "Содержимое курса пока недоступно.",
+    close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольная точка",
+    minutes: (n) => `~${n} мин`, back: "← Назад", exit: "Выйти", next: "Далее", done: "Готово",
+    practiceNow: "Практиковать этот урок сейчас", relatedTitle: "Также по теме",
+  },
+  es: {
+    btn: "📘 Curso", ariaLabel: "Curso", title: "Curso", empty: "Aún no hay contenido del curso disponible.",
+    close: "← Atrás", kindPrimer: "Lección", kindCheckpoint: "Punto de control",
+    minutes: (n) => `~${n} min`, back: "← Atrás", exit: "Salir", next: "Siguiente", done: "Listo",
+    practiceNow: "Practicar esta lección ahora", relatedTitle: "También relevante",
+  },
+  it: {
+    btn: "📘 Corso", ariaLabel: "Corso", title: "Corso", empty: "Nessun contenuto del corso disponibile per ora.",
+    close: "← Indietro", kindPrimer: "Lezione", kindCheckpoint: "Checkpoint",
+    minutes: (n) => `~${n} min`, back: "← Indietro", exit: "Esci", next: "Avanti", done: "Fatto",
+    practiceNow: "Esercitati ora su questa lezione", relatedTitle: "Vedi anche",
+  },
+};
+
+function courseStrings(lang) {
+  return COURSE_STRINGS[lang] || COURSE_STRINGS.en;
+}
+
+function openCourseView() {
+  el("#course-view").hidden = false;
+  history.pushState({ view: "course" }, "");
+  setInertBehindDialog(true);
+  renderCourseView();
+}
+
+function closeCourseView() {
+  el("#course-view").hidden = true;
+  setInertBehindDialog(false);
+}
+
+async function renderCourseView() {
+  const S = courseStrings(state.lang);
+  el("#course-close-btn").textContent = S.close;
+  const list = el("#course-list");
+  list.innerHTML = "";
+  el("#course-title").textContent = S.title;
+  el("#course-intro").textContent = "";
+
+  let core, bundle;
+  try {
+    core = await loadCourseCore(state.examType);
+    bundle = await loadCourseLocaleWithFallback(state.examType, state.lang);
+  } catch (e) {
+    list.innerHTML = `<p class="empty">${S.empty}</p>`;
+    el("#course-title").focus();
+    return;
+  }
+
+  const course = core.courses && core.courses[0];
+  if (!course) {
+    list.innerHTML = `<p class="empty">${S.empty}</p>`;
+    el("#course-title").focus();
+    return;
+  }
+
+  el("#course-title").textContent = courseText(bundle, course.course_id, "title") || S.title;
+  el("#course-intro").textContent = courseText(bundle, course.course_id, "description") || "";
+
+  const unitsById = new Map((course.units || []).map((u) => [u.unit_id, u]));
+  const lessons = (course.lessons || []).filter(
+    (l) => l.lesson_kind === "primer" || l.lesson_kind === "checkpoint"
+  );
+
+  if (lessons.length === 0) {
+    list.innerHTML = `<p class="empty">${S.empty}</p>`;
+    el("#course-title").focus();
+    return;
+  }
+
+  let lastUnitRef = null;
+  lessons.forEach((lesson) => {
+    if (lesson.unit_ref !== lastUnitRef) {
+      lastUnitRef = lesson.unit_ref;
+      const unit = unitsById.get(lesson.unit_ref);
+      const heading = document.createElement("h3");
+      heading.className = "sign-ref-category";
+      heading.textContent = (unit && courseText(bundle, unit.unit_id, "title")) || lesson.unit_ref;
+      list.appendChild(heading);
+    }
+    const btn = document.createElement("button");
+    btn.className = "exam-mode-btn";
+    const kindKey = COURSE_LESSON_KIND_KEY[lesson.lesson_kind];
+    const kindLabel = kindKey ? S[kindKey] : lesson.lesson_kind;
+    const title = courseText(bundle, lesson.lesson_id, "title") || lesson.lesson_id;
+    btn.innerHTML = `<strong>${title}</strong><span class="course-lesson-meta">${kindLabel} · ${S.minutes(lesson.estimated_minutes || 0)}</span>`;
+    btn.addEventListener("click", () => openCourseLesson(lesson.lesson_id));
+    list.appendChild(btn);
+  });
+
+  el("#course-title").focus();
+}
+
+async function openCourseLesson(lessonId) {
+  const core = await loadCourseCore(state.examType);
+  const course = core.courses && core.courses[0];
+  const lesson = course && (course.lessons || []).find((l) => l.lesson_id === lessonId);
+  if (!lesson) return;
+  state.courseLesson = lesson;
+  state.courseSectionIndex = 0;
+  el("#course-reader").hidden = false;
+  history.pushState({ view: "course-reader" }, "");
+  setInertBehindDialog(true);
+  await renderCourseLesson();
+  el("#course-reader-title").focus();
+}
+
+function closeCourseLesson() {
+  el("#course-reader").hidden = true;
+  setInertBehindDialog(false);
+}
+
+async function renderCourseLesson() {
+  const S = courseStrings(state.lang);
+  const lesson = state.courseLesson;
+  if (!lesson) return;
+  const sections = lesson.sections || [];
+  const i = state.courseSectionIndex;
+  const section = sections[i];
+  if (!section) return;
+
+  const bundle = await loadCourseLocaleWithFallback(state.examType, state.lang);
+  const lessonTitle = courseText(bundle, lesson.lesson_id, "title") || lesson.lesson_id;
+  const sectionTitle = courseText(bundle, section.section_id, "title");
+  const body = courseText(bundle, section.section_id, "body") || "";
+
+  el("#course-reader-title").textContent = lessonTitle;
+  const sectionTitleEl = el("#course-reader-section-title");
+  sectionTitleEl.textContent = sectionTitle || "";
+  sectionTitleEl.hidden = !sectionTitle;
+  el("#course-reader-body").innerHTML = renderCourseBodyHtml(body);
+
+  const isLast = i === sections.length - 1;
+  const topicCodes = lesson.select && lesson.select.topic_codes;
+  const canPractice = isLast && topicCodes && topicCodes.length > 0;
+
+  // related[] is a lesson-level field (cross-module concept pointers, e.g.
+  // CKA's troubleshooting checkpoint linking to DORA's root-cause-analysis
+  // lesson) - shown once, alongside the practice hand-off on the final
+  // section, not repeated per section.
+  const relatedBox = el("#course-reader-related");
+  if (isLast && lesson.related && lesson.related.length > 0) {
+    relatedBox.innerHTML = lesson.related
+      .map((r) => {
+        const body2 = courseText(bundle, r.note_key, "body") || "";
+        return `<div class="explanation"><strong>${S.relatedTitle}:</strong> ${renderCourseBodyHtml(body2)}</div>`;
+      })
+      .join("");
+    relatedBox.hidden = false;
+  } else {
+    relatedBox.innerHTML = "";
+    relatedBox.hidden = true;
+  }
+
+  const dots = el("#course-reader-dots");
+  dots.innerHTML = "";
+  sections.forEach((_, idx) => {
+    const dot = document.createElement("span");
+    dot.className = "dot" + (idx === i ? " active" : "");
+    dots.appendChild(dot);
+  });
+
+  const backBtn = el("#course-reader-back");
+  backBtn.textContent = S.back;
+  backBtn.disabled = i === 0;
+  el("#course-reader-exit").textContent = S.exit;
+
+  const nextBtn = el("#course-reader-next");
+  nextBtn.innerHTML = `<strong>${canPractice ? S.practiceNow : (isLast ? S.done : S.next)}</strong>`;
+}
+
+// On a lesson's final section, "next" hands off into a practice-quiz run
+// scoped to that lesson's select.topic_codes[0] (every primer/checkpoint
+// lesson in the current content carries exactly one topic_code - see
+// modular-course-architecture-v1's `select` shape) - the actual exam-prep
+// payoff this whole view exists for.
+//
+// Deliberately sequenced via a one-time popstate listener rather than
+// calling startPracticeQuiz() immediately after history.go(-2): go()'s
+// resulting popstate is a queued task, not synchronous, so firing
+// startPracticeQuiz() (which itself does a history.replaceState + shows
+// #practice-view) before that queued popstate runs would let the global
+// popstate handler's #practice-view guard see the new quiz and immediately
+// exitPracticeQuiz() it out from under itself. Waiting for the real
+// popstate first (letting the global handler run its now-harmless no-op
+// guards against the already-hidden course dialogs) and only then starting
+// the quiz avoids that race entirely, deterministically.
+function courseLessonHandoff() {
+  const lesson = state.courseLesson;
+  const topicCode = lesson && lesson.select && lesson.select.topic_codes && lesson.select.topic_codes[0];
+  const readerWasOpen = !el("#course-reader").hidden;
+  const listWasOpen = !el("#course-view").hidden;
+  closeCourseLesson();
+  if (listWasOpen) closeCourseView();
+  const steps = (readerWasOpen ? 1 : 0) + (listWasOpen ? 1 : 0);
+  if (!steps) {
+    if (topicCode) startPracticeQuiz(topicCode);
+    return;
+  }
+  if (topicCode) {
+    window.addEventListener("popstate", function onCourseHandoffBack() {
+      startPracticeQuiz(topicCode);
+    }, { once: true });
+  }
+  history.go(-steps);
+}
+
+function wireCourseControls() {
+  el("#course-btn").addEventListener("click", openCourseView);
+  el("#course-close-btn").addEventListener("click", () => history.back());
+  el("#course-reader-back").addEventListener("click", () => {
+    if (state.courseSectionIndex > 0) {
+      state.courseSectionIndex -= 1;
+      renderCourseLesson();
+    }
+  });
+  el("#course-reader-next").addEventListener("click", () => {
+    const lesson = state.courseLesson;
+    const sections = (lesson && lesson.sections) || [];
+    if (state.courseSectionIndex < sections.length - 1) {
+      state.courseSectionIndex += 1;
+      renderCourseLesson();
+    } else {
+      courseLessonHandoff();
+    }
+  });
+  el("#course-reader-exit").addEventListener("click", () => history.back());
+}
+
 // --- Exam mode (DN-29) --------------------------------------------------
 // Reverses the original Sprint-1 "no exam mode" boundary, with explicit PO
 // sign-off (see docs/KANBAN.md retro log). Two modes share the same draw
@@ -5234,6 +5607,16 @@ function render() {
   primersBtn.title = PS.title;
   primersBtn.setAttribute("aria-label", PS.ariaLabel);
 
+  // v1 course layer - shown for any module flagged "hasCourse": true in
+  // modules_manifest.json (see moduleManifestFor() above), same visibility
+  // pattern as Sign Reference/Learn.
+  const courseBtn = el("#course-btn");
+  courseBtn.hidden = !(moduleMod && moduleMod.hasCourse);
+  const CS = courseStrings(state.lang);
+  courseBtn.textContent = CS.btn;
+  courseBtn.title = CS.title;
+  courseBtn.setAttribute("aria-label", CS.ariaLabel);
+
   // DN-46: "prepare for offline" button/status - shown for every module
   // (not Fuehrerschein-only like Sign Reference above), hidden only when no
   // module is loaded. Pure repaint from state.offlinePrep - never re-checks
@@ -5664,6 +6047,7 @@ function wireStaticControls() {
   el("#review-dontknow-btn").addEventListener("click", () => reviewAssess(false));
   el("#sign-reference-btn").addEventListener("click", openSignReferenceView);
   wirePrimerControls();
+  wireCourseControls();
   el("#offline-prep-btn").addEventListener("click", () => { prepareOffline(); });
   el("#sign-reference-close-btn").addEventListener("click", () => history.back());
 
@@ -5702,6 +6086,8 @@ function wireStaticControls() {
     if (!el("#sign-reference-view").hidden) closeSignReferenceView();
     if (!el("#primer-reader").hidden) closePrimerReader();
     if (!el("#primers-view").hidden) closePrimersView();
+    if (el("#course-reader") && !el("#course-reader").hidden) closeCourseLesson();
+    if (el("#course-view") && !el("#course-view").hidden) closeCourseView();
     if (!el("#profile-view").hidden) closeProfileSwitcher();
     if (!el("#module-picker").hidden) {
       // On first-ever visit the module picker is mandatory (no content is

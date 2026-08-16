@@ -34,6 +34,7 @@
       <div style="display:flex; gap:8px; align-items:center;">
         <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
         <button class="module-switch-btn" id="primers-btn" hidden aria-label="Learn the basics">🧭 Learn</button>
+        <button class="module-switch-btn" id="course-btn" hidden aria-label="Course">📘 Course</button>
         <button class="module-switch-btn" id="sign-reference-btn" hidden aria-label="Sign reference">📚 Signs</button>
         <span class="offline-prep-wrap">
           <button class="module-switch-btn" id="offline-prep-btn" hidden aria-label="Make available offline">📥</button>
@@ -241,6 +242,46 @@
         <button class="back-btn" id="primer-reader-back"></button>
         <button class="back-btn" id="primer-reader-exit"></button>
         <button class="exam-mode-btn intro-next-btn" id="primer-reader-next"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- v1 course layer (modular-course-architecture-v1, 2026-08-15): a
+       browsable list of a module's exam-prep lessons (primer/checkpoint
+       lesson_kinds only - lab lessons are hands-on and run outside
+       Zettacard, no in-app presentation yet), grouped by week/unit. Shown
+       only for modules flagged "hasCourse": true in modules_manifest.json
+       (see render() in app.js), same visibility pattern as Sign Reference/
+       Learn above. -->
+  <div class="exam-modal" id="course-view" hidden role="dialog" aria-modal="true" aria-labelledby="course-title">
+    <div class="exam-modal-card" style="max-width:560px;">
+      <h2 id="course-title" tabindex="-1"></h2>
+      <p id="course-intro"></p>
+      <div id="course-list"></div>
+      <button class="back-btn" id="course-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Course lesson reader: one lesson's sections, one at a time, reusing
+       the exact dots/back/next wizard mechanic already established by the
+       primer reader and module-intro wizard. On a lesson's final section,
+       "next" becomes "Practice this lesson now" and hands off directly into
+       a practice-quiz run scoped to that lesson's topic_codes (see
+       courseLessonHandoff() in app.js) - the exam-prep tie-in this whole
+       view exists for. #course-reader-related surfaces a lesson's
+       cross-module related[] notes (e.g. CKA's troubleshooting checkpoint
+       linking to the same root-cause-analysis concept in the DORA course). -->
+  <div class="exam-modal" id="course-reader" hidden role="dialog" aria-modal="true" aria-labelledby="course-reader-title">
+    <div class="exam-modal-card">
+      <h2 id="course-reader-title" tabindex="-1"></h2>
+      <p class="course-section-title" id="course-reader-section-title"></p>
+      <p id="course-reader-body"></p>
+      <div id="course-reader-related" hidden></div>
+      <div class="intro-dots" id="course-reader-dots" aria-hidden="true"></div>
+      <div class="intro-nav">
+        <button class="back-btn" id="course-reader-back"></button>
+        <button class="back-btn" id="course-reader-exit"></button>
+        <button class="exam-mode-btn intro-next-btn" id="course-reader-next"></button>
       </div>
     </div>
   </div>

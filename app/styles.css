@@ -878,7 +878,8 @@ main {
    inherited `.exam-modal-card p { text-align:center; color:var(--text-dim);
    font-size:.85rem }` reads poorly here - override to left-aligned, full
    text color, and a slightly larger/looser line-height for readability. */
-#primer-reader-body {
+#primer-reader-body,
+#course-reader-body {
   text-align: left;
   color: var(--text);
   font-size: 0.92rem;
@@ -887,10 +888,49 @@ main {
   overflow-y: auto;
 }
 
-#primers-list {
+#course-reader-body a {
+  color: var(--accent);
+}
+
+#primers-list,
+#course-list {
   text-align: left;
   max-height: 55vh;
   overflow-y: auto;
+}
+
+/* v1 course layer (modular-course-architecture-v1, 2026-08-15) - exam-prep
+   presentation for hasCourse modules (currently CKA; DORA/NIS2/AI-Act/etc.
+   share the same data shape). Reuses .sign-ref-category for the per-week
+   grouping headers and .exam-mode-btn for lesson rows, same as every other
+   list-of-choices dialog in this file - only what's genuinely new gets new
+   rules here. */
+.course-lesson-meta {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.course-section-title {
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+#course-reader-related {
+  margin: 4px 0 18px;
+  text-align: left;
+}
+
+#course-reader-related .explanation {
+  margin-bottom: 10px;
+}
+
+#course-reader-related .explanation a {
+  color: var(--accent);
 }
 
 /* Local profile switcher */
