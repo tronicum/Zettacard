@@ -1,0 +1,907 @@
+{
+  "meta": {
+    "app": "Zettacard / dora-executive-lernmodul",
+    "version": "0.1-DRAFT",
+    "generated": "2026-08-16",
+    "description": "DRAFT-Pilotfragenkatalog für das Modul \"Executive DORA Briefing\" (Arbeitsname: dora_executive). Zielgruppe: Vorstände, Geschäftsführer, Geschäftsleiter und Mitglieder von Verwaltungs- oder Aufsichtsorganen von Finanzunternehmen im Anwendungsbereich der Verordnung (EU) 2022/2554 (DORA) - ausdrücklich NICHT die IT-Abteilung. Getestet werden die persönlich vom Leitungsorgan wahrzunehmenden Governance-Pflichten (Art. 5), die Festlegung der Risikotoleranz (Art. 5 Abs. 2 Buchst. d i.V.m. Art. 6 Abs. 8 Buchst. b), die Budgetverantwortung (Art. 5 Abs. 2 Buchst. g), Bericht- und Meldewege an das Leitungsorgan (Art. 5 Abs. 2 Buchst. i, Art. 13 Abs. 5, Art. 17 Abs. 3 Buchst. e, Art. 28 Abs. 2), die Schulungspflicht selbst (Art. 13 Abs. 6 und Art. 5 Abs. 4) sowie - bewusst eng am Primärtext kalibriert - das tatsächliche Sanktions- und Haftungsbild (Art. 50 bis 52 DORA, Art. 35 Abs. 6 bis 8 DORA für kritische IKT-Drittdienstleister, ergänzt um nationales Aufsichts- und Gesellschaftsrecht). Alle Zitate wurden am 16.08.2026 gegen den amtlichen Verordnungstext im EU-Amtsblatt (ABl. L 333 vom 27.12.2022, S. 1, abgerufen über den Cellar-Dienst des EU-Amts für Veröffentlichungen, CELEX 32022R2554, Sprachfassungen EN und DE) geprüft - nicht gegen Sekundärquellen. Eigenständig formuliert; kein Fragentext eines kommerziellen Anbieters übernommen. NICHT rechtlich geprüft - siehe dora-executive-pre-review-dossier-2026-08-16.md für das Zitat-Ledger und die Konfidenz je Frage. Dieses Schulungsmaterial dient reinen Ausbildungs- und Informationszwecken und stellt keine Rechts- oder Compliance-Beratung dar. Die regulatorischen Anforderungen sind im Einzelfall durch qualifizierte Juristen oder Wirtschaftsprüfer zu validieren.",
+    "legal_disclaimer": "Dieses Schulungsmaterial dient reinen Ausbildungs- und Informationszwecken und stellt keine Rechts- oder Compliance-Beratung dar. Die regulatorischen Anforderungen sind im Einzelfall durch qualifizierte Juristen oder Wirtschaftsprüfer zu validieren.",
+    "class": "ALL",
+    "locales": [
+      "de",
+      "en"
+    ],
+    "canonical_locale": "de",
+    "point_system": "3-4 points per question, matching this app's existing compliance-module style",
+    "pass_rule_note": "DRAFT - not yet wired into app/app.js. If this module is approved, it should follow the kartellrecht/kyc_aml pattern: a per-run draw across all topic_codes, a max-error-point budget, and auto-fail on 2+ wrong high_stakes questions. The high_stakes flags in this draft are set on the questions where a board member giving the wrong answer would be making a governance mistake with real supervisory consequences (non-delegability, risk tolerance, budget, training mandate, and the three liability/penalty questions). Exact EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TOPIC_DRAW values are deliberately NOT proposed here - that is a product decision after legal sign-off.",
+    "legal_review_status": "DRAFT - NOT legally reviewed, NOT wired into build_modules.py or modules_manifest.json. Every legal_basis field was verified on 2026-08-16 against the primary text of Regulation (EU) 2022/2554 (OJ L 333, 27.12.2022, p. 1; CELEX 32022R2554, EN and DE language versions, retrieved from the EU Publications Office Cellar service) and, for the national-law elements, against the consolidated statute texts published on gesetze-im-internet.de (KWG, AktG, GmbHG). Deliberately calibrated: DORA itself does NOT impose personal fines, professional bans (Berufsverbote) or a 10-percent-of-turnover cap on financial entities - see dora-executive-pre-review-dossier-2026-08-16.md section 3 before changing any wording in the haftung topic.",
+    "total_questions": 20,
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement.",
+    "renewal_months": null,
+    "renewal_basis": "not_specified_in_statute",
+    "renewal_note": "Art. 13 Abs. 6 DORA verlangt, dass Sensibilisierungs- und Resilienzschulungen obligatorischer Bestandteil der Mitarbeiterschulungsprogramme sind, nennt aber kein Wiederholungsintervall. Art. 5 Abs. 4 DORA verlangt von Mitgliedern des Leitungsorgans ausdrücklich 'regelmäßig spezielle Schulungen' ('specific training on a regular basis'), definiert 'regelmäßig' jedoch ebenfalls nicht und knüpft den Umfang an das zu managende IKT-Risiko. Ein konkretes Intervall (z.B. jährlich) wäre eine Zettacard-Produktentscheidung bzw. eine Frage der institutsinternen Governance - kein direktes Abbild des Verordnungstextes."
+  },
+  "questions": [
+    {
+      "id": "dora-exec-governance-01",
+      "topic": "Governance-Pflichten des Leitungsorgans",
+      "topic_code": "governance_pflicht",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Abs. 1 und Abs. 2 UAbs. 1 sowie Abs. 2 Buchst. a Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Ihr CIO versichert dem Vorstand: 'IKT-Sicherheit ist bei uns operativ vollständig abgedeckt, das Thema können Sie an mich delegieren.' Wie ist das nach DORA zu bewerten?",
+          "options": {
+            "a": "Zutreffend - solange ein qualifizierter CIO benannt ist, hat das Leitungsorgan seine DORA-Pflichten erfüllt",
+            "b": "Zutreffend, sofern der Vorstand die Delegation schriftlich dokumentiert",
+            "c": "Nicht ausreichend - das Leitungsorgan muss alle Vorkehrungen des IKT-Risikomanagementrahmens selbst definieren, genehmigen und überwachen und trägt die letztendliche Verantwortung; operative Aufgaben dürfen delegiert werden, diese Verantwortung nicht",
+            "d": "Nicht ausreichend - DORA verlangt, dass der Vorstand die IKT-Sicherheit operativ selbst umsetzt und keine Aufgaben delegiert"
+          }
+        },
+        "en": {
+          "question": "Your CIO assures the board: 'ICT security is fully covered operationally, you can delegate this topic to me.' How does DORA assess that?",
+          "options": {
+            "a": "Correct - as long as a qualified CIO is appointed, the management body has discharged its DORA duties",
+            "b": "Correct, provided the board documents the delegation in writing",
+            "c": "Not sufficient - the management body must itself define, approve and oversee all arrangements of the ICT risk management framework and bears ultimate responsibility; operational tasks may be delegated, that responsibility may not",
+            "d": "Not sufficient - DORA requires the board to implement ICT security operationally itself and to delegate nothing"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 2 UAbs. 1 DORA formuliert vier Verben, die das Leitungsorgan selbst treffen: es 'definiert, genehmigt, überwacht und verantwortet die Umsetzung aller Vorkehrungen im Zusammenhang mit dem IKT-Risikomanagementrahmen nach Artikel 6 Absatz 1'. Art. 5 Abs. 2 Buchst. a stellt zusätzlich klar, dass das Leitungsorgan 'die letztendliche Verantwortung für das Management der IKT-Risiken des Finanzunternehmens' trägt. Eine Delegation der operativen Ausführung an CIO, CISO oder IT-Bereich ist zulässig und üblich - die Genehmigungs-, Überwachungs- und Verantwortungsebene bleibt jedoch beim Leitungsorgan. Antwort d überzeichnet in die Gegenrichtung: DORA verlangt gerade keine operative Eigenausführung durch den Vorstand.",
+        "en": "Art. 5(2), first subparagraph, DORA uses four verbs that bind the management body itself: it shall 'define, approve, oversee and be responsible for the implementation of all arrangements related to the ICT risk management framework referred to in Article 6(1)'. Art. 5(2)(a) adds that the management body shall 'bear the ultimate responsibility for managing the financial entity's ICT risk'. Delegating operational execution to a CIO, CISO or IT function is permitted and normal - but the approval, oversight and accountability layer stays with the management body. Option d overshoots the other way: DORA does not require the board to perform ICT work itself."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-governance-02",
+      "topic": "Governance-Pflichten des Leitungsorgans",
+      "topic_code": "governance_pflicht",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Abs. 2 Buchst. b und c Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche organisatorische Festlegung schreibt DORA dem Leitungsorgan ausdrücklich selbst zu?",
+          "options": {
+            "a": "Die Festlegung klarer Aufgaben und Verantwortlichkeiten für alle IKT-bezogenen Funktionen sowie angemessener Governance-Regelungen für Kommunikation, Zusammenarbeit und Koordinierung zwischen diesen Funktionen",
+            "b": "Die Auswahl konkreter Firewall-Produkte und Verschlüsselungsalgorithmen",
+            "c": "Die persönliche Freigabe jedes einzelnen Software-Updates",
+            "d": "Die tägliche Auswertung von Log-Dateien der Netzwerksysteme"
+          }
+        },
+        "en": {
+          "question": "Which organisational decision does DORA expressly assign to the management body itself?",
+          "options": {
+            "a": "Setting clear roles and responsibilities for all ICT-related functions and establishing appropriate governance arrangements for effective and timely communication, cooperation and coordination between those functions",
+            "b": "Selecting specific firewall products and encryption algorithms",
+            "c": "Personally approving every individual software update",
+            "d": "Reviewing network system log files daily"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 2 Buchst. c DORA weist dem Leitungsorgan die Festlegung klarer Aufgaben und Verantwortlichkeiten für alle IKT-bezogenen Funktionen und angemessener Governance-Regelungen zu. Buchst. b verpflichtet es zudem, Leitlinien zur Sicherung hoher Standards für Verfügbarkeit, Authentizität, Integrität und Vertraulichkeit von Daten einzuführen. Beides sind Organisations- und Steuerungsentscheidungen auf Governance-Ebene - kein Produkt- oder Konfigurationsdetail. Die Verordnung adressiert das Leitungsorgan durchgängig auf dieser Ebene: Wer macht was, wer berichtet an wen, wer entscheidet im Konflikt.",
+        "en": "Art. 5(2)(c) DORA assigns to the management body the task of setting clear roles and responsibilities for all ICT-related functions and establishing appropriate governance arrangements. Point (b) additionally requires it to put in place policies aimed at maintaining high standards of availability, authenticity, integrity and confidentiality of data. Both are organisational and steering decisions at governance level - not product or configuration detail. Throughout, the Regulation addresses the management body at that level: who does what, who reports to whom, who decides in a conflict."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-governance-03",
+      "topic": "Governance-Pflichten des Leitungsorgans",
+      "topic_code": "governance_pflicht",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 6 Abs. 10 und Art. 28 Abs. 1 Buchst. a Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Ihr Haus lagert die Überprüfung der Einhaltung der IKT-Risikomanagementanforderungen an eine konzerninterne Gesellschaft aus und bezieht zugleich zentrale Systeme von einem großen Cloud-Anbieter. Welche Aussage trifft zu?",
+          "options": {
+            "a": "Mit der Auslagerung geht die Verantwortung für die Überprüfung auf die konzerninterne Gesellschaft über",
+            "b": "Sobald ein Cloud-Anbieter selbst DORA-reguliert oder zertifiziert ist, entfällt die eigene Verantwortung des Finanzunternehmens",
+            "c": "Die Auslagerung ist zulässig, das Finanzunternehmen bleibt aber uneingeschränkt selbst verantwortlich - sowohl für die Überprüfung der Einhaltung als auch für alle Pflichten aus DORA und dem Finanzdienstleistungsrecht",
+            "d": "Eine Auslagerung solcher Überprüfungsaufgaben ist nach DORA generell verboten"
+          }
+        },
+        "en": {
+          "question": "Your firm outsources verification of compliance with the ICT risk management requirements to an intra-group company and at the same time sources core systems from a large cloud provider. Which statement is correct?",
+          "options": {
+            "a": "Outsourcing transfers responsibility for the verification to the intra-group company",
+            "b": "Once a cloud provider is itself DORA-regulated or certified, the financial entity's own responsibility falls away",
+            "c": "The outsourcing is permitted, but the financial entity remains fully responsible itself - both for verifying compliance and for all obligations under DORA and applicable financial services law",
+            "d": "Outsourcing such verification tasks is generally prohibited under DORA"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 6 Abs. 10 DORA erlaubt ausdrücklich die Auslagerung der Überprüfung der Einhaltung der IKT-Risikomanagementanforderungen an konzerninterne oder externe Unternehmen - und stellt im gleichen Absatz klar, dass das Finanzunternehmen 'in vollem Umfang für die Überprüfung der Einhaltung der Anforderungen an das IKT-Risikomanagement verantwortlich' bleibt. Art. 28 Abs. 1 Buchst. a erweitert dieses Prinzip auf IKT-Dienstleistungsverträge insgesamt: Finanzunternehmen bleiben 'jederzeit in vollem Umfang' für die Einhaltung und Erfüllung aller Pflichten aus DORA und dem geltenden Finanzdienstleistungsrecht verantwortlich. Für das Leitungsorgan heißt das: Ein Auslagerungsvertrag verlagert Arbeit, aber keine Verantwortung.",
+        "en": "Art. 6(10) DORA expressly permits outsourcing the verification of compliance with ICT risk management requirements to intra-group or external undertakings - and states in the same paragraph that the financial entity 'remains fully responsible for the verification of compliance with the ICT risk management requirements'. Art. 28(1)(a) extends the principle to ICT service contracts generally: financial entities shall 'at all times, remain fully responsible' for complying with and discharging all obligations under DORA and applicable financial services law. For the management body: an outsourcing contract moves work, not accountability."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-governance-04",
+      "topic": "Governance-Pflichten des Leitungsorgans",
+      "topic_code": "governance_pflicht",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 5 Abs. 3 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Was verlangt DORA von Finanzunternehmen, die keine Kleinstunternehmen sind, im Hinblick auf die Überwachung von Verträgen mit IKT-Drittdienstleistern?",
+          "options": {
+            "a": "Nichts Besonderes - die Überwachung liegt beim jeweiligen Fachbereich, der den Vertrag geschlossen hat",
+            "b": "Sie müssen entweder eine eigene Funktion zur Überwachung dieser Vereinbarungen einrichten oder ein Mitglied der oberen Leitungsebene benennen, das für die Überwachung des damit verbundenen Risikos und der zugehörigen Dokumentation verantwortlich ist",
+            "c": "Die Überwachung muss zwingend an einen externen Wirtschaftsprüfer übertragen werden",
+            "d": "Die Aufsichtsbehörde übernimmt die Überwachung der Verträge"
+          }
+        },
+        "en": {
+          "question": "What does DORA require of financial entities other than microenterprises regarding oversight of contracts with ICT third-party service providers?",
+          "options": {
+            "a": "Nothing specific - oversight sits with whichever business unit signed the contract",
+            "b": "They must either establish a dedicated role to monitor those arrangements or designate a member of senior management as responsible for overseeing the related risk exposure and relevant documentation",
+            "c": "Oversight must be transferred to an external auditor",
+            "d": "The supervisory authority takes over oversight of the contracts"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 3 DORA verlangt von Finanzunternehmen, die keine Kleinstunternehmen sind, entweder die Einrichtung einer Funktion zur Überwachung der mit IKT-Drittdienstleistern geschlossenen Vereinbarungen oder die Benennung eines Mitglieds der oberen Leitungsebene, das die Verantwortung für die Überwachung der Risikoexposition und der einschlägigen Dokumentation trägt. Die Norm steht bewusst in Artikel 5 - dem Governance-Artikel - und nicht im Drittparteien-Kapitel: Es ist eine Organisationsentscheidung des Hauses, nicht eine Aufgabe des Einkaufs. Für das Leitungsorgan ist die prüfbare Frage, ob diese Zuordnung namentlich getroffen und dokumentiert ist.",
+        "en": "Art. 5(3) DORA requires financial entities other than microenterprises either to establish a role to monitor the arrangements concluded with ICT third-party service providers, or to designate a member of senior management as responsible for overseeing the related risk exposure and relevant documentation. The provision deliberately sits in Article 5 - the governance article - rather than in the third-party chapter: it is an organisational decision of the firm, not a procurement task. The auditable question for the management body is whether that assignment has been made by name and documented."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-governance-05",
+      "topic": "Governance-Pflichten des Leitungsorgans",
+      "topic_code": "governance_pflicht",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 5 Abs. 2 Buchst. h Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Die Leitlinie Ihres Hauses zur Nutzung von IKT-Dienstleistungen externer Anbieter wurde vor vier Jahren vom Vorstand genehmigt und seither nicht mehr befasst. Wie ist das nach DORA zu bewerten?",
+          "options": {
+            "a": "Unproblematisch - eine einmalige Genehmigung durch das Leitungsorgan genügt dauerhaft",
+            "b": "Unproblematisch, solange der Einkauf die Leitlinie jährlich anwendet",
+            "c": "Problematisch - das Leitungsorgan muss diese Leitlinie nicht nur genehmigen, sondern auch regelmäßig überprüfen",
+            "d": "Problematisch - DORA verlangt eine Genehmigung durch die Aufsichtsbehörde, nicht durch das Leitungsorgan"
+          }
+        },
+        "en": {
+          "question": "Your firm's policy on the use of ICT services provided by external providers was approved by the board four years ago and has not been revisited since. How does DORA assess that?",
+          "options": {
+            "a": "Unproblematic - a one-off approval by the management body suffices indefinitely",
+            "b": "Unproblematic, as long as procurement applies the policy annually",
+            "c": "Problematic - the management body must not only approve this policy but also periodically review it",
+            "d": "Problematic - DORA requires approval by the supervisory authority, not by the management body"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 2 Buchst. h DORA verlangt vom Leitungsorgan, die Leitlinie des Finanzunternehmens zu Vereinbarungen über die Nutzung von IKT-Dienstleistungen externer Anbieter zu genehmigen UND regelmäßig zu überprüfen. Dieses Doppelverb - genehmigen und regelmäßig überprüfen - zieht sich durch Art. 5 Abs. 2 (vgl. Buchst. e für die Geschäftsfortführungsleitlinie, Buchst. f für die IKT-Revisionspläne, Buchst. g für das Budget). Ein einmaliger Vorstandsbeschluss ohne wiederkehrende Befassung erfüllt den Tatbestand daher nicht; wie oft 'regelmäßig' ist, legt die Verordnung nicht zahlenmäßig fest und ist institutsintern risikoorientiert zu bestimmen.",
+        "en": "Art. 5(2)(h) DORA requires the management body to approve AND periodically review the financial entity's policy on arrangements regarding the use of ICT services provided by ICT third-party service providers. That double verb - approve and periodically review - runs through Art. 5(2) (see point (e) for the business continuity policy, (f) for ICT audit plans, (g) for the budget). A single board resolution with no recurring engagement therefore does not satisfy it; the Regulation does not put a number on 'periodically', so the cadence must be set internally on a risk basis."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-risikoappetit-01",
+      "topic": "Risikotoleranz und Resilienzstrategie",
+      "topic_code": "risikoappetit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Abs. 2 Buchst. d i.V.m. Art. 6 Abs. 8 Buchst. b Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "In der Vorstandssitzung wird vorgeschlagen, die Festlegung der Toleranzschwelle für IKT-Risiken vollständig dem CISO zu überlassen, da dieser die technische Sachkunde habe. Wie ist das nach DORA einzuordnen?",
+          "options": {
+            "a": "Sachgerecht - die Risikotoleranz ist eine technische Größe und gehört in die Fachebene",
+            "b": "Sachgerecht, sofern der CISO dem Vorstand die gewählte Schwelle nachträglich mitteilt",
+            "c": "Nicht sachgerecht - das Leitungsorgan trägt die Gesamtverantwortung für Festlegung und Genehmigung der Strategie für die digitale operationale Resilienz einschließlich der Bestimmung der angemessenen Toleranzschwelle für IKT-Risiken",
+            "d": "Nicht sachgerecht - die Toleranzschwelle wird von der zuständigen Aufsichtsbehörde vorgegeben"
+          }
+        },
+        "en": {
+          "question": "In a board meeting it is proposed to leave the setting of the ICT risk tolerance level entirely to the CISO, since they have the technical expertise. How does DORA treat that?",
+          "options": {
+            "a": "Appropriate - risk tolerance is a technical figure and belongs at the specialist level",
+            "b": "Appropriate, provided the CISO informs the board of the chosen threshold afterwards",
+            "c": "Not appropriate - the management body bears the overall responsibility for setting and approving the digital operational resilience strategy, including the determination of the appropriate ICT risk tolerance level",
+            "d": "Not appropriate - the tolerance level is prescribed by the competent supervisory authority"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 2 Buchst. d DORA weist dem Leitungsorgan die Gesamtverantwortung für die Festlegung und Genehmigung der Strategie für die digitale operationale Resilienz zu - 'einschließlich der Festlegung der angemessenen Toleranzschwelle für das IKT-Risiko des Finanzunternehmens gemäß Artikel 6 Absatz 8 Buchstabe b'. Art. 6 Abs. 8 Buchst. b verlangt dort die Festlegung der Toleranzschwelle 'im Einklang mit der Risikobereitschaft des Finanzunternehmens' sowie eine Analyse der Auswirkungstoleranz bei IKT-Störungen. Die Frage, wie viel Ausfall, Datenverlust oder Wiederanlaufzeit das Haus akzeptiert, ist damit ausdrücklich eine Entscheidung des Leitungsorgans - fachlich vorbereitet, aber nicht ersetzbar durch die Fachebene. Antwort d ist falsch: Die Aufsicht gibt keine Toleranzschwelle vor, sie prüft die selbst gesetzte.",
+        "en": "Art. 5(2)(d) DORA assigns to the management body the overall responsibility for setting and approving the digital operational resilience strategy - 'including the determination of the appropriate risk tolerance level of ICT risk of the financial entity, as referred to in Article 6(8), point (b)'. Art. 6(8)(b) in turn requires establishing the ICT risk tolerance level 'in accordance with the risk appetite of the financial entity' and analysing the impact tolerance for ICT disruptions. How much downtime, data loss or recovery time the firm accepts is therefore expressly a management body decision - prepared by specialists, but not substitutable by them. Option d is wrong: the supervisor does not set the tolerance level, it reviews the one you set."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-risikoappetit-02",
+      "topic": "Risikotoleranz und Resilienzstrategie",
+      "topic_code": "risikoappetit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 6 Abs. 8 Buchst. a, b, c und f Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Was muss die Strategie für die digitale operationale Resilienz, die das Leitungsorgan zu genehmigen hat, inhaltlich leisten?",
+          "options": {
+            "a": "Eine reine Auflistung der eingesetzten Hard- und Software",
+            "b": "Sie muss u.a. erläutern, wie der IKT-Risikomanagementrahmen die Geschäftsstrategie und -ziele unterstützt, die Toleranzschwelle für IKT-Risiken festlegen, klare Informationssicherheitsziele samt Leistungs- und Risikokennzahlen setzen und den aktuellen Resilienzstand belegen",
+            "c": "Ausschließlich die Benennung eines externen Dienstleisters für den Notfall",
+            "d": "Nur die Bestätigung, dass ein Virenschutz installiert ist"
+          }
+        },
+        "en": {
+          "question": "What must the digital operational resilience strategy that the management body has to approve actually deliver?",
+          "options": {
+            "a": "A plain inventory of the hardware and software in use",
+            "b": "Among other things: explain how the ICT risk management framework supports the business strategy and objectives, establish the ICT risk tolerance level, set clear information security objectives including key performance indicators and key risk metrics, and evidence the current resilience situation",
+            "c": "Only the nomination of an external service provider for emergencies",
+            "d": "Only confirmation that antivirus software is installed"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 6 Abs. 8 DORA listet auf, was die Resilienzstrategie enthalten muss: die Erläuterung, wie der IKT-Risikomanagementrahmen die Geschäftsstrategie und -ziele des Finanzunternehmens unterstützt (Buchst. a), die Festlegung der Toleranzschwelle für IKT-Risiken und die Analyse der Auswirkungstoleranz (Buchst. b), klare Informationssicherheitsziele einschließlich Leistungsindikatoren und Risikokennzahlen (Buchst. c), sowie den Nachweis des aktuellen Standes der digitalen operationalen Resilienz anhand der Zahl gemeldeter schwerwiegender IKT-Vorfälle und der Wirksamkeit der Präventivmaßnahmen (Buchst. f). Der rote Faden ist bewusst betriebswirtschaftlich: Die Strategie muss die Brücke zwischen Geschäftsmodell und IKT-Risiko schlagen - genau die Ebene, auf der ein Leitungsorgan sie beurteilen kann und muss.",
+        "en": "Art. 6(8) DORA lists what the resilience strategy must contain: explaining how the ICT risk management framework supports the entity's business strategy and objectives (point (a)), establishing the ICT risk tolerance level and analysing impact tolerance (point (b)), setting clear information security objectives including key performance indicators and key risk metrics (point (c)), and evidencing the current digital operational resilience situation on the basis of the number of major ICT-related incidents reported and the effectiveness of preventive measures (point (f)). The thread is deliberately commercial: the strategy must bridge business model and ICT risk - exactly the level at which a management body can and must judge it."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-risikoappetit-03",
+      "topic": "Risikotoleranz und Resilienzstrategie",
+      "topic_code": "risikoappetit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 5 Abs. 2 Buchst. e i.V.m. Art. 11 Abs. 1 und 3 Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche Rolle hat das Leitungsorgan bei der IKT-Geschäftsfortführungsleitlinie und den IKT-Reaktions- und Wiederherstellungsplänen?",
+          "options": {
+            "a": "Keine - das ist ausschließlich Aufgabe des Notfallmanagements",
+            "b": "Es nimmt die Pläne lediglich zur Kenntnis, wenn ein Vorfall bereits eingetreten ist",
+            "c": "Es genehmigt sie, überwacht sie und überprüft ihre Umsetzung regelmäßig; sie können dabei Bestandteil der allgemeinen Geschäftsfortführungsleitlinie sein",
+            "d": "Es muss die Pläne der Aufsichtsbehörde zur Genehmigung vorlegen, bevor sie gelten"
+          }
+        },
+        "en": {
+          "question": "What is the management body's role regarding the ICT business continuity policy and the ICT response and recovery plans?",
+          "options": {
+            "a": "None - that is exclusively the job of emergency management",
+            "b": "It merely takes note of the plans once an incident has already occurred",
+            "c": "It approves them, oversees them and periodically reviews their implementation; they may form an integral part of the overall business continuity policy",
+            "d": "It must submit the plans to the supervisory authority for approval before they take effect"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 2 Buchst. e DORA verlangt vom Leitungsorgan, die Umsetzung der IKT-Geschäftsfortführungsleitlinie (Art. 11 Abs. 1) und der IKT-Reaktions- und Wiederherstellungspläne (Art. 11 Abs. 3) zu genehmigen, zu überwachen und regelmäßig zu überprüfen. Die Verordnung erlaubt dabei ausdrücklich, dass diese als eigenständige Leitlinie integraler Bestandteil der allgemeinen Geschäftsfortführungsleitlinie des Hauses sind - ein Doppelwerk ist nicht gefordert. Entscheidend für die Governance-Praxis: Genehmigung und Überprüfung der UMSETZUNG, nicht nur des Papiers. Eine Vorlage bei der Aufsicht zur vorherigen Genehmigung sieht DORA nicht vor.",
+        "en": "Art. 5(2)(e) DORA requires the management body to approve, oversee and periodically review the implementation of the ICT business continuity policy (Art. 11(1)) and the ICT response and recovery plans (Art. 11(3)). The Regulation expressly allows these to be adopted as a dedicated policy forming an integral part of the firm's overall business continuity policy - no parallel duplicate is required. What matters in governance practice: approval and review of the IMPLEMENTATION, not just of the document. DORA does not provide for prior approval by the supervisor."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-risikoappetit-04",
+      "topic": "Risikotoleranz und Resilienzstrategie",
+      "topic_code": "risikoappetit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 6 Abs. 5 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "text": {
+        "de": {
+          "question": "In welchem Rhythmus und aus welchen Anlässen ist der IKT-Risikomanagementrahmen zu überprüfen?",
+          "options": {
+            "a": "Nur einmalig bei der Ersteinführung",
+            "b": "Alle fünf Jahre im Rahmen der Strategieplanung",
+            "c": "Nur nach ausdrücklicher Aufforderung durch die Aufsichtsbehörde",
+            "d": "Mindestens einmal jährlich (bei Kleinstunternehmen regelmäßig) sowie beim Auftreten schwerwiegender IKT-Vorfälle und im Anschluss an aufsichtliche Anweisungen oder Feststellungen aus Resilienztests oder Prüfungsverfahren"
+          }
+        },
+        "en": {
+          "question": "At what cadence and on what triggers must the ICT risk management framework be reviewed?",
+          "options": {
+            "a": "Only once, at initial introduction",
+            "b": "Every five years as part of strategic planning",
+            "c": "Only when the supervisory authority expressly asks for it",
+            "d": "At least once a year (periodically for microenterprises), plus upon the occurrence of major ICT-related incidents and following supervisory instructions or conclusions derived from resilience testing or audit processes"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 6 Abs. 5 DORA verlangt, dass der IKT-Risikomanagementrahmen dokumentiert und mindestens einmal jährlich überprüft wird - bei Kleinstunternehmen 'regelmäßig' - sowie zusätzlich beim Auftreten schwerwiegender IKT-Vorfälle und im Anschluss an aufsichtliche Anweisungen oder Schlussfolgerungen aus einschlägigen Tests der digitalen operationalen Resilienz oder Prüfungsverfahren. Er ist zudem fortlaufend auf Basis der Erkenntnisse aus Umsetzung und Überwachung zu verbessern, und ein Bericht über die Überprüfung ist der zuständigen Behörde auf Verlangen vorzulegen. Für das Leitungsorgan ist das der Taktgeber der eigenen Befassung: Ohne jährliche Überprüfung fehlt die Grundlage, die eigene Genehmigung nach Art. 5 Abs. 2 aufrechtzuerhalten.",
+        "en": "Art. 6(5) DORA requires the ICT risk management framework to be documented and reviewed at least once a year - 'periodically' for microenterprises - and additionally upon the occurrence of major ICT-related incidents and following supervisory instructions or conclusions derived from relevant digital operational resilience testing or audit processes. It must also be continuously improved on the basis of lessons from implementation and monitoring, and a report on the review must be submitted to the competent authority upon request. For the management body this sets the beat of its own engagement: without the annual review there is no basis on which to maintain the approval given under Art. 5(2)."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-risikoappetit-05",
+      "topic": "Risikotoleranz und Resilienzstrategie",
+      "topic_code": "risikoappetit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 5 Abs. 2 Buchst. f i.V.m. Art. 6 Abs. 6 und 7 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Der Prüfungsausschuss schlägt vor, den IKT-Teil des internen Revisionsplans aus Kapazitätsgründen ersatzlos zu streichen, ohne den Gesamtvorstand zu befassen. Welche DORA-Vorgabe steht dem entgegen?",
+          "options": {
+            "a": "Keine - die interne Revision ist in DORA nicht geregelt",
+            "b": "DORA verbietet interne IKT-Revisionen und verlangt ausschließlich externe Prüfungen",
+            "c": "Das Leitungsorgan muss die internen IKT-Revisionspläne, die IKT-Revision und wesentliche Aenderungen daran genehmigen und regelmäßig überprüfen; der IKT-Risikomanagementrahmen unterliegt zudem regelmäßig der internen Revision",
+            "d": "DORA schreibt eine fixe Zahl von IKT-Prüfungen pro Jahr vor, die nicht unterschritten werden darf"
+          }
+        },
+        "en": {
+          "question": "The audit committee proposes to drop the ICT part of the internal audit plan entirely for capacity reasons, without involving the full board. Which DORA requirement stands in the way?",
+          "options": {
+            "a": "None - internal audit is not regulated by DORA",
+            "b": "DORA prohibits internal ICT audits and requires exclusively external audits",
+            "c": "The management body must approve and periodically review the entity's ICT internal audit plans, ICT audits and material modifications to them; the ICT risk management framework is also subject to regular internal audit",
+            "d": "DORA prescribes a fixed number of ICT audits per year that may not be undercut"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 2 Buchst. f DORA weist dem Leitungsorgan die Genehmigung und regelmäßige Überprüfung der internen IKT-Revisionspläne, der IKT-Revision und wesentlicher Aenderungen daran zu - eine Streichung des IKT-Revisionsteils ohne Vorstandsbefassung wäre daher bereits formal fehlerhaft. Materiell tritt Art. 6 Abs. 6 hinzu: Bei Finanzunternehmen, die keine Kleinstunternehmen sind, unterliegt der IKT-Risikomanagementrahmen regelmäßig der internen Revision durch Prüfer mit ausreichender IKT-Sachkunde und angemessener Unabhängigkeit; Häufigkeit und Schwerpunkt richten sich nach dem IKT-Risiko. Nach Art. 6 Abs. 7 ist zudem ein förmlicher Nachverfolgungsprozess für kritische Prüfungsfeststellungen einzurichten. Eine fixe Prüfungszahl nennt DORA dagegen nicht.",
+        "en": "Art. 5(2)(f) DORA assigns to the management body the approval and periodic review of ICT internal audit plans, ICT audits and material modifications to them - so dropping the ICT audit strand without board involvement would already be procedurally defective. Substantively, Art. 6(6) adds that for financial entities other than microenterprises the ICT risk management framework is subject to internal audit on a regular basis by auditors with sufficient ICT knowledge and appropriate independence, with frequency and focus commensurate to ICT risk. Art. 6(7) further requires a formal follow-up process for critical ICT audit findings. DORA does not, however, name a fixed number of audits."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-budget-01",
+      "topic": "Budget, Berichtswege und Nachweisfähigkeit",
+      "topic_code": "budget_reporting",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Abs. 2 Buchst. g Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Im Rahmen eines Sparprogramms schlägt der CFO vor, das Budget für digitale operationale Resilienz einschließlich der Sensibilisierungs- und Schulungsprogramme pauschal zu kürzen. Was gilt nach DORA?",
+          "options": {
+            "a": "Budgetfragen sind rein betriebswirtschaftlich und in DORA nicht angesprochen",
+            "b": "DORA schreibt einen festen Mindestprozentsatz des Umsatzes für IKT-Sicherheit vor, der nicht unterschritten werden darf",
+            "c": "Das Leitungsorgan muss ein angemessenes Budget für die Resilienzanforderungen zuweisen und regelmäßig überprüfen - ausdrücklich einschließlich der Sensibilisierungsprogramme und Resilienzschulungen nach Art. 13 Abs. 6 sowie der IKT-Kompetenzen aller Mitarbeiter",
+            "d": "Über das Resilienzbudget entscheidet allein die IT-Leitung, nicht das Leitungsorgan"
+          }
+        },
+        "en": {
+          "question": "As part of a cost-cutting programme, the CFO proposes an across-the-board cut to the digital operational resilience budget including awareness and training programmes. What does DORA say?",
+          "options": {
+            "a": "Budget questions are purely commercial and are not addressed in DORA",
+            "b": "DORA prescribes a fixed minimum percentage of revenue for ICT security that may not be undercut",
+            "c": "The management body must allocate and periodically review an appropriate budget for the entity's resilience needs - expressly including the ICT security awareness programmes and digital operational resilience training under Art. 13(6) and ICT skills for all staff",
+            "d": "The resilience budget is decided by IT leadership alone, not by the management body"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 2 Buchst. g DORA verpflichtet das Leitungsorgan, angemessene Budgetmittel zuzuweisen UND regelmäßig zu überprüfen, um den Anforderungen an die digitale operationale Resilienz 'in Bezug auf alle Arten von Ressourcen' gerecht zu werden - ausdrücklich 'einschließlich einschlägiger Programme zur Sensibilisierung für IKT-Sicherheit und Schulungen zur digitalen operationalen Resilienz nach Artikel 13 Absatz 6 sowie IKT-Kompetenzen für alle Mitarbeiter'. Erwägungsgrund 46 der Verordnung stellt denselben Zusammenhang her: Die uneingeschränkte und letztliche Verantwortung des Leitungsorgans geht mit der Notwendigkeit einher, ein Gesamtbudget sicherzustellen, das ein hohes Resilienzniveau überhaupt erst ermöglicht. Eine feste Prozentzahl nennt DORA nicht (Antwort b) - die Angemessenheit ist begründungspflichtig, nicht rechnerisch vorgegeben. Genau deshalb ist eine pauschale Kürzung ohne dokumentierte Angemessenheitsprüfung das Governance-Risiko.",
+        "en": "Art. 5(2)(g) DORA obliges the management body to allocate AND periodically review an appropriate budget to fulfil the entity's digital operational resilience needs 'in respect of all types of resources' - expressly 'including relevant ICT security awareness programmes and digital operational resilience training referred to in Article 13(6), and ICT skills for all staff'. Recital 46 draws the same link: the management body's full and ultimate responsibility goes hand in hand with securing an overall budget that makes a high level of resilience achievable at all. DORA names no fixed percentage (option b) - appropriateness must be reasoned, not calculated from a formula. That is precisely why an across-the-board cut without a documented appropriateness assessment is the governance risk."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-budget-02",
+      "topic": "Budget, Berichtswege und Nachweisfähigkeit",
+      "topic_code": "budget_reporting",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Abs. 2 Buchst. i Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche Berichtskanäle muss das Leitungsorgan nach DORA auf Unternehmensebene einrichten?",
+          "options": {
+            "a": "Nur einen Kanal für Kundenbeschwerden",
+            "b": "Kanäle, über die es ordnungsgemäß informiert wird über Vereinbarungen mit IKT-Drittdienstleistern, geplante wesentliche Aenderungen bei diesen Dienstleistern, deren mögliche Auswirkungen auf kritische oder wichtige Funktionen samt Risikoanalyse-Zusammenfassung sowie mindestens über schwerwiegende IKT-Vorfälle und deren Auswirkungen",
+            "c": "Ausschließlich einen anonymen Hinweisgeberkanal für Beschäftigte",
+            "d": "Keine - Berichtswege sind in DORA nicht geregelt"
+          }
+        },
+        "en": {
+          "question": "Which reporting channels must the management body establish at corporate level under DORA?",
+          "options": {
+            "a": "Only a channel for customer complaints",
+            "b": "Channels enabling it to be duly informed about arrangements with ICT third-party service providers, planned material changes regarding those providers, the potential impact of such changes on critical or important functions including a risk analysis summary, and at least about major ICT-related incidents and their impact",
+            "c": "Exclusively an anonymous whistleblowing channel for staff",
+            "d": "None - reporting lines are not regulated by DORA"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 2 Buchst. i DORA verlangt vom Leitungsorgan, auf Unternehmensebene Meldekanäle einzurichten, über die es ordnungsgemäß informiert wird über (i) Vereinbarungen mit IKT-Drittdienstleistern zur Nutzung von IKT-Dienstleistungen, (ii) alle relevanten geplanten wesentlichen Aenderungen bei diesen Dienstleistern und (iii) die möglichen Auswirkungen solcher Aenderungen auf die davon betroffenen kritischen oder wichtigen Funktionen, einschließlich einer Zusammenfassung der Risikoanalyse, sowie mindestens über schwerwiegende IKT-Vorfälle und deren Auswirkungen, Reaktions- und Abhilfemaßnahmen. Für die Prüfungspraxis ist das ein besonders gut nachweisbarer Punkt: Entweder es existiert ein definierter, benannter Berichtsweg mit Belegen - oder eben nicht.",
+        "en": "Art. 5(2)(i) DORA requires the management body to put in place, at corporate level, reporting channels enabling it to be duly informed of (i) arrangements concluded with ICT third-party service providers on the use of ICT services, (ii) any relevant planned material changes regarding those providers, and (iii) the potential impact of such changes on the critical or important functions concerned, including a risk analysis summary, as well as at least major ICT-related incidents and their impact, response, recovery and corrective measures. In audit practice this is an unusually verifiable point: either a defined, named reporting line with evidence exists - or it does not."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-budget-03",
+      "topic": "Budget, Berichtswege und Nachweisfähigkeit",
+      "topic_code": "budget_reporting",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 17 Abs. 3 Buchst. e Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein schwerwiegender IKT-Vorfall wird operativ innerhalb von zwei Tagen behoben. Der IT-Bereich hält eine Information des Leitungsorgans für entbehrlich, da 'nichts Bleibendes passiert' sei. Wie ist das zu bewerten?",
+          "options": {
+            "a": "Vertretbar - eine Information des Leitungsorgans ist nur bei dauerhaften Schäden erforderlich",
+            "b": "Vertretbar, sofern der Vorfall im Jahresbericht erwähnt wird",
+            "c": "Nicht vertretbar - der Vorfallmanagementprozess muss sicherstellen, dass mindestens schwerwiegende IKT-Vorfälle der oberen Leitungsebene gemeldet werden und das Leitungsorgan über sie informiert wird, einschließlich Auswirkungen, Reaktion und zusätzlich einzurichtender Kontrollen",
+            "d": "Nicht vertretbar - DORA verlangt eine Information sämtlicher Anteilseigner binnen 24 Stunden"
+          }
+        },
+        "en": {
+          "question": "A major ICT-related incident is resolved operationally within two days. The IT function considers informing the management body unnecessary because 'nothing lasting happened'. How should this be assessed?",
+          "options": {
+            "a": "Defensible - the management body only needs to be informed where there is lasting damage",
+            "b": "Defensible, provided the incident is mentioned in the annual report",
+            "c": "Not defensible - the incident management process must ensure that at least major ICT-related incidents are reported to relevant senior management and that the management body is informed of them, explaining the impact, the response and additional controls to be established",
+            "d": "Not defensible - DORA requires all shareholders to be informed within 24 hours"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 17 Abs. 3 Buchst. e DORA verlangt, dass der Prozess zum Management IKT-bezogener Vorfälle sicherstellt, dass mindestens schwerwiegende IKT-Vorfälle der relevanten oberen Leitungsebene gemeldet werden UND das Leitungsorgan über mindestens schwerwiegende Vorfälle informiert wird - mit Erläuterung der Auswirkungen, der Reaktion und der infolge des Vorfalls zusätzlich einzurichtenden Kontrollen. Der Auslöser ist die Einstufung als schwerwiegend, nicht die Frage, ob am Ende ein bleibender Schaden verblieben ist. Für das Leitungsorgan ist diese Information zugleich die Grundlage, seine eigenen Pflichten aus Art. 5 Abs. 2 (Überwachung, Überprüfung, ggf. Nachsteuerung von Budget und Rahmenwerk) überhaupt ausüben zu können.",
+        "en": "Art. 17(3)(e) DORA requires the ICT-related incident management process to ensure that at least major ICT-related incidents are reported to relevant senior management AND that the management body is informed of at least major incidents - explaining the impact, the response and the additional controls to be established as a result. The trigger is classification as major, not whether lasting damage remained. For the management body, that information is also the precondition for exercising its own Art. 5(2) duties at all (oversight, review, and where needed re-steering of budget and framework)."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-budget-04",
+      "topic": "Budget, Berichtswege und Nachweisfähigkeit",
+      "topic_code": "budget_reporting",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 13 Abs. 5 i.V.m. Art. 13 Abs. 3 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "text": {
+        "de": {
+          "question": "Das Leitungsorgan stellt fest, dass es seit zwei Jahren keinen strukturierten Bericht der leitenden IKT-Mitarbeiter erhalten hat. Welche DORA-Vorgabe ist damit verletzt?",
+          "options": {
+            "a": "Keine - DORA sieht keine Berichtspflicht gegenüber dem Leitungsorgan vor",
+            "b": "Die Berichtspflicht besteht ausschließlich gegenüber der Aufsichtsbehörde, nicht gegenüber dem Leitungsorgan",
+            "c": "Ein Bericht ist nur nach einem schwerwiegenden Vorfall erforderlich, sonst nicht",
+            "d": "Leitende IKT-Mitarbeiter müssen dem Leitungsorgan mindestens einmal jährlich über die Erkenntnisse aus Tests, realen Vorfällen und aufsichtlichen Überprüfungen berichten und Empfehlungen aussprechen"
+          }
+        },
+        "en": {
+          "question": "The management body notes it has received no structured report from senior ICT staff for two years. Which DORA requirement does that breach?",
+          "options": {
+            "a": "None - DORA provides for no reporting duty towards the management body",
+            "b": "The reporting duty runs solely to the supervisory authority, not to the management body",
+            "c": "A report is only required after a major incident, otherwise not",
+            "d": "Senior ICT staff must report to the management body at least yearly on the findings from testing, real-life incidents and supervisory reviews, and put forward recommendations"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 13 Abs. 5 DORA verlangt, dass leitende IKT-Mitarbeiter dem Leitungsorgan mindestens einmal jährlich über die in Art. 13 Abs. 3 genannten Feststellungen Bericht erstatten und Empfehlungen abgeben. Art. 13 Abs. 3 umfasst dabei die Erkenntnisse aus den Resilienztests nach Art. 26 und 27, aus realen IKT-Vorfällen - insbesondere Cyberangriffen -, aus Schwierigkeiten bei der Aktivierung von Geschäftsfortführungs- sowie Reaktions- und Wiederherstellungsplänen und aus dem Informationsaustausch mit Gegenparteien sowie aufsichtlichen Überprüfungen. Diese Erkenntnisse sind fortlaufend in die IKT-Risikobewertung einzubeziehen und bilden die Grundlage für Anpassungen des Rahmenwerks. Praktisch ist der Jahresbericht damit das Dokument, mit dem ein Leitungsorgan später belegen kann, informiert gewesen zu sein.",
+        "en": "Art. 13(5) DORA requires senior ICT staff to report at least yearly to the management body on the findings referred to in Art. 13(3) and to put forward recommendations. Art. 13(3) covers lessons from resilience testing under Arts. 26 and 27, from real-life ICT-related incidents - in particular cyber-attacks -, from challenges faced when activating business continuity and response and recovery plans, and from information exchanged with counterparts and assessed during supervisory reviews. Those findings must be incorporated on a continuous basis into the ICT risk assessment process and form the basis for reviewing the framework. In practice this annual report is the document with which a management body can later evidence that it was informed."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-budget-05",
+      "topic": "Budget, Berichtswege und Nachweisfähigkeit",
+      "topic_code": "budget_reporting",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 28 Abs. 2 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche eigene Aufgabe hat das Leitungsorgan im Hinblick auf Verträge über IKT-Dienstleistungen, die kritische oder wichtige Funktionen unterstützen?",
+          "options": {
+            "a": "Keine - dies ist ausschließlich Sache des Einkaufs und der Rechtsabteilung",
+            "b": "Es muss jeden einzelnen Vertrag persönlich unterzeichnen",
+            "c": "Es muss die in Bezug auf solche Verträge identifizierten Risiken regelmäßig überprüfen, auf Grundlage einer Bewertung des Gesamtrisikoprofils sowie des Umfangs und der Komplexität der Geschäftsleistungen",
+            "d": "Es muss die Verträge der Aufsichtsbehörde zur Genehmigung vorlegen"
+          }
+        },
+        "en": {
+          "question": "What is the management body's own task regarding contracts for ICT services supporting critical or important functions?",
+          "options": {
+            "a": "None - this is solely a matter for procurement and legal",
+            "b": "It must personally sign every individual contract",
+            "c": "It must regularly review the risks identified in respect of such contractual arrangements, on the basis of an assessment of the overall risk profile and of the scale and complexity of the business services",
+            "d": "It must submit the contracts to the supervisory authority for approval"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 28 Abs. 2 DORA verlangt von Finanzunternehmen (außer den in Art. 16 Abs. 1 UAbs. 1 genannten Einrichtungen und Kleinstunternehmen) eine Strategie für das IKT-Drittparteienrisiko, die regelmäßig zu überprüfen ist und eine Leitlinie zur Nutzung von IKT-Dienstleistungen zur Unterstützung kritischer oder wichtiger Funktionen enthält. Ausdrücklich adressiert wird dabei das Leitungsorgan: Es 'überprüft regelmäßig die Risiken, die in Bezug auf vertragliche Vereinbarungen über die Nutzung von IKT-Dienstleistungen zur Unterstützung kritischer oder wichtiger Funktionen ermittelt wurden' - und zwar auf Grundlage einer Bewertung des Gesamtrisikoprofils des Unternehmens sowie des Umfangs und der Komplexität der Geschäftsleistungen. Nicht verlangt ist eine persönliche Unterzeichnung einzelner Verträge (Antwort b) oder eine aufsichtliche Vorabgenehmigung (Antwort d).",
+        "en": "Art. 28(2) DORA requires financial entities (other than those referred to in Art. 16(1), first subparagraph, and microenterprises) to adopt and regularly review a strategy on ICT third-party risk, including a policy on the use of ICT services supporting critical or important functions. The management body is expressly addressed: it 'shall, on the basis of an assessment of the overall risk profile of the financial entity and the scale and complexity of the business services, regularly review the risks identified in respect to contractual arrangements on the use of ICT services supporting critical or important functions'. It does not require personally signing individual contracts (option b) or prior supervisory approval (option d)."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-haftung-01",
+      "topic": "Schulungspflicht, Sanktionen und Haftung",
+      "topic_code": "haftung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 13 Abs. 6 Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Vorstandsmitglied fragt, warum es selbst an einer DORA-Schulung teilnehmen soll - IKT sei schließlich ein Fachthema der IT. Was sagt der Verordnungstext?",
+          "options": {
+            "a": "Die Schulungspflicht gilt nur für IKT-Fachpersonal; die Geschäftsleitung ist ausgenommen",
+            "b": "Finanzunternehmen müssen Sensibilisierungsprogramme zur IKT-Sicherheit und Schulungen zur digitalen operationalen Resilienz als obligatorische Bestandteile ihrer Mitarbeiterschulungsprogramme entwickeln; diese gelten für alle Beschäftigten UND die Geschäftsleitung, mit einer Komplexität passend zum jeweiligen Aufgabenbereich",
+            "c": "Schulungen sind nach DORA rein freiwillig und lediglich eine Empfehlung der Aufsicht",
+            "d": "Die Schulungspflicht gilt ausschließlich für die Geschäftsleitung, nicht für übrige Beschäftigte"
+          }
+        },
+        "en": {
+          "question": "A board member asks why they personally should attend DORA training - ICT being, after all, a specialist IT topic. What does the Regulation actually say?",
+          "options": {
+            "a": "The training duty applies only to ICT specialists; senior management is exempt",
+            "b": "Financial entities must develop ICT security awareness programmes and digital operational resilience training as compulsory modules in their staff training schemes; these apply to all employees AND to senior management staff, with a level of complexity commensurate to the remit of their functions",
+            "c": "Training is purely voluntary under DORA and merely a supervisory recommendation",
+            "d": "The training duty applies exclusively to senior management, not to other staff"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 13 Abs. 6 DORA ist eindeutig und benennt die Geschäftsleitung ausdrücklich: Finanzunternehmen entwickeln Programme zur Sensibilisierung für IKT-Sicherheit und Schulungen zur digitalen operationalen Resilienz, 'die im Rahmen ihrer Programme für die Mitarbeiterschulung obligatorisch sind'; diese Programme und Schulungen 'gelten für alle Beschäftigten und die Geschäftsleitung und sind so komplex, dass sie deren jeweiligem Aufgabenbereich angemessen sind'. Die englische Fassung spricht von 'all employees and ... senior management staff'. Die Geschäftsleitung ist damit kein Nebenadressat, sondern namentlich genannt - und die Formulierung zum Komplexitätsgrad ist zugleich die Rechtfertigung für ein eigenes Executive-Format statt einer Standardschulung für alle. Gegebenenfalls sind nach Satz 3 auch IKT-Drittdienstleister in die Schulungsprogramme einzubeziehen (Verweis auf Art. 30 Abs. 2 Buchst. i).",
+        "en": "Art. 13(6) DORA is unambiguous and names senior management expressly: financial entities shall develop ICT security awareness programmes and digital operational resilience training 'as compulsory modules in their staff training schemes'; those programmes and training 'shall be applicable to all employees and to senior management staff, and shall have a level of complexity commensurate to the remit of their functions'. Senior management is therefore not an incidental addressee but named in the text - and the wording on complexity is itself the justification for a dedicated executive format rather than one generic course for everyone. Where appropriate, the third sentence also requires including ICT third-party service providers in the relevant training schemes (referring to Art. 30(2)(i))."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-haftung-02",
+      "topic": "Schulungspflicht, Sanktionen und Haftung",
+      "topic_code": "haftung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Abs. 4 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "text": {
+        "de": {
+          "question": "Neben der allgemeinen Schulungspflicht enthält DORA eine eigene, speziell an Mitglieder des Leitungsorgans gerichtete Vorgabe. Wie lautet sie?",
+          "options": {
+            "a": "Sie müssen ihre Kenntnisse und Fähigkeiten aktiv auf dem neuesten Stand halten - unter anderem durch regelmäßige spezielle Schulungen, entsprechend den zu managenden IKT-Risiken -, um IKT-Risiken und deren Auswirkungen auf die Geschäftstätigkeit verstehen und bewerten zu können",
+            "b": "Mitglieder des Leitungsorgans müssen eine staatlich anerkannte IT-Zertifizierung erwerben",
+            "c": "Sie müssen mindestens ein Mitglied mit abgeschlossenem Informatikstudium in das Gremium aufnehmen",
+            "d": "Für Mitglieder des Leitungsorgans besteht keine eigene Fortbildungsvorgabe"
+          }
+        },
+        "en": {
+          "question": "Beyond the general training duty, DORA contains a separate requirement aimed specifically at members of the management body. What is it?",
+          "options": {
+            "a": "They must actively keep their knowledge and skills up to date - including by following specific training on a regular basis, commensurate to the ICT risk being managed - in order to understand and assess ICT risk and its impact on the entity's operations",
+            "b": "Members of the management body must obtain a state-recognised IT certification",
+            "c": "They must co-opt at least one member holding a computer science degree",
+            "d": "There is no separate continuing-education requirement for management body members"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 Abs. 4 DORA richtet sich unmittelbar an die Personen im Gremium, nicht an das Unternehmen: 'Die Mitglieder des Leitungsorgans des Finanzunternehmens halten ausreichende Kenntnisse und Fähigkeiten aktiv auf dem neuesten Stand - unter anderem indem sie regelmäßig spezielle Schulungen absolvieren - entsprechend den zu managenden IKT-Risiken, um die IKT-Risiken und deren Auswirkungen auf die Geschäftstätigkeit des Finanzunternehmens verstehen und bewerten zu können.' Damit bestehen zwei nebeneinander stehende Pflichten: die unternehmensbezogene Schulungspflicht nach Art. 13 Abs. 6 und die persönliche Aktualisierungspflicht der Gremienmitglieder nach Art. 5 Abs. 4. Der Maßstab ist ausdrücklich risikoproportional ('entsprechend den zu managenden IKT-Risiken'); ein festes Intervall oder eine bestimmte Zertifizierung schreibt die Verordnung nicht vor.",
+        "en": "Art. 5(4) DORA addresses the individuals on the body, not the firm: 'Members of the management body of the financial entity shall actively keep up to date with sufficient knowledge and skills to understand and assess ICT risk and its impact on the operations of the financial entity, including by following specific training on a regular basis, commensurate to the ICT risk being managed.' Two duties therefore sit side by side: the entity-level training duty under Art. 13(6) and the personal duty of board members to stay current under Art. 5(4). The yardstick is expressly risk-proportionate ('commensurate to the ICT risk being managed'); the Regulation prescribes neither a fixed interval nor a particular certification."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-haftung-03",
+      "topic": "Schulungspflicht, Sanktionen und Haftung",
+      "topic_code": "haftung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 50 Abs. 3 und 4 sowie Art. 52 Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Wie regelt DORA selbst die Höhe der Sanktionen gegen Finanzunternehmen?",
+          "options": {
+            "a": "DORA legt einen EU-weiten Bußgeldrahmen von bis zu 10 Prozent des Jahresumsatzes für Finanzunternehmen fest",
+            "b": "DORA legt einen EU-weiten Bußgeldrahmen von bis zu 2 Prozent des Jahresumsatzes für Finanzunternehmen fest",
+            "c": "DORA nennt keinen eigenen Bußgeldrahmen für Finanzunternehmen: Die Mitgliedstaaten legen angemessene verwaltungsrechtliche Sanktionen und Abhilfemaßnahmen fest, die wirksam, verhältnismäßig und abschreckend sein müssen; DORA gibt lediglich einen Mindestkatalog an Befugnissen vor und lässt nationale Strafvorschriften unberührt",
+            "d": "DORA schließt Sanktionen gegen Finanzunternehmen aus und sieht nur Empfehlungen vor"
+          }
+        },
+        "en": {
+          "question": "How does DORA itself regulate the level of penalties against financial entities?",
+          "options": {
+            "a": "DORA sets an EU-wide fine ceiling of up to 10 % of annual turnover for financial entities",
+            "b": "DORA sets an EU-wide fine ceiling of up to 2 % of annual turnover for financial entities",
+            "c": "DORA sets no fine ceiling of its own for financial entities: Member States lay down appropriate administrative penalties and remedial measures that must be effective, proportionate and dissuasive; DORA only prescribes a minimum catalogue of powers and leaves national criminal law untouched",
+            "d": "DORA rules out penalties against financial entities and provides only for recommendations"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 50 Abs. 3 DORA verpflichtet die Mitgliedstaaten, Vorschriften über angemessene verwaltungsrechtliche Sanktionen und Abhilfemaßnahmen für Verstöße festzulegen und deren wirksame Umsetzung sicherzustellen; diese müssen 'wirksam, verhältnismäßig und abschreckend' sein. Art. 50 Abs. 4 gibt den Mindestkatalog vor, den die Behörden anwenden können müssen: Untersagung des verstoßenden Verhaltens, vorübergehende oder dauerhafte Einstellung von Praktiken, Maßnahmen einschließlich solcher finanzieller Art zur Sicherstellung der Rechtskonformität, Zugriff auf Verkehrsdaten unter engen Voraussetzungen sowie öffentliche Bekanntmachungen unter Nennung der verantwortlichen natürlichen oder juristischen Person. Art. 52 lässt mitgliedstaatliche Strafvorschriften ausdrücklich unberührt. Wichtig für die Kommunikation im Haus: Eine EU-weite Prozentgrenze (10 Prozent, 2 Prozent o.ä.) für Finanzunternehmen enthält DORA nicht - solche Zahlen stammen, wo sie kursieren, aus nationalen Durchführungsgesetzen einzelner Mitgliedstaaten und sind für das jeweils anwendbare Recht gesondert zu prüfen.",
+        "en": "Art. 50(3) DORA obliges Member States to lay down rules establishing appropriate administrative penalties and remedial measures for breaches and to ensure their effective implementation; these must be 'effective, proportionate and dissuasive'. Art. 50(4) sets the minimum catalogue authorities must be able to apply: an order to cease the infringing conduct, temporary or permanent cessation of practices, measures including of a pecuniary nature to ensure continued compliance, access to telecom traffic records under narrow conditions, and public notices identifying the responsible natural or legal person. Art. 52 expressly leaves Member States' criminal penalties untouched. Important for internal communication: DORA contains no EU-wide percentage ceiling (10 %, 2 % or similar) for financial entities - where such figures circulate they come from individual Member States' implementing laws and must be checked separately against the law actually applicable."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-haftung-04",
+      "topic": "Schulungspflicht, Sanktionen und Haftung",
+      "topic_code": "haftung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 50 Abs. 5 i.V.m. Abs. 2 Buchst. c und Abs. 4 Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Trifft es zu, dass DORA eine persönliche Haftung von Mitgliedern des Leitungsorgans anordnet? Welche Formulierung gibt den Verordnungstext am genauesten wieder?",
+          "options": {
+            "a": "Ja - DORA ordnet unmittelbar persönliche Geldbußen und Berufsverbote gegen Vorstandsmitglieder an",
+            "b": "Nein - DORA schließt Maßnahmen gegen einzelne Personen ausdrücklich aus; adressiert werden nur Unternehmen",
+            "c": "Teilweise - DORA verpflichtet die Mitgliedstaaten, die Behörden mit der Befugnis auszustatten, verwaltungsrechtliche Sanktionen und Abhilfemaßnahmen auch Mitgliedern des Leitungsorgans und anderen nach nationalem Recht verantwortlichen natürlichen Personen aufzuerlegen - vorbehaltlich der nach nationalem Recht geltenden Bedingungen; Art und Höhe ergeben sich damit aus nationalem Recht, nicht aus DORA selbst",
+            "d": "Ja - DORA begründet unmittelbar einen Schadensersatzanspruch der Gesellschaft gegen jedes Vorstandsmitglied"
+          }
+        },
+        "en": {
+          "question": "Is it true that DORA imposes personal liability on members of the management body? Which formulation most accurately reflects the text?",
+          "options": {
+            "a": "Yes - DORA directly imposes personal fines and professional bans on board members",
+            "b": "No - DORA expressly rules out measures against individuals; only entities are addressed",
+            "c": "Partly - DORA obliges Member States to confer on authorities the power to apply administrative penalties and remedial measures also to members of the management body and to other natural persons who are responsible for the breach under national law, subject to the conditions laid down in national law; the nature and level therefore follow from national law, not from DORA itself",
+            "d": "Yes - DORA directly creates a damages claim of the company against every board member"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Der genaue Wortlaut ist hier entscheidend. Art. 50 Abs. 5 DORA lautet: 'Gelten Absatz 2 Buchstabe c und Absatz 4 für juristische Personen, so statten die Mitgliedstaaten die zuständigen Behörden mit der Befugnis aus, Mitgliedern des Leitungsorgans sowie anderen natürlichen Personen, die nach nationalem Recht für den Verstoß verantwortlich sind, vorbehaltlich der nach nationalem Recht geltenden Bedingungen verwaltungsrechtliche Sanktionen und Abhilfemaßnahmen aufzuerlegen.' DORA verpflichtet also die Mitgliedstaaten, den Durchgriff auf natürliche Personen zu EROEFFNEN - es verhängt selbst keine Geldbuße, kein Berufsverbot und keinen Schadensersatzanspruch gegen einzelne Gremienmitglieder. Ob, gegen wen und in welcher Höhe tatsächlich persönlich sanktioniert wird, richtet sich nach dem nationalen Aufsichts-, Ordnungswidrigkeiten- und Gesellschaftsrecht des jeweiligen Mitgliedstaats. Ergänzend relevant: Nach Art. 50 Abs. 4 Buchst. e gehört zum Mindestkatalog die öffentliche Bekanntmachung unter Nennung der Identität der verantwortlichen natürlichen Person - das Reputationsrisiko für Einzelpersonen ist damit in DORA selbst angelegt.",
+        "en": "The precise wording matters here. Art. 50(5) DORA reads: 'Where paragraph 2, point (c), and paragraph 4 apply to legal persons, Member States shall confer on competent authorities the power to apply the administrative penalties and remedial measures, subject to the conditions provided for in national law, to members of the management body, and to other individuals who under national law are responsible for the breach.' DORA therefore obliges Member States to OPEN the route to individuals - it does not itself impose a fine, a professional ban or a damages claim on individual board members. Whether, against whom and at what level personal sanctions actually follow is determined by each Member State's supervisory, administrative-offence and company law. One related point: under Art. 50(4)(e) the minimum catalogue includes public notices identifying the responsible natural person - so reputational exposure for individuals is built into DORA itself."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-exec-haftung-05",
+      "topic": "Schulungspflicht, Sanktionen und Haftung",
+      "topic_code": "haftung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 35 Abs. 6 bis 8 Verordnung (EU) 2022/2554; national ergänzend: § 93 Abs. 1 und 2 AktG, § 43 GmbHG, § 25a Abs. 1 Satz 2 KWG, § 36 Abs. 1 und 2 KWG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "In einer Vorstandsvorlage heißt es: 'DORA sieht Bußgelder von bis zu 1 Prozent des Tagesumsatzes und Berufsverbote für Geschäftsleiter vor.' Wie ist diese Aussage einzuordnen?",
+          "options": {
+            "a": "Zutreffend - beide Rechtsfolgen stehen so in DORA und richten sich gegen Finanzunternehmen und deren Geschäftsleiter",
+            "b": "Ungenau - das Zwangsgeld von bis zu 1 Prozent des durchschnittlichen weltweiten Tagesumsatzes (für höchstens sechs Monate) richtet sich nach Art. 35 DORA ausschließlich gegen kritische IKT-Drittdienstleister; Abberufung und Tätigkeitsuntersagung gegenüber Geschäftsleitern folgen dagegen aus nationalem Aufsichtsrecht, nicht aus DORA",
+            "c": "Ungenau - DORA kennt überhaupt keine umsatzbezogenen Zahlungen",
+            "d": "Zutreffend, allerdings gilt beides erst ab 2028"
+          }
+        },
+        "en": {
+          "question": "A board paper states: 'DORA provides for fines of up to 1 % of daily turnover and professional bans for managing directors.' How should that statement be assessed?",
+          "options": {
+            "a": "Correct - both consequences are in DORA and target financial entities and their managing directors",
+            "b": "Imprecise - the periodic penalty payment of up to 1 % of average daily worldwide turnover (for a maximum of six months) applies under Art. 35 DORA exclusively to critical ICT third-party service providers; removal and activity bans against managing directors instead follow from national supervisory law, not from DORA",
+            "c": "Imprecise - DORA contains no turnover-based payments at all",
+            "d": "Correct, though both only apply from 2028"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Die einzige umsatzbezogene Zahlung im DORA-Text ist das Zwangsgeld nach Art. 35 Abs. 6 bis 8: Der federführende Überwacher (Lead Overseer) kann es täglich und für höchstens sechs Monate ab Bekanntgabe der Entscheidung verhängen, in Höhe von bis zu 1 Prozent des durchschnittlichen weltweiten TAGESUMSATZES des kritischen IKT-Drittdienstleisters im vorangegangenen Geschäftsjahr. Adressat ist ausschließlich der als kritisch eingestufte IKT-Drittdienstleister - nicht das Finanzunternehmen und nicht dessen Geschäftsleiter. Abberufung und Untersagung der Tätigkeit von Geschäftsleitern sind in DORA nicht vorgesehen; im deutschen Recht folgen sie aus dem Aufsichtsrecht, etwa § 36 Abs. 1 und 2 KWG (Verwarnung, Abberufungsverlangen und Tätigkeitsuntersagung unter dort genannten Voraussetzungen). Eine persönliche Innenhaftung gegenüber der Gesellschaft folgt aus dem Gesellschaftsrecht - § 93 Abs. 1 und 2 AktG (Sorgfalt eines ordentlichen und gewissenhaften Geschäftsleiters, Business Judgment Rule, Beweislast beim Vorstandsmitglied) bzw. § 43 GmbHG - und wird bankaufsichtsrechtlich durch § 25a Abs. 1 Satz 2 KWG flankiert, wonach die Geschäftsleiter für die ordnungsgemäße Geschäftsorganisation verantwortlich sind. Kurz: Ein DORA-Verstoß kann persönliche Folgen auslösen - die Rechtsgrundlage dafür liegt aber im nationalen Recht, nicht in DORA selbst. HINWEIS: Die Zuordnung eines konkreten DORA-Verstoßes zu den Tatbeständen des § 36 KWG ist im Pre-Review-Dossier als anwaltlich zu prüfender Punkt markiert.",
+        "en": "The only turnover-based payment in the DORA text is the periodic penalty payment under Art. 35(6)-(8): the Lead Overseer may impose it on a daily basis, for no more than six months from notification of the decision, at up to 1 % of the critical ICT third-party service provider's average daily worldwide turnover in the preceding business year. The addressee is exclusively the provider designated as critical - not the financial entity and not its managing directors. Removal and activity bans for managing directors are not provided for in DORA; under German law they follow from supervisory law, e.g. Sec. 36(1) and (2) KWG (warning, demand for removal and prohibition of activity under the conditions set out there). Personal liability towards the company follows from company law - Sec. 93(1)-(2) AktG (care of a diligent and conscientious manager, business judgment rule, burden of proof on the board member) or Sec. 43 GmbHG - flanked in banking supervision by Sec. 25a(1) sentence 2 KWG, under which managing directors are responsible for proper business organisation. In short: a DORA breach can trigger personal consequences - but the legal basis for them lies in national law, not in DORA itself. NOTE: mapping a specific DORA breach onto the triggers of Sec. 36 KWG is flagged in the pre-review dossier as a point for counsel."
+      },
+      "roles": [
+        "all"
+      ]
+    }
+  ]
+}

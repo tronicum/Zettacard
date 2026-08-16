@@ -1,0 +1,907 @@
+{
+  "meta": {
+    "app": "Zettacard / dora-procurement-lernmodul",
+    "version": "0.1-draft",
+    "generated": "2026-08-16",
+    "description": "Draft-Pilot-Fragenkatalog zum Modul \"DORA Art. 30 - IKT-Drittparteienrisiko und Beschaffung\" (dora_procurement). Zielgruppe: IT-Einkauf, Vendor Management und Rechtsabteilungen von EU-Finanzunternehmen, die Vertraege mit IKT-Dienstleistern (Cloud, SaaS, Softwarehaeuser) verhandeln. Abgedeckt werden Art. 30 Abs. 1 (Vertragsform und Dokumentation), der Basis-Klauselkatalog des Art. 30 Abs. 2 fuer alle IKT-Vertraege, die Abgrenzung kritischer oder wichtiger Funktionen (Art. 3 Nr. 22), der erweiterte Katalog des Art. 30 Abs. 3, die Zugangs-, Inspektions- und Auditrechte sowie die Unterauftragsvergabe auf Level-2-Ebene. Alle Zitate wurden am 2026-08-16 gegen den amtlichen Verordnungstext des EU-Amtsblatts (EUR-Lex/Cellar, CELEX 32022R2554, DE und EN) sowie gegen die Delegierten Verordnungen (EU) 2024/1773 und (EU) 2025/532 im Volltext geprueft - nicht gegen Sekundaerquellen. Eigenstaendig formuliert; kein Fragentext eines kommerziellen Anbieters uebernommen. NICHT rechtlich geprueft - siehe Pre-Review-Dossier fuer die Konfidenz je Frage.",
+    "class": "ALL",
+    "locales": [
+      "de",
+      "en"
+    ],
+    "canonical_locale": "de",
+    "point_system": "3-4 points per question, matching this app's existing compliance-module style (kartellrecht_pilot.json convention); 4 points on the load-bearing distinctions and the vendor-pushback scenarios.",
+    "pass_rule_note": "Not yet configured. This DRAFT is deliberately not wired into build_modules.py, modules_manifest.json or app.js - the per-module EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW config would be set only after human legal review and an explicit wiring step.",
+    "legal_review_status": "DRAFT - NOT legally reviewed by a qualified lawyer. Primary-source verified only: every legal_basis was checked on 2026-08-16 against the official Official Journal text retrieved from the EU Publications Office Cellar repository (CELEX 32022R2554 EN and DE, 32024R1773, 32025R0532), not against secondary summaries. See docs/dora-procurement-pre-review-dossier-2026-08-16.md for the per-question citation ledger, confidence ratings and the explicit gap list. Human legal review remains a hard gate before any commercial or production use.",
+    "legal_disclaimer": "Dieses Schulungsmaterial dient reinen Ausbildungs- und Informationszwecken und stellt keine Rechts- oder Compliance-Beratung dar. Die regulatorischen Anforderungen sind im Einzelfall durch qualifizierte Juristen oder Wirtschaftsprüfer zu validieren.",
+    "total_questions": 20,
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+    "renewal_months": null,
+    "renewal_basis": "not_specified_in_statute",
+    "renewal_note": "DORA fixes no refresher interval for procurement/contracting training. Art. 13(6) makes ICT security awareness and digital operational resilience training a compulsory part of staff training schemes without prescribing a cadence, and Art. 30(2)(i) only requires the contract to set the conditions for the ICT third-party service provider's participation in those programmes. Any recurrence cadence would be a Zettacard product decision, not a statutory mirror."
+  },
+  "questions": [
+    {
+      "id": "dora-procurement-grundsaetze-01",
+      "topic": "Grundsätze und Vertragsform",
+      "topic_code": "grundsaetze",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 30 Abs. 1 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein SaaS-Anbieter schlägt vor, den Vertrag aus einem kurzen Bestellformular zu bilden, das per Link auf online veröffentlichte AGB, ein separates SLA-Webportal und eine jederzeit einseitig änderbare Sicherheitsrichtlinie verweist. Was verlangt Art. 30 Abs. 1 DORA?",
+          "options": {
+            "a": "Rechte und Pflichten beider Seiten müssen eindeutig zugewiesen und schriftlich dargelegt werden; der vollständige Vertrag muss die Vereinbarung über die Dienstleistungsgüte umfassen und in einem schriftlichen Dokument dokumentiert sein, das den Parteien in Papierform oder in einem anderen herunterladbaren, dauerhaften und zugänglichen Format zur Verfügung steht",
+            "b": "Diese Struktur ist zulässig, da DORA keine Anforderungen an die Form des Vertrags stellt",
+            "c": "Der Vertrag muss zwingend notariell beurkundet werden",
+            "d": "Es genügt, wenn der Anbieter die Bedingungen auf seiner Website veröffentlicht; eine Zurverfügungstellung an das Finanzunternehmen ist nicht erforderlich"
+          }
+        },
+        "en": {
+          "question": "A SaaS provider proposes that the contract consist of a short order form linking to online T&Cs, a separate SLA web portal, and a security policy the provider can change unilaterally at any time. What does DORA Art. 30(1) require?",
+          "options": {
+            "a": "The rights and obligations of both parties must be clearly allocated and set out in writing; the full contract must include the service level agreements and be documented in one written document available to the parties on paper or in another downloadable, durable and accessible format",
+            "b": "This structure is fine, since DORA imposes no requirements on contract form",
+            "c": "The contract must be notarised",
+            "d": "It is sufficient for the provider to publish the terms on its website; it need not be made available to the financial entity"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 30 Abs. 1 DORA stellt zwei Anforderungen, die in der Beschaffungspraxis oft übersehen werden. Erstens müssen die Rechte und Pflichten eindeutig zugewiesen sein - eine bloße Aufzählung von Leistungen ohne klare Zuordnung der Verantwortlichkeiten genügt nicht. Zweitens muss der vollständige Vertrag die Vereinbarung über die Dienstleistungsgüte (das SLA) umfassen und in einem Dokument dokumentiert werden, das den Parteien in Papierform oder in einem anderen herunterladbaren, dauerhaften und zugänglichen Format vorliegt. Ein Verweis auf eine Webseite, deren Inhalt der Anbieter jederzeit einseitig ändern kann, erfüllt das Kriterium der Dauerhaftigkeit nicht, weil das Finanzunternehmen dann keinen belastbaren Nachweis des jeweils vereinbarten Stands führen kann. Wichtig: Art. 30 Abs. 1 gilt für alle IKT-Verträge, nicht nur für solche über kritische oder wichtige Funktionen.",
+        "en": "Art. 30(1) DORA sets two requirements that procurement practice often overlooks. First, rights and obligations must be clearly allocated - a bare list of deliverables without clear allocation of responsibilities is not enough. Second, the full contract must include the service level agreements and be documented in one written document available to the parties on paper or in another downloadable, durable and accessible format. A link to a page the provider can silently change does not meet the durability criterion, because the entity would then have no reliable record of what was actually agreed at any given time. Note: Art. 30(1) applies to all ICT contracts, not only those supporting critical or important functions."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-grundsaetze-02",
+      "topic": "Grundsätze und Vertragsform",
+      "topic_code": "grundsaetze",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 28 Abs. 1 Buchst. a Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Vendor Manager argumentiert im Lenkungskreis: \"Wir haben den Betrieb dieser Anwendung vollständig an den Cloud-Anbieter ausgelagert - damit liegt auch die DORA-Verantwortung bei ihm.\" Trifft das zu?",
+          "options": {
+            "a": "Ja, mit der Auslagerung geht die regulatorische Verantwortung auf den Anbieter über",
+            "b": "Ja, sofern der Anbieter selbst der DORA-Aufsicht unterliegt",
+            "c": "Nein - nach Art. 28 Abs. 1 Buchst. a DORA bleiben Finanzunternehmen, die IKT-Dienstleistungen vertraglich für ihren Geschäftsbetrieb nutzen, jederzeit vollumfänglich verantwortlich für die Einhaltung und Erfüllung aller Pflichten aus DORA und dem geltenden Finanzdienstleistungsrecht",
+            "d": "Die Verantwortung wird zwischen Finanzunternehmen und Anbieter automatisch hälftig geteilt"
+          }
+        },
+        "en": {
+          "question": "A vendor manager argues in a steering committee: \"We have fully outsourced the operation of this application to the cloud provider - so DORA responsibility sits with them.\" Is that correct?",
+          "options": {
+            "a": "Yes, outsourcing transfers regulatory responsibility to the provider",
+            "b": "Yes, provided the provider is itself subject to DORA supervision",
+            "c": "No - under Art. 28(1)(a) DORA, financial entities that have contractual arrangements for the use of ICT services to run their business operations shall at all times remain fully responsible for compliance with, and the discharge of, all obligations under DORA and applicable financial services law",
+            "d": "Responsibility is automatically split fifty-fifty between the financial entity and the provider"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 28 Abs. 1 Buchst. a DORA formuliert dies als ausdrücklichen Grundsatz: Finanzunternehmen bleiben \"jederzeit\" (at all times) vollumfänglich verantwortlich. Eine Auslagerung verlagert also operative Tätigkeiten, nicht aber die regulatorische Verantwortung. Für Beschaffung und Vendor Management folgt daraus praktisch: Eine Haftungsfreistellung oder Verantwortungsübertragung im Vertrag kann das Finanzunternehmen im Innenverhältnis absichern, entlastet es aber nicht gegenüber der Aufsichtsbehörde. Genau deshalb sind die Mindestklauseln des Art. 30 kein Verhandlungswunsch, sondern das Instrument, mit dem das Unternehmen seine eigene fortbestehende Verantwortung überhaupt erfüllen kann.",
+        "en": "Art. 28(1)(a) DORA states this as an explicit principle: financial entities remain fully responsible \"at all times\". Outsourcing therefore shifts operational activity, not regulatory responsibility. The practical consequence for procurement and vendor management: an indemnity or allocation-of-responsibility clause may protect the entity as between the parties, but it does not relieve it vis-a-vis the supervisory authority. This is precisely why the minimum clauses in Art. 30 are not a negotiating wish-list but the instrument through which the entity can actually discharge its own continuing responsibility."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-grundsaetze-03",
+      "topic": "Grundsätze und Vertragsform",
+      "topic_code": "grundsaetze",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 28 Abs. 4 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "text": {
+        "de": {
+          "question": "Das Fachbereichsteam möchte einen Vertrag über eine neue IKT-Dienstleistung sofort unterzeichnen und die Risikobewertung \"im laufenden Betrieb nachziehen\". Was verlangt DORA vor Vertragsschluss?",
+          "options": {
+            "a": "Eine Vorabprüfung ist nur bei Anbietern mit Sitz in einem Drittland erforderlich",
+            "b": "Vor Vertragsschluss ist ausschließlich die Bonität des Anbieters zu prüfen",
+            "c": "Es ist ausreichend, die Bewertung innerhalb von zwölf Monaten nach Vertragsschluss nachzuholen",
+            "d": "Vor Abschluss muss das Finanzunternehmen u. a. bewerten, ob der Vertrag eine kritische oder wichtige Funktion unterstützt, ob die aufsichtlichen Bedingungen für die Vertragsvergabe erfüllt sind, alle relevanten Risiken einschließlich eines möglichen IKT-Konzentrationsrisikos identifizieren und bewerten, die gebotene Sorgfaltsprüfung zur Eignung des Anbieters durchführen sowie Interessenkonflikte identifizieren und bewerten"
+          }
+        },
+        "en": {
+          "question": "A business team wants to sign a contract for a new ICT service immediately and \"catch up on the risk assessment during operation\". What does DORA require before signing?",
+          "options": {
+            "a": "A prior assessment is only required for providers established in a third country",
+            "b": "Only the provider's creditworthiness needs checking before signing",
+            "c": "It is sufficient to complete the assessment within twelve months after signing",
+            "d": "Before entering into the arrangement the entity must, among other things, assess whether it covers ICT services supporting a critical or important function, assess whether supervisory conditions for contracting are met, identify and assess all relevant risks including possible reinforcement of ICT concentration risk, undertake due diligence on the provider's suitability, and identify and assess conflicts of interest"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 28 Abs. 4 DORA listet fünf Schritte, die ausdrücklich \"vor Abschluss\" einer vertraglichen Vereinbarung über die Nutzung von IKT-Dienstleistungen zu erfolgen haben: Einstufung als kritische oder wichtige Funktion, Prüfung der aufsichtlichen Bedingungen, Identifizierung und Bewertung aller relevanten Risiken einschließlich eines Beitrags zum IKT-Konzentrationsrisiko nach Art. 29, Due Diligence zur Eignung des Anbieters und Bewertung von Interessenkonflikten. Die Reihenfolge ist inhaltlich zwingend, weil erst die Einstufung als kritische oder wichtige Funktion entscheidet, welcher Klauselkatalog überhaupt verhandelt werden muss - der Basiskatalog des Art. 30 Abs. 2 oder zusätzlich der erweiterte Katalog des Art. 30 Abs. 3.",
+        "en": "Art. 28(4) DORA lists five steps that must expressly happen \"before entering into\" a contractual arrangement on the use of ICT services: assessing whether it covers a critical or important function, assessing whether supervisory conditions for contracting are met, identifying and assessing all relevant risks including any contribution to ICT concentration risk under Art. 29, due diligence on the provider's suitability, and assessing conflicts of interest. The order matters substantively, because only the critical-or-important classification determines which clause catalogue has to be negotiated at all - the Art. 30(2) baseline, or additionally the enhanced Art. 30(3) set."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-grundsaetze-04",
+      "topic": "Grundsätze und Vertragsform",
+      "topic_code": "grundsaetze",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 4 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche rechtliche Bedeutung haben von Behörden entwickelte Standardvertragsklauseln bei der Aushandlung von IKT-Verträgen nach DORA?",
+          "options": {
+            "a": "Art. 30 Abs. 4 DORA verpflichtet Finanzunternehmen und IKT-Drittdienstleister lediglich dazu, die Verwendung von für bestimmte Dienstleistungen entwickelten behördlichen Standardvertragsklauseln zu erwägen - eine Pflicht zu deren Übernahme begründet die Vorschrift nicht",
+            "b": "Ihre Verwendung ist zwingend vorgeschrieben; abweichende individuelle Klauseln sind unwirksam",
+            "c": "Standardvertragsklauseln sind nur für Verträge mit Anbietern aus Drittländern relevant",
+            "d": "DORA erwähnt Standardvertragsklauseln an keiner Stelle"
+          }
+        },
+        "en": {
+          "question": "What is the legal status of standard contractual clauses developed by public authorities when negotiating ICT contracts under DORA?",
+          "options": {
+            "a": "Art. 30(4) DORA only requires financial entities and ICT third-party service providers to consider the use of standard contractual clauses developed by public authorities for specific services - it does not create an obligation to adopt them",
+            "b": "Their use is mandatory; individually negotiated deviating clauses are void",
+            "c": "Standard contractual clauses are only relevant for contracts with third-country providers",
+            "d": "DORA does not mention standard contractual clauses anywhere"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Der Wortlaut ist hier entscheidend: Art. 30 Abs. 4 DORA sagt, dass die Parteien die Verwendung solcher Klauseln \"erwägen\" (consider). Das ist eine Prüf- und Befassungspflicht, keine Übernahmepflicht - im Unterschied etwa zu den Standarddatenschutzklauseln der DSGVO, die als Übermittlungsgrundlage unverändert verwendet werden müssen. Für die Beschaffungspraxis bedeutet das: Wer behördliche Musterklauseln nicht verwendet, verstößt nicht gegen Art. 30 Abs. 4, sollte die Befassung damit aber dokumentieren. Der eigentliche verbindliche Maßstab bleiben die inhaltlichen Mindestanforderungen aus Art. 30 Abs. 2 und 3.",
+        "en": "The wording is decisive here: Art. 30(4) DORA says the parties shall \"consider\" the use of such clauses. That is a duty to examine and engage, not a duty to adopt - unlike, say, the GDPR standard data protection clauses, which must be used unaltered as a transfer basis. For procurement this means: not using official model clauses does not breach Art. 30(4), but the consideration should be documented. The genuinely binding benchmark remains the substantive minimum content of Art. 30(2) and (3)."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-pflichtklauseln-01",
+      "topic": "Pflichtklauseln für alle IKT-Verträge (Art. 30 Abs. 2)",
+      "topic_code": "pflichtklauseln",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 30 Abs. 2 Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Für welche IKT-Verträge gilt der Mindestklauselkatalog des Art. 30 Abs. 2 DORA?",
+          "options": {
+            "a": "Nur für Verträge, die kritische oder wichtige Funktionen unterstützen",
+            "b": "Für alle vertraglichen Vereinbarungen über die Nutzung von IKT-Dienstleistungen - unabhängig davon, ob sie eine kritische oder wichtige Funktion unterstützen",
+            "c": "Nur für Verträge ab einem jährlichen Auftragsvolumen von einer Million Euro",
+            "d": "Nur für Verträge mit Anbietern, die von den ESAs als kritische IKT-Drittdienstleister (CTPP) eingestuft wurden"
+          }
+        },
+        "en": {
+          "question": "Which ICT contracts does the minimum-clause catalogue in Art. 30(2) DORA apply to?",
+          "options": {
+            "a": "Only contracts supporting critical or important functions",
+            "b": "All contractual arrangements on the use of ICT services - regardless of whether they support a critical or important function",
+            "c": "Only contracts above an annual value of one million euros",
+            "d": "Only contracts with providers designated by the ESAs as critical ICT third-party service providers (CTPPs)"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Dies ist die am häufigsten falsch verstandene Weichenstellung des ganzen Artikels. Art. 30 Abs. 2 formuliert ohne Einschränkung: \"Die vertraglichen Vereinbarungen über die Nutzung von IKT-Dienstleistungen umfassen mindestens folgende Elemente\". Der Basiskatalog mit neun Buchstaben a) bis i) gilt damit für jeden IKT-Dienstleistungsvertrag, also auch für ein kleines Nischenwerkzeug ohne jede Systemrelevanz. Erst Art. 30 Abs. 3 knüpft \"zusätzlich zu den in Absatz 2 genannten Elementen\" an die Unterstützung kritischer oder wichtiger Funktionen an. Für die Beschaffung heißt das: Es gibt keinen IKT-Vertrag, der von Art. 30 gar nicht erfasst wäre - die Einstufung entscheidet nur über die Tiefe, nicht über das Ob.",
+        "en": "This is the most commonly misread branching point in the whole article. Art. 30(2) is worded without qualification: \"The contractual arrangements on the use of ICT services shall include at least the following elements\". The baseline catalogue of nine points (a) to (i) therefore applies to every ICT services contract, including a small niche tool with no systemic relevance whatsoever. Only Art. 30(3) then attaches, \"in addition to the elements referred to in paragraph 2\", to the support of critical or important functions. For procurement this means: there is no ICT contract that falls outside Art. 30 entirely - classification decides the depth, not the whether."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-pflichtklauseln-02",
+      "topic": "Pflichtklauseln für alle IKT-Verträge (Art. 30 Abs. 2)",
+      "topic_code": "pflichtklauseln",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 2 Buchst. b Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Anbieter erklärt in der Verhandlung: \"Wir betreiben ein globales Netz; die Verarbeitungsstandorte können sich jederzeit ändern, eine vertragliche Festlegung ist technisch nicht möglich.\" Was verlangt Art. 30 Abs. 2 Buchst. b DORA?",
+          "options": {
+            "a": "Der Vertrag muss die Standorte - also die Regionen oder Länder - benennen, an denen die vertraglich vereinbarten oder an Unterauftragnehmer vergebenen Funktionen und IKT-Dienstleistungen bereitzustellen sind und an denen Daten verarbeitet werden sollen, einschließlich des Speicherorts, und den Anbieter verpflichten, das Finanzunternehmen vorab zu benachrichtigen, wenn er eine Änderung dieser Standorte beabsichtigt",
+            "b": "Es muss die exakte Postanschrift jedes einzelnen Rechenzentrums im Vertrag stehen",
+            "c": "Der Anbieter hat recht - DORA verlangt keine Angaben zu Verarbeitungsstandorten",
+            "d": "Standortangaben sind nur erforderlich, wenn personenbezogene Daten verarbeitet werden"
+          }
+        },
+        "en": {
+          "question": "A provider states in negotiation: \"We run a global network; processing locations can change at any time, so fixing them contractually is technically impossible.\" What does Art. 30(2)(b) DORA require?",
+          "options": {
+            "a": "The contract must state the locations, namely the regions or countries, where the contracted or subcontracted functions and ICT services are to be provided and where data is to be processed, including the storage location, and must require the provider to notify the entity in advance if it envisages changing those locations",
+            "b": "The exact postal address of every individual data centre must be in the contract",
+            "c": "The provider is right - DORA requires no information on processing locations",
+            "d": "Location details are only required where personal data is processed"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 30 Abs. 2 Buchst. b definiert die geforderte Granularität selbst: Standorte sind \"das heißt die Regionen oder Länder\". Verlangt ist also keine Rechenzentrumsadresse, aber sehr wohl eine belastbare geografische Festlegung auf Regions- oder Länderebene - und zwar sowohl für die Leistungserbringung als auch für die Datenverarbeitung einschließlich des Speicherorts, und ausdrücklich auch für an Unterauftragnehmer vergebene Teile. Die Argumentation des Anbieters ist damit kein technisches, sondern ein vertragliches Problem: Die Verordnung löst genau diesen Konflikt, indem sie zusätzlich eine Pflicht zur vorherigen Benachrichtigung bei beabsichtigter Standortänderung verlangt. Flexibilität ist also möglich, aber nur mit Vorabinformation.",
+        "en": "Art. 30(2)(b) defines the required granularity itself: locations, \"namely the regions or countries\". No data-centre address is required, but a firm geographic commitment at region or country level is - both for service provision and for data processing including the storage location, and expressly also for subcontracted parts. The provider's argument is therefore not a technical problem but a contractual one: the regulation resolves exactly this tension by additionally requiring advance notification where the provider envisages changing those locations. Flexibility is possible, but only with prior notice."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-pflichtklauseln-03",
+      "topic": "Pflichtklauseln für alle IKT-Verträge (Art. 30 Abs. 2)",
+      "topic_code": "pflichtklauseln",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 2 Buchst. f Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Anbieter möchte Unterstützungsleistungen bei IKT-Vorfällen nach Zeit und Aufwand zu den jeweils gültigen Stundensätzen abrechnen und die Sätze jährlich einseitig anpassen können. Ist das mit Art. 30 Abs. 2 DORA vereinbar?",
+          "options": {
+            "a": "Nein, Unterstützung bei IKT-Vorfällen muss stets vollständig kostenlos erbracht werden",
+            "b": "Ja, die Vergütung von Vorfallunterstützung ist nach DORA frei verhandelbar",
+            "c": "Ja, sofern der Vorfall nicht vom Anbieter verschuldet wurde",
+            "d": "Nein - Art. 30 Abs. 2 Buchst. f verlangt die vertragliche Verpflichtung des Anbieters, dem Finanzunternehmen bei einem IKT-Vorfall, der mit dem bereitgestellten IKT-Dienst in Verbindung steht, ohne zusätzliche Kosten oder zu vorab festzusetzenden Kosten Unterstützung zu leisten"
+          }
+        },
+        "en": {
+          "question": "A provider wants to bill incident support on a time-and-materials basis at its then-current rates, with unilateral annual rate adjustments. Is that compatible with Art. 30(2) DORA?",
+          "options": {
+            "a": "No, ICT incident assistance must always be provided entirely free of charge",
+            "b": "Yes, remuneration for incident support is freely negotiable under DORA",
+            "c": "Yes, provided the incident was not the provider's fault",
+            "d": "No - Art. 30(2)(f) requires a contractual obligation on the provider to provide assistance to the financial entity at no additional cost, or at a cost that is determined ex-ante, when an ICT incident related to the ICT service provided occurs"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 30 Abs. 2 Buchst. f eröffnet genau zwei zulässige Modelle: Unterstützung ohne zusätzliche Kosten oder zu vorab festzusetzenden Kosten. Antwort a ist deshalb ebenfalls falsch - eine Vergütung ist zulässig, sie muss aber ex ante bestimmt sein. Ein Stundensatzmodell mit einseitigem Anpassungsrecht erfüllt das nicht, weil der Preis im Zeitpunkt des Vorfalls gerade nicht vorab feststeht. Der regulatorische Zweck ist erkennbar: Im Krisenfall soll keine kommerzielle Verhandlung zwischen Finanzunternehmen und Anbieter darüber entstehen, ob und zu welchem Preis überhaupt geholfen wird. Die Klausel gehört zum Basiskatalog und gilt damit auch für unkritische IKT-Verträge.",
+        "en": "Art. 30(2)(f) permits exactly two models: assistance at no additional cost, or at a cost determined ex-ante. Answer a is therefore also wrong - charging is permitted, but the charge must be fixed in advance. An hourly-rate model with a unilateral adjustment right does not satisfy this, because the price is precisely not determined in advance at the moment the incident occurs. The regulatory purpose is clear: in a crisis there should be no commercial negotiation between entity and provider about whether, and at what price, help will be given at all. This clause belongs to the baseline catalogue and therefore applies to non-critical ICT contracts too."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-pflichtklauseln-04",
+      "topic": "Pflichtklauseln für alle IKT-Verträge (Art. 30 Abs. 2)",
+      "topic_code": "pflichtklauseln",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 2 Buchst. d Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche Vertragsklausel verlangt Art. 30 Abs. 2 DORA für den Fall, dass der IKT-Drittdienstleister insolvent wird oder seine Geschäftstätigkeit einstellt?",
+          "options": {
+            "a": "Eine Pflicht des Finanzunternehmens, den Anbieter im Insolvenzfall zu übernehmen",
+            "b": "Bestimmungen über die Sicherstellung des Zugangs zu den vom Finanzunternehmen verarbeiteten personenbezogenen und nicht personenbezogenen Daten sowie über deren Wiederherstellung und Rückgabe in einem leicht zugänglichen Format - bei Insolvenz, Abwicklung, Einstellung der Geschäftstätigkeit des Anbieters oder Beendigung der vertraglichen Vereinbarungen",
+            "c": "Eine Pflicht des Anbieters, eine Bankbürgschaft in Höhe des Jahresauftragswerts zu stellen",
+            "d": "DORA regelt den Insolvenzfall nicht; hierfür gilt ausschließlich nationales Insolvenzrecht"
+          }
+        },
+        "en": {
+          "question": "What contract clause does Art. 30(2) DORA require for the case that the ICT third-party service provider becomes insolvent or ceases business operations?",
+          "options": {
+            "a": "An obligation on the financial entity to acquire the provider in the event of insolvency",
+            "b": "Provisions ensuring access, recovery and return in an easily accessible format of personal and non-personal data processed by the financial entity, in the event of insolvency, resolution or discontinuation of the provider's business operations, or termination of the contractual arrangements",
+            "c": "An obligation on the provider to post a bank guarantee equal to the annual contract value",
+            "d": "DORA does not address insolvency; only national insolvency law applies"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 30 Abs. 2 Buchst. d verknüpft vier Auslöser - Insolvenz, Abwicklung, Einstellung der Geschäftstätigkeit und Vertragsbeendigung - mit drei Rechten: Zugang, Wiederherstellung und Rückgabe der Daten, und zwar in einem leicht zugänglichen Format. Das Formatkriterium ist die praktisch schärfste Anforderung: Eine Rückgabe in einem proprietären, ohne die Software des Anbieters nicht lesbaren Format erfüllt sie nicht. Wichtig für die Abgrenzung: Diese Klausel gehört zum Basiskatalog und gilt für jeden IKT-Vertrag. Die weitergehende Ausstiegsstrategie mit verbindlichem Übergangszeitraum nach Art. 30 Abs. 3 Buchst. f ist etwas anderes und nur bei kritischen oder wichtigen Funktionen verpflichtend.",
+        "en": "Art. 30(2)(d) links four triggers - insolvency, resolution, discontinuation of business operations, and termination of the arrangement - to three rights: access, recovery and return of the data, in an easily accessible format. The format criterion is the sharpest requirement in practice: return in a proprietary format unreadable without the provider's software does not satisfy it. Important for the distinction: this clause belongs to the baseline catalogue and applies to every ICT contract. The more far-reaching exit strategy with a mandatory transition period under Art. 30(3)(f) is a different thing and is only mandatory for critical or important functions."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-pflichtklauseln-05",
+      "topic": "Pflichtklauseln für alle IKT-Verträge (Art. 30 Abs. 2)",
+      "topic_code": "pflichtklauseln",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 2 Buchst. i i.V.m. Art. 13 Abs. 6 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche schulungsbezogene Klausel muss nach Art. 30 Abs. 2 DORA in einem IKT-Dienstleistungsvertrag geregelt werden?",
+          "options": {
+            "a": "Schulungsthemen sind nach DORA ausdrücklich kein zwingender Vertragsinhalt",
+            "b": "Der Anbieter muss verpflichtet werden, sämtliche Beschäftigten des Finanzunternehmens auf eigene Kosten in DORA zu schulen",
+            "c": "Die Bedingungen für die Teilnahme des IKT-Drittdienstleisters an den vom Finanzunternehmen angebotenen Programmen zur Sensibilisierung für IKT-Sicherheit und an Schulungen zur digitalen operationalen Resilienz gemäß Art. 13 Abs. 6 DORA",
+            "d": "Der Anbieter muss nachweisen, dass seine eigenen Beschäftigten jährlich eine zertifizierte IT-Sicherheitsprüfung ablegen"
+          }
+        },
+        "en": {
+          "question": "Which training-related clause must an ICT services contract address under Art. 30(2) DORA?",
+          "options": {
+            "a": "Training is expressly not a mandatory contract element under DORA",
+            "b": "The provider must train all of the financial entity's staff on DORA at its own expense",
+            "c": "The conditions for the participation of the ICT third-party service provider in the financial entity's ICT security awareness programmes and digital operational resilience training in accordance with Art. 13(6) DORA",
+            "d": "The provider must prove its own staff pass a certified IT security examination annually"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 30 Abs. 2 Buchst. i ist eine in der Beschaffungspraxis häufig übersehene Klausel, weil sie die Richtung umdreht: Nicht der Anbieter schult das Finanzunternehmen, sondern der Vertrag muss regeln, unter welchen Bedingungen der Anbieter an den Sensibilisierungs- und Resilienzschulungsprogrammen des Finanzunternehmens teilnimmt. Hintergrund ist Art. 13 Abs. 6 DORA, der solche Programme als verpflichtenden Bestandteil der Mitarbeiterschulung vorschreibt; Buchst. i sorgt dafür, dass externe Dienstleister, die faktisch in denselben Prozessen arbeiten, vertraglich einbezogen werden können. Auch diese Klausel gehört zum Basiskatalog und gilt damit für jeden IKT-Vertrag.",
+        "en": "Art. 30(2)(i) is a clause procurement teams frequently overlook, because it reverses the expected direction: the provider does not train the financial entity; rather, the contract must set the conditions under which the provider participates in the financial entity's own awareness and resilience training programmes. The background is Art. 13(6) DORA, which makes such programmes a compulsory part of staff training schemes; point (i) ensures external providers working in the same processes can be contractually brought into scope. This clause too belongs to the baseline catalogue and therefore applies to every ICT contract."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-kritische-funktionen-01",
+      "topic": "Kritische oder wichtige Funktionen (Art. 30 Abs. 3)",
+      "topic_code": "kritische_funktionen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 3 Nr. 22 Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "text": {
+        "de": {
+          "question": "Wann handelt es sich nach DORA um eine \"kritische oder wichtige Funktion\"?",
+          "options": {
+            "a": "Wenn ihr Ausfall die finanzielle Leistungsfähigkeit des Finanzunternehmens oder die Solidität oder Fortführung seiner Geschäftstätigkeiten und Dienstleistungen erheblich beeinträchtigen würde, oder wenn ihre unterbrochene, fehlerhafte oder unterbliebene Leistung die fortdauernde Einhaltung der Zulassungsbedingungen und -verpflichtungen oder sonstiger Verpflichtungen nach dem anwendbaren Finanzdienstleistungsrecht erheblich beeinträchtigen würde",
+            "b": "Wenn der jährliche Vertragswert eine aufsichtlich festgelegte Schwelle überschreitet",
+            "c": "Wenn mehr als 100 Beschäftigte des Finanzunternehmens die Anwendung nutzen",
+            "d": "Wenn der Anbieter von den ESAs als kritischer IKT-Drittdienstleister (CTPP) nach Art. 31 DORA eingestuft wurde"
+          }
+        },
+        "en": {
+          "question": "When is something a \"critical or important function\" under DORA?",
+          "options": {
+            "a": "When its disruption would materially impair the financial performance of the financial entity, or the soundness or continuity of its services and activities, or where discontinued, defective or failed performance of that function would materially impair the entity's continuing compliance with the conditions and obligations of its authorisation, or with its other obligations under applicable financial services law",
+            "b": "When the annual contract value exceeds a supervisory threshold",
+            "c": "When more than 100 of the entity's staff use the application",
+            "d": "When the provider has been designated a critical ICT third-party service provider (CTPP) by the ESAs under Art. 31 DORA"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Die Legaldefinition steht in Art. 3 Nr. 22 DORA und ist rein wirkungsbezogen: Maßstab ist die Auswirkung eines Ausfalls auf die finanzielle Leistungsfähigkeit, die Solidität oder Fortführung der Geschäftstätigkeit oder auf die fortdauernde Einhaltung der Zulassungs- und sonstigen aufsichtsrechtlichen Pflichten. Weder Vertragswert noch Nutzerzahl sind Kriterien. Besonders wichtig ist die Abgrenzung zu Antwort d: Die \"kritische oder wichtige Funktion\" beschreibt eine Funktion beim Finanzunternehmen und wird von diesem selbst eingestuft. Der \"kritische IKT-Drittdienstleister\" (CTPP) nach Art. 3 Nr. 23 und Art. 31 ist dagegen ein Anbieter, den die ESAs auf EU-Ebene benennen. Beides ist unabhängig voneinander: Ein nicht als CTPP benannter kleiner Anbieter kann sehr wohl eine kritische oder wichtige Funktion unterstützen - und dann greift der volle Katalog des Art. 30 Abs. 3.",
+        "en": "The legal definition sits in Art. 3(22) DORA and is purely impact-based: the yardstick is the effect of a disruption on financial performance, on the soundness or continuity of services and activities, or on continuing compliance with authorisation conditions and other regulatory obligations. Neither contract value nor user numbers are criteria. The distinction from answer d matters most: a \"critical or important function\" describes a function at the financial entity and is classified by the entity itself. A \"critical ICT third-party service provider\" (CTPP) under Art. 3(23) and Art. 31 is by contrast a provider designated at EU level by the ESAs. The two are independent: a small provider never designated a CTPP can very well support a critical or important function - and then the full Art. 30(3) catalogue applies."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-kritische-funktionen-02",
+      "topic": "Kritische oder wichtige Funktionen (Art. 30 Abs. 3)",
+      "topic_code": "kritische_funktionen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 2 und Abs. 3 Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Welche der folgenden Vertragsinhalte verlangt DORA NUR für Verträge über IKT-Dienstleistungen zur Unterstützung kritischer oder wichtiger Funktionen (Art. 30 Abs. 3) - und nicht bereits für jeden IKT-Vertrag (Art. 30 Abs. 2)?",
+          "options": {
+            "a": "Kündigungsrechte und damit zusammenhängende Mindestkündigungsfristen",
+            "b": "Uneingeschränkte Zugangs-, Inspektions- und Auditrechte, Ausstiegsstrategien mit verbindlichem angemessenem Übergangszeitraum, Anforderungen an implementierte und getestete Notfallpläne sowie Dienstleistungsgüte-Beschreibungen mit präzisen quantitativen und qualitativen Leistungszielen",
+            "c": "Bestimmungen über Verfügbarkeit, Authentizität, Integrität und Vertraulichkeit in Bezug auf den Datenschutz",
+            "d": "Eine klare und vollständige Beschreibung aller Funktionen und IKT-Dienstleistungen"
+          }
+        },
+        "en": {
+          "question": "Which of the following contract contents does DORA require ONLY for contracts on ICT services supporting critical or important functions (Art. 30(3)) - and not already for every ICT contract (Art. 30(2))?",
+          "options": {
+            "a": "Termination rights and related minimum notice periods",
+            "b": "Unrestricted rights of access, inspection and audit; exit strategies with a mandatory adequate transition period; requirements to implement and test business contingency plans; and service level descriptions with precise quantitative and qualitative performance targets",
+            "c": "Provisions on availability, authenticity, integrity and confidentiality in relation to the protection of data",
+            "d": "A clear and complete description of all functions and ICT services"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Diese Unterscheidung ist die rechtlich am stärksten tragende Weichenstellung des gesamten Moduls, und sie wird in Sekundärliteratur häufig verwischt. Zum Basiskatalog des Art. 30 Abs. 2 gehören: Leistungsbeschreibung (a), Standorte (b), Datenschutzbestimmungen (c), Datenzugang und -rückgabe (d), Beschreibungen der Dienstleistungsgüte (e), Unterstützung bei IKT-Vorfällen (f), Zusammenarbeit mit Behörden (g), Kündigungsrechte und Mindestkündigungsfristen (h) sowie Schulungsteilnahme (i). Erst Art. 30 Abs. 3 fügt hinzu: vollständige Dienstleistungsgüte-Beschreibungen mit präzisen quantitativen und qualitativen Leistungszielen (a), Kündigungsfristen und Berichtspflichten zu wesentlichen Entwicklungen (b), Notfallpläne und IKT-Sicherheitsmaßnahmen (c), Mitwirkung an TLPT (d), das fortlaufende Überwachungsrecht einschließlich der uneingeschränkten Zugangs-, Inspektions- und Auditrechte (e) sowie Ausstiegsstrategien mit verbindlichem angemessenem Übergangszeitraum (f). Merkposten für die Beschaffung: Auditrechte und Exit-Strategie sind gerade NICHT Teil des Basiskatalogs - wer sie pauschal in jedem IKT-Vertrag als DORA-Pflicht behauptet, argumentiert rechtlich unpräzise.",
+        "en": "This distinction is the single most load-bearing branching point in this module, and secondary literature frequently blurs it. The Art. 30(2) baseline comprises: service description (a), locations (b), data protection provisions (c), data access and return (d), service level descriptions (e), ICT incident assistance (f), cooperation with authorities (g), termination rights and minimum notice periods (h), and training participation (i). Only Art. 30(3) then adds: full service level descriptions with precise quantitative and qualitative performance targets (a), notice periods and reporting obligations on materially impactful developments (b), business contingency plans and ICT security measures (c), participation in TLPT (d), the ongoing monitoring right including unrestricted rights of access, inspection and audit (e), and exit strategies with a mandatory adequate transition period (f). Procurement takeaway: audit rights and exit strategy are precisely NOT part of the baseline - asserting them as a blanket DORA requirement in every ICT contract is legally imprecise."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-kritische-funktionen-03",
+      "topic": "Kritische oder wichtige Funktionen (Art. 30 Abs. 3)",
+      "topic_code": "kritische_funktionen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 3 Buchst. a Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Für ein Kernbankensystem - unstreitig eine kritische Funktion - bietet der Anbieter ein SLA an, das Verfügbarkeit \"im Rahmen des technisch Möglichen (best effort)\" zusagt. Konkrete Zahlen und Reaktionszeiten lehnt er mit Verweis auf sein Standardprodukt ab. Wie ist das zu bewerten?",
+          "options": {
+            "a": "Zulässig, sofern der Anbieter im Gegenzug eine Vertragsstrafe akzeptiert",
+            "b": "Zulässig - DORA schreibt keine bestimmte Höhe von Verfügbarkeitszielen vor, daher ist jede SLA-Formulierung zulässig",
+            "c": "Unzureichend - Art. 30 Abs. 3 Buchst. a verlangt bei kritischen oder wichtigen Funktionen vollständige Beschreibungen der Dienstleistungsgüte mit präzisen quantitativen und qualitativen Leistungszielen, damit das Finanzunternehmen die Leistung wirksam überwachen und bei Nichterreichen unverzüglich angemessene Korrekturmaßnahmen ergreifen kann",
+            "d": "Unzureichend, weil DORA für Kernbankensysteme eine Mindestverfügbarkeit von 99,9 Prozent vorschreibt"
+          }
+        },
+        "en": {
+          "question": "For a core banking system - indisputably a critical function - the provider offers an SLA promising availability \"on a best-effort basis\". It refuses concrete figures and response times, citing its standard product. How should this be assessed?",
+          "options": {
+            "a": "Acceptable, provided the provider accepts a contractual penalty in return",
+            "b": "Acceptable - DORA prescribes no particular level of availability targets, so any SLA wording is permissible",
+            "c": "Insufficient - for critical or important functions Art. 30(3)(a) requires full service level descriptions with precise quantitative and qualitative performance targets, to allow the entity to effectively monitor performance and take appropriate corrective action without undue delay when agreed service levels are not met",
+            "d": "Insufficient, because DORA prescribes a minimum availability of 99.9 percent for core banking systems"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Antwort d ist die verführerische Falle: DORA legt gerade keine bestimmte Verfügbarkeitszahl fest. Was Art. 30 Abs. 3 Buchst. a verlangt, ist eine Eigenschaft der Klausel, nicht eine bestimmte Höhe - die Leistungsziele müssen präzise, quantitativ und qualitativ sein. Der Maßstab ergibt sich aus dem im Wortlaut genannten Zweck: Die Ziele müssen so beschaffen sein, dass sie eine wirksame Überwachung durch das Finanzunternehmen ermöglichen und erkennen lassen, wann die vereinbarte Dienstleistungsgüte nicht erreicht wurde, damit unverzüglich Korrekturmaßnahmen ergriffen werden können. Eine Best-Effort-Zusage ist genau deshalb unzureichend: Sie ist nicht messbar und kennt daher keinen definierbaren Zeitpunkt des Nichterreichens. Eine Vertragsstrafe (Antwort a) heilt diesen Mangel nicht, weil auch sie einen messbaren Auslöser voraussetzt.",
+        "en": "Answer d is the tempting trap: DORA sets no particular availability figure. What Art. 30(3)(a) requires is a property of the clause, not a particular level - the performance targets must be precise, quantitative and qualitative. The benchmark follows from the purpose stated in the wording itself: the targets must be such that they allow effective monitoring by the financial entity and make it apparent when agreed service levels have not been met, so that corrective action can be taken without undue delay. A best-effort promise is insufficient precisely because it is unmeasurable and therefore has no definable moment of breach. A contractual penalty (answer a) does not cure this, since it too presupposes a measurable trigger."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-kritische-funktionen-04",
+      "topic": "Kritische oder wichtige Funktionen (Art. 30 Abs. 3)",
+      "topic_code": "kritische_funktionen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 3 Buchst. f i.V.m. Art. 28 Abs. 8 Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Anbieter einer kritischen Anwendung bietet als Exit-Regelung an: 30 Tage nach Vertragsende ein Datenexport im Anbieterformat, danach Löschung; eine Weiterbetriebspflicht lehnt er ab. Genügt das den Anforderungen an eine Ausstiegsstrategie?",
+          "options": {
+            "a": "Ja, sofern das Finanzunternehmen zusätzlich ein Backup vorhält",
+            "b": "Nein - Art. 30 Abs. 3 Buchst. f verlangt Ausstiegsstrategien, insbesondere die Festlegung eines verbindlichen angemessenen Übergangszeitraums, in dem der Anbieter die Funktionen bzw. IKT-Dienstleistungen weiterhin bereitstellt und der es dem Finanzunternehmen ermöglicht, zu einem anderen Anbieter zu wechseln oder auf interne Lösungen umzustellen",
+            "c": "Nein, weil DORA einen Übergangszeitraum von mindestens 24 Monaten vorschreibt",
+            "d": "Ja, ein Datenexport nach Vertragsende ist die vollständige DORA-Anforderung"
+          }
+        },
+        "en": {
+          "question": "A provider of a critical application offers as its exit arrangement: a data export in the provider's own format 30 days after contract end, then deletion; it refuses any obligation to keep operating the service. Does this meet the exit-strategy requirements?",
+          "options": {
+            "a": "Yes, provided the financial entity additionally maintains a backup",
+            "b": "No - Art. 30(3)(f) requires exit strategies, in particular the establishment of a mandatory adequate transition period during which the provider will continue providing the functions or ICT services, and which allows the entity to migrate to another provider or change to in-house solutions",
+            "c": "No, because DORA prescribes a transition period of at least 24 months",
+            "d": "Yes, a data export after contract end is the complete DORA requirement"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Der Kern der Anforderung ist der Weiterbetrieb, nicht der Datenexport: Art. 30 Abs. 3 Buchst. f verlangt einen verbindlichen angemessenen Übergangszeitraum, in dem der Anbieter die Leistung fortführt, um Störungen beim Finanzunternehmen zu verringern oder dessen geordnete Abwicklung und Umstrukturierung sicherzustellen, und der die Migration zu einem anderen Anbieter oder auf interne Lösungen ermöglicht - ausdrücklich \"die der Komplexität der erbrachten Dienstleistung entsprechen\". Antwort c ist falsch, weil die Verordnung keine feste Dauer nennt: \"angemessen\" ist ein relativer Maßstab, der sich an der Komplexität der Migration bemisst. Ergänzend verlangt Art. 28 Abs. 8, dass Ausstiegspläne umfassend und dokumentiert sind, hinreichend getestet und regelmäßig überprüft werden und den Ausstieg ohne Unterbrechung der Geschäftstätigkeit, ohne Einschränkung der Einhaltung regulatorischer Anforderungen und ohne Beeinträchtigung von Kontinuität und Qualität der Kundendienstleistungen ermöglichen.",
+        "en": "The core of the requirement is continued operation, not data export: Art. 30(3)(f) requires a mandatory adequate transition period during which the provider continues to provide the functions or ICT services, with a view to reducing the risk of disruption at the entity or ensuring its effective resolution and restructuring, and which allows migration to another provider or a change to in-house solutions - expressly \"consistent with the complexity of the service provided\". Answer c is wrong because the regulation names no fixed duration: \"adequate\" is a relative standard measured against migration complexity. In addition, Art. 28(8) requires exit plans to be comprehensive and documented, sufficiently tested and periodically reviewed, and to enable exit without disruption to business activities, without limiting compliance with regulatory requirements, and without detriment to the continuity and quality of services provided to clients."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-auditrechte-01",
+      "topic": "Zugangs-, Inspektions- und Auditrechte",
+      "topic_code": "auditrechte",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 30 Abs. 3 Buchst. e Ziff. i Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "text": {
+        "de": {
+          "question": "Was gehört bei Verträgen über IKT-Dienstleistungen zur Unterstützung kritischer oder wichtiger Funktionen zum Recht, die Leistung des Anbieters fortlaufend zu überwachen?",
+          "options": {
+            "a": "Ein Recht auf Einsicht ausschließlich in anonymisierte Zusammenfassungen",
+            "b": "Ein Auditrecht allein der zuständigen Behörde; das Finanzunternehmen selbst hat kein eigenes Prüfrecht",
+            "c": "Ausschließlich ein Anspruch auf einen jährlichen schriftlichen Leistungsbericht des Anbieters",
+            "d": "Uneingeschränkte Zugangs-, Inspektions- und Auditrechte des Finanzunternehmens oder eines beauftragten Dritten UND der zuständigen Behörde sowie das Recht auf Anfertigung von Kopien einschlägiger Unterlagen vor Ort, wenn diesen für die Geschäftstätigkeit des Anbieters entscheidende Bedeutung zukommt - wobei die tatsächliche Ausübung dieser Rechte nicht durch andere vertragliche Vereinbarungen oder Umsetzungsrichtlinien behindert oder eingeschränkt werden darf"
+          }
+        },
+        "en": {
+          "question": "For contracts on ICT services supporting critical or important functions, what does the right to monitor the provider's performance on an ongoing basis include?",
+          "options": {
+            "a": "A right to inspect anonymised summaries only",
+            "b": "An audit right for the competent authority only; the financial entity itself has no own inspection right",
+            "c": "Only a claim to an annual written performance report from the provider",
+            "d": "Unrestricted rights of access, inspection and audit by the financial entity, or an appointed third party, AND by the competent authority, plus the right to take copies of relevant documentation on-site if they are critical to the operations of the provider - the effective exercise of which must not be impeded or limited by other contractual arrangements or implementation policies"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 30 Abs. 3 Buchst. e Ziff. i benennt drei Rechtsträger nebeneinander: das Finanzunternehmen, einen von ihm beauftragten Dritten und die zuständige Behörde. Alle drei müssen vertraglich Zugangs-, Inspektions- und Auditrechte erhalten. Hinzu kommt ein eigenständiges Recht, vor Ort Kopien von Unterlagen anzufertigen, die für die Geschäftstätigkeit des Anbieters entscheidende Bedeutung haben. Rechtlich besonders wirksam ist der Schlusshalbsatz: Die tatsächliche Ausübung dieser Rechte darf nicht durch andere vertragliche Vereinbarungen oder Umsetzungsrichtlinien behindert oder eingeschränkt werden. Damit zielt die Norm ausdrücklich auf die in der Praxis übliche Konstruktion, ein Auditrecht formal zu gewähren und es anschließend über Nebenabreden, Sicherheitsrichtlinien oder Konzernvorgaben faktisch leerlaufen zu lassen. Diese Anforderungen gelten nur für Verträge über kritische oder wichtige Funktionen.",
+        "en": "Art. 30(3)(e)(i) names three right-holders side by side: the financial entity, a third party it appoints, and the competent authority. All three must be granted rights of access, inspection and audit in the contract. Added to this is a separate right to take copies on-site of documentation critical to the provider's operations. The closing clause is what gives the provision its teeth: the effective exercise of these rights must not be impeded or limited by other contractual arrangements or implementation policies. The norm thus expressly targets the common practical construction of formally granting an audit right and then hollowing it out through side agreements, security policies or group-level rules. These requirements apply only to contracts supporting critical or important functions."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-auditrechte-02",
+      "topic": "Zugangs-, Inspektions- und Auditrechte",
+      "topic_code": "auditrechte",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 3 Buchst. e Ziff. i und ii i.V.m. Art. 28 Abs. 6 Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "text": {
+        "de": {
+          "question": "Bedeutet das \"uneingeschränkte\" Zugangs-, Inspektions- und Auditrecht, dass ein Finanzunternehmen jederzeit unangekündigt und in beliebigem Umfang beim Anbieter prüfen darf?",
+          "options": {
+            "a": "Nein - \"uneingeschränkt\" bezieht sich nach Art. 30 Abs. 3 Buchst. e Ziff. i vor allem darauf, dass die tatsächliche Ausübung nicht durch andere Vertragsklauseln oder Umsetzungsrichtlinien behindert oder eingeschränkt werden darf; zugleich erlaubt Ziff. ii ausdrücklich, alternative Bestätigungsniveaus zu vereinbaren, wenn Rechte anderer Kunden betroffen sind, und Art. 28 Abs. 6 verlangt vom Finanzunternehmen, Häufigkeit und Prüfbereiche risikobasiert vorab zu bestimmen",
+            "b": "Ja, das Recht ist absolut und unterliegt keinerlei Einschränkung",
+            "c": "Ja, aber nur bei Verträgen, die keine kritischen oder wichtigen Funktionen unterstützen",
+            "d": "Nein, ein Auditrecht besteht nach DORA überhaupt nicht"
+          }
+        },
+        "en": {
+          "question": "Does the \"unrestricted\" right of access, inspection and audit mean a financial entity may audit the provider at any time, unannounced and to any extent?",
+          "options": {
+            "a": "No - under Art. 30(3)(e)(i) \"unrestricted\" refers primarily to the effective exercise not being impeded or limited by other contractual arrangements or implementation policies; at the same time point (ii) expressly permits agreeing alternative assurance levels where other clients' rights are affected, and Art. 28(6) requires the entity to pre-determine the frequency of audits and the areas to be audited on a risk-based approach",
+            "b": "Yes, the right is absolute and subject to no limitation whatsoever",
+            "c": "Yes, but only for contracts that do not support critical or important functions",
+            "d": "No, DORA grants no audit right at all"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Der Begriff \"uneingeschränkt\" steht tatsächlich im Verordnungstext, wird aber häufig überinterpretiert. Drei Präzisierungen ergeben sich unmittelbar aus dem Primärtext. Erstens beschreibt der Halbsatz in Ziff. i, worauf sich die Uneingeschränktheit bezieht: Andere Vertragsklauseln oder Umsetzungsrichtlinien dürfen die Ausübung nicht behindern oder einschränken - es geht also um die Abwehr vertraglicher Aushöhlung, nicht um ein voraussetzungsloses Zutrittsrecht. Zweitens sieht Ziff. ii ausdrücklich das Recht vor, alternative Bestätigungsniveaus zu vereinbaren, wenn die Rechte anderer Kunden betroffen sind - eine explizit vorgesehene Verhandlungslösung, die gerade bei Mehrmandantenumgebungen greift. Drittens verpflichtet Art. 28 Abs. 6 das Finanzunternehmen selbst, Häufigkeit und Prüfbereiche auf Basis eines risikobasierten Ansatzes vorab zu bestimmen und dabei allgemein anerkannte Auditstandards einzuhalten. Ein \"uneingeschränktes\" Recht ist also ein nicht aushöhlbares, aber ein geordnet und risikobasiert auszuübendes Recht.",
+        "en": "The word \"unrestricted\" does appear in the regulation, but it is frequently over-read. Three qualifications follow directly from the primary text. First, the closing clause of point (i) states what the unrestrictedness attaches to: other contractual arrangements or implementation policies must not impede or limit its exercise - this is about resisting contractual hollowing-out, not a precondition-free right of entry. Second, point (ii) expressly provides the right to agree alternative assurance levels where other clients' rights are affected - an explicitly contemplated negotiated solution, which bites particularly in multi-tenant environments. Third, Art. 28(6) obliges the financial entity itself to pre-determine the frequency of audits and inspections and the areas to be audited on a risk-based approach, adhering to commonly accepted audit standards. An \"unrestricted\" right is therefore a right that cannot be hollowed out, but one that must be exercised in an orderly, risk-based way."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-auditrechte-03",
+      "topic": "Zugangs-, Inspektions- und Auditrechte",
+      "topic_code": "auditrechte",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 3 Buchst. e Verordnung (EU) 2022/2554 i.V.m. Art. 8 Abs. 2-3 Delegierte Verordnung (EU) 2024/1773",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Hyperscaler lehnt in der Verhandlung ein Vor-Ort-Audit kategorisch ab und verweist auf sein ISO-27001-Zertifikat und einen jährlichen SOC-2-Bericht. Wie ist mit dieser Position umzugehen?",
+          "options": {
+            "a": "Die Frage ist irrelevant, weil Auditrechte nur gegenüber kleinen Anbietern durchsetzbar sind",
+            "b": "Zertifizierungen und Prüfberichte des Anbieters dürfen nach Art. 8 Abs. 2 der Delegierten Verordnung (EU) 2024/1773 als Prüfmethode genutzt werden, wenn bestimmte Bedingungen erfüllt sind - das Finanzunternehmen darf sich jedoch über die Zeit nicht ausschließlich darauf stützen und muss sich vertraglich das Recht sichern, nach eigenem Ermessen Einzel- und gebündelte Audits durchzuführen sowie Änderungen des Prüfumfangs zu verlangen",
+            "c": "Zertifizierungen ersetzen Auditrechte vollständig; der Vertrag kann ohne Prüfrechte geschlossen werden",
+            "d": "Zertifizierungen sind nach DORA als Nachweis ausdrücklich unzulässig; nur Vor-Ort-Audits sind zulässig"
+          }
+        },
+        "en": {
+          "question": "A hyperscaler categorically refuses on-site audits in negotiation, pointing to its ISO 27001 certificate and an annual SOC 2 report. How should this position be handled?",
+          "options": {
+            "a": "The question is irrelevant, since audit rights are only enforceable against small providers",
+            "b": "Certifications and provider audit reports may be used as an assurance method under Art. 8(2) of Delegated Regulation (EU) 2024/1773 where certain conditions are met - but the entity must not rely solely on them over time, and must secure the contractual right to perform individual and pooled audits at its discretion and to request changes to the scope of the certifications or reports",
+            "c": "Certifications fully replace audit rights; the contract can be signed without inspection rights",
+            "d": "Certifications are expressly inadmissible as evidence under DORA; only on-site audits are permitted"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Dies ist der häufigste reale Reibungspunkt zwischen Beschaffung und großen Cloud-Anbietern, und die Level-2-Ebene beantwortet ihn differenzierter, als es der Verordnungstext allein tut. Art. 8 Abs. 2 der Delegierten Verordnung (EU) 2024/1773 nennt vier zulässige Methoden: eigene interne Revision oder Audit durch einen beauftragten Dritten, gegebenenfalls gebündelte Audits und gebündelte IKT-Tests gemeinsam mit anderen Kunden desselben Anbieters, gegebenenfalls Zertifizierungen Dritter sowie gegebenenfalls interne oder externe Prüfberichte, die der Anbieter bereitstellt. Zertifizierungen sind also ausdrücklich vorgesehen - aber Art. 8 Abs. 3 knüpft sie an acht kumulative Bedingungen und stellt zugleich klar, dass sich das Finanzunternehmen über die Zeit nicht ausschließlich auf sie stützen darf. Zu den Bedingungen gehören insbesondere, dass der Prüfumfang die vom Finanzunternehmen identifizierten Systeme und Schlüsselkontrollen abdeckt, dass die Berichte laufend bewertet und nicht veraltet sind, und dass das Finanzunternehmen vertraglich das Recht behält, Änderungen des Prüfumfangs zu verlangen sowie nach eigenem Ermessen Einzel- und gebündelte Audits durchzuführen. Der gebündelte Audit ist damit der praktische Hebel gegenüber Anbietern, die Einzelprüfungen aus Skalierungsgründen ablehnen.",
+        "en": "This is the most common real friction point between procurement and large cloud providers, and the Level 2 layer answers it with more nuance than the base regulation alone. Art. 8(2) of Delegated Regulation (EU) 2024/1773 names four permissible methods: the entity's own internal audit or an audit by an appointed third party; where appropriate, pooled audits and pooled ICT testing organised jointly with other clients of the same provider; where appropriate, third-party certifications; and where appropriate, internal or third-party audit reports made available by the provider. Certifications are therefore expressly contemplated - but Art. 8(3) subjects them to eight cumulative conditions and simultaneously makes clear that the entity must not rely solely on them over time. Those conditions include in particular that the scope covers the systems and key controls the entity has identified, that the reports are assessed on an ongoing basis and are not obsolete, and that the entity retains the contractual right to request scope changes and to perform individual and pooled audits at its discretion. Pooled audits are thus the practical lever against providers who refuse individual audits on scalability grounds."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-auditrechte-04",
+      "topic": "Zugangs-, Inspektions- und Auditrechte",
+      "topic_code": "auditrechte",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 30 Abs. 3 Unterabsatz 2 i.V.m. Art. 3 Nr. 60 Verordnung (EU) 2022/2554",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Für welche Finanzunternehmen erlaubt DORA ausnahmsweise, die Zugangs-, Inspektions- und Auditrechte auf einen vom Anbieter benannten unabhängigen Dritten zu übertragen?",
+          "options": {
+            "a": "Eine solche Übertragung ist nach DORA in keinem Fall zulässig",
+            "b": "Für alle Finanzunternehmen, sofern der Anbieter dies verlangt",
+            "c": "Nur für Finanzunternehmen, die Kleinstunternehmen sind - sie können mit dem Anbieter vereinbaren, dass die Rechte auf einen von diesem benannten unabhängigen Dritten übertragen werden und sie von diesem Dritten jederzeit Informationen und Gewähr in Bezug auf die Leistung des Anbieters verlangen können",
+            "d": "Für alle Unternehmen mit weniger als 250 Beschäftigten"
+          }
+        },
+        "en": {
+          "question": "For which financial entities does DORA exceptionally allow the rights of access, inspection and audit to be delegated to an independent third party appointed by the provider?",
+          "options": {
+            "a": "Such delegation is never permitted under DORA",
+            "b": "For all financial entities, if the provider requests it",
+            "c": "Only for financial entities that are microenterprises - they may agree with the provider that the rights are delegated to an independent third party appointed by the provider, and that they may request information and assurance on the provider's performance from that third party at any time",
+            "d": "For all entities with fewer than 250 employees"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 30 Abs. 3 enthält im zweiten Unterabsatz eine eng gefasste Abweichung von Buchstabe e, die ausschließlich Finanzunternehmen offensteht, die Kleinstunternehmen sind. Der Zuschnitt ist präzise: Nach Art. 3 Nr. 60 DORA ist ein Kleinstunternehmen ein Finanzunternehmen, das weniger als zehn Personen beschäftigt und dessen Jahresumsatz und/oder Jahresbilanzsumme 2 Mio. EUR nicht übersteigt - und das ausdrücklich kein Handelsplatz, keine zentrale Gegenpartei, kein Transaktionsregister und kein Zentralverwahrer ist. Die Schwelle von 250 Beschäftigten in Antwort d stammt aus der allgemeinen KMU-Definition und gilt hier nicht. Für die Beschaffung ist die Regel vor allem als Abgrenzung wichtig: Ein Anbieter, der die Delegation an einen von ihm selbst benannten Dritten anbietet, kann sich gegenüber einem Finanzunternehmen, das kein Kleinstunternehmen ist, nicht auf diese Ausnahme berufen.",
+        "en": "The second subparagraph of Art. 30(3) contains a narrow derogation from point (e) available only to financial entities that are microenterprises. The scoping is precise: under Art. 3(60) DORA a microenterprise is a financial entity employing fewer than ten persons with annual turnover and/or annual balance sheet total not exceeding EUR 2 million - and which is expressly not a trading venue, central counterparty, trade repository or central securities depository. The 250-employee threshold in answer d comes from the general SME definition and does not apply here. For procurement the rule matters mainly as a boundary: a provider offering delegation to a third party of its own choosing cannot invoke this derogation against a financial entity that is not a microenterprise."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-subunternehmer-01",
+      "topic": "Unterauftragsvergabe und Auslagerungskette",
+      "topic_code": "subunternehmer",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 30 Abs. 2 Buchst. a Verordnung (EU) 2022/2554 i.V.m. Art. 3 Abs. 1 Delegierte Verordnung (EU) 2025/532",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "text": {
+        "de": {
+          "question": "Was muss ein IKT-Vertrag nach Art. 30 Abs. 2 Buchst. a DORA zur Unterauftragsvergabe regeln?",
+          "options": {
+            "a": "Unterauftragnehmer müssen im Vertrag nicht erwähnt werden, solange der Hauptanbieter haftet",
+            "b": "Es genügt, wenn der Anbieter zusichert, nur Unterauftragnehmer aus der EU einzusetzen",
+            "c": "Die klare und vollständige Beschreibung aller Funktionen und IKT-Dienstleistungen muss angeben, ob die Vergabe von Unteraufträgen für IKT-Dienstleistungen, die kritische oder wichtige Funktionen oder wesentliche Teile davon unterstützen, zulässig ist - und, wenn ja, welche Bedingungen dafür gelten",
+            "d": "Unterauftragsvergabe ist nach DORA generell verboten und muss vertraglich ausgeschlossen werden"
+          }
+        },
+        "en": {
+          "question": "What must an ICT contract regulate on subcontracting under Art. 30(2)(a) DORA?",
+          "options": {
+            "a": "Subcontractors need not be mentioned in the contract as long as the prime provider remains liable",
+            "b": "It is sufficient for the provider to warrant that it will only use EU-based subcontractors",
+            "c": "The clear and complete description of all functions and ICT services must indicate whether subcontracting of an ICT service supporting a critical or important function, or material parts thereof, is permitted and, where it is, the conditions applying to such subcontracting",
+            "d": "Subcontracting is generally prohibited under DORA and must be contractually excluded"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 30 Abs. 2 Buchst. a verlangt zweierlei in einer Klausel: die Beschreibung der Leistungen und die ausdrückliche Angabe, ob Unterauftragsvergabe für kritische oder wichtige Funktionen bzw. wesentliche Teile davon zulässig ist, samt der geltenden Bedingungen. Ein Vertragsschweigen ist damit keine zulässige Option - die Entscheidung muss getroffen und dokumentiert werden. Die Delegierte Verordnung (EU) 2025/532, die auf dem Regulierungsauftrag des Art. 30 Abs. 5 DORA beruht, verschärft dies zeitlich: Nach ihrem Art. 3 Abs. 1 entscheidet das Finanzunternehmen bereits vor Vertragsschluss, ob der Anbieter überhaupt untervergeben darf, und darf den Vertrag nur schließen, wenn es zuvor zehn Bedingungen als erfüllt bewertet hat - darunter die Fähigkeit des Anbieters, alle betroffenen Unterauftragnehmer zu identifizieren und dem Finanzunternehmen zu melden, sowie die Bewertung, ob der Ausübung von Audit-, Inspektions- und Zugangsrechten Hindernisse entgegenstehen.",
+        "en": "Art. 30(2)(a) requires two things in one clause: the description of the services, and an express statement of whether subcontracting of an ICT service supporting a critical or important function, or material parts thereof, is permitted, together with the applicable conditions. Contractual silence is therefore not an option - the decision must be made and documented. Delegated Regulation (EU) 2025/532, adopted under the mandate in Art. 30(5) DORA, tightens the timing: under its Art. 3(1) the financial entity decides before entering into the contract whether the provider may subcontract at all, and may only enter into that contract once it has assessed ten conditions as met - including the provider's ability to identify all relevant subcontractors and notify the entity of them, and an assessment of whether there are any obstacles to the exercise of audit, inspection and access rights."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-subunternehmer-02",
+      "topic": "Unterauftragsvergabe und Auslagerungskette",
+      "topic_code": "subunternehmer",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 5 Delegierte Verordnung (EU) 2025/532 i.V.m. Art. 30 Abs. 5 Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Anbieter einer kritischen Dienstleistung verlangt in der Verhandlung das Recht, seine Unterauftragnehmer jederzeit frei auszutauschen, und bietet an, das Finanzunternehmen im Nachgang zu informieren. Was verlangt die Delegierte Verordnung (EU) 2025/532?",
+          "options": {
+            "a": "Eine nachträgliche Information genügt, sofern sie innerhalb von 30 Tagen erfolgt",
+            "b": "Jeder Wechsel eines Unterauftragnehmers erfordert zwingend einen neuen Hauptvertrag",
+            "c": "Der Anbieter darf Unterauftragnehmer ohne jede Beteiligung des Finanzunternehmens austauschen",
+            "d": "Der Vertrag muss vorsehen, dass der Anbieter das Finanzunternehmen rechtzeitig über beabsichtigte wesentliche Änderungen seiner Unterauftragsvereinbarungen informiert, eine angemessene Frist zur Zustimmung oder zum Widerspruch enthält und dass der Anbieter die Änderung erst umsetzen darf, nachdem das Finanzunternehmen zugestimmt oder bis zum Fristende nicht widersprochen hat"
+          }
+        },
+        "en": {
+          "question": "A provider of a critical service demands the right to swap its subcontractors freely at any time, offering to inform the financial entity afterwards. What does Delegated Regulation (EU) 2025/532 require?",
+          "options": {
+            "a": "After-the-fact notice suffices, provided it is given within 30 days",
+            "b": "Every change of subcontractor mandatorily requires a new master agreement",
+            "c": "The provider may swap subcontractors with no involvement of the financial entity at all",
+            "d": "The contract must provide that the provider informs the entity of any intended material changes to its subcontracting arrangements well in time, must contain a reasonable notice period for the entity to approve or object, and that the provider may only implement the change after the entity has approved or has not objected by the end of that period"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Art. 5 der Delegierten Verordnung (EU) 2025/532 kehrt die vom Anbieter vorgeschlagene Logik um: Aus einer nachträglichen Information wird ein vorgelagertes Zustimmungs- bzw. Widerspruchsverfahren. Der Anbieter muss rechtzeitig informieren, damit das Finanzunternehmen zwei Dinge bewerten kann - die Auswirkung auf die Risiken, denen es ausgesetzt ist oder sein könnte, und ob die Änderung die Fähigkeit des Anbieters berührt, seine Vertragspflichten zu erfüllen. Der Vertrag muss dafür eine angemessene Frist enthalten, und die Umsetzung darf erst nach Zustimmung oder Fristablauf ohne Widerspruch erfolgen. Überschreitet die Änderung die Risikotoleranz des Finanzunternehmens, muss es vor Fristende den Anbieter informieren, widersprechen und Änderungen verlangen. Setzt der Anbieter die Änderung dennoch oder vorzeitig um, sieht Art. 6 der Delegierten Verordnung vor, dass sich das Finanzunternehmen ein Kündigungsrecht vertraglich vorbehalten kann - ebenso für den Fall, dass der Anbieter eine Leistung untervergibt, die der Vertrag dafür nicht ausdrücklich freigegeben hat.",
+        "en": "Art. 5 of Delegated Regulation (EU) 2025/532 inverts the logic the provider proposes: after-the-fact notice becomes an upfront approve-or-object process. The provider must inform the entity well in time so it can assess two things - the impact on the risks it is or might be exposed to, and whether the change might affect the provider's ability to meet its contractual obligations. The contract must contain a reasonable notice period for this, and implementation may only follow approval, or expiry of the period without objection. Where the change exceeds the entity's risk tolerance, it must, before the end of the notice period, inform the provider, object, and request modifications. If the provider implements the change anyway or early, Art. 6 of the Delegated Regulation provides that the entity may reserve a contractual termination right - likewise where the provider subcontracts a service the contract did not explicitly permit to be subcontracted."
+      },
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "dora-procurement-subunternehmer-03",
+      "topic": "Unterauftragsvergabe und Auslagerungskette",
+      "topic_code": "subunternehmer",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Art. 3 Abs. 1 Buchst. d und Art. 4 Abs. 1 Buchst. j Delegierte Verordnung (EU) 2025/532 i.V.m. Art. 30 Abs. 3 Buchst. e Verordnung (EU) 2022/2554",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "text": {
+        "de": {
+          "question": "Ein Anbieter einer kritischen Dienstleistung erklärt, seine eigenen Unterauftragnehmer gewährten keine Prüfrechte, er könne die Auditrechte deshalb nur für sich selbst zusagen. Was verlangt die Delegierte Verordnung (EU) 2025/532?",
+          "options": {
+            "a": "Das ist zulässig - Prüfrechte reichen nach DORA nie über den unmittelbaren Vertragspartner hinaus",
+            "b": "Das Finanzunternehmen muss stattdessen einen eigenen Direktvertrag mit jedem Unterauftragnehmer schließen",
+            "c": "Prüfrechte gegenüber Unterauftragnehmern bestehen nur, wenn diese ihren Sitz in der EU haben",
+            "d": "Der Unterauftragnehmer muss dem Finanzunternehmen sowie den zuständigen Behörden und Abwicklungsbehörden dieselben Zugangs-, Inspektions- und Auditrechte einräumen wie der IKT-Drittdienstleister selbst nach Art. 30 Abs. 3 Buchst. e DORA"
+          }
+        },
+        "en": {
+          "question": "A provider of a critical service states that its own subcontractors grant no inspection rights, so it can only commit to audit rights for itself. What does Delegated Regulation (EU) 2025/532 require?",
+          "options": {
+            "a": "That is acceptable - under DORA inspection rights never extend beyond the immediate contracting party",
+            "b": "The financial entity must instead conclude its own direct contract with every subcontractor",
+            "c": "Inspection rights against subcontractors only exist where the subcontractor is established in the EU",
+            "d": "The subcontractor must grant the financial entity and the competent and resolution authorities the same rights of access, inspection and audit as those referred to in Art. 30(3)(e) DORA and granted by the ICT third-party service provider itself"
+          }
+        }
+      },
+      "explanation": {
+        "de": "Die Delegierte Verordnung (EU) 2025/532 adressiert diesen Einwand an zwei Stellen und macht ihn zu einem Vorabprüfpunkt, nicht zu einer Verhandlungsposition. Nach Art. 3 Abs. 1 Buchst. d darf das Finanzunternehmen den Vertrag nur schließen, wenn der Unterauftragnehmer ihm sowie den zuständigen Behörden und Abwicklungsbehörden dieselben vertraglichen Zugangs- und Inspektionsrechte einräumt wie der IKT-Drittdienstleister. Art. 4 Abs. 1 Buchst. j verlangt zusätzlich, dass genau dies im Vertrag zwischen Finanzunternehmen und Anbieter festgeschrieben wird, mit ausdrücklicher Verweisung auf Art. 30 Abs. 3 Buchst. e DORA. Ein Direktvertrag mit dem Unterauftragnehmer (Antwort b) ist dafür nicht erforderlich - die Durchleitung erfolgt über die Vertragskette. Erklärt der Anbieter, das nicht durchsetzen zu können, ist das nach der Systematik der Verordnung nicht ein Grund für eine Ausnahme, sondern ein Grund, den Vertrag in dieser Form nicht zu schließen.",
+        "en": "Delegated Regulation (EU) 2025/532 addresses this objection in two places, and turns it into a pre-contract gate rather than a negotiating position. Under Art. 3(1)(d) the financial entity may only enter into the contract where the subcontractor grants it and the competent and resolution authorities the same contractual rights of access and inspection as those granted by the ICT third-party service provider. Art. 4(1)(j) additionally requires that exactly this be written into the contract between the entity and the provider, with an express cross-reference to Art. 30(3)(e) DORA. A direct contract with the subcontractor (answer b) is not needed - the rights are passed through the contractual chain. Where the provider says it cannot enforce this, the scheme of the regulation treats that not as a ground for an exception but as a ground for not concluding the contract in that form."
+      },
+      "roles": [
+        "all"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,907 @@
+{
+ "meta": {
+  "app": "Zettacard / dora-register-lernmodul",
+  "version": "0.1-draft",
+  "generated": "2026-08-16",
+  "description": "Draft-Pilot-Fragenkatalog zum Modul \"DORA Art. 28 - Informationsregister\" (dora_register). Zielgruppe: Compliance, IT-Controlling und PMO/Programmleitung in EU-Finanzunternehmen, die das Informationsregister tatsächlich aufbauen, pflegen und gegenüber der zuständigen Behörde bereitstellen müssen. Abgedeckt werden die Registerpflicht und die drei getrennten Meldewege des Art. 28 Abs. 3 DORA, der Aufbau des Registers aus 15 Standardvorlagen nach der Durchführungsverordnung (EU) 2024/2956, die IKT-Dienstleistungskette mit Rangsystematik und Unterauftragnehmern, die Klassifizierung kritischer oder wichtiger Funktionen sowie Identifikatoren, Datenqualität und Konsolidierung. Alle Zitate wurden am 2026-08-16 gegen den amtlichen Verordnungstext des EU-Amtsblatts (EU Publications Office Cellar, CELEX 32022R2554 und CELEX 32024R2956, jeweils DE und EN) im Volltext geprüft - nicht gegen Sekundärquellen; die Berichtigung ABl. L, 2025/90725 vom 19.9.2025 wurde über die konsolidierte Fassung 02024R2956 berücksichtigt. Bewusst nicht behauptet: eine im Verordnungstext stehende Pflicht zur jährlichen Einreichung des vollständigen Registers - siehe Dossier, Abschnitt 4. Eigenständig formuliert; kein Fragentext eines kommerziellen Anbieters übernommen. NICHT rechtlich geprüft - siehe Pre-Review-Dossier für die Konfidenz je Frage.",
+  "class": "ALL",
+  "locales": [
+   "de",
+   "en"
+  ],
+  "canonical_locale": "de",
+  "point_system": "3-4 points per question, matching this app's existing compliance-module style (kartellrecht_pilot.json convention); 4 points on the load-bearing distinctions and on the scenarios where a wrong answer produces a defective regulatory submission.",
+  "pass_rule_note": "Not yet configured. This DRAFT is deliberately not wired into build_modules.py, modules_manifest.json or app.js - the per-module EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW config would be set only after human legal review and an explicit wiring step. Topic distribution is 4/4/4/4/4 across 5 topics, which suggests a 5-question draw touching every topic - a product decision, not a legal one.",
+  "legal_review_status": "DRAFT - NOT legally reviewed by a qualified lawyer. Primary-source verified only: every legal_basis was checked on 2026-08-16 against the official Official Journal text retrieved from the EU Publications Office Cellar repository (CELEX 32022R2554 EN and DE; CELEX 32024R2956 EN and DE; consolidated 02024R2956 EN and DE for the corrigendum OJ L, 2025/90725 of 19.9.2025), not against secondary summaries. No question's correct answer depends on any secondary or practical-guidance source. See docs/dora-register-pre-review-dossier-2026-08-16.md for the per-question citation ledger, confidence ratings, deliberate non-assertions and the explicit gap list. Human legal review remains a hard gate before any commercial or production use.",
+  "legal_disclaimer": "Dieses Schulungsmaterial dient reinen Ausbildungs- und Informationszwecken und stellt keine Rechts- oder Compliance-Beratung dar. Die regulatorischen Anforderungen sind im Einzelfall durch qualifizierte Juristen oder Wirtschaftsprüfer zu validieren.",
+  "total_questions": 20,
+  "license": "CC BY-NC-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+  "renewal_months": null,
+  "renewal_basis": "not_specified_in_statute",
+  "renewal_note": "Neither DORA nor Implementing Regulation (EU) 2024/2956 fixes a refresher interval for register-of-information training. Art. 13(6) DORA makes ICT security awareness and digital operational resilience training a compulsory part of staff training schemes without prescribing a cadence. Note the distinction the module itself teaches: the yearly elements that DO exist in the text are the Art. 28(3) third-subparagraph aggregate report to the competent authority and the Art. 8(1) at-least-yearly review of the classification of ICT supported business functions - neither is a training cadence. Any recurrence cadence would be a Zettacard product decision, not a statutory mirror."
+ },
+ "questions": [
+  {
+   "id": "dora-register-registerpflicht-01",
+   "topic": "Registerpflicht und Meldewege",
+   "topic_code": "registerpflicht",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "Art. 28 Abs. 3 UAbs. 1 und 2 Verordnung (EU) 2022/2554",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr Haus führt eine Vendor-Liste, die ausschließlich die IKT-Verträge erfasst, die kritische oder wichtige Funktionen unterstützen. Genügt das der Registerpflicht des Art. 28 Abs. 3 DORA?",
+     "options": {
+      "a": "Nein. Das Informationsregister muss sich auf alle vertraglichen Vereinbarungen über die Nutzung von durch IKT-Drittdienstleister bereitgestellten IKT-Dienstleistungen beziehen und auf Unternehmensebene sowie auf teilkonsolidierter und konsolidierter Ebene geführt und aktualisiert werden; die Vereinbarungen sind zusätzlich danach zu unterscheiden, ob sie kritische oder wichtige Funktionen abdecken oder nicht",
+      "b": "Ja. Art. 28 Abs. 3 verlangt ausdrücklich nur die Erfassung von Vereinbarungen über kritische oder wichtige Funktionen",
+      "c": "Ja, sofern die übrigen Verträge im Beschaffungssystem auffindbar sind; eine Registerpflicht besteht insoweit nicht",
+      "d": "Nein, aber es genügt eine Erfassung auf konsolidierter Ebene; Einzelunternehmen müssen kein eigenes Register führen"
+     }
+    },
+    "en": {
+     "question": "Your firm keeps a vendor list covering only those ICT contracts that support critical or important functions. Does that satisfy the register requirement in DORA Art. 28(3)?",
+     "options": {
+      "a": "No. The register of information must relate to all contractual arrangements on the use of ICT services provided by ICT third-party service providers, and must be maintained and updated at entity level and at sub-consolidated and consolidated levels; the arrangements must additionally be documented distinguishing those that cover ICT services supporting critical or important functions from those that do not",
+      "b": "Yes. Art. 28(3) expressly requires only arrangements supporting critical or important functions to be recorded",
+      "c": "Yes, as long as the remaining contracts are retrievable from the procurement system; no register duty applies to them",
+      "d": "No, but a register at consolidated level is sufficient; individual entities need not keep their own"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 28 Abs. 3 UAbs. 1 DORA verlangt wörtlich ein Informationsregister, \"das sich auf alle vertraglichen Vereinbarungen über die Nutzung von durch IKT-Drittdienstleister bereitgestellten IKT-Dienstleistungen bezieht\" - ohne jede Beschränkung auf kritische oder wichtige Funktionen. Die Kritikalität steuert nicht das Ob der Aufnahme, sondern nur den Detailgrad: Nach UAbs. 2 werden die Vereinbarungen \"angemessen dokumentiert, wobei zwischen Vereinbarungen, die IKT-Dienstleistungen zur Unterstützung kritischer oder wichtiger Funktionen abdecken, und solchen unterschieden wird, bei denen dies nicht der Fall ist\". Ebenfalls wörtlich im Text: das Register ist \"auf Unternehmensebene sowie auf teilkonsolidierter und konsolidierter Ebene\" zu führen und zu aktualisieren - die drei Ebenen stehen kumulativ nebeneinander, ein Konzernregister ersetzt die Ebene des einzelnen Finanzunternehmens nicht.",
+    "en": "Art. 28(3), first subparagraph, DORA requires, verbatim, a register of information \"in relation to all contractual arrangements on the use of ICT services provided by ICT third-party service providers\" - with no restriction to critical or important functions. Criticality does not govern whether an arrangement goes in, only how it is documented: under the second subparagraph the arrangements \"shall be appropriately documented, distinguishing between those that cover ICT services supporting critical or important functions and those that do not\". Also verbatim in the text: the register is maintained and updated \"at entity level, and at sub-consolidated and consolidated levels\" - the three levels are cumulative, and a group-level register does not replace the individual entity's own."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-registerpflicht-02",
+   "topic": "Registerpflicht und Meldewege",
+   "topic_code": "registerpflicht",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 28 Abs. 3 UAbs. 3, 4 und 5 Verordnung (EU) 2022/2554",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Programmleiter fasst die aufsichtlichen Pflichten aus Art. 28 Abs. 3 DORA so zusammen: \"Wir reichen einmal jährlich das vollständige Informationsregister bei der Aufsicht ein - damit ist die Vorschrift erfüllt.\" Wie lautet die Rechtslage nach dem Verordnungswortlaut?",
+     "options": {
+      "a": "Die Zusammenfassung ist zutreffend: Art. 28 Abs. 3 ordnet die jährliche Einreichung des vollständigen Registers ausdrücklich an",
+      "b": "Die Zusammenfassung greift zu kurz. Der Wortlaut enthält drei getrennte Pflichten: mindestens jährlich Bericht an die zuständigen Behörden zur Anzahl neuer Vereinbarungen, den Kategorien von IKT-Drittdienstleistern, der Art der vertraglichen Vereinbarungen sowie den bereitgestellten IKT-Dienstleistungen und -Funktionen; Bereitstellung des vollständigen Registers oder bestimmter Teile auf Verlangen der Behörde; und zeitnahe Unterrichtung über jede geplante Vereinbarung zu kritischen oder wichtigen Funktionen sowie darüber, dass eine Funktion kritisch oder wichtig geworden ist",
+      "c": "Das Register ist ein rein internes Dokument; eine Übermittlung an die Aufsicht sieht Art. 28 Abs. 3 nicht vor",
+      "d": "Es besteht ausschließlich eine Vorlagepflicht auf Verlangen; eine periodische Berichtspflicht kennt Art. 28 Abs. 3 nicht"
+     }
+    },
+    "en": {
+     "question": "A programme lead summarises the supervisory duties in DORA Art. 28(3) as: \"We file the complete register of information with the supervisor once a year - that discharges the provision.\" What is the position under the wording of the Regulation?",
+     "options": {
+      "a": "The summary is correct: Art. 28(3) expressly mandates annual submission of the full register",
+      "b": "The summary is incomplete. The wording contains three distinct duties: report at least yearly to the competent authorities on the number of new arrangements on the use of ICT services, the categories of ICT third-party service providers, the type of contractual arrangements and the ICT services and functions being provided; make available the full register or specified sections thereof upon the competent authority's request; and inform the competent authority in a timely manner about any planned contractual arrangement on ICT services supporting critical or important functions and when a function has become critical or important",
+      "c": "The register is a purely internal document; Art. 28(3) provides for no transmission to the supervisor",
+      "d": "There is only a duty to produce the register on request; Art. 28(3) knows no periodic reporting duty"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Dies ist die am häufigsten falsch wiedergegebene Stelle der gesamten Registerthematik. Art. 28 Abs. 3 DORA enthält drei voneinander unabhängige aufsichtliche Pflichten, und keine davon ist eine ausdrückliche Pflicht zur jährlichen Einreichung des vollständigen Registers. UAbs. 3 (wörtlich): \"Finanzunternehmen erstatten den zuständigen Behörden mindestens einmal jährlich Bericht zur Anzahl neuer Vereinbarungen über die Nutzung von IKT-Dienstleistungen, den Kategorien von IKT-Drittdienstleistern, der Art der vertraglichen Vereinbarungen sowie den bereitgestellten IKT-Dienstleistungen und -Funktionen.\" Das ist eine Aggregatmeldung, nicht das Register selbst; nach Art. 31 Abs. 10 DORA leiten die zuständigen Behörden genau diese Berichte jährlich und in aggregierter Form an das Aufsichtsforum weiter. UAbs. 4 regelt die Bereitstellung des vollständigen Registers oder bestimmter Teile \"auf Verlangen\" der Behörde. UAbs. 5 regelt die zeitnahe Unterrichtung über geplante Vereinbarungen zu kritischen oder wichtigen Funktionen und über das Kritisch-Werden einer Funktion. Praxishinweis, kein Verordnungsinhalt: Die zuständigen Behörden erheben das vollständige Register in der Aufsichtspraxis tatsächlich jährlich, gestützt auf UAbs. 4 und die Meldeprozesse der ESA. Diese Praxis ist real und terminiert, sie steht aber nicht als Fristenregelung im Verordnungstext und nicht in der Durchführungsverordnung (EU) 2024/2956 - wer sie als DORA-Wortlaut zitiert, zitiert falsch.",
+    "en": "This is the single most frequently misstated point in the whole register topic. DORA Art. 28(3) contains three independent supervisory duties, and none of them is an express duty to submit the full register annually. Third subparagraph (verbatim): \"Financial entities shall report at least yearly to the competent authorities on the number of new arrangements on the use of ICT services, the categories of ICT third-party service providers, the type of contractual arrangements and the ICT services and functions which are being provided.\" That is an aggregate report, not the register itself; under Art. 31(10) DORA it is precisely these reports that competent authorities transmit to the Oversight Forum on a yearly and aggregated basis. The fourth subparagraph governs making available the full register, or specified sections, \"upon its request\". The fifth governs timely notification of planned arrangements supporting critical or important functions and of a function becoming critical or important. Practice note, not law: competent authorities do in fact collect the full register annually in supervisory practice, resting on the fourth subparagraph and the ESAs' reporting process. That practice is real and has dates, but it is not a deadline written into the Regulation, nor into Implementing Regulation (EU) 2024/2956 - anyone quoting it as DORA text is quoting wrongly."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-registerpflicht-03",
+   "topic": "Registerpflicht und Meldewege",
+   "topic_code": "registerpflicht",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 28 Abs. 2 und 3 i.V.m. Art. 16 Abs. 1 Verordnung (EU) 2022/2554",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein nach der Zweiten Zahlungsdiensterichtlinie ausgenommenes Zahlungsinstitut fällt unter den vereinfachten IKT-Risikomanagementrahmen des Art. 16 Abs. 1 DORA. Muss es ein Informationsregister nach Art. 28 Abs. 3 führen?",
+     "options": {
+      "a": "Nein. Art. 16 Abs. 1 nimmt diese Unternehmen von Kapitel V und damit auch von der Registerpflicht aus",
+      "b": "Nein, sofern es zugleich Kleinstunternehmen ist; Kleinstunternehmen sind von Art. 28 vollständig ausgenommen",
+      "c": "Ja. Art. 16 Abs. 1 UAbs. 1 nimmt ausschließlich die Artikel 5 bis 15 aus. Art. 28 Abs. 3 bleibt anwendbar - und anders als Art. 28 Abs. 2, der Unternehmen nach Art. 16 Abs. 1 und Kleinstunternehmen ausdrücklich ausnimmt, enthält Abs. 3 keinerlei Ausnahme",
+      "d": "Ja, aber nur, wenn das Unternehmen mehr als 250 Beschäftigte hat"
+     }
+    },
+    "en": {
+     "question": "A payment institution exempted under the Second Payment Services Directive falls under the simplified ICT risk management framework in DORA Art. 16(1). Must it maintain a register of information under Art. 28(3)?",
+     "options": {
+      "a": "No. Art. 16(1) exempts such entities from Chapter V and therefore from the register duty",
+      "b": "No, provided it is also a microenterprise; microenterprises are entirely exempt from Art. 28",
+      "c": "Yes. Art. 16(1), first subparagraph, disapplies Articles 5 to 15 only. Art. 28(3) continues to apply - and unlike Art. 28(2), which expressly carves out Art. 16(1) entities and microenterprises, Art. 28(3) contains no carve-out at all",
+      "d": "Yes, but only if the entity has more than 250 employees"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Der Wortlaut des Art. 16 Abs. 1 UAbs. 1 DORA lautet: \"Die Artikel 5 bis 15 dieser Verordnung gelten nicht für\" die dort aufgezählten kleinen Unternehmen. Die Ausnahme ist abschließend auf die Artikel 5 bis 15 begrenzt; Art. 28 steht in Kapitel V und bleibt anwendbar. Der entscheidende Kontrast liegt innerhalb des Art. 28 selbst: Abs. 2 (Strategie für das IKT-Drittparteienrisiko) richtet sich ausdrücklich an \"Finanzinstitute, bei denen es sich weder um die in Artikel 16 Absatz 1 Unterabsatz 1 genannten Unternehmen noch um Kleinstunternehmen handelt\". Diese Einschränkung fehlt in Abs. 3 vollständig. Der Verordnungsgeber hat die Ausnahme also gesehen und in Abs. 3 bewusst nicht wiederholt. Der 250-Beschäftigten-Schwellenwert stammt aus der allgemeinen KMU-Definition und ist für die Registerpflicht ohne Bedeutung. Zu unterscheiden ist die Frage des Anwendungsbereichs der Verordnung insgesamt: Art. 2 Abs. 3 Buchst. e nimmt Versicherungs-, Rückversicherungs- und Versicherungsnebenvermittler, die Kleinst-, kleine oder mittlere Unternehmen sind, vollständig aus DORA aus - diese Unternehmen führen kein Register, weil DORA für sie gar nicht gilt, nicht weil Art. 28 Abs. 3 eine Ausnahme enthielte.",
+    "en": "The wording of Art. 16(1), first subparagraph, DORA is: \"Articles 5 to 15 of this Regulation shall not apply to\" the small entities listed there. The exemption is exhaustively limited to Articles 5 to 15; Art. 28 sits in Chapter V and continues to apply. The decisive contrast is inside Art. 28 itself: paragraph 2 (the ICT third-party risk strategy) is addressed expressly to \"financial entities, other than entities referred to in Article 16(1), first subparagraph, and other than microenterprises\". That qualification is entirely absent from paragraph 3. The legislator saw the carve-out and deliberately did not repeat it in paragraph 3. The 250-employee threshold comes from the general SME definition and is irrelevant to the register duty. A separate question is the scope of the Regulation as such: Art. 2(3)(e) excludes insurance, reinsurance and ancillary insurance intermediaries that are micro, small or medium-sized enterprises from DORA entirely - those entities keep no register because DORA does not apply to them, not because Art. 28(3) contains an exemption."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-registerpflicht-04",
+   "topic": "Registerpflicht und Meldewege",
+   "topic_code": "registerpflicht",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 28 Abs. 3 UAbs. 5 Verordnung (EU) 2022/2554",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Eine bislang als unkritisch eingestufte Funktion Ihres Hauses wird nach einer Reorganisation als kritisch bewertet. Der bestehende IKT-Vertrag bleibt unverändert. Was verlangt Art. 28 Abs. 3 DORA?",
+     "options": {
+      "a": "Nichts Zusätzliches; die Neubewertung wird beim nächsten Registerlauf mitgeführt",
+      "b": "Der Vertrag ist zu kündigen und neu auszuschreiben",
+      "c": "Die Aufsicht ist erst zu unterrichten, wenn der Vertrag nächstes Mal geändert oder verlängert wird",
+      "d": "Die zuständige Behörde ist zeitnah zu unterrichten. Die Unterrichtungspflicht des UAbs. 5 hat zwei Auslöser: jede geplante vertragliche Vereinbarung über IKT-Dienstleistungen zur Unterstützung kritischer oder wichtiger Funktionen und den Fall, dass eine Funktion kritisch oder wichtig geworden ist"
+     }
+    },
+    "en": {
+     "question": "A function at your firm previously classified as non-critical is assessed as critical after a reorganisation. The existing ICT contract is unchanged. What does DORA Art. 28(3) require?",
+     "options": {
+      "a": "Nothing extra; the reassessment is picked up at the next register cycle",
+      "b": "The contract must be terminated and re-tendered",
+      "c": "The supervisor need only be informed when the contract is next amended or renewed",
+      "d": "The competent authority must be informed in a timely manner. The notification duty in the fifth subparagraph has two triggers: any planned contractual arrangement on the use of ICT services supporting critical or important functions, and the case where a function has become critical or important"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 28 Abs. 3 UAbs. 5 DORA lautet wörtlich: \"Finanzunternehmen unterrichten die zuständige Behörde zeitnah über jede geplante vertragliche Vereinbarung über die Nutzung von IKT-Dienstleistungen zur Unterstützung kritischer oder wichtiger Funktionen sowie in dem Fall, dass eine Funktion kritisch oder wichtig geworden ist.\" Der zweite Auslöser ist der in der Praxis übersehene: Er knüpft nicht an einen Vertragsvorgang an, sondern an die Änderung der Kritikalitätsbewertung. Deshalb muss der Prozess zur Neubewertung von Funktionen mit dem aufsichtlichen Meldeweg verbunden sein und nicht nur mit dem Vertragslebenszyklus. Die Verordnung nennt für \"zeitnah\" keine Frist in Tagen. Ergänzend verlangt Art. 8 Abs. 1 DORA, dass Finanzunternehmen die Angemessenheit der Klassifizierung aller IKT-gestützten Unternehmensfunktionen \"erforderlichenfalls, mindestens jedoch einmal jährlich\" überprüfen - dies ist die tatsächlich im Verordnungstext verankerte jährliche Pflicht in diesem Umfeld.",
+    "en": "Art. 28(3), fifth subparagraph, DORA reads verbatim: \"Financial entities shall inform the competent authority in a timely manner about any planned contractual arrangement on the use of ICT services supporting critical or important functions as well as when a function has become critical or important.\" The second trigger is the one missed in practice: it attaches not to a contracting event but to a change in the criticality assessment. The function-reassessment process therefore has to be wired to the supervisory notification path, not only to the contract lifecycle. The Regulation puts no figure in days on \"timely\". Relatedly, Art. 8(1) DORA requires financial entities to review the adequacy of the classification of all ICT supported business functions \"as needed, and at least yearly\" - that is the annual duty in this area that genuinely is anchored in the Regulation's text."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-registerstruktur-01",
+   "topic": "Aufbau und Vorlagen des Informationsregisters",
+   "topic_code": "registerstruktur",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "Art. 28 Abs. 9 Verordnung (EU) 2022/2554; Durchfuehrungsverordnung (EU) 2024/2956 der Kommission vom 29. November 2024",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Auf welcher Rechtsgrundlage stehen die Standardvorlagen des Informationsregisters, und welche Verbindlichkeit haben sie?",
+     "options": {
+      "a": "Auf einer unverbindlichen Leitlinie des Gemeinsamen Ausschusses der ESA; die Vorlagen sind eine Empfehlung",
+      "b": "Auf einer delegierten Verordnung (technischer Regulierungsstandard) nach Art. 28 Abs. 10 DORA",
+      "c": "Auf einem noch nicht angenommenen Entwurf technischer Durchführungsstandards; bis zur Annahme bleibt das Format den Unternehmen überlassen",
+      "d": "Auf einem technischen Durchführungsstandard nach Art. 28 Abs. 9 DORA, umgesetzt durch die Durchführungsverordnung (EU) 2024/2956 der Kommission vom 29. November 2024. Sie ist in allen ihren Teilen verbindlich und gilt unmittelbar in jedem Mitgliedstaat"
+     }
+    },
+    "en": {
+     "question": "What is the legal basis for the standard templates of the register of information, and how binding are they?",
+     "options": {
+      "a": "A non-binding guideline of the ESAs' Joint Committee; the templates are a recommendation",
+      "b": "A delegated regulation (regulatory technical standard) under DORA Art. 28(10)",
+      "c": "A draft implementing technical standard not yet adopted; until adoption the format is left to entities",
+      "d": "An implementing technical standard under DORA Art. 28(9), enacted as Commission Implementing Regulation (EU) 2024/2956 of 29 November 2024. It is binding in its entirety and directly applicable in all Member States"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 28 Abs. 9 DORA beauftragt die ESA über den Gemeinsamen Ausschuss, Entwürfe technischer Durchführungsstandards zu erarbeiten, \"um die Standardvorlagen für die Zwecke des in Absatz 3 genannten Informationsregisters festzulegen\", und ermächtigt die Kommission zu deren Annahme. Umgesetzt wurde dies durch die Durchführungsverordnung (EU) 2024/2956 der Kommission vom 29. November 2024, veröffentlicht im Amtsblatt L vom 2.12.2024, in Kraft am zwanzigsten Tag nach der Veröffentlichung (Art. 7). Die Schlussformel lautet: \"Diese Verordnung ist in allen ihren Teilen verbindlich und gilt unmittelbar in jedem Mitgliedstaat.\" Zur Abgrenzung: Art. 28 Abs. 10 DORA ist eine getrennte Ermächtigung für einen technischen Regulierungsstandard zur Leitlinie nach Abs. 2 - das ist die Delegierte Verordnung (EU) 2024/1773 und betrifft nicht das Register. Hinweis für die Umsetzung: Die Durchführungsverordnung (EU) 2024/2956 wurde durch eine Berichtigung im Amtsblatt L, 2025/90725 vom 19.9.2025 korrigiert; die Berichtigung betrifft unter anderem die Spaltennummerierung in Vorlage B_06.01 und ist bei der Umsetzung des Datenmodells zu berücksichtigen.",
+    "en": "DORA Art. 28(9) mandates the ESAs, through the Joint Committee, to develop draft implementing technical standards \"to establish the standard templates for the purposes of the register of information referred to in paragraph 3\", and empowers the Commission to adopt them. This was enacted as Commission Implementing Regulation (EU) 2024/2956 of 29 November 2024, published in OJ L of 2.12.2024, entering into force on the twentieth day following publication (Art. 7). Its closing formula reads: \"This Regulation shall be binding in its entirety and directly applicable in all Member States.\" To distinguish: DORA Art. 28(10) is a separate mandate for a regulatory technical standard on the policy under paragraph 2 - that is Delegated Regulation (EU) 2024/1773 and does not concern the register. Implementation note: Implementing Regulation (EU) 2024/2956 was corrected by a corrigendum in OJ L, 2025/90725 of 19.9.2025; the corrigendum affects, among other things, the column numbering in template B_06.01 and must be taken into account when building the data model."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-registerstruktur-02",
+   "topic": "Aufbau und Vorlagen des Informationsregisters",
+   "topic_code": "registerstruktur",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 3 Abs. 1 und Art. 5 Durchfuehrungsverordnung (EU) 2024/2956",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr Controlling schlägt vor, das Informationsregister in einem selbst entworfenen, fachlich passenderen Tabellenformat zu führen und die aufsichtlichen Vorlagen erst bei einer Anfrage der Behörde daraus zu erzeugen. Was gilt nach der Durchführungsverordnung (EU) 2024/2956?",
+     "options": {
+      "a": "Unzulässig als Ersatz. Art. 3 Abs. 1 verpflichtet dazu, das Register unter Verwendung der in den Anhängen I bis IV enthaltenen Vorlagen zu führen und zu aktualisieren; Art. 5 Abs. 1 zählt die aufzunehmenden Angaben in den Buchstaben a bis o und damit 15 Vorlagen von B_01.01 bis B_99.01 auf. Nach Art. 5 Abs. 2 dürfen zusätzliche Informationen aufgenommen werden, wenn dies für das Risiko- oder Vertragsmanagement relevant ist",
+      "b": "Zulässig. Die Verordnung schreibt nur den Inhalt vor, nicht die Struktur",
+      "c": "Zulässig, weil die Vorlagen nur für die Meldung an die Behörde gelten, nicht für die Registerführung",
+      "d": "Unzulässig, und zusätzliche eigene Felder sind ebenfalls untersagt, weil die Vorlagen abschließend sind"
+     }
+    },
+    "en": {
+     "question": "Your controlling team proposes maintaining the register of information in a self-designed, more suitable table format and generating the supervisory templates from it only when the authority asks. What applies under Implementing Regulation (EU) 2024/2956?",
+     "options": {
+      "a": "Not permissible as a substitute. Art. 3(1) requires entities to use the templates set out in Annexes I to IV to maintain and update the register; Art. 5(1) enumerates the information to be included in points (a) to (o), i.e. 15 templates from B_01.01 to B_99.01. Under Art. 5(2) additional information may be included where relevant for risk management or contract management purposes",
+      "b": "Permissible. The Regulation prescribes only content, not structure",
+      "c": "Permissible, because the templates apply only to reporting to the authority, not to maintaining the register",
+      "d": "Not permissible, and adding own fields is likewise prohibited because the templates are exhaustive"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 3 Abs. 1 der Durchführungsverordnung (EU) 2024/2956 lautet: \"Die Finanzunternehmen führen und aktualisieren das Informationsregister gemäß Artikel 28 Absatz 3 der Verordnung (EU) 2022/2554 auf Unternehmensebene oder auf teilkonsolidierter und konsolidierter Ebene unter Verwendung der in den Anhängen I bis IV enthaltenen Vorlagen.\" Die Vorlagen gelten also für das Führen und Aktualisieren, nicht erst für eine Meldung. Art. 5 Abs. 1 zählt in den Buchstaben a bis o genau 15 Vorlagen auf: B_01.01, B_01.02, B_01.03, B_02.01, B_02.02, B_02.03, B_03.01, B_03.02, B_03.03, B_04.01, B_05.01, B_05.02, B_06.01, B_07.01 und B_99.01. Der Gestaltungsspielraum liegt in Art. 5 Abs. 2: \"Sofern dies für ihr Risikomanagement oder ihr Vertragsmanagement relevant ist, können die Finanzunternehmen zusätzliche Informationen in das Informationsregister aufnehmen\" - und zwar in dem dafür am besten geeigneten Format. Eigene Felder sind also ausdrücklich erlaubt, eigene Strukturen als Ersatz der Vorlagen nicht.",
+    "en": "Art. 3(1) of Implementing Regulation (EU) 2024/2956 reads: \"Financial entities shall use the templates set out in Annex I to IV to maintain and update the register of information in accordance with Article 28(3) of Regulation (EU) 2022/2554, at entity level, or at sub-consolidated and consolidated level.\" The templates therefore govern maintaining and updating, not merely reporting. Art. 5(1) enumerates exactly 15 templates in points (a) to (o): B_01.01, B_01.02, B_01.03, B_02.01, B_02.02, B_02.03, B_03.01, B_03.02, B_03.03, B_04.01, B_05.01, B_05.02, B_06.01, B_07.01 and B_99.01. The room for manoeuvre is in Art. 5(2): \"Where relevant for their risk management or contract management purposes, financial entities may include into the register of information additional information in the format that is most appropriate for the purposes of such additional information.\" Own fields are therefore expressly allowed; own structures as a replacement for the templates are not."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-registerstruktur-03",
+   "topic": "Aufbau und Vorlagen des Informationsregisters",
+   "topic_code": "registerstruktur",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 3 Abs. 2 Durchfuehrungsverordnung (EU) 2024/2956; Anhang I, Vorlage B_05.02",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche Reichweite hat die Erfassungspflicht für direkte IKT-Drittdienstleister einerseits und für Unterauftragnehmer andererseits?",
+     "options": {
+      "a": "Beide werden vollständig erfasst: alle direkten Dienstleister und sämtliche Unterauftragnehmer auf jeder Stufe",
+      "b": "Asymmetrisch. Nach Art. 3 Abs. 2 müssen die Vorlagen die einschlägigen Informationen zu sämtlichen IKT-Dienstleistungen enthalten, die von direkten IKT-Drittdienstleistern erbracht werden, sowie Informationen über alle Unterauftragnehmer, die IKT-Dienstleistungen zur Unterstützung kritischer oder wichtiger Funktionen oder wesentlicher Bereiche davon sicherstellen",
+      "c": "Nur direkte Dienstleister, die kritische oder wichtige Funktionen unterstützen; alle übrigen bleiben außen vor",
+      "d": "Unterauftragnehmer sind im Informationsregister generell nicht abzubilden, weil zu ihnen kein Vertragsverhältnis besteht"
+     }
+    },
+    "en": {
+     "question": "How far does the recording duty reach for direct ICT third-party service providers on the one hand and for subcontractors on the other?",
+     "options": {
+      "a": "Both are covered in full: all direct providers and every subcontractor at every tier",
+      "b": "Asymmetrically. Under Art. 3(2) the templates must include the relevant information in relation to all the ICT services provided by direct ICT third-party providers, and information on all subcontractors that effectively underpin ICT services supporting critical or important functions or material parts thereof",
+      "c": "Only direct providers supporting critical or important functions; all others stay out",
+      "d": "Subcontractors are generally not mapped in the register because there is no contractual relationship with them"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 3 Abs. 2 der Durchführungsverordnung (EU) 2024/2956 formuliert zwei unterschiedlich weite Anforderungen nebeneinander: Buchst. a verlangt \"die einschlägigen Informationen in Bezug auf sämtliche IKT-Dienstleistungen, die von direkten IKT-Drittdienstleistern erbracht werden\" - ohne Kritikalitätsfilter. Buchst. b verlangt \"Informationen über alle Unterauftragnehmer, die IKT-Dienstleistungen zur Unterstützung kritischer oder wichtiger Funktionen oder wesentlicher Bereiche davon sicherstellen\" - mit Kritikalitätsfilter. Die Anleitung zu Vorlage B_05.02 in Anhang I konkretisiert dies für die Dienstleistungskette und nennt bei den kritischen oder wichtigen Funktionen \"alle Unterauftragnehmer, die die Erbringung dieser IKT-Dienstleistungen tatsächlich sicherstellen\", also alle Unterauftragnehmer, deren Störung die Sicherheit oder Kontinuität der Dienstleistungserbringung beeinträchtigen würde. Praktische Folge: Die vollständige Nth-Party-Kartierung ist nicht für das gesamte Lieferantenportfolio geschuldet, sondern für die kritischen oder wichtigen Dienstleistungsketten - dort dafür ohne Tiefenbegrenzung. Ein Programm, das entweder alles oder nur die erste Stufe kartiert, verfehlt die Vorschrift in beide Richtungen.",
+    "en": "Art. 3(2) of Implementing Regulation (EU) 2024/2956 sets two requirements of different breadth side by side. Point (a) requires \"the relevant information in relation to all the ICT services provided by direct ICT third-party providers\" - no criticality filter. Point (b) requires \"information on all subcontractors that effectively underpin ICT services supporting critical or important functions or material parts thereof\" - with a criticality filter. The Annex I instructions for template B_05.02 spell this out for the supply chain, referring for critical or important functions to \"all subcontractors that effectively underpin the provision of those ICT services (i.e. all the subcontractors providing ICT services whose disruption would impair the security or the continuity of the service provision)\". Practical consequence: full nth-party mapping is not owed for the entire vendor portfolio, but for the critical or important service chains - and there without a depth limit. A programme that maps either everything or only the first tier misses the rule in both directions."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-registerstruktur-04",
+   "topic": "Aufbau und Vorlagen des Informationsregisters",
+   "topic_code": "registerstruktur",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 4 Durchfuehrungsverordnung (EU) 2024/2956",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein IKT-Dienst speichert ruhende Daten in drei Ländern. Wie ist das in der Vorlage B_02.02 abzubilden?",
+     "options": {
+      "a": "Die drei Ländercodes werden kommasepariert in eine Zelle geschrieben",
+      "b": "Es wird nur das Land mit dem größten Datenvolumen angegeben",
+      "c": "Für jedes Land wird eine zusätzliche Zeile verwendet. Nach Art. 4 Abs. 2 der Durchführungsverordnung ist jedes Datenelement mit einem einzigen Wert zu befüllen; sind mehrere Werte gültig, ist je gültigem Wert eine zusätzliche Zeile in der betreffenden Vorlage anzulegen",
+      "d": "Es wird eine zusätzliche Spalte in der Vorlage ergänzt"
+     }
+    },
+    "en": {
+     "question": "An ICT service stores data at rest in three countries. How is that represented in template B_02.02?",
+     "options": {
+      "a": "The three country codes are written comma-separated into one cell",
+      "b": "Only the country with the largest data volume is reported",
+      "c": "An additional row is used for each country. Under Art. 4(2) of the Implementing Regulation each data element is completed with a single value; where more than one value is valid, an additional row is added in the corresponding template for each valid value",
+      "d": "An additional column is added to the template"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 4 der Durchführungsverordnung (EU) 2024/2956 legt das Datenmodell fest. Abs. 1: Sofern in der Anleitung nichts anderes bestimmt ist, ist jede Vorlage eine Tabelle mit einer vorgegebenen Anzahl von Spalten und einer unbestimmten Anzahl von Zeilen - die Spalten sind fix, die Zeilen sind der Freiheitsgrad. Abs. 2: \"Die Finanzunternehmen befüllen jedes Datenelement mit einem einzigen Wert. Sind für ein bestimmtes Datenelement mehrere Werte gültig, so fügen die Finanzunternehmen für jeden gültigen Wert eine zusätzliche Zeile in die entsprechende Vorlage ein.\" Genau diese Regel wiederholt die Anleitung zu B_02.02.0150 für den Speicherort ruhender Daten und zu B_02.02.0160 für den Ort der Datenverarbeitung. Abs. 3 verlangt, alle Datenelemente auf Unternehmensebene sowie auf teilkonsolidierter und konsolidierter Ebene zu befüllen, soweit einschlägig. Wichtig für die Umsetzung: Die Durchführungsverordnung selbst schreibt kein Dateiformat vor. Vorgaben zu CSV-Format, Dateibenennung und Einreichungsweg stammen aus den operativen Vorgaben der ESA und der nationalen Behörden und sind kein Verordnungsinhalt.",
+    "en": "Art. 4 of Implementing Regulation (EU) 2024/2956 fixes the data model. Paragraph 1: unless otherwise specified in the instructions, each template is a table with a predefined number of columns and an indefinite number of rows - columns are fixed, rows are the degree of freedom. Paragraph 2: \"Financial entities shall complete each data element with a single value. Where more than one value is valid for a specific data element, financial entities shall add an additional row in the corresponding template for each valid value.\" The instructions for B_02.02.0150 (location of data at rest) and B_02.02.0160 (location of data processing) repeat exactly this rule. Paragraph 3 requires all data elements to be completed at entity, sub-consolidated and consolidated level, as applicable. Implementation note: the Implementing Regulation itself prescribes no file format. Requirements on CSV format, file naming and the submission channel come from the ESAs' and national authorities' operational specifications and are not content of the Regulation."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-lieferkette-01",
+   "topic": "IKT-Dienstleistungskette und Unterauftragnehmer",
+   "topic_code": "lieferkette",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "Art. 1 Nr. 2 und 3 sowie Art. 2 Durchfuehrungsverordnung (EU) 2024/2956",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Was bezeichnet der \"Rang\" (rank) in den Vorlagen des Informationsregisters?",
+     "options": {
+      "a": "Die Kritikalitätsstufe des Dienstleisters aus Sicht der Aufsicht",
+      "b": "Die Reihenfolge der jährlichen Ausgaben je Dienstleister, beginnend mit dem teuersten",
+      "c": "Eine vom IKT-Drittdienstleister selbst vergebene Kennziffer seiner Position im Markt",
+      "d": "Die Position eines IKT-Drittdienstleisters in der IKT-Dienstleistungskette. Der Rang ist eine natürliche Zahl größer oder gleich 1; je niedriger die Zahl, desto näher steht die Vereinbarung dem Finanzunternehmen. Der direkte IKT-Drittdienstleister hat stets den Rang 1, ein Unterauftragnehmer stets einen Rang größer als 1"
+     }
+    },
+    "en": {
+     "question": "What does \"rank\" denote in the register of information templates?",
+     "options": {
+      "a": "The criticality tier of the provider from the supervisor's perspective",
+      "b": "The ordering of annual spend per provider, starting with the most expensive",
+      "c": "A code assigned by the ICT third-party provider itself reflecting its market position",
+      "d": "The position of an ICT third-party service provider in the ICT service supply chain. The rank is a natural number higher or equal to 1; the lower the number, the closer the arrangement is to the financial entity. The direct ICT third-party service provider is always rank 1, a subcontractor always higher than 1"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 1 Nr. 3 der Durchführungsverordnung (EU) 2024/2956 definiert \"Rang\" als \"die Position eines IKT-Drittdienstleisters in der IKT-Dienstleistungskette\". Art. 1 Nr. 2 definiert die IKT-Dienstleistungskette als \"eine Abfolge von vertraglichen Vereinbarungen im Zusammenhang mit der IKT-Dienstleistung, die vom direkten IKT-Drittdienstleister für das Finanzunternehmen erbracht wird, beginnend mit dem direkten IKT-Drittdienstleister, der einen oder mehrere andere IKT-Drittdienstleister als Gegenpartei(en) (Unterauftragnehmer) hat\". Art. 2 ordnet an: Der Rang ist eine natürliche Zahl größer oder gleich 1, je niedriger die Zahl, desto näher steht die Vereinbarung dem Finanzunternehmen; der Rang des direkten Dienstleisters ist stets 1, der eines Unterauftragnehmers stets größer als 1. Nach der Anleitung zu B_05.02 erhalten mehrere Dienstleister, die dieselbe Position in derselben Kette einnehmen, denselben Rang - der Rang ist also keine laufende Nummer, sondern eine Stufenangabe.",
+    "en": "Art. 1(3) of Implementing Regulation (EU) 2024/2956 defines \"rank\" as \"the position of an ICT third-party service provider in the ICT service supply chain\". Art. 1(2) defines the ICT service supply chain as \"a sequence of contractual arrangements connected with the ICT service being provided by the direct ICT third-party service provider to the financial entity, starting with the direct ICT third-party service provider which has one or multiple other ICT third-party service providers as counterparties (subcontractors)\". Art. 2 provides: the rank is a natural number higher or equal to 1, the lower the number the closer the arrangement is to the financial entity; the direct provider's rank is always 1, a subcontractor's always higher than 1. Per the B_05.02 instructions, multiple providers occupying the same position in the same chain are assigned the same rank - the rank is a tier indicator, not a serial number."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-lieferkette-02",
+   "topic": "IKT-Dienstleistungskette und Unterauftragnehmer",
+   "topic_code": "lieferkette",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Anhang I, Vorlagen B_02.01 und B_05.02 Durchfuehrungsverordnung (EU) 2024/2956",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr Kernbankensystem läuft bei Anbieter X. X nutzt für den Betrieb den Unterauftragnehmer Y, Y wiederum den Rechenzentrumsbetreiber Z. Alle drei stützen dieselbe kritische Funktion. Wie ist die Kette im Register abzubilden?",
+     "options": {
+      "a": "Nur X, da nur mit X ein Vertrag besteht",
+      "b": "X und Y; ab der zweiten Unterauftragsstufe endet die Erfassungspflicht",
+      "c": "X, Y und Z, jeweils mit einer eigenen Kennnummer der vertraglichen Vereinbarung für den jeweiligen Unterauftrag",
+      "d": "X, Y und Z mit den Rängen 1, 2 und 3 in Vorlage B_05.02, alle unter derselben Kennnummer der vertraglichen Vereinbarung und derselben Art von IKT-Dienstleistungen; für jeden Unterauftragnehmer ist zusätzlich der Empfänger der untervergebenen Dienstleistung auf der nächstniedrigeren Stufe anzugeben. Für Vereinbarungen zwischen einem externen Dienstleister und seinen Unterauftragnehmern wird keine eigene Kennnummer vergeben"
+     }
+    },
+    "en": {
+     "question": "Your core banking system runs at provider X. X uses subcontractor Y for operations, and Y in turn uses data-centre operator Z. All three underpin the same critical function. How is the chain represented in the register?",
+     "options": {
+      "a": "Only X, since the contract is with X alone",
+      "b": "X and Y; the recording duty stops at the second subcontracting tier",
+      "c": "X, Y and Z, each with its own contractual arrangement reference number for the respective subcontract",
+      "d": "X, Y and Z at ranks 1, 2 and 3 in template B_05.02, all under the same contractual arrangement reference number and the same type of ICT services; for each subcontractor the recipient of the sub-contracted service at the next lower rank must also be identified. No separate reference number is assigned to arrangements between an external provider and its subcontractors"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Die Anleitung zu Vorlage B_05.02 in Anhang I der Durchführungsverordnung (EU) 2024/2956 bestimmt, dass alle IKT-Drittdienstleister, die derselben IKT-Dienstleistungskette angehören, dieselbe Kennnummer der vertraglichen Vereinbarung nach B_02.01 und dieselbe Art von IKT-Dienstleistungen nach Anhang III teilen. Der Rang bildet die Stufe ab: der direkte Dienstleister Rang 1, sein Unterauftragnehmer Rang 2, dessen Unterauftragnehmer Rang 3 und so fort. Für jeden Unterauftragnehmer mit einem Rang größer als 1 sind in den Spalten B_05.02.0060 und B_05.02.0070 Kennung und Kennungsart des Empfängers der untervergebenen Dienstleistung auf der Stufe r-1 anzugeben; erst diese Rückverweisung macht aus einer Liste eine Kette. Die Anleitung zu B_02.01 stellt ausdrücklich klar: Nutzt der externe IKT-Drittdienstleister Unterauftragnehmer, so vergeben Finanzunternehmen für die Vereinbarungen zwischen dem externen Dienstleister und seinen Unterauftragnehmern keine Kennnummer der vertraglichen Vereinbarung. Voraussetzung für die Erfassung von Y und Z ist hier, dass sie die kritische Funktion tatsächlich sicherstellen (Art. 3 Abs. 2 Buchst. b).",
+    "en": "The Annex I instructions for template B_05.02 of Implementing Regulation (EU) 2024/2956 provide that all ICT third-party service providers belonging to the same ICT service supply chain share the same contractual arrangement reference number from B_02.01 and the same type of ICT services from Annex III. The rank represents the tier: direct provider rank 1, its subcontractor rank 2, that subcontractor's subcontractor rank 3, and so on. For every subcontractor at a rank higher than 1, columns B_05.02.0060 and B_05.02.0070 must carry the identification code and code type of the recipient of the sub-contracted services at rank r-1; it is this back-reference that turns a list into a chain. The B_02.01 instructions state expressly: where the external ICT third-party service provider makes use of subcontractors, financial entities shall not include a contractual arrangement reference number for arrangements between the external provider and its subcontractors. The precondition for recording Y and Z here is that they effectively underpin the critical function (Art. 3(2)(b))."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-lieferkette-03",
+   "topic": "IKT-Dienstleistungskette und Unterauftragnehmer",
+   "topic_code": "lieferkette",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 3 Abs. 5 und 6 Durchfuehrungsverordnung (EU) 2024/2956; Anhang I, Vorlage B_05.01",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein US-amerikanischer Unterauftragnehmer, der eine kritische Funktion sicherstellt, verweigert die Angabe eines LEI und bietet stattdessen seine US-Steuernummer an. Wie ist das nach der Durchführungsverordnung (EU) 2024/2956 zu bewerten?",
+     "options": {
+      "a": "Nicht ausreichend. Nach Art. 3 Abs. 6 muss das Finanzunternehmen über den direkten IKT-Drittdienstleister sicherstellen, dass auch die erfassten Unterauftragnehmer, die kritische oder wichtige Funktionen sicherstellen, einen gültigen und aktiven LEI verwenden oder ihre EUID angeben; für juristische Personen, die nicht in der Union niedergelassen sind, darf nach der Anleitung zu B_05.01.0020 ausschließlich der LEI verwendet werden",
+      "b": "Ausreichend, weil alternative nationale Kennungen für alle Drittstaatsdienstleister zugelassen sind",
+      "c": "Ausreichend, weil die Kennungspflicht ohnehin nur den direkten Vertragspartner trifft",
+      "d": "Ausreichend, sofern das Finanzunternehmen eine interne Lieferantennummer vergibt und diese durchgängig verwendet"
+     }
+    },
+    "en": {
+     "question": "A US subcontractor that underpins a critical function refuses to provide an LEI and offers its US tax number instead. How does Implementing Regulation (EU) 2024/2956 treat this?",
+     "options": {
+      "a": "Not sufficient. Under Art. 3(6) the financial entity must ensure, through the direct ICT third-party service provider, that the recorded subcontractors underpinning critical or important functions also use a valid and active LEI or provide their EUID; per the B_05.01.0020 instructions, only the LEI may be used for legal persons not established in the Union",
+      "b": "Sufficient, because alternative national identifiers are allowed for all third-country providers",
+      "c": "Sufficient, because the identifier duty only ever binds the direct contracting counterparty",
+      "d": "Sufficient, provided the financial entity assigns an internal vendor number and uses it consistently"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 3 Abs. 5 der Durchführungsverordnung (EU) 2024/2956 verpflichtet Finanzunternehmen, für alle IKT-Drittdienstleister, die juristische Personen sind, einen gültigen und aktiven LEI oder die EUID und, sofern beide verfügbar sind, beide zu verwenden; Ausnahmen bestehen nur für natürliche Personen, die geschäftlich tätig sind. Art. 3 Abs. 6 verlängert diese Pflicht in die Kette hinein: Unterstützt eine von einem direkten IKT-Drittdienstleister erbrachte IKT-Dienstleistung eine kritische oder wichtige Funktion, so stellt das Finanzunternehmen \"über den direkten IKT-Drittdienstleister\" sicher, dass alle nach Art. 3 Abs. 2 Buchst. b erfassten Unterauftragnehmer einen gültigen und aktiven LEI verwenden oder ihre EUID angeben. Die Anleitung zu Spalte B_05.01.0020 in Anhang I ist an dieser Stelle eindeutig: Für juristische Personen sind nur LEI oder EUID zulässig, alternative Kennungen wie CRN, VAT, PNR oder NIN nur für geschäftlich tätige natürliche Personen - und für juristische Personen, die nicht in der Union niedergelassen sind, ist ausschließlich der LEI zu verwenden. Praktische Folge für das Vertragsmanagement: Die LEI-Beibringung entlang der kritischen Kette ist eine Aufgabe, die vertraglich beim direkten Dienstleister verankert werden muss, weil zum Unterauftragnehmer keine direkte Vertragsbeziehung besteht.",
+    "en": "Art. 3(5) of Implementing Regulation (EU) 2024/2956 requires financial entities to use a valid and active LEI or the EUID - and both where available - for all ICT third-party service providers that are legal persons, with an exception only for individuals acting in a business capacity. Art. 3(6) extends that duty into the chain: where an ICT service provided by a direct ICT third-party service provider supports a critical or important function, the financial entity shall ensure \"through the direct ICT third-party service provider\" that all subcontractors included under Art. 3(2)(b) use a valid and active LEI or provide their EUID. The Annex I instructions for column B_05.01.0020 are unambiguous here: only LEI or EUID may be used for legal persons, alternative codes such as CRN, VAT, PNR or NIN only for individuals acting in a business capacity - and for legal persons not established in the Union, only the LEI shall be used. Practical consequence for contract management: obtaining LEIs along the critical chain has to be anchored contractually with the direct provider, because there is no direct contractual relationship with the subcontractor."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-lieferkette-04",
+   "topic": "IKT-Dienstleistungskette und Unterauftragnehmer",
+   "topic_code": "lieferkette",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Anhang I, Vorlagen B_02.03, B_05.02 und B_07.01 Durchfuehrungsverordnung (EU) 2024/2956",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Eine gruppeninterne IT-Gesellschaft erbringt für Ihre Bank eine IKT-Dienstleistung, die keine kritische oder wichtige Funktion unterstützt, und nutzt dafür einen konzernfremden Unterauftragnehmer. Ist dieser Unterauftragnehmer im Register zu erfassen?",
+     "options": {
+      "a": "Nein. Ohne kritische oder wichtige Funktion endet die Erfassungspflicht beim gruppeninternen Dienstleister",
+      "b": "Ja. Nach der Anleitung zu Vorlage B_05.02 umfasst die IKT-Dienstleistungskette, wenn ein gruppeninterner IKT-Dienstleister Unterauftragnehmer einsetzt, mindestens den ersten konzernfremden Unterauftragnehmer, \"selbst wenn die erbrachten IKT-Dienstleistungen keine kritischen oder wichtigen Funktionen oder wesentlichen Bereiche davon unterstützen\"",
+      "c": "Nein, gruppeninterne Vereinbarungen sind vom Informationsregister insgesamt ausgenommen",
+      "d": "Ja, aber nur, wenn der Unterauftragnehmer seinen Sitz außerhalb der Union hat"
+     }
+    },
+    "en": {
+     "question": "An intra-group IT company provides your bank with an ICT service that does not support a critical or important function, and uses an extra-group subcontractor to do so. Must that subcontractor be recorded in the register?",
+     "options": {
+      "a": "No. Absent a critical or important function, the recording duty ends at the intra-group provider",
+      "b": "Yes. Per the B_05.02 instructions, where an ICT intra-group service provider uses subcontractors to provide its ICT services, the ICT service supply chain includes at least the first extra-group subcontractor \"even if the ICT services provided do not support a critical or important function or material parts thereof\"",
+      "c": "No, intra-group arrangements are excluded from the register of information altogether",
+      "d": "Yes, but only if the subcontractor is established outside the Union"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Dies ist eine der am häufigsten übersehenen Regeln der Durchführungsverordnung (EU) 2024/2956 und ein typischer Prüffeststellungspunkt bei Gruppen mit eigener IT-Gesellschaft. Die Anleitung zu Vorlage B_05.02 in Anhang I zählt auf, was die IKT-Dienstleistungskette gegebenenfalls umfasst, und nennt unter Buchst. d ausdrücklich: \"Setzt ein gruppeninterner IKT-Dienstleister Unterauftragnehmer ein, um seine IKT-Dienstleistungen für das Finanzunternehmen zu erbringen, so ist mindestens der erste konzernfremde Unterauftragnehmer zu erfassen, selbst wenn die erbrachten IKT-Dienstleistungen keine kritischen oder wichtigen Funktionen oder wesentlichen Bereiche davon unterstützen.\" Der Grund steht in Erwägungsgrund 5: Nur so wird die vollständige Dienstleistungskette sichtbar, wenn die erste Stufe konzernintern ist. Ergänzend verlangt Vorlage B_02.03, die Kennnummer der gruppeninternen Vereinbarung mit der Kennnummer der Vereinbarung zwischen dem gruppeninternen Dienstleister und seinem externen Dienstleister zu verknüpfen; und Vorlage B_07.01 bezieht bei kritischen oder wichtigen Funktionen ausdrücklich den ersten konzernfremden Unterauftragnehmer in die Bewertung ein, wenn die vorgelagerten Dienstleister gruppenintern sind. Gruppeninterne Vereinbarungen sind also gerade nicht ausgenommen, sondern erhalten eine eigene Verknüpfungsvorlage.",
+    "en": "This is one of the most frequently overlooked rules in Implementing Regulation (EU) 2024/2956 and a classic audit finding for groups with their own IT company. The Annex I instructions for template B_05.02 list what the ICT service supply chain shall include where applicable, and point (d) states expressly: \"where an ICT intragroup service provider uses subcontractors to provide their ICT services to the financial entity, at least the first extra-group subcontractor even if the ICT services provided do not support a critical or important function or material parts thereof.\" The reason is in recital 5: only this makes the full service chain visible when the first tier is intra-group. Template B_02.03 additionally requires the intra-group arrangement's reference number to be linked to the reference number of the arrangement between the intra-group provider and its external provider; and template B_07.01 expressly brings the first extra-group subcontractor into the assessment for critical or important functions where the preceding providers are intra-group. Intra-group arrangements are therefore not excluded at all - they get their own reconciliation template."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-funktionen-01",
+   "topic": "Funktionsklassifizierung und Bewertung",
+   "topic_code": "funktionsklassifizierung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "Art. 3 Nr. 22 Verordnung (EU) 2022/2554",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Nach welchem Maßstab entscheidet sich, ob eine Funktion \"kritisch oder wichtig\" im Sinne von DORA ist?",
+     "options": {
+      "a": "Nach den jährlichen IKT-Ausgaben für die Funktion; ab einem Schwellenwert von 1 Mio. EUR gilt sie als kritisch",
+      "b": "Danach, ob der zugehörige IKT-Drittdienstleister als kritischer IKT-Drittdienstleister eingestuft wurde",
+      "c": "Nach der Auswirkung eines Ausfalls: kritisch oder wichtig ist eine Funktion, deren Ausfall die finanzielle Leistungsfähigkeit oder die Solidität oder Fortführung der Geschäftstätigkeiten und Dienstleistungen erheblich beeinträchtigen würde, oder deren unterbrochene, fehlerhafte oder unterbliebene Leistung die fortdauernde Einhaltung der Zulassungsbedingungen und -verpflichtungen oder sonstiger Verpflichtungen nach dem anwendbaren Finanzdienstleistungsrecht erheblich beeinträchtigen würde",
+      "d": "Danach, ob in der Funktion personenbezogene Daten verarbeitet werden"
+     }
+    },
+    "en": {
+     "question": "By what standard is it decided whether a function is \"critical or important\" within the meaning of DORA?",
+     "options": {
+      "a": "By annual ICT spend on the function; above a EUR 1 million threshold it counts as critical",
+      "b": "By whether the associated ICT third-party service provider has been designated a critical ICT third-party service provider",
+      "c": "By the impact of a disruption: a function is critical or important where its disruption would materially impair the financial performance of a financial entity, or the soundness or continuity of its services and activities, or where the discontinued, defective or failed performance of that function would materially impair the continuing compliance of the entity with the conditions and obligations of its authorisation, or with its other obligations under applicable financial services law",
+      "d": "By whether personal data is processed in the function"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 3 Nr. 22 DORA definiert \"kritische oder wichtige Funktion\" rein wirkungsbezogen: \"eine Funktion, deren Ausfall die finanzielle Leistungsfähigkeit eines Finanzunternehmens oder die Solidität oder Fortführung seiner Geschäftstätigkeiten und Dienstleistungen erheblich beeinträchtigen würde oder deren unterbrochene, fehlerhafte oder unterbliebene Leistung die fortdauernde Einhaltung der Zulassungsbedingungen und -verpflichtungen eines Finanzunternehmens oder seiner sonstigen Verpflichtungen nach dem anwendbaren Finanzdienstleistungsrecht erheblich beeinträchtigen würde\". Es gibt keinen Schwellenwert in Euro, keine Kopfzahl und keinen Datenschutzbezug. Streng zu trennen ist der Begriff des \"kritischen IKT-Drittdienstleisters\" nach Art. 3 Nr. 23 DORA - das ist ein IKT-Drittdienstleister, \"der gemäß Artikel 31 als kritisch eingestuft wurde\", also eine Benennungsentscheidung der ESA auf Unionsebene. Die Einstufung einer Funktion nimmt das Finanzunternehmen selbst vor; die Benennung eines Dienstleisters als kritisch nehmen die ESA vor. Ein Vertrag mit einem nicht benannten Anbieter kann sehr wohl eine kritische Funktion unterstützen, und ein benannter Anbieter kann eine unkritische Funktion erbringen.",
+    "en": "Art. 3(22) DORA defines \"critical or important function\" purely by impact: \"a function, the disruption of which would materially impair the financial performance of a financial entity, or the soundness or continuity of its services and activities, or the discontinued, defective or failed performance of that function would materially impair the continuing compliance of a financial entity with the conditions and obligations of its authorisation, or with its other obligations under applicable financial services law\". There is no euro threshold, no headcount and no data-protection link. It must be kept strictly separate from \"critical ICT third-party service provider\" under Art. 3(23) DORA - that is a provider \"designated as critical in accordance with Article 31\", i.e. a Union-level designation decision by the ESAs. The financial entity classifies its own functions; the ESAs designate providers as critical. A contract with a non-designated provider can very well support a critical function, and a designated provider can deliver a non-critical one."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-funktionen-02",
+   "topic": "Funktionsklassifizierung und Bewertung",
+   "topic_code": "funktionsklassifizierung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Anhang I, Vorlage B_06.01 Durchfuehrungsverordnung (EU) 2024/2956",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr Institut betreibt zwei zugelassene Tätigkeiten (A und B) und führt für beide dieselbe interne Funktion \"Vertrieb\" aus. Wie viele Funktionskennungen sind in Vorlage B_06.01 zu vergeben?",
+     "options": {
+      "a": "Eine, weil die Funktionsbezeichnung identisch ist",
+      "b": "Eine je Vertrag mit einem IKT-Drittdienstleister",
+      "c": "Die Funktionskennung wird von der zuständigen Behörde vergeben; eine eigene Vergabe entfällt",
+      "d": "Zwei. Die Funktionskennung ist je Kombination aus LEI des die IKT-Dienstleistung nutzenden Finanzunternehmens, zugelassener Tätigkeit und Funktionsbezeichnung eindeutig zu vergeben; dieselbe Funktionsbezeichnung für zwei zugelassene Tätigkeiten ergibt daher zwei Kennungen"
+     }
+    },
+    "en": {
+     "question": "Your institution operates two licensed activities (A and B) and performs the same internal function \"Sales\" for both. How many function identifiers must be assigned in template B_06.01?",
+     "options": {
+      "a": "One, because the function name is identical",
+      "b": "One per contract with an ICT third-party service provider",
+      "c": "The function identifier is assigned by the competent authority; the entity assigns none",
+      "d": "Two. The function identifier is assigned uniquely per combination of the LEI of the financial entity making use of the ICT service, the licenced activity and the function name; the same function name across two licenced activities therefore yields two identifiers"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Die Anleitung zu Vorlage B_06.01 in Anhang I der Durchführungsverordnung (EU) 2024/2956 bestimmt, dass jede Kombination aus \"LEI des die IKT-Dienstleistung(en) nutzenden Finanzunternehmens\", \"zugelassene Tätigkeit\" und \"Bezeichnung der Funktion\" eine eindeutige Funktionskennung erhält. Sie enthält dafür ein eigenes Beispiel: Ein Finanzunternehmen mit zwei zugelassenen Tätigkeiten A und B erhält für dieselbe Funktion X, etwa Vertrieb, zwei Funktionskennungen F1 und F2. Die Kennung wird als Großbuchstabe F gefolgt von einer natürlichen Zahl gebildet. Die zugelassene Tätigkeit ist keiner freien Beschreibung überlassen, sondern der Liste zugelassener Tätigkeiten in Anhang II der Durchführungsverordnung zu entnehmen, der je Unternehmensart auf die zugrunde liegenden Rechtsakte verweist; ist die Funktion keiner registrierten oder zugelassenen Tätigkeit zuzuordnen, ist \"Unterstützungsfunktionen\" anzugeben. Die Funktionsbezeichnung selbst folgt der internen Organisation des Finanzunternehmens. Die Funktionskennung ist einer der vier Schlüssel, über die das Register nach Erwägungsgrund 8 relational verknüpft wird; sie taucht in B_02.02.0050 wieder auf.",
+    "en": "The Annex I instructions for template B_06.01 of Implementing Regulation (EU) 2024/2956 provide that each combination of \"LEI of the financial entity making use of the ICT service(s)\", \"Licenced activity\" and \"Function name\" is assigned a unique function identifier. They give their own example: a financial entity operating under two licensed activities A and B receives two function identifiers, F1 and F2, for the same function X (e.g. Sales). The identifier is composed of the capital letter F followed by a natural number. The licenced activity is not free text but is taken from Annex II, which points to the underlying legal acts per type of entity; where the function is not linked to a registered or licenced activity, \"support functions\" shall be reported. The function name itself follows the financial entity's internal organisation. The function identifier is one of the four keys by which the register is relationally linked under recital 8; it reappears in B_02.02.0050."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-funktionen-03",
+   "topic": "Funktionsklassifizierung und Bewertung",
+   "topic_code": "funktionsklassifizierung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Anhang I, Vorlage B_06.01 Durchfuehrungsverordnung (EU) 2024/2956 in der Fassung der Berichtigung ABl. L, 2025/90725",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Für eine Funktion hat Ihr Haus die Kritikalitätsbewertung noch nicht durchgeführt. Wie ist Vorlage B_06.01 zu befüllen?",
+     "options": {
+      "a": "Die Spalte zur Bewertung der Kritikalität oder Bedeutung ist eine Pflichtspalte mit drei Optionen - Ja, Nein und \"Keine Bewertung durchgeführt\" - und die dritte Option ist zu wählen; im Feld zum Datum der letzten Bewertung ist in diesem Fall \"9999-12-31\" einzutragen",
+      "b": "Beide Felder bleiben leer, bis die Bewertung vorliegt",
+      "c": "Es ist ersatzweise \"Nein\" einzutragen, da die Funktion bis zum Beweis des Gegenteils als unkritisch gilt",
+      "d": "Die Zeile ist vollständig wegzulassen, bis die Bewertung vorliegt"
+     }
+    },
+    "en": {
+     "question": "Your firm has not yet performed the criticality assessment for a function. How is template B_06.01 completed?",
+     "options": {
+      "a": "The criticality-or-importance assessment column is mandatory with three options - Yes, No and \"Assessment not performed\" - and the third must be selected; the date-of-last-assessment field is then filled in with \"9999-12-31\"",
+      "b": "Both fields stay empty until the assessment exists",
+      "c": "\"No\" is entered instead, since the function counts as non-critical until proven otherwise",
+      "d": "The row is omitted entirely until the assessment exists"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Die Anleitung zu Vorlage B_06.01 in Anhang I der Durchführungsverordnung (EU) 2024/2956 sieht für die Spalte \"Bewertung der Kritikalität oder der Bedeutung\" eine erschöpfende Liste mit genau drei Optionen vor: 1. Ja, 2. Nein, 3. Keine Bewertung durchgeführt. Die Spalte ist obligatorisch. Für die Spalte \"Datum der letzten Bewertung der Kritikalität oder Bedeutung\" gilt: \"Wird keine Bewertung der Kritikalität oder Bedeutung der Funktion vorgenommen, ist an dieser Stelle 9999-12-31 anzugeben.\" Die Vorlage macht das Fehlen einer Bewertung also für die Aufsicht ausdrücklich sichtbar; ein Leerfeld oder ein ersatzweises \"Nein\" ist weder vorgesehen noch fachlich gleichwertig, weil \"Nein\" eine durchgeführte Bewertung mit negativem Ergebnis behauptet. Dieselbe Logik der expliziten Fehlanzeige verwenden die Spalten zur Vorgabe für Wiederherstellungszeit und Wiederherstellungspunkt: Die Angabe erfolgt in Stunden, bei weniger als einer Stunde ist \"1\" anzugeben, ist die Vorgabe nicht definiert, ist \"0\" anzugeben. Umsetzungshinweis: Die Spaltennummerierung dieser Vorlage wurde durch die Berichtigung im Amtsblatt L, 2025/90725 vom 19.9.2025 geändert; die Bewertungsspalte trägt seither den Code B_06.01.0050, die Datumsspalte B_06.01.0070. Datenmodelle, die auf der ursprünglichen Fassung beruhen, sind zu prüfen.",
+    "en": "The Annex I instructions for template B_06.01 of Implementing Regulation (EU) 2024/2956 give the \"Criticality or importance assessment\" column a closed list of exactly three options: 1. Yes, 2. No, 3. Assessment not performed. The column is mandatory. For the \"Date of the last assessment of criticality or importance\" column: \"Where the assessment of the function's criticality or importance is not performed, it shall be filled in with '9999-12-31'.\" The template therefore makes the absence of an assessment expressly visible to the supervisor; a blank field or a substitute \"No\" is neither foreseen nor equivalent, because \"No\" asserts a completed assessment with a negative result. The same explicit-nil logic governs the recovery time and recovery point objective columns: reported in number of hours, '1' where less than one hour, '0' where the objective is not defined. Implementation note: this template's column numbering was changed by the corrigendum in OJ L, 2025/90725 of 19.9.2025; the assessment column now carries the code B_06.01.0050 and the date column B_06.01.0070. Data models built on the original version should be checked."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-funktionen-04",
+   "topic": "Funktionsklassifizierung und Bewertung",
+   "topic_code": "funktionsklassifizierung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Anhang I, Vorlage B_07.01 Durchfuehrungsverordnung (EU) 2024/2956",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ihr Dienstleister hat Ihnen vor zwei Monaten seinen aktuellen ISAE-3402-Bericht übersandt. Ein eigenes Audit hat Ihr Haus nie durchgeführt. Was ist in der Spalte zum Datum des letzten Audits in Vorlage B_07.01 einzutragen?",
+     "options": {
+      "a": "Das Datum des Eingangs des ISAE-3402-Berichts",
+      "b": "\"9999-12-31\". Die Spalte erfasst ausschließlich Audits durch die interne Revision oder anderes qualifiziertes Personal des Finanzunternehmens, gemeinsame Audits mit anderen Kunden desselben Dienstleisters (Pooled Audits) oder durch einen vom beaufsichtigten Unternehmen beauftragten Dritten - ausdrücklich nicht den Eingangs- oder Stichtag von Zertifizierungen Dritter oder internen Prüfberichten des Dienstleisters",
+      "c": "Der Stichtag des Prüfungszeitraums des ISAE-3402-Berichts",
+      "d": "Das Datum der letzten jährlichen Überwachung der Vereinbarung durch das Finanzunternehmen"
+     }
+    },
+    "en": {
+     "question": "Your provider sent you its current ISAE 3402 report two months ago. Your firm has never performed its own audit. What goes in the date-of-last-audit column of template B_07.01?",
+     "options": {
+      "a": "The date the ISAE 3402 report was received",
+      "b": "\"9999-12-31\". The column covers only audits by the entity's internal audit department or other additional qualified personnel, joint audits with other clients of the same provider (pooled audits), or a third party appointed by the supervised entity - expressly not the reception or reference date of third-party certifications or the provider's internal audit reports",
+      "c": "The reference date of the ISAE 3402 report's examination period",
+      "d": "The date of the last annual monitoring of the arrangement by the financial entity"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Die Anleitung zur Spalte \"Datum des letzten Audits beim IKT-Drittdienstleister\" in Vorlage B_07.01 grenzt außergewöhnlich präzise ab. Erfasst werden Audits durch: a) die interne Revision oder anderes zusätzliches qualifiziertes Personal des Finanzunternehmens, b) ein gemeinsames Team mit anderen Kunden desselben IKT-Drittdienstleisters (Pooled Audit), c) einen vom beaufsichtigten Unternehmen beauftragten Dritten. Ausdrücklich nicht erfasst sind der Eingangs- oder Stichtag von Zertifizierungen Dritter oder internen Prüfberichten des IKT-Drittdienstleisters, das Datum der jährlichen Überwachung der Vereinbarung durch das Finanzunternehmen sowie das Datum der Überprüfung der vom Finanzunternehmen durchgeführten Risikobewertung. Wurde kein Audit durchgeführt, ist \"9999-12-31\" einzutragen. Genau diese Abgrenzung macht die Spalte zu einer der aufsichtlich aussagekräftigsten des gesamten Registers: Sie unterscheidet zwischen eigener Prüfungshandlung und entgegengenommener Anbieterzusicherung. Vorlage B_07.01 ist nur zu befüllen, wenn die IKT-Dienstleistung eine kritische oder wichtige Funktion oder wesentliche Bereiche davon unterstützt; sie enthält daneben unter anderem die Substituierbarkeit mit vier Optionen von \"nicht substituierbar\" bis \"leicht substituierbar\", das Vorhandensein eines Ausstiegsplans als Ja/Nein-Angabe und die Frage, ob alternative IKT-Drittdienstleister ermittelt wurden.",
+    "en": "The instructions for the \"Date of the last audit on the ICT third-party service provider\" column in template B_07.01 draw an unusually precise line. Covered are audits by: (a) the internal audit department or any other additional qualified personnel of the financial entity, (b) a joint team together with other clients of the same ICT third-party service provider (pooled audit), (c) a third party appointed by the supervised entity to audit the service provider. Expressly not covered are the reception or reference date of third-party certifications or internal audit reports of the ICT third-party service provider, the annual monitoring date of the arrangement by the financial entity, and the date of review of the risk assessment performed by the financial entity. Where no audit has been performed, '9999-12-31' shall be entered. This distinction is what makes the column one of the most supervisorily informative in the whole register: it separates the entity's own assurance activity from assurance received from the provider. Template B_07.01 is completed only where the ICT service supports a critical or important function or material parts thereof; it also carries, among others, substitutability with four options from \"not substitutable\" to \"easily substitutable\", the existence of an exit plan as a Yes/No field, and whether alternative ICT third-party service providers have been identified."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-datenqualitaet-01",
+   "topic": "Datenqualitaet, Identifikatoren und Konsolidierung",
+   "topic_code": "datenqualitaet",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "Art. 3 Abs. 3 und 4 Durchfuehrungsverordnung (EU) 2024/2956",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche Grundsätze der Datenqualität nennt die Durchführungsverordnung (EU) 2024/2956 für das Informationsregister?",
+     "options": {
+      "a": "Rechtmäßigkeit, Zweckbindung, Datenminimierung, Speicherbegrenzung",
+      "b": "Vertraulichkeit, Integrität, Verfügbarkeit",
+      "c": "Richtigkeit, Vollständigkeit, Kohärenz, Integrität, Einheitlichkeit und Gültigkeit - ergänzt um die Pflicht, die Angaben regelmäßig zu überprüfen und festgestellte Fehler oder Unstimmigkeiten unverzüglich zu korrigieren",
+      "d": "Nachvollziehbarkeit, Revisionssicherheit, Aufbewahrung für zehn Jahre"
+     }
+    },
+    "en": {
+     "question": "Which data-quality principles does Implementing Regulation (EU) 2024/2956 set for the register of information?",
+     "options": {
+      "a": "Lawfulness, purpose limitation, data minimisation, storage limitation",
+      "b": "Confidentiality, integrity, availability",
+      "c": "Accuracy, completeness, consistency, integrity, uniformity and validity - together with the duty to review the information regularly and promptly correct any errors or discrepancies detected",
+      "d": "Traceability, audit-proof retention, ten-year retention"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 3 Abs. 4 der Durchführungsverordnung (EU) 2024/2956 listet sechs Grundsätze der Datenqualität auf: Richtigkeit, Vollständigkeit, Kohärenz, Integrität, Einheitlichkeit und Gültigkeit. Art. 3 Abs. 3 UAbs. 1 ergänzt die Verhaltenspflicht: Die Finanzunternehmen stellen sicher, dass die Angaben korrekt und kohärent sind, überprüfen sie regelmäßig und korrigieren unverzüglich festgestellte Fehler oder Unstimmigkeiten. Die genannten Alternativen stammen aus anderen Regelwerken: Rechtmäßigkeit, Zweckbindung, Datenminimierung und Speicherbegrenzung sind Grundsätze der Datenschutz-Grundverordnung, das Schutzzieltripel Vertraulichkeit, Integrität und Verfügbarkeit stammt aus der Informationssicherheit. Warum das praktisch zählt: Die Datenqualitätsgrundsätze sind unmittelbar geltendes Verordnungsrecht und damit ein eigenständiger Prüfungsmaßstab - ein Register kann formal vollständig befüllt und dennoch nicht regelkonform sein, wenn Kennungen zwischen den Vorlagen nicht konsistent sind. Erwägungsgrund 12 nennt als Zweck ausdrücklich die volle Vergleichbarkeit mit anderen regulatorischen oder statistischen Meldungen.",
+    "en": "Art. 3(4) of Implementing Regulation (EU) 2024/2956 lists six data-quality principles: accuracy, completeness, consistency, integrity, uniformity and validity. Art. 3(3), first subparagraph, adds the conduct duty: financial entities shall ensure the information is accurate and consistent, shall review it regularly and shall promptly correct any errors or discrepancies detected. The alternatives offered come from other frameworks: lawfulness, purpose limitation, data minimisation and storage limitation are GDPR principles; the confidentiality-integrity-availability triad comes from information security. Why this matters in practice: the data-quality principles are directly applicable regulation and therefore an independent audit yardstick - a register can be formally complete and still non-compliant if identifiers are inconsistent across templates. Recital 12 names full comparability with other regulatory or statistical reporting as the express purpose."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-datenqualitaet-02",
+   "topic": "Datenqualitaet, Identifikatoren und Konsolidierung",
+   "topic_code": "datenqualitaet",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Art. 3 Abs. 3 UAbs. 2 und Art. 6 Durchfuehrungsverordnung (EU) 2024/2956; Erwaegungsgrund 2",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Eine Bankengruppe will ein einziges konzernweites Informationsregister aufbauen und die Einzelregister der Tochterunternehmen abschaffen. Was gilt nach der Durchführungsverordnung (EU) 2024/2956?",
+     "options": {
+      "a": "Ein einziges Register ist unzulässig; jede Ebene benötigt ein technisch getrenntes Register",
+      "b": "Zulässig; das Konzernregister ersetzt die Pflichten der einzelnen Finanzunternehmen vollständig",
+      "c": "Ein einziges Register über alle Ebenen ist möglich, es muss aber jedem Finanzunternehmen weiterhin erlauben, seiner eigenen Pflicht zur Führung und Aktualisierung auf Unternehmensebene und gegebenenfalls teilkonsolidierter Ebene einschließlich der Meldung an seine zuständige Behörde nachzukommen; das Register auf teilkonsolidierter und konsolidierter Ebene umfasst alle Finanzunternehmen und gruppeninternen IKT-Dienstleister des Teilkonzerns bzw. der Gruppe",
+      "d": "Der Umfang der einzubeziehenden Unternehmen wird von den Europäischen Aufsichtsbehörden festgelegt"
+     }
+    },
+    "en": {
+     "question": "A banking group wants to build a single group-wide register of information and abolish the subsidiaries' individual registers. What applies under Implementing Regulation (EU) 2024/2956?",
+     "options": {
+      "a": "A single register is not permitted; each level needs a technically separate register",
+      "b": "Permitted; the group register fully replaces the individual financial entities' duties",
+      "c": "A single register across all levels is possible, but it must still allow each financial entity to comply with its own obligation to maintain and update the register at entity and, where applicable, sub-consolidated level, including its reporting to its competent authority; the register at sub-consolidated and consolidated level shall include all financial entities and ICT intra-group service providers that are part of the sub-group and group",
+      "d": "The scope of entities to be included is determined by the European Supervisory Authorities"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Art. 6 Abs. 2 der Durchführungsverordnung (EU) 2024/2956 bestimmt: \"Ein auf teilkonsolidierter und konsolidierter Ebene geführtes und aktualisiertes Informationsregister umfasst alle Finanzunternehmen und gruppeninternen IKT-Dienstleister, die dem Teilkonzern bzw. der Gruppe angehören.\" Nach Art. 6 Abs. 1 berücksichtigen die Mutterunternehmen bei der Bestimmung der einzubeziehenden Unternehmen das einschlägige sektorale Unionsrecht - die Festlegung erfolgt also durch das Mutterunternehmen, nicht durch die ESA. Erwägungsgrund 2 erläutert die Option eines einzigen Registers ausdrücklich und formuliert die Bedingung: Das einzige Register sollte es jedem Finanzunternehmen ermöglichen, seiner Pflicht zur Führung und Aktualisierung des Informationsregisters auf Unternehmensebene und gegebenenfalls auf teilkonsolidierter Ebene nachzukommen, einschließlich der Meldung an seine zuständige Behörde. Die Konsolidierung ist damit eine Frage der Datenhaltung, nicht der Pflichtenträgerschaft. Art. 3 Abs. 3 UAbs. 2 flankiert dies: Die für die konsolidierten Ebenen zuständigen Finanzunternehmen stellen sicher, dass die Angaben auf Unternehmensebene korrekt sind und mit den Angaben auf teilkonsolidierter und konsolidierter Ebene übereinstimmen. Hinweis zur Quellenqualität: Die Zulässigkeit eines einzigen Registers ist im Erwägungsgrund formuliert; der verfügende Teil regelt in Art. 6 den Umfang, nicht ausdrücklich die Zusammenführung.",
+    "en": "Art. 6(2) of Implementing Regulation (EU) 2024/2956 provides: \"A register of information maintained and updated at sub-consolidated and consolidated levels shall include all financial entities and ICT intra-group service providers, which are part of the sub-group and group.\" Under Art. 6(1) parent undertakings shall take into account the relevant sectorial Union legislation when determining which entities to include - the scoping is therefore done by the parent, not by the ESAs. Recital 2 explains the single-register option expressly and states the condition: the single register should allow each financial entity to comply with its obligation to maintain and update the register at entity and sub-consolidated level, where applicable, including its reporting to its competent authority. Consolidation is thus a question of data storage, not of who bears the obligation. Art. 3(3), second subparagraph, flanks this: entities responsible for the consolidated levels shall ensure that entity-level information is correct and consistent with the information at sub-consolidated and consolidated level. Source note: the permissibility of a single register is expressed in a recital; the enacting terms regulate scope in Art. 6 rather than expressly regulating consolidation of the file."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-datenqualitaet-03",
+   "topic": "Datenqualitaet, Identifikatoren und Konsolidierung",
+   "topic_code": "datenqualitaet",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Anhang III Durchfuehrungsverordnung (EU) 2024/2956",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Wie wird die Art der IKT-Dienstleistung im Informationsregister angegeben?",
+     "options": {
+      "a": "Über eine erschöpfende Liste von 19 Kennungen S01 bis S19 in Anhang III, von der nur die Kennung zu melden ist; Cloud-Dienste sind dabei in S17 IaaS, S18 PaaS und S19 SaaS aufgeteilt, während S13 die Softwarelizenzierung ohne SaaS erfasst",
+      "b": "Als Freitextbeschreibung des Dienstes gemäß Vertrag",
+      "c": "Über den NACE-Code des Dienstleisters",
+      "d": "Über eine einzige Sammelkategorie \"Cloud\" für alle ausgelagerten Dienste"
+     }
+    },
+    "en": {
+     "question": "How is the type of ICT service reported in the register of information?",
+     "options": {
+      "a": "Via a closed list of 19 identifiers S01 to S19 in Annex III, of which only the identifier is reported; cloud services are split into S17 IaaS, S18 PaaS and S19 SaaS, while S13 covers software licensing excluding SaaS",
+      "b": "As a free-text description of the service per the contract",
+      "c": "Via the provider's NACE code",
+      "d": "Via a single catch-all \"cloud\" category for all outsourced services"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Anhang III der Durchführungsverordnung (EU) 2024/2956 trägt den Titel \"Art der IKT-Dienstleistungen\" und bestimmt einleitend: \"Wird in den Vorlagen des Informationsregisters auf eine Art von IKT-Dienstleistungen Bezug genommen, so ist nur die Kennung (von S01 bis S19) der betreffenden Art von IKT-Dienstleistungen anzugeben.\" Die Liste umfasst unter anderem S01 IKT-Projektmanagement mit ausdrücklichem Bezug auf PMO-Leistungen, S03 Helpdesk und First-Level-Support, S04 IKT-Sicherheitsmanagement, S07 IKT-, Einrichtungs- und Hostingdienste ohne Cloud, S13 Softwarelizenzierung ohne SaaS, S14 IKT-Betriebsmanagement einschließlich Managed Service Provider, S16 IKT-Risikomanagement im Sinne der Überprüfung der Einhaltung der IKT-Risikomanagementanforderungen nach Art. 6 Abs. 10 DORA sowie die drei Cloud-Kennungen S17 bis S19. Zu S10 Telekommunikationsanbieter merkt Anhang III ausdrücklich an, dass herkömmliche analoge Telefondienste nach Art. 3 Nr. 21 DORA ausgenommen sind. Die Art der IKT-Dienstleistungen ist zugleich einer der vier Verknüpfungsschlüssel des Registers und muss innerhalb einer Dienstleistungskette einheitlich sein.",
+    "en": "Annex III of Implementing Regulation (EU) 2024/2956 is headed \"Type of ICT services\" and opens: \"When referring to a type of ICT services in the templates of the register of information, only the identifier (from S01 to S19) of the relevant type of ICT services shall be reported.\" The list includes, among others, S01 ICT project management with an express reference to PMO services, S03 ICT help desk and first level support, S04 ICT security management services, S07 ICT, facilities and hosting services excluding cloud, S13 software licencing excluding SaaS, S14 ICT operation management including Managed Service Providers, S16 ICT risk management in the sense of verifying compliance with ICT risk management requirements under Art. 6(10) DORA, and the three cloud identifiers S17 to S19. For S10 telecom carrier, Annex III expressly notes that traditional analogue telephone services are excluded pursuant to Art. 3(21) DORA. The type of ICT services is also one of the register's four linking keys and must be consistent within a service supply chain."
+   },
+   "roles": [
+    "all"
+   ]
+  },
+  {
+   "id": "dora-register-datenqualitaet-04",
+   "topic": "Datenqualitaet, Identifikatoren und Konsolidierung",
+   "topic_code": "datenqualitaet",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": false,
+   "legal_basis": "Anhang I, Vorlagen B_02.01 und B_02.02 Durchfuehrungsverordnung (EU) 2024/2956",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Vertrag über einen IKT-Dienst, der keine kritische oder wichtige Funktion unterstützt, ist zu erfassen. Welche Angaben sind dafür gleichwohl verpflichtend?",
+     "options": {
+      "a": "Keine; für unkritische Verträge genügt der Name des Anbieters",
+      "b": "Die allgemeinen Angaben der Vorlage B_02.01 sind unabhängig von der Kritikalität obligatorisch, darunter die Kennnummer der vertraglichen Vereinbarung, die Art der vertraglichen Vereinbarung sowie die jährlichen Ausgaben oder geschätzten Kosten der Vereinbarung für das vergangene Jahr. Angaben wie Kündigungsfristen beider Seiten, das Recht des Vertrags, das Land der Leistungserbringung oder der Grad der Abhängigkeit sind demgegenüber nur obligatorisch, wenn die IKT-Dienstleistung eine kritische oder wichtige Funktion unterstützt",
+      "c": "Alle Spalten der Vorlage B_02.02 sind unabhängig von der Kritikalität vollständig zu befüllen",
+      "d": "Nur das Land des anwendbaren Rechts, weil dieses für jeden Vertrag zu melden ist"
+     }
+    },
+    "en": {
+     "question": "A contract for an ICT service that does not support a critical or important function must be recorded. Which information is nevertheless mandatory for it?",
+     "options": {
+      "a": "None; for non-critical contracts the provider's name is enough",
+      "b": "The general information in template B_02.01 is mandatory irrespective of criticality, including the contractual arrangement reference number, the type of contractual arrangement and the annual expense or estimated cost of the arrangement for the past year. Items such as notice periods for both sides, the governing law of the contract, the country of provision of the ICT services or the level of reliance are, by contrast, mandatory only where the ICT service supports a critical or important function",
+      "c": "All columns of template B_02.02 must be completed in full irrespective of criticality",
+      "d": "Only the country of the governing law, since that must be reported for every contract"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Die Anleitungen in Anhang I der Durchführungsverordnung (EU) 2024/2956 arbeiten mit drei Befüllungsstufen: obligatorisch, bedingt obligatorisch und optional. In Vorlage B_02.01 sind alle fünf Spalten unbedingt obligatorisch - Kennnummer der vertraglichen Vereinbarung, Art der vertraglichen Vereinbarung aus einer erschöpfenden Liste mit den drei Optionen eigenständige Vereinbarung, übergreifende Rahmenvereinbarung sowie nachfolgende oder verbundene Vereinbarung, Kennnummer der übergreifenden Vereinbarung, Währung und jährliche Ausgaben oder geschätzte Kosten der Vereinbarung für das vergangene Jahr. In Vorlage B_02.02 sind dagegen zahlreiche Spalten ausdrücklich \"obligatorisch, wenn die IKT-Dienstleistung eine kritische oder wichtige Funktion unterstützt\": die Kündigungsfristen für das Finanzunternehmen und für den IKT-Drittdienstleister, jeweils in Kalendertagen ab Zugang des Kündigungsverlangens, das Land des anwendbaren Rechts, das Land der Erbringung der IKT-Dienstleistungen und die Angabe zur Datenspeicherung. Die Sensibilität der gespeicherten Daten und der Grad der Abhängigkeit sind an die Kritikalität oder wesentliche Bereiche davon geknüpft. Praktische Folge für die Registerplanung: Die Kritikalitätsentscheidung steuert nicht, ob ein Vertrag erfasst wird, sondern wie viele Felder je Vertrag zu erheben sind - und damit den ganz überwiegenden Teil des Erhebungsaufwands.",
+    "en": "The Annex I instructions of Implementing Regulation (EU) 2024/2956 work with three fill-in levels: mandatory, conditionally mandatory and optional. In template B_02.01 all five columns are unconditionally mandatory - contractual arrangement reference number, type of contractual arrangement from a closed list of three options (standalone arrangement, overarching/master arrangement, subsequent or associated arrangement), overarching arrangement reference number, currency, and annual expense or estimated cost of the arrangement for the past year. In template B_02.02, by contrast, numerous columns are expressly \"mandatory if the ICT service is supporting a critical or important function\": the notice periods for the financial entity and for the ICT third-party service provider, each expressed as calendar days from the counterparty's receipt of the termination request, the country of the governing law, the country of provision of the ICT services, and the storage-of-data flag. Sensitiveness of the stored data and level of reliance are tied to criticality or material parts thereof. Practical consequence for register planning: the criticality decision does not govern whether a contract is recorded, but how many fields must be collected per contract - and thus the overwhelming share of the collection effort."
+   },
+   "roles": [
+    "all"
+   ]
+  }
+ ]
+}
