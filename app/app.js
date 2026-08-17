@@ -995,6 +995,20 @@ const TOPIC_LABELS = {
     troubleshooting: { en: "Troubleshooting", de: "Troubleshooting", ja: "トラブルシューティング", zh: "故障排查" },
     security_admin: { en: "Security & Administration", de: "Sicherheit & Administration", ja: "セキュリティと管理", zh: "安全与管理" },
   },
+  // 2026-08-17: aevo - the German Ausbildereignungspruefung (AEVO). The four
+  // topic codes are the four Handlungsfelder of § 2 AEVO, 1:1 - not an
+  // invented taxonomy. Labels are prefixed "HF n"/"Field n" because the
+  // Handlungsfelder are always referred to by number in the exam context, and
+  // the numbering is what a candidate matches against the Rahmenplan.
+  // The QUESTION CONTENT is a DE/EN pilot, but topic labels are UI strings, so
+  // per AGENTS.md constraint 5 they ship in all 12 locales from the start -
+  // same exception pattern fadp_ch used.
+  aevo: {
+    ausbildung_planen: { de: "HF 1: Voraussetzungen prüfen und planen", en: "Field 1: Prerequisites & planning", uk: "Поле 1: Передумови та планування", pl: "Obszar 1: Warunki i planowanie", ar: "المجال 1: الشروط والتخطيط", zh: "行动领域 1：前提条件与规划", hi: "क्षेत्र 1: पूर्वापेक्षाएँ और नियोजन", tr: "Alan 1: Ön koşullar ve planlama", fr: "Champ 1 : conditions et planification", ru: "Поле 1: предпосылки и планирование", es: "Campo 1: requisitos y planificación", it: "Campo 1: presupposti e pianificazione" },
+    ausbildung_vorbereiten: { de: "HF 2: Vorbereiten und Einstellung", en: "Field 2: Preparation & recruitment", uk: "Поле 2: Підготовка та набір", pl: "Obszar 2: Przygotowanie i nabór", ar: "المجال 2: التحضير والتعيين", zh: "行动领域 2：准备与录用", hi: "क्षेत्र 2: तैयारी और नियुक्ति", tr: "Alan 2: Hazırlık ve işe alım", fr: "Champ 2 : préparation et recrutement", ru: "Поле 2: подготовка и приём", es: "Campo 2: preparación y contratación", it: "Campo 2: preparazione e assunzione" },
+    ausbildung_durchfuehren: { de: "HF 3: Ausbildung durchführen", en: "Field 3: Delivering the training", uk: "Поле 3: Проведення навчання", pl: "Obszar 3: Prowadzenie szkolenia", ar: "المجال 3: تنفيذ التدريب", zh: "行动领域 3：实施培训", hi: "क्षेत्र 3: प्रशिक्षण संचालन", tr: "Alan 3: Eğitimin yürütülmesi", fr: "Champ 3 : conduite de la formation", ru: "Поле 3: проведение обучения", es: "Campo 3: impartir la formación", it: "Campo 3: attuazione della formazione" },
+    ausbildung_abschliessen: { de: "HF 4: Ausbildung abschließen", en: "Field 4: Concluding the training", uk: "Поле 4: Завершення навчання", pl: "Obszar 4: Zakończenie szkolenia", ar: "المجال 4: إتمام التدريب", zh: "行动领域 4：结束培训", hi: "क्षेत्र 4: प्रशिक्षण समापन", tr: "Alan 4: Eğitimin tamamlanması", fr: "Champ 4 : achèvement de la formation", ru: "Поле 4: завершение обучения", es: "Campo 4: conclusión de la formación", it: "Campo 4: conclusione della formazione" },
+  },
 };
 
 // Looks up a topic label for the CURRENT module/locale, falling back to EN
@@ -4197,78 +4211,78 @@ function renderCourseBodyHtml(text) {
   });
 }
 
-const COURSE_LESSON_KIND_KEY = { primer: "kindPrimer", checkpoint: "kindCheckpoint", scenario: "kindScenario" };
+const COURSE_LESSON_KIND_KEY = { primer: "kindPrimer", checkpoint: "kindCheckpoint", scenario: "kindScenario", guidance: "kindGuidance" };
 
 const COURSE_STRINGS = {
   de: {
     btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Noch kein Kursinhalt verfügbar.",
-    close: "← Zurück", kindPrimer: "Lektion", kindCheckpoint: "Checkpoint", kindScenario: "Szenario",
+    close: "← Zurück", kindPrimer: "Lektion", kindCheckpoint: "Checkpoint", kindScenario: "Szenario", kindGuidance: "Begleitwissen",
     minutes: (n) => `~${n} Min.`, back: "← Zurück", exit: "Beenden", next: "Weiter", done: "Fertig",
     practiceNow: "Jetzt Übungsfragen dazu starten", relatedTitle: "Auch relevant",
   },
   en: {
     btn: "📘 Course", ariaLabel: "Course", title: "Course", empty: "No course content available yet.",
-    close: "← Back", kindPrimer: "Lesson", kindCheckpoint: "Checkpoint", kindScenario: "Scenario",
+    close: "← Back", kindPrimer: "Lesson", kindCheckpoint: "Checkpoint", kindScenario: "Scenario", kindGuidance: "Background",
     minutes: (n) => `~${n} min`, back: "← Back", exit: "Exit", next: "Next", done: "Done",
     practiceNow: "Practice this lesson now", relatedTitle: "Also relevant",
   },
   uk: {
     btn: "📘 Курс", ariaLabel: "Курс", title: "Курс", empty: "Вміст курсу поки що недоступний.",
-    close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольна точка", kindScenario: "Сценарій",
+    close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольна точка", kindScenario: "Сценарій", kindGuidance: "Довідковий матеріал",
     minutes: (n) => `~${n} хв`, back: "← Назад", exit: "Вийти", next: "Далі", done: "Готово",
     practiceNow: "Практикувати цей урок зараз", relatedTitle: "Також актуально",
   },
   pl: {
     btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Treści kursu nie są jeszcze dostępne.",
-    close: "← Wstecz", kindPrimer: "Lekcja", kindCheckpoint: "Punkt kontrolny", kindScenario: "Scenariusz",
+    close: "← Wstecz", kindPrimer: "Lekcja", kindCheckpoint: "Punkt kontrolny", kindScenario: "Scenariusz", kindGuidance: "Materiał uzupełniający",
     minutes: (n) => `~${n} min`, back: "← Wstecz", exit: "Zakończ", next: "Dalej", done: "Gotowe",
     practiceNow: "Ćwicz tę lekcję teraz", relatedTitle: "Zobacz też",
   },
   ar: {
     btn: "📘 الدورة", ariaLabel: "الدورة", title: "الدورة", empty: "لا يوجد محتوى للدورة بعد.",
-    close: "← رجوع", kindPrimer: "درس", kindCheckpoint: "نقطة تحقق", kindScenario: "سيناريو",
+    close: "← رجوع", kindPrimer: "درس", kindCheckpoint: "نقطة تحقق", kindScenario: "سيناريو", kindGuidance: "معلومات مرجعية",
     minutes: (n) => `~${n} دقيقة`, back: "← رجوع", exit: "خروج", next: "التالي", done: "تم",
     practiceNow: "تدرّب على هذا الدرس الآن", relatedTitle: "ذو صلة أيضًا",
   },
   zh: {
     btn: "📘 课程", ariaLabel: "课程", title: "课程", empty: "课程内容暂未提供。",
-    close: "← 返回", kindPrimer: "课时", kindCheckpoint: "检查点", kindScenario: "情景案例",
+    close: "← 返回", kindPrimer: "课时", kindCheckpoint: "检查点", kindScenario: "情景案例", kindGuidance: "背景资料",
     minutes: (n) => `约 ${n} 分钟`, back: "← 返回", exit: "退出", next: "下一步", done: "完成",
     practiceNow: "现在练习这一课", relatedTitle: "另请参见",
   },
   hi: {
     btn: "📘 कोर्स", ariaLabel: "कोर्स", title: "कोर्स", empty: "अभी तक कोई कोर्स सामग्री उपलब्ध नहीं है।",
-    close: "← वापस", kindPrimer: "पाठ", kindCheckpoint: "चेकपॉइंट", kindScenario: "परिदृश्य",
+    close: "← वापस", kindPrimer: "पाठ", kindCheckpoint: "चेकपॉइंट", kindScenario: "परिदृश्य", kindGuidance: "पृष्ठभूमि सामग्री",
     minutes: (n) => `~${n} मिनट`, back: "← वापस", exit: "बाहर निकलें", next: "आगे", done: "पूर्ण",
     practiceNow: "अभी इस पाठ का अभ्यास करें", relatedTitle: "यह भी प्रासंगिक",
   },
   tr: {
     btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Henüz kurs içeriği yok.",
-    close: "← Geri", kindPrimer: "Ders", kindCheckpoint: "Kontrol noktası", kindScenario: "Senaryo",
+    close: "← Geri", kindPrimer: "Ders", kindCheckpoint: "Kontrol noktası", kindScenario: "Senaryo", kindGuidance: "Arka plan bilgisi",
     minutes: (n) => `~${n} dk`, back: "← Geri", exit: "Çık", next: "İleri", done: "Bitti",
     practiceNow: "Bu dersi şimdi pratik et", relatedTitle: "Ayrıca ilgili",
   },
   fr: {
     btn: "📘 Cours", ariaLabel: "Cours", title: "Cours", empty: "Aucun contenu de cours disponible pour le moment.",
-    close: "← Retour", kindPrimer: "Leçon", kindCheckpoint: "Point de contrôle", kindScenario: "Scénario",
+    close: "← Retour", kindPrimer: "Leçon", kindCheckpoint: "Point de contrôle", kindScenario: "Scénario", kindGuidance: "Informations complémentaires",
     minutes: (n) => `~${n} min`, back: "← Retour", exit: "Quitter", next: "Suivant", done: "Terminé",
     practiceNow: "Pratiquer cette leçon maintenant", relatedTitle: "Voir aussi",
   },
   ru: {
     btn: "📘 Курс", ariaLabel: "Курс", title: "Курс", empty: "Содержимое курса пока недоступно.",
-    close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольная точка", kindScenario: "Сценарий",
+    close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольная точка", kindScenario: "Сценарий", kindGuidance: "Справочный материал",
     minutes: (n) => `~${n} мин`, back: "← Назад", exit: "Выйти", next: "Далее", done: "Готово",
     practiceNow: "Практиковать этот урок сейчас", relatedTitle: "Также по теме",
   },
   es: {
     btn: "📘 Curso", ariaLabel: "Curso", title: "Curso", empty: "Aún no hay contenido del curso disponible.",
-    close: "← Atrás", kindPrimer: "Lección", kindCheckpoint: "Punto de control", kindScenario: "Escenario",
+    close: "← Atrás", kindPrimer: "Lección", kindCheckpoint: "Punto de control", kindScenario: "Escenario", kindGuidance: "Material de referencia",
     minutes: (n) => `~${n} min`, back: "← Atrás", exit: "Salir", next: "Siguiente", done: "Listo",
     practiceNow: "Practicar esta lección ahora", relatedTitle: "También relevante",
   },
   it: {
     btn: "📘 Corso", ariaLabel: "Corso", title: "Corso", empty: "Nessun contenuto del corso disponibile per ora.",
-    close: "← Indietro", kindPrimer: "Lezione", kindCheckpoint: "Checkpoint", kindScenario: "Scenario",
+    close: "← Indietro", kindPrimer: "Lezione", kindCheckpoint: "Checkpoint", kindScenario: "Scenario", kindGuidance: "Materiale di approfondimento",
     minutes: (n) => `~${n} min`, back: "← Indietro", exit: "Esci", next: "Avanti", done: "Fatto",
     practiceNow: "Esercitati ora su questa lezione", relatedTitle: "Vedi anche",
   },
@@ -4324,8 +4338,18 @@ async function renderCourseView() {
   // it) - it carries a real `select` block exactly like primer/checkpoint,
   // so excluding it was a silent content-loss bug, not an intentional
   // scope boundary the way "lab" (no select, external_hands_on) is.
+  //
+  // "guidance" added 2026-08-17 for the aevo module. Unlike primer/checkpoint/
+  // scenario it deliberately carries NO `select` block: it is written,
+  // read-only background on something the module's question bank honestly
+  // cannot test (the AEVO's PRACTICAL exam part under § 4 Abs. 3 AEVO - a
+  // 15-minute presentation or live delivery of a training situation plus a
+  // Fachgespraech). It IS listed and readable here, unlike "lab" - the reader
+  // needs no new UI at all, because renderCourseLesson() already falls back
+  // to the plain "done" button when a lesson has no select.topic_codes.
   const lessons = (course.lessons || []).filter(
-    (l) => l.lesson_kind === "primer" || l.lesson_kind === "checkpoint" || l.lesson_kind === "scenario"
+    (l) => l.lesson_kind === "primer" || l.lesson_kind === "checkpoint"
+      || l.lesson_kind === "scenario" || l.lesson_kind === "guidance"
   );
 
   if (lessons.length === 0) {
@@ -4561,6 +4585,13 @@ const EXAM_QUESTION_COUNT_BY_TYPE = {
   // see data/fuehrerschein_bus_pilot.json meta), 28-question draw, same
   // "~30-question personal-license scale" as this round's other modules.
   fuehrerschein_bus: 28,
+  // 2026-08-17: aevo (Ausbildereignungspruefung). 76-question pool. 40-question
+  // draw - deliberately HALF the real written part's 80 fallbezogene Aufgaben,
+  // paired with the half-length time limit below so the per-question budget
+  // (2.25 min) matches the real 80-in-180-minutes exam while keeping a practice
+  // run to one sitting. Not the 6-question compliance-check pattern: this is
+  // real exam prep for a real 3-hour exam (§ 4 Abs. 2 AEVO).
+  aevo: 40,
 };
 function examQuestionCount(examType) {
   return EXAM_QUESTION_COUNT_BY_TYPE[examType] || EXAM_QUESTION_COUNT_DEFAULT;
@@ -4587,6 +4618,11 @@ const EXAM_TIME_LIMIT_MS_BY_TYPE = {
   // fuehrerschein_bus: 30 minutes for a 28-question draw, matching the
   // other vehicle-license-style modules' time budget this round.
   fuehrerschein_bus: 30 * 60 * 1000,
+  // aevo: 90 minutes for a 40-question draw = exactly half the real written
+  // part's 180 minutes for 80 questions (§ 4 Abs. 2 AEVO: "soll drei Stunden
+  // dauern"), so the time pressure per question is realistic rather than
+  // arbitrary.
+  aevo: 90 * 60 * 1000,
 };
 function examTimeLimitMs(examType) {
   return EXAM_TIME_LIMIT_MS_BY_TYPE[examType] || EXAM_TIME_LIMIT_MS_DEFAULT;
@@ -4615,6 +4651,16 @@ const MAX_ERROR_POINTS_BY_TYPE = {
   amateurfunk_a: 6,
   // fuehrerschein_bus: ~1/3-of-draw ratio again, for a 28-question draw.
   fuehrerschein_bus: 8,
+  // aevo: deliberately NOT this app's usual ~1/3-of-draw ratio. The chambers'
+  // Merkblaetter state the AEVO written part is passed with at least 50 of 100
+  // points ("ausreichend") - a 50 % bar - so the tolerance models that instead:
+  // a 40-question draw at ~4.05 points/question averages ~162 points, and 80 is
+  // ~half of that. Modelling the real threshold matters more here than internal
+  // consistency, because the PO is using this for actual exam prep. The
+  // hardcoded "2+ wrong high_stakes = auto-fail" rule in computeExamResults()
+  // still applies on top, which is why data/gen_aevo.py deliberately calibrates
+  // high_stakes down to 12 of 76 (~16 %) - see HIGH_STAKES_IDS there.
+  aevo: 80,
 };
 function maxErrorPoints(examType) {
   return MAX_ERROR_POINTS_BY_TYPE[examType] != null ? MAX_ERROR_POINTS_BY_TYPE[examType] : MAX_ERROR_POINTS_DEFAULT;
@@ -4684,6 +4730,19 @@ const EXAM_TOPIC_DRAW = {
     betroffenenrechte: 6,
     pflichten: 6,
     international_sanktionen: 6,
+  },
+  // 2026-08-17: aevo. 76-question pool over the four Handlungsfelder of § 2
+  // AEVO (12/16/36/12). The draw sums to 40 and reproduces the current
+  // Rahmenplan's recommended weighting EXACTLY - 15/20/50/15 % (Empfehlung des
+  // BIBB-Hauptausschusses vom 20.6.2023, BAnz AT 14.07.2023 S2), i.e. 6/8/20/6
+  // - rather than an even split. Handlungsfeld 3 is half the exam by that
+  // weighting, and pinning the draw here is what makes every practice run
+  // reflect that instead of relying on drawExamQuestions()'s uniform top-up.
+  aevo: {
+    ausbildung_planen: 6,
+    ausbildung_vorbereiten: 8,
+    ausbildung_durchfuehren: 20,
+    ausbildung_abschliessen: 6,
   },
   // 2026-08-14: ELWIS catalog scale-up replaced both pools' topic_code sets
   // (see TOPIC_LABELS.sportboot_binnen/see comment above for why). Draw

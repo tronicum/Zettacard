@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "app": "Zettacard / aevo-kurs",
+    "version": "0.1",
+    "generated": "2026-08-17",
+    "generator": "authored:claude-opus/2026-08-17",
+    "canonical_locale": "de",
+    "locales": [
+      "de",
+      "en"
+    ],
+    "note": "Course sidecar for the aevo module. Lessons aevo-l2 and aevo-l3 use lesson_kind \"guidance\" with completion_rule \"read\" and NO select block: they are written, non-quizzed background on the PRACTICAL part of the Ausbildereignungsprüfung (§ 4 Abs. 3 AEVO - presentation or live delivery of a training situation plus a Fachgespräch), which cannot honestly be tested as multiple choice. See app.js's COURSE_LESSON_KIND_KEY / renderCourseView() lesson filter, where \"guidance\" was added alongside primer/checkpoint/scenario for exactly this content.",
+    "legal_review_status": "NOT legally reviewed. Statutory content drafted from AusbEignV 2009, BBiG, JArbSchG, BetrVG and AGG (gesetze-im-internet.de) and from the BIBB Hauptausschuss Rahmenplan AEVO of 20.6.2023 (BAnz AT 14.07.2023 S2). The practical-part assessment criteria in aevo-l3-s2 are CHAMBER PRACTICE taken from published IHK guidance, not regulation text, and differ in detail between chambers - the lesson says so explicitly. Nothing here is a substitute for the candidate's own chamber's information sheet.",
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+  },
+  "courses": [
+    {
+      "course_id": "aevo-all",
+      "module_ref": "aevo",
+      "scope_code": "ALL",
+      "status": "draft",
+      "estimated_minutes": 74,
+      "canonical_locale": "de",
+      "locales": [
+        "de",
+        "en"
+      ],
+      "units": [
+        {
+          "unit_id": "aevo-u1",
+          "order": 1,
+          "unit_kind": "module",
+          "title_key": "aevo-u1"
+        },
+        {
+          "unit_id": "aevo-u2",
+          "order": 2,
+          "unit_kind": "module",
+          "title_key": "aevo-u2"
+        }
+      ],
+      "lessons": [
+        {
+          "lesson_id": "aevo-l0",
+          "unit_ref": "aevo-u1",
+          "order": 0,
+          "lesson_kind": "primer",
+          "estimated_minutes": 14,
+          "completion_rule": "quiz_pass:0.7",
+          "select": {
+            "topic_codes": [
+              "ausbildung_planen"
+            ],
+            "count": 8
+          },
+          "sections": [
+            {
+              "section_id": "aevo-l0-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "aevo-l0-s1",
+              "legal_basis": "§§ 1-3 AEVO; § 30 Abs. 5 BBiG; Rahmenplan AEVO (BAnz AT 14.07.2023 S2)",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-opus/2026-08-17",
+              "title_key": "aevo-l0-s1"
+            },
+            {
+              "section_id": "aevo-l0-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "aevo-l0-s2",
+              "legal_basis": "§ 4 AEVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-opus/2026-08-17",
+              "title_key": "aevo-l0-s2"
+            }
+          ],
+          "title_key": "aevo-l0"
+        },
+        {
+          "lesson_id": "aevo-l1",
+          "unit_ref": "aevo-u1",
+          "order": 1,
+          "lesson_kind": "primer",
+          "estimated_minutes": 16,
+          "completion_rule": "quiz_pass:0.7",
+          "select": {
+            "topic_codes": [
+              "ausbildung_vorbereiten"
+            ],
+            "count": 8
+          },
+          "sections": [
+            {
+              "section_id": "aevo-l1-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "aevo-l1-s1",
+              "legal_basis": "BBiG §§ 8, 10-30, 36-48",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-opus/2026-08-17",
+              "title_key": "aevo-l1-s1"
+            },
+            {
+              "section_id": "aevo-l1-s2",
+              "order": 1,
+              "section_kind": "callout",
+              "body_key": "aevo-l1-s2",
+              "legal_basis": "JArbSchG §§ 8-11, 19, 21a, 23, 32, 33; BetrVG §§ 96-98; AGG §§ 1, 6, 7, 11, 15",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-opus/2026-08-17",
+              "title_key": "aevo-l1-s2"
+            }
+          ],
+          "title_key": "aevo-l1"
+        },
+        {
+          "lesson_id": "aevo-l2",
+          "unit_ref": "aevo-u2",
+          "order": 2,
+          "lesson_kind": "guidance",
+          "estimated_minutes": 24,
+          "completion_rule": "read",
+          "guidance_note": {
+            "de": "Begleitwissen zum praktischen Prüfungsteil. Dieser Abschnitt wird in diesem Modul NICHT durch Fragen abgeprüft - der praktische Teil ist eine Präsentations- bzw. Handlungsleistung und lässt sich nicht als Multiple-Choice-Aufgabe abbilden. Er ergänzt, ersetzt aber nicht das Merkblatt und den Orientierungsbogen Ihrer eigenen Kammer.",
+            "en": "Background guidance on the practical part of the examination. This section is NOT quizzed in this module - the practical part is a presentation or performance task and cannot be represented as a multiple-choice question. It supplements, but does not replace, your own chamber's information sheet and orientation form."
+          },
+          "sections": [
+            {
+              "section_id": "aevo-l2-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "aevo-l2-s1",
+              "legal_basis": "§ 4 Abs. 3 und 4 AEVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-opus/2026-08-17",
+              "title_key": "aevo-l2-s1"
+            },
+            {
+              "section_id": "aevo-l2-s2",
+              "order": 1,
+              "section_kind": "worked_example",
+              "body_key": "aevo-l2-s2",
+              "legal_basis": "§ 2 AEVO; § 4 Abs. 3 AEVO; Rahmenplan AEVO HF 3.3, 3.4 (BAnz AT 14.07.2023 S2)",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-opus/2026-08-17",
+              "title_key": "aevo-l2-s2"
+            },
+            {
+              "section_id": "aevo-l2-s3",
+              "order": 2,
+              "section_kind": "worked_example",
+              "body_key": "aevo-l2-s3",
+              "legal_basis": "§ 4 Abs. 3 AEVO; Rahmenplan AEVO HF 3.1, 3.4, 3.8 (BAnz AT 14.07.2023 S2)",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-opus/2026-08-17",
+              "title_key": "aevo-l2-s3"
+            }
+          ],
+          "title_key": "aevo-l2"
+        },
+        {
+          "lesson_id": "aevo-l3",
+          "unit_ref": "aevo-u2",
+          "order": 3,
+          "lesson_kind": "guidance",
+          "estimated_minutes": 20,
+          "completion_rule": "read",
+          "guidance_note": {
+            "de": "Begleitwissen zum praktischen Prüfungsteil. Dieser Abschnitt wird in diesem Modul NICHT durch Fragen abgeprüft. Die Bewertungskriterien stammen aus veröffentlichten Handreichungen von Industrie- und Handelskammern und sind Kammerpraxis, nicht Verordnungstext - sie unterscheiden sich im Detail zwischen den Kammern.",
+            "en": "Background guidance on the practical part of the examination. This section is NOT quizzed in this module. The assessment criteria come from published guidance issued by chambers of industry and commerce and are chamber practice, not regulation text - they differ in detail between chambers."
+          },
+          "sections": [
+            {
+              "section_id": "aevo-l3-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "body_key": "aevo-l3-s1",
+              "legal_basis": "§ 4 Abs. 3 AEVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-opus/2026-08-17",
+              "title_key": "aevo-l3-s1"
+            },
+            {
+              "section_id": "aevo-l3-s2",
+              "order": 1,
+              "section_kind": "decision_flow",
+              "body_key": "aevo-l3-s2",
+              "legal_basis": "§ 2 AEVO; § 4 Abs. 3 AEVO",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-opus/2026-08-17",
+              "title_key": "aevo-l3-s2"
+            },
+            {
+              "section_id": "aevo-l3-s3",
+              "order": 2,
+              "section_kind": "callout",
+              "body_key": "aevo-l3-s3",
+              "legal_basis": "§ 4 Abs. 1 und 3 AEVO; § 5 AEVO; § 30 BBiG",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "draft",
+              "generator": "authored:claude-opus/2026-08-17",
+              "title_key": "aevo-l3-s3"
+            }
+          ],
+          "title_key": "aevo-l3"
+        }
+      ],
+      "title_key": "aevo-all",
+      "description_key": "aevo-all"
+    }
+  ]
+}

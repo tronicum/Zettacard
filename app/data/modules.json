@@ -1183,6 +1183,46 @@
       },
       "feature_flag": "cka",
       "hasCourse": true
+    },
+    {
+      "exam_type": "aevo",
+      "label": {
+        "de": "Ausbildereignung (AEVO)",
+        "en": "Trainer aptitude (AEVO)",
+        "uk": "Кваліфікація інструктора (AEVO)",
+        "pl": "Uprawnienia instruktora (AEVO)",
+        "ar": "تأهيل المدرب المهني (AEVO)",
+        "zh": "培训师资格 (AEVO)",
+        "hi": "प्रशिक्षक अर्हता (AEVO)",
+        "tr": "Eğitici yeterliliği (AEVO)",
+        "fr": "Aptitude de formateur (AEVO)",
+        "ru": "Квалификация инструктора (AEVO)",
+        "es": "Aptitud de formador (AEVO)",
+        "it": "Idoneità di formatore (AEVO)"
+      },
+      "_comment": "2026-08-17: the German Ausbildereignungspruefung under the Ausbilder-Eignungsverordnung (AusbEignV 2009 vom 21.1.2009, BGBl. I S. 88), grounded in BBiG §§ 27-30. Same regulation and same BIBB Rahmenplan whether the administering chamber is an IHK or an HWK - only the certifying chamber differs. This module is PRACTICE-EXAM framed, not a light concept check: unlike CKA (whose real exam is 100 % hands-on, making a concept check the honest choice there), the AEVO's written part genuinely is a 180-minute closed-form multiple-choice exam with 80 fallbezogene Aufgaben across all four Handlungsfelder (§ 4 Abs. 2 AEVO plus the chambers' Merkblaetter). 76-question DE/EN pilot; four topics mapping 1:1 onto the four Handlungsfelder of § 2 AEVO, weighted per the current Rahmenplan (Empfehlung des BIBB-Hauptausschusses vom 20.6.2023, BAnz AT 14.07.2023 S2) at 15/20/50/15 % rather than evenly - see data/gen_aevo.py's META.topic_weighting_note for the caveat that this is a Lehrgangsdauer recommendation, not a published exam question-count distribution. hasCourse: the course layer carries the PRACTICAL exam part (§ 4 Abs. 3 AEVO - presentation or live delivery of a training situation plus a Fachgespraech) as written, NON-QUIZZED guidance, because a performance task cannot honestly be tested as MCQ. Ships free, like every module in this app today - pricing remains intentionally deferred. AI-drafted, NOT legally reviewed, and explicitly unofficial: there is no official public AEVO question catalogue, so this pool cannot claim to cover the real exam - see the pilot's legal_review_status.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Schriftlicher Prüfungsteil",
+            "en": "Written exam part",
+            "uk": "Письмова частина екзамену",
+            "pl": "Część pisemna egzaminu",
+            "ar": "الجزء الكتابي من الامتحان",
+            "zh": "笔试部分",
+            "hi": "लिखित परीक्षा भाग",
+            "tr": "Yazılı sınav bölümü",
+            "fr": "Épreuve écrite",
+            "ru": "Письменная часть экзамена",
+            "es": "Parte escrita del examen",
+            "it": "Parte scritta dell'esame"
+          }
+        }
+      ],
+      "legal_review_status": "NOT legally reviewed",
+      "hasCourse": true
     }
   ]
 }

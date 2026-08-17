@@ -54,7 +54,7 @@ BUILT_MODULES = (
     "motorrad", "lkw", "fuehrerschein_bus",
     "datenschutz", "fadp_ch", "arbeitssicherheit", "ki_act", "it_sicherheit",
     "hinweisgeberschutz", "kyc_aml", "kartellrecht",
-    "dora", "nis2", "sportboot_binnen", "sportboot_see", "cka",
+    "dora", "nis2", "sportboot_binnen", "sportboot_see", "cka", "aevo",
 )
 
 
@@ -415,6 +415,30 @@ def main():
     print(f"cka: {cka_count} questions, locale gaps: {cka_missing}")
     if split_course("cka", ["en", "de", "ja", "zh"]):
         print("cka: course layer built (en, de, ja, zh)")
+
+    # 2026-08-17: aevo - the German IHK/HWK Ausbildereignungspruefung under the
+    # Ausbilder-Eignungsverordnung (AusbEignV 2009). 76-question DE/EN pilot,
+    # source authored by data/gen_aevo.py, which carries the full source list
+    # (AEVO + BBiG + JArbSchG + BetrVG + AGG statutory text, plus the BIBB
+    # Hauptausschuss Rahmenplan AEVO of 20.6.2023, BAnz AT 14.07.2023 S2).
+    #
+    # Unlike cka - deliberately a light concept check because the real CKA exam
+    # is 100 % hands-on - this one is framed as real practice-exam prep: AEVO's
+    # written part genuinely IS a 180-minute closed-form MCQ exam (§ 4 Abs. 2
+    # AEVO), so the framing is honest here. Four topics mapping 1:1 onto the
+    # four Handlungsfelder of § 2 AEVO, weighted per the 2023 Rahmenplan's
+    # 15/20/50/15 % recommendation rather than evenly.
+    #
+    # The course layer carries the part the question bank deliberately does NOT
+    # cover: the PRACTICAL exam part (§ 4 Abs. 3 AEVO), as written, non-quizzed
+    # guidance (lesson_kind "guidance", completion_rule "read", no select
+    # block) - a presentation/live-delivery-plus-Fachgespraech performance
+    # cannot honestly be tested as multiple choice.
+    aevo_count, aevo_missing = split_module(
+        os.path.join(HERE, "aevo_pilot.json"), "aevo", ["de", "en"])
+    print(f"aevo: {aevo_count} questions, locale gaps: {aevo_missing}")
+    if split_course("aevo", ["de", "en"]):
+        print("aevo: course layer built (de, en)")
 
     # Sanity: every core question must resolve in at least its canonical
     # locale, and every core question's scope field must be present -

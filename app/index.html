@@ -522,6 +522,10 @@
         angelschein_bayern: {de:"Angelschein Bayern",en:"Fishing licence Bavaria",uk:"Посвідчення рибалки (Баварія)",pl:"Karta wędkarska (Bawaria)",ar:"رخصة الصيد (بافاريا)",zh:"钓鱼证（巴伐利亚州）",hi:"मछली पकड़ने का लाइसेंस (बवेरिया)",tr:"Balıkçılık belgesi (Bavyera)",fr:"Permis de pêche (Bavière)",ru:"Удостоверение рыболова (Бавария)",es:"Licencia de pesca (Baviera)",it:"Licenza di pesca (Baviera)"},
         angelschein_nrw: {de:"Angelschein Nordrhein-Westfalen",en:"Fishing licence North Rhine-Westphalia",uk:"Посвідчення рибалки (Північний Рейн-Вестфалія)",pl:"Karta wędkarska (Nadrenia Północna-Westfalia)",ar:"رخصة الصيد (شمال الراين وستفاليا)",zh:"钓鱼证（北莱茵-威斯特法伦州）",hi:"मछली पकड़ने का लाइसेंस (नॉर्थ राइन-वेस्टफेलिया)",tr:"Balıkçılık belgesi (Kuzey Ren-Vestfalya)",fr:"Permis de pêche (Rhénanie-du-Nord-Westphalie)",ru:"Удостоверение рыболова (Северный Рейн-Вестфалия)",es:"Licencia de pesca (Renania del Norte-Westfalia)",it:"Licenza di pesca (Renania Settentrionale-Vestfalia)"},
         amateurfunk_a: {de:"Amateurfunk Klasse A",en:"Amateur radio Class A",uk:"Аматорське радіо класу A",pl:"Radioamatorstwo klasy A",ar:"الراديو الهاوي فئة A",zh:"业余无线电 A 级",hi:"शौकिया रेडियो क्लास A",tr:"Amatör telsiz A sınıfı",fr:"Radioamateur classe A",ru:"Радиолюбительство класса A",es:"Radioaficionado clase A",it:"Radioamatore classe A"},
+        // 2026-08-17: aevo - the German Ausbildereignungspruefung under the
+        // Ausbilder-Eignungsverordnung. Label copied verbatim from
+        // data/modules_manifest.json, same rule as every entry here.
+        aevo: {de:"Ausbildereignung (AEVO)",en:"Trainer aptitude (AEVO)",uk:"Кваліфікація інструктора (AEVO)",pl:"Uprawnienia instruktora (AEVO)",ar:"تأهيل المدرب المهني (AEVO)",zh:"培训师资格 (AEVO)",hi:"प्रशिक्षक अर्हता (AEVO)",tr:"Eğitici yeterliliği (AEVO)",fr:"Aptitude de formateur (AEVO)",ru:"Квалификация инструктора (AEVO)",es:"Aptitud de formador (AEVO)",it:"Idoneità di formatore (AEVO)"},
         // 2026-08 content expansion round 3: fuehrerschein_bus (D1/D1E/D/DE
         // bus & passenger-transport license), label copied verbatim from
         // data/modules_manifest.json, same rule as every module above.
@@ -727,7 +731,15 @@
           // 2026-08 content expansion round 3: same theory-exam subtitle
           // pattern as fuehrerschein/motorrad/lkw above - another driving
           // licence exam-prep module.
-          fuehrerschein_bus: s.theoryExam
+          fuehrerschein_bus: s.theoryExam,
+          // 2026-08-17: aevo. Same theory-exam subtitle as the other exam-prep
+          // modules - the AEVO's written part genuinely is a 180-minute
+          // multiple-choice theory exam (§ 4 Abs. 2 AEVO), so this is accurate
+          // rather than borrowed. It is NOT workplace-compliance training: the
+          // candidate sits it personally at an IHK or HWK, so it does not get
+          // s.compliance and is not in COMPLIANCE_MODULES in app.js (no role
+          // filter, no roles field on its questions).
+          aevo: s.theoryExam
         };
         // DN-57/DN-58: groupComplianceDisclaimer names the employer as the
         // one who decides whether this content satisfies their statutory
@@ -764,7 +776,15 @@
           // enterprise content - "Specialty licences" group. Round 2 adds
           // amateurfunk_a (the Klasse A follow-up to amateurfunk_e) here
           // too, same personal-license-exam rationale.
-          { heading: es_.groupSpecialty, mods: ["sportboot_binnen","sportboot_see","waffensachkunde","amateurfunk_e","amateurfunk_a"] }
+          // Round 4 adds aevo here. It is the least literal fit of the four
+          // groups - the AEVO is a professional qualification (an IHK/HWK
+          // Fortbildungspruefung), not a licence - but it is the closest by
+          // substance: an exam an individual sits personally to obtain a
+          // certificate, not a driving licence, not employer-mandated
+          // workplace compliance, and not B2B enterprise content. Flagged
+          // rather than silently filed: if this group grows more of these, a
+          // separate "Berufliche Qualifikationen" heading is the right fix.
+          { heading: es_.groupSpecialty, mods: ["sportboot_binnen","sportboot_see","waffensachkunde","amateurfunk_e","amateurfunk_a","aevo"] }
         ];
         var groupsEl = document.getElementById("module-groups");
         groupsEl.innerHTML = "";

@@ -1,0 +1,1375 @@
+{
+  "meta": {
+    "app": "Zettacard / aevo-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-17",
+    "generator": "authored:claude-opus/2026-08-17 (data/gen_aevo.py)",
+    "description": "Original, situation-based practice questions for the WRITTEN part of the German Ausbildereignungsprüfung under the Ausbilder-Eignungsverordnung (AEVO). Four topics mapping 1:1 onto the four Handlungsfelder of § 2 AEVO: (1) Ausbildungsvoraussetzungen prüfen und Ausbildung planen, (2) Ausbildung vorbereiten und bei der Einstellung von Auszubildenden mitwirken, (3) Ausbildung durchführen, (4) Ausbildung abschließen. Questions are deliberately written in the scenario style the real written part uses (§ 4 Abs. 2 AEVO: 'fallbezogene Aufgaben aus allen Handlungsfeldern'), i.e. a described workplace situation followed by the question which legal basis, planning decision or pedagogical measure fits - not statute recitation. Content is independently phrased and grounded in the AEVO and BBiG statutory text plus the BIBB Hauptausschuss Rahmenplan of 20 June 2023 (BAnz AT 14.07.2023 S2), NOT sourced or paraphrased from any commercial AEVO exam-prep vendor's question catalogue, explanations or wording. IMPORTANT - what this module is NOT: it is unofficial practice material. There is no official public AEVO question catalogue, so this pool cannot and does not claim to reproduce, predict or fully cover the real exam's 80 tasks. Passing every question here is not a guarantee of passing the real examination, and the practical part (§ 4 Abs. 3 AEVO) is not testable by multiple choice at all - it is covered as written, non-quizzed guidance in this module's course layer instead.",
+    "class": "ALL",
+    "canonical_locale": "de",
+    "locale_note": "DE is canonical and EN is a full parallel translation. The remaining ten locales this app carries (uk, pl, ar, zh, hi, tr, fr, ru, es, it) are tracked as a follow-up for the question bank itself, same launch pattern as fadp_ch/kyc_aml/kartellrecht/dora/nis2 - this is a German-only professional qualification with no realistic non-DE/EN exam demand. UI strings (module label, topic labels, module card) DO ship in all 12 locales per AGENTS.md constraint 5.",
+    "orthography_note": "Deutsches Standarddeutsch mit echten Unicode-Umlauten und Eszett (ä/ö/ü/ß) - keine ASCII-Ersatzschreibung. Anders als beim Schweizer Modul fadp_ch, das bewusst 'ss' verwendet, weil der Schweizer Gesetzestext das tut.",
+    "exam_format_note": "Der echte schriftliche Prüfungsteil dauert nach § 4 Abs. 2 AEVO drei Stunden (180 Minuten) und umfasst nach den Merkblättern der Kammern 80 fallbezogene, gebundene (programmierte) Aufgaben aus allen vier Handlungsfeldern; bei Aufgaben mit mehreren richtigen Lösungen wird deren Anzahl angegeben und es gilt das Alles-oder-Nichts-Prinzip. Der praktische Teil besteht nach § 4 Abs. 3 AEVO aus der Präsentation ODER der praktischen Durchführung einer berufstypischen Ausbildungssituation (höchstens 15 Minuten) und einem Fachgespräch, insgesamt höchstens 30 Minuten. Nach § 4 Abs. 1 AEVO ist die Prüfung nur bestanden, wenn JEDER Prüfungsteil mindestens mit 'ausreichend' bewertet wurde - es wird nicht zwischen den Teilen gemittelt. Eine nicht bestandene Prüfung kann innerhalb eines Prüfungsverfahrens zweimal wiederholt werden, ein bestandener Prüfungsteil kann angerechnet werden. Sonderfall § 4 Abs. 4 AEVO: in den Bereichen Landwirtschaft und Hauswirtschaft besteht der praktische Teil aus der Durchführung einer Ausbildungssituation und einem Fachgespräch mit höchstens 60 Minuten.",
+    "topic_weighting_note": "The four topics are NOT weighted evenly. The only officially published weighting for the four Handlungsfelder is the BIBB Hauptausschuss Rahmenplan's recommended split of course hours (115 Unterrichtsstunden total): HF1 15 %, HF2 20 %, HF3 50 %, HF4 15 % (Empfehlung vom 20.6.2023, BAnz AT 14.07.2023 S2). The 2009 predecessor Rahmenplan used 20/20/45/15 %, which many secondary sources still reproduce. This pool follows the current 2023 numbers: 12/16/36/12 of 76 questions = 15.8/21.1/47.4/15.8 %, with a floor of 12 per topic so every Handlungsfeld stays usable for topic-filtered practice. CAVEAT, stated plainly: the Rahmenplan weighting is a LEHRGANGSDAUER recommendation, not a published question-count distribution for the written exam. § 4 Abs. 2 AEVO itself says only 'fallbezogene Aufgaben aus allen Handlungsfeldern' without any weighting, and no chamber publishes a per-Handlungsfeld question count. Treating the course-hour split as a proxy for exam weighting is this module's own reasoned choice, not a documented fact about the real exam.",
+    "point_system": "3-5 points per question, matching this app's other modules. 5 points marks the questions where getting it wrong in real life means a legal violation (Probezeitdauer, Kündigungsform und -frist, nichtige Vertragsklauseln, Erstuntersuchung Minderjähriger, kostenlose Ausbildungsmittel, JArbSchG-Grenzen, Zulassungsvoraussetzungen).",
+    "pass_rule_note": "40-question draw out of the 76-question pool, 90-minute limit - deliberately half the real written part's 80 questions / 180 minutes, so the per-question time budget (2.25 min) matches the real exam while keeping a practice run to a sitting that fits in one evening. Error-point tolerance is set to model the real threshold rather than this app's usual ~1/3-of-draw convention: the chambers' Merkblätter state the written part is passed with at least 50 of 100 points ('ausreichend'), i.e. a 50 % bar, so the tolerance is ~50 % of a typical draw's total points. Provisional pending a real exam-design pass.",
+    "legal_review_status": "NOT legally reviewed - AI-drafted from primary sources (AusbEignV 2009, BBiG, JArbSchG, BetrVG, AGG via gesetze-im-internet.de; BIBB Hauptausschuss Rahmenplan AEVO of 20.6.2023, BAnz AT 14.07.2023 S2). Verify every citation and its currency before production or commercial use. No lawyer and no AEVO Prüfungsausschuss member has reviewed this content. This is unofficial practice material and NOT a guarantee that the real examination's subject matter is fully covered.",
+    "sources": {
+      "tier_a_binding": [
+        "Ausbilder-Eignungsverordnung (AusbEignV 2009) vom 21.1.2009, BGBl. I S. 88, Textnachweis ab 1.8.2009 - https://www.gesetze-im-internet.de/ausbeignv_2009/BJNR008800009.html",
+        "Berufsbildungsgesetz (BBiG) vom 23.3.2005, konsolidierte Fassung - https://www.gesetze-im-internet.de/bbig_2005/BJNR093110005.html",
+        "Jugendarbeitsschutzgesetz (JArbSchG) - https://www.gesetze-im-internet.de/jarbschg/BJNR009650976.html",
+        "Betriebsverfassungsgesetz (BetrVG), §§ 96-98 - https://www.gesetze-im-internet.de/betrvg/BJNR000130972.html",
+        "Allgemeines Gleichbehandlungsgesetz (AGG) - https://www.gesetze-im-internet.de/agg/BJNR189710006.html"
+      ],
+      "tier_a_minus_official_curriculum": [
+        "Empfehlung des Hauptausschusses des Bundesinstituts für Berufsbildung vom 20. Juni 2023 zum Rahmenplan der Ausbilder-Eignungsverordnung, BAnz AT 14.07.2023 S2 (Verzeichnis ausgewählter Beschlüsse Nr. 135) - https://www.bibb.de/dokumente/pdf/HA135.pdf"
+      ],
+      "tier_b_chamber_practice": [
+        "IHK Merkblatt 'Informationen zur schriftlichen und praktischen Ausbilder-Eignungsprüfung', Stand August 2025 - https://www.ihk.de/blueprint/servlet/resource/blob/6712244/92da6e7d94a5712fc2a2205a4919efbb/merkblatt-aevo-schriftliche-praktische-pruefung-data.pdf",
+        "IHK Aschaffenburg, 'Wichtige Informationen zur Ausbilder-Eignungsprüfung nach AEVO' - https://www.ihk.de/blueprint/servlet/resource/blob/2515188/a0d7eb90538971c6c96feed322a0b63e/ausbilder-eignungspruefung-aevo-merkblatt-aevo-pruefung-data.pdf"
+      ],
+      "superseded_do_not_cite": [
+        "Empfehlung des Hauptausschusses des BIBB vom 25. Juni 2009 zum Rahmenplan für die Ausbildung der Ausbilder und Ausbilderinnen (weighting 20/20/45/15 %) - superseded by the 20.6.2023 version above; recorded here only so a later round does not silently re-adopt the older weighting from a secondary source."
+      ],
+      "note": "No commercial AEVO exam-prep provider's question wording, explanations, structure or question catalogue was read, copied or paraphrased into this module (AGENTS.md constraint 1). There is no official public AEVO question catalogue at all, so every question is original synthesis from the statutes above plus the Rahmenplan's competence descriptions and the adult-education content the Rahmenplan itself names as curriculum."
+    },
+    "related_modules": [
+      {
+        "exam_type": "arbeitssicherheit",
+        "relation": "see_also",
+        "de": "Handlungsfeld 3 verlangt die Einführung der Auszubildenden in die Arbeitssicherheit und den Schutz vor Gefährdungen (§ 14 Abs. 1 Nr. 5 BBiG). Das Modul 'Arbeitssicherheit' behandelt diese Pflichten aus Sicht des ArbSchG ausführlich.",
+        "en": "Handlungsfeld 3 requires inducting apprentices into occupational safety and protecting them from hazards (§ 14(1) no. 5 BBiG). The 'Arbeitssicherheit' module covers those duties from the ArbSchG perspective in detail."
+      }
+    ],
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial training purposes, with credit and under the same license. Commercial reuse needs a separate arrangement.",
+    "renewal_months": null,
+    "renewal_basis": "not_applicable",
+    "renewal_note": "Die Ausbildereignung nach AEVO ist ein einmaliger Eignungsnachweis ohne Verfallsdatum - eine Wiederholungs- oder Auffrischungspflicht kennt die Verordnung nicht. § 6 AEVO erkennt frühere AEVO-Prüfungen und den berufs- und arbeitspädagogischen Teil einer Meisterprüfung als gleichwertig an; § 7 AEVO befreit unter Voraussetzungen, wer vor dem 1. August 2009 als Ausbilder tätig war. Daher kein renewal_months-Wert.",
+    "total_questions": 76,
+    "topic_distribution": {
+      "ausbildung_planen": 12,
+      "ausbildung_vorbereiten": 16,
+      "ausbildung_durchfuehren": 36,
+      "ausbildung_abschliessen": 12
+    },
+    "locales": [
+      "de",
+      "en"
+    ]
+  },
+  "questions": [
+    {
+      "id": "aevo-ausbildung_planen-01",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 1 Nr. 1 AEVO; Rahmenplan AEVO HF 1.1 (BAnz AT 14.07.2023)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-02",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 29 BBiG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-03",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 30 Abs. 1 und 2 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-04",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 27 Abs. 2 BBiG; § 3 Abs. 1 Nr. 5 AEVO",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-05",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 28 Abs. 1 und 2 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-06",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 27 Abs. 1 Nr. 2 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-07",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 4 Abs. 3 BBiG; § 5 Abs. 1 BBiG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-08",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 28 Abs. 2 Satz 2 BBiG",
+      "points": 5,
+      "high_stakes": false,
+      "question_type": "multi_choice",
+      "image_ref": null,
+      "correct": [
+        "a",
+        "c",
+        "e"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-09",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 28 Abs. 3 BBiG; § 3 Abs. 1 Nr. 7 AEVO",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-10",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 5 Abs. 1 Nr. 2 und Nr. 4 BBiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-11",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 1 Nr. 6 AEVO; Rahmenplan AEVO HF 1.6 (BAnz AT 14.07.2023)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_planen-12",
+      "topic": "Handlungsfeld 1: Ausbildungsvoraussetzungen prüfen und Ausbildung planen",
+      "topic_code": "ausbildung_planen",
+      "grundstoff": true,
+      "legal_basis": "§ 76 Abs. 1 und 2 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-01",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 2 Nr. 1 AEVO; § 5 Abs. 1 Nr. 4 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-02",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 11 Abs. 1 BBiG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-03",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 11 Abs. 1 Satz 2 BBiG",
+      "points": 5,
+      "high_stakes": false,
+      "question_type": "multi_choice",
+      "image_ref": null,
+      "correct": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-04",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 12 BBiG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "multi_choice",
+      "image_ref": null,
+      "correct": [
+        "b",
+        "c",
+        "e"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-05",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 20 BBiG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-06",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 36 Abs. 1 BBiG; § 3 Abs. 2 Nr. 5 AEVO",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-07",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 10 Abs. 4 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-08",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 10 Abs. 5 BBiG; § 27 Abs. 2 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-09",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 7a Abs. 1 und 2 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-10",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 8 Abs. 1 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-11",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 98 Abs. 2 BetrVG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-12",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 32 Abs. 1 JArbSchG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-13",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 7 Abs. 1 und § 11 AGG; Rahmenplan AEVO HF 2.4 (BAnz AT 14.07.2023)",
+      "points": 5,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-14",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 2 Abs. 3 BBiG; § 76 Abs. 3 BBiG; § 3 Abs. 2 Nr. 6 AEVO",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-15",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 2 Nr. 3 AEVO; § 2 Abs. 2 BBiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_vorbereiten-16",
+      "topic": "Handlungsfeld 2: Ausbildung vorbereiten und bei der Einstellung mitwirken",
+      "topic_code": "ausbildung_vorbereiten",
+      "grundstoff": true,
+      "legal_basis": "§ 26 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-01",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 3 Nr. 3 AEVO; Rahmenplan AEVO HF 3.3 (BAnz AT 14.07.2023)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-02",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "Rahmenplan AEVO HF 3.3 (BAnz AT 14.07.2023), Lernbereiche",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-03",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "Rahmenplan AEVO HF 3.4 (BAnz AT 14.07.2023), 4-Stufen-Methode",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-04",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "Rahmenplan AEVO HF 3.3 (BAnz AT 14.07.2023), Modell der vollständigen Handlung",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-05",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "Rahmenplan AEVO HF 3.4 (BAnz AT 14.07.2023), Methodenauswahl",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-06",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 3 Nr. 1 AEVO; Rahmenplan AEVO HF 3.1 (BAnz AT 14.07.2023)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-07",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "Rahmenplan AEVO HF 3.1 (BAnz AT 14.07.2023), Feedbackregeln",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "multi_choice",
+      "image_ref": null,
+      "correct": [
+        "a",
+        "c",
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-08",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "Rahmenplan AEVO HF 3.1 (BAnz AT 14.07.2023), Tagesleistungskurve",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-09",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 3 Nr. 2 AEVO; Rahmenplan AEVO HF 3.2 (BAnz AT 14.07.2023)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-10",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 22 Abs. 1 BBiG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-11",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 22 Abs. 2 bis 4 BBiG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-12",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 22 Abs. 2 Nr. 2 BBiG; § 23 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-13",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 3 Nr. 5 AEVO; Rahmenplan AEVO HF 3.5 (BAnz AT 14.07.2023)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-14",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 8 Abs. 2 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-15",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 45 Abs. 1 BBiG; § 3 Abs. 3 Nr. 6 AEVO",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-16",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 3 Nr. 7 AEVO; Rahmenplan AEVO HF 3.7 (BAnz AT 14.07.2023)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-17",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "Rahmenplan AEVO HF 3.8 (BAnz AT 14.07.2023), Beurteilungsfehler",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-18",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "Rahmenplan AEVO HF 3.8 (BAnz AT 14.07.2023), Anforderungen an Erfolgskontrollen",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "multi_choice",
+      "image_ref": null,
+      "correct": [
+        "a",
+        "b",
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-19",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 3 Nr. 8 AEVO; Rahmenplan AEVO HF 3.8 (BAnz AT 14.07.2023)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-20",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 3 Nr. 9 AEVO; Rahmenplan AEVO HF 3.9 (BAnz AT 14.07.2023)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-21",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 13 Satz 2 Nr. 7 BBiG; § 14 Abs. 2 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-22",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 14 Abs. 1 Nr. 3 BBiG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-23",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 14 Abs. 3 BBiG",
+      "points": 5,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-24",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 15 Abs. 1 und 2 BBiG",
+      "points": 5,
+      "high_stakes": false,
+      "question_type": "multi_choice",
+      "image_ref": null,
+      "correct": [
+        "a",
+        "b",
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-25",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 8 Abs. 1 und § 11 Abs. 1 JArbSchG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-26",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 19 Abs. 2 und 3 JArbSchG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-27",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 23 Abs. 1 JArbSchG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-28",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 17 Abs. 7 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-29",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 19 Abs. 1 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-30",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 13 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "multi_choice",
+      "image_ref": null,
+      "correct": [
+        "a",
+        "b",
+        "d",
+        "e"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-31",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 14 Abs. 1 Nr. 1 und 2 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-32",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 14 Abs. 1 Nr. 5 BBiG; Rahmenplan AEVO HF 3.7 (BAnz AT 14.07.2023)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-33",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "Rahmenplan AEVO HF 3.4 (BAnz AT 14.07.2023), digitale Lernmedien",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-34",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "Rahmenplan AEVO HF 3.3 (BAnz AT 14.07.2023), Nachhaltigkeit und Transformation",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-35",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 3 Nr. 7 AEVO; Rahmenplan AEVO HF 3.7 (BAnz AT 14.07.2023)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_durchfuehren-36",
+      "topic": "Handlungsfeld 3: Ausbildung durchführen",
+      "topic_code": "ausbildung_durchfuehren",
+      "grundstoff": true,
+      "legal_basis": "§ 17 Abs. 1 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-01",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 43 Abs. 1 BBiG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "multi_choice",
+      "image_ref": null,
+      "correct": [
+        "a",
+        "b",
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-02",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 48 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-03",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 37 Abs. 1 und 4 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-04",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 21 Abs. 1 bis 3 BBiG",
+      "points": 5,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-05",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 24 BBiG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-06",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 16 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-07",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 45 Abs. 2 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-08",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 37 Abs. 2 und 3 BBiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-09",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 4 Nr. 1 AEVO; Rahmenplan AEVO HF 4.1 (BAnz AT 14.07.2023)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-10",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 4 Nr. 2 AEVO; § 15 Abs. 1 Satz 2 Nr. 4 und 5 BBiG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-11",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 53a BBiG; § 1 Abs. 4 BBiG; Rahmenplan AEVO HF 4.4 (BAnz AT 14.07.2023)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "aevo-ausbildung_abschliessen-12",
+      "topic": "Handlungsfeld 4: Ausbildung abschließen",
+      "topic_code": "ausbildung_abschliessen",
+      "grundstoff": true,
+      "legal_basis": "§ 3 Abs. 4 Nr. 3 AEVO; Rahmenplan AEVO HF 4.3 (BAnz AT 14.07.2023)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    }
+  ]
+}

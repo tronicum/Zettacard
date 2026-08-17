@@ -939,6 +939,23 @@ main {
   overflow-y: auto;
 }
 
+/* 2026-08-17: course bodies may now contain real line breaks. Every course
+   authored before this (datenschutz/arbeitssicherheit/ki_act/it_sicherheit/
+   hinweisgeberschutz/kyc_aml/kartellrecht/dora/nis2/cka) is a single flowing
+   paragraph with zero newline characters, so this rule is a no-op for all of
+   them - verified by scanning every app/data/<m>/course_locales/*.json for
+   "\n" and for runs of spaces before adding it. The aevo module's
+   practical-part guidance lessons DO need it: they carry structured content
+   (a "FOUR WEEKS BEFORE / TWO WEEKS BEFORE / ON THE EXAM DAY" checklist and
+   numbered step sequences) that renders as an unreadable run-on blob when
+   newlines collapse. Scoped to #course-reader-body only, deliberately NOT to
+   the shared #primer-reader-body selector above, since primers were not
+   audited for this and don't need it. renderCourseBodyHtml() escapes the text
+   before inserting it, so no markup can ride in on the newlines. */
+#course-reader-body {
+  white-space: pre-wrap;
+}
+
 #course-reader-body a {
   color: var(--accent);
 }
