@@ -307,6 +307,15 @@
       <h2 id="course-reader-title" tabindex="-1"></h2>
       <p class="course-section-title" id="course-reader-section-title"></p>
       <p id="course-reader-body"></p>
+      <!-- 2026-08-17: section_kind "media" renders here, NOT inside
+           #course-reader-body. Deliberate: the body element is a <p>, and a
+           <figure>/<iframe>/<video>/<img> block inside a <p> is invalid HTML
+           the parser silently splits, so media gets its own sibling
+           container that renderCourseMedia() fills with real DOM nodes
+           (never innerHTML - see that function's comment on why URLs are
+           set as properties). Empty and hidden for every non-media section,
+           which is every section of every course shipped before today. -->
+      <div id="course-reader-media" hidden></div>
       <div id="course-reader-related" hidden></div>
       <div class="intro-dots" id="course-reader-dots" aria-hidden="true"></div>
       <div class="intro-nav">

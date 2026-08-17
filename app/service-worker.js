@@ -91,6 +91,23 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
+
+  // 2026-08-17 (course-layer section_kind "media"): let CROSS-ORIGIN
+  // requests fall straight through to the network, untouched - no
+  // respondWith() at all, so the browser handles them exactly as if no
+  // service worker existed. Until today this app made zero cross-origin
+  // requests (verified: not one external script, font, or image), so this
+  // branch is a no-op for every pre-existing request. It matters for the new
+  // media types: the click-to-load YouTube facade's i.ytimg.com thumbnail,
+  // the youtube-nocookie.com embed, and above all an externally-hosted
+  // <video> - media elements issue Range requests, and passing those through
+  // a service worker's respondWith() is a well-known source of broken
+  // seeking (and of partial 206 responses being stored as if they were whole
+  // files). Opaque cross-origin responses also have status 0, so the runtime
+  // cache below would silently never store them anyway; skipping is both
+  // safer and honest.
+  if (url.origin !== self.location.origin) return;
+
   const isShellAsset = ASSETS.some((a) => url.pathname.endsWith(a.replace(/^\.\//, "")) || (a === "./" && url.pathname.endsWith("/")));
 
   if (isShellAsset) {

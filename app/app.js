@@ -1614,6 +1614,28 @@ function offlineAssetUrls() {
   const moduleDef = state.modulesManifest?.modules?.find((m) => m.exam_type === state.examType);
   if (moduleDef?.hasCourse) {
     urls.push(`data/${state.examType}/course.json`, `data/${state.examType}/course_locales/${lang}.json`);
+
+    // 2026-08-17, section_kind "media": a course's REPO-RELATIVE media
+    // assets (the planned Fuehrerschein PNG/SVG diagrams and slideshow step
+    // sequences) are same-origin static files exactly like sign SVGs, so
+    // they belong in offline prep - AGENTS.md's note that a new asset type
+    // "only ever needs the URL added to offlineAssetUrls()" applies
+    // verbatim. Remote media (YouTube, external MP4, https:// images) is
+    // deliberately NOT listed: it cannot be precached, which is the whole
+    // disclosed offline exception documented on renderCourseMedia().
+    // Guarded on the course core already being in cache because this
+    // function is synchronous; a learner who has opened the module's course
+    // view has it, and the JSON itself is listed above regardless.
+    const courseCore = courseCoreCache[state.examType];
+    const mediaUrls = new Set();
+    (courseCore?.courses || []).forEach((c) => {
+      (c.lessons || []).forEach((l) => {
+        (l.sections || []).forEach((s) => {
+          mediaLocalUrls(s.media).forEach((u) => mediaUrls.add(u));
+        });
+      });
+    });
+    urls.push(...mediaUrls);
   }
 
   return urls;
@@ -4211,6 +4233,363 @@ function renderCourseBodyHtml(text) {
   });
 }
 
+// --- section_kind "media" (2026-08-17) ----------------------------------
+// Generic, reusable media capability for the course layer: any lesson
+// section may be section_kind "media" with a `media` object carrying one of
+// four types - youtube | video_mp4 | image | slideshow. Schema, field list
+// and a paste-in worked example: docs/course-media-sections.md. Build-side
+// validation/normalisation and the fact-vs-text split: split_media() and
+// _norm_media_facts() in data/build_modules.py.
+//
+// Three deliberate properties of the code below, all of them constraints
+// this project already applies elsewhere rather than new inventions:
+//
+// 1. NOTHING here uses innerHTML with content-supplied values. Every node is
+//    createElement'd and every URL is assigned as a DOM property, so there
+//    is no string-concatenation path from course JSON into markup at all.
+//    renderCourseBodyHtml()'s comment explains why the prose path is locked
+//    down (in-house content, but still not trusted to a markdown/HTML
+//    parser); a media URL is even easier to get wrong, so it gets the
+//    stricter treatment - plus safeMediaUrl()/YOUTUBE_ID_RE below re-check
+//    the same allow-list the build already enforced.
+// 2. YouTube is a CLICK-TO-LOAD FACADE on the privacy-enhanced
+//    youtube-nocookie.com domain (PO decision 2026-08-17). Before the click
+//    there is no request to any Google/YouTube domain except the plain
+//    thumbnail image on i.ytimg.com (a cookieless static image request, not
+//    the embed's tracking-heavy player bundle); the <iframe> is only created
+//    inside the click handler. Same "2-click embed" pattern GDPR-conscious
+//    German sites use.
+// 3. MP4 is an EXTERNAL URL ONLY (PO decision 2026-08-17) - the PO's own
+//    hosting/CDN, never a file committed to this repo. build_modules.py
+//    hard-fails a repo-relative video_mp4 src for exactly that reason.
+//
+// OFFLINE-FIRST EXCEPTION, DELIBERATE AND DISCLOSED. AGENTS.md constraint 6
+// says no feature should require a live backend call to serve content, and
+// media is the one, PO-approved exception to it: a YouTube video, an
+// externally-hosted MP4, or a remotely-hosted image genuinely cannot be
+// served from a precached static bundle. This is NOT an oversight and it
+// does not weaken the constraint for anything else - all *text* content of
+// every course section, including a media section's title, body, alt text
+// and caption, still comes from the same precacheable course.json /
+// course_locales/<lang>.json pair and reads fine with no network. What the
+// code does about it: mediaNeedsNetwork() + the navigator.onLine check in
+// renderCourseMedia() replace the media element with a calm, localized
+// one-line note (COURSE_STRINGS.mediaOffline, all 12 locales) instead of
+// showing a broken-image icon or dead empty space, and the online/offline
+// listeners wired in wireCourseControls() re-render the open lesson the
+// moment connectivity comes back. Repo-relative image/slideshow assets are
+// NOT treated as network-dependent: they are same-origin files the service
+// worker runtime-caches like any sign SVG, and offlineAssetUrls() below now
+// proactively fetches them for "make available offline" too.
+
+const YOUTUBE_ID_RE = /^[A-Za-z0-9_-]{11}$/;
+
+// Mirror of build_modules.py's check_media_src(): absolute https:// or a
+// path relative to app/ (e.g. "assets/diagrams/x.svg"). Anything else -
+// http://, protocol-relative, data:, javascript:, an absolute "/..." path -
+// returns null and the element is skipped rather than rendered.
+function safeMediaUrl(url) {
+  const u = String(url == null ? "" : url).trim();
+  if (!u) return null;
+  if (u.startsWith("https://")) return u;
+  if (u.startsWith("//") || u.startsWith("/") || u.startsWith("../")) return null;
+  if (/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(u)) return null; // any scheme at all
+  return u;
+}
+
+// True when this media object cannot possibly work without a network:
+// YouTube, an external MP4, or any absolute-https image/slide. A course
+// that ships its own repo-relative diagrams (the planned Fuehrerschein
+// case) is deliberately NOT flagged - those are same-origin and cacheable.
+function mediaNeedsNetwork(media) {
+  if (!media) return false;
+  if (media.type === "youtube" || media.type === "video_mp4") return true;
+  const srcs = media.type === "slideshow"
+    ? (media.slides || []).map((s) => s.src)
+    : [media.src];
+  return srcs.some((s) => String(s || "").startsWith("https://"));
+}
+
+// Every same-origin URL a media object references, for offline prep.
+function mediaLocalUrls(media) {
+  if (!media) return [];
+  const candidates = media.type === "slideshow"
+    ? (media.slides || []).map((s) => s.src)
+    : [media.src, media.poster];
+  return candidates
+    .map((s) => safeMediaUrl(s))
+    .filter((s) => s && !s.startsWith("https://"));
+}
+
+// license / license_url / attribution / source_url sit inline on the media
+// object (PO decision 2026-08-17), matching how meta.license/
+// meta.license_url and section.license_ref already sit inline on sibling
+// content records here, rather than the course-layer design doc's fuller
+// ASSET entity (§2.7) - which stays the right long-term shape, just not
+// this round's scope. `license` is REQUIRED by the build, so a third-party
+// asset can never land without saying what it is licensed under.
+function courseMediaCreditsEl(media, S) {
+  const bits = [];
+  const p = document.createElement("p");
+  p.className = "course-media-credits";
+  if (media.license) {
+    const span = document.createElement("span");
+    span.textContent = `${S.mediaLicenseLabel}: `;
+    const licenseUrl = safeMediaUrl(media.license_url);
+    if (licenseUrl) {
+      const a = document.createElement("a");
+      a.href = licenseUrl;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.textContent = media.license;
+      span.appendChild(a);
+    } else {
+      span.appendChild(document.createTextNode(media.license));
+    }
+    bits.push(span);
+  }
+  if (media.attribution) {
+    const span = document.createElement("span");
+    span.textContent = media.attribution;
+    bits.push(span);
+  }
+  const sourceUrl = safeMediaUrl(media.source_url);
+  if (sourceUrl) {
+    const span = document.createElement("span");
+    span.textContent = `${S.mediaSourceLabel}: `;
+    const a = document.createElement("a");
+    a.href = sourceUrl;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.textContent = sourceUrl.replace(/^https:\/\//, "").split("/")[0];
+    span.appendChild(a);
+    bits.push(span);
+  }
+  if (bits.length === 0) return null;
+  bits.forEach((b, i) => {
+    if (i > 0) p.appendChild(document.createTextNode(" · "));
+    p.appendChild(b);
+  });
+  return p;
+}
+
+// The click-to-load facade. Renders the thumbnail + play button; the actual
+// iframe is created only in the click handler, so no youtube-nocookie.com
+// request happens until the learner asks for one.
+function courseYoutubeFacadeEl(media, S, label) {
+  const id = String(media.youtube_id || "");
+  if (!YOUTUBE_ID_RE.test(id)) return null;
+
+  const frame = document.createElement("div");
+  frame.className = "course-media-frame course-media-frame--16x9";
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "course-media-facade";
+  btn.setAttribute("aria-label", label || S.mediaPlay);
+
+  const thumb = document.createElement("img");
+  // i.ytimg.com's static thumbnail: a plain image request, no cookies and
+  // no player bundle. hqdefault exists for every public video (maxresdefault
+  // does not), which is why it and not a higher-res variant is used here.
+  thumb.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+  thumb.alt = "";
+  thumb.loading = "lazy";
+  thumb.className = "course-media-thumb";
+  btn.appendChild(thumb);
+
+  const play = document.createElement("span");
+  play.className = "course-media-play";
+  play.setAttribute("aria-hidden", "true");
+  play.textContent = "▶";
+  btn.appendChild(play);
+
+  btn.addEventListener("click", () => {
+    const iframe = document.createElement("iframe");
+    iframe.className = "course-media-iframe";
+    iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+    iframe.title = label || S.mediaPlay;
+    iframe.allow = "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    iframe.setAttribute("allowfullscreen", "");
+    frame.replaceChildren(iframe);
+    // The privacy notice only describes pre-click state, so it stops being
+    // true (and stops being useful) the moment the iframe exists.
+    const notice = frame.parentElement && frame.parentElement.querySelector(".course-media-notice");
+    if (notice) notice.remove();
+    iframe.focus();
+  });
+
+  frame.appendChild(btn);
+  return frame;
+}
+
+function courseVideoEl(media, S, label) {
+  const src = safeMediaUrl(media.src);
+  if (!src) return null;
+  const frame = document.createElement("div");
+  frame.className = "course-media-frame course-media-frame--16x9";
+  const video = document.createElement("video");
+  video.className = "course-media-video";
+  video.controls = true;
+  // preload="none": these are externally hosted files of unknown size on the
+  // PO's own CDN, and a learner may never press play. Nothing is fetched
+  // until they do (the poster, if any, is a separate small image).
+  video.preload = "none";
+  video.playsInline = true;
+  video.src = src;
+  if (label) video.setAttribute("aria-label", label);
+  const poster = safeMediaUrl(media.poster);
+  if (poster) video.poster = poster;
+  frame.appendChild(video);
+  return frame;
+}
+
+function courseImageEl(src, alt) {
+  const safe = safeMediaUrl(src);
+  if (!safe) return null;
+  const img = document.createElement("img");
+  img.className = "course-media-img";
+  img.src = safe;
+  img.alt = alt || "";
+  img.loading = "lazy";
+  return img;
+}
+
+// Hand-rolled prev/next carousel - no library, matching this app's
+// zero-external-JS-dependency style (there is not a single third-party
+// script in app/ today). Position indicator plus ArrowLeft/ArrowRight when
+// the strip has focus; no autoplay, no swipe gesture (a plain <img> still
+// pinch-zooms, which matters more for a diagram than swiping does).
+function courseSlideshowEl(media, bundle, S) {
+  const slides = (media.slides || []).filter((s) => safeMediaUrl(s.src));
+  if (slides.length === 0) return null;
+
+  const wrap = document.createElement("div");
+  wrap.className = "course-media-slideshow";
+  wrap.tabIndex = 0;
+  wrap.setAttribute("role", "group");
+  wrap.setAttribute("aria-label", S.mediaSlideshowLabel);
+
+  const frame = document.createElement("div");
+  frame.className = "course-media-frame";
+  wrap.appendChild(frame);
+
+  const capEl = document.createElement("p");
+  capEl.className = "course-media-caption";
+  wrap.appendChild(capEl);
+
+  const nav = document.createElement("div");
+  nav.className = "course-media-nav";
+  // RTL: in an rtl flex row the first DOM child paints rightmost, so "prev"
+  // correctly lands on the right - but the chevron GLYPH has to be mirrored
+  // too, or the right-hand "previous" button points left. Same reason the
+  // position indicator below is pinned dir="ltr": "1 / 3" in an RTL
+  // paragraph gets bidi-reordered and displays as "3 / 1" (seen on the
+  // Arabic fixture screenshot before this was added).
+  const rtl = document.documentElement.getAttribute("dir") === "rtl";
+  const prev = document.createElement("button");
+  prev.type = "button";
+  prev.className = "course-media-navbtn";
+  prev.textContent = rtl ? "›" : "‹";
+  prev.setAttribute("aria-label", S.mediaPrevSlide);
+  const pos = document.createElement("span");
+  pos.className = "course-media-pos";
+  pos.setAttribute("aria-live", "polite");
+  pos.dir = "ltr";
+  const next = document.createElement("button");
+  next.type = "button";
+  next.className = "course-media-navbtn";
+  next.textContent = rtl ? "‹" : "›";
+  next.setAttribute("aria-label", S.mediaNextSlide);
+  nav.append(prev, pos, next);
+  wrap.appendChild(nav);
+
+  let idx = 0;
+  function draw() {
+    const slide = slides[idx];
+    const alt = courseText(bundle, slide.alt_text_key || slide.slide_id, "alt_text") || "";
+    const caption = courseText(bundle, slide.caption_key || slide.slide_id, "caption") || "";
+    const img = courseImageEl(slide.src, alt);
+    frame.replaceChildren(img || document.createTextNode(""));
+    capEl.textContent = caption;
+    capEl.hidden = !caption;
+    pos.textContent = S.mediaSlidePos(idx + 1, slides.length);
+    prev.disabled = idx === 0;
+    next.disabled = idx === slides.length - 1;
+  }
+  function go(delta) {
+    const target = idx + delta;
+    if (target < 0 || target >= slides.length) return;
+    idx = target;
+    draw();
+  }
+  prev.addEventListener("click", () => go(-1));
+  next.addEventListener("click", () => go(1));
+  wrap.addEventListener("keydown", (e) => {
+    // Scoped to this element only - the course reader has no global
+    // arrow-key handling to collide with (checked before adding this).
+    if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); go(1); }
+  });
+  draw();
+  return wrap;
+}
+
+// Builds the whole <figure> for a section's media object, or null when the
+// section has none (i.e. every section of every course shipped before
+// 2026-08-17). Text (alt_text/caption) is resolved out of the locale bundle
+// exactly like title/body - see split_media() in build_modules.py for the
+// key scheme.
+function renderCourseMedia(section, bundle, S) {
+  const media = section && section.media;
+  if (!media) return null;
+
+  const altText = courseText(bundle, media.alt_text_key || section.section_id, "alt_text") || "";
+  const caption = courseText(bundle, media.caption_key || section.section_id, "caption") || "";
+
+  const fig = document.createElement("figure");
+  fig.className = "course-media";
+
+  // Offline: swap the media element itself for the note, keep title/body/
+  // caption/credits - see the OFFLINE-FIRST EXCEPTION comment above.
+  if (mediaNeedsNetwork(media) && navigator.onLine === false) {
+    const note = document.createElement("p");
+    note.className = "course-media-offline image-note";
+    note.textContent = S.mediaOffline;
+    fig.appendChild(note);
+  } else {
+    let body = null;
+    if (media.type === "youtube") body = courseYoutubeFacadeEl(media, S, altText);
+    else if (media.type === "video_mp4") body = courseVideoEl(media, S, altText);
+    else if (media.type === "image") body = courseImageEl(media.src, altText);
+    else if (media.type === "slideshow") body = courseSlideshowEl(media, bundle, S);
+    if (!body) return null;
+    fig.appendChild(body);
+    if (media.type === "youtube") {
+      const notice = document.createElement("p");
+      notice.className = "course-media-notice";
+      notice.textContent = S.mediaYoutubeNotice;
+      fig.appendChild(notice);
+    }
+  }
+
+  const cap = document.createElement("figcaption");
+  cap.className = "course-media-figcaption";
+  // A slideshow carries its captions per slide, inside the carousel.
+  if (caption && media.type !== "slideshow") {
+    const capP = document.createElement("p");
+    capP.className = "course-media-caption";
+    capP.textContent = caption;
+    cap.appendChild(capP);
+  }
+  const credits = courseMediaCreditsEl(media, S);
+  if (credits) cap.appendChild(credits);
+  if (cap.childElementCount > 0) fig.appendChild(cap);
+
+  return fig;
+}
+
 const COURSE_LESSON_KIND_KEY = { primer: "kindPrimer", checkpoint: "kindCheckpoint", scenario: "kindScenario", guidance: "kindGuidance" };
 
 const COURSE_STRINGS = {
@@ -4219,72 +4598,108 @@ const COURSE_STRINGS = {
     close: "← Zurück", kindPrimer: "Lektion", kindCheckpoint: "Checkpoint", kindScenario: "Szenario", kindGuidance: "Begleitwissen",
     minutes: (n) => `~${n} Min.`, back: "← Zurück", exit: "Beenden", next: "Weiter", done: "Fertig",
     practiceNow: "Jetzt Übungsfragen dazu starten", relatedTitle: "Auch relevant",
+    mediaPlay: "Video abspielen", mediaYoutubeNotice: "Das Video wird erst beim Klick von YouTube (youtube-nocookie.com) geladen. Vorher gehen keine Daten an YouTube.",
+    mediaOffline: "Offline: dieser Medieninhalt braucht eine Internetverbindung.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Vorheriges Bild", mediaNextSlide: "Nächstes Bild", mediaLicenseLabel: "Lizenz", mediaSourceLabel: "Quelle", mediaSlideshowLabel: "Bildstrecke",
   },
   en: {
     btn: "📘 Course", ariaLabel: "Course", title: "Course", empty: "No course content available yet.",
     close: "← Back", kindPrimer: "Lesson", kindCheckpoint: "Checkpoint", kindScenario: "Scenario", kindGuidance: "Background",
     minutes: (n) => `~${n} min`, back: "← Back", exit: "Exit", next: "Next", done: "Done",
     practiceNow: "Practice this lesson now", relatedTitle: "Also relevant",
+    mediaPlay: "Play video", mediaYoutubeNotice: "The video is only loaded from YouTube (youtube-nocookie.com) once you click. Nothing is sent to YouTube before that.",
+    mediaOffline: "Offline: this media needs an internet connection.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Previous image", mediaNextSlide: "Next image", mediaLicenseLabel: "License", mediaSourceLabel: "Source", mediaSlideshowLabel: "Image sequence",
   },
   uk: {
     btn: "📘 Курс", ariaLabel: "Курс", title: "Курс", empty: "Вміст курсу поки що недоступний.",
     close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольна точка", kindScenario: "Сценарій", kindGuidance: "Довідковий матеріал",
     minutes: (n) => `~${n} хв`, back: "← Назад", exit: "Вийти", next: "Далі", done: "Готово",
     practiceNow: "Практикувати цей урок зараз", relatedTitle: "Також актуально",
+    mediaPlay: "Відтворити відео", mediaYoutubeNotice: "Відео завантажується з YouTube (youtube-nocookie.com) лише після натискання. До цього жодні дані до YouTube не надсилаються.",
+    mediaOffline: "Офлайн: для цього медіа потрібне з’єднання з інтернетом.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Попереднє зображення", mediaNextSlide: "Наступне зображення", mediaLicenseLabel: "Ліцензія", mediaSourceLabel: "Джерело", mediaSlideshowLabel: "Серія зображень",
   },
   pl: {
     btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Treści kursu nie są jeszcze dostępne.",
     close: "← Wstecz", kindPrimer: "Lekcja", kindCheckpoint: "Punkt kontrolny", kindScenario: "Scenariusz", kindGuidance: "Materiał uzupełniający",
     minutes: (n) => `~${n} min`, back: "← Wstecz", exit: "Zakończ", next: "Dalej", done: "Gotowe",
     practiceNow: "Ćwicz tę lekcję teraz", relatedTitle: "Zobacz też",
+    mediaPlay: "Odtwórz wideo", mediaYoutubeNotice: "Wideo jest wczytywane z YouTube (youtube-nocookie.com) dopiero po kliknięciu. Wcześniej żadne dane nie trafiają do YouTube.",
+    mediaOffline: "Offline: te multimedia wymagają połączenia z internetem.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Poprzedni obraz", mediaNextSlide: "Następny obraz", mediaLicenseLabel: "Licencja", mediaSourceLabel: "Źródło", mediaSlideshowLabel: "Sekwencja obrazów",
   },
   ar: {
     btn: "📘 الدورة", ariaLabel: "الدورة", title: "الدورة", empty: "لا يوجد محتوى للدورة بعد.",
     close: "← رجوع", kindPrimer: "درس", kindCheckpoint: "نقطة تحقق", kindScenario: "سيناريو", kindGuidance: "معلومات مرجعية",
     minutes: (n) => `~${n} دقيقة`, back: "← رجوع", exit: "خروج", next: "التالي", done: "تم",
     practiceNow: "تدرّب على هذا الدرس الآن", relatedTitle: "ذو صلة أيضًا",
+    mediaPlay: "تشغيل الفيديو", mediaYoutubeNotice: "لا يتم تحميل الفيديو من YouTube (youtube-nocookie.com) إلا بعد النقر. ولا تُرسل أي بيانات إلى YouTube قبل ذلك.",
+    mediaOffline: "دون اتصال: يحتاج هذا المحتوى إلى اتصال بالإنترنت.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "الصورة السابقة", mediaNextSlide: "الصورة التالية", mediaLicenseLabel: "الترخيص", mediaSourceLabel: "المصدر", mediaSlideshowLabel: "سلسلة صور",
   },
   zh: {
     btn: "📘 课程", ariaLabel: "课程", title: "课程", empty: "课程内容暂未提供。",
     close: "← 返回", kindPrimer: "课时", kindCheckpoint: "检查点", kindScenario: "情景案例", kindGuidance: "背景资料",
     minutes: (n) => `约 ${n} 分钟`, back: "← 返回", exit: "退出", next: "下一步", done: "完成",
     practiceNow: "现在练习这一课", relatedTitle: "另请参见",
+    mediaPlay: "播放视频", mediaYoutubeNotice: "只有点击后才会从 YouTube（youtube-nocookie.com）加载视频；在此之前不会向 YouTube 发送任何数据。",
+    mediaOffline: "离线：此媒体内容需要网络连接。", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "上一张图片", mediaNextSlide: "下一张图片", mediaLicenseLabel: "许可协议", mediaSourceLabel: "来源", mediaSlideshowLabel: "图片序列",
   },
   hi: {
     btn: "📘 कोर्स", ariaLabel: "कोर्स", title: "कोर्स", empty: "अभी तक कोई कोर्स सामग्री उपलब्ध नहीं है।",
     close: "← वापस", kindPrimer: "पाठ", kindCheckpoint: "चेकपॉइंट", kindScenario: "परिदृश्य", kindGuidance: "पृष्ठभूमि सामग्री",
     minutes: (n) => `~${n} मिनट`, back: "← वापस", exit: "बाहर निकलें", next: "आगे", done: "पूर्ण",
     practiceNow: "अभी इस पाठ का अभ्यास करें", relatedTitle: "यह भी प्रासंगिक",
+    mediaPlay: "वीडियो चलाएं", mediaYoutubeNotice: "वीडियो क्लिक करने के बाद ही YouTube (youtube-nocookie.com) से लोड होता है। उससे पहले YouTube को कोई डेटा नहीं भेजा जाता।",
+    mediaOffline: "ऑफ़लाइन: इस मीडिया के लिए इंटरनेट कनेक्शन आवश्यक है।", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "पिछली छवि", mediaNextSlide: "अगली छवि", mediaLicenseLabel: "लाइसेंस", mediaSourceLabel: "स्रोत", mediaSlideshowLabel: "छवि क्रम",
   },
   tr: {
     btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "Henüz kurs içeriği yok.",
     close: "← Geri", kindPrimer: "Ders", kindCheckpoint: "Kontrol noktası", kindScenario: "Senaryo", kindGuidance: "Arka plan bilgisi",
     minutes: (n) => `~${n} dk`, back: "← Geri", exit: "Çık", next: "İleri", done: "Bitti",
     practiceNow: "Bu dersi şimdi pratik et", relatedTitle: "Ayrıca ilgili",
+    mediaPlay: "Videoyu oynat", mediaYoutubeNotice: "Video yalnızca tıkladığınızda YouTube üzerinden (youtube-nocookie.com) yüklenir. Öncesinde YouTube’a hiçbir veri gönderilmez.",
+    mediaOffline: "Çevrimdışı: bu medya için internet bağlantısı gerekir.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Önceki görsel", mediaNextSlide: "Sonraki görsel", mediaLicenseLabel: "Lisans", mediaSourceLabel: "Kaynak", mediaSlideshowLabel: "Görsel dizisi",
   },
   fr: {
     btn: "📘 Cours", ariaLabel: "Cours", title: "Cours", empty: "Aucun contenu de cours disponible pour le moment.",
     close: "← Retour", kindPrimer: "Leçon", kindCheckpoint: "Point de contrôle", kindScenario: "Scénario", kindGuidance: "Informations complémentaires",
     minutes: (n) => `~${n} min`, back: "← Retour", exit: "Quitter", next: "Suivant", done: "Terminé",
     practiceNow: "Pratiquer cette leçon maintenant", relatedTitle: "Voir aussi",
+    mediaPlay: "Lire la vidéo", mediaYoutubeNotice: "La vidéo n’est chargée depuis YouTube (youtube-nocookie.com) qu’après un clic. Aucune donnée n’est transmise à YouTube avant cela.",
+    mediaOffline: "Hors ligne : ce média nécessite une connexion internet.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Image précédente", mediaNextSlide: "Image suivante", mediaLicenseLabel: "Licence", mediaSourceLabel: "Source", mediaSlideshowLabel: "Séquence d’images",
   },
   ru: {
     btn: "📘 Курс", ariaLabel: "Курс", title: "Курс", empty: "Содержимое курса пока недоступно.",
     close: "← Назад", kindPrimer: "Урок", kindCheckpoint: "Контрольная точка", kindScenario: "Сценарий", kindGuidance: "Справочный материал",
     minutes: (n) => `~${n} мин`, back: "← Назад", exit: "Выйти", next: "Далее", done: "Готово",
     practiceNow: "Практиковать этот урок сейчас", relatedTitle: "Также по теме",
+    mediaPlay: "Воспроизвести видео", mediaYoutubeNotice: "Видео загружается с YouTube (youtube-nocookie.com) только после нажатия. До этого данные в YouTube не передаются.",
+    mediaOffline: "Офлайн: для этого медиа нужно подключение к интернету.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Предыдущее изображение", mediaNextSlide: "Следующее изображение", mediaLicenseLabel: "Лицензия", mediaSourceLabel: "Источник", mediaSlideshowLabel: "Серия изображений",
   },
   es: {
     btn: "📘 Curso", ariaLabel: "Curso", title: "Curso", empty: "Aún no hay contenido del curso disponible.",
     close: "← Atrás", kindPrimer: "Lección", kindCheckpoint: "Punto de control", kindScenario: "Escenario", kindGuidance: "Material de referencia",
     minutes: (n) => `~${n} min`, back: "← Atrás", exit: "Salir", next: "Siguiente", done: "Listo",
     practiceNow: "Practicar esta lección ahora", relatedTitle: "También relevante",
+    mediaPlay: "Reproducir vídeo", mediaYoutubeNotice: "El vídeo solo se carga desde YouTube (youtube-nocookie.com) al hacer clic. Antes de eso no se envía ningún dato a YouTube.",
+    mediaOffline: "Sin conexión: este contenido multimedia necesita internet.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Imagen anterior", mediaNextSlide: "Imagen siguiente", mediaLicenseLabel: "Licencia", mediaSourceLabel: "Fuente", mediaSlideshowLabel: "Secuencia de imágenes",
   },
   it: {
     btn: "📘 Corso", ariaLabel: "Corso", title: "Corso", empty: "Nessun contenuto del corso disponibile per ora.",
     close: "← Indietro", kindPrimer: "Lezione", kindCheckpoint: "Checkpoint", kindScenario: "Scenario", kindGuidance: "Materiale di approfondimento",
     minutes: (n) => `~${n} min`, back: "← Indietro", exit: "Esci", next: "Avanti", done: "Fatto",
     practiceNow: "Esercitati ora su questa lezione", relatedTitle: "Vedi anche",
+    mediaPlay: "Riproduci il video", mediaYoutubeNotice: "Il video viene caricato da YouTube (youtube-nocookie.com) solo dopo il clic. Prima non viene inviato alcun dato a YouTube.",
+    mediaOffline: "Offline: questo contenuto multimediale richiede una connessione internet.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Immagine precedente", mediaNextSlide: "Immagine successiva", mediaLicenseLabel: "Licenza", mediaSourceLabel: "Fonte", mediaSlideshowLabel: "Sequenza di immagini",
   },
 };
 
@@ -4418,7 +4833,24 @@ async function renderCourseLesson() {
   const sectionTitleEl = el("#course-reader-section-title");
   sectionTitleEl.textContent = sectionTitle || "";
   sectionTitleEl.hidden = !sectionTitle;
-  el("#course-reader-body").innerHTML = renderCourseBodyHtml(body);
+  const bodyEl = el("#course-reader-body");
+  bodyEl.innerHTML = renderCourseBodyHtml(body);
+  // A media section may legitimately have no prose body at all (a diagram
+  // that speaks for itself); hide the empty <p> so it doesn't leave a gap.
+  bodyEl.hidden = !body;
+
+  // section_kind "media" (2026-08-17): rendered into its own sibling
+  // container, never into the <p> above - see the comment on
+  // renderCourseMedia() and #course-reader-media in app.html.
+  const mediaBox = el("#course-reader-media");
+  const mediaEl = renderCourseMedia(section, bundle, S);
+  if (mediaEl) {
+    mediaBox.replaceChildren(mediaEl);
+    mediaBox.hidden = false;
+  } else {
+    mediaBox.replaceChildren();
+    mediaBox.hidden = true;
+  }
 
   const isLast = i === sections.length - 1;
   const topicCodes = lesson.select && lesson.select.topic_codes;
@@ -4515,6 +4947,19 @@ function wireCourseControls() {
     }
   });
   el("#course-reader-exit").addEventListener("click", () => history.back());
+
+  // 2026-08-17, section_kind "media": the only connectivity-dependent thing
+  // in the whole app (see the OFFLINE-FIRST EXCEPTION comment above
+  // renderCourseMedia()). These are the first navigator.onLine /
+  // online-offline listeners in this file - nothing else here needs them,
+  // because everything else is served from precached static JSON. Re-render
+  // only when the reader is actually open and only for the current section,
+  // so this costs nothing for every other view.
+  const rerenderIfReaderOpen = () => {
+    if (!el("#course-reader").hidden && state.courseLesson) renderCourseLesson();
+  };
+  window.addEventListener("online", rerenderIfReaderOpen);
+  window.addEventListener("offline", rerenderIfReaderOpen);
 }
 
 // --- Exam mode (DN-29) --------------------------------------------------

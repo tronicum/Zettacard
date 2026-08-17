@@ -25,6 +25,7 @@ Run from the data/ directory: `python3 build_modules.py`
 """
 import json
 import os
+import re
 import shutil
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -128,6 +129,135 @@ def split_module(src_path, exam_type, locales, out_meta_extra=None,
     return len(core_questions), missing_locale_count
 
 
+# --- section_kind "media" (2026-08-17) ----------------------------------
+# Generic media capability for the course layer: a lesson section may carry
+# a `media` object alongside (or instead of) its prose body. Four types:
+# youtube | video_mp4 | image | slideshow. Full schema + a worked example:
+# docs/course-media-sections.md. Rendering: renderCourseMedia() in app/app.js.
+#
+# The fact/text split this file applies to every other content type applies
+# here too, and the boundary is: URLs, types, licence identifiers and
+# dimensions are FACTS (they do not change per language, so they stay in
+# course.json), while alt_text and caption are DISPLAY TEXT (they do, so
+# they are pulled out into course_locales/<lang>.json under the same
+# "the key IS the entity id" convention as title/body). Getting this
+# backwards would mean 12 copies of the same YouTube id.
+MEDIA_TYPES = ("youtube", "video_mp4", "image", "slideshow")
+
+# Youtube video ids are exactly 11 chars of [A-Za-z0-9_-]. Authors may paste
+# any of the usual URL shapes; the id is what gets stored, so app.js only
+# ever concatenates a validated id into the youtube-nocookie.com embed URL
+# and never a whole author-supplied URL.
+YOUTUBE_ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
+YOUTUBE_URL_RES = [
+    re.compile(r"^https?://(?:www\.|m\.)?youtube(?:-nocookie)?\.com/watch\?(?:.*&)?v=([A-Za-z0-9_-]{11})"),
+    re.compile(r"^https?://(?:www\.|m\.)?youtube(?:-nocookie)?\.com/embed/([A-Za-z0-9_-]{11})"),
+    re.compile(r"^https?://(?:www\.|m\.)?youtube(?:-nocookie)?\.com/shorts/([A-Za-z0-9_-]{11})"),
+    re.compile(r"^https?://youtu\.be/([A-Za-z0-9_-]{11})"),
+]
+
+
+def normalize_youtube_id(raw, where):
+    """Accept a bare id or any common YouTube URL shape, return the bare id.
+
+    Normalising at BUILD time (not at render time) is deliberate: a typo in a
+    pasted URL fails this build loudly, instead of shipping a section that
+    renders an empty iframe for every learner in every locale.
+    """
+    raw = str(raw).strip()
+    if YOUTUBE_ID_RE.match(raw):
+        return raw
+    for rx in YOUTUBE_URL_RES:
+        m = rx.match(raw)
+        if m:
+            return m.group(1)
+    raise ValueError(
+        f"{where}: not a recognisable YouTube video id or URL: {raw!r}. "
+        "Give either the bare 11-character id or a youtube.com/watch?v=.../"
+        "youtu.be/.../youtube.com/embed/... URL."
+    )
+
+
+def check_media_src(url, where, require_remote=False):
+    """Validate a media src/poster URL at build time.
+
+    Allowed: an absolute https:// URL (externally hosted - the PO's own CDN
+    for MP4, or a licensed image host), or a repo-relative path such as
+    "assets/diagrams/foo.svg" for assets that genuinely live in this repo
+    (the future Fuehrerschein PNG/SVG diagram case). Rejected: anything
+    else, notably http:// (mixed content) and any scheme like javascript:
+    or data: - app.js re-checks the same allow-list before it touches the
+    DOM, but failing here means it can never reach a learner at all.
+
+    require_remote=True is used for video_mp4: per PO decision 2026-08-17,
+    MP4s are referenced from external hosting and are NEVER committed into
+    this git repo, so a repo-relative MP4 path is a mistake worth failing.
+    """
+    url = str(url).strip()
+    if url.startswith("https://"):
+        return url
+    if require_remote:
+        raise ValueError(
+            f"{where}: video_mp4 src must be an absolute https:// URL on external "
+            f"hosting (PO decision 2026-08-17: MP4 files are never committed to "
+            f"this repo), got {url!r}."
+        )
+    if url.startswith(("http://", "//")) or ":" in url.split("/")[0]:
+        raise ValueError(f"{where}: unsupported media src {url!r} (https:// or a repo-relative path only).")
+    if url.startswith("/") or url.startswith("../"):
+        raise ValueError(f"{where}: media src must be relative to app/ (e.g. \"assets/...\"), got {url!r}.")
+    return url
+
+
+def _norm_media_facts(media, where):
+    """Normalise + validate the locale-INDEPENDENT half of a media object,
+    in place. The locale-dependent half (alt_text/caption) is handled by
+    split_media_text() below, which needs split_course()'s pull() closure."""
+    mtype = media.get("type")
+    if mtype not in MEDIA_TYPES:
+        raise ValueError(f"{where}: media.type must be one of {MEDIA_TYPES}, got {mtype!r}.")
+
+    # Licence metadata sits inline on the media object rather than in a
+    # separate ASSET entity (course-layer design doc §2.7 wanted the full
+    # entity; PO scoped this round to inline fields, matching how
+    # meta.license / meta.license_url / section.license_ref already sit
+    # inline on sibling content records). `license` is required precisely so
+    # nobody can add a third-party asset without saying what it is licensed
+    # under - the gap the design doc flagged as a hard blocker.
+    if not str(media.get("license", "")).strip():
+        raise ValueError(
+            f"{where}: media.license is required (e.g. \"CC BY 4.0\", "
+            "\"Zettacard original\", \"YouTube Standard License\")."
+        )
+
+    if mtype == "youtube":
+        raw = media.pop("youtube_id", None) or media.pop("src", None)
+        if not raw:
+            raise ValueError(f"{where}: youtube media needs youtube_id (id or URL).")
+        media["youtube_id"] = normalize_youtube_id(raw, where)
+    elif mtype == "video_mp4":
+        if not media.get("src"):
+            raise ValueError(f"{where}: video_mp4 media needs src (external https:// URL).")
+        media["src"] = check_media_src(media["src"], f"{where}.src", require_remote=True)
+        if media.get("poster"):
+            media["poster"] = check_media_src(media["poster"], f"{where}.poster")
+    elif mtype == "image":
+        if not media.get("src"):
+            raise ValueError(f"{where}: image media needs src.")
+        media["src"] = check_media_src(media["src"], f"{where}.src")
+    elif mtype == "slideshow":
+        slides = media.get("slides") or []
+        if len(slides) < 2:
+            raise ValueError(f"{where}: slideshow media needs at least 2 slides (use type \"image\" for one).")
+        for n, slide in enumerate(slides, start=1):
+            if not slide.get("src"):
+                raise ValueError(f"{where}.slides[{n}]: needs src.")
+            slide["src"] = check_media_src(slide["src"], f"{where}.slides[{n}].src")
+
+
+
+
+
 def split_course(exam_type, locales):
     """2026-08-15: optional v1 "course" sidecar layer, see
     claude/modular-course-architecture-v1-2026-08-15.md (Opus design doc,
@@ -175,6 +305,49 @@ def split_course(exam_type, locales):
             per_locale[loc].setdefault(entity_id, {})[field] = text
         entity[key_field or f"{field}_key"] = entity_id
 
+    def split_media(section, sid):
+        """section_kind "media": validate/normalise the fact half in place,
+        then pull alt_text/caption into the locale bundles via pull() above.
+
+        Locale keys used (all under the same "key IS the entity id" scheme
+        app.js already resolves title/body with):
+          <section_id>            -> {"alt_text": ..., "caption": ...}
+          <section_id>-m<n>       -> per-slide {"alt_text": ..., "caption": ...}
+        A slide may set its own "slide_id" to override the derived key; the
+        derived form is what the docs recommend, so authors never have to
+        invent ids.
+        """
+        media = section.get("media")
+        if media is None:
+            if section.get("section_kind") == "media":
+                raise ValueError(f"{exam_type}/{sid}: section_kind \"media\" needs a media object.")
+            return
+        if section.get("section_kind") != "media":
+            raise ValueError(
+                f"{exam_type}/{sid}: has a media object but section_kind is "
+                f"{section.get('section_kind')!r} - set section_kind \"media\"."
+            )
+        where = f"{exam_type}/{sid}.media"
+        _norm_media_facts(media, where)
+
+        # alt_text is required on anything that renders an <img> the learner
+        # is meant to read (an <img> with no alt is an accessibility bug) -
+        # per-media for "image", per-slide for "slideshow" (checked in the
+        # slide loop below). It stays optional for youtube/video_mp4, where
+        # the section title plus the play button's own localized aria-label
+        # already name the thing.
+        if media["type"] == "image" and "alt_text" not in media:
+            raise ValueError(f"{where}: image media needs alt_text (per-locale object).")
+        pull(media, sid, "alt_text")
+        pull(media, sid, "caption")
+        for n, slide in enumerate(media.get("slides") or [], start=1):
+            slide_id = slide.get("slide_id") or f"{sid}-m{n}"
+            slide["slide_id"] = slide_id
+            if "alt_text" not in slide:
+                raise ValueError(f"{where}.slides[{n}]: needs alt_text (per-locale object).")
+            pull(slide, slide_id, "alt_text")
+            pull(slide, slide_id, "caption")
+
     for course in src.get("courses", []):
         cid = course["course_id"]
         pull(course, cid, "title")
@@ -193,6 +366,7 @@ def split_course(exam_type, locales):
                 sid = section["section_id"]
                 pull(section, sid, "title")
                 pull(section, sid, "body")
+                split_media(section, sid)
             for rel in lesson.get("related", []):
                 nk = rel.get("note_key")
                 if nk:

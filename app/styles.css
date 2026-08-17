@@ -988,6 +988,173 @@ main {
   margin: 0 0 10px;
 }
 
+/* section_kind "media" (2026-08-17) - the generic course media section:
+   youtube (click-to-load facade) | video_mp4 (external URL) | image |
+   slideshow. Built by renderCourseMedia() in app.js; schema in
+   docs/course-media-sections.md. Sizing/colors reuse the same tokens and the
+   same card-ish framing as .image-illustration above (the question-image
+   treatment) rather than introducing a second visual language, and every
+   frame is width-constrained + aspect-ratio'd so a 16:9 video and a tall
+   diagram both behave inside the modal card. */
+.course-media {
+  margin: 0 0 18px;
+  text-align: left;
+}
+
+.course-media-frame {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 16:9 for the two video types; images keep their own aspect ratio so a
+   portrait diagram or a square sign isn't letterboxed. Set as an explicit
+   class by app.js rather than with :has(), so an older engine without :has()
+   support still gets a sized frame instead of a collapsed one. */
+.course-media-frame--16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.course-media-iframe,
+.course-media-video {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* The facade: a real <button> (keyboard-focusable, carries the localized
+   "Play video" aria-label) wrapping the cookieless i.ytimg.com thumbnail. */
+.course-media-facade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+  display: block;
+}
+
+.course-media-thumb {
+  width: 100%;
+  height: 100%;
+  /* hqdefault.jpg is 480x360 (4:3): a 16:9 video sits letterboxed inside it
+     with a black bar top and bottom. object-fit:cover in the 16:9 frame
+     crops exactly those bars away, which is why no extra scaling is applied
+     (an earlier scale(1.35) here cut into the video's own title card -
+     caught on the fixture screenshot). */
+  object-fit: cover;
+  display: block;
+}
+
+.course-media-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.course-media-facade:hover .course-media-play,
+.course-media-facade:focus-visible .course-media-play {
+  transform: scale(1.12);
+}
+
+.course-media-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  max-height: 46vh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Pre-click privacy note for the YouTube facade - removed from the DOM once
+   the iframe exists, since it only describes the pre-click state. */
+.course-media-notice {
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  margin: 8px 0 0;
+  text-align: left;
+}
+
+.course-media-offline {
+  margin: 0;
+}
+
+.course-media-figcaption {
+  margin-top: 8px;
+}
+
+.course-media-caption {
+  font-size: 0.82rem;
+  color: var(--text);
+  margin: 8px 0 0;
+  text-align: left;
+}
+
+.course-media-credits {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin: 6px 0 0;
+  text-align: left;
+}
+
+.course-media-credits a {
+  color: var(--accent);
+}
+
+.course-media-slideshow:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+.course-media-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.course-media-navbtn {
+  min-width: 40px;
+  padding: 4px 12px;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.course-media-navbtn[disabled] {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.course-media-pos {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
 #course-reader-related {
   margin: 4px 0 18px;
   text-align: left;
