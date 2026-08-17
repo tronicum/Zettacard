@@ -1,0 +1,452 @@
+{
+  "afu-a-antennentechnik-01": {
+    "question": "¿Qué impedancia de punto de alimentación tiene aproximadamente un dipolo de media onda resonante en espacio libre?",
+    "options": {
+      "a": "36 ohmios",
+      "b": "73 ohmios",
+      "c": "300 ohmios",
+      "d": "450 ohmios"
+    },
+    "explanation": "Un dipolo de media onda resonante en espacio libre tiene una resistencia de radiación / impedancia de punto de alimentación de aproximadamente 73 ohmios (puramente resistiva a la longitud de resonancia exacta). Este valor es la base de la adaptación ampliamente utilizada a cable coaxial de 50 ohmios, y el desajuste resultante suele tolerarse en la práctica."
+  },
+  "afu-a-antennentechnik-02": {
+    "question": "¿Qué impedancia de punto de alimentación presenta aproximadamente una antena vertical ideal de cuarto de onda (plano de tierra) sobre un suelo perfectamente conductor?",
+    "options": {
+      "a": "Aproximadamente 36 ohmios",
+      "b": "Aproximadamente 73 ohmios",
+      "c": "Aproximadamente 150 ohmios",
+      "d": "Aproximadamente 600 ohmios"
+    },
+    "explanation": "Una vertical sobre suelo perfectamente conductor equivale eléctricamente a la mitad de un dipolo de media onda (el suelo actúa como imagen especular), por lo que la impedancia de punto de alimentación es aproximadamente la mitad de 73 ohmios, es decir, unos 36 ohmios. En la práctica, el valor real depende del sistema de radiales/puesta a tierra y de la conductividad real del suelo."
+  },
+  "afu-a-antennentechnik-03": {
+    "question": "¿Cómo se compara aproximadamente la impedancia de punto de alimentación de un dipolo plegado con la de un simple dipolo de media onda?",
+    "options": {
+      "a": "Aproximadamente un cuarto, unos 18 ohmios",
+      "b": "Aproximadamente igual, unos 73 ohmios",
+      "c": "Aproximadamente tres veces y media, unos 240 ohmios",
+      "d": "Aproximadamente diez veces más, unos 730 ohmios"
+    },
+    "explanation": "Un dipolo plegado consiste en dos conductores paralelos que actúan en serie respecto a la corriente, lo que aumenta considerablemente la impedancia de punto de alimentación en comparación con un dipolo simple: hasta unos 240 ohmios (el valor indicado en el catálogo oficial de preguntas de Clase A de la BNetzA). Esto hace que el dipolo plegado sea muy adecuado para conexión directa a línea bifilar balanceada de 240 a 300 ohmios."
+  },
+  "afu-a-antennentechnik-04": {
+    "question": "¿Cuál es el efecto principal de añadir un reflector y un director a una antena Yagi, en comparación con un simple dipolo?",
+    "options": {
+      "a": "Aumentar la impedancia de punto de alimentación a varios kilohmios",
+      "b": "Concentrar la radiación en una dirección preferente, proporcionando ganancia y una determinada relación delante-atrás",
+      "c": "Eliminar por completo todos los lóbulos secundarios",
+      "d": "Convertir la polarización lineal en polarización circular"
+    },
+    "explanation": "Los elementos reflector y director de una Yagi se acoplan de forma parásita al elemento alimentado, y su superposición constructiva/destructiva crea directividad: la radiación se concentra hacia los directores (ganancia respecto a un dipolo simple) y se reduce hacia el reflector (relación delante-atrás). Los lóbulos secundarios se reducen con este proceso, pero no se eliminan completamente."
+  },
+  "afu-a-antennentechnik-05": {
+    "question": "¿Cómo afecta principalmente la altura de montaje de una antena de polarización vertical sobre suelo real al diagrama de radiación?",
+    "options": {
+      "a": "Una mayor altura tiende a reducir el ángulo de radiación, favoreciendo los contactos DX de larga distancia",
+      "b": "En HF, la altura fundamentalmente no tiene ningún efecto sobre el diagrama de radiación",
+      "c": "Una mayor altura siempre aumenta el ángulo de radiación por encima de 80 grados",
+      "d": "La altura solo afecta a la impedancia de punto de alimentación, no al diagrama"
+    },
+    "explanation": "Las reflexiones en suelo real, con pérdidas, influyen significativamente en el ángulo de radiación vertical. A medida que aumenta la altura de la antena (medida en longitudes de onda), el ángulo de radiación principal respecto al horizonte tiende a disminuir, lo cual es favorable para contactos DX que dependen de reflexión ionosférica de bajo ángulo. A poca altura, domina en cambio una radiación más pronunciada, más adecuada para enlaces de corto alcance (NVIS)."
+  },
+  "afu-a-antennentechnik-06": {
+    "question": "¿En qué dirección radia con más fuerza un dipolo de media onda suspendido en espacio libre?",
+    "options": {
+      "a": "Exclusivamente a lo largo del eje del hilo",
+      "b": "Por igual en todas las direcciones (esféricamente)",
+      "c": "Con mayor fuerza perpendicularmente al eje del hilo, con nulos en la prolongación de los extremos (patrón en forma de ocho)",
+      "d": "Exclusivamente hacia arriba y hacia abajo"
+    },
+    "explanation": "El diagrama de radiación horizontal de un dipolo de media onda en espacio libre tiene forma de ocho: la radiación es máxima perpendicularmente al eje del hilo y cae a cero en la prolongación de los extremos. Un radiador isotrópico, que radia por igual en todas las direcciones, es solo una referencia teórica utilizada para las cifras de ganancia (dBi)."
+  },
+  "afu-a-antennentechnik-07": {
+    "question": "¿Qué describe el término 'relación delante-atrás' (Front-to-Back Ratio) en una antena direccional?",
+    "options": {
+      "a": "La relación entre la potencia de transmisión y la potencia recibida",
+      "b": "La relación entre la potencia radiada en la dirección del lóbulo principal y la potencia radiada en la dirección opuesta (180 grados), normalmente expresada en dB",
+      "c": "La relación entre la impedancia de punto de alimentación y la impedancia característica del cable",
+      "d": "La relación entre la altura de la antena y la longitud de onda utilizada"
+    },
+    "explanation": "La relación delante-atrás indica, en dB, cuánto más fuerte es la potencia radiada de una antena direccional (por ejemplo, una Yagi) en la dirección del lóbulo principal en comparación con la dirección opuesta a 180 grados. Una relación delante-atrás alta suprime eficazmente las interferencias y el QRM procedentes de la parte posterior de la antena."
+  },
+  "afu-a-antennentechnik-08": {
+    "question": "¿Por qué suele lograrse una ganancia de antena mayor en frecuencias más altas (por ejemplo, 70 cm) que en frecuencias más bajas (por ejemplo, 80 m), para el mismo tamaño físico de antena?",
+    "options": {
+      "a": "Porque el tamaño físico en relación con la longitud de onda es mayor en frecuencias altas, permitiendo más elementos o una apertura efectiva mayor medida en longitudes de onda",
+      "b": "Porque las frecuencias más altas siempre tienen menor atenuación de propagación en espacio libre que las frecuencias más bajas",
+      "c": "Porque en frecuencias más altas se permite automáticamente mayor potencia de transmisión",
+      "d": "Porque las pérdidas de tierra nunca se producen en frecuencias altas"
+    },
+    "explanation": "La ganancia de antena depende en gran medida del tamaño de la estructura medido en longitudes de onda (es decir, de su apertura efectiva). Para un tamaño físico fijo -digamos, un mástil de una longitud dada- caben muchas más longitudes de onda, y por tanto potencialmente más elementos o una mayor área de apertura, en 70 cm que en 80 m, donde incluso un simple dipolo de media onda mide muchos metros. La atenuación de propagación en espacio libre, en cambio, aumenta realmente con la frecuencia, no disminuye."
+  },
+  "afu-a-leitungstheorie-01": {
+    "question": "¿Qué describe la impedancia característica (Z0) de una línea de RF como el cable coaxial?",
+    "options": {
+      "a": "La resistencia óhmica de corriente continua del conductor interior",
+      "b": "La relación tensión-corriente de una onda que se propaga en una línea infinitamente larga, o terminada sin reflexión en Z0, determinada por la geometría y el dieléctrico de la línea",
+      "c": "La resistencia medida cuando el extremo del cable está cortocircuitado",
+      "d": "La potencia de transmisión máxima que el cable puede soportar sin pérdidas"
+    },
+    "explanation": "La impedancia característica Z0 es una propiedad de la línea misma (en el coaxial, determinada por los diámetros de los conductores interior y exterior y el dieléctrico), no de la carga conectada. Describe la relación tensión-corriente de una onda viajera en una línea infinitamente larga, o terminada sin reflexión en Z0. Solo cuando la impedancia de carga es igual a Z0 no hay reflexión."
+  },
+  "afu-a-leitungstheorie-02": {
+    "question": "Un transmisor entrega a una antena una potencia directa de 100 W, y se mide una potencia reflejada de 4 W. ¿Cuál es aproximadamente la ROE (relación de onda estacionaria)?",
+    "options": {
+      "a": "1,04",
+      "b": "1,2",
+      "c": "1,5",
+      "d": "2,0"
+    },
+    "explanation": "La magnitud del coeficiente de reflexión es |Gamma| = raíz(Pref/Pdir) = raíz(4/100) = raíz(0,04) = 0,2. La ROE se calcula entonces como ROE = (1+|Gamma|)/(1-|Gamma|) = 1,2/0,8 = 1,5. Una ROE de 1,5 se considera no crítica para la mayoría de las etapas finales de transmisor."
+  },
+  "afu-a-leitungstheorie-03": {
+    "question": "¿Para qué se utiliza una carta de Smith en el trabajo con líneas de transmisión y redes de adaptación?",
+    "options": {
+      "a": "Para representar gráficamente impedancias (o admitancias) complejas normalizadas y resolver problemas de adaptación y transformación a lo largo de una línea",
+      "b": "Para medir directamente el campo radiado de una antena en metros por segundo",
+      "c": "Para calcular el número relativo de manchas solares para la predicción de propagación",
+      "d": "Para marcar las frecuencias de transmisión permitidas en el plan de bandas de radioaficionados"
+    },
+    "explanation": "La carta de Smith es una herramienta gráfica en la que las impedancias complejas normalizadas (referidas a la impedancia característica Z0) se representan como puntos dentro de un círculo unitario. Permite determinar visualmente cómo varía la impedancia a lo largo de una línea, el efecto de las redes de adaptación (por ejemplo, redes en L, adaptación con stub), así como el coeficiente de reflexión y la ROE, sin tener que realizar cálculos complejos a mano."
+  },
+  "afu-a-leitungstheorie-04": {
+    "question": "¿Por qué una ROE alta medida en la salida del transmisor, en una línea de alimentación con pérdidas (larga y fina), puede parecer más baja que la ROE realmente presente en el punto de alimentación de la antena?",
+    "options": {
+      "a": "Las líneas con pérdidas siempre hacen que la ROE medida en el transmisor sea más alta que en la antena",
+      "b": "La atenuación de la línea debilita tanto la onda directa como la reflejada en su camino hacia el punto de medición, de modo que la ROE calculada en el extremo del transmisor resulta más baja que la ROE real en el punto de desajuste (la antena)",
+      "c": "Porque el cable coaxial es fundamentalmente sin pérdidas por encima de 30 MHz",
+      "d": "Porque la ROE está físicamente definida solo en el transmisor y no existe en absoluto en la antena"
+    },
+    "explanation": "La onda reflejada debe recorrer una segunda vez el camino con pérdidas de la línea, desde el punto de desajuste (la antena) hasta el punto de medición (el transmisor), y se atenúa aún más en el proceso. Esto hace que la ROE medida en la salida del transmisor parezca mejor de lo que realmente es en el punto de alimentación de la antena -un efecto especialmente pronunciado con líneas largas y con muchas pérdidas (por ejemplo, coaxial fino en altas frecuencias), que debe tenerse en cuenta al solucionar problemas."
+  },
+  "afu-a-leitungstheorie-05": {
+    "question": "¿Cómo puede utilizarse un tramo de línea de cuarto de onda (transformador lambda/4) para adaptar dos impedancias reales diferentes?",
+    "options": {
+      "a": "Su impedancia característica se elige como la media geométrica de las dos impedancias reales a adaptar (Z_transformador = raíz(Z1 x Z2))",
+      "b": "Su longitud física se elige arbitrariamente, y su impedancia característica no importa",
+      "c": "Solo funciona con impedancias de carga complejas, nunca con impedancias reales",
+      "d": "Siempre transforma cualquier carga sin pérdidas a exactamente 50 ohmios, independientemente de la impedancia característica elegida"
+    },
+    "explanation": "Un tramo de línea lambda/4 transforma una impedancia de terminación real Z_carga según la relación Z_transformador^2 = Z_entrada x Z_carga. Así, para adaptar una carga Z1 a una fuente de impedancia Z2, la impedancia característica de la línea de cuarto de onda se elige como la media geométrica Z_transformador = raíz(Z1 x Z2). Esta técnica se utiliza, por ejemplo, para adaptar una antena vertical de 36 ohmios a coaxial de 50 ohmios."
+  },
+  "afu-a-leitungstheorie-06": {
+    "question": "¿A qué distancia a lo largo de una línea de bajas pérdidas y desajustada se repiten los máximos (o mínimos) de tensión de la onda estacionaria?",
+    "options": {
+      "a": "A una distancia de una longitud de onda completa, lambda",
+      "b": "A una distancia de media longitud de onda, lambda/2",
+      "c": "A una distancia de un cuarto de longitud de onda, lambda/4, independientemente del desajuste",
+      "d": "A una distancia fija en metros, completamente independiente de la frecuencia"
+    },
+    "explanation": "Cuando la onda directa y la reflejada se superponen en una línea desajustada, se forma un patrón de onda estacionaria cuyos máximos y mínimos de tensión se repiten periódicamente cada lambda/2 (dos máximos consecutivos están separados por media longitud de onda). Un máximo y el mínimo más cercano están, en consecuencia, separados por un cuarto de longitud de onda."
+  },
+  "afu-a-leitungstheorie-07": {
+    "question": "¿Qué describe el factor de velocidad (Velocity Factor) de un cable coaxial?",
+    "options": {
+      "a": "La relación entre el diámetro exterior y el diámetro del conductor interior del cable",
+      "b": "El factor por el que se reduce la potencia máxima de transmisión permitida a través del cable",
+      "c": "La relación entre la velocidad de propagación de la onda electromagnética dentro del cable y la velocidad de la luz en el vacío, esencial para convertir longitud eléctrica en longitud física",
+      "d": "El coeficiente de reflexión cuando la terminación no está adaptada"
+    },
+    "explanation": "Como las ondas electromagnéticas se propagan más lentamente por el dieléctrico de un cable coaxial que en el vacío, el factor de velocidad (normalmente entre 0,66 y 0,85 según el dieléctrico) es la relación entre esa velocidad de propagación y la velocidad de la luz c. Debe tenerse en cuenta al calcular la longitud física de tramos de línea como transformadores lambda/4 o stubs, ya que de lo contrario la longitud eléctrica sería incorrecta."
+  },
+  "afu-a-leitungstheorie-08": {
+    "question": "¿Qué valor de ROE resulta en una línea idealmente adaptada, sin ninguna reflexión?",
+    "options": {
+      "a": "0",
+      "b": "Infinito",
+      "c": "-1",
+      "d": "1 (también escrito como 1:1)"
+    },
+    "explanation": "Si la impedancia de carga es exactamente igual a la impedancia característica de la línea, no se produce reflexión (coeficiente de reflexión Gamma = 0) y no se forma ninguna onda estacionaria. La ROE alcanza entonces su mejor valor posible, 1, generalmente expresado como 1:1. Los valores de ROE inferiores a 1 no son físicamente posibles."
+  },
+  "afu-a-ausbreitung-01": {
+    "question": "¿Qué propiedad caracteriza a la capa D de la ionosfera?",
+    "options": {
+      "a": "Solo existe de noche y entonces permite la propagación HF de mayor alcance",
+      "b": "Refleja de forma fiable todas las frecuencias por encima de 30 MHz",
+      "c": "Se forma solo durante el día debido a la radiación solar, desaparece en gran medida de noche por recombinación, y principalmente atenúa (absorbe, en lugar de reflejar) las frecuencias HF bajas, especialmente por debajo de unos 7 MHz",
+      "d": "Se sitúa por encima de la capa F2 y es responsable del tráfico DX en 10 m"
+    },
+    "explanation": "La capa D se encuentra a la altitud más baja de la ionosfera (aproximadamente 60-90 km) y se forma por la radiación solar diurna; de noche se recombina en gran medida y desaparece. Apenas refleja las señales HF -en cambio, las absorbe, especialmente en frecuencias bajas como 80 m y 40 m durante el día. Por eso las bandas bajas suelen funcionar de forma más fiable para contactos de larga distancia después del atardecer."
+  },
+  "afu-a-ausbreitung-02": {
+    "question": "¿Qué significa la 'frecuencia máxima utilizable' (MUF) para un enlace de radio determinado?",
+    "options": {
+      "a": "La frecuencia más alta que, para un ángulo de incidencia dado, todavía es reflejada de vuelta a la Tierra por la ionosfera en lugar de atravesarla",
+      "b": "La frecuencia más baja por debajo de la cual no se produce ninguna absorción en la capa D",
+      "c": "La frecuencia máxima de transmisión legalmente permitida para radioaficionados de clase A",
+      "d": "La frecuencia a la que la antena muestra la ROE más baja"
+    },
+    "explanation": "La MUF no es una cifra legal fija sino un parámetro de propagación: para una ruta específica y un ángulo de incidencia dado, indica la frecuencia más alta que la ionosfera todavía refleja hacia la Tierra -por encima de la MUF, la onda atraviesa la ionosfera y se pierde en el espacio. Depende de la frecuencia crítica de la capa correspondiente y del ángulo de incidencia (aproximadamente mediante la ley de la secante), y varía con la hora del día, la estación del año y la actividad solar."
+  },
+  "afu-a-ausbreitung-03": {
+    "question": "¿Qué caracteriza el fenómeno de propagación 'greyline' (propagación crepuscular) en las bandas bajas de onda corta?",
+    "options": {
+      "a": "Se produce exclusivamente al mediodía con el sol en su punto más alto, y es más fuerte en 10 m",
+      "b": "En la estrecha zona de transición entre el día y la noche (amanecer/atardecer), la absorción de la capa D se reduce fuertemente mientras que las capas superiores a menudo aún están suficientemente ionizadas, permitiendo contactos DX inusualmente largos a lo largo del terminador, especialmente en 80 m/40 m",
+      "c": "Es un fenómeno puramente óptico sin ningún efecto sobre la propagación radioeléctrica",
+      "d": "Solo ocurre en bandas VHF por encima de 144 MHz"
+    },
+    "explanation": "A lo largo de la 'greyline' (el terminador entre los lados diurno y nocturno de la Tierra), las estaciones transmisora y receptora están, en cierto sentido, simultáneamente en el crepúsculo. La capa D, fuertemente absorbente durante el día, aún no está, o ya no está, plenamente desarrollada durante esta transición, mientras que las capas superiores ionizadas todavía proporcionan suficiente reflexión. Esto permite, especialmente en las bandas bajas (80 m, 40 m), contactos sorprendentemente buenos, a menudo transcontinentales, a lo largo de esta estrecha zona."
+  },
+  "afu-a-ausbreitung-04": {
+    "question": "¿Qué se entiende por propagación 'Sporadic-E'?",
+    "options": {
+      "a": "Una vía de propagación constante y regular a través de la capa F2 en onda corta",
+      "b": "Nubes de pequeña escala, intensamente ionizadas, que aparecen de forma irregular en el tiempo y el espacio dentro de la capa E, que brevemente permiten contactos inusualmente largos en las bandas HF altas y VHF bajas (por ejemplo, 10 m, 6 m, ocasionalmente 2 m)",
+      "c": "Un fenómeno confinado exclusivamente al invierno y a la banda de 160 m",
+      "d": "Un modo de propagación artificial generado por las propias estaciones de radioaficionados"
+    },
+    "explanation": "El Sporadic-E surge de regiones de intensa ionización, breves e impredecibles, en la capa E (aproximadamente 90-120 km de altitud), típicamente más comunes en verano. Estas nubes pueden reflejar señales a frecuencias muy por encima de la MUF habitual, permitiendo contactos sorprendentemente largos en 10 m, 6 m, y ocasionalmente incluso en 2 m, aunque estas bandas normalmente no son reflejadas por la ionosfera."
+  },
+  "afu-a-ausbreitung-05": {
+    "question": "¿Qué describe la 'zona de silencio' (skip zone) en la propagación de onda de cielo en HF?",
+    "options": {
+      "a": "Un área donde los contactos de radio fundamentalmente nunca son posibles bajo ninguna condición",
+      "b": "El área inmediatamente alrededor de la antena de transmisión donde la potencia de transmisión está legalmente limitada",
+      "c": "El área entre el alcance de la onda de tierra (o una onda de cielo de ángulo muy bajo cercana) y el punto donde la primera onda de cielo reflejada ionosféricamente regresa a la Tierra -allí normalmente no es posible la recepción",
+      "d": "Un fenómeno que ocurre exclusivamente por encima de 144 MHz"
+    },
+    "explanation": "Entre el punto donde la onda de tierra (o una onda de cielo de ángulo muy bajo) se vuelve demasiado débil, y el punto donde la primera onda de cielo reflejada en la ionosfera regresa a la superficie terrestre, se encuentra la zona de silencio (zona muerta). Dentro de esta área en forma de anillo, la recepción normalmente no es posible bajo las condiciones de propagación dadas, aunque tanto estaciones más cercanas como más lejanas pueden ser escuchadas."
+  },
+  "afu-a-ausbreitung-06": {
+    "question": "¿Para qué se utiliza típicamente el modo NVIS (Near Vertical Incidence Skywave)?",
+    "options": {
+      "a": "Para contactos fiables de corto alcance (aproximadamente 0 a 300 km) sin zona de silencio, logrado mediante un ángulo de radiación pronunciado, casi vertical, de antenas horizontales generalmente montadas bajas en las bandas HF inferiores",
+      "b": "Para contactos espaciales de muy larga distancia vía satélites en VHF",
+      "c": "Exclusivamente para modos digitales de banda estrecha por encima de 1 GHz",
+      "d": "Para calibrar patrones de frecuencia de precisión"
+    },
+    "explanation": "Con NVIS, una antena (a menudo un dipolo horizontal montado bajo sobre el suelo) se opera deliberadamente de manera que la mayor parte de su energía se radie de forma pronunciada hacia arriba (cerca de 90 grados). La onda de cielo resultante se refleja entonces casi verticalmente en la ionosfera y regresa a la Tierra dentro de un radio de aproximadamente 0 a 300 km -sin la habitual zona de silencio. Esto hace que NVIS sea especialmente adecuado para comunicación fiable de corto alcance en terreno difícil, como el tráfico de radio de emergencia y catástrofes."
+  },
+  "afu-a-ausbreitung-07": {
+    "question": "¿Cómo afecta típicamente una actividad solar alta (máximo solar) a la propagación HF?",
+    "options": {
+      "a": "Reduce tanto la frecuencia crítica de la capa F2 que las bandas HF superiores (10 m, 15 m) casi nunca son adecuadas para DX",
+      "b": "Generalmente aumenta la ionización de la capa F2 y, por tanto, su frecuencia crítica así como la MUF, de modo que las bandas HF superiores (por ejemplo, 10 m, 15 m) están abiertas con más frecuencia para contactos de larga distancia",
+      "c": "Solo afecta a las bandas VHF por encima de 144 MHz, no a la onda corta",
+      "d": "Impide fundamentalmente toda propagación Sporadic-E"
+    },
+    "explanation": "A medida que aumenta la actividad solar (un número relativo de manchas solares alto), también aumenta la radiación UV y de rayos X que ioniza la capa F2. Una capa F2 más fuertemente ionizada tiene una frecuencia crítica más alta y, por tanto, también una MUF más alta, lo que hace que las bandas superiores de onda corta (10 m, 15 m, a veces incluso 6 m) estén abiertas con más frecuencia y a mayores distancias para contactos DX. Durante un mínimo solar, en cambio, estas bandas a menudo permanecen muertas durante días."
+  },
+  "afu-a-ausbreitung-08": {
+    "question": "¿Qué caracteriza la propagación de 'salto múltiple' (multi-hop) de una onda de cielo en onda corta?",
+    "options": {
+      "a": "La señal solo rebota una vez entre transmisor y receptor, incluso a distancias muy grandes",
+      "b": "Solo ocurre con propagación de onda de tierra en frecuencias bajas",
+      "c": "La señal se refleja repetidamente entre la ionosfera y la superficie terrestre, lo que permite cubrir distancias muy grandes, mientras que cada salto adicional reduce aún más la intensidad de la señal por pérdidas de reflexión y de tierra y favorece el desvanecimiento (fading)",
+      "d": "Solo ocurre exclusivamente con enlaces satelitales en la banda de 70 cm"
+    },
+    "explanation": "Si una sola reflexión ionosférica no es suficiente para conectar dos estaciones muy alejadas, la señal puede rebotar varias veces entre el suelo (o la superficie del mar) y la ionosfera (salto múltiple). Esto permite cubrir distancias intercontinentales, pero cada salto adicional reduce la intensidad de la señal debido a pérdidas de tierra e ionosféricas, y la combinación de varios trayectos con distintos tiempos de propagación favorece el desvanecimiento y la distorsión."
+  },
+  "afu-a-leistung-01": {
+    "question": "¿Qué clase de amplificador se elige típicamente para etapas finales de transmisión SSB lineales, y por qué?",
+    "options": {
+      "a": "Clase C, porque ofrece la mayor eficiencia de todas las clases y es, por tanto, la más económica",
+      "b": "Generalmente clase AB, como compromiso entre linealidad suficiente (para la transferencia con baja distorsión de la envolvente SSB) y eficiencia aceptable",
+      "c": "Exclusivamente clase A, porque la linealidad es irrelevante para SSB",
+      "d": "Clase D, porque fue desarrollada específicamente para transmisión de voz analógica"
+    },
+    "explanation": "SSB es un modo modulado en amplitud con una envolvente constantemente variable que requiere una amplificación suficientemente lineal -una etapa final fuertemente no lineal distorsionaría la información de voz y generaría fuertes productos de intermodulación. La clase C no es adecuada para SSB porque opera de forma fuertemente no lineal. En la práctica, por tanto, generalmente se elige la clase AB: ofrece linealidad adecuada con una eficiencia notablemente mejor que la clase A pura."
+  },
+  "afu-a-leistung-02": {
+    "question": "¿Qué afirmación básica sobre la diferencia en la potencia máxima de transmisión permitida entre radioaficionados de clase A y clase E es correcta?",
+    "options": {
+      "a": "Ambas clases pueden usar exactamente la misma potencia máxima de transmisión; la única diferencia está en los rangos de frecuencia",
+      "b": "La clase E generalmente puede transmitir con mayor potencia que la clase A",
+      "c": "Según el Anlage 3 AFuV, los titulares de licencia clase A pueden usar una potencia máxima de transmisión notablemente mayor en la mayoría de sus bandas asignadas que los titulares de clase E, cuya licencia está más restringida tanto en potencia como en bandas",
+      "d": "La potencia de transmisión de ambas clases no está limitada legalmente y queda enteramente a discreción del radioaficionado"
+    },
+    "explanation": "El AFuV (específicamente el Anlage 3, leído junto con los rangos de frecuencia asignados en el Anlage 1) prevé para los titulares de licencia clase A una potencia de transmisión permitida notablemente mayor en la mayoría de las bandas de radioaficionado asignadas que para la clase E, cuya licencia está más restringida tanto en el espectro utilizable como en la potencia máxima. Las cifras exactas de potencia por banda cambian ocasionalmente por modificaciones del AFuV y siempre deben verificarse contra el texto actual del Anlage 3 antes del uso práctico."
+  },
+  "afu-a-leistung-03": {
+    "question": "¿Por qué es especialmente importante un acoplador de antena (sintonizador de antena) a mayor potencia de transmisión en una antena no resonante?",
+    "options": {
+      "a": "Transforma el desajuste presentado por la antena/línea de alimentación en una impedancia que la etapa final puede tolerar (generalmente cerca de 50 ohmios), evitando pérdidas por desajuste en la etapa final, picos elevados de tensión/corriente y posibles daños a alta potencia",
+      "b": "Aumenta fundamentalmente la potencia entregada por el transmisor más allá del límite fijado en el equipo",
+      "c": "Elimina por completo la necesidad de una antena correctamente dimensionada",
+      "d": "Sirve exclusivamente para filtrar el zumbido de red de la fuente de alimentación"
+    },
+    "explanation": "Una carga significativamente desajustada puede causar picos elevados de tensión y corriente en la etapa final del transmisor; estos suelen ser no críticos a baja potencia, pero a alta potencia de transmisión pueden provocar sobrecarga, eficiencia reducida y, en el peor de los casos, destrucción de los transistores/tubos de la etapa final. Un acoplador de antena colocado entre el transmisor y la línea de alimentación transforma la impedancia de modo que la etapa final vea una carga que pueda tolerar (generalmente cerca de 50 ohmios) -pero no corrige el desajuste ni las pérdidas resultantes en la propia línea de alimentación."
+  },
+  "afu-a-leistung-04": {
+    "question": "¿Por qué aumenta especialmente la importancia de un filtrado paso bajo eficaz entre la etapa final y la antena al aumentar la potencia de transmisión?",
+    "options": {
+      "a": "Porque una mayor potencia suprime automática y completamente la generación de armónicos",
+      "b": "Porque una etapa final no lineal genera inherentemente armónicos de la señal transmitida, y su potencia absoluta aumenta junto con la potencia de la fundamental, de modo que incluso una fracción relativamente pequeña de armónicos puede alcanzar niveles de interferencia problemáticos en términos absolutos a alta potencia de transmisión",
+      "c": "Porque a mayor potencia, los límites sobre emisiones espurias ya no se aplican en absoluto",
+      "d": "Porque los filtros paso bajo solo sirven para mejorar la ROE"
+    },
+    "explanation": "Toda etapa amplificadora no lineal genera, además de la fundamental deseada, armónicos (múltiplos enteros de la frecuencia de transmisión). Su nivel suele estar muchos dB por debajo de la fundamental, pero a alta potencia de transmisión incluso un porcentaje relativamente pequeño de contenido armónico puede alcanzar, en vatios absolutos, niveles suficientes para interferir seriamente con otros servicios de radio (por ejemplo, radiodifusión, radio aeronáutica). Un filtro paso bajo eficaz entre la etapa final y la antena es, por tanto, especialmente importante a mayor potencia, para atenuar adecuadamente las emisiones espurias."
+  },
+  "afu-a-leistung-05": {
+    "question": "¿Qué se entiende por distorsión de intermodulación (IMD) en una etapa final de RF lineal, por ejemplo durante una prueba de dos tonos?",
+    "options": {
+      "a": "El fallo completo de la etapa final bajo sobreexcitación",
+      "b": "Exclusivamente la generación de armónicos de la frecuencia fundamental, independientemente de cualquier otro contenido de señal",
+      "c": "La generación de productos de mezcla adicionales e indeseados a partir de dos o más componentes de señal amplificados simultáneamente (como los dos tonos de una prueba de dos tonos SSB) debido al comportamiento no lineal de la etapa final; estos productos caen cerca de la frecuencia deseada y son, por tanto, especialmente perjudiciales",
+      "d": "La supresión de lóbulos secundarios de la antena causada por baja potencia de transmisión"
+    },
+    "explanation": "Cuando una etapa final no perfectamente lineal amplifica varios componentes de frecuencia a la vez (por ejemplo, los dos tonos de una prueba de dos tonos, que típicamente emula señales de voz SSB), la no linealidad produce productos de mezcla adicionales en las frecuencias suma y diferencia de las señales de entrada. Los productos de intermodulación de orden impar (por ejemplo, 3er orden) son especialmente problemáticos porque caen cerca de las frecuencias deseadas y no pueden filtrarse fácilmente. Un retroceso suficiente desde el punto de saturación y una clase de funcionamiento suficientemente lineal (por ejemplo, AB) reducen la IMD."
+  },
+  "afu-a-leistung-06": {
+    "question": "¿Qué obligación adicional puede surgir de la protección de las personas frente a campos electromagnéticos a mayor potencia de transmisión (típico de las estaciones clase A)?",
+    "options": {
+      "a": "Ninguna: la protección de las personas legalmente no tiene ningún papel en la radioafición",
+      "b": "Por encima de ciertos umbrales que dependen de la frecuencia y la potencia de transmisión (PIRE), la BEMFV puede exigir un certificado de emplazamiento (Standortbescheinigung) o al menos una evaluación documentada de distancias de seguridad para la estación de radioaficionado antes de ponerla en funcionamiento a mayor potencia",
+      "c": "Un certificado de emplazamiento se exige exclusivamente para transmisores de radiodifusión comerciales, nunca para estaciones de radioaficionado",
+      "d": "Una mayor potencia de transmisión solo requiere una conexión a tierra más larga del cable de antena, no ninguna evaluación de intensidad de campo"
+    },
+    "explanation": "El reglamento alemán sobre el procedimiento de verificación para limitar los campos electromagnéticos (BEMFV) puede, dependiendo de la potencia de transmisión/PIRE y la banda de frecuencia, exigir un certificado de emplazamiento para instalaciones de radio fijas, o al menos una determinación y observancia documentadas de distancias de seguridad a las personas, antes de que la instalación pueda operarse. Debido a que las estaciones clase A están permitidas para usar una potencia de transmisión notablemente mayor que la clase E, es correspondientemente más probable que superen los umbrales relevantes -los umbrales exactos y el procedimiento deben verificarse contra el texto actual de la BEMFV y los formularios de la Bundesnetzagentur antes de la puesta en marcha."
+  },
+  "afu-a-leistung-07": {
+    "question": "¿Por qué los modos digitales de portadora continua con alto ciclo de trabajo (por ejemplo, FT8, RTTY) requieren precauciones especiales respecto a la refrigeración y la potencia continua nominal de la etapa final, en comparación con SSB al mismo ajuste de PEP?",
+    "options": {
+      "a": "Porque estos modos entregan potencia de portadora casi constante durante largos períodos (alto ciclo de trabajo), mientras que el habla SSB en promedio entrega solo una fracción de su potencia pico, de modo que la carga térmica promedio en la etapa final es notablemente mayor a la misma potencia pico",
+      "b": "Porque los modos digitales fundamentalmente generan mayor tensión pico que SSB, independientemente del ciclo de trabajo",
+      "c": "Porque la operación digital fundamentalmente no requiere ninguna refrigeración",
+      "d": "Porque FT8 y RTTY solo pueden operarse a muy baja potencia por debajo de 1 vatio"
+    },
+    "explanation": "Para el habla SSB, la relación entre potencia promedio y potencia pico (PEP) es típicamente muy inferior a 1, ya que la envolvente de voz fluctúa constantemente e incluye pausas. Modos como FT8 o RTTY, en cambio, transmiten una portadora casi constante durante la mayor parte de la transmisión (ciclo de trabajo alto, cercano al 100%). Con el mismo ajuste de PEP, esto resulta en una carga térmica continua promedio notablemente mayor en la etapa final durante la operación digital, por lo que los fabricantes de transmisores/amplificadores a menudo recomiendan potencia continua reducida para tales modos y debe asegurarse una refrigeración adecuada."
+  },
+  "afu-a-leistung-08": {
+    "question": "¿Qué medida se recomienda especialmente para una estación de radioaficionado fija de alta potencia de transmisión con una instalación de antena exterior, para proteger contra rayos y acumulación de carga estática?",
+    "options": {
+      "a": "Prescindir por completo de cualquier conexión a tierra, para evitar corrientes de bucle",
+      "b": "Un sistema de puesta a tierra adecuadamente diseñado que incluya pararrayos/supresores de sobretensión para la instalación de antena y las líneas de alimentación, junto con la desconexión o puesta a tierra de las líneas de alimentación de antena durante tormentas eléctricas o cuando la estación no está en uso",
+      "c": "Conectar permanentemente todas las antenas a la toma de corriente como única medida de protección",
+      "d": "Operar la estación exclusivamente a plena potencia de transmisión durante una tormenta eléctrica, para 'mantener despejada' la antena"
+    },
+    "explanation": "Una gran instalación de antena exterior conlleva un riesgo elevado de impactos de rayos y acumulación de carga estática. Se recomiendan un sistema de puesta a tierra adecuadamente dimensionado con una conexión de baja resistencia a la unión equipotencial, pararrayos/supresores de sobretensión adecuados en las líneas de alimentación de antena, y la desconexión física (y puesta a tierra) de los cables de antena del receptor/transmisor durante tormentas eléctricas o cuando la estación no vaya a usarse durante un período prolongado. Operar a plena potencia durante una tormenta, en cambio, es un riesgo de seguridad significativo, no una medida de protección."
+  },
+  "afu-a-modulation-01": {
+    "question": "¿Por qué una señal de banda lateral única (SSB) necesita notablemente menos ancho de banda y potencia de transmisión que una señal AM clásica de doble banda lateral para transmitir la misma información de voz?",
+    "options": {
+      "a": "Porque SSB fundamentalmente opera con una frecuencia portadora más alta que AM",
+      "b": "Porque en SSB la información de voz se comprime digitalmente antes de transmitirse en forma analógica",
+      "c": "Porque en SSB se suprimen la portadora y una de las dos bandas laterales redundantes, y solo se transmite una banda lateral, que ya contiene por sí sola la información completa",
+      "d": "Porque SSB se usa exclusivamente para modos digitales, nunca para transmisión de voz"
+    },
+    "explanation": "Una señal AM consiste en una portadora más una banda lateral superior e inferior, con ambas bandas laterales conteniendo la misma información de forma redundante. Con SSB, se suprimen la portadora y una de las dos bandas laterales; la única banda lateral restante lleva por sí sola la información de voz completa. Esto significa que solo se necesita aproximadamente la mitad del ancho de banda de una señal AM, y toda la potencia de transmisión va a la banda lateral portadora de información en lugar de parcialmente a una portadora sin información."
+  },
+  "afu-a-modulation-02": {
+    "question": "¿Qué distingue al modo digital de señal débil FT8 de la transmisión de voz SSB clásica?",
+    "options": {
+      "a": "Un ancho de banda ocupado muy estrecho (unos pocos Hz), franjas horarias cortas fijas para mensajes cortos estructurados y generalmente automatizados, y la capacidad de seguir siendo decodificable incluso con relaciones señal-ruido muy bajas",
+      "b": "Un ancho de banda notablemente mayor que SSB, ya que se transmiten datos de imagen",
+      "c": "La transmisión completa de conversación de voz libre sin ninguna estructura temporal",
+      "d": "Transmisión de señal exclusivamente analógica sin ninguna codificación digital"
+    },
+    "explanation": "FT8 es un modo digital de banda estrecha (aproximadamente 50 Hz de ocupación), sincronizado a franjas horarias fijas (típicamente 15 segundos) con mensajes cortos estructurados (por ejemplo, indicativo, reporte de señal). Gracias a técnicas de corrección de errores fuertes, FT8 puede seguir decodificándose en relaciones señal-ruido donde el habla SSB se perdería en el ruido -a cambio, el contenido del mensaje está altamente estandarizado y es mucho menos libremente formulable que un contacto de voz normal."
+  },
+  "afu-a-modulation-03": {
+    "question": "¿Qué distingue fundamentalmente a FSK (Frequency Shift Keying), tal como se usa clásicamente en RTTY, de PSK (Phase Shift Keying)?",
+    "options": {
+      "a": "FSK transmite información exclusivamente mediante cambios de amplitud, PSK exclusivamente mediante cambios de frecuencia",
+      "b": "Con FSK, la información digital se codifica conmutando entre dos (o más) frecuencias portadoras discretas; con PSK, en cambio, se codifica mediante saltos de fase definidos de la portadora a frecuencia constante y generalmente amplitud constante",
+      "c": "FSK es un tipo de modulación puramente analógica y PSK puramente digital, sin relación con frecuencias portadoras",
+      "d": "FSK y PSK son técnicamente idénticos y solo difieren en el nombre"
+    },
+    "explanation": "Con FSK (por ejemplo, el RTTY clásico usando 'mark' y 'space'), la información digital se transmite conmutando entre dos frecuencias discretas. Con PSK (por ejemplo, PSK31), la frecuencia portadora en cambio permanece constante mientras que la información se codifica mediante saltos de fase definidos (por ejemplo, 180 grados para PSK binario). Como resultado, los modos PSK a menudo pueden diseñarse con banda más estrecha y espectralmente más eficientes que el RTTY FSK clásico."
+  },
+  "afu-a-modulation-04": {
+    "question": "¿Por qué es importante para el radioaficionado clase A conocer el ancho de banda ocupado (Occupied Bandwidth) de un modo?",
+    "options": {
+      "a": "Porque permite evaluar cuántas señales pueden caber simultáneamente en un segmento de banda sin interferirse mutuamente, y si la propia transmisión permanece dentro de la banda asignada o el sub-segmento del plan de bandas",
+      "b": "Porque el ancho de banda ocupado determina directamente el alcance máximo de un contacto de radio, independientemente de la propagación",
+      "c": "Porque un mayor ancho de banda ocupado automáticamente resulta en menos interferencia",
+      "d": "Porque el ancho de banda solo es relevante para la operación VHF/UHF, no para onda corta"
+    },
+    "explanation": "Cada modo ocupa un cierto rango de frecuencias alrededor de su frecuencia central establecida (estrecho para CW o PSK31, notablemente más ancho para SSB o modos de imagen como SSTV). Conocer este ancho de banda ocupado es importante para colocar correctamente una transmisión dentro de los segmentos de frecuencia asignados o las recomendaciones del plan de bandas, y para no interferir con estaciones vecinas -especialmente en un segmento de banda limitado con varias estaciones activas simultáneamente."
+  },
+  "afu-a-modulation-05": {
+    "question": "¿Qué transmite típicamente el modo SSTV (Slow Scan Television) en radioafición?",
+    "options": {
+      "a": "Exclusivamente mensajes de texto cifrados",
+      "b": "Video en movimiento en tiempo real con ancho de banda de video completo, comparable a la televisión terrestre",
+      "c": "Imágenes fijas individuales, codificadas línea por línea en una señal de audio y típicamente transmitidas dentro de un ancho de banda de voz SSB normal",
+      "d": "Exclusivamente datos de telemetría de satélites de radioaficionados"
+    },
+    "explanation": "SSTV codifica una imagen fija línea por línea en una señal de audio (diferentes tonos para brillo/color por píxel), que luego se transmite como una señal de voz normal, por ejemplo vía SSB, y se convierte de nuevo en una imagen en el extremo receptor usando software o hardware adecuado. A diferencia de la televisión real, transmitir una sola imagen típicamente tarda de varios segundos a minutos, pero a cambio cabe dentro del ancho de banda de un canal de voz normal."
+  },
+  "afu-a-modulation-06": {
+    "question": "¿Por qué generalmente se recomienda o usa una potencia de transmisión notablemente menor con modos digitales automatizados como FT8, en comparación con SSB?",
+    "options": {
+      "a": "Porque las señales de FT8 técnicamente no pueden manejar potencia superior a 1 mW",
+      "b": "Porque gracias a una corrección de errores fuerte y transmisión de banda estrecha, FT8 puede decodificarse incluso con relaciones señal-ruido muy bajas, por lo que se necesita notablemente menos potencia de transmisión para un contacto exitoso que con voz SSB, combinado con el alto ciclo de trabajo que además fomenta una elección de potencia conservadora",
+      "c": "Porque la corrección de errores de FT8 se desactiva automáticamente a mayor potencia",
+      "d": "Porque la ley fundamentalmente exige menor potencia máxima para modos digitales que para operación de voz"
+    },
+    "explanation": "FT8 utiliza técnicas de corrección de errores fuertes y un ancho de banda muy estrecho, permitiendo que incluso niveles de señal bajos se decodifiquen de forma fiable -como resultado, un contacto exitoso a menudo necesita notablemente menos potencia de transmisión que un contacto de voz SSB comparable. Además, el alto ciclo de trabajo (portadora casi continua) es una razón adicional para elegir la potencia de transmisión de forma conservadora, para evitar sobrecargar térmicamente la etapa final y para no imponer innecesariamente señales demasiado fuertes a otras estaciones en el segmento digital, ya de por sí estrecho."
+  },
+  "afu-a-modulation-07": {
+    "question": "¿Qué propiedad fundamental caracteriza a los modos de espectro ensanchado (spread spectrum) en comparación con las técnicas clásicas de banda estrecha?",
+    "options": {
+      "a": "Fundamentalmente ocupan un ancho de banda más estrecho que el CW clásico",
+      "b": "Solo son adecuados para recepción y no pueden usarse para transmitir",
+      "c": "Distribuyen la energía de transmisión sobre un ancho de banda mucho mayor del que realmente requeriría la información útil, lo que puede mejorar la robustez frente a interferencias pero exige un conocimiento particular de la normativa aplicable y las obligaciones de documentación",
+      "d": "Están fundamental y sin excepción prohibidos en la radioafición"
+    },
+    "explanation": "Las técnicas de espectro ensanchado distribuyen deliberadamente la energía de transmisión sobre un ancho de banda mucho mayor del que realmente requiere la información útil, por ejemplo mediante secuencias rápidas de salto de frecuencia o codificación de secuencia directa. Esto puede mejorar la robustez frente a interferencias y la coexistencia con señales de banda estrecha, pero en la radioafición requiere un conocimiento profundo de los requisitos técnicos y regulatorios pertinentes (incluyendo obligaciones específicas de identificación y documentación), ya que tales señales pueden confundirse fácilmente con interferencias."
+  },
+  "afu-a-emv-01": {
+    "question": "¿En qué se diferencia fundamentalmente la 'sobrecarga de entrada' (Front-end Overload) de un receptor afectado de una interferencia genuina por armónicos causada por la instalación transmisora?",
+    "options": {
+      "a": "Ambos efectos tienen la misma causa y pueden solucionarse con la misma medida",
+      "b": "Con la sobrecarga de entrada, la entrada del receptor es sobrecargada por la fuerte fundamental del transmisor cercano mismo (no se necesita contenido armónico), mientras que la interferencia por armónicos surge de emisiones no deseadas realmente radiadas en múltiplos de la frecuencia fundamental -ambas requieren remedios diferentes",
+      "c": "La sobrecarga de entrada ocurre exclusivamente en receptores conectados a transmisores de más de 1000 vatios",
+      "d": "La interferencia por armónicos solo puede solucionarse aumentando la potencia de transmisión"
+    },
+    "explanation": "La sobrecarga de entrada ocurre cuando la etapa de entrada de un receptor afectado es sobrecargada por la pura fundamental de un transmisor cercano que por lo demás funciona limpiamente -aquí, un filtro paso alto o de rechazo en el receptor afectado típicamente ayuda, no algo en el transmisor. La interferencia genuina por armónicos, en cambio, surge porque el propio transmisor radia emisiones no deseadas en múltiplos de su frecuencia de transmisión -aquí, un filtro paso bajo en el transmisor es el remedio correcto. La distinción importa para solucionar la interferencia en el extremo correcto del enlace."
+  },
+  "afu-a-emv-02": {
+    "question": "¿Qué obligación básica se aplica a un radioaficionado según el §13 AFuV respecto a interferencias causadas por su estación de radioaficionado, independientemente de la potencia transmitida?",
+    "options": {
+      "a": "Debe tomar medidas razonables para evitar interferencias y, cuando ya se hayan producido, cooperar en su resolución, incluso si el propio equipo transmisor cumple con todos los requisitos técnicos",
+      "b": "Queda liberado de toda responsabilidad tan pronto como el equipo utilizado lleve un marcado CE válido",
+      "c": "Un deber de cooperar existe solo para interferencias que afecten a la propia recepción del radioaficionado, no interferencias que afecten a otros",
+      "d": "Este deber se aplica exclusivamente a estaciones clase A que transmiten por encima de 500 vatios"
+    },
+    "explanation": "El §13 AFuV obliga a los radioaficionados a evitar, en la medida de lo razonablemente posible, interferencias con otras aplicaciones de radio y otros equipos eléctricos, y a cooperar en la resolución de interferencias que ya hayan ocurrido -independientemente de si la causa reside en el transmisor o (como con la sobrecarga de entrada) principalmente en el dispositivo afectado, e independientemente de la potencia de transmisión utilizada. Un marcado CE en el equipo utilizado no exime automáticamente de este deber de cooperar en un caso individual."
+  },
+  "afu-a-emv-03": {
+    "question": "¿Para qué sirve un supresor de modo común (choque de modo común, a menudo llamado 'line isolator' o 'common-mode choke') en la línea de alimentación de una antena?",
+    "options": {
+      "a": "Aumenta deliberadamente la potencia entregada en la antena más allá del nivel establecido en el transmisor",
+      "b": "Suprime corrientes de modo común no deseadas que fluyen por el exterior del blindaje del coaxial, que de otro modo pueden causar problemas de RF en el shack, un patrón de antena distorsionado e interferencia en equipos conectados",
+      "c": "Reemplaza completamente la necesidad de un acoplador de antena para cualquier desajuste",
+      "d": "Sirve exclusivamente para aislar galvánicamente la red eléctrica del transmisor"
+    },
+    "explanation": "Las asimetrías en la antena o su alimentación pueden crear una corriente de modo común no deseada (una corriente en la malla del coaxial) en el exterior del conductor exterior del coaxial. Esto puede llevar energía de RF de vuelta al shack ('RF en el shack', con posible interferencia a computadoras, equipos de audio, etc.), distorsionar el patrón de antena previsto, y hacer que la propia línea de alimentación radie. Un supresor de modo común (por ejemplo, varios toroides de ferrita o un enrollado de ferrita en el cable) aumenta la impedancia vista por esta corriente de modo común y la suprime eficazmente sin afectar la transferencia de señal real."
+  },
+  "afu-a-emv-04": {
+    "question": "¿Por qué el sistema de puesta a tierra de una estación de radioaficionado de alta potencia debe mantenerse lo más corto y de baja impedancia posible?",
+    "options": {
+      "a": "Porque un conductor de tierra largo y de alta impedancia aumenta automáticamente la potencia de transmisión",
+      "b": "Porque solo el color del cable de tierra determina su efectividad",
+      "c": "Porque a RF, una conexión de tierra larga o de alta impedancia puede presentar una inductancia y, por tanto, una impedancia significativa, haciendo que pierda su efecto protector para la seguridad personal y contra rayos, y su efectividad para reducir la realimentación de RF en el shack",
+      "d": "Porque conductores de tierra más largos fundamentalmente resultan en una mejor ROE"
+    },
+    "explanation": "En corriente continua o frecuencia de red, un conductor de tierra se comporta casi puramente resistivamente, pero en radiofrecuencia su inductancia se vuelve significativa: incluso unos pocos metros de cable pueden presentar una impedancia significativa a RF. Un conductor de tierra largo o delgado, por tanto, ya no proporciona un camino corto y efectivo de RF a tierra a las frecuencias relevantes para la radioafición, lo que debilita tanto la protección personal/contra rayos como su efectividad contra la realimentación de RF en el shack (por ejemplo, 'RF en el micrófono'). Por eso se prefieren conexiones de tierra cortas, de baja impedancia y anchas (por ejemplo, cinta de cobre en lugar de hilo delgado)."
+  },
+  "afu-a-emv-05": {
+    "question": "¿Por qué es relevante la distinción entre campo cercano y campo lejano al evaluar la seguridad personal frente a RF cerca de una antena de radioaficionado?",
+    "options": {
+      "a": "Porque las intensidades de campo y su caída con la distancia se comportan de forma diferente en el campo cercano que en el campo lejano, y debido a la larga longitud de onda en las bandas HF bajas, la zona de campo cercano (que se extiende a unas pocas longitudes de onda) puede ser físicamente muy grande en metros absolutos, lo que debe tenerse en cuenta al establecer distancias de seguridad",
+      "b": "Porque en el campo lejano no se puede medir en absoluto ninguna intensidad de campo electromagnético",
+      "c": "Porque la distinción es relevante exclusivamente para instalaciones de radar, nunca para estaciones de radioaficionado",
+      "d": "Porque la ley fundamentalmente permite mayor potencia de transmisión en el campo cercano que en el campo lejano"
+    },
+    "explanation": "Cerca de la antena (el campo cercano, que se extiende a lo largo de unas pocas longitudes de onda), los campos eléctrico y magnético se relacionan entre sí de forma diferente y caen con la distancia de forma diferente que en el campo lejano, donde se aplica una relación simple de 1/r a la intensidad de campo. Debido a que la longitud de onda en las bandas HF bajas (por ejemplo, 80 m, 40 m) es muy grande, la zona de campo cercano allí puede extenderse varios metros hasta decenas de metros -mucho más que en VHF/UHF. Al determinar distancias seguras a las personas (por ejemplo, en el marco de la BEMFV), esta extensión de la zona de campo cercano dependiente de la frecuencia debe, por tanto, tenerse explícitamente en cuenta."
+  },
+  "afu-a-emv-06": {
+    "question": "¿Qué medida suele ser la más eficaz para reducir una interferencia por armónicos genuina (emisión real del transmisor en un múltiplo de la frecuencia de transmisión) que afecta a un receptor de radio o televisión cercano?",
+    "options": {
+      "a": "Aumentar la potencia de transmisión para que la señal deseada supere la interferencia",
+      "b": "Un filtro paso bajo adicional, sintonizado cuidadosamente a la fundamental, colocado entre la etapa final y la antena/línea de alimentación, que atenúa eficazmente las frecuencias por encima de la fundamental",
+      "c": "Eliminar por completo toda conexión a tierra de la instalación transmisora",
+      "d": "Acortar la línea de alimentación de la antena a solo unos centímetros"
+    },
+    "explanation": "Dado que la interferencia por armónicos surge de que la etapa final radia contenido de señal no deseado en múltiplos de la frecuencia de transmisión establecida, un filtro paso bajo adicional, cuidadosamente sintonizado a la fundamental y colocado entre la etapa final y la antena, es el remedio dirigido: atenúa sustancialmente los armónicos molestos mientras deja pasar la fundamental en gran medida sin obstáculos. Aumentar la potencia de transmisión, en cambio, empeoraría la interferencia, ya que la potencia de los armónicos también aumenta proporcionalmente con ella."
+  }
+}

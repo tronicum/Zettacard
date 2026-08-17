@@ -1,0 +1,402 @@
+{
+  "afu-e-technik-01": {
+    "question": "Una resistencia de 4700 ohmios se suele expresar habitualmente con qué abreviatura?",
+    "options": {
+      "a": "4,7 kΩ",
+      "b": "4,7 MΩ",
+      "c": "47 kΩ",
+      "d": "0,47 kΩ"
+    },
+    "explanation": "4700 Ω = 4,7 x 1000 Ω = 4,7 kΩ. El prefijo «k» (kilo) representa el factor 1000."
+  },
+  "afu-e-technik-02": {
+    "question": "La ley de Ohm establece U = R x I. Por una resistencia de 50 ohmios circula una corriente de 0,2 A. ¿Cuál es la caída de tensión?",
+    "options": {
+      "a": "2,5 V",
+      "b": "0,4 V",
+      "c": "10 V",
+      "d": "100 V"
+    },
+    "explanation": "U = R x I = 50 Ω x 0,2 A = 10 V."
+  },
+  "afu-e-technik-03": {
+    "question": "¿Cuál de los siguientes grupos de materiales está formado por buenos conductores eléctricos?",
+    "options": {
+      "a": "Vidrio, porcelana, caucho",
+      "b": "Plata, cobre, aluminio",
+      "c": "Poliestireno, PVC, teflón",
+      "d": "Papel, madera, aire seco"
+    },
+    "explanation": "La plata, el cobre y el aluminio tienen muchos electrones libres y conducen muy bien la electricidad; los demás materiales citados son aislantes típicos."
+  },
+  "afu-e-technik-04": {
+    "question": "¿Qué ocurre con un diodo polarizado en sentido inverso?",
+    "options": {
+      "a": "Solo circula una corriente de fuga muy pequeña; el diodo bloquea prácticamente el paso de corriente",
+      "b": "Su resistencia cae casi a cero",
+      "c": "Se comporta como un condensador ideal, sin ninguna corriente",
+      "d": "La corriente circula sin obstáculo, como en un simple cable"
+    },
+    "explanation": "En sentido inverso, un diodo presenta una resistencia muy alta y solo circula una corriente de fuga despreciable; conduce bien únicamente en sentido directo, una vez superada la tensión umbral."
+  },
+  "afu-e-technik-05": {
+    "question": "Un condensador es un componente cuya función principal es...",
+    "options": {
+      "a": "rectificar una tensión alterna",
+      "b": "almacenar un campo magnético",
+      "c": "almacenar carga/energía eléctrica en un campo eléctrico",
+      "d": "convertir sin pérdidas corriente continua en calor"
+    },
+    "explanation": "Un condensador está formado por dos electrodos separados por un dieléctrico y almacena energía eléctrica en forma de campo eléctrico entre esos electrodos."
+  },
+  "afu-e-technik-06": {
+    "question": "Un circuito resonante paralelo formado por una bobina y un condensador se hace funcionar en su frecuencia de resonancia. Idealmente, ¿cómo se comporta allí su impedancia?",
+    "options": {
+      "a": "Es mínima (prácticamente un cortocircuito)",
+      "b": "Es máxima (alta impedancia)",
+      "c": "Permanece constante con independencia de la frecuencia",
+      "d": "Cae exactamente a cero ohmios"
+    },
+    "explanation": "En un circuito resonante paralelo ideal, la impedancia alcanza su máximo exactamente en la frecuencia de resonancia, porque las corrientes reactivas por la bobina y el condensador se cancelan, de modo que la fuente solo suministra una corriente pequeña."
+  },
+  "afu-e-technik-07": {
+    "question": "¿Qué distingue fundamentalmente la BLU (modulación de banda lateral única, SSB) de la modulación de amplitud clásica (AM, doble banda lateral con portadora)?",
+    "options": {
+      "a": "La BLU suprime la portadora y una banda lateral, transmitiendo solo una única banda lateral",
+      "b": "La BLU transmite ambas bandas laterales más una portadora amplificada",
+      "c": "La BLU es un esquema puramente de modulación en frecuencia, sin banda lateral alguna",
+      "d": "La BLU siempre requiere mayor potencia de transmisión que la AM para el mismo alcance"
+    },
+    "explanation": "La BLU suprime la portadora y una banda lateral, transmitiendo solo una única banda lateral, lo que aprovecha el ancho de banda y la potencia de transmisión de forma mucho más eficiente que la AM clásica."
+  },
+  "afu-e-technik-08": {
+    "question": "¿Cuál es la finalidad de la etapa de frecuencia intermedia (FI) en un receptor superheterodino?",
+    "options": {
+      "a": "Genera la potencia de transmisión entregada a la salida de antena",
+      "b": "Suministra corriente continua al receptor",
+      "c": "Convierte la señal recibida en una frecuencia intermedia fija, donde puede filtrarse y amplificarse de forma más eficiente",
+      "d": "Se usa exclusivamente para mostrar la intensidad de la señal recibida"
+    },
+    "explanation": "El mezclador combina la señal recibida con la señal del oscilador local para producir una frecuencia intermedia fija. A esta frecuencia constante, el filtrado (selectividad) y la amplificación pueden implementarse de forma especialmente eficaz."
+  },
+  "afu-e-technik-09": {
+    "question": "Un transmisor también genera armónicos no deseados además de la señal prevista. ¿Cuál es el principal riesgo que esto supone?",
+    "options": {
+      "a": "Ninguno - los armónicos son técnicamente irrelevantes en radioafición",
+      "b": "Pueden interferir con otros servicios de radiocomunicación (p. ej. radiodifusión, aviación) y por ello deben suprimirse",
+      "c": "Mejoran automáticamente el alcance en la frecuencia fundamental",
+      "d": "Solo aparecen en modos digitales, nunca en BLU o FM"
+    },
+    "explanation": "Las emisiones no deseadas, como los armónicos, pueden caer fuera de las bandas de radioaficionado asignadas e interferir con otros servicios de radiocomunicación. Según el art. 16(4) de la AFuV, las emisiones no deseadas deben mantenerse al nivel más bajo alcanzable, por ejemplo mediante un filtrado adecuado (filtro paso bajo)."
+  },
+  "afu-e-technik-10": {
+    "question": "¿Qué propiedad de la antena describe la relación de onda estacionaria (ROE/SWR)?",
+    "options": {
+      "a": "La potencia de transmisión absoluta del transceptor",
+      "b": "La altura del mástil de la antena",
+      "c": "La polarización de la onda radiada",
+      "d": "Lo bien adaptada que está la antena a la línea de alimentación/transmisor (relación entre onda reflejada y onda directa)"
+    },
+    "explanation": "La ROE describe la relación entre la onda que viaja hacia la antena y la onda reflejada desde ella. Una ROE cercana a 1:1 indica una buena adaptación, mientras que una ROE alta indica una desadaptación y un posible riesgo de pérdida de potencia o daño al transmisor."
+  },
+  "afu-e-technik-11": {
+    "question": "¿Qué afirmación sobre la ionosfera y la propagación en onda corta es fundamentalmente correcta?",
+    "options": {
+      "a": "Las capas ionizadas de la atmósfera superior pueden refractar las señales de onda corta de vuelta a la tierra, permitiendo la propagación a larga distancia (propagación ionosférica)",
+      "b": "La ionosfera no tiene ningún efecto sobre la propagación en onda corta",
+      "c": "Las señales de onda corta se propagan exclusivamente como onda de superficie a lo largo de unos pocos kilómetros",
+      "d": "La ionización de la atmósfera es siempre idéntica de día y de noche e independiente del ciclo solar"
+    },
+    "explanation": "La ionosfera está formada por varias capas ionizadas cuyo grado de ionización depende de factores como la hora del día y la actividad solar. Puede refractar las señales de onda corta de vuelta hacia la tierra, permitiendo contactos a distancias muy largas."
+  },
+  "afu-e-technik-12": {
+    "question": "¿Cuál es el instrumento más sencillo para medir la tensión de salida en corriente continua de una fuente de alimentación?",
+    "options": {
+      "a": "Un frecuencímetro",
+      "b": "Un vatímetro en el circuito de antena",
+      "c": "Un multímetro ajustado al rango de tensión continua",
+      "d": "Un medidor de ROE"
+    },
+    "explanation": "Un multímetro ajustado al rango adecuado de tensión continua es el instrumento estándar para medir tensiones continuas, como en la salida de una fuente de alimentación."
+  },
+  "afu-e-technik-13": {
+    "question": "Observa que su actividad de radioaficionado está interfiriendo con la recepción de TV o radio de un vecino. ¿Cuál es el primer paso técnicamente sensato?",
+    "options": {
+      "a": "Acotar la causa, por ejemplo instalando un filtro paso bajo en el transmisor y/o un filtro paso alto en el equipo afectado, y comprobar el apantallamiento y el tendido de los cables",
+      "b": "Dejar de transmitir de forma inmediata y permanente sin investigar la causa",
+      "c": "Aumentar la potencia de transmisión hasta que la interferencia ya no sea perceptible",
+      "d": "Simplemente decirle al vecino que sustituya su equipo receptor, sin necesidad de investigar por su parte"
+    },
+    "explanation": "Resolver una interferencia comienza con un análisis técnico de la causa raíz, por ejemplo filtros adecuados (paso bajo en el transmisor, paso alto en el equipo afectado), mejor apantallamiento y un tendido de cables correcto. Los radioaficionados están además obligados a mantener las emisiones no deseadas al nivel más bajo alcanzable en general (art. 16(4) AFuV) y a cooperar con la BNetzA durante las investigaciones de interferencias (art. 17 AFuV)."
+  },
+  "afu-e-technik-14": {
+    "question": "¿Por qué debe respetarse una distancia de seguridad adecuada respecto a las personas y los límites de exposición a campos electromagnéticos aplicables cerca de una instalación de antena de radioaficionado?",
+    "options": {
+      "a": "Porque de lo contrario la potencia de transmisión se apaga automáticamente",
+      "b": "Porque una intensidad de campo excesiva cerca de una antena puede suponer un riesgo para la salud de las personas, por lo que deben respetarse los límites de exposición",
+      "c": "Porque esto solo es relevante para antenas de televisión, nunca para antenas de radioaficionado",
+      "d": "Porque las distancias de seguridad solo se aplican a transmisores de radiodifusión en onda media"
+    },
+    "explanation": "Los campos electromagnéticos cerca de una antena pueden ser nocivos si se superan los límites de exposición (protección de las personas). Cumplir esos límites, y en su caso el procedimiento de verificación para limitar la exposición a campos electromagnéticos (BEMFV), forma parte de las obligaciones de un radioaficionado al instalar una antena fija."
+  },
+  "afu-e-technik-15": {
+    "question": "Se emplea un transistor en una etapa amplificadora de audiofrecuencia sencilla. ¿Cuál es su función básica ahí?",
+    "options": {
+      "a": "Convierte corriente alterna en corriente continua, como un diodo",
+      "b": "Almacena energía en un campo magnético, como una bobina",
+      "c": "Filtra únicamente las frecuencias altas",
+      "d": "Usa una señal de entrada pequeña para controlar una corriente de salida mayor, amplificando así la señal"
+    },
+    "explanation": "Un transistor puede actuar como amplificador de corriente controlable: una pequeña señal de control en la entrada (por ejemplo entre base y emisor) controla una corriente de salida mucho mayor, proporcionando ganancia de señal."
+  },
+  "afu-e-technik-16": {
+    "question": "¿Qué se entiende por el ancho de banda de una señal?",
+    "options": {
+      "a": "La frecuencia portadora absoluta de la señal",
+      "b": "El rango de frecuencias que ocupa la señal (por ejemplo su modulación de audio) en el espectro",
+      "c": "La intensidad de campo de la señal en el punto de recepción",
+      "d": "La potencia de transmisión expresada en vatios"
+    },
+    "explanation": "El ancho de banda indica el rango de frecuencias que ocupa en el espectro una señal modulada, dependiendo por ejemplo del ancho de banda de audio transmitido y del esquema de modulación utilizado."
+  },
+  "afu-e-betrieb-01": {
+    "question": "Quiere deletrear la letra «M» usando el alfabeto fonético internacional (OACI). ¿Qué palabra utiliza?",
+    "options": {
+      "a": "Mike Tango",
+      "b": "Metro",
+      "c": "Mike",
+      "d": "Munich"
+    },
+    "explanation": "En el alfabeto fonético de uso internacional, «Mike» representa la letra M. Según el art. 16(7) AFuV, este alfabeto se considera «lenguaje claro» y es de uso estándar en la radioafición en todo el mundo."
+  },
+  "afu-e-betrieb-02": {
+    "question": "¿Qué significa el código Q «QRZ?» en la operación de radioafición?",
+    "options": {
+      "a": "¿Quién me llama?",
+      "b": "Por favor, apague su transmisor",
+      "c": "¿Cuál es mi intensidad de señal en su ubicación?",
+      "d": "Estoy terminando este contacto"
+    },
+    "explanation": "«QRZ?» pregunta quién llama (o ha llamado) a la propia estación. Los códigos Q son abreviaturas de operación estandarizadas e independientes del idioma, y se consideran «lenguaje claro» según el art. 16(7) AFuV."
+  },
+  "afu-e-betrieb-03": {
+    "question": "Un indicativo de radioaficionado alemán suele empezar con un prefijo de país como «DL» o «DO». ¿Qué indica principalmente este prefijo?",
+    "options": {
+      "a": "La potencia de transmisión individual de la estación",
+      "b": "El país (o la serie de indicativos asociada) en el que la estación está autorizada",
+      "c": "La banda de frecuencias que se está utilizando",
+      "d": "El nombre del radioaficionado"
+    },
+    "explanation": "El prefijo de un indicativo asigna la estación a un país, o más concretamente a una serie de indicativos determinada definida en el plan de indicativos de la BNetzA (art. 10(3) AFuV). Los indicativos emitidos en Alemania comienzan, entre otros, por DA-DR."
+  },
+  "afu-e-betrieb-04": {
+    "question": "Según la AFuV, ¿con qué frecuencia mínima debe transmitir su propio indicativo durante un contacto en curso?",
+    "options": {
+      "a": "Solo una vez, al final de todo el contacto",
+      "b": "Solo en la primera llamada, nunca más después",
+      "c": "Al principio y al final del contacto, y al menos cada diez minutos durante el intercambio",
+      "d": "Solo si la otra estación lo solicita explícitamente"
+    },
+    "explanation": "Según el art. 11(1) AFuV, un indicativo asignado debe transmitirse al principio y al final de cada contacto, y al menos cada diez minutos durante la comunicación en curso, de modo que la estación siga siendo identificable en todo momento."
+  },
+  "afu-e-betrieb-05": {
+    "question": "¿Qué es un plan de bandas de la IARU?",
+    "options": {
+      "a": "Una recomendación voluntaria coordinada por las sociedades de radioaficionados para dividir de forma sensata una banda de radioaficionado según el modo de operación (p. ej. CW, BLU, modos digitales)",
+      "b": "Una lista de frecuencias jurídicamente vinculante con multas por incumplimiento",
+      "c": "El nombre oficial del registro de indicativos de la BNetzA",
+      "d": "Un dispositivo de sintonía automática de frecuencia dentro de un transceptor"
+    },
+    "explanation": "Los planes de bandas de la IARU son recomendaciones coordinadas por la Unión Internacional de Radioaficionados y sus sociedades miembro, ampliamente respetadas dentro de la radioafición, que asignan segmentos de banda por modo de operación. No son ley, pero se siguen por consideración hacia otros radioaficionados."
+  },
+  "afu-e-betrieb-06": {
+    "question": "Antes de iniciar una llamada en una frecuencia aparentemente libre, la buena práctica de operación es...",
+    "options": {
+      "a": "transmitir inmediatamente a máxima potencia para imponerse en la frecuencia",
+      "b": "ignorar por principio cualquier tráfico en curso en ella",
+      "c": "cambiar de frecuencia constantemente al azar, sin comprobar nunca si está libre",
+      "d": "escuchar brevemente primero y, en caso de duda, preguntar si la frecuencia está en uso, para no interferir con el tráfico en curso"
+    },
+    "explanation": "La buena práctica de operación exige escuchar brevemente antes de llamar y, en caso de duda, preguntar si la frecuencia ya está en uso, para no interrumpir el tráfico de radioafición en curso."
+  },
+  "afu-e-betrieb-07": {
+    "question": "¿Cuál es la función principal de un repetidor de radioaficionado (estación relé)?",
+    "options": {
+      "a": "Almacena de forma permanente mensajes de voz para su reproducción posterior",
+      "b": "Recibe una señal en una frecuencia y la retransmite simultáneamente, amplificada, en otra frecuencia para ampliar el alcance",
+      "c": "Sustituye por completo la necesidad de que el usuario tenga su propia licencia de transmisión",
+      "d": "Existe únicamente para emitir una señal horaria"
+    },
+    "explanation": "Un repetidor recibe señales débiles en una frecuencia de entrada y las retransmite, amplificadas, en una frecuencia de salida diferente, ampliando considerablemente el alcance, especialmente en VHF."
+  },
+  "afu-e-betrieb-08": {
+    "question": "Durante una catástrofe natural, oye una llamada de socorro en una frecuencia de radioaficionado. Como radioaficionado, ¿cómo debe responder fundamentalmente?",
+    "options": {
+      "a": "Escuchar, mantener la frecuencia libre de tráfico innecesario y, si es necesario, ayudar a establecer un tráfico de emergencia/catástrofe ordenado (por ejemplo retransmitiendo a las autoridades responsables)",
+      "b": "Iniciar inmediatamente su propia conversación, sin relación con lo anterior, en la misma frecuencia",
+      "c": "Ignorar la llamada de socorro, ya que el tráfico de emergencia no suele ser relevante para los radioaficionados",
+      "d": "Llamar únicamente a la policía y evitar por completo la radioafición en esta situación"
+    },
+    "explanation": "En el tráfico de emergencia y catástrofe, prestar ayuda tiene prioridad: los radioaficionados deben mantener libre de tráfico innecesario la frecuencia afectada, escuchar con atención y, si es necesario, ayudar a retransmitir información de forma ordenada a las autoridades responsables. Este papel de apoyo en emergencias y catástrofes es una finalidad reconocida del servicio de radioafición."
+  },
+  "afu-e-betrieb-09": {
+    "question": "¿Cuál es la finalidad principal de un cuaderno de estación llevado voluntariamente en radioafición?",
+    "options": {
+      "a": "Sustituye la asignación de indicativo emitida por la BNetzA",
+      "b": "Es un requisito legal estricto para cada contacto",
+      "c": "Documenta los contactos (p. ej. fecha, hora, indicativo, frecuencia, reporte de señal) y puede resultar útil, entre otras cosas, en investigaciones de interferencias",
+      "d": "Se usa únicamente para planificar las vacaciones personales"
+    },
+    "explanation": "Un cuaderno de estación documenta los contactos individuales con detalles como la fecha, la hora, el indicativo de la otra estación, la frecuencia y el reporte de señal. Puede resultar útil, entre otras cosas, para rastrear una interferencia o como documentación de apoyo para las tarjetas QSL."
+  },
+  "afu-e-betrieb-10": {
+    "question": "¿Cuál es el propósito de una tarjeta QSL en radioafición?",
+    "options": {
+      "a": "Es una confirmación escrita de que se produjo un contacto radial entre dos estaciones",
+      "b": "Es una licencia de transmisión oficial emitida por la BNetzA",
+      "c": "Sirve como sustituto de la licencia de radioaficionado durante las inspecciones",
+      "d": "Es un informe técnico de ensayo de la etapa final del transmisor"
+    },
+    "explanation": "Una tarjeta QSL es la confirmación escrita tradicional (hoy en día a menudo electrónica) de que se produjo un contacto entre dos estaciones, y se intercambia, entre otras razones, como prueba para diplomas/premios de operación."
+  },
+  "afu-e-betrieb-11": {
+    "question": "Un alumno que aún no tiene licencia puede transmitir bajo la supervisión de un radioaficionado licenciado durante una operación de formación. ¿Qué sufijo de indicativo debe añadirse para las transmisiones de voz según la AFuV?",
+    "options": {
+      "a": "/Remote",
+      "b": "/Trainee",
+      "c": "/Relay",
+      "d": "/Klub"
+    },
+    "explanation": "Según el art. 11(5) AFuV, durante la operación de formación conforme al art. 12 AFuV debe añadirse el sufijo «Trainee» al indicativo usado para las transmisiones de voz (para modos CW/digitales se usa el sufijo «/T»)."
+  },
+  "afu-e-betrieb-12": {
+    "question": "¿Qué suele indicar el reporte RST para un contacto de voz (BLU)?",
+    "options": {
+      "a": "Solo la distancia geográfica a la otra estación",
+      "b": "La potencia de transmisión exacta de la otra estación, en vatios",
+      "c": "La legibilidad y la intensidad de la señal recibida (además de la calidad del tono para CW)",
+      "d": "La tensión de red de la fuente de alimentación de la otra estación"
+    },
+    "explanation": "El reporte RST (Readability, Strength, Tone - legibilidad, intensidad, tono) valora cuán comprensible y fuerte es la señal recibida; el componente «tono» se aplica principalmente a CW y suele omitirse en contactos puramente de voz (dando entonces un reporte RS)."
+  },
+  "afu-e-vorschriften-01": {
+    "question": "Según el art. 7(1) AFuV, ¿en qué clases se dividen las licencias de radioaficionado?",
+    "options": {
+      "a": "Clase 1, Clase 2 y Clase 3",
+      "b": "Clase A, Clase E y Clase N",
+      "c": "Clase básica, intermedia y experta",
+      "d": "Existe una única clase uniforme para todos los radioaficionados"
+    },
+    "explanation": "El art. 7(1) AFuV divide las licencias de radioaficionado en clases A, E y N. La clase E es la clase de nivel de entrada, con requisitos técnicos reducidos frente a la clase A (art. 4(2) AFuV)."
+  },
+  "afu-e-vorschriften-02": {
+    "question": "Un titular de licencia clase E desea ascender a la clase A. ¿Qué exige el art. 4(4) AFuV para ello?",
+    "options": {
+      "a": "Debe repetir el examen completo que abarca las tres secciones",
+      "b": "El ascenso de la clase E a la clase A no está previsto en absoluto",
+      "c": "Solo debe repetir las secciones de Conocimientos de operación y Conocimientos normativos",
+      "d": "Solo necesita aprobar un examen complementario en la sección de Conocimientos técnicos, al nivel de la clase A"
+    },
+    "explanation": "Según el art. 4(4) AFuV, los titulares de una licencia clase N o E solo necesitan aprobar un examen complementario para obtener la clase A, demostrando el conocimiento técnico adicional requerido según el art. 4(1) núm. 1. Los conocimientos de operación y normativos no necesitan volver a examinarse, ya que son idénticos para las clases A y E."
+  },
+  "afu-e-vorschriften-03": {
+    "question": "Según el art. 9(1) AFuV, ¿qué necesita un radioaficionado, además de haber aprobado el examen de licencia, para participar activamente en el servicio de radioafición?",
+    "options": {
+      "a": "Una autorización de la BNetzA para participar en el servicio de radioafición, junto con la asignación simultánea de un indicativo personal",
+      "b": "Nada más - el certificado por sí solo ya permite transmitir sin restricciones y sin indicativo",
+      "c": "Un permiso de conducir independiente de la autoridad competente de tráfico",
+      "d": "Una «licencia flash» anual de pago que debe adquirirse de nuevo antes de cada temporada de transmisión"
+    },
+    "explanation": "Según el art. 9(1) AFuV, la BNetzA admite a una persona física en el servicio de radioafición a solicitud, sobre la base del certificado de licencia presentado, asignando simultáneamente un indicativo personal. Aprobar el examen por sí solo aún no autoriza a transmitir."
+  },
+  "afu-e-vorschriften-04": {
+    "question": "¿Cuál de las siguientes acciones está expresamente prohibida para un radioaficionado según el art. 16(9) AFuV?",
+    "options": {
+      "a": "Usar las señales internacionales de socorro, urgencia y seguridad del servicio móvil marítimo fuera de una emergencia real",
+      "b": "Usar códigos Q durante la operación",
+      "c": "Usar un sufijo de indicativo como «/P» para operación portátil",
+      "d": "Emitir brevemente una secuencia CQ al inicio de una sesión de transmisión"
+    },
+    "explanation": "Según el art. 16(9) AFuV, están prohibidos transmitir señales engañosas, portadoras continuas, programación similar a la radiodifusión, y el uso indebido de las señales internacionales de socorro, urgencia y seguridad de los servicios móviles marítimo y aeronáutico, ya que esto podría poner en peligro llamadas de socorro reales o diluir la credibilidad de los canales de emergencia."
+  },
+  "afu-e-vorschriften-05": {
+    "question": "¿Puede un radioaficionado, en general, cifrar su tráfico de radioafición para ocultar su contenido a terceros?",
+    "options": {
+      "a": "Sí, cualquier cifrado está permitido sin restricciones en la radioafición",
+      "b": "No, codificar o cifrar el contenido para ocultar su significado está generalmente prohibido; existen excepciones para ciertas señales de control (p. ej. señalización de satélite y de control remoto)",
+      "c": "Sí, pero solo cuando se usa el alfabeto fonético internacional",
+      "d": "No, tiene prohibido en general cualquier forma de operación digital"
+    },
+    "explanation": "El art. 16(8) AFuV prohíbe generalmente codificar o cifrar el tráfico de radioafición de forma que se oculte su contenido. Existen excepciones para ciertas señales de control, por ejemplo para las estaciones terrenas y espaciales del servicio de aficionados por satélite, y señales de control incluyendo la operación remota."
+  },
+  "afu-e-vorschriften-06": {
+    "question": "¿Qué facultad tiene la BNetzA según el art. 17 AFuV al investigar un caso de interferencia radioeléctrica que podría originarse en una estación de radioaficionado?",
+    "options": {
+      "a": "Solo puede emitir una advertencia por escrito, nada más",
+      "b": "Puede revocar de inmediato y de forma permanente la autorización de radioafición sin ninguna investigación",
+      "c": "Puede exigir la cooperación del operador (p. ej. presentar registros operativos, realizar transmisiones de prueba) y, hasta que finalice la investigación, ordenar medidas como bloquear determinadas frecuencias o reducir la potencia de transmisión",
+      "d": "No tiene ninguna competencia en este ámbito, ya que la investigación de interferencias es asunto exclusivo de la policía"
+    },
+    "explanation": "El art. 17(1) AFuV permite a la BNetzA exigir al operador de una estación de radioaficionado que coopere en la investigación de la causa de una interferencia (p. ej. registros operativos, transmisiones de prueba). Según el apartado 2, puede ordenar medidas provisionales como bloquear una frecuencia o reducir la potencia hasta que finalice la investigación."
+  },
+  "afu-e-vorschriften-07": {
+    "question": "¿Qué se necesita para operar una estación de radioaficionado controlada remotamente o de funcionamiento automático (p. ej. un repetidor) según el art. 13 AFuV?",
+    "options": {
+      "a": "Una asignación de indicativo independiente para esa estación, vinculada a la ubicación indicada en la asignación",
+      "b": "Basta con la licencia personal del individuo; no se necesita ninguna asignación adicional",
+      "c": "Dicha operación está prohibida por principio",
+      "d": "Basta con un aviso verbal informal a los vecinos"
+    },
+    "explanation": "Según el art. 13(1) AFuV, operar una estación de radioaficionado controlada remotamente o de funcionamiento automático requiere una asignación de indicativo independiente; la estación solo puede operarse en la ubicación especificada en dicha asignación, bajo las condiciones allí establecidas."
+  },
+  "afu-e-vorschriften-08": {
+    "question": "Según el art. 16(3) AFuV, ¿puede conectarse una estación de radioaficionado a redes de telecomunicaciones (p. ej. pasarelas de internet)?",
+    "options": {
+      "a": "No, esto está prohibido para los radioaficionados en cualquier circunstancia",
+      "b": "Sí, esto está generalmente permitido, siempre que se respeten las normas aplicables del derecho de telecomunicaciones",
+      "c": "Solo con permiso escrito explícito del proveedor de telecomunicaciones correspondiente, independientemente de cualquier otra norma",
+      "d": "Solo durante una emergencia y nunca de otro modo"
+    },
+    "explanation": "Según el art. 16(3) AFuV, una estación de radioaficionado puede conectarse a redes de telecomunicaciones, sujeto a las normas aplicables del derecho de telecomunicaciones. Para las estaciones de radioaficionado controladas remotamente según el art. 13, solo el titular del indicativo de esa estación puede proporcionar dichas conexiones."
+  },
+  "afu-e-vorschriften-09": {
+    "question": "¿Qué exige el art. 16(6) AFuV para los trabajos de ajuste y las mediciones en los transmisores de estaciones de radioaficionado?",
+    "options": {
+      "a": "Deben tomarse medidas adecuadas para impedir eficazmente la radiación libre de señales (p. ej. mediante una carga fantasma/antena artificial)",
+      "b": "Dichos trabajos solo están permitidos en laboratorios especialmente certificados por la BNetzA",
+      "c": "No existe ninguna norma al respecto; cualquier enfoque está permitido",
+      "d": "Las mediciones solo pueden realizarse con aprobación previa individual para cada medición"
+    },
+    "explanation": "Según el art. 16(6) AFuV, deben tomarse medidas adecuadas durante los trabajos de ajuste y las mediciones en los transmisores para impedir eficazmente la radiación libre de señales; en la práctica esto suele significar el uso de una carga fantasma, para no interferir con otros servicios de radiocomunicación."
+  },
+  "afu-e-vorschriften-10": {
+    "question": "¿Qué obligación tiene un radioaficionado según el art. 16(10) AFuV respecto a su propia estación de radioaficionado?",
+    "options": {
+      "a": "Debe vigilar físicamente la estación las 24 horas del día",
+      "b": "Debe desmontar por completo la estación siempre que esté ausente",
+      "c": "Debe tomar medidas adecuadas para impedir el uso no autorizado o abusivo de su estación de radioaficionado",
+      "d": "Esta obligación solo se aplica a las estaciones de club, no a los radioaficionados individuales"
+    },
+    "explanation": "El art. 16(10) AFuV exige que el radioaficionado tome medidas adecuadas para impedir el uso no autorizado o abusivo de su estación de radioaficionado por parte de terceros, por ejemplo mediante controles de acceso al equipo y a los controles de operación."
+  },
+  "afu-e-vorschriften-11": {
+    "question": "Un radioaficionado se muda de casa y quiere instalar una nueva estación de radioaficionado fija en la nueva dirección. ¿Qué exige el art. 9(4) AFuV en este caso?",
+    "options": {
+      "a": "Nada - nunca es necesario notificar a la BNetzA bajo ninguna circunstancia",
+      "b": "Un examen completamente nuevo, ya que la licencia caduca automáticamente al mudarse",
+      "c": "La notificación solo se debe hacer después de que hayan transcurrido cinco años",
+      "d": "El cambio de dirección debe notificarse sin demora, y la nueva instalación o el traslado permanente de una estación fija deben notificarse por escrito o electrónicamente antes de su puesta en servicio"
+    },
+    "explanation": "El art. 9(4) AFuV exige que el titular de una autorización notifique sin demora a la BNetzA cualquier cambio de nombre o dirección, y que notifique por escrito o electrónicamente, antes de la puesta en servicio, la nueva instalación de una estación fija o el traslado permanente de su ubicación."
+  },
+  "afu-e-vorschriften-12": {
+    "question": "Según el art. 17(3) AFuV, ¿qué otras leyes siguen siendo aplicables junto con la AFuV y también pueden ser relevantes en asuntos de interferencias?",
+    "options": {
+      "a": "Exclusivamente la Ley de Tráfico Vial",
+      "b": "En particular la Ley de Compatibilidad Electromagnética (EMVG) y la Ley de Equipos de Radio (FuAG)",
+      "c": "Exclusivamente el Código Federal de Construcción",
+      "d": "No existen otras leyes relevantes además de la AFuV"
+    },
+    "explanation": "El art. 17(3) AFuV aclara que las disposiciones de la Ley de Compatibilidad Electromagnética (EMVG) y la Ley de Equipos de Radio (FuAG) no se ven afectadas por las normas de la AFuV y deben tenerse en cuenta adicionalmente en los casos de interferencia, por ejemplo al evaluar si el propio equipo afectado se construyó con una inmunidad adecuada."
+  }
+}

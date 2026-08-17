@@ -1,0 +1,886 @@
+{
+  "meta": {
+    "app": "Zettacard / waffensachkunde-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-11",
+    "description": "Original MCQs for a German firearms-expertise (Sachkunde, §7 WaffG) exam-prep module, covering the four AWaffV/WaffG-anchored knowledge areas required for the statutory Sachkundepruefung: (1) Grundlagen des Waffenrechts - basic concepts (what counts as a \"Waffe\"/\"Schusswaffe\", the permit-requirement/prohibition system, age limits, and the scope of the Sec. 7 WaffG expertise requirement, e.g. for security-guard and certain hunting/sport-shooting contexts); (2) Munition und Ballistik - ammunition components, caliber, ball vs. shot ammunition, expanding/hollow-point ammunition, caseless ammunition, and basic interior/exterior/terminal ballistics; (3) Aufbewahrung und Transport - the Sec. 36 WaffG safekeeping duty and its concretization in Sec. 13 AWaffV (DIN/EN 1143-1 security containers, ammunition storage, joint household storage, the pre-6 July 2017 VDMA 24992 grandfathering rule, storage in not-permanently-inhabited buildings, and practical transport/travel scenarios); and (4) Handhabung, Sicherheit und Handlungsrecht - safe-handling fundamentals (treat every weapon as loaded, muzzle discipline, unloading before disassembly, checking a handed-over weapon) plus the Sec. 32 StGB self-defense (Notwehr) framework as it is examined within the Sachkunde catalog (present unlawful attack, necessity/proportionality, warnings before firearm use, Notwehrexzess, and Putativnotwehr). IMPORTANT SCOPE NOTE: this module tests Sachkunde/knowledge content only for exam-prep purposes. It is NOT legal advice, does not replace a licensed Sachkundepruefung course or individual legal counsel, and must not be relied on for actual weapons-handling, storage, or self-defense decisions. Sourcing: the official Bundesverwaltungsamt (BVA) 'Fragenkatalog fuer die Sachkundepruefung (gemaess § 7 WaffG)' (Stand 16.12.2024, https://www.bva.bund.de/SharedDocs/Downloads/DE/Buerger/Ausweis-Dokumente-Recht/Waffenrecht/Sachkunde/Fragenkatalog_sachkunde_mitAntworten.pdf) was fetched directly and used as the primary structural/topical reference (its four core chapters map onto this module's four topics), together with the underlying WaffG, AWaffV, and StGB Sec. 32 statute text from gesetze-im-internet.de for legal citations. All question and answer text in this file is independently and originally phrased by the module author from the underlying facts and statute text - it is a synthetic reproduction, not a verbatim or at-scale paraphrase of the BVA catalog's exact question wording, consistent with this app's IP requirement for every module.",
+    "class": "ALL",
+    "canonical_locale": "de",
+    "point_system": "2-4 points per question, matching this app's existing style",
+    "pass_rule_note": "Launched as a 50-question pool (~12-13 per topic), sized like this app's other single-domain regulatory modules (see kyc_aml/kartellrecht pattern). Exam Simulation/Training should draw a representative subset across all 4 topics; recommend treating any Aufbewahrung und Transport or Handhabung/Notwehr item marked high_stakes=true as auto-fail-relevant, consistent with this app's existing high_stakes handling in app/app.js's exam scoring logic.",
+    "legal_review_status": "NOT legally reviewed - this is a synthetic-reproduction pilot bank authored from the BVA Fragenkatalog (Stand 16.12.2024) and gesetze-im-internet.de statute text as of 2026-08-11. WaffG, AWaffV, and StGB provisions cited here (including all section numbers, DIN/EN 1143-1 and VDMA 24992 references, and the 6 July 2017 grandfathering cut-off) must be re-verified for currency before production/commercial use, since weapons law is amended periodically (most recently a substantial WaffG amendment took effect 31 October 2024, which is why the BVA catalog itself was revised as of December 2024). This module is not a substitute for an accredited Sachkundepruefung preparation course, and none of its content constitutes legal advice on firearms possession, self-defense, or storage compliance - flagged explicitly here, matching the caution this app already applies to its other regulatory modules (e.g. lksg_pilot, kartellrecht_pilot).",
+    "total_questions": 50,
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome. Question text is original authorship grounded in public statute text and the publicly available BVA Fragenkatalog structure, not a redistribution of the BVA PDF itself.",
+    "renewal_months": 12,
+    "renewal_basis": "best_practice",
+    "renewal_note": "Neither the WaffG nor the AWaffV prescribes a fixed refresher interval for a Sachkunde certificate holder's continuing knowledge once the certificate is obtained; annual is used here purely as a de facto best-practice review cadence consistent with this app's other regulatory modules, not a statutory requirement. Re-verify content sooner if a WaffG/AWaffV amendment is announced (the BVA catalog itself was last revised 16 December 2024 following the 31 October 2024 WaffG amendment).",
+    "locales": [
+      "de",
+      "en",
+      "uk",
+      "pl",
+      "ar",
+      "zh",
+      "hi",
+      "tr",
+      "fr",
+      "ru",
+      "es",
+      "it"
+    ]
+  },
+  "questions": [
+    {
+      "id": "waffen-grundlagen-01",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§1 Abs. 1 WaffG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-02",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§1 Abs. 3 WaffG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-03",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 1 Nr. 1.1 WaffG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-04",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§2 Abs. 1 WaffG",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-05",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§2 Abs. 2, Abs. 3 WaffG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-06",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§7 WaffG (Sachkundeerfordernis); welche Tätigkeiten die Sachkunde voraussetzen, ergibt sich aus eigenständigen Vorschriften wie §34a GewO i.V.m. BewachV oder §21 WaffG (Waffenhandel) – §1 Abs. 1 AWaffV regelt nur Inhalt und Umfang der Sachkundeprüfung, nicht wer sie benötigt.",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-07",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§7 Abs. 1 WaffG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-08",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 1 Unterabschnitt 1 Nr. 2.2 WaffG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-09",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 1 Unterabschnitt 1 Nr. 2 WaffG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-10",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 1 Unterabschnitt 1 Nr. 1.1 WaffG i.V.m. Anlage 2 Abschnitt 2 Unterabschnitt 2 Nr. 1.1 WaffG und §24 Abs. 2 WaffG (7,5-Joule-Grenze)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-11",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§2 Abs. 5 WaffG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-12",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 Abs. 1 WaffG (systematischer Bezug)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-grundlagen-13",
+      "topic": "Grundlagen des Waffenrechts",
+      "topic_code": "grundlagen",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§1 Abs. 2 WaffG, Anlage 1 Abschnitt 1 Unterabschnitt 2 WaffG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-munition-01",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 1 Unterabschnitt 3 WaffG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-munition-02",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 1 Unterabschnitt 3 WaffG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-munition-03",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 3 Nr. 1.4 WaffG (Kategorie A)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-munition-04",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 1 Unterabschnitt 3 WaffG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-munition-05",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§13 Abs. 2 Nr. 2 AWaffV (systematischer Bezug)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-munition-06",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundlagen der Innen-/Außenballistik",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-munition-07",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundlagen der Außenballistik",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-munition-08",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundlagen der Innenballistik / Waffentechnik",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-munition-09",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 1 Unterabschnitt 3 Nr. 1.3 WaffG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-munition-10",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 1 Unterabschnitt 3 WaffG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-munition-11",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundlagen der Innenballistik",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-munition-12",
+      "topic": "Munition und Ballistik",
+      "topic_code": "munition_ballistik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundlagen der Zielballistik / Waffentechnik",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-01",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 Abs. 1 WaffG",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-02",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§13 Abs. 1 AWaffV",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-03",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§13 Abs. 2 Nr. 2 AWaffV",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-04",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 Abs. 3 Satz 3 WaffG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-05",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 Abs. 3 Satz 1 WaffG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-06",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 WaffG i.V.m. Verwaltungspraxis zur Zuverlässigkeit",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-07",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§13 AWaffV (systematischer Bezug, gemeinschaftliche Aufbewahrung)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-08",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§13 Abs. 9 AWaffV (vorübergehende Aufbewahrung außerhalb der Wohnung); §36 Abs. 1 WaffG (Grundpflicht)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-09",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 Abs. 1 WaffG, Grundsatz der Verkehrssicherheit",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-10",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§34 Abs. 1 WaffG (Überlassen von Waffen oder Munition)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-11",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§13 AWaffV, Grundsatz „ungeladen“",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-12",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§13 Abs. 4 AWaffV",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-aufbewahrung-13",
+      "topic": "Aufbewahrung und Transport",
+      "topic_code": "aufbewahrung_transport",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 Abs. 4 WaffG (Übergangsregelung, VDMA 24992)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-01",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundregeln der sicheren Waffenhandhabung",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-02",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Anlage 1 Abschnitt 2 Nr. 12 WaffG (Begriff „schussbereit“)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-03",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Sicherheitsgrundsätze beim Reinigen und Prüfen von Waffen",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-04",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§32 Abs. 2 StGB",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-05",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§32 Abs. 1 StGB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-06",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundsatz der Erforderlichkeit im Rahmen von §32 StGB",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-07",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundsatz der Gegenwärtigkeit im Rahmen von §32 StGB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-08",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundsatz der Putativnotwehr im Rahmen von §32 StGB",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-09",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Verhältnismäßigkeitsgrundsatz bei geringwertigen Rechtsgütern",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-10",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundsatz der Warnung vor Schusswaffengebrauch (Verhältnismäßigkeit)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-11",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundsatz „Notwehrexzess“, §33 StGB (Bezug)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "waffen-handhabung-12",
+      "topic": "Handhabung, Sicherheit und Handlungsrecht",
+      "topic_code": "handhabung_sicherheit",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Grundsatz der sicheren Waffenübergabe und Prüfung fremder Waffen",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    }
+  ]
+}

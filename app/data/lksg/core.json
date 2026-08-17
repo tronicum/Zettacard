@@ -1,0 +1,626 @@
+{
+  "meta": {
+    "app": "Zettacard / lksg-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-11",
+    "description": "Original MCQs for a German supply-chain due-diligence compliance-training module on the Lieferkettensorgfaltspflichtengesetz (LkSG), covering the scope of application and employee thresholds (Sec. 1 LkSG, currently 1,000 domestic employees since 1 Jan 2024, previously 3,000 since 1 Jan 2023, including group/Konzern attribution under Sec. 1(3)), the core due diligence duties and risk analysis (Sec. 3-5 LkSG), preventive and remedial measures including the distinct rules for the company's own business area vs. direct vs. indirect suppliers (Sec. 6, 7, 9 LkSG), the grievance mechanism (Sec. 8 LkSG), and administrative fines/enforcement by BAFA including the turnover-based fine for companies above EUR 400 million average annual turnover and the public-procurement exclusion (Sec. 19, 22, 24 LkSG). Also flags the pending 2025/2026 government bill to abolish the Sec. 10 reporting duty and narrow the fine catalogue (cabinet-approved September 2025, still in Bundestag committee as of early 2026, not yet in force as of this module's writing) so learners aren't misled about which rules currently apply. Content is independently phrased and grounded directly in LkSG statute text (gesetze-im-internet.de mirror) and BAFA guidance, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module - separate content pool, separate exam simulation from every other module.",
+    "class": "ALL",
+    "canonical_locale": "de",
+    "point_system": "2-4 points per question, matching this app's existing style",
+    "pass_rule_note": "Launched directly as a 30-question pool (6 per topic), sized for a corporate compliance knowledge-check rather than a driving-exam-length test, same DN-54 pattern already used for kyc_aml/kartellrecht. Exam Simulation/Training draws 6 questions per run (one topic gets 2, the other four get 1 each), max 4 error points to pass, auto-fail on 2+ wrong high_stakes questions, 10-minute time limit in Simulation mode. See app/app.js's EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW.",
+    "legal_review_status": "NOT legally reviewed - verify LkSG statute text (thresholds, due diligence duties, fine amounts) and BAFA guidance currency before production/commercial use. Flag: a government bill to abolish the Sec. 10 reporting duty and narrow the fine catalogue was cabinet-approved in September 2025 and was still in Bundestag committee as of early 2026 (not yet in force) - re-verify against the then-current legal status before any commercial use, and re-review this module once the EU CSDDD transposition deadline (2027) approaches, since the LkSG's national rules are expected to be substantially superseded by it.",
+    "total_questions": 30,
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+    "renewal_months": 12,
+    "renewal_basis": "best_practice",
+    "renewal_note": "The LkSG itself does not prescribe a fixed staff-training refresher interval; annual is used here as a de facto best-practice standard consistent with this app's other compliance modules, not a hard statutory number - re-verify before binding compliance claims, and watch for the pending amendment bill described in legal_review_status.",
+    "locales": [
+      "de",
+      "en"
+    ]
+  },
+  "questions": [
+    {
+      "id": "lksg-anwendungsbereich-01",
+      "topic": "Anwendungsbereich und Schwellenwerte",
+      "topic_code": "anwendungsbereich",
+      "grundstoff": true,
+      "legal_basis": "§1 Abs. 1 LkSG",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-anwendungsbereich-02",
+      "topic": "Anwendungsbereich und Schwellenwerte",
+      "topic_code": "anwendungsbereich",
+      "grundstoff": true,
+      "legal_basis": "§1 Abs. 1 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-anwendungsbereich-03",
+      "topic": "Anwendungsbereich und Schwellenwerte",
+      "topic_code": "anwendungsbereich",
+      "grundstoff": true,
+      "legal_basis": "§1 Abs. 1 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-anwendungsbereich-04",
+      "topic": "Anwendungsbereich und Schwellenwerte",
+      "topic_code": "anwendungsbereich",
+      "grundstoff": true,
+      "legal_basis": "§1 Abs. 3 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-anwendungsbereich-05",
+      "topic": "Anwendungsbereich und Schwellenwerte",
+      "topic_code": "anwendungsbereich",
+      "grundstoff": true,
+      "legal_basis": "§1 Abs. 1 LkSG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-anwendungsbereich-06",
+      "topic": "Anwendungsbereich und Schwellenwerte",
+      "topic_code": "anwendungsbereich",
+      "grundstoff": true,
+      "legal_basis": "§2 Abs. 5, §9 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sorgfaltspflichten-01",
+      "topic": "Sorgfaltspflichten und Risikoanalyse",
+      "topic_code": "sorgfaltspflichten",
+      "grundstoff": true,
+      "legal_basis": "§3 Abs. 1 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sorgfaltspflichten-02",
+      "topic": "Sorgfaltspflichten und Risikoanalyse",
+      "topic_code": "sorgfaltspflichten",
+      "grundstoff": true,
+      "legal_basis": "§5 Abs. 1, Abs. 4 LkSG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sorgfaltspflichten-03",
+      "topic": "Sorgfaltspflichten und Risikoanalyse",
+      "topic_code": "sorgfaltspflichten",
+      "grundstoff": true,
+      "legal_basis": "§6 Abs. 2 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sorgfaltspflichten-04",
+      "topic": "Sorgfaltspflichten und Risikoanalyse",
+      "topic_code": "sorgfaltspflichten",
+      "grundstoff": true,
+      "legal_basis": "§3 Abs. 2 LkSG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sorgfaltspflichten-05",
+      "topic": "Sorgfaltspflichten und Risikoanalyse",
+      "topic_code": "sorgfaltspflichten",
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 3 LkSG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sorgfaltspflichten-06",
+      "topic": "Sorgfaltspflichten und Risikoanalyse",
+      "topic_code": "sorgfaltspflichten",
+      "grundstoff": true,
+      "legal_basis": "§5 Abs. 2 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-praevention_abhilfe-01",
+      "topic": "Präventions- und Abhilfemaßnahmen",
+      "topic_code": "praevention_abhilfe",
+      "grundstoff": true,
+      "legal_basis": "§6 Abs. 3 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-praevention_abhilfe-02",
+      "topic": "Präventions- und Abhilfemaßnahmen",
+      "topic_code": "praevention_abhilfe",
+      "grundstoff": true,
+      "legal_basis": "§6 Abs. 4 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-praevention_abhilfe-03",
+      "topic": "Präventions- und Abhilfemaßnahmen",
+      "topic_code": "praevention_abhilfe",
+      "grundstoff": true,
+      "legal_basis": "§7 Abs. 1 LkSG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-praevention_abhilfe-04",
+      "topic": "Präventions- und Abhilfemaßnahmen",
+      "topic_code": "praevention_abhilfe",
+      "grundstoff": true,
+      "legal_basis": "§7 Abs. 2 LkSG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-praevention_abhilfe-05",
+      "topic": "Präventions- und Abhilfemaßnahmen",
+      "topic_code": "praevention_abhilfe",
+      "grundstoff": true,
+      "legal_basis": "§9 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-praevention_abhilfe-06",
+      "topic": "Präventions- und Abhilfemaßnahmen",
+      "topic_code": "praevention_abhilfe",
+      "grundstoff": true,
+      "legal_basis": "§6 Abs. 5 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-beschwerdeverfahren-01",
+      "topic": "Beschwerdeverfahren",
+      "topic_code": "beschwerdeverfahren",
+      "grundstoff": true,
+      "legal_basis": "§8 Abs. 1 LkSG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-beschwerdeverfahren-02",
+      "topic": "Beschwerdeverfahren",
+      "topic_code": "beschwerdeverfahren",
+      "grundstoff": true,
+      "legal_basis": "§8 Abs. 1 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-beschwerdeverfahren-03",
+      "topic": "Beschwerdeverfahren",
+      "topic_code": "beschwerdeverfahren",
+      "grundstoff": true,
+      "legal_basis": "§8 Abs. 3-4 LkSG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-beschwerdeverfahren-04",
+      "topic": "Beschwerdeverfahren",
+      "topic_code": "beschwerdeverfahren",
+      "grundstoff": true,
+      "legal_basis": "§8 Abs. 5 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-beschwerdeverfahren-05",
+      "topic": "Beschwerdeverfahren",
+      "topic_code": "beschwerdeverfahren",
+      "grundstoff": true,
+      "legal_basis": "§9 Abs. 1 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-beschwerdeverfahren-06",
+      "topic": "Beschwerdeverfahren",
+      "topic_code": "beschwerdeverfahren",
+      "grundstoff": true,
+      "legal_basis": "§8 LkSG / HinSchG (Abgrenzung)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sanktionen-01",
+      "topic": "Bußgelder und Sanktionen",
+      "topic_code": "sanktionen",
+      "grundstoff": true,
+      "legal_basis": "§19 LkSG",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sanktionen-02",
+      "topic": "Bußgelder und Sanktionen",
+      "topic_code": "sanktionen",
+      "grundstoff": true,
+      "legal_basis": "§24 LkSG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sanktionen-03",
+      "topic": "Bußgelder und Sanktionen",
+      "topic_code": "sanktionen",
+      "grundstoff": true,
+      "legal_basis": "§24 Abs. 3-4 LkSG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sanktionen-04",
+      "topic": "Bußgelder und Sanktionen",
+      "topic_code": "sanktionen",
+      "grundstoff": true,
+      "legal_basis": "§22 LkSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sanktionen-05",
+      "topic": "Bußgelder und Sanktionen",
+      "topic_code": "sanktionen",
+      "grundstoff": true,
+      "legal_basis": "§3 Abs. 3 LkSG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "lksg-sanktionen-06",
+      "topic": "Bußgelder und Sanktionen",
+      "topic_code": "sanktionen",
+      "grundstoff": true,
+      "legal_basis": "Referentenentwurf/Regierungsentwurf zur Änderung des LkSG (2025/2026, noch nicht in Kraft)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    }
+  ]
+}

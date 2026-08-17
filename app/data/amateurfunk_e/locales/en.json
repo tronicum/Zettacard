@@ -1,0 +1,402 @@
+{
+  "afu-e-technik-01": {
+    "question": "A resistance of 4,700 ohms is customarily written using which shorthand?",
+    "options": {
+      "a": "4.7 kΩ",
+      "b": "4.7 MΩ",
+      "c": "47 kΩ",
+      "d": "0.47 kΩ"
+    },
+    "explanation": "4,700 Ω = 4.7 x 1,000 Ω = 4.7 kΩ. The prefix 'k' (kilo) denotes a factor of 1,000."
+  },
+  "afu-e-technik-02": {
+    "question": "Ohm's law states U = R x I. A current of 0.2 A flows through a 50 Ohm resistor. What is the voltage drop?",
+    "options": {
+      "a": "2.5 V",
+      "b": "0.4 V",
+      "c": "10 V",
+      "d": "100 V"
+    },
+    "explanation": "U = R x I = 50 Ω x 0.2 A = 10 V."
+  },
+  "afu-e-technik-03": {
+    "question": "Which of the following material groups consists of good electrical conductors?",
+    "options": {
+      "a": "Glass, porcelain, rubber",
+      "b": "Silver, copper, aluminium",
+      "c": "Polystyrene, PVC, Teflon",
+      "d": "Paper, wood, dry air"
+    },
+    "explanation": "Silver, copper and aluminium have many freely mobile electrons and conduct electricity very well; the other listed materials are typical insulators."
+  },
+  "afu-e-technik-04": {
+    "question": "What happens with a diode biased in the reverse direction?",
+    "options": {
+      "a": "Only a very small leakage current flows; the diode effectively blocks current flow",
+      "b": "Its resistance drops to almost zero",
+      "c": "It behaves like an ideal capacitor with absolutely no current flow at all",
+      "d": "Current flows unimpeded as through a plain wire"
+    },
+    "explanation": "In the reverse direction a diode presents very high resistance and only a negligible leakage current flows; it conducts well only in the forward direction once the threshold voltage is exceeded."
+  },
+  "afu-e-technik-05": {
+    "question": "A capacitor is a component whose main function is to ...",
+    "options": {
+      "a": "rectify an alternating voltage",
+      "b": "store a magnetic field",
+      "c": "store electrical charge/energy in an electric field",
+      "d": "convert DC current losslessly into heat"
+    },
+    "explanation": "A capacitor consists of two electrodes separated by a dielectric and stores electrical energy in the form of an electric field between those electrodes."
+  },
+  "afu-e-technik-06": {
+    "question": "A parallel resonant circuit of an inductor and capacitor is operated at its resonant frequency. Ideally, how does its impedance behave there?",
+    "options": {
+      "a": "It is minimal (practically a short circuit)",
+      "b": "It is maximal (high impedance)",
+      "c": "It stays constant regardless of frequency",
+      "d": "It drops to exactly zero ohms"
+    },
+    "explanation": "In an ideal parallel resonant circuit, impedance peaks exactly at the resonant frequency because the reactive currents through the inductor and capacitor cancel, so only a small current is drawn from the source."
+  },
+  "afu-e-technik-07": {
+    "question": "What fundamentally distinguishes SSB (single-sideband modulation) from ordinary amplitude modulation (AM, double sideband with carrier)?",
+    "options": {
+      "a": "SSB suppresses the carrier and one sideband, transmitting only a single sideband",
+      "b": "SSB transmits both sidebands plus an amplified carrier",
+      "c": "SSB is a purely frequency-modulation scheme with no sidebands at all",
+      "d": "SSB always requires higher transmit power than AM for equal range"
+    },
+    "explanation": "SSB suppresses the carrier and one sideband, transmitting only a single sideband, which makes far more efficient use of bandwidth and transmit power than classic AM."
+  },
+  "afu-e-technik-08": {
+    "question": "What is the purpose of the intermediate-frequency (IF) stage in a superheterodyne receiver?",
+    "options": {
+      "a": "It generates the transmit power delivered to the antenna output",
+      "b": "It supplies the receiver with DC power",
+      "c": "It converts the received signal to a fixed intermediate frequency, where it can be filtered and amplified more efficiently",
+      "d": "It is used solely to display the received signal strength"
+    },
+    "explanation": "The mixer combines the received signal with the local oscillator signal to produce a fixed intermediate frequency. At this constant frequency, filtering (selectivity) and amplification can be implemented especially effectively."
+  },
+  "afu-e-technik-09": {
+    "question": "A transmitter also produces unwanted harmonics alongside the intended signal. What is the primary hazard this poses?",
+    "options": {
+      "a": "None - harmonics are technically irrelevant to amateur radio",
+      "b": "They can interfere with other radio services (e.g. broadcast, aviation) and must therefore be suppressed",
+      "c": "They automatically improve range on the fundamental frequency",
+      "d": "They only occur with digital modes, never with SSB or FM"
+    },
+    "explanation": "Unwanted emissions such as harmonics can fall outside the assigned amateur bands and interfere with other radio services. Under Sec. 16(4) AFuV, unwanted emissions must be kept to the lowest achievable level, e.g. through suitable filtering (such as a low-pass filter)."
+  },
+  "afu-e-technik-10": {
+    "question": "What antenna property does the standing wave ratio (SWR) describe?",
+    "options": {
+      "a": "The transceiver's absolute transmit power",
+      "b": "The height of the antenna mast",
+      "c": "The polarization of the radiated wave",
+      "d": "How well the antenna is matched to the feed line/transmitter (ratio of reflected to forward wave)"
+    },
+    "explanation": "SWR describes the ratio between the wave travelling toward the antenna and the wave reflected back from it. An SWR close to 1:1 indicates a good match, while a high SWR indicates a mismatch and possible power loss or risk of transmitter damage."
+  },
+  "afu-e-technik-11": {
+    "question": "Which statement about the ionosphere and shortwave propagation is fundamentally correct?",
+    "options": {
+      "a": "Ionized layers of the upper atmosphere can refract shortwave signals back to earth, enabling long-range ('skywave') propagation",
+      "b": "The ionosphere has no effect whatsoever on shortwave propagation",
+      "c": "Shortwave signals propagate exclusively as a ground wave over a few kilometers",
+      "d": "Ionization of the atmosphere is always identical day and night and independent of the solar cycle"
+    },
+    "explanation": "The ionosphere consists of several ionized layers whose degree of ionization depends on factors like time of day and solar activity. It can refract shortwave signals back toward the earth, enabling contacts over very long distances."
+  },
+  "afu-e-technik-12": {
+    "question": "What is the simplest instrument for measuring the DC output voltage of a power supply?",
+    "options": {
+      "a": "A frequency counter",
+      "b": "A wattmeter in the antenna circuit",
+      "c": "A multimeter set to the DC voltage range",
+      "d": "An SWR meter"
+    },
+    "explanation": "A multimeter set to the appropriate DC voltage range is the standard instrument for measuring DC voltages, such as at the output of a power supply."
+  },
+  "afu-e-technik-13": {
+    "question": "You notice your amateur radio operation is interfering with a neighbor's TV or radio reception. What is the technically sensible first step?",
+    "options": {
+      "a": "Narrow down the cause, e.g. by fitting a low-pass filter at the transmitter and/or a high-pass filter at the affected device, and check shielding and cable routing",
+      "b": "Immediately and permanently stop all transmitting without investigating the cause",
+      "c": "Increase transmit power until the interference is no longer noticeable",
+      "d": "Simply tell the neighbor to replace their receiving equipment, since no investigation on your own end is needed"
+    },
+    "explanation": "Resolving interference starts with a technical root-cause analysis, e.g. suitable filters (low-pass at the transmitter, high-pass at the affected device), improved shielding, and proper cable routing. Radio amateurs are also required to keep unwanted emissions to the lowest achievable level in general (Sec. 16(4) AFuV) and to cooperate with the BNetzA during interference investigations (Sec. 17 AFuV)."
+  },
+  "afu-e-technik-14": {
+    "question": "Why must a suitable safety distance to persons and applicable electromagnetic-field exposure limits be observed near an amateur radio antenna installation?",
+    "options": {
+      "a": "Because otherwise the transmit power switches off automatically",
+      "b": "Because excessive field strength near an antenna can pose a health risk to persons, so exposure limits must be respected",
+      "c": "Because this is only relevant for TV antennas, never for amateur radio antennas",
+      "d": "Because safety distances only apply to medium-wave broadcast transmitters"
+    },
+    "explanation": "Electromagnetic fields close to an antenna can be harmful if exposure limits are exceeded (protection of persons). Complying with those limits, and where applicable the verification procedure for limiting electromagnetic field exposure (BEMFV), is part of a radio amateur's duties when erecting a fixed antenna installation."
+  },
+  "afu-e-technik-15": {
+    "question": "A transistor is used in a simple audio-frequency amplifier stage. What is its basic function there?",
+    "options": {
+      "a": "It converts AC into DC like a diode",
+      "b": "It stores energy in a magnetic field like an inductor",
+      "c": "It filters out only high frequencies",
+      "d": "It uses a small input signal to control a larger output current, thereby amplifying the signal"
+    },
+    "explanation": "A transistor can act as a controllable current amplifier: a small control signal at the input (e.g. across the base-emitter junction) controls a much larger output current, providing signal gain."
+  },
+  "afu-e-technik-16": {
+    "question": "What is meant by the bandwidth of a signal?",
+    "options": {
+      "a": "The absolute carrier frequency of the signal",
+      "b": "The span of frequencies the signal (e.g. its audio modulation) occupies in the spectrum",
+      "c": "The field strength of the signal at the receiving location",
+      "d": "The transmit power expressed in watts"
+    },
+    "explanation": "Bandwidth indicates the span of frequencies a modulated signal occupies in the spectrum, depending for example on the transmitted audio bandwidth and the modulation scheme used."
+  },
+  "afu-e-betrieb-01": {
+    "question": "You want to spell out the letter 'M' using the international phonetic (ICAO) alphabet. Which word do you use?",
+    "options": {
+      "a": "Mike Tango",
+      "b": "Metro",
+      "c": "Mike",
+      "d": "Munich"
+    },
+    "explanation": "In the internationally used phonetic alphabet, 'Mike' represents the letter M. This alphabet is laid down in the ITU Radio Regulations (VO Funk) and is standard usage in amateur radio worldwide."
+  },
+  "afu-e-betrieb-02": {
+    "question": "What does the Q-code 'QRZ?' mean in amateur radio operation?",
+    "options": {
+      "a": "Who is calling me?",
+      "b": "Please shut down your transmitter",
+      "c": "What is my signal strength at your location?",
+      "d": "I am ending this contact"
+    },
+    "explanation": "'QRZ?' asks who is calling (or has called) one's own station. Q-codes are standardized, language-independent operating abbreviations and count as 'open language' under Sec. 16(7) AFuV."
+  },
+  "afu-e-betrieb-03": {
+    "question": "A German amateur radio callsign typically starts with a country prefix such as 'DL' or 'DO'. What does this prefix primarily indicate?",
+    "options": {
+      "a": "The station's individual transmit power",
+      "b": "The country (or associated callsign series) the station is licensed in",
+      "c": "The frequency band being used",
+      "d": "The name of the radio amateur"
+    },
+    "explanation": "A callsign's prefix assigns the station to a country, or more specifically to a particular callsign series defined in the BNetzA's callsign plan (Sec. 10(3) AFuV). Callsigns issued in Germany start with, among others, DA-DR."
+  },
+  "afu-e-betrieb-04": {
+    "question": "According to the AFuV, how often must you transmit your own callsign at minimum during an ongoing contact?",
+    "options": {
+      "a": "Only once, at the very end of the entire contact",
+      "b": "Only during the very first call, never again after that",
+      "c": "At the start and end of the contact, and at least every ten minutes during the exchange",
+      "d": "Only if the other station explicitly asks for it"
+    },
+    "explanation": "Under Sec. 11(1) AFuV, an assigned callsign must be transmitted at the start and end of every contact and at least every ten minutes during ongoing communication, so the station remains identifiable at all times."
+  },
+  "afu-e-betrieb-05": {
+    "question": "What is an IARU band plan?",
+    "options": {
+      "a": "A voluntary recommendation coordinated by amateur radio societies for sensibly dividing up an amateur band by mode of operation (e.g. CW, SSB, digital modes)",
+      "b": "A legally binding frequency list carrying fines for deviation",
+      "c": "The official name for the BNetzA's callsign register",
+      "d": "A device for automatic frequency tuning inside a transceiver"
+    },
+    "explanation": "IARU band plans are recommendations coordinated by the International Amateur Radio Union and its member societies, widely respected within amateur radio, allocating band segments by mode of operation. They are not statutory law, but are followed out of consideration for other amateurs."
+  },
+  "afu-e-betrieb-06": {
+    "question": "Before starting a call on a seemingly free frequency, good operating practice is to ...",
+    "options": {
+      "a": "immediately transmit at maximum power to assert the frequency",
+      "b": "fundamentally disregard any ongoing traffic on it",
+      "c": "keep switching frequencies at random without ever checking whether one is free",
+      "d": "listen briefly first and, if in doubt, ask whether the frequency is in use, so as not to interfere with ongoing traffic"
+    },
+    "explanation": "Good operating practice calls for listening briefly before calling and, when in doubt, asking whether the frequency is already in use, so as not to disrupt ongoing amateur radio traffic."
+  },
+  "afu-e-betrieb-07": {
+    "question": "What is the main function of an amateur radio repeater (relay station)?",
+    "options": {
+      "a": "It permanently stores voice messages for later playback",
+      "b": "It receives a signal on one frequency and simultaneously retransmits it, amplified, on another frequency to extend range",
+      "c": "It fully replaces the need for the user to hold their own transmitting license",
+      "d": "It exists solely to broadcast a time signal"
+    },
+    "explanation": "A repeater receives weak signals on an input frequency and retransmits them, amplified, on a different output frequency, substantially extending range, particularly on VHF."
+  },
+  "afu-e-betrieb-08": {
+    "question": "During a natural disaster you hear a distress call on an amateur radio frequency. As a radio amateur, how should you fundamentally respond?",
+    "options": {
+      "a": "Listen, keep the frequency clear of unnecessary traffic, and if needed help establish orderly emergency/disaster traffic (e.g. by relaying to the responsible authorities)",
+      "b": "Immediately start your own unrelated conversation on the same frequency",
+      "c": "Ignore the distress call, since emergency traffic is not generally relevant to radio amateurs",
+      "d": "Only call the police and avoid amateur radio entirely in this situation"
+    },
+    "explanation": "In emergency and disaster traffic, providing assistance takes priority: radio amateurs should keep the affected frequency clear of unnecessary traffic, listen attentively, and if needed help relay information to the responsible authorities in an orderly way. This support role during emergencies and disasters is a recognized purpose of the amateur radio service."
+  },
+  "afu-e-betrieb-09": {
+    "question": "What is the primary purpose of a voluntarily kept station log in amateur radio?",
+    "options": {
+      "a": "It replaces the callsign assignment issued by the BNetzA",
+      "b": "It is a strict legal prerequisite for every single contact",
+      "c": "It documents contacts (e.g. date, time, callsign, frequency, signal report) and can be useful, among other things, during interference investigations",
+      "d": "It is used solely for personal vacation planning"
+    },
+    "explanation": "A station log documents individual contacts with details such as date, time, the other station's callsign, frequency and signal report. It can be useful, among other things, for tracing interference or as supporting documentation for QSL cards."
+  },
+  "afu-e-betrieb-10": {
+    "question": "What is the purpose of a QSL card in amateur radio?",
+    "options": {
+      "a": "It is a written confirmation that a radio contact took place between two stations",
+      "b": "It is an official transmit license issued by the BNetzA",
+      "c": "It serves as a substitute for the amateur radio license during inspections",
+      "d": "It is a technical test report for the transmitter's final amplifier stage"
+    },
+    "explanation": "A QSL card is the traditional written (nowadays often electronic) confirmation that a contact took place between two stations, and is exchanged, among other reasons, as proof for operating awards/diplomas."
+  },
+  "afu-e-betrieb-11": {
+    "question": "An as-yet unlicensed trainee may transmit under the supervision of a licensed radio amateur during training operation. Which callsign suffix must be appended for voice transmissions under the AFuV?",
+    "options": {
+      "a": "/Remote",
+      "b": "/Trainee",
+      "c": "/Relay",
+      "d": "/Klub"
+    },
+    "explanation": "Under Sec. 11(5) AFuV, during training operation under Sec. 12 AFuV the suffix 'Trainee' must be appended to the callsign used for voice transmissions (for CW/digital modes, the suffix '/T' is used)."
+  },
+  "afu-e-betrieb-12": {
+    "question": "What does the RST report usually indicate for a voice (SSB) contact?",
+    "options": {
+      "a": "Only the geographic distance to the other station",
+      "b": "The other station's exact transmit power in watts",
+      "c": "The readability and signal strength of the received signal (plus tone quality for CW)",
+      "d": "The mains voltage of the other station's power supply"
+    },
+    "explanation": "The RST report (Readability, Strength, Tone) rates how understandable and strong the received signal is; the 'Tone' component mainly applies to CW and is usually omitted for pure voice contacts (giving an RS report)."
+  },
+  "afu-e-vorschriften-01": {
+    "question": "Under Sec. 7(1) AFuV, into which classes are amateur radio licenses divided?",
+    "options": {
+      "a": "Class 1, Class 2 and Class 3",
+      "b": "Class A, Class E and Class N",
+      "c": "Basic, intermediate and expert class",
+      "d": "There is only a single uniform class for all radio amateurs"
+    },
+    "explanation": "Sec. 7(1) AFuV divides amateur radio licenses into Classes A, E and N. Class E is the entry-level class with reduced technical requirements compared to Class A (Sec. 4(2) AFuV)."
+  },
+  "afu-e-vorschriften-02": {
+    "question": "A Class E license holder wants to upgrade to Class A. What does Sec. 4(4) AFuV require for that?",
+    "options": {
+      "a": "They must retake the entire examination covering all three sections",
+      "b": "Upgrading from Class E to Class A is not provided for at all",
+      "c": "They must only retake the Betriebliche Kenntnisse and Kenntnisse von Vorschriften sections",
+      "d": "They only need to pass a supplementary exam in the Technische Kenntnisse section, at Class A level"
+    },
+    "explanation": "Under Sec. 4(4) AFuV, holders of a Class N or E license only need to pass a supplementary exam to obtain Class A, demonstrating the additionally required technical knowledge under Sec. 4(1) No. 1. Operating-procedure and regulatory knowledge does not need to be re-examined, since it is identical for Classes A and E."
+  },
+  "afu-e-vorschriften-03": {
+    "question": "Under Sec. 9(1) AFuV, what does a radio amateur need in addition to a passed license exam in order to actively participate in the amateur radio service?",
+    "options": {
+      "a": "An authorization to participate in the amateur radio service from the BNetzA, together with the simultaneous assignment of a personal callsign",
+      "b": "Nothing further - the certificate alone already permits unrestricted transmitting without any callsign",
+      "c": "A separate driving permit from the competent road traffic authority",
+      "d": "An annual paid 'flash license' that must be newly purchased before every transmitting season"
+    },
+    "explanation": "Under Sec. 9(1) AFuV, the BNetzA admits a natural person to the amateur radio service upon application, based on the submitted license certificate, while simultaneously assigning a personal callsign. Merely passing the exam alone does not yet authorize transmitting."
+  },
+  "afu-e-vorschriften-04": {
+    "question": "Which of the following is expressly prohibited for a radio amateur under Sec. 16(9) AFuV?",
+    "options": {
+      "a": "Using the international distress, urgency and safety signals of the maritime mobile service outside a genuine emergency",
+      "b": "Using Q-codes during operation",
+      "c": "Using a callsign suffix such as '/P' for portable operation",
+      "d": "Briefly calling a CQ sequence at the start of a transmitting session"
+    },
+    "explanation": "Under Sec. 16(9) AFuV, transmitting misleading signals, continuous carriers, broadcast-like programming, and misusing the international distress, urgency and safety signals of the maritime and aeronautical mobile services are all prohibited, since this could endanger genuine distress calls or dilute the credibility of emergency channels."
+  },
+  "afu-e-vorschriften-05": {
+    "question": "May a radio amateur, as a general matter, encrypt their amateur radio traffic to hide its content from third parties?",
+    "options": {
+      "a": "Yes, any encryption is unrestrictedly permitted in amateur radio",
+      "b": "No, coding or encrypting content to conceal its meaning is generally prohibited; exceptions exist for certain control signals (e.g. satellite and remote-control signalling)",
+      "c": "Yes, but only when using the international phonetic alphabet",
+      "d": "No, they are generally barred from any form of digital operation whatsoever"
+    },
+    "explanation": "Sec. 16(8) AFuV generally prohibits coding or encrypting amateur radio traffic in a way that conceals its content. Exceptions apply to certain control signals, for example for earth and space stations of the amateur satellite service, and control signals including remote operation."
+  },
+  "afu-e-vorschriften-06": {
+    "question": "What authority does the BNetzA have under Sec. 17 AFuV when investigating a radio interference case that might originate from an amateur station?",
+    "options": {
+      "a": "It may only issue a written warning, nothing more",
+      "b": "It may immediately and permanently revoke the amateur authorization without any investigation at all",
+      "c": "It can require the operator to cooperate (e.g. submit operational records, conduct test transmissions) and, pending completion of the investigation, order measures such as blocking certain frequencies or reducing transmit power",
+      "d": "It has no authority in this area at all, since interference investigation is exclusively a police matter"
+    },
+    "explanation": "Sec. 17(1) AFuV allows the BNetzA to require an amateur station's operator to cooperate in investigating the cause of interference (e.g. operational records, test transmissions). Under paragraph 2, it may order provisional measures such as blocking a frequency or reducing power pending completion of the investigation."
+  },
+  "afu-e-vorschriften-07": {
+    "question": "What is required to operate a remotely controlled or automatically operating amateur station (e.g. a repeater) under Sec. 13 AFuV?",
+    "options": {
+      "a": "A separate callsign assignment for that station, tied to the location named in the assignment",
+      "b": "The individual's personal license alone is sufficient; no further assignment is needed",
+      "c": "Such operation is fundamentally prohibited outright",
+      "d": "An informal verbal heads-up to neighbors is sufficient"
+    },
+    "explanation": "Under Sec. 13(1) AFuV, operating a remotely controlled or automatically operating amateur station requires a separate callsign assignment; the station may only be operated at the location specified in that assignment, under the conditions set out there."
+  },
+  "afu-e-vorschriften-08": {
+    "question": "Under Sec. 16(3) AFuV, may an amateur station be connected to telecommunications networks (e.g. internet gateways)?",
+    "options": {
+      "a": "No, this is prohibited for radio amateurs under all circumstances",
+      "b": "Yes, this is generally permitted, provided applicable telecommunications-law rules are observed",
+      "c": "Only with explicit written permission from the relevant telecom provider, regardless of any other rules",
+      "d": "Only during an emergency and never otherwise"
+    },
+    "explanation": "Under Sec. 16(3) AFuV, an amateur station may be connected to telecommunications networks, subject to applicable telecommunications-law rules. For remotely controlled amateur stations under Sec. 13, only the holder of that station's callsign may provide such connections."
+  },
+  "afu-e-vorschriften-09": {
+    "question": "What does Sec. 16(6) AFuV require for alignment work and measurements on amateur station transmitters?",
+    "options": {
+      "a": "Suitable measures must be taken to effectively prevent free radiation of signals (e.g. using a dummy load/artificial antenna)",
+      "b": "Such work is permitted only in specially certified BNetzA laboratories",
+      "c": "There is no rule on this at all; any approach is permitted",
+      "d": "Measurements may only be carried out with prior individual approval for each single measurement"
+    },
+    "explanation": "Under Sec. 16(6) AFuV, suitable measures must be taken during alignment work and measurements on transmitters to effectively prevent free radiation of signals - in practice this typically means using a dummy load, so as not to interfere with other radio services."
+  },
+  "afu-e-vorschriften-10": {
+    "question": "What duty does a radio amateur have under Sec. 16(10) AFuV regarding their own amateur station?",
+    "options": {
+      "a": "They must physically guard the station around the clock",
+      "b": "They must fully disassemble the station whenever they are away",
+      "c": "They must take suitable measures to prevent unauthorized/abusive use of their amateur station",
+      "d": "This duty applies only to club stations, not individual radio amateurs"
+    },
+    "explanation": "Sec. 16(10) AFuV requires the radio amateur to take suitable measures to prevent unauthorized/abusive use of their amateur station by third parties, for example through access controls on equipment and operating controls."
+  },
+  "afu-e-vorschriften-11": {
+    "question": "A radio amateur moves house and wants to set up a new fixed amateur station at the new address. What does Sec. 9(4) AFuV require here?",
+    "options": {
+      "a": "Nothing - notifying the BNetzA is never required under any circumstances",
+      "b": "A completely new exam, since the license automatically lapses upon moving",
+      "c": "Notification is only due after five years have passed",
+      "d": "The change of address must be reported without delay, and the new installation or permanent relocation of a fixed station must be reported in writing or electronically before commissioning it"
+    },
+    "explanation": "Sec. 9(4) AFuV requires the holder of an authorization to notify the BNetzA without delay of any change of name or address, and to notify it in writing or electronically, before commissioning, of the new installation of a fixed station or a permanent relocation of its site."
+  },
+  "afu-e-vorschriften-12": {
+    "question": "Under Sec. 17(3) AFuV, which additional statutes remain unaffected alongside the AFuV and can also be relevant in interference matters?",
+    "options": {
+      "a": "Exclusively the Road Traffic Act",
+      "b": "In particular the Electromagnetic Compatibility Act (EMVG) and the Radio Equipment Act (FuAG)",
+      "c": "Exclusively the Federal Building Code",
+      "d": "There are no other relevant statutes besides the AFuV"
+    },
+    "explanation": "Sec. 17(3) AFuV clarifies that the provisions of the Electromagnetic Compatibility Act (EMVG) and the Radio Equipment Act (FuAG) remain unaffected by the AFuV's rules and must additionally be considered in interference cases, for example when assessing whether an affected device itself was built with adequate immunity."
+  }
+}

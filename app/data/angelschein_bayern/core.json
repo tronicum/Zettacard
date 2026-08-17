@@ -1,0 +1,997 @@
+{
+  "meta": {
+    "app": "Zettacard / angelschein-bayern-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-12",
+    "description": "Original MCQs for a Bavaria-specific exam-prep module for the German Fischerprüfung / Fischereischein (Angelschein) in the Free State of Bavaria, covering species-specific closed seasons and minimum sizes (Schonzeiten/Mindestmaße, Anlage to §11 AVBayFiG, including the river-basin-scoped rules for certain species), Bavaria-specific gear and method rules (prohibited devices/methods under §15 AVBayFiG, hand-rod hook-count and supervision rules under §16 AVBayFiG), the Bavarian Fischereischein/Fischerprüfung process (Art. 46-50 BayFiG license duty, age rules incl. the 1 Jan 2025 abolition of the separate Jugendfischereischein, exam subject areas and format under Art. 48 BayFiG / §4-§5 AVBayFiG), general fish biology and species identification for fish found in Bavarian waters, and Bavaria-specific water/nature protection and fisheries-law context (Hegepflicht and sustainability principle under Art. 1 BayFiG, geschlossene Gewässer under Art. 2 BayFiG, fishing-rights ownership under Art. 3 BayFiG, Gewässerrandstreifen under Art. 21 BayWG, fisheries-warden enforcement, catch-and-release and stocking rules under AVBayFiG). Content is independently phrased and grounded directly in BayFiG and AVBayFiG statute/regulation text (gesetze-bayern.de Bürgerservice; AVBayFiG version in force from 1 June 2025 as mirrored by a Bavarian fisheries cooperative's member service) and BayWG statute text, cross-checked against summaries published by the Landesfischereiverband Bayern / Fischereiverband Oberbayern and a local angling club, NOT sourced or paraphrased from the official LfL Bayern Fragenkatalog (https://www.lfl.bayern.de/mam/cms07/ifi/dateien/fragenkatalog_2023-endversion.pdf) or from any commercial exam-prep catalog. This is a fully independent exam module - separate content pool and exam simulation from the existing generic 'angelschein' module and from every other module in this app; it is Bavaria-specific and does not aim to cover other German states' Fischereigesetze.",
+    "class": "ALL",
+    "canonical_locale": "de",
+    "point_system": "2-4 points per question, matching this app's existing style",
+    "pass_rule_note": "Launched as a 48-question pool across 5 topics (12 schonzeiten_bayern, 9 fanggeraete_bayern, 10 fischereischein_bayern, 9 fischkunde_bayern, 8 gewaesserschutz_bayern), sized as a full exam-prep pool for the Bavarian Fischerprüfung, mirroring the real exam's ~60-question/5-subject-area structure (Art. 48 Abs. 1 BayFiG) at a smaller pilot scale. Exam Simulation/Training should draw questions per topic roughly proportionally, with a lower max-error tolerance and auto-fail on 2+ wrong high_stakes questions given the safety- and legal-compliance-critical nature of Schonzeit/Mindestmaß and gear-prohibition content, matching the DN-54-style pattern already used for kyc_aml/kartellrecht/lksg/sportboot modules. See app/app.js's EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW for wiring (to be done separately, out of scope for this content-only module).",
+    "legal_review_status": "NOT legally reviewed",
+    "legal_review_note": "This is a synthetic-reproduction content module authored directly from BayFiG and AVBayFiG statute/regulation text (and BayWG Art. 21 for the water-protection topic), NOT from the official LfL Bayern Fragenkatalog. The specific numeric facts (Schonzeit dates, Mindestmaß in cm, exam format figures, fee amounts, age thresholds) and article/paragraph numbers should be independently re-verified against the current official BayFiG/AVBayFiG text before production/commercial use, since both the fishing-law regulation (AVBayFiG) and the state statute (BayFiG) are periodically amended - most recently with substantial changes effective 1 January 2025 and 1 June 2025 that this module already reflects, but which should be re-checked for currency before release.",
+    "total_questions": 48,
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+    "renewal_months": 12,
+    "renewal_basis": "regulatory_update",
+    "renewal_note": "BayFiG and AVBayFiG are periodically amended (most recently effective 1 January 2025 and 1 June 2025); this module should be re-reviewed whenever a new AVBayFiG Anlage (Schonzeiten/Schonmaße) is published or BayFiG Art. 1-3/46-50 are amended, and at minimum every 12 months given how recently both instruments have changed.",
+    "locales": [
+      "de",
+      "en",
+      "uk",
+      "pl",
+      "ar",
+      "zh",
+      "hi",
+      "tr",
+      "fr",
+      "ru",
+      "es",
+      "it"
+    ]
+  },
+  "questions": [
+    {
+      "id": "angelschein-bayern-schonzeiten-01",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG i.V.m. Anlage (Schonzeiten und Schonmaße)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-02",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG i.V.m. Anlage (Schonzeiten und Schonmaße)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-03",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG i.V.m. Anlage (Schonzeiten und Schonmaße)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-04",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG i.V.m. Anlage (Schonzeiten und Schonmaße)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-05",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG i.V.m. Anlage (Schonzeiten und Schonmaße)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-06",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG i.V.m. Anlage (Schonzeiten und Schonmaße)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-07",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG i.V.m. Anlage (Schonzeiten und Schonmaße)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-08",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG i.V.m. Anlage (Schonzeiten und Schonmaße)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-09",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG i.V.m. Anlage (Schonzeiten und Schonmaße)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-10",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG i.V.m. Anlage (Schonzeiten und Schonmaße)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-11",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG (Flussgebietsbezug der Schonvorschriften)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schonzeiten-12",
+      "topic": "Bayerische Schonzeiten und Mindestmaße",
+      "topic_code": "schonzeiten_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 AVBayFiG; Art. 1 Abs. 2 BayFiG (Hegepflicht); Tierschutzgesetz",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fanggeraete-01",
+      "topic": "Bayerische Fanggeräte- und Methodenregeln",
+      "topic_code": "fanggeraete_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§15 Abs. 1 AVBayFiG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fanggeraete-02",
+      "topic": "Bayerische Fanggeräte- und Methodenregeln",
+      "topic_code": "fanggeraete_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§15 Abs. 1 AVBayFiG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fanggeraete-03",
+      "topic": "Bayerische Fanggeräte- und Methodenregeln",
+      "topic_code": "fanggeraete_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§15 Abs. 1 Nr. 3 AVBayFiG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fanggeraete-04",
+      "topic": "Bayerische Fanggeräte- und Methodenregeln",
+      "topic_code": "fanggeraete_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§15 Abs. 1 Nr. 2 AVBayFiG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fanggeraete-05",
+      "topic": "Bayerische Fanggeräte- und Methodenregeln",
+      "topic_code": "fanggeraete_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§16 Abs. 1 AVBayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fanggeraete-06",
+      "topic": "Bayerische Fanggeräte- und Methodenregeln",
+      "topic_code": "fanggeraete_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§15 Abs. 1 Nr. 6 AVBayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fanggeraete-07",
+      "topic": "Bayerische Fanggeräte- und Methodenregeln",
+      "topic_code": "fanggeraete_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§16 AVBayFiG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fanggeraete-08",
+      "topic": "Bayerische Fanggeräte- und Methodenregeln",
+      "topic_code": "fanggeraete_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§15 Abs. 1 AVBayFiG; Art. 1 Abs. 2 BayFiG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fanggeraete-09",
+      "topic": "Bayerische Fanggeräte- und Methodenregeln",
+      "topic_code": "fanggeraete_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§15, §16 AVBayFiG als Mindeststandard; Erlaubnisschein des Fischereiberechtigten",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schein-01",
+      "topic": "Bayerischer Fischereischein und Fischerprüfung",
+      "topic_code": "fischereischein_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 46 Abs. 1 BayFiG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schein-02",
+      "topic": "Bayerischer Fischereischein und Fischerprüfung",
+      "topic_code": "fischereischein_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 46 Abs. 2 BayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schein-03",
+      "topic": "Bayerischer Fischereischein und Fischerprüfung",
+      "topic_code": "fischereischein_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 47 Abs. 2 BayFiG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schein-04",
+      "topic": "Bayerischer Fischereischein und Fischerprüfung",
+      "topic_code": "fischereischein_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 47 Abs. 3 BayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schein-05",
+      "topic": "Bayerischer Fischereischein und Fischerprüfung",
+      "topic_code": "fischereischein_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 47 Abs. 1 BayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schein-06",
+      "topic": "Bayerischer Fischereischein und Fischerprüfung",
+      "topic_code": "fischereischein_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 48 Abs. 1 BayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schein-07",
+      "topic": "Bayerischer Fischereischein und Fischerprüfung",
+      "topic_code": "fischereischein_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 48 Abs. 2 BayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schein-08",
+      "topic": "Bayerischer Fischereischein und Fischerprüfung",
+      "topic_code": "fischereischein_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 48 Abs. 3 BayFiG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schein-09",
+      "topic": "Bayerischer Fischereischein und Fischerprüfung",
+      "topic_code": "fischereischein_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 50 Abs. 1 BayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-schein-10",
+      "topic": "Bayerischer Fischereischein und Fischerprüfung",
+      "topic_code": "fischereischein_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 4, §5 Abs. 1 AVBayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fischkunde-01",
+      "topic": "Fischkunde bayerischer Gewässer",
+      "topic_code": "fischkunde_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Allgemeine Fischbiologie (Prüfungsstoff nach Art. 48 Abs. 1 Nr. 1 BayFiG)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fischkunde-02",
+      "topic": "Fischkunde bayerischer Gewässer",
+      "topic_code": "fischkunde_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Allgemeine Fischbiologie (Prüfungsstoff nach Art. 48 Abs. 1 Nr. 1 BayFiG)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fischkunde-03",
+      "topic": "Fischkunde bayerischer Gewässer",
+      "topic_code": "fischkunde_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Allgemeine Fischbiologie (Prüfungsstoff nach Art. 48 Abs. 1 Nr. 1 BayFiG)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fischkunde-04",
+      "topic": "Fischkunde bayerischer Gewässer",
+      "topic_code": "fischkunde_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Allgemeine Fischbiologie (Prüfungsstoff nach Art. 48 Abs. 1 Nr. 1 BayFiG)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fischkunde-05",
+      "topic": "Fischkunde bayerischer Gewässer",
+      "topic_code": "fischkunde_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Allgemeine Fischbiologie (Prüfungsstoff nach Art. 48 Abs. 1 Nr. 1 BayFiG)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fischkunde-06",
+      "topic": "Fischkunde bayerischer Gewässer",
+      "topic_code": "fischkunde_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Allgemeine Fischbiologie / Gewässerkunde (Prüfungsstoff nach Art. 48 Abs. 1 Nr. 1-2 BayFiG)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fischkunde-07",
+      "topic": "Fischkunde bayerischer Gewässer",
+      "topic_code": "fischkunde_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Allgemeine Fischbiologie (Prüfungsstoff nach Art. 48 Abs. 1 Nr. 1 BayFiG)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fischkunde-08",
+      "topic": "Fischkunde bayerischer Gewässer",
+      "topic_code": "fischkunde_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Allgemeine Fischbiologie / Gewässerkunde (Prüfungsstoff nach Art. 48 Abs. 1 Nr. 1-2 BayFiG)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-fischkunde-09",
+      "topic": "Fischkunde bayerischer Gewässer",
+      "topic_code": "fischkunde_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Allgemeine Fischbiologie (Prüfungsstoff nach Art. 48 Abs. 1 Nr. 1 BayFiG); §11 AVBayFiG (ganzjährig geschont)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-gewaesserschutz-01",
+      "topic": "Bayerisches Gewässerschutz- und Fischereirecht",
+      "topic_code": "gewaesserschutz_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 1 Abs. 2 BayFiG",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-gewaesserschutz-02",
+      "topic": "Bayerisches Gewässerschutz- und Fischereirecht",
+      "topic_code": "gewaesserschutz_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 1 Abs. 3-4 BayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-gewaesserschutz-03",
+      "topic": "Bayerisches Gewässerschutz- und Fischereirecht",
+      "topic_code": "gewaesserschutz_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 2 BayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-gewaesserschutz-04",
+      "topic": "Bayerisches Gewässerschutz- und Fischereirecht",
+      "topic_code": "gewaesserschutz_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 3 BayFiG",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-gewaesserschutz-05",
+      "topic": "Bayerisches Gewässerschutz- und Fischereirecht",
+      "topic_code": "gewaesserschutz_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 21 BayWG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-gewaesserschutz-06",
+      "topic": "Bayerisches Gewässerschutz- und Fischereirecht",
+      "topic_code": "gewaesserschutz_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 Abs. 8 AVBayFiG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-gewaesserschutz-07",
+      "topic": "Bayerisches Gewässerschutz- und Fischereirecht",
+      "topic_code": "gewaesserschutz_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Art. 60 f. BayFiG (Fischereiaufsicht)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-bayern-gewaesserschutz-08",
+      "topic": "Bayerisches Gewässerschutz- und Fischereirecht",
+      "topic_code": "gewaesserschutz_bayern",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "AVBayFiG Besatzvorschriften (Genehmigungspflicht seltener Arten; Wels-Besatzverbot)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    }
+  ]
+}

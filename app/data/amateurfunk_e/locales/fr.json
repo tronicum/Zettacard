@@ -1,0 +1,402 @@
+{
+  "afu-e-technik-01": {
+    "question": "Une résistance de 4700 ohms s'écrit habituellement sous quelle forme abrégée ?",
+    "options": {
+      "a": "4,7 kΩ",
+      "b": "4,7 MΩ",
+      "c": "47 kΩ",
+      "d": "0,47 kΩ"
+    },
+    "explanation": "4700 Ω = 4,7 x 1000 Ω = 4,7 kΩ. Le préfixe « k » (kilo) désigne le facteur 1000."
+  },
+  "afu-e-technik-02": {
+    "question": "La loi d'Ohm s'écrit U = R x I. Un courant de 0,2 A traverse une résistance de 50 ohms. Quelle est la chute de tension ?",
+    "options": {
+      "a": "2,5 V",
+      "b": "0,4 V",
+      "c": "10 V",
+      "d": "100 V"
+    },
+    "explanation": "U = R x I = 50 Ω x 0,2 A = 10 V."
+  },
+  "afu-e-technik-03": {
+    "question": "Lequel des groupes de matériaux suivants est constitué de bons conducteurs électriques ?",
+    "options": {
+      "a": "Verre, porcelaine, caoutchouc",
+      "b": "Argent, cuivre, aluminium",
+      "c": "Polystyrène, PVC, Téflon",
+      "d": "Papier, bois, air sec"
+    },
+    "explanation": "L'argent, le cuivre et l'aluminium possèdent de nombreux électrons librement mobiles et conduisent très bien l'électricité ; les autres matériaux cités sont des isolants typiques."
+  },
+  "afu-e-technik-04": {
+    "question": "Que se passe-t-il pour une diode polarisée en sens inverse ?",
+    "options": {
+      "a": "Seul un très faible courant de fuite circule ; la diode bloque pratiquement le courant",
+      "b": "Sa résistance chute à presque zéro",
+      "c": "Elle se comporte comme un condensateur idéal, sans aucun courant",
+      "d": "Le courant circule sans entrave, comme dans un simple fil"
+    },
+    "explanation": "En sens inverse, une diode présente une résistance très élevée et seul un courant de fuite négligeable circule ; elle ne conduit bien que dans le sens direct, une fois la tension de seuil dépassée."
+  },
+  "afu-e-technik-05": {
+    "question": "Un condensateur est un composant dont la fonction principale est de...",
+    "options": {
+      "a": "redresser une tension alternative",
+      "b": "stocker un champ magnétique",
+      "c": "stocker de la charge/énergie électrique dans un champ électrique",
+      "d": "convertir sans perte un courant continu en chaleur"
+    },
+    "explanation": "Un condensateur est constitué de deux électrodes séparées par un diélectrique et stocke de l'énergie électrique sous forme de champ électrique entre ces électrodes."
+  },
+  "afu-e-technik-06": {
+    "question": "Un circuit résonant parallèle (bobine et condensateur) fonctionne à sa fréquence de résonance. Idéalement, comment se comporte son impédance à cet endroit ?",
+    "options": {
+      "a": "Elle est minimale (pratiquement un court-circuit)",
+      "b": "Elle est maximale (haute impédance)",
+      "c": "Elle reste constante quelle que soit la fréquence",
+      "d": "Elle chute exactement à zéro ohm"
+    },
+    "explanation": "Dans un circuit résonant parallèle idéal, l'impédance atteint son maximum exactement à la fréquence de résonance, car les courants réactifs dans la bobine et le condensateur s'annulent, si bien que seul un faible courant est prélevé à la source."
+  },
+  "afu-e-technik-07": {
+    "question": "Qu'est-ce qui distingue fondamentalement la BLU (modulation à bande latérale unique, SSB) de la modulation d'amplitude classique (AM, double bande latérale avec porteuse) ?",
+    "options": {
+      "a": "La BLU supprime la porteuse et une bande latérale, ne transmettant qu'une seule bande latérale",
+      "b": "La BLU transmet les deux bandes latérales plus une porteuse amplifiée",
+      "c": "La BLU est une modulation de fréquence pure, sans aucune bande latérale",
+      "d": "La BLU nécessite toujours une puissance d'émission supérieure à l'AM pour une portée équivalente"
+    },
+    "explanation": "La BLU supprime la porteuse et une bande latérale, ne transmettant qu'une seule bande latérale, ce qui exploite bien plus efficacement la bande passante et la puissance d'émission que l'AM classique."
+  },
+  "afu-e-technik-08": {
+    "question": "À quoi sert l'étage de fréquence intermédiaire (FI) dans un récepteur superhétérodyne ?",
+    "options": {
+      "a": "Il produit la puissance d'émission délivrée à la sortie antenne",
+      "b": "Il alimente le récepteur en courant continu",
+      "c": "Il convertit le signal reçu en une fréquence intermédiaire fixe, où il peut être filtré et amplifié plus efficacement",
+      "d": "Il sert uniquement à afficher l'intensité du signal reçu"
+    },
+    "explanation": "Le mélangeur combine le signal reçu avec le signal de l'oscillateur local pour produire une fréquence intermédiaire fixe. À cette fréquence constante, le filtrage (sélectivité) et l'amplification peuvent être réalisés de manière particulièrement efficace."
+  },
+  "afu-e-technik-09": {
+    "question": "Un émetteur produit aussi des harmoniques indésirables en plus du signal voulu. Quel est le principal danger que cela représente ?",
+    "options": {
+      "a": "Aucun - les harmoniques sont techniquement sans importance en radioamateurisme",
+      "b": "Elles peuvent perturber d'autres services radioélectriques (radiodiffusion, aviation, etc.) et doivent donc être supprimées",
+      "c": "Elles améliorent automatiquement la portée sur la fréquence fondamentale",
+      "d": "Elles n'apparaissent qu'en modes numériques, jamais en BLU ou FM"
+    },
+    "explanation": "Les émissions non désirées telles que les harmoniques peuvent sortir des bandes amateurs attribuées et perturber d'autres services radioélectriques. Selon l'article 16 al. 4 AFuV, les émissions non désirées doivent être réduites au niveau le plus bas réalisable, par exemple grâce à un filtrage adapté (filtre passe-bas)."
+  },
+  "afu-e-technik-10": {
+    "question": "Quelle propriété d'antenne le rapport d'ondes stationnaires (ROS/SWR) décrit-il ?",
+    "options": {
+      "a": "La puissance d'émission absolue de l'émetteur-récepteur",
+      "b": "La hauteur du mât d'antenne",
+      "c": "La polarisation de l'onde rayonnée",
+      "d": "La qualité de l'adaptation entre l'antenne et la ligne d'alimentation/l'émetteur (rapport entre onde réfléchie et onde directe)"
+    },
+    "explanation": "Le ROS décrit le rapport entre l'onde se dirigeant vers l'antenne et l'onde qui y est réfléchie. Un ROS proche de 1:1 indique une bonne adaptation, tandis qu'un ROS élevé indique une désadaptation et un risque de perte de puissance ou de dommage à l'émetteur."
+  },
+  "afu-e-technik-11": {
+    "question": "Quelle affirmation sur l'ionosphère et la propagation en ondes courtes est fondamentalement correcte ?",
+    "options": {
+      "a": "Les couches ionisées de la haute atmosphère peuvent réfracter les signaux ondes courtes vers la terre, permettant une propagation longue distance (« onde ionosphérique »)",
+      "b": "L'ionosphère n'a strictement aucun effet sur la propagation des ondes courtes",
+      "c": "Les signaux ondes courtes se propagent exclusivement par onde de sol sur quelques kilomètres",
+      "d": "L'ionisation de l'atmosphère est toujours identique de jour comme de nuit et indépendante du cycle solaire"
+    },
+    "explanation": "L'ionosphère est constituée de plusieurs couches ionisées dont le degré d'ionisation dépend notamment de l'heure et de l'activité solaire. Elle peut réfracter les signaux ondes courtes vers la terre, permettant des liaisons sur de très longues distances."
+  },
+  "afu-e-technik-12": {
+    "question": "Quel est l'instrument le plus simple pour mesurer la tension continue de sortie d'une alimentation ?",
+    "options": {
+      "a": "Un fréquencemètre",
+      "b": "Un wattmètre dans le circuit d'antenne",
+      "c": "Un multimètre réglé sur le calibre de tension continue",
+      "d": "Un mesureur de ROS"
+    },
+    "explanation": "Un multimètre réglé sur le calibre de tension continue approprié est l'instrument standard pour mesurer des tensions continues, comme celle en sortie d'une alimentation."
+  },
+  "afu-e-technik-13": {
+    "question": "Vous constatez que votre activité radioamateur perturbe la réception TV ou radio d'un voisin. Quelle est la première étape techniquement sensée ?",
+    "options": {
+      "a": "Cerner la cause, par exemple en installant un filtre passe-bas à l'émetteur et/ou un filtre passe-haut sur l'appareil affecté, et vérifier le blindage et le cheminement des câbles",
+      "b": "Arrêter immédiatement et durablement toute émission sans en rechercher la cause",
+      "c": "Augmenter la puissance d'émission jusqu'à ce que la perturbation ne soit plus perceptible",
+      "d": "Simplement dire au voisin de remplacer son équipement de réception, sans mener d'investigation de son côté"
+    },
+    "explanation": "La résolution d'une perturbation commence par une analyse technique de la cause, par exemple des filtres adaptés (passe-bas à l'émetteur, passe-haut sur l'appareil affecté), un meilleur blindage et un cheminement de câbles approprié. Les radioamateurs sont en outre tenus de réduire les émissions non désirées au niveau le plus bas réalisable en général (art. 16 al. 4 AFuV) et de coopérer avec la BNetzA lors des enquêtes sur les perturbations (art. 17 AFuV)."
+  },
+  "afu-e-technik-14": {
+    "question": "Pourquoi faut-il respecter une distance de sécurité appropriée vis-à-vis des personnes et les limites d'exposition aux champs électromagnétiques applicables à proximité d'une installation d'antenne radioamateur ?",
+    "options": {
+      "a": "Parce que sinon la puissance d'émission se coupe automatiquement",
+      "b": "Parce qu'une intensité de champ excessive à proximité d'une antenne peut présenter un risque pour la santé des personnes, ce qui impose de respecter les limites d'exposition",
+      "c": "Parce que cela ne concerne que les antennes de télévision, jamais les antennes radioamateur",
+      "d": "Parce que les distances de sécurité ne s'appliquent qu'aux émetteurs de radiodiffusion en ondes moyennes"
+    },
+    "explanation": "Les champs électromagnétiques à proximité d'une antenne peuvent être nocifs si les limites d'exposition sont dépassées (protection des personnes). Le respect de ces limites, et le cas échéant de la procédure de vérification de la limitation de l'exposition aux champs électromagnétiques (BEMFV), fait partie des obligations d'un radioamateur lors de l'installation d'une antenne fixe."
+  },
+  "afu-e-technik-15": {
+    "question": "Un transistor est utilisé dans un étage amplificateur audio simple. Quelle est sa fonction de base à cet endroit ?",
+    "options": {
+      "a": "Il convertit un courant alternatif en courant continu comme une diode",
+      "b": "Il stocke de l'énergie dans un champ magnétique comme une bobine",
+      "c": "Il ne filtre que les hautes fréquences",
+      "d": "Il utilise un petit signal d'entrée pour contrôler un courant de sortie plus important, amplifiant ainsi le signal"
+    },
+    "explanation": "Un transistor peut agir comme un amplificateur de courant contrôlable : un faible signal de commande en entrée (par exemple entre base et émetteur) contrôle un courant de sortie bien plus important, procurant un gain de signal."
+  },
+  "afu-e-technik-16": {
+    "question": "Qu'entend-on par la largeur de bande d'un signal ?",
+    "options": {
+      "a": "La fréquence porteuse absolue du signal",
+      "b": "L'étendue de fréquences que le signal (par exemple sa modulation audio) occupe dans le spectre",
+      "c": "L'intensité de champ du signal au lieu de réception",
+      "d": "La puissance d'émission exprimée en watts"
+    },
+    "explanation": "La largeur de bande indique l'étendue de fréquences qu'un signal modulé occupe dans le spectre, en fonction par exemple de la bande passante audio transmise et du type de modulation utilisé."
+  },
+  "afu-e-betrieb-01": {
+    "question": "Vous voulez épeler la lettre « M » à l'aide de l'alphabet phonétique international (OACI). Quel mot utilisez-vous ?",
+    "options": {
+      "a": "Mike Tango",
+      "b": "Metro",
+      "c": "Mike",
+      "d": "Munich"
+    },
+    "explanation": "Dans l'alphabet phonétique utilisé internationalement, « Mike » représente la lettre M. Selon l'article 16 al. 7 AFuV, cet alphabet est considéré comme un « langage clair » et constitue l'usage standard en radioamateurisme dans le monde entier."
+  },
+  "afu-e-betrieb-02": {
+    "question": "Que signifie le code Q « QRZ? » dans l'exploitation radioamateur ?",
+    "options": {
+      "a": "Qui m'appelle ?",
+      "b": "Veuillez éteindre votre émetteur",
+      "c": "Quelle est mon intensité de signal chez vous ?",
+      "d": "Je mets fin à ce contact"
+    },
+    "explanation": "« QRZ? » demande qui appelle (ou a appelé) sa propre station. Les codes Q sont des abréviations d'exploitation normalisées, indépendantes de la langue, et sont considérés comme un « langage clair » au sens de l'article 16 al. 7 AFuV."
+  },
+  "afu-e-betrieb-03": {
+    "question": "Un indicatif radioamateur allemand commence typiquement par un préfixe de pays tel que « DL » ou « DO ». Que désigne principalement ce préfixe ?",
+    "options": {
+      "a": "La puissance d'émission individuelle de la station",
+      "b": "Le pays (ou la série d'indicatifs associée) dans lequel la station est autorisée",
+      "c": "La bande de fréquences utilisée",
+      "d": "Le nom du radioamateur"
+    },
+    "explanation": "Le préfixe d'un indicatif rattache la station à un pays, ou plus précisément à une série d'indicatifs déterminée définie dans le plan d'indicatifs de la BNetzA (article 10 al. 3 AFuV). Les indicatifs délivrés en Allemagne commencent, entre autres, par DA à DR."
+  },
+  "afu-e-betrieb-04": {
+    "question": "Selon l'AFuV, à quelle fréquence minimale devez-vous transmettre votre propre indicatif au cours d'un contact en cours ?",
+    "options": {
+      "a": "Une seule fois, tout à la fin du contact entier",
+      "b": "Uniquement lors du tout premier appel, jamais plus ensuite",
+      "c": "Au début et à la fin du contact, et au moins toutes les dix minutes pendant l'échange",
+      "d": "Uniquement si l'autre station le demande explicitement"
+    },
+    "explanation": "Selon l'article 11 al. 1 AFuV, l'indicatif attribué doit être transmis au début et à la fin de chaque contact, ainsi qu'au moins toutes les dix minutes pendant la communication en cours, afin que la station reste identifiable à tout moment."
+  },
+  "afu-e-betrieb-05": {
+    "question": "Qu'est-ce qu'un plan de bande de l'IARU ?",
+    "options": {
+      "a": "Une recommandation volontaire coordonnée par les associations radioamateurs pour répartir judicieusement une bande amateur par mode d'exploitation (CW, BLU, modes numériques, etc.)",
+      "b": "Une liste de fréquences juridiquement contraignante, assortie d'amendes en cas d'écart",
+      "c": "Le nom officiel du registre des indicatifs de la BNetzA",
+      "d": "Un dispositif d'accord automatique de fréquence intégré à un émetteur-récepteur"
+    },
+    "explanation": "Les plans de bande de l'IARU sont des recommandations coordonnées par l'Union internationale des radioamateurs et ses associations membres, largement respectées dans le milieu radioamateur, qui répartissent des segments de bande par mode d'exploitation. Ils n'ont pas force de loi mais sont suivis par égard pour les autres radioamateurs."
+  },
+  "afu-e-betrieb-06": {
+    "question": "Avant de commencer un appel sur une fréquence apparemment libre, une bonne pratique d'exploitation consiste à...",
+    "options": {
+      "a": "émettre immédiatement à pleine puissance pour s'imposer sur la fréquence",
+      "b": "ignorer fondamentalement tout trafic en cours sur cette fréquence",
+      "c": "changer de fréquence sans cesse et au hasard, sans jamais vérifier si elle est libre",
+      "d": "écouter brièvement d'abord et, en cas de doute, demander si la fréquence est occupée, afin de ne pas perturber un trafic en cours"
+    },
+    "explanation": "Une bonne pratique d'exploitation consiste à écouter brièvement avant d'appeler et, en cas de doute, à demander si la fréquence est déjà occupée, afin de ne pas perturber un trafic radioamateur en cours."
+  },
+  "afu-e-betrieb-07": {
+    "question": "Quelle est la fonction principale d'un relais radioamateur (station relais) ?",
+    "options": {
+      "a": "Il stocke en permanence des messages vocaux pour une écoute ultérieure",
+      "b": "Il reçoit un signal sur une fréquence et le réémet simultanément, amplifié, sur une autre fréquence afin d'étendre la portée",
+      "c": "Il dispense entièrement l'utilisateur de posséder sa propre licence d'émission",
+      "d": "Il sert uniquement à diffuser un signal horaire"
+    },
+    "explanation": "Un relais reçoit des signaux faibles sur une fréquence d'entrée et les réémet, amplifiés, sur une fréquence de sortie différente, ce qui étend considérablement la portée, en particulier en VHF."
+  },
+  "afu-e-betrieb-08": {
+    "question": "Lors d'une catastrophe naturelle, vous entendez un appel de détresse sur une fréquence radioamateur. En tant que radioamateur, comment devez-vous réagir en principe ?",
+    "options": {
+      "a": "Écouter, maintenir la fréquence libre de tout trafic inutile et, si nécessaire, contribuer à établir un trafic d'urgence/de catastrophe ordonné (par exemple en relayant vers les autorités compétentes)",
+      "b": "Entamer immédiatement sa propre conversation sans rapport sur la même fréquence",
+      "c": "Ignorer l'appel de détresse, car le trafic d'urgence ne concerne pas généralement les radioamateurs",
+      "d": "Appeler uniquement la police et éviter entièrement la radioamateur dans cette situation"
+    },
+    "explanation": "En trafic d'urgence et de catastrophe, l'assistance est prioritaire : les radioamateurs doivent maintenir la fréquence concernée libre de tout trafic inutile, écouter attentivement et, si nécessaire, aider à relayer l'information de façon ordonnée vers les autorités compétentes. Ce rôle de soutien lors d'urgences et de catastrophes est une finalité reconnue du service radioamateur."
+  },
+  "afu-e-betrieb-09": {
+    "question": "Quel est l'objectif principal d'un journal de station tenu volontairement en radioamateur ?",
+    "options": {
+      "a": "Il remplace l'attribution d'indicatif délivrée par la BNetzA",
+      "b": "Il est une condition légale stricte pour chaque contact",
+      "c": "Il documente les contacts (date, heure, indicatif, fréquence, rapport de signal, etc.) et peut être utile, entre autres, lors d'enquêtes sur des perturbations",
+      "d": "Il sert uniquement à planifier ses vacances personnelles"
+    },
+    "explanation": "Un journal de station documente les contacts individuels avec des détails tels que la date, l'heure, l'indicatif de l'autre station, la fréquence et le rapport de signal. Il peut être utile, entre autres, pour retracer une perturbation ou comme pièce justificative pour des cartes QSL."
+  },
+  "afu-e-betrieb-10": {
+    "question": "Quel est le but d'une carte QSL en radioamateur ?",
+    "options": {
+      "a": "C'est une confirmation écrite qu'un contact radio a eu lieu entre deux stations",
+      "b": "C'est une licence d'émission officielle délivrée par la BNetzA",
+      "c": "Elle sert de substitut à la licence radioamateur lors des contrôles",
+      "d": "C'est un rapport d'essai technique de l'étage final de l'émetteur"
+    },
+    "explanation": "Une carte QSL est la confirmation écrite traditionnelle (aujourd'hui souvent électronique) qu'un contact a eu lieu entre deux stations ; elle est échangée, entre autres raisons, comme preuve pour l'obtention de diplômes/trophées d'exploitation."
+  },
+  "afu-e-betrieb-11": {
+    "question": "Un stagiaire pas encore titulaire de licence peut émettre sous la supervision d'un radioamateur licencié lors d'une exploitation de formation. Quel suffixe d'indicatif doit être ajouté pour les émissions vocales selon l'AFuV ?",
+    "options": {
+      "a": "/Remote",
+      "b": "/Trainee",
+      "c": "/Relay",
+      "d": "/Klub"
+    },
+    "explanation": "Selon l'article 11 al. 5 AFuV, lors d'une exploitation de formation au sens de l'article 12 AFuV, le suffixe « Trainee » doit être ajouté à l'indicatif utilisé pour les émissions vocales (pour les modes CW/numériques, le suffixe « /T » est utilisé)."
+  },
+  "afu-e-betrieb-12": {
+    "question": "Que désigne généralement le rapport RST pour un contact vocal (BLU) ?",
+    "options": {
+      "a": "Uniquement la distance géographique jusqu'à l'autre station",
+      "b": "La puissance d'émission exacte de l'autre station, en watts",
+      "c": "La lisibilité et l'intensité du signal reçu (ainsi que la qualité du ton pour la CW)",
+      "d": "La tension secteur de l'alimentation de l'autre station"
+    },
+    "explanation": "Le rapport RST (Readability, Strength, Tone - lisibilité, force, tonalité) évalue à quel point le signal reçu est compréhensible et fort ; la composante « tonalité » s'applique surtout à la CW et est généralement omise pour les contacts purement vocaux (donnant alors un rapport RS)."
+  },
+  "afu-e-vorschriften-01": {
+    "question": "Selon l'article 7 al. 1 AFuV, en quelles classes les licences radioamateurs sont-elles réparties ?",
+    "options": {
+      "a": "Classe 1, Classe 2 et Classe 3",
+      "b": "Classe A, Classe E et Classe N",
+      "c": "Classe débutant, intermédiaire et expert",
+      "d": "Il n'existe qu'une seule classe uniforme pour tous les radioamateurs"
+    },
+    "explanation": "L'article 7 al. 1 AFuV répartit les licences radioamateurs en classes A, E et N. La classe E est la classe d'entrée, avec des exigences techniques réduites par rapport à la classe A (article 4 al. 2 AFuV)."
+  },
+  "afu-e-vorschriften-02": {
+    "question": "Un titulaire de licence classe E souhaite passer en classe A. Que requiert l'article 4 al. 4 AFuV pour cela ?",
+    "options": {
+      "a": "Il doit repasser l'examen intégral portant sur les trois sections",
+      "b": "Le passage de la classe E à la classe A n'est pas du tout prévu",
+      "c": "Il ne doit repasser que les sections Connaissances d'exploitation et Connaissances réglementaires",
+      "d": "Il doit seulement réussir un examen complémentaire dans la section Connaissances techniques, au niveau classe A"
+    },
+    "explanation": "Selon l'article 4 al. 4 AFuV, les titulaires d'une licence classe N ou E n'ont besoin de réussir qu'un examen complémentaire pour obtenir la classe A, démontrant les connaissances techniques supplémentaires requises au sens de l'article 4 al. 1 n° 1. Les connaissances d'exploitation et réglementaires n'ont pas à être réexaminées, car elles sont identiques pour les classes A et E."
+  },
+  "afu-e-vorschriften-03": {
+    "question": "Selon l'article 9 al. 1 AFuV, de quoi un radioamateur a-t-il besoin, en plus d'un examen de licence réussi, pour participer activement au service radioamateur ?",
+    "options": {
+      "a": "D'une autorisation de participer au service radioamateur délivrée par la BNetzA, accompagnée simultanément de l'attribution d'un indicatif personnel",
+      "b": "De rien de plus - le certificat seul autorise déjà l'émission sans restriction et sans indicatif",
+      "c": "D'un permis de conduire séparé délivré par l'autorité de la circulation routière compétente",
+      "d": "D'une « licence flash » payante annuelle qui doit être rachetée avant chaque saison d'émission"
+    },
+    "explanation": "Selon l'article 9 al. 1 AFuV, la BNetzA admet une personne physique au service radioamateur sur demande, sur la base du certificat de licence présenté, tout en lui attribuant simultanément un indicatif personnel. La simple réussite de l'examen n'autorise pas encore à émettre."
+  },
+  "afu-e-vorschriften-04": {
+    "question": "Laquelle des situations suivantes est expressément interdite à un radioamateur selon l'article 16 al. 9 AFuV ?",
+    "options": {
+      "a": "Utiliser les signaux internationaux de détresse, d'urgence et de sécurité du service mobile maritime en dehors d'une véritable urgence",
+      "b": "Utiliser des codes Q en cours d'exploitation",
+      "c": "Utiliser un suffixe d'indicatif tel que « /P » pour une exploitation portable",
+      "d": "Lancer brièvement une séquence CQ en début de séance d'émission"
+    },
+    "explanation": "Selon l'article 16 al. 9 AFuV, il est interdit d'émettre des signaux trompeurs, des porteuses continues, des programmes de type radiodiffusion, ainsi que d'utiliser abusivement les signaux internationaux de détresse, d'urgence et de sécurité des services mobiles maritime et aéronautique, car cela pourrait mettre en danger de véritables appels de détresse ou diluer la crédibilité des canaux d'urgence."
+  },
+  "afu-e-vorschriften-05": {
+    "question": "Un radioamateur peut-il, de manière générale, chiffrer son trafic radioamateur pour en dissimuler le contenu à des tiers ?",
+    "options": {
+      "a": "Oui, tout chiffrement est autorisé sans restriction en radioamateur",
+      "b": "Non, coder ou chiffrer le contenu pour en dissimuler le sens est généralement interdit ; des exceptions existent pour certains signaux de commande (par exemple les signaux satellites et de télécommande)",
+      "c": "Oui, mais uniquement en utilisant l'alphabet phonétique international",
+      "d": "Non, il lui est généralement interdit d'exercer toute forme d'exploitation numérique quelle qu'elle soit"
+    },
+    "explanation": "L'article 16 al. 8 AFuV interdit en général de coder ou de chiffrer le trafic radioamateur de manière à en dissimuler le contenu. Des exceptions s'appliquent à certains signaux de commande, par exemple pour les stations terrestres et spatiales du service d'amateur par satellite, ainsi que pour les signaux de commande, y compris pour l'exploitation à distance."
+  },
+  "afu-e-vorschriften-06": {
+    "question": "Quel pouvoir la BNetzA détient-elle en vertu de l'article 17 AFuV lors de l'enquête sur une perturbation radioélectrique qui pourrait provenir d'une station amateur ?",
+    "options": {
+      "a": "Elle ne peut qu'adresser un avertissement écrit, rien de plus",
+      "b": "Elle peut retirer immédiatement et définitivement l'autorisation radioamateur sans aucune enquête",
+      "c": "Elle peut exiger la coopération de l'exploitant (par exemple soumission des journaux d'exploitation, réalisation d'émissions d'essai) et, en attendant la fin de l'enquête, ordonner des mesures telles que le blocage de certaines fréquences ou la réduction de la puissance d'émission",
+      "d": "Elle n'a aucune compétence en la matière, l'enquête sur les perturbations relevant exclusivement de la police"
+    },
+    "explanation": "L'article 17 al. 1 AFuV permet à la BNetzA d'exiger de l'exploitant d'une station amateur qu'il coopère à l'enquête sur la cause d'une perturbation (par exemple journaux d'exploitation, émissions d'essai). Selon l'alinéa 2, elle peut ordonner des mesures provisoires telles que le blocage d'une fréquence ou la réduction de puissance en attendant la fin de l'enquête."
+  },
+  "afu-e-vorschriften-07": {
+    "question": "Que faut-il pour exploiter une station amateur télécommandée ou fonctionnant automatiquement (par exemple un relais) selon l'article 13 AFuV ?",
+    "options": {
+      "a": "Une attribution d'indicatif distincte pour cette station, liée au lieu mentionné dans l'attribution",
+      "b": "La licence personnelle de l'individu suffit à elle seule ; aucune attribution supplémentaire n'est nécessaire",
+      "c": "Une telle exploitation est fondamentalement interdite",
+      "d": "Un simple avertissement verbal informel aux voisins suffit"
+    },
+    "explanation": "Selon l'article 13 al. 1 AFuV, l'exploitation d'une station amateur télécommandée ou fonctionnant automatiquement nécessite une attribution d'indicatif distincte ; la station ne peut être exploitée qu'au lieu précisé dans cette attribution, dans les conditions qui y sont fixées."
+  },
+  "afu-e-vorschriften-08": {
+    "question": "Selon l'article 16 al. 3 AFuV, une station amateur peut-elle être connectée à des réseaux de télécommunications (par exemple des passerelles internet) ?",
+    "options": {
+      "a": "Non, cela est interdit aux radioamateurs en toutes circonstances",
+      "b": "Oui, cela est généralement autorisé, sous réserve du respect des règles applicables du droit des télécommunications",
+      "c": "Uniquement avec l'autorisation écrite explicite de l'opérateur télécom concerné, indépendamment de toute autre règle",
+      "d": "Uniquement en situation d'urgence et jamais autrement"
+    },
+    "explanation": "Selon l'article 16 al. 3 AFuV, une station amateur peut être connectée à des réseaux de télécommunications, sous réserve des règles applicables du droit des télécommunications. Pour les stations amateurs télécommandées au sens de l'article 13, seul le titulaire de l'indicatif de cette station peut fournir de telles connexions."
+  },
+  "afu-e-vorschriften-09": {
+    "question": "Que requiert l'article 16 al. 6 AFuV pour les travaux de réglage et les mesures sur les émetteurs des stations amateurs ?",
+    "options": {
+      "a": "Des mesures appropriées doivent être prises pour empêcher efficacement le rayonnement libre des signaux (par exemple au moyen d'une charge fictive/antenne artificielle)",
+      "b": "De tels travaux ne sont autorisés que dans des laboratoires spécialement certifiés par la BNetzA",
+      "c": "Il n'existe aucune règle à ce sujet ; toute approche est autorisée",
+      "d": "Les mesures ne peuvent être effectuées qu'avec une autorisation préalable individuelle pour chaque mesure"
+    },
+    "explanation": "Selon l'article 16 al. 6 AFuV, des mesures appropriées doivent être prises lors des travaux de réglage et des mesures sur les émetteurs pour empêcher efficacement le rayonnement libre des signaux - en pratique, cela signifie généralement l'utilisation d'une charge fictive, afin de ne pas perturber d'autres services radioélectriques."
+  },
+  "afu-e-vorschriften-10": {
+    "question": "Quelle obligation un radioamateur a-t-il selon l'article 16 al. 10 AFuV concernant sa propre station amateur ?",
+    "options": {
+      "a": "Il doit surveiller physiquement la station 24 heures sur 24",
+      "b": "Il doit entièrement démonter la station chaque fois qu'il s'absente",
+      "c": "Il doit prendre des mesures appropriées pour empêcher toute utilisation non autorisée ou abusive de sa station amateur",
+      "d": "Cette obligation ne s'applique qu'aux stations de club, pas aux radioamateurs individuels"
+    },
+    "explanation": "L'article 16 al. 10 AFuV exige que le radioamateur prenne des mesures appropriées pour empêcher toute utilisation non autorisée ou abusive de sa station amateur par des tiers, par exemple par un contrôle d'accès aux équipements et aux commandes d'exploitation."
+  },
+  "afu-e-vorschriften-11": {
+    "question": "Un radioamateur déménage et souhaite installer une nouvelle station amateur fixe à sa nouvelle adresse. Que requiert l'article 9 al. 4 AFuV dans ce cas ?",
+    "options": {
+      "a": "Rien - une notification à la BNetzA n'est jamais requise, en aucune circonstance",
+      "b": "Un tout nouvel examen, car la licence expire automatiquement en cas de déménagement",
+      "c": "La notification n'est due qu'après cinq années écoulées",
+      "d": "Le changement d'adresse doit être signalé sans délai, et la nouvelle installation ou le déplacement permanent d'une station fixe doit être notifié par écrit ou par voie électronique avant sa mise en service"
+    },
+    "explanation": "L'article 9 al. 4 AFuV exige que le titulaire d'une autorisation notifie sans délai à la BNetzA tout changement de nom ou d'adresse, et qu'il notifie par écrit ou par voie électronique, avant la mise en service, la nouvelle installation d'une station fixe ou le déplacement permanent de son emplacement."
+  },
+  "afu-e-vorschriften-12": {
+    "question": "Selon l'article 17 al. 3 AFuV, quelles autres lois demeurent applicables parallèlement à l'AFuV et peuvent également être pertinentes en matière de perturbations ?",
+    "options": {
+      "a": "Exclusivement le Code de la route",
+      "b": "En particulier la loi sur la compatibilité électromagnétique (EMVG) et la loi sur les équipements radioélectriques (FuAG)",
+      "c": "Exclusivement le Code fédéral de la construction",
+      "d": "Il n'existe aucune autre loi pertinente en dehors de l'AFuV"
+    },
+    "explanation": "L'article 17 al. 3 AFuV précise que les dispositions de la loi sur la compatibilité électromagnétique (EMVG) et de la loi sur les équipements radioélectriques (FuAG) demeurent inchangées par les règles de l'AFuV et doivent en outre être prises en compte dans les affaires de perturbation, par exemple pour évaluer si l'appareil affecté lui-même a été conçu avec une immunité suffisante."
+  }
+}

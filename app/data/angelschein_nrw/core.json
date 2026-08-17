@@ -1,0 +1,1156 @@
+{
+  "meta": {
+    "app": "Zettacard / angelschein-nrw-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-12",
+    "description": "Original MCQs for a personal-license exam-prep module on the North Rhine-Westphalia Fischerpruefung (fishing licence exam), covering NRW-specific closed seasons and minimum catch sizes per species (Schonzeiten/Mindestmasse, e.g. Hecht 45cm/15.Feb-30.Apr, Zander 40cm/1.Apr-31.Mai, Aal 50cm/1.Okt-1.Maerz, Lachs ganzjaehrig geschont), NRW gear and angling-method rules (verbotene Fangmittel und Elektrofischerei-Beschraenkung nach §39 LFischG, Stahlvorfach-Laengen, Pflichtausruestung, Mitfuehren von Fischereigeraet nach §49 LFischG), the NRW Fischereischein/Fischerpruefung process including the distinct Jugendfischereischein (age 10-16) and Sonderfischereischein rules (§§31-38 LFischG), general fish biology/species ID content freshly written for this module, and NRW water-protection/fisheries-oversight law (Ablassen von Gewaessern, Schonbezirke, Fischwege, Fischereiaufseher, §§41-54 LFischG). NRW has Germany's largest angler population and its own Landesfischereigesetz (LFischG NRW, Bekanntmachung der Neufassung vom 22. Juni 1994, GV. NW. S. 226/248, as amended) and Landesfischereiverordnung, distinct from the generic 'angelschein' module already in this app. Topic structure and factual grounding are drawn from the real LFischG NRW statute text (fetched directly from recht.nrw.de) and from the real topic areas and facts covered by the official NRW Fischerpruefung question catalog ('Anlage 1' to the Verwaltungsvorschrift zur Durchfuehrung des LFischG, fetched directly as a PDF from https://recht.nrw.de/system/files/BA/4679-28681-sgv_793_19971126_1_anlage1.pdf). This is a SYNTHETIC REPRODUCTION: no question, option or explanation text is copied or closely paraphrased from that official catalog at scale - every item is independently phrased from the underlying legal/factual content, citing the actual LFischG NRW paragraph in legal_basis. Schonzeit/Mindestmass figures are additionally cross-checked against two independent third-party angling-regulation summaries (schonzeiten.de and beyondfishing.de). This is a fully independent exam module - separate content pool, separate exam simulation from every other module including the generic 'angelschein' module.",
+    "class": "ALL",
+    "canonical_locale": "de",
+    "point_system": "1-3 points per question, matching this app's existing style",
+    "pass_rule_note": "Launched as a 56-question pool across 5 topics (schonzeiten 12, fischereischein 14, fischkunde 12, geraete 10, gewaesserschutz 8), sized as a full exam-prep pool for the NRW Fischerpruefung, same DN-54-style pattern already used for kyc_aml/kartellrecht/lksg/sportboot_binnen. Exam Simulation/Training should draw questions per topic proportionally, with auto-fail on 2+ wrong high_stakes questions given the animal-welfare/legal-compliance stakes of Schonzeit and gear-rule violations. See app/app.js's EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW for wiring (to be done separately, out of scope for this content-only module).",
+    "legal_review_status": "NOT legally reviewed - this is a synthetic-reproduction content module authored from the real LFischG NRW statute text and the real topic scope of the official NRW Fischerpruefung catalog, but the specific Schonzeit dates and Mindestmass figures (sourced from schonzeiten.de and beyondfishing.de, cross-checked against each other but not against the primary Landesfischereiverordnung NRW table itself, which could not be reliably fetched as text during authoring) and the LFischG paragraph numbers (sourced from the 22 June 1994 Neufassung as amended, fetched from recht.nrw.de) should be independently re-verified against the current official Landesfischereiverordnung NRW and LFischG text before production/commercial use, since both are periodically updated and NRW law was known to be under a 2025/2026 Neufassung/renewal process (Bekanntmachung der Neufassung des LFischG dated 01.04.2025 and a new LFischVO dated 09.12.2025 were both found during sourcing but could not be fully cross-checked paragraph-by-paragraph against this module's content in the time available).",
+    "total_questions": 56,
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+    "renewal_months": 12,
+    "renewal_basis": "regulatory_update",
+    "renewal_note": "NRW published both a Neufassung (re-publication) of the LFischG (01.04.2025) and a new Landesfischereiverordnung (09.12.2025) around the time of authoring - re-verify all Schonzeiten, Mindestmasse and paragraph numbers in this module against those documents (or their successors) at least annually, and immediately if either is amended again.",
+    "locales": [
+      "de",
+      "en",
+      "uk",
+      "pl",
+      "ar",
+      "zh",
+      "hi",
+      "tr",
+      "fr",
+      "ru",
+      "es",
+      "it"
+    ]
+  },
+  "questions": [
+    {
+      "id": "angelschein-nrw-schonzeiten-01",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. a, b LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-02",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. a, b LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-03",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. a, b LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-04",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. a LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-05",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. a, b LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-06",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. a, b LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-07",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. a, b LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-08",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. b, c LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-09",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. a, b LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 1,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-10",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. a, b LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-11",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§44 Abs. 1 Buchst. b LFischG NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-schonzeiten-12",
+      "topic": "Schonzeiten und Mindestmasse NRW",
+      "topic_code": "schonzeiten",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§43 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-geraete-01",
+      "topic": "Geraetekunde und Angelmethoden NRW",
+      "topic_code": "geraete",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§39 Abs. 1 LFischG NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-geraete-02",
+      "topic": "Geraetekunde und Angelmethoden NRW",
+      "topic_code": "geraete",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§39 Abs. 3 LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-geraete-03",
+      "topic": "Geraetekunde und Angelmethoden NRW",
+      "topic_code": "geraete",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. f LFischG NRW i.V.m. Landesfischereiverordnung NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-geraete-04",
+      "topic": "Geraetekunde und Angelmethoden NRW",
+      "topic_code": "geraete",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§49 LFischG NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-geraete-05",
+      "topic": "Geraetekunde und Angelmethoden NRW",
+      "topic_code": "geraete",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Landesfischereiverordnung NRW (Fanggeraete-Bestimmungen)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-geraete-06",
+      "topic": "Geraetekunde und Angelmethoden NRW",
+      "topic_code": "geraete",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§39 Abs. 1 LFischG NRW; Tierschutzgesetz",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-geraete-07",
+      "topic": "Geraetekunde und Angelmethoden NRW",
+      "topic_code": "geraete",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§1 TierSchG i.V.m. LFischG NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-geraete-08",
+      "topic": "Geraetekunde und Angelmethoden NRW",
+      "topic_code": "geraete",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§39 Abs. 1 LFischG NRW",
+      "points": 1,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-geraete-09",
+      "topic": "Geraetekunde und Angelmethoden NRW",
+      "topic_code": "geraete",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Nicht gesetzlich geregelt - vgl. Fischerpruefungs-Fragenkatalog NRW (Gesetzeskunde, Frage 36)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-geraete-10",
+      "topic": "Geraetekunde und Angelmethoden NRW",
+      "topic_code": "geraete",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§1 TierSchG i.V.m. LFischG NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-01",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§31 Abs. 3 LFischG NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-02",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§32 Abs. 1 LFischG NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-03",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§32 Abs. 1, 2 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-04",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§33 Abs. 1 Nr. 1 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-05",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§33 Abs. 2 Nr. 3 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-06",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§34 Abs. 1 LFischG NRW",
+      "points": 1,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-07",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§35 LFischG NRW",
+      "points": 1,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-08",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§36 Abs. 2 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-09",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§37 Abs. 1 LFischG NRW",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-10",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§20 Abs. 1 LFischG NRW",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-11",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§50 Abs. 2 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-12",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§32a LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-13",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§31 Abs. 6 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-recht-14",
+      "topic": "Fischereischein und Fischereirecht NRW",
+      "topic_code": "fischereischein",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§31 Abs. 4, 7 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-01",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 1,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-02",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-03",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-04",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-05",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 1,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-06",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-07",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-08",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 1,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-09",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-10",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-11",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 1,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-fischkunde-12",
+      "topic": "Allgemeine Fischkunde",
+      "topic_code": "fischkunde",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturwissenschaftliche Grundlagen (kein Gesetzeszitat)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-gewaesser-01",
+      "topic": "Gewaesserschutz NRW",
+      "topic_code": "gewaesserschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§41 LFischG NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-gewaesser-02",
+      "topic": "Gewaesserschutz NRW",
+      "topic_code": "gewaesserschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Ordnungsrecht (Wasserbehoerde) i.V.m. LFischG NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-gewaesser-03",
+      "topic": "Gewaesserschutz NRW",
+      "topic_code": "gewaesserschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "Naturschutzrecht i.V.m. §44 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-gewaesser-04",
+      "topic": "Gewaesserschutz NRW",
+      "topic_code": "gewaesserschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§42 Abs. 1 Buchst. d LFischG NRW",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-gewaesser-05",
+      "topic": "Gewaesserschutz NRW",
+      "topic_code": "gewaesserschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§44 Abs. 2 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-gewaesser-06",
+      "topic": "Gewaesserschutz NRW",
+      "topic_code": "gewaesserschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§45 LFischG NRW",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-gewaesser-07",
+      "topic": "Gewaesserschutz NRW",
+      "topic_code": "gewaesserschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§52 LFischG NRW",
+      "points": 1,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "angelschein-nrw-gewaesser-08",
+      "topic": "Gewaesserschutz NRW",
+      "topic_code": "gewaesserschutz",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§31 Abs. 1, §37 Abs. 1 LFischG NRW (Fischereiaufseher bestellt nach §54 LFischG NRW)",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    }
+  ]
+}

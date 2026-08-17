@@ -1,0 +1,452 @@
+{
+  "afu-a-antennentechnik-01": {
+    "question": "Jaką impedancję w punkcie zasilania ma w przybliżeniu rezonansowy dipol półfalowy w przestrzeni swobodnej?",
+    "options": {
+      "a": "36 omów",
+      "b": "73 omy",
+      "c": "300 omów",
+      "d": "450 omów"
+    },
+    "explanation": "Rezonansowy dipol półfalowy w przestrzeni swobodnej ma rezystancję promieniowania / impedancję w punkcie zasilania wynoszącą około 73 omy (czysto rezystancyjną przy dokładnej długości rezonansowej). Ta wartość jest podstawą powszechnie stosowanego dopasowania do kabla koncentrycznego 50 omów, przy czym wynikające niedopasowanie jest w praktyce zwykle tolerowane."
+  },
+  "afu-a-antennentechnik-02": {
+    "question": "Jaką impedancję w punkcie zasilania ma w przybliżeniu idealna antena pionowa ćwierćfalowa (ground-plane) nad idealnie przewodzącym gruntem?",
+    "options": {
+      "a": "Około 36 omów",
+      "b": "Około 73 omy",
+      "c": "Około 150 omów",
+      "d": "Około 600 omów"
+    },
+    "explanation": "Antena pionowa nad idealnie przewodzącym gruntem jest elektrycznie równoważna połowie dipola półfalowego (grunt działa jak lustrzane odbicie), więc impedancja w punkcie zasilania wynosi mniej więcej połowę 73 omów, czyli około 36 omów. W praktyce rzeczywista wartość zależy od systemu radiali/uziemienia oraz rzeczywistej przewodności gruntu."
+  },
+  "afu-a-antennentechnik-03": {
+    "question": "Jak w przybliżeniu porównuje się impedancja w punkcie zasilania dipola składanego z impedancją zwykłego dipola półfalowego?",
+    "options": {
+      "a": "Około jedną czwartą, czyli około 18 omów",
+      "b": "Około tyle samo, czyli około 73 omy",
+      "c": "Około trzy i pół raza więcej, czyli około 240 omów",
+      "d": "Około dziesięć razy więcej, czyli około 730 omów"
+    },
+    "explanation": "Dipol składany składa się z dwóch równoległych przewodników, które pod względem prądu działają szeregowo, co znacznie zwiększa impedancję w punkcie zasilania w porównaniu z prostym dipolem: do około 240 omów (wartość podana w oficjalnym katalogu pytań klasy A BNetzA). Dzięki temu dipol składany dobrze nadaje się do bezpośredniego podłączenia do symetrycznej linii dwuprzewodowej 240-300 omów."
+  },
+  "afu-a-antennentechnik-04": {
+    "question": "Jaki jest główny efekt dodania reflektora i direktora do anteny Yagi w porównaniu z prostym dipolem?",
+    "options": {
+      "a": "Zwiększenie impedancji w punkcie zasilania do kilku kiloomów",
+      "b": "Skoncentrowanie promieniowania w preferowanym kierunku, co daje zysk oraz określony stosunek przód-tył",
+      "c": "Całkowite wyeliminowanie wszystkich listków bocznych",
+      "d": "Przekształcenie polaryzacji liniowej w polaryzację kołową"
+    },
+    "explanation": "Elementy reflektora i direktora anteny Yagi sprzęgają się pasożytniczo z elementem zasilanym, a ich konstruktywna/destruktywna superpozycja tworzy kierunkowość: promieniowanie koncentruje się w kierunku direktorów (zysk względem prostego dipola) i jest osłabione w kierunku reflektora (stosunek przód-tył). Listki boczne są dzięki temu procesowi zmniejszane, ale nie całkowicie eliminowane."
+  },
+  "afu-a-antennentechnik-05": {
+    "question": "Jak wysokość montażu anteny o polaryzacji pionowej nad rzeczywistym gruntem wpływa głównie na charakterystykę promieniowania?",
+    "options": {
+      "a": "Większa wysokość zwykle obniża kąt promieniowania, sprzyjając odległym łączom DX",
+      "b": "Na falach krótkich wysokość zasadniczo nie ma żadnego wpływu na charakterystykę promieniowania",
+      "c": "Większa wysokość zawsze podnosi kąt promieniowania powyżej 80 stopni",
+      "d": "Wysokość wpływa wyłącznie na impedancję w punkcie zasilania, a nie na charakterystykę"
+    },
+    "explanation": "Odbicia od rzeczywistego, stratnego gruntu znacząco wpływają na pionowy kąt promieniowania. Wraz ze wzrostem wysokości anteny (mierzonej w długościach fali) główny kąt promieniowania względem horyzontu ma tendencję do zmniejszania się, co jest korzystne dla łączy DX opierających się na odbiciu jonosferycznym pod niskim kątem. Przy małej wysokości dominuje natomiast bardziej strome promieniowanie, lepiej nadające się do łączności bliskiego zasięgu (NVIS)."
+  },
+  "afu-a-antennentechnik-06": {
+    "question": "W którym kierunku najsilniej promieniuje dipol półfalowy zawieszony w przestrzeni swobodnej?",
+    "options": {
+      "a": "Wyłącznie wzdłuż osi drutu",
+      "b": "Równomiernie we wszystkich kierunkach (sferycznie)",
+      "c": "Najsilniej prostopadle do osi drutu, z zerami w kierunku końców drutu (charakterystyka w kształcie ósemki)",
+      "d": "Wyłącznie pionowo w górę i w dół"
+    },
+    "explanation": "Pozioma charakterystyka promieniowania dipola półfalowego w przestrzeni swobodnej ma kształt ósemki: promieniowanie jest maksymalne prostopadle do osi drutu i spada do zera w kierunku końców drutu. Promiennik izotropowy, promieniujący jednakowo we wszystkich kierunkach, jest natomiast jedynie teoretycznym odniesieniem stosowanym dla wartości zysku (dBi)."
+  },
+  "afu-a-antennentechnik-07": {
+    "question": "Co opisuje termin 'stosunek przód-tył' (Front-to-Back Ratio) dla anteny kierunkowej?",
+    "options": {
+      "a": "Stosunek mocy nadawania do mocy odbieranej",
+      "b": "Stosunek mocy promieniowania w kierunku głównego listka do mocy promieniowania w kierunku przeciwnym (180 stopni), zwykle wyrażany w dB",
+      "c": "Stosunek impedancji w punkcie zasilania do impedancji falowej kabla",
+      "d": "Stosunek wysokości anteny do wykorzystywanej długości fali"
+    },
+    "explanation": "Stosunek przód-tył wskazuje w dB, o ile silniejsza jest moc promieniowania anteny kierunkowej (np. Yagi) w kierunku głównego listka w porównaniu z kierunkiem przeciwnym o 180 stopni. Wysoki stosunek przód-tył skutecznie tłumi zakłócenia i QRM pochodzące zza anteny."
+  },
+  "afu-a-antennentechnik-08": {
+    "question": "Dlaczego przy tej samej fizycznej wielkości anteny na wyższych częstotliwościach (np. 70 cm) można zazwyczaj osiągnąć wyższy zysk anteny niż na niższych częstotliwościach (np. 80 m)?",
+    "options": {
+      "a": "Ponieważ rozmiar fizyczny w stosunku do długości fali jest większy przy wysokich częstotliwościach, co pozwala na więcej elementów lub większą efektywną aperturę mierzoną w długościach fali",
+      "b": "Ponieważ wyższe częstotliwości zawsze mają mniejsze tłumienie propagacji w przestrzeni swobodnej niż niższe częstotliwości",
+      "c": "Ponieważ przy wyższych częstotliwościach automatycznie dozwolona jest większa moc nadawania",
+      "d": "Ponieważ straty w gruncie nigdy nie występują przy wysokich częstotliwościach"
+    },
+    "explanation": "Zysk anteny w dużej mierze zależy od wielkości struktury mierzonej w długościach fali (czyli od jej efektywnej apertury). Przy ustalonym rozmiarze fizycznym - powiedzmy maszcie o danej długości - na 70 cm mieści się znacznie więcej długości fali, a więc potencjalnie więcej elementów lub większa powierzchnia apertury, niż na 80 m, gdzie nawet prosty dipol półfalowy ma długość wielu metrów. Tłumienie propagacji w przestrzeni swobodnej wręcz przeciwnie faktycznie rośnie wraz z częstotliwością, a nie maleje."
+  },
+  "afu-a-leitungstheorie-01": {
+    "question": "Co opisuje impedancja falowa (Z0) linii wysokiej częstotliwości, takiej jak kabel koncentryczny?",
+    "options": {
+      "a": "Rezystancję omową prądu stałego przewodnika wewnętrznego",
+      "b": "Stosunek napięcia do prądu fali rozchodzącej się w linii nieskończenie długiej lub zakończonej bezodbiciowo na Z0, określony przez geometrię i dielektryk linii",
+      "c": "Rezystancję zmierzoną przy zwarciu końca kabla",
+      "d": "Maksymalną moc nadawania, jaką kabel może przenieść bezstratnie"
+    },
+    "explanation": "Impedancja falowa Z0 jest właściwością samej linii (dla kabla koncentrycznego określoną przez średnice przewodnika wewnętrznego i zewnętrznego oraz dielektryk), a nie podłączonego obciążenia. Opisuje ona stosunek napięcia do prądu fali biegnącej w linii nieskończenie długiej lub zakończonej bezodbiciowo na Z0. Tylko gdy impedancja obciążenia jest równa Z0, nie powstaje żadne odbicie."
+  },
+  "afu-a-leitungstheorie-02": {
+    "question": "Nadajnik dostarcza do anteny moc doprowadzoną 100 W, zmierzona moc odbita wynosi 4 W. Jaki jest w przybliżeniu WFS (współczynnik fali stojącej)?",
+    "options": {
+      "a": "1,04",
+      "b": "1,2",
+      "c": "1,5",
+      "d": "2,0"
+    },
+    "explanation": "Moduł współczynnika odbicia wynosi |Gamma| = pierwiastek(Podb/Pdop) = pierwiastek(4/100) = pierwiastek(0,04) = 0,2. WFS oblicza się następnie jako WFS = (1+|Gamma|)/(1-|Gamma|) = 1,2/0,8 = 1,5. WFS równy 1,5 uznaje się za niekrytyczny dla większości stopni końcowych nadajników."
+  },
+  "afu-a-leitungstheorie-03": {
+    "question": "Do czego służy wykres Smitha w pracy z liniami transmisyjnymi i sieciami dopasowującymi?",
+    "options": {
+      "a": "Do graficznego przedstawiania znormalizowanych zespolonych impedancji (lub admitancji) oraz rozwiązywania problemów dopasowania i transformacji wzdłuż linii",
+      "b": "Do bezpośredniego pomiaru promieniowanego natężenia pola anteny w metrach na sekundę",
+      "c": "Do obliczania względnej liczby plam słonecznych dla prognozowania propagacji",
+      "d": "Do oznaczania dozwolonych częstotliwości nadawania w planie pasm amatorskich"
+    },
+    "explanation": "Wykres Smitha to narzędzie graficzne, w którym znormalizowane zespolone impedancje (odniesione do impedancji falowej Z0) są przedstawiane jako punkty wewnątrz okręgu jednostkowego. Pozwala on wizualnie określić, jak impedancja zmienia się wzdłuż linii, wpływ sieci dopasowujących (np. układów L, dopasowania za pomocą stubu), a także współczynnik odbicia i WFS, bez konieczności wykonywania złożonych obliczeń ręcznie."
+  },
+  "afu-a-leitungstheorie-04": {
+    "question": "Dlaczego wysoki WFS mierzony na wyjściu nadajnika, na stratnej (długiej, cienkiej) linii zasilającej, może wydawać się niższy niż WFS rzeczywiście występujący w punkcie zasilania anteny?",
+    "options": {
+      "a": "Linie stratne zawsze powodują, że WFS zmierzony na nadajniku jest wyższy niż na antenie",
+      "b": "Tłumienie linii osłabia zarówno falę doprowadzoną, jak i odbitą na drodze do punktu pomiaru, więc WFS obliczony na końcu nadajnika wychodzi niższy niż rzeczywisty WFS w miejscu niedopasowania (antenie)",
+      "c": "Ponieważ kabel koncentryczny jest zasadniczo bezstratny powyżej 30 MHz",
+      "d": "Ponieważ WFS jest fizycznie zdefiniowany tylko na nadajniku i w ogóle nie istnieje na antenie"
+    },
+    "explanation": "Fala odbita musi po raz drugi przejść stratną drogę linii, od miejsca niedopasowania (anteny) z powrotem do punktu pomiaru (nadajnika), i przy tym jest dodatkowo tłumiona. Sprawia to, że WFS zmierzony na wyjściu nadajnika wygląda lepiej, niż jest w rzeczywistości w punkcie zasilania anteny - efekt szczególnie wyraźny przy długich, stratnych liniach (np. cienki koncentryk na wysokich częstotliwościach), który należy uwzględnić przy usuwaniu usterek."
+  },
+  "afu-a-leitungstheorie-05": {
+    "question": "Jak można wykorzystać odcinek linii ćwierćfalowej (transformator lambda/4) do dopasowania dwóch różnych impedancji rzeczywistych?",
+    "options": {
+      "a": "Jego impedancja falowa jest dobierana jako średnia geometryczna dwóch dopasowywanych impedancji rzeczywistych (Z_transformatora = pierwiastek(Z1 x Z2))",
+      "b": "Jego fizyczna długość jest dobierana dowolnie, a impedancja falowa nie ma znaczenia",
+      "c": "Działa wyłącznie z zespolonymi impedancjami obciążenia, nigdy z rzeczywistymi",
+      "d": "Zawsze bezstratnie transformuje dowolne obciążenie dokładnie na 50 omów, niezależnie od wybranej impedancji falowej"
+    },
+    "explanation": "Odcinek linii lambda/4 transformuje rzeczywistą impedancję obciążenia Z_obciążenia zgodnie z zależnością Z_transformatora^2 = Z_wejście x Z_obciążenia. Aby więc dopasować obciążenie Z1 do źródła o impedancji Z2, impedancję falową linii ćwierćfalowej dobiera się jako średnią geometryczną Z_transformatora = pierwiastek(Z1 x Z2). Technika ta jest stosowana na przykład do dopasowania anteny pionowej 36 omów do koncentryka 50 omów."
+  },
+  "afu-a-leitungstheorie-06": {
+    "question": "W jakim odstępie wzdłuż niskostratnej, niedopasowanej linii powtarzają się maksima (lub minima) napięcia fali stojącej?",
+    "options": {
+      "a": "W odstępie jednej pełnej długości fali, lambda",
+      "b": "W odstępie połowy długości fali, lambda/2",
+      "c": "W odstępie ćwierci długości fali, lambda/4, niezależnie od niedopasowania",
+      "d": "W stałym odstępie w metrach, całkowicie niezależnym od częstotliwości"
+    },
+    "explanation": "Gdy fala doprowadzona i odbita nakładają się na niedopasowanej linii, powstaje wzór fali stojącej, którego maksima i minima napięcia powtarzają się okresowo co lambda/2 (dwa kolejne maksima są oddalone o pół długości fali). Między maksimum a najbliższym minimum znajduje się odpowiednio ćwierć długości fali."
+  },
+  "afu-a-leitungstheorie-07": {
+    "question": "Co opisuje współczynnik skrócenia (Velocity Factor) kabla koncentrycznego?",
+    "options": {
+      "a": "Stosunek średnicy zewnętrznej do średnicy przewodnika wewnętrznego kabla",
+      "b": "Współczynnik, o jaki zmniejsza się maksymalna dopuszczalna moc nadawania przez kabel",
+      "c": "Stosunek prędkości propagacji fali elektromagnetycznej w kablu do prędkości światła w próżni, kluczowy dla przeliczania długości elektrycznej na fizyczną",
+      "d": "Współczynnik odbicia przy niedopasowanym zakończeniu"
+    },
+    "explanation": "Ponieważ fale elektromagnetyczne rozchodzą się w dielektryku kabla koncentrycznego wolniej niż w próżni, współczynnik skrócenia (typowo od 0,66 do 0,85 w zależności od dielektryka) jest stosunkiem tej prędkości propagacji do prędkości światła c. Należy go uwzględnić przy obliczaniu fizycznej długości odcinków linii, takich jak transformatory lambda/4 lub stuby, w przeciwnym razie długość elektryczna będzie nieprawidłowa."
+  },
+  "afu-a-leitungstheorie-08": {
+    "question": "Jaką wartość przyjmuje WFS na idealnie dopasowanej linii bez żadnego odbicia?",
+    "options": {
+      "a": "0",
+      "b": "Nieskończoność",
+      "c": "-1",
+      "d": "1 (zapisywane też jako 1:1)"
+    },
+    "explanation": "Jeśli impedancja obciążenia jest dokładnie równa impedancji falowej linii, nie zachodzi żadne odbicie (współczynnik odbicia Gamma = 0) i nie tworzy się żadna fala stojąca. WFS osiąga wówczas swoją najlepszą możliwą wartość równą 1, zwykle podawaną jako 1:1. Wartości WFS poniżej 1 nie są fizycznie możliwe."
+  },
+  "afu-a-ausbreitung-01": {
+    "question": "Jaka właściwość jest charakterystyczna dla warstwy D jonosfery?",
+    "options": {
+      "a": "Istnieje tylko nocą i wtedy umożliwia propagację KF na najdłuższy zasięg",
+      "b": "Niezawodnie odbija wszystkie częstotliwości powyżej 30 MHz",
+      "c": "Powstaje tylko w dzień w wyniku promieniowania słonecznego, w dużej mierze zanika nocą przez rekombinację i tłumi głównie (absorbuje, zamiast odbijać) niskie częstotliwości KF, zwłaszcza poniżej około 7 MHz",
+      "d": "Znajduje się powyżej warstwy F2 i odpowiada za ruch DX na paśmie 10 m"
+    },
+    "explanation": "Warstwa D znajduje się na najniższej wysokości jonosfery (ok. 60-90 km) i powstaje w wyniku dziennego promieniowania słonecznego; nocą w dużej mierze rekombinuje i zanika. Praktycznie nie odbija sygnałów KF - zamiast tego je absorbuje, szczególnie silnie przy niskich częstotliwościach, takich jak 80 m i 40 m, w ciągu dnia. Dlatego niższe pasma zwykle działają bardziej niezawodnie dla łączy dalekiego zasięgu po zachodzie słońca."
+  },
+  "afu-a-ausbreitung-02": {
+    "question": "Co oznacza 'maksymalna użyteczna częstotliwość' (MUF, Maximum Usable Frequency) dla danego łącza radiowego?",
+    "options": {
+      "a": "Najwyższą częstotliwość, która przy danym kącie padania jest jeszcze odbijana z powrotem do ziemi przez jonosferę, zamiast ją przenikać",
+      "b": "Najniższą częstotliwość, poniżej której w warstwie D w ogóle nie występuje absorpcja",
+      "c": "Ustawową maksymalną dozwoloną częstotliwość nadawania dla radioamatorów kategorii A",
+      "d": "Częstotliwość, przy której antena wykazuje najniższy WFS"
+    },
+    "explanation": "MUF nie jest stałą wartością ustawową, lecz parametrem propagacji: dla konkretnej trasy i danego kąta padania wskazuje najwyższą częstotliwość, którą jonosfera jeszcze odbija z powrotem do ziemi - powyżej MUF fala przenika przez jonosferę i ginie w przestrzeni kosmicznej. Zależy od częstotliwości krytycznej danej warstwy oraz kąta padania (w przybliżeniu poprzez prawo secans) i zmienia się w zależności od pory dnia, pory roku i aktywności słonecznej."
+  },
+  "afu-a-ausbreitung-03": {
+    "question": "Co charakteryzuje zjawisko propagacji 'greyline' (propagacji zmierzchowej) na niższych pasmach fal krótkich?",
+    "options": {
+      "a": "Występuje wyłącznie w południe przy najwyższym położeniu słońca i jest najsilniejsze na paśmie 10 m",
+      "b": "W wąskiej strefie przejściowej między dniem a nocą (wschód/zachód słońca) absorpcja w warstwie D jest silnie zmniejszona, podczas gdy wyższe warstwy są często jeszcze wystarczająco zjonizowane, co umożliwia niezwykle dalekie łącza DX wzdłuż terminatora, zwłaszcza na 80 m/40 m",
+      "c": "Jest to zjawisko czysto optyczne, nie mające żadnego wpływu na propagację radiową",
+      "d": "Występuje tylko na pasmach UKF powyżej 144 MHz"
+    },
+    "explanation": "Wzdłuż 'greyline' (terminatora między stroną dzienną i nocną Ziemi) stacje nadawcza i odbiorcza znajdują się w pewnym sensie jednocześnie o zmierzchu. Silnie absorbująca w dzień warstwa D nie jest w tej fazie przejściowej jeszcze (lub już nie jest) w pełni ukształtowana, podczas gdy wyższe, zjonizowane warstwy nadal zapewniają wystarczające odbicie. Umożliwia to, zwłaszcza na niższych pasmach (80 m, 40 m), zaskakująco dobre, często transkontynentalne łącza wzdłuż tej wąskiej strefy."
+  },
+  "afu-a-ausbreitung-04": {
+    "question": "Co rozumie się przez propagację 'Sporadic-E'?",
+    "options": {
+      "a": "Stale obecną, regularną drogę propagacji przez warstwę F2 na falach krótkich",
+      "b": "Nieregularnie występujące w czasie i przestrzeni, małoskalowe, silnie zjonizowane obłoki w warstwie E, które krótkotrwale umożliwiają niezwykle dalekie łącza na wyższych pasmach KF i niższych pasmach UKF (np. 10 m, 6 m, sporadycznie 2 m)",
+      "c": "Zjawisko ograniczone wyłącznie do zimy i pasma 160 m",
+      "d": "Sztuczną formę propagacji generowaną przez same stacje amatorskie"
+    },
+    "explanation": "Sporadic-E powstaje z krótkotrwałych, nieprzewidywalnych obszarów intensywnej jonizacji w warstwie E (na wysokości ok. 90-120 km), typowo częstszych w miesiącach letnich. Te obłoki mogą odbijać sygnały na częstotliwościach znacznie przekraczających zwykłą MUF, umożliwiając zaskakująco dalekie łącza na paśmie 10 m, 6 m, a sporadycznie nawet 2 m, mimo że te pasma normalnie nie są odbijane przez jonosferę."
+  },
+  "afu-a-ausbreitung-05": {
+    "question": "Co opisuje 'strefa martwa' (skip zone) w propagacji falą jonosferyczną na falach krótkich?",
+    "options": {
+      "a": "Obszar, w którym łączność radiowa zasadniczo nigdy nie jest możliwa w żadnych warunkach",
+      "b": "Obszar bezpośrednio wokół anteny nadawczej, w którym moc nadawania jest ograniczona ustawowo",
+      "c": "Obszar między zasięgiem fali przyziemnej (lub fali jonosferycznej pod bardzo niskim kątem) a punktem, w którym pierwsza fala jonosferyczna odbita przez jonosferę powraca na ziemię - odbiór jest tam zwykle niemożliwy",
+      "d": "Zjawisko występujące wyłącznie powyżej 144 MHz"
+    },
+    "explanation": "Między punktem, w którym fala przyziemna (lub fala jonosferyczna pod bardzo niskim kątem) staje się zbyt słaba, a punktem, w którym pierwsza fala jonosferyczna odbita od jonosfery powraca na powierzchnię ziemi, znajduje się strefa martwa (skip zone). W tym pierścieniowym obszarze odbiór jest zwykle niemożliwy przy danych warunkach propagacji, mimo że zarówno bliższe, jak i dalsze stacje mogą być odbierane."
+  },
+  "afu-a-ausbreitung-06": {
+    "question": "Do czego typowo wykorzystywany jest tryb NVIS (Near Vertical Incidence Skywave)?",
+    "options": {
+      "a": "Do niezawodnych łączy bliskiego zasięgu (mniej więcej od 0 do 300 km) bez strefy martwej, osiąganych dzięki stromemu, niemal pionowemu kątowi promieniowania zwykle nisko montowanych anten poziomych na niższych pasmach KF",
+      "b": "Do niezwykle dalekiego zasięgu łączy kosmicznych przez satelity na UKF",
+      "c": "Wyłącznie do wąskopasmowych trybów cyfrowych powyżej 1 GHz",
+      "d": "Do kalibracji precyzyjnych wzorców częstotliwości"
+    },
+    "explanation": "W trybie NVIS antena (często pozioma dipola zamontowana nisko nad ziemią) jest celowo eksploatowana tak, by większość jej energii promieniowała stromo w górę (blisko 90 stopni). Wynikająca fala jonosferyczna jest wówczas niemal pionowo odbijana przez jonosferę i wraca na ziemię w promieniu ok. 0-300 km - bez zwykłej strefy martwej. Dzięki temu NVIS jest szczególnie odpowiedni do niezawodnej łączności bliskiego zasięgu w trudnym terenie, na przykład w łączności awaryjnej i katastroficznej."
+  },
+  "afu-a-ausbreitung-07": {
+    "question": "Jak wysoka aktywność słoneczna (maksimum słoneczne) typowo wpływa na propagację KF?",
+    "options": {
+      "a": "Obniża częstotliwość krytyczną warstwy F2 tak bardzo, że wyższe pasma KF (10 m, 15 m) niemal nigdy nie nadają się już do DX",
+      "b": "Zwykle zwiększa jonizację warstwy F2, a tym samym jej częstotliwość krytyczną oraz MUF, dzięki czemu wyższe pasma KF (np. 10 m, 15 m) są częściej otwarte dla łączy dalekiego zasięgu",
+      "c": "Wpływa tylko na pasma UKF powyżej 144 MHz, a nie na fale krótkie",
+      "d": "Zasadniczo uniemożliwia wszelką propagację Sporadic-E"
+    },
+    "explanation": "Wraz ze wzrostem aktywności słonecznej (wysoka względna liczba plam słonecznych) rośnie promieniowanie UV i rentgenowskie, jonizujące warstwę F2. Silniej zjonizowana warstwa F2 ma wyższą częstotliwość krytyczną, a tym samym również wyższy MUF, dzięki czemu wyższe pasma fal krótkich (10 m, 15 m, czasem nawet 6 m) są częściej otwarte i na większe odległości dla łączy DX. W minimum słonecznym natomiast pasma te są często martwe przez wiele dni."
+  },
+  "afu-a-ausbreitung-08": {
+    "question": "Co charakteryzuje propagację 'wieloskokową' (multi-hop) fali jonosferycznej na falach krótkich?",
+    "options": {
+      "a": "Sygnał odbija się tylko raz między nadajnikiem a odbiornikiem, nawet przy bardzo dużych odległościach",
+      "b": "Występuje wyłącznie przy propagacji falą przyziemną na niskich częstotliwościach",
+      "c": "Sygnał jest wielokrotnie odbijany między jonosferą a powierzchnią ziemi, co pozwala pokonać bardzo duże odległości, przy czym każdy dodatkowy skok dodatkowo zmniejsza siłę sygnału z powodu strat odbicia i strat na ziemi oraz sprzyja zanikom (fadingowi)",
+      "d": "Występuje wyłącznie przy łączach satelitarnych na paśmie 70 cm"
+    },
+    "explanation": "Jeśli pojedyncze odbicie jonosferyczne nie wystarcza do połączenia dwóch odległych od siebie stacji, sygnał może odbić się wielokrotnie między gruntem (lub powierzchnią morza) a jonosferą (skok wielokrotny). Pozwala to pokonać odległości międzykontynentalne, jednak każdy dodatkowy skok zmniejsza siłę sygnału z powodu strat na ziemi i w jonosferze, a nakładanie się kilku dróg o różnych czasach propagacji sprzyja zanikom i zniekształceniom."
+  },
+  "afu-a-leistung-01": {
+    "question": "Jaka klasa wzmacniacza jest typowo wybierana dla liniowych stopni końcowych nadajnika SSB i dlaczego?",
+    "options": {
+      "a": "Klasa C, ponieważ oferuje najwyższą sprawność ze wszystkich klas i dlatego jest najbardziej ekonomiczna",
+      "b": "Zwykle klasa AB, jako kompromis między wystarczającą liniowością (do przenoszenia obwiedni SSB z niskimi zniekształceniami) a akceptowalną sprawnością",
+      "c": "Wyłącznie klasa A, ponieważ liniowość nie ma znaczenia dla SSB",
+      "d": "Klasa D, ponieważ została opracowana specjalnie do analogowej transmisji głosu"
+    },
+    "explanation": "SSB to tryb modulowany amplitudowo o stale zmieniającej się obwiedni, który wymaga wystarczająco liniowego wzmocnienia - silnie nieliniowy stopień końcowy zniekształciłby informację głosową i wytworzyłby silne produkty intermodulacji. Klasa C nie nadaje się do SSB, ponieważ pracuje silnie nieliniowo. W praktyce zwykle wybiera się więc klasę AB: oferuje ona wystarczającą liniowość przy zauważalnie lepszej sprawności niż czysta klasa A."
+  },
+  "afu-a-leistung-02": {
+    "question": "Które podstawowe stwierdzenie dotyczące różnicy maksymalnej dozwolonej mocy nadawania między radioamatorami kategorii A i kategorii E jest prawdziwe?",
+    "options": {
+      "a": "Obie kategorie mogą stosować dokładnie taką samą maksymalną moc nadawania, różnica dotyczy tylko zakresów częstotliwości",
+      "b": "Kategoria E może zasadniczo nadawać z wyższą mocą niż kategoria A",
+      "c": "Zgodnie z Anlage 3 AFuV, posiadacze licencji kategorii A mogą stosować zauważalnie wyższą maksymalną moc nadawania na większości przypisanych im pasm niż posiadacze kategorii E, których licencja jest bardziej ograniczona zarówno pod względem mocy, jak i pasm",
+      "d": "Moc nadawania obu kategorii nie jest ograniczona ustawowo i pozostaje wyłącznie w gestii radioamatora"
+    },
+    "explanation": "AFuV (w szczególności Anlage 3 w połączeniu z zakresami częstotliwości przypisanymi w Anlage 1) przewiduje dla posiadaczy licencji kategorii A zauważalnie wyższą dozwoloną moc nadawania na większości przypisanych pasm amatorskich niż dla kategorii E, której licencja jest bardziej ograniczona zarówno pod względem wykorzystywanego widma, jak i maksymalnej mocy. Dokładne wartości mocy dla poszczególnych pasm zmieniają się okazjonalnie w wyniku nowelizacji AFuV i zawsze należy je sprawdzić w aktualnym tekście Anlage 3 przed praktycznym wykorzystaniem."
+  },
+  "afu-a-leistung-03": {
+    "question": "Dlaczego antenowy tuner (dopasowywacz anteny) jest szczególnie ważny przy wyższej mocy nadawania na antenę nierezonansową?",
+    "options": {
+      "a": "Przekształca on niedopasowanie prezentowane przez antenę/linię zasilającą w impedancję tolerowaną przez stopień końcowy (zwykle bliską 50 omów), unikając strat niedopasowania w stopniu końcowym, podwyższonych szczytów napięcia/prądu i możliwych uszkodzeń przy wysokiej mocy",
+      "b": "Zasadniczo zwiększa moc oddawaną przez nadajnik ponad limit ustawiony na urządzeniu",
+      "c": "Całkowicie eliminuje potrzebę stosowania prawidłowo dobranej anteny",
+      "d": "Służy wyłącznie do filtrowania brumu sieciowego z zasilacza"
+    },
+    "explanation": "Znacznie niedopasowane obciążenie może powodować wysokie szczyty napięcia i prądu w stopniu końcowym nadajnika; są one zwykle niekrytyczne przy niskiej mocy, ale przy wysokiej mocy nadawania mogą prowadzić do przeciążenia, obniżonej sprawności, a w najgorszym przypadku do zniszczenia tranzystorów/lamp stopnia końcowego. Antenowy tuner umieszczony między nadajnikiem a linią zasilającą przekształca impedancję tak, by stopień końcowy widział obciążenie, które może tolerować (zwykle bliskie 50 omów) - nie usuwa jednak samego niedopasowania ani wynikających z niego strat na samej linii zasilającej."
+  },
+  "afu-a-leistung-04": {
+    "question": "Dlaczego znaczenie skutecznej filtracji dolnoprzepustowej między stopniem końcowym a anteną szczególnie rośnie przy wyższej mocy nadawania?",
+    "options": {
+      "a": "Ponieważ wyższa moc automatycznie i całkowicie tłumi generowanie harmonicznych",
+      "b": "Ponieważ nieliniowy stopień końcowy z natury generuje harmoniczne nadawanego sygnału, a ich moc bezwzględna rośnie wraz z mocą podstawowej, więc nawet stosunkowo niewielki udział harmonicznych może osiągnąć problematyczne poziomy zakłóceń w wartościach bezwzględnych przy wysokiej mocy nadawania",
+      "c": "Ponieważ przy wyższej mocy limity emisji niepożądanych w ogóle przestają obowiązywać",
+      "d": "Ponieważ filtry dolnoprzepustowe służą wyłącznie do poprawy WFS"
+    },
+    "explanation": "Każdy nieliniowy stopień wzmacniacza generuje oprócz pożądanej podstawowej także harmoniczne (całkowite wielokrotności częstotliwości nadawania). Ich poziom jest zwykle o wiele dB niższy niż podstawowej, ale przy wysokiej mocy nadawania nawet stosunkowo niewielki procent zawartości harmonicznych może osiągnąć w watach bezwzględnych poziomy wystarczające do poważnego zakłócenia innych służb radiowych (np. radiofonii, radiokomunikacji lotniczej). Skuteczny filtr dolnoprzepustowy między stopniem końcowym a anteną jest więc szczególnie ważny przy wyższej mocy, aby wystarczająco tłumić emisje niepożądane."
+  },
+  "afu-a-leistung-05": {
+    "question": "Co rozumie się przez zniekształcenia intermodulacyjne (IMD) w liniowym stopniu końcowym WCz, na przykład podczas testu dwutonowego?",
+    "options": {
+      "a": "Całkowitą awarię stopnia końcowego przy przesterowaniu",
+      "b": "Wyłącznie generowanie harmonicznych częstotliwości podstawowej, niezależnie od jakiejkolwiek innej zawartości sygnału",
+      "c": "Generowanie dodatkowych, niepożądanych produktów mieszania z dwóch lub więcej jednocześnie wzmacnianych składowych sygnału (np. dwóch tonów w teście dwutonowym SSB) na skutek nieliniowego zachowania stopnia końcowego; produkty te znajdują się blisko częstotliwości użytecznej i dlatego są szczególnie zakłócające",
+      "d": "Tłumienie listków bocznych anteny spowodowane niską mocą nadawania"
+    },
+    "explanation": "Gdy niedoskonale liniowy stopień końcowy wzmacnia jednocześnie kilka składowych częstotliwościowych (np. dwa tony testu dwutonowego, który typowo naśladuje sygnały głosowe SSB), nieliniowość wytwarza dodatkowe produkty mieszania na częstotliwościach sumy i różnicy sygnałów wejściowych. Szczególnie problematyczne są produkty intermodulacji nieparzystego rzędu (np. 3. rzędu), ponieważ znajdują się blisko częstotliwości użytecznych i nie można ich łatwo odfiltrować. Wystarczający zapas od punktu nasycenia i wystarczająco liniowa klasa pracy (np. AB) zmniejszają IMD."
+  },
+  "afu-a-leistung-06": {
+    "question": "Jaki dodatkowy obowiązek może wynikać z ochrony osób przed polami elektromagnetycznymi przy wyższej mocy nadawania (typowej dla stacji kategorii A)?",
+    "options": {
+      "a": "Żaden - ochrona osób nie odgrywa ustawowo żadnej roli w radioamatorstwie",
+      "b": "Powyżej pewnych progów zależnych od częstotliwości i mocy nadawania (EIRP), BEMFV może wymagać zaświadczenia o lokalizacji (Standortbescheinigung) lub przynajmniej udokumentowanej oceny odległości bezpiecznych dla stacji radioamatorskiej przed uruchomieniem przy wyższej mocy",
+      "c": "Zaświadczenie o lokalizacji jest wymagane wyłącznie dla komercyjnych nadajników radiofonicznych, nigdy dla stacji radioamatorskich",
+      "d": "Wyższa moc nadawania wymaga wyłącznie dłuższego uziemienia kabla antenowego, ale nie oceny natężenia pola"
+    },
+    "explanation": "Niemieckie rozporządzenie w sprawie procedury weryfikacji ograniczania pól elektromagnetycznych (BEMFV) może, w zależności od mocy nadawania/EIRP i pasma częstotliwości, wymagać zaświadczenia o lokalizacji dla stacjonarnych instalacji radiowych lub przynajmniej udokumentowanego ustalenia i przestrzegania odległości bezpiecznych dla osób, zanim instalacja może zostać uruchomiona. Ponieważ stacjom kategorii A dozwolona jest zauważalnie wyższa moc nadawania niż kategorii E, odpowiednio wyższe jest prawdopodobieństwo przekroczenia odpowiednich progów - dokładne progi i procedurę należy sprawdzić w aktualnym tekście BEMFV oraz formularzach Bundesnetzagentur przed uruchomieniem."
+  },
+  "afu-a-leistung-07": {
+    "question": "Dlaczego cyfrowe tryby fali ciągłej o wysokim współczynniku wypełnienia (np. FT8, RTTY) wymagają szczególnych środków ostrożności dotyczących chłodzenia i mocy ciągłej stopnia końcowego w porównaniu z SSB przy tym samym ustawieniu PEP?",
+    "options": {
+      "a": "Ponieważ te tryby dostarczają niemal stałą moc nośnej przez długie okresy (wysoki współczynnik wypełnienia), podczas gdy mowa SSB dostarcza średnio tylko część swojej mocy szczytowej, więc średnie obciążenie termiczne stopnia końcowego przy tej samej mocy szczytowej jest zauważalnie wyższe",
+      "b": "Ponieważ tryby cyfrowe zasadniczo generują wyższe napięcie szczytowe niż SSB, niezależnie od współczynnika wypełnienia",
+      "c": "Ponieważ praca cyfrowa zasadniczo nie wymaga żadnego chłodzenia",
+      "d": "Ponieważ FT8 i RTTY można obsługiwać wyłącznie przy bardzo niskiej mocy poniżej 1 wata"
+    },
+    "explanation": "Dla mowy SSB stosunek mocy średniej do szczytowej (PEP) jest typowo znacznie poniżej 1, ponieważ obwiednia głosu stale się zmienia i zawiera przerwy. Tryby takie jak FT8 czy RTTY przeciwnie, nadają niemal stałą nośną przez większość czasu transmisji (wysoki współczynnik wypełnienia, bliski 100%). Przy tym samym ustawieniu PEP prowadzi to do zauważalnie wyższego średniego (termicznego) obciążenia ciągłego stopnia końcowego podczas pracy cyfrowej, dlatego producenci nadajników/wzmacniaczy często zalecają zmniejszoną moc ciągłą dla takich trybów i należy dbać o wystarczające chłodzenie."
+  },
+  "afu-a-leistung-08": {
+    "question": "Jaki środek jest szczególnie zalecany dla stacjonarnej stacji radioamatorskiej o wysokiej mocy nadawania i zewnętrznej instalacji antenowej, w celu ochrony przed skutkami uderzenia pioruna i naładowaniem statycznym?",
+    "options": {
+      "a": "Całkowita rezygnacja z jakiegokolwiek połączenia uziemiającego, aby uniknąć prądów pętlowych",
+      "b": "Fachowo wykonany system uziemienia obejmujący odgromniki/ograniczniki przepięć dla instalacji antenowej i linii zasilających, a także odłączanie lub uziemianie doprowadzeń antenowych podczas burzy i przy nieużywaniu stacji",
+      "c": "Stałe podłączenie wszystkich anten do gniazdka sieciowego jako jedyny środek ochronny",
+      "d": "Eksploatacja stacji wyłącznie z pełną mocą nadawania podczas burzy, aby 'utrzymać antenę wolną'"
+    },
+    "explanation": "Duża, zewnętrzna instalacja antenowa niesie ze sobą zwiększone ryzyko uderzenia pioruna i naładowania statycznego. Zalecane są fachowo dobrany system uziemienia z niskooomowym połączeniem do wyrównania potencjałów, odpowiednie odgromniki/ograniczniki przepięć w doprowadzeniach antenowych, a także fizyczne odłączenie (i uziemienie) kabli antenowych od odbiornika/nadajnika podczas burzy lub przy dłuższym nieużywaniu stacji. Praca z pełną mocą podczas burzy jest natomiast poważnym zagrożeniem bezpieczeństwa, a nie środkiem ochronnym."
+  },
+  "afu-a-modulation-01": {
+    "question": "Dlaczego sygnał jednowstęgowy (SSB) wymaga zauważalnie mniejszej szerokości pasma i mocy nadawania niż klasyczny sygnał AM z dwiema wstęgami bocznymi dla tej samej informacji głosowej?",
+    "options": {
+      "a": "Ponieważ SSB zasadniczo pracuje na wyższej częstotliwości nośnej niż AM",
+      "b": "Ponieważ w SSB informacja głosowa jest kompresowana cyfrowo przed nadaniem w formie analogowej",
+      "c": "Ponieważ w SSB nośna oraz jedna z dwóch zbędnych wstęg bocznych są tłumione i nadawana jest tylko jedna wstęga boczna, która sama zawiera już pełną informację",
+      "d": "Ponieważ SSB jest stosowany wyłącznie dla trybów cyfrowych, nigdy dla transmisji głosu"
+    },
+    "explanation": "Sygnał AM składa się z nośnej oraz górnej i dolnej wstęgi bocznej, przy czym obie wstęgi boczne zawierają nadmiarowo tę samą informację. W SSB nośna i jedna z dwóch wstęg bocznych są tłumione; pozostała jedna wstęga boczna samodzielnie niesie pełną informację głosową. Oznacza to, że potrzebna jest tylko około połowa szerokości pasma sygnału AM, a cała moc nadawania trafia do wstęgi bocznej niosącej informację, zamiast częściowo do nośnej niosącej informacji."
+  },
+  "afu-a-modulation-02": {
+    "question": "Co wyróżnia cyfrowy tryb słabego sygnału FT8 na tle klasycznej transmisji głosowej SSB?",
+    "options": {
+      "a": "Bardzo wąską zajmowaną szerokość pasma (kilka Hz), ustalone krótkie okna czasowe dla strukturalnych, przeważnie zautomatyzowanych krótkich wiadomości oraz zdolność pozostania możliwym do zdekodowania nawet przy bardzo niskim stosunku sygnału do szumu",
+      "b": "Zauważalnie większą szerokość pasma niż SSB, ponieważ przesyłane są dane obrazowe",
+      "c": "Pełną transmisję dowolnej rozmowy głosowej bez żadnej struktury czasowej",
+      "d": "Wyłącznie analogową transmisję sygnału bez żadnego kodowania cyfrowego"
+    },
+    "explanation": "FT8 to wąskopasmowy (ok. 50 Hz zajmowanej szerokości) tryb cyfrowy, zsynchronizowany z ustalonymi oknami czasowymi (typowo 15 sekund), z ustrukturyzowanymi krótkimi wiadomościami (np. znak wywoławczy, raport). Dzięki silnym technikom korekcji błędów FT8 pozostaje możliwy do zdekodowania przy stosunkach sygnału do szumu, przy których mowa SSB zginęłaby w szumie - w zamian treść wiadomości jest silnie ustandaryzowana i znacznie mniej dowolnie formułowana niż w normalnej łączności głosowej."
+  },
+  "afu-a-modulation-03": {
+    "question": "Co zasadniczo odróżnia FSK (Frequency Shift Keying), klasycznie stosowane w RTTY, od PSK (Phase Shift Keying)?",
+    "options": {
+      "a": "FSK przekazuje informację wyłącznie poprzez zmiany amplitudy, PSK wyłącznie poprzez zmiany częstotliwości",
+      "b": "W FSK informacja cyfrowa jest kodowana poprzez przełączanie między dwiema (lub więcej) dyskretnymi częstotliwościami nośnymi, natomiast w PSK jest kodowana poprzez zdefiniowane skoki fazy nośnej przy stałej częstotliwości i zwykle stałej amplitudzie",
+      "c": "FSK to czysto analogowy rodzaj modulacji, a PSK czysto cyfrowy, niemający nic wspólnego z częstotliwościami nośnymi",
+      "d": "FSK i PSK są technicznie identyczne i różnią się tylko nazwą"
+    },
+    "explanation": "W FSK (np. klasyczny RTTY z 'mark' i 'space') informacja cyfrowa jest przesyłana poprzez przełączanie między dwiema dyskretnymi częstotliwościami. W PSK (np. PSK31) natomiast częstotliwość nośna pozostaje stała, podczas gdy informacja jest kodowana poprzez zdefiniowane skoki fazy (np. 180 stopni dla binarnego PSK). Dzięki temu tryby PSK można często zaprojektować węższopasmowo i spektralnie wydajniej niż klasyczny RTTY FSK."
+  },
+  "afu-a-modulation-04": {
+    "question": "Dlaczego znajomość zajmowanej szerokości pasma (Occupied Bandwidth) trybu jest ważna dla radioamatora kategorii A?",
+    "options": {
+      "a": "Ponieważ pozwala ocenić, ile sygnałów może jednocześnie zmieścić się w segmencie pasma bez wzajemnych zakłóceń, i czy własna transmisja pozostaje w granicach przydzielonego pasma lub podsegmentu planu pasm",
+      "b": "Ponieważ zajmowana szerokość pasma bezpośrednio określa maksymalny zasięg łączności radiowej, niezależnie od propagacji",
+      "c": "Ponieważ większa zajmowana szerokość pasma automatycznie prowadzi do mniejszych zakłóceń",
+      "d": "Ponieważ szerokość pasma jest istotna tylko dla pracy UKF/pasm decymetrowych, a nie dla fal krótkich"
+    },
+    "explanation": "Każdy tryb zajmuje pewien zakres częstotliwości wokół ustawionej częstotliwości środkowej (wąski dla CW lub PSK31, zauważalnie szerszy dla SSB lub trybów obrazowych, takich jak SSTV). Znajomość tej zajmowanej szerokości pasma jest ważna, aby prawidłowo umieścić transmisję w przydzielonych segmentach częstotliwości lub zaleceniach planu pasm i nie zakłócać sąsiednich stacji - zwłaszcza w ograniczonym segmencie pasma z kilkoma jednocześnie aktywnymi stacjami."
+  },
+  "afu-a-modulation-05": {
+    "question": "Co typowo przesyła tryb SSTV (Slow Scan Television) w radioamatorstwie?",
+    "options": {
+      "a": "Wyłącznie zaszyfrowane wiadomości tekstowe",
+      "b": "Ruchomy obraz wideo w czasie rzeczywistym o pełnej szerokości pasma wideo, porównywalny z naziemną telewizją",
+      "c": "Pojedyncze nieruchome obrazy, kodowane linia po linii w sygnał audio i typowo przesyłane w ramach normalnej szerokości pasma głosowego SSB",
+      "d": "Wyłącznie dane telemetryczne z satelitów amatorskich"
+    },
+    "explanation": "SSTV koduje nieruchomy obraz linia po linii w sygnał audio (różne tony dla jasności/koloru każdego piksela), który jest następnie przesyłany jak normalny sygnał głosowy, np. przez SSB, i po stronie odbiorczej ponownie przekształcany w obraz za pomocą odpowiedniego oprogramowania lub sprzętu. W przeciwieństwie do prawdziwej telewizji, przesłanie pojedynczego obrazu trwa typowo od kilku sekund do minut, ale w zamian mieści się w szerokości pasma normalnego kanału głosowego."
+  },
+  "afu-a-modulation-06": {
+    "question": "Dlaczego przy zautomatyzowanych trybach cyfrowych, takich jak FT8, w porównaniu z SSB zazwyczaj zalecana lub stosowana jest zauważalnie niższa moc nadawania?",
+    "options": {
+      "a": "Ponieważ sygnały FT8 technicznie nie mogą obsłużyć mocy powyżej 1 mW",
+      "b": "Ponieważ dzięki silnej korekcji błędów i wąskopasmowej transmisji FT8 może być dekodowany nawet przy bardzo niskim stosunku sygnału do szumu, więc do udanej łączności potrzeba zauważalnie mniej mocy nadawania niż przy mowie SSB, w połączeniu z wysokim współczynnikiem wypełnienia, który dodatkowo skłania do konserwatywnego doboru mocy",
+      "c": "Ponieważ korekcja błędów FT8 jest automatycznie wyłączana przy wyższej mocy",
+      "d": "Ponieważ prawo zasadniczo nakazuje niższą moc maksymalną dla trybów cyfrowych niż dla pracy głosowej"
+    },
+    "explanation": "FT8 wykorzystuje silne techniki korekcji błędów i bardzo wąską szerokość pasma, co pozwala niezawodnie dekodować nawet niskie poziomy sygnału - w rezultacie udana łączność często wymaga zauważalnie mniej mocy nadawania niż porównywalna łączność głosowa SSB. Dodatkowo wysoki współczynnik wypełnienia (niemal ciągła nośna) jest kolejnym powodem, by dobierać moc nadawania konserwatywnie, aby uniknąć termicznego przeciążenia stopnia końcowego i nie narzucać niepotrzebnie zbyt silnych sygnałów innym stacjom w i tak wąskim segmencie cyfrowym."
+  },
+  "afu-a-modulation-07": {
+    "question": "Jaka podstawowa właściwość charakteryzuje tryby o rozproszonym widmie (spread spectrum) w porównaniu z klasycznymi technikami wąskopasmowymi?",
+    "options": {
+      "a": "Zasadniczo zajmują węższą szerokość pasma niż klasyczny CW",
+      "b": "Nadają się wyłącznie do odbioru i nie mogą być używane do nadawania",
+      "c": "Rozkładają energię nadawania na znacznie szerszą szerokość pasma, niż wymagałaby tego sama informacja użyteczna, co może poprawić odporność na zakłócenia, ale wymaga szczególnej znajomości odpowiednich przepisów i obowiązków dokumentacyjnych",
+      "d": "Są zasadniczo i bez wyjątku zakazane w radioamatorstwie"
+    },
+    "explanation": "Techniki rozpraszania widma celowo rozkładają energię nadawania na znacznie szerszą szerokość pasma, niż faktycznie wymaga tego informacja użyteczna, na przykład poprzez szybkie sekwencje przeskoków częstotliwości lub kodowanie sekwencją bezpośrednią. Może to poprawić odporność na zakłócenia i koegzystencję z sygnałami wąskopasmowymi, ale w radioamatorstwie wymaga dogłębnego zrozumienia odpowiednich wymagań technicznych i regulacyjnych (w tym szczególnych obowiązków identyfikacyjnych i dokumentacyjnych), ponieważ takie sygnały można łatwo pomylić z zakłóceniami."
+  },
+  "afu-a-emv-01": {
+    "question": "Czym 'przeciążenie wejściowe' (Front-end Overload) zakłócanego odbiornika zasadniczo różni się od prawdziwego zakłócenia harmonicznego spowodowanego przez instalację nadawczą?",
+    "options": {
+      "a": "Oba efekty mają tę samą przyczynę i można je usunąć tym samym środkiem",
+      "b": "Przy przeciążeniu wejściowym wejście odbiornika jest przeciążane przez silną częstotliwość podstawową samego pobliskiego nadajnika (nie jest potrzebna zawartość harmonicznych), podczas gdy zakłócenie harmoniczne powstaje z rzeczywiście promieniowanych, niepożądanych sygnałów nadajnika przy wielokrotnościach częstotliwości podstawowej - oba wymagają różnych środków zaradczych",
+      "c": "Przeciążenie wejściowe występuje wyłącznie w odbiornikach podłączonych do nadajników powyżej 1000 watów",
+      "d": "Zakłócenie harmoniczne można usunąć wyłącznie poprzez zwiększenie mocy nadawania"
+    },
+    "explanation": "Przeciążenie wejściowe powstaje, gdy wejście odbiornika zakłócanego urządzenia jest przeciążane przez czystą częstotliwość podstawową pobliskiego nadajnika, który poza tym pracuje czysto - tutaj zwykle pomaga filtr górnoprzepustowy lub zaporowy przy zakłócanym odbiorniku, a nie coś przy nadajniku. Prawdziwe zakłócenie harmoniczne powstaje natomiast dlatego, że sam nadajnik promieniuje niepożądane emisje przy wielokrotnościach swojej częstotliwości nadawania - tutaj filtr dolnoprzepustowy przy nadajniku jest właściwym środkiem zaradczym. Rozróżnienie to jest ważne, aby usunąć zakłócenie we właściwym miejscu."
+  },
+  "afu-a-emv-02": {
+    "question": "Jaki podstawowy obowiązek dotyczy radioamatora zgodnie z §13 AFuV w związku z zakłóceniami pochodzącymi z jego stacji radioamatorskiej, niezależnie od nadawanej mocy?",
+    "options": {
+      "a": "Jest zobowiązany do unikania zakłóceń, a w przypadku już zaistniałych zakłóceń - do współdziałania przy ich usuwaniu, nawet jeśli sama instalacja nadawcza spełnia wszystkie wymagania techniczne",
+      "b": "Jest zwolniony z wszelkiej odpowiedzialności, gdy tylko używane urządzenie posiada ważne oznakowanie CE",
+      "c": "Obowiązek współdziałania istnieje wyłącznie w przypadku zakłóceń własnego odbioru, a nie zakłóceń innych osób",
+      "d": "Ten obowiązek dotyczy wyłącznie stacji kategorii A nadających powyżej 500 watów"
+    },
+    "explanation": "§13 AFuV zobowiązuje radioamatorów do unikania w miarę możliwości zakłóceń innych zastosowań radiowych oraz innych urządzeń elektrycznych, a także do współdziałania przy usuwaniu już zaistniałych zakłóceń - niezależnie od tego, czy przyczyna leży po stronie nadajnika, czy (jak przy przeciążeniu wejściowym) głównie po stronie zakłócanego urządzenia, i niezależnie od stosowanej mocy nadawania. Oznakowanie CE używanego urządzenia nie zwalnia automatycznie z tego obowiązku współdziałania w konkretnym przypadku."
+  },
+  "afu-a-emv-03": {
+    "question": "Do czego służy dławik przeciwzakłóceniowy (dławik prądu wspólnego, często nazywany 'line isolator' lub 'common-mode choke') na linii zasilającej anteny?",
+    "options": {
+      "a": "Celowo zwiększa moc dostarczaną do anteny ponad poziom ustawiony na nadajniku",
+      "b": "Tłumi niepożądane prądy wspólne (prądy płaszcza) płynące po zewnętrznej stronie ekranu kabla koncentrycznego, które w przeciwnym razie mogą powodować problemy z WCz w shacku, zniekształconą charakterystykę anteny i zakłócenia podłączonego sprzętu",
+      "c": "Całkowicie zastępuje potrzebę stosowania antenowego tunera przy dowolnym niedopasowaniu",
+      "d": "Służy wyłącznie do galwanicznego oddzielenia napięcia sieciowego od nadajnika"
+    },
+    "explanation": "Asymetrie anteny lub jej zasilania mogą wytworzyć niepożądany prąd wspólny (prąd płaszcza) na zewnętrznej stronie zewnętrznego przewodnika koncentryka. Może to przenieść energię WCz z powrotem do shacku ('WCz w shacku', z możliwymi zakłóceniami komputerów, sprzętu audio itp.), zniekształcić zamierzoną charakterystykę anteny i spowodować promieniowanie samej linii zasilającej. Dławik przeciwzakłóceniowy (np. kilka rdzeni ferrytowych lub uzwojenie ferrytowe na kablu) zwiększa impedancję widzianą przez ten prąd wspólny i skutecznie go tłumi, nie wpływając przy tym na właściwą transmisję sygnału."
+  },
+  "afu-a-emv-04": {
+    "question": "Dlaczego system uziemienia stacji radioamatorskiej o dużej mocy powinien być wykonany możliwie krótko i niskooomowo?",
+    "options": {
+      "a": "Ponieważ długi, wysokoomowy przewód uziemiający automatycznie zwiększa moc nadawania",
+      "b": "Ponieważ tylko kolor kabla uziemiającego decyduje o jego skuteczności",
+      "c": "Ponieważ przy WCz długie lub wysokoomowe połączenie uziemiające może stanowić znaczącą indukcyjność, a tym samym impedancję, przez co traci swoje działanie ochronne dla bezpieczeństwa osób i ochrony odgromowej oraz skuteczność w redukcji zwrotów WCz w shacku",
+      "d": "Ponieważ dłuższe przewody uziemiające zasadniczo prowadzą do lepszego WFS"
+    },
+    "explanation": "Przy prądzie stałym lub częstotliwości sieciowej przewód uziemiający zachowuje się praktycznie tylko rezystancyjnie, jednak przy wysokiej częstotliwości jego indukcyjność zyskuje na znaczeniu: już kilka metrów kabla może stanowić znaczącą impedancję przy WCz. Długi lub cienki przewód uziemiający nie zapewnia więc już skutecznej krótkiej drogi WCz do ziemi przy częstotliwościach istotnych dla radioamatorstwa, co osłabia zarówno ochronę osób/odgromową, jak i skuteczność przeciw zwrotom WCz w shacku (np. 'WCz w mikrofonie'). Dlatego preferowane są krótkie, niskooomowe i szerokie połączenia uziemiające (np. taśma miedziana zamiast cienkiego drutu)."
+  },
+  "afu-a-emv-05": {
+    "question": "Dlaczego rozróżnienie między polem bliskim a polem dalekim jest istotne przy ocenie bezpieczeństwa osób przy antenie radioamatorskiej?",
+    "options": {
+      "a": "Ponieważ natężenia pola i ich przestrzenny spadek zachowują się inaczej w polu bliskim niż w polu dalekim, a z powodu dużej długości fali na niskich pasmach KF strefa pola bliskiego (rozciągająca się na kilka długości fali) może być szczególnie duża w metrach bezwzględnych, co należy uwzględnić przy ustalaniu odległości bezpiecznych",
+      "b": "Ponieważ w polu dalekim zasadniczo nie da się już zmierzyć żadnego natężenia pola elektromagnetycznego",
+      "c": "Ponieważ rozróżnienie jest istotne wyłącznie dla instalacji radarowych, nigdy dla stacji radioamatorskich",
+      "d": "Ponieważ prawo zasadniczo dopuszcza wyższe moce nadawania w polu bliskim niż w polu dalekim"
+    },
+    "explanation": "W bezpośredniej bliskości anteny (pole bliskie, rozciągające się na kilka długości fali) pole elektryczne i magnetyczne zachowują się inaczej względem siebie i spadają z odległością inaczej niż w polu dalekim, gdzie dla natężenia pola obowiązuje prosta zależność 1/r. Ponieważ długość fali na niższych pasmach KF (np. 80 m, 40 m) jest bardzo duża, strefa pola bliskiego może się tam rozciągać na kilka metrów aż do dziesiątek metrów - znacznie więcej niż na UKF/paśmie decymetrowym. Przy ustalaniu bezpiecznych odległości od osób (np. w ramach BEMFV) tę zależną od częstotliwości rozciągłość strefy pola bliskiego trzeba więc wyraźnie uwzględnić."
+  },
+  "afu-a-emv-06": {
+    "question": "Jaki środek jest zwykle najskuteczniejszy w redukcji prawdziwego zakłócenia harmonicznego (rzeczywistej emisji nadajnika przy wielokrotności częstotliwości nadawania) wpływającego na pobliski odbiornik radiowy lub telewizyjny?",
+    "options": {
+      "a": "Zwiększenie mocy nadawania, aby sygnał użyteczny przebił zakłócenie",
+      "b": "Dodatkowy filtr dolnoprzepustowy, starannie dostrojony do częstotliwości podstawowej, umieszczony między stopniem końcowym a anteną/linią zasilającą, który skutecznie tłumi częstotliwości powyżej podstawowej",
+      "c": "Całkowita rezygnacja z jakiegokolwiek połączenia uziemiającego instalacji nadawczej",
+      "d": "Skrócenie linii zasilającej anteny do kilku centymetrów"
+    },
+    "explanation": "Ponieważ zakłócenie harmoniczne powstaje wskutek promieniowania przez stopień końcowy niepożądanej zawartości sygnału przy wielokrotnościach ustawionej częstotliwości nadawania, dodatkowy filtr dolnoprzepustowy, starannie dostrojony do częstotliwości podstawowej i umieszczony między stopniem końcowym a anteną, jest ukierunkowanym środkiem zaradczym: znacznie tłumi zakłócające harmoniczne, pozwalając jednocześnie na przejście podstawowej w dużej mierze bez przeszkód. Zwiększenie mocy nadawania natomiast tylko pogorszyłoby zakłócenie, ponieważ moc harmonicznych rośnie proporcjonalnie wraz z nią."
+  }
+}

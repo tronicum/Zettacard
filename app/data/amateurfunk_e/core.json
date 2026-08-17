@@ -1,0 +1,751 @@
+{
+  "meta": {
+    "app": "Zettacard / amateurfunk-e-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-11",
+    "description": "Original synthetic-reproduction MCQ pilot for the German Amateurfunkzeugnis Klasse E (entry-class amateur radio operator license, the 'novice' certificate below the full Klasse A). This is a KLASSE E ONLY module. Klasse E shares its 'Betriebliche Kenntnisse' (operating procedures) and 'Kenntnisse von Vorschriften' (regulations) exam pools entirely with Klasse A and differs only in the 'Technische Kenntnisse' (technical knowledge) content, where Klasse E requires only the Grundzuege (fundamentals) of Sec. 4(1) No. 1 AFuV rather than the full Klasse A depth (Sec. 4(2) AFuV). A Klasse A module (full class) is planned as a future follow-up and is expected to reuse/extend this pilot's Betrieb and Vorschriften question pool while adding the deeper Klasse-A-only technical content (per Sec. 4(4) AFuV, upgrading from E to A requires only a supplementary technical-knowledge exam). Covers mathematical/electrical fundamentals, semiconductors, circuits, modulation, receivers/transmitters, antennas and propagation, measurement, EMC and interference/safety (Technische Kenntnisse); Q-codes, phonetic alphabet, band plans, callsign structure, operating procedure, emergency and disaster traffic, station log and QSL practice (Betriebliche Kenntnisse); and ITU Radio Regulations, CEPT recommendations, the Amateurfunkgesetz (AFuG) and Amateurfunkverordnung (AFuV), TKG, EMVG and interference-handling obligations (Kenntnisse von Vorschriften). Questions were independently phrased by reviewing the structure, topic taxonomy and worked-example style of the BNetzA's official Fragenkataloge (question catalogs) - 'Pruefungsfragen im Pruefungsteil Technische Kenntnisse ... der Klasse E' (1st ed., Sept. 2006) and 'Pruefungsfragen in den Pruefungsteilen Betriebliche Kenntnisse und Kenntnisse von Vorschriften ... der Klassen A und E' (1st ed., Oct. 2006), both fetched directly from bundesnetzagentur.de - and cross-checked against the current AFuV text on gesetze-im-internet.de. No BNetzA catalog question or answer text was copied at scale; all question stems, distractors and explanations here are original phrasing covering the same subject areas.",
+    "class": "ALL",
+    "canonical_locale": "de",
+    "point_system": "2-3 points per question, matching this app's existing style",
+    "pass_rule_note": "The real Amateurfunkpruefung Klasse E has 3 independently scored sections (Technische Kenntnisse, Betriebliche Kenntnisse, Kenntnisse von Vorschriften), each requiring 19 of 25 correct to pass that section. This pilot is sized at 40 questions (~16 Technik / 12 Betrieb / 12 Vorschriften) rather than 3x25=75, reflecting the pilot's role as an initial coverage sample rather than a full replica of exam-day question counts - see BACKLOG/module-manifest wiring (done separately) for how Simulation/Training draws from and scores each of the 3 topic_code pools going forward, following the same DN-54-style pattern used for kyc_aml/kartellrecht/lksg.",
+    "total_questions": 40,
+    "topic_breakdown": {
+      "technik": 16,
+      "betrieb": 12,
+      "vorschriften": 12
+    },
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+    "renewal_months": 24,
+    "renewal_basis": "best_practice",
+    "renewal_note": "There is no statutory refresher requirement for licensed radio amateurs; the 24-month figure is a de facto best-practice review interval for this module's content, not a legal mandate. IMPORTANT SOURCE-CURRENCY FLAG: the BNetzA Fragenkataloge used as structural/topical reference for this module are dated 2006 (1st edition) and this pilot's authors could not confirm from the fetched BNetzA overview page whether a newer edition has since been published - re-check bundesnetzagentur.de for a current-edition PDF before production use. Separately, the AFuV text itself has been amended multiple times since 2006 (e.g. Sec. 13a Remote-Betrieb, references to the 2017 Funkanlagengesetz/EMVG 2016, and periodic changes to the Anlage 1 frequency/band-plan table, including newer allocations such as the 60 m band) - legal_basis citations in this file were checked against the AFuV text as consolidated on gesetze-im-internet.de on 2026-08-11, but frequency-band figures, power limits and any Klasse E vs Klasse A distinctions MUST be re-verified against the then-current Anlage 1 and Amtsblatt notices before commercial/production use, since band plans and permitted power levels are exactly the kind of detail that changes between catalog editions.",
+    "legal_review_status": "NOT legally reviewed - this is a pilot drawing on primary sources (BNetzA Fragenkataloge structure + AFuV statute text) but has not been checked by a subject-matter expert or licensed prüfungsberechtigter Funkamateur. Verify all technical constants, band-plan figures, callsign structure rules, and AFuV section citations before production/commercial use.",
+    "locales": [
+      "de",
+      "en",
+      "uk",
+      "pl",
+      "ar",
+      "zh",
+      "hi",
+      "tr",
+      "fr",
+      "ru",
+      "es",
+      "it"
+    ],
+    "sources": [
+      {
+        "title": "Pruefungsfragen im Pruefungsteil 'Technische Kenntnisse' bei Pruefungen zum Erwerb von Amateurfunkzeugnissen der Klasse E, 1. Auflage, September 2006",
+        "publisher": "Bundesnetzagentur",
+        "url": "https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Frequenzen/Amateurfunk/Fragenkatalog/Technik_KI_E_Katalog-2006-v1-2z.pdf?__blob=publicationFile&v=1",
+        "fetched": "2026-08-11",
+        "used_for": "Topic taxonomy and worked-example style reference for the Technische Kenntnisse section only - NOT copied at scale."
+      },
+      {
+        "title": "Pruefungsfragen in den Pruefungsteilen 'Betriebliche Kenntnisse' und 'Kenntnisse von Vorschriften' bei Pruefungen zum Erwerb von Amateurfunkzeugnissen der Klassen A und E, 1. Auflage, Oktober 2006",
+        "publisher": "Bundesnetzagentur",
+        "url": "https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Frequenzen/Amateurfunk/Fragenkatalog/BetriebVorschriftFragKlAuEId7830pdf.pdf?__blob=publicationFile&v=1",
+        "fetched": "2026-08-11",
+        "used_for": "Topic taxonomy and worked-example style reference for the Betriebliche Kenntnisse and Kenntnisse von Vorschriften sections only - NOT copied at scale."
+      },
+      {
+        "title": "Verordnung zum Gesetz ueber den Amateurfunk (Amateurfunkverordnung - AFuV)",
+        "publisher": "Bundesministerium der Justiz / gesetze-im-internet.de",
+        "url": "https://www.gesetze-im-internet.de/afuv_2005/",
+        "fetched": "2026-08-11",
+        "used_for": "Current statute text for all AFuV legal_basis citations (Sec. 4, 7, 9, 10, 11, 12, 13, 16, 17 and Anlage 1)."
+      },
+      {
+        "title": "BNetzA Amateurfunk overview / catalog landing page",
+        "publisher": "Bundesnetzagentur",
+        "url": "https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Frequenzen/Funkzeugnisse/Amateurfunk/start.html",
+        "fetched": "2026-08-11",
+        "used_for": "Locating the current Fragenkatalog PDF links."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "afu-e-technik-01",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-technik-02",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "afu-e-technik-03",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-technik-04",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-technik-05",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "afu-e-technik-06",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-technik-07",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-technik-08",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "afu-e-technik-09",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-technik-10",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ]
+    },
+    {
+      "id": "afu-e-technik-11",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-technik-12",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "afu-e-technik-13",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§16 Abs. 4 AFuV; §4 Abs. 2 AFuV",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-technik-14",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E - Personen- und Sachschutz)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-technik-15",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ]
+    },
+    {
+      "id": "afu-e-technik-16",
+      "topic": "Technische Kenntnisse",
+      "topic_code": "technik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 AFuV (Pruefungsinhalt Technik Klasse E)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-01",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "VO Funk (ITU Radio Regulations) - internationales Buchstabieralphabet",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-02",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§16 Abs. 7 AFuV (Betriebsabkuerzungen als offene Sprache)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-03",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§10, §11 AFuV (Rufzeichenzuteilung, Rufzeichenanwendung)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-04",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§11 Abs. 1 AFuV (Rufzeichenuebermittlung)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-05",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "AFuV §9 Abs. 2 i.V.m. Anlage 1 (Frequenzbereiche und IARU-Bandplaene)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-06",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "AFuV Anlage 1 (Nutzungsbedingungen der Frequenzbereiche); allgemeine Betriebspraxis",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-07",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "allgemeine Betriebspraxis; §16 AFuV (Relaisfunkstellen als Teil des Amateurfunkdienstes)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-08",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "allgemeine Betriebspraxis Notfunk; §2 Nr. 2 AFuG (Unterstuetzung von Hilfsaktionen in Not- und Katastrophenfaellen)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-09",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "allgemeine Betriebspraxis (Stationstagebuch)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-10",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "allgemeine Betriebspraxis (QSL-Karte)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-11",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§12 AFuV (Ausbildungsfunkbetrieb); §11 Abs. 5 AFuV (Rufzeichenzusatz /Trainee bzw. /T)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-betrieb-12",
+      "topic": "Betriebliche Kenntnisse",
+      "topic_code": "betrieb",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "allgemeine Betriebspraxis; §16 Abs. 7 AFuV",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-01",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§7 Abs. 1 AFuV (Amateurfunkzeugnisklassen)",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-02",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§4 Abs. 2 und Abs. 4 AFuV (Pruefungsinhalt Klasse E; Zusatzpruefung fuer Aufstieg nach Klasse A)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-03",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§9 Abs. 1 AFuV (Zulassung zur Teilnahme am Amateurfunkdienst, Rufzeichenzuteilung)",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-04",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§16 Abs. 9 AFuV (Verbot von Verschleierung, Dauertraeger, Rundfunk, Notzeichen-Missbrauch)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-05",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§16 Abs. 8 AFuV (Verschluesselungsverbot mit Ausnahmen)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-06",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§17 Abs. 1-2 AFuV (Stoerungen und Massnahmen bei Stoerungen)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-07",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§13 Abs. 1 AFuV (fernbediente oder automatisch arbeitende Amateurfunkstellen)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-08",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§16 Abs. 1 und Abs. 3 AFuV (Technische Rahmenbedingungen; Verbindung mit Telekommunikationsnetzen)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-09",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§16 Abs. 6 AFuV (Massnahmen bei Abgleicharbeiten und Messungen)",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-10",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§16 Abs. 10 AFuV (Schutz vor missbraeuchlicher Benutzung)",
+      "points": 2,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-11",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§9 Abs. 4 AFuV (Mitteilungspflichten: Namens-/Anschriftenaenderung, neuer Standort)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ]
+    },
+    {
+      "id": "afu-e-vorschriften-12",
+      "topic": "Kenntnisse von Vorschriften",
+      "topic_code": "vorschriften",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": true,
+      "legal_basis": "§17 Abs. 3 AFuV i.V.m. Elektromagnetische-Vertraeglichkeit-Gesetz (EMVG) und Funkanlagengesetz (FuAG)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ]
+    }
+  ]
+}

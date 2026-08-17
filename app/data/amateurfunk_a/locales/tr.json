@@ -1,0 +1,452 @@
+{
+  "afu-a-antennentechnik-01": {
+    "question": "Serbest uzayda rezonansta çalışan bir yarım dalga dipolün besleme noktası empedansı yaklaşık olarak kaçtır?",
+    "options": {
+      "a": "36 ohm",
+      "b": "73 ohm",
+      "c": "300 ohm",
+      "d": "450 ohm"
+    },
+    "explanation": "Serbest uzayda rezonanstaki bir yarım dalga dipol, yaklaşık 73 ohmluk bir ışıma direnci / besleme noktası empedansına sahiptir (tam rezonans uzunluğunda tamamen omik). Bu değer, 50 ohmluk koaksiyel kabloya yaygın olarak yapılan eşleşmenin temelini oluşturur ve ortaya çıkan uyumsuzluk pratikte genellikle tolere edilir."
+  },
+  "afu-a-antennentechnik-02": {
+    "question": "Mükemmel iletken bir zemin üzerinde ideal bir çeyrek dalga dikey (ground-plane) antenin besleme noktası empedansı yaklaşık olarak kaçtır?",
+    "options": {
+      "a": "Yaklaşık 36 ohm",
+      "b": "Yaklaşık 73 ohm",
+      "c": "Yaklaşık 150 ohm",
+      "d": "Yaklaşık 600 ohm"
+    },
+    "explanation": "Mükemmel iletken zemin üzerindeki bir dikey anten, elektriksel olarak bir yarım dalga dipolün yarısına eşdeğerdir (zemin bir ayna görüntüsü gibi davranır), bu nedenle besleme noktası empedansı 73 ohmun yaklaşık yarısı, yani yaklaşık 36 ohmdur. Pratikte gerçek değer, radyal/topraklama sistemine ve gerçek zemin iletkenliğine bağlıdır."
+  },
+  "afu-a-antennentechnik-03": {
+    "question": "Katlanmış dipol antenin besleme noktası empedansı, basit bir yarım dalga dipole kıyasla yaklaşık olarak nasıldır?",
+    "options": {
+      "a": "Yaklaşık dörtte biri, yani yaklaşık 18 ohm",
+      "b": "Yaklaşık aynısı, yani yaklaşık 73 ohm",
+      "c": "Yaklaşık üç buçuk katı, yani yaklaşık 240 ohm",
+      "d": "Yaklaşık on katı, yani yaklaşık 730 ohm"
+    },
+    "explanation": "Katlanmış bir dipol, akım açısından seri olarak çalışan iki paralel iletkenden oluşur, bu da besleme noktası empedansını basit bir dipole kıyasla belirgin şekilde artırır: yaklaşık 240 ohm'a kadar (bu değer BNetzA'nın resmi A Sınıfı soru kataloğunda verilmiştir). Bu, katlanmış dipolü 240-300 ohmluk simetrik şerit hatlara doğrudan bağlantı için uygun hale getirir."
+  },
+  "afu-a-antennentechnik-04": {
+    "question": "Bir Yagi antene reflektör ve direktör eklemenin basit bir dipole kıyasla temel etkisi nedir?",
+    "options": {
+      "a": "Besleme noktası empedansının birkaç kiloohma yükseltilmesi",
+      "b": "Işımanın tercih edilen bir yönde yoğunlaştırılması, böylece kazanç ve belirli bir ön-arka oranı sağlanması",
+      "c": "Tüm yan lobların tamamen bastırılması",
+      "d": "Doğrusal polarizasyonun dairesel polarizasyona dönüştürülmesi"
+    },
+    "explanation": "Bir Yagi'nin reflektör ve direktör elemanları, beslenen elemana parazitik olarak bağlanır ve yapıcı/yıkıcı üst üste binmeleri yönlülük yaratır: ışıma direktörlere doğru yoğunlaşır (basit bir dipole göre kazanç) ve reflektöre doğru azalır (ön-arka oranı). Yan loblar bu süreçte azaltılır ancak tamamen ortadan kaldırılmaz."
+  },
+  "afu-a-antennentechnik-05": {
+    "question": "Gerçek zemin üzerinde dikey polarizasyonlu bir antenin montaj yüksekliği, ışıma diyagramını başlıca nasıl etkiler?",
+    "options": {
+      "a": "Daha büyük yükseklik genellikle ışıma açısını düşürür ve uzun mesafeli DX bağlantılarını destekler",
+      "b": "HF'de yükseklik, ışıma diyagramını temelde hiç etkilemez",
+      "c": "Daha büyük yükseklik ışıma açısını her zaman 80 derecenin üzerine çıkarır",
+      "d": "Yükseklik yalnızca besleme noktası empedansını etkiler, diyagramı değil"
+    },
+    "explanation": "Kayıplı, gerçek zeminden yansımalar dikey ışıma açısını önemli ölçüde etkiler. Anten yüksekliği (dalga boyu cinsinden ölçülür) arttıkça, ufka göre ana ışıma açısı genellikle azalır, bu da düşük açılı iyonosferik yansımaya dayanan DX bağlantıları için avantajlıdır. Düşük yüksekliklerde ise daha dik ışıma baskındır ve bu, kısa mesafeli (NVIS) bağlantılar için daha uygundur."
+  },
+  "afu-a-antennentechnik-06": {
+    "question": "Serbest uzayda asılı bir yarım dalga dipol en güçlü şekilde hangi yönde ışıma yapar?",
+    "options": {
+      "a": "Yalnızca tel eksenine paralel yönde",
+      "b": "Tüm yönlerde eşit olarak (küresel)",
+      "c": "En güçlü şekilde tel eksenine dik yönde, tel uçları yönünde sıfır noktalarıyla (sekiz şeklinde diyagram)",
+      "d": "Yalnızca dikey olarak yukarı ve aşağı"
+    },
+    "explanation": "Serbest uzaydaki bir yarım dalga dipolün yatay ışıma diyagramı sekiz şeklindedir: ışıma tel eksenine dik yönde en yüksek, tel uçlarına doğru sıfıra düşer. Tüm yönlerde eşit ışıma yapan izotropik bir ışıyıcı ise yalnızca kazanç değerleri (dBi) için kullanılan teorik bir referanstır."
+  },
+  "afu-a-antennentechnik-07": {
+    "question": "Yönlü bir anten için 'ön-arka oranı' (Front-to-Back Ratio) terimi neyi tanımlar?",
+    "options": {
+      "a": "Verici gücünün alınan güce oranı",
+      "b": "Ana ışın yönündeki ışıma gücünün, karşı (180 derece) yöndeki ışıma gücüne oranı, genellikle dB olarak ifade edilir",
+      "c": "Besleme noktası empedansının kablonun karakteristik empedansına oranı",
+      "d": "Anten yüksekliğinin kullanılan dalga boyuna oranı"
+    },
+    "explanation": "Ön-arka oranı, yönlü bir antenin (örneğin bir Yagi'nin) ana ışın yönündeki ışıma gücünün, 180 derece karşı yöndeki güce göre dB cinsinden ne kadar daha güçlü olduğunu gösterir. Yüksek bir ön-arka oranı, antenin arkasından gelen parazitleri ve QRM'i etkili bir şekilde bastırır."
+  },
+  "afu-a-antennentechnik-08": {
+    "question": "Aynı fiziksel anten boyutunda, neden tipik olarak daha yüksek frekanslarda (örneğin 70 cm) daha düşük frekanslara (örneğin 80 m) göre daha yüksek anten kazancı elde edilebilir?",
+    "options": {
+      "a": "Çünkü dalga boyuna göre fiziksel boyut yüksek frekanslarda daha büyüktür ve bu, dalga boyu cinsinden ölçülen daha büyük etkin açıklık veya daha fazla eleman olanağı sağlar",
+      "b": "Çünkü yüksek frekanslar her zaman düşük frekanslardan daha az serbest uzay yol kaybına sahiptir",
+      "c": "Çünkü yüksek frekanslarda otomatik olarak daha yüksek verici gücüne izin verilir",
+      "d": "Çünkü yüksek frekanslarda hiçbir zaman zemin kayıpları oluşmaz"
+    },
+    "explanation": "Anten kazancı büyük ölçüde yapının dalga boyu cinsinden boyutuna (yani etkin açıklığına) bağlıdır. Sabit bir fiziksel boyut için - örneğin belirli bir uzunluktaki bir direk için - 70 cm'de, basit bir yarım dalga dipolün bile birçok metre uzunlukta olduğu 80 m'ye göre çok daha fazla dalga boyu ve dolayısıyla potansiyel olarak daha fazla eleman veya daha büyük bir açıklık alanı sığar. Serbest uzay yol kaybı ise tam tersine frekansla birlikte gerçekten artar, azalmaz."
+  },
+  "afu-a-leitungstheorie-01": {
+    "question": "Koaksiyel kablo gibi bir RF hattının karakteristik empedansı (Z0) neyi tanımlar?",
+    "options": {
+      "a": "İç iletkenin DC omik direncini",
+      "b": "Sonsuz uzun bir hatta veya Z0'da yansımasız sonlandırılmış bir hatta yayılan bir dalganın, hattın geometrisi ve dielektriği tarafından belirlenen gerilim-akım oranını",
+      "c": "Kablonun ucu kısa devre yapıldığında ölçülen direnci",
+      "d": "Kablonun kayıpsız taşıyabileceği maksimum verici gücünü"
+    },
+    "explanation": "Karakteristik empedans Z0, bağlı yükün değil, hattın kendisinin bir özelliğidir (koaksiyel için iç ve dış iletken çapları ve dielektrik ile belirlenir). Sonsuz uzun bir hatta veya Z0'da yansımasız sonlandırılmış bir hatta yayılan ilerleyen dalganın gerilim-akım oranını tanımlar. Yalnızca yük empedansı Z0'a eşit olduğunda hiç yansıma olmaz."
+  },
+  "afu-a-leitungstheorie-02": {
+    "question": "Bir verici bir antene 100 W ileri güç veriyor ve 4 W yansıyan güç ölçülüyor. SWR (Duran Dalga Oranı) yaklaşık olarak kaçtır?",
+    "options": {
+      "a": "1,04",
+      "b": "1,2",
+      "c": "1,5",
+      "d": "2,0"
+    },
+    "explanation": "Yansıma katsayısının büyüklüğü |Gamma| = kök(Pyans/Pileri) = kök(4/100) = kök(0,04) = 0,2'dir. SWR daha sonra SWR = (1+|Gamma|)/(1-|Gamma|) = 1,2/0,8 = 1,5 olarak hesaplanır. 1,5'lik bir SWR, çoğu verici çıkış katı için kritik olmayan bir değer olarak kabul edilir."
+  },
+  "afu-a-leitungstheorie-03": {
+    "question": "Hat ve eşleştirme çalışmalarında bir Smith çizelgesi ne için kullanılır?",
+    "options": {
+      "a": "Normalize edilmiş karmaşık empedansları (veya admitansları) grafiksel olarak göstermek ve bir hat boyunca eşleştirme ve dönüştürme problemlerini çözmek için",
+      "b": "Bir antenin ışıyan alan şiddetini doğrudan saniyede metre olarak ölçmek için",
+      "c": "Yayılım tahmini için güneş lekesi göreceli sayısını hesaplamak için",
+      "d": "Amatör telsiz bant planında izin verilen verici frekanslarını işaretlemek için"
+    },
+    "explanation": "Smith çizelgesi, normalize edilmiş karmaşık empedansların (karakteristik empedans Z0'a göre) bir birim çember içindeki noktalar olarak gösterildiği grafiksel bir araçtır. Empedansın bir hat boyunca nasıl değiştiğini, eşleştirme ağlarının (örneğin L-devreleri, stub eşleştirmesi) etkisini ve yansıma katsayısı ile SWR'yi, karmaşık sayı hesaplamalarını elle yapmaya gerek kalmadan görsel olarak belirlemeyi sağlar."
+  },
+  "afu-a-leitungstheorie-04": {
+    "question": "Kayıplı (uzun, ince) bir besleme hattında verici çıkışında ölçülen yüksek bir SWR, antenin besleme noktasında gerçekte bulunan SWR'den neden daha düşük görünebilir?",
+    "options": {
+      "a": "Kayıplı hatlar vericide ölçülen SWR'yi her zaman antendekinden daha yüksek gösterir",
+      "b": "Hat zayıflaması, ölçüm noktasına giderken hem ileri hem de yansıyan dalgayı zayıflatır, bu nedenle verici ucunda hesaplanan SWR, uyumsuzluk noktasındaki (anten) gerçek SWR'den daha düşük çıkar",
+      "c": "Çünkü koaksiyel kablo 30 MHz üzerinde temelde kayıpsızdır",
+      "d": "Çünkü SWR fiziksel olarak yalnızca vericide tanımlıdır ve antende hiç yoktur"
+    },
+    "explanation": "Yansıyan dalga, uyumsuzluk noktasından (anten) ölçüm noktasına (verici) kayıplı hat yolunu ikinci kez geçmek zorundadır ve bu sırada daha da zayıflar. Bu, verici çıkışında ölçülen SWR'nin, antenin besleme noktasında gerçekte olduğundan daha iyi görünmesine neden olur - bu etki, özellikle uzun, yüksek kayıplı hatlarda (örneğin yüksek frekanslarda ince koaksiyel) belirgindir ve arıza giderirken dikkate alınmalıdır."
+  },
+  "afu-a-leitungstheorie-05": {
+    "question": "İki farklı gerçek empedansı eşleştirmek için bir çeyrek dalga hat bölümü (lambda/4 transformatörü) nasıl kullanılabilir?",
+    "options": {
+      "a": "Karakteristik empedansı, eşleştirilecek iki gerçek empedansın geometrik ortalaması olarak seçilir (Z_transformatör = kök(Z1 x Z2))",
+      "b": "Fiziksel uzunluğu keyfi olarak seçilir ve karakteristik empedansı önemli değildir",
+      "c": "Yalnızca karmaşık yük empedanslarıyla çalışır, gerçek olanlarla asla çalışmaz",
+      "d": "Seçilen karakteristik empedanstan bağımsız olarak her zaman herhangi bir yükü kayıpsız olarak tam 50 ohma dönüştürür"
+    },
+    "explanation": "Bir lambda/4 hat bölümü, gerçek bir sonlandırma empedansı Z_yükü, Z_transformatör^2 = Z_giriş x Z_yükü ilişkisine göre dönüştürür. Yani bir Z1 yükünü Z2 empedanslı bir kaynağa eşleştirmek için, çeyrek dalga hattının karakteristik empedansı geometrik ortalama olarak Z_transformatör = kök(Z1 x Z2) seçilir. Bu teknik, örneğin, 36 ohmluk bir dikey anteni 50 ohmluk koaksiyele eşleştirmek için kullanılır."
+  },
+  "afu-a-leitungstheorie-06": {
+    "question": "Düşük kayıplı, uyumsuz bir hat boyunca duran dalganın gerilim maksimumları (veya minimumları) hangi aralıkla tekrarlanır?",
+    "options": {
+      "a": "Tam bir dalga boyu aralığında, lambda",
+      "b": "Yarım dalga boyu aralığında, lambda/2",
+      "c": "Uyumsuzluktan bağımsız olarak çeyrek dalga boyu aralığında, lambda/4",
+      "d": "Frekanstan tamamen bağımsız, metre cinsinden sabit bir aralıkta"
+    },
+    "explanation": "İleri ve yansıyan dalgalar uyumsuz bir hatta üst üste bindiğinde, gerilim maksimumları ve minimumları periyodik olarak her lambda/2'de bir tekrarlanan bir duran dalga deseni oluşur (ardışık iki maksimum yarım dalga boyu uzaklıktadır). Bir maksimum ile en yakın minimum arasında buna göre dalga boyunun çeyreği kadar mesafe vardır."
+  },
+  "afu-a-leitungstheorie-07": {
+    "question": "Bir koaksiyel kablonun hız faktörü (Velocity Factor) neyi tanımlar?",
+    "options": {
+      "a": "Kablonun dış çapının iç iletken çapına oranını",
+      "b": "Kablo üzerinden izin verilen maksimum verici gücünün azaltıldığı faktörü",
+      "c": "Elektromanyetik dalganın kablo içindeki yayılma hızının, vakumdaki ışık hızına oranını; bu, elektriksel uzunluğun fiziksel uzunluğa dönüştürülmesi için önemlidir",
+      "d": "Sonlandırma uyumsuz olduğunda yansıma katsayısını"
+    },
+    "explanation": "Elektromanyetik dalgalar bir koaksiyel kablonun dielektriği içinde vakumdakinden daha yavaş yayıldığından, hız faktörü (dielektriğe bağlı olarak tipik olarak 0,66 ila 0,85 arasında) bu yayılma hızının c ışık hızına oranıdır. Lambda/4 transformatörleri veya stub'lar gibi hat bölümlerinin fiziksel uzunluğu hesaplanırken dikkate alınmalıdır, aksi takdirde elektriksel uzunluk yanlış olacaktır."
+  },
+  "afu-a-leitungstheorie-08": {
+    "question": "Hiçbir yansıma olmadan ideal olarak eşleştirilmiş bir hatta SWR hangi değeri alır?",
+    "options": {
+      "a": "0",
+      "b": "Sonsuz",
+      "c": "-1",
+      "d": "1 (aynı zamanda 1:1 olarak da yazılır)"
+    },
+    "explanation": "Yük empedansı hattın karakteristik empedansına tam olarak eşitse, hiç yansıma oluşmaz (yansıma katsayısı Gamma = 0) ve hiçbir duran dalga oluşmaz. SWR o zaman genellikle 1:1 olarak belirtilen en iyi olası değeri olan 1'e ulaşır. 1'in altındaki SWR değerleri fiziksel olarak mümkün değildir."
+  },
+  "afu-a-ausbreitung-01": {
+    "question": "İyonosferin D katmanını hangi özellik karakterize eder?",
+    "options": {
+      "a": "Yalnızca gece var olur ve o zaman en uzun menzilli HF yayılımını sağlar",
+      "b": "30 MHz üzerindeki tüm frekansları güvenilir bir şekilde yansıtır",
+      "c": "Yalnızca gündüz güneş radyasyonu nedeniyle oluşur, gece rekombinasyon yoluyla büyük ölçüde kaybolur ve özellikle yaklaşık 7 MHz altındaki düşük HF frekanslarını, yansıtmak yerine emerek zayıflatır",
+      "d": "F2 katmanının üzerinde yer alır ve 10 m DX trafiğinden sorumludur"
+    },
+    "explanation": "D katmanı, iyonosferin en alçak yüksekliğinde (yaklaşık 60-90 km) bulunur ve gündüz güneş radyasyonuyla oluşur; gece büyük ölçüde rekombinasyona uğrar ve kaybolur. HF sinyallerini neredeyse hiç yansıtmaz - bunun yerine onları emer, özellikle gündüz 80 m ve 40 m gibi düşük frekanslarda güçlü şekilde. Bu nedenle alt bantlar, uzun mesafeli bağlantılar için genellikle gün batımından sonra daha güvenilir çalışır."
+  },
+  "afu-a-ausbreitung-02": {
+    "question": "'Maksimum kullanılabilir frekans' (MUF, Maximum Usable Frequency) belirli bir telsiz yolu için neyi ifade eder?",
+    "options": {
+      "a": "Belirli bir geliş açısında, iyonosferi geçmek yerine hala yeryüzüne yansıtılan en yüksek frekansı",
+      "b": "D katmanında hiç emilim olmayan en düşük frekansı",
+      "c": "Kategori A telsiz amatörleri için yasal olarak izin verilen en yüksek verici frekansını",
+      "d": "Antenin en düşük SWR gösterdiği frekansı"
+    },
+    "explanation": "MUF sabit bir yasal değer değil, bir yayılım parametresidir: belirli bir yol ve belirli bir geliş açısı için, iyonosferin hala yeryüzüne yansıttığı en yüksek frekansı belirtir - MUF'un üzerinde, dalga iyonosferi geçer ve uzayda kaybolur. İlgili katmanın kritik frekansına ve geliş açısına bağlıdır (yaklaşık olarak sekant yasası üzerinden) ve günün saati, mevsim ve güneş etkinliğiyle değişir."
+  },
+  "afu-a-ausbreitung-03": {
+    "question": "Alt kısa dalga bantlarında 'greyline' yayılımı (alacakaranlık yayılımı) fenomenini ne karakterize eder?",
+    "options": {
+      "a": "Yalnızca güneşin en yüksek olduğu öğle vakti oluşur ve 10 m'de en güçlüdür",
+      "b": "Gündüz ve gece arasındaki dar geçiş bölgesinde (gün doğumu/batımı), D katmanı emilimi güçlü şekilde azalırken üst katmanlar genellikle hala yeterince iyonize haldedir, bu da özellikle 80 m/40 m'de terminatör boyunca olağandışı derecede uzun mesafeli DX bağlantılarına olanak tanır",
+      "c": "Bu, telsiz yayılımına hiçbir etkisi olmayan tamamen optik bir fenomendir",
+      "d": "Yalnızca 144 MHz üzerindeki VHF bantlarında oluşur"
+    },
+    "explanation": "'Greyline' (Dünya'nın gündüz ve gece tarafları arasındaki terminatör) boyunca, verici ve alıcı istasyonlar bir anlamda aynı anda alacakaranlıktadır. Gündüz güçlü şekilde emici olan D katmanı bu geçiş sırasında henüz (veya artık) tam olarak gelişmemişken, daha yüksek, iyonize katmanlar hala yeterli yansıma sağlar. Bu, özellikle alt bantlarda (80 m, 40 m) bu dar bölge boyunca şaşırtıcı derecede iyi, genellikle kıtalar arası bağlantılara olanak tanır."
+  },
+  "afu-a-ausbreitung-04": {
+    "question": "'Sporadic-E' yayılımından ne anlaşılır?",
+    "options": {
+      "a": "Kısa dalgada F2 katmanı üzerinden sürekli var olan, düzenli bir yayılım yolu",
+      "b": "E katmanında zaman ve mekân açısından düzensiz olarak ortaya çıkan, küçük ölçekli, yoğun iyonize bulutlar; bunlar üst HF ve alt VHF bantlarında (örneğin 10 m, 6 m, ara sıra 2 m) kısa süreliğine olağandışı derecede uzun mesafeli bağlantılara olanak tanır",
+      "c": "Yalnızca kışla ve 160 m bandıyla sınırlı bir fenomen",
+      "d": "Amatör telsiz istasyonlarının kendileri tarafından üretilen yapay bir yayılım biçimi"
+    },
+    "explanation": "Sporadic-E, tipik olarak yaz aylarında daha yaygın olan, E katmanındaki (yaklaşık 90-120 km yükseklikte) kısa ömürlü, öngörülemeyen yoğun iyonizasyon bölgelerinden kaynaklanır. Bu bulutlar, olağan MUF'un çok üzerindeki frekanslarda sinyalleri yansıtabilir ve bu bantlar normalde iyonosfer tarafından yansıtılmasa da 10 m, 6 m ve ara sıra hatta 2 m'de şaşırtıcı derecede uzun mesafeli bağlantılara olanak tanır."
+  },
+  "afu-a-ausbreitung-05": {
+    "question": "HF gökyüzü dalgası yayılımında 'atlama bölgesi' (skip zone) neyi tanımlar?",
+    "options": {
+      "a": "Hiçbir koşulda hiçbir zaman telsiz bağlantısının mümkün olmadığı bir alan",
+      "b": "Verici gücünün yasal olarak sınırlandırıldığı verici antenin hemen etrafındaki alan",
+      "c": "Zemin dalgasının (veya çok düşük açılı bir yakın gökyüzü dalgasının) ulaşabildiği yer ile iyonosferden yansıyan ilk gökyüzü dalgasının yeryüzüne döndüğü nokta arasındaki alan - burada alım normalde mümkün değildir",
+      "d": "Yalnızca 144 MHz üzerinde meydana gelen bir fenomen"
+    },
+    "explanation": "Zemin dalgasının (veya çok düşük açılı bir gökyüzü dalgasının) çok zayıfladığı nokta ile iyonosferden yansıyan ilk gökyüzü dalgasının yeryüzüne döndüğü nokta arasında, atlama bölgesi (ölü bölge) bulunur. Bu halka şeklindeki alanda, verilen yayılım koşulları altında alım normalde mümkün değildir; ancak hem daha yakın hem de daha uzak istasyonlar duyulabilir."
+  },
+  "afu-a-ausbreitung-06": {
+    "question": "NVIS (Near Vertical Incidence Skywave) modu tipik olarak ne için kullanılır?",
+    "options": {
+      "a": "Alt HF bantlarında genellikle alçak monte edilmiş yatay antenlerin dik, neredeyse dikey ışıma açısı sayesinde, atlama bölgesi olmadan güvenilir kısa mesafeli bağlantılar (yaklaşık 0 ila 300 km) için",
+      "b": "VHF üzerinden uydular aracılığıyla son derece uzun mesafeli uzay bağlantıları için",
+      "c": "Yalnızca 1 GHz üzerindeki dar bantlı dijital modlar için",
+      "d": "Hassas frekans standartlarının kalibrasyonu için"
+    },
+    "explanation": "NVIS'te, bir anten (genellikle zemin üzerinde alçak monte edilmiş yatay bir dipol) bilerek enerjisinin büyük bir kısmını dik olarak yukarı doğru (90 dereceye yakın) yayacak şekilde çalıştırılır. Ortaya çıkan gökyüzü dalgası daha sonra iyonosferden neredeyse dikey olarak yansır ve yaklaşık 0 ila 300 km yarıçapında yeryüzüne geri döner - olağan atlama bölgesi olmadan. Bu, NVIS'i zorlu arazide, örneğin acil durum ve afet telsizinde güvenilir kısa mesafeli iletişim için özellikle uygun kılar."
+  },
+  "afu-a-ausbreitung-07": {
+    "question": "Yüksek güneş lekesi etkinliği (güneş maksimumu) HF yayılımını tipik olarak nasıl etkiler?",
+    "options": {
+      "a": "F2 katmanının kritik frekansını o kadar düşürür ki üst HF bantları (10 m, 15 m) neredeyse hiç DX için uygun olmaz",
+      "b": "Genellikle F2 katmanının iyonizasyonunu ve dolayısıyla hem kritik frekansını hem de MUF'u artırır, böylece üst HF bantları (örneğin 10 m, 15 m) uzun mesafeli bağlantılar için daha sık açık olur",
+      "c": "Yalnızca 144 MHz üzerindeki VHF bantlarını etkiler, kısa dalgayı değil",
+      "d": "Temelde her türlü Sporadic-E yayılımını önler"
+    },
+    "explanation": "Güneş etkinliği arttıkça (yüksek göreceli güneş lekesi sayısı), F2 katmanını iyonize eden UV ve X-ışını radyasyonu da artar. Daha güçlü iyonize olmuş bir F2 katmanı daha yüksek bir kritik frekansa ve dolayısıyla daha yüksek bir MUF'a sahiptir, bu da üst kısa dalga bantlarının (10 m, 15 m, bazen 6 m bile) DX bağlantıları için daha sık ve daha uzun mesafeler için açık olmasını sağlar. Güneş minimumunda ise, bu bantlar genellikle günlerce ölü kalır."
+  },
+  "afu-a-ausbreitung-08": {
+    "question": "Kısa dalgada bir gökyüzü dalgasının 'çoklu sıçrama' (multi-hop) yayılımını ne karakterize eder?",
+    "options": {
+      "a": "Sinyal, çok büyük mesafelerde bile verici ve alıcı arasında yalnızca bir kez sekiyor",
+      "b": "Yalnızca düşük frekanslarda zemin dalgası yayılımıyla ortaya çıkar",
+      "c": "Sinyal, iyonosfer ile yeryüzü arasında tekrar tekrar yansır, bu da çok büyük mesafelerin aşılmasını sağlar; her ek sıçrama, yansıma ve zemin kayıpları nedeniyle sinyal gücünü daha da azaltır ve sönümlenmeyi (fading) destekler",
+      "d": "Yalnızca 70 cm bandındaki uydu bağlantılarında ortaya çıkar"
+    },
+    "explanation": "Tek bir iyonosferik yansıma, birbirinden uzak iki istasyonu bağlamaya yetmezse, sinyal yeryüzü (veya deniz yüzeyi) ile iyonosfer arasında birden fazla kez ileri geri sekebilir (çoklu sıçrama). Bu, kıtalararası mesafelerin aşılmasını sağlar, ancak her ek sıçrama zemin ve iyonosferik kayıplar nedeniyle sinyal gücünü azaltır ve farklı geçiş sürelerine sahip birden fazla yolun üst üste binmesi sönümlenme ve bozulmayı destekler."
+  },
+  "afu-a-leistung-01": {
+    "question": "Doğrusal SSB verici çıkış katları için tipik olarak hangi amplifikatör sınıfı seçilir ve neden?",
+    "options": {
+      "a": "Sınıf C, çünkü tüm sınıflar arasında en yüksek verimi sunar ve bu nedenle en ekonomik olanıdır",
+      "b": "Genellikle Sınıf AB, yeterli doğrusallık (SSB zarfının düşük bozulmayla aktarılması için) ile kabul edilebilir verim arasında bir uzlaşma olarak",
+      "c": "Yalnızca Sınıf A, çünkü SSB için doğrusallık önemli değildir",
+      "d": "Sınıf D, çünkü özellikle analog ses iletimi için geliştirilmiştir"
+    },
+    "explanation": "SSB, sürekli değişen bir zarfa sahip genlik modülasyonlu bir moddur ve yeterince doğrusal amplifikasyon gerektirir - güçlü doğrusal olmayan bir çıkış katı ses bilgisini bozar ve güçlü intermodülasyon ürünleri üretir. Sınıf C, güçlü doğrusal olmayan çalıştığından SSB için uygun değildir. Pratikte bu nedenle genellikle Sınıf AB seçilir: saf Sınıf A'dan belirgin şekilde daha iyi verimle yeterli doğrusallık sağlar."
+  },
+  "afu-a-leistung-02": {
+    "question": "Kategori A ve Kategori E telsiz amatörleri arasındaki izin verilen maksimum verici gücü farkı hakkında hangi temel ifade doğrudur?",
+    "options": {
+      "a": "Her iki kategori de tam olarak aynı maksimum verici gücünü kullanabilir; tek fark frekans aralıklarındadır",
+      "b": "Kategori E temelde Kategori A'dan daha yüksek güçle vericilik yapabilir",
+      "c": "Anlage 3 AFuV'ye göre, Kategori A lisans sahipleri, kendilerine atanan bantların çoğunda, gücü ve bantları daha kısıtlı olan Kategori E sahiplerinden belirgin şekilde daha yüksek maksimum verici gücü kullanabilir",
+      "d": "Her iki kategorinin verici gücü yasal olarak sınırlandırılmamıştır ve tamamen amatörün takdirine bırakılmıştır"
+    },
+    "explanation": "AFuV (özellikle Anlage 1'de atanan frekans aralıklarıyla birlikte okunan Anlage 3), Kategori A lisans sahipleri için atanmış amatör bantların çoğunda, hem kullanılabilir spektrum hem de maksimum güç açısından daha kısıtlı olan Kategori E'ye kıyasla belirgin şekilde daha yüksek izin verilen verici gücü öngörür. Bant başına tam güç değerleri, AFuV değişiklikleri nedeniyle zaman zaman değişir ve pratik kullanımdan önce her zaman Anlage 3'ün güncel metnine göre kontrol edilmelidir."
+  },
+  "afu-a-leistung-03": {
+    "question": "Rezonans olmayan bir antende daha yüksek verici gücünde bir anten uyumlayıcısı (anten tuner) neden özellikle önemlidir?",
+    "options": {
+      "a": "Anten/besleme hattı tarafından sunulan uyumsuzluğu, çıkış katının tolere edebileceği bir empedansa (genellikle 50 ohma yakın) dönüştürerek çıkış katındaki uyumsuzluk kayıplarını, yükselen gerilim/akım tepe değerlerini ve yüksek güçte olası hasarları önler",
+      "b": "Vericiden verilen gücü, cihazda ayarlanan sınırın ötesinde temelde artırır",
+      "c": "Doğru boyutlandırılmış bir anten ihtiyacını tamamen ortadan kaldırır",
+      "d": "Yalnızca güç kaynağından şebeke uğultusunu filtrelemeye yarar"
+    },
+    "explanation": "Önemli ölçüde uyumsuz bir yük, verici çıkış katında yüksek gerilim ve akım tepe değerlerine neden olabilir; bunlar düşük güçte genellikle kritik değildir, ancak yüksek verici gücünde aşırı yüklenmeye, azalmış verime ve en kötü durumda çıkış katı transistörlerinin/lambalarının tahrip olmasına yol açabilir. Verici ile besleme hattı arasına yerleştirilen bir anten uyumlayıcısı, empedansı çıkış katının tolere edebileceği bir yük görecek şekilde (genellikle 50 ohma yakın) dönüştürür - ancak uyumsuzluğu veya besleme hattının kendisindeki sonuçtaki kayıpları düzeltmez."
+  },
+  "afu-a-leistung-04": {
+    "question": "Çıkış katı ile anten arasındaki etkili alçak geçiren filtrelemenin önemi, daha yüksek verici gücünde neden özellikle artar?",
+    "options": {
+      "a": "Çünkü daha yüksek güç, harmonik oluşumunu otomatik olarak ve tamamen bastırır",
+      "b": "Çünkü doğrusal olmayan bir çıkış katı, doğası gereği vericilen sinyalin harmoniklerini üretir ve bunların mutlak gücü temel frekansın gücüyle birlikte artar, bu nedenle yüksek verici gücünde nispeten küçük bir harmonik oranı bile mutlak değerlerde sorunlu parazit seviyelerine ulaşabilir",
+      "c": "Çünkü daha yüksek güçte istenmeyen yayınlar için sınırlar artık hiç geçerli değildir",
+      "d": "Çünkü alçak geçiren filtreler yalnızca SWR'yi iyileştirmeye yarar"
+    },
+    "explanation": "Her doğrusal olmayan amplifikatör katı, istenen temel frekansın yanı sıra harmonikler de (verici frekansının tam kat sayıları) üretir. Seviyeleri genellikle temel frekanstan çok dB daha düşüktür, ancak yüksek verici gücünde, nispeten küçük bir yüzde harmonik içeriği bile, diğer telsiz hizmetlerini (örneğin yayıncılık, hava telsizi) ciddi şekilde bozmaya yetecek mutlak watt seviyelerine ulaşabilir. Bu nedenle çıkış katı ile anten arasındaki etkili bir alçak geçiren filtre, istenmeyen yayınları yeterince zayıflatmak için daha yüksek güçte özellikle önemlidir."
+  },
+  "afu-a-leistung-05": {
+    "question": "Doğrusal bir RF çıkış katında, örneğin bir iki-ton testinde, intermodülasyon bozulması (IMD) ile ne kastedilir?",
+    "options": {
+      "a": "Aşırı sürülme durumunda çıkış katının tamamen arızalanması",
+      "b": "Yalnızca diğer sinyal içeriğinden bağımsız olarak temel frekansın harmoniklerinin üretilmesi",
+      "c": "Çıkış katının doğrusal olmayan davranışı nedeniyle aynı anda amplifiye edilen iki veya daha fazla sinyal bileşeninden (örneğin bir SSB iki-ton testinin iki tonu) ek istenmeyen karışım ürünlerinin üretilmesi; bu ürünler istenen frekansa yakın düşer ve bu nedenle özellikle rahatsız edicidir",
+      "d": "Düşük verici gücünün neden olduğu anten yan lob bastırılması"
+    },
+    "explanation": "Mükemmel doğrusal olmayan bir çıkış katı aynı anda birden fazla frekans bileşenini (örneğin tipik olarak SSB ses sinyallerini taklit eden bir iki-ton testinin iki tonu) amplifiye ettiğinde, doğrusal olmama durumu giriş sinyallerinin toplam ve fark frekanslarında ek karışım ürünleri üretir. Tek sayılı sıra intermodülasyon ürünleri (örneğin 3. sıra) özellikle sorunludur çünkü istenen frekanslara yakın düşer ve kolayca filtrelenemez. Doygunluk noktasından yeterli geri çekilme ve yeterince doğrusal bir çalışma sınıfı (örneğin AB) IMD'yi azaltır."
+  },
+  "afu-a-leistung-06": {
+    "question": "Daha yüksek verici gücünde (Kategori A istasyonları için tipik) elektromanyetik alanlara karşı kişisel korumadan hangi ek yükümlülük doğabilir?",
+    "options": {
+      "a": "Hiçbiri - kişisel koruma yasal olarak amatör telsizde hiçbir rol oynamaz",
+      "b": "Frekansa ve verici gücüne (EIRP) bağlı belirli eşiklerin üzerinde, BEMFV, daha yüksek güçte devreye alınmadan önce amatör istasyon için bir konum belgesi (Standortbescheinigung) veya en azından belgelenmiş bir güvenlik mesafesi değerlendirmesi gerektirebilir",
+      "c": "Bir konum belgesi yalnızca ticari yayın vericileri için gereklidir, amatör telsiz istasyonları için asla gerekmez",
+      "d": "Daha yüksek verici gücü yalnızca anten kablosunun daha uzun topraklanmasını gerektirir, herhangi bir alan şiddeti değerlendirmesi gerektirmez"
+    },
+    "explanation": "Elektromanyetik alanları sınırlandırma doğrulama prosedürü hakkındaki Alman yönetmeliği (BEMFV), verici gücüne/EIRP'ye ve frekans bandına bağlı olarak, sabit telsiz tesisleri için bir konum belgesi veya en azından insanlara güvenlik mesafelerinin belgelenmiş şekilde belirlenmesini ve gözetilmesini, tesis çalıştırılmadan önce gerektirebilir. Kategori A istasyonlarına Kategori E'den belirgin şekilde daha yüksek verici gücü kullanmalarına izin verildiğinden, ilgili eşikleri aşma olasılıkları buna göre daha yüksektir - tam eşikler ve prosedür, devreye almadan önce güncel BEMFV metnine ve Bundesnetzagentur formlarına göre kontrol edilmelidir."
+  },
+  "afu-a-leistung-07": {
+    "question": "Yüksek çalışma döngülü sürekli taşıyıcı dijital modlar (örneğin FT8, RTTY), aynı PEP ayarında SSB'ye kıyasla neden çıkış katının soğutması ve sürekli güç değeri konusunda özel önlemler gerektirir?",
+    "options": {
+      "a": "Çünkü bu modlar uzun süreler boyunca neredeyse sabit taşıyıcı gücü verir (yüksek çalışma döngüsü), oysa SSB konuşması ortalamada yalnızca tepe gücünün bir kısmını verir, bu nedenle aynı tepe gücünde çıkış katındaki ortalama termal yük belirgin şekilde daha yüksektir",
+      "b": "Çünkü dijital modlar, çalışma döngüsünden bağımsız olarak SSB'den temelde daha yüksek tepe gerilimi üretir",
+      "c": "Çünkü dijital çalışma temelde hiçbir soğutma gerektirmez",
+      "d": "Çünkü FT8 ve RTTY yalnızca 1 wattın altındaki çok düşük güçte çalıştırılabilir"
+    },
+    "explanation": "SSB konuşması için, ortalama gücün tepe güce (PEP) oranı tipik olarak 1'in oldukça altındadır, çünkü ses zarfı sürekli dalgalanır ve duraklamalar içerir. FT8 veya RTTY gibi modlar ise, aksine, iletişimin büyük bölümünde neredeyse sabit bir taşıyıcı iletir (yüksek çalışma döngüsü, %100'e yakın). Aynı PEP ayarında, bu, dijital çalışma sırasında çıkış katında belirgin şekilde daha yüksek bir ortalama (termal) sürekli yüke yol açar, bu nedenle verici/amplifikatör üreticileri genellikle bu tür modlar için azaltılmış sürekli güç önerir ve yeterli soğutma sağlanmalıdır."
+  },
+  "afu-a-leistung-08": {
+    "question": "Dış anten tesisatına sahip, yüksek verici güçlü sabit bir amatör telsiz istasyonu için yıldırım etkilerine ve statik yük birikmesine karşı koruma amacıyla özellikle hangi önlem önerilir?",
+    "options": {
+      "a": "Döngü akımlarından kaçınmak için herhangi bir topraklama bağlantısından tamamen vazgeçmek",
+      "b": "Anten tesisatı ve besleme hatları için yıldırım/aşırı gerilim koruyucuları içeren profesyonel bir topraklama sistemi ile birlikte, fırtına sırasında ve istasyon kullanılmadığında anten besleme hatlarının bağlantısının kesilmesi veya topraklanması",
+      "c": "Tüm antenlerin tek koruma önlemi olarak sürekli olarak şebeke prizine bağlanması",
+      "d": "İstasyonun, anteni 'serbest tutmak' için fırtına sırasında yalnızca tam verici gücüyle çalıştırılması"
+    },
+    "explanation": "Büyük, dış bir anten tesisatı, yıldırım düşmesi ve statik yük birikmesi için artan bir risk taşır. Eşpotansiyel bağlantıya düşük dirençli bağlantıya sahip profesyonel olarak boyutlandırılmış bir topraklama sistemi, anten besleme hatlarında uygun yıldırım/aşırı gerilim koruyucuları ve fırtına sırasında veya istasyonun uzun süre kullanılmaması durumunda anten kablolarının alıcı/vericiden fiziksel olarak ayrılması (ve topraklanması) önerilir. Fırtına sırasında tam güçte çalıştırma ise ciddi bir güvenlik riskidir, bir koruma önlemi değildir."
+  },
+  "afu-a-modulation-01": {
+    "question": "Tek yan bant (SSB) sinyali, aynı ses bilgisi için klasik çift yan bant AM sinyaline kıyasla neden belirgin şekilde daha az bant genişliği ve verici gücü gerektirir?",
+    "options": {
+      "a": "Çünkü SSB temelde AM'den daha yüksek bir taşıyıcı frekansında çalışır",
+      "b": "Çünkü SSB'de ses bilgisi analog olarak yayınlanmadan önce dijital olarak sıkıştırılır",
+      "c": "Çünkü SSB'de taşıyıcı ve iki gereksiz yan banttan biri bastırılır ve yalnızca tek bir yan bant iletilir; bu yan bant zaten tek başına tam bilgiyi içerir",
+      "d": "Çünkü SSB yalnızca dijital modlar için kullanılır, ses iletimi için asla kullanılmaz"
+    },
+    "explanation": "Bir AM sinyali, taşıyıcı artı üst ve alt yan banttan oluşur; her iki yan bant da aynı bilgiyi gereksiz şekilde içerir. SSB'de taşıyıcı ve iki yan banttan biri bastırılır; kalan tek yan bant tam ses bilgisini tek başına taşır. Bu, bir AM sinyalinin bant genişliğinin yalnızca yaklaşık yarısının gerekli olduğu ve tüm verici gücünün, bilgi taşımayan bir taşıyıcıya kısmen gitmek yerine, bilgi taşıyan yan banda gittiği anlamına gelir."
+  },
+  "afu-a-modulation-02": {
+    "question": "Zayıf sinyal dijital modu FT8'i klasik SSB ses iletiminden ayıran nedir?",
+    "options": {
+      "a": "Çok dar bir kaplanan bant genişliği (birkaç Hz), yapılandırılmış, çoğunlukla otomatikleştirilmiş kısa mesajlar için sabit kısa zaman dilimleri ve çok düşük sinyal-gürültü oranlarında bile çözülebilir kalma yeteneği",
+      "b": "Görüntü verileri iletildiği için SSB'den belirgin şekilde daha büyük bir bant genişliği",
+      "c": "Herhangi bir zaman yapısı olmadan tam serbest ses konuşmasının tamamının iletilmesi",
+      "d": "Herhangi bir dijital kodlama olmadan yalnızca analog sinyal iletimi"
+    },
+    "explanation": "FT8, sabit zaman dilimlerine (tipik olarak 15 saniye) senkronize edilmiş, yapılandırılmış kısa mesajlara (örneğin çağrı işareti, rapor) sahip dar bantlı (yaklaşık 50 Hz kaplama) bir dijital moddur. Güçlü hata düzeltme teknikleri sayesinde FT8, SSB konuşmasının gürültüde kaybolacağı sinyal-gürültü oranlarında bile çözülebilir kalır - buna karşılık mesaj içeriği son derece standartlaştırılmıştır ve normal bir ses bağlantısına göre çok daha az serbestçe formüle edilebilir."
+  },
+  "afu-a-modulation-03": {
+    "question": "RTTY için klasik olarak kullanılan FSK'yı (Frequency Shift Keying), PSK'dan (Phase Shift Keying) temelde ne ayırır?",
+    "options": {
+      "a": "FSK bilgiyi yalnızca genlik değişiklikleriyle, PSK ise yalnızca frekans değişiklikleriyle iletir",
+      "b": "FSK'da dijital bilgi, iki (veya daha fazla) ayrık taşıyıcı frekans arasında geçiş yapılarak kodlanır; PSK'da ise sabit frekans ve genellikle sabit genlikte taşıyıcının belirli faz sıçramalarıyla kodlanır",
+      "c": "FSK tamamen analog, PSK ise taşıyıcı frekanslarla hiçbir ilgisi olmayan tamamen dijital bir modülasyon türüdür",
+      "d": "FSK ve PSK teknik olarak aynıdır ve yalnızca isimleri farklıdır"
+    },
+    "explanation": "FSK'da (örneğin 'mark' ve 'space' ile klasik RTTY), dijital bilgi iki ayrık frekans arasında geçiş yapılarak iletilir. PSK'da (örneğin PSK31) ise taşıyıcı frekansı sabit kalırken, bilgi belirli faz sıçramalarıyla (örneğin ikili PSK için 180 derece) kodlanır. Bu nedenle PSK modları genellikle klasik FSK RTTY'den daha dar bantlı ve spektral olarak daha verimli olarak tasarlanabilir."
+  },
+  "afu-a-modulation-04": {
+    "question": "Bir modun kaplanan bant genişliğini (Occupied Bandwidth) bilmek Kategori A telsiz amatörü için neden önemlidir?",
+    "options": {
+      "a": "Çünkü bir bant segmentine birbirini etkilemeden aynı anda kaç sinyalin sığabileceğini ve kendi iletiminin atanan bant veya bant planı alt segmenti içinde kalıp kalmadığını değerlendirmeye olanak tanır",
+      "b": "Çünkü kaplanan bant genişliği, yayılımdan bağımsız olarak bir telsiz bağlantısının maksimum menzilini doğrudan belirler",
+      "c": "Çünkü daha büyük bir kaplanan bant genişliği otomatik olarak daha az parazite yol açar",
+      "d": "Çünkü bant genişliği yalnızca VHF/UHF çalışması için önemlidir, kısa dalga için değil"
+    },
+    "explanation": "Her mod, ayarlanan merkez frekansı etrafında belirli bir frekans aralığını kaplar (CW veya PSK31 için dar, SSB veya SSTV gibi görüntü modları için belirgin şekilde daha geniş). Bu kaplanan bant genişliğini bilmek, bir iletimi atanan frekans segmentleri veya bant planı önerileri içinde doğru şekilde konumlandırmak ve komşu istasyonları etkilememek için önemlidir - özellikle sınırlı bir bant segmentinde aynı anda birden fazla aktif istasyon olduğunda."
+  },
+  "afu-a-modulation-05": {
+    "question": "SSTV (Slow Scan Television) modu amatör telsizde tipik olarak neyi iletir?",
+    "options": {
+      "a": "Yalnızca şifrelenmiş metin mesajları",
+      "b": "Karasal televizyona benzer, tam video bant genişliğiyle gerçek zamanlı hareketli görüntü",
+      "c": "Satır satır bir ses sinyaline kodlanan ve tipik olarak normal bir SSB ses bant genişliği içinde iletilen tek tek durgun görüntüler",
+      "d": "Yalnızca amatör telsiz uydularından telemetri verileri"
+    },
+    "explanation": "SSTV, durgun bir görüntüyü satır satır bir ses sinyaline kodlar (her piksel için parlaklık/renk için farklı tonlar), bu sinyal daha sonra örneğin SSB üzerinden normal bir ses sinyali gibi iletilir ve alıcı tarafta uygun yazılım veya donanım kullanılarak tekrar bir görüntüye dönüştürülür. Gerçek televizyondan farklı olarak, tek bir görüntünün iletilmesi tipik olarak birkaç saniyeden birkaç dakikaya kadar sürer, ancak buna karşılık normal bir ses kanalının bant genişliğine sığar."
+  },
+  "afu-a-modulation-06": {
+    "question": "FT8 gibi otomatikleştirilmiş dijital modlarda, SSB'ye kıyasla neden genellikle belirgin şekilde daha düşük verici gücü önerilir veya kullanılır?",
+    "options": {
+      "a": "Çünkü FT8 sinyalleri teknik olarak 1 mW'ın üzerindeki gücü işleyemez",
+      "b": "Çünkü güçlü hata düzeltme ve dar bantlı iletim sayesinde FT8, çok düşük sinyal-gürültü oranlarında bile çözülebilir kalır, bu nedenle başarılı bir bağlantı için SSB konuşmasından belirgin şekilde daha az verici gücü gerekir; buna ek olarak yüksek çalışma döngüsü de tutucu bir güç seçimini teşvik eder",
+      "c": "Çünkü FT8'in hata düzeltmesi daha yüksek güçte otomatik olarak devre dışı kalır",
+      "d": "Çünkü kanun, dijital modlar için ses çalışmasına göre temelde daha düşük maksimum güç öngörür"
+    },
+    "explanation": "FT8, güçlü hata düzeltme teknikleri ve çok dar bir bant genişliği kullanır, bu da düşük sinyal seviyelerinin bile güvenilir bir şekilde çözülmesini sağlar - bunun sonucunda, başarılı bir bağlantı genellikle karşılaştırılabilir bir SSB ses bağlantısından belirgin şekilde daha az verici gücü gerektirir. Ayrıca, yüksek çalışma döngüsü (neredeyse sürekli taşıyıcı), çıkış katının termal olarak aşırı yüklenmesini önlemek ve zaten dar olan dijital segmentteki diğer istasyonlara gereksiz yere çok güçlü sinyaller dayatmamak için verici gücünü tutucu bir şekilde seçmenin ek bir nedenidir."
+  },
+  "afu-a-modulation-07": {
+    "question": "Yayılı spektrum (spread spectrum) modlarını klasik dar bant tekniklerine kıyasla hangi temel özellik karakterize eder?",
+    "options": {
+      "a": "Temelde klasik CW'den daha dar bir bant genişliği kaplarlar",
+      "b": "Yalnızca alım için uygundurlar ve iletim için kullanılamazlar",
+      "c": "Verici enerjisini, saf faydalı bilginin gerektirdiğinden çok daha geniş bir bant genişliğine yayarlar; bu, parazit direncini artırabilir ancak ilgili düzenlemeler ve belgeleme yükümlülükleri hakkında özel bir bilgi gerektirir",
+      "d": "Amatör telsizde temelde ve istisnasız olarak yasaktır"
+    },
+    "explanation": "Yayılı spektrum teknikleri, verici enerjisini, örneğin hızlı frekans atlama dizileri veya doğrudan sıra kodlaması yoluyla, faydalı bilginin gerçekte gerektirdiğinden çok daha geniş bir bant genişliğine kasıtlı olarak yayar. Bu, parazit direncini ve dar bantlı sinyallerle bir arada var olmayı iyileştirebilir, ancak amatör telsizde ilgili teknik ve düzenleyici gereksinimlerin (belirli tanımlama ve belgeleme yükümlülükleri dahil) derin bir şekilde anlaşılmasını gerektirir, çünkü bu tür sinyaller kolayca parazitle karıştırılabilir."
+  },
+  "afu-a-emv-01": {
+    "question": "Etkilenen bir alıcının 'ön uç aşırı yüklenmesi' (Front-end Overload), verici tesisinin neden olduğu gerçek bir harmonik parazitten temelde nasıl farklıdır?",
+    "options": {
+      "a": "Her iki etkinin de aynı nedeni vardır ve aynı önlemle giderilebilir",
+      "b": "Ön uç aşırı yüklenmesinde, alıcı girişi yakındaki vericinin kendi güçlü temel frekansı tarafından aşırı yüklenir (harmonik içeriğe gerek yoktur), harmonik paraziti ise temel frekansın katlarında fiilen yayılan istenmeyen verici sinyallerinden kaynaklanır - her ikisi de farklı çözümler gerektirir",
+      "c": "Ön uç aşırı yüklenmesi yalnızca 1000 wattın üzerinde vericilere bağlı alıcılarda ortaya çıkar",
+      "d": "Harmonik parazit yalnızca verici gücü artırılarak giderilebilir"
+    },
+    "explanation": "Ön uç aşırı yüklenmesi, etkilenen cihazın alıcısının, aksi takdirde temiz çalışan yakındaki bir vericinin salt temel frekansı tarafından aşırı yüklenmesiyle ortaya çıkar - burada tipik olarak vericide değil, etkilenen alıcıda bir yüksek geçiren filtre veya bant durduran filtre yardımcı olur. Gerçek harmonik parazit ise, vericinin kendisinin verici frekansının katlarında istenmeyen yayınlar yapmasından kaynaklanır - burada doğru çözüm vericide bir alçak geçiren filtredir. Bu ayrım, paraziti doğru yerde gidermek için önemlidir."
+  },
+  "afu-a-emv-02": {
+    "question": "§13 AFuV'ye göre, iletilen güçten bağımsız olarak, bir telsiz amatörünün kendi amatör istasyonundan kaynaklanan parazitlerle ilgili temel yükümlülüğü nedir?",
+    "options": {
+      "a": "Verici tesisi kendisi tüm teknik gereklilikleri karşılasa bile, parazitlerden kaçınmakla ve zaten meydana gelmiş parazitler için giderilmesine katkıda bulunmakla yükümlüdür",
+      "b": "Kullanılan cihaz geçerli bir CE işaretine sahip olur olmaz her türlü sorumluluktan muaf tutulur",
+      "c": "Katkıda bulunma yükümlülüğü yalnızca kendi alımının parazite uğraması durumunda, başkalarının parazite uğraması durumunda geçerli değildir",
+      "d": "Bu yükümlülük yalnızca 500 wattın üzerinde vericilik yapan Kategori A istasyonları için geçerlidir"
+    },
+    "explanation": "§13 AFuV, telsiz amatörlerini, nedeni verici tarafında olsun veya (ön uç aşırı yüklenmesinde olduğu gibi) esas olarak etkilenen cihaz tarafında olsun ve kullanılan verici gücünden bağımsız olarak, mümkün olduğunca diğer telsiz uygulamalarına ve diğer elektrikli cihazlara parazit vermekten kaçınmakla ve zaten meydana gelmiş parazitlerin giderilmesine katkıda bulunmakla yükümlü kılar. Kullanılan cihazın CE işareti, bireysel bir durumda bu katkıda bulunma yükümlülüğünden otomatik olarak muaf tutmaz."
+  },
+  "afu-a-emv-03": {
+    "question": "Bir anten besleme hattı üzerindeki bir ortak mod boğucusu (genellikle 'line isolator' veya 'common-mode choke' olarak adlandırılır) ne işe yarar?",
+    "options": {
+      "a": "Antende verilen gücü vericide ayarlanan değerin ötesinde kasıtlı olarak artırır",
+      "b": "Aksi takdirde kabin içinde RF'ye, bozulmuş bir anten diyagramına ve bağlı cihazlarda parazitlere neden olabilecek, koaksiyel kablo kılıfının dış tarafında akan istenmeyen ortak mod akımlarını (kılıf akımları) bastırır",
+      "c": "Herhangi bir uyumsuzlukta bir anten uyumlayıcısı ihtiyacını tamamen ortadan kaldırır",
+      "d": "Yalnızca şebeke gerilimini vericiden galvanik olarak izole etmeye yarar"
+    },
+    "explanation": "Antenin veya beslemesinin asimetrileri, koaksiyel kablonun dış iletkeninin dış tarafında istenmeyen bir ortak mod akımı (kılıf akımı) oluşturabilir. Bu, RF enerjisini kabine geri taşıyabilir ('kabinde RF', bilgisayarlar, ses ekipmanları vb. için olası parazitlerle birlikte), amaçlanan anten diyagramını bozabilir ve besleme hattının kendisinin ışıma yapmasına neden olabilir. Bir ortak mod boğucusu (örneğin kablo üzerinde birkaç ferrit halka veya bir ferrit sargısı) bu ortak mod akımının gördüğü empedansı artırır ve gerçek sinyal iletimini bozmadan onu etkili bir şekilde bastırır."
+  },
+  "afu-a-emv-04": {
+    "question": "Yüksek güçlü bir amatör telsiz istasyonunun topraklama sistemi neden mümkün olduğunca kısa ve düşük empedanslı yapılmalıdır?",
+    "options": {
+      "a": "Çünkü uzun, yüksek empedanslı bir toprak kablosu verici gücünü otomatik olarak artırır",
+      "b": "Çünkü yalnızca toprak kablosunun rengi etkinliğini belirler",
+      "c": "Çünkü RF'de uzun veya yüksek empedanslı bir toprak bağlantısı önemli bir endüktans ve dolayısıyla empedans oluşturabilir, bu da kişisel güvenlik ve yıldırım koruması için koruyucu etkisini ve kabindeki RF geri beslemesini azaltmadaki etkinliğini kaybetmesine neden olur",
+      "d": "Çünkü daha uzun toprak kabloları temelde daha iyi bir SWR sağlar"
+    },
+    "explanation": "DC veya şebeke frekansında, bir toprak iletkeni neredeyse tamamen omik davranır, ancak radyo frekanslarında endüktansı önemli hale gelir: sadece birkaç metre kablo bile RF'de önemli bir empedans oluşturabilir. Uzun veya ince bir toprak kablosu, bu nedenle amatör telsiz için önemli olan frekanslarda toprağa etkili bir kısa RF yolu sağlamaz, bu da hem kişisel/yıldırım korumasını hem de kabindeki RF geri beslemesine (örneğin 'mikrofonda RF') karşı etkinliğini zayıflatır. Bu nedenle kısa, düşük empedanslı ve geniş toprak bağlantıları (örneğin ince tel yerine bakır şerit) tercih edilir."
+  },
+  "afu-a-emv-05": {
+    "question": "Bir amatör telsiz anteni yakınında kişisel güvenliği değerlendirirken yakın alan ve uzak alan ayrımı neden önemlidir?",
+    "options": {
+      "a": "Çünkü alan şiddetleri ve bunların mesafeyle uzaysal olarak azalması yakın alanda uzak alandan farklı davranır ve alt HF bantlarındaki büyük dalga boyu nedeniyle yakın alan bölgesi (birkaç dalga boyu boyunca uzanan) mutlak metre cinsinden özellikle büyük olabilir, bu da güvenlik mesafeleri belirlenirken dikkate alınmalıdır",
+      "b": "Çünkü uzak alanda temelde artık hiçbir elektromanyetik alan şiddeti ölçülemez",
+      "c": "Çünkü bu ayrım yalnızca radar tesisleri için önemlidir, amatör telsiz istasyonları için asla değil",
+      "d": "Çünkü kanun temelde yakın alanda uzak alandan daha yüksek verici gücüne izin verir"
+    },
+    "explanation": "Antenin hemen yakınında (birkaç dalga boyu boyunca uzanan yakın alan), elektrik ve manyetik alanlar birbirine göre farklı davranır ve alan şiddeti için basit bir 1/r ilişkisinin geçerli olduğu uzak alandan farklı olarak mesafeyle azalır. Alt HF bantlarındaki (örneğin 80 m, 40 m) dalga boyu çok büyük olduğundan, yakın alan bölgesi orada birkaç metreden onlarca metreye kadar uzanabilir - VHF/UHF'den çok daha fazla. İnsanlara güvenli mesafeler belirlenirken (örneğin BEMFV çerçevesinde), yakın alan bölgesinin frekansa bağlı bu uzantısı açıkça dikkate alınmalıdır."
+  },
+  "afu-a-emv-06": {
+    "question": "Yakındaki bir radyo veya televizyon alıcısını etkileyen gerçek bir harmonik paraziti (verici frekansının bir katındaki fiili verici emisyonu) azaltmak için tipik olarak en etkili önlem hangisidir?",
+    "options": {
+      "a": "İstenen sinyalin paraziti bastırması için verici gücünü artırmak",
+      "b": "Çıkış katı ile anten/besleme hattı arasına yerleştirilen, temel frekansa dikkatlice ayarlanmış ve temel frekansın üzerindeki frekansları etkili bir şekilde zayıflatan ek bir alçak geçiren filtre",
+      "c": "Verici tesisinin herhangi bir topraklama bağlantısından tamamen vazgeçmek",
+      "d": "Anten besleme hattını birkaç santimetreye kısaltmak"
+    },
+    "explanation": "Harmonik parazit, çıkış katının ayarlanan verici frekansının katlarında istenmeyen sinyal içeriği yaymasından kaynaklandığından, çıkış katı ile anten arasına yerleştirilen, temel frekansa dikkatlice ayarlanmış ek bir alçak geçiren filtre hedeflenen çözümdür: rahatsız edici harmonikleri önemli ölçüde zayıflatırken temel frekansın büyük ölçüde engellenmeden geçmesine izin verir. Verici gücünü artırmak ise aksine paraziti daha da kötüleştirir, çünkü harmonik gücü de bununla birlikte orantılı olarak artar."
+  }
+}

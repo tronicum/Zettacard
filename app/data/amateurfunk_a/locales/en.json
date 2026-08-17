@@ -1,0 +1,452 @@
+{
+  "afu-a-antennentechnik-01": {
+    "question": "What is the approximate feed-point impedance of a resonant half-wave dipole in free space?",
+    "options": {
+      "a": "36 ohms",
+      "b": "73 ohms",
+      "c": "300 ohms",
+      "d": "450 ohms"
+    },
+    "explanation": "A resonant half-wave dipole in free space has a radiation resistance / feed-point impedance of roughly 73 ohms (purely resistive at exact resonant length). This value is the basis for the widely used match to 50-ohm coaxial cable, with the resulting mismatch usually tolerated in practice."
+  },
+  "afu-a-antennentechnik-02": {
+    "question": "What is the approximate feed-point impedance of an ideal quarter-wave vertical (ground-plane) antenna over perfectly conducting ground?",
+    "options": {
+      "a": "About 36 ohms",
+      "b": "About 73 ohms",
+      "c": "About 150 ohms",
+      "d": "About 600 ohms"
+    },
+    "explanation": "A vertical over perfectly conducting ground is electrically equivalent to half a half-wave dipole (the ground acts as a mirror image), so the feed-point impedance is roughly half of 73 ohms, i.e. about 36 ohms. In practice the actual value depends on the radial/grounding system and real ground conductivity."
+  },
+  "afu-a-antennentechnik-03": {
+    "question": "How does a folded dipole's feed-point impedance compare approximately to that of a simple half-wave dipole?",
+    "options": {
+      "a": "About a quarter, roughly 18 ohms",
+      "b": "About the same, roughly 73 ohms",
+      "c": "About three and a half times, roughly 240 ohms",
+      "d": "About ten times, roughly 730 ohms"
+    },
+    "explanation": "A folded dipole consists of two parallel conductors that act in series with respect to current, substantially raising the feed-point impedance compared to a simple dipole: to roughly 240 ohms (the value given in the BNetzA's official Klasse A question catalogue). This makes the folded dipole well suited for direct connection to balanced 240- to 300-ohm twin-lead."
+  },
+  "afu-a-antennentechnik-04": {
+    "question": "What is the primary effect of adding a reflector and a director element to a Yagi antenna, compared with a plain dipole?",
+    "options": {
+      "a": "Raising the feed-point impedance to several kilohms",
+      "b": "Concentrating the radiation in a preferred direction, giving gain and a certain front-to-back ratio",
+      "c": "Completely eliminating all sidelobes",
+      "d": "Converting linear polarization into circular polarization"
+    },
+    "explanation": "The reflector and director elements of a Yagi couple parasitically to the driven element, and their constructive/destructive superposition creates directivity: radiation is concentrated toward the directors (gain relative to a plain dipole) and reduced toward the reflector (front-to-back ratio). Sidelobes are reduced by this process but not eliminated entirely."
+  },
+  "afu-a-antennentechnik-05": {
+    "question": "How does the mounting height of a vertically polarized antenna above real ground mainly affect its radiation pattern?",
+    "options": {
+      "a": "Greater height tends to lower the radiation angle, favoring long-distance DX contacts",
+      "b": "On HF, height fundamentally has no effect on the radiation pattern",
+      "c": "Greater height always raises the radiation angle above 80 degrees",
+      "d": "Height only affects the feed-point impedance, not the pattern"
+    },
+    "explanation": "Reflections off real, lossy ground significantly affect the vertical radiation angle. As antenna height increases (measured in wavelengths), the main radiation angle relative to the horizon tends to decrease, which is favorable for DX contacts relying on low-angle ionospheric reflection. At low heights, steeper radiation dominates instead, which suits short-range (NVIS) contacts better."
+  },
+  "afu-a-antennentechnik-06": {
+    "question": "In which direction does a half-wave dipole suspended in free space radiate most strongly?",
+    "options": {
+      "a": "Exclusively along the axis of the wire",
+      "b": "Equally in all directions (spherically)",
+      "c": "Most strongly perpendicular to the wire axis, with nulls off the wire ends (figure-eight pattern)",
+      "d": "Exclusively straight up and down"
+    },
+    "explanation": "The horizontal radiation pattern of a free-space half-wave dipole is a figure eight: radiation is maximum perpendicular to the wire axis and falls to zero off the wire ends. An isotropic radiator that radiates equally in all directions is only a theoretical reference used for gain figures (dBi)."
+  },
+  "afu-a-antennentechnik-07": {
+    "question": "What does the term 'front-to-back ratio' describe for a directional antenna?",
+    "options": {
+      "a": "The ratio of transmit power to received power",
+      "b": "The ratio of radiated power in the main beam direction to radiated power in the opposite (180-degree) direction, usually expressed in dB",
+      "c": "The ratio of feed-point impedance to the cable's characteristic impedance",
+      "d": "The ratio of antenna height to the wavelength used"
+    },
+    "explanation": "The front-to-back ratio states, in dB, how much stronger a directional antenna's (e.g. a Yagi's) radiated power is in the main beam direction compared with the direction 180 degrees opposite. A high front-to-back ratio effectively suppresses interference and QRM arriving from behind the antenna."
+  },
+  "afu-a-antennentechnik-08": {
+    "question": "Why can higher antenna gain typically be achieved on higher frequencies (e.g. 70 cm) than on lower frequencies (e.g. 80 m) for the same physical antenna size?",
+    "options": {
+      "a": "Because the physical size relative to wavelength is larger at high frequencies, allowing more elements or a larger effective aperture measured in wavelengths",
+      "b": "Because higher frequencies always have lower free-space path loss than lower frequencies",
+      "c": "Because higher transmit power is automatically permitted at higher frequencies",
+      "d": "Because ground losses never occur at high frequencies"
+    },
+    "explanation": "Antenna gain depends heavily on the structure's size measured in wavelengths (i.e. its effective aperture). For a fixed physical size - say a mast of a given length - many more wavelengths, and thus potentially more elements or a larger aperture area, fit on 70 cm than on 80 m, where even a simple half-wave dipole is many meters long. Free-space path loss, by contrast, actually increases with frequency, not decreases."
+  },
+  "afu-a-leitungstheorie-01": {
+    "question": "What does the characteristic impedance (Z0) of an RF transmission line such as coax describe?",
+    "options": {
+      "a": "The DC ohmic resistance of the inner conductor",
+      "b": "The voltage-to-current ratio of a wave propagating on an infinitely long line, or one terminated reflection-free in Z0, determined by the line's geometry and dielectric",
+      "c": "The resistance measured when the far end of the cable is short-circuited",
+      "d": "The maximum transmit power the cable can carry without loss"
+    },
+    "explanation": "Characteristic impedance Z0 is a property of the line itself (for coax, set by the inner and outer conductor diameters and the dielectric), not of the load connected to it. It describes the voltage-to-current ratio of a traveling wave on an infinitely long line, or one terminated reflection-free in Z0. Only when the load impedance equals Z0 is there no reflection."
+  },
+  "afu-a-leitungstheorie-02": {
+    "question": "A transmitter delivers 100 W of forward power to an antenna, and 4 W of reflected power is measured. What is the approximate SWR?",
+    "options": {
+      "a": "1.04",
+      "b": "1.2",
+      "c": "1.5",
+      "d": "2.0"
+    },
+    "explanation": "The magnitude of the reflection coefficient is |Gamma| = sqrt(Pref/Pfwd) = sqrt(4/100) = sqrt(0.04) = 0.2. The SWR then follows from SWR = (1+|Gamma|)/(1-|Gamma|) = 1.2/0.8 = 1.5. An SWR of 1.5 is considered uncritical for most transmitter final stages."
+  },
+  "afu-a-leitungstheorie-03": {
+    "question": "What is a Smith chart used for in transmission-line and matching-network work?",
+    "options": {
+      "a": "Graphically plotting normalized complex impedances (or admittances) and solving matching and transformation problems along a line",
+      "b": "Directly measuring an antenna's radiated field strength in meters per second",
+      "c": "Calculating the sunspot relative number for propagation forecasting",
+      "d": "Marking permitted transmit frequencies in the amateur radio band plan"
+    },
+    "explanation": "A Smith chart is a graphical tool in which normalized complex impedances (referenced to the characteristic impedance Z0) are plotted as points inside a unit circle. It lets engineers visually determine how impedance varies along a line, the effect of matching networks (e.g. L-networks, stub matching), and the reflection coefficient and SWR, without having to carry out complex-number calculations by hand."
+  },
+  "afu-a-leitungstheorie-04": {
+    "question": "Why can an SWR reading at the transmitter output, on a lossy (long, thin) feedline, appear lower than the SWR actually present at the antenna feed point?",
+    "options": {
+      "a": "Lossy lines always make the SWR measured at the transmitter higher than at the antenna feed point",
+      "b": "Line attenuation weakens both the forward and reflected waves on their way to the measurement point, so the SWR calculated at the transmitter end comes out lower than the real SWR at the mismatch (the antenna)",
+      "c": "Because coaxial cable is fundamentally lossless above 30 MHz",
+      "d": "Because SWR is physically defined only at the transmitter and does not exist at the antenna at all"
+    },
+    "explanation": "The reflected wave must travel back through the lossy feedline from the mismatch (the antenna) to the measurement point (the transmitter) a second time, and is attenuated further in doing so. This makes the SWR measured at the transmitter output look better than it actually is at the antenna feed point - an effect that is especially pronounced with long, lossy lines (e.g. thin coax at high frequencies) and that must be accounted for when troubleshooting."
+  },
+  "afu-a-leitungstheorie-05": {
+    "question": "How can a quarter-wave section of line (a lambda/4 transformer) be used to match two different real impedances?",
+    "options": {
+      "a": "Its characteristic impedance is chosen as the geometric mean of the two real impedances to be matched (Z_transformer = sqrt(Z1 x Z2))",
+      "b": "Its physical length is chosen arbitrarily, and its characteristic impedance does not matter",
+      "c": "It only works for complex load impedances, never for real ones",
+      "d": "It always transforms any load losslessly to exactly 50 ohms, regardless of the characteristic impedance chosen"
+    },
+    "explanation": "A quarter-wave line section transforms a real terminating impedance Z_load according to Z_transformer^2 = Z_in x Z_load. So to match a load Z1 to a source of impedance Z2, the quarter-wave line's characteristic impedance is chosen as the geometric mean Z_transformer = sqrt(Z1 x Z2). This technique is used, for example, to match a 36-ohm vertical antenna to 50-ohm coax."
+  },
+  "afu-a-leitungstheorie-06": {
+    "question": "At what spacing along a low-loss, mismatched transmission line do the standing wave's voltage maxima (or minima) repeat?",
+    "options": {
+      "a": "At a spacing of one full wavelength, lambda",
+      "b": "At a spacing of half a wavelength, lambda/2",
+      "c": "At a spacing of a quarter wavelength, lambda/4, regardless of the mismatch",
+      "d": "At a fixed spacing in meters that is completely independent of frequency"
+    },
+    "explanation": "When the forward and reflected waves superpose on a mismatched line, a standing-wave pattern results whose voltage maxima and minima repeat periodically every lambda/2 (two consecutive maxima are half a wavelength apart). A maximum and the nearest minimum are correspondingly a quarter wavelength apart."
+  },
+  "afu-a-leitungstheorie-07": {
+    "question": "What does a coaxial cable's velocity factor describe?",
+    "options": {
+      "a": "The ratio of the cable's outer diameter to its inner-conductor diameter",
+      "b": "The factor by which the maximum permissible transmit power through the cable is reduced",
+      "c": "The ratio of the electromagnetic wave's propagation speed inside the cable to the speed of light in vacuum, which is essential for converting electrical length to physical length",
+      "d": "The reflection coefficient when the termination is not matched"
+    },
+    "explanation": "Because electromagnetic waves travel more slowly through a coaxial cable's dielectric than in vacuum, the velocity factor (typically 0.66 to 0.85 depending on the dielectric) is the ratio of that propagation speed to the speed of light c. It must be taken into account when calculating the physical length of line sections such as quarter-wave transformers or stub matches, otherwise the electrical length will be wrong."
+  },
+  "afu-a-leitungstheorie-08": {
+    "question": "What SWR value results on an ideally matched line with no reflection at all?",
+    "options": {
+      "a": "0",
+      "b": "Infinity",
+      "c": "-1",
+      "d": "1 (also written as 1:1)"
+    },
+    "explanation": "If the load impedance exactly equals the line's characteristic impedance, no reflection occurs (reflection coefficient Gamma = 0) and no standing wave forms. The SWR then reaches its best possible value of 1, usually stated as 1:1. SWR values below 1 are not physically possible."
+  },
+  "afu-a-ausbreitung-01": {
+    "question": "Which property characterizes the ionosphere's D layer?",
+    "options": {
+      "a": "It exists only at night and then enables the longest-range HF propagation",
+      "b": "It reliably reflects all frequencies above 30 MHz",
+      "c": "It forms only during daylight due to solar radiation, largely disappears at night through recombination, and mainly attenuates (absorbs, rather than reflects) low HF frequencies, especially below about 7 MHz",
+      "d": "It sits above the F2 layer and is responsible for 10 m DX traffic"
+    },
+    "explanation": "The D layer sits at the lowest altitude in the ionosphere (roughly 60-90 km) and forms through daytime solar radiation; at night it largely recombines and disappears. It barely reflects HF signals - instead it absorbs them, especially strongly at low frequencies such as 80 m and 40 m during the day. That is why the lower bands usually work more reliably for long-distance contacts after sunset."
+  },
+  "afu-a-ausbreitung-02": {
+    "question": "What does the 'maximum usable frequency' (MUF) mean for a given radio path?",
+    "options": {
+      "a": "The highest frequency that, at a given angle of incidence, is still reflected back to earth by the ionosphere rather than passing through it",
+      "b": "The lowest frequency below which no absorption whatsoever occurs in the D layer",
+      "c": "The statutory maximum permitted transmit frequency for Klasse A radio amateurs",
+      "d": "The frequency at which the antenna shows the lowest SWR"
+    },
+    "explanation": "MUF is not a fixed legal figure but a propagation parameter: for a specific path and a given angle of incidence, it states the highest frequency the ionosphere still reflects back to earth - above the MUF the wave passes through the ionosphere and is lost to space. It depends on the relevant layer's critical frequency and the angle of incidence (approximately via the secant law), and it varies with time of day, season, and solar activity."
+  },
+  "afu-a-ausbreitung-03": {
+    "question": "What characterizes the 'greyline propagation' phenomenon on the lower shortwave bands?",
+    "options": {
+      "a": "It occurs exclusively at midday with the sun at its highest, and is strongest on 10 m",
+      "b": "In the narrow transition zone between day and night (sunrise/sunset), D-layer absorption is strongly reduced while the higher layers are often still sufficiently ionized, enabling unusually long-range DX contacts along the terminator, especially on 80 m/40 m",
+      "c": "It is a purely optical phenomenon with no effect on radio propagation whatsoever",
+      "d": "It occurs only on VHF bands above 144 MHz"
+    },
+    "explanation": "Along the 'greyline' (the terminator between the earth's day and night sides), transmitting and receiving stations are, in effect, simultaneously in twilight. The strongly absorbing daytime D layer is either not yet, or no longer, fully developed during this transition, while the higher, ionized layers still provide enough reflection. This especially enables strikingly good, often transcontinental contacts on the lower bands (80 m, 40 m) along this narrow zone."
+  },
+  "afu-a-ausbreitung-04": {
+    "question": "What is meant by 'Sporadic-E' propagation?",
+    "options": {
+      "a": "A constantly present, regular propagation path via the F2 layer on shortwave",
+      "b": "Irregularly occurring, small-scale, intensely ionized patches in the E layer that briefly enable unusually long-range contacts on the upper HF and lower VHF bands (e.g. 10 m, 6 m, occasionally 2 m)",
+      "c": "A phenomenon confined exclusively to winter and to the 160 m band",
+      "d": "An artificial propagation mode generated by amateur radio stations themselves"
+    },
+    "explanation": "Sporadic-E arises from short-lived, unpredictable patches of intense ionization in the E layer (roughly 90-120 km altitude), typically more common in summer. These patches can reflect signals at frequencies far above the usual MUF, enabling surprisingly long-range contacts on 10 m, 6 m, and occasionally even 2 m, even though these bands are not normally reflected by the ionosphere."
+  },
+  "afu-a-ausbreitung-05": {
+    "question": "What does the 'skip zone' (dead zone) describe in HF sky-wave propagation?",
+    "options": {
+      "a": "An area where radio contacts are fundamentally never possible under any conditions",
+      "b": "The area immediately around the transmit antenna where transmit power is legally limited",
+      "c": "The area between the reach of the ground wave (or a very low-angle near sky wave) and the point where the first ionospherically reflected sky wave returns to earth - reception there is normally not possible",
+      "d": "A phenomenon that occurs exclusively above 144 MHz"
+    },
+    "explanation": "Between the point where the ground wave (or a very low-angle sky wave) becomes too weak, and the point where the first sky wave reflected off the ionosphere returns to the earth's surface, lies the skip zone (dead zone). Within this ring-shaped area, reception is normally not possible under the given propagation conditions, even though both closer and more distant stations can be heard."
+  },
+  "afu-a-ausbreitung-06": {
+    "question": "What is NVIS (Near Vertical Incidence Skywave) typically used for?",
+    "options": {
+      "a": "Reliable short-range contacts (roughly 0 to 300 km) with no skip zone, achieved through a steep, near-vertical radiation angle from usually low-mounted horizontal antennas on the lower HF bands",
+      "b": "Extremely long-range space contacts via satellites on VHF",
+      "c": "Exclusively narrowband digital modes above 1 GHz",
+      "d": "Calibrating precision frequency standards"
+    },
+    "explanation": "With NVIS, an antenna (often a horizontal dipole mounted low above ground) is deliberately operated so that most of its energy radiates steeply upward (near 90 degrees). The resulting sky wave is then reflected almost vertically off the ionosphere and returns to earth within roughly 0 to 300 km - without the usual skip zone. This makes NVIS especially suitable for reliable short-range communication in difficult terrain, such as emergency and disaster radio traffic."
+  },
+  "afu-a-ausbreitung-07": {
+    "question": "How does high sunspot activity (a solar maximum) typically affect HF propagation?",
+    "options": {
+      "a": "It lowers the F2 layer's critical frequency so much that the upper HF bands (10 m, 15 m) are almost never usable for DX anymore",
+      "b": "It generally increases F2-layer ionization and hence its critical frequency and the MUF, so the higher HF bands (e.g. 10 m, 15 m) are more often open for long-distance contacts",
+      "c": "It only affects VHF bands above 144 MHz, not shortwave",
+      "d": "It fundamentally prevents all Sporadic-E propagation"
+    },
+    "explanation": "As solar activity increases (a high sunspot relative number), UV and X-ray radiation that ionizes the F2 layer also increases. A more strongly ionized F2 layer has a higher critical frequency and hence a higher MUF, which makes the upper shortwave bands (10 m, 15 m, sometimes even 6 m) open more often and over longer distances for DX contacts. During a sunspot minimum, by contrast, these bands are often dead for days at a time."
+  },
+  "afu-a-ausbreitung-08": {
+    "question": "What characterizes 'multi-hop' sky-wave propagation on shortwave?",
+    "options": {
+      "a": "The signal only ever bounces once between transmitter and receiver, even over very large distances",
+      "b": "It occurs exclusively with ground-wave propagation on low frequencies",
+      "c": "The signal is reflected repeatedly between the ionosphere and the earth's surface, allowing very large distances to be bridged, while each additional hop further reduces signal strength through reflection and ground losses and promotes fading",
+      "d": "It occurs exclusively with satellite links on the 70 cm band"
+    },
+    "explanation": "If a single ionospheric reflection is not enough to connect two widely separated stations, the signal can bounce back and forth several times between the ground (or sea surface) and the ionosphere (multi-hop). This allows intercontinental distances to be bridged, but each additional hop reduces signal strength through ground and ionospheric losses, and the combination of several paths with different travel times promotes fading and distortion."
+  },
+  "afu-a-leistung-01": {
+    "question": "Which amplifier operating class is typically chosen for linear SSB transmitter final stages, and why?",
+    "options": {
+      "a": "Class C, because it offers the highest efficiency of all classes and is therefore the most economical",
+      "b": "Usually Class AB, as a compromise between sufficient linearity (for low-distortion transfer of the SSB envelope) and acceptable efficiency",
+      "c": "Exclusively Class A, because linearity is irrelevant for SSB",
+      "d": "Class D, because it was specifically developed for analog voice transmission"
+    },
+    "explanation": "SSB is an amplitude-modulated mode with a constantly varying envelope that requires sufficiently linear amplification - a strongly nonlinear final stage would distort the voice information and generate strong intermodulation products. Class C is unsuitable for SSB because it operates strongly nonlinearly. In practice, Class AB is therefore usually chosen: it offers adequate linearity with noticeably better efficiency than pure Class A."
+  },
+  "afu-a-leistung-02": {
+    "question": "Which basic statement about the difference in maximum permitted transmit power between Klasse A and Klasse E radio amateurs is correct?",
+    "options": {
+      "a": "Both classes may use exactly the same maximum transmit power; the only difference is the frequency ranges",
+      "b": "Klasse E is generally permitted to transmit with higher power than Klasse A",
+      "c": "Under Anlage 1 AFuV, Klasse A licence holders may use noticeably higher maximum transmit power on most of their assigned bands than Klasse E holders, whose licence is more restricted in both power and bands",
+      "d": "Transmit power for both classes is not legally limited and is left entirely to the amateur's discretion"
+    },
+    "explanation": "The AFuV's Anlage 1 (which sets out both the assigned frequency ranges and the transmit power permitted there for each licence class) provides noticeably higher permitted transmit power for Klasse A licence holders on most of the assigned amateur bands than for Klasse E, whose licence is more restricted both in usable spectrum and in maximum power. The exact power figures per band change occasionally through AFuV amendments and must always be checked against the then-current Anlage 1 text before practical use."
+  },
+  "afu-a-leistung-03": {
+    "question": "Why is an antenna tuner (matching network) especially important at higher transmit power into a non-resonant antenna?",
+    "options": {
+      "a": "It transforms the mismatch presented by the antenna/feedline into an impedance the final stage can tolerate (usually near 50 ohms), avoiding mismatch losses in the final stage, elevated voltage/current peaks, and possible damage at high power",
+      "b": "It fundamentally increases the power delivered by the transmitter beyond the limit set on the radio",
+      "c": "It fully eliminates the need for a correctly dimensioned antenna",
+      "d": "It serves exclusively to filter mains hum out of the power supply"
+    },
+    "explanation": "A significantly mismatched load can cause high voltage and current peaks at the transmitter final stage; these are usually uncritical at low power but at high transmit power can lead to overload, reduced efficiency, and in the worst case destruction of the final-stage transistors/tubes. An antenna tuner placed between the transmitter and the feedline transforms the impedance so the final stage sees a load it can tolerate (usually near 50 ohms) - but it does not fix the mismatch, or the resulting losses, on the feedline itself."
+  },
+  "afu-a-leistung-04": {
+    "question": "Why does effective low-pass filtering between the final stage and the antenna become especially important as transmit power increases?",
+    "options": {
+      "a": "Because higher power automatically and completely suppresses harmonic generation",
+      "b": "Because a nonlinear final stage inherently generates harmonics of the transmitted signal, and their absolute power rises together with the fundamental's power, so even a relatively small harmonic fraction can reach problematic interference levels in absolute terms at high transmit power",
+      "c": "Because at higher power, limits on spurious emissions no longer apply at all",
+      "d": "Because low-pass filters serve only to improve the SWR"
+    },
+    "explanation": "Every nonlinear amplifier stage generates harmonics (integer multiples of the transmit frequency) in addition to the desired fundamental. Their level is usually many dB below the fundamental, but at high transmit power even a relatively small percentage of harmonic content can reach absolute watt levels sufficient to seriously interfere with other radio services (e.g. broadcasting, aeronautical radio). An effective low-pass filter between the final stage and the antenna is therefore especially important at higher power, to adequately attenuate spurious emissions."
+  },
+  "afu-a-leistung-05": {
+    "question": "What is meant by intermodulation distortion (IMD) in a linear RF final stage, for example during a two-tone test?",
+    "options": {
+      "a": "The complete failure of the final stage under overdrive",
+      "b": "Exclusively the generation of harmonics of the fundamental frequency, regardless of any other signal content",
+      "c": "The generation of additional, unwanted mixing products from two or more signal components amplified simultaneously (such as the two tones of an SSB two-tone test) due to the final stage's nonlinear behavior; these products fall close to the wanted frequency and are therefore especially disruptive",
+      "d": "The suppression of antenna sidelobes caused by low transmit power"
+    },
+    "explanation": "When a not-perfectly-linear final stage amplifies several frequency components at once (e.g. the two tones of a two-tone test, which typically emulates SSB voice signals), the nonlinearity produces additional mixing products at sum and difference frequencies of the input signals. Odd-order intermodulation products (e.g. 3rd order) are especially problematic because they fall close to the wanted frequencies and cannot easily be filtered out. Sufficient backoff from the saturation point and a sufficiently linear operating class (e.g. AB) reduce IMD."
+  },
+  "afu-a-leistung-06": {
+    "question": "What additional obligation can arise from personal protection against electromagnetic fields at higher transmit power (typical for Klasse A stations)?",
+    "options": {
+      "a": "None - personal RF exposure protection has no legal role in amateur radio",
+      "b": "Above certain thresholds that depend on frequency and transmit power (EIRP), the BEMFV can require a site certificate (Standortbescheinigung) or at least a documented safety-distance assessment for the amateur station before it is put into operation at higher power",
+      "c": "A site certificate is required exclusively for commercial broadcast transmitters, never for amateur radio stations",
+      "d": "Higher transmit power only requires a longer antenna-cable ground connection, not any field-strength assessment"
+    },
+    "explanation": "The German regulation on the verification procedure for limiting electromagnetic fields (BEMFV) can, depending on transmit power/EIRP and frequency band, require a site certificate for fixed radio installations, or at least a documented determination and observance of safety distances to people, before the installation may be operated. Because Klasse A stations are permitted noticeably higher transmit power than Klasse E, they are correspondingly more likely to exceed the relevant thresholds - the exact thresholds and procedure must be checked against the current BEMFV text and the Bundesnetzagentur's forms before commissioning."
+  },
+  "afu-a-leistung-07": {
+    "question": "Why do continuous-carrier digital modes with a high duty cycle (e.g. FT8, RTTY) require special precautions regarding cooling and continuous power rating of the final stage, compared to SSB at the same PEP setting?",
+    "options": {
+      "a": "Because these modes deliver nearly constant carrier power over long periods (high duty cycle), while SSB speech on average delivers only a fraction of its peak power, so the average thermal load on the final stage is noticeably higher at the same peak power",
+      "b": "Because digital modes fundamentally generate higher peak voltage than SSB, regardless of duty cycle",
+      "c": "Because digital operation fundamentally requires no cooling at all",
+      "d": "Because FT8 and RTTY may only ever be operated at very low power below 1 watt"
+    },
+    "explanation": "For SSB speech, the ratio of average to peak (PEP) power is typically well below 1, since the speech envelope fluctuates constantly and includes pauses. Modes such as FT8 or RTTY, by contrast, transmit a nearly constant carrier for most of the transmission (a high duty cycle, near 100%). At the same PEP setting, this results in a noticeably higher average (thermal) continuous load on the final stage during digital operation, which is why transmitter/amplifier manufacturers often recommend reduced continuous power for such modes and why adequate cooling must be ensured."
+  },
+  "afu-a-leistung-08": {
+    "question": "What measure is particularly recommended for a fixed amateur radio station with high transmit power and an outdoor antenna installation, to protect against lightning strikes and static buildup?",
+    "options": {
+      "a": "Completely forgoing any grounding connection, to avoid ground-loop currents",
+      "b": "A properly designed grounding system including lightning/surge arrestors for the antenna installation and feedlines, together with disconnecting or grounding the antenna feedlines during thunderstorms or when the station is not in use",
+      "c": "Permanently connecting all antennas to the mains power outlet as the sole protective measure",
+      "d": "Operating the station at full transmit power specifically during a thunderstorm, to 'keep the antenna clear'"
+    },
+    "explanation": "A large, outdoor antenna installation carries an elevated risk of lightning strikes and static buildup. Recommended measures include a properly dimensioned grounding system with a low-resistance connection to the equipotential bonding, suitable lightning/surge arrestors in the antenna feedlines, and physically disconnecting (and grounding) the antenna cables from the receiver/transmitter during thunderstorms or when the station will be unused for an extended period. Operating at full power during a thunderstorm, by contrast, is a significant safety risk, not a protective measure."
+  },
+  "afu-a-modulation-01": {
+    "question": "Why does a single-sideband (SSB) signal need noticeably less bandwidth and transmit power than a classic double-sideband AM signal to carry the same voice information?",
+    "options": {
+      "a": "Because SSB fundamentally operates on a higher carrier frequency than AM",
+      "b": "Because with SSB the voice information is digitally compressed before being transmitted in analog form",
+      "c": "Because SSB suppresses the carrier and one of the two redundant sidebands and transmits only a single sideband, which already contains the complete information on its own",
+      "d": "Because SSB is used exclusively for digital modes, never for voice transmission"
+    },
+    "explanation": "An AM signal consists of a carrier plus an upper and a lower sideband, with both sidebands carrying the same information redundantly. With SSB, the carrier and one of the two sidebands are suppressed; the remaining single sideband carries the complete voice information on its own. This means only about half the bandwidth of an AM signal is needed, and all the transmit power goes into the information-carrying sideband instead of partly into a non-information-carrying carrier."
+  },
+  "afu-a-modulation-02": {
+    "question": "What distinguishes the digital weak-signal mode FT8 from classic SSB voice transmission?",
+    "options": {
+      "a": "A very narrow occupied bandwidth (a few Hz), fixed short time slots for structured, mostly automated short messages, and the ability to still be decoded at very low signal-to-noise ratios",
+      "b": "A noticeably larger bandwidth than SSB, because image data is transmitted",
+      "c": "Fully free-form voice conversation with no time structure whatsoever",
+      "d": "Exclusively analog signal transmission with no digital coding at all"
+    },
+    "explanation": "FT8 is a narrowband (roughly 50 Hz occupied bandwidth) digital mode synchronized to fixed time slots (typically 15 seconds) that exchanges structured short messages (e.g. callsign, signal report). Thanks to strong error-correction techniques, FT8 can still be decoded at signal-to-noise ratios where SSB speech would be lost in the noise - in exchange, the message content is highly standardized and much less freely worded than a normal voice contact."
+  },
+  "afu-a-modulation-03": {
+    "question": "What fundamentally distinguishes FSK (Frequency Shift Keying), as classically used for RTTY, from PSK (Phase Shift Keying)?",
+    "options": {
+      "a": "FSK carries information exclusively through amplitude changes, PSK exclusively through frequency changes",
+      "b": "With FSK, digital information is encoded by switching between two (or more) discrete carrier frequencies; with PSK, it is instead encoded through defined phase shifts of the carrier at constant frequency and usually constant amplitude",
+      "c": "FSK is a purely analog modulation type and PSK a purely digital one that has nothing to do with carrier frequencies",
+      "d": "FSK and PSK are technically identical and differ only in name"
+    },
+    "explanation": "With FSK (e.g. classic RTTY using 'mark' and 'space'), digital information is transmitted by switching between two discrete frequencies. With PSK (e.g. PSK31), the carrier frequency instead stays constant while information is encoded through defined phase shifts (e.g. 180 degrees for binary PSK). As a result, PSK modes can often be made narrower-band and spectrally more efficient than classic FSK RTTY."
+  },
+  "afu-a-modulation-04": {
+    "question": "Why is knowing a mode's occupied bandwidth important for a Klasse A radio amateur?",
+    "options": {
+      "a": "Because it lets you judge how many signals can fit into a band segment simultaneously without interfering with each other, and whether your own transmission stays within the assigned band or band-plan sub-segment",
+      "b": "Because occupied bandwidth directly determines the maximum range of a radio contact, regardless of propagation",
+      "c": "Because a larger occupied bandwidth automatically results in less interference",
+      "d": "Because bandwidth is only relevant for VHF/UHF operation, not for shortwave"
+    },
+    "explanation": "Every mode occupies a certain frequency span around its set center frequency (narrow for CW or PSK31, noticeably wider for SSB or image modes like SSTV). Knowing this occupied bandwidth is important for placing a transmission correctly within the assigned frequency segments or band-plan recommendations and for not interfering with neighboring stations - especially in a limited band segment with several stations active at once."
+  },
+  "afu-a-modulation-05": {
+    "question": "What does the SSTV (Slow Scan Television) mode typically transmit in amateur radio?",
+    "options": {
+      "a": "Exclusively encrypted text messages",
+      "b": "Real-time moving video at full video bandwidth, comparable to terrestrial broadcast television",
+      "c": "Single still images encoded line by line into an audio signal, typically transmitted within a normal SSB voice bandwidth",
+      "d": "Exclusively telemetry data from amateur radio satellites"
+    },
+    "explanation": "SSTV encodes a still image line by line into an audio signal (different tones for brightness/color per pixel), which is then transmitted like a normal voice signal, e.g. via SSB, and converted back into an image at the receiving end using suitable software or hardware. Unlike real television, transmitting a single image typically takes several seconds to minutes, but in exchange it fits within the bandwidth of a normal voice channel."
+  },
+  "afu-a-modulation-06": {
+    "question": "Why is noticeably lower transmit power generally recommended or used with automated digital modes like FT8, compared with SSB?",
+    "options": {
+      "a": "Because FT8 signals technically cannot handle power above 1 mW",
+      "b": "Because thanks to strong error correction and narrowband transmission, FT8 can be decoded even at very low signal-to-noise ratios, so noticeably less transmit power is needed for a successful contact than with SSB voice, combined with the high duty cycle which further encourages a conservative power choice",
+      "c": "Because FT8's error correction is automatically disabled at higher power",
+      "d": "Because the law fundamentally mandates lower maximum power for digital modes than for voice operation"
+    },
+    "explanation": "FT8 uses strong error-correction techniques and a very narrow bandwidth, allowing even low signal levels to be reliably decoded - as a result, a successful contact often needs noticeably less transmit power than a comparable SSB voice contact. In addition, the high duty cycle (near-continuous carrier) is a further reason to choose transmit power conservatively, to avoid thermally overloading the final stage and to avoid subjecting other stations in the already-narrow digital segment to unnecessarily strong signals."
+  },
+  "afu-a-modulation-07": {
+    "question": "What fundamental property characterizes spread-spectrum modes compared with classic narrowband techniques?",
+    "options": {
+      "a": "They fundamentally occupy narrower bandwidth than classic CW",
+      "b": "They are suitable only for reception and cannot be used to transmit",
+      "c": "They spread the transmitted energy over a much wider bandwidth than the actual payload information would require, which can improve robustness against interference but demands particular familiarity with the relevant regulations and documentation duties",
+      "d": "They are fundamentally and without exception prohibited in amateur radio"
+    },
+    "explanation": "Spread-spectrum techniques deliberately spread the transmitted energy over a much wider bandwidth than the payload information actually requires, for example through fast frequency-hopping sequences or direct-sequence coding. This can improve robustness against interference and coexistence with narrowband signals, but in amateur radio it requires a deeper understanding of the relevant technical and regulatory requirements (including specific identification and documentation duties), since such signals can easily be mistaken for interference."
+  },
+  "afu-a-emv-01": {
+    "question": "How does 'front-end overload' at a victim receiver fundamentally differ from a genuine harmonic interference issue caused by a transmitting station?",
+    "options": {
+      "a": "Both effects have the same cause and can be fixed with the same remedy",
+      "b": "With front-end overload, the receiver input is overdriven by the strong fundamental of the nearby transmitter itself (no harmonic content needed), whereas harmonic interference arises from actual radiated, unwanted transmitter emissions at multiples of the fundamental frequency - the two require different remedies",
+      "c": "Front-end overload occurs exclusively in receivers connected to transmitters above 1,000 watts",
+      "d": "Harmonic interference can only ever be fixed by increasing transmit power"
+    },
+    "explanation": "Front-end overload occurs when a victim receiver's input stage is overdriven by the pure fundamental of a nearby transmitter that is otherwise operating cleanly - here, a high-pass or notch filter at the victim receiver typically helps, not anything at the transmitter. Genuine harmonic interference, by contrast, arises because the transmitter itself radiates unwanted emissions at multiples of its transmit frequency - here, a low-pass filter at the transmitter is the correct remedy. The distinction matters for fixing the interference at the right end of the link."
+  },
+  "afu-a-emv-02": {
+    "question": "What basic obligation applies to a radio amateur under Sec. 16/17 AFuV regarding interference caused by their amateur station, regardless of the power transmitted?",
+    "options": {
+      "a": "They must minimize unwanted emissions and, where interference has already occurred, cooperate in investigating and resolving it, even if the transmitting equipment itself meets all technical requirements",
+      "b": "They are relieved of all responsibility as soon as the equipment used carries a valid CE marking",
+      "c": "A duty to cooperate exists only for interference affecting the amateur's own reception, not interference affecting others",
+      "d": "This duty applies exclusively to Klasse A stations transmitting above 500 watts"
+    },
+    "explanation": "Sec. 16(4) AFuV obliges radio amateurs to keep unwanted emissions to the lowest level possible; Sec. 17 AFuV further obliges them to cooperate in investigating the causes of interference and states that the provisions of the EMVG remain unaffected - regardless of whether the cause lies with the transmitter or (as with front-end overload) primarily with the affected device, and regardless of the transmit power used. A CE marking on the equipment used does not automatically exempt the operator from this duty to cooperate in an individual case."
+  },
+  "afu-a-emv-03": {
+    "question": "What is the purpose of a common-mode choke ('line isolator') placed on an antenna feedline?",
+    "options": {
+      "a": "It deliberately increases the power delivered at the antenna beyond the level set on the transmitter",
+      "b": "It suppresses unwanted common-mode currents flowing on the outside of the coax shield, which can otherwise cause RF-in-the-shack problems, a distorted antenna pattern, and interference to connected equipment",
+      "c": "It fully replaces the need for an antenna tuner for any mismatch",
+      "d": "It serves exclusively to galvanically isolate the mains supply from the transmitter"
+    },
+    "explanation": "Asymmetries in the antenna or its feed can create an unwanted common-mode current (a 'coax-shield current') on the outside of the coax's outer conductor. This can carry RF energy back into the shack ('RF in the shack', with possible interference to computers, audio gear, etc.), distort the intended antenna pattern, and cause the feedline itself to radiate. A common-mode choke (e.g. several ferrite toroids or a ferrite winding on the cable) raises the impedance seen by this common-mode current and effectively suppresses it without impairing the actual signal transfer."
+  },
+  "afu-a-emv-04": {
+    "question": "Why should the grounding system of a high-power amateur station be kept as low-impedance and as short as possible?",
+    "options": {
+      "a": "Because a long, high-impedance ground lead automatically increases transmit power",
+      "b": "Because only the color of the ground cable determines its effectiveness",
+      "c": "Because at RF, a long or high-impedance ground connection can present significant inductance and hence impedance, causing it to lose its protective effect for personal and lightning safety and its effectiveness at reducing RF feedback into the shack",
+      "d": "Because longer ground leads fundamentally result in a better SWR"
+    },
+    "explanation": "At DC or mains frequency, a ground conductor behaves almost purely resistively, but at radio frequencies its inductance becomes significant: even a few meters of cable can present a meaningful impedance at RF. A long or thin ground lead therefore no longer provides an effective RF-short path to earth at amateur radio frequencies, which weakens both personal/lightning protection and its effectiveness against RF feedback in the shack (e.g. 'RF in the microphone'). Short, low-impedance, wide ground connections (e.g. copper strap rather than thin wire) are therefore preferable."
+  },
+  "afu-a-emv-05": {
+    "question": "Why is the distinction between near field and far field relevant when assessing personal RF-exposure safety near an amateur radio antenna?",
+    "options": {
+      "a": "Because field strengths and how they fall off with distance behave differently in the near field than in the far field, and because of the long wavelength on low HF bands the near-field zone (which extends over a few wavelengths) can be physically very large in absolute meters, which must be factored into setting safety distances",
+      "b": "Because no electromagnetic field strength whatsoever can be measured in the far field",
+      "c": "Because the distinction is relevant exclusively for radar installations, never for amateur radio stations",
+      "d": "Because the law fundamentally permits higher transmit power in the near field than in the far field"
+    },
+    "explanation": "Close to the antenna (the near field, extending over a few wavelengths), the electric and magnetic fields relate to each other differently and fall off with distance differently than in the far field, where a simple 1/r relationship applies to field strength. Because the wavelength on the lower HF bands (e.g. 80 m, 40 m) is very large, the near-field zone there can extend over several meters to tens of meters - much further than on VHF/UHF. When determining safe distances to people (e.g. under the BEMFV), this frequency-dependent extent of the near-field zone must therefore be explicitly taken into account."
+  },
+  "afu-a-emv-06": {
+    "question": "Which measure is typically most effective at reducing genuine harmonic interference (actual transmitter emissions at a multiple of the transmit frequency) affecting a nearby broadcast or television receiver?",
+    "options": {
+      "a": "Increasing transmit power so the wanted signal overrides the interference",
+      "b": "An additional low-pass filter, carefully tuned to the fundamental, placed between the final stage and the antenna/feedline, which effectively attenuates frequencies above the fundamental",
+      "c": "Completely removing every ground connection from the transmitting installation",
+      "d": "Shortening the antenna feedline to just a few centimeters"
+    },
+    "explanation": "Because harmonic interference arises from the final stage radiating unwanted signal content at multiples of the set transmit frequency, an additional low-pass filter carefully tuned to the fundamental, placed between the final stage and the antenna, is the targeted remedy: it substantially attenuates the offending harmonics while letting the fundamental pass largely unimpeded. Increasing transmit power would actually make the interference worse, since the harmonic power rises proportionally along with it."
+  }
+}

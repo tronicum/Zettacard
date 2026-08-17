@@ -1,0 +1,452 @@
+{
+  "afu-a-antennentechnik-01": {
+    "question": "Welche Fusspunktimpedanz besitzt ein in freiem Raum resonant betriebener Halbwellendipol naeherungsweise?",
+    "options": {
+      "a": "36 Ohm",
+      "b": "73 Ohm",
+      "c": "300 Ohm",
+      "d": "450 Ohm"
+    },
+    "explanation": "Ein resonanter Halbwellendipol im freien Raum hat eine Strahlungswiderstand/Fusspunktimpedanz von rund 73 Ohm (rein ohmsch bei exakter Resonanzlaenge). Dieser Wert ist die Grundlage fuer die weit verbreitete Anpassung an 50-Ohm-Koaxialkabel, wobei die Fehlanpassung in der Praxis meist toleriert wird."
+  },
+  "afu-a-antennentechnik-02": {
+    "question": "Welche Fusspunktimpedanz weist eine ideale Viertelwellen-Vertikalantenne (Groundplane) ueber perfekt leitendem Erdreich naeherungsweise auf?",
+    "options": {
+      "a": "Etwa 36 Ohm",
+      "b": "Etwa 73 Ohm",
+      "c": "Etwa 150 Ohm",
+      "d": "Etwa 600 Ohm"
+    },
+    "explanation": "Die Vertikalantenne ueber ideal leitendem Boden entspricht elektrisch der Haelfte eines Halbwellendipols (Spiegelbildwirkung des Erdreichs), sodass sich die Fusspunktimpedanz gegenueber 73 Ohm halbiert und rund 36 Ohm betraegt. In der Praxis weicht der Wert je nach Erdungssystem (Radials) und realer Bodenleitfaehigkeit ab."
+  },
+  "afu-a-antennentechnik-03": {
+    "question": "Welche Fusspunktimpedanz besitzt eine gefaltete Dipolantenne (Faltdipol) im Vergleich zum einfachen Halbwellendipol naeherungsweise?",
+    "options": {
+      "a": "Etwa ein Viertel, also rund 18 Ohm",
+      "b": "Etwa gleich, also rund 73 Ohm",
+      "c": "Etwa das Dreieinhalbfache, also rund 240 Ohm",
+      "d": "Etwa das Zehnfache, also rund 730 Ohm"
+    },
+    "explanation": "Ein Faltdipol besteht aus zwei parallel geschalteten Leitern, die stromseitig in Reihe wirken, wodurch sich die Fusspunktimpedanz gegenueber dem einfachen Dipol deutlich erhoeht: auf rund 240 Ohm (der vom BNetzA-Fragenkatalog Klasse A angegebene Wert). Das macht den Faltdipol gut geeignet fuer den direkten Anschluss an symmetrische 240- bis 300-Ohm-Bandleitung."
+  },
+  "afu-a-antennentechnik-04": {
+    "question": "Welche Wirkung hat ein zusaetzlicher Reflektor und Direktor bei einer Yagi-Antenne (gegenueber einem einfachen Dipol) in erster Linie?",
+    "options": {
+      "a": "Erhoehung der Fusspunktimpedanz auf mehrere Kilohm",
+      "b": "Buendelung der Strahlung in eine Vorzugsrichtung und dadurch Gewinn sowie ein bestimmtes Vor-Rueck-Verhaeltnis",
+      "c": "Vollstaendige Unterdrueckung jeglicher Nebenkeulen",
+      "d": "Umwandlung der linearen Polarisation in zirkulare Polarisation"
+    },
+    "explanation": "Reflektor- und Direktorelemente einer Yagi-Antenne koppeln parasitaer an das gespeiste Element und erzeugen durch konstruktive/destruktive Ueberlagerung eine Richtwirkung: Die Strahlung wird in Richtung der Direktoren gebuendelt (Gewinn gegenueber dem Dipol) und in Richtung des Reflektors geschwaecht (Vor-Rueck-Verhaeltnis). Nebenkeulen werden dabei reduziert, aber nicht vollstaendig beseitigt."
+  },
+  "afu-a-antennentechnik-05": {
+    "question": "Wie wirkt sich die Montagehoehe einer vertikal polarisierten Antenne ueber realem Erdreich hauptsaechlich auf das Abstrahldiagramm aus?",
+    "options": {
+      "a": "Groessere Hoehe senkt tendenziell den Abstrahlwinkel und beguenstigt DX-Verbindungen ueber weite Strecken",
+      "b": "Die Hoehe hat auf HF grundsaetzlich keinerlei Einfluss auf das Abstrahldiagramm",
+      "c": "Groessere Hoehe erhoeht immer den Abstrahlwinkel auf ueber 80 Grad",
+      "d": "Die Hoehe beeinflusst ausschliesslich die Fusspunktimpedanz, nicht das Diagramm"
+    },
+    "explanation": "Reflexionen an realem, verlustbehaftetem Erdreich beeinflussen den vertikalen Abstrahlwinkel massgeblich. Mit zunehmender Antennenhoehe (in Wellenlaengen gemessen) sinkt tendenziell der Hauptabstrahlwinkel gegenueber dem Horizont, was fuer DX-Verbindungen ueber Ionosphaerenreflexion mit flachem Einfallswinkel guenstig ist. Bei geringer Hoehe dominiert dagegen steilere Abstrahlung, die eher fuer Nahbereichsverbindungen (NVIS) geeignet ist."
+  },
+  "afu-a-antennentechnik-06": {
+    "question": "In welche Richtung strahlt ein in freiem Raum aufgehaengter Halbwellendipol am staerksten ab?",
+    "options": {
+      "a": "Ausschliesslich in Richtung der Drahtachse",
+      "b": "Gleichmaessig in alle Raumrichtungen (kugelfoermig)",
+      "c": "Am staerksten senkrecht zur Drahtachse, mit Nullstellen in Drahtrichtung (Achtercharakteristik)",
+      "d": "Ausschliesslich senkrecht nach oben und unten"
+    },
+    "explanation": "Das horizontale Abstrahldiagramm eines Halbwellendipols im freien Raum hat die Form einer Acht: Die Strahlung ist senkrecht zur Drahtachse maximal und faellt zu den Drahtenden hin auf null ab. Ein isotroper Kugelstrahler, der in alle Richtungen gleich stark abstrahlt, ist dagegen nur eine theoretische Referenzgroesse fuer Gewinnangaben (dBi)."
+  },
+  "afu-a-antennentechnik-07": {
+    "question": "Was beschreibt der Begriff 'Vor-Rueck-Verhaeltnis' (Front-to-Back Ratio) bei einer Richtantenne?",
+    "options": {
+      "a": "Das Verhaeltnis zwischen Sendeleistung und empfangener Leistung",
+      "b": "Das Verhaeltnis der Strahlungsleistung in Hauptstrahlrichtung zur Strahlungsleistung in die Gegenrichtung (meist in dB angegeben)",
+      "c": "Das Verhaeltnis von Fusspunktimpedanz zu Kabelwellenwiderstand",
+      "d": "Das Verhaeltnis der Antennenhoehe zur verwendeten Wellenlaenge"
+    },
+    "explanation": "Das Vor-Rueck-Verhaeltnis gibt an, um wie viel dB die Strahlungsleistung einer Richtantenne (z. B. Yagi) in Hauptstrahlrichtung staerker ist als in der um 180 Grad entgegengesetzten Richtung. Ein hohes Vor-Rueck-Verhaeltnis unterdrueckt Stoersignale und QRM aus der Gegenrichtung wirksam."
+  },
+  "afu-a-antennentechnik-08": {
+    "question": "Warum lassen sich bei gleicher physischer Antennengroesse auf hoeheren Frequenzen (z. B. 70 cm) tendenziell hoehere Antennengewinne realisieren als auf niedrigen Frequenzen (z. B. 80 m)?",
+    "options": {
+      "a": "Weil die physische Groesse im Verhaeltnis zur Wellenlaenge auf hohen Frequenzen groesser ausfaellt, sodass mehr Elemente/eine groessere effektive Apertur in Wellenlaengen realisierbar sind",
+      "b": "Weil hoehere Frequenzen grundsaetzlich eine geringere Freiraumdaempfung besitzen als niedrige Frequenzen",
+      "c": "Weil bei hohen Frequenzen automatisch eine hoehere Sendeleistung zulaessig ist",
+      "d": "Weil auf hohen Frequenzen keine Erdreichverluste auftreten"
+    },
+    "explanation": "Antennengewinn haengt massgeblich von der Groesse der Struktur in Wellenlaengen (bzw. der effektiven Apertur) ab. Bei fester physischer Baugroesse - etwa ein Mast fester Laenge - passen auf 70 cm sehr viel mehr Wellenlaengen und damit potenziell mehr Elemente oder eine groessere Aperturflaeche hinein als auf 80 m, wo bereits ein einfacher Halbwellendipol viele Meter lang ist. Die Freiraumdaempfung nimmt dagegen mit der Frequenz sogar zu, nicht ab."
+  },
+  "afu-a-leitungstheorie-01": {
+    "question": "Was bezeichnet der Wellenwiderstand (Kennwiderstand, Z0) einer Hochfrequenzleitung wie Koaxialkabel?",
+    "options": {
+      "a": "Den ohmschen Gleichstromwiderstand des Innenleiters",
+      "b": "Das Verhaeltnis von Spannung zu Strom einer sich auf der unendlich langen bzw. reflexionsfrei abgeschlossenen Leitung ausbreitenden Welle, bestimmt durch die geometrischen und dielektrischen Eigenschaften der Leitung",
+      "c": "Den Widerstand, der beim Kurzschluss des Kabelendes gemessen wird",
+      "d": "Die maximale Sendeleistung, die das Kabel verlustfrei uebertragen kann"
+    },
+    "explanation": "Der Wellenwiderstand Z0 ist eine Kenngroesse der Leitung selbst (bei Koax bestimmt durch Innenleiterdurchmesser, Aussenleiterdurchmesser und Dielektrikum), nicht der angeschlossenen Last. Er beschreibt das Spannungs-Strom-Verhaeltnis einer fortlaufenden Welle auf einer unendlich langen bzw. mit Z0 reflexionsfrei abgeschlossenen Leitung. Nur wenn die Lastimpedanz gleich Z0 ist, entsteht keine Reflexion."
+  },
+  "afu-a-leitungstheorie-02": {
+    "question": "Ein Sender liefert an eine Antenne eine Vorlaufleistung von 100 W, gemessen wird eine Ruecklaufleistung von 4 W. Wie gross ist das Stehwellenverhaeltnis (SWV) naeherungsweise?",
+    "options": {
+      "a": "1,04",
+      "b": "1,2",
+      "c": "1,5",
+      "d": "2,0"
+    },
+    "explanation": "Der Betrag des Reflexionsfaktors ergibt sich aus |Gamma| = Wurzel(Pruck/Pvor) = Wurzel(4/100) = Wurzel(0,04) = 0,2. Das Stehwellenverhaeltnis berechnet sich dann als SWV = (1+|Gamma|)/(1-|Gamma|) = 1,2/0,8 = 1,5. Ein SWV von 1,5 gilt fuer die meisten Sendeendstufen als unkritisch."
+  },
+  "afu-a-leitungstheorie-03": {
+    "question": "Wozu dient ein Smith-Diagramm in der Leitungs- und Anpassungstechnik?",
+    "options": {
+      "a": "Zur grafischen Darstellung normierter komplexer Impedanzen (oder Admittanzen) und zur Loesung von Anpassungs- und Transformationsaufgaben laengs einer Leitung",
+      "b": "Zur direkten Messung der abgestrahlten Feldstaerke einer Antenne in Metern pro Sekunde",
+      "c": "Zur Berechnung der Sonnenfleckenrelativzahl fuer die Ausbreitungsvorhersage",
+      "d": "Zur Kennzeichnung zulaessiger Sendefrequenzen im Amateurfunk-Bandplan"
+    },
+    "explanation": "Das Smith-Diagramm ist ein grafisches Werkzeug, in dem normierte komplexe Impedanzen (bezogen auf den Wellenwiderstand Z0) als Punkte innerhalb eines Einheitskreises dargestellt werden. Es erlaubt, den Impedanzverlauf laengs einer Leitung, den Einfluss von Anpassnetzwerken (z. B. L-Glied, Stichleitung) sowie Reflexionsfaktor und Stehwellenverhaeltnis anschaulich grafisch zu ermitteln, ohne komplexe Rechnungen von Hand durchfuehren zu muessen."
+  },
+  "afu-a-leitungstheorie-04": {
+    "question": "Warum kann ein hohes SWV am Senderausgang trotz einer verlustbehafteten (langen, duennen) Speiseleitung geringer erscheinen, als es tatsaechlich am Antennenfusspunkt vorliegt?",
+    "options": {
+      "a": "Verlustbehaftete Leitungen erhoehen das gemessene SWV am Sender immer im Vergleich zum Antennenfusspunkt",
+      "b": "Leitungsdaempfung schwaecht sowohl die vor- als auch die ruecklaufende Welle auf dem Weg zum Messpunkt, sodass das am Sendeende gemessene SWV rechnerisch niedriger ausfaellt als das reale SWV an der Fehlanpassungsstelle (Antenne)",
+      "c": "Weil Koaxialkabel oberhalb 30 MHz grundsaetzlich verlustfrei sind",
+      "d": "Weil das SWV physikalisch nur am Sender selbst definiert ist und an der Antenne gar nicht existiert"
+    },
+    "explanation": "Die reflektierte Welle muss den verlustbehafteten Leitungsweg von der Fehlanpassungsstelle (Antenne) zurueck zum Messpunkt (Sender) ein zweites Mal durchlaufen und wird dabei zusaetzlich gedaempft. Dadurch erscheint das am Senderausgang gemessene SWV guenstiger, als es am Antennenfusspunkt tatsaechlich ist - ein Effekt, der bei langen, verlustreichen Leitungen (z. B. duennes Koax auf hohen Frequenzen) besonders ausgepraegt ist und bei der Fehlersuche beruecksichtigt werden muss."
+  },
+  "afu-a-leitungstheorie-05": {
+    "question": "Wie kann eine Viertelwellenleitung (Lambda/4-Transformator) genutzt werden, um zwei unterschiedliche reelle Impedanzen aneinander anzupassen?",
+    "options": {
+      "a": "Ihr Wellenwiderstand wird so gewaehlt, dass er die geometrische Mittelung der beiden anzupassenden reellen Impedanzen ist (Z_transformator = Wurzel aus Z1 mal Z2)",
+      "b": "Ihre physische Laenge wird beliebig gewaehlt, der Wellenwiderstand spielt dabei keine Rolle",
+      "c": "Sie funktioniert ausschliesslich bei komplexen, niemals bei reellen Lastimpedanzen",
+      "d": "Sie transformiert grundsaetzlich jede Last verlustfrei auf exakt 50 Ohm, unabhaengig vom gewaehlten Wellenwiderstand"
+    },
+    "explanation": "Ein Lambda/4-Leitungsstueck transformiert eine reelle Abschlussimpedanz Z_last nach der Beziehung Z_transformator^2 = Z_ein * Z_last. Soll also eine Last Z1 an eine Quelle mit Impedanz Z2 angepasst werden, waehlt man den Wellenwiderstand der Viertelwellenleitung als geometrisches Mittel Z_transformator = Wurzel(Z1 * Z2). Diese Technik wird zum Beispiel eingesetzt, um eine 36-Ohm-Vertikalantenne an 50-Ohm-Koax anzupassen."
+  },
+  "afu-a-leitungstheorie-06": {
+    "question": "In welchem Abstand entlang einer verlustarmen, fehlangepassten Leitung wiederholen sich die Spannungsmaxima (bzw. -minima) der stehenden Welle?",
+    "options": {
+      "a": "Im Abstand einer vollen Wellenlaenge Lambda",
+      "b": "Im Abstand einer halben Wellenlaenge Lambda/2",
+      "c": "Im Abstand einer Viertelwellenlaenge Lambda/4, unabhaengig von der Fehlanpassung",
+      "d": "In einem von der Frequenz vollstaendig unabhaengigen, festen Abstand in Metern"
+    },
+    "explanation": "Ueberlagern sich vor- und ruecklaufende Welle auf einer fehlangepassten Leitung, entsteht ein stehendes Wellenmuster mit Spannungsmaxima und -minima, die sich periodisch im Abstand von Lambda/2 wiederholen (zwei aufeinanderfolgende Maxima liegen eine halbe Wellenlaenge auseinander). Zwischen einem Maximum und dem naechstgelegenen Minimum liegt entsprechend ein Viertel der Wellenlaenge."
+  },
+  "afu-a-leitungstheorie-07": {
+    "question": "Was beschreibt der Verkuerzungsfaktor (Velocity Factor) eines Koaxialkabels?",
+    "options": {
+      "a": "Das Verhaeltnis von Aussendurchmesser zu Innenleiterdurchmesser des Kabels",
+      "b": "Den Faktor, um den sich die maximal zulaessige Sendeleistung durch das Kabel verringert",
+      "c": "Das Verhaeltnis der Ausbreitungsgeschwindigkeit der elektromagnetischen Welle im Kabel zur Lichtgeschwindigkeit im Vakuum, massgeblich fuer die Umrechnung von elektrischer in physische Laenge",
+      "d": "Den Reflexionsfaktor bei nicht angepasstem Abschlusswiderstand"
+    },
+    "explanation": "Da sich elektromagnetische Wellen im Dielektrikum eines Koaxialkabels langsamer ausbreiten als im Vakuum, ist der Verkuerzungsfaktor (typisch 0,66 bis 0,85 je nach Dielektrikum) das Verhaeltnis dieser Ausbreitungsgeschwindigkeit zur Lichtgeschwindigkeit c. Er muss bei der Berechnung der physischen Laenge von Leitungsstuecken wie Lambda/4-Transformatoren oder Stichleitungen beruecksichtigt werden, da sonst die elektrische Laenge nicht stimmt."
+  },
+  "afu-a-leitungstheorie-08": {
+    "question": "Welchen Wert hat das Stehwellenverhaeltnis (SWV) bei einer ideal angepassten Leitung ohne jede Reflexion?",
+    "options": {
+      "a": "0",
+      "b": "Unendlich",
+      "c": "-1",
+      "d": "1 (auch als 1:1 bezeichnet)"
+    },
+    "explanation": "Ist die Lastimpedanz exakt gleich dem Wellenwiderstand der Leitung, findet keine Reflexion statt (Reflexionsfaktor Gamma = 0), und es bildet sich keine stehende Welle aus. Das Stehwellenverhaeltnis erreicht dann seinen bestmoeglichen Wert von 1, ueblicherweise als 1:1 angegeben. SWV-Werte unter 1 sind physikalisch nicht moeglich."
+  },
+  "afu-a-ausbreitung-01": {
+    "question": "Welche Eigenschaft ist fuer die D-Schicht der Ionosphaere kennzeichnend?",
+    "options": {
+      "a": "Sie existiert nur nachts und ermoeglicht dann die weitreichendste HF-Ausbreitung",
+      "b": "Sie reflektiert zuverlaessig alle Frequenzen oberhalb 30 MHz",
+      "c": "Sie bildet sich nur tagsueber durch Sonneneinstrahlung, verschwindet nachts weitgehend und daempft vor allem niedrige HF-Frequenzen (insbesondere unterhalb etwa 7 MHz) durch Absorption, statt sie zu reflektieren",
+      "d": "Sie befindet sich oberhalb der F2-Schicht und ist fuer den 10-m-DX-Verkehr verantwortlich"
+    },
+    "explanation": "Die D-Schicht liegt in der niedrigsten Hoehe der Ionosphaere (ca. 60-90 km) und entsteht durch Sonneneinstrahlung tagsueber; nachts rekombiniert sie weitgehend und verschwindet. Sie reflektiert HF-Signale kaum, sondern absorbiert sie - besonders stark bei niedrigen Frequenzen wie 80 m und 40 m tagsueber. Deshalb funktionieren die unteren Baender fuer weite Verbindungen meist erst nach Sonnenuntergang zuverlaessig besser."
+  },
+  "afu-a-ausbreitung-02": {
+    "question": "Was bezeichnet die 'maximal nutzbare Frequenz' (MUF, Maximum Usable Frequency) fuer eine bestimmte Funkverbindung?",
+    "options": {
+      "a": "Die hoechste Frequenz, die bei gegebenem Einfallswinkel noch an der Ionosphaere zur Erde zurueckreflektiert wird, statt sie zu durchdringen",
+      "b": "Die niedrigste Frequenz, unterhalb derer keinerlei Absorption in der D-Schicht auftritt",
+      "c": "Die gesetzlich hoechstzulaessige Sendefrequenz fuer Funkamateure der Klasse A",
+      "d": "Die Frequenz, bei der die Antenne den geringsten Stehwellenfaktor aufweist"
+    },
+    "explanation": "Die MUF ist keine feste Gesetzesgroesse, sondern eine ausbreitungstechnische Kenngroesse: Sie gibt fuer eine konkrete Verbindungsstrecke und einen bestimmten Einfallswinkel die hoechste Frequenz an, die von der Ionosphaere noch zur Erde zurueckreflektiert wird - oberhalb der MUF durchdringt die Welle die Ionosphaere und geht in den Weltraum verloren. Sie haengt von der Kritischen Frequenz der jeweiligen Schicht sowie vom Einfallswinkel ab (naeherungsweise ueber das Sekantengesetz) und schwankt mit Tageszeit, Jahreszeit und Sonnenaktivitaet."
+  },
+  "afu-a-ausbreitung-03": {
+    "question": "Wodurch ist das Phaenomen der 'Greyline-Ausbreitung' (Dämmerungsausbreitung) auf den unteren Kurzwellenbaendern gekennzeichnet?",
+    "options": {
+      "a": "Sie tritt ausschliesslich mittags bei hoechstem Sonnenstand auf und ist auf 10 m am staerksten",
+      "b": "In der schmalen Uebergangszone zwischen Tag und Nacht (Sonnenaufgang/-untergang) ist die D-Schicht-Absorption stark reduziert, waehrend die hoeheren Schichten oft noch ausreichend ionisiert sind, wodurch besonders auf 80 m/40 m ungewoehnlich weitreichende DX-Verbindungen entlang der Daemmerungslinie moeglich werden",
+      "c": "Sie beschreibt ein rein optisches Phaenomen ohne jeden Einfluss auf die Funkausbreitung",
+      "d": "Sie tritt nur auf UKW-Baendern oberhalb 144 MHz auf"
+    },
+    "explanation": "Entlang der 'Greyline' (der Terminatorlinie zwischen Tag- und Nachtseite der Erde) sind Sender und Empfaenger gewissermassen zeitgleich in der Daemmerung. Die tagsueber stark absorbierende D-Schicht ist in dieser Uebergangsphase bereits (oder noch) schwach ausgepraegt, waehrend die hoeher liegenden, ionisierten Schichten den Signalen noch genug Reflexion bieten. Das ermoeglicht insbesondere auf den unteren Baendern (80 m, 40 m) auffaellig gute, oft transkontinentale Verbindungen entlang dieser schmalen Zone."
+  },
+  "afu-a-ausbreitung-04": {
+    "question": "Was versteht man unter 'Sporadic-E' (Sporaden-E-Ausbreitung)?",
+    "options": {
+      "a": "Ein staendig vorhandener, regelmaessiger Ausbreitungsweg ueber die F2-Schicht auf Kurzwelle",
+      "b": "Zeitlich und geografisch unregelmaessig auftretende, kleinraeumige, stark ionisierte Wolken in der E-Schicht, die kurzzeitig ungewoehnlich weitreichende Verbindungen auf hohen HF- und niedrigen VHF-Baendern (z. B. 10 m, 6 m, gelegentlich 2 m) ermoeglichen",
+      "c": "Ein ausschliesslich winterliches, auf 160 m begrenztes Phaenomen",
+      "d": "Eine kuenstliche, von Amateurfunkstellen erzeugte Ausbreitungsform"
+    },
+    "explanation": "Sporadic-E entsteht durch zeitlich begrenzte, unvorhersehbare Regionen intensiver Ionisation in der E-Schicht (ca. 90-120 km Hoehe), typischerweise verstaerkt in den Sommermonaten. Diese Wolken koennen Signale auf Frequenzen reflektieren, die weit ueber der sonst ueblichen MUF liegen, und ermoeglichen dadurch ueberraschend weitreichende Verbindungen auf 10 m, 6 m und gelegentlich sogar 2 m, obwohl diese Baender normalerweise nicht ueber die Ionosphaere reflektiert werden."
+  },
+  "afu-a-ausbreitung-05": {
+    "question": "Was beschreibt die 'Tote Zone' (Skip Zone) bei der HF-Raumwellenausbreitung?",
+    "options": {
+      "a": "Ein Gebiet, in dem grundsaetzlich niemals Funkverbindungen moeglich sind",
+      "b": "Den Bereich unmittelbar um die Sendeantenne, in dem die Sendeleistung gesetzlich begrenzt ist",
+      "c": "Den Bereich zwischen der Reichweite der Bodenwelle bzw. der Nahbereichs-Raumwelle und dem Punkt, an dem die erste ueber die Ionosphaere reflektierte Raumwelle wieder auf die Erde trifft - dort ist normalerweise kein Empfang moeglich",
+      "d": "Ausschliesslich ein Phaenomen, das nur oberhalb 144 MHz auftritt"
+    },
+    "explanation": "Zwischen dem Punkt, an dem die Bodenwelle (bzw. eine sehr flach abgestrahlte Raumwelle) zu schwach wird, und dem Punkt, an dem die erste an der Ionosphaere reflektierte Raumwelle wieder auf die Erdoberflaeche zurueckkehrt, liegt die Skip-Zone (Tote Zone). In diesem Ringbereich ist unter den gegebenen Ausbreitungsbedingungen normalerweise kein Empfang moeglich, obwohl sowohl naeher als auch weiter entfernte Stationen empfangen werden koennen."
+  },
+  "afu-a-ausbreitung-06": {
+    "question": "Wofuer wird die NVIS-Betriebsart (Near Vertical Incidence Skywave) typischerweise eingesetzt?",
+    "options": {
+      "a": "Fuer zuverlaessige Nahbereichsverbindungen (etwa 0 bis 300 km) ohne Skip-Zone, durch steilen, nahezu senkrechten Abstrahlwinkel meist niedrig montierter Horizontalantennen auf den unteren HF-Baendern",
+      "b": "Fuer extrem weitreichende Weltraumverbindungen ueber Satelliten auf UKW",
+      "c": "Ausschliesslich fuer digitale Schmalbandbetriebsarten oberhalb 1 GHz",
+      "d": "Fuer die Kalibrierung von Praezisionsfrequenznormalen"
+    },
+    "explanation": "Bei NVIS wird eine Antenne (haeufig ein niedrig ueber Grund montierter Horizontaldipol) bewusst so betrieben, dass sie den grossen Teil ihrer Energie steil nach oben (nahe 90 Grad) abstrahlt. Die Raumwelle wird dann quasi senkrecht an der Ionosphaere reflektiert und faellt in einem Umkreis von etwa 0 bis 300 km wieder zur Erde zurueck - ohne die sonst typische Skip-Zone. Das macht NVIS besonders geeignet fuer zuverlaessigen Nahbereichsfunk in unwegsamem Gelaende, etwa im Not- und Katastrophenfunk."
+  },
+  "afu-a-ausbreitung-07": {
+    "question": "Wie wirkt sich ein hoher Sonnenfleckenstand (Sonnenfleckenmaximum) typischerweise auf die HF-Ausbreitung aus?",
+    "options": {
+      "a": "Er senkt die kritische Frequenz der F2-Schicht so stark, dass die oberen HF-Baender (10 m, 15 m) fast nie mehr fuer DX geeignet sind",
+      "b": "Er erhoeht in der Regel die Ionisation der F2-Schicht und damit deren kritische Frequenz sowie die MUF, sodass die hoeheren HF-Baender (z. B. 10 m, 15 m) haeufiger fuer weitreichende Verbindungen geoeffnet sind",
+      "c": "Er hat ausschliesslich Einfluss auf UKW-Baender oberhalb 144 MHz, nicht jedoch auf Kurzwelle",
+      "d": "Er verhindert grundsaetzlich jede Sporadic-E-Ausbreitung"
+    },
+    "explanation": "Mit steigender Sonnenaktivitaet (hoher Sonnenfleckenrelativzahl) nimmt die UV- und Roentgenstrahlung zu, die die F2-Schicht ionisiert. Eine staerker ionisierte F2-Schicht hat eine hoehere kritische Frequenz und damit auch eine hoehere MUF, wodurch die oberen Kurzwellenbaender (10 m, 15 m, teils auch 6 m) haeufiger und ueber weitere Strecken fuer DX-Verbindungen offen sind. Im Sonnenfleckenminimum sind diese Baender dagegen oft tagelang tot."
+  },
+  "afu-a-ausbreitung-08": {
+    "question": "Was kennzeichnet 'Mehrfachsprung'-Ausbreitung (Multi-Hop) einer Raumwelle auf Kurzwelle?",
+    "options": {
+      "a": "Das Signal springt nur ein einziges Mal zwischen Sender und Empfaenger, auch bei sehr grossen Entfernungen",
+      "b": "Sie tritt ausschliesslich bei Bodenwellenausbreitung auf niedrigen Frequenzen auf",
+      "c": "Das Signal wird mehrfach zwischen Ionosphaere und Erdoberflaeche reflektiert, wodurch sehr grosse Entfernungen ueberbrueckt werden koennen, wobei jeder zusaetzliche Sprung durch Reflexions- und Bodenverluste die Signalstaerke weiter verringert und Fading beguenstigt",
+      "d": "Sie kommt ausschliesslich bei Satellitenverbindungen im 70-cm-Band vor"
+    },
+    "explanation": "Reicht eine einzelne Reflexion an der Ionosphaere nicht aus, um zwei weit voneinander entfernte Stationen zu verbinden, kann das Signal mehrfach zwischen Erdboden (bzw. Meeresoberflaeche) und Ionosphaere hin- und herreflektiert werden (Mehrfachsprung). Dadurch lassen sich interkontinentale Entfernungen ueberbrueckt werden, allerdings verringert jeder zusaetzliche Sprung durch Boden- und Ionosphaerenverluste die Signalstaerke und die ueberlagerung mehrerer Pfade unterschiedlicher Laufzeit foerdert Fading und Verzerrungen."
+  },
+  "afu-a-leistung-01": {
+    "question": "Welche Verstaerkerbetriebsart wird fuer lineare SSB-Sendeendstufen typischerweise gewaehlt und warum?",
+    "options": {
+      "a": "Betriebsart C, weil sie den hoechsten Wirkungsgrad aller Klassen bietet und daher am wirtschaftlichsten ist",
+      "b": "Meist Betriebsart AB, als Kompromiss zwischen ausreichender Linearitaet (zur verzerrungsarmen Uebertragung der SSB-Einhuellenden) und akzeptablem Wirkungsgrad",
+      "c": "Ausschliesslich Betriebsart A, weil bei SSB Linearitaet keine Rolle spielt",
+      "d": "Betriebsart D, da sie speziell fuer analoge Sprachuebertragung entwickelt wurde"
+    },
+    "explanation": "SSB ist eine amplitudenmodulierte Betriebsart mit staendig schwankender Einhuellenden, die eine hinreichend lineare Verstaerkung erfordert - eine stark nichtlineare Endstufe wuerde die Sprachinformation verzerren und starke Intermodulationsprodukte erzeugen. Betriebsart C ist fuer SSB ungeeignet, da sie stark nichtlinear arbeitet. In der Praxis wird daher meist Betriebsart AB gewaehlt: sie bietet ausreichende Linearitaet bei deutlich besserem Wirkungsgrad als die reine Betriebsart A."
+  },
+  "afu-a-leistung-02": {
+    "question": "Welche grundsaetzliche Aussage zum Unterschied der maximal zulaessigen Sendeleistung zwischen Klasse-A- und Klasse-E-Funkamateuren trifft zu?",
+    "options": {
+      "a": "Beide Klassen duerfen exakt dieselbe maximale Sendeleistung nutzen, ein Unterschied besteht nur bei den Frequenzbereichen",
+      "b": "Klasse E darf grundsaetzlich mit hoeherer Leistung senden als Klasse A",
+      "c": "Klasse-A-Zeugnisinhaber duerfen nach Anlage 1 AFuV auf den meisten ihnen zugewiesenen Baendern eine deutlich hoehere maximale Sendeleistung nutzen als Klasse-E-Inhaber, deren Zeugnis leistungs- und bandmaessig staerker eingeschraenkt ist",
+      "d": "Die Sendeleistung beider Klassen ist gesetzlich nicht begrenzt, sondern liegt im freien Ermessen des Funkamateurs"
+    },
+    "explanation": "Die AFuV sieht in Anlage 1 (die zugleich die zugewiesenen Frequenzbereiche und die dort je Nutzerklasse zulaessige Sendeleistung festlegt) fuer Klasse-A-Zeugnisinhaber auf dem groessten Teil der zugewiesenen Amateurfunkbaender deutlich hoehere zulaessige Sendeleistungen vor als fuer Klasse E, deren Zeugnis sowohl im nutzbaren Frequenzspektrum als auch in der maximalen Leistung staerker eingeschraenkt ist. Die genauen Leistungswerte je Band aendern sich gelegentlich durch Novellierungen der AFuV und muessen vor praktischer Nutzung stets am aktuellen Anlage-1-Text geprueft werden."
+  },
+  "afu-a-leistung-03": {
+    "question": "Warum ist ein Antennenanpassgeraet (Antennentuner) besonders bei hoeherer Sendeleistung an einer nicht resonanten Antenne wichtig?",
+    "options": {
+      "a": "Es transformiert die von der Antenne/Speiseleitung praesentierte Fehlanpassung in eine fuer die Endstufe vertraegliche Impedanz (meist nahe 50 Ohm), wodurch Fehlanpassungsverluste in der Endstufe, erhoehte Spannungs-/Stromspitzen und moegliche Beschaedigungen bei hoher Leistung vermieden werden",
+      "b": "Es erhoeht grundsaetzlich die vom Sender abgegebene Leistung ueber die vom Geraet eingestellte Grenze hinaus",
+      "c": "Es ersetzt vollstaendig die Notwendigkeit einer korrekt dimensionierten Antenne",
+      "d": "Es dient ausschliesslich der Filterung von Netzbrummen aus der Stromversorgung"
+    },
+    "explanation": "Eine deutlich fehlangepasste Last kann an der Senderendstufe zu hohen Spannungs- und Stromspitzen fuehren, die bei niedriger Leistung meist unkritisch, bei hoher Sendeleistung aber zu ueberlastung, verringertem Wirkungsgrad und im schlimmsten Fall zur Zerstoerung der Endstufentransistoren/-roehren fuehren koennen. Ein Antennentuner zwischen Sender und Speiseleitung transformiert die Impedanz so, dass die Endstufe eine fuer sie vertraegliche Last (meist nahe 50 Ohm) sieht - er behebt aber nicht die Fehlanpassung und die damit verbundenen Verluste auf der Speiseleitung selbst."
+  },
+  "afu-a-leistung-04": {
+    "question": "Warum steigt bei hoeherer Sendeleistung die Bedeutung wirksamer Tiefpassfilterung zwischen Endstufe und Antenne besonders an?",
+    "options": {
+      "a": "Weil hoehere Leistung automatisch die Erzeugung von Oberwellen vollstaendig unterdrueckt",
+      "b": "Weil eine nichtlineare Endstufe grundsaetzlich Oberwellen des Sendesignals erzeugt und deren absolute Leistung mit der Grundwellenleistung mit ansteigt, sodass auch relativ schwache Oberwellenanteile bei hoher Sendeleistung in absoluten Werten problematische Stoerpegel erreichen koennen",
+      "c": "Weil bei hoeherer Leistung grundsaetzlich keine Grenzwerte fuer unerwuenschte Aussendungen mehr gelten",
+      "d": "Weil Tiefpassfilter ausschliesslich zur Verbesserung des Stehwellenverhaeltnisses dienen"
+    },
+    "explanation": "Jede nichtlineare Verstaerkerstufe erzeugt neben der gewuenschten Grundwelle auch Oberwellen (ganzzahlige Vielfache der Sendefrequenz). Deren Pegel liegt zwar meist viele dB unter dem der Grundwelle, doch bei hoher Sendeleistung kann selbst ein relativ kleiner prozentualer Oberwellenanteil in absoluten Watt-Werten ausreichen, um andere Funkdienste (z. B. Rundfunk, Flugfunk) empfindlich zu stoeren. Ein wirksames Tiefpassfilter zwischen Endstufe und Antenne ist deshalb bei hoeherer Leistung besonders wichtig, um unerwuenschte Aussendungen ausreichend zu daempfen."
+  },
+  "afu-a-leistung-05": {
+    "question": "Was versteht man unter Intermodulationsverzerrung (IMD) in einer linearen HF-Endstufe, etwa bei einem Zweitontest?",
+    "options": {
+      "a": "Den vollstaendigen Ausfall der Endstufe bei Uebersteuerung",
+      "b": "Ausschliesslich die Erzeugung von Oberwellen der Grundfrequenz, unabhaengig von weiteren Signalanteilen",
+      "c": "Die Erzeugung zusaetzlicher, unerwuenschter Mischprodukte aus zwei oder mehr gleichzeitig verstaerkten Signalanteilen (etwa zwei Toenen bei einem SSB-Zweitontest) durch nichtlineares Verhalten der Endstufe, die in der Naehe der Nutzfrequenz liegen und dadurch besonders stoerend wirken",
+      "d": "Die durch niedrige Sendeleistung verursachte Unterdrueckung von Nebenkeulen der Antenne"
+    },
+    "explanation": "Verstaerkt eine nicht perfekt lineare Endstufe gleichzeitig mehrere Frequenzanteile (z. B. die zwei Toene eines Zweitontests, der typischerweise SSB-Sprachsignale nachbildet), entstehen durch die Nichtlinearitaet zusaetzliche Mischprodukte bei Summen- und Differenzfrequenzen der Eingangssignale. Besonders stoerend sind Intermodulationsprodukte ungerader Ordnung (z. B. 3. Ordnung), da sie nahe an den Nutzfrequenzen liegen und sich nicht einfach herausfiltern lassen. Ausreichender Backoff vom Saettigungspunkt und eine hinreichend lineare Betriebsart (z. B. AB) reduzieren IMD."
+  },
+  "afu-a-leistung-06": {
+    "question": "Welche zusaetzliche Verpflichtung kann sich bei hoeherer Sendeleistung (typisch fuer Klasse-A-Stationen) aus dem Personenschutz vor elektromagnetischen Feldern ergeben?",
+    "options": {
+      "a": "Keine, der Personenschutz spielt im Amateurfunk gesetzlich keine Rolle",
+      "b": "Oberhalb bestimmter, von Frequenz und Sendeleistung (EIRP) abhaengiger Schwellenwerte kann nach der BEMFV eine Standortbescheinigung bzw. ein Sicherheitsabstands-Nachweis fuer die Amateurfunkstelle erforderlich werden, bevor die Anlage mit hoeherer Leistung in Betrieb genommen wird",
+      "c": "Eine Standortbescheinigung ist ausschliesslich fuer kommerzielle Rundfunksender vorgeschrieben, niemals fuer Amateurfunkstellen",
+      "d": "Hoehere Sendeleistung erfordert ausschliesslich eine laengere Antennenkabel-Erdung, aber keine Feldstaerkebetrachtung"
+    },
+    "explanation": "Die Verordnung ueber das Nachweisverfahren zur Begrenzung elektromagnetischer Felder (BEMFV) verlangt fuer ortsfeste Funkanlagen - je nach Sendeleistung/EIRP und Frequenzband - unter Umstaenden eine Standortbescheinigung bzw. zumindest eine Ermittlung und Einhaltung von Sicherheitsabstaenden zu Personen, bevor die Anlage betrieben werden darf. Da Klasse-A-Stationen deutlich hoehere Sendeleistungen nutzen duerfen als Klasse E, ist die Wahrscheinlichkeit, die relevanten Schwellenwerte zu ueberschreiten, entsprechend hoeher - die genauen Schwellenwerte und das Verfahren sind vor Inbetriebnahme im aktuellen BEMFV-Text sowie den Vordrucken der Bundesnetzagentur zu pruefen."
+  },
+  "afu-a-leistung-07": {
+    "question": "Warum muessen bei Dauerstrich-Digitalbetriebsarten mit hohem Tastverhaeltnis (z. B. FT8, RTTY) im Vergleich zu SSB bei gleicher PEP-Aussteuerung besondere Vorsichtsmassnahmen bezueglich Kuehlung und Dauerleistung der Endstufe beachtet werden?",
+    "options": {
+      "a": "Weil diese Betriebsarten eine nahezu konstante Traegerleistung ueber lange Zeitraeume abgeben (hohes Tastverhaeltnis), waehrend SSB-Sprache im Mittel nur einen Bruchteil der Spitzenleistung abgibt, sodass die mittlere thermische Belastung der Endstufe bei gleicher Spitzenleistung deutlich hoeher ausfaellt",
+      "b": "Weil digitale Betriebsarten grundsaetzlich eine hoehere Spitzenspannung als SSB erzeugen, unabhaengig vom Tastverhaeltnis",
+      "c": "Weil bei Digitalbetrieb grundsaetzlich keine Kuehlung erforderlich ist",
+      "d": "Weil FT8 und RTTY ausschliesslich mit sehr geringer Sendeleistung unterhalb 1 Watt betrieben werden duerfen"
+    },
+    "explanation": "Bei SSB-Sprache liegt das Verhaeltnis von mittlerer zu Spitzenleistung (PEP) typischerweise deutlich unter 1, da die Sprachhuellkurve staendig schwankt und Pausen enthaelt. Betriebsarten wie FT8 oder RTTY senden dagegen ueber weite Strecken der Aussendung einen nahezu konstanten Traeger (hohes Tastverhaeltnis nahe 100 %). Bei gleicher eingestellter PEP-Leistung fuehrt das bei Digitalbetrieb zu einer deutlich hoeheren mittleren (thermischen) Dauerbelastung der Endstufe, weshalb Sender-/Verstaerkerhersteller fuer solche Betriebsarten oft eine reduzierte Dauerleistung empfehlen und auf ausreichende Kuehlung geachtet werden muss."
+  },
+  "afu-a-leistung-08": {
+    "question": "Welche Massnahme wird fuer eine ortsfeste Amateurfunkstation mit hoher Sendeleistung und einer aussenliegenden Antennenanlage insbesondere zum Schutz vor Blitzeinwirkung und statischer Aufladung empfohlen?",
+    "options": {
+      "a": "Der vollstaendige Verzicht auf jede Erdungsverbindung, um Schleifenstroeme zu vermeiden",
+      "b": "Eine fachgerechte Erdungsanlage inklusive Blitzschutz-/ueberspannungsableiter fuer Antennenanlage und Speiseleitungen sowie das Trennen bzw. Erden der Antennenzuleitungen bei Gewitter und Nichtbetrieb",
+      "c": "Das dauerhafte Anschliessen aller Antennen an die Netzsteckdose als einzige Schutzmassnahme",
+      "d": "Der Betrieb der Station ausschliesslich mit vollem Sendeleistung waehrend eines Gewitters, um die Antenne 'freizuhalten'"
+    },
+    "explanation": "Eine grosse, aussenliegende Antennenanlage stellt ein erhoehtes Risiko fuer Blitzeinschlag und statische Aufladung dar. Empfohlen werden eine fachgerecht dimensionierte Erdungsanlage mit niederohmiger Verbindung zum Potentialausgleich, geeignete Blitzschutz-/ueberspannungsableiter in den Antennenzuleitungen sowie das physische Trennen (und Erden) der Antennenkabel vom Empfaenger/Sender bei Gewitter oder laengerem Nichtbetrieb der Station. Der Betrieb mit voller Leistung waehrend eines Gewitters ist dagegen ein erhebliches Sicherheitsrisiko und keine Schutzmassnahme."
+  },
+  "afu-a-modulation-01": {
+    "question": "Warum benoetigt ein Einseitenband-Signal (SSB) im Vergleich zu einem klassischen Doppelseitenband-AM-Signal deutlich weniger Bandbreite und Sendeleistung fuer dieselbe Sprachinformation?",
+    "options": {
+      "a": "Weil SSB grundsaetzlich mit einer hoeheren Traegerfrequenz arbeitet als AM",
+      "b": "Weil bei SSB die Sprachinformation digital komprimiert wird, bevor sie analog ausgestrahlt wird",
+      "c": "Weil bei SSB der Traeger sowie eines der beiden redundanten Seitenbaender unterdrueckt werden und nur ein Seitenband uebertragen wird, das die vollstaendige Information bereits allein enthaelt",
+      "d": "Weil SSB ausschliesslich fuer Digitalbetriebsarten, niemals fuer Sprachuebertragung eingesetzt wird"
+    },
+    "explanation": "Ein AM-Signal besteht aus Traeger sowie oberem und unterem Seitenband, wobei beide Seitenbaender dieselbe Information redundant enthalten. Bei SSB werden der Traeger sowie eines der beiden Seitenbaender unterdrueckt; das verbleibende Einzelseitenband traegt die vollstaendige Sprachinformation allein. Dadurch wird nur etwa die Haelfte der Bandbreite eines AM-Signals benoetigt, und die gesamte Sendeleistung fliesst in das informationstragende Seitenband statt teilweise in einen nicht-informationstragenden Traeger."
+  },
+  "afu-a-modulation-02": {
+    "question": "Was zeichnet die digitale Schwachsignal-Betriebsart FT8 im Vergleich zu klassischer SSB-Sprachuebertragung aus?",
+    "options": {
+      "a": "Sehr schmale Belegungsbandbreite (wenige Hz), festgelegte kurze Zeitfenster fuer strukturierte, meist automatisierte Kurznachrichten, und die Faehigkeit, auch bei sehr geringem Signal-Rausch-Abstand noch decodierbar zu sein",
+      "b": "Eine deutlich groessere Bandbreite als SSB, da Bilddaten uebertragen werden",
+      "c": "Die vollstaendige Uebertragung freier Sprachkonversation ohne jede Zeitstruktur",
+      "d": "Ausschliesslich analoge Signaluebertragung ohne jede digitale Codierung"
+    },
+    "explanation": "FT8 ist eine schmalbandige (rund 50 Hz Belegung), auf feste Zeitfenster (typisch 15 Sekunden) synchronisierte digitale Betriebsart mit strukturierten Kurznachrichten (z. B. Rufzeichen, Report). Durch starke Fehlerkorrekturverfahren ist FT8 auch bei Signal-Rausch-Abstaenden decodierbar, bei denen SSB-Sprache im Rauschen untergeht - dafuer ist der Nachrichteninhalt stark standardisiert und wenig frei formulierbar im Vergleich zu einer normalen Sprachverbindung."
+  },
+  "afu-a-modulation-03": {
+    "question": "Was unterscheidet FSK (Frequency Shift Keying), wie es klassisch bei RTTY verwendet wird, grundlegend von PSK (Phase Shift Keying)?",
+    "options": {
+      "a": "FSK ueberträgt Information ausschliesslich durch Amplitudenaenderungen, PSK ausschliesslich durch Frequenzaenderungen",
+      "b": "Bei FSK wird die digitale Information durch das Umschalten zwischen zwei (oder mehr) diskreten Traegerfrequenzen codiert, bei PSK dagegen durch definierte Phasenspruenge des Traegers bei konstanter Frequenz und meist konstanter Amplitude",
+      "c": "FSK ist eine rein analoge, PSK eine rein digitale Modulationsart, die nichts mit Traegerfrequenzen zu tun hat",
+      "d": "FSK und PSK sind technisch identisch und unterscheiden sich nur im Namen"
+    },
+    "explanation": "Bei FSK (z. B. klassisches RTTY mit 'Mark' und 'Space') wird die digitale Information durch Umschalten zwischen zwei diskreten Frequenzen uebertragen. Bei PSK (z. B. PSK31) bleibt die Traegerfrequenz dagegen konstant, waehrend die Information durch definierte Phasenspruenge (z. B. 180 Grad bei binaerem PSK) codiert wird. PSK-Betriebsarten koennen dadurch oft schmalbandiger und spektral effizienter gestaltet werden als klassisches FSK-RTTY."
+  },
+  "afu-a-modulation-04": {
+    "question": "Warum ist die Kenntnis der belegten Bandbreite (Occupied Bandwidth) einer Betriebsart fuer den Klasse-A-Funkamateur wichtig?",
+    "options": {
+      "a": "Weil sich damit beurteilen laesst, wie viele Signale gleichzeitig in einem Bandsegment ohne gegenseitige Stoerung Platz finden und ob die eigene Aussendung noch innerhalb des zugewiesenen Bandes bzw. Bandplan-Subbands bleibt",
+      "b": "Weil die belegte Bandbreite direkt die maximale Reichweite einer Funkverbindung bestimmt, unabhaengig von der Ausbreitung",
+      "c": "Weil eine groessere belegte Bandbreite automatisch zu weniger Stoerungen fuehrt",
+      "d": "Weil die Bandbreite ausschliesslich fuer VHF/UHF-Betrieb relevant ist, nicht fuer Kurzwelle"
+    },
+    "explanation": "Jede Betriebsart belegt ein bestimmtes Frequenzband um die eingestellte Mittenfrequenz (schmalbandig bei CW oder PSK31, deutlich breiter bei SSB oder Bildbetriebsarten wie SSTV). Die Kenntnis dieser belegten Bandbreite ist wichtig, um die Aussendung korrekt innerhalb der zugewiesenen Frequenzsegmente bzw. Bandplan-Empfehlungen zu platzieren und benachbarte Stationen nicht zu stoeren - besonders bei begrenztem Bandsegment und mehreren gleichzeitig aktiven Stationen."
+  },
+  "afu-a-modulation-05": {
+    "question": "Was uebertraegt die Betriebsart SSTV (Slow Scan Television) typischerweise im Amateurfunk?",
+    "options": {
+      "a": "Ausschliesslich verschluesselte Textnachrichten",
+      "b": "Bewegtbilder in Echtzeit mit voller Videobandbreite, vergleichbar mit terrestrischem Fernsehen",
+      "c": "Einzelstandbilder, die zeilenweise ueber ein Audiosignal codiert und typischerweise innerhalb einer normalen SSB-Sprachbandbreite uebertragen werden",
+      "d": "Ausschliesslich Telemetriedaten von Amateurfunksatelliten"
+    },
+    "explanation": "SSTV codiert ein Standbild zeilenweise in ein Audiosignal (unterschiedliche Toene fuer Helligkeit/Farbe je Bildpunkt), das dann wie ein normales Sprachsignal etwa per SSB uebertragen und beim Empfaenger mit passender Software oder Hardware wieder in ein Bild umgewandelt wird. Im Gegensatz zu echtem Fernsehen dauert die Uebertragung eines einzelnen Bildes typischerweise mehrere Sekunden bis Minuten, passt dafuer aber in die Bandbreite eines normalen Sprachkanals."
+  },
+  "afu-a-modulation-06": {
+    "question": "Warum wird bei automatisierten Digitalbetriebsarten wie FT8 im Vergleich zu SSB in der Regel eine deutlich geringere Sendeleistung empfohlen bzw. genutzt?",
+    "options": {
+      "a": "Weil FT8-Signale technisch keine hoehere Leistung als 1 mW verarbeiten koennen",
+      "b": "Weil FT8 dank starker Fehlerkorrektur und schmalbandiger Uebertragung auch bei sehr niedrigem Signal-Rausch-Abstand decodierbar ist, sodass fuer eine erfolgreiche Verbindung deutlich weniger Sendeleistung noetig ist als bei SSB-Sprache, kombiniert mit dem hohen Tastverhaeltnis, das eine konservative Leistungswahl zusaetzlich nahelegt",
+      "c": "Weil bei hoeherer Leistung die Fehlerkorrektur von FT8 automatisch deaktiviert wird",
+      "d": "Weil das Gesetz fuer digitale Betriebsarten grundsaetzlich eine niedrigere Hoechstleistung als fuer Sprachbetrieb vorschreibt"
+    },
+    "explanation": "FT8 nutzt starke Fehlerkorrekturverfahren und eine sehr schmale Bandbreite, wodurch bereits geringe Signalpegel zuverlaessig decodiert werden koennen - fuer eine erfolgreiche Verbindung reicht dadurch oft deutlich weniger Sendeleistung als bei einer vergleichbaren SSB-Sprachverbindung. Zusaetzlich spricht das hohe Tastverhaeltnis (nahezu Dauertraeger) dafuer, die Sendeleistung konservativ zu waehlen, um die Endstufe nicht thermisch zu ueberlasten und um anderen Stationen im ohnehin schmalen Digitalsegment nicht unnoetig starke Signale zuzumuten."
+  },
+  "afu-a-modulation-07": {
+    "question": "Welche grundlegende Eigenschaft kennzeichnet Spread-Spectrum-Betriebsarten (Bandspreizverfahren) gegenueber klassischen Schmalbandverfahren?",
+    "options": {
+      "a": "Sie belegen grundsaetzlich eine schmalere Bandbreite als klassisches CW",
+      "b": "Sie sind ausschliesslich fuer Empfangszwecke geeignet und koennen nicht senden",
+      "c": "Sie verteilen die Sendeenergie ueber eine deutlich groessere Bandbreite als fuer die reine Nutzinformation noetig waere, was Stoerfestigkeit erhoehen kann, aber besondere Kenntnis der einschlaegigen Vorschriften und Dokumentationspflichten erfordert",
+      "d": "Sie sind im Amateurfunk grundsaetzlich und ausnahmslos verboten"
+    },
+    "explanation": "Bandspreizverfahren (Spread Spectrum) verteilen die Sendeenergie absichtlich ueber eine viel groessere Bandbreite, als fuer die eigentliche Nutzinformation notwendig waere, zum Beispiel durch schnelle Frequenzsprungfolgen oder Direct-Sequence-Codierung. Das kann Stoerfestigkeit und Koexistenz mit Schmalbandsignalen verbessern, erfordert im Amateurfunk aber vertiefte Kenntnis der einschlaegigen technischen und regulatorischen Anforderungen (u. a. besondere Kennzeichnungs- und Dokumentationspflichten), da solche Signale leicht mit Stoerern verwechselt werden koennen."
+  },
+  "afu-a-emv-01": {
+    "question": "Worin unterscheidet sich 'Fundamentaluebersteuerung' (Frontend-Overload) eines gestoerten Empfaengers grundlegend von einer echten Oberwellenstoerung durch die Sendeanlage?",
+    "options": {
+      "a": "Beide Effekte haben dieselbe Ursache und lassen sich mit derselben Massnahme beheben",
+      "b": "Bei der Fundamentaluebersteuerung wird der Empfaengereingang durch die starke Grundwelle des nahegelegenen Senders selbst uebersteuert (kein Oberwellenanteil noetig), waehrend eine Oberwellenstoerung durch tatsaechlich abgestrahlte, unerwuenschte Sendersignale bei Vielfachen der Grundfrequenz entsteht - beide erfordern unterschiedliche Abhilfemassnahmen",
+      "c": "Fundamentaluebersteuerung tritt ausschliesslich bei Empfaengern auf, die staerker als 1000 Watt senden",
+      "d": "Oberwellenstoerungen koennen ausschliesslich durch Erhoehung der Sendeleistung behoben werden"
+    },
+    "explanation": "Fundamentaluebersteuerung entsteht, wenn der Empfaenger des gestoerten Geraets durch die reine Grundwelle eines nahegelegenen, an sich sauber arbeitenden Senders in seinem Empfangsbereich uebersteuert wird - hier hilft typischerweise ein Hochpass- oder Sperrfilter beim gestoerten Empfaenger, nicht beim Sender. Eine echte Oberwellenstoerung entsteht dagegen, weil der Sender selbst unerwuenschte Aussendungen bei Vielfachen der Sendefrequenz abstrahlt - hier ist ein Tiefpassfilter am Sender die richtige Abhilfe. Die Unterscheidung ist wichtig, um die Stoerung an der richtigen Stelle zu beheben."
+  },
+  "afu-a-emv-02": {
+    "question": "Welche grundsaetzliche Verpflichtung trifft einen Funkamateur nach §§16, 17 AFuV im Zusammenhang mit Stoerungen, die von seiner Amateurfunkstelle ausgehen, unabhaengig von der gesendeten Leistung?",
+    "options": {
+      "a": "Er ist zur Vermeidung unerwuenschter Aussendungen und, bei bereits eingetretenen Stoerungen, zur Mitwirkung bei deren Ermittlung und Beseitigung verpflichtet, auch wenn die Sendeanlage selbst alle technischen Anforderungen erfuellt",
+      "b": "Er ist von jeglicher Verantwortung befreit, sobald das eingesetzte Geraet ueber eine gueltige CE-Kennzeichnung verfuegt",
+      "c": "Eine Mitwirkungspflicht besteht ausschliesslich bei Stoerungen des eigenen Empfangs, nicht bei Stoerungen anderer",
+      "d": "Diese Pflicht gilt ausschliesslich fuer Klasse-A-Stationen mit einer Sendeleistung ueber 500 Watt"
+    },
+    "explanation": "§16 Abs. 4 AFuV verpflichtet Funkamateure, unerwuenschte Aussendungen auf das geringstmoegliche Mass zu beschraenken; §17 AFuV verpflichtet sie darueber hinaus, bei der Ermittlung und Untersuchung von Stoerungsursachen mitzuwirken und ordnet an, dass die Bestimmungen des EMVG unberuehrt bleiben - unabhaengig davon, ob die Ursache beim Sender oder (wie bei Fundamentaluebersteuerung) primaer beim gestoerten Geraet liegt und unabhaengig von der genutzten Sendeleistung. Eine CE-Kennzeichnung des eingesetzten Geraets befreit nicht automatisch von dieser Mitwirkungspflicht im Einzelfall."
+  },
+  "afu-a-emv-03": {
+    "question": "Wozu dient eine Mantelwellensperre (Gleichtaktdrossel, oft als 'Line Isolator' oder 'Common-Mode Choke' bezeichnet) an der Speiseleitung einer Antenne?",
+    "options": {
+      "a": "Sie erhoeht gezielt die Sendeleistung an der Antenne ueber den vom Sender eingestellten Wert hinaus",
+      "b": "Sie unterdrueckt unerwuenschte Gleichtaktstroeme (Mantelwellen) auf der Aussenseite des Koaxialkabelschirms, die sonst zu HF im Shack, veraendertem Antennendiagramm und Stoerungen an angeschlossenen Geraeten fuehren koennen",
+      "c": "Sie ersetzt vollstaendig die Notwendigkeit eines Antennentuners bei jeder Fehlanpassung",
+      "d": "Sie dient ausschliesslich der galvanischen Trennung der Netzspannung vom Sendegeraet"
+    },
+    "explanation": "Durch Unsymmetrien der Antenne oder Speisung kann auf der Aussenseite des Koax-Aussenleiters ein unerwuenschter Gleichtaktstrom (Mantelwelle) entstehen. Dieser kann HF-Energie zurueck ins Shack fuehren ('HF im Shack', mit moeglichen Stoerungen an Computer, Audiogeraeten etc.), das beabsichtigte Antennendiagramm veraendern und Abstrahlung ueber die Speiseleitung selbst verursachen. Eine Mantelwellensperre (z. B. mehrere Ferritringe oder eine Ferritwicklung am Kabel) erhoeht die Impedanz fuer diesen Gleichtaktstrom und unterdrueckt ihn wirksam, ohne die eigentliche Signaluebertragung zu beeintraechtigen."
+  },
+  "afu-a-emv-04": {
+    "question": "Warum sollte die Erdungsanlage einer leistungsstarken Amateurfunkstation moeglichst niederohmig und kurz ausgefuehrt werden?",
+    "options": {
+      "a": "Weil eine lange, hochohmige Erdungsleitung die Sendeleistung automatisch erhoeht",
+      "b": "Weil ausschliesslich die Farbe des Erdungskabels fuer die Wirksamkeit entscheidend ist",
+      "c": "Weil eine lange oder hochohmige Erdverbindung bei HF eine relevante Induktivitaet und damit Impedanz darstellen kann, wodurch sie ihre Schutzwirkung fuer Personen- und Blitzschutz sowie zur Reduktion von HF-Ruecklaeufen im Shack verliert",
+      "d": "Weil laengere Erdungsleitungen grundsaetzlich zu einem besseren Stehwellenverhaeltnis fuehren"
+    },
+    "explanation": "Bei Gleichstrom oder Netzfrequenz wirkt ein Erdungsleiter praktisch nur ohmsch, bei Hochfrequenz gewinnt jedoch seine Induktivitaet an Bedeutung: Schon wenige Meter Kabel koennen bei HF eine relevante Impedanz darstellen. Eine lange oder duenne Erdungsleitung bietet dadurch bei den fuer den Amateurfunk relevanten Frequenzen keinen wirksamen HF-kurzen Weg mehr zur Erde, was sowohl den Personen-/Blitzschutz als auch die Wirksamkeit gegen HF-Ruecklaeufe im Shack (z. B. 'HF im Mikrofon') beeintraechtigt. Kurze, niederohmige und breite Erdungsverbindungen (z. B. Kupferband statt duennem Draht) sind deshalb vorzuziehen."
+  },
+  "afu-a-emv-05": {
+    "question": "Warum ist die Unterscheidung zwischen Nahfeld und Fernfeld bei der Beurteilung der Personensicherheit an einer Amateurfunkantenne relevant?",
+    "options": {
+      "a": "Weil sich Feldstaerken und deren raeumlicher Abfall im Nahfeld anders verhalten als im Fernfeld, und wegen der grossen Wellenlaenge auf niedrigen HF-Baendern die Nahfeldzone (die sich ueber wenige Wellenlaengen erstreckt) in absoluten Metern besonders gross ausfallen kann, was bei der Festlegung von Sicherheitsabstaenden beruecksichtigt werden muss",
+      "b": "Weil im Fernfeld grundsaetzlich keinerlei elektromagnetische Feldstaerke mehr messbar ist",
+      "c": "Weil die Unterscheidung ausschliesslich fuer Radaranlagen, niemals fuer Amateurfunkstationen relevant ist",
+      "d": "Weil im Nahfeld grundsaetzlich hoehere Sendeleistungen gesetzlich erlaubt sind als im Fernfeld"
+    },
+    "explanation": "In unmittelbarer Antennennaehe (Nahfeld, das sich ueber einige Wellenlaengen erstreckt) verhalten sich elektrisches und magnetisches Feld anders zueinander und fallen mit dem Abstand anders ab als im Fernfeld, wo eine einfache 1/r-Beziehung fuer die Feldstaerke gilt. Da die Wellenlaenge auf den unteren HF-Baendern (z. B. 80 m, 40 m) sehr gross ist, kann sich die Nahfeldzone dort ueber mehrere Meter bis Dutzende Meter erstrecken - deutlich mehr als auf VHF/UHF. Bei der Ermittlung sicherer Abstaende zu Personen (z. B. im Rahmen der BEMFV) muss diese frequenzabhaengige Ausdehnung der Nahfeldzone daher explizit beruecksichtigt werden."
+  },
+  "afu-a-emv-06": {
+    "question": "Welche Massnahme ist typischerweise am wirksamsten, um eine Oberwellenstoerung (echte Aussendung des Senders bei einem Vielfachen der Sendefrequenz) bei einem benachbarten Rundfunk- oder Fernsehempfaenger zu reduzieren?",
+    "options": {
+      "a": "Erhoehung der Sendeleistung, damit das Nutzsignal die Stoerung ueberdeckt",
+      "b": "Ein zusaetzliches, auf die Grundfrequenz abgestimmtes Tiefpassfilter zwischen Senderendstufe und Antenne bzw. Speiseleitung, das Frequenzen oberhalb der Grundwelle wirksam daempft",
+      "c": "Der vollstaendige Verzicht auf jede Erdungsverbindung der Sendeanlage",
+      "d": "Das Verkuerzen der Antennenspeiseleitung auf wenige Zentimeter"
+    },
+    "explanation": "Da eine Oberwellenstoerung dadurch entsteht, dass die Senderendstufe unerwuenschte Signalanteile bei Vielfachen der eingestellten Sendefrequenz abstrahlt, ist ein zusaetzliches, sorgfaeltig auf die Grundfrequenz abgestimmtes Tiefpassfilter zwischen Endstufe und Antenne die zielgerichtete Abhilfe: Es daempft die stoerenden Oberwellen deutlich, laesst die Grundwelle aber weitgehend ungehindert passieren. Eine Erhoehung der Sendeleistung wuerde die Stoerung sogar verschlimmern, da auch die Oberwellenleistung proportional mit ansteigt."
+  }
+}

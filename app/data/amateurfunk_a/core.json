@@ -1,0 +1,975 @@
+{
+  "meta": {
+    "app": "Zettacard / amateurfunk-a-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-12",
+    "description": "Original synthetic-reproduction MCQ pilot covering ONLY the Klasse-A-specific technical delta of the German Amateurfunkzeugnis Klasse A (full-class amateur radio operator license) beyond the entry-class Klasse E, which this app already covers in amateurfunk_e_pilot.json. Klasse A shares its Betriebliche Kenntnisse (operating procedures) and Kenntnisse von Vorschriften (regulations) exam pools ENTIRELY with Klasse E (Sec. 4(4) AFuV: upgrading from E to A only requires an additional technical-knowledge exam) - this module therefore contains NO Betrieb/Vorschriften questions and is deliberately technical-only. DESIGN FLAG (needs a product decision, see meta.design_flag_betrieb_vorschriften below): the app's exam composer must draw Betrieb/Vorschriften questions from the amateurfunk_e question pool at exam-draw time for a full Klasse A exam simulation, rather than duplicating that low-value-to-duplicate content into this module. Covers advanced antenna theory (dipole/vertical/folded-dipole feed impedances, Yagi gain and front-to-back ratio, radiation angle vs. height, gain vs. aperture size), transmission-line theory (characteristic impedance, SWR calculation from forward/reflected power, Smith chart purpose, quarter-wave transformers, standing-wave node spacing, velocity factor, line-loss effects on SWR readings), advanced propagation (D/E/F1/F2 layers, MUF, greyline propagation, Sporadic-E, skip zone, NVIS, sunspot-cycle effects, multi-hop), higher-power amplifier stages and safety (amplifier classes A/AB/C for linear SSB service, Klasse A vs Klasse E power-limit structure per Anlage 1 AFuV, antenna tuners protecting the final stage, low-pass filtering against harmonics at higher absolute power, intermodulation distortion, BEMFV site-certificate/safety-distance obligations at higher EIRP, duty-cycle cooling considerations for digital modes, lightning/grounding protection), advanced modulation and digital modes (SSB bandwidth efficiency, FT8 characteristics, FSK vs PSK, occupied bandwidth awareness, SSTV, power conservatism for digital modes, spread-spectrum basics), and EMC at higher power (front-end overload vs harmonic interference, Sec. 16(4)/17 AFuV interference-handling duties, common-mode chokes/line isolators, low-impedance station grounding at RF, near-field vs far-field RF-exposure considerations on the long-wavelength lower HF bands). Questions were independently phrased by reviewing the structure and topic taxonomy of the BNetzA's official 'Pruefungsfragen im Pruefungsteil Technische Kenntnisse ... der Klasse A' Fragenkatalog PDF (bundesnetzagentur.de) and cross-checked against the current AFuV and BEMFV statute text on gesetze-im-internet.de. No BNetzA catalog question or answer text was copied at scale; all question stems, distractors and explanations here are original phrasing covering the same subject areas.",
+    "design_flag_betrieb_vorschriften": "OPEN PRODUCT DECISION: this module's runtime class_scope is set to [\"ALL\"] like the other amateurfunk module, but it intentionally contains ZERO Betrieb/Vorschriften questions, since those pools are identical between Klasse E and Klasse A (Sec. 4(4) AFuV). Before wiring a 'Klasse A' exam-simulation entry into app/data/modules.json, a decision is needed on how the exam composer draws a realistic 3-section Klasse A exam: (a) have Simulation/Training pull topic_code=betrieb/vorschriften questions from the amateurfunk_e core.json pool at draw time (preferred - avoids a duplicated, drifting second copy of the same 24 questions), or (b) physically copy/duplicate the amateurfunk_e Betrieb/Vorschriften questions into this module's own pool for standalone operation. This pilot deliberately does NOT silently duplicate that content pending that decision - see app/app.js's EXAM_TOPIC_DRAW plumbing for where the pool-selection logic would need to be extended if option (a) is chosen.",
+    "class": "ALL",
+    "canonical_locale": "de",
+    "point_system": "2-4 points per question, matching this app's existing style",
+    "pass_rule_note": "This pilot is technical-only (Technische Kenntnisse Klasse A delta), sized at 45 questions across 6 sub-topics (antennentechnik, leitungstheorie, ausbreitung, leistung, modulation_digital, emv_hochleistung). The real Klasse-A Technik exam section requires 19 of 25 correct to pass, same as Klasse E's Technik section but with materially harder/broader content per Sec. 4(1) No. 1 AFuV (Klasse A) vs Sec. 4(2) AFuV (Klasse E). As with amateurfunk_e, this is an initial coverage sample, not a full replica of exam-day question counts - see meta.design_flag_betrieb_vorschriften above for how a full 3-section Klasse A simulation would need to compose this module's Technik pool together with amateurfunk_e's Betrieb/Vorschriften pools.",
+    "total_questions": 45,
+    "topic_breakdown": {
+      "antennentechnik": 8,
+      "leitungstheorie": 8,
+      "ausbreitung": 8,
+      "leistung": 8,
+      "modulation_digital": 7,
+      "emv_hochleistung": 6
+    },
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
+    "renewal_months": 24,
+    "renewal_basis": "best_practice",
+    "renewal_note": "There is no statutory refresher requirement for licensed radio amateurs; the 24-month figure matches amateurfunk_e's best-practice review interval, not a legal mandate. IMPORTANT SOURCE-CURRENCY FLAG: the exact per-band power limits cited qualitatively in the leistung topic (Anlage 1 AFuV) were NOT hard-coded as specific wattage figures in this pilot precisely because Anlage 1 changes periodically via AFuV amendments - verify current figures against gesetze-im-internet.de/afuv_2005/ (Anlage 1) before any production/commercial use. Similarly, BEMFV thresholds for site certificates (Standortbescheinigung) referenced qualitatively in the emv_hochleistung/leistung topics must be re-verified against the current BEMFV text and BNetzA forms before production use.",
+    "legal_review_status": "NOT legally reviewed",
+    "locales": [
+      "de",
+      "en",
+      "uk",
+      "pl",
+      "ar",
+      "zh",
+      "hi",
+      "tr",
+      "fr",
+      "ru",
+      "es",
+      "it"
+    ],
+    "sources": [
+      {
+        "title": "Pruefungsfragen im Pruefungsteil 'Technische Kenntnisse' bei Pruefungen zum Erwerb von Amateurfunkzeugnissen der Klasse A",
+        "publisher": "Bundesnetzagentur",
+        "url": "https://www.bundesnetzagentur.de/SharedDocs/Downloads/DE/Sachgebiete/Telekommunikation/Unternehmen_Institutionen/Frequenzen/Amateurfunk/Fragenkatalog/TechnikFragenkatalogKlasseAf252rId9014pdf.pdf?__blob=publicationFile&v=5",
+        "fetched": "2026-08-12",
+        "used_for": "Topic taxonomy and worked-example style reference for the Klasse A Technische Kenntnisse delta only - NOT copied at scale."
+      },
+      {
+        "title": "Verordnung zum Gesetz ueber den Amateurfunk (Amateurfunkverordnung - AFuV)",
+        "publisher": "Bundesministerium der Justiz / gesetze-im-internet.de",
+        "url": "https://www.gesetze-im-internet.de/afuv_2005/",
+        "fetched": "2026-08-12",
+        "used_for": "Current statute text for Sec. 4(1) No. 1/(4), Sec. 16(4)/17, and Anlage 1 AFuV legal_basis citations (Klasse A technical scope, interference-handling duties, and power limit structure)."
+      },
+      {
+        "title": "Verordnung ueber das Nachweisverfahren zur Begrenzung elektromagnetischer Felder (BEMFV)",
+        "publisher": "Bundesministerium der Justiz / gesetze-im-internet.de",
+        "url": "https://www.gesetze-im-internet.de/bemfv/",
+        "fetched": "2026-08-12",
+        "used_for": "Statute reference for RF-exposure / site-certificate legal_basis citations in the leistung and emv_hochleistung topics."
+      },
+      {
+        "title": "BNetzA Amateurfunk overview / catalog landing page",
+        "publisher": "Bundesnetzagentur",
+        "url": "https://www.bundesnetzagentur.de/DE/Fachthemen/Telekommunikation/Frequenzen/Funkzeugnisse/Amateurfunk/start.html",
+        "fetched": "2026-08-12",
+        "used_for": "Locating the current Klasse A Technik Fragenkatalog PDF link."
+      }
+    ]
+  },
+  "questions": [
+    {
+      "id": "afu-a-antennentechnik-01",
+      "topic": "Antennentechnik",
+      "topic_code": "antennentechnik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-antennentechnik-02",
+      "topic": "Antennentechnik",
+      "topic_code": "antennentechnik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-antennentechnik-03",
+      "topic": "Antennentechnik",
+      "topic_code": "antennentechnik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-antennentechnik-04",
+      "topic": "Antennentechnik",
+      "topic_code": "antennentechnik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-antennentechnik-05",
+      "topic": "Antennentechnik",
+      "topic_code": "antennentechnik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-antennentechnik-06",
+      "topic": "Antennentechnik",
+      "topic_code": "antennentechnik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-antennentechnik-07",
+      "topic": "Antennentechnik",
+      "topic_code": "antennentechnik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-antennentechnik-08",
+      "topic": "Antennentechnik",
+      "topic_code": "antennentechnik",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leitungstheorie-01",
+      "topic": "Leitungstheorie",
+      "topic_code": "leitungstheorie",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leitungstheorie-02",
+      "topic": "Leitungstheorie",
+      "topic_code": "leitungstheorie",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leitungstheorie-03",
+      "topic": "Leitungstheorie",
+      "topic_code": "leitungstheorie",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leitungstheorie-04",
+      "topic": "Leitungstheorie",
+      "topic_code": "leitungstheorie",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leitungstheorie-05",
+      "topic": "Leitungstheorie",
+      "topic_code": "leitungstheorie",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leitungstheorie-06",
+      "topic": "Leitungstheorie",
+      "topic_code": "leitungstheorie",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leitungstheorie-07",
+      "topic": "Leitungstheorie",
+      "topic_code": "leitungstheorie",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leitungstheorie-08",
+      "topic": "Leitungstheorie",
+      "topic_code": "leitungstheorie",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-ausbreitung-01",
+      "topic": "Ausbreitung",
+      "topic_code": "ausbreitung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-ausbreitung-02",
+      "topic": "Ausbreitung",
+      "topic_code": "ausbreitung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-ausbreitung-03",
+      "topic": "Ausbreitung",
+      "topic_code": "ausbreitung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-ausbreitung-04",
+      "topic": "Ausbreitung",
+      "topic_code": "ausbreitung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-ausbreitung-05",
+      "topic": "Ausbreitung",
+      "topic_code": "ausbreitung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-ausbreitung-06",
+      "topic": "Ausbreitung",
+      "topic_code": "ausbreitung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-ausbreitung-07",
+      "topic": "Ausbreitung",
+      "topic_code": "ausbreitung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-ausbreitung-08",
+      "topic": "Ausbreitung",
+      "topic_code": "ausbreitung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leistung-01",
+      "topic": "Senderendstufen und Leistung",
+      "topic_code": "leistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leistung-02",
+      "topic": "Senderendstufen und Leistung",
+      "topic_code": "leistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "Anlage 1 AFuV i.V.m. §4 Abs. 1 Nr. 1 AFuV (Leistungsgrenzen; genaue Werte je Band vor Nutzung pruefen)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leistung-03",
+      "topic": "Senderendstufen und Leistung",
+      "topic_code": "leistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leistung-04",
+      "topic": "Senderendstufen und Leistung",
+      "topic_code": "leistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leistung-05",
+      "topic": "Senderendstufen und Leistung",
+      "topic_code": "leistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leistung-06",
+      "topic": "Senderendstufen und Leistung",
+      "topic_code": "leistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§8 BEMFV i.V.m. §5 und §9 BEMFV (Standortbescheinigung/Anzeigepflicht je nach Sendeleistung und Frequenz vor Inbetriebnahme pruefen)",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leistung-07",
+      "topic": "Senderendstufen und Leistung",
+      "topic_code": "leistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-leistung-08",
+      "topic": "Senderendstufen und Leistung",
+      "topic_code": "leistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-modulation-01",
+      "topic": "Modulation und digitale Betriebsarten",
+      "topic_code": "modulation_digital",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-modulation-02",
+      "topic": "Modulation und digitale Betriebsarten",
+      "topic_code": "modulation_digital",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-modulation-03",
+      "topic": "Modulation und digitale Betriebsarten",
+      "topic_code": "modulation_digital",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-modulation-04",
+      "topic": "Modulation und digitale Betriebsarten",
+      "topic_code": "modulation_digital",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-modulation-05",
+      "topic": "Modulation und digitale Betriebsarten",
+      "topic_code": "modulation_digital",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 2,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-modulation-06",
+      "topic": "Modulation und digitale Betriebsarten",
+      "topic_code": "modulation_digital",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-modulation-07",
+      "topic": "Modulation und digitale Betriebsarten",
+      "topic_code": "modulation_digital",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-emv-01",
+      "topic": "EMV bei hoeherer Leistung",
+      "topic_code": "emv_hochleistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§17 AFuV i.V.m. EMVG (Stoerungsvermeidung und -beseitigung)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-emv-02",
+      "topic": "EMV bei hoeherer Leistung",
+      "topic_code": "emv_hochleistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§16 Abs. 4 i.V.m. §17 AFuV (Vermeidung und Beseitigung von Stoerungen)",
+      "points": 3,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-emv-03",
+      "topic": "EMV bei hoeherer Leistung",
+      "topic_code": "emv_hochleistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-emv-04",
+      "topic": "EMV bei hoeherer Leistung",
+      "topic_code": "emv_hochleistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§4 Abs. 1 Nr. 1 AFuV (Pruefungsinhalt Technik Klasse A)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-emv-05",
+      "topic": "EMV bei hoeherer Leistung",
+      "topic_code": "emv_hochleistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§3 BEMFV / Nahfeld-Fernfeld-Betrachtung",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all"
+      ]
+    },
+    {
+      "id": "afu-a-emv-06",
+      "topic": "EMV bei hoeherer Leistung",
+      "topic_code": "emv_hochleistung",
+      "class_scope": [
+        "ALL"
+      ],
+      "grundstoff": false,
+      "legal_basis": "§16 Abs. 4 i.V.m. §17 AFuV (Vermeidung und Beseitigung von Stoerungen)",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ]
+    }
+  ]
+}
