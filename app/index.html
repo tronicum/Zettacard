@@ -490,6 +490,11 @@
         lkw: {de:"LKW",en:"Truck",uk:"Вантажівка",pl:"Ciężarówka",ar:"شاحنة",zh:"卡车",hi:"ट्रक",tr:"Kamyon",fr:"Poids lourd",ru:"Грузовик",es:"Camión",it:"Camion"},
         angelschein: {de:"Angelschein",en:"Fishing licence",uk:"Посвідчення рибалки",pl:"Karta wędkarska",ar:"رخصة الصيد",zh:"钓鱼证",hi:"मछली पकड़ने का लाइसेंस",tr:"Balıkçılık belgesi",fr:"Permis de pêche",ru:"Удостоверение рыболова",es:"Licencia de pesca",it:"Licenza di pesca"},
         datenschutz: {de:"Datenschutz",en:"Data protection",uk:"Захист даних",pl:"Ochrona danych",ar:"حماية البيانات",zh:"数据保护",hi:"डेटा सुरक्षा",tr:"Veri koruma",fr:"Protection des données",ru:"Защита данных",es:"Protección de datos",it:"Protezione dei dati"},
+        // 2026-08-17: fadp_ch (Swiss revDSG/nDSG). Label copied verbatim from
+        // data/modules_manifest.json, same rule as every entry here. Sits next
+        // to datenschutz because the two are cross-linked sibling modules
+        // (EU GDPR/BDSG vs. Swiss revDSG) - deliberately NOT merged.
+        fadp_ch: {de:"Schweizer Datenschutz (revDSG)",en:"Swiss data protection (revFADP)",uk:"Захист даних у Швейцарії (revFADP)",pl:"Szwajcarska ochrona danych (revFADP)",ar:"حماية البيانات السويسرية (revFADP)",zh:"瑞士数据保护法 (revFADP)",hi:"स्विस डेटा सुरक्षा (revFADP)",tr:"İsviçre veri koruma mevzuatı (revFADP)",fr:"Protection des données en Suisse (nLPD)",ru:"Защита данных в Швейцарии (revFADP)",es:"Protección de datos en Suiza (revFADP)",it:"Protezione dei dati in Svizzera (revFADP)"},
         arbeitssicherheit: {de:"Arbeitssicherheit",en:"Occupational safety",uk:"Охорона праці",pl:"Bezpieczeństwo pracy",ar:"السلامة المهنية",zh:"职业安全",hi:"व्यावसायिक सुरक्षा",tr:"İş güvenliği",fr:"Sécurité au travail",ru:"Охрана труда",es:"Seguridad laboral",it:"Sicurezza sul lavoro"},
         ki_act: {de:"KI-Verordnung",en:"AI Act",uk:"Закон про ШІ",pl:"Akt o sztucznej inteligencji",ar:"قانون الذكاء الاصطناعي",zh:"人工智能法案",hi:"एआई अधिनियम",tr:"Yapay Zeka Yasası",fr:"Règlement sur l'IA",ru:"Закон об ИИ",es:"Ley de IA",it:"Legge sull'IA"},
         it_sicherheit: {de:"IT-Sicherheit",en:"IT security",uk:"ІТ-безпека",pl:"Bezpieczeństwo IT",ar:"أمن تقنية المعلومات",zh:"IT安全",hi:"आईटी सुरक्षा",tr:"BT güvenliği",fr:"Sécurité informatique",ru:"ИТ-безопасность",es:"Seguridad informática",it:"Sicurezza IT"},
@@ -694,6 +699,7 @@
           // 5 modules in that group are workplace-mandated training in the
           // same sense. Added rather than left as a stale gap.
           datenschutz: s.compliance,
+          fadp_ch: s.compliance,
           ki_act: s.compliance,
           arbeitssicherheit: s.compliance,
           it_sicherheit: s.compliance,
@@ -750,7 +756,7 @@
           // Round 3 adds fuehrerschein_bus (D1/D1E/D/DE bus licence) here
           // too, same driving-licence-family rationale as motorrad/lkw.
           { heading: es_.groupDriving, mods: ["fuehrerschein","motorrad","lkw","fuehrerschein_bus","angelschein","angelschein_bayern","angelschein_nrw"] },
-          { heading: es_.groupCompliance, mods: ["datenschutz","arbeitssicherheit","ki_act","it_sicherheit","hinweisgeberschutz"], disclaimer: es_.groupComplianceDisclaimer },
+          { heading: es_.groupCompliance, mods: ["datenschutz","fadp_ch","arbeitssicherheit","ki_act","it_sicherheit","hinweisgeberschutz"], disclaimer: es_.groupComplianceDisclaimer },
           { heading: es_.groupEnterprise, mods: ["kyc_aml","kartellrecht","lksg"] },
           // 2026-08 content expansion: sportboot_binnen/sportboot_see/
           // waffensachkunde/amateurfunk_e are personal-license exam-prep

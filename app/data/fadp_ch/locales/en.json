@@ -1,0 +1,402 @@
+{
+  "fadp_ch-geltungsbereich-01": {
+    "question": "Whose data does the revised Swiss Federal Act on Data Protection (revFADP), in force since 1 September 2023, protect?",
+    "options": {
+      "a": "The data of natural persons and of legal entities equally",
+      "b": "Exclusively the personal data of natural persons",
+      "c": "Exclusively the personal data of people resident in Switzerland",
+      "d": "Only personal data processed by federal bodies"
+    },
+    "explanation": "Art. 2(1) FADP provides that the Act applies to the processing of personal data of natural persons by private persons and by federal bodies. This is one of the most significant changes from the old 1992 FADP, which also protected data about legal entities: company data no longer falls under the FADP today. Art. 71 FADP contains a narrow transitional exception - for federal bodies, provisions in other federal enactments continue to apply to data about legal entities for five years after entry into force. Anyone coming from GDPR practice will find no difference here: GDPR also protects only natural persons. The difference is against earlier Swiss law, not against GDPR."
+  },
+  "fadp_ch-geltungsbereich-02": {
+    "question": "Which category counts as sensitive personal data under Art. 5(c) FADP even though it is NOT listed as a special category in Art. 9 GDPR?",
+    "options": {
+      "a": "Genetic data",
+      "b": "Data relating to health",
+      "c": "Data relating to social assistance measures",
+      "d": "Biometric data uniquely identifying a natural person"
+    },
+    "explanation": "Art. 5(c) FADP lists six groups of sensitive personal data: religious, philosophical, political or trade-union views and activities; health, the private sphere, or affiliation to a race or ethnicity; genetic data; biometric data uniquely identifying a natural person; data on administrative and criminal proceedings or sanctions; and data on social assistance measures. The last two groups are absent from Art. 9 GDPR - GDPR handles criminal-conviction data separately in Art. 10, and does not recognise social assistance data as a category at all. For a company with staff in both Germany and Switzerland this means the same record can be sensitive in Switzerland and not sensitive in the EU."
+  },
+  "fadp_ch-geltungsbereich-03": {
+    "question": "An online shop established solely in Singapore actively sells to customers in Switzerland and processes their address and payment data. Does the revFADP apply?",
+    "options": {
+      "a": "Yes - the FADP applies to circumstances that have an effect in Switzerland, even if they are initiated abroad",
+      "b": "No - the FADP only applies to processing that physically takes place in Switzerland",
+      "c": "Only if the shop operates a branch or a server in Switzerland",
+      "d": "Only if Switzerland has concluded a data protection treaty with Singapore"
+    },
+    "explanation": "Art. 3(1) FADP establishes the so-called effects principle: the Act applies to circumstances that have an effect in Switzerland, even if they are initiated abroad. Neither a branch nor a server in Switzerland is a precondition. The outcome resembles the marketplace principle in Art. 3(2) GDPR, but it is worded differently and is broader - GDPR keys off offering goods or services to data subjects in the Union or monitoring their behaviour, whereas the FADP keys off any effect in Switzerland at all. For private-law claims, Art. 3(2) FADP additionally refers to the Swiss Private International Law Act."
+  },
+  "fadp_ch-geltungsbereich-04": {
+    "question": "When must a private controller established abroad designate a representative in Switzerland under Art. 14 FADP?",
+    "options": {
+      "a": "As soon as it processes any personal data about people in Switzerland at all",
+      "b": "As soon as the processing involves sensitive personal data",
+      "c": "As soon as it employs more than 250 staff",
+      "d": "Only where all four requirements are met cumulatively: connection with an offer of goods/services or monitoring of behaviour in Switzerland, large-scale processing, regular processing, and high risk to the data subjects' personality"
+    },
+    "explanation": "Art. 14(1) FADP sets out four requirements (letters a-d) that must all be met cumulatively: the processing is connected with offering goods or services to, or monitoring the behaviour of, people in Switzerland; it is large-scale; it is regular; and it poses a high risk to the data subjects' personality. That is a markedly higher threshold than Art. 27 GDPR, which in principle obliges every controller not established in the EU but caught by Art. 3(2) GDPR to designate a representative, with only narrow exceptions. Transplanting the GDPR rule to Switzerland unchecked often produces a representative the FADP never required - or, in the other direction, misses the duty for genuinely large-scale high-risk processing. The representative acts as the contact point for data subjects and for the FDPIC (para. 2), and its name and address must be published (para. 3)."
+  },
+  "fadp_ch-geltungsbereich-05": {
+    "question": "A private individual keeps a contact list on their personal phone with addresses and birthdays of friends and family. Which statement is correct?",
+    "options": {
+      "a": "The FADP applies in full, because this is personal data",
+      "b": "The FADP does not apply, because the data is processed exclusively for personal use",
+      "c": "The FADP applies as soon as more than 50 contacts are stored",
+      "d": "The FADP only applies if the list is stored in a cloud service"
+    },
+    "explanation": "Under Art. 2(2)(a) FADP the Act does not apply to personal data processed by a natural person exclusively for personal use. There is neither a numeric threshold nor a carve-out for cloud storage - what matters is solely the exclusively personal purpose. As soon as the same data is also used professionally, for example as a customer list, the exemption no longer applies. Art. 2(2) names two further exemptions: data processed by the Federal Assembly's chambers and parliamentary committees in the course of their deliberations (letter b), and data processed by institutional beneficiaries enjoying immunity under the Host State Act (letter c)."
+  },
+  "fadp_ch-geltungsbereich-06": {
+    "question": "Which of the following bodies is NOT subject to the federal FADP when acting in its official capacity?",
+    "options": {
+      "a": "A Swiss trading company (a private person)",
+      "b": "The Federal Statistical Office (a federal body)",
+      "c": "A municipal tax office",
+      "d": "A private organisation entrusted with public tasks of the Confederation"
+    },
+    "explanation": "Art. 2(1) FADP covers only private persons and federal bodies. Under Art. 5(i) FADP a federal body is an authority or service of the Confederation, or a person entrusted with public tasks of the Confederation - cantonal and municipal authorities are not included. They are governed by cantonal data protection acts with their own cantonal supervisory authorities. This is a feature of Switzerland's federal system with no direct GDPR counterpart: in the EU the Regulation applies to public authorities at every level of a member state. Anyone working with Swiss municipalities or cantons therefore has to check the relevant cantonal law in addition."
+  },
+  "fadp_ch-geltungsbereich-07": {
+    "question": "Under the FADP, what distinguishes \"high-risk profiling\" from ordinary profiling?",
+    "options": {
+      "a": "It results in a matching of data that allows an assessment of essential aspects of a natural person's personality, and thereby poses a high risk to personality or fundamental rights",
+      "b": "It is fully automated, whereas ordinary profiling involves human intermediate steps",
+      "c": "It affects more than 10,000 data subjects",
+      "d": "It is carried out by a processor rather than by the controller"
+    },
+    "explanation": "Art. 5(f) FADP defines profiling as any automated processing used to evaluate personal aspects of a natural person. Letter (g) additionally defines high-risk profiling: profiling that poses a high risk to personality or fundamental rights by matching data in a way that permits an assessment of essential aspects of the personality. This second, tiered definition is a Swiss peculiarity - GDPR Art. 4(4) knows only \"profiling\", with no separate high-risk sub-category. The distinction has concrete consequences: high-risk profiling by a private person requires express consent (Art. 6(7)(b) FADP), it removes the exemption from the record-keeping duty (Art. 24(b) DPO), and it may trigger the duty to draw up processing regulations (Art. 5(1)(b) DPO). The Act sets no numeric thresholds."
+  },
+  "fadp_ch-geltungsbereich-08": {
+    "question": "What is the role of the Federal Data Protection and Information Commissioner (FDPIC) under Art. 4 FADP?",
+    "options": {
+      "a": "It issues the Data Protection Ordinance and sets the minimum data-security requirements",
+      "b": "It supervises the application of federal data protection provisions, subject to statutory exceptions",
+      "c": "It decides damages claims brought by data subjects at first instance",
+      "d": "It supervises all cantonal and municipal authorities"
+    },
+    "explanation": "Art. 4(1) FADP assigns the FDPIC supervision over the application of federal data protection provisions. Para. 2 expressly excludes the Federal Assembly, the Federal Council, the federal courts, the Office of the Attorney General with regard to criminal proceedings, and federal authorities acting in a judicial capacity or in international mutual assistance in criminal matters. The Data Protection Ordinance is issued not by the FDPIC but by the Federal Council (see Art. 8(3) FADP). Civil claims are decided by the civil courts under Art. 32 FADP, and cantonal authorities fall under cantonal supervision, not the FDPIC."
+  },
+  "fadp_ch-grundsaetze-01": {
+    "question": "A Swiss private company wants to process its customers' personal data. What does the revFADP require as a starting point?",
+    "options": {
+      "a": "Consent from the data subject must be obtained for every processing operation",
+      "b": "A legal basis must be selected from an exhaustive statutory catalogue and documented for every processing operation",
+      "c": "Processing is permitted in principle; a ground of justification only becomes necessary once the processing breaches the data subject's personality rights",
+      "d": "Every processing operation must be submitted to the FDPIC for prior authorisation"
+    },
+    "explanation": "This is arguably the single most important structural difference from GDPR. For private controllers the FADP has no catalogue of legal bases comparable to Art. 6(1) GDPR. Instead, Art. 30(1) FADP states a prohibition on unlawfully breaching personality rights, and Art. 31(1) FADP provides that such a breach is unlawful unless justified by consent, by an overriding private or public interest, or by law. Consent is therefore one ground of justification among several, not a precondition. Importantly, the processing principles in Art. 6 FADP (lawfulness, good faith, proportionality, purpose limitation, accuracy) still apply in full - breaching them is precisely one of the listed examples of a breach of personality rights under Art. 30(2)(a) FADP. For federal bodies the opposite applies: under Art. 34(1) FADP they always need a statutory basis."
+  },
+  "fadp_ch-grundsaetze-02": {
+    "question": "In which case does Art. 6(7) FADP require express consent?",
+    "options": {
+      "a": "For every processing of personal data by a private person",
+      "b": "For every disclosure of personal data to third parties",
+      "c": "For every processing operation lasting longer than twelve months",
+      "d": "For processing sensitive personal data, for high-risk profiling by a private person, and for profiling by a federal body"
+    },
+    "explanation": "Art. 6(7) FADP names exactly three situations in which consent must be express: processing sensitive personal data (letter a), high-risk profiling by a private person (letter b), and profiling by a federal body (letter c). Outside those three, consent under Art. 6(6) FADP need only be given voluntarily for one or more specific processing operations after appropriate information - it may therefore also be implied. GDPR by contrast requires an unambiguous indication of wishes in general (Art. 4(11)) and explicit consent under Art. 9(2)(a). The Swiss rule is therefore less strict on this point - which does not mean that consent collected EU-style would be invalid in Switzerland."
+  },
+  "fadp_ch-grundsaetze-03": {
+    "question": "Which of the following is NOT laid down as a processing principle in Art. 6 FADP?",
+    "options": {
+      "a": "Processing must be proportionate",
+      "b": "Processing must bring the controller a demonstrable economic benefit",
+      "c": "Personal data may only be collected for a specific purpose that the data subject can recognise",
+      "d": "Personal data is destroyed or anonymised as soon as it is no longer required for the purpose of processing"
+    },
+    "explanation": "Art. 6 FADP requires in paras. 1-5: lawful processing; processing in good faith and proportionate; collection only for a specific purpose the data subject can recognise, with further processing compatible with that purpose; destruction or anonymisation as soon as the data is no longer required; and satisfying oneself that the data is accurate. Economic benefit to the controller is not a processing principle; at most it can feature as an overriding private interest under Art. 31 FADP, but it never replaces any of the Art. 6 duties. One notable difference from Art. 5 GDPR: the FADP does not state a free-standing accountability principle - documentation duties instead follow from individual provisions such as Art. 12 FADP (record of processing activities) and Art. 15(4) DPO (documenting data security breaches)."
+  },
+  "fadp_ch-grundsaetze-04": {
+    "question": "What does Art. 7 FADP (\"Data protection by design and by default\") require of the controller?",
+    "options": {
+      "a": "To arrange data processing in technical and organisational terms, from the planning stage onwards, so that data protection rules are complied with, and to limit processing to the necessary minimum by means of suitable default settings",
+      "b": "To encrypt all personal data end-to-end",
+      "c": "To use only software certified under Art. 13 FADP",
+      "d": "To choose default settings that the data subject cannot change"
+    },
+    "explanation": "Art. 7(1) FADP obliges the controller to arrange data processing in technical and organisational terms so that data protection rules - in particular the Art. 6 principles - are complied with, and to take this into account from the planning stage. Para. 2 requires measures appropriate to the state of the art, the nature and extent of the processing, and the risk. Para. 3 requires suitable default settings limiting processing to the minimum required for the intended purpose - but expressly only \"unless the data subject specifies otherwise\". The data subject is therefore precisely allowed to change the default. Art. 7 contains no encryption mandate and no certification mandate; certification under Art. 13 FADP is voluntary. Note the transitional rule in Art. 69 FADP: Art. 7 does not apply to processing that began before entry into force, as long as the purpose is unchanged and no new data is collected."
+  },
+  "fadp_ch-grundsaetze-05": {
+    "question": "A company checks the creditworthiness of new customers. Under what conditions can it invoke an overriding interest under Art. 31(2)(c) FADP?",
+    "options": {
+      "a": "Always, as long as it informs the data subject beforehand",
+      "b": "Only with the data subject's express written consent",
+      "c": "Where neither sensitive personal data nor high-risk profiling is involved, the data is only disclosed to third parties who need it for a contract with the data subject, the data is no more than ten years old, and the data subject has attained the age of majority",
+      "d": "Only if the company belongs to a self-regulatory organisation"
+    },
+    "explanation": "Art. 31(2)(c) FADP lists four cumulative requirements: (1) the matter involves neither sensitive personal data nor high-risk profiling, (2) the data is only disclosed to third parties who need it to conclude or perform a contract with the data subject, (3) the data is no more than ten years old, and (4) the data subject has attained the age of majority. This explicit creditworthiness rule with concrete figures is a Swiss peculiarity; GDPR leaves credit checking to the general balancing test in Art. 6(1)(f) and to national opening clauses. Art. 31(2) also lists further examples of overriding interests: contract data (letter a), competition-related data not disclosed to third parties (letter b), editorial media processing (letter d), research, planning and statistics (letter e), and data about public figures relating to their public activities (letter f)."
+  },
+  "fadp_ch-grundsaetze-06": {
+    "question": "When does Art. 30(2) FADP say a breach of personality rights arises in particular?",
+    "options": {
+      "a": "Where personal data is processed without prior notification to the FDPIC",
+      "b": "Among other things where personal data is processed contrary to the principles of Arts. 6 and 8 FADP, or where sensitive personal data is disclosed to third parties",
+      "c": "As soon as personal data is transferred to a country without an adequacy decision, regardless of safeguards",
+      "d": "Only where the data subject has suffered financial loss"
+    },
+    "explanation": "Art. 30(2) FADP names three examples: processing contrary to the principles of Arts. 6 and 8 FADP (letter a), processing contrary to the data subject's express wishes (letter b), and disclosing sensitive personal data to third parties (letter c). Financial loss is not a precondition - what is protected is personality, not assets. Para. 3 contains an important counter-exception: as a rule no breach of personality rights arises where the data subject has made the data generally accessible and has not expressly prohibited processing. That too is a Swiss specificity with no direct GDPR equivalent - under GDPR the mere fact that data has been published does not automatically make further processing lawful."
+  },
+  "fadp_ch-grundsaetze-07": {
+    "question": "What duty regarding accuracy does Art. 6(5) FADP place on anyone processing personal data?",
+    "options": {
+      "a": "To have every entry officially certified before storing it",
+      "b": "To have accuracy verified once a year by an external audit",
+      "c": "To satisfy themselves that the data is accurate and to take all appropriate measures to have incorrect or incomplete data corrected, deleted or destroyed",
+      "d": "To use only data supplied by the data subject themselves"
+    },
+    "explanation": "Art. 6(5) FADP requires the processing party to satisfy themselves that the data is accurate and to take all appropriate measures to have incorrect or incomplete data corrected, deleted or destroyed. The yardstick is expressly appropriateness: it depends in particular on the nature and extent of the processing and on the risk to the data subjects' personality or fundamental rights. Neither certification, nor an annual external audit, nor a restriction to self-supplied data is prescribed. Mirroring this duty, the data subject has a right to rectification under Art. 32(1) FADP."
+  },
+  "fadp_ch-grundsaetze-08": {
+    "question": "How does the legal basis for processing by federal bodies differ from that for private controllers?",
+    "options": {
+      "a": "Federal bodies may only process personal data where there is a statutory basis; for sensitive data and profiling, a basis in a formal act of parliament is required in principle",
+      "b": "Federal bodies need the data subject's consent for every processing operation",
+      "c": "The Art. 6 FADP processing principles do not apply to federal bodies",
+      "d": "Federal bodies are governed exclusively by cantonal data protection law"
+    },
+    "explanation": "Art. 34(1) FADP provides that federal bodies may only process personal data where there is a statutory basis. Para. 2 requires a basis in a formal act of parliament for processing sensitive personal data, for profiling, and where the purpose or manner of processing may seriously interfere with fundamental rights; para. 3 allows a basis in substantive law for the first two cases under conditions. Para. 4 sets out narrow derogations (Federal Council authorisation, case-by-case consent, protecting life or physical integrity). Federal bodies are therefore subject to a \"prohibited unless permitted\" regime closer to the GDPR approach, whereas private controllers operate under the Art. 30/31 FADP model of general permission plus grounds of justification. The Art. 6 FADP principles apply to both."
+  },
+  "fadp_ch-betroffenenrechte-01": {
+    "question": "What may a person request from the controller under Art. 25 FADP?",
+    "options": {
+      "a": "Only confirmation as to whether data is processed, with no further details",
+      "b": "Information as to whether personal data about them is processed, together with the information they need to exercise their rights and to ensure transparent processing - in every case including the controller's identity and contact details, the processed data as such, the purpose of processing, and the retention period",
+      "c": "Exclusively a copy of the contract with the processor",
+      "d": "Information limited to the last twelve months"
+    },
+    "explanation": "Art. 25(1) FADP gives every person the right to request information from the controller as to whether personal data about them is processed. Para. 2 lists a minimum set that must be provided in every case: the controller's identity and contact details (a), the processed personal data as such (b), the purpose of processing (c), the retention period or the criteria for determining it (d), available information on the source of the data (e), if applicable the existence of an automated individual decision and the logic behind it (f), and if applicable the recipients plus the Art. 19(4) FADP information (g). The Act contains no twelve-month limitation. Under para. 4 the controller remains under the duty to provide information even where it has a processor carry out the processing."
+  },
+  "fadp_ch-betroffenenrechte-02": {
+    "question": "Within what period must information generally be provided under Swiss data protection law?",
+    "options": {
+      "a": "As a rule within 30 days of receipt of the request",
+      "b": "Within 72 hours",
+      "c": "Within one month, extendable by two further months",
+      "d": "Within three months with no possibility of extension"
+    },
+    "explanation": "Art. 25(7) FADP provides that information is as a rule provided within 30 days; Art. 18(1) DPO specifies the period as 30 days from receipt of the request. Where information cannot be provided within 30 days, the controller must notify the data subject of this and of how long it will take (Art. 18(2) DPO); any refusal, restriction or deferral must be communicated within the same period (para. 3). Anyone coming from GDPR practice often assumes \"one month, extendable by two months\" under Art. 12(3) GDPR - that is the wrong deadline. Depending on the month, 30 days is shorter than one month, and Swiss law has no formal two-month extension; it requires an interim notification stating the new deadline instead."
+  },
+  "fadp_ch-betroffenenrechte-03": {
+    "question": "May a controller charge for providing information?",
+    "options": {
+      "a": "Yes, it may charge a flat fee of 100 francs for each request",
+      "b": "No, a cost contribution is never permissible",
+      "c": "In principle the information is free of charge; where the effort is disproportionate an appropriate contribution of at most 300 francs may be required, which must be notified in advance",
+      "d": "Yes, provided the data subject has already made a request within the last twelve months"
+    },
+    "explanation": "Art. 25(6) FADP states that information must be provided free of charge, but empowers the Federal Council to provide for exceptions, in particular where the effort is disproportionate. Art. 19 DPO implements this: where the effort is disproportionate an appropriate cost contribution may be required, capped at 300 francs (para. 2). The amount must be communicated to the data subject before the information is provided; if the data subject does not confirm the request within ten days it is deemed withdrawn with no costs incurred, and the 30-day period only starts running after that reflection period (para. 3). GDPR Art. 12(5) also allows a reasonable fee for excessive requests, but names no figure - the express 300-franc cap is a Swiss specificity."
+  },
+  "fadp_ch-betroffenenrechte-04": {
+    "question": "An employment contract contains a clause by which the employee waives their data protection right to information. How should this clause be assessed?",
+    "options": {
+      "a": "It is valid provided it was individually negotiated",
+      "b": "It is ineffective - no one may waive the right to information in advance",
+      "c": "It is valid as long as the waiver is limited to two years",
+      "d": "It is valid if the FDPIC has approved it in advance"
+    },
+    "explanation": "Art. 25(5) FADP states expressly and without qualification: \"No one may waive their right to information in advance.\" A contractual advance waiver is therefore ineffective, regardless of whether it was individually negotiated, time-limited, or seen by an authority. The FDPIC does not approve such clauses; its approval competence concerns standard data protection clauses and binding corporate rules for disclosures abroad (Art. 16(2)(d) and (e) FADP). It remains permissible for a data subject to decline information in a specific case once it is available - what is prohibited is waiving it in advance. Otherwise the controller may only refuse, restrict or defer information on the grounds set out in Arts. 26 and 27 FADP."
+  },
+  "fadp_ch-betroffenenrechte-05": {
+    "question": "How does a data subject obtain erasure of their personal data from a private controller under Swiss data protection law?",
+    "options": {
+      "a": "Via a free-standing \"right to erasure\" expressly set out in the chapter on the rights of the data subject",
+      "b": "Via a ruling by the FDPIC, which the data subject can approach directly",
+      "c": "Via a report to the cantonal data protection authority",
+      "d": "Via a civil action to protect personality rights under Art. 32(2) FADP in conjunction with the Civil Code, which may seek among other things the deletion or destruction of personal data"
+    },
+    "explanation": "Chapter 4 FADP (\"Rights of the data subject\", Arts. 25-29) covers the right to information, its limitations, and the right to data portability - there is no free-standing right to erasure along the lines of Art. 17 GDPR. The claim instead follows from Art. 32 FADP: para. 1 gives a right to rectification of incorrect data, and para. 2 refers actions to protect personality rights to Arts. 28, 28a and 28g-28l of the Civil Code, expressly stating that the claimant may seek among other things a prohibition on a specific processing operation (a), a prohibition on a specific disclosure to third parties (b), or the deletion or destruction of personal data (c). The route is therefore civil litigation, not administrative proceedings before the FDPIC - under Art. 52(2) FADP only the investigated body is a party to an FDPIC investigation, not the person who reported the matter. Independently of this, the destruction duty in Art. 6(4) FADP applies as soon as the data is no longer required for the purpose - no request is needed for that."
+  },
+  "fadp_ch-betroffenenrechte-06": {
+    "question": "Under what conditions does the right to data portability under Art. 28 FADP exist?",
+    "options": {
+      "a": "For all personal data the controller holds about the data subject",
+      "b": "For personal data the data subject has disclosed to the controller, where the controller processes it by automated means and the processing is based on consent or on a direct connection with a contract",
+      "c": "Only where the controller employs more than 250 staff",
+      "d": "Only for sensitive personal data"
+    },
+    "explanation": "Art. 28(1) FADP ties the right to two cumulative conditions: the controller processes the data by automated means (a), and the processing is based on the data subject's consent or is in direct connection with the conclusion or performance of a contract (b). Only data the data subject has themselves disclosed is covered; Art. 20 DPO clarifies that this includes data the controller has collected about the data subject's behaviour while using a service or device, but not data the controller has generated through its own analysis. Delivery is in a conventional electronic format and free of charge (para. 3); transfer to another controller may be requested provided it does not require disproportionate effort (para. 2). The structure largely mirrors Art. 20 GDPR."
+  },
+  "fadp_ch-betroffenenrechte-07": {
+    "question": "An insurer rejects an application by fully automated means. What does Art. 21 FADP require?",
+    "options": {
+      "a": "The controller informs the data subject about the automated individual decision and, on request, gives them the opportunity to state their point of view; they may request review by a natural person",
+      "b": "Fully automated decisions with legal effect are prohibited without exception",
+      "c": "The controller must submit the decision to the FDPIC for prior approval",
+      "d": "The controller must disclose the full source code of the decision system"
+    },
+    "explanation": "Art. 21(1) FADP requires information about decisions based exclusively on automated processing that have legal effect for the data subject or significantly affect them. Para. 2 gives the data subject, on request, the right to state their point of view and the right to demand review by a natural person. Para. 3 exempts two cases: where the decision is directly connected with a contract and the data subject's request is granted, or where the data subject has expressly consented to the automated decision. The approach differs from Art. 22 GDPR: GDPR states a general prohibition with exceptions, whereas the FADP provides information and participation rights without a general prohibition. The Act does not require disclosure of source code - under Art. 25(2)(f) FADP the logic on which the decision is based must be communicated as part of the access response."
+  },
+  "fadp_ch-betroffenenrechte-08": {
+    "question": "Which statement about limitations on the right to information under Art. 26 FADP is correct?",
+    "options": {
+      "a": "The controller may refuse information without giving reasons",
+      "b": "A restriction is only permissible if the FDPIC authorises it in advance",
+      "c": "The controller may refuse, restrict or defer information where, among other things, a formal act of parliament so provides, overriding third-party interests require it, or the request is obviously unjustified or clearly frivolous - but it must always state why",
+      "d": "Group companies always count as third parties whose interests justify a restriction"
+    },
+    "explanation": "Art. 26(1) FADP names three grounds: a formal act of parliament so provides, in particular to protect professional secrecy (a); overriding third-party interests require it (b); or the request is obviously unjustified, in particular where it does not serve the purpose of data protection, or is clearly frivolous (c). Para. 2(a) additionally allows private controllers to restrict where their own overriding interests require it and they do not disclose the data to third parties. Para. 3 clarifies that companies in the same group do not count as third parties for this purpose - so the answer \"group companies always count as third parties\" has it exactly backwards. Para. 4 is decisive: the controller must always state why it is refusing, restricting or deferring. No FDPIC authorisation is provided for. Art. 27 FADP applies in addition to journalists."
+  },
+  "fadp_ch-pflichten-01": {
+    "question": "A Swiss SME employs 180 staff on 1 January. Must it keep a record of processing activities?",
+    "options": {
+      "a": "Yes, the duty applies to all companies without exception",
+      "b": "No, companies with fewer than 250 employees are exempt in every case",
+      "c": "In principle no - but the exemption falls away if sensitive personal data is processed on a large scale or high-risk profiling is carried out",
+      "d": "Only if the company discloses data abroad"
+    },
+    "explanation": "Art. 12(1) FADP obliges controllers and processors each to keep a record of their processing activities in principle; para. 5 instructs the Federal Council to provide exemptions for companies with fewer than 250 employees and low risk. Art. 24 DPO implements this: undertakings and other private organisations employing fewer than 250 people on 1 January of any year, and natural persons, are exempt - unless sensitive personal data is processed on a large scale (a) or high-risk profiling is carried out (b). The 1 January reference date is expressly stated in the ordinance. GDPR Art. 30(5) likewise sets a 250 threshold, but ties its counter-exceptions to different criteria (risk to rights and freedoms, processing that is not occasional, special categories under Art. 9 or Art. 10 GDPR) - the two exemptions therefore do not line up."
+  },
+  "fadp_ch-pflichten-02": {
+    "question": "When must a data protection impact assessment (DPIA) be carried out under Art. 22 FADP?",
+    "options": {
+      "a": "Before every new processing operation, regardless of risk",
+      "b": "In advance, where processing may result in a high risk to the data subject's personality or fundamental rights - in particular for large-scale processing of sensitive personal data or systematic large-scale monitoring of public areas",
+      "c": "Retrospectively, within one year of starting the processing",
+      "d": "Only where the FDPIC orders it in an individual case"
+    },
+    "explanation": "Art. 22(1) FADP requires a prior data protection impact assessment where processing may result in a high risk to the data subject's personality or fundamental rights; where several similar operations are planned, a joint assessment suffices. Para. 2 names two examples: large-scale processing of sensitive personal data (a) and systematic large-scale monitoring of public areas (b). Substantively, para. 3 requires a description of the planned processing, an evaluation of the risks, and the protective measures. Para. 4 exempts private controllers who are legally required to process the data; para. 5 permits dispensing with a DPIA where a system certified under Art. 13 FADP is used or where a qualifying code of conduct under Art. 11 FADP is complied with. Art. 14 DPO requires the DPIA to be retained for at least two years after the processing ends. Unlike GDPR, the FADP has no supervisory-authority \"must list\" of the kind in Art. 35(4) GDPR."
+  },
+  "fadp_ch-pflichten-03": {
+    "question": "The data protection impact assessment shows a residual high risk despite the planned measures. What follows under Art. 23 FADP?",
+    "options": {
+      "a": "The processing must be abandoned",
+      "b": "The controller must notify the FDPIC of the processing and may start immediately",
+      "c": "The controller must ask each data subject individually for consent",
+      "d": "The controller must seek the FDPIC's opinion beforehand; a private controller may dispense with this if it has consulted its data protection advisor under Art. 10 FADP"
+    },
+    "explanation": "Art. 23(1) FADP requires the FDPIC's prior opinion where a high risk remains. Under para. 2 the FDPIC communicates any objections within two months; this may be extended by one month for complex processing. If it objects, it proposes suitable measures (para. 3). Para. 4 is decisive in practice: a private controller may dispense with consulting the FDPIC if it has consulted its data protection advisor under Art. 10 FADP. That is the real commercial incentive to appoint such an advisor at all - a construction GDPR does not have: there, the data protection officer specifically does not replace consultation of the supervisory authority under Art. 36 GDPR."
+  },
+  "fadp_ch-pflichten-04": {
+    "question": "A company detects a data security breach that is likely to result in a high risk to the data subjects. When and subject to what condition must the FDPIC be notified?",
+    "options": {
+      "a": "As quickly as possible - the Act names no fixed deadline; only breaches likely to result in a high risk to personality or fundamental rights are notifiable",
+      "b": "Within 72 hours of becoming aware, as under GDPR",
+      "c": "Within 30 days, in line with the access-request deadline",
+      "d": "Every data security breach must be notified within 24 hours regardless of risk"
+    },
+    "explanation": "Art. 24(1) FADP requires notification \"as quickly as possible\", and only for a data security breach that is likely to result in a high risk to the data subject's personality or fundamental rights. That gives two differences from Art. 33 GDPR at once: GDPR states a hard 72-hour deadline, the FADP states none; and GDPR triggers the duty at the level of a plain risk (unless a risk is unlikely), whereas the FADP triggers only at high risk. Adopting the GDPR rule unchecked means systematically over-reporting in Switzerland - while assuming that the absence of a deadline means there is time underestimates \"as quickly as possible\". Under para. 2 the notification must at least state the nature of the breach, its consequences, and the measures taken or planned; Art. 15(1) DPO lists seven mandatory items and para. 2 allows missing items to be supplied later. In the FDPIC's view (Tier B: its guidance on Art. 24 FADP - interpretive guidance, not statutory text), notification must not wait for lengthy investigations to conclude; the FDPIC provides an online reporting portal for notifications."
+  },
+  "fadp_ch-pflichten-05": {
+    "question": "A cloud provider acting as processor for a Swiss company suffers a data security breach. Whom must it notify?",
+    "options": {
+      "a": "The FDPIC directly, as quickly as possible",
+      "b": "The controller, as quickly as possible - notifying the FDPIC is the controller's job",
+      "c": "The data subjects, directly and without involving the controller",
+      "d": "No one, as long as the data was encrypted"
+    },
+    "explanation": "Art. 24(3) FADP provides that the processor notifies the controller of a data security breach as quickly as possible. This processor-to-controller duty is not tied to a risk threshold - unlike the controller's duty towards the FDPIC under para. 1, which only arises where a high risk is likely. The processor therefore does not report to the FDPIC itself. Informing the data subjects is the controller's task under para. 4, and is owed where this is necessary for their protection or where the FDPIC so requests; para. 5 lists grounds for restricting, deferring or dispensing with it. Encryption may feature in the risk assessment, but it does not remove the processor's duty to notify the controller. In this respect the structure mirrors Art. 33(2) GDPR."
+  },
+  "fadp_ch-pflichten-06": {
+    "question": "What effect does a notification under Art. 24 FADP have in later criminal proceedings against the person required to notify?",
+    "options": {
+      "a": "It may be used as evidence without restriction",
+      "b": "It automatically exempts them from punishment",
+      "c": "It may only be used in criminal proceedings against the person required to notify with that person's consent",
+      "d": "It extends the limitation period for prosecution by two years"
+    },
+    "explanation": "Art. 24(6) FADP contains an express protection against self-incrimination: a notification made under that article may only be used in criminal proceedings against the person required to notify with that person's consent. This is a Swiss specificity with no direct GDPR counterpart, and it makes immediate sense in a system that sanctions data protection breaches criminally against natural persons (Arts. 60-63 FADP): without it, the statutory duty to notify would force the notifying person to supply evidence against themselves. The notification does not, however, exempt anyone from punishment, and the five-year limitation period under Art. 66 FADP is unaffected."
+  },
+  "fadp_ch-pflichten-07": {
+    "question": "How is the data protection advisor structured under Swiss law?",
+    "options": {
+      "a": "Every company with 250 or more staff must appoint one",
+      "b": "Private controllers may appoint one - appointment is voluntary; every federal body, by contrast, must appoint one",
+      "c": "Appointment is mandatory for all private controllers processing sensitive data",
+      "d": "The person must be confirmed by the FDPIC and entered in a public register"
+    },
+    "explanation": "Art. 10(1) FADP is permissive: private controllers may appoint a data protection advisor. Unlike Art. 37 GDPR, there is therefore no constellation in the Swiss private sector in which appointment is mandatory. For federal bodies the opposite applies: Art. 25 DPO requires every federal body to appoint one. The incentive for private controllers lies in Art. 10(3) FADP together with Art. 23(4) FADP: a controller that appoints a professionally independent advisor who is free from instructions and suitably qualified, does not let them carry out incompatible activities, and publishes their contact details and notifies them to the FDPIC, may dispense with consulting the FDPIC where a high residual risk remains. No FDPIC confirmation or register entry is provided for - only notification of contact details. The FADP's official English translation renders this role as \"data protection officer\", even though the function is deliberately structured differently from the GDPR data protection officer."
+  },
+  "fadp_ch-pflichten-08": {
+    "question": "Which four data security goals does Art. 2 DPO expressly name?",
+    "options": {
+      "a": "Confidentiality, integrity, availability and resilience",
+      "b": "Confidentiality, integrity, availability and encryption",
+      "c": "Access control, authorisation control, transport control and input control",
+      "d": "Confidentiality, availability, integrity and traceability"
+    },
+    "explanation": "Art. 8(3) FADP instructs the Federal Council to lay down minimum data-security requirements. Art. 2 DPO names four goals: the data should be accessible only to authorised persons (confidentiality), available when required (availability), not altered without authorisation or unintentionally (integrity), and processed in a traceable manner (traceability). Traceability is the goal that Art. 32(1)(b) GDPR does not have - GDPR lists resilience of systems instead. The controls named in answer c are not the goals but concrete measures: Art. 3 DPO assigns them to the three goal groups of confidentiality (authorisation, access and user control), availability and integrity (data-carrier, storage and transport control, restoration, availability, system security), and traceability (input control, disclosure control, detection and remediation). Art. 4 DPO requires logging in certain cases, to be retained for at least one year separately from the processing system."
+  },
+  "fadp_ch-international_sanktionen-01": {
+    "question": "Who decides whether a country ensures adequate data protection for disclosures of personal data from Switzerland?",
+    "options": {
+      "a": "The European Commission - Switzerland automatically adopts its adequacy decisions",
+      "b": "The FDPIC, by ruling in each individual case",
+      "c": "The Federal Council; the states, territories, specified sectors and international bodies with adequate data protection are listed in Annex 1 to the Data Protection Ordinance",
+      "d": "The Federal Administrative Court, on application by the controller"
+    },
+    "explanation": "Art. 16(1) FADP permits disclosure abroad where the Federal Council has determined that the legislation of the state concerned, or the international body concerned, guarantees adequate protection. Art. 8(1) DPO refers to Annex 1 DPO for the list. Switzerland therefore maintains its own adequacy list - it is not identical to the European Commission's list of adequacy decisions, and it is not automatically derived from it, even though the two overlap substantially. Art. 8(2) DPO sets out the assessment criteria, para. 3 requires the FDPIC to be consulted for every assessment, para. 4 requires periodic reassessment, and para. 6 requires the Annex to be amended where adequate protection no longer exists - with no retroactive effect on disclosures already made. The FDPIC therefore does not decide adequacy itself; its approval role concerns standard data protection clauses and binding corporate rules under Art. 16(2) FADP."
+  },
+  "fadp_ch-international_sanktionen-02": {
+    "question": "How are the United States listed in Annex 1 DPO (as at 15 September 2024)?",
+    "options": {
+      "a": "Not at all - disclosures to the United States are prohibited without exception",
+      "b": "As a state with adequate protection for personal data processed by organisations certified under the principles of the Swiss-U.S. Data Privacy Framework",
+      "c": "Without restriction, for all recipients in the United States",
+      "d": "Only for United States federal authorities"
+    },
+    "explanation": "Annex 1 DPO lists the United States with an express sectoral limitation: an adequate level of protection is deemed guaranteed for personal data processed by organisations certified under the principles of the Swiss-U.S. Data Privacy Framework. The entry rests on U.S. Executive Order 14086 of 7 October 2022, the related rules on the Data Protection Review Court, and Switzerland's designation on 7 June 2024 as a country benefiting from the two-tier redress mechanism. Important in practice: the entry only exists in the DPO version as at 15 September 2024; the original 1 September 2023 version did not contain it. And it only covers certified recipients - for any other U.S. recipient, safeguards under Art. 16(2) FADP or a derogation under Art. 17 FADP are still required. The specific recipient's certification therefore has to be checked before each disclosure."
+  },
+  "fadp_ch-international_sanktionen-03": {
+    "question": "There is no Federal Council adequacy decision. How can suitable data protection be ensured for a disclosure abroad under Art. 16(2) FADP?",
+    "options": {
+      "a": "Among other things by an international treaty, data protection clauses notified to the FDPIC in advance, specific safeguards, standard data protection clauses approved, issued or recognised by the FDPIC, or approved binding corporate rules",
+      "b": "Exclusively by the European Commission's standard contractual clauses, with no further steps",
+      "c": "By a simple confidentiality agreement with the recipient",
+      "d": "By notifying the competent cantonal data protection office"
+    },
+    "explanation": "Art. 16(2) FADP lists five safeguards: an international treaty (a); data protection clauses in a contract between the controller or processor and its contracting party, notified to the FDPIC in advance (b); specific safeguards drawn up by the competent federal body and likewise notified in advance (c); standard data protection clauses approved, issued or recognised by the FDPIC in advance (d); and binding corporate rules approved by the FDPIC or by a data protection authority of a country with adequate protection (e). The FDPIC can also recognise foreign clause sets - the EU standard contractual clauses can be used in practice, but they are not automatically and unmodified sufficient under Swiss law: they require recognition and, as a rule, Swiss-specific adaptations. A mere confidentiality agreement does not suffice, and cantonal data protection offices have no competence for private-sector disclosures. Art. 12 DPO additionally allows codes of conduct and certifications as a basis."
+  },
+  "fadp_ch-international_sanktionen-04": {
+    "question": "Which of the following is named in Art. 17 FADP as a derogation permitting disclosure abroad even without adequacy and without safeguards?",
+    "options": {
+      "a": "The recipient state has enacted a data protection act modelled on European law",
+      "b": "The disclosure is intra-group",
+      "c": "The disclosure is necessary to protect the life or physical integrity of the data subject or of a third party, and it is not possible to obtain consent within a reasonable period",
+      "d": "The disclosure concerns fewer than 100 data subjects"
+    },
+    "explanation": "Art. 17(1) FADP names six derogations: express consent (a); direct connection with a contract between the controller and the data subject, or with a contracting party in the data subject's interest (b); necessity to safeguard an overriding public interest, or to establish, exercise or enforce legal claims before a court or another competent foreign authority (c); protection of life or physical integrity where consent cannot be obtained in time (d); the data subject having made the data generally accessible without expressly prohibiting processing (e); and data from a legally provided, accessible register (f). An intra-group transfer, a merely similar law in the recipient state, or a small number of data subjects are not derogations. Under para. 2 the controller or processor informs the FDPIC on request about disclosures under letters b(2), c and d. The catalogue resembles Art. 49 GDPR but is not identical."
+  },
+  "fadp_ch-international_sanktionen-05": {
+    "question": "What powers does the FDPIC have when an investigation establishes a breach of data protection provisions?",
+    "options": {
+      "a": "It can impose a fine of up to 4 per cent of worldwide annual turnover",
+      "b": "It can impose a fine of up to 20 million francs",
+      "c": "It can only issue non-binding recommendations",
+      "d": "It can order that processing be adapted, interrupted or terminated and that personal data be deleted or destroyed - but it cannot impose fines"
+    },
+    "explanation": "Art. 51(1) FADP empowers the FDPIC to order that processing be adapted, interrupted or terminated in whole or in part, and that personal data be deleted or destroyed in whole or in part. Para. 2 allows it to defer or prohibit disclosure abroad; para. 3 names concrete orders (such as informing data subjects, carrying out a DPIA, providing access); para. 4 concerns designating a representative under Art. 14 FADP; para. 5 allows a mere warning where the body remedied matters during the investigation. These rulings are binding, not mere recommendations - under the old 1992 FADP the FDPIC could indeed only issue recommendations, which the revision changed. What is missing is fines: the FADP has no administrative sanction along the lines of Art. 83 GDPR. Sanctions are exclusively criminal under Arts. 60-63 FADP, and under Art. 65(1) FADP the cantons, not the FDPIC, are competent for those."
+  },
+  "fadp_ch-international_sanktionen-06": {
+    "question": "Whom do the fines in Arts. 60-63 FADP primarily target?",
+    "options": {
+      "a": "The company as a legal entity, with a range up to 20 million francs",
+      "b": "Natural persons - fines up to 250,000 francs; only where a fine of at most 50,000 francs is under consideration and identifying the responsible individuals would be disproportionate may the business be fined instead",
+      "c": "The FDPIC, where it breaches its supervisory duty",
+      "d": "The data subject, where they make a clearly frivolous access request"
+    },
+    "explanation": "This is the most striking difference from the GDPR sanctions model, and the point that regularly surprises people with a GDPR background. Arts. 60-63 FADP provide for fines up to 250,000 francs, and Art. 64(1) FADP declares Arts. 6 and 7 of the Administrative Criminal Law Act (ACLA) applicable to offences committed in a business - under those provisions the natural person who committed the act is liable, in practice often the responsible individual within the company. Only under the narrow conditions of Art. 64(2) FADP may the business be fined instead: where a fine of at most 50,000 francs is under consideration and identifying the liable individuals would require disproportionate investigative measures. GDPR's turnover-based fines have no FADP counterpart. Note also that Art. 60(1), Art. 61 and Art. 62 are prosecuted only on complaint, whereas Art. 60(2) and Art. 63 are prosecuted ex officio. Under Art. 65(1) FADP prosecution is a matter for the cantons; the FDPIC may file a complaint and exercise the rights of a private claimant (para. 2). Prosecution is subject to a five-year limitation period (Art. 66 FADP)."
+  },
+  "fadp_ch-international_sanktionen-07": {
+    "question": "What conduct does Art. 61 FADP (\"Violation of duties of care\") make punishable?",
+    "options": {
+      "a": "Wilfully disclosing data abroad in breach of Art. 16(1) and (2) FADP without an Art. 17 derogation, wilfully assigning processing to a processor without meeting the requirements of Art. 9(1) and (2), and wilfully failing to comply with the minimum data-security requirements",
+      "b": "Any negligent breach of data security",
+      "c": "Failing to appoint a data protection advisor",
+      "d": "Keeping an incomplete record of processing activities"
+    },
+    "explanation": "Art. 61 FADP makes three types of conduct punishable, in each case only where wilful and only on complaint: disclosing personal data abroad in breach of Art. 16(1) and (2) FADP without meeting the requirements of Art. 17 FADP (a); assigning data processing to a processor without meeting the requirements of Art. 9(1) and (2) FADP (b); and failing to comply with the minimum data-security requirements issued by the Federal Council under Art. 8(3) FADP (c). Negligence does not suffice - the statutory text requires wilfulness throughout. Failing to have a data protection advisor is not punishable, because under Art. 10(1) FADP appointment is not mandatory for private controllers at all. An incomplete record of processing activities is likewise not listed as an offence in Arts. 60-63 FADP; there, the administrative measures under Art. 51 FADP remain the response."
+  },
+  "fadp_ch-international_sanktionen-08": {
+    "question": "An employee discloses secret personal data that she learned about in the course of her profession. For how long can this conduct be punishable under Art. 62 FADP?",
+    "options": {
+      "a": "Only while the employment relationship lasts",
+      "b": "Also after ceasing to practise the profession or after completing training",
+      "c": "Only during the first twelve months after learning of the data",
+      "d": "Only if the data subject proves financial loss"
+    },
+    "explanation": "Art. 62(1) FADP makes it an offence to wilfully disclose secret personal data acquired in the course of practising a profession that requires knowledge of such data - on complaint, with a fine up to 250,000 francs. Para. 2 extends this to people who learned the data while working for, or training with, a person subject to a duty of confidentiality. Para. 3 is the decisive clarification: disclosing secret personal data is also an offence after ceasing to practise the profession or after completing training. The duty of confidentiality therefore does not end with the employment relationship. Financial loss is not an element of the offence. For employees this is the most practically relevant criminal provision in the FADP - it hits the individual directly, regardless of whether the company is pursued alongside them."
+  }
+}

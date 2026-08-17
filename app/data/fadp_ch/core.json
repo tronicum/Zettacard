@@ -1,0 +1,877 @@
+{
+  "meta": {
+    "app": "Zettacard / fadp-ch-lernmodul",
+    "version": "0.1",
+    "generated": "2026-08-17",
+    "generator": "authored:claude-opus/2026-08-17 (data/gen_fadp_ch.py)",
+    "description": "Original MCQs for a workplace-compliance training module on the revised Swiss Federal Act on Data Protection (revidiertes Datenschutzgesetz, revDSG/nDSG, SR 235.1, in force 1 September 2023) and its implementing Data Protection Ordinance (Datenschutzverordnung, DSV, SR 235.11). Five topics: scope and key concepts (Art. 1-5, 14 DSG); processing principles and grounds of justification (Art. 6, 7, 30, 31, 34 DSG); rights of the data subject (Art. 21, 25-29, 32 DSG, Art. 16-22 DSV); duties of controllers and processors (Art. 8-12, 22-24 DSG, Art. 1-7, 14, 15, 24, 25 DSV); and disclosure abroad, supervision and criminal provisions (Art. 16, 17, 49-51, 60-66 DSG, Art. 8-12 and Annex 1 DSV). Content is independently phrased and grounded directly in the Fedlex text of the DSG (Stand 1.9.2023) and the DSV (Stand 15.9.2024), NOT sourced or paraphrased from any commercial compliance-training or e-learning vendor's material. Deliberately covers the points where Swiss law departs from the GDPR, since those are where GDPR-trained learners are most likely to be wrong. See-also: this is a SEPARATE module from 'datenschutz' (EU GDPR / German BDSG) - the two regimes are related but legally distinct and are cross-linked, not merged (PO decision 2026-08-16).",
+    "class": "ALL",
+    "canonical_locale": "de",
+    "orthography_note": "Der deutsche Text folgt bewusst der Schweizer Rechtschreibung (ss statt Eszett, z. B. 'Massnahmen', 'gemäss', 'Verstoss') - so schreibt der Gesetzestext selbst. Umlaute (ä/ö/ü) sind durchgehend echte Unicode-Zeichen, keine ASCII-Ersatzschreibung.",
+    "point_system": "3-5 points per question, matching this app's existing compliance modules",
+    "pass_rule_note": "Provisional: same generic mechanics as this app's other compliance modules (30 questions per simulation run out of a 40-question pool, max 10 error points, auto-fail on 2+ wrong high_stakes) - a placeholder pending a real workplace-training design pass, see legal_review_status.",
+    "legal_review_status": "NOT legally reviewed - AI-drafted from primary sources (Fedlex DSG SR 235.1 Stand 1.9.2023, DSV SR 235.11 Stand 15.9.2024). Verify every citation and its currency before production or commercial use. No Swiss-qualified lawyer has reviewed this content.",
+    "sources": {
+      "tier_a_binding": [
+        "Bundesgesetz über den Datenschutz (DSG), SR 235.1, Stand 1.9.2023 - https://www.fedlex.admin.ch/eli/cc/2022/491/de",
+        "Federal Act on Data Protection (FADP), SR 235.1, unofficial English translation - https://www.fedlex.admin.ch/eli/cc/2022/491/en",
+        "Verordnung über den Datenschutz (DSV), SR 235.11, Stand 15.9.2024 - https://www.fedlex.admin.ch/eli/cc/2022/568/de",
+        "Data Protection Ordinance (DPO), SR 235.11, unofficial English translation - https://www.fedlex.admin.ch/eli/cc/2022/568/en"
+      ],
+      "tier_b_guidance": [
+        "EDÖB/FDPIC, Leitfaden betreffend die Meldung von Datensicherheitsverletzungen und Information der Betroffenen nach Art. 24 DSG (interpretive guidance, labelled as such wherever cited)",
+        "EDÖB/FDPIC DataBreach reporting portal - databreach.edoeb.admin.ch"
+      ],
+      "note": "No commercial e-learning provider's course text, question wording, explanations or structure was read into, copied into, or paraphrased into this module (AGENTS.md constraint 1). Topic coverage of comparable paid courses was considered for scoping only."
+    },
+    "related_modules": [
+      {
+        "exam_type": "datenschutz",
+        "relation": "see_also",
+        "de": "Das Modul 'Datenschutz' behandelt die EU-DSGVO und das deutsche BDSG. Schweizer revDSG und DSGVO sind verwandte, aber rechtlich eigenständige Regime - wer beide Räume betreut, sollte beide Module absolvieren.",
+        "en": "The 'Datenschutz' module covers the EU GDPR and the German BDSG. The Swiss revFADP and the GDPR are related but legally distinct regimes - anyone covering both jurisdictions should take both modules."
+      }
+    ],
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial training purposes, with credit and under the same license. Commercial reuse needs a separate arrangement.",
+    "renewal_months": 12,
+    "renewal_basis": "best_practice",
+    "renewal_note": "The DSG sets no fixed training interval. Art. 10 Abs. 2 Bst. a DSG lists training and advising the private controller among the data protection advisor's tasks, and Art. 26 Abs. 2 Bst. c DSV makes training staff an explicit task of a federal body's data protection advisor - but neither provision states a frequency. An annual refresher is a practice convention, not a statutory number.",
+    "total_questions": 40,
+    "locales": [
+      "de",
+      "en"
+    ]
+  },
+  "questions": [
+    {
+      "id": "fadp_ch-geltungsbereich-01",
+      "topic": "Geltungsbereich und Grundbegriffe des revDSG",
+      "topic_code": "geltungsbereich",
+      "grundstoff": true,
+      "legal_basis": "Art. 2 Abs. 1 DSG",
+      "points": 4,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-geltungsbereich-02",
+      "topic": "Geltungsbereich und Grundbegriffe des revDSG",
+      "topic_code": "geltungsbereich",
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Bst. c DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-geltungsbereich-03",
+      "topic": "Geltungsbereich und Grundbegriffe des revDSG",
+      "topic_code": "geltungsbereich",
+      "grundstoff": true,
+      "legal_basis": "Art. 3 Abs. 1 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "management",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-geltungsbereich-04",
+      "topic": "Geltungsbereich und Grundbegriffe des revDSG",
+      "topic_code": "geltungsbereich",
+      "grundstoff": true,
+      "legal_basis": "Art. 14 Abs. 1 DSG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "management"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-geltungsbereich-05",
+      "topic": "Geltungsbereich und Grundbegriffe des revDSG",
+      "topic_code": "geltungsbereich",
+      "grundstoff": true,
+      "legal_basis": "Art. 2 Abs. 2 Bst. a DSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all_staff"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-geltungsbereich-06",
+      "topic": "Geltungsbereich und Grundbegriffe des revDSG",
+      "topic_code": "geltungsbereich",
+      "grundstoff": true,
+      "legal_basis": "Art. 2 Abs. 1 i.V.m. Art. 5 Bst. i DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "management",
+        "hr"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-geltungsbereich-07",
+      "topic": "Geltungsbereich und Grundbegriffe des revDSG",
+      "topic_code": "geltungsbereich",
+      "grundstoff": true,
+      "legal_basis": "Art. 5 Bst. f und g DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "it",
+        "management"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-geltungsbereich-08",
+      "topic": "Geltungsbereich und Grundbegriffe des revDSG",
+      "topic_code": "geltungsbereich",
+      "grundstoff": true,
+      "legal_basis": "Art. 4 Abs. 1 und 2 DSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-grundsaetze-01",
+      "topic": "Bearbeitungsgrundsätze und Rechtfertigung",
+      "topic_code": "grundsaetze",
+      "grundstoff": true,
+      "legal_basis": "Art. 30 und 31 DSG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "management",
+        "hr"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-grundsaetze-02",
+      "topic": "Bearbeitungsgrundsätze und Rechtfertigung",
+      "topic_code": "grundsaetze",
+      "grundstoff": true,
+      "legal_basis": "Art. 6 Abs. 6 und 7 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all",
+        "management"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-grundsaetze-03",
+      "topic": "Bearbeitungsgrundsätze und Rechtfertigung",
+      "topic_code": "grundsaetze",
+      "grundstoff": true,
+      "legal_basis": "Art. 6 Abs. 1-4 DSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-grundsaetze-04",
+      "topic": "Bearbeitungsgrundsätze und Rechtfertigung",
+      "topic_code": "grundsaetze",
+      "grundstoff": true,
+      "legal_basis": "Art. 7 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "it",
+        "management"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-grundsaetze-05",
+      "topic": "Bearbeitungsgrundsätze und Rechtfertigung",
+      "topic_code": "grundsaetze",
+      "grundstoff": true,
+      "legal_basis": "Art. 31 Abs. 2 Bst. c DSG",
+      "points": 5,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "management"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-grundsaetze-06",
+      "topic": "Bearbeitungsgrundsätze und Rechtfertigung",
+      "topic_code": "grundsaetze",
+      "grundstoff": true,
+      "legal_basis": "Art. 30 Abs. 2 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-grundsaetze-07",
+      "topic": "Bearbeitungsgrundsätze und Rechtfertigung",
+      "topic_code": "grundsaetze",
+      "grundstoff": true,
+      "legal_basis": "Art. 6 Abs. 5 DSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all_staff",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-grundsaetze-08",
+      "topic": "Bearbeitungsgrundsätze und Rechtfertigung",
+      "topic_code": "grundsaetze",
+      "grundstoff": true,
+      "legal_basis": "Art. 34 Abs. 1 und 2 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "management"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-betroffenenrechte-01",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "grundstoff": true,
+      "legal_basis": "Art. 25 Abs. 1 und 2 DSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-betroffenenrechte-02",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "grundstoff": true,
+      "legal_basis": "Art. 25 Abs. 7 DSG i.V.m. Art. 18 Abs. 1 DSV",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all",
+        "hr"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-betroffenenrechte-03",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "grundstoff": true,
+      "legal_basis": "Art. 25 Abs. 6 DSG i.V.m. Art. 19 DSV",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "all",
+        "hr"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-betroffenenrechte-04",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "grundstoff": true,
+      "legal_basis": "Art. 25 Abs. 5 DSG",
+      "points": 3,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "hr",
+        "management"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-betroffenenrechte-05",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "grundstoff": true,
+      "legal_basis": "Art. 32 DSG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "all",
+        "management"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-betroffenenrechte-06",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "grundstoff": true,
+      "legal_basis": "Art. 28 Abs. 1 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "it",
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-betroffenenrechte-07",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "grundstoff": true,
+      "legal_basis": "Art. 21 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "it",
+        "management"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-betroffenenrechte-08",
+      "topic": "Rechte der betroffenen Person",
+      "topic_code": "betroffenenrechte",
+      "grundstoff": true,
+      "legal_basis": "Art. 26 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "management",
+        "hr"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-pflichten-01",
+      "topic": "Pflichten von Verantwortlichen und Auftragsbearbeitern",
+      "topic_code": "pflichten",
+      "grundstoff": true,
+      "legal_basis": "Art. 12 DSG i.V.m. Art. 24 DSV",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "management",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-pflichten-02",
+      "topic": "Pflichten von Verantwortlichen und Auftragsbearbeitern",
+      "topic_code": "pflichten",
+      "grundstoff": true,
+      "legal_basis": "Art. 22 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "management",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-pflichten-03",
+      "topic": "Pflichten von Verantwortlichen und Auftragsbearbeitern",
+      "topic_code": "pflichten",
+      "grundstoff": true,
+      "legal_basis": "Art. 23 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "management",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-pflichten-04",
+      "topic": "Pflichten von Verantwortlichen und Auftragsbearbeitern",
+      "topic_code": "pflichten",
+      "grundstoff": true,
+      "legal_basis": "Art. 24 Abs. 1 DSG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "all",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-pflichten-05",
+      "topic": "Pflichten von Verantwortlichen und Auftragsbearbeitern",
+      "topic_code": "pflichten",
+      "grundstoff": true,
+      "legal_basis": "Art. 24 Abs. 3 und 4 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "it",
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-pflichten-06",
+      "topic": "Pflichten von Verantwortlichen und Auftragsbearbeitern",
+      "topic_code": "pflichten",
+      "grundstoff": true,
+      "legal_basis": "Art. 24 Abs. 6 DSG",
+      "points": 5,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "management",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-pflichten-07",
+      "topic": "Pflichten von Verantwortlichen und Auftragsbearbeitern",
+      "topic_code": "pflichten",
+      "grundstoff": true,
+      "legal_basis": "Art. 10 DSG i.V.m. Art. 25 DSV",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "management",
+        "hr"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-pflichten-08",
+      "topic": "Pflichten von Verantwortlichen und Auftragsbearbeitern",
+      "topic_code": "pflichten",
+      "grundstoff": true,
+      "legal_basis": "Art. 8 DSG i.V.m. Art. 2 DSV",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-international_sanktionen-01",
+      "topic": "Auslandbekanntgabe, Aufsicht und Strafbestimmungen",
+      "topic_code": "international_sanktionen",
+      "grundstoff": true,
+      "legal_basis": "Art. 16 Abs. 1 DSG i.V.m. Art. 8 Abs. 1 DSV und Anhang 1 DSV",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "management",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-international_sanktionen-02",
+      "topic": "Auslandbekanntgabe, Aufsicht und Strafbestimmungen",
+      "topic_code": "international_sanktionen",
+      "grundstoff": true,
+      "legal_basis": "Anhang 1 DSV (Stand 15. September 2024)",
+      "points": 5,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "management",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-international_sanktionen-03",
+      "topic": "Auslandbekanntgabe, Aufsicht und Strafbestimmungen",
+      "topic_code": "international_sanktionen",
+      "grundstoff": true,
+      "legal_basis": "Art. 16 Abs. 2 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "management",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-international_sanktionen-04",
+      "topic": "Auslandbekanntgabe, Aufsicht und Strafbestimmungen",
+      "topic_code": "international_sanktionen",
+      "grundstoff": true,
+      "legal_basis": "Art. 17 Abs. 1 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "c"
+      ],
+      "roles": [
+        "management"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-international_sanktionen-05",
+      "topic": "Auslandbekanntgabe, Aufsicht und Strafbestimmungen",
+      "topic_code": "international_sanktionen",
+      "grundstoff": true,
+      "legal_basis": "Art. 51 DSG i.V.m. Art. 49 und 50 DSG",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "d"
+      ],
+      "roles": [
+        "management",
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-international_sanktionen-06",
+      "topic": "Auslandbekanntgabe, Aufsicht und Strafbestimmungen",
+      "topic_code": "international_sanktionen",
+      "grundstoff": true,
+      "legal_basis": "Art. 60-63 DSG i.V.m. Art. 64 DSG und Art. 6 VStrR",
+      "points": 5,
+      "high_stakes": true,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "management",
+        "all"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-international_sanktionen-07",
+      "topic": "Auslandbekanntgabe, Aufsicht und Strafbestimmungen",
+      "topic_code": "international_sanktionen",
+      "grundstoff": true,
+      "legal_basis": "Art. 61 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "a"
+      ],
+      "roles": [
+        "management",
+        "it"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    },
+    {
+      "id": "fadp_ch-international_sanktionen-08",
+      "topic": "Auslandbekanntgabe, Aufsicht und Strafbestimmungen",
+      "topic_code": "international_sanktionen",
+      "grundstoff": true,
+      "legal_basis": "Art. 62 DSG",
+      "points": 4,
+      "high_stakes": false,
+      "question_type": "single_choice",
+      "image_ref": null,
+      "correct": [
+        "b"
+      ],
+      "roles": [
+        "all_staff",
+        "hr"
+      ],
+      "class_scope": [
+        "ALL"
+      ]
+    }
+  ]
+}

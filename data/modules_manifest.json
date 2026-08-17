@@ -367,6 +367,45 @@
       "hasCourse": true
     },
     {
+      "exam_type": "fadp_ch",
+      "label": {
+        "de": "Schweizer Datenschutz (revDSG)",
+        "en": "Swiss data protection (revFADP)",
+        "uk": "Захист даних у Швейцарії (revFADP)",
+        "pl": "Szwajcarska ochrona danych (revFADP)",
+        "ar": "حماية البيانات السويسرية (revFADP)",
+        "zh": "瑞士数据保护法 (revFADP)",
+        "hi": "स्विस डेटा सुरक्षा (revFADP)",
+        "tr": "İsviçre veri koruma mevzuatı (revFADP)",
+        "fr": "Protection des données en Suisse (nLPD)",
+        "ru": "Защита данных в Швейцарии (revFADP)",
+        "es": "Protección de datos en Suiza (revFADP)",
+        "it": "Protezione dei dati in Svizzera (revFADP)"
+      },
+      "_comment": "2026-08-17: 11th compliance module - the revised Swiss Federal Act on Data Protection (revidiertes Datenschutzgesetz, revDSG/nDSG, SR 235.1, in force 1 September 2023) plus its implementing ordinance (Datenschutzverordnung, DSV, SR 235.11). Built from the Fedlex primary text only (DSG Stand 1.9.2023, DSV Stand 15.9.2024) - see data/gen_fadp_ch.py's docstring for the full source list and the Tier A/Tier B discipline. PO scope decision 2026-08-16: a NEW STANDALONE module, Swiss law only, cross-linked with but deliberately NOT merged into the existing 'datenschutz' (EU GDPR / German BDSG) module - the two regimes are related but legally distinct. 40-question DE/EN pilot, same launch pattern and same scopeKind/options placeholder as every other compliance module. Ships free, like every module in this app today - pricing across the whole compliance line remains intentionally deferred (same standing position recorded on kyc_aml/kartellrecht/lksg). AI-drafted, NOT legally reviewed - see the pilot's legal_review_status.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Grundlagenschulung",
+            "en": "Baseline training",
+            "uk": "Базове навчання",
+            "pl": "Szkolenie podstawowe",
+            "ar": "التدريب الأساسي",
+            "zh": "基础培训",
+            "hi": "आधारभूत प्रशिक्षण",
+            "tr": "Temel eğitim",
+            "fr": "Formation de base",
+            "ru": "Базовое обучение",
+            "es": "Formación básica",
+            "it": "Formazione di base"
+          }
+        }
+      ],
+      "legal_review_status": "NOT legally reviewed"
+    },
+    {
       "exam_type": "arbeitssicherheit",
       "label": {
         "de": "Arbeitssicherheit",

@@ -811,6 +811,22 @@ const TOPIC_LABELS = {
     meldepflichten: { de: "Meldepflichten bei Datenpannen", en: "Breach notification duties", uk: "Обов'язок повідомлення про витік даних", pl: "Obowiązek zgłaszania naruszeń danych", ar: "واجب الإبلاغ عن خروقات البيانات", zh: "数据泄露报告义务", hi: "डेटा उल्लंघन सूचना दायित्व", tr: "Veri ihlali bildirim yükümlülüğü", fr: "Obligation de notification des violations de données", ru: "Обязанность уведомления об утечках данных", es: "Obligación de notificar violaciones de datos", it: "Obbligo di notifica delle violazioni dei dati" },
     auftragsverarbeitung: { de: "Auftragsverarbeitung und Drittländer", en: "Processor agreements & transfers", uk: "Обробка за дорученням і треті країни", pl: "Powierzenie przetwarzania i kraje trzecie", ar: "معالجة البيانات بالنيابة والدول الثالثة", zh: "受托处理与第三国传输", hi: "प्रसंस्करण अनुबंध और तीसरे देश", tr: "Veri işleme sözleşmeleri ve üçüncü ülkeler", fr: "Sous-traitance et transferts vers des pays tiers", ru: "Обработка по поручению и передача в третьи страны", es: "Encargados del tratamiento y transferencias a terceros países", it: "Trattamento per conto terzi e trasferimenti a paesi terzi" },
   },
+  // 2026-08-17: fadp_ch - Swiss revDSG/nDSG (SR 235.1) + DSV (SR 235.11).
+  // A separate module from datenschutz above, not extra topics inside it
+  // (PO scope decision 2026-08-16) - the Swiss and EU regimes are related
+  // but legally distinct, and the modules cross-link rather than merge.
+  // The QUESTION CONTENT is a DE/EN pilot (same launch pattern as dora/
+  // nis2/kyc_aml/kartellrecht), but these topic labels are a UI string, so
+  // per AGENTS.md constraint 5 they ship in all 12 locales from the start
+  // rather than DE/EN "for now" - getTopicLabel()'s fallback chain then
+  // never has to degrade for a UI language this app already supports.
+  fadp_ch: {
+    geltungsbereich: { de: "Geltungsbereich und Grundbegriffe", en: "Scope & key concepts", uk: "Сфера застосування та ключові поняття", pl: "Zakres stosowania i pojęcia podstawowe", ar: "نطاق التطبيق والمفاهيم الأساسية", zh: "适用范围与基本概念", hi: "प्रयोज्यता का दायरा और मूल अवधारणाएँ", tr: "Kapsam ve temel kavramlar", fr: "Champ d'application et notions clés", ru: "Сфера применения и основные понятия", es: "Ámbito de aplicación y conceptos clave", it: "Ambito di applicazione e concetti chiave" },
+    grundsaetze: { de: "Bearbeitungsgrundsätze und Rechtfertigung", en: "Processing principles & justification", uk: "Принципи обробки та підстави виправдання", pl: "Zasady przetwarzania i podstawy usprawiedliwienia", ar: "مبادئ المعالجة ومسوّغات التبرير", zh: "处理原则与正当性理由", hi: "प्रसंस्करण सिद्धांत और औचित्य के आधार", tr: "İşleme ilkeleri ve hukuka uygunluk sebepleri", fr: "Principes de traitement et motifs justificatifs", ru: "Принципы обработки и основания оправдания", es: "Principios de tratamiento y causas de justificación", it: "Principi di trattamento e cause di giustificazione" },
+    betroffenenrechte: { de: "Rechte der betroffenen Person", en: "Data subject rights", uk: "Права суб'єктів даних", pl: "Prawa osób, których dane dotyczą", ar: "حقوق أصحاب البيانات", zh: "数据主体权利", hi: "डेटा विषय के अधिकार", tr: "Veri sahibi hakları", fr: "Droits des personnes concernées", ru: "Права субъектов данных", es: "Derechos de los interesados", it: "Diritti degli interessati" },
+    pflichten: { de: "Pflichten von Verantwortlichen und Auftragsbearbeitern", en: "Controller & processor duties", uk: "Обов'язки контролерів і обробників", pl: "Obowiązki administratorów i podmiotów przetwarzających", ar: "واجبات المتحكمين والمعالجين", zh: "控制者与处理者的义务", hi: "नियंत्रक और प्रोसेसर के दायित्व", tr: "Veri sorumlusu ve işleyen yükümlülükleri", fr: "Obligations des responsables et sous-traitants", ru: "Обязанности контролёров и обработчиков", es: "Obligaciones de responsables y encargados", it: "Obblighi di titolari e responsabili" },
+    international_sanktionen: { de: "Auslandbekanntgabe und Sanktionen", en: "Cross-border disclosure & sanctions", uk: "Транскордонна передача та санкції", pl: "Przekazywanie za granicę i sankcje", ar: "الإفصاح عبر الحدود والعقوبات", zh: "跨境披露与处罚", hi: "सीमा-पार प्रकटीकरण और दंड", tr: "Yurt dışına aktarım ve yaptırımlar", fr: "Communication à l'étranger et sanctions", ru: "Трансграничная передача и санкции", es: "Comunicación al extranjero y sanciones", it: "Comunicazione all'estero e sanzioni" },
+  },
   arbeitssicherheit: {
     grundpflichten: { de: "Grundpflichten", en: "Basic duties", uk: "Основні обов'язки", pl: "Obowiązki podstawowe", ar: "الواجبات الأساسية", zh: "基本义务", hi: "मूल कर्तव्य", tr: "Temel yükümlülükler", fr: "Obligations de base", ru: "Основные обязанности", es: "Obligaciones básicas", it: "Obblighi di base" },
     unterweisung: { de: "Unterweisungspflicht", en: "Instruction obligation", uk: "Обов'язок інструктажу", pl: "Obowiązek instruktażu", ar: "واجب التدريب والتوجيه", zh: "培训指导义务", hi: "प्रशिक्षण/निर्देश दायित्व", tr: "Bilgilendirme/eğitim yükümlülüğü", fr: "Obligation de formation/instruction", ru: "Обязанность инструктажа", es: "Obligación de formación/instrucción", it: "Obbligo di formazione/istruzione" },
@@ -999,7 +1015,7 @@ function getTopicLabel(topicCode, fallbackTopic) {
 // for those modules (originally 4 under DN-44, now 5 since DN-50 added
 // hinweisgeberschutz with its own roles field), layered on top of the
 // existing topic filter (a learner can combine both) rather than replacing it.
-const COMPLIANCE_MODULES = new Set(["datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz", "kyc_aml", "kartellrecht", "lksg", "dora", "nis2"]);
+const COMPLIANCE_MODULES = new Set(["datenschutz", "fadp_ch", "arbeitssicherheit", "ki_act", "it_sicherheit", "hinweisgeberschutz", "kyc_aml", "kartellrecht", "lksg", "dora", "nis2"]);
 
 // Role codes in a fixed display order - "all" here means "no role filter
 // applied" (show every question regardless of its own roles tag), NOT to be
@@ -4654,6 +4670,20 @@ const EXAM_TOPIC_DRAW = {
     praevention_abhilfe: 1,
     beschwerdeverfahren: 1,
     sanktionen: 1,
+  },
+  // 2026-08-17: fadp_ch (Swiss revDSG). 40-question pool, 5 topics x 8, so
+  // it keeps the DEFAULT 30-question / 45-minute / 10-error-point exam
+  // settings its sibling datenschutz module uses (no *_BY_TYPE overrides) -
+  // it is a full 40-question compliance pool, not one of the short 6-of-30
+  // enterprise checks. Only the draw distribution is pinned here, an even
+  // 6 per topic, so every run covers all five topics instead of relying on
+  // drawExamQuestions()'s uniform-random top-up.
+  fadp_ch: {
+    geltungsbereich: 6,
+    grundsaetze: 6,
+    betroffenenrechte: 6,
+    pflichten: 6,
+    international_sanktionen: 6,
   },
   // 2026-08-14: ELWIS catalog scale-up replaced both pools' topic_code sets
   // (see TOPIC_LABELS.sportboot_binnen/see comment above for why). Draw
