@@ -1,0 +1,1090 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Generator for data/immobilienverwalter_weiterbildung_pilot_DRAFT.json -
+"Wohnimmobilienverwalter - Weiterbildungsthemen (MaBV Anlage 1)".
+
+WHAT THIS MODULE IS, AND THE ONE THING THAT MUST NOT BE SOFTENED: it is study
+and practice material covering the eight legally-mandated Weiterbildung topic
+areas for Wohnimmobilienverwalter (Anlage 1 zu § 15b Absatz 1 MaBV, in force).
+Completing it does NOT count toward the statutory 20-hour / three-calendar-year
+Weiterbildungspflicht under § 34c Absatz 2a GewO, because § 15b Absatz 1 Satz 5
+MaBV puts the Anlage-2 quality obligation on the *Anbieter der Weiterbildung*,
+a regulatory posture Zettacard has NOT taken on and expressly does not claim.
+The exact wording lives in META["no_quota_disclaimer"] and is repeated near the
+top of META["description"]; META["certificate_copy_note"] binds any future
+course-layer or certificate copy to the same wording. PO instruction 2026-08-17.
+
+DRAFT STATUS: the _DRAFT suffix is deliberate. Not registered in
+data/build_modules.py, data/modules_manifest.json or app/data/modules.json;
+app/app.js untouched; build_modules.py not run. Content-drafting round only.
+
+SOURCING (AGENTS.md constraint 1 - original synthesis from primary legal text
+only; no exam-prep, e-learning or Weiterbildungsanbieter material was read into
+or paraphrased into this file). Tier A, all re-verified by direct curl against
+gesetze-im-internet.de on 2026-08-17 for THIS build, because WebFetch is
+ROBOTS_DISALLOWED on that host in this sandbox and because a dossier's own
+citations get re-checked before they are built into content:
+
+  - MaBV Anlage 1 (zu § 15b Abs. 1), Anlage 2, §§ 1, 11, 15, 15a, 15b, 18, 19
+    https://www.gesetze-im-internet.de/gewo_34cdv/anlage_1.html
+    NOTE THE NON-OBVIOUS SLUG: /gewo_34cdv/, not /mabv/ (which 404s).
+  - GewO § 34c Abs. 1, 2, 2a
+  - WEG §§ 1, 9a, 9b, 16, 18, 19, 20, 23, 24, 25, 26, 26a, 27, 28, 29, 44, 45
+  - ZertVerwV §§ 1, 2
+  - BGB §§ 311b, 549, 551, 556, 558, 559, 573c
+  - BetrKV §§ 1, 2 (17 numbered categories confirmed)
+  - HeizkostenV §§ 7, 12
+  - WoFlV § 2
+  - RDG §§ 2, 5
+  - TrinkwV 2023 § 31
+  - GModG (formerly GEG) §§ 80, 87
+  - UWG §§ 5, 7
+  - VSBG § 36
+  - GBO §§ 13, 29
+
+TWO CURRENCY TRAPS THE DOSSIER FLAGGED, HANDLED HERE:
+  1. EnEV -> GEG -> GModG. MaBV Anlage 1 area 2.12.4 STILL literally reads
+     "Energieinsparverordnung"/"Energieeinsparverordnung"; the EnEV was
+     superseded by the Gebaeudeenergiegesetz (GEG) in 2020 and the annex was
+     never updated. NEW FINDING FROM THIS BUILD'S OWN RE-VERIFICATION, beyond
+     the dossier: the GEG has itself been RENAMED to "Gebaeudemodernisierungs-
+     gesetz (GModG)", full title "Gesetz zur Einsparung von Energie und zur
+     Modernisierung der Waermeversorgung in Gebaeuden", by Art. 1 Nr. 1 G v.
+     23.07.2026 (BGBl. 2026 I Nr. 226) with effect from 29.07.2026
+     (gesetze-im-internet.de records: "Ueberschrift: IdF d. Art. 1 Nr. 1 G v.
+     23.7.2026 I Nr. 226 mWv 29.7.2026"). The URL slug is still /geg/. This
+     file therefore cites "GModG (bis 28.07.2026: GEG)" and never EnEV except
+     to name the outdated annex reference as outdated.
+  2. Grundsteuer / Bewertungsgesetz. The dossier warned that "area 6.5's
+     Bewertungsgesetz-dependent property taxes have moved substantially via the
+     Grundsteuerreform". RE-VERIFICATION CORRECTION: that area belonged to the
+     REPEALED Teil A (the broker syllabus), whose area 6 was "Grundlagen
+     Immobilien und Steuern" with 6.5 "Bewertungsgesetzabhaengige Steuern". The
+     Anlage 1 now in force - the Wohnimmobilienverwalter annex - has NO tax area
+     at all; its area 6 is "Technische Grundlagen der Immobilienverwaltung" and
+     its 6.5 is "Instandhaltungs- und Instandsetzungsplanung; modernisierende
+     Instandhaltung". This module therefore asserts no Grundsteuer valuation
+     rules. Grundsteuer appears only where it genuinely belongs: as BetrKV § 2
+     Nr. 1 ("die laufenden oeffentlichen Lasten des Grundstuecks, hierzu gehoert
+     namentlich die Grundsteuer"), an allocable operating cost, with no claim
+     about how the tax base is computed.
+
+A THIRD CURRENCY POINT, worth stating because the annex is stale in the other
+direction too: Anlage 1's own numbering does not match the dossier's Teil-A-era
+description. As retrieved 2026-08-17 the in-force annex reads 1. Grundlagen der
+Immobilienwirtschaft / 2. Rechtliche Grundlagen (2.1-2.12, the biggest area) /
+3. Kaufmaennische Grundlagen / 4. Verwaltung von Wohnungseigentumsobjekten /
+5. Verwaltung von Mietobjekten / 6. Technische Grundlagen der Immobilien-
+verwaltung / 7. Wettbewerbsrecht / 8. Verbraucherschutz - and area 3.2.1 still
+says "Instandhaltungsruecklage", a term the WEG reform replaced with
+"Erhaltungsruecklage" (§ 19 Abs. 2 Nr. 4 WEG). Taught as such.
+
+Run from data/:  python3 gen_immobilienverwalter_weiterbildung.py
+Do NOT run build_modules.py for this file - it is a draft.
+"""
+import json
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.join(HERE, "immobilienverwalter_weiterbildung_pilot_DRAFT.json")
+
+# Topic codes map 1:1 onto MaBV Anlage 1's eight areas, in the annex's own order.
+TOPICS = {
+    "grundlagen_immobilienwirtschaft": "Anlage 1 Nr. 1: Grundlagen der Immobilienwirtschaft",
+    "rechtliche_grundlagen": "Anlage 1 Nr. 2: Rechtliche Grundlagen",
+    "kaufmaennische_grundlagen": "Anlage 1 Nr. 3: Kaufmännische Grundlagen",
+    "weg_verwaltung": "Anlage 1 Nr. 4: Verwaltung von Wohnungseigentumsobjekten",
+    "mietverwaltung": "Anlage 1 Nr. 5: Verwaltung von Mietobjekten",
+    "technische_grundlagen": "Anlage 1 Nr. 6: Technische Grundlagen der Immobilienverwaltung",
+    "wettbewerbsrecht": "Anlage 1 Nr. 7: Wettbewerbsrecht",
+    "verbraucherschutz": "Anlage 1 Nr. 8: Verbraucherschutz",
+}
+
+TOPIC_LABELS_EN = {
+    "grundlagen_immobilienwirtschaft": "Annex 1 no. 1: Fundamentals of the real-estate industry",
+    "rechtliche_grundlagen": "Annex 1 no. 2: Legal fundamentals",
+    "kaufmaennische_grundlagen": "Annex 1 no. 3: Commercial fundamentals",
+    "weg_verwaltung": "Annex 1 no. 4: Management of condominium property",
+    "mietverwaltung": "Annex 1 no. 5: Management of let property",
+    "technische_grundlagen": "Annex 1 no. 6: Technical fundamentals of property management",
+    "wettbewerbsrecht": "Annex 1 no. 7: Competition law",
+    "verbraucherschutz": "Annex 1 no. 8: Consumer protection",
+}
+
+Q = []
+
+
+def q(topic_code, num, legal_basis, points, high_stakes, roles, correct,
+      de_q, de_opts, en_q, en_opts, de_expl, en_expl):
+    Q.append({
+        "id": f"immobilienverwalter_weiterbildung-{topic_code}-{num:02d}",
+        "topic": TOPICS[topic_code],
+        "topic_code": topic_code,
+        "class_scope": ["ALL"],
+        "grundstoff": True,
+        "legal_basis": legal_basis,
+        "points": points,
+        "high_stakes": high_stakes,
+        "question_type": "single_choice",
+        "image_ref": None,
+        "correct": [correct],
+        "roles": roles,
+        "text": {
+            "de": {"question": de_q, "options": de_opts},
+            "en": {"question": en_q, "options": en_opts},
+        },
+        "explanation": {"de": de_expl, "en": en_expl},
+    })
+
+
+# ===========================================================================
+# Anlage 1 Nr. 1: Grundlagen der Immobilienwirtschaft
+# (1.5 Umwelt- und Energiethemen im Immobilienbereich)
+# ===========================================================================
+
+q("grundlagen_immobilienwirtschaft", 1,
+  "§ 87 Abs. 1 GModG (bis 28.07.2026: GEG); Anlage 1 Nr. 1.5 MaBV", 5, True, ["all"], "c",
+  "Ein Verwalter schaltet für eine verwaltete Wohnung eine Immobilienanzeige in einem kommerziellen Portal. Ein gültiger Energieausweis liegt vor. Welche Pflichtangaben verlangt § 87 Absatz 1 GModG?",
+  {
+    "a": "Nur der Endenergiebedarf und das Baujahr",
+    "b": "Keine - Pflichtangaben treffen ausschließlich den Eigentümer, nicht den Verwalter",
+    "c": "Art des Energieausweises, Wert des Endenergiebedarfs oder Endenergieverbrauchs, wesentliche Energieträger für die Heizung sowie bei Wohngebäuden zusätzlich Baujahr und Energieeffizienzklasse",
+    "d": "Ausschließlich die Energieeffizienzklasse",
+  },
+  "A manager places a property listing for a managed flat on a commercial portal. A valid energy performance certificate exists. Which mandatory particulars does § 87(1) GModG require?",
+  {
+    "a": "Only the final energy demand and the year of construction",
+    "b": "None - the mandatory particulars bind only the owner, not the manager",
+    "c": "The type of energy performance certificate, the final energy demand or consumption figure, the main energy sources used for heating, and for residential buildings additionally the year of construction and the energy efficiency class",
+    "d": "Only the energy efficiency class",
+  },
+  "§ 87 Abs. 1 GModG nennt fünf Pflichtangaben, wenn vor Verkauf, Vermietung, Verpachtung oder Leasing eine Immobilienanzeige in kommerziellen Medien aufgegeben wird und zu diesem Zeitpunkt ein Energieausweis vorliegt: 1. die Art des Energieausweises (Energiebedarfsausweis nach § 81 oder Energieverbrauchsausweis nach § 82), 2. den im Ausweis genannten Wert des Endenergiebedarfs oder Endenergieverbrauchs, 3. die wesentlichen Energieträger für die Heizung, 4. bei einem Wohngebäude das Baujahr und 5. bei einem Wohngebäude die Energieeffizienzklasse. Adressat ist ausdrücklich auch der Immobilienmakler und - über die Verantwortung für die Veröffentlichung - wer die Anzeige verantwortet; Antwort b ist damit falsch. WICHTIGE AKTUALITÄTSHINWEISE, die für dieses Themengebiet doppelt gelten. Erstens: Anlage 1 Nummer 2.12.4 MaBV nennt als Rechtsquelle noch die „Energieeinsparverordnung“. Die EnEV ist 2020 im Gebäudeenergiegesetz (GEG) aufgegangen; die Anlage wurde nie nachgezogen. Zweitens: das GEG selbst heißt seit dem 29.07.2026 nicht mehr so. Durch Artikel 1 Nummer 1 des Gesetzes vom 23.07.2026 (BGBl. 2026 I Nr. 226) wurde die Überschrift geändert; das Gesetz führt heute den Titel „Gesetz zur Einsparung von Energie und zur Modernisierung der Wärmeversorgung in Gebäuden“ und die Kurzbezeichnung Gebäudemodernisierungsgesetz (GModG). Wer in diesem Themengebiet arbeitet, sollte weder EnEV noch GEG als aktuelle Bezeichnung verwenden.",
+  "§ 87(1) GModG names five mandatory particulars where, before a sale, letting, lease or leasing, a property listing is placed in commercial media and an energy performance certificate exists at that time: 1. the type of certificate (demand certificate under § 81 or consumption certificate under § 82), 2. the final energy demand or consumption figure stated in it, 3. the main energy sources used for heating, 4. for a residential building the year of construction, and 5. for a residential building the energy efficiency class. The provision expressly also addresses the real-estate agent and, through responsibility for publication, whoever is responsible for the listing; answer b is therefore wrong. TWO IMPORTANT CURRENCY POINTS that apply doubly in this topic area. First: MaBV Annex 1 no. 2.12.4 still names the \"Energieeinsparverordnung\" as its legal source. The EnEV was absorbed into the Gebaeudeenergiegesetz (GEG) in 2020; the annex was never updated. Second: the GEG itself no longer bears that name as of 29 July 2026. Article 1 no. 1 of the Act of 23 July 2026 (BGBl. 2026 I no. 226) changed the heading; the Act is now titled \"Act on saving energy and on modernising heat supply in buildings\" with the short form Gebaeudemodernisierungsgesetz (GModG). Anyone working in this topic area should use neither EnEV nor GEG as the current designation."),
+
+q("grundlagen_immobilienwirtschaft", 2,
+  "§ 80 Abs. 3 und 5 GModG (bis 28.07.2026: GEG); Anlage 1 Nr. 1.5 MaBV", 4, False, ["all"], "b",
+  "Zu welchem Zeitpunkt ist einem Mietinteressenten der Energieausweis vorzulegen?",
+  {
+    "a": "Erst nach Abschluss des Mietvertrages",
+    "b": "Spätestens bei der Besichtigung; findet keine Besichtigung statt, unverzüglich - jedenfalls unverzüglich auf Aufforderung",
+    "c": "Nur auf schriftliches Verlangen und innerhalb von 14 Tagen",
+    "d": "Eine Vorlagepflicht besteht bei Vermietung nicht, sondern nur beim Verkauf",
+  },
+  "At what point must the energy performance certificate be shown to a prospective tenant?",
+  {
+    "a": "Only after the tenancy agreement has been concluded",
+    "b": "At the latest during the viewing; if no viewing takes place, without delay - and in any event without delay on request",
+    "c": "Only on written request and within 14 days",
+    "d": "There is no duty to produce it on letting, only on a sale",
+  },
+  "§ 80 Abs. 3 Satz 1 GModG verlangt einen Energieausweis, wenn ein bebautes Grundstück oder Wohnungs-/Teileigentum verkauft, ein Erbbaurecht begründet oder übertragen oder ein Gebäude, eine Wohnung oder eine sonstige selbständige Nutzungseinheit vermietet, verpachtet oder verleast werden soll und kein gültiger Ausweis vorliegt. § 80 Abs. 4 GModG regelt die Vorlage im Verkaufsfall: spätestens bei der Besichtigung ist dem potenziellen Käufer der Ausweis oder eine Kopie vorzulegen; ein deutlich sichtbarer Aushang oder Auslegen während der Besichtigung genügt; findet keine Besichtigung statt, ist unverzüglich vorzulegen, und jedenfalls unverzüglich, wenn der Interessent dazu auffordert; unverzüglich nach Vertragsschluss ist der Ausweis oder eine Kopie zu übergeben. § 80 Abs. 5 GModG erklärt Absatz 4 Satz 1 bis 5 im Fall der Vermietung, Verpachtung oder des Leasings für Vermieter, Verpächter, Leasinggeber oder Immobilienmakler entsprechend anwendbar - die Vorlagepflicht gilt also auch bei Vermietung, was Antwort d ausschließt. Für die Verwaltungspraxis heißt das: wer Besichtigungen für den Eigentümer organisiert, muss den gültigen Ausweis zum Besichtigungstermin vorliegen haben, nicht erst zur Vertragsunterzeichnung. Die Beratungsgesprächspflicht des § 80 Abs. 4 Satz 6 GModG betrifft ausschließlich den Käufer eines Wohngebäudes mit nicht mehr als zwei Wohnungen und ist kein Mietthema.",
+  "§ 80(3) sentence 1 GModG requires an energy performance certificate where developed land or condominium/part-ownership is to be sold, a heritable building right created or transferred, or a building, flat or other independent unit let, leased or leased out, and no valid certificate exists. § 80(4) GModG governs production in a sale: the certificate or a copy must be shown to the prospective purchaser at the latest during the viewing; a clearly visible display or laying-out during the viewing suffices; if no viewing takes place it must be produced without delay, and in any event without delay if the prospect asks; and without delay after conclusion of the contract the certificate or a copy must be handed over. § 80(5) GModG applies (4) sentences 1 to 5 correspondingly, in the case of letting, leasing or leasing out, to the landlord, lessor, lessor under a lease or real-estate agent - so the duty to produce applies on letting too, which rules out answer d. For management practice: whoever organises viewings for the owner must have the valid certificate available at the viewing appointment, not only at signature. The advisory-conversation duty in § 80(4) sentence 6 GModG concerns only the purchaser of a residential building with no more than two dwellings and is not a tenancy matter."),
+
+
+# ===========================================================================
+# Anlage 1 Nr. 2: Rechtliche Grundlagen (the biggest area)
+# ===========================================================================
+
+q("rechtliche_grundlagen", 1,
+  "§ 34c Abs. 2a GewO; § 15b Abs. 1 MaBV; Anlage 1 und Anlage 2 MaBV", 5, True, ["management"], "c",
+  "Welchen Umfang und welche inhaltliche Bindung hat die Weiterbildungspflicht des Wohnimmobilienverwalters im aktuell geltenden Recht?",
+  {
+    "a": "20 Stunden pro Kalenderjahr, inhaltlich frei wählbar",
+    "b": "40 Stunden in drei Kalenderjahren, ausgerichtet an Anlage 1 und Anlage 3 MaBV",
+    "c": "20 Stunden innerhalb eines Zeitraums von drei Kalenderjahren, fachlich entsprechend der ausgeübten Tätigkeit und inhaltlich an den Vorgaben der Anlage 1 MaBV ausgerichtet",
+    "d": "Keine - die Weiterbildungspflicht wurde im Juli 2026 für alle Gewerbetreibenden nach § 34c GewO abgeschafft",
+  },
+  "What is the scope of, and the content constraint on, the residential property manager's continuing-education duty as the law currently stands?",
+  {
+    "a": "20 hours per calendar year, freely chosen in content",
+    "b": "40 hours in three calendar years, oriented to MaBV Annexes 1 and 3",
+    "c": "20 hours within a period of three calendar years, professionally matched to the activity actually carried on and oriented in content to the requirements of MaBV Annex 1",
+    "d": "None - the continuing-education duty was abolished in July 2026 for all traders under § 34c GewO",
+  },
+  "§ 34c Abs. 2a Satz 1 GewO in der geltenden Fassung: „Gewerbetreibende nach Absatz 1 Satz 1 Nummer 4 sind verpflichtet, sich in einem Umfang von 20 Stunden innerhalb eines Zeitraums von drei Kalenderjahren weiterzubilden; das Gleiche gilt entsprechend für unmittelbar bei der erlaubnispflichtigen Tätigkeit mitwirkende beschäftigte Personen.“ § 15b Abs. 1 Satz 1 und 2 MaBV konkretisiert: „Wer nach § 34c Absatz 2a der Gewerbeordnung zur Weiterbildung verpflichtet ist, muss sich fachlich entsprechend seiner ausgeübten Tätigkeit weiterbilden. Die inhaltlichen Anforderungen an die Weiterbildung sind an den Vorgaben der Anlage 1 auszurichten.“ Der erste Weiterbildungszeitraum beginnt nach § 34c Abs. 2a Satz 2 GewO am 1. Januar des Kalenderjahres, in dem die Erlaubnis nach Nummer 4 erteilt oder eine weiterbildungspflichtige Tätigkeit durch eine beschäftigte Person aufgenommen wurde. Antwort b ist doppelt falsch: 40 Stunden waren die Rechnung für Inhaber der Makler- UND Verwaltererlaubnis unter dem bis zum 23.07.2026 geltenden Recht, und Anlage 3 MaBV ist durch Artikel 2 Nummer 5 des Gesetzes vom 20.07.2026 (BGBl. 2026 I Nr. 215) gestrichen worden - das Inhaltsverzeichnis der MaBV führt sie heute als „Anlage 3 (weggefallen)“. Antwort d beschreibt die Rechtslage für Immobilienmakler, nicht für Verwalter: dasselbe Gesetz hat Nummer 1 aus § 34c Absatz 2a GewO herausgenommen, Nummer 4 aber bewusst darin belassen. ZUR ANRECHENBARKEIT, weil die Frage in der Praxis sofort folgt: dieses Modul ist Lern- und Übungsmaterial. Das Absolvieren zählt NICHT auf die gesetzlichen 20 Stunden an, weil § 15b Absatz 1 Satz 5 MaBV verlangt, dass der Anbieter der Weiterbildung die Anforderungen der Anlage 2 MaBV sicherstellt - eine Anbieterpflicht, die Zettacard nicht übernommen hat.",
+  "§ 34c(2a) sentence 1 GewO as in force: \"Traders under (1) sentence 1 no. 4 are obliged to undertake 20 hours of continuing education within a period of three calendar years; the same applies correspondingly to employed persons directly involved in the activity requiring a permission.\" § 15b(1) sentences 1 and 2 MaBV adds detail: \"Whoever is obliged to undertake continuing education under § 34c(2a) of the Trade Regulation Act must do so professionally in accordance with the activity actually carried on. The content requirements for the continuing education must be oriented to the requirements of Annex 1.\" Under § 34c(2a) sentence 2 GewO the first education period begins on 1 January of the calendar year in which the no. 4 permission was granted or in which an employed person took up an activity subject to the duty. Answer b is wrong twice over: 40 hours was the arithmetic for holders of BOTH the broker and the manager permission under the law in force until 23 July 2026, and MaBV Annex 3 was deleted by Article 2 no. 5 of the Act of 20 July 2026 (BGBl. 2026 I no. 215) - the MaBV's table of contents now lists it as \"Annex 3 (repealed)\". Answer d describes the position for real-estate brokers, not for managers: the same Act removed no. 1 from § 34c(2a) GewO but deliberately left no. 4 in it. ON COUNTABILITY, because the question follows immediately in practice: this module is study and practice material. Completing it does NOT count toward the statutory 20 hours, because § 15b(1) sentence 5 MaBV requires the provider of the training to ensure the requirements of MaBV Annex 2 are met - a provider obligation Zettacard has not taken on."),
+
+q("rechtliche_grundlagen", 2,
+  "§ 15b Abs. 2 MaBV; § 18 Abs. 1 Nr. 9 MaBV; Anlage 1 Nr. 2.6 MaBV", 5, True, ["management"], "b",
+  "Was muss aus den Weiterbildungsnachweisen nach § 15b Absatz 2 MaBV mindestens ersichtlich sein, und wie lange sind sie vorzuhalten?",
+  {
+    "a": "Nur Datum und Umfang der Maßnahme; eine Aufbewahrungsfrist nennt die MaBV nicht",
+    "b": "Name und Vorname der Person, Datum, Umfang, Inhalt und Bezeichnung der Maßnahme sowie Name/Firma, Adresse und Kontaktdaten des Anbieters - vorzuhalten drei Jahre ab Ende des Kalenderjahres der Durchführung",
+    "c": "Ausschließlich eine Teilnahmebescheinigung des Anbieters, aufzubewahren fünf Jahre",
+    "d": "Ein von der IHK ausgestelltes Zertifikat, aufzubewahren zehn Jahre",
+  },
+  "What must, as a minimum, be apparent from the continuing-education records under § 15b(2) MaBV, and for how long must they be kept?",
+  {
+    "a": "Only the date and duration of the training; the MaBV states no retention period",
+    "b": "The person's surname and first name, the date, duration, content and title of the training, and the provider's name/firm, address and contact details - kept for three years from the end of the calendar year in which the training took place",
+    "c": "Only an attendance confirmation from the provider, kept for five years",
+    "d": "A certificate issued by the Chamber of Industry and Commerce, kept for ten years",
+  },
+  "§ 15b Abs. 2 Satz 1 MaBV verpflichtet die zur Weiterbildung verpflichteten Gewerbetreibenden, Nachweise und Unterlagen über Weiterbildungsmaßnahmen zu sammeln, an denen sie UND ihre zur Weiterbildung verpflichteten Beschäftigten teilgenommen haben. Satz 2 nennt den Mindestinhalt abschließend in drei Nummern: 1. Name und Vorname des Gewerbetreibenden oder der Beschäftigten, 2. Datum, Umfang, Inhalt und Bezeichnung der Weiterbildungsmaßnahme sowie 3. Name und Vorname oder Firma sowie Adresse und Kontaktdaten des in Anspruch genommenen Weiterbildungsanbieters. Satz 3: „Die in Satz 1 genannten Nachweise sind drei Jahre auf einem dauerhaften Datenträger oder in digitaler Form vorzuhalten.“ Satz 4 legt den Fristbeginn fest: mit dem Ende des Kalenderjahres, in dem die Maßnahme durchgeführt wurde. Die Sanktion steht in § 18 Abs. 1 Nr. 9 MaBV: ordnungswidrig handelt, wer „entgegen § 15b Absatz 2 Satz 3 einen Nachweis oder eine Unterlage nicht oder nicht mindestens drei Jahre aufbewahrt“ - eine Ordnungswidrigkeit im Sinne des § 144 Abs. 2 Nr. 6 GewO mit einem Rahmen bis zu fünftausend Euro (§ 144 Abs. 4 GewO). Beachten Sie, dass § 18 Abs. 1 Nr. 9 MaBV zu den wenigen MaBV-Vorschriften gehört, die nach § 1 Abs. 2 Satz 2 MaBV überhaupt für Wohnimmobilienverwalter gelten. Antwort d beschreibt etwas anderes: eine IHK-Prüfung gibt es im Verwalterumfeld, aber als freiwillige Zertifizierung nach § 26a WEG, nicht als Weiterbildungsnachweis.",
+  "§ 15b(2) sentence 1 MaBV obliges traders subject to the continuing-education duty to collect records and documents on training measures attended by them AND by their employees who are themselves subject to the duty. Sentence 2 sets out the minimum content exhaustively in three numbers: 1. surname and first name of the trader or the employees, 2. date, duration, content and title of the training measure, and 3. surname and first name or firm, plus address and contact details, of the training provider used. Sentence 3: \"The records referred to in sentence 1 must be kept for three years on a durable medium or in digital form.\" Sentence 4 fixes the start of the period: the end of the calendar year in which the training was carried out. The sanction is in § 18(1) no. 9 MaBV: it is an administrative offence to \"contrary to § 15b(2) sentence 3 fail to keep a record or document, or fail to keep it for at least three years\" - an offence within the meaning of § 144(2) no. 6 GewO with a range of up to five thousand euros (§ 144(4) GewO). Note that § 18(1) no. 9 MaBV is one of the few MaBV provisions that apply to residential property managers at all under § 1(2) sentence 2 MaBV. Answer d describes something different: there is a chamber examination in the manager's world, but as the voluntary certification under § 26a WEG, not as a continuing-education record."),
+
+q("rechtliche_grundlagen", 3,
+  "§ 15b Abs. 1 Satz 3 bis 5 MaBV; Anlage 2 MaBV", 5, True, ["management"], "d",
+  "In welchen Formen darf die Weiterbildung nach § 15b Absatz 1 MaBV stattfinden, und welche Anforderung trifft dabei den Anbieter?",
+  {
+    "a": "Ausschließlich in Präsenzform; E-Learning ist nicht anerkannt",
+    "b": "In beliebiger Form; Anforderungen an den Anbieter bestehen nicht",
+    "c": "Nur in Präsenzform oder als betriebsinterne Maßnahme, jeweils mit Anwesenheitsliste",
+    "d": "In Präsenzform, im begleiteten Selbststudium, durch betriebsinterne Maßnahmen oder in anderer geeigneter Form - beim begleiteten Selbststudium ist eine nachweisbare Lernerfolgskontrolle durch den Anbieter erforderlich, und der Anbieter muss die Qualitätsanforderungen der Anlage 2 MaBV sicherstellen",
+  },
+  "In what forms may the continuing education under § 15b(1) MaBV take place, and what requirement falls on the provider?",
+  {
+    "a": "Only in classroom form; e-learning is not recognised",
+    "b": "In any form; there are no requirements on the provider",
+    "c": "Only in classroom form or as an in-house measure, in each case with an attendance list",
+    "d": "In classroom form, as supported self-study, through the trader's in-house measures, or in another suitable form - for supported self-study a demonstrable learning-outcome check by the provider is required, and the provider must ensure the quality requirements of MaBV Annex 2 are met",
+  },
+  "§ 15b Abs. 1 Satz 3 MaBV: „Die Weiterbildung kann in Präsenzform, in einem begleiteten Selbststudium, durch betriebsinterne Maßnahmen des Gewerbetreibenden oder in einer anderen geeigneten Form erfolgen.“ Satz 4: „Bei Weiterbildungsmaßnahmen in einem begleiteten Selbststudium ist eine nachweisbare Lernerfolgskontrolle durch den Anbieter der Weiterbildung erforderlich.“ Satz 5: „Der Anbieter der Weiterbildung muss sicherstellen, dass die in Anlage 2 aufgeführten Anforderungen an die Qualität der Weiterbildungsmaßnahme eingehalten werden.“ Anlage 2 MaBV verlangt drei Bündel: eine Planung (mit zeitlichem Vorlauf konzipiert, für Teilnehmer nachvollziehbar beschrieben, mit Ablaufplanung), eine systematische Organisation (Information oder Einladung in Textform vorab, mit Beschreibung der erwerbbaren Kompetenzen und des Umfangs in Zeitstunden; verbindliche und nachvollziehbar archivierte Anwesenheitsdokumentation, ausdrücklich auch für selbstgesteuertes Lernen, Blended Learning und E-Learning; bei Selbststudium eine nachweisbare Lernerfolgskontrolle) und die Sicherstellung der Qualität der Durchführenden (Anforderungsprofile und systematische Prozesse zu deren Einhaltung). DAS IST DER GRUND, WARUM DIESES MODUL KEINE ANRECHENBAREN STUNDEN AUSSTELLT: Satz 5 adressiert nicht den Lernenden, sondern den Anbieter. Wer erklärt, seine Stunden zählten auf die 20 an, übernimmt damit die Anlage-2-Pflichten eines Weiterbildungsanbieters. Zettacard hat diese Position nicht übernommen und behauptet sie ausdrücklich nicht. Dieses Modul ist deshalb Übungsmaterial zu den vorgeschriebenen Themengebieten - nicht eine Quelle gezählter Weiterbildungsstunden.",
+  "§ 15b(1) sentence 3 MaBV: \"The continuing education may take place in classroom form, as supported self-study, through the trader's in-house measures, or in another suitable form.\" Sentence 4: \"For continuing-education measures taking the form of supported self-study, a demonstrable learning-outcome check by the provider of the training is required.\" Sentence 5: \"The provider of the training must ensure that the requirements as to the quality of the training measure set out in Annex 2 are complied with.\" MaBV Annex 2 demands three bundles: planning (conceived with lead time, described comprehensibly for participants, underpinned by a run-of-programme plan), systematic organisation (information or invitation in text form in advance, describing the competences obtainable and the duration in clock hours; binding and traceably archived attendance documentation, expressly including self-directed learning, blended learning and e-learning; and for self-study a demonstrable learning-outcome check) and assurance of the quality of those delivering the training (requirement profiles and systematic processes securing compliance with them). THIS IS WHY THIS MODULE ISSUES NO COUNTED HOURS: sentence 5 addresses not the learner but the provider. Anyone stating that their hours count toward the 20 thereby assumes the Annex-2 obligations of a training provider. Zettacard has not assumed that position and expressly does not claim it. This module is therefore practice material on the prescribed topic areas - not a source of counted Weiterbildungsstunden."),
+
+q("rechtliche_grundlagen", 4,
+  "§ 15b Abs. 1 Satz 6 und Abs. 4 MaBV", 3, False, ["management"], "c",
+  "Wie wirkt ein Abschluss als Immobilienkaufmann/-kauffrau oder als Geprüfte(r) Immobilienfachwirt(in) auf die Weiterbildungspflicht?",
+  {
+    "a": "Er befreit dauerhaft von der Weiterbildungspflicht",
+    "b": "Er hat keine Wirkung; die Pflicht läuft unverändert",
+    "c": "Er gilt als Weiterbildung; die Pflicht beginnt für Inhaber eines solchen Abschlusses erst drei Jahre nach dessen Erwerb",
+    "d": "Er halbiert den Stundenumfang auf zehn Stunden in drei Kalenderjahren",
+  },
+  "How does a qualification as Immobilienkaufmann/-kauffrau or as Geprüfte(r) Immobilienfachwirt(in) affect the continuing-education duty?",
+  {
+    "a": "It grants permanent exemption from the duty",
+    "b": "It has no effect; the duty runs unchanged",
+    "c": "It counts as continuing education; for holders of such a qualification the duty begins only three years after obtaining it",
+    "d": "It halves the hours to ten in three calendar years",
+  },
+  "Zwei Vorschriften greifen zusammen. § 15b Abs. 1 Satz 6 MaBV: „Der Erwerb eines Ausbildungsabschlusses als Immobilienkaufmann oder Immobilienkauffrau oder eines Weiterbildungsabschlusses als Geprüfter Immobilienfachwirt oder Geprüfte Immobilienfachwirtin gilt als Weiterbildung.“ § 15b Abs. 4 MaBV zieht daraus die zeitliche Konsequenz: für verpflichtete Gewerbetreibende und deren verpflichtete Beschäftigte, die im Besitz eines solchen Abschlusses sind, „beginnt die Pflicht zur Weiterbildung drei Jahre nach Erwerb des Ausbildungs- oder Weiterbildungsabschlusses“. Es handelt sich also um einen befristeten Vorlauf, nicht um eine dauerhafte Befreiung - Antwort a ist zu weit. Eine Reduktion des Stundenumfangs kennt die Vorschrift nicht; Antwort d ist frei erfunden. Praktisch relevant ist die Vorschrift bei der Einstellung: wer eine Mitarbeiterin mit frischem Abschluss als Immobilienfachwirtin unmittelbar in der Verwaltung einsetzt, muss sie in den ersten drei Jahren nach dem Abschluss nicht in die Stundenrechnung einbeziehen, danach schon. Die Nachweisführung nach § 15b Abs. 2 MaBV sollte den Abschluss und sein Datum deshalb ebenso dokumentieren wie einzelne Maßnahmen.",
+  "Two provisions interlock. § 15b(1) sentence 6 MaBV: \"Obtaining a vocational qualification as Immobilienkaufmann or Immobilienkauffrau, or an advanced qualification as Geprüfter Immobilienfachwirt or Geprüfte Immobilienfachwirtin, counts as continuing education.\" § 15b(4) MaBV draws the temporal consequence: for obliged traders and their obliged employees who hold such a qualification, \"the continuing-education duty begins three years after obtaining the vocational or advanced qualification\". So this is a time-limited grace period, not a permanent exemption - answer a goes too far. The provision knows no reduction in hours; answer d is invented. It matters in practice at the hiring stage: if you put a newly qualified Immobilienfachwirtin straight into management work, she need not be included in the hours calculation for the first three years after her qualification, but must be thereafter. The records kept under § 15b(2) MaBV should therefore document the qualification and its date just as they document individual measures."),
+
+q("rechtliche_grundlagen", 5,
+  "§ 5 Abs. 2 Nr. 2 RDG; § 2 Abs. 1 RDG; Anlage 1 Nr. 2.4 MaBV", 5, True, ["all"], "b",
+  "Ein WEG-Verwalter mahnt für die Gemeinschaft rückständiges Hausgeld an und prüft dabei die Rechtslage. Ist das eine erlaubte Rechtsdienstleistung?",
+  {
+    "a": "Nein - jede Rechtsprüfung ist Verwaltern nach dem RDG untersagt",
+    "b": "Ja - § 5 Absatz 2 Nummer 2 RDG nennt die Haus- und Wohnungsverwaltung ausdrücklich als Tätigkeit, in deren Zusammenhang erbrachte Rechtsdienstleistungen als erlaubte Nebenleistungen gelten",
+    "c": "Ja, aber nur mit schriftlicher Zustimmung aller Wohnungseigentümer",
+    "d": "Nur wenn der Verwalter zertifizierter Verwalter nach § 26a WEG ist",
+  },
+  "A condominium manager chases arrears of service charges for the community and assesses the legal position while doing so. Is that a permitted legal service?",
+  {
+    "a": "No - the RDG prohibits managers from any assessment of the legal position",
+    "b": "Yes - § 5(2) no. 2 RDG expressly names house and flat management as an activity in connection with which legal services count as permitted ancillary services",
+    "c": "Yes, but only with the written consent of all apartment owners",
+    "d": "Only if the manager is a certified manager under § 26a WEG",
+  },
+  "§ 2 Abs. 1 RDG definiert die Rechtsdienstleistung als „jede Tätigkeit in konkreten fremden Angelegenheiten, sobald sie eine rechtliche Prüfung des Einzelfalls erfordert“. § 5 Abs. 1 Satz 1 RDG erlaubt Rechtsdienstleistungen „im Zusammenhang mit einer anderen Tätigkeit, wenn sie als Nebenleistung zum Berufs- oder Tätigkeitsbild gehören“, wobei nach Satz 2 Inhalt, Umfang und sachlicher Zusammenhang mit der Haupttätigkeit unter Berücksichtigung der für die Haupttätigkeit erforderlichen Rechtskenntnisse zu beurteilen sind. § 5 Abs. 2 RDG nennt drei Tätigkeiten, bei denen die Nebenleistung gesetzlich unterstellt wird: Nummer 1 Testamentsvollstreckung, Nummer 2 Haus- und Wohnungsverwaltung, Nummer 3 Fördermittelberatung. Die Verwaltung ist damit ausdrücklich privilegiert. Das ist aber keine Blankovollmacht: die Grenze bleibt der Nebenleistungscharakter. Das Anmahnen und Einziehen von Hausgeld, die Prüfung von Betriebskostenpositionen, die Vorbereitung von Beschlussvorlagen und die Korrespondenz mit Mietern liegen im privilegierten Kern; das eigenständige Führen eines Rechtsstreits, die gutachterliche Beratung eines einzelnen Eigentümers gegen die Gemeinschaft oder die Beratung in Fragen ohne Verwaltungsbezug tun es nicht. Antwort d verwechselt zwei Dinge: § 26a WEG betrifft die Bezeichnung als zertifizierter Verwalter, nicht die Reichweite der Rechtsdienstleistungsbefugnis.",
+  "§ 2(1) RDG defines a legal service as \"any activity in specific matters of another as soon as it requires a legal assessment of the individual case\". § 5(1) sentence 1 RDG permits legal services \"in connection with another activity where they belong, as an ancillary service, to the occupational or activity profile\", and under sentence 2 content, extent and material connection with the main activity are to be assessed having regard to the legal knowledge required for the main activity. § 5(2) RDG names three activities where the ancillary character is assumed by statute: no. 1 execution of wills, no. 2 house and flat management, no. 3 grant-funding advice. Management is therefore expressly privileged. That is not a blank cheque, though: the boundary remains the ancillary character. Chasing and collecting service charges, checking operating-cost items, preparing draft resolutions and correspondence with tenants sit in the privileged core; conducting litigation independently, giving opinion-style advice to an individual owner against the community, or advising on matters unconnected with management do not. Answer d conflates two things: § 26a WEG concerns the use of the designation \"certified manager\", not the reach of the power to provide legal services."),
+
+q("rechtliche_grundlagen", 6,
+  "§ 311b Abs. 1 BGB; §§ 873, 925 BGB; § 29 GBO; Anlage 1 Nr. 2.1.4 und 2.2 MaBV", 4, False, ["all"], "c",
+  "Welche Formanforderungen gelten für die Übertragung von Grundstückseigentum?",
+  {
+    "a": "Schriftform des Kaufvertrages und privatschriftliche Auflassung genügen",
+    "b": "Nur die Eintragung im Grundbuch; der Vertrag ist formfrei",
+    "c": "Notarielle Beurkundung des Verpflichtungsvertrages nach § 311b Absatz 1 BGB, Einigung (Auflassung) und Eintragung im Grundbuch nach §§ 873, 925 BGB; für die Eintragung verlangt § 29 GBO den Nachweis durch öffentliche oder öffentlich beglaubigte Urkunden",
+    "d": "Notarielle Beurkundung ist nur bei Kaufpreisen über 500 000 Euro erforderlich",
+  },
+  "Which formal requirements apply to the transfer of ownership of land?",
+  {
+    "a": "Written form of the purchase contract and a privately signed conveyance suffice",
+    "b": "Only registration in the land register; the contract is free of form",
+    "c": "Notarial recording of the obligating contract under § 311b(1) BGB, agreement (Auflassung) and registration in the land register under §§ 873, 925 BGB; for registration § 29 GBO requires proof by public or publicly certified documents",
+    "d": "Notarial recording is required only for purchase prices above EUR 500,000",
+  },
+  "Der Erwerbsvorgang ist zweistufig, und das ist der Kern des Grundstücksrechts nach Anlage 1 Nummer 2.1.4 und 2.2 MaBV. Erste Stufe, Verpflichtungsgeschäft: § 311b Abs. 1 Satz 1 BGB - „Ein Vertrag, durch den sich der eine Teil verpflichtet, das Eigentum an einem Grundstück zu übertragen oder zu erwerben, bedarf der notariellen Beurkundung.“ Satz 2 enthält eine Heilungsregel: ein formwidriger Vertrag wird seinem ganzen Inhalt nach gültig, wenn Auflassung und Eintragung erfolgen. Zweite Stufe, Verfügungsgeschäft: § 873 Abs. 1 BGB verlangt Einigung des Berechtigten und des anderen Teils sowie Eintragung der Rechtsänderung im Grundbuch; § 925 Abs. 1 BGB verlangt für die Auflassung die Erklärung beider Teile bei gleichzeitiger Anwesenheit vor einer zuständigen Stelle, in der Regel dem Notar. Verfahrensrechtlich flankiert § 13 Abs. 1 GBO das Antragsprinzip und § 29 Abs. 1 Satz 1 GBO den Urkundennachweis: „Eine Eintragung soll nur vorgenommen werden, wenn die Eintragungsbewilligung oder die sonstigen zu der Eintragung erforderlichen Erklärungen durch öffentliche oder öffentlich beglaubigte Urkunden nachgewiesen werden.“ Eine wertabhängige Beurkundungsschwelle existiert nicht; Antwort d ist frei erfunden. Für die Verwaltungspraxis ist der Formzwang mittelbar wichtig: § 9b Abs. 1 Satz 1 WEG erlaubt dem Verwalter den Abschluss eines Grundstückskaufvertrags für die Gemeinschaft nur aufgrund eines Beschlusses der Wohnungseigentümer.",
+  "Acquisition is a two-stage process, and that is the core of the land-law material in MaBV Annex 1 nos. 2.1.4 and 2.2. First stage, the obligating transaction: § 311b(1) sentence 1 BGB - \"A contract by which one party undertakes to transfer or acquire ownership of land requires notarial recording.\" Sentence 2 contains a curing rule: a contract concluded without that form becomes valid in its entire content once conveyance and registration occur. Second stage, the disposition: § 873(1) BGB requires agreement between the entitled person and the other party plus registration of the change of right in the land register; § 925(1) BGB requires for the Auflassung that both parties declare it while simultaneously present before a competent authority, as a rule the notary. Procedurally § 13(1) GBO adds the application principle and § 29(1) sentence 1 GBO the documentary-proof requirement: \"A registration should be made only where the consent to registration or the other declarations required for the registration are proved by public or publicly certified documents.\" There is no value-dependent recording threshold; answer d is invented. For management practice the form requirement matters indirectly: § 9b(1) sentence 1 WEG permits the manager to conclude a land purchase contract for the community only on the basis of a resolution of the apartment owners."),
+
+
+# ===========================================================================
+# Anlage 1 Nr. 3: Kaufmännische Grundlagen
+# ===========================================================================
+
+q("kaufmaennische_grundlagen", 1,
+  "§ 28 Abs. 1 WEG; Anlage 1 Nr. 3.2.2 MaBV", 5, True, ["management"], "c",
+  "Worüber beschließen die Wohnungseigentümer nach § 28 Absatz 1 WEG im Zusammenhang mit dem Wirtschaftsplan?",
+  {
+    "a": "Über den Wirtschaftsplan selbst, der mit dem Beschluss verbindlich festgestellt wird",
+    "b": "Über die Entlastung des Verwalters für den geprüften Wirtschaftsplan",
+    "c": "Über die Vorschüsse zur Kostentragung und zu den vorgesehenen Rücklagen; den Wirtschaftsplan selbst hat der Verwalter jeweils für ein Kalenderjahr aufzustellen",
+    "d": "Über die Bestellung eines Wirtschaftsprüfers zur Prüfung des Plans",
+  },
+  "What do the apartment owners resolve on under § 28(1) WEG in connection with the business plan?",
+  {
+    "a": "On the business plan itself, which the resolution establishes as binding",
+    "b": "On discharging the manager in respect of the audited business plan",
+    "c": "On the advance payments toward bearing costs and toward the reserves provided for; the business plan itself must be drawn up by the manager for each calendar year",
+    "d": "On appointing a statutory auditor to audit the plan",
+  },
+  "Das ist einer der wichtigsten Punkte des reformierten WEG und in der Praxis eine ständige Fehlerquelle, weil die alte Formel „Beschluss über den Wirtschaftsplan“ noch überall zu lesen ist. § 28 Abs. 1 WEG lautet: „Die Wohnungseigentümer beschließen über die Vorschüsse zur Kostentragung und zu den nach § 19 Absatz 2 Nummer 4 oder durch Beschluss vorgesehenen Rücklagen. Zu diesem Zweck hat der Verwalter jeweils für ein Kalenderjahr einen Wirtschaftsplan aufzustellen, der darüber hinaus die voraussichtlichen Einnahmen und Ausgaben enthält.“ Beschlussgegenstand sind also die VORSCHÜSSE; der Wirtschaftsplan ist Vorbereitungs- und Begründungsmaterial, das der Verwalter aufstellt. Der praktische Unterschied ist erheblich: ein Beschluss, der ausdrücklich „den Wirtschaftsplan genehmigt“, geht am Beschlussgegenstand des § 28 Abs. 1 WEG vorbei und ist deshalb anfechtungsanfällig; die Beschlussvorlage sollte die Vorschusshöhen benennen. Nach § 28 Abs. 3 WEG können die Wohnungseigentümer zusätzlich beschließen, wann Forderungen fällig werden und wie sie zu erfüllen sind - erst dieser Beschluss macht das Hausgeld einforderbar, wenn die Gemeinschaftsordnung nichts anderes vorsieht. § 29 Abs. 2 Satz 2 WEG sieht vor, dass Wirtschaftsplan und Jahresabrechnung vor der Beschlussfassung vom Verwaltungsbeirat geprüft und mit dessen Stellungnahme versehen werden sollen.",
+  "This is one of the most important points of the reformed WEG and a constant source of error in practice, because the old formula \"resolution on the business plan\" is still to be read everywhere. § 28(1) WEG reads: \"The apartment owners resolve on the advance payments toward bearing costs and toward the reserves provided for under § 19(2) no. 4 or by resolution. For that purpose the manager must draw up, for each calendar year, a business plan which additionally contains the expected income and expenditure.\" The subject matter of the resolution is therefore the ADVANCE PAYMENTS; the business plan is preparatory and explanatory material which the manager draws up. The practical difference is substantial: a resolution which expressly \"approves the business plan\" misses the subject matter of § 28(1) WEG and is therefore vulnerable to challenge; the draft resolution should state the advance-payment amounts. Under § 28(3) WEG the owners may additionally resolve when claims fall due and how they are to be satisfied - only that resolution makes the service charge collectable where the community rules provide nothing else. § 29(2) sentence 2 WEG provides that the business plan and the annual statement should be examined by the advisory board and provided with its opinion before the resolution is passed."),
+
+q("kaufmaennische_grundlagen", 2,
+  "§ 28 Abs. 2 WEG; Anlage 1 Nr. 3.2.2 MaBV", 5, True, ["management"], "b",
+  "Worüber beschließen die Wohnungseigentümer nach Ablauf des Kalenderjahres im Zusammenhang mit der Jahresabrechnung?",
+  {
+    "a": "Über die Genehmigung der Jahresabrechnung als solcher",
+    "b": "Über die Einforderung von Nachschüssen oder die Anpassung der beschlossenen Vorschüsse; zu diesem Zweck hat der Verwalter eine Abrechnung über den Wirtschaftsplan aufzustellen",
+    "c": "Über die Entlastung des Verwaltungsbeirats",
+    "d": "Über nichts - die Jahresabrechnung wird vom Verwalter allein festgestellt",
+  },
+  "What do the apartment owners resolve on after the end of the calendar year in connection with the annual statement?",
+  {
+    "a": "On approving the annual statement as such",
+    "b": "On calling in additional payments or adjusting the resolved advance payments; for that purpose the manager must draw up a statement on the business plan",
+    "c": "On discharging the advisory board",
+    "d": "On nothing - the annual statement is settled by the manager alone",
+  },
+  "§ 28 Abs. 2 WEG spiegelt Absatz 1: „Nach Ablauf des Kalenderjahres beschließen die Wohnungseigentümer über die Einforderung von Nachschüssen oder die Anpassung der beschlossenen Vorschüsse. Zu diesem Zweck hat der Verwalter eine Abrechnung über den Wirtschaftsplan (Jahresabrechnung) aufzustellen, die darüber hinaus die Einnahmen und Ausgaben enthält.“ Beschlussgegenstand ist also das ABRECHNUNGSERGEBNIS - Nachschuss oder Vorschussanpassung -, nicht das Rechenwerk. Auch hier gilt: eine Beschlussvorlage, die nur „die Jahresabrechnung genehmigt“, trifft den gesetzlichen Beschlussgegenstand nicht. Zu unterscheiden ist der Vermögensbericht nach § 28 Abs. 4 WEG: den hat der Verwalter nach Ablauf eines Kalenderjahres zu erstellen, er enthält den Stand der Rücklagen und eine Aufstellung des wesentlichen Gemeinschaftsvermögens, und er ist jedem Wohnungseigentümer zur Verfügung zu stellen - über ihn wird nicht beschlossen. Eine „Entlastung“ des Verwalters oder des Beirats kennt das WEG nicht als gesetzliches Institut; sie kann als Beschluss gefasst werden, ist aber keine gesetzlich vorgesehene Jahresroutine. Die Prüfung durch den Verwaltungsbeirat nach § 29 Abs. 2 Satz 2 WEG ist eine Soll-Vorschrift und ersetzt den Beschluss nicht.",
+  "§ 28(2) WEG mirrors (1): \"After the end of the calendar year the apartment owners resolve on calling in additional payments or adjusting the resolved advance payments. For that purpose the manager must draw up a statement on the business plan (annual statement) which additionally contains the income and expenditure.\" The subject matter of the resolution is therefore the OUTCOME of the accounting - additional payment or adjustment of advances - not the accounting document. Here too, a draft resolution that merely \"approves the annual statement\" does not hit the statutory subject matter. The Vermögensbericht under § 28(4) WEG must be distinguished: the manager must prepare it after the end of a calendar year, it contains the level of the reserves and a statement of the material community assets, and it must be made available to every apartment owner - it is not resolved upon. \"Discharge\" of the manager or the advisory board is not a statutory institution under the WEG; it can be resolved, but it is not a statutorily prescribed annual routine. The advisory board's examination under § 29(2) sentence 2 WEG is a should-provision and does not replace the resolution."),
+
+q("kaufmaennische_grundlagen", 3,
+  "§ 19 Abs. 2 Nr. 4 WEG; Anlage 1 Nr. 3.2.1 MaBV", 4, True, ["all"], "c",
+  "Anlage 1 Nummer 3.2.1 MaBV nennt als Themengebiet „Sonderumlagen/Instandhaltungsrücklage“. Wie heißt dieses Institut im geltenden WEG?",
+  {
+    "a": "Unverändert Instandhaltungsrücklage; die Bezeichnung ist gesetzlich festgelegt",
+    "b": "Instandhaltungsrückstellung",
+    "c": "Erhaltungsrücklage - § 19 Absatz 2 Nummer 4 WEG zählt „die Ansammlung einer angemessenen Erhaltungsrücklage“ zur ordnungsmäßigen Verwaltung",
+    "d": "Modernisierungsrücklage",
+  },
+  "MaBV Annex 1 no. 3.2.1 names as a topic \"special levies / maintenance reserve (Instandhaltungsrücklage)\". What is this institution called in the WEG as in force?",
+  {
+    "a": "Still Instandhaltungsrücklage; the designation is fixed by statute",
+    "b": "Instandhaltungsrückstellung",
+    "c": "Erhaltungsrücklage - § 19(2) no. 4 WEG counts \"the accumulation of an appropriate Erhaltungsrücklage\" as proper administration",
+    "d": "Modernisierungsrücklage",
+  },
+  "Hier zeigt sich, dass die Anlage 1 MaBV selbst nicht in allen Details nachgezogen wurde: sie spricht in Nummer 3.2.1 noch von der „Instandhaltungsrücklage“, während das reformierte WEG in § 19 Abs. 2 Nr. 4 WEG „die Ansammlung einer angemessenen Erhaltungsrücklage“ zur ordnungsmäßigen Verwaltung zählt. Wer nach der Anlage lernt, lernt hier einen veralteten Begriff. Der Zusammenhang ist inhaltlich wichtig: § 19 Abs. 2 WEG zählt sechs Maßnahmen auf, die insbesondere zur ordnungsmäßigen Verwaltung und Benutzung gehören - 1. die Aufstellung einer Hausordnung, 2. die ordnungsmäßige Erhaltung des gemeinschaftlichen Eigentums, 3. die angemessene Versicherung des gemeinschaftlichen Eigentums zum Neuwert sowie der Wohnungseigentümer gegen Haus- und Grundbesitzerhaftpflicht, 4. die Ansammlung einer angemessenen Erhaltungsrücklage, 5. die Festsetzung von Vorschüssen nach § 28 Absatz 1 Satz 1 sowie 6. die Bestellung eines zertifizierten Verwalters nach § 26a. Die Rücklage ist damit ausdrücklich Teil der Verwaltungspflicht, und über ihre Dotierung wird über die Vorschüsse nach § 28 Abs. 1 WEG beschlossen. Eine Sonderumlage ist demgegenüber kein eigenes gesetzliches Institut, sondern ein zusätzlicher Vorschussbeschluss für einen konkreten Bedarf - dogmatisch dieselbe Grundlage, § 28 Abs. 1 WEG.",
+  "This shows that MaBV Annex 1 itself was not brought up to date in every detail: no. 3.2.1 still speaks of the \"Instandhaltungsrücklage\", whereas the reformed WEG in § 19(2) no. 4 counts \"the accumulation of an appropriate Erhaltungsrücklage\" as proper administration. Anyone learning from the annex learns an outdated term here. The context matters substantively: § 19(2) WEG lists six measures that belong in particular to proper administration and use - 1. drawing up house rules, 2. proper maintenance of the common property, 3. appropriate insurance of the common property at reinstatement value and of the apartment owners against house-and-landowner liability, 4. accumulation of an appropriate Erhaltungsrücklage, 5. fixing advance payments under § 28(1) sentence 1, and 6. appointing a certified manager under § 26a. The reserve is therefore expressly part of the administrative duty, and its funding is resolved upon via the advance payments under § 28(1) WEG. A special levy, by contrast, is not a separate statutory institution but an additional advance-payment resolution for a specific need - doctrinally the same basis, § 28(1) WEG."),
+
+q("kaufmaennische_grundlagen", 4,
+  "§ 16 Abs. 1 und 2 WEG; § 47 GBO; Anlage 1 Nr. 3.1 MaBV", 4, False, ["all"], "d",
+  "Nach welchem Maßstab tragen die Wohnungseigentümer die Kosten der Gemeinschaft, und kann davon abgewichen werden?",
+  {
+    "a": "Nach Kopfteilen; Abweichungen bedürfen einer Vereinbarung aller Eigentümer",
+    "b": "Nach Wohnfläche; Abweichungen sind unzulässig",
+    "c": "Nach dem Verhältnis der Miteigentumsanteile; Abweichungen sind ausgeschlossen",
+    "d": "Nach dem Verhältnis der im Grundbuch eingetragenen Miteigentumsanteile; für einzelne Kosten oder bestimmte Kostenarten können die Wohnungseigentümer eine abweichende Verteilung beschließen",
+  },
+  "By what measure do the apartment owners bear the community's costs, and may that be departed from?",
+  {
+    "a": "Per head; departures require an agreement of all owners",
+    "b": "By floor area; departures are not permitted",
+    "c": "In proportion to the co-ownership shares; departures are excluded",
+    "d": "In proportion to the co-ownership shares as registered in the land register; for individual costs or particular categories of cost the owners may resolve on a different allocation",
+  },
+  "§ 16 Abs. 2 Satz 1 WEG: „Die Kosten der Gemeinschaft der Wohnungseigentümer, insbesondere der Verwaltung und des gemeinschaftlichen Gebrauchs des gemeinschaftlichen Eigentums, hat jeder Wohnungseigentümer nach dem Verhältnis seines Anteils (Absatz 1 Satz 2) zu tragen.“ Der Anteil bestimmt sich nach § 16 Abs. 1 Satz 2 WEG „nach dem gemäß § 47 der Grundbuchordnung im Grundbuch eingetragenen Verhältnis der Miteigentumsanteile“ - nicht nach Wohnfläche und nicht nach Köpfen. Entscheidend ist der zweite Satz des Absatzes 2, eine der wirkungsvollsten Neuerungen der WEG-Reform: „Die Wohnungseigentümer können für einzelne Kosten oder bestimmte Arten von Kosten eine von Satz 1 oder von einer Vereinbarung abweichende Verteilung beschließen.“ Ein einfacher Mehrheitsbeschluss genügt also; eine Vereinbarung ist nicht mehr erforderlich, und der Beschluss kann sogar von einer bestehenden Vereinbarung abweichen. Antwort a beschreibt damit den überholten Rechtszustand. Für die Kosten und Nutzungen bei baulichen Veränderungen verweist § 16 Abs. 3 WEG auf die Sonderregel des § 21 WEG. Für die Nutzungen gilt § 16 Abs. 1 Satz 1 WEG: jedem Wohnungseigentümer gebührt ein seinem Anteil entsprechender Bruchteil der Früchte des gemeinschaftlichen Eigentums und des Gemeinschaftsvermögens.",
+  "§ 16(2) sentence 1 WEG: \"Each apartment owner must bear the costs of the community of apartment owners, in particular of administration and of the common use of the common property, in proportion to his share ((1) sentence 2).\" Under § 16(1) sentence 2 WEG the share is determined \"by the ratio of co-ownership shares registered in the land register in accordance with § 47 of the Land Register Code\" - not by floor area and not per head. The decisive point is the second sentence of (2), one of the most consequential innovations of the WEG reform: \"For individual costs or particular categories of cost the apartment owners may resolve on an allocation differing from sentence 1 or from an agreement.\" A simple majority resolution therefore suffices; an agreement is no longer required, and the resolution may even depart from an existing agreement. Answer a therefore describes the superseded position. For costs and benefits in the case of structural alterations, § 16(3) WEG refers to the special rule in § 21 WEG. For benefits, § 16(1) sentence 1 WEG applies: each apartment owner is entitled to a fraction of the fruits of the common property and of the community assets corresponding to his share."),
+
+
+# ===========================================================================
+# Anlage 1 Nr. 4: Verwaltung von Wohnungseigentumsobjekten (largest area)
+# ===========================================================================
+
+q("weg_verwaltung", 1,
+  "§ 9a Abs. 1 bis 4 WEG; § 18 Abs. 1 WEG; Anlage 1 Nr. 4.3 MaBV", 5, True, ["all"], "c",
+  "Wer ist Träger der Verwaltung des gemeinschaftlichen Eigentums, und welche Rechtsstellung hat er?",
+  {
+    "a": "Die Wohnungseigentümer als Bruchteilsgemeinschaft ohne eigene Rechtsfähigkeit",
+    "b": "Der Verwalter als gesetzlicher Treuhänder",
+    "c": "Die Gemeinschaft der Wohnungseigentümer - sie kann Rechte erwerben und Verbindlichkeiten eingehen, klagen und verklagt werden, und ihr obliegt nach § 18 Absatz 1 WEG die Verwaltung des gemeinschaftlichen Eigentums",
+    "d": "Der Verwaltungsbeirat als Organ der Gemeinschaft",
+  },
+  "Who bears responsibility for administering the common property, and what is that body's legal status?",
+  {
+    "a": "The apartment owners as a co-ownership community without legal capacity of its own",
+    "b": "The manager as a statutory trustee",
+    "c": "The community of apartment owners - it may acquire rights and incur obligations, sue and be sued, and under § 18(1) WEG the administration of the common property is its responsibility",
+    "d": "The advisory board as an organ of the community",
+  },
+  "§ 9a Abs. 1 Satz 1 WEG: „Die Gemeinschaft der Wohnungseigentümer kann Rechte erwerben und Verbindlichkeiten eingehen, vor Gericht klagen und verklagt werden.“ Satz 2: sie entsteht mit Anlegung der Wohnungsgrundbücher, auch im Fall des § 8 WEG. Satz 3 gibt die Bezeichnung vor: „Gemeinschaft der Wohnungseigentümer“ oder „Wohnungseigentümergemeinschaft“, gefolgt von der bestimmten Angabe des gemeinschaftlichen Grundstücks. § 18 Abs. 1 WEG zieht die Konsequenz für die Verwaltung: „Die Verwaltung des gemeinschaftlichen Eigentums obliegt der Gemeinschaft der Wohnungseigentümer.“ Nach § 9a Abs. 2 WEG übt die Gemeinschaft die sich aus dem gemeinschaftlichen Eigentum ergebenden Rechte sowie solche Rechte der Wohnungseigentümer aus, die eine einheitliche Rechtsverfolgung erfordern. Die Haftung regelt § 9a Abs. 4 WEG: jeder Wohnungseigentümer haftet einem Gläubiger nach dem Verhältnis seines Miteigentumsanteils für Verbindlichkeiten der Gemeinschaft, die während seiner Zugehörigkeit entstanden oder fällig geworden sind; für die Haftung nach Veräußerung gilt § 728b BGB entsprechend. § 9a Abs. 5 WEG stellt klar: ein Insolvenzverfahren über das Gemeinschaftsvermögen findet nicht statt. Der Verwalter ist damit nicht Träger der Verwaltung, sondern Organ mit gesetzlich umschriebenen Aufgaben (§ 27 WEG) und Vertretungsmacht (§ 9b WEG). Jeder Wohnungseigentümer kann nach § 18 Abs. 2 WEG von der Gemeinschaft eine ordnungsmäßige Verwaltung und Benutzung verlangen und nach § 18 Abs. 4 WEG Einsicht in die Verwaltungsunterlagen; nach § 18 Abs. 3 WEG darf er ohne Zustimmung der anderen die zur Abwendung eines unmittelbar drohenden Schadens am gemeinschaftlichen Eigentum notwendigen Maßnahmen treffen.",
+  "§ 9a(1) sentence 1 WEG: \"The community of apartment owners may acquire rights and incur obligations, sue and be sued in court.\" Sentence 2: it comes into existence when the condominium land-register sheets are opened, including in the case of § 8 WEG. Sentence 3 prescribes the designation: \"Gemeinschaft der Wohnungseigentümer\" or \"Wohnungseigentümergemeinschaft\", followed by the specific identification of the common plot. § 18(1) WEG draws the consequence for administration: \"The administration of the common property is the responsibility of the community of apartment owners.\" Under § 9a(2) WEG the community exercises the rights arising from the common property and such rights of the apartment owners as require uniform enforcement. Liability is governed by § 9a(4) WEG: each apartment owner is liable to a creditor in proportion to his co-ownership share for obligations of the community that arose or fell due during his membership; for liability after disposal, § 728b BGB applies correspondingly. § 9a(5) WEG makes clear that no insolvency proceedings take place over the community assets. The manager is therefore not the bearer of the administration but an organ with statutorily circumscribed tasks (§ 27 WEG) and power of representation (§ 9b WEG). Under § 18(2) WEG each owner may demand proper administration and use from the community, and under § 18(4) WEG inspection of the administrative records; under § 18(3) WEG he may take, without the others' consent, the measures necessary to avert damage directly threatening the common property."),
+
+q("weg_verwaltung", 2,
+  "§ 9b Abs. 1 und 2 WEG; Anlage 1 Nr. 4.4 MaBV", 5, True, ["management"], "d",
+  "Wie weit reicht die Vertretungsmacht des Verwalters für die Gemeinschaft der Wohnungseigentümer?",
+  {
+    "a": "Sie besteht nur, soweit die Eigentümerversammlung sie im Einzelfall erteilt hat",
+    "b": "Sie ist unbeschränkt und unbeschränkbar",
+    "c": "Sie umfasst nur außergerichtliche Erklärungen; im Prozess wird die Gemeinschaft von den Eigentümern gemeinschaftlich vertreten",
+    "d": "Der Verwalter vertritt die Gemeinschaft gerichtlich und außergerichtlich, beim Abschluss eines Grundstückskauf- oder Darlehensvertrags aber nur aufgrund eines Beschlusses; eine Beschränkung des Umfangs der Vertretungsmacht ist Dritten gegenüber unwirksam",
+  },
+  "How far does the manager's power to represent the community of apartment owners extend?",
+  {
+    "a": "It exists only in so far as the owners' meeting has granted it in the individual case",
+    "b": "It is unlimited and cannot be limited",
+    "c": "It covers only out-of-court declarations; in litigation the community is represented by the owners jointly",
+    "d": "The manager represents the community in and out of court, but on concluding a land purchase or loan contract only on the basis of a resolution; a limitation of the scope of the power of representation is ineffective as against third parties",
+  },
+  "§ 9b Abs. 1 WEG: „Die Gemeinschaft der Wohnungseigentümer wird durch den Verwalter gerichtlich und außergerichtlich vertreten, beim Abschluss eines Grundstückskauf- oder Darlehensvertrags aber nur aufgrund eines Beschlusses der Wohnungseigentümer. Hat die Gemeinschaft der Wohnungseigentümer keinen Verwalter, wird sie durch die Wohnungseigentümer gemeinschaftlich vertreten. Eine Beschränkung des Umfangs der Vertretungsmacht ist Dritten gegenüber unwirksam.“ Drei Punkte sind praktisch entscheidend. Erstens ist die Vertretungsmacht gesetzlich und umfassend - Antwort a beschreibt den überholten Rechtszustand vor der Reform. Zweitens gibt es genau zwei gesetzliche Ausnahmen, die einen Beschluss verlangen: Grundstückskaufvertrag und Darlehensvertrag. Drittens - und das ist die Falle - wirkt eine Beschränkung im Innenverhältnis NICHT gegenüber Dritten: wenn die Gemeinschaftsordnung oder ein Beschluss dem Verwalter etwa Verträge über 5 000 Euro untersagt und er sie dennoch schließt, ist der Vertrag wirksam; die Gemeinschaft hat lediglich Ansprüche gegen den Verwalter. Die Aufgaben- und Befugnisnorm des § 27 WEG regelt demgegenüber nur das Innenverhältnis. § 9b Abs. 2 WEG regelt die Gegenrichtung: „Dem Verwalter gegenüber vertritt der Vorsitzende des Verwaltungsbeirats oder ein durch Beschluss dazu ermächtigter Wohnungseigentümer die Gemeinschaft der Wohnungseigentümer“ - deshalb unterzeichnet nicht der Verwalter selbst seinen Verwaltervertrag namens der Gemeinschaft.",
+  "§ 9b(1) WEG: \"The community of apartment owners is represented in and out of court by the manager, but on concluding a land purchase or loan contract only on the basis of a resolution of the apartment owners. If the community of apartment owners has no manager, it is represented by the apartment owners jointly. A limitation of the scope of the power of representation is ineffective as against third parties.\" Three points are decisive in practice. First, the power of representation is statutory and comprehensive - answer a describes the superseded pre-reform position. Second, there are exactly two statutory exceptions requiring a resolution: a land purchase contract and a loan contract. Third - and this is the trap - an internal limitation does NOT operate against third parties: if the community rules or a resolution forbid the manager to conclude contracts above, say, EUR 5,000 and he does so anyway, the contract is valid; the community merely has claims against the manager. The tasks-and-powers provision in § 27 WEG, by contrast, governs only the internal relationship. § 9b(2) WEG governs the opposite direction: \"As against the manager, the community of apartment owners is represented by the chair of the advisory board or by an apartment owner authorised by resolution to do so\" - which is why the manager does not sign his own management contract on the community's behalf."),
+
+q("weg_verwaltung", 3,
+  "§ 24 Abs. 1, 2 und 4 WEG; Anlage 1 Nr. 4.4.1 MaBV", 4, True, ["all"], "c",
+  "Welche Vorgaben macht § 24 WEG für die Einberufung der Wohnungseigentümerversammlung?",
+  {
+    "a": "Mindestens zweimal im Jahr, schriftlich, Frist vier Wochen",
+    "b": "Einmal im Jahr, in beliebiger Form, ohne Fristvorgabe",
+    "c": "Mindestens einmal im Jahr durch den Verwalter, in Textform, mit einer Frist, die mindestens drei Wochen betragen soll, sofern kein Fall besonderer Dringlichkeit vorliegt",
+    "d": "Nur auf Verlangen der Mehrheit der Wohnungseigentümer, in Textform, Frist zwei Wochen",
+  },
+  "What does § 24 WEG require for convening the owners' meeting?",
+  {
+    "a": "At least twice a year, in writing, with a four-week notice period",
+    "b": "Once a year, in any form, with no notice period",
+    "c": "At least once a year by the manager, in text form, with a notice period which should be at least three weeks unless there is a case of particular urgency",
+    "d": "Only on demand of a majority of the apartment owners, in text form, with a two-week notice period",
+  },
+  "§ 24 Abs. 1 WEG: „Die Versammlung der Wohnungseigentümer wird von dem Verwalter mindestens einmal im Jahr einberufen.“ § 24 Abs. 4 WEG: „Die Einberufung erfolgt in Textform. Die Frist der Einberufung soll, sofern nicht ein Fall besonderer Dringlichkeit vorliegt, mindestens drei Wochen betragen.“ Textform bedeutet § 126b BGB - E-Mail genügt, eine Unterschrift ist nicht erforderlich, aber die Erklärung muss lesbar auf einem dauerhaften Datenträger vorliegen und den Erklärenden nennen. Die Drei-Wochen-Frist ist eine Soll-Vorschrift; ihre Unterschreitung macht einen Beschluss nicht nichtig, aber anfechtbar, wenn sie sich auf das Ergebnis ausgewirkt haben kann. § 24 Abs. 2 WEG regelt die Einberufung auf Verlangen: sie muss erfolgen in den durch Vereinbarung bestimmten Fällen und im Übrigen, „wenn dies in Textform unter Angabe des Zwecks und der Gründe von mehr als einem Viertel der Wohnungseigentümer verlangt wird“ - ein Viertel, nicht die Mehrheit; Antwort d ist deshalb falsch. § 24 Abs. 3 WEG regelt den Ersatzfall: fehlt ein Verwalter oder weigert er sich pflichtwidrig, kann auch der Vorsitzende des Verwaltungsbeirats, dessen Vertreter oder ein durch Beschluss ermächtigter Wohnungseigentümer einberufen. Nach § 23 Abs. 2 WEG ist zur Gültigkeit eines Beschlusses erforderlich, dass der Gegenstand bei der Einberufung bezeichnet ist - die Tagesordnung ist also Gültigkeitsvoraussetzung, nicht Serviceleistung. Den Vorsitz führt nach § 24 Abs. 5 WEG der Verwalter, sofern die Versammlung nichts anderes beschließt.",
+  "§ 24(1) WEG: \"The meeting of the apartment owners is convened by the manager at least once a year.\" § 24(4) WEG: \"The meeting is convened in text form. The notice period should be at least three weeks unless there is a case of particular urgency.\" Text form means § 126b BGB - e-mail suffices, no signature is needed, but the declaration must be legible on a durable medium and name the declarant. The three-week period is a should-provision; falling short of it does not make a resolution void, but does make it challengeable where it may have affected the outcome. § 24(2) WEG governs convening on demand: the meeting must be convened in the cases determined by agreement and otherwise \"where this is demanded in text form, stating the purpose and the reasons, by more than a quarter of the apartment owners\" - a quarter, not a majority; answer d is therefore wrong. § 24(3) WEG governs the substitute case: if there is no manager or he wrongfully refuses, the chair of the advisory board, his deputy or an apartment owner authorised by resolution may convene the meeting. Under § 23(2) WEG the validity of a resolution requires that the subject matter was identified in the notice - so the agenda is a condition of validity, not a courtesy. Under § 24(5) WEG the manager chairs the meeting unless it resolves otherwise."),
+
+q("weg_verwaltung", 4,
+  "§ 25 Abs. 1 bis 4 WEG; Anlage 1 Nr. 4.4.2 MaBV", 5, True, ["all"], "b",
+  "Nach welchen Regeln wird in der Wohnungseigentümerversammlung abgestimmt?",
+  {
+    "a": "Es entscheidet die Mehrheit aller Wohnungseigentümer; die Versammlung ist nur bei Vertretung von mehr als der Hälfte der Miteigentumsanteile beschlussfähig",
+    "b": "Es entscheidet die Mehrheit der abgegebenen Stimmen; jeder Wohnungseigentümer hat gesetzlich eine Stimme, und Vollmachten bedürfen zu ihrer Gültigkeit der Textform",
+    "c": "Es entscheidet die Mehrheit der Miteigentumsanteile; Vollmachten bedürfen der notariellen Beglaubigung",
+    "d": "Beschlüsse bedürfen stets der Zustimmung aller Wohnungseigentümer",
+  },
+  "By what rules are votes taken in the owners' meeting?",
+  {
+    "a": "A majority of all apartment owners decides; the meeting has a quorum only if more than half the co-ownership shares are represented",
+    "b": "A majority of the votes cast decides; by statute each apartment owner has one vote, and proxies require text form to be valid",
+    "c": "A majority of the co-ownership shares decides; proxies require notarial certification",
+    "d": "Resolutions always require the consent of all apartment owners",
+  },
+  "§ 25 WEG in vier kurzen Absätzen. Absatz 1: „Bei der Beschlussfassung entscheidet die Mehrheit der abgegebenen Stimmen.“ Absatz 2: „Jeder Wohnungseigentümer hat eine Stimme. Steht ein Wohnungseigentum mehreren gemeinschaftlich zu, so können sie das Stimmrecht nur einheitlich ausüben.“ Das ist das gesetzliche Kopfprinzip; Gemeinschaftsordnungen weichen davon häufig ab (Wert- oder Objektprinzip), was zulässig ist - das Gesetz ist hier nur der Ausgangspunkt. Absatz 3: „Vollmachten bedürfen zu ihrer Gültigkeit der Textform.“ Absatz 4 regelt den Stimmrechtsausschluss: ein Wohnungseigentümer ist nicht stimmberechtigt, wenn die Beschlussfassung die Vornahme eines auf die Verwaltung des gemeinschaftlichen Eigentums bezüglichen Rechtsgeschäfts mit ihm oder die Einleitung oder Erledigung eines Rechtsstreits gegen ihn betrifft, oder wenn er nach § 17 WEG rechtskräftig verurteilt ist. Entscheidend und in der Praxis oft übersehen: die WEG-Reform hat das frühere Beschlussfähigkeitsquorum ABGESCHAFFT. Es gibt keine Mindestpräsenz mehr und keine Zweitversammlung; die Mehrheit der abgegebenen Stimmen entscheidet, auch wenn nur wenige Eigentümer erscheinen. Antwort a beschreibt den überholten Rechtszustand und ist die wahrscheinlichste Fehlannahme in dieser Frage.",
+  "§ 25 WEG in four short paragraphs. (1): \"On the passing of resolutions, a majority of the votes cast decides.\" (2): \"Each apartment owner has one vote. Where a condominium unit is held jointly by several persons, they may exercise the voting right only uniformly.\" That is the statutory one-owner-one-vote principle; community rules frequently depart from it (value or unit principle), which is permissible - the statute is only the starting point. (3): \"Proxies require text form to be valid.\" (4) governs exclusion from voting: an apartment owner has no voting right where the resolution concerns entering into a legal transaction with him relating to the administration of the common property, or the commencement or settlement of litigation against him, or where he has been finally ordered against under § 17 WEG. Decisive and often overlooked in practice: the WEG reform ABOLISHED the former quorum requirement. There is no minimum attendance and no second meeting; a majority of the votes cast decides even if only a few owners attend. Answer a describes the superseded position and is the likeliest false assumption on this question."),
+
+q("weg_verwaltung", 5,
+  "§ 23 Abs. 1a und Abs. 3 und 4 WEG; Anlage 1 Nr. 4.4.2 MaBV", 5, True, ["management"], "c",
+  "Unter welchen Voraussetzungen kann eine rein virtuelle Wohnungseigentümerversammlung ohne physische Präsenz stattfinden?",
+  {
+    "a": "Der Verwalter kann sie jederzeit anordnen",
+    "b": "Nur mit Zustimmung aller Wohnungseigentümer in Textform",
+    "c": "Aufgrund eines Beschlusses mit mindestens drei Vierteln der abgegebenen Stimmen, befristet auf einen Zeitraum von längstens drei Jahren ab Beschlussfassung; die virtuelle Versammlung muss hinsichtlich Teilnahme und Rechteausübung mit einer Präsenzversammlung vergleichbar sein",
+    "d": "Virtuelle Versammlungen sind nach dem WEG nicht zulässig",
+  },
+  "Under what conditions may a purely virtual owners' meeting take place without physical presence?",
+  {
+    "a": "The manager may order one at any time",
+    "b": "Only with the consent of all apartment owners in text form",
+    "c": "On the basis of a resolution passed by at least three quarters of the votes cast, limited to a period of no more than three years from the resolution; the virtual meeting must be comparable to a physical meeting as regards participation and the exercise of rights",
+    "d": "Virtual meetings are not permitted under the WEG",
+  },
+  "§ 23 Abs. 1a Satz 1 WEG: „Die Wohnungseigentümer können mit mindestens drei Vierteln der abgegebenen Stimmen beschließen, dass die Versammlung innerhalb eines Zeitraums von längstens drei Jahren ab Beschlussfassung ohne physische Präsenz der Wohnungseigentümer und des Verwalters an einem Versammlungsort stattfindet oder stattfinden kann (virtuelle Wohnungseigentümerversammlung).“ Satz 2: „Die virtuelle Wohnungseigentümerversammlung muss hinsichtlich der Teilnahme und Rechteausübung mit einer Präsenzversammlung vergleichbar sein.“ Drei Merkmale sind zu beachten: die qualifizierte Mehrheit von drei Vierteln der ABGEGEBENEN Stimmen (nicht aller Stimmen), die zeitliche Befristung auf höchstens drei Jahre - der Beschluss muss also wiederholt werden - und der Vergleichbarkeitsmaßstab, der technische Anforderungen an Zuschaltung, Wortmeldung und Abstimmung stellt. Davon zu unterscheiden ist § 23 Abs. 1 Satz 2 WEG: die Wohnungseigentümer können beschließen, dass Eigentümer an der Versammlung auch ohne Anwesenheit an deren Ort teilnehmen und ihre Rechte im Wege elektronischer Kommunikation ausüben können - das ist die HYBRIDE Versammlung, für die die einfache Mehrheit genügt und die keiner Befristung unterliegt. Ebenfalls zu unterscheiden ist der Umlaufbeschluss nach § 23 Abs. 3 WEG: ohne Versammlung ist ein Beschluss gültig, wenn alle Wohnungseigentümer ihre Zustimmung in Textform erklären; für einen einzelnen Gegenstand können die Wohnungseigentümer beschließen, dass die Mehrheit der abgegebenen Stimmen genügt. § 23 Abs. 4 WEG regelt die Fehlerfolgen: ein Beschluss, der gegen eine unverzichtbare Rechtsvorschrift verstößt, ist nichtig; im Übrigen ist er gültig, solange er nicht durch rechtskräftiges Urteil für ungültig erklärt ist.",
+  "§ 23(1a) sentence 1 WEG: \"The apartment owners may resolve, by at least three quarters of the votes cast, that within a period of no more than three years from the resolution the meeting shall or may take place without the physical presence of the apartment owners and the manager at a meeting venue (virtual owners' meeting).\" Sentence 2: \"The virtual owners' meeting must be comparable to a physical meeting as regards participation and the exercise of rights.\" Three features matter: the qualified majority of three quarters of the votes CAST (not of all votes), the time limit of at most three years - so the resolution must be renewed - and the comparability standard, which imposes technical requirements on joining, speaking and voting. To be distinguished from this is § 23(1) sentence 2 WEG: the owners may resolve that owners may participate in the meeting without being present at its venue and exercise their rights by electronic communication - that is the HYBRID meeting, for which a simple majority suffices and which is subject to no time limit. Also to be distinguished is the written-circulation resolution under § 23(3) WEG: a resolution is valid without a meeting where all apartment owners declare their consent in text form; for a single subject matter the owners may resolve that a majority of the votes cast suffices. § 23(4) WEG governs the consequences of defects: a resolution infringing a legal provision compliance with which cannot effectively be waived is void; otherwise it is valid as long as it has not been declared invalid by a final judgment."),
+
+q("weg_verwaltung", 6,
+  "§ 26 Abs. 1 bis 5 WEG; Anlage 1 Nr. 4.5.1 MaBV", 5, True, ["management"], "d",
+  "Welche Regeln gelten für Bestellung und Abberufung des WEG-Verwalters?",
+  {
+    "a": "Bestellung auf höchstens drei Jahre, Abberufung nur aus wichtigem Grund",
+    "b": "Bestellung unbefristet möglich, Abberufung nur mit Dreiviertelmehrheit",
+    "c": "Bestellung auf höchstens fünf Jahre, Abberufung nur zum Ende des Verwaltervertrages",
+    "d": "Bestellung auf höchstens fünf Jahre (bei erster Bestellung nach Begründung von Wohnungseigentum höchstens drei Jahre), Abberufung jederzeit; der Verwaltervertrag endet spätestens sechs Monate nach der Abberufung, und Abweichungen von diesen Regeln sind unzulässig",
+  },
+  "Which rules govern the appointment and removal of the condominium manager?",
+  {
+    "a": "Appointment for at most three years, removal only for good cause",
+    "b": "Appointment possible without time limit, removal only by a three-quarters majority",
+    "c": "Appointment for at most five years, removal only at the end of the management contract",
+    "d": "Appointment for at most five years (at most three years on the first appointment after the creation of condominium ownership), removal at any time; the management contract ends at the latest six months after removal, and departures from these rules are not permitted",
+  },
+  "§ 26 WEG: Absatz 1 - über Bestellung und Abberufung des Verwalters beschließen die Wohnungseigentümer. Absatz 2 - „Die Bestellung kann auf höchstens fünf Jahre vorgenommen werden, im Fall der ersten Bestellung nach der Begründung von Wohnungseigentum aber auf höchstens drei Jahre. Die wiederholte Bestellung ist zulässig; sie bedarf eines erneuten Beschlusses der Wohnungseigentümer, der frühestens ein Jahr vor Ablauf der Bestellungszeit gefasst werden kann.“ Absatz 3 - „Der Verwalter kann jederzeit abberufen werden. Ein Vertrag mit dem Verwalter endet spätestens sechs Monate nach dessen Abberufung.“ Absatz 4 - soweit die Verwaltereigenschaft durch öffentlich beglaubigte Urkunde nachzuweisen ist, genügt die Vorlage einer Niederschrift über den Bestellungsbeschluss mit öffentlich beglaubigten Unterschriften der in § 24 Abs. 6 WEG bezeichneten Personen. Absatz 5 - „Abweichungen von den Absätzen 1 bis 3 sind nicht zulässig.“ Dieser letzte Absatz ist der eigentliche Prüfstein: die Fristen und die jederzeitige Abberufbarkeit sind zwingend, weder durch Gemeinschaftsordnung noch durch Verwaltervertrag abdingbar. Ein Verwaltervertrag mit Kündigungssperre, mit einer Laufzeit über fünf Jahre oder mit einer Abberufung nur aus wichtigem Grund ist insoweit unwirksam. Zu trennen sind zwei Rechtsverhältnisse: der Bestellungsakt (organschaftlich, Beschluss) und der Verwaltervertrag (schuldrechtlich) - die Abberufung wirkt sofort auf die Organstellung, der Vertrag läuft höchstens noch sechs Monate nach.",
+  "§ 26 WEG: (1) - the apartment owners resolve on the appointment and removal of the manager. (2) - \"The appointment may be made for at most five years, but on the first appointment after the creation of condominium ownership for at most three years. Reappointment is permissible; it requires a fresh resolution of the apartment owners, which may be passed at the earliest one year before the appointment period expires.\" (3) - \"The manager may be removed at any time. A contract with the manager ends at the latest six months after his removal.\" (4) - in so far as the status of manager must be proved by a publicly certified document, production of a record of the appointment resolution suffices where the signatures of the persons named in § 24(6) WEG are publicly certified. (5) - \"Departures from (1) to (3) are not permitted.\" That last paragraph is the real test: the time limits and the removability at any time are mandatory, and can be excluded neither by the community rules nor by the management contract. A management contract with a bar on termination, with a term exceeding five years, or with removal only for good cause, is ineffective to that extent. Two legal relationships must be kept apart: the act of appointment (an organ matter, by resolution) and the management contract (contractual) - removal takes immediate effect on the organ position, while the contract runs on for at most six further months."),
+
+q("weg_verwaltung", 7,
+  "§ 27 WEG; § 24 Abs. 6 bis 8 WEG; Anlage 1 Nr. 4.4.3 MaBV", 4, False, ["management"], "c",
+  "Welche Maßnahmen darf der Verwalter nach § 27 Absatz 1 WEG ohne Beschluss der Wohnungseigentümer treffen?",
+  {
+    "a": "Alle Maßnahmen ordnungsmäßiger Verwaltung ohne Ausnahme",
+    "b": "Nur Maßnahmen zur Abwendung eines unmittelbar drohenden Schadens",
+    "c": "Maßnahmen ordnungsmäßiger Verwaltung, die untergeordnete Bedeutung haben und nicht zu erheblichen Verpflichtungen führen, oder die zur Wahrung einer Frist oder zur Abwendung eines Nachteils erforderlich sind",
+    "d": "Keine - jede Maßnahme bedarf eines Beschlusses",
+  },
+  "Which measures may the manager take under § 27(1) WEG without a resolution of the apartment owners?",
+  {
+    "a": "All measures of proper administration without exception",
+    "b": "Only measures to avert damage that is directly threatening",
+    "c": "Measures of proper administration which are of subordinate significance and do not lead to substantial obligations, or which are necessary to observe a time limit or to avert a disadvantage",
+    "d": "None - every measure requires a resolution",
+  },
+  "§ 27 Abs. 1 WEG: „Der Verwalter ist gegenüber der Gemeinschaft der Wohnungseigentümer berechtigt und verpflichtet, die Maßnahmen ordnungsmäßiger Verwaltung zu treffen, die 1. untergeordnete Bedeutung haben und nicht zu erheblichen Verpflichtungen führen oder 2. zur Wahrung einer Frist oder zur Abwendung eines Nachteils erforderlich sind.“ Absatz 2: „Die Wohnungseigentümer können die Rechte und Pflichten nach Absatz 1 durch Beschluss einschränken oder erweitern.“ § 27 WEG ist eine Norm des INNENVERHÄLTNISSES und darf nicht mit der Vertretungsmacht des § 9b WEG verwechselt werden: überschreitet der Verwalter § 27 WEG, bleibt der Vertrag mit dem Dritten wirksam (§ 9b Abs. 1 Satz 3 WEG), aber der Verwalter haftet der Gemeinschaft. Die Reform hat hier ganz bewusst auf feste Betragsgrenzen verzichtet; wer Rechtssicherheit will, sollte einen Erweiterungsbeschluss nach Absatz 2 mit konkreten Wertgrenzen fassen. Weitere gesetzliche Verwalteraufgaben stehen außerhalb des § 27 WEG und sind nicht disponibel: Einberufung und in der Regel Vorsitz der Versammlung (§ 24 Abs. 1 und 5 WEG), unverzügliche Aufnahme einer Niederschrift über die gefassten Beschlüsse mit Unterschrift des Vorsitzenden, eines Wohnungseigentümers und - falls bestellt - des Beiratsvorsitzenden oder seines Vertreters (§ 24 Abs. 6 WEG), Führung der Beschluss-Sammlung (§ 24 Abs. 7 und 8 WEG, mit fortlaufender Eintragung, Nummerierung, Anmerkung von Anfechtung oder Aufhebung und Einsichtsrecht der Eigentümer), Aufstellung von Wirtschaftsplan, Jahresabrechnung und Vermögensbericht (§ 28 WEG) sowie die unverzügliche Bekanntmachung einer Beschlussklage an die Wohnungseigentümer (§ 44 Abs. 2 Satz 2 WEG).",
+  "§ 27(1) WEG: \"As against the community of apartment owners, the manager is entitled and obliged to take those measures of proper administration which 1. are of subordinate significance and do not lead to substantial obligations, or 2. are necessary to observe a time limit or to avert a disadvantage.\" (2): \"The apartment owners may restrict or extend the rights and duties under (1) by resolution.\" § 27 WEG is a provision of the INTERNAL relationship and must not be confused with the power of representation in § 9b WEG: if the manager exceeds § 27 WEG, the contract with the third party remains valid (§ 9b(1) sentence 3 WEG), but the manager is liable to the community. The reform deliberately dispensed with fixed monetary thresholds here; anyone wanting legal certainty should pass an extension resolution under (2) with concrete value limits. Further statutory manager tasks sit outside § 27 WEG and are not at the parties' disposal: convening and, as a rule, chairing the meeting (§ 24(1) and (5) WEG); taking a record of the resolutions passed without delay, signed by the chair, one apartment owner and - if one has been appointed - the chair of the advisory board or his deputy (§ 24(6) WEG); keeping the collection of resolutions (§ 24(7) and (8) WEG, with consecutive entry, numbering, annotation of challenge or annulment, and owners' right of inspection); drawing up the business plan, annual statement and assets report (§ 28 WEG); and making a resolution action known to the apartment owners without delay (§ 44(2) sentence 2 WEG)."),
+
+q("weg_verwaltung", 8,
+  "§ 44 WEG; § 45 WEG; Anlage 1 Nr. 4.4.2 MaBV", 5, True, ["management"], "b",
+  "Gegen wen ist eine Anfechtungsklage gegen einen Eigentümerbeschluss zu richten, und welche Fristen gelten?",
+  {
+    "a": "Gegen die übrigen Wohnungseigentümer; Frist drei Monate für Erhebung und Begründung",
+    "b": "Gegen die Gemeinschaft der Wohnungseigentümer; die Klage muss innerhalb eines Monats nach der Beschlussfassung erhoben und innerhalb zweier Monate nach der Beschlussfassung begründet werden",
+    "c": "Gegen den Verwalter; Frist ein Jahr",
+    "d": "Gegen die Gemeinschaft der Wohnungseigentümer; Fristen bestehen nicht, da nichtige Beschlüsse jederzeit angreifbar sind",
+  },
+  "Against whom must an action to challenge an owners' resolution be brought, and which time limits apply?",
+  {
+    "a": "Against the other apartment owners; a three-month limit for both bringing and substantiating the action",
+    "b": "Against the community of apartment owners; the action must be brought within one month of the resolution and substantiated within two months of the resolution",
+    "c": "Against the manager; a one-year limit",
+    "d": "Against the community of apartment owners; there are no time limits, since void resolutions can be attacked at any time",
+  },
+  "§ 44 Abs. 1 WEG kennt drei Beschlussklagen: die Anfechtungsklage (Ungültigerklärung), die Nichtigkeitsklage (Feststellung der Nichtigkeit) und die Beschlussersetzungsklage, wenn eine notwendige Beschlussfassung unterbleibt. § 44 Abs. 2 Satz 1 WEG: „Die Klagen sind gegen die Gemeinschaft der Wohnungseigentümer zu richten.“ Das ist eine Folge der Rechtsfähigkeit nach § 9a Abs. 1 WEG und hat die frühere Klage gegen die übrigen Wohnungseigentümer ersetzt - Antwort a beschreibt den überholten Rechtszustand. Satz 2 begründet eine Verwalterpflicht: „Der Verwalter hat den Wohnungseigentümern die Erhebung einer Klage unverzüglich bekannt zu machen.“ Nach Absatz 3 wirkt das Urteil für und gegen alle Wohnungseigentümer, auch wenn sie nicht Partei sind. § 45 WEG setzt die Fristen der ANFECHTUNGSKLAGE: „Die Anfechtungsklage muss innerhalb eines Monats nach der Beschlussfassung erhoben und innerhalb zweier Monate nach der Beschlussfassung begründet werden. Die §§ 233 bis 238 der Zivilprozessordnung gelten entsprechend.“ Beide Fristen laufen ab der BESCHLUSSFASSUNG, nicht ab Zugang der Niederschrift - ein häufiger und teurer Irrtum. Antwort d verwechselt zwei Klagearten: die Fristen des § 45 WEG gelten für die Anfechtungsklage; die Nichtigkeit eines Beschlusses nach § 23 Abs. 4 Satz 1 WEG kann tatsächlich unbefristet geltend gemacht werden, aber nur in dem engen Fall des Verstoßes gegen eine unverzichtbare Rechtsvorschrift. Für die Verwaltungspraxis heißt das: Niederschrift unverzüglich nach § 24 Abs. 6 WEG erstellen und versenden, damit die Eigentümer die Monatsfrist überhaupt nutzen können.",
+  "§ 44(1) WEG knows three resolution actions: the challenge action (declaration of invalidity), the nullity action (declaration of voidness) and the substitute-resolution action where a necessary resolution is not passed. § 44(2) sentence 1 WEG: \"The actions must be brought against the community of apartment owners.\" That follows from the legal capacity conferred by § 9a(1) WEG and has replaced the former action against the other apartment owners - answer a describes the superseded position. Sentence 2 creates a duty of the manager: \"The manager must make the bringing of an action known to the apartment owners without delay.\" Under (3) the judgment operates for and against all apartment owners even if they are not parties. § 45 WEG sets the time limits for the CHALLENGE action: \"The challenge action must be brought within one month of the resolution and substantiated within two months of the resolution. §§ 233 to 238 of the Code of Civil Procedure apply correspondingly.\" Both periods run from the PASSING OF THE RESOLUTION, not from receipt of the minutes - a frequent and expensive error. Answer d conflates two types of action: the § 45 WEG limits apply to the challenge action; the voidness of a resolution under § 23(4) sentence 1 WEG can indeed be asserted without a time limit, but only in the narrow case of infringement of a provision compliance with which cannot effectively be waived. For management practice: prepare and circulate the minutes without delay under § 24(6) WEG so that owners can actually make use of the one-month period."),
+
+q("weg_verwaltung", 9,
+  "§ 26a WEG; § 19 Abs. 2 Nr. 6 WEG; §§ 1, 2 ZertVerwV", 5, True, ["management"], "c",
+  "Was ist ein „zertifizierter Verwalter“ nach § 26a WEG, und in welchem Verhältnis steht diese Zertifizierung zur MaBV-Weiterbildungspflicht?",
+  {
+    "a": "Ein Verwalter, der die Weiterbildungspflicht des § 34c Absatz 2a GewO erfüllt hat; die Zertifizierung ersetzt die Weiterbildung",
+    "b": "Ein von der zuständigen Gewerbebehörde geprüfter und zugelassener Verwalter",
+    "c": "Wer vor einer Industrie- und Handelskammer durch eine Prüfung nachgewiesen hat, über die notwendigen rechtlichen, kaufmännischen und technischen Kenntnisse zu verfügen - eine eigenständige Bezeichnungsberechtigung, die die laufende Weiterbildungspflicht nach § 34c Absatz 2a GewO nicht ersetzt",
+    "d": "Ein Verwalter mit abgeschlossener Berufsausbildung als Immobilienkaufmann",
+  },
+  "What is a \"certified manager\" under § 26a WEG, and how does that certification relate to the MaBV continuing-education duty?",
+  {
+    "a": "A manager who has discharged the continuing-education duty in § 34c(2a) GewO; the certification replaces the training",
+    "b": "A manager examined and licensed by the competent trade authority",
+    "c": "Someone who has proved, by an examination before a Chamber of Industry and Commerce, that he possesses the necessary legal, commercial and technical knowledge - a self-standing entitlement to use the designation, which does not replace the ongoing continuing-education duty under § 34c(2a) GewO",
+    "d": "A manager with a completed vocational qualification as Immobilienkaufmann",
+  },
+  "§ 26a Abs. 1 WEG: „Als zertifizierter Verwalter darf sich bezeichnen, wer vor einer Industrie- und Handelskammer durch eine Prüfung nachgewiesen hat, dass er über die für die Tätigkeit als Verwalter notwendigen rechtlichen, kaufmännischen und technischen Kenntnisse verfügt.“ Absatz 2 ermächtigt das Bundesministerium der Justiz zu näheren Bestimmungen; das ist die Zertifizierter-Verwalter-Prüfungsverordnung (ZertVerwV). § 1 ZertVerwV bestimmt als Prüfungsgegenstand die Sachgebiete der dortigen Anlage 1 und differenziert den Tiefegrad: bei rechtlichen (Nr. 2), kaufmännischen (Nr. 3) und technischen Grundlagen (Nr. 4) sind vertiefte Kenntnisse erforderlich, bei den Grundlagen der Immobilienwirtschaft (Nr. 1) lediglich Grundkenntnisse. § 2 ZertVerwV: die Prüfung kann vor jeder IHK abgelegt werden, die sie anbietet. Der Zusammenhang mit dem WEG ist § 19 Abs. 2 Nr. 6 WEG: zur ordnungsmäßigen Verwaltung gehört die Bestellung eines zertifizierten Verwalters, „es sei denn, es bestehen weniger als neun Sondereigentumsrechte, ein Wohnungseigentümer wurde zum Verwalter bestellt und weniger als ein Drittel der Wohnungseigentümer (§ 25 Absatz 2) verlangt die Bestellung eines zertifizierten Verwalters“ - alle drei Bedingungen müssen kumulativ vorliegen, damit die Ausnahme greift. DREI SYSTEME NICHT VERWECHSELN: die Erlaubnis nach § 34c Abs. 1 Satz 1 Nr. 4 GewO (gewerberechtliche Zulassungsvoraussetzung, ohne Sachkundeprüfung), die Weiterbildungspflicht nach § 34c Abs. 2a GewO in Verbindung mit § 15b und Anlage 1 MaBV (laufend, 20 Stunden in drei Kalenderjahren) und die Zertifizierung nach § 26a WEG (einmalige IHK-Prüfung, Bezeichnungsberechtigung, wohnungseigentumsrechtlich relevant). Die Zertifizierung erfüllt die laufende Weiterbildungspflicht nicht; sie ersetzt sie nicht und wird von ihr nicht ersetzt. Anders als der Abschluss als Immobilienkaufmann oder Geprüfte(r) Immobilienfachwirt(in), der nach § 15b Abs. 1 Satz 6 MaBV ausdrücklich als Weiterbildung gilt, nennt § 15b MaBV die Zertifizierung nach § 26a WEG nicht.",
+  "§ 26a(1) WEG: \"A person may describe himself as a certified manager if he has proved, by an examination before a Chamber of Industry and Commerce, that he possesses the legal, commercial and technical knowledge necessary for activity as a manager.\" (2) empowers the Federal Ministry of Justice to make detailed provisions; that is the Certified Manager Examination Regulation (ZertVerwV). § 1 ZertVerwV makes the subject areas of its own Annex 1 the subject of the examination and differentiates depth: for legal (no. 2), commercial (no. 3) and technical fundamentals (no. 4) in-depth knowledge is required, while for the fundamentals of the real-estate industry (no. 1) only basic knowledge is needed. § 2 ZertVerwV: the examination may be taken before any chamber that offers it. The link to the WEG is § 19(2) no. 6 WEG: proper administration includes appointing a certified manager, \"unless there are fewer than nine separate-ownership rights, an apartment owner has been appointed manager, and fewer than one third of the apartment owners (§ 25(2)) demand the appointment of a certified manager\" - all three conditions must be met cumulatively for the exception to apply. DO NOT CONFUSE THREE SYSTEMS: the permission under § 34c(1) sentence 1 no. 4 GewO (a trade-law licensing condition, with no competence examination), the continuing-education duty under § 34c(2a) GewO together with § 15b and Annex 1 MaBV (ongoing, 20 hours in three calendar years), and the certification under § 26a WEG (a one-off chamber examination, an entitlement to use a designation, relevant in condominium law). The certification does not discharge the ongoing continuing-education duty; it neither replaces it nor is replaced by it. Unlike the qualification as Immobilienkaufmann or Geprüfte(r) Immobilienfachwirt(in), which § 15b(1) sentence 6 MaBV expressly treats as continuing education, § 15b MaBV does not mention the § 26a WEG certification at all."),
+
+
+# ===========================================================================
+# Anlage 1 Nr. 5: Verwaltung von Mietobjekten
+# ===========================================================================
+
+q("mietverwaltung", 1,
+  "§ 556 Abs. 3 BGB; §§ 1, 2 BetrKV; Anlage 1 Nr. 5.4.2.2 und 2.7 MaBV", 5, True, ["all"], "c",
+  "Welche Fristen gelten für die Betriebskostenabrechnung nach § 556 Absatz 3 BGB?",
+  {
+    "a": "Abrechnung innerhalb von sechs Monaten; Einwendungen des Mieters innerhalb von drei Monaten",
+    "b": "Abrechnung innerhalb von 24 Monaten; Einwendungen jederzeit",
+    "c": "Abrechnung spätestens bis zum Ablauf des zwölften Monats nach Ende des Abrechnungszeitraums - danach ist eine Nachforderung ausgeschlossen, wenn der Vermieter die Verspätung zu vertreten hat; Einwendungen des Mieters spätestens bis zum Ablauf des zwölften Monats nach Zugang der Abrechnung",
+    "d": "Es gibt keine gesetzlichen Fristen; sie werden im Mietvertrag vereinbart",
+  },
+  "Which time limits apply to the service-charge statement under § 556(3) BGB?",
+  {
+    "a": "Statement within six months; tenant's objections within three months",
+    "b": "Statement within 24 months; objections at any time",
+    "c": "The statement at the latest by the end of the twelfth month after the end of the accounting period - after that a further claim is barred where the landlord is responsible for the delay; the tenant's objections at the latest by the end of the twelfth month after receipt of the statement",
+    "d": "There are no statutory time limits; they are agreed in the tenancy contract",
+  },
+  "§ 556 Abs. 3 BGB enthält zwei symmetrische Zwölfmonatsfristen. Satz 1: „Über die Vorauszahlungen für Betriebskosten ist jährlich abzurechnen; dabei ist der Grundsatz der Wirtschaftlichkeit zu beachten.“ Satz 2: „Die Abrechnung ist dem Mieter spätestens bis zum Ablauf des zwölften Monats nach Ende des Abrechnungszeitraums mitzuteilen.“ Satz 3: „Nach Ablauf dieser Frist ist die Geltendmachung einer Nachforderung durch den Vermieter ausgeschlossen, es sei denn, der Vermieter hat die verspätete Geltendmachung nicht zu vertreten.“ Satz 4: Teilabrechnungen sind nicht geschuldet. Satz 5 und 6 spiegeln die Frist auf der Mieterseite: Einwendungen gegen die Abrechnung sind spätestens bis zum Ablauf des zwölften Monats nach ZUGANG der Abrechnung mitzuteilen, danach ausgeschlossen, es sei denn der Mieter hat die Verspätung nicht zu vertreten. Nach § 556 Abs. 4 BGB ist Einsicht in die Belege auf Verlangen zu gewähren, und der Vermieter ist berechtigt, die Belege elektronisch bereitzustellen. § 556 Abs. 5 BGB erklärt abweichende Vereinbarungen zum Nachteil des Mieters für unwirksam - Antwort d ist deshalb falsch. Zum Inhalt: umlagefähig sind die Betriebskosten nach § 1 BetrKV, aufgeschlüsselt in den 17 Positionen des § 2 BetrKV; Nummer 1 nennt „die laufenden öffentlichen Lasten des Grundstücks, hierzu gehört namentlich die Grundsteuer“, Nummer 17 die „sonstigen Betriebskosten“. NICHT umlagefähig sind nach § 1 Abs. 2 BetrKV die Verwaltungskosten (Nr. 1) und die Instandhaltungs- und Instandsetzungskosten (Nr. 2) - die eigene Verwaltervergütung gehört im Wohnraummietverhältnis also nicht in die Abrechnung.",
+  "§ 556(3) BGB contains two symmetrical twelve-month periods. Sentence 1: \"Advance payments for operating costs must be accounted for annually; the principle of economy must be observed.\" Sentence 2: \"The statement must be communicated to the tenant at the latest by the end of the twelfth month after the end of the accounting period.\" Sentence 3: \"After that period expires, the landlord is barred from asserting a further claim unless he is not responsible for the delay.\" Sentence 4: partial statements are not owed. Sentences 5 and 6 mirror the period on the tenant's side: objections to the statement must be notified at the latest by the end of the twelfth month after RECEIPT of the statement, and are barred thereafter unless the tenant is not responsible for the delay. Under § 556(4) BGB inspection of the vouchers must be granted on request, and the landlord is entitled to make the vouchers available electronically. § 556(5) BGB renders agreements departing from these rules to the tenant's disadvantage ineffective - answer d is therefore wrong. On substance: allocable costs are the operating costs under § 1 BetrKV, itemised in the 17 categories of § 2 BetrKV; no. 1 names \"the current public charges on the land, in particular the property tax\", and no. 17 \"other operating costs\". NOT allocable under § 1(2) BetrKV are administration costs (no. 1) and maintenance and repair costs (no. 2) - so the manager's own fee does not belong in a residential service-charge statement."),
+
+q("mietverwaltung", 2,
+  "§ 558 Abs. 1 und 3 BGB; Anlage 1 Nr. 5.4.1.3 MaBV", 4, True, ["all"], "b",
+  "Welche Voraussetzungen und Grenzen gelten für eine Mieterhöhung bis zur ortsüblichen Vergleichsmiete nach § 558 BGB?",
+  {
+    "a": "Die Miete muss seit zwölf Monaten unverändert sein; die Kappungsgrenze beträgt 30 Prozent in drei Jahren",
+    "b": "Die Miete muss zum Zeitpunkt des Wirksamwerdens seit 15 Monaten unverändert sein, das Verlangen ist frühestens ein Jahr nach der letzten Mieterhöhung möglich, und die Miete darf sich innerhalb von drei Jahren um nicht mehr als 20 Prozent erhöhen - in bestimmten, durch Landesverordnung bestimmten Gebieten 15 Prozent",
+    "c": "Die Miete muss seit 24 Monaten unverändert sein; eine Kappungsgrenze bestehe nicht",
+    "d": "Eine Mieterhöhung ist nur mit Zustimmung des Mieters und ohne gesetzliche Grenzen möglich",
+  },
+  "Which conditions and limits apply to a rent increase up to the local comparative rent under § 558 BGB?",
+  {
+    "a": "The rent must have been unchanged for twelve months; the capping limit is 30 per cent in three years",
+    "b": "The rent must have been unchanged for 15 months at the point the increase is to take effect, the demand may be made at the earliest one year after the last increase, and the rent may not rise by more than 20 per cent within three years - 15 per cent in certain areas designated by Land regulation",
+    "c": "The rent must have been unchanged for 24 months; there is no capping limit",
+    "d": "A rent increase is possible only with the tenant's consent and without statutory limits",
+  },
+  "§ 558 Abs. 1 Satz 1 BGB: „Der Vermieter kann die Zustimmung zu einer Erhöhung der Miete bis zur ortsüblichen Vergleichsmiete verlangen, wenn die Miete in dem Zeitpunkt, zu dem die Erhöhung eintreten soll, seit 15 Monaten unverändert ist.“ Satz 2: „Das Mieterhöhungsverlangen kann frühestens ein Jahr nach der letzten Mieterhöhung geltend gemacht werden.“ Satz 3 stellt klar, dass Erhöhungen nach §§ 559 bis 560 BGB (Modernisierung, Betriebskosten) dabei nicht berücksichtigt werden - die 15-Monats-Sperre wird durch sie also nicht ausgelöst. Absatz 2 definiert die ortsübliche Vergleichsmiete: übliche Entgelte in der Gemeinde oder einer vergleichbaren Gemeinde für Wohnraum vergleichbarer Art, Größe, Ausstattung, Beschaffenheit und Lage einschließlich der energetischen Ausstattung und Beschaffenheit, die in den letzten SECHS Jahren vereinbart oder geändert worden sind. Absatz 3 Satz 1 setzt die Kappungsgrenze: innerhalb von drei Jahren, von Erhöhungen nach §§ 559 bis 560 abgesehen, nicht mehr als 20 vom Hundert. Satz 2: der Prozentsatz beträgt 15 vom Hundert, wenn die ausreichende Versorgung der Bevölkerung mit Mietwohnungen zu angemessenen Bedingungen in einer Gemeinde oder einem Gemeindeteil besonders gefährdet ist und die Gebiete nach Satz 3 bestimmt sind; Satz 3 ermächtigt die Landesregierungen, diese Gebiete durch Rechtsverordnung für jeweils höchstens fünf Jahre zu bestimmen. Der Verwalter muss also für jedes Objekt wissen, ob es in einem solchen Gebiet liegt. Nach Absatz 6 ist eine zum Nachteil des Mieters abweichende Vereinbarung unwirksam.",
+  "§ 558(1) sentence 1 BGB: \"The landlord may demand consent to an increase of the rent up to the local comparative rent if the rent has been unchanged for 15 months at the point at which the increase is to take effect.\" Sentence 2: \"The demand for a rent increase may be made at the earliest one year after the last rent increase.\" Sentence 3 makes clear that increases under §§ 559 to 560 BGB (modernisation, operating costs) are not taken into account - so they do not trigger the 15-month block. (2) defines the local comparative rent: the customary payments in the municipality or a comparable municipality for residential accommodation of comparable type, size, fittings, condition and location, including energy fittings and condition, agreed or changed within the last SIX years. (3) sentence 1 sets the capping limit: within three years, disregarding increases under §§ 559 to 560, not more than 20 per cent. Sentence 2: the percentage is 15 per cent where the adequate supply of rental housing to the population on reasonable terms is particularly at risk in a municipality or part of one and those areas are designated under sentence 3; sentence 3 empowers the Land governments to designate such areas by regulation for at most five years at a time. The manager must therefore know, for each property, whether it lies in such an area. Under (6) an agreement departing from these rules to the tenant's disadvantage is ineffective."),
+
+q("mietverwaltung", 3,
+  "§ 559 Abs. 1 und 3a BGB; Anlage 1 Nr. 5.4.1.3 MaBV", 5, True, ["all"], "c",
+  "Um welchen Betrag darf die Miete nach einer Modernisierungsmaßnahme nach § 559 BGB erhöht werden?",
+  {
+    "a": "Um 11 Prozent der aufgewendeten Kosten jährlich, ohne absolute Kappung",
+    "b": "Um 8 Prozent der aufgewendeten Kosten jährlich, ohne absolute Kappung",
+    "c": "Um 8 Prozent der für die Wohnung aufgewendeten Kosten jährlich, jedoch darf sich die monatliche Miete innerhalb von sechs Jahren um nicht mehr als 3 Euro je Quadratmeter Wohnfläche erhöhen - bei einer Ausgangsmiete unter 7 Euro je Quadratmeter um nicht mehr als 2 Euro",
+    "d": "Um den vollen Modernisierungsaufwand, verteilt auf zehn Jahre",
+  },
+  "By how much may the rent be increased after a modernisation measure under § 559 BGB?",
+  {
+    "a": "By 11 per cent of the costs incurred annually, with no absolute cap",
+    "b": "By 8 per cent of the costs incurred annually, with no absolute cap",
+    "c": "By 8 per cent of the costs incurred for the dwelling annually, but the monthly rent may not rise by more than EUR 3 per square metre of living space within six years - and by no more than EUR 2 where the starting rent is below EUR 7 per square metre",
+    "d": "By the full modernisation outlay, spread over ten years",
+  },
+  "§ 559 Abs. 1 Satz 1 BGB: „Hat der Vermieter Modernisierungsmaßnahmen im Sinne des § 555b Nummer 1, 3, 4, 5 oder 6 durchgeführt, so kann er die jährliche Miete um 8 Prozent der für die Wohnung aufgewendeten Kosten erhöhen.“ Die 11 Prozent aus Antwort a sind der bis 2018 geltende Satz und eine der verbreitetsten veralteten Zahlen in diesem Rechtsgebiet. § 559 Abs. 3a BGB ergänzt eine absolute Kappungsgrenze in drei Stufen: Satz 1 - innerhalb von sechs Jahren, von Erhöhungen nach § 558 oder § 560 abgesehen, nicht mehr als 3 Euro je Quadratmeter Wohnfläche; Satz 2 - beträgt die monatliche Miete vor der Erhöhung weniger als 7 Euro pro Quadratmeter, nicht mehr als 2 Euro je Quadratmeter; Satz 3 - bei Einbau oder Aufstellung einer Heizungsanlage, die zugleich die Voraussetzungen des § 555b Nummer 1 oder 1a erfüllt, insoweit nicht mehr als 0,50 Euro je Quadratmeter Wohnfläche innerhalb von sechs Jahren. § 559 Abs. 2 BGB nimmt Erhaltungsanteile heraus: Kosten, die für Erhaltungsmaßnahmen erforderlich gewesen wären, gehören nicht zu den aufgewendeten Kosten und sind, soweit erforderlich, durch Schätzung zu ermitteln, wobei der Abnutzungsgrad angemessen zu berücksichtigen ist. Bei mehreren Wohnungen sind die Kosten nach Absatz 3 angemessen aufzuteilen. Absatz 4 enthält die Härtefallregelung, Absatz 5 die Ausschlussfrist für Härtegründe nach § 555d Abs. 3 bis 5 BGB, Absatz 6 die Unwirksamkeit nachteiliger Abweichungen. Für die Wohnflächenberechnung, auf die die Kappungsgrenzen abstellen, gibt § 2 WoFlV den Maßstab.",
+  "§ 559(1) sentence 1 BGB: \"Where the landlord has carried out modernisation measures within the meaning of § 555b nos. 1, 3, 4, 5 or 6, he may increase the annual rent by 8 per cent of the costs incurred for the dwelling.\" The 11 per cent in answer a is the rate that applied until 2018 and is one of the most widely repeated outdated figures in this area. § 559(3a) BGB adds an absolute cap in three tiers: sentence 1 - within six years, disregarding increases under § 558 or § 560, not more than EUR 3 per square metre of living space; sentence 2 - where the monthly rent before the increase is less than EUR 7 per square metre, not more than EUR 2 per square metre; sentence 3 - where a heating installation is installed or set up which also satisfies § 555b no. 1 or 1a, not more than EUR 0.50 per square metre of living space within six years in that respect. § 559(2) BGB excludes the maintenance element: costs that would have been necessary for maintenance measures are not part of the costs incurred and must, where necessary, be determined by estimation, with the degree of wear appropriately taken into account. Where several dwellings are involved, the costs must be apportioned appropriately under (3). (4) contains the hardship provision, (5) the preclusion period for hardship grounds under § 555d(3) to (5) BGB, and (6) the ineffectiveness of departures to the tenant's disadvantage. For the calculation of living space, on which the caps turn, § 2 WoFlV provides the measure."),
+
+q("mietverwaltung", 4,
+  "§ 551 BGB; § 573c Abs. 1 BGB; Anlage 1 Nr. 5.4.1.3 und 5.4.2.3 MaBV", 5, True, ["all"], "d",
+  "Welche Regeln gelten für die Mietsicherheit nach § 551 BGB und für die ordentliche Kündigungsfrist nach § 573c Absatz 1 BGB?",
+  {
+    "a": "Kaution höchstens zwei Monatsmieten, in einer Summe fällig; Kündigungsfrist einheitlich drei Monate für beide Seiten",
+    "b": "Kaution höchstens sechs Monatsmieten; Kündigungsfrist einheitlich sechs Monate",
+    "c": "Kaution höchstens drei Monatsmieten inklusive Betriebskostenvorauszahlungen; Kündigungsfrist einheitlich drei Monate",
+    "d": "Kaution höchstens das Dreifache der auf einen Monat entfallenden Miete ohne Betriebskostenpauschale oder -vorauszahlung, zahlbar in drei gleichen Monatsraten und getrennt vom Vermögen des Vermieters anzulegen; Kündigung spätestens am dritten Werktag eines Kalendermonats zum Ablauf des übernächsten Monats, wobei sich die Frist für den Vermieter nach fünf und nach acht Jahren jeweils um drei Monate verlängert",
+  },
+  "Which rules apply to the tenancy deposit under § 551 BGB and to the ordinary notice period under § 573c(1) BGB?",
+  {
+    "a": "Deposit of at most two months' rent, due in one sum; a uniform three-month notice period for both sides",
+    "b": "Deposit of at most six months' rent; a uniform six-month notice period",
+    "c": "Deposit of at most three months' rent including advance payments for operating costs; a uniform three-month notice period",
+    "d": "Deposit of at most three times the rent attributable to one month, excluding any operating-cost flat rate or advance payment, payable in three equal monthly instalments and to be invested separately from the landlord's assets; notice at the latest on the third working day of a calendar month with effect from the end of the month after next, the landlord's period extending by three months after five and after eight years",
+  },
+  "§ 551 Abs. 1 BGB: die Sicherheit darf „höchstens das Dreifache der auf einen Monat entfallenden Miete ohne die als Pauschale oder als Vorauszahlung ausgewiesenen Betriebskosten betragen“ - Bezugsgröße ist also die Nettokaltmiete; Antwort c ist genau deshalb falsch. Absatz 2: ist eine Geldsumme bereitzustellen, ist der Mieter zu drei gleichen monatlichen Teilzahlungen berechtigt, die erste fällig zu Beginn des Mietverhältnisses, die weiteren mit den unmittelbar folgenden Mietzahlungen. Absatz 3: der Vermieter hat eine als Sicherheit überlassene Geldsumme bei einem Kreditinstitut zum üblichen Zinssatz für Spareinlagen mit dreimonatiger Kündigungsfrist anzulegen; eine andere Anlageform kann vereinbart werden, in beiden Fällen muss die Anlage vom Vermögen des Vermieters GETRENNT erfolgen, und die Erträge stehen dem Mieter zu und erhöhen die Sicherheit. Für Studenten- und Jugendwohnheime entfällt die Verzinsungspflicht. Absatz 4: abweichende Vereinbarungen zum Nachteil des Mieters sind unwirksam. § 573c Abs. 1 BGB: „Die Kündigung ist spätestens am dritten Werktag eines Kalendermonats zum Ablauf des übernächsten Monats zulässig. Die Kündigungsfrist für den Vermieter verlängert sich nach fünf und acht Jahren seit der Überlassung des Wohnraums um jeweils drei Monate.“ Die Frist ist also gerade NICHT symmetrisch: der Mieter kündigt dauerhaft mit drei Monaten, der Vermieter nach fünf Jahren mit sechs und nach acht Jahren mit neun Monaten. Nach Absatz 4 ist eine zum Nachteil des Mieters von Absatz 1 abweichende Vereinbarung unwirksam.",
+  "§ 551(1) BGB: the security may amount to \"at most three times the rent attributable to one month, excluding operating costs shown as a flat rate or as an advance payment\" - the reference figure is therefore the net cold rent, which is exactly why answer c is wrong. (2): where a sum of money is to be provided, the tenant is entitled to pay in three equal monthly instalments, the first due at the start of the tenancy and the others together with the immediately following rent payments. (3): the landlord must invest a sum of money given as security with a credit institution at the customary rate for savings deposits with three months' notice; another form of investment may be agreed, but in both cases the investment must be SEPARATE from the landlord's assets, and the returns belong to the tenant and increase the security. For student and youth hostels the duty to pay interest does not apply. (4): agreements departing from these rules to the tenant's disadvantage are ineffective. § 573c(1) BGB: \"Notice may be given at the latest on the third working day of a calendar month with effect from the end of the month after next. The landlord's notice period is extended by three months each after five and after eight years from the handover of the accommodation.\" The period is therefore precisely NOT symmetrical: the tenant always gives three months' notice, whereas the landlord must give six months after five years and nine months after eight years. Under (4) an agreement departing from (1) to the tenant's disadvantage is ineffective."),
+
+
+# ===========================================================================
+# Anlage 1 Nr. 6: Technische Grundlagen der Immobilienverwaltung
+# ===========================================================================
+
+q("technische_grundlagen", 1,
+  "§ 31 Abs. 1 bis 4 TrinkwV; Anlage 1 Nr. 6.2 und 6.4 MaBV", 5, True, ["management"], "d",
+  "Wann und wie häufig ist eine Gebäudewasserversorgungsanlage nach § 31 TrinkwV auf Legionella spec. zu untersuchen?",
+  {
+    "a": "Immer jährlich, unabhängig von der Anlagengröße",
+    "b": "Nur nach Aufforderung des Gesundheitsamtes",
+    "c": "Nur in Gebäuden mit mehr als zehn Wohneinheiten, dann alle fünf Jahre",
+    "d": "Wenn ein Speicher- oder zentraler Durchfluss-Trinkwassererwärmer mit mehr als 400 Litern oder mehr als 3 Liter Inhalt in mindestens einer Leitung zwischen Erwärmer und Entnahmestelle vorliegt, Duschen oder andere vernebelnde Einrichtungen vorhanden sind und die Anlage nicht in einem Ein- oder Zweifamilienhaus liegt - bei gewerblicher Abgabe mindestens alle drei Jahre, bei öffentlicher Tätigkeit mindestens einmal jährlich",
+  },
+  "When and how often must a building water-supply installation be tested for Legionella spec. under § 31 TrinkwV?",
+  {
+    "a": "Always annually, regardless of the size of the installation",
+    "b": "Only when required by the public health office",
+    "c": "Only in buildings with more than ten residential units, and then every five years",
+    "d": "Where there is a storage or central instantaneous water heater of more than 400 litres, or more than 3 litres of content in at least one pipe between heater and draw-off point, showers or other aerosol-generating fittings are present, and the installation is not in a one- or two-family house - at least every three years where the water is supplied in the course of a commercial activity, and at least annually where a public activity is involved",
+  },
+  "§ 31 Abs. 1 TrinkwV verknüpft drei Voraussetzungen kumulativ: Nummer 1 - in der Anlage befindet sich eine Trinkwassererwärmung mit a) einem Speicher-Trinkwassererwärmer oder einem zentralen Durchfluss-Trinkwassererwärmer, jeweils mit einem Inhalt von mehr als 400 Litern, oder b) einem Inhalt von mehr als 3 Litern in mindestens einer Trinkwasserleitung zwischen dem Abgang des Erwärmers und der Entnahmestelle, wobei der Inhalt einer Zirkulationsleitung nicht berücksichtigt wird; Nummer 2 - es befinden sich Duschen oder andere Einrichtungen, in denen es zu einer Vernebelung des Trinkwassers kommt; Nummer 3 - die Anlage befindet sich nicht in einem Ein- oder Zweifamilienhaus. Die Untersuchungspflicht setzt außerdem voraus, dass das Trinkwasser im Rahmen einer gewerblichen oder öffentlichen Tätigkeit abgegeben wird - die Vermietung ist eine gewerbliche Tätigkeit in diesem Sinne. § 31 Abs. 2 Nummer 2 TrinkwV bestimmt die Häufigkeit für Gebäudewasserversorgungsanlagen: Buchstabe a mindestens alle drei Jahre bei gewerblicher, nicht aber öffentlicher Abgabe; Buchstabe b im Übrigen mindestens einmal jährlich, sofern das Gesundheitsamt nicht nach Absatz 3 ein längeres Intervall festlegt. Absatz 3 erlaubt dem Gesundheitsamt Intervalle von bis zu drei Jahren, wenn in drei aufeinanderfolgenden Jahren keine Beanstandungen festgestellt wurden und Anlage und Betriebsweise unverändert sowie nachweislich mindestens regelkonform sind; für Einrichtungen nach § 23 Abs. 5 IfSG, Pflegeeinrichtungen und Einrichtungen mit Risikopatienten gilt diese Erleichterung nicht. Absatz 4: bei neu in Betrieb genommenen Anlagen ist die erste Untersuchung innerhalb von drei bis zwölf Monaten nach Inbetriebnahme durchzuführen. Für den Verwalter ist das eine Betreiberpflicht mit Verkehrssicherungsbezug (Anlage 1 Nummer 6.4 MaBV) und gehört in den Prüf- und Fristenkalender des Objekts.",
+  "§ 31(1) TrinkwV combines three conditions cumulatively: no. 1 - the installation contains water heating with (a) a storage water heater or a central instantaneous water heater, in each case with a content of more than 400 litres, or (b) a content of more than 3 litres in at least one drinking-water pipe between the heater outlet and the draw-off point, the content of a circulation pipe not being counted; no. 2 - showers or other fittings are present in which the drinking water is aerosolised; no. 3 - the installation is not in a one- or two-family house. The testing duty additionally presupposes that the drinking water is supplied in the course of a commercial or public activity - letting is a commercial activity in this sense. § 31(2) no. 2 TrinkwV sets the frequency for building water-supply installations: (a) at least every three years where the supply is commercial but not public; (b) otherwise at least once a year, unless the public health office sets a longer interval under (3). (3) permits the health office to set intervals of up to three years where no objections were found in three consecutive years and the installation and its mode of operation are unchanged and demonstrably at least compliant with the generally recognised technical rules; that relaxation does not apply to facilities under § 23(5) IfSG, care facilities and facilities with patients at higher risk. (4): for newly commissioned installations the first test must be carried out within three to twelve months of commissioning. For the manager this is an operator duty with a safety-of-traffic dimension (MaBV Annex 1 no. 6.4) and belongs in the property's inspection and deadline calendar."),
+
+q("technische_grundlagen", 2,
+  "§ 7 Abs. 1 HeizkostenV; § 12 Abs. 1 HeizkostenV; Anlage 1 Nr. 2.8 und 6.2 MaBV", 5, True, ["all"], "c",
+  "Welcher Anteil der Kosten des Betriebs der zentralen Heizungsanlage ist nach § 7 Absatz 1 HeizkostenV verbrauchsabhängig zu verteilen, und welche Folge hat ein Verstoß?",
+  {
+    "a": "Genau 50 Prozent; ein Verstoß führt zur Unwirksamkeit der gesamten Abrechnung",
+    "b": "Mindestens 30, höchstens 50 Prozent; ein Verstoß begründet ein Kürzungsrecht von 25 Prozent",
+    "c": "Mindestens 50, höchstens 70 Prozent nach erfasstem Wärmeverbrauch, die übrigen Kosten nach Wohn- oder Nutzfläche oder umbautem Raum; bei nicht verbrauchsabhängiger Abrechnung darf der Nutzer seinen Anteil um 15 Prozent kürzen - im Verhältnis des einzelnen Wohnungseigentümers zur Gemeinschaft der Wohnungseigentümer gilt dieses Kürzungsrecht jedoch nicht",
+    "d": "Vollständig verbrauchsabhängig; ein Kürzungsrecht besteht nicht",
+  },
+  "What share of the costs of operating the central heating installation must be allocated by consumption under § 7(1) HeizkostenV, and what follows from a breach?",
+  {
+    "a": "Exactly 50 per cent; a breach renders the entire statement ineffective",
+    "b": "At least 30 and at most 50 per cent; a breach gives rise to a 25 per cent reduction right",
+    "c": "At least 50 and at most 70 per cent by recorded heat consumption, the remaining costs by living or usable floor area or by enclosed volume; where costs are not allocated by consumption the user may reduce his share by 15 per cent - but that reduction right does not apply in the relationship between an individual apartment owner and the community of apartment owners",
+    "d": "Entirely by consumption; there is no reduction right",
+  },
+  "§ 7 Abs. 1 Satz 1 HeizkostenV: „Von den Kosten des Betriebs der zentralen Heizungsanlage sind mindestens 50 vom Hundert, höchstens 70 vom Hundert nach dem erfassten Wärmeverbrauch der Nutzer zu verteilen.“ Satz 2 enthält eine Sonderregel mit zwingenden 70 Prozent für Gebäude, die das Anforderungsniveau der Wärmeschutzverordnung vom 16. August 1994 nicht erfüllen, mit Öl- oder Gasheizung versorgt werden und in denen die freiliegenden Leitungen der Wärmeverteilung überwiegend gedämmt sind. Satz 5: „Die übrigen Kosten sind nach der Wohn- oder Nutzfläche oder nach dem umbauten Raum zu verteilen“, wobei auch die beheizten Räume zugrunde gelegt werden können. Absatz 2 zählt auf, was zu den Betriebskosten der Anlage gehört - unter anderem Brennstoff und Lieferung, Betriebsstrom, Bedienung, Überwachung und Pflege, regelmäßige Prüfung der Betriebsbereitschaft und -sicherheit einschließlich Einstellung durch eine Fachkraft, Reinigung, Messungen nach dem Bundes-Immissionsschutzgesetz, Anmietung und Verwendung der Verbrauchserfassung einschließlich Eichung sowie Kosten der Berechnung, Aufteilung und der Abrechnungs- und Verbrauchsinformationen nach § 6a. § 12 Abs. 1 HeizkostenV enthält das Kürzungsrecht in drei Stufen: Satz 1 - 15 vom Hundert, wenn entgegen der Verordnung nicht verbrauchsabhängig abgerechnet wird; Satz 2 - 3 vom Hundert, wenn entgegen § 5 Abs. 2 oder 3 keine fernablesbare Ausstattung installiert ist; Satz 3 - dasselbe, wenn die Informationen nach § 6a nicht oder nicht vollständig mitgeteilt werden. DIE FALLE FÜR WEG-VERWALTER STEHT IN SATZ 4: „Die Sätze 1 bis 3 sind nicht anzuwenden beim Wohnungseigentum im Verhältnis des einzelnen Wohnungseigentümers zur Gemeinschaft der Wohnungseigentümer; insoweit verbleibt es bei den allgemeinen Vorschriften.“ Ein Wohnungseigentümer kann seinen Hausgeldanteil also nicht unter Berufung auf § 12 HeizkostenV kürzen - im Mietverhältnis kann der Mieter es sehr wohl. Wer beide Verwaltungsarten betreut, muss diese Grenze kennen.",
+  "§ 7(1) sentence 1 HeizkostenV: \"Of the costs of operating the central heating installation, at least 50 per cent and at most 70 per cent must be allocated according to the users' recorded heat consumption.\" Sentence 2 contains a special rule mandating 70 per cent for buildings which do not meet the requirement level of the Thermal Insulation Ordinance of 16 August 1994, are supplied by oil or gas heating, and in which the exposed heat-distribution pipes are predominantly insulated. Sentence 5: \"The remaining costs must be allocated according to living or usable floor area or according to enclosed volume\", and the heated rooms may also be used as the basis. (2) lists what belongs to the installation's operating costs - among others fuel and its delivery, operating electricity, operation, monitoring and care, regular checking of operational readiness and safety including adjustment by a qualified person, cleaning, measurements under the Federal Immission Control Act, hire and use of consumption-recording equipment including calibration, and the costs of calculation, apportionment and the billing and consumption information under § 6a. § 12(1) HeizkostenV contains the reduction right in three tiers: sentence 1 - 15 per cent where, contrary to the Ordinance, costs are not allocated by consumption; sentence 2 - 3 per cent where, contrary to § 5(2) or (3), no remotely readable equipment has been installed; sentence 3 - the same where the information under § 6a is not communicated, or not communicated in full. THE TRAP FOR CONDOMINIUM MANAGERS IS IN SENTENCE 4: \"Sentences 1 to 3 do not apply, in the case of condominium ownership, in the relationship between the individual apartment owner and the community of apartment owners; in that respect the general provisions apply.\" So an apartment owner cannot reduce his share of the service charge by invoking § 12 HeizkostenV - whereas a tenant in a tenancy very much can. Anyone handling both kinds of management must know this boundary."),
+
+q("technische_grundlagen", 3,
+  "§ 20 Abs. 1 bis 4 WEG; Anlage 1 Nr. 6.6 und 6.7 MaBV", 4, True, ["management"], "b",
+  "Welche baulichen Veränderungen kann ein einzelner Wohnungseigentümer nach § 20 Absatz 2 WEG verlangen?",
+  {
+    "a": "Alle baulichen Veränderungen, die er auf eigene Kosten durchführt",
+    "b": "Angemessene bauliche Veränderungen, die dem Gebrauch durch Menschen mit Behinderungen, dem Laden elektrisch betriebener Fahrzeuge, dem Einbruchsschutz, dem Anschluss an ein Telekommunikationsnetz mit sehr hoher Kapazität oder der Stromerzeugung durch Steckersolargeräte dienen",
+    "c": "Nur den barrierefreien Umbau, und nur mit Zustimmung aller Eigentümer",
+    "d": "Keine - bauliche Veränderungen bedürfen stets der Zustimmung aller betroffenen Eigentümer",
+  },
+  "Which structural alterations may an individual apartment owner demand under § 20(2) WEG?",
+  {
+    "a": "All structural alterations he carries out at his own expense",
+    "b": "Reasonable structural alterations serving use by people with disabilities, the charging of electrically powered vehicles, protection against burglary, connection to a very-high-capacity telecommunications network, or electricity generation by plug-in solar devices",
+    "c": "Only barrier-free conversion, and only with the consent of all owners",
+    "d": "None - structural alterations always require the consent of all affected owners",
+  },
+  "§ 20 Abs. 1 WEG stellt zunächst klar, dass Maßnahmen, die über die ordnungsmäßige Erhaltung des gemeinschaftlichen Eigentums hinausgehen (bauliche Veränderungen), beschlossen oder einem Wohnungseigentümer durch Beschluss gestattet werden können - eine Zustimmung aller ist also nicht erforderlich; Antwort d beschreibt den überholten Rechtszustand vor der WEG-Reform. § 20 Abs. 2 Satz 1 WEG enthält die privilegierten Maßnahmen, auf die ein ANSPRUCH besteht: „Jeder Wohnungseigentümer kann angemessene bauliche Veränderungen verlangen, die 1. dem Gebrauch durch Menschen mit Behinderungen, 2. dem Laden elektrisch betriebener Fahrzeuge, 3. dem Einbruchsschutz, 4. dem Anschluss an ein Telekommunikationsnetz mit sehr hoher Kapazität und 5. der Stromerzeugung durch Steckersolargeräte dienen.“ Satz 2: über die Durchführung ist im Rahmen ordnungsmäßiger Verwaltung zu beschließen - das WIE bleibt also Sache der Gemeinschaft, nur das OB ist dem Anspruch entzogen. § 20 Abs. 3 WEG gibt unabhängig davon einen Gestattungsanspruch, wenn alle Wohnungseigentümer einverstanden sind, deren Rechte über das bei einem geordneten Zusammenleben unvermeidliche Maß hinaus beeinträchtigt werden. § 20 Abs. 4 WEG zieht die absolute Grenze: bauliche Veränderungen, die die Wohnanlage grundlegend umgestalten oder einen Wohnungseigentümer ohne sein Einverständnis gegenüber anderen unbillig benachteiligen, dürfen nicht beschlossen und nicht gestattet werden und können auch nicht verlangt werden. Die Kosten- und Nutzungsfolgen richten sich nach § 21 WEG, auf den § 16 Abs. 3 WEG verweist. Diese Vorschrift ist die rechtliche Klammer um die Themengebiete 6.6 (energetische Gebäudesanierung und Modernisierung) und 6.7 (altersgerechte und barrierefreie Umbauten) der Anlage 1 MaBV.",
+  "§ 20(1) WEG first makes clear that measures going beyond the proper maintenance of the common property (structural alterations) may be resolved upon, or permitted to an individual owner by resolution - so the consent of all is not required; answer d describes the pre-reform position. § 20(2) sentence 1 WEG contains the privileged measures to which there is an ENTITLEMENT: \"Every apartment owner may demand reasonable structural alterations which serve 1. use by people with disabilities, 2. the charging of electrically powered vehicles, 3. protection against burglary, 4. connection to a very-high-capacity telecommunications network, and 5. electricity generation by plug-in solar devices.\" Sentence 2: the implementation must be resolved upon within the framework of proper administration - so the HOW remains a matter for the community and only the WHETHER is removed from its discretion. § 20(3) WEG independently gives an entitlement to permission where all apartment owners whose rights are impaired beyond the level unavoidable in orderly coexistence agree. § 20(4) WEG draws the absolute limit: structural alterations which fundamentally reshape the development, or which unfairly disadvantage one apartment owner relative to others without his consent, may neither be resolved upon nor permitted, and cannot be demanded either. The cost and benefit consequences follow § 21 WEG, to which § 16(3) WEG refers. This provision is the legal frame around topic areas 6.6 (energy refurbishment and modernisation) and 6.7 (age-appropriate and barrier-free conversions) of MaBV Annex 1."),
+
+
+# ===========================================================================
+# Anlage 1 Nr. 7: Wettbewerbsrecht
+# ===========================================================================
+
+q("wettbewerbsrecht", 1,
+  "§ 5 Abs. 1 und 2 Nr. 1 UWG; § 2 WoFlV; Anlage 1 Nr. 7.1.2 MaBV", 4, False, ["all"], "c",
+  "In einer Vermietungsanzeige gibt ein Verwalter eine Wohnfläche an, die Kellerräume und eine Garage mitzählt. Wie ist das wettbewerbsrechtlich zu bewerten?",
+  {
+    "a": "Unproblematisch, solange die Angabe im Mietvertrag korrigiert wird",
+    "b": "Unproblematisch, weil die Wohnflächenberechnung frei vereinbar ist",
+    "c": "Irreführende geschäftliche Handlung nach § 5 Absatz 1 und Absatz 2 Nummer 1 UWG, weil unwahre Angaben über wesentliche Merkmale der Dienstleistung oder Ware gemacht werden; nach § 2 Absatz 3 Nummer 1 WoFlV gehören Kellerräume und Garagen nicht zur Wohnfläche",
+    "d": "Nur dann unlauter, wenn die Abweichung mehr als 20 Prozent beträgt",
+  },
+  "In a letting advertisement a manager states a living-space figure that counts cellar rooms and a garage. How does competition law treat that?",
+  {
+    "a": "Unproblematic, provided the figure is corrected in the tenancy contract",
+    "b": "Unproblematic, because the calculation of living space can be freely agreed",
+    "c": "A misleading commercial practice under § 5(1) and (2) no. 1 UWG, because untrue statements are made about material characteristics of the service or goods; under § 2(3) no. 1 WoFlV cellar rooms and garages are not part of the living space",
+    "d": "Unfair only where the deviation exceeds 20 per cent",
+  },
+  "§ 5 Abs. 1 UWG: „Unlauter handelt, wer eine irreführende geschäftliche Handlung vornimmt, die geeignet ist, den Verbraucher oder sonstigen Marktteilnehmer zu einer geschäftlichen Entscheidung zu veranlassen, die er andernfalls nicht getroffen hätte.“ Absatz 2 Nummer 1 nennt als Anknüpfungspunkt unwahre oder zur Täuschung geeignete Angaben über „die wesentlichen Merkmale der Ware oder Dienstleistung“, ausdrücklich einschließlich Art, Ausführung, Menge und Beschaffenheit. Die Wohnfläche ist ein solches wesentliches Merkmal, und § 5 Abs. 4 UWG stellt klar, dass auch bildliche Darstellungen und andere Angabenersatzformen erfasst sind. Den fachlichen Maßstab liefert § 2 WoFlV: nach Absatz 1 umfasst die Wohnfläche die Grundflächen der Räume, die ausschließlich zu der Wohnung gehören; nach Absatz 2 gehören auch Wintergärten, Schwimmbäder und ähnliche nach allen Seiten geschlossene Räume sowie Balkone, Loggien, Dachgärten und Terrassen dazu, wenn sie ausschließlich zur Wohnung gehören; nach Absatz 3 gehören NICHT dazu Zubehörräume - ausdrücklich genannt sind Kellerräume, Abstellräume und Kellerersatzräume außerhalb der Wohnung, Waschküchen, Bodenräume, Trockenräume, Heizungsräume und Garagen -, ferner Räume, die die bauordnungsrechtlichen Anforderungen an ihre Nutzung nicht erfüllen, sowie Geschäftsräume. Eine Bagatellschwelle von 20 Prozent kennt das UWG nicht; Antwort d verwechselt die lautere Irreführung mit mietrechtlichen Erheblichkeitsschwellen für Mängel. Vergleichbares gilt für unrichtige Energieangaben: sie sind gleichzeitig ein Verstoß gegen § 87 GModG und eine Irreführung nach § 5 UWG.",
+  "§ 5(1) UWG: \"A person acts unfairly who engages in a misleading commercial practice capable of causing a consumer or other market participant to take a transactional decision they would not otherwise have taken.\" (2) no. 1 names as a hook untrue statements, or statements capable of deception, about \"the material characteristics of the goods or service\", expressly including type, execution, quantity and quality. Living space is such a material characteristic, and § 5(4) UWG makes clear that pictorial representations and other substitutes for statements are covered too. The technical yardstick comes from § 2 WoFlV: under (1) the living space comprises the floor areas of the rooms belonging exclusively to that dwelling; under (2) conservatories, swimming pools and similar rooms closed on all sides, as well as balconies, loggias, roof gardens and terraces, also count where they belong exclusively to the dwelling; under (3) ancillary rooms do NOT count - cellar rooms, storage rooms and cellar-substitute rooms outside the dwelling, laundry rooms, loft spaces, drying rooms, boiler rooms and garages are named expressly - nor do rooms which fail the Länder building-law requirements for their use, nor business premises. The UWG knows no 20 per cent de-minimis threshold; answer d confuses unfair-competition misleading with tenancy-law materiality thresholds for defects. The same applies to incorrect energy figures: they are simultaneously a breach of § 87 GModG and misleading under § 5 UWG."),
+
+q("wettbewerbsrecht", 2,
+  "§ 7 Abs. 1 bis 3 UWG; Anlage 1 Nr. 7.1.1 und 7.1.2 MaBV", 5, True, ["all"], "d",
+  "Ein Verwaltungsunternehmen ruft Wohnungseigentümer fremder Anlagen unaufgefordert an, um Verwaltermandate zu gewinnen. Wie ist das zu bewerten?",
+  {
+    "a": "Zulässig, weil es sich um ein Geschäftsangebot und keine Verbraucherwerbung handelt",
+    "b": "Zulässig, wenn das Gespräch weniger als drei Minuten dauert",
+    "c": "Zulässig, wenn die Rufnummer aus einem öffentlichen Verzeichnis stammt",
+    "d": "Unzulässig - § 7 Absatz 2 Nummer 1 UWG nimmt eine unzumutbare Belästigung stets an bei Telefonwerbung gegenüber einem Verbraucher ohne dessen vorherige ausdrückliche Einwilligung, gegenüber sonstigen Marktteilnehmern ohne zumindest mutmaßliche Einwilligung",
+  },
+  "A management company cold-calls apartment owners of other schemes to win management mandates. How is that assessed?",
+  {
+    "a": "Permissible, because this is a business offer and not consumer advertising",
+    "b": "Permissible if the call lasts less than three minutes",
+    "c": "Permissible if the number comes from a public directory",
+    "d": "Not permissible - § 7(2) no. 1 UWG always assumes an unacceptable nuisance in the case of telephone advertising to a consumer without their prior express consent, and to other market participants without at least their presumed consent",
+  },
+  "§ 7 Abs. 1 Satz 1 UWG: „Eine geschäftliche Handlung, durch die ein Marktteilnehmer in unzumutbarer Weise belästigt wird, ist unzulässig.“ Satz 2 stellt klar, dass dies insbesondere für Werbung gilt, obwohl erkennbar ist, dass der angesprochene Marktteilnehmer sie nicht wünscht. § 7 Abs. 2 UWG listet die Fälle auf, in denen eine unzumutbare Belästigung STETS anzunehmen ist - eine unwiderlegliche Vermutung, bei der es auf Dauer, Uhrzeit oder Herkunft der Rufnummer nicht ankommt; Antworten b und c gehen deshalb fehl. Nummer 1 differenziert nach Adressat: gegenüber einem Verbraucher ist eine vorherige AUSDRÜCKLICHE Einwilligung erforderlich, gegenüber einem sonstigen Marktteilnehmer genügt eine zumindest mutmaßliche Einwilligung. Ein Wohnungseigentümer, der seine Eigentumswohnung selbst nutzt oder als private Vermögensanlage hält, ist regelmäßig Verbraucher - Antwort a trägt daher nicht. Nummer 2 betrifft automatische Anrufmaschinen, Faxgeräte und elektronische Post, jeweils ohne vorherige ausdrückliche Einwilligung des Adressaten. Nummer 3 erfasst Nachrichten mit verschleierter Absenderidentität, Verstößen gegen § 6 Abs. 1 des Digitale-Dienste-Gesetzes oder fehlender gültiger Abmeldeadresse. § 7 Abs. 3 UWG enthält die eng gefasste Ausnahme für E-Mail-Werbung: der Unternehmer muss die Adresse im Zusammenhang mit dem Verkauf einer Ware oder Dienstleistung vom Kunden erhalten haben, sie für eigene ähnliche Waren oder Dienstleistungen verwenden, der Kunde darf nicht widersprochen haben, und er muss bei Erhebung und bei jeder Verwendung klar und deutlich auf sein jederzeitiges Widerspruchsrecht hingewiesen werden. Alle vier Voraussetzungen müssen zusammen vorliegen.",
+  "§ 7(1) sentence 1 UWG: \"A commercial practice by which a market participant is subjected to an unacceptable nuisance is unlawful.\" Sentence 2 makes clear that this applies in particular to advertising where it is apparent that the market participant addressed does not want it. § 7(2) UWG lists the cases in which an unacceptable nuisance is ALWAYS assumed - an irrebuttable presumption in which the duration, time of day or source of the telephone number is irrelevant; answers b and c therefore fail. No. 1 differentiates by addressee: for a consumer, prior EXPRESS consent is required, whereas for other market participants at least presumed consent suffices. An apartment owner who occupies his flat himself or holds it as a private investment is ordinarily a consumer - so answer a does not hold. No. 2 concerns automatic calling machines, fax machines and electronic mail, in each case without the addressee's prior express consent. No. 3 covers messages with concealed sender identity, breaches of § 6(1) of the Digital Services Act, or the absence of a valid unsubscribe address. § 7(3) UWG contains the narrowly drawn exception for e-mail advertising: the trader must have obtained the address from the customer in connection with the sale of goods or a service, must use it for his own similar goods or services, the customer must not have objected, and the customer must be clearly and unambiguously informed, on collection and on every use, of the right to object at any time. All four conditions must be met together."),
+
+
+# ===========================================================================
+# Anlage 1 Nr. 8: Verbraucherschutz
+# ===========================================================================
+
+q("verbraucherschutz", 1,
+  "§ 36 Abs. 1 bis 3 VSBG; Anlage 1 Nr. 8.1.2 MaBV", 4, True, ["management"], "c",
+  "Welche Informationspflicht über Verbraucherschlichtungsstellen trifft ein Verwaltungsunternehmen mit Webseite nach § 36 VSBG?",
+  {
+    "a": "Keine - die Pflicht trifft nur Unternehmen mit mehr als 250 Beschäftigten",
+    "b": "Es muss stets eine zuständige Verbraucherschlichtungsstelle benennen und an deren Verfahren teilnehmen",
+    "c": "Es muss den Verbraucher leicht zugänglich, klar und verständlich darüber in Kenntnis setzen, inwieweit es zur Teilnahme an einem Streitbeilegungsverfahren bereit oder verpflichtet ist, und - falls es verpflichtet oder bereit ist - auf die zuständige Stelle mit Anschrift und Webseite hinweisen; von der Pflicht zur Bereitschaftsinformation ist ausgenommen, wer am 31. Dezember des Vorjahres zehn oder weniger Personen beschäftigt hat",
+    "d": "Es genügt ein Hinweis in den Allgemeinen Geschäftsbedingungen; auf der Webseite ist keine Angabe erforderlich",
+  },
+  "Which information duty about consumer dispute-resolution bodies applies to a management company with a website under § 36 VSBG?",
+  {
+    "a": "None - the duty binds only companies with more than 250 employees",
+    "b": "It must always name a competent consumer dispute-resolution body and take part in its procedure",
+    "c": "It must inform the consumer, in an easily accessible, clear and comprehensible manner, of the extent to which it is willing or obliged to take part in a dispute-resolution procedure before a consumer dispute-resolution body and - where it is obliged or willing - point to the competent body with its address and website; a trader who employed ten or fewer persons on 31 December of the preceding year is exempt from the willingness-information duty",
+    "d": "A note in the standard terms suffices; no statement is required on the website",
+  },
+  "§ 36 Abs. 1 VSBG verpflichtet „einen Unternehmer, der eine Webseite unterhält oder Allgemeine Geschäftsbedingungen verwendet“, den Verbraucher leicht zugänglich, klar und verständlich zweierlei mitzuteilen: Nummer 1 - inwieweit er bereit oder verpflichtet ist, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen; Nummer 2 - einen Hinweis auf die zuständige Verbraucherschlichtungsstelle, wenn er sich zur Teilnahme verpflichtet hat oder aufgrund von Rechtsvorschriften dazu verpflichtet ist, wobei der Hinweis Anschrift und Webseite der Stelle sowie eine Teilnahmeerklärung enthalten muss. § 36 Abs. 2 VSBG bestimmt den Ort: die Informationen müssen auf der Webseite erscheinen, wenn eine Webseite unterhalten wird, UND zusammen mit den Allgemeinen Geschäftsbedingungen gegeben werden, wenn solche verwendet werden - Antwort d verkürzt das also. § 36 Abs. 3 VSBG enthält die Kleinunternehmerausnahme, und sie ist eng: „Von der Informationspflicht nach Absatz 1 Nummer 1 ausgenommen ist ein Unternehmer, der am 31. Dezember des vorangegangenen Jahres zehn oder weniger Personen beschäftigt hat.“ Ausgenommen ist damit nur Nummer 1, nicht Nummer 2, und die Schwelle liegt bei zehn Beschäftigten, nicht bei 250 - Antwort a ist deshalb falsch. Antwort b überdehnt: § 36 VSBG begründet keine Teilnahmepflicht, sondern eine Informationspflicht über die eigene Bereitschaft; die Teilnahme selbst bleibt grundsätzlich freiwillig, soweit nicht andere Rechtsvorschriften etwas anderes bestimmen.",
+  "§ 36(1) VSBG obliges \"a trader who maintains a website or uses standard business terms\" to inform the consumer, in an easily accessible, clear and comprehensible manner, of two things: no. 1 - the extent to which he is willing or obliged to take part in dispute-resolution procedures before a consumer dispute-resolution body; no. 2 - a reference to the competent consumer dispute-resolution body where he has undertaken to take part or is obliged by law to do so, the reference having to contain the body's address and website and a declaration of participation. § 36(2) VSBG determines the place: the information must appear on the website where a website is maintained, AND be given together with the standard business terms where such terms are used - so answer d falls short. § 36(3) VSBG contains the small-trader exception, and it is narrow: \"A trader who employed ten or fewer persons on 31 December of the preceding year is exempt from the information duty under (1) no. 1.\" Only no. 1 is exempted, not no. 2, and the threshold is ten employees, not 250 - so answer a is wrong. Answer b overreaches: § 36 VSBG creates no duty to participate but a duty to inform about one's own willingness; participation itself remains in principle voluntary unless other legal provisions provide otherwise."),
+
+q("verbraucherschutz", 2,
+  "§ 18 Abs. 4 WEG; § 28 Abs. 4 WEG; Anlage 1 Nr. 8.1.3 MaBV", 4, False, ["all"], "b",
+  "Ein Wohnungseigentümer verlangt Einsicht in die Verwaltungsunterlagen einschließlich der Belege zur Jahresabrechnung. Wie ist damit umzugehen?",
+  {
+    "a": "Das Einsichtsrecht besteht nur nach einem entsprechenden Beschluss der Eigentümerversammlung",
+    "b": "Das Einsichtsrecht besteht nach § 18 Absatz 4 WEG unmittelbar gegenüber der Gemeinschaft der Wohnungseigentümer; datenschutzrechtliche Pflichten gegenüber Dritten - etwa Mietern oder Beschäftigten - bleiben davon unberührt und sind bei der Gewährung zu berücksichtigen",
+    "c": "Das Einsichtsrecht besteht nur für Mitglieder des Verwaltungsbeirats",
+    "d": "Das Einsichtsrecht besteht unbeschränkt und verdrängt datenschutzrechtliche Vorgaben",
+  },
+  "An apartment owner demands inspection of the administrative records including the vouchers underlying the annual statement. How should that be handled?",
+  {
+    "a": "The right of inspection exists only after a corresponding resolution of the owners' meeting",
+    "b": "The right of inspection exists under § 18(4) WEG directly against the community of apartment owners; data-protection duties toward third parties - tenants or employees, for instance - are unaffected and must be taken into account when granting it",
+    "c": "The right of inspection exists only for members of the advisory board",
+    "d": "The right of inspection is unlimited and overrides data-protection requirements",
+  },
+  "§ 18 Abs. 4 WEG ist knapp und eindeutig: „Jeder Wohnungseigentümer kann von der Gemeinschaft der Wohnungseigentümer Einsicht in die Verwaltungsunterlagen verlangen.“ Das Recht besteht also unmittelbar aus dem Gesetz und richtet sich gegen die Gemeinschaft, nicht gegen den Verwalter persönlich; ein Beschluss ist nicht Voraussetzung, und das Recht ist nicht auf den Verwaltungsbeirat beschränkt. Es ergänzt die aktive Informationspflicht des § 28 Abs. 4 WEG, nach der der Verwalter nach Ablauf eines Kalenderjahres einen Vermögensbericht mit dem Stand der Rücklagen und einer Aufstellung des wesentlichen Gemeinschaftsvermögens zu erstellen und jedem Wohnungseigentümer zur Verfügung zu stellen hat. Antwort d ist die eigentliche Falle: ein gesetzliches Einsichtsrecht des Eigentümers hebt datenschutzrechtliche Pflichten gegenüber Dritten nicht auf. Verwaltungsunterlagen enthalten regelmäßig personenbezogene Daten von Mietern, Handwerkern und Beschäftigten; die Einsichtsgewährung ist eine eigene Verarbeitung, die einer Rechtsgrundlage bedarf und den Grundsätzen der Datenminimierung und Zweckbindung unterliegt - in der Praxis heißt das, dass nicht erforderliche personenbezogene Angaben abgedeckt oder ausgesondert werden, statt Einsicht pauschal zu verweigern oder pauschal zu gewähren. Anlage 1 Nummer 8.1.3 MaBV nennt „Datenschutz“ ausdrücklich als Weiterbildungsthema. Dieses Modul behandelt hier nur die wohnungseigentumsrechtliche Schnittstelle; das allgemeine Datenschutzrecht - DSGVO und BDSG, Rechtsgrundlagen, Betroffenenrechte, Verarbeitungsverzeichnis, Auftragsverarbeitung, Meldung von Datenschutzverletzungen - ist Gegenstand des Moduls 'datenschutz' und wird hier bewusst nicht dupliziert.",
+  "§ 18(4) WEG is short and unambiguous: \"Every apartment owner may demand inspection of the administrative records from the community of apartment owners.\" The right therefore arises directly from the statute and is directed against the community, not against the manager personally; a resolution is not a precondition, and the right is not confined to the advisory board. It supplements the active information duty in § 28(4) WEG, under which the manager must, after the end of a calendar year, prepare an assets report showing the level of the reserves and a statement of the material community assets and make it available to every apartment owner. Answer d is the real trap: a statutory right of inspection for the owner does not displace data-protection duties toward third parties. Administrative records regularly contain personal data of tenants, tradespeople and employees; granting inspection is itself a processing operation requiring a legal basis and subject to the principles of data minimisation and purpose limitation - in practice that means redacting or separating out personal data that is not needed, rather than refusing or granting inspection wholesale. MaBV Annex 1 no. 8.1.3 expressly names \"data protection\" as a continuing-education topic. This module covers only the condominium-law interface here; general data-protection law - GDPR and BDSG, legal bases, data-subject rights, the record of processing activities, processing on behalf of a controller, and breach notification - is the subject of the 'datenschutz' module and is deliberately not duplicated here."),
+
+
+# ===========================================================================
+# META
+# ===========================================================================
+
+# THE PO-MANDATED DISCLAIMER. Do not soften, shorten or omit. Reproduced
+# verbatim in substance in META["description"] (near the top) and binding on any
+# future course-layer or certificate copy via META["certificate_copy_note"].
+NO_QUOTA_DISCLAIMER_DE = (
+    "Dieses Modul behandelt die gesetzlich vorgegebenen Weiterbildungs-Themengebiete für "
+    "Wohnimmobilienverwalter (Anlage 1 zu § 15b Absatz 1 MaBV, § 15b MaBV) als Lern- und "
+    "Übungsmaterial. Das Absolvieren dieses Moduls zählt NICHT auf Ihre gesetzliche "
+    "Weiterbildungspflicht von 20 Stunden in drei Kalenderjahren an, die eine Weiterbildung "
+    "bei einem Anbieter verlangt, der die Anforderungen der Anlage 2 MaBV erfüllt. "
+    "Zettacard ist kein Weiterbildungsanbieter im Sinne des § 15b Absatz 1 Satz 5 MaBV und "
+    "stellt keine anrechenbaren Weiterbildungsstunden aus."
+)
+NO_QUOTA_DISCLAIMER_EN = (
+    "This module covers the legally-mandated Weiterbildung topic areas for "
+    "Wohnimmobilienverwalter (MaBV Anlage 1, § 15b MaBV) as study and practice material. "
+    "Completing it does NOT count toward your statutory 20-hour / 3-calendar-year "
+    "Weiterbildungspflicht, which requires training from a provider meeting MaBV Anlage 2's "
+    "requirements. Zettacard is not a Weiterbildungsanbieter within the meaning of § 15b(1) "
+    "sentence 5 MaBV and does not issue counted Weiterbildungsstunden."
+)
+
+META = {
+    "app": "Zettacard / immobilienverwalter-weiterbildung-lernmodul",
+    "version": "0.1-DRAFT",
+    "generated": "2026-08-17",
+    "generator": "authored:claude-opus/2026-08-17 (data/gen_immobilienverwalter_weiterbildung.py)",
+    "title_de": "Wohnimmobilienverwalter - Weiterbildungsthemen (MaBV Anlage 1)",
+    "title_en": "Residential property managers - continuing-education topics (MaBV Annex 1)",
+    "description": (
+        "DRAFT question bank covering the eight legally-mandated Weiterbildung topic areas for "
+        "German residential property managers (Wohnimmobilienverwalter, § 34c Abs. 1 Satz 1 Nr. 4 "
+        "GewO) as set out in Anlage 1 zu § 15b Absatz 1 MaBV. READ THIS FIRST: this module covers "
+        "the legally-mandated Weiterbildung topic areas for Wohnimmobilienverwalter (MaBV Anlage 1, "
+        "§ 15b MaBV) as study and practice material - completing it does NOT count toward your "
+        "statutory 20-hour / 3-calendar-year Weiterbildungspflicht, which requires training from a "
+        "provider meeting MaBV Anlage 2's requirements. Zettacard is not a Weiterbildungsanbieter "
+        "within the meaning of § 15b Abs. 1 Satz 5 MaBV and issues no counted "
+        "Weiterbildungsstunden; see meta.no_quota_disclaimer, which any course layer or completion "
+        "certificate for this module must repeat. Unlike the sibling broker module, the underlying "
+        "duty here is REAL AND CURRENT: § 34c Abs. 2a GewO still binds Gewerbetreibende nach "
+        "Absatz 1 Satz 1 Nummer 4 to 20 hours of continuing education within three calendar years, "
+        "and only the broker limb (Nr. 1) was struck out with effect from 24.07.2026 by Art. 1 Nr. 3 "
+        "of the Gesetz zum Buerokratierueckbau in der Gewerbeordnung ... of 20.07.2026 (BGBl. 2026 I "
+        "Nr. 215); Art. 2 Nr. 4 of the same Act deleted Teil A of Anlage 1 (the broker syllabus) so "
+        "that the annex is now headed simply 'Inhaltliche Anforderungen an die Weiterbildung fuer "
+        "Wohnimmobilienverwalter', and Art. 2 Nr. 5 deleted Anlage 3 entirely. Eight topics, mapping "
+        "1:1 onto the annex's own areas and weighted toward the two largest: Grundlagen der "
+        "Immobilienwirtschaft; Rechtliche Grundlagen (the biggest area - MaBV/GewO Weiterbildung and "
+        "Pflichtversicherung, RDG, BGB Grundstuecksrecht, GBO); Kaufmaennische Grundlagen (WEG "
+        "Wirtschaftsplan, Jahresabrechnung, Vermoegensbericht, Erhaltungsruecklage, Kostenverteilung); "
+        "Verwaltung von Wohnungseigentumsobjekten (the WEG core - Rechtsfaehigkeit der GdWE, "
+        "Vertretung, Eigentuemerversammlung incl. the virtual meeting, Beschlussfassung, "
+        "Verwalterbestellung und -abberufung, Verwalterbefugnisse, Beschlussklagen, zertifizierter "
+        "Verwalter); Verwaltung von Mietobjekten (Betriebskostenabrechnung, Mieterhoehung, "
+        "Modernisierungserhoehung, Kaution, Kuendigungsfristen); Technische Grundlagen (TrinkwV "
+        "Legionellen, HeizkostenV, bauliche Veraenderungen); Wettbewerbsrecht (UWG); and "
+        "Verbraucherschutz (VSBG, plus the WEG/data-protection interface). Content is independently "
+        "phrased and grounded directly in statutory text retrieved from gesetze-im-internet.de on "
+        "2026-08-17, NOT sourced or paraphrased from any Weiterbildungsanbieter's, e-learning "
+        "vendor's or exam-prep vendor's course material, question wording, explanations or structure. "
+        "See-also: this is a SEPARATE module from 'makler_berufspflichten' (Immobilienmakler, § 34c "
+        "Abs. 1 Satz 1 Nr. 1 GewO, MaBV Berufspflichten) - the two trades sit in the same statutory "
+        "provision but are legally distinct scopes with almost inverted duty sets (the manager has "
+        "the syllabus and the compulsory insurance; the broker has the operative MaBV duties), and "
+        "they are cross-linked, not merged (PO decision 2026-08-17, same pattern as fadp_ch <-> "
+        "datenschutz). Holding a Wohnimmobilienverwalter permission and a broker permission "
+        "concurrently is a real and common case - under the pre-24.07.2026 regime the DIHK FAQ "
+        "recorded such a person as owing 40 combined hours of continuing education, 20 per field of "
+        "activity - and a practitioner in that position should work through both modules. For "
+        "general EU/German data-protection law see the 'datenschutz' module; area 8's Datenschutz "
+        "sub-topic is deliberately limited here to the WEG interface and does not duplicate it."
+    ),
+    "class": "ALL",
+    "locales": ["de", "en"],
+    "canonical_locale": "de",
+    "locale_note": (
+        "DE is canonical and EN is a full parallel translation. The remaining ten locales this app "
+        "carries (uk, pl, ar, zh, hi, tr, fr, ru, es, it) are tracked as a follow-up for the "
+        "question bank itself, same launch pattern as fadp_ch / aevo / kyc_aml / kartellrecht / "
+        "dora / nis2 - this is German trade, condominium and tenancy law with no realistic "
+        "non-DE/EN demand for the question text. UI strings (module label, topic labels, module "
+        "card) DO ship in all 12 locales per AGENTS.md constraint 5, and are NOT part of this draft "
+        "round."
+    ),
+    "orthography_note": (
+        "Deutsches Standarddeutsch mit echten Unicode-Umlauten und Eszett (ä/ö/ü/ß) - keine "
+        "ASCII-Ersatzschreibung. Statutory quotations preserve the source text's own orthography, "
+        "including older forms where they occur in unamended provisions."
+    ),
+    "syllabus_note": (
+        "Anlage 1 zu § 15b Absatz 1 MaBV as retrieved on 2026-08-17, heading "
+        "'Inhaltliche Anforderungen an die Weiterbildung für Wohnimmobilienverwalter' (Fundstelle: "
+        "BGBl. I 2018, 552-554), areas 1-8: 1. Grundlagen der Immobilienwirtschaft (1.1-1.5); "
+        "2. Rechtliche Grundlagen (2.1 BGB mit 2.1.1 Allgemeines Vertragsrecht, 2.1.2 Mietrecht, "
+        "2.1.3 Werkvertragsrecht, 2.1.4 Grundstücksrecht; 2.2 Grundbuchrecht; 2.3 "
+        "Wohnungseigentumsgesetz; 2.4 Rechtsdienstleistungsgesetz; 2.5 Zweckentfremdungsrecht; "
+        "2.6 Makler- und Bauträgerverordnung; 2.7 Betriebskostenverordnung; 2.8 Heizkostenverordnung; "
+        "2.9 Trinkwasserverordnung; 2.10 Wohnflächenverordnung; 2.11 Grundzüge des Mietprozess- und "
+        "Zwangsvollstreckungsrechts; 2.12 Informationspflichten des Verwalters mit 2.12.1 "
+        "Dienstleistungs-Informationspflichten-Verordnung, 2.12.2 Digitale-Dienste-Gesetz, 2.12.3 "
+        "Preisangabenverordnung, 2.12.4 Energieeinsparverordnung); 3. Kaufmännische Grundlagen "
+        "(3.1-3.3); 4. Verwaltung von Wohnungseigentumsobjekten (4.1-4.6); 5. Verwaltung von "
+        "Mietobjekten (5.1-5.4); 6. Technische Grundlagen der Immobilienverwaltung (6.1-6.9); "
+        "7. Wettbewerbsrecht (7.1.1-7.1.2); 8. Verbraucherschutz (8.1.1-8.1.3). THREE POINTS WHERE "
+        "THE ANNEX IS ITSELF OUT OF DATE and this module deliberately teaches current law instead: "
+        "(a) area 2.12.4 still names the Energieeinsparverordnung, which was superseded by the "
+        "Gebäudeenergiegesetz (GEG) in 2020 - and the GEG has since been RENAMED to "
+        "Gebäudemodernisierungsgesetz (GModG) by Art. 1 Nr. 1 G v. 23.07.2026, BGBl. 2026 I Nr. 226, "
+        "with effect from 29.07.2026 (this file cites GModG, never EnEV, except to name the stale "
+        "annex reference as stale); (b) area 3.2.1 still says 'Instandhaltungsrücklage', a term the "
+        "WEG reform replaced with 'Erhaltungsrücklage' (§ 19 Abs. 2 Nr. 4 WEG) - taught as such in "
+        "kaufmaennische_grundlagen-03; (c) area 2.5 Zweckentfremdungsrecht is Landesrecht. A "
+        "mechanical check of the federal law index on gesetze-im-internet.de on 2026-08-17 found no "
+        "federal Zweckentfremdungs instrument, so this module asserts no Zweckentfremdung rule "
+        "rather than guessing at a Land's regime; that gap is recorded deliberately for the human "
+        "review pass, which should decide whether per-Land coverage is wanted. NOTE ALSO, correcting "
+        "a point in docs/maklerschein-pre-review-dossier-2026-08-17.md §4.2: the "
+        "Bewertungsgesetz/Grundsteuer currency trap belonged to the REPEALED Teil A (the broker "
+        "syllabus, whose area 6 was 'Grundlagen Immobilien und Steuern' with 6.5 "
+        "'Bewertungsgesetzabhängige Steuern'). The Anlage 1 now in force has NO tax area; its 6.5 is "
+        "'Instandhaltungs- und Instandsetzungsplanung; modernisierende Instandhaltung'. This module "
+        "therefore makes no Grundsteuer valuation assertion at all - Grundsteuer appears only as "
+        "BetrKV § 2 Nr. 1, an allocable operating cost."
+    ),
+    "no_quota_disclaimer": {
+        "de": NO_QUOTA_DISCLAIMER_DE,
+        "en": NO_QUOTA_DISCLAIMER_EN,
+    },
+    "certificate_copy_note": (
+        "BINDING ON ANY FUTURE COURSE LAYER OR COMPLETION CERTIFICATE FOR THIS MODULE. Its copy "
+        "must reproduce meta.no_quota_disclaimer verbatim in substance, prominently, and must NOT "
+        "use the words Weiterbildungsnachweis, anrechenbare Weiterbildungsstunden, Zeitstunden im "
+        "Sinne der Anlage 2, zertifiziert, Lernerfolgskontrolle im Sinne des § 15b Absatz 1 Satz 4 "
+        "MaBV, or any formulation implying that completion satisfies or contributes to the statutory "
+        "20-hour duty. The reason is legal, not stylistic: § 15b Absatz 1 Satz 5 MaBV places the "
+        "Anlage-2 quality obligation on the Anbieter der Weiterbildung, and § 15b Absatz 1 Satz 4 "
+        "MaBV requires a demonstrable Lernerfolgskontrolle 'durch den Anbieter der Weiterbildung' "
+        "for begleitetes Selbststudium. Claiming countable hours would put Zettacard in the position "
+        "of a Weiterbildungsanbieter with those obligations - a regulatory posture the PO has "
+        "expressly declined to take on in this round. Any change to this wording is a PO decision "
+        "and needs counsel, per docs/maklerschein-pre-review-dossier-2026-08-17.md §10 item 5. PO "
+        "instruction 2026-08-17."
+    ),
+    "point_system": (
+        "3-5 points per question, matching this app's existing compliance modules. 5 points marks "
+        "the points where getting it wrong has direct legal or financial consequences: the scope and "
+        "content binding of the Weiterbildungspflicht, the § 15b Abs. 2 MaBV record duty and its "
+        "Ordnungswidrigkeit, the Anlage-2 provider obligation, the RDG Nebenleistung boundary, the "
+        "WEG § 28 resolution subject matter, § 9a/§ 9b representation, § 25 majority rules, the "
+        "§ 23 Abs. 1a virtual-meeting quorum, § 26 appointment and removal limits, § 26a "
+        "certification, § 44/§ 45 challenge deadlines, § 556 Abs. 3 BGB accounting deadlines, "
+        "§ 559 BGB modernisation caps, § 551/§ 573c BGB deposit and notice rules, § 31 TrinkwV and "
+        "§ 7/§ 12 HeizkostenV, and § 7 UWG cold-calling."
+    ),
+    "pass_rule_note": (
+        "DRAFT: no EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / "
+        "EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW values are proposed. Any pass threshold here "
+        "would be a pure product decision - and it must NOT be presented as a "
+        "Lernerfolgskontrolle within the meaning of § 15b Abs. 1 Satz 4 MaBV, because that provision "
+        "requires the check to be carried out 'durch den Anbieter der Weiterbildung' and this module "
+        "does not claim that role (see certificate_copy_note). This module is NOT registered in "
+        "data/build_modules.py, data/modules_manifest.json or app/data/modules.json, and app/app.js "
+        "is untouched."
+    ),
+    "legal_review_status": (
+        "AI-prepared DRAFT, 2026-08-17, NOT reviewed by a qualified lawyer and NOT to be shipped to "
+        "learners before that review. Primary sources re-verified for this build by direct curl "
+        "against gesetze-im-internet.de on 2026-08-17 (WebFetch is ROBOTS_DISALLOWED on that host in "
+        "this sandbox; a dossier's own citations are re-checked before being built into content, per "
+        "this repo's aevo / fadp_ch precedent): MaBV Anlage 1 and Anlage 2 in full plus §§ 1, 11, 15, "
+        "15a, 15b, 18, 19 (slug /gewo_34cdv/, NOT /mabv/), with Anlage 3 confirmed '(weggefallen)'; "
+        "GewO § 34c Abs. 1, 2, 2a and §§ 144-146; WEG §§ 1, 9a, 9b, 16, 18, 19, 20, 23, 24, 25, 26, "
+        "26a, 27, 28, 29, 44, 45; ZertVerwV §§ 1, 2; BGB §§ 311b, 549, 551, 556, 558, 559, 573c; "
+        "BetrKV §§ 1, 2; HeizkostenV §§ 7, 12; WoFlV § 2; RDG §§ 2, 5; TrinkwV 2023 § 31; GModG "
+        "§§ 1, 80, 87; UWG §§ 5, 7; VSBG § 36; GBO §§ 13, 29. Currency as retrieved: MaBV Vollzitat "
+        "'zuletzt durch Artikel 2 der Verordnung vom 28. Juli 2026 (BGBl. 2026 I Nr. 229)', with GII "
+        "flagging the Art. 2 G v. 20.7.2026 change as 'textlich nachgewiesen, dokumentarisch noch "
+        "nicht abschliessend bearbeitet' and recording that the 28.07.2026 change instruction was "
+        "defective and consolidated 'sinngemaess' (Fussnoten to §§ 2 and 16 MaBV); GewO Vollzitat "
+        "'zuletzt durch Artikel 1 des Gesetzes vom 20. Juli 2026 (BGBl. 2026 I Nr. 215)'; GModG "
+        "Vollzitat 'Gebaeudemodernisierungsgesetz vom 8. August 2020 (BGBl. I S. 1728), das zuletzt "
+        "durch Artikel 4 des Gesetzes vom 23. Juli 2026 (BGBl. 2026 I Nr. 226) geaendert worden ist', "
+        "with the renaming recorded as 'Ueberschrift: IdF d. Art. 1 Nr. 1 G v. 23.7.2026 I Nr. 226 "
+        "mWv 29.7.2026' and three further Articles of that Act not yet in force (1.1.2027, 1.1.2028, "
+        "1.1.2030) - so GModG content in this module needs re-reading before those dates. "
+        "DELIBERATE NON-ASSERTIONS, recorded so a reviewer can see the gaps rather than infer them: "
+        "no Zweckentfremdungsrecht rule is asserted (Landesrecht, area 2.5 - see syllabus_note); no "
+        "Grundsteuer valuation rule is asserted (the tax area belonged to the repealed broker Teil A "
+        "- see syllabus_note); no Dienstleistungs-Informationspflichten-Verordnung or "
+        "Preisangabenverordnung detail is asserted (areas 2.12.1 and 2.12.3, not covered in this "
+        "pilot); no Mietprozess- or Zwangsvollstreckungsrecht detail is asserted (area 2.11, not "
+        "covered in this pilot); and no claim of any kind is made about countable "
+        "Weiterbildungsstunden. THIS CORNER OF THE LAW IS MOVING FAST - the MaBV was amended twice "
+        "inside eight days in July 2026 and the GModG renaming landed in the same week. Set a "
+        "re-verification date of no later than 2026-11-30 and re-read from the amending instruments, "
+        "not from this file. Background: docs/maklerschein-pre-review-dossier-2026-08-17.md."
+    ),
+    "sources": {
+        "tier_a_binding": [
+            "MaBV Anlage 1 (zu § 15b Abs. 1) - https://www.gesetze-im-internet.de/gewo_34cdv/anlage_1.html - the in-force Wohnimmobilienverwalter syllabus, read in full; NOTE the non-obvious slug 'gewo_34cdv' ('/mabv/' 404s)",
+            "MaBV Anlage 2 (zu § 15b Abs. 1) - https://www.gesetze-im-internet.de/gewo_34cdv/anlage_2.html - provider quality requirements, read in full",
+            "MaBV §§ 1, 11, 15, 15a, 15b, 18, 19 - the subset that applies to Wohnimmobilienverwalter per § 1 Abs. 2 Satz 2 MaBV",
+            "GewO § 34c Abs. 1, 2, 2a - https://www.gesetze-im-internet.de/gewo/__34c.html; GewO §§ 144-146 for the Bussgeldrahmen",
+            "Gesetz zum Bürokratierückbau in der Gewerbeordnung ... , G. v. 20.07.2026, BGBl. 2026 I Nr. 215 - Art. 1 Nr. 3, Art. 2 Nr. 4 und 5, Art. 11; effect re-verified against the consolidated GewO and MaBV texts on 2026-08-17",
+            "WEG §§ 1, 9a, 9b, 16, 18, 19, 20, 23, 24, 25, 26, 26a, 27, 28, 29, 44, 45 - https://www.gesetze-im-internet.de/woeigg/",
+            "ZertVerwV §§ 1, 2 - https://www.gesetze-im-internet.de/zertverwv/",
+            "BGB §§ 311b, 549, 551, 556, 558, 559, 573c - https://www.gesetze-im-internet.de/bgb/",
+            "BetrKV §§ 1, 2 - https://www.gesetze-im-internet.de/betrkv/ (17 numbered cost categories confirmed; Verwaltungskosten und Instandhaltungskosten expressly excluded by § 1 Abs. 2)",
+            "HeizkostenV §§ 7, 12 - https://www.gesetze-im-internet.de/heizkostenv/",
+            "WoFlV § 2 - https://www.gesetze-im-internet.de/woflv/__2.html",
+            "RDG §§ 2, 5 - https://www.gesetze-im-internet.de/rdg/",
+            "TrinkwV 2023 § 31 - https://www.gesetze-im-internet.de/trinkwv_2023/__31.html",
+            "GModG (Gebäudemodernisierungsgesetz, bis 28.07.2026: Gebäudeenergiegesetz/GEG) §§ 1, 80, 87 - https://www.gesetze-im-internet.de/geg/ (slug still 'geg'); renaming by Art. 1 Nr. 1 G v. 23.07.2026, BGBl. 2026 I Nr. 226, mWv 29.07.2026",
+            "UWG §§ 5, 7 - https://www.gesetze-im-internet.de/uwg_2004/",
+            "VSBG § 36 - https://www.gesetze-im-internet.de/vsbg/__36.html",
+            "GBO §§ 13, 29 - https://www.gesetze-im-internet.de/gbo/",
+        ],
+        "tier_b_official_not_binding": [
+            "DIHK, 'FAQ: Weiterbildungspflicht für Immobilienmakler und Wohnimmobilienverwalter', Stand Januar 2025 - still accurate for the Wohnimmobilienverwalter half but HISTORICALLY SUPERSEDED for the broker half since 24.07.2026. Cited in this module only for the 20-hours-per-field / 40-hours-combined arithmetic under the OLD regime, expressly labelled as such. No answer key rests on it.",
+        ],
+        "note": (
+            "No Weiterbildungsanbieter's, e-learning vendor's or exam-prep vendor's course text, "
+            "question wording, explanations, syllabus commentary or structure was read into, copied "
+            "into, or paraphrased into this module (AGENTS.md constraint 1). The topic structure "
+            "comes from MaBV Anlage 1 itself, which is German statutory text and therefore an "
+            "amtliches Werk under § 5 UrhG carrying no copyright - the opposite of a vendor "
+            "catalogue. The verbatim statutory quotations in the explanations raise none of that "
+            "constraint's concerns for the same reason."
+        ),
+    },
+    "related_modules": [
+        {
+            "exam_type": "makler_berufspflichten",
+            "relation": "see_also",
+            "de": "Das Modul 'makler_berufspflichten' behandelt den Immobilienmakler nach § 34c Absatz 1 Satz 1 Nummer 1 GewO und dessen Berufspflichten nach der MaBV. Wohnimmobilienverwalter und Makler stehen in derselben Vorschrift, sind aber rechtlich eigenständige Erlaubnistatbestände mit nahezu umgekehrten Pflichtenbündeln - der Verwalter hat den Weiterbildungslehrplan und die Pflichtversicherung, der Makler die operativen MaBV-Pflichten -, sie werden deshalb verlinkt und nicht zusammengeführt. Wer beide Erlaubnisse hält - ein realer und häufiger Fall; die DIHK-FAQ rechnete für solche Doppelerlaubnisinhaber unter dem bis zum 23.07.2026 geltenden Recht mit 40 Stunden Weiterbildung insgesamt, 20 je Tätigkeitsbereich -, sollte beide Module absolvieren.",
+            "en": "The 'makler_berufspflichten' module covers the real-estate broker under § 34c(1) sentence 1 no. 1 GewO and that trade's professional duties under the MaBV. Residential property managers and brokers sit in the same provision but are legally distinct permission limbs with almost inverted duty sets - the manager has the continuing-education syllabus and the compulsory insurance, the broker has the operative MaBV duties - so they are cross-linked, not merged. Anyone holding both permissions - a real and common case; under the law in force until 23 July 2026 the DIHK FAQ recorded such holders as owing 40 hours of continuing education in total, 20 per field of activity - should work through both modules.",
+        },
+        {
+            "exam_type": "datenschutz",
+            "relation": "see_also",
+            "de": "Anlage 1 Nummer 8.1.3 MaBV nennt „Datenschutz“ ausdrücklich als Weiterbildungsthema. Dieses Modul behandelt dazu nur die wohnungseigentumsrechtliche Schnittstelle (§ 18 Absatz 4 WEG und die Grenzen der Einsichtsgewährung); das allgemeine Datenschutzrecht - DSGVO und BDSG - ist Gegenstand des Moduls 'datenschutz' und wird hier bewusst nicht dupliziert.",
+            "en": "MaBV Annex 1 no. 8.1.3 expressly names \"data protection\" as a continuing-education topic. On that, this module covers only the condominium-law interface (§ 18(4) WEG and the limits on granting inspection); general data-protection law - GDPR and the German BDSG - is the subject of the 'datenschutz' module and is deliberately not duplicated here.",
+        },
+    ],
+    "license": "CC BY-NC-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "license_note": (
+        "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for "
+        "non-commercial training purposes, with credit and under the same license. Commercial reuse "
+        "needs a separate arrangement."
+    ),
+    "renewal_months": 36,
+    "renewal_basis": "statutory_cycle_of_the_underlying_duty",
+    "renewal_note": (
+        "36 months mirrors the statutory cycle of the underlying duty - § 34c Abs. 2a Satz 1 GewO "
+        "sets 20 hours 'innerhalb eines Zeitraums von drei Kalenderjahren', with the first period "
+        "beginning on 1 January of the calendar year in which the Nr. 4 permission was granted or an "
+        "employee took up a duty-bearing activity (Satz 2). IT IS A SUGGESTED REFRESH INTERVAL FOR "
+        "THIS STUDY MATERIAL, NOT A CLAIM THAT RETAKING THE MODULE DISCHARGES THAT CYCLE: completing "
+        "this module does not count toward the 20 hours (see no_quota_disclaimer). Note also the "
+        "distinct three-year periods a practitioner must not conflate: the 20-hour cycle itself; the "
+        "three-year retention of Weiterbildungsnachweise under § 15b Abs. 2 Satz 3 MaBV, running "
+        "from the end of the calendar year of the training; the three-year grace period after an "
+        "Immobilienkaufmann/Immobilienfachwirt qualification under § 15b Abs. 4 MaBV; the "
+        "three-calendar-year look-back for the § 11 Satz 1 Nr. 3 MaBV information duty; and the "
+        "maximum three-year term of a virtual-meeting resolution under § 23 Abs. 1a WEG."
+    ),
+    "legal_disclaimer": "Dieses Schulungsmaterial dient reinen Ausbildungs- und Informationszwecken und stellt keine Rechtsberatung dar. Es stellt keine anrechenbaren Weiterbildungsstunden im Sinne des § 34c Absatz 2a GewO in Verbindung mit § 15b MaBV aus. Die wohnungseigentums-, miet- und gewerberechtlichen Anforderungen sind im Einzelfall durch qualifizierte Juristen zu validieren.",
+    "legal_disclaimer_en": "This training material is provided for education and information purposes only and does not constitute legal advice. It issues no countable continuing-education hours within the meaning of § 34c(2a) GewO in conjunction with § 15b MaBV. The condominium-law, tenancy-law and trade-law requirements must be validated in each individual case by qualified lawyers.",
+    "topic_codes": {
+        code: {"de": TOPICS[code], "en": TOPIC_LABELS_EN[code]} for code in TOPICS
+    },
+}
+
+
+def main():
+    ids = [x["id"] for x in Q]
+    assert len(set(ids)) == len(ids), "duplicate question ids"
+    for x in Q:
+        assert x["correct"][0] in x["text"]["de"]["options"], x["id"]
+        assert set(x["text"]["de"]["options"]) == set(x["text"]["en"]["options"]), x["id"]
+        assert x["roles"], x["id"]
+        assert x["topic_code"] in TOPICS, x["id"]
+    dist = {code: 0 for code in TOPICS}
+    for x in Q:
+        dist[x["topic_code"]] += 1
+    assert all(v > 0 for v in dist.values()), f"empty Anlage-1 area: {dist}"
+    meta = dict(META)
+    meta["total_questions"] = len(Q)
+    meta["topic_distribution"] = dist
+    json.dump({"meta": meta, "questions": Q},
+              open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    print(f"wrote {OUT}: {len(Q)} questions, distribution {dist}")
+
+
+if __name__ == "__main__":
+    main()

@@ -40,6 +40,28 @@ cert number) is also a real privacy/GDPR-relevant decision, not just an implemen
 detail, given this project already treats identity data carefully elsewhere (see
 `netlify/functions/lib/identity-hash.mjs`'s salted one-way hashing for its own badges).
 
+### Zettacard as AZAV-zertifizierter Weiterbildungsanbieter — Arbeitsamt/Jobcenter revenue stream
+**2026-08-17.** PO's framing, lightly paraphrased: if Zettacard becomes a recognized
+Weiterbildungsanbieter, that opens a revenue stream via Arbeitsamt/Jobcenter funding
+(Bildungsgutschein, SGB II/III) - but "this would need an startup to work." Surfaced
+directly by the DN-78 build: the PO deliberately chose NOT to claim Weiterbildungsanbieter
+status for the `immobilienverwalter_weiterbildung` module this round (that would require
+meeting MaBV Anlage 2's provider-quality requirements under § 15b Abs. 1 Satz 5), and this
+idea is the flip side of that same decision - what it would take to actually go the other
+way. Becoming AZAV-zertifiziert (Anerkennungs- und Zulassungsverordnung Arbeitsförderung)
+is a real, separate accreditation process (Trägerzulassung + Maßnahmezulassung, both
+audited by a zugelassene fachkundige Stelle) - a business/legal undertaking, not a content
+or engineering one, and the PO already recognizes it needs its own vehicle (a "startup") to
+carry the liability/compliance weight rather than living inside Zettacard as-is. Not
+researched at all yet - not even which specific accreditation body or cost range.
+
+### Course: how to actually use Claude / Cowork
+**2026-08-17.** PO's own words: "also all the stuff like learn how to use claud and
+cowork. i know how this works, this is another 'tiny' spark." A meta idea - teaching
+Claude/Cowork usage itself as a course, using the same course-layer infrastructure this
+project already has (lessons, media sections, quizzes). No further detail given; PO
+flagged it as tiny/low-priority on purpose.
+
 ### Cheaper Okta-alternative for social login (incl. LinkedIn)
 **2026-08-17.** PO's own words: "we will need something like octa (but cheaper) for our
 social logins (linkedin too for the badges, and as login source) so we can manage all
