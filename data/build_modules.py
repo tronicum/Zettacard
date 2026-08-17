@@ -44,8 +44,40 @@ CORE_FIELDS = [
 # whichever one the question actually has, so core.json stays generic.
 SCOPE_FIELDS = ["class_scope", "region_scope"]
 
+# Every module this script builds. Used both for the targeted cleanup in
+# main() and for the sanity checks at the end of it, so the two can't drift
+# apart. NOTE: app/data/ also contains module directories this script does
+# NOT build (they have no *_pilot.json source in data/) - see main()'s
+# cleanup comment.
+BUILT_MODULES = (
+    "fuehrerschein", "angelschein", "angelschein_bayern", "angelschein_nrw",
+    "motorrad", "lkw", "fuehrerschein_bus",
+    "datenschutz", "fadp_ch", "arbeitssicherheit", "ki_act", "it_sicherheit",
+    "hinweisgeberschutz", "kyc_aml", "kartellrecht",
+    "dora", "nis2", "sportboot_binnen", "sportboot_see", "cka",
+)
 
-def split_module(src_path, exam_type, locales, out_meta_extra=None):
+
+def split_module(src_path, exam_type, locales, out_meta_extra=None,
+                 core_key_order="canonical"):
+    """core_key_order controls the key order of the per-question objects
+    written to core.json. "canonical" (default, and what every module built
+    by this script has always used) emits CORE_FIELDS order first, then
+    whichever SCOPE_FIELD the question carries, last. "source" instead
+    preserves the order the keys appear in the source file itself.
+
+    The "source" mode exists because angelschein_bayern/angelschein_nrw were
+    originally built by a separate, now-lost per-module generator script (see
+    BACKLOG.md's "2026-08 content expansion round 2" - build_modules.py was
+    deliberately not run for those rounds) which filtered the source question
+    dict in place rather than re-ordering it, so their live/committed
+    core.json has class_scope sitting between topic_code and grundstoff. It
+    is purely a key-ordering choice - the app reads these objects by key and
+    is indifferent - but keeping it lets those two modules rebuild
+    byte-identically to what is deployed, instead of producing a ~100-question
+    reordering diff that would look like a content change in review. Do not
+    reach for this mode for new modules; use the default.
+    """
     src = json.load(open(src_path, encoding="utf-8"))
     questions = src["questions"]
     module_dir = os.path.join(APP_DATA, exam_type)
@@ -57,10 +89,13 @@ def split_module(src_path, exam_type, locales, out_meta_extra=None):
     missing_locale_count = {loc: 0 for loc in locales}
 
     for q in questions:
-        core = {k: q[k] for k in CORE_FIELDS if k in q}
-        for sf in SCOPE_FIELDS:
-            if sf in q:
-                core[sf] = q[sf]
+        if core_key_order == "source":
+            core = {k: v for k, v in q.items() if k in CORE_FIELDS or k in SCOPE_FIELDS}
+        else:
+            core = {k: q[k] for k in CORE_FIELDS if k in q}
+            for sf in SCOPE_FIELDS:
+                if sf in q:
+                    core[sf] = q[sf]
         core_questions.append(core)
 
         for loc in locales:
@@ -173,9 +208,36 @@ def split_course(exam_type, locales):
 
 
 def main():
-    if os.path.exists(APP_DATA):
-        shutil.rmtree(APP_DATA)
+    # Cleanup used to be an unconditional shutil.rmtree(APP_DATA), which is
+    # why BACKLOG.md's 2026-08 content-expansion rounds all record "build_
+    # modules.py was again deliberately NOT run": running it deleted every
+    # module directory this script has no split_module() call for (round 1/2/3's
+    # new modules), and every sidecar artifact produced by a *different*
+    # script (data/build_primers.py's primers.json/primers_locales/,
+    # assets/build_sign_reference.py's sign_reference.json) - the exact
+    # "silently dropped primers/sign_reference" failure split_course()'s
+    # docstring above warns about.
+    #
+    # Cleanup is now scoped to the artifacts this script actually owns and
+    # rewrites - core.json + locales/ from split_module(), course.json +
+    # course_locales/ from split_course() - for the modules it actually
+    # builds. Everything else under app/data/ is left alone, and any module
+    # directory with no source here is named in a warning so it's visible
+    # rather than silently deleted.
     os.makedirs(APP_DATA, exist_ok=True)
+    for name in BUILT_MODULES:
+        module_dir = os.path.join(APP_DATA, name)
+        for owned in ("core.json", "locales", "course.json", "course_locales"):
+            p = os.path.join(module_dir, owned)
+            if os.path.isdir(p):
+                shutil.rmtree(p)
+            elif os.path.isfile(p):
+                os.remove(p)
+    unbuilt = sorted(n for n in os.listdir(APP_DATA)
+                     if os.path.isdir(os.path.join(APP_DATA, n)) and n not in BUILT_MODULES)
+    if unbuilt:
+        print("WARNING: app/data/ module directories with no source in data/ "
+              "(left untouched, NOT rebuilt): " + ", ".join(unbuilt))
 
     manifest = json.load(open(os.path.join(HERE, "modules_manifest.json"), encoding="utf-8"))
     json.dump(manifest, open(os.path.join(APP_DATA, "modules.json"), "w", encoding="utf-8"),
@@ -197,6 +259,29 @@ def main():
     ang_count, ang_missing = split_module(
         os.path.join(HERE, "angelschein_seed.json"), "angelschein", ang_locales)
     print(f"angelschein: {ang_count} questions, locale gaps: {ang_missing}")
+
+    # 2026-08-16 recovery, second half. angelschein_bayern (48Q, BayFiG/
+    # AVBayFiG) and angelschein_nrw (56Q, LFischG NRW) were authored,
+    # fact-checked and deployed in the 2026-08-12 "content expansion round 2"
+    # session but never committed in any form - not their source, not their
+    # built output, not a build_modules.py entry (that round built them with
+    # a per-module generator script and skipped this one on purpose, see the
+    # rmtree note in main()). Their built output was recovered from the live
+    # site in the preceding commit; these two pilot sources were then
+    # reverse-engineered from that output so the content is hand-editable
+    # again and rebuilds from data/ like every other module. core_key_order=
+    # "source" keeps the rebuild byte-identical to the deployed files - see
+    # split_module()'s docstring.
+    ang_state_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
+    angby_count, angby_missing = split_module(
+        os.path.join(HERE, "angelschein_bayern_pilot.json"), "angelschein_bayern",
+        ang_state_locales, core_key_order="source")
+    print(f"angelschein_bayern: {angby_count} questions, locale gaps: {angby_missing}")
+
+    angnrw_count, angnrw_missing = split_module(
+        os.path.join(HERE, "angelschein_nrw_pilot.json"), "angelschein_nrw",
+        ang_state_locales, core_key_order="source")
+    print(f"angelschein_nrw: {angnrw_count} questions, locale gaps: {angnrw_missing}")
 
     moto_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
     moto_count, moto_missing = split_module(
@@ -226,6 +311,18 @@ def main():
     print(f"datenschutz: {dsg_count} questions, locale gaps: {dsg_missing}")
     if split_course("datenschutz", ["de", "en"]):
         print("datenschutz: course layer built (de, en)")
+
+    # 2026-08-17: fadp_ch - the revised Swiss Federal Act on Data Protection
+    # (revDSG/nDSG, SR 235.1, in force 1.9.2023) + its implementing ordinance
+    # (DSV, SR 235.11). Deliberately a SEPARATE module from datenschutz above,
+    # not extra topics inside it (PO scope decision 2026-08-16): the Swiss and
+    # the EU regimes are related but legally distinct, and the two modules
+    # cross-link rather than merge. DE/EN 40-question pilot, same launch
+    # pattern as dora/nis2/kyc_aml/kartellrecht - source authored by
+    # data/gen_fadp_ch.py, which carries the full Fedlex source list.
+    fadp_count, fadp_missing = split_module(
+        os.path.join(HERE, "fadp_ch_pilot.json"), "fadp_ch", ["de", "en"])
+    print(f"fadp_ch: {fadp_count} questions, locale gaps: {fadp_missing}")
 
     asig_count, asig_missing = split_module(
         os.path.join(HERE, "arbeitssicherheit_pilot.json"), "arbeitssicherheit", compliance_locales)
@@ -322,10 +419,7 @@ def main():
     # Sanity: every core question must resolve in at least its canonical
     # locale, and every core question's scope field must be present -
     # otherwise the app would silently render a blank question.
-    for exam_type in ("fuehrerschein", "angelschein", "motorrad", "lkw", "fuehrerschein_bus",
-                       "datenschutz", "arbeitssicherheit", "ki_act", "it_sicherheit",
-                       "hinweisgeberschutz", "kyc_aml", "kartellrecht",
-                       "dora", "nis2", "sportboot_binnen", "sportboot_see", "cka"):
+    for exam_type in BUILT_MODULES:
         core = json.load(open(os.path.join(APP_DATA, exam_type, "core.json"), encoding="utf-8"))
         for q in core["questions"]:
             if not any(sf in q for sf in SCOPE_FIELDS):
