@@ -194,9 +194,19 @@ function buildCredentialClaims({ name, achievementName, achievementDescription, 
     // notionally allows. That fix was written up as a follow-up for
     // sign-credential.js at the time but this file (built later, 2026-08-16)
     // was never updated to include it - the same gap, unfixed, in a second
-    // place. Using a urn:uuid: URI from the same badgeId already used for
-    // the JWT's own `jti` claim, so both identifiers agree.
-    id: `urn:uuid:${badgeId}`,
+    // place.
+    //
+    // 2026-08-17, round 5: changed from a bare urn:uuid: URI to the real
+    // dereferenceable /badges/:id/credential.json URL added this round (see
+    // netlify.toml + get-badge.mjs). Both are spec-legal URI forms for
+    // vc.id, but a URL a verifier can actually GET and get the credential
+    // back from is strictly more useful than an opaque urn - it's the same
+    // discoverability principle the `jku` header claim above already
+    // applies to the issuer's signing key, just applied to the credential
+    // itself. jti (below, on the JWT) still carries the bare badgeId -
+    // that's a separate, narrower "unique token identifier" concept and
+    // doesn't need to be a URL.
+    id: `${ISSUER_URL}/badges/${badgeId}/credential.json`,
     credentialSubject: {
       type: "AchievementSubject",
       // Only include `name` here if the caller supplied one - this is the
@@ -349,6 +359,17 @@ export default async (request) => {
       jwksUrl,
       issuedAt,
       blobStored,
+      // The clean, CDN-shaped public URLs added this round - see
+      // netlify.toml's redirect block and get-badge.mjs's top-of-file
+      // comment for the full design rationale. badgeUrl is the one to
+      // actually hand out/share; the other two are what its download
+      // buttons point at, exposed here too so a caller that skips the
+      // HTML page (e.g. a curl-based test script) doesn't have to
+      // reconstruct them by hand. All three 404 until blobStored is true -
+      // they read from the same Blobs record get-badge.mjs looks up.
+      badgeUrl: `${ISSUER_URL}/badges/${badgeId}`,
+      credentialJsonUrl: `${ISSUER_URL}/badges/${badgeId}/credential.json`,
+      credentialJwtUrl: `${ISSUER_URL}/badges/${badgeId}/credential.jwt`,
     });
   } catch (e) {
     console.error("issue-badge: signing failed:", e);

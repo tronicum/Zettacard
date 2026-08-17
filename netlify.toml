@@ -42,6 +42,45 @@
     Cache-Control = "public, max-age=3600"
 
 [[redirects]]
+  # -------------------------------------------------------------------
+  # Public badge/credential URL scheme (2026-08-17). Deliberately a clean,
+  # CDN-shaped path contract - /badges/<id>[/credential.json|credential.jwt]
+  # - decoupled from however it's actually served today. Right now every
+  # one of these rewrites to get-badge.mjs (a Netlify Function reading
+  # Netlify Blobs), but a signed badge is IMMUTABLE once issued (the JWT
+  # never changes after signing), which makes it a textbook candidate for
+  # a real CDN/static-object store later: issue-badge.mjs could write the
+  # same three representations as literal objects at issuance time, front
+  # them with a CDN, and NONE of these public paths would need to change -
+  # only the redirect target below would swap from a function call to a
+  # CDN origin. That's the whole point of routing through clean paths
+  # instead of handing out raw /.netlify/functions/get-badge?id=... links:
+  # nothing that ever gets shared (a Credly upload, a saved bookmark, a
+  # credential's own `vc.id`) is coupled to today's implementation detail.
+  #
+  # Order matters here - Netlify evaluates redirects top-to-bottom and
+  # stops at the first match, so these three MUST stay above the SPA
+  # catch-all below or they'd never be reached.
+  from = "/badges/:id/credential.jwt"
+  to = "/.netlify/functions/get-badge?id=:id&format=jwt"
+  status = 200
+
+[[redirects]]
+  from = "/badges/:id/credential.json"
+  to = "/.netlify/functions/get-badge?id=:id&format=json"
+  status = 200
+
+[[redirects]]
+  # The bare /badges/<id> link - what actually gets shared/handed out
+  # (issue-badge.mjs's own `badgeUrl` field, a Credly-import "where did
+  # this come from" reference, a QR code, etc.). Renders a small human-
+  # readable verification page with download links to the two machine-
+  # readable forms above.
+  from = "/badges/:id"
+  to = "/.netlify/functions/get-badge?id=:id&format=html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
