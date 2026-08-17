@@ -287,3 +287,35 @@ removed. Confirmed by request log / DOM inspection / screenshots:
 Known pre-existing (NOT caused by this work, seen on prose-only lessons too):
 in RTL the course-reader card lays out to the right of the viewport origin, so
 a full-page screenshot at scrollX 0 clips it. Worth its own card.
+
+## 8. Known limitations, found in first real use (2026-08-17)
+
+The throwaway fixture in §7 exercised the mechanics; the `fuehrerschein` course's
+right-of-way scenario lessons (`data/fuehrerschein_course.json`, BACKLOG DN-79) are the
+first real shipped content to use `section_kind: "media"`, and surfaced two design gaps
+worth recording rather than silently working around in every future course:
+
+- **DOM order is body-then-media, always** (`#course-reader-body` before
+  `#course-reader-media` in `app/app.html`). Fine for an illustrative image that
+  supports prose the learner reads first. Wrong for a "figure out the answer, then
+  check the diagram" scenario, where a learner reading top-to-bottom sees the written
+  explanation before the picture it explains - `fuehrerschein`'s scenario lessons
+  worked around this by writing the prose as post-hoc reasoning ("here's why", not
+  "try to guess first") rather than fighting the fixed order. A real fix would be a
+  per-section `media_position: "before_body" | "after_body"` flag (default
+  `after_body`, matching today's only behaviour) threaded through
+  `renderCourseLesson()` - not built, since it's a real UI change to shared
+  infrastructure and wasn't needed to ship this round's content, but the workaround
+  costs something didactically and is worth a real fix if scenario-style sections
+  become common (the driving-scenario format is exactly the shape the Führerschein
+  module needs more of).
+- **`media.attribution` is schema'd as locale-independent** (§2), which is correct for
+  a proper-noun credit like `"© Blender Foundation"` but breaks for a full sentence
+  credit line, since German words inside an `attribution` string leak into every
+  locale's rendered course including non-German ones. `fuehrerschein`'s scenario
+  sections have no third-party attribution to carry (self-authored diagrams, `license:
+  "Zettacard original"` already covers it) so this round simply omitted
+  `attribution` rather than fight the schema - a real gap only once a course credits
+  a genuinely third-party, non-proper-noun-labelled asset. If/when that happens,
+  either keep `attribution` disciplined to proper-noun-style strings only, or split it
+  into a locale-dependent field alongside `alt_text`/`caption`.

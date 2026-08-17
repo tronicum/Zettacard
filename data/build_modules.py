@@ -421,6 +421,17 @@ def main():
     fs_count, fs_missing = split_module(
         os.path.join(HERE, "pilot_questions.json"), "fuehrerschein", fs_locales)
     print(f"fuehrerschein: {fs_count} questions, locale gaps: {fs_missing}")
+    # 2026-08-17: fuehrerschein gains a course layer (it had none before) -
+    # data/fuehrerschein_course.json, six labelled right-of-way scenario
+    # diagrams as section_kind "media" / media.type "image" sections, plus a
+    # non-quizzed "guidance" lesson on the film-sequence tasks the real theory
+    # exam has contained since 1 April 2014. First shipped content anywhere in
+    # this repo to use the media capability (docs/course-media-sections.md).
+    # DE/EN only, per the established pattern that a course/question bank may
+    # launch DE+EN while UI strings must carry all 12 locales - the question
+    # bank itself stays on its full 12 and is untouched by this.
+    if split_course("fuehrerschein", ["de", "en"]):
+        print("fuehrerschein: course layer built (de, en)")
 
     # DN-48: full 12-locale coverage (2026-08-05) - angelschein/motorrad/lkw
     # and all 4 DN-44 compliance modules were DE/EN-only pilots; translated
