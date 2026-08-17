@@ -1,0 +1,69 @@
+<!--
+  Zettacard test-badge placeholder image (2026-08-17).
+
+  This is the achievement.image referenced by every credential
+  issue-badge.mjs signs (see ACHIEVEMENT_IMAGE_PATH there) - Open Badges
+  3.0 credentials are expected to carry a real, dereferenceable image, and
+  Credly's own importer renders it, so shipping with NO image at all was
+  worse than shipping a placeholder while the PO's own custom art is still
+  being designed ("we gonna add an svg/png later"). This file is meant to
+  be REPLACED wholesale once that art exists - same filename, same path,
+  so issue-badge.mjs needs no code change when that happens (only newly-
+  issued credentials pick up a swapped image automatically; already-issued
+  ones keep pointing at whatever this URL serves at verification time,
+  which is the normal/expected behavior for any image URL a credential
+  references rather than embeds).
+
+  Design: a circular badge frame (Credly/OB3 images read best as a
+  roundel, not the app's square flashcard-tile icon) built from the same
+  flashcard + checkmark mark as app/icons/logo.svg, so it's recognizably
+  Zettacard rather than a generic placeholder - plus an explicit "TEST"
+  ribbon across the bottom, since this specific image must never be
+  mistaken for a real completion badge once real achievement-specific
+  images exist alongside it (see the multi-achievement TODO below).
+  Colors are the same literal hex values as logo.svg's own comment, for
+  the same reason (rasterized/used outside any page that could supply CSS
+  custom properties): accent #3968d8, accent-dim #2c4a86, text #eef1f8,
+  text-dim #9aa5bd, green #3fbf76. Added: amber #e0a53f for the TEST
+  ribbon, chosen to read as "caution/draft" rather than pass (green) or
+  fail (red), neither of which apply to a placeholder.
+
+  TODO once this endpoint issues more than one achievement type: swap
+  ACHIEVEMENT_IMAGE_PATH's single hardcoded path for a per-achievement
+  slug -> image mapping, and give each real achievement its own file
+  under this same app/assets/badges/ directory rather than sharing one.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Zettacard test badge">
+  <!-- outer ring -->
+  <circle cx="128" cy="128" r="124" fill="#3968d8"/>
+  <circle cx="128" cy="128" r="108" fill="#0b1220"/>
+  <circle cx="128" cy="128" r="100" fill="#3968d8"/>
+
+  <!-- the card, same proportions/shapes as logo.svg, scaled up and
+       recentered for the circular frame -->
+  <g transform="translate(48 42) scale(2.6)">
+    <path d="M14 13
+             a4 4 0 0 1 4 -4
+             h20
+             l12 12
+             v30
+             a4 4 0 0 1 -4 4
+             h-28
+             a4 4 0 0 1 -4 -4
+             z" fill="#eef1f8"/>
+    <path d="M38 9 L50 21 L38 21 Z" fill="#3968d8"/>
+    <line x1="38" y1="9" x2="50" y2="21" stroke="#2c4a86" stroke-width="1.5"/>
+    <rect x="20" y="21" width="18" height="3" rx="1.5" fill="#9aa5bd"/>
+    <rect x="20" y="28" width="13" height="3" rx="1.5" fill="#9aa5bd"/>
+    <path d="M20 41 L27 48 L44 29" fill="none" stroke="#3fbf76" stroke-width="5"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- "TEST" ribbon banner across the lower third, unmistakable even at
+       small (e.g. Credly wallet-grid thumbnail) sizes -->
+  <g>
+    <rect x="18" y="196" width="220" height="30" rx="4" fill="#e0a53f" transform="rotate(0 128 211)"/>
+    <text x="128" y="217" text-anchor="middle" font-family="-apple-system,system-ui,sans-serif"
+          font-size="18" font-weight="700" letter-spacing="2" fill="#241a04">TEST BADGE</text>
+  </g>
+</svg>

@@ -68,6 +68,20 @@ const JWKS_PATH = "/.well-known/jwks.json";
 
 const BLOBS_STORE_NAME = "test-badges";
 
+// 2026-08-17: placeholder achievement image, added because Open Badges 3.0
+// credentials are expected to carry a real image (and Credly's own
+// importer renders it - shipping with none at all was worse than a
+// placeholder while real art is still being designed). Points at a static
+// file under app/assets/, which is already served with a CDN-friendly
+// Cache-Control (see netlify.toml's "/assets/*" header rule) - no redirect
+// needed, this is just a normal static asset. Swap
+// app/assets/badges/test-badge.svg's *contents* for the real art when it
+// exists; the path/URL below can stay the same, so no code change is
+// needed to pick up new artwork for badges issued after the swap.
+// TODO once this endpoint issues more than one achievement type: replace
+// this single hardcoded path with a per-achievement slug -> image lookup.
+const ACHIEVEMENT_IMAGE_PATH = "/assets/badges/test-badge.svg";
+
 const MAX_NAME_LEN = 200;
 const MAX_ACHIEVEMENT_NAME_LEN = 200;
 const MAX_ACHIEVEMENT_DESC_LEN = 500;
@@ -226,6 +240,9 @@ function buildCredentialClaims({ name, achievementName, achievementDescription, 
         criteria: {
           narrative: "Manually issued to verify the Zettacard identity-hashing and credential-storage pipeline end-to-end. Not a real completion credential.",
         },
+        // OB3 Achievement.image - see the ACHIEVEMENT_IMAGE_PATH comment
+        // above. `type: "Image"` matches the OB3 spec's Image class.
+        image: { id: `${ISSUER_URL}${ACHIEVEMENT_IMAGE_PATH}`, type: "Image" },
       },
     },
   };
