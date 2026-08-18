@@ -27,7 +27,9 @@ No text is copied from the official amtlicher Fragenkatalog — see the earlier 
 
 ## License
 
-**CC BY-NC-SA 4.0** — see `LICENSE.md`. Free to use and adapt for non-commercial exam-prep purposes, with attribution, and derivatives must stay under the same license. We're not trying to own this data, just to help people pass — commercial reuse needs a separate arrangement.
+**CC BY-NC-SA 4.0 by default** — see `LICENSE.md`. Free to use and adapt for non-commercial exam-prep purposes, with attribution, and derivatives must stay under the same license. We're not trying to own this data, just to help people pass — commercial reuse needs a separate arrangement.
+
+This is the default for content we author ourselves, not a blanket covering everything in the repo. A module or asset built from ingested third-party material (a CC BY-SA corpus, a public-domain government work, a Wikimedia Commons image, etc.) carries its own real license in its own `license`/`license_note`/`attribution` field instead — see `AGENTS.md` constraint 3 and `app/legal/quellen.html`'s per-source table for the pattern and existing examples (`sportboot_binnen`/`sportboot_see` today; the planned CC BY-SA 4.0 France/Switzerland boating modules per `TODO.md`).
 
 ## Suggested next step
 
