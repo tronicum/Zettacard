@@ -9,3 +9,7 @@ node_modules/
 .env
 .env.local
 *.pem
+# Scratch git-bundle handoff files (sandbox -> user's disk, since this
+# session can't push directly to GitHub) - never repo content, always
+# delivered via SendUserFile/device bridge and then deleted here.
+*.bundle
