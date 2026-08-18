@@ -1,0 +1,1308 @@
+{
+ "meta": {
+  "app": "Zettacard / finanzanlagenvermittler-lernmodul",
+  "version": "0.1-draft",
+  "generated": "2026-08-17",
+  "generator": "authored:claude-opus/2026-08-17 (data/gen_finanzanlagenvermittler_draft.py)",
+  "description": "Original practice questions for the German IHK-Sachkundepruefung 'Geprueter Finanzanlagenfachmann IHK / Gepruete Finanzanlagenfachfrau IHK' under § 34f Abs. 2 Nr. 4 GewO (also applicable via § 34h Abs. 1 Satz 4 GewO to Honorar-Finanzanlagenberater). Five topics mapping 1:1 onto the five areas of Anlage 1 FinVermV, which § 1 Abs. 2 FinVermV makes the binding content specification of the examination: (1) Kundenberatung, (2) Kenntnisse fuer Beratung und Vertrieb von Finanzanlageprodukten, (3) offene Investmentvermoegen, (4) geschlossene Investmentvermoegen, (5) Vermoegensanlagen im Sinne des § 1 Abs. 2 VermAnlG. Areas 3, 4 and 5 correspond exactly to the three licence categories of § 34f Abs. 1 Satz 1 Nr. 1, 2 und 3 GewO. Questions are written in applied-situation style because § 3 Abs. 2 Satz 2 FinVermV requires the written part to be examined 'anhand praxisbezogener Aufgaben'. SCOPE BOUNDARY, and the single most important fact in this module: the Erlaubnis and the Sachkundenachweis are BOTH category-scoped. § 34f Abs. 1 Satz 3 GewO permits the Erlaubnis to be restricted to individual categories of Finanzanlagen under Nr. 1, 2 or 3, and § 34f Abs. 2 Nr. 4 Halbsatz 2 GewO provides that 'die Sachkunde ist dabei im Umfang der beantragten Erlaubnis nachzuweisen'. The categories are NOT freely combinable: under § 3 Abs. 2 Satz 7 FinVermV an application for a Nr. 3 (Vermoegensanlagen) licence forces the written part to cover the Nr. 2 (geschlossene Investmentvermoegen) areas as well, and the coupling runs one way only. Acting outside one's category is an Ordnungswidrigkeit under § 144 Abs. 1 Nr. 1 Buchstabe m GewO carrying up to 50 000 Euro (§ 144 Abs. 4 GewO). IMPORTANT - what this module is NOT: it is unofficial practice material. § 3 Abs. 3 Satz 7 FinVermV provides that the examination tasks are not published after the examination and are available to candidates only during it; their selection is made by a federally uniform Aufgabenauswahlausschuss under § 3 Abs. 3 Satz 1 FinVermV. This pool therefore cannot and does not claim to reproduce, predict or fully cover the real examination, and passing every question here is not a guarantee of passing it. The practical part (§ 3 Abs. 4 FinVermV), a simulated client-advice conversation, is not testable by multiple choice at all.",
+  "class": "ALL",
+  "locales": [
+   "de",
+   "en"
+  ],
+  "canonical_locale": "de",
+  "locale_note": "DE ist kanonisch, EN ist eine vollstaendige Parallieluebersetzung - gleiches Startmuster wie aevo / fadp_ch / kyc_aml / kartellrecht / bewachungsgewerbe. ABWEICHEND vom Schwestermodul bewachungsgewerbe, das einen starken Fall fuer alle 12 Sprachen macht: dieses Modul ist dafuer ein SCHWAECHERER Kandidat. Die Pruefung wird in deutscher Sprache abgelegt, betrifft deutsches Gesellschafts-, Kapitalmarkt- und Steuerrecht, und § 4 FinVermV stellt dreizehn deutsche Berufsqualifikationen der Pruefung gleich - die Zielgruppe ist ueberwiegend im deutschen Finanzvertrieb sozialisiert. Ein Ausbau auf alle 12 Sprachen sollte eine bewusste PO-Entscheidung sein und keine Annahme. UI-Strings shippen nach AGENTS.md Constraint 5 ohnehin in allen 12 Sprachen.",
+  "orthography_note": "Deutsches Standarddeutsch mit echten Unicode-Umlauten und Eszett (ä/ö/ü/ß) - keine ASCII-Ersatzschreibung. Anders als beim Schweizer Modul fadp_ch, das bewusst 'ss' verwendet, weil der Schweizer Gesetzestext das tut. Deutsche Anfuehrungszeichen (Doppelchevrons unten/oben) werden in deutschen Zitaten verwendet, englische Felder nutzen einfache ASCII-Anfuehrungszeichen.",
+  "exam_format_note": "BUNDESRECHT (§ 3 FinVermV): Die Sachkundepruefung besteht aus einem schriftlichen und einem praktischen Teil; die Teilnahme am praktischen Teil setzt das Bestehen des schriftlichen voraus (Abs. 1). Der schriftliche Teil umfasst die Sachgebiete des § 1 Abs. 1 Nr. 1 FinVermV und ist 'anhand praxisbezogener Aufgaben und in einem ausgewogenen Verhaeltnis zueinander' zu pruefen (Abs. 2 Satz 2); er kann mit Hilfe unterschiedlicher Medien durchgefuehrt werden (Satz 3). Auf Antrag kann er auf einzelne Kategorien beschraenkt werden (Satz 5-6) - ABER: fuer eine Erlaubnis nach § 34f Abs. 1 Satz 1 Nr. 3 muss er zusaetzlich die Bereiche der Nr. 2 umfassen (Satz 7). Der praktische Teil ist eine Simulation eines Kundenberatungsgespraechs, jeweils ein Pruefling (Abs. 4), und entfaellt in den drei Faellen des Abs. 5. Bewertet wird nur mit 'bestanden' oder 'nicht bestanden'; bestanden ist der schriftliche Teil bei mindestens 50 Prozent der erreichbaren Punkte in JEDEM geprueften Bereich, der praktische Teil bei mindestens 50 Prozent (Abs. 7). Die Pruefung ist nicht oeffentlich (Abs. 6). Sie kann bei jeder IHK abgelegt werden, die sie anbietet - keine Bezirksbindung (§ 2 Abs. 1). Die IHK stellt eine Bescheinigung nach Anlage 2 FinVermV aus, in der anzugeben ist, welche Bereiche der schriftliche Teil umfasst hat (Abs. 8). Die Aufgabenauswahl trifft ein bundesweit einheitlich taetiger, siebenkoepfiger Aufgabenauswahlausschuss; die Pruefungsaufgaben werden nach der Pruefung NICHT veroeffentlicht (Abs. 3). WAS DAS BUNDESRECHT GERADE NICHT FESTLEGT: Anzahl der Fragen, Dauer der Pruefungsteile, Fragenformat, Gebuehren und Wiederholungsmodalitaeten. Das regeln die IHKs nach § 3 Abs. 9 FinVermV in Verbindung mit § 32 Abs. 1 Satz 2 GewO durch Satzung. Ein geprueftes IHK-Merkblatt nennt maximal 165 Minuten fuer den schriftlichen Teil bei allen Kategorien (Basisteil 30 Minuten plus je 45 Minuten je Kategorie, einschliesslich einer Pause von 20 Minuten), mindestens 50 Prozent je beantragter Kategorie, ein Rollenspiel von etwa 20 Minuten - und bestaetigt unabhaengig die Kopplung: 'Kategorie 3: Nur in Verbindung mit Kategorie 2 moeglich!'. Das ist typische Kammerpraxis, nicht Bundesrecht, und darf nicht als solches dargestellt werden.",
+  "topic_weighting_note": "Die fuenf Topics entsprechen 1:1 den fuenf Bereichen der Anlage 1 FinVermV, die § 1 Abs. 2 FinVermV zur verbindlichen inhaltlichen Anforderung an die Pruefung macht. Bereiche 3, 4 und 5 der Anlage 1 entsprechen exakt den drei Erlaubniskategorien des § 34f Abs. 1 Satz 1 Nr. 1, 2 und 3 GewO. GEWICHTUNG - offen als eigene Entscheidung gekennzeichnet: § 3 Abs. 2 Satz 2 FinVermV verlangt lediglich ein 'ausgewogenes Verhaeltnis' der Sachgebiete zueinander, und keine Stelle veroeffentlicht eine Fragenverteilung. Die Bereiche 1 und 2 sind hier hoeher gewichtet, weil JEDER Pruefling sie unabhaengig von den beantragten Kategorien ablegt, waehrend die Bereiche 3 bis 5 jeweils nur die Teilmenge betreffen, die die betreffende Kategorie beantragt. Bereich 1 (Kundenberatung) ist bewusst untergewichtet, weil § 3 Abs. 4 FinVermV ihn zum PRAKTISCHEN Teil macht - einer Gespraechssimulation, die sich im Ankreuzverfahren nur begrenzt pruefen laesst; die vier Fragen dort pruefen die rechtlich harten Kanten des Beratungsprozesses, nicht Gespraechstechnik. Das ist eine begruendete Entscheidung dieses Moduls und keine dokumentierte Tatsache ueber die echte Pruefung.",
+  "point_system": "3-5 Punkte je Frage, wie in den uebrigen Modulen dieser App. 5 Punkte markieren die Fragen, bei denen ein Fehler in der Praxis ein Handeln ausserhalb des eigenen Erlaubnisumfangs, eine Ordnungswidrigkeit oder eine Verletzung einer Anlegerschutzpflicht bedeutet - also die Kategoriegrenze des § 34f Abs. 1 Satz 1 und Satz 3 GewO, die Kopplungsregel des § 3 Abs. 2 Satz 7 FinVermV, die Sachkundepflicht fuer mitwirkende Personen nach § 34f Abs. 4 GewO, das Geldannahmeverbot des § 20 FinVermV, die Abgrenzung Geeignetheit/Angemessenheit nach § 16 FinVermV, die Widerspruchsfolge des § 18a Abs. 3 Satz 2 FinVermV, das Anreizverbot des § 11a Abs. 3 FinVermV, die Schwarmfinanzierungsgrenzen des § 16 Abs. 3a FinVermV, die Kommanditistenhaftung nach §§ 171, 172 HGB und der GwG-Status nach § 2 Abs. 1 Nr. 6 i. V. m. § 1 Abs. 24 Nr. 4 GwG.",
+  "pass_rule_note": "Die statutarische Bestehensregel steht in § 3 Abs. 7 FinVermV und wird hier NICHT erfunden oder ergaenzt: bewertet wird nur mit 'bestanden' oder 'nicht bestanden'; die Pruefung ist bestanden, wenn sowohl der schriftliche als auch der praktische Teil mit 'bestanden' bewertet wurden; der schriftliche Teil ist bestanden, wenn der Prüfling in JEDEM der geprueften Bereiche nach Abs. 2 Satz 4 Nr. 1 bis 3 mindestens 50 Prozent der erreichbaren Punkte erzielt; der praktische Teil, wenn er mindestens 50 Prozent erzielt. Fragenzahl, Dauer und Gebuehren regeln die IHKs nach § 3 Abs. 9 FinVermV durch Satzung; vor einer produktiven Nutzung ist die Satzung der jeweiligen IHK auszuwerten.",
+  "sources": {
+   "tier_a_binding": [
+    "Gewerbeordnung (GewO) §§ 11a, 32, 34f, 34g, 34h, 144 - https://www.gesetze-im-internet.de/gewo/",
+    "Verordnung ueber die Finanzanlagenvermittlung (FinVermV) vom 2.5.2012, BGBl. I S. 1006, zuletzt geaendert durch Art. 9 V. v. 11.12.2024 BGBl. 2024 I Nr. 411 - §§ 1-4, 6, 7, 9, 11-20, 22-24, 26 - https://www.gesetze-im-internet.de/finvermv/",
+    "FinVermV Anlage 1 (zu § 1 Abs. 2), Fundstelle BGBl. I 2012, 1015-1017 - der gesetzliche Syllabus, den § 1 Abs. 2 FinVermV zur verbindlichen inhaltlichen Anforderung an die Pruefung macht - https://www.gesetze-im-internet.de/finvermv/anlage_1.html",
+    "FinVermV Anlage 2 (zu § 3 Abs. 8) - Bescheinigungsmuster, das die Dreiteilung der Erlaubniskategorien im Titel ausschreibt",
+    "Kapitalanlagegesetzbuch (KAGB) § 1 Abs. 1, 4, 5, 6 - https://www.gesetze-im-internet.de/kagb/__1.html",
+    "Kreditwesengesetz (KWG) § 2 Abs. 6 Satz 1 Nr. 8 - die Bereichsausnahme, auf die § 34f Abs. 1 Satz 1 GewO aufsetzt - https://www.gesetze-im-internet.de/kredwg/__2.html",
+    "Vermoegensanlagengesetz (VermAnlG) §§ 1 Abs. 2, 2a, 13 - https://www.gesetze-im-internet.de/vermanlg/",
+    "Handelsgesetzbuch (HGB) §§ 171, 172 - https://www.gesetze-im-internet.de/hgb/",
+    "Geldwaeschegesetz (GwG) § 1 Abs. 24 Nr. 4 und § 2 Abs. 1 - https://www.gesetze-im-internet.de/gwg_2017/"
+   ],
+   "tier_b_procedural_not_binding": [
+    "IHK-Merkblatt 'Wichtige Hinweise zur Sachkundepruefung Finanzanlagenfachmann' - Pruefungsdauern, 50-Prozent-Schwelle je Kategorie, Rollenspiel ca. 20 Minuten, und die unabhaengige Bestaetigung der Kopplung 'Kategorie 3: Nur in Verbindung mit Kategorie 2 moeglich!'. Kammerpraxis, nicht Bundesrecht.",
+    "IHK fuer Muenchen und Oberbayern, Merkblatt 'Berufspflichten §§ 34f/34h GewO' - Pflichtenkatalog, zehnjaehrige Aufbewahrungsfrist, Pruefungsbericht bis 31.12. des Folgejahres.",
+    "DIHK-Rahmenplan 'Gepruefter Finanzanlagenfachmann IHK', Stand Oktober 2023 - NUR als Scope-Gegenprobe geoeffnet. Das Dokument traegt einen ausdruecklichen Rechtevorbehalt ('Alle Rechte liegen beim Herausgeber. Ein Nachdruck - auch auszugsweise - ist nur mit ausdruecklicher schriftlicher Genehmigung des Herausgebers gestattet.'). Gelesen wurden ausschliesslich der Copyright-Vermerk, das Stand-Datum und die fuenf Ueberschriften der obersten Ebene; kein Lernziel, keine Formulierung, keine Taxonomie und keine Reihenfolge unterhalb Ebene 1 ist hier reproduziert. Ergebnis der Gegenprobe: die fuenf Bereiche sind mit denen der Anlage 1 FinVermV identisch, der urheberrechtlich geschuetzte Text fuegt diesem Projekt also keinen Scope hinzu. KEIN Inhaltslieferant. Siehe Dossier § 4."
+   ],
+   "explicitly_not_used": "Kein Text, keine Frage, keine Erlaeuterung, keine Formulierung und keine Struktur eines Pruefungsvorbereitungsanbieters wurde gelesen, verwendet oder paraphrasiert (AGENTS.md Constraint 1). In den Suchergebnissen aufgetauchte Anbieterseiten wurden bewusst nicht geoeffnet. § 3 Abs. 3 Satz 7 FinVermV stellt zudem klar, dass die echten Pruefungsaufgaben von Rechts wegen nicht veroeffentlicht werden."
+  },
+  "related_modules": [
+   {
+    "exam_type": "kyc_aml",
+    "relation": "see_also",
+    "de": "Anlage 1 Nr. 2.4.4 FinVermV macht das Geldwaeschegesetz zum Pruefungsgegenstand. Dieses Modul behandelt davon nur den § 34f-spezifischen Anknuepfungspunkt: den Verpflichtetenstatus ueber § 2 Abs. 1 Nr. 6 GwG in Verbindung mit der Legaldefinition des Finanzunternehmens in § 1 Abs. 24 Nr. 4 GwG einschliesslich der dortigen Ausnahme. Das allgemeine GwG-Regime - Risikomanagement, Sorgfaltspflichten, Verdachtsmeldung, verstaerkte Sorgfaltspflichten, Bussgelder - behandelt das Modul 'kyc_aml' ausfuehrlich und wird hier bewusst nicht dupliziert.",
+    "en": "Anlage 1 no. 2.4.4 FinVermV makes the Money Laundering Act examinable. This module covers only the § 34f-specific hook: obliged-entity status via § 2(1) no. 6 GwG in conjunction with the definition of a financial undertaking in § 1(24) no. 4 GwG, including the exception there. The general GwG regime - risk management, customer due diligence, suspicious-activity reporting, enhanced due diligence, fines - is covered in detail by the 'kyc_aml' module and is deliberately not duplicated here."
+   },
+   {
+    "exam_type": "datenschutz",
+    "relation": "see_also",
+    "de": "Anlage 1 Nr. 2.7.3 FinVermV nennt Datenschutz als Teilgebiet des Verbraucherschutzes. Dieses Modul behandelt davon nur den branchenspezifischen Ausschnitt: die Aufzeichnungspflicht fuer Telefongespraeche und elektronische Kommunikation nach § 18a FinVermV mit ihrer Informationspflicht, der Widerspruchsfolge des Abs. 3 Satz 2, dem Zweckbindungs- und Mitarbeiterueberwachungsverbot des Abs. 5 und der Loeschpflicht des Abs. 6. Die allgemeinen Grundsaetze der DS-GVO, die Betroffenenrechte und die Sanktionen behandelt das Modul 'Datenschutz' ausfuehrlich.",
+    "en": "Anlage 1 no. 2.7.3 FinVermV lists data protection as a sub-area of consumer protection. This module covers only the sector-specific slice: the duty under § 18a FinVermV to record telephone calls and electronic communication, with its notification duty, the consequence of an objection under subsection 3 sentence 2, the purpose-limitation and employee-monitoring prohibition in subsection 5 and the deletion duty in subsection 6. The general GDPR principles, data-subject rights and sanctions are covered in detail by the 'Datenschutz' module."
+   },
+   {
+    "exam_type": "bewachungsgewerbe",
+    "relation": "see_also",
+    "de": "Strukturell verwandtes Schwestermodul: ebenfalls eine IHK-Sachkundepruefung nach der Gewerbeordnung, deren Pruefungsstoff durch eine Anlage zu einer Rechtsverordnung festgelegt ist. Wichtiger Unterschied: § 34a Abs. 1a Satz 1 GewO laesst fuer die einfache Wachtaetigkeit eine blosse Unterrichtungsbescheinigung genuegen; § 34f Abs. 4 GewO kennt keine solche Einstiegsstufe und verlangt den vollen Sachkundenachweis von jeder unmittelbar bei Beratung und Vermittlung mitwirkenden Person.",
+    "en": "Structurally related sibling module: likewise an IHK competence examination under the Gewerbeordnung whose subject matter is fixed by an annex to a statutory instrument. Key difference: § 34a(1a) sentence 1 GewO lets a mere attendance certificate suffice for basic guarding work, whereas § 34f(4) GewO has no such entry tier and requires full proof of competence from every person directly involved in advice and intermediation."
+   }
+  ],
+  "legal_review_status": "NOT legally reviewed - AI-drafted from primary sources (GewO, FinVermV incl. Anlage 1, KAGB, KWG, VermAnlG, HGB, GwG via gesetze-im-internet.de, retrieved 2026-08-17). Verify every citation and its currency before production or commercial use. No lawyer, no BaFin official and no member of an IHK Pruefungsausschuss or Aufgabenauswahlausschuss has reviewed this content. OPEN LEGAL POINTS flagged for review: (1) the conditional GwG Verpflichtetenstatus in question finanzanlagen-beratung_vertrieb-12 rests on § 1 Abs. 24 Nr. 4 GwG's own exception clause - a well-supported statutory reading, but one where being wrong is expensive; (2) § 26 Abs. 1 Nr. 18 FinVermV still sanctions a FIVE-year retention while § 23 Satz 1 imposes TEN years, a discrepancy present in the enacted text on both consolidations checked - question finanzanlagen-beratung_vertrieb-11 answers on § 23 and flags the tension rather than hiding it; (3) Anlage 1 FinVermV dates from 2012 and its substance has drifted in places (see dossier § 2.3), which is why this pilot deliberately contains NO tax questions despite Anlage 1 Nr. 3.6, 4.6 and 5.5 making taxation examinable - a real coverage gap that needs someone competent in the tax law rather than papering over. See docs/finanzanlagenvermittler-pre-review-dossier-2026-08-17.md §§ 5, 6 and 9.",
+  "renewal_months": null,
+  "renewal_basis": "not_applicable",
+  "renewal_note": "Die Sachkundepruefung nach § 34f Abs. 2 Nr. 4 GewO ist ein einmaliger Eignungsnachweis; eine Wiederholungs- oder Auffrischungspflicht kennt weder die GewO noch die FinVermV. Anders als § 34c Abs. 2a GewO (bis 23.7.2026 auch fuer Immobilienmakler) und § 34d Abs. 9 Satz 2 GewO fuer Versicherungsvermittler enthaelt § 34f GewO KEINE Weiterbildungspflicht. Die Bescheinigung nach § 3 Abs. 8 FinVermV in Verbindung mit Anlage 2 FinVermV ist unbefristet. Davon zu unterscheiden sind zwei wiederkehrende Pflichten, die keine Pruefungswiederholung sind: die jaehrliche Pruefung nach § 24 Abs. 1 FinVermV mit Bericht bis zum 31. Dezember des Folgejahres, und die Pflicht zur unverzueglichen Mitteilung von Aenderungen der Registerangaben nach § 34f Abs. 5 und 6 GewO.",
+  "draft_note": "Not registered in data/build_modules.py, not in data/modules_manifest.json, app.js untouched, no build step run, nothing staged or committed. The _DRAFT filename suffix keeps this file out of the live build path by construction. First-round pilot: 30 questions, DE canonical + EN. See docs/finanzanlagenvermittler-pre-review-dossier-2026-08-17.md for the sourcing analysis that unblocked this module (§ 1 Abs. 2 FinVermV makes Anlage 1 FinVermV the statutory content specification of the exam) and for the open items the PO has to decide before it is wired in.",
+  "license": "CC BY-NC-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial training purposes, with credit and under the same license. Commercial reuse needs a separate arrangement.",
+  "total_questions": 30,
+  "topic_distribution": {
+   "kundenberatung": 4,
+   "beratung_vertrieb": 13,
+   "offene_investmentvermoegen": 5,
+   "geschlossene_investmentvermoegen": 4,
+   "vermoegensanlagen": 4
+  }
+ },
+ "questions": [
+  {
+   "id": "finanzanlagen-kundenberatung-01",
+   "topic": "Kundenberatung",
+   "topic_code": "kundenberatung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 11 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Welchen Maßstab setzt die FinVermV für die allgemeine Verhaltenspflicht des Gewerbetreibenden?",
+     "options": {
+      "a": "Er hat seine Tätigkeit mit der erforderlichen Sachkenntnis, Sorgfalt und Gewissenhaftigkeit im bestmöglichen Interesse des Anlegers auszuüben",
+      "b": "Er schuldet die Sorgfalt eines ordentlichen Kaufmanns, aber keine besondere Sachkenntnis",
+      "c": "Er hat seine Tätigkeit so auszuüben, dass der Umsatz des Vertriebspartners gesichert ist",
+      "d": "Er schuldet nur die Weitergabe der Produktinformationen des Emittenten"
+     }
+    },
+    "en": {
+     "question": "What standard does the FinVermV set for the trader's general conduct duty?",
+     "options": {
+      "a": "He must conduct his activity with the requisite expertise, care and conscientiousness in the best possible interest of the investor",
+      "b": "He owes the care of a prudent businessman but no particular expertise",
+      "c": "He must conduct his activity so as to secure the distribution partner's turnover",
+      "d": "He owes only the forwarding of the issuer's product information"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 11 FinVermV lautet vollständig: „Der Gewerbetreibende ist verpflichtet, seine Tätigkeit mit der erforderlichen Sachkenntnis, Sorgfalt und Gewissenhaftigkeit im bestmöglichen Interesse des Anlegers auszuüben.“ Diese Generalklausel ist der Maßstab, an dem sich alle nachfolgenden Einzelpflichten der §§ 11a bis 20 ausrichten, und sie wird an mehreren Stellen ausdrücklich wieder aufgegriffen - etwa in § 11a Abs. 3 Satz 1 (Vergütung darf mit der Pflicht, im bestmöglichen Interesse des Anlegers zu handeln, nicht unvereinbar sein), in § 17 Abs. 1 Satz 2 (Zuwendungen dürfen diese Pflicht nicht beeinträchtigen) und in § 17 Abs. 3 (Ausnahme nur für Entgelte, die ihrer Art nach nicht geeignet sind, die Pflicht nach § 11 zu gefährden). (d) verkennt, dass § 13 Abs. 3 Satz 2 FinVermV zwar die Verwendung fremder Informationen erlaubt, die Verantwortung für die Beratung aber beim Gewerbetreibenden belässt.",
+    "en": "§ 11 FinVermV reads in full: the trader is obliged to conduct his activity with the requisite expertise, care and conscientiousness in the best possible interest of the investor. This general clause is the yardstick for all the individual duties in §§ 11a to 20 and is expressly picked up again in several places - in § 11a(3) sentence 1 (remuneration must not be incompatible with the duty to act in the investor's best interest), in § 17(1) sentence 2 (inducements must not impair that duty) and in § 17(3) (an exception only for fees which by their nature cannot endanger the § 11 duty). (d) misreads § 13(3) sentence 2 FinVermV, which permits the use of third-party information but leaves responsibility for the advice with the trader."
+   }
+  },
+  {
+   "id": "finanzanlagen-kundenberatung-02",
+   "topic": "Kundenberatung",
+   "topic_code": "kundenberatung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 16 Abs. 3 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche Angaben gehören nach der FinVermV zu den Informationen über die finanziellen Verhältnisse und die Anlageziele, die vor einer Anlageberatung einzuholen sind?",
+     "options": {
+      "a": "Ausschließlich das Nettoeinkommen der letzten drei Monate",
+      "b": "Ausschließlich der Familienstand und die Zahl der unterhaltsberechtigten Personen",
+      "c": "Nur die Höhe des vorhandenen Barvermögens",
+      "d": "Grundlage und Höhe regelmäßiger Einkommen und regelmäßiger finanzieller Verpflichtungen, vorhandene Vermögenswerte (insbesondere Barvermögen, Kapitalanlagen, Immobilienvermögen) sowie Anlagedauer, Risikobereitschaft und Zweck der Anlage"
+     }
+    },
+    "en": {
+     "question": "Which particulars form part of the information on financial circumstances and investment objectives to be obtained before investment advice under the FinVermV?",
+     "options": {
+      "a": "Only net income for the last three months",
+      "b": "Only marital status and the number of dependants",
+      "c": "Only the amount of cash held",
+      "d": "The source and amount of regular income and regular financial obligations, existing assets (in particular cash, investments and real estate), and the investment horizon, the investor's appetite for risk and the purpose of the investment"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 16 Abs. 3 Satz 1 FinVermV konkretisiert das Kundenprofil, soweit erforderlich: zu den finanziellen Verhältnissen „Grundlage und Höhe regelmäßiger Einkommen und regelmäßiger finanzieller Verpflichtungen sowie vorhandene Vermögenswerte, insbesondere Barvermögen, Kapitalanlagen und Immobilienvermögen“, zu den verfolgten Zielen „Angaben über die Anlagedauer, die Risikobereitschaft des Anlegers und den Zweck der Anlage“. Satz 2 ergänzt für Kenntnisse und Erfahrungen: Arten von Finanzanlagen, mit denen der Anleger vertraut ist; Art, Umfang, Häufigkeit und Zeitraum zurückliegender Geschäfte; Ausbildung sowie gegenwärtige und relevante frühere berufliche Tätigkeiten. Nach § 16 Abs. 4 hat der Gewerbetreibende die Fehlerhaftigkeit der Angaben des Anlegers nicht zu vertreten, es sei denn, sie ist ihm bekannt oder infolge grober Fahrlässigkeit unbekannt - er darf den Anleger aber nicht dazu verleiten, Angaben zurückzuhalten.",
+    "en": "§ 16(3) sentence 1 FinVermV specifies the client profile, so far as necessary: as to financial circumstances, the source and amount of regular income and regular financial obligations and existing assets, in particular cash, investments and real estate; as to the objectives pursued, the investment horizon, the investor's appetite for risk and the purpose of the investment. Sentence 2 adds, for knowledge and experience: the types of financial investment the investor is familiar with; the type, extent, frequency and period of past transactions; and education plus current and relevant former occupations. Under § 16(4) the trader is not responsible for inaccuracies in the investor's own statements unless he knows of them or is unaware of them through gross negligence - but he must not induce the investor to withhold information."
+   }
+  },
+  {
+   "id": "finanzanlagen-kundenberatung-03",
+   "topic": "Kundenberatung",
+   "topic_code": "kundenberatung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 11a Abs. 3 FinVermV",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Vertrieb führt für seine Beraterinnen eine Zusatzprämie ein, die nur beim Absatz eines bestimmten geschlossenen Fonds gezahlt wird. Wie ist das nach der FinVermV zu beurteilen?",
+     "options": {
+      "a": "Zulässig, solange die Prämie den Anlegern offengelegt wird",
+      "b": "Unzulässig - es dürfen keine Vorkehrungen getroffen werden, durch die Anreize entstehen können, eine bestimmte Finanzanlage zu empfehlen, obwohl eine andere den Bedürfnissen des Anlegers besser entspricht",
+      "c": "Zulässig, weil die Vergütung der Beschäftigten reine Innenangelegenheit des Vertriebs ist",
+      "d": "Zulässig, wenn die Prämie 10 Prozent der Grundvergütung nicht übersteigt"
+     }
+    },
+    "en": {
+     "question": "A distributor introduces a bonus for its advisers payable only on sales of one particular closed-ended fund. How is this to be assessed under the FinVermV?",
+     "options": {
+      "a": "Permissible so long as the bonus is disclosed to investors",
+      "b": "Impermissible - no arrangements may be made that could create incentives to recommend a particular financial investment even though another better matches the investor's needs",
+      "c": "Permissible, because employee remuneration is a purely internal matter for the distributor",
+      "d": "Permissible if the bonus does not exceed 10 per cent of base pay"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 11a Abs. 3 Satz 1 FinVermV verbietet eine Vergütung oder Bewertung der Beschäftigten, „die mit ihrer Pflicht, im bestmöglichen Interesse des Anlegers zu handeln, unvereinbar ist“. Satz 2 ist noch deutlicher: der Gewerbetreibende darf „keine Vorkehrungen durch die Vergütung, Verkaufsziele oder in anderer Weise treffen, durch die Anreize für ihn selbst oder seine Beschäftigten geschaffen werden könnten, einem Anleger eine bestimmte Finanzanlage zu empfehlen, obwohl er eine andere, den Bedürfnissen des Anlegers besser entsprechende Finanzanlage anbieten kann“. Satz 3 erklärt Artikel 27 der Delegierten Verordnung (EU) 2017/565 für entsprechend anwendbar. Offenlegung heilt das nicht: § 11a Abs. 2 lässt die Offenlegung nur zu, wenn Vermeidung und Regelung nach Abs. 1 nicht ausreichen, und Abs. 3 kennt diese Öffnung gar nicht. Nach § 22 Abs. 2 Nr. 1d ist der Nachweis zu dokumentieren, dass keine solchen Anreize geschaffen wurden; ein Verstoß ist ordnungswidrig nach § 26 Abs. 1 Nr. 4 FinVermV.",
+    "en": "§ 11a(3) sentence 1 FinVermV prohibits remuneration or assessment of employees that is incompatible with their duty to act in the investor's best possible interest. Sentence 2 goes further: the trader may make no arrangements, through remuneration, sales targets or otherwise, that could create incentives for himself or his employees to recommend a particular financial investment even though he can offer another that better matches the investor's needs. Sentence 3 applies Article 27 of Delegated Regulation (EU) 2017/565 accordingly. Disclosure does not cure this: § 11a(2) permits disclosure only where avoidance and management under subsection 1 do not suffice, and subsection 3 offers no such escape at all. Under § 22(2) no. 1d the absence of such incentives must be evidenced in the records; breach is an administrative offence under § 26(1) no. 4 FinVermV."
+   }
+  },
+  {
+   "id": "finanzanlagen-kundenberatung-04",
+   "topic": "Kundenberatung",
+   "topic_code": "kundenberatung",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 13 Abs. 1, 2 und 4 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche Anforderung stellt die FinVermV an die Information des Anlegers über Kosten und Nebenkosten?",
+     "options": {
+      "a": "Es genügt, die Kosten im Verkaufsprospekt aufzuführen",
+      "b": "Kosten sind erst nach Vertragsschluss mitzuteilen",
+      "c": "Die Kosten sind rechtzeitig vor Abschluss eines Geschäfts und in verständlicher Form mitzuteilen und zusammengefasst darzustellen, damit der Anleger Gesamtkosten und kumulative Wirkung auf die Rendite verstehen kann; auf Verlangen ist zusätzlich eine aufgegliederte Aufstellung zur Verfügung zu stellen",
+      "d": "Eine Kosteninformation ist nur bei der Honorar-Finanzanlagenberatung erforderlich"
+     }
+    },
+    "en": {
+     "question": "What does the FinVermV require as to informing the investor about costs and ancillary costs?",
+     "options": {
+      "a": "It is enough to set the costs out in the sales prospectus",
+      "b": "Costs need only be communicated after the contract is concluded",
+      "c": "Costs must be communicated in good time before the transaction and in comprehensible form, and presented in aggregate so that the investor can understand both the total costs and their cumulative effect on the return; on request an itemised breakdown must also be provided",
+      "d": "Cost information is required only for fee-based investment advice"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 13 Abs. 1 FinVermV verpflichtet zur Information „rechtzeitig vor Abschluss eines Geschäfts und in verständlicher Form“ über die Finanzanlagen, die damit verbundenen Risiken, die vorgeschlagenen Anlagestrategien und alle Kosten und Nebenkosten. Abs. 2 Satz 1 Nr. 3 konkretisiert die Kostenangaben (Kosten der Vermittlung oder Beratung, Kosten der Finanzanlage, Zahlungsmöglichkeiten einschließlich Zahlungen Dritter). Abs. 4 Satz 1 verlangt die zusammengefasste Darstellung, „damit der Anleger sowohl die Gesamtkosten als auch die kumulative Wirkung der Kosten auf die Rendite der Anlage verstehen kann“; Satz 2 gibt dem Anleger auf Verlangen Anspruch auf eine nach Posten aufgegliederte Aufstellung. Nach Abs. 5 sollen die Kostenangaben zudem mindestens jährlich während der Laufzeit zur Verfügung gestellt werden. Abs. 3 Satz 3 lässt zwar die Erfüllung durch Informationen des Emittenten oder des depotverwaltenden Instituts zu - ausdrücklich aber NICHT für die Kosten der eigenen Vermittlung oder Beratung.",
+    "en": "§ 13(1) FinVermV requires information in good time before a transaction and in comprehensible form about the financial investments, the associated risks, the proposed investment strategies and all costs and ancillary costs. Subsection 2 sentence 1 no. 3 specifies the cost items (costs of the intermediation or advice, costs of the financial investment, and payment options including payments by third parties). Subsection 4 sentence 1 requires aggregate presentation so that the investor can understand both the total costs and their cumulative effect on the return; sentence 2 gives the investor a right, on request, to an itemised breakdown. Under subsection 5 the cost information should also be provided at least annually during the term. Subsection 3 sentence 3 does allow the duty to be met by information from the issuer or the custodian - but expressly NOT as regards the costs of the trader's own intermediation or advice."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-01",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34f Abs. 1 Satz 1 Nr. 1-3 und Satz 3 GewO",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Finanzanlagenvermittler besitzt eine Erlaubnis, die nach § 34f Abs. 1 Satz 3 GewO auf die Kategorie nach § 34f Abs. 1 Satz 1 Nr. 1 beschränkt ist. Ein Kunde fragt ihn nach einem Nachrangdarlehen eines mittelständischen Projektentwicklers. Wie ist die Rechtslage?",
+     "options": {
+      "a": "Er darf beraten und vermitteln, weil die Erlaubnis nach § 34f GewO stets alle Finanzanlagen umfasst",
+      "b": "Er darf vermitteln, aber nicht beraten, weil die Beschränkung nur die Anlageberatung betrifft",
+      "c": "Er darf weder beraten noch vermitteln - das Nachrangdarlehen ist eine Vermögensanlage nach § 1 Abs. 2 VermAnlG und fällt damit unter Nr. 3, die von seiner Erlaubnis nicht gedeckt ist",
+      "d": "Er darf beraten, wenn er den Kunden vorher schriftlich auf die Beschränkung hinweist"
+     }
+    },
+    "en": {
+     "question": "A financial-investment intermediary holds a licence restricted under § 34f(1) sentence 3 GewO to the category in § 34f(1) sentence 1 no. 1. A client asks about a subordinated loan (Nachrangdarlehen) issued by a mid-sized property developer. What is the legal position?",
+     "options": {
+      "a": "He may advise and intermediate, because a § 34f GewO licence always covers all financial investments",
+      "b": "He may intermediate but not advise, because the restriction affects investment advice only",
+      "c": "He may neither advise nor intermediate - a subordinated loan is a Vermoegensanlage under § 1(2) VermAnlG and therefore falls into category no. 3, which his licence does not cover",
+      "d": "He may advise if he first notifies the client of the restriction in writing"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34f Abs. 1 Satz 1 GewO unterscheidet drei Kategorien: Nr. 1 offene Investmentvermögen, Nr. 2 geschlossene Investmentvermögen, Nr. 3 Vermögensanlagen im Sinne des § 1 Abs. 2 VermAnlG. Nach § 34f Abs. 1 Satz 3 GewO „kann [die Erlaubnis] auf die Anlageberatung zu und die Vermittlung von Verträgen über den Erwerb von einzelnen Kategorien von Finanzanlagen nach Nummer 1, 2 oder 3 beschränkt werden“. Das Nachrangdarlehen ist in § 1 Abs. 2 Nr. 4 VermAnlG ausdrücklich genannt und gehört damit zur Kategorie Nr. 3. Wer ohne die entsprechende Erlaubnis tätig wird, handelt ordnungswidrig nach § 144 Abs. 1 Nr. 1 Buchstabe m GewO; der Bußgeldrahmen beträgt nach § 144 Abs. 4 GewO bis zu 50 000 Euro. (b) trifft nicht zu, weil Satz 3 beide Tätigkeiten - Beratung und Vermittlung - gleichermaßen erfasst. (d) trifft nicht zu: ein Hinweis nach § 12 FinVermV informiert über den Erlaubnisumfang, er erweitert ihn nicht.",
+    "en": "§ 34f(1) sentence 1 GewO distinguishes three categories: no. 1 open-ended investment funds, no. 2 closed-ended investment funds, no. 3 Vermoegensanlagen within the meaning of § 1(2) VermAnlG. Under § 34f(1) sentence 3 GewO the licence may be restricted to individual categories under no. 1, 2 or 3, and the restriction covers both advice and intermediation. A subordinated loan is expressly listed in § 1(2) no. 4 VermAnlG and therefore belongs to category no. 3. Acting without the corresponding licence is an administrative offence under § 144(1) no. 1(m) GewO, punishable under § 144(4) GewO by up to EUR 50,000. (b) is wrong because sentence 3 covers both activities equally. (d) is wrong: the status disclosure under § 12 FinVermV informs the investor of the licence scope, it does not extend it."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-02",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 3 Abs. 2 Satz 5-7 FinVermV",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Eine Prüfungsteilnehmerin möchte ausschließlich Vermögensanlagen nach § 1 Abs. 2 VermAnlG vermitteln und beantragt eine entsprechend beschränkte Erlaubnis nach § 34f Abs. 1 Satz 1 Nr. 3 GewO. Welche Bereiche muss der schriftliche Prüfungsteil umfassen?",
+     "options": {
+      "a": "Nur den Bereich zu Vermögensanlagen - der schriftliche Teil folgt exakt dem beantragten Erlaubnisumfang",
+      "b": "Den Bereich zu Vermögensanlagen und zusätzlich den Bereich zu geschlossenen Investmentvermögen",
+      "c": "Alle drei Bereiche, weil eine Beschränkung des schriftlichen Teils nicht vorgesehen ist",
+      "d": "Den Bereich zu Vermögensanlagen und zusätzlich den Bereich zu offenen Investmentvermögen"
+     }
+    },
+    "en": {
+     "question": "A candidate wants to intermediate only Vermoegensanlagen under § 1(2) VermAnlG and applies for a correspondingly restricted licence under § 34f(1) sentence 1 no. 3 GewO. Which areas must the written part of the examination cover?",
+     "options": {
+      "a": "Only the Vermoegensanlagen area - the written part follows the requested licence scope exactly",
+      "b": "The Vermoegensanlagen area and, in addition, the closed-ended investment funds area",
+      "c": "All three areas, because no restriction of the written part is provided for",
+      "d": "The Vermoegensanlagen area and, in addition, the open-ended investment funds area"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 3 Abs. 2 Satz 5 FinVermV erlaubt die Beschränkung des schriftlichen Teils auf Antrag des Prüflings; Satz 6 bindet sie an den beantragten Erlaubnisumfang. Satz 7 enthält jedoch eine einseitige Kopplung: „Für eine Erlaubnis nach § 34f Absatz 1 Satz 1 Nummer 3 in Verbindung mit Satz 3 [...] muss der schriftliche Teil der Prüfung zusätzlich die in Satz 4 Nummer 2 genannten Bereiche umfassen.“ Satz 4 Nr. 2 sind die geschlossenen Investmentvermögen. Die Kopplung wirkt nur in diese Richtung - wer nur Nr. 2 beantragt, muss Nr. 3 nicht mitprüfen lassen. Deshalb ist eine reine Nr.-3-Prüfung nicht möglich, eine reine Nr.-1- oder reine Nr.-2-Prüfung dagegen schon. (c) übersieht Satz 5. (d) verwechselt die Kategorien.",
+    "en": "§ 3(2) sentence 5 FinVermV allows the written part to be restricted on the candidate's application; sentence 6 ties that restriction to the requested licence scope. Sentence 7 then adds a one-way coupling: for a licence under § 34f(1) sentence 1 no. 3 in conjunction with sentence 3, the written part must additionally cover the areas named in sentence 4 no. 2 - the closed-ended investment funds. The coupling runs one way only: an applicant for no. 2 alone need not be examined on no. 3. A no.-3 only examination is therefore impossible, whereas a no.-1 only or no.-2 only examination is available. (c) overlooks sentence 5. (d) confuses the categories."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-03",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34f Abs. 2 Nr. 1-4 GewO",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Aus welchen Gründen ist die Erlaubnis nach § 34f Abs. 1 GewO zwingend zu versagen?",
+     "options": {
+      "a": "Nur wegen fehlender Zuverlässigkeit und ungeordneter Vermögensverhältnisse",
+      "b": "Nur wegen fehlender Sachkunde und fehlender Berufshaftpflichtversicherung",
+      "c": "Wegen fehlender Zuverlässigkeit, ungeordneter Vermögensverhältnisse und fehlender Weiterbildung von 20 Stunden je drei Kalenderjahre",
+      "d": "Wegen fehlender Zuverlässigkeit, ungeordneter Vermögensverhältnisse, fehlender Berufshaftpflichtversicherung und fehlenden Sachkundenachweises"
+     }
+    },
+    "en": {
+     "question": "On what grounds must a licence under § 34f(1) GewO be refused?",
+     "options": {
+      "a": "Only for lack of reliability and disordered financial circumstances",
+      "b": "Only for lack of professional competence and lack of professional indemnity insurance",
+      "c": "For lack of reliability, disordered financial circumstances and failure to complete 20 hours of continuing education every three calendar years",
+      "d": "For lack of reliability, disordered financial circumstances, lack of professional indemnity insurance and lack of proof of professional competence"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34f Abs. 2 GewO enthält vier Versagungsgründe, und die Aufzählung ist abschließend („ist zu versagen, wenn“): Nr. 1 fehlende Zuverlässigkeit - in der Regel zu verneinen bei einer rechtskräftigen Verurteilung in den letzten fünf Jahren wegen eines Verbrechens oder wegen der dort genannten Vermögens- und Wirtschaftsdelikte einschließlich Geldwäsche; Nr. 2 ungeordnete Vermögensverhältnisse; Nr. 3 fehlender Nachweis einer Berufshaftpflichtversicherung; Nr. 4 fehlender Nachweis der Sachkunde durch eine vor der Industrie- und Handelskammer erfolgreich abgelegte Prüfung. Anders als bei § 34c Abs. 2 Nr. 3 GewO, wo die Berufshaftpflicht nur Wohnimmobilienverwalter trifft, gilt sie hier für jeden Antragsteller. (c) beschreibt keine Versagungsvoraussetzung des § 34f - eine Weiterbildungspflicht kennt § 34f GewO nicht.",
+    "en": "§ 34f(2) GewO contains four grounds for refusal and the list is exhaustive: no. 1 lack of reliability - as a rule absent where there has been a final conviction in the last five years for a serious offence or for one of the listed property and economic offences including money laundering; no. 2 disordered financial circumstances; no. 3 failure to prove professional indemnity insurance; no. 4 failure to prove professional competence by an examination successfully sat before the Chamber of Industry and Commerce. Unlike § 34c(2) no. 3 GewO, where the indemnity requirement applies only to residential property managers, here it applies to every applicant. (c) describes no requirement of § 34f - that section imposes no continuing-education duty."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-04",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34f Abs. 4 GewO",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Finanzanlagenvermittler mit Erlaubnis nach § 34f Abs. 1 GewO möchte eine Mitarbeiterin einstellen, die unmittelbar bei der Beratung und Vermittlung mitwirken soll. Welche Anforderung gilt für sie?",
+     "options": {
+      "a": "Keine - der Sachkundenachweis des Gewerbetreibenden deckt alle Beschäftigten ab",
+      "b": "Sie muss lediglich an einer Unterrichtung durch die Industrie- und Handelskammer teilnehmen",
+      "c": "Der Gewerbetreibende darf sie nur beschäftigen, wenn er sicherstellt, dass sie über einen Sachkundenachweis nach § 34f Abs. 2 Nr. 4 GewO verfügt, und ihre Zuverlässigkeit geprüft hat",
+      "d": "Sie muss eine eigene Erlaubnis nach § 34f Abs. 1 GewO beantragen"
+     }
+    },
+    "en": {
+     "question": "An intermediary licensed under § 34f(1) GewO wants to hire an employee who will be directly involved in advice and intermediation. What applies to her?",
+     "options": {
+      "a": "Nothing - the trader's own proof of competence covers all employees",
+      "b": "She need only attend an instruction session (Unterrichtung) at the Chamber of Industry and Commerce",
+      "c": "The trader may employ her only if he ensures that she holds proof of competence under § 34f(2) no. 4 GewO and has checked her reliability",
+      "d": "She must apply for her own licence under § 34f(1) GewO"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34f Abs. 4 Satz 1 GewO: „Gewerbetreibende nach Absatz 1 dürfen direkt bei der Beratung und Vermittlung mitwirkende Personen nur beschäftigen, wenn sie sicherstellen, dass diese Personen über einen Sachkundenachweis nach Absatz 2 Nummer 4 verfügen und geprüft haben, ob sie zuverlässig sind.“ Nach Satz 2 kann die Beschäftigung untersagt werden, wenn Tatsachen die Annahme rechtfertigen, dass die Person die erforderliche Sachkunde oder Zuverlässigkeit nicht besitzt. Zusätzlich sind diese Personen nach § 34f Abs. 6 GewO unverzüglich nach Aufnahme ihrer Tätigkeit bei der Registerbehörde zu melden. Hier liegt ein wesentlicher Unterschied zum Bewachungsgewerbe: § 34a Abs. 1a Satz 1 GewO lässt für die einfache Wachtätigkeit eine bloße Unterrichtungsbescheinigung genügen - eine vergleichbare Einstiegsstufe kennt § 34f nicht. (d) ist falsch: erlaubnispflichtig ist der Gewerbetreibende, nicht die mitwirkende Person.",
+    "en": "§ 34f(4) sentence 1 GewO: traders under subsection 1 may employ persons directly involved in advice and intermediation only if they ensure that those persons hold proof of competence under subsection 2 no. 4 and have checked whether they are reliable. Under sentence 2 the employment may be prohibited where facts justify the assumption that the person lacks the required competence or reliability. Such persons must also be notified to the register authority without delay after taking up their activity (§ 34f(6) GewO). This is a material difference from the private-security trade: § 34a(1a) sentence 1 GewO lets a mere attendance certificate suffice for basic guarding work, whereas § 34f has no such entry tier. (d) is wrong: it is the trader who needs the licence, not the assisting employee."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-05",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34f Abs. 5 GewO, § 11a Abs. 1 GewO, § 6 Nr. 4 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche Aussage über die Registrierung eines Finanzanlagenvermittlers im Vermittlerregister trifft zu?",
+     "options": {
+      "a": "Der Gewerbetreibende hat sich unverzüglich nach Aufnahme seiner Tätigkeit über die Erlaubnisbehörde entsprechend dem Umfang der Erlaubnis eintragen zu lassen; im Register wird auch der Erlaubnisumfang nach Nr. 1 bis 3 gespeichert",
+      "b": "Die Eintragung erfolgt automatisch mit Erteilung der Erlaubnis; der Gewerbetreibende muss nichts veranlassen",
+      "c": "Die Eintragung ist freiwillig und dient nur der Werbung",
+      "d": "Das Register wird von der Bundesanstalt für Finanzdienstleistungsaufsicht geführt"
+     }
+    },
+    "en": {
+     "question": "Which statement about registration of a financial-investment intermediary in the intermediary register is correct?",
+     "options": {
+      "a": "The trader must have himself entered without delay after taking up his activity, via the licensing authority and in accordance with the scope of the licence; the register also stores the licence scope under nos. 1 to 3",
+      "b": "Registration happens automatically when the licence is granted; the trader need do nothing",
+      "c": "Registration is voluntary and serves marketing purposes only",
+      "d": "The register is maintained by the Federal Financial Supervisory Authority"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34f Abs. 5 GewO: „Gewerbetreibende nach Absatz 1 sind verpflichtet, sich unverzüglich nach Aufnahme ihrer Tätigkeit über die für die Erlaubniserteilung zuständige Behörde entsprechend dem Umfang der Erlaubnis in das Register nach § 11a Absatz 1 eintragen zu lassen“; Änderungen sind unverzüglich mitzuteilen. § 6 Nr. 4 FinVermV zählt zu den gespeicherten Angaben ausdrücklich „der Umfang der Erlaubnis nach § 34f Absatz 1 Satz 1 Nummer 1 bis 3“. Register-führende Stelle ist nach § 11a Abs. 1 Satz 1 GewO jede Industrie- und Handelskammer als Registerbehörde, nicht die BaFin. Ein Verstoß gegen die Eintragungspflicht ist ordnungswidrig nach § 144 Abs. 2 Nr. 8 GewO. Zweck des Registers ist nach § 11a Abs. 1 Satz 3 GewO gerade, der Allgemeinheit die Überprüfung „der Zulassung sowie des Umfangs der zugelassenen Tätigkeit“ zu ermöglichen.",
+    "en": "§ 34f(5) GewO obliges traders to have themselves entered in the register under § 11a(1) without delay after taking up their activity, via the licensing authority and in accordance with the scope of the licence; changes must be notified without delay. § 6 no. 4 FinVermV expressly lists among the stored data the scope of the licence under § 34f(1) sentence 1 nos. 1 to 3. Under § 11a(1) sentence 1 GewO the register is kept by each Chamber of Industry and Commerce as register authority, not by BaFin. Breach of the registration duty is an administrative offence under § 144(2) no. 8 GewO. The register's purpose under § 11a(1) sentence 3 GewO is precisely to let the public verify the authorisation and the scope of the authorised activity."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-06",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 12 Abs. 1 und 3 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Wann und wie muss ein Finanzanlagenvermittler den Anleger über seinen Status informieren?",
+     "options": {
+      "a": "Klar und verständlich in Textform vor der ersten Anlageberatung oder -vermittlung; auf Wunsch des Anlegers darf zunächst mündlich informiert werden, dann aber unverzüglich nach Vertragsschluss in Textform",
+      "b": "Erst bei Abschluss des ersten vermittelten Vertrages",
+      "c": "Nur auf ausdrückliche Nachfrage des Anlegers",
+      "d": "Einmal jährlich im Rahmen der turnusmäßigen Kundenbetreuung"
+     }
+    },
+    "en": {
+     "question": "When and how must a financial-investment intermediary inform the investor about his status?",
+     "options": {
+      "a": "Clearly and comprehensibly in text form before the first investment advice or intermediation; at the investor's request the information may first be given orally, but must then be supplied in text form without delay after conclusion of the contract",
+      "b": "Only on conclusion of the first contract intermediated",
+      "c": "Only if the investor expressly asks",
+      "d": "Once a year as part of routine client care"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 12 Abs. 1 FinVermV: der Gewerbetreibende hat dem Anleger „vor der ersten Anlageberatung oder -vermittlung“ die dort aufgezählten Angaben „klar und verständlich in Textform“ mitzuteilen. Dazu gehören Name und betriebliche Anschrift, Kontaktdaten, ob er als Finanzanlagenvermittler mit einer Erlaubnis nach § 34f Abs. 1 Satz 1 Nr. 1, 2 oder Nr. 3 GewO oder als Honorar-Finanzanlagenberater eingetragen ist (Nr. 3), wie sich die Eintragung überprüfen lässt (Nr. 3a), die Emittenten und Anbieter, zu deren Finanzanlagen er Leistungen anbietet (Nr. 4), sowie Anschrift der Erlaubnisbehörde und Registrierungsnummer (Nr. 5). § 12 Abs. 3 lässt die mündliche Mitteilung auf Wunsch des Anlegers zu, verlangt dann aber die unverzügliche Nachreichung in Textform nach Vertragsschluss. Ein Verstoß ist ordnungswidrig nach § 26 Abs. 1 Nr. 5 FinVermV.",
+    "en": "§ 12(1) FinVermV requires the trader to communicate the listed particulars to the investor clearly and comprehensibly in text form before the first investment advice or intermediation. These include name and business address, contact details, whether he is registered as an intermediary with a licence under § 34f(1) sentence 1 no. 1, 2 or 3 GewO or as a fee-based adviser (no. 3), how that registration can be verified (no. 3a), the issuers and providers whose financial investments he deals in (no. 4), and the address of the licensing authority plus his registration number (no. 5). § 12(3) permits oral communication at the investor's request but then requires text form without delay after the contract is concluded. Breach is an administrative offence under § 26(1) no. 5 FinVermV."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-07",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 16 Abs. 1 und 2 FinVermV",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Worin unterscheiden sich die Pflichten des Gewerbetreibenden bei der Anlageberatung und bei der reinen Anlagevermittlung nach der FinVermV?",
+     "options": {
+      "a": "Es gibt keinen Unterschied; in beiden Fällen ist eine Geeignetheitsprüfung durchzuführen",
+      "b": "Bei der Anlageberatung genügt eine Angemessenheitsprüfung, bei der Anlagevermittlung ist eine Geeignetheitsprüfung erforderlich",
+      "c": "Bei der Anlageberatung ist eine Geeignetheitsprüfung durchzuführen (Kenntnisse und Erfahrungen, finanzielle Verhältnisse einschließlich Verlusttragfähigkeit, Anlageziele einschließlich Risikotoleranz); bei der Anlagevermittlung genügt eine Angemessenheitsprüfung (Kenntnisse und Erfahrungen)",
+      "d": "Bei der Anlagevermittlung entfallen alle Informationspflichten gegenüber dem Anleger"
+     }
+    },
+    "en": {
+     "question": "How do the trader's duties differ between investment advice and pure investment intermediation under the FinVermV?",
+     "options": {
+      "a": "There is no difference; a suitability assessment is required in both cases",
+      "b": "For investment advice an appropriateness assessment suffices; for intermediation a suitability assessment is required",
+      "c": "For investment advice a suitability assessment is required (knowledge and experience, financial circumstances including capacity to bear losses, investment objectives including risk tolerance); for intermediation an appropriateness assessment (knowledge and experience) suffices",
+      "d": "For intermediation all information duties towards the investor fall away"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 16 Abs. 1 Satz 1 FinVermV verlangt für die Anlageberatung Informationen über (1) Kenntnisse und Erfahrungen, (2) die finanziellen Verhältnisse einschließlich der Fähigkeit, Verluste zu tragen, und (3) die Anlageziele einschließlich der Risikotoleranz. Satz 2 erlaubt nur Empfehlungen, die danach geeignet sind (Geeignetheitsprüfung). Satz 4 ist streng: „Sofern der Gewerbetreibende die erforderlichen Informationen nicht erlangt, darf er dem Anleger im Rahmen der Anlageberatung keine Finanzanlage empfehlen.“ § 16 Abs. 2 Satz 1 verlangt vor einer Anlagevermittlung nur Informationen über Kenntnisse und Erfahrungen (Angemessenheitsprüfung); hält der Gewerbetreibende die Anlage für nicht angemessen, hat er nach Satz 3 darauf hinzuweisen, und erlangt er die Informationen nicht, hat er nach Satz 4 mitzuteilen, dass eine Beurteilung nicht möglich ist. Beide Hinweise dürfen standardisiert erfolgen. (d) ist falsch - §§ 12, 12a, 13 gelten unabhängig davon.",
+    "en": "§ 16(1) sentence 1 FinVermV requires, for investment advice, information on (1) knowledge and experience, (2) financial circumstances including the ability to bear losses, and (3) investment objectives including risk tolerance. Sentence 2 permits only recommendations that are suitable on that basis. Sentence 4 is strict: if the trader does not obtain the required information he may not recommend any financial investment at all. § 16(2) sentence 1 requires, before intermediation, only information on knowledge and experience (appropriateness). If the trader considers the investment inappropriate he must say so (sentence 3); if he does not obtain the information he must state that no appropriateness assessment is possible (sentence 4). Both notices may be given in standardised form. (d) is wrong - §§ 12, 12a and 13 apply regardless."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-08",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 18 Abs. 1 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Gewerbetreibender berät eine Privatkundin im Sinne des § 67 Abs. 3 WpHG und empfiehlt ihr einen offenen Immobilienfonds. Welches Dokument schuldet er ihr, und wann?",
+     "options": {
+      "a": "Ein Beratungsprotokoll, das er ihr spätestens vier Wochen nach dem Gespräch übersendet",
+      "b": "Eine Geeignetheitserklärung auf einem dauerhaften Datenträger vor Vertragsschluss, die die erbrachte Beratung nennt und erläutert, wie sie auf ihre Präferenzen, Anlageziele und sonstigen Merkmale abgestimmt wurde",
+      "c": "Nur den Verkaufsprospekt des Fonds",
+      "d": "Gar nichts, solange sie den Auftrag nicht erteilt"
+     }
+    },
+    "en": {
+     "question": "A trader advises a retail client within the meaning of § 67(3) WpHG and recommends an open-ended real estate fund. What document does he owe her, and when?",
+     "options": {
+      "a": "An advice minute (Beratungsprotokoll), to be sent to her within four weeks of the meeting",
+      "b": "A suitability statement on a durable medium before the contract is concluded, naming the advice given and explaining how it was matched to her preferences, investment objectives and other characteristics",
+      "c": "Only the fund's sales prospectus",
+      "d": "Nothing at all, so long as she does not place the order"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 18 Abs. 1 Satz 1 FinVermV: dem Anleger, der Privatkunde im Sinne des § 67 Abs. 3 WpHG ist, ist „auf einem dauerhaften Datenträger vor Vertragsschluss eine Erklärung über die Geeignetheit der im Rahmen der Anlageberatung gegebenen Empfehlung (Geeignetheitserklärung) zur Verfügung“ zu stellen. Satz 2 bestimmt den Inhalt: sie muss die erbrachte Anlageberatung nennen und erläutern, wie sie auf die Präferenzen, Anlageziele und sonstigen Merkmale des Anlegers abgestimmt wurde. (a) beschreibt das frühere Beratungsprotokoll - dieses ist seit dem 1. August 2020 durch die Geeignetheitserklärung ersetzt worden und existiert nicht mehr. § 18 Abs. 2 lässt bei Fernkommunikationsmitteln ausnahmsweise die Nachreichung unverzüglich nach Vertragsschluss zu, aber nur mit Zustimmung des Anlegers und nur, wenn ihm angeboten wurde, die Auftragsweiterleitung zu verschieben. Nach § 19 Satz 2 FinVermV stellt ein beratender Beschäftigter die Erklärung selbst zur Verfügung.",
+    "en": "§ 18(1) sentence 1 FinVermV requires that a retail investor within the meaning of § 67(3) WpHG be provided, on a durable medium and before the contract is concluded, with a statement on the suitability of the recommendation given (Geeignetheitserklaerung). Sentence 2 fixes its content: it must name the advice given and explain how it was matched to the investor's preferences, investment objectives and other characteristics. (a) describes the former Beratungsprotokoll, which was replaced by the suitability statement with effect from 1 August 2020 and no longer exists. § 18(2) exceptionally permits late delivery immediately after conclusion where distance communication is used, but only with the investor's consent and only where he was offered a deferral of order transmission. Under § 19 sentence 2 FinVermV an advising employee provides the statement himself."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-09",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 18a Abs. 1 und 3 FinVermV",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Eine Anlegerin widerspricht ausdrücklich der Aufzeichnung von Telefongesprächen. Der Gewerbetreibende möchte sie dennoch telefonisch zu einem Fonds beraten. Was gilt?",
+     "options": {
+      "a": "Er darf telefonisch beraten, muss das Gespräch dann aber schriftlich protokollieren",
+      "b": "Er darf telefonisch beraten, wenn er den Widerspruch dokumentiert",
+      "c": "Er darf telefonisch beraten, weil der Widerspruch der Anlegerin nach der DSGVO stets Vorrang hat",
+      "d": "Er darf keine telefonische oder mittels sonstiger elektronischer Kommunikation veranlasste Anlageberatung oder Anlagevermittlung erbringen"
+     }
+    },
+    "en": {
+     "question": "An investor expressly objects to the recording of telephone calls. The trader nevertheless wants to advise her by telephone about a fund. What applies?",
+     "options": {
+      "a": "He may advise by telephone but must then minute the call in writing",
+      "b": "He may advise by telephone if he documents the objection",
+      "c": "He may advise by telephone, because the investor's objection always takes precedence under the GDPR",
+      "d": "He may not provide any investment advice or intermediation by telephone or by other electronic communication"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 18a Abs. 1 Satz 1 FinVermV verpflichtet zur Aufzeichnung von Telefongesprächen und sonstiger elektronischer Kommunikation, sobald sie sich auf Vermittlung oder Beratung zu Finanzanlagen beziehen - auch dann, wenn es nicht zum Vertragsschluss kommt (Satz 4). § 18a Abs. 3 Satz 2 zieht die Konsequenz: „Hat der Gewerbetreibende den Anleger nicht vorab über die Aufzeichnung informiert oder hat der Anleger der Aufzeichnung widersprochen, darf der Gewerbetreibende keine telefonische oder mittels sonstiger elektronischer Kommunikation veranlasste Anlagevermittlung oder Anlageberatung erbringen.“ Der Weg ist dann das persönliche Gespräch, das nach § 18a Abs. 4 auf einem dauerhaften Datenträger zu dokumentieren ist. Beachte auch § 18a Abs. 5 Satz 1: die Aufzeichnungen dürfen „insbesondere nicht zur Überwachung der Beschäftigten“ genutzt werden. Die allgemeinen Grundsätze der DSGVO behandelt das Modul „Datenschutz“.",
+    "en": "§ 18a(1) sentence 1 FinVermV requires recording of telephone calls and other electronic communication as soon as they relate to the intermediation of or advice on financial investments - including where no contract results (sentence 4). § 18a(3) sentence 2 draws the consequence: if the trader has not informed the investor in advance about the recording, or if the investor has objected to it, the trader may not provide investment intermediation or advice by telephone or other electronic communication. The route left open is a face-to-face meeting, which must be documented on a durable medium under § 18a(4). Note also § 18a(5) sentence 1: the recordings may not be used for other purposes, in particular not to monitor employees. The general GDPR principles are covered by the 'Datenschutz' module."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-10",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 20 FinVermV",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Kunde möchte einem Finanzanlagenvermittler 5 000 Euro in bar übergeben, damit dieser die Zeichnung eines Fondsanteils für ihn abwickelt. Wie ist das zu beurteilen?",
+     "options": {
+      "a": "Zulässig, wenn der Vermittler eine Quittung ausstellt und den Betrag getrennt verwahrt",
+      "b": "Unzulässig - der Gewerbetreibende ist nicht befugt, sich Eigentum oder Besitz an Geldern oder Anteilen von Anlegern zu verschaffen",
+      "c": "Zulässig bis zu einer Grenze von 10 000 Euro",
+      "d": "Zulässig, wenn der Kunde schriftlich auf Ansprüche verzichtet"
+     }
+    },
+    "en": {
+     "question": "A client wants to hand a financial-investment intermediary EUR 5,000 in cash so that the intermediary can arrange the subscription of a fund unit for him. How is this to be assessed?",
+     "options": {
+      "a": "Permissible if the intermediary issues a receipt and keeps the amount separate",
+      "b": "Impermissible - the trader is not authorised to acquire ownership or possession of investors' money or units",
+      "c": "Permissible up to a limit of EUR 10,000",
+      "d": "Permissible if the client waives his claims in writing"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 20 FinVermV: „Der Gewerbetreibende ist nicht befugt, sich im Zusammenhang mit der Finanzanlagenberatung oder -vermittlung nach § 34f Absatz 1 Satz 1 der Gewerbeordnung oder der Honorar-Finanzanlagenberatung nach § 34h Absatz 1 Satz 1 der Gewerbeordnung Eigentum oder Besitz an Geldern oder Anteilen von Anlegern zu verschaffen.“ Das Verbot ist absolut: es kennt keine Betragsgrenze, keine Quittungs- und keine Verzichtslösung, und es erfasst Besitz ebenso wie Eigentum, also auch die bloße treuhänderische Entgegennahme. Ein Verstoß ist ordnungswidrig nach § 26 Abs. 1 Nr. 17 FinVermV. Zahlungen laufen deshalb stets unmittelbar zwischen Anleger und Kapitalverwaltungsgesellschaft, depotführender Bank oder Emittent.",
+    "en": "§ 20 FinVermV provides that, in connection with financial-investment advice or intermediation under § 34f(1) sentence 1 GewO or fee-based advice under § 34h(1) sentence 1 GewO, the trader is not authorised to acquire ownership or possession of investors' money or units. The prohibition is absolute: there is no threshold, no receipt-based exception and no possibility of waiver, and it covers possession as well as ownership, so even purely fiduciary receipt is caught. Breach is an administrative offence under § 26(1) no. 17 FinVermV. Payments therefore always run directly between the investor and the management company, custodian bank or issuer."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-11",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 23 Satz 1 und 2 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Wie lange und ab wann sind die Aufzeichnungen und Unterlagen nach §§ 18a und 22 FinVermV aufzubewahren?",
+     "options": {
+      "a": "Fünf Jahre ab dem Tag der jeweiligen Aufzeichnung",
+      "b": "Sechs Jahre ab Vertragsschluss",
+      "c": "Zehn Jahre auf einem dauerhaften Datenträger, beginnend mit dem Ende des Kalenderjahres, in dem der letzte aufzeichnungspflichtige Vorgang für den jeweiligen Auftrag angefallen ist",
+      "d": "Unbefristet, solange die Erlaubnis besteht"
+     }
+    },
+    "en": {
+     "question": "For how long, and from when, must the records and documents under §§ 18a and 22 FinVermV be retained?",
+     "options": {
+      "a": "Five years from the date of the individual record",
+      "b": "Six years from conclusion of the contract",
+      "c": "Ten years on a durable medium, running from the end of the calendar year in which the last recordable event for the mandate in question occurred",
+      "d": "Indefinitely, for as long as the licence subsists"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 23 Satz 1 FinVermV: die Aufzeichnungen nach § 18a Abs. 1 Satz 1 und Abs. 4 sowie die in § 22 genannten Unterlagen „sind zehn Jahre auf einem dauerhaften Datenträger vorzuhalten und so aufzubewahren, dass sie von den Geschäftsräumen aus jederzeit zugänglich sind“. Satz 2: „Die Aufbewahrungsfrist beginnt mit dem Ende des Kalenderjahres, in dem der letzte aufzeichnungspflichtige Vorgang für den jeweiligen Auftrag angefallen ist.“ HINWEIS FÜR DIE RECHTSPRÜFUNG: § 26 Abs. 1 Nr. 18 FinVermV, der den Verstoß gegen § 23 Satz 1 als Ordnungswidrigkeit ahndet, spricht im geltenden Wortlaut noch von „mindestens fünf Jahre“ - diese Diskrepanz ist in beiden geprüften Konsolidierungen vorhanden. Maßgeblich für die Aufbewahrungspflicht ist § 23; § 26 ist nur die Sanktionsnorm. Siehe docs/finanzanlagenvermittler-pre-review-dossier-2026-08-17.md § 6.",
+    "en": "§ 23 sentence 1 FinVermV requires the records under § 18a(1) sentence 1 and (4) and the documents named in § 22 to be held for ten years on a durable medium and kept so that they are accessible from the business premises at any time. Sentence 2: the retention period begins at the end of the calendar year in which the last recordable event for the mandate in question occurred. NOTE FOR LEGAL REVIEW: § 26(1) no. 18 FinVermV, which penalises breach of § 23 sentence 1, still refers in its enacted wording to 'at least five years' - a discrepancy present in both consolidations checked. The retention duty is governed by § 23; § 26 is merely the sanction. See docs/finanzanlagenvermittler-pre-review-dossier-2026-08-17.md § 6."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-12",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 2 Abs. 1 Nr. 6 GwG i. V. m. § 1 Abs. 24 Nr. 4 GwG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Unter welchen Voraussetzungen ist ein Finanzanlagenvermittler nach § 34f Abs. 1 Satz 1 GewO Verpflichteter im Sinne des Geldwäschegesetzes?",
+     "options": {
+      "a": "Immer - er ist in § 2 Abs. 1 GwG ausdrücklich als Verpflichteter aufgeführt",
+      "b": "Nie - Finanzanlagenvermittler unterliegen dem GwG grundsätzlich nicht",
+      "c": "Über § 2 Abs. 1 Nr. 6 GwG als Finanzunternehmen im Sinne des § 1 Abs. 24 Nr. 4 GwG - es sei denn, die Vermittlung oder Beratung bezieht sich ausschließlich auf Anlagen, die von Verpflichteten nach dem GwG vertrieben oder emittiert werden",
+      "d": "Nur, wenn er zusätzlich eine Erlaubnis nach § 34d GewO besitzt"
+     }
+    },
+    "en": {
+     "question": "Under what conditions is a financial-investment intermediary under § 34f(1) sentence 1 GewO an obliged entity within the meaning of the Money Laundering Act?",
+     "options": {
+      "a": "Always - he is expressly listed as an obliged entity in § 2(1) GwG",
+      "b": "Never - financial-investment intermediaries are in principle outside the GwG",
+      "c": "Via § 2(1) no. 6 GwG as a financial undertaking within the meaning of § 1(24) no. 4 GwG - unless the intermediation or advice relates exclusively to investments distributed or issued by entities that are themselves obliged under the GwG",
+      "d": "Only if he additionally holds a licence under § 34d GewO"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Finanzanlagenvermittler sind in der Verpflichtetenliste des § 2 Abs. 1 GwG nicht genannt; § 2 Abs. 1 Nr. 2 GwG nimmt die Unternehmen nach § 2 Abs. 6 Satz 1 Nr. 3 bis 10 KWG - und damit gerade die Bereichsausnahme Nr. 8, auf die § 34f Abs. 1 Satz 1 GewO aufsetzt - ausdrücklich aus. Der Weg führt über § 2 Abs. 1 Nr. 6 GwG (Finanzunternehmen) in Verbindung mit der Legaldefinition in § 1 Abs. 24 Nr. 4 GwG: Finanzunternehmen ist ein Unternehmen, dessen Haupttätigkeit darin besteht, „Finanzanlagenvermittler nach § 34f Absatz 1 Satz 1 der Gewerbeordnung und Honorar-Finanzanlagenberater nach § 34h Absatz 1 Satz 1 der Gewerbeordnung zu sein, es sei denn, die Vermittlung oder Beratung bezieht sich ausschließlich auf Anlagen, die von Verpflichteten nach diesem Gesetz vertrieben oder emittiert werden“. Praktische Folge: wer ausschließlich Fonds von Kapitalverwaltungsgesellschaften (§ 2 Abs. 1 Nr. 9 GwG) oder Produkte von Kreditinstituten (Nr. 1) vermittelt, fällt regelmäßig unter die Ausnahme; wer Vermögensanlagen gewöhnlicher Emittenten platziert, in aller Regel nicht. Anlage 1 Nr. 2.4.4 FinVermV macht das Geldwäschegesetz zum Prüfungsgegenstand. Die allgemeinen Pflichten - Risikomanagement, Sorgfaltspflichten, Verdachtsmeldung, Bußgelder - behandelt das Modul „kyc_aml“.",
+    "en": "Financial-investment intermediaries are not named in the list of obliged entities in § 2(1) GwG; § 2(1) no. 2 GwG expressly excludes the undertakings referred to in § 2(6) sentence 1 nos. 3 to 10 KWG - including precisely the no. 8 exemption on which § 34f(1) sentence 1 GewO is built. The route runs through § 2(1) no. 6 GwG (financial undertakings) in conjunction with the definition in § 1(24) no. 4 GwG: a financial undertaking is one whose principal activity consists in being a financial-investment intermediary under § 34f(1) sentence 1 GewO or a fee-based adviser under § 34h(1) sentence 1 GewO, unless the intermediation or advice relates exclusively to investments distributed or issued by entities obliged under that Act. Practical consequence: someone dealing exclusively in funds of management companies (§ 2(1) no. 9 GwG) or products of credit institutions (no. 1) will usually fall within the exception; someone placing Vermoegensanlagen of ordinary issuers will usually not. Anlage 1 no. 2.4.4 FinVermV makes the Money Laundering Act examinable. The general duties - risk management, due diligence, suspicious-activity reporting, fines - are covered by the 'kyc_aml' module."
+   }
+  },
+  {
+   "id": "finanzanlagen-beratung_vertrieb-13",
+   "topic": "Kenntnisse für Beratung und Vertrieb von Finanzanlageprodukten",
+   "topic_code": "beratung_vertrieb",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 24 Abs. 1 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche laufende Prüfungspflicht trifft einen Finanzanlagenvermittler nach der FinVermV?",
+     "options": {
+      "a": "Keine, solange die Erlaubnisbehörde keine Prüfung anordnet",
+      "b": "Er hat die Einhaltung der Pflichten aus den §§ 11a bis 23 FinVermV für jedes Kalenderjahr auf seine Kosten durch einen geeigneten Prüfer prüfen zu lassen und den Prüfungsbericht der Erlaubnisbehörde bis spätestens zum 31. Dezember des darauffolgenden Jahres zu übermitteln",
+      "c": "Er muss alle drei Jahre einen Prüfungsbericht der Bundesanstalt für Finanzdienstleistungsaufsicht vorlegen",
+      "d": "Die Prüfung übernimmt die Industrie- und Handelskammer im Rahmen der Registerführung"
+     }
+    },
+    "en": {
+     "question": "What recurring audit duty does the FinVermV impose on a financial-investment intermediary?",
+     "options": {
+      "a": "None, unless the licensing authority orders an audit",
+      "b": "He must have compliance with the duties under §§ 11a to 23 FinVermV audited for each calendar year at his own expense by a suitable auditor and transmit the audit report to the licensing authority by 31 December of the following year at the latest",
+      "c": "He must submit an audit report to BaFin every three years",
+      "d": "The audit is carried out by the Chamber of Industry and Commerce as part of maintaining the register"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 24 Abs. 1 Satz 1 FinVermV verlangt eine jährliche Prüfung auf eigene Kosten durch einen geeigneten Prüfer und die Übermittlung des Prüfungsberichts an die für die Erlaubniserteilung zuständige Behörde „bis spätestens zum 31. Dezember des darauffolgenden Jahres“. Der Bericht muss nach Satz 2 einen Vermerk über festgestellte Verstöße enthalten. Wer im Berichtszeitraum keine erlaubnispflichtige Tätigkeit ausgeübt hat, übermittelt nach Satz 5 fristgerecht und unaufgefordert eine entsprechende Erklärung in Textform (Fehlanzeige). Geeignete Prüfer sind nach § 24 Abs. 3 insbesondere Wirtschaftsprüfer, vereidigte Buchprüfer und Prüfungsverbände; nach Abs. 5 ist ungeeignet, bei wem die Besorgnis der Befangenheit besteht. § 24 Abs. 2 kennt zusätzlich die außerordentliche Prüfung aus besonderem Anlass, bei der die Behörde den Prüfer bestimmt. Ein Verstoß gegen Abs. 1 ist ordnungswidrig nach § 26 Abs. 1 Nr. 19 FinVermV.",
+    "en": "§ 24(1) sentence 1 FinVermV requires an annual audit at the trader's own expense by a suitable auditor and transmission of the report to the licensing authority by 31 December of the following year at the latest. Under sentence 2 the report must carry a note on any breaches found. A trader who carried on no licensable activity in the reporting period must instead transmit, unprompted and by the same deadline, a declaration to that effect in text form (sentence 5). Suitable auditors under § 24(3) are in particular auditors, sworn accountants and audit associations; under subsection 5 anyone giving rise to concerns of bias is unsuitable. § 24(2) additionally provides for an extraordinary audit on special grounds, for which the authority designates the auditor. Breach of subsection 1 is an administrative offence under § 26(1) no. 19 FinVermV."
+   }
+  },
+  {
+   "id": "finanzanlagen-offene_investmentvermoegen-01",
+   "topic": "Offene Investmentvermögen",
+   "topic_code": "offene_investmentvermoegen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 1 Abs. 4 KAGB, § 34f Abs. 1 Satz 1 Nr. 1 GewO",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Was sind offene Investmentvermögen im Sinne des Kapitalanlagegesetzbuchs?",
+     "options": {
+      "a": "Alle Investmentvermögen, deren Anteile an einer Börse gehandelt werden",
+      "b": "OGAW sowie AIF, die die Voraussetzungen von Artikel 1 Absatz 2 der Delegierten Verordnung (EU) Nr. 694/2014 erfüllen",
+      "c": "Alle Investmentvermögen mit einer Laufzeit von mehr als zehn Jahren",
+      "d": "Alle Investmentvermögen, die von einer inländischen Kapitalverwaltungsgesellschaft aufgelegt werden"
+     }
+    },
+    "en": {
+     "question": "What are open-ended investment funds within the meaning of the KAGB?",
+     "options": {
+      "a": "All investment funds whose units are traded on an exchange",
+      "b": "UCITS and AIFs that satisfy the conditions of Article 1(2) of Delegated Regulation (EU) No 694/2014",
+      "c": "All investment funds with a term of more than ten years",
+      "d": "All investment funds launched by a domestic management company"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 1 Abs. 4 KAGB: „Offene Investmentvermögen sind 1. OGAW und 2. AIF, die die Voraussetzungen von Artikel 1 Absatz 2 der Delegierten Verordnung (EU) Nr. 694/2014 der Kommission [...] erfüllen.“ Die Abgrenzung knüpft also an die Rückgaberechte der Anleger an, nicht an Börsennotierung, Laufzeit oder Sitz der Verwaltungsgesellschaft. Diese Definition ist unmittelbar erlaubnisrelevant: § 34f Abs. 1 Satz 1 Nr. 1 GewO erfasst „Anteile oder Aktien an inländischen offenen Investmentvermögen, offenen EU-Investmentvermögen oder ausländischen offenen Investmentvermögen, die nach dem Kapitalanlagegesetzbuch vertrieben werden dürfen“ - der Zusatz „die nach dem Kapitalanlagegesetzbuch vertrieben werden dürfen“ ist eine eigenständige Voraussetzung und keine bloße Beschreibung.",
+    "en": "§ 1(4) KAGB provides that open-ended investment funds are UCITS and AIFs satisfying the conditions of Article 1(2) of Commission Delegated Regulation (EU) No 694/2014. The distinction therefore turns on investors' redemption rights, not on exchange listing, term or the domicile of the management company. The definition is directly licence-relevant: § 34f(1) sentence 1 no. 1 GewO covers units or shares in domestic open-ended investment funds, open-ended EU investment funds and foreign open-ended investment funds that may be distributed under the KAGB - the qualifier 'that may be distributed under the KAGB' being a separate requirement, not mere description."
+   }
+  },
+  {
+   "id": "finanzanlagen-offene_investmentvermoegen-02",
+   "topic": "Offene Investmentvermögen",
+   "topic_code": "offene_investmentvermoegen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 1 Abs. 6 KAGB",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Wodurch unterscheidet sich ein Spezial-AIF von einem Publikumsinvestmentvermögen?",
+     "options": {
+      "a": "Durch das Mindestanlagevolumen von einer Million Euro",
+      "b": "Dadurch, dass Spezial-AIF ausschließlich in Immobilien investieren dürfen",
+      "c": "Dadurch, dass Anteile an einem Spezial-AIF nur von professionellen und semiprofessionellen Anlegern erworben werden dürfen; alle übrigen Investmentvermögen sind Publikumsinvestmentvermögen",
+      "d": "Dadurch, dass Spezial-AIF nicht der Aufsicht unterliegen"
+     }
+    },
+    "en": {
+     "question": "What distinguishes a special AIF from a retail investment fund?",
+     "options": {
+      "a": "A minimum investment volume of one million euros",
+      "b": "That special AIFs may invest only in real estate",
+      "c": "That units in a special AIF may be acquired only by professional and semi-professional investors; all other investment funds are retail investment funds",
+      "d": "That special AIFs are not subject to supervision"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 1 Abs. 6 Satz 1 KAGB: Spezial-AIF sind AIF, deren Anteile aufgrund von in Textform geschlossenen Vereinbarungen oder aufgrund der konstituierenden Dokumente nur von professionellen Anlegern (Abs. 19 Nr. 32) und semiprofessionellen Anlegern (Abs. 19 Nr. 33) erworben werden dürfen. Satz 2: „Alle übrigen Investmentvermögen sind Publikumsinvestmentvermögen.“ Die Abgrenzung ist also anlegerbezogen und nicht anlagegegenstands- oder volumenbezogen. Anlage 1 Nr. 3.3.15 und 3.3.16 FinVermV führen Publikumsinvestmentvermögen und Spezial-AIF ausdrücklich als Prüfungsstoff auf. Für die Beratungspraxis ist die Unterscheidung erheblich, weil die Geeignetheits- und Angemessenheitspflichten des § 16 FinVermV auf den Privatkundenbegriff des § 67 Abs. 3 WpHG aufsetzen.",
+    "en": "§ 1(6) sentence 1 KAGB: special AIFs are AIFs whose units, by virtue of agreements concluded in text form or of the fund's constitutive documents, may be acquired only by professional investors (subsection 19 no. 32) and semi-professional investors (subsection 19 no. 33). Sentence 2: all other investment funds are retail investment funds. The distinction is therefore investor-based, not based on asset class or volume. Anlage 1 nos. 3.3.15 and 3.3.16 FinVermV expressly list retail investment funds and special AIFs as examinable material. The distinction matters in practice because the suitability and appropriateness duties in § 16 FinVermV build on the retail-client concept in § 67(3) WpHG."
+   }
+  },
+  {
+   "id": "finanzanlagen-offene_investmentvermoegen-03",
+   "topic": "Offene Investmentvermögen",
+   "topic_code": "offene_investmentvermoegen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 16 Abs. 5 FinVermV",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Kunde verlangt von sich aus die Vermittlung von Anteilen an einem OGAW-konformen Aktienfonds und wünscht keine Beratung. Welche Pflicht nach § 16 FinVermV entfällt, und unter welcher Bedingung?",
+     "options": {
+      "a": "Es entfallen sämtliche Pflichten der FinVermV, weil der Kunde die Initiative ergriffen hat",
+      "b": "Die Angemessenheitsprüfung nach § 16 Abs. 2 entfällt, wenn die Vermittlung auf Veranlassung des Kunden erfolgt, sich auf OGAW-konforme Anteile bezieht und der Kunde darüber informiert wird, dass keine Angemessenheitsprüfung vorgenommen wird",
+      "c": "Die Geeignetheitsprüfung nach § 16 Abs. 1 entfällt, die Angemessenheitsprüfung bleibt bestehen",
+      "d": "Es entfällt die Pflicht zur Aufzeichnung nach § 22 FinVermV"
+     }
+    },
+    "en": {
+     "question": "A client asks on his own initiative for units in a UCITS-compliant equity fund to be intermediated and does not want advice. Which duty under § 16 FinVermV falls away, and on what condition?",
+     "options": {
+      "a": "All FinVermV duties fall away because the client took the initiative",
+      "b": "The appropriateness assessment under § 16(2) falls away if the intermediation is at the client's initiative, relates to UCITS-compliant units and the client is informed that no appropriateness assessment is being carried out",
+      "c": "The suitability assessment under § 16(1) falls away; the appropriateness assessment remains",
+      "d": "The record-keeping duty under § 22 FinVermV falls away"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 16 Abs. 5 FinVermV nennt zwei kumulative Voraussetzungen: der Gewerbetreibende erbringt „auf Veranlassung des Kunden Anlagevermittlung in Bezug auf Anteile oder Aktien an Investmentvermögen, die den Anforderungen der Richtlinie 2009/65/EG [...] entsprechen“ (Nr. 1) UND er informiert den Kunden darüber, „dass keine Angemessenheitsprüfung im Sinne des Absatzes 2 vorgenommen wird“ (Nr. 2); diese Information darf standardisiert erfolgen. Die Ausnahme betrifft ausschließlich die Angemessenheitsprüfung des Abs. 2. Die Geeignetheitsprüfung nach Abs. 1 ist ohnehin nicht betroffen, weil sie nur bei Anlageberatung gilt - und beraten wird hier gerade nicht. Alle übrigen Pflichten - §§ 12, 12a, 13, 14, 17, 18a, 22, 23 - bleiben unberührt. (a) und (d) sind daher falsch.",
+    "en": "§ 16(5) FinVermV sets two cumulative conditions: the trader provides intermediation at the client's initiative in relation to units or shares in investment funds complying with Directive 2009/65/EC (no. 1) AND he informs the client that no appropriateness assessment within the meaning of subsection 2 is being carried out (no. 2); that information may be given in standardised form. The exception concerns the appropriateness assessment in subsection 2 only. The suitability assessment in subsection 1 is unaffected in any event because it applies only to investment advice - and no advice is being given here. All other duties - §§ 12, 12a, 13, 14, 17, 18a, 22, 23 - remain untouched. (a) and (d) are therefore wrong."
+   }
+  },
+  {
+   "id": "finanzanlagen-offene_investmentvermoegen-04",
+   "topic": "Offene Investmentvermögen",
+   "topic_code": "offene_investmentvermoegen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 13 Abs. 6 FinVermV, § 14 Abs. 2 FinVermV",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche zusätzlichen Vorschriften gelten beim Vertrieb von Anteilen oder Aktien an Investmentvermögen im Sinne des § 1 Abs. 1 KAGB?",
+     "options": {
+      "a": "Für die Information gelten die §§ 293 bis 297 und 303 bis 307 KAGB entsprechend, für Werbung in Textform § 302 Abs. 1 bis 6 KAGB entsprechend",
+      "b": "Es gelten ausschließlich die Vorschriften der FinVermV; das KAGB ist für Vermittler ohne Bedeutung",
+      "c": "Es gelten die Vorschriften des Vermögensanlagengesetzes entsprechend",
+      "d": "Es gelten die Vorschriften der Versicherungsvermittlungsverordnung entsprechend"
+     }
+    },
+    "en": {
+     "question": "Which additional rules apply to the distribution of units or shares in investment funds within the meaning of § 1(1) KAGB?",
+     "options": {
+      "a": "§§ 293 to 297 and 303 to 307 KAGB apply accordingly to the information duties, and § 302(1) to (6) KAGB applies accordingly to advertising in text form",
+      "b": "Only the FinVermV applies; the KAGB is irrelevant for intermediaries",
+      "c": "The Vermoegensanlagengesetz applies accordingly",
+      "d": "The Versicherungsvermittlungsverordnung applies accordingly"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 13 Abs. 6 FinVermV: „Beim Vertrieb von Anteilen oder Aktien an Investmentvermögen im Sinne des § 1 Absatz 1 des Kapitalanlagegesetzbuchs gelten die §§ 293 bis 297 und 303 bis 307 des Kapitalanlagegesetzbuchs entsprechend.“ § 14 Abs. 2 FinVermV ergänzt für die Werbung in Textform die entsprechende Geltung des § 302 Abs. 1 bis 6 KAGB. Anlage 1 Nr. 3.5 FinVermV führt das Kapitalanlagegesetzbuch ausdrücklich als Prüfungsstoff des Bereichs „Offene Investmentvermögen“ auf. (c) verwechselt die Kategorien: das VermAnlG ist für die Kategorie nach § 34f Abs. 1 Satz 1 Nr. 3 einschlägig, nicht für Investmentvermögen.",
+    "en": "§ 13(6) FinVermV provides that on distribution of units or shares in investment funds within the meaning of § 1(1) KAGB, §§ 293 to 297 and 303 to 307 KAGB apply accordingly. § 14(2) FinVermV adds, for advertising in text form, the corresponding application of § 302(1) to (6) KAGB. Anlage 1 no. 3.5 FinVermV expressly lists the KAGB as examinable material in the 'open-ended investment funds' area. (c) confuses the categories: the VermAnlG governs the § 34f(1) sentence 1 no. 3 category, not investment funds."
+   }
+  },
+  {
+   "id": "finanzanlagen-offene_investmentvermoegen-05",
+   "topic": "Offene Investmentvermögen",
+   "topic_code": "offene_investmentvermoegen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 3 Abs. 5 Nr. 1 und Nr. 2 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "In welchen Fällen entfällt der praktische Teil der Sachkundeprüfung?",
+     "options": {
+      "a": "Nur bei einem Hochschulabschluss in Betriebswirtschaftslehre",
+      "b": "Nur bei einer mindestens fünfjährigen Berufserfahrung in der Anlageberatung",
+      "c": "Nie - der praktische Teil ist stets abzulegen",
+      "d": "Unter anderem bei einer auf offene Investmentvermögen beschränkten Prüfung, wenn eine Erlaubnis oder ein Sachkundenachweis nach § 34d GewO vorliegt, sowie bei einer Folgeprüfung zur Erweiterung einer bereits beschränkten Erlaubnis"
+     }
+    },
+    "en": {
+     "question": "In which cases does the practical part of the competence examination fall away?",
+     "options": {
+      "a": "Only with a university degree in business administration",
+      "b": "Only with at least five years' professional experience in investment advice",
+      "c": "Never - the practical part must always be sat",
+      "d": "Among other cases, for an examination restricted to open-ended investment funds where the candidate holds a licence or proof of competence under § 34d GewO, and for a follow-up examination extending an already restricted licence"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 3 Abs. 5 FinVermV nennt drei Fälle, in denen der praktische Teil entfällt: Nr. 1 eine auf die Kategorie nach Abs. 2 Satz 4 Nr. 1 (offene Investmentvermögen) beschränkte Prüfung, wenn der Prüfling eine Erlaubnis nach § 34d Abs. 1 oder 2 GewO oder einen Sachkundenachweis im Sinne des § 34d Abs. 5 Satz 1 Nr. 4 GewO bzw. einen nach § 27 VersVermV gleichgestellten Abschluss besitzt; Nr. 2 eine Folgeprüfung zur Erweiterung einer nach § 34f Abs. 1 Satz 3 oder § 34h Abs. 1 Satz 3 GewO beschränkten Erlaubnis; Nr. 3 der Besitz eines Sachkundenachweises im Sinne des § 34i Abs. 2 Nr. 4 GewO. Praktische Folge von Nr. 2: das simulierte Kundenberatungsgespräch nach § 3 Abs. 4 FinVermV wird nur einmal abgelegt, auch wenn die Erlaubnis später um weitere Kategorien erweitert wird. Davon zu unterscheiden ist § 4 FinVermV, der dreizehn Berufsqualifikationen der gesamten Sachkundeprüfung gleichstellt.",
+    "en": "§ 3(5) FinVermV names three cases in which the practical part falls away: no. 1, an examination restricted to the subsection 2 sentence 4 no. 1 category (open-ended investment funds) where the candidate holds a licence under § 34d(1) or (2) GewO or proof of competence within the meaning of § 34d(5) sentence 1 no. 4 GewO or an equivalent qualification under § 27 VersVermV; no. 2, a follow-up examination extending a licence restricted under § 34f(1) sentence 3 or § 34h(1) sentence 3 GewO; no. 3, holding proof of competence within the meaning of § 34i(2) no. 4 GewO. Practical consequence of no. 2: the simulated client-advice conversation under § 3(4) FinVermV is sat only once, even if the licence is later extended to further categories. This is distinct from § 4 FinVermV, which treats thirteen professional qualifications as equivalent to the whole examination."
+   }
+  },
+  {
+   "id": "finanzanlagen-geschlossene_investmentvermoegen-01",
+   "topic": "Geschlossene Investmentvermögen",
+   "topic_code": "geschlossene_investmentvermoegen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 1 Abs. 5 KAGB",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Wie definiert das Kapitalanlagegesetzbuch geschlossene AIF?",
+     "options": {
+      "a": "Als AIF mit einer festen Laufzeit von mindestens fünf Jahren",
+      "b": "Rein negativ: geschlossene AIF sind alle AIF, die keine offenen AIF sind",
+      "c": "Als AIF, deren Anteile nicht handelbar sind",
+      "d": "Als AIF, die ausschließlich in Sachwerte investieren"
+     }
+    },
+    "en": {
+     "question": "How does the KAGB define closed-ended AIFs?",
+     "options": {
+      "a": "As AIFs with a fixed term of at least five years",
+      "b": "Purely negatively: closed-ended AIFs are all AIFs that are not open-ended AIFs",
+      "c": "As AIFs whose units are not tradable",
+      "d": "As AIFs that invest exclusively in tangible assets"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 1 Abs. 5 KAGB lautet vollständig: „Geschlossene AIF sind alle AIF, die keine offenen AIF sind.“ Die Definition ist rein negativ und knüpft damit an § 1 Abs. 4 KAGB an (OGAW sowie AIF, die die Voraussetzungen von Artikel 1 Absatz 2 der Delegierten Verordnung (EU) Nr. 694/2014 erfüllen). Maßgeblich ist also nicht die Laufzeit, nicht die Handelbarkeit und nicht der Anlagegegenstand, sondern allein, ob die Voraussetzungen für ein offenes Investmentvermögen erfüllt sind. Das ist prüfungsrelevant, weil die Kategoriezuordnung über den erforderlichen Erlaubnisumfang nach § 34f Abs. 1 Satz 1 Nr. 1 oder Nr. 2 GewO entscheidet und die typischen Sachwertkonstruktionen der Anlage 1 Nr. 4.2 FinVermV (Immobilien-, Schiffs-, Container-, Flugzeug-, Private-Equity-, Infrastrukturfonds) durchweg auf dieser Seite liegen.",
+    "en": "§ 1(5) KAGB reads in full: closed-ended AIFs are all AIFs that are not open-ended AIFs. The definition is purely negative and thus hinges on § 1(4) KAGB (UCITS and AIFs satisfying Article 1(2) of Delegated Regulation (EU) No 694/2014). What matters is therefore not the term, not tradability and not the asset class, but solely whether the conditions for an open-ended fund are met. This is examinable because the category allocation determines the required licence scope under § 34f(1) sentence 1 no. 1 or no. 2 GewO, and the typical tangible-asset structures listed in Anlage 1 no. 4.2 FinVermV (real estate, shipping, container, aircraft, private equity and infrastructure funds) all sit on this side."
+   }
+  },
+  {
+   "id": "finanzanlagen-geschlossene_investmentvermoegen-02",
+   "topic": "Geschlossene Investmentvermögen",
+   "topic_code": "geschlossene_investmentvermoegen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§§ 171 Abs. 1, 172 Abs. 4 HGB",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Anleger beteiligt sich als Kommanditist an einem geschlossenen Immobilienfonds in der Rechtsform der GmbH & Co. KG. Wie ist seine Haftung gegenüber den Gesellschaftsgläubigern?",
+     "options": {
+      "a": "Er haftet unbeschränkt mit seinem gesamten Privatvermögen",
+      "b": "Er haftet überhaupt nicht, weil die Komplementär-GmbH die Haftung übernimmt",
+      "c": "Er haftet unmittelbar bis zur Höhe seiner Haftsumme; die Haftung ist ausgeschlossen, soweit die vereinbarte Einlage geleistet ist - lebt aber wieder auf, soweit die Einlage zurückbezahlt wird",
+      "d": "Er haftet nur bis zur Höhe der Ausschüttungen des laufenden Geschäftsjahres"
+     }
+    },
+    "en": {
+     "question": "An investor participates as a limited partner in a closed-ended real estate fund structured as a GmbH & Co. KG. What is his liability towards the partnership's creditors?",
+     "options": {
+      "a": "He is liable without limit with his entire private assets",
+      "b": "He has no liability at all, because the general-partner GmbH assumes it",
+      "c": "He is directly liable up to the amount of his registered liability sum; that liability is excluded so far as the agreed contribution has been paid in - but revives so far as the contribution is repaid to him",
+      "d": "He is liable only up to the amount of the current financial year's distributions"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 171 Abs. 1 HGB: „Der Kommanditist haftet den Gläubigern der Gesellschaft bis zur Höhe seiner Haftsumme unmittelbar; die Haftung ist ausgeschlossen, soweit die vereinbarte Einlage geleistet ist.“ § 172 Abs. 4 Satz 1 HGB enthält die für die Beratungspraxis entscheidende Rückausnahme: „Soweit die Einlage eines Kommanditisten zurückbezahlt wird, gilt sie den Gläubigern gegenüber als nicht geleistet.“ Satz 2 stellt Entnahmen gleich, wenn der Kapitalanteil dadurch unter die Haftsumme sinkt oder bereits darunter liegt. Das ist der Grund, weshalb Ausschüttungen geschlossener Fonds, die keine erwirtschafteten Gewinne sind, die Haftung wieder aufleben lassen können - ein Risiko, das nach § 13 Abs. 1 und Abs. 2 Nr. 2 FinVermV ausdrücklich zu erläutern ist und das Anlage 1 Nr. 4.3 und 4.5.4 FinVermV („Chancen, Risiken und Haftung“, „Kommanditgesellschaft“) zum Prüfungsstoff macht. Nach § 172 Abs. 3 HGB ist ein Erlass der Einlage den Gläubigern gegenüber unwirksam.",
+    "en": "§ 171(1) HGB: a limited partner is directly liable to the partnership's creditors up to the amount of his registered liability sum; that liability is excluded so far as the agreed contribution has been paid in. § 172(4) sentence 1 HGB contains the counter-exception that matters most in advisory practice: so far as a limited partner's contribution is repaid to him, it is deemed not to have been made as against creditors. Sentence 2 treats withdrawals the same way where the capital account thereby falls below, or already lies below, the liability sum. This is why distributions from closed-ended funds that do not represent earned profits can revive liability - a risk that must be explained under § 13(1) and (2) no. 2 FinVermV and which Anlage 1 nos. 4.3 and 4.5.4 FinVermV make examinable. Under § 172(3) HGB a release from the contribution is ineffective as against creditors."
+   }
+  },
+  {
+   "id": "finanzanlagen-geschlossene_investmentvermoegen-03",
+   "topic": "Geschlossene Investmentvermögen",
+   "topic_code": "geschlossene_investmentvermoegen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 14 Abs. 4 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Vermittler möchte in einem Werbeschreiben für einen geschlossenen Fonds erwähnen, dass der Verkaufsprospekt bei der Bundesanstalt für Finanzdienstleistungsaufsicht hinterlegt wurde. Was ist zu beachten?",
+     "options": {
+      "a": "Der Name der BaFin darf nicht in einer Weise genannt werden, die so verstanden werden kann, dass Finanzanlagen nach § 34f Abs. 1 Satz 1 Nr. 2 und 3 GewO von der Bundesanstalt gebilligt oder genehmigt werden oder worden sind",
+      "b": "Die Erwähnung ist unbeschränkt zulässig, weil die Hinterlegung eine Tatsache ist",
+      "c": "Die Erwähnung der BaFin ist in der Werbung generell verboten",
+      "d": "Die Erwähnung ist zulässig, wenn zusätzlich die Registrierungsnummer des Vermittlers angegeben wird"
+     }
+    },
+    "en": {
+     "question": "An intermediary wants to mention in a promotional letter for a closed-ended fund that the sales prospectus has been filed with BaFin. What must be observed?",
+     "options": {
+      "a": "BaFin's name may not be used in a way that could be understood as meaning that financial investments under § 34f(1) sentence 1 nos. 2 and 3 GewO are or have been approved or authorised by the authority",
+      "b": "The mention is unrestrictedly permissible because the filing is a fact",
+      "c": "Mentioning BaFin in advertising is prohibited outright",
+      "d": "The mention is permissible if the intermediary's registration number is also stated"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 14 Abs. 4 FinVermV: „Der Gewerbetreibende darf den Namen der Bundesanstalt für Finanzdienstleistungsaufsicht nicht in einer Weise nennen, die so verstanden werden kann, dass Finanzanlagen im Sinne des § 34f Absatz 1 Satz 1 Nummer 2 und 3 der Gewerbeordnung von der Bundesanstalt gebilligt oder genehmigt werden oder worden sind.“ Die Vorschrift betrifft gezielt die Kategorien Nr. 2 und Nr. 3 - also geschlossene Investmentvermögen und Vermögensanlagen -, weil dort eine Prospektbilligung leicht als inhaltliche Qualitätsaussage missverstanden wird. Rahmen bleibt § 14 Abs. 1: alle Informationen einschließlich Werbemitteilungen müssen „redlich, eindeutig und nicht irreführend“ sein, wichtige Aussagen oder Warnungen dürfen nicht verschleiert oder abgeschwächt werden, und Werbemitteilungen müssen eindeutig als solche erkennbar sein.",
+    "en": "§ 14(4) FinVermV prohibits the trader from naming BaFin in a way that could be understood as meaning that financial investments within the meaning of § 34f(1) sentence 1 nos. 2 and 3 GewO are or have been approved or authorised by the authority. The rule targets categories nos. 2 and 3 - closed-ended funds and Vermoegensanlagen - because there a prospectus filing is easily misread as a statement about quality. The general frame remains § 14(1): all information including marketing communications must be fair, clear and not misleading, important statements or warnings must not be disguised or played down, and marketing communications must be clearly identifiable as such."
+   }
+  },
+  {
+   "id": "finanzanlagen-geschlossene_investmentvermoegen-04",
+   "topic": "Geschlossene Investmentvermögen",
+   "topic_code": "geschlossene_investmentvermoegen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34h Abs. 2 und 3 GewO",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Worin unterscheidet sich der Honorar-Finanzanlagenberater nach § 34h GewO vom Finanzanlagenvermittler nach § 34f GewO?",
+     "options": {
+      "a": "Er benötigt keinen Sachkundenachweis und keine Berufshaftpflichtversicherung",
+      "b": "Er darf kein Gewerbe nach § 34f Abs. 1 Satz 1 GewO ausüben, muss seiner Empfehlung eine hinreichende Anzahl hinreichend gestreuter Finanzanlagen zugrunde legen und darf sich die Beratung nur vom Anleger vergüten lassen",
+      "c": "Er darf ausschließlich zu offenen Investmentvermögen beraten",
+      "d": "Er unterliegt nicht der FinVermV"
+     }
+    },
+    "en": {
+     "question": "How does a fee-based financial-investment adviser under § 34h GewO differ from an intermediary under § 34f GewO?",
+     "options": {
+      "a": "He needs neither proof of competence nor professional indemnity insurance",
+      "b": "He may not carry on a trade under § 34f(1) sentence 1 GewO, must base his recommendation on a sufficient number of sufficiently diversified financial investments, and may be remunerated for the advice only by the investor",
+      "c": "He may advise only on open-ended investment funds",
+      "d": "He is not subject to the FinVermV"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34h Abs. 2 Satz 1 GewO: Honorar-Finanzanlagenberater „dürfen kein Gewerbe nach § 34f Absatz 1 Satz 1 ausüben“ - die beiden Erlaubnisse schließen einander aus, und nach § 34h Abs. 1 Satz 6 erlischt die §-34f-Erlaubnis mit Erteilung der § 34h-Erlaubnis. Satz 2 verlangt, der Empfehlung „eine hinreichende Anzahl von auf dem Markt angebotenen Finanzanlagen zu Grunde“ zu legen, die von der Erlaubnis umfasst und nach Art und Anbieter hinreichend gestreut sind. § 34h Abs. 3 Satz 1: die Beratung darf nur vom Anleger vergütet werden; Zuwendungen Dritter sind nach Satz 2 grundsätzlich unzulässig und nach Satz 3 ausnahmsweise erhaltene Zuwendungen „unverzüglich nach Erhalt und ungemindert an den Kunden auszukehren“. (a) ist falsch: § 34h Abs. 1 Satz 4 GewO erklärt § 34f Abs. 2 bis 6 für entsprechend anwendbar, einschließlich Sachkunde und Berufshaftpflicht. (d) ist falsch: die FinVermV gilt durchgehend, mit § 17a als eigener Zuwendungsvorschrift.",
+    "en": "§ 34h(2) sentence 1 GewO: fee-based advisers may not carry on a trade under § 34f(1) sentence 1 - the two licences are mutually exclusive, and under § 34h(1) sentence 6 the § 34f licence lapses when the § 34h licence is granted. Sentence 2 requires the recommendation to be based on a sufficient number of financial investments offered on the market that are covered by the licence and sufficiently diversified by type and provider. § 34h(3) sentence 1: the advice may be remunerated only by the investor; third-party inducements are in principle impermissible under sentence 2, and any exceptionally received inducement must under sentence 3 be passed on to the client without delay and in full. (a) is wrong: § 34h(1) sentence 4 GewO applies § 34f(2) to (6) accordingly, including competence and indemnity insurance. (d) is wrong: the FinVermV applies throughout, with § 17a as its own inducement rule."
+   }
+  },
+  {
+   "id": "finanzanlagen-vermoegensanlagen-01",
+   "topic": "Vermögensanlagen im Sinne des § 1 Absatz 2 des Vermögensanlagengesetzes",
+   "topic_code": "vermoegensanlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 1 Abs. 2 VermAnlG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche der folgenden Produkte sind Vermögensanlagen im Sinne des § 1 Abs. 2 VermAnlG und damit von der Erlaubniskategorie nach § 34f Abs. 1 Satz 1 Nr. 3 GewO erfasst?",
+     "options": {
+      "a": "Ausschließlich Genussrechte und Namensschuldverschreibungen",
+      "b": "Alle Wertpapiere im Sinne des Wertpapierprospektgesetzes",
+      "c": "Ausschließlich Anteile an geschlossenen Investmentvermögen",
+      "d": "Unter anderem partiarische Darlehen, Nachrangdarlehen, Genussrechte, Namensschuldverschreibungen, stille Beteiligungen und Treuhandvermögen - sofern sie nicht in Wertpapieren verbrieft und nicht als Anteile an Investmentvermögen ausgestaltet sind"
+     }
+    },
+    "en": {
+     "question": "Which of the following are Vermoegensanlagen within the meaning of § 1(2) VermAnlG and therefore covered by the licence category in § 34f(1) sentence 1 no. 3 GewO?",
+     "options": {
+      "a": "Only profit-participation rights and registered bonds",
+      "b": "All securities within the meaning of the Securities Prospectus Act",
+      "c": "Only units in closed-ended investment funds",
+      "d": "Among others profit-participating loans, subordinated loans, profit-participation rights, registered bonds, silent partnerships and trust assets - provided they are not securitised as securities and not structured as units in investment funds"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 1 Abs. 2 VermAnlG definiert Vermögensanlagen als nicht in Wertpapieren im Sinne des Wertpapierprospektgesetzes verbriefte und nicht als Anteile an Investmentvermögen im Sinne des § 1 Abs. 1 KAGB ausgestaltete: 1. Anteile, die eine Beteiligung am Ergebnis eines Unternehmens gewähren, 2. Anteile an einem Treuhandvermögen, 3. partiarische Darlehen, 4. Nachrangdarlehen, 5. Genussrechte, 6. Namensschuldverschreibungen, 7. sonstige Anlagen mit Verzinsung und Rückzahlung oder vermögenswertem Barausgleich für die zeitweise Überlassung von Geld, 8. Anlagen im Austausch für die zeitweise Überlassung von Geld oder handelsüblichen Edelmetallen - jeweils sofern die Annahme der Gelder nicht als Einlagengeschäft nach § 1 Abs. 1 Satz 2 Nr. 1 KWG zu qualifizieren ist. HINWEIS: Anlage 1 Nr. 5.1 FinVermV zählt in ihrer Fassung von 2012 nur Genussrechte, stille Beteiligungen, Namensschuldverschreibungen und Genossenschaftsanteile auf, dazu die Auffangposition „weitere Vermögensanlagen“; partiarische Darlehen und Nachrangdarlehen wurden erst 2015 in das VermAnlG eingefügt. Maßgeblich ist der aktuelle § 1 Abs. 2 VermAnlG, auf den die Überschrift des Bereichs ausdrücklich verweist.",
+    "en": "§ 1(2) VermAnlG defines Vermoegensanlagen as instruments that are not securitised as securities within the meaning of the Securities Prospectus Act and not structured as units in investment funds within the meaning of § 1(1) KAGB, namely: 1. shares granting a participation in an undertaking's results, 2. shares in trust assets, 3. profit-participating loans, 4. subordinated loans, 5. profit-participation rights, 6. registered bonds, 7. other investments granting interest and repayment or a cash settlement in exchange for the temporary provision of money, 8. investments granting such returns in exchange for the temporary provision of money or customary precious metals - in each case provided the acceptance of the funds does not qualify as deposit business under § 1(1) sentence 2 no. 1 KWG. NOTE: Anlage 1 no. 5.1 FinVermV, in its 2012 wording, lists only profit-participation rights, silent partnerships, registered bonds and cooperative shares plus a catch-all 'further Vermoegensanlagen'; profit-participating and subordinated loans were only added to the VermAnlG in 2015. The current § 1(2) VermAnlG governs, and the area heading expressly refers to it."
+   }
+  },
+  {
+   "id": "finanzanlagen-vermoegensanlagen-02",
+   "topic": "Vermögensanlagen im Sinne des § 1 Absatz 2 des Vermögensanlagengesetzes",
+   "topic_code": "vermoegensanlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 15 FinVermV, § 13 VermAnlG",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Welches Dokument muss ein Gewerbetreibender bei einer Anlageberatung über eine Vermögensanlage zusätzlich zur Verfügung stellen?",
+     "options": {
+      "a": "Den vollständigen Jahresabschluss des Emittenten der letzten drei Geschäftsjahre",
+      "b": "Das Vermögensanlagen-Informationsblatt, sofern ein solches nach § 13 VermAnlG zu erstellen ist, rechtzeitig vor Abschluss eines Geschäfts über jede Vermögensanlage, auf die sich eine Kaufempfehlung bezieht",
+      "c": "Eine Bestätigung der Bundesanstalt für Finanzdienstleistungsaufsicht über die Bonität des Emittenten",
+      "d": "Eine Kopie des eigenen Prüfungsberichts nach § 24 FinVermV"
+     }
+    },
+    "en": {
+     "question": "Which document must a trader additionally provide when giving investment advice on a Vermoegensanlage?",
+     "options": {
+      "a": "The issuer's full annual accounts for the last three financial years",
+      "b": "The Vermoegensanlagen information sheet (VIB), where one must be produced under § 13 VermAnlG, in good time before the transaction, for every Vermoegensanlage to which a purchase recommendation relates",
+      "c": "A confirmation from BaFin as to the issuer's creditworthiness",
+      "d": "A copy of his own audit report under § 24 FinVermV"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 15 FinVermV: „Im Fall einer Anlageberatung über Vermögensanlagen im Sinne des § 1 Absatz 2 des Vermögensanlagengesetzes hat der Gewerbetreibende dem Anleger rechtzeitig vor dem Abschluss eines Geschäfts über jede Vermögensanlage, auf die sich eine Kaufempfehlung bezieht, das Vermögensanlagen-Informationsblatt, wenn ein solches nach § 13 des Vermögensanlagengesetzes zu erstellen ist, zur Verfügung zu stellen.“ Das VIB darf nach § 13 Abs. 3 Satz 1 VermAnlG nicht mehr als drei DIN-A4-Seiten umfassen und muss die wesentlichen Informationen in der dort vorgeschriebenen Reihenfolge enthalten - unter anderem Art und Bezeichnung, Anbieter und Emittent, Anlagestrategie und Anlageobjekte, Laufzeit und Kündigungsfrist, die verbundenen Risiken, den Verschuldungsgrad des Emittenten sowie Kosten und Provisionen. Es darf nach § 13 Abs. 2 Satz 1 VermAnlG erst veröffentlicht werden, wenn die Bundesanstalt die Veröffentlichung gestattet. Ein Verstoß gegen § 15 FinVermV ist ordnungswidrig nach § 26 Abs. 1 Nr. 7 FinVermV.",
+    "en": "§ 15 FinVermV requires that, where investment advice is given on Vermoegensanlagen within the meaning of § 1(2) VermAnlG, the trader provide the investor, in good time before the transaction and for every Vermoegensanlage to which a purchase recommendation relates, with the Vermoegensanlagen information sheet, where one must be produced under § 13 VermAnlG. Under § 13(3) sentence 1 VermAnlG the VIB may not exceed three A4 pages and must contain the essential information in the prescribed order - among other things the type and designation, the provider and issuer, the investment strategy and objects, the term and notice period, the associated risks, the issuer's debt ratio, and costs and commissions. Under § 13(2) sentence 1 VermAnlG it may be published only once BaFin has permitted publication. Breach of § 15 FinVermV is an administrative offence under § 26(1) no. 7 FinVermV."
+   }
+  },
+  {
+   "id": "finanzanlagen-vermoegensanlagen-03",
+   "topic": "Vermögensanlagen im Sinne des § 1 Absatz 2 des Vermögensanlagengesetzes",
+   "topic_code": "vermoegensanlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 16 Abs. 3a FinVermV, § 2a VermAnlG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Vor der Vermittlung einer Vermögensanlage im Sinne des § 2a VermAnlG (Schwarmfinanzierung) hat der Gewerbetreibende eine Selbstauskunft des Anlegers einzuholen. Welche Betragsgrenzen sind zu prüfen?",
+     "options": {
+      "a": "Einheitlich 5 000 Euro je Anleger und Emittent",
+      "b": "Einheitlich 50 000 Euro je Anleger und Emittent",
+      "c": "1 000 Euro ohne Selbstauskunft; 10 000 Euro, wenn der Anleger nach Selbstauskunft über ein frei verfügbares Vermögen in Bankguthaben und Finanzinstrumenten von mindestens 100 000 Euro verfügt; sonst der zweifache Betrag des durchschnittlichen monatlichen Nettoeinkommens, höchstens 25 000 Euro",
+      "d": "Es gibt keine Betragsgrenzen; die Prüfung betrifft nur die Kenntnisse des Anlegers"
+     }
+    },
+    "en": {
+     "question": "Before intermediating a Vermoegensanlage within the meaning of § 2a VermAnlG (crowdfunding), the trader must obtain a self-declaration from the investor. Which thresholds must be checked?",
+     "options": {
+      "a": "A uniform EUR 5,000 per investor and issuer",
+      "b": "A uniform EUR 50,000 per investor and issuer",
+      "c": "EUR 1,000 without any self-declaration; EUR 10,000 where the investor declares freely available assets in bank deposits and financial instruments of at least EUR 100,000; otherwise twice the average monthly net income, capped at EUR 25,000",
+      "d": "There are no thresholds; the check concerns only the investor's knowledge"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 16 Abs. 3a Satz 1 FinVermV verpflichtet zur Einholung einer Selbstauskunft über Vermögen oder Einkommen, soweit dies zur Prüfung erforderlich ist, ob der Gesamtbetrag der Vermögensanlagen desselben Emittenten die Grenzen nicht übersteigt: Nr. 1 „10 000 Euro, sofern der jeweilige Anleger nach seiner Selbstauskunft über ein frei verfügbares Vermögen in Form von Bankguthaben und Finanzinstrumenten von mindestens 100 000 Euro verfügt“, oder Nr. 2 „den zweifachen Betrag des durchschnittlichen monatlichen Nettoeinkommens des jeweiligen Anlegers, höchstens jedoch 25 000 Euro“. Satz 2 nimmt Beträge bis 1 000 Euro aus, wenn der Anleger keine Kapitalgesellschaft ist. Satz 3 macht die Prüfung zur Vermittlungsvoraussetzung: der Gewerbetreibende „darf den Vertragsschluss [...] nur vermitteln, wenn er geprüft hat“, dass die Grenzen eingehalten sind. Ein Verstoß gegen Satz 1 ist ordnungswidrig nach § 26 Abs. 1 Nr. 8 FinVermV. Die Prospektbefreiung des § 2a VermAnlG setzt ihrerseits voraus, dass der Verkaufspreis aller in zwölf Monaten angebotenen Vermögensanlagen desselben Emittenten 6 Millionen Euro nicht übersteigt.",
+    "en": "§ 16(3a) sentence 1 FinVermV requires a self-declaration on assets or income so far as necessary to check that the total of the same issuer's Vermoegensanlagen acquired by the investor does not exceed: no. 1, EUR 10,000 where the investor declares freely available assets in the form of bank deposits and financial instruments of at least EUR 100,000, or no. 2, twice the investor's average monthly net income, capped at EUR 25,000. Sentence 2 exempts amounts up to EUR 1,000 where the investor is not a corporation. Sentence 3 makes the check a precondition of intermediation: the trader may intermediate the contract only if he has verified that the limits are observed. Breach of sentence 1 is an administrative offence under § 26(1) no. 8 FinVermV. The § 2a VermAnlG prospectus exemption itself requires that the sale price of all the same issuer's Vermoegensanlagen offered within twelve months not exceed EUR 6 million."
+   }
+  },
+  {
+   "id": "finanzanlagen-vermoegensanlagen-04",
+   "topic": "Vermögensanlagen im Sinne des § 1 Absatz 2 des Vermögensanlagengesetzes",
+   "topic_code": "vermoegensanlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 17 Abs. 1 und 2 FinVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Vermittler erhält vom Emittenten einer Vermögensanlage eine Abschlussprovision. Unter welchen Voraussetzungen darf er sie annehmen?",
+     "options": {
+      "a": "Nur wenn er Existenz, Art und Umfang der Zuwendung - oder, soweit der Umfang noch nicht bestimmbar ist, die Art und Weise ihrer Berechnung - dem Anleger vor Vertragsschluss umfassend, zutreffend und verständlich offengelegt hat und die Zuwendung der ordnungsgemäßen Vermittlung und Beratung im Interesse des Anlegers nicht entgegensteht",
+      "b": "Ohne Weiteres, weil Provisionen im Vertrieb marktüblich sind",
+      "c": "Nur wenn er sie unverzüglich und ungemindert an den Anleger auskehrt",
+      "d": "Nur wenn die Provision 5 Prozent der Anlagesumme nicht übersteigt"
+     }
+    },
+    "en": {
+     "question": "An intermediary receives a placement commission from the issuer of a Vermoegensanlage. On what conditions may he accept it?",
+     "options": {
+      "a": "Only if he has disclosed the existence, nature and extent of the inducement - or, where the extent cannot yet be determined, the method of its calculation - to the investor before the contract is concluded, comprehensively, accurately and comprehensibly, and the inducement does not conflict with proper intermediation and advice in the investor's interest",
+      "b": "Without further conditions, because commissions are customary in distribution",
+      "c": "Only if he passes it on to the investor without delay and in full",
+      "d": "Only if the commission does not exceed 5 per cent of the invested amount"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 17 Abs. 1 FinVermV formuliert ein Verbot mit Erlaubnisvorbehalt: Zuwendungen Dritter dürfen nicht angenommen oder gewährt werden, es sei denn, (Nr. 1) „er hat Existenz, Art und Umfang der Zuwendung oder, soweit sich der Umfang noch nicht bestimmen lässt, die Art und Weise seiner Berechnung dem Anleger vor Abschluss des Vertrags in umfassender, zutreffender und verständlicher Weise offengelegt“ und (Nr. 2) „die Zuwendung steht der ordnungsgemäßen Vermittlung und Beratung im Interesse des Anlegers nicht entgegen und wirkt sich nicht nachteilig auf die Qualität der Vermittlung und Beratung aus“. Der Schlusssatz stellt klar, dass die Zuwendung die Pflicht, im bestmöglichen Interesse des Anlegers ehrlich, redlich und professionell zu handeln, nicht beeinträchtigen darf. Abs. 2 definiert Zuwendungen weit (Provisionen, Gebühren, sonstige Geldleistungen und alle geldwerten Vorteile). Abs. 3 nimmt nur Gebühren und Entgelte aus, die die Tätigkeit erst ermöglichen oder dafür notwendig sind. (c) beschreibt die Auskehrpflicht des Honorar-Finanzanlagenberaters nach § 34h Abs. 3 Satz 3 GewO und § 17a FinVermV, nicht die Rechtslage beim Finanzanlagenvermittler.",
+    "en": "§ 17(1) FinVermV states a prohibition subject to permission: third-party inducements may not be accepted or granted unless (no. 1) the existence, nature and extent of the inducement - or, where the extent cannot yet be determined, the method of its calculation - has been disclosed to the investor before conclusion of the contract in a comprehensive, accurate and comprehensible manner, and (no. 2) the inducement does not conflict with proper intermediation and advice in the investor's interest and has no adverse effect on their quality. The closing sentence adds that the inducement must not impair the duty to act honestly, fairly and professionally in the investor's best interest. Subsection 2 defines inducements broadly (commissions, fees, other monetary benefits and all benefits in kind). Subsection 3 exempts only fees and charges that enable or are necessary for the activity. (c) describes the pass-on duty of the fee-based adviser under § 34h(3) sentence 3 GewO and § 17a FinVermV, not the position of a § 34f intermediary."
+   }
+  }
+ ]
+}

@@ -1,0 +1,1299 @@
+{
+ "meta": {
+  "app": "Zettacard / versicherungsvermittler-lernmodul",
+  "version": "0.1-draft",
+  "generated": "2026-08-17",
+  "generator": "authored:claude-opus/2026-08-17 (data/gen_versicherungsvermittler_draft.py)",
+  "description": "Original practice questions for the German IHK-Sachkundepruefung fuer Versicherungsvermittler und Versicherungsberater under § 34d Abs. 5 Satz 1 Nr. 4 GewO ('Gepruefter Fachmann / Gepruefte Fachfrau fuer Versicherungsvermittlung IHK'). The examination's subject matter is fixed by legal instrument: § 2 Abs. 1 VersVermV names the examinable areas and § 2 Abs. 2 Satz 2 VersVermV declares that 'die inhaltlichen Anforderungen an die Sachkundepruefung bestimmen sich nach der Anlage 1' - Anlage 1 VersVermV being a four-level statutory syllabus and, as German statutory text, an amtliches Werk under § 5 UrhG carrying no copyright. SCOPE BOUNDARY 1 - who actually needs this examination, and it is far fewer people than assume they do: it is required only of an applicant for a Versicherungsvermittler-Erlaubnis (§ 34d Abs. 1 GewO) or a Versicherungsberater-Erlaubnis (§ 34d Abs. 2 GewO) and, for a non-natural person, only of an 'angemessene Zahl' of supervising, representation-authorised employees (§ 34d Abs. 5 Satz 4 GewO). It is NOT required of a gebundener Versicherungsvertreter (§ 34d Abs. 7 Satz 1 Nr. 1 GewO), whose qualification is warranted by the liability-assuming insurer under § 48 Abs. 2 VAG; NOT of a produktakzessorischer Vermittler (§ 34d Abs. 6 GewO), who needs only to be 'angemessen qualifiziert', proved by the principals' declaration under § 34d Abs. 6 Satz 2 GewO; NOT of a Nebentaetigkeits-, Bausparkassen- or small-Restschuldversicherungs-Vermittler (§ 34d Abs. 8 GewO), who sits outside the permission, register and Weiterbildung regime altogether; and NOT of an employed adviser, who needs 'sachgerechte Qualifikation' under § 34d Abs. 9 Satz 1 GewO but not the certificate. SCOPE BOUNDARY 2, and it is the reason this module is deliberately narrower than the real examination: the written part of the real examination is graded against 'Proximus 5', a conditions-and-tariffs compendium for a fictitious insurer published commercially by the BWV Bildungsverband. That work is not law, not an amtliches Werk, and squarely inside AGENTS.md constraint 1. It was not obtained, opened, quoted, paraphrased or reconstructed at any point, and this module therefore contains NO question on Leistungsumfang, Ausschluesse, Klauseln, Tarifaufbau, Annahmerichtlinien or Entschaedigungsgrenzen. Only the statutory floors under those areas (VVG, PflVG, SGB) are drafted. A candidate still needs Proximus 5 for the product half of the written part; this module covers the statutorily-grounded half. IMPORTANT - what this module is NOT: it is unofficial practice material. § 4 Abs. 3 Satz 6 VersVermV provides that 'die Pruefungsaufgaben werden auch nach der Pruefung nicht veroeffentlicht', so no official public question catalogue exists or can exist. This pool cannot and does not claim to reproduce, predict or fully cover the real examination, and passing every question here is not a guarantee of passing it. The practical part (§ 4 Abs. 4 VersVermV), a 20-minute simulated customer advisory conversation with a single candidate covering the Kundenberatung of § 2 Abs. 1 Nr. 2 VersVermV, is not testable by multiple choice at all.",
+  "class": "ALL",
+  "locales": [
+   "de",
+   "en"
+  ],
+  "canonical_locale": "de",
+  "locale_note": "DE ist kanonisch, EN ist eine vollstaendige Parallieluebersetzung - gleiches Startmuster wie aevo / fadp_ch / kyc_aml / kartellrecht / bewachungsgewerbe. ABWEICHEND vom Modul bewachungsgewerbe, das als starker Kandidat fuer alle 12 Sprachen eingeschaetzt wurde, ist dieses Modul ein SCHWACHER Kandidat: die Pruefung ist eine deutschsprachige Praesenzpruefung ueber deutsches Privat- und Sozialversicherungsrecht, der praktische Teil ist ein deutschsprachiges Kundenberatungsgespraech (§ 4 Abs. 4 VersVermV), und es gibt keinen gesetzlichen Mehrsprachigkeitsanker, der mit Anlage 2 Nr. 6 BewachV vergleichbar waere. DE + EN duerfte hier auch fuer einen Produktivausbau die richtige Groesse sein. UI-Strings shippen nach AGENTS.md Constraint 5 ohnehin in allen 12 Sprachen.",
+  "orthography_note": "Deutsches Standarddeutsch mit echten Unicode-Umlauten und Eszett (ä/ö/ü/ß) - keine ASCII-Ersatzschreibung. Anders als beim Schweizer Modul fadp_ch, das bewusst 'ss' verwendet, weil der Schweizer Gesetzestext das tut. Deutsche Anfuehrungszeichen (Doppelchevrons unten/oben) werden in deutschen Zitaten verwendet, englische Felder nutzen einfache ASCII-Anfuehrungszeichen.",
+  "exam_format_note": "§ 4 Abs. 1 VersVermV: die Sachkundepruefung besteht aus einem schriftlichen und einem praktischen Teil, und 'die Teilnahme am praktischen Teil der Pruefung setzt das Bestehen des schriftlichen Teils voraus'. § 4 Abs. 2: der schriftliche Teil umfasst die Sachgebiete des § 2 Abs. 1 Nr. 1 (lit. a bis e) und prueft sie 'anhand praxisbezogener Aufgaben und in einem ausgewogenen Verhaeltnis zueinander'. § 4 Abs. 3: die Aufgaben waehlt ein bundesweit einheitlich taetiger, mit acht Mitgliedern und acht Stellvertretern besetzter Aufgabenauswahlausschuss nach § 32 Abs. 2 GewO aus, und 'die Pruefungsaufgaben werden auch nach der Pruefung nicht veroeffentlicht'. § 4 Abs. 4: im praktischen Teil wird jeweils ein Pruefling geprueft, als Simulation eines Kundenberatungsgespraechs auf Grundlage einer Fallvorgabe, wobei der Pruefling zwischen den Sachgebieten 'Vorsorge' und 'Sach- und Vermoegensversicherung' waehlen kann. § 4 Abs. 5: der praktische Teil entfaellt fuer Inhaber einer Erlaubnis oder eines Sachkundenachweises nach § 34f, § 34h oder § 34i GewO. § 4 Abs. 6: die Pruefung ist nicht oeffentlich. § 4 Abs. 8: bei Bestehen stellt die IHK unverzueglich eine Bescheinigung nach Anlage 2 VersVermV aus. § 3 Abs. 1: die Pruefung kann bei jeder IHK abgelegt werden - es gibt keine Bezirksbindung. WAS DIE VERSVERMV NICHT FESTLEGT: die Anzahl der Fragen und die Dauer der Pruefungsteile. Das regeln die IHKs nach § 4 Abs. 9 VersVermV in Verbindung mit § 32 Abs. 1 Satz 2 GewO durch Satzung. Zwei unabhaengig gepruefte Kammern (Duesseldorf, Rhein-Neckar) nennen uebereinstimmend 160 Minuten fuer den schriftlichen Teil und etwa 20 Minuten fuer den praktischen; das ist typische Kammerpraxis, nicht Bundesrecht, und darf nicht als solches dargestellt werden. Dasselbe gilt fuer die Gebuehren, die zwischen den beiden geprueften Kammern um rund 10 Prozent auseinanderliegen.",
+  "topic_weighting_note": "Die sechs Topics bilden die fuenf schriftlichen Pruefungsbereiche des § 2 Abs. 1 Nr. 1 lit. a bis e VersVermV ab, ergaenzt um ein sechstes Topic fuer die beiden Sachgebiete der Anlage 1, die dieses Repo bereits an anderer Stelle abdeckt (Nr. 2.5.3 Datenschutz, Nr. 2.8 Geldwaeschegesetz). DIE GEWICHTUNG ENTSPRICHT BEWUSST NICHT DER DER ECHTEN PRUEFUNG und darf nicht so dargestellt werden. § 4 Abs. 2 Satz 2 VersVermV verlangt, die fuenf Bereiche 'in einem ausgewogenen Verhaeltnis zueinander' zu pruefen, was etwa je ein Fuenftel des schriftlichen Teils bedeutet. Dieses Modul uebergewichtet die rechtlichen Bereiche und untergewichtet die Produktbereiche, weil letztere nach dem Bedingungswerk Proximus 5 bewertet werden, das aus constraint-1-Gruenden hier weder verwendet noch rekonstruiert wird (siehe meta.description, SCOPE BOUNDARY 2, und docs/versicherungsvermittler-pre-review-dossier-2026-08-17.md § 0.2 und § 4.2). Dieses Modul kann daher keine proportionale Abdeckung des echten schriftlichen Teils beanspruchen.",
+  "point_system": "3 = Grundwissen, 4 = Regelfall, 5 = hohe Praxisrelevanz oder haeufige Fehlerquelle. Die Punktwerte sind eine Lernhilfe dieses Moduls und haben mit der Punktevergabe der echten Pruefung nichts zu tun.",
+  "pass_rule_note": "ANDERS ALS BEIM MODUL bewachungsgewerbe ist die Bestehensregel hier Bundesrecht und kann woertlich zitiert werden. § 4 Abs. 7 VersVermV: die Leistung wird mit 'bestanden' oder 'nicht bestanden' bewertet; die Pruefung ist bestanden, wenn sowohl der schriftliche als auch der praktische Teil jeweils mit 'bestanden' bewertet worden sind. 'Der schriftliche Teil der Pruefung ist bestanden, wenn der Pruefling 1. in vier der in § 2 Absatz 1 Nummer 1 genannten Bereiche jeweils mindestens 50 Prozent und 2. in dem verbliebenen Bereich mindestens 30 Prozent der erreichbaren Punkte erzielt.' Der praktische Teil ist bestanden, wenn mindestens 50 Prozent der erreichbaren Punkte erzielt werden. NICHT bundesrechtlich geregelt und daher hier nicht behauptet: Fragenzahl und Pruefungsdauer (§ 4 Abs. 9 VersVermV, § 32 Abs. 1 Satz 2 GewO - IHK-Satzung). Die Wiederholbarkeit ergibt sich mittelbar aus § 4 Abs. 8 Satz 2 VersVermV (Hinweis auf die Wiederholungsmoeglichkeit im Ablehnungsbescheid); Umfang und Fristen regeln die Kammern.",
+  "sources": {
+   "tier_a_binding": [
+    "Gewerbeordnung (GewO) §§ 11a, 32, 34d, 34e, 144 - https://www.gesetze-im-internet.de/gewo/",
+    "Versicherungsvermittlungsverordnung (VersVermV) vom 17.12.2018, BGBl. I S. 2483; 2019 I S. 411, zuletzt geaendert durch Art. 1 V. v. 17.02.2025 BGBl. 2025 I Nr. 43 - §§ 1-27 und Anlagen 1-4 in voller Laenge - https://www.gesetze-im-internet.de/versvermv_2018/",
+    "VersVermV Anlage 1 (zu § 2 Absatz 2 Satz 2), 'Inhaltliche Anforderungen an die Sachkundepruefung', Fundstelle BGBl. I 2018, 2493-2495 - der gesetzliche Lehrplan, den § 2 Abs. 2 Satz 2 VersVermV zum Massstab der Pruefung erklaert; amtliches Werk nach § 5 UrhG, kein Urheberrechtsschutz",
+    "Versicherungsvertragsgesetz (VVG) §§ 1a, 3, 6, 6a, 7, 7a, 7b, 7c, 8, 19, 23, 28, 33, 37, 59, 60, 61, 62, 63, 64, 74, 75, 76, 95, 100, 113, 115, 178, 193, 210, 213, 214 - https://www.gesetze-im-internet.de/vvg_2008/",
+    "Versicherungsaufsichtsgesetz (VAG) §§ 48, 48a, 48b, 48c - https://www.gesetze-im-internet.de/vag_2016/",
+    "Geldwaeschegesetz (GwG) § 2 Abs. 1 Nr. 7 und Nr. 8 - https://www.gesetze-im-internet.de/gwg_2017/__2.html",
+    "Betriebsrentengesetz (BetrAVG) §§ 1a, 1b - https://www.gesetze-im-internet.de/betravg/",
+    "SGB VI § 35; SGB VII § 8; EStG § 3 - https://www.gesetze-im-internet.de/",
+    "Pflichtversicherungsgesetz (PflVG) § 1, § 4 und Anlage zu § 4 Abs. 2 - https://www.gesetze-im-internet.de/pflvg/",
+    "1. Verordnung zur Aenderung der Versicherungsvermittlungsverordnung, V. v. 17.02.2025, BGBl. 2025 I Nr. 43 - amtliche BGBl-PDF, Art. 1 und 2",
+    "Gesetz zum Buerokratierueckbau in der Gewerbeordnung (GewBuerAbG), G. v. 20.07.2026, BGBl. 2026 I Nr. 215 - amtliche BGBl-PDF, gelesen zur Feststellung des NEGATIVBEFUNDS, dass Artikel 1 nur §§ 6a, 14 Abs. 8 und 34c Abs. 2a GewO aendert und § 34d unberuehrt laesst"
+   ],
+   "tier_b_procedural": [
+    "DIHK/BWV, 'Gepruefter Fachmann fuer Versicherungsvermittlung IHK - Rahmenplan mit Lernzielen fuer die Sachkundepruefung', 6. Auflage, Stand Maerz 2025 - NUR als Umfangs-Gegenprobe gelesen, NICHT als Inhaltsquelle. Traegt einen eigenen Copyright-Vermerk der DIHK e.V. ('Ein Nachdruck - auch auszugsweise - ist nur mit ausdruecklicher schriftlicher Genehmigung des Herausgebers gestattet'); weder Wortlaut noch Tabellenstruktur, Taxonomiestufen, G/S/P-Marker oder Stundenrichtwerte je Untersachgebiet sind hier reproduziert. Aus ihm stammt der Befund, dass der schriftliche Teil nach dem Bedingungswerk Proximus 5 bewertet wird.",
+    "IHK Duesseldorf (Nr. 2595960) und IHK Rhein-Neckar (Nr. 945188) - Pruefungsmechanik, Gebuehren, Zulassungsregel, Zwei-Jahres-Fenster fuer den praktischen Teil, unbegrenzte Wiederholbarkeit. Kammersatzungsrecht, kein Bundesrecht. HINWEIS: die Seite der IHK Duesseldorf zitiert die Bestehensregel als '§ 9 Absatz 4 lit. a bis e' - eine Vorschrift, die es nicht gibt; richtig ist § 4 Abs. 7 VersVermV in Verbindung mit § 2 Abs. 1 Nr. 1."
+   ],
+   "not_used": [
+    "Kein Fragenkatalog, keine Aufgabensammlung und kein Text irgendeines Pruefungsvorbereitungs- oder Schulungsanbieters wurde gelesen, zitiert oder paraphrasiert (AGENTS.md constraint 1).",
+    "Das Bedingungswerk 'Proximus 5' des BWV Bildungsverbands wurde NICHT beschafft, geoeffnet, zitiert, paraphrasiert oder rekonstruiert. Seine Existenz und seine Rolle sind ausschliesslich aus dem DIHK/BWV-Rahmenplan und der oeffentlichen Selbstbeschreibung des BWV belegt."
+   ]
+  },
+  "related_modules": {
+   "kyc_aml": "Geldwaescherecht allgemein - Typologien, Kundensorgfaltspflichten, Verdachtsmeldung nach § 43 GwG, verstaerkte Sorgfaltspflichten, Sanktionen. Dieses Modul enthaelt dazu bewusst nur EINE Frage, und zwar ausschliesslich zur versicherungsspezifischen Verpflichteteneigenschaft nach § 2 Abs. 1 Nr. 8 GwG mit ihren beiden Ausnahmen fuer § 34d Abs. 6 und Abs. 7 Nr. 1 GewO. Alles Uebrige bleibt in kyc_aml. Umgekehrt fehlt in kyc_aml derzeit jede Erwaehnung des § 2 Abs. 1 Nr. 8 GwG - siehe Dossier § 7.2, dort als eigene kyc_aml-Karte vorgeschlagen.",
+   "datenschutz": "DSGVO/BDSG allgemein - Rechtsgrundlagen nach Art. 6, besondere Kategorien nach Art. 9, Betroffenenrechte, Datensicherheit, Meldepflichten, Auftragsverarbeitung. Dieses Modul enthaelt dazu bewusst nur EINE Frage, und zwar ausschliesslich zur versicherungsspezifischen Sondervorschrift des § 213 VVG (Erhebung personenbezogener Gesundheitsdaten bei Dritten). Alles Uebrige bleibt in datenschutz, das die allgemeinen Regeln bereits in allen 12 Sprachen abdeckt.",
+   "dora": "BEWUSST NICHT verknuepft. § 34d Abs. 11a und Abs. 13 GewO uebertragen den IHKs zwar die DORA-Aufsicht ueber Versicherungsvermittler, aber erst ab 250 Beschaeftigten und 50 Mio. Euro Jahresumsatz bzw. 43 Mio. Euro Bilanzsumme - eine Schwelle, die die gesamte Zielgruppe der Sachkundepruefung ausschliesst. DORA kommt in Anlage 1 VersVermV nicht vor.",
+   "kartellrecht": "BEWUSST NICHT verknuepft. Das 'Wettbewerbsrecht' der Anlage 1 Nr. 2.4 VersVermV ist UWG-Recht (unzulaessige Werbung), nicht GWB- oder Art.-101-AEUV-Kartellrecht."
+  },
+  "legal_review_status": "NOT REVIEWED - AI-authored draft from primary statutory sources. Not reviewed by a qualified lawyer, by any IHK Pruefungsausschuss member, or by anyone on the DIHK/BWV Sachverstaendigengremium. Must not be shipped to learners in this state. See docs/versicherungsvermittler-pre-review-dossier-2026-08-17.md.",
+  "renewal_months": 3,
+  "renewal_basis": "§ 34d GewO steht in der Fassung des Art. 9 FinmadiG, BGBl. 2024 I Nr. 438, m.W.v. 30.12.2024; die VersVermV in der Fassung des Art. 1 V. v. 17.02.2025, BGBl. 2025 I Nr. 43. Beide Instrumente sind EU-getrieben (IDD, Richtlinie (EU) 2016/97) und aendern sich mit der Richtlinie.",
+  "renewal_note": "Re-Verifikationsdatum spaetestens 30.11.2026. Bei der Neupruefung sind zwei Dinge zu pruefen, nicht nur eines: erstens die Rechtslage (§ 34d GewO und VersVermV aus den Aenderungsinstrumenten heraus lesen, nicht aus dieser Datei), zweitens ob das Bedingungswerk Proximus 5 noch das aktuelle ist - ein Proximus 6 wuerde die Pruefung veraendern, ohne dass sich eine einzige Rechtsnorm aendert.",
+  "draft_note": "Not registered in data/build_modules.py, not in data/modules_manifest.json, app.js untouched, no build step run, nothing staged or committed. The _DRAFT filename suffix keeps this file out of the live build path by construction. First-round pilot: 30 questions, DE canonical + EN. See docs/versicherungsvermittler-pre-review-dossier-2026-08-17.md for the sourcing analysis that unblocked this module (§ 2 Abs. 2 Satz 2 VersVermV makes Anlage 1 VersVermV the exam's statutory content standard), for the Proximus boundary that limits it, and for the open items the PO has to decide before it is wired in.",
+  "license": "CC BY-NC-SA 4.0",
+  "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+  "license_note": "Wie alle Inhalte dieses Repos unter CC BY-NC-SA 4.0. Zitierte Gesetzes- und Verordnungstexte sind amtliche Werke nach § 5 UrhG und selbst nicht urheberrechtlich geschuetzt; die Fragen, Distraktoren und Erlaeuterungen sind Eigenleistung dieses Projekts.",
+  "total_questions": 30,
+  "topic_distribution": {
+   "rechtliche_grundlagen": 8,
+   "vertragsrecht_vvg": 7,
+   "beratung_dokumentation": 6,
+   "vorsorge": 4,
+   "sach_haftpflicht": 3,
+   "datenschutz_gwg": 2
+  }
+ },
+ "questions": [
+  {
+   "id": "versverm-rechtliche_grundlagen-01",
+   "topic": "Rechtliche Grundlagen der Versicherungsvermittlung und -beratung",
+   "topic_code": "rechtliche_grundlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34d Abs. 5 Satz 1 GewO",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Eine Antragstellerin beantragt bei der Industrie- und Handelskammer die Erlaubnis als Versicherungsmaklerin. Welche vier Voraussetzungen muss sie erfüllen, damit die Erlaubnis nicht zwingend zu versagen ist?",
+     "options": {
+      "a": "Zuverlässigkeit, geordnete Vermögensverhältnisse und ein Mindestalter von 21 Jahren",
+      "b": "Zuverlässigkeit, geordnete Vermögensverhältnisse und eine kaufmännische Ausbildung",
+      "c": "Zuverlässigkeit, geordnete Vermögensverhältnisse, Nachweis einer Berufshaftpflichtversicherung oder gleichwertigen Garantie und Nachweis der Sachkunde durch eine vor der IHK erfolgreich abgelegte Prüfung",
+      "d": "Zuverlässigkeit, geordnete Vermögensverhältnisse und die Eintragung ins Handelsregister"
+     }
+    },
+    "en": {
+     "question": "An applicant applies to the Chamber of Industry and Commerce for a licence as an insurance broker. Which four conditions must she meet so that the licence is not mandatorily refused?",
+     "options": {
+      "a": "Reliability, orderly financial circumstances and a minimum age of 21",
+      "b": "Reliability, orderly financial circumstances and a commercial apprenticeship",
+      "c": "Reliability, orderly financial circumstances, proof of professional indemnity insurance or an equivalent guarantee, and proof of expertise through an examination passed before the Chamber of Industry and Commerce",
+      "d": "Reliability, orderly financial circumstances and registration in the commercial register"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34d Abs. 5 Satz 1 GewO zählt die Versagungsgründe abschließend auf: Nr. 1 fehlende Zuverlässigkeit, Nr. 2 ungeordnete Vermögensverhältnisse, Nr. 3 fehlender Nachweis einer Berufshaftpflichtversicherung oder einer gleichwertigen Garantie, Nr. 4 fehlender Nachweis, dass die Antragstellerin die Sachkunde „durch eine vor der Industrie- und Handelskammer erfolgreich abgelegte Prüfung“ nachweist. Ein Mindestalter, eine bestimmte Ausbildung oder ein Handelsregistereintrag gehören nicht dazu. MERKE: Die Sachkunde steht in Absatz 5, nicht in Absatz 2 - Absatz 2 regelt seit der IDD-Umsetzung zum 23.02.2018 den Versicherungsberater. Ältere Quellen zitieren häufig noch die alte Fundstelle.",
+    "en": "Section 34d(5) sentence 1 GewO lists the grounds for refusal exhaustively: No. 1 lack of reliability, No. 2 disordered financial circumstances, No. 3 no proof of professional indemnity insurance or an equivalent guarantee, No. 4 no proof of expertise 'through an examination successfully passed before the Chamber of Industry and Commerce'. A minimum age, a particular training or a commercial-register entry are not among them. NOTE: the expertise limb sits in subsection 5, not subsection 2 - subsection 2 has governed the insurance adviser since the IDD implementation took effect on 23 February 2018. Older sources frequently still cite the old location."
+   }
+  },
+  {
+   "id": "versverm-rechtliche_grundlagen-02",
+   "topic": "Rechtliche Grundlagen der Versicherungsvermittlung und -beratung",
+   "topic_code": "rechtliche_grundlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34d Abs. 7 Satz 1 Nr. 1 GewO, § 48 Abs. 2 und 4 VAG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Vermittler arbeitet ausschließlich für ein einziges deutsches Versicherungsunternehmen, das die uneingeschränkte Haftung aus seiner Vermittlertätigkeit übernommen hat. Was gilt für ihn?",
+     "options": {
+      "a": "Er braucht eine Erlaubnis nach § 34d Abs. 1 GewO und muss die Sachkundeprüfung ablegen",
+      "b": "Er braucht keine Erlaubnis; er muss aber ins Vermittlerregister eingetragen werden, und das Versicherungsunternehmen muss seine angemessene Qualifikation sicherstellen",
+      "c": "Er braucht weder eine Erlaubnis noch eine Registereintragung und unterliegt keiner Weiterbildungspflicht",
+      "d": "Er braucht eine Erlaubnis, ist aber von der Sachkundeprüfung befreit"
+     }
+    },
+    "en": {
+     "question": "An intermediary works exclusively for a single German insurance undertaking which has assumed unlimited liability for his intermediary activity. What applies to him?",
+     "options": {
+      "a": "He needs a licence under section 34d(1) GewO and must sit the expertise examination",
+      "b": "He needs no licence; but he must be entered in the intermediaries register, and the insurance undertaking must ensure his appropriate qualification",
+      "c": "He needs neither a licence nor a register entry and is subject to no continuing-education duty",
+      "d": "He needs a licence but is exempt from the expertise examination"
+     }
+    }
+   },
+   "explanation": {
+    "de": "Das ist der gebundene Versicherungsvertreter nach § 34d Abs. 7 Satz 1 Nr. 1 GewO: „Abweichend von Absatz 1 bedarf ein Versicherungsvermittler keiner Erlaubnis, wenn er seine Tätigkeit … ausschließlich im Auftrag eines oder, wenn die Versicherungsprodukte nicht in Konkurrenz stehen, mehrerer Versicherungsunternehmen ausübt … und durch das oder die Versicherungsunternehmen für ihn die uneingeschränkte Haftung aus seiner Vermittlertätigkeit übernommen wird“. Ohne Erlaubnis gibt es auch keine Sachkundeprüfung nach § 34d Abs. 5 Satz 1 Nr. 4. Die Qualitätssicherung wandert zum Versicherer: § 48 Abs. 2 Satz 2 Nr. 1 VAG lässt eine Zusammenarbeit nur zu, wenn der Vermittler zuverlässig ist, in geordneten Vermögensverhältnissen lebt, „über die zur Vermittlung der jeweiligen Versicherung angemessene Qualifikation verfügt und sich regelmäßig fortbildet“. Registerpflicht besteht sehr wohl (§ 34d Abs. 10 Satz 1 GewO), die Meldung erfolgt aber nach § 9 Abs. 2 VersVermV in Verbindung mit § 48 Abs. 4 Satz 1 VAG durch das Versicherungsunternehmen. Auch die 15 Stunden Weiterbildung je Kalenderjahr gelten (§ 34d Abs. 9 Satz 2 GewO nennt Absatz 7 Satz 1 Nummer 1 ausdrücklich), weshalb (c) falsch ist.",
+    "en": "This is the tied insurance agent under section 34d(7) sentence 1 no. 1 GewO: an intermediary needs no licence where he acts exclusively for one, or several non-competing, domestically authorised insurers which assume unlimited liability for his intermediary activity. No licence means no expertise examination under section 34d(5) sentence 1 no. 4 either. Quality assurance moves to the insurer: section 48(2) sentence 2 no. 1 VAG permits cooperation only where the intermediary is reliable, in orderly financial circumstances, holds 'the qualification appropriate for distributing the insurance in question and undergoes regular continuing training'. A register duty does exist (section 34d(10) sentence 1 GewO), but the notification is made by the insurer under section 9(2) VersVermV in conjunction with section 48(4) sentence 1 VAG. The 15 hours of continuing education per calendar year also apply - section 34d(9) sentence 2 GewO names subsection 7 sentence 1 no. 1 expressly - which is why (c) is wrong."
+   }
+  },
+  {
+   "id": "versverm-rechtliche_grundlagen-03",
+   "topic": "Rechtliche Grundlagen der Versicherungsvermittlung und -beratung",
+   "topic_code": "rechtliche_grundlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34d Abs. 6 GewO",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Fahrradhändler möchte seinen Kundinnen und Kunden beim Fahrradkauf eine Diebstahlversicherung anbieten und beantragt bei der IHK die Ausnahme von der Erlaubnispflicht als produktakzessorischer Versicherungsvermittler. Welchen Nachweis muss er für die fachliche Eignung erbringen?",
+     "options": {
+      "a": "Er muss die vollständige IHK-Sachkundeprüfung ablegen wie jeder erlaubnispflichtige Vermittler",
+      "b": "Er muss den schriftlichen Teil der Sachkundeprüfung ablegen, der praktische Teil entfällt",
+      "c": "Er muss überhaupt keine Qualifikation nachweisen, weil die Ausnahme voraussetzungslos gilt",
+      "d": "Er muss nachweisen, dass er „angemessen qualifiziert“ ist; dafür genügt eine Erklärung seiner Auftraggeber, die Anforderungen entsprechend § 48 Abs. 2 VAG zu beachten und seine Qualifikation sicherzustellen"
+     }
+    },
+    "en": {
+     "question": "A bicycle dealer wants to offer his customers theft insurance when they buy a bicycle and applies to the Chamber for exemption from the licensing requirement as an ancillary insurance intermediary. What proof of professional aptitude must he provide?",
+     "options": {
+      "a": "He must sit the full Chamber expertise examination like any licensed intermediary",
+      "b": "He must sit the written part of the expertise examination; the practical part is waived",
+      "c": "He need prove no qualification at all, because the exemption applies unconditionally",
+      "d": "He must show that he is 'appropriately qualified'; a declaration by his principals undertaking to observe the requirements corresponding to section 48(2) VAG and to ensure his qualification suffices"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34d Abs. 6 Satz 1 GewO verlangt für die Erlaubnisbefreiung des produktakzessorischen Vermittlers drei Nachweise: Nr. 1 Tätigkeit unmittelbar im Auftrag erlaubter Vermittler oder von Versicherungsunternehmen, Nr. 2 eine Berufshaftpflichtversicherung oder gleichwertige Garantie nach Maßgabe des Absatzes 5 Satz 1 Nummer 3, Nr. 3 dass er „zuverlässig sowie angemessen qualifiziert ist und nicht in ungeordneten Vermögensverhältnissen lebt“. Satz 2 stellt klar: „Im Fall des Satzes 1 Nummer 3 ist als Nachweis eine Erklärung der in Satz 1 Nummer 1 bezeichneten Auftraggeber ausreichend“. Die Sachkundeprüfung nach Absatz 5 Satz 1 Nummer 4 gehört ausdrücklich nicht zu den Voraussetzungen des Absatzes 6 - die Berufshaftpflicht dagegen schon, weshalb (c) falsch ist.",
+    "en": "Section 34d(6) sentence 1 GewO requires three showings for the ancillary intermediary's exemption: no. 1 acting directly on behalf of licensed intermediaries or insurers, no. 2 professional indemnity insurance or an equivalent guarantee as under subsection 5 sentence 1 no. 3, no. 3 that he is 'reliable and appropriately qualified and does not live in disordered financial circumstances'. Sentence 2 makes clear that for no. 3 a declaration by the principals named in no. 1 is sufficient proof. The expertise examination under subsection 5 sentence 1 no. 4 is expressly not among the subsection 6 conditions - the professional indemnity cover, by contrast, is, which is why (c) is wrong."
+   }
+  },
+  {
+   "id": "versverm-rechtliche_grundlagen-04",
+   "topic": "Rechtliche Grundlagen der Versicherungsvermittlung und -beratung",
+   "topic_code": "rechtliche_grundlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34d Abs. 8 Nr. 1 GewO",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Reisebüro vermittelt seinen Kundinnen und Kunden zu gebuchten Reisen eine Reisegepäckversicherung. Unter welcher Voraussetzung ist diese Nebentätigkeit vollständig erlaubnisfrei nach § 34d Abs. 8 GewO?",
+     "options": {
+      "a": "Wenn die Versicherung eine Zusatzleistung zur gebuchten Reise ist, nicht hauptberuflich vermittelt wird und die Prämie auf Jahresbasis 600 Euro nicht übersteigt - beziehungsweise bei Dienstleistungen von höchstens drei Monaten Dauer 200 Euro je Person",
+      "b": "Wenn die Prämie auf Jahresbasis 1 000 Euro nicht übersteigt",
+      "c": "Wenn das Reisebüro weniger als zehn Beschäftigte hat",
+      "d": "Wenn das Reisebüro auf eine Provision verzichtet"
+     }
+    },
+    "en": {
+     "question": "A travel agency arranges baggage insurance for customers alongside the trips they book. Under what condition is this ancillary activity entirely exempt from licensing under section 34d(8) GewO?",
+     "options": {
+      "a": "Where the insurance is an ancillary service to the booked trip, is not distributed as a main occupation, and the premium does not exceed EUR 600 calculated pro rata on an annual basis - or EUR 200 per person for services lasting no more than three months",
+      "b": "Where the annual premium does not exceed EUR 1,000",
+      "c": "Where the travel agency has fewer than ten employees",
+      "d": "Where the travel agency waives its commission"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34d Abs. 8 Nr. 1 GewO nennt drei kumulative Merkmale (a bis c) und innerhalb von Buchstabe c zwei alternative Schwellen: „aa) die Prämie bei zeitanteiliger Berechnung auf Jahresbasis einen Betrag von 600 Euro nicht übersteigt oder bb) die Prämie je Person abweichend von Doppelbuchstabe aa einen Betrag von 200 Euro nicht übersteigt, wenn die Versicherung eine Zusatzleistung zu einer einleitend genannten Dienstleistung mit einer Dauer von höchstens drei Monaten darstellt“. Merken Sie sich auch die dritte Schwelle im selben Absatz: Restschuldversicherungen zu Darlehens- und Leasingverträgen sind nach Nummer 3 erlaubnisfrei, wenn die Jahresprämie 500 Euro nicht übersteigt. Beschäftigtenzahl und Provisionsverzicht sind keine Kriterien.",
+    "en": "Section 34d(8) no. 1 GewO sets out three cumulative features (a to c) and, within letter c, two alternative thresholds: EUR 600 pro rata on an annual basis, or EUR 200 per person where the insurance is ancillary to a service lasting no more than three months. Note the third threshold in the same subsection: residual-debt insurance connected with loan and leasing contracts is exempt under no. 3 where the annual premium does not exceed EUR 500. Headcount and commission waivers are not criteria."
+   }
+  },
+  {
+   "id": "versverm-rechtliche_grundlagen-05",
+   "topic": "Rechtliche Grundlagen der Versicherungsvermittlung und -beratung",
+   "topic_code": "rechtliche_grundlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34d Abs. 9 Satz 2 GewO, § 7 Abs. 1 und 2 VersVermV",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Welchen Umfang hat die gesetzliche Weiterbildungspflicht in der Versicherungsvermittlung, und wie lange sind die Nachweise aufzubewahren?",
+     "options": {
+      "a": "15 Stunden je Kalenderjahr, Nachweise fünf Jahre auf einem dauerhaften Datenträger in den Geschäftsräumen",
+      "b": "20 Stunden innerhalb von drei Kalenderjahren, Nachweise drei Jahre",
+      "c": "15 Stunden je Kalenderjahr, Nachweise zehn Jahre",
+      "d": "40 Stunden einmalig vor Aufnahme der Tätigkeit, keine Aufbewahrungspflicht"
+     }
+    },
+    "en": {
+     "question": "What is the scope of the statutory continuing-education duty in insurance distribution, and how long must the records be retained?",
+     "options": {
+      "a": "15 hours per calendar year, records for five years on a durable medium at the business premises",
+      "b": "20 hours within three calendar years, records for three years",
+      "c": "15 hours per calendar year, records for ten years",
+      "d": "40 hours once before taking up the activity, with no retention duty"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34d Abs. 9 Satz 2 GewO: Gewerbetreibende und die unmittelbar bei der Vermittlung oder Beratung mitwirkenden Beschäftigten „müssen sich in einem Umfang von 15 Stunden je Kalenderjahr … weiterbilden“. § 7 Abs. 2 Satz 3 VersVermV: „Die Nachweise und Unterlagen sind fünf Jahre auf einem dauerhaften Datenträger vorzuhalten und in den Geschäftsräumen aufzubewahren“, wobei die Frist mit dem Ende des Kalenderjahres der Maßnahme beginnt. Antwort (b) beschreibt die frühere Weiterbildungspflicht der Immobilienmakler nach § 34c GewO, die zum 24.07.2026 abgeschafft wurde - eine häufige Verwechslung. Die Weiterbildung darf nach § 7 Abs. 1 Satz 3 VersVermV auch im Selbststudium erfolgen, dann aber nur mit „einer nachweisbaren Lernerfolgskontrolle durch den Anbieter der Weiterbildung“.",
+    "en": "Section 34d(9) sentence 2 GewO requires traders and employees directly involved in distribution or advice to undergo 15 hours of continuing education per calendar year. Section 7(2) sentence 3 VersVermV requires the records to be held for five years on a durable medium at the business premises, the period running from the end of the calendar year of the measure. Answer (b) describes the former continuing-education duty for estate agents under section 34c GewO, abolished on 24 July 2026 - a common confusion. Under section 7(1) sentence 3 VersVermV self-study is permitted, but then only with 'a demonstrable check of learning outcomes by the provider of the continuing education'."
+   }
+  },
+  {
+   "id": "versverm-rechtliche_grundlagen-06",
+   "topic": "Rechtliche Grundlagen der Versicherungsvermittlung und -beratung",
+   "topic_code": "rechtliche_grundlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 12 Abs. 2, 3 und 5 VersVermV, § 11 VersVermV",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Wie hoch ist die Mindestversicherungssumme der Berufshaftpflichtversicherung nach § 34d Abs. 5 Satz 1 Nr. 3 GewO, und für welches Gebiet muss sie gelten?",
+     "options": {
+      "a": "500 000 Euro je Versicherungsfall, Geltung nur für Deutschland",
+      "b": "1 000 000 Euro je Versicherungsfall und 2 000 000 Euro pro Jahr, Geltung nur für Deutschland",
+      "c": "1 276 000 Euro je Versicherungsfall und 1 919 000 Euro für alle Versicherungsfälle eines Jahres, Geltung für das gesamte Gebiet der EU und des EWR",
+      "d": "Es gibt keine gesetzliche Mindestsumme; sie wird zwischen Vermittler und Versicherer frei vereinbart"
+     }
+    },
+    "en": {
+     "question": "What is the minimum sum insured for the professional indemnity insurance under section 34d(5) sentence 1 no. 3 GewO, and for which territory must it apply?",
+     "options": {
+      "a": "EUR 500,000 per claim, valid for Germany only",
+      "b": "EUR 1,000,000 per claim and EUR 2,000,000 per year, valid for Germany only",
+      "c": "EUR 1,276,000 per claim and EUR 1,919,000 for all claims in one year, valid for the entire territory of the EU and the EEA",
+      "d": "There is no statutory minimum; it is freely agreed between intermediary and insurer"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 12 Abs. 2 Satz 1 VersVermV: „Die Mindestversicherungssumme beträgt 1 276 000 Euro für jeden Versicherungsfall und 1 919 000 Euro für alle Versicherungsfälle eines Jahres“; die Beträge werden über den technischen Regulierungsstandard nach Artikel 10 Absatz 7 der Richtlinie (EU) 2016/97 angepasst. § 11 VersVermV verlangt Geltung „für das gesamte Gebiet der Europäischen Union und der anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum“. Der Vertrag muss sich nach § 12 Abs. 3 Satz 2 auch auf Vermögensschäden erstrecken, für die der Versicherungspflichtige nach § 278 oder § 831 BGB einzustehen hat. Ausgeschlossen werden darf nach § 12 Abs. 5 nur die wissentliche Pflichtverletzung sowie marktübliche weitere Ausschlüsse.",
+    "en": "Section 12(2) sentence 1 VersVermV fixes the minimum at EUR 1,276,000 per claim and EUR 1,919,000 for all claims in one year, the amounts being adjusted via the regulatory technical standard under article 10(7) of Directive (EU) 2016/97. Section 11 VersVermV requires validity across the whole EU and EEA. Under section 12(3) sentence 2 the contract must also extend to financial losses for which the insured is answerable under section 278 or section 831 BGB. Under section 12(5) only knowing breaches of duty, plus further market-standard exclusions, may be excluded."
+   }
+  },
+  {
+   "id": "versverm-rechtliche_grundlagen-07",
+   "topic": "Rechtliche Grundlagen der Versicherungsvermittlung und -beratung",
+   "topic_code": "rechtliche_grundlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34d Abs. 1 Satz 5 GewO, § 48b Abs. 1 und 2 VAG",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Versicherungsvertreter möchte einem Kunden zum Vertragsabschluss einen Teil seiner Provision als Barbetrag auszahlen. Wie ist das zu beurteilen?",
+     "options": {
+      "a": "Zulässig, solange der Kunde darüber informiert wird",
+      "b": "Unzulässig: Das Sondervergütungs- und Provisionsabgabeverbot untersagt jede Zuwendung neben der vereinbarten Versicherungsleistung, soweit sie nicht geringwertig ist; geringwertig sind nur Zuwendungen bis 15 Euro je Versicherungsverhältnis und Kalenderjahr",
+      "c": "Zulässig, weil das Provisionsabgabeverbot 2017 ersatzlos abgeschafft wurde",
+      "d": "Unzulässig, aber nur bei Lebensversicherungen"
+     }
+    },
+    "en": {
+     "question": "An insurance agent wants to pay a customer part of his commission in cash as an inducement to conclude the contract. How is this to be assessed?",
+     "options": {
+      "a": "Permissible, as long as the customer is informed about it",
+      "b": "Impermissible: the ban on special remuneration and commission sharing prohibits any benefit beyond the agreed policy performance unless it is of low value; only benefits up to EUR 15 per insurance relationship and calendar year count as low value",
+      "c": "Permissible, because the commission-sharing ban was abolished without replacement in 2017",
+      "d": "Impermissible, but only for life assurance"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34d Abs. 1 Satz 5 GewO: „Einem Versicherungsvermittler ist es untersagt, Versicherungsnehmern, versicherten Personen oder Bezugsberechtigten aus einem Versicherungsvertrag Sondervergütungen zu gewähren oder zu versprechen“; die §§ 48b und 50a VAG sind entsprechend anzuwenden. § 48b Abs. 2 VAG definiert die Sondervergütung als „jede unmittelbare oder mittelbare Zuwendung neben der im Versicherungsvertrag vereinbarten Leistung, insbesondere jede 1. vollständige oder teilweise Provisionsabgabe, 2. sonstige Sach- oder Dienstleistung …, 3. Rabattierung …, sofern sie nicht geringwertig ist“ und setzt die Geringwertigkeitsgrenze bei „einem Gesamtwert von 15 Euro pro Versicherungsverhältnis und Kalenderjahr“. Der Verstoß ist eine Ordnungswidrigkeit nach § 144 Abs. 2 Nr. 7 GewO. Zulässig bleibt nach § 48b Abs. 4 VAG nur die Verwendung zur dauerhaften Leistungserhöhung oder Prämienreduzierung des vermittelten Vertrags.",
+    "en": "Section 34d(1) sentence 5 GewO prohibits an insurance intermediary from granting or promising special remuneration to policyholders, insured persons or beneficiaries, with sections 48b and 50a VAG applying accordingly. Section 48b(2) VAG defines special remuneration as any direct or indirect benefit beyond the agreed policy performance - in particular full or partial commission sharing, other benefits in kind or services, and discounts - unless of low value, and sets the low-value threshold at a total of EUR 15 per insurance relationship and calendar year. Breach is a regulatory offence under section 144(2) no. 7 GewO. Under section 48b(4) VAG only application to a permanent increase in benefits or reduction in premium of the mediated contract remains permissible."
+   }
+  },
+  {
+   "id": "versverm-rechtliche_grundlagen-08",
+   "topic": "Rechtliche Grundlagen der Versicherungsvermittlung und -beratung",
+   "topic_code": "rechtliche_grundlagen",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 34d Abs. 3 GewO, § 34d Abs. 2 Sätze 3 und 4 GewO, § 144 Abs. 2 Nr. 7a und 7c GewO",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Eine Versicherungsberaterin mit Erlaubnis nach § 34d Abs. 2 GewO möchte zusätzlich als Versicherungsmaklerin auf Provisionsbasis tätig werden. Was gilt?",
+     "options": {
+      "a": "Das ist zulässig, wenn sie beide Tätigkeiten dem Kunden gegenüber offenlegt",
+      "b": "Das ist zulässig, wenn sie für beide Tätigkeiten getrennte Bücher führt",
+      "c": "Das ist zulässig, weil beide Erlaubnisse von derselben IHK erteilt werden",
+      "d": "Das ist unzulässig: § 34d Abs. 3 GewO verbietet die Doppeltätigkeit; außerdem darf sich die Versicherungsberaterin ihre Tätigkeit nur durch den Auftraggeber vergüten lassen und keine Zuwendungen eines Versicherungsunternehmens annehmen"
+     }
+    },
+    "en": {
+     "question": "An insurance adviser licensed under section 34d(2) GewO wishes additionally to act as a commission-based insurance broker. What applies?",
+     "options": {
+      "a": "This is permissible if she discloses both activities to the customer",
+      "b": "This is permissible if she keeps separate books for the two activities",
+      "c": "This is permissible because both licences are issued by the same Chamber",
+      "d": "This is impermissible: section 34d(3) GewO prohibits the dual activity; moreover the insurance adviser may be remunerated only by her client and may not accept benefits from an insurance undertaking"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 34d Abs. 3 GewO: „Gewerbetreibende nach Absatz 1 Satz 1 dürfen kein Gewerbe nach Absatz 2 Satz 1 und Gewerbetreibende nach Absatz 2 Satz 1 dürfen kein Gewerbe nach Absatz 1 Satz 1 ausüben.“ Die Trennung ist strikt und nicht durch Offenlegung oder getrennte Buchführung heilbar - sie ist der Kern der wirtschaftlichen Unabhängigkeit des Versicherungsberaters. Verstärkt wird sie durch § 34d Abs. 2 Satz 3 („Der Versicherungsberater darf sich seine Tätigkeit nur durch den Auftraggeber vergüten lassen“) und Satz 4 („Zuwendungen eines Versicherungsunternehmens im Zusammenhang mit der Beratung … darf er nicht annehmen“). Beide Verstöße sind Ordnungswidrigkeiten: § 144 Abs. 2 Nr. 7c GewO für die Doppeltätigkeit, Nr. 7a für die Annahme von Zuwendungen.",
+    "en": "Section 34d(3) GewO provides that traders under subsection 1 sentence 1 may not carry on a trade under subsection 2 sentence 1 and vice versa. The separation is strict and cannot be cured by disclosure or separate bookkeeping - it is the core of the insurance adviser's economic independence. It is reinforced by section 34d(2) sentence 3 (remuneration only from the client) and sentence 4 (no acceptance of insurer benefits in connection with the advice). Both breaches are regulatory offences: section 144(2) no. 7c GewO for the dual activity, no. 7a for accepting benefits."
+   }
+  },
+  {
+   "id": "versverm-vertragsrecht_vvg-01",
+   "topic": "Vertragsrecht und besondere Vorschriften für den Versicherungsvertrag",
+   "topic_code": "vertragsrecht_vvg",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 19 Abs. 1 bis 3 VVG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Kunde füllt einen Antrag auf eine Berufsunfähigkeitsversicherung aus und vergisst dabei versehentlich eine zurückliegende Behandlung, nach der der Versicherer ausdrücklich in Textform gefragt hatte. Welche Rechtsfolge tritt ein, wenn ihn daran weder Vorsatz noch grobe Fahrlässigkeit trifft?",
+     "options": {
+      "a": "Der Versicherer kann in jedem Fall vom Vertrag zurücktreten",
+      "b": "Der Vertrag ist von Anfang an nichtig",
+      "c": "Das Rücktrittsrecht ist ausgeschlossen; der Versicherer kann den Vertrag nur mit einer Frist von einem Monat kündigen",
+      "d": "Der Versicherer kann die Leistung anteilig kürzen"
+     }
+    },
+    "en": {
+     "question": "A customer fills in an application for occupational-disability insurance and inadvertently omits a past course of treatment about which the insurer had expressly asked in text form. What is the legal consequence where he is guilty of neither intent nor gross negligence?",
+     "options": {
+      "a": "The insurer may rescind the contract in any event",
+      "b": "The contract is void from the outset",
+      "c": "The right of rescission is excluded; the insurer may only terminate the contract on one month's notice",
+      "d": "The insurer may reduce the benefit proportionately"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 19 Abs. 1 Satz 1 VVG begrenzt die vorvertragliche Anzeigepflicht auf die dem Versicherungsnehmer bekannten erheblichen Gefahrumstände, „nach denen der Versicherer in Textform gefragt hat“ - es gibt keine spontane Offenbarungspflicht. § 19 Abs. 2 gibt dem Versicherer bei Verletzung grundsätzlich ein Rücktrittsrecht, § 19 Abs. 3 Satz 1 nimmt es ihm aber wieder: „Das Rücktrittsrecht des Versicherers ist ausgeschlossen, wenn der Versicherungsnehmer die Anzeigepflicht weder vorsätzlich noch grob fahrlässig verletzt hat. In diesem Fall hat der Versicherer das Recht, den Vertrag unter Einhaltung einer Frist von einem Monat zu kündigen.“ Eine anteilige Leistungskürzung ist die Rechtsfolge der grob fahrlässigen Obliegenheitsverletzung nach § 28 Abs. 2 Satz 2 VVG, nicht der einfachen Anzeigepflichtverletzung.",
+    "en": "Section 19(1) sentence 1 VVG limits the pre-contractual disclosure duty to material risk circumstances known to the policyholder 'about which the insurer has asked in text form' - there is no spontaneous duty of disclosure. Section 19(2) gives the insurer a right of rescission in principle, but section 19(3) sentence 1 removes it where the policyholder breached the duty neither intentionally nor with gross negligence; in that case the insurer may only terminate on one month's notice. Proportionate reduction of benefit is the consequence of a grossly negligent breach of a contractual obligation under section 28(2) sentence 2 VVG, not of a simple disclosure breach."
+   }
+  },
+  {
+   "id": "versverm-vertragsrecht_vvg-02",
+   "topic": "Vertragsrecht und besondere Vorschriften für den Versicherungsvertrag",
+   "topic_code": "vertragsrecht_vvg",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 19 Abs. 5 VVG",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Der Versicherer möchte wegen einer Anzeigepflichtverletzung vom Vertrag zurücktreten. Welche formale Voraussetzung muss er dafür bereits vor Vertragsschluss erfüllt haben?",
+     "options": {
+      "a": "Er muss den Antrag persönlich mit dem Kunden durchgegangen sein",
+      "b": "Er muss den Versicherungsnehmer durch gesonderte Mitteilung in Textform auf die Folgen einer Anzeigepflichtverletzung hingewiesen haben",
+      "c": "Er muss die Fragen von einem Arzt formulieren lassen haben",
+      "d": "Er muss den Vermittler schriftlich zur Aufklärung angewiesen haben"
+     }
+    },
+    "en": {
+     "question": "The insurer wishes to rescind the contract because of a breach of the disclosure duty. Which formal condition must it already have met before the contract was concluded?",
+     "options": {
+      "a": "It must have gone through the application personally with the customer",
+      "b": "It must have informed the policyholder, by separate notice in text form, of the consequences of a breach of the disclosure duty",
+      "c": "It must have had the questions drafted by a physician",
+      "d": "It must have instructed the intermediary in writing to advise the customer"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 19 Abs. 5 Satz 1 VVG: „Dem Versicherer stehen die Rechte nach den Absätzen 2 bis 4 nur zu, wenn er den Versicherungsnehmer durch gesonderte Mitteilung in Textform auf die Folgen einer Anzeigepflichtverletzung hingewiesen hat.“ Ohne diesen Hinweis verliert der Versicherer Rücktritt, Kündigung und Vertragsanpassung vollständig. Satz 2 nimmt ihm die Rechte außerdem, wenn er den nicht angezeigten Gefahrumstand oder die Unrichtigkeit der Anzeige ohnehin kannte. Für die Vermittlerpraxis ist das ein zentraler Punkt: Die gesonderte Belehrung ist kein Formalismus, sondern die Bedingung dafür, dass die Anzeigepflicht überhaupt sanktionsbewehrt ist.",
+    "en": "Section 19(5) sentence 1 VVG provides that the insurer has the rights under subsections 2 to 4 only if it informed the policyholder by separate notice in text form of the consequences of a breach. Without that notice the insurer loses rescission, termination and contract adjustment entirely. Sentence 2 also removes the rights where the insurer already knew of the undisclosed circumstance or of the inaccuracy. For intermediary practice this is a central point: the separate warning is not a formality but the condition on which the disclosure duty carries any sanction at all."
+   }
+  },
+  {
+   "id": "versverm-vertragsrecht_vvg-03",
+   "topic": "Vertragsrecht und besondere Vorschriften für den Versicherungsvertrag",
+   "topic_code": "vertragsrecht_vvg",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 23 Abs. 1 bis 3 VVG",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Eine Kundin baut nach Abschluss ihrer Hausratversicherung eine Sauna mit Holzofen im Keller ein und erkennt später, dass das eine Gefahrerhöhung sein könnte. Was schuldet sie dem Versicherer?",
+     "options": {
+      "a": "Nichts, weil die Gefahrerhöhung nach Vertragsschluss eingetreten ist",
+      "b": "Sie muss den Vertrag kündigen",
+      "c": "Sie muss die Prämie eigenständig anpassen",
+      "d": "Sie muss die Gefahrerhöhung dem Versicherer unverzüglich anzeigen"
+     }
+    },
+    "en": {
+     "question": "After taking out household contents insurance a customer installs a wood-fired sauna in her cellar and later realises this might be an increase in risk. What does she owe the insurer?",
+     "options": {
+      "a": "Nothing, because the increase in risk arose after the contract was concluded",
+      "b": "She must terminate the contract",
+      "c": "She must adjust the premium herself",
+      "d": "She must notify the insurer of the increase in risk without undue delay"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 23 VVG unterscheidet drei Fälle. Abs. 1: Der Versicherungsnehmer darf nach Abgabe seiner Vertragserklärung „ohne Einwilligung des Versicherers keine Gefahrerhöhung vornehmen oder deren Vornahme durch einen Dritten gestatten“. Abs. 2: Erkennt er nachträglich, dass er ohne Einwilligung eine Gefahrerhöhung vorgenommen oder gestattet hat, „hat er die Gefahrerhöhung dem Versicherer unverzüglich anzuzeigen“. Abs. 3: Tritt sie unabhängig von seinem Willen ein, gilt die Anzeigepflicht ab Kenntniserlangung. Hier liegt der Fall des Absatzes 2 vor. Die Anzeige ist eine Obliegenheit des Versicherungsnehmers - eine eigenmächtige Prämienanpassung sieht das Gesetz nicht vor.",
+    "en": "Section 23 VVG distinguishes three cases. Subsection 1: after making his contractual declaration the policyholder may not increase the risk, or permit a third party to do so, without the insurer's consent. Subsection 2: if he subsequently realises that he has done so without consent, he must notify the insurer of the increase without undue delay. Subsection 3: where it arises independently of his will, the notification duty applies once he learns of it. This is a subsection 2 case. The notification is an obligation of the policyholder - the Act does not provide for unilateral premium adjustment."
+   }
+  },
+  {
+   "id": "versverm-vertragsrecht_vvg-04",
+   "topic": "Vertragsrecht und besondere Vorschriften für den Versicherungsvertrag",
+   "topic_code": "vertragsrecht_vvg",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 28 Abs. 2 bis 4 VVG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Versicherungsnehmer verletzt nach Eintritt des Versicherungsfalls grob fahrlässig eine vertragliche Aufklärungsobliegenheit. Was gilt für die Leistung des Versicherers?",
+     "options": {
+      "a": "Der Versicherer ist stets vollständig leistungsfrei",
+      "b": "Der Versicherer muss immer voll leisten, weil Obliegenheiten nach dem Versicherungsfall unverbindlich sind",
+      "c": "Der Versicherer darf die Leistung in einem der Schwere des Verschuldens entsprechenden Verhältnis kürzen - aber nur, wenn er zuvor durch gesonderte Mitteilung in Textform auf diese Rechtsfolge hingewiesen hat, und nicht, soweit die Verletzung nicht ursächlich war",
+      "d": "Der Versicherer kann vom Vertrag zurücktreten"
+     }
+    },
+    "en": {
+     "question": "A policyholder grossly negligently breaches a contractual duty to provide information after the insured event has occurred. What applies to the insurer's performance?",
+     "options": {
+      "a": "The insurer is always completely released from performance",
+      "b": "The insurer must always pay in full, because obligations arising after the insured event are non-binding",
+      "c": "The insurer may reduce the benefit in proportion to the severity of the fault - but only if it previously drew attention to that consequence by separate notice in text form, and not in so far as the breach was not causal",
+      "d": "The insurer may rescind the contract"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 28 Abs. 2 Satz 2 VVG sieht bei grober Fahrlässigkeit die Quotelung vor: Der Versicherer ist „berechtigt, seine Leistung in einem der Schwere des Verschuldens des Versicherungsnehmers entsprechenden Verhältnis zu kürzen; die Beweislast für das Nichtvorliegen einer groben Fahrlässigkeit trägt der Versicherungsnehmer“. Vollständige Leistungsfreiheit tritt nach Satz 1 nur bei Vorsatz ein. § 28 Abs. 3 enthält den Kausalitätsgegenbeweis: Der Versicherer bleibt zur Leistung verpflichtet, „soweit die Verletzung der Obliegenheit weder für den Eintritt oder die Feststellung des Versicherungsfalles noch für die Feststellung oder den Umfang der Leistungspflicht … ursächlich ist“ - außer bei Arglist. § 28 Abs. 4 verlangt für Auskunfts- und Aufklärungsobliegenheiten nach dem Versicherungsfall zusätzlich einen gesonderten Hinweis in Textform. § 28 Abs. 5 erklärt eine Rücktrittsvereinbarung ausdrücklich für unwirksam, weshalb (d) falsch ist.",
+    "en": "Section 28(2) sentence 2 VVG provides for proportionate reduction in cases of gross negligence, with the burden of proving the absence of gross negligence on the policyholder. Complete release follows only from intent, under sentence 1. Section 28(3) contains the causation defence: the insurer remains liable in so far as the breach was causal neither for the occurrence or determination of the insured event nor for the determination or extent of the liability - except in cases of fraudulent intent. Section 28(4) additionally requires a separate notice in text form for post-loss information duties. Section 28(5) expressly makes any agreed right of rescission ineffective, which is why (d) is wrong."
+   }
+  },
+  {
+   "id": "versverm-vertragsrecht_vvg-05",
+   "topic": "Vertragsrecht und besondere Vorschriften für den Versicherungsvertrag",
+   "topic_code": "vertragsrecht_vvg",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 8 Abs. 1 und 2 VVG",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ab welchem Zeitpunkt läuft die 14-tägige Widerrufsfrist des Versicherungsnehmers?",
+     "options": {
+      "a": "Frühestens ab Vertragsschluss, aber nicht bevor dem Versicherungsnehmer Versicherungsschein, Vertragsbestimmungen einschließlich der AVB, die Informationen nach der VVG-Informationspflichtenverordnung und eine ordnungsgemäße Widerrufsbelehrung in Textform zugegangen sind",
+      "b": "Ab Absendung des Antrags durch den Versicherungsnehmer",
+      "c": "Ab dem ersten Beratungsgespräch mit dem Vermittler",
+      "d": "Ab Zahlung der ersten Prämie"
+     }
+    },
+    "en": {
+     "question": "From what point does the policyholder's 14-day withdrawal period run?",
+     "options": {
+      "a": "At the earliest from conclusion of the contract, but not before the policyholder has received in text form the policy document, the contract terms including the general conditions, the information required by the VVG Information Duties Regulation, and a proper notice of the right of withdrawal",
+      "b": "From when the policyholder sends off the application",
+      "c": "From the first advisory conversation with the intermediary",
+      "d": "From payment of the first premium"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 8 Abs. 1 Satz 1 VVG gibt dem Versicherungsnehmer 14 Tage; der Widerruf ist in Textform zu erklären und bedarf keiner Begründung, zur Fristwahrung genügt die rechtzeitige Absendung. § 8 Abs. 2 Satz 1: „Die Widerrufsfrist beginnt mit dem Vertragsschluss.“ Satz 2 schiebt den Beginn aber auf, bis dem Versicherungsnehmer in Textform zugegangen sind: Nr. 1 der Versicherungsschein und die Vertragsbestimmungen einschließlich der Allgemeinen Versicherungsbedingungen sowie die weiteren Informationen nach der VVG-Informationspflichtenverordnung, und Nr. 2 eine ordnungsgemäße Belehrung über das Widerrufsrecht. Bei Produkten mit Basisinformationsblatt nach der Verordnung (EU) Nr. 1286/2014 beginnt die Frist zusätzlich nicht vor dessen Bereitstellung. Der Nachweis des Zugangs obliegt dem Versicherer.",
+    "en": "Section 8(1) sentence 1 VVG gives the policyholder 14 days; the withdrawal must be declared in text form, needs no reasons, and timely dispatch suffices. Section 8(2) sentence 1 starts the period at conclusion of the contract, but sentence 2 postpones it until the policyholder has received in text form (no. 1) the policy document and contract terms including the general conditions plus the further information under the VVG Information Duties Regulation, and (no. 2) a proper notice of the right of withdrawal. For products requiring a key information document under Regulation (EU) No 1286/2014 the period additionally does not begin before that document is provided. Proof of receipt is on the insurer."
+   }
+  },
+  {
+   "id": "versverm-vertragsrecht_vvg-06",
+   "topic": "Vertragsrecht und besondere Vorschriften für den Versicherungsvertrag",
+   "topic_code": "vertragsrecht_vvg",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 33 Abs. 1 VVG, § 37 Abs. 2 VVG",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Wann ist die erste Prämie fällig, und unter welcher Voraussetzung ist der Versicherer bei Nichtzahlung im Versicherungsfall leistungsfrei?",
+     "options": {
+      "a": "Sofort bei Antragstellung; Leistungsfreiheit tritt automatisch ein",
+      "b": "Unverzüglich nach Ablauf von 14 Tagen nach Zugang des Versicherungsscheins; leistungsfrei ist der Versicherer nur, wenn er durch gesonderte Mitteilung in Textform oder durch einen auffälligen Hinweis im Versicherungsschein auf diese Rechtsfolge aufmerksam gemacht hat",
+      "c": "Mit dem im Antrag genannten Versicherungsbeginn; ein Hinweis ist nicht erforderlich",
+      "d": "Erst nach Ablauf der Widerrufsfrist; Leistungsfreiheit ist ausgeschlossen"
+     }
+    },
+    "en": {
+     "question": "When is the first premium due, and on what condition is the insurer released from performance if it is not paid before the insured event?",
+     "options": {
+      "a": "Immediately on application; release from performance follows automatically",
+      "b": "Without undue delay after 14 days from receipt of the policy document; the insurer is released only if it drew attention to that consequence by separate notice in text form or by a conspicuous note in the policy document",
+      "c": "On the inception date stated in the application; no notice is required",
+      "d": "Only after expiry of the withdrawal period; release from performance is excluded"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 33 Abs. 1 VVG: „Der Versicherungsnehmer hat eine einmalige Prämie oder, wenn laufende Prämien vereinbart sind, die erste Prämie unverzüglich nach Ablauf von 14 Tagen nach Zugang des Versicherungsscheins zu zahlen.“ § 37 Abs. 1 gibt dem Versicherer bei Nichtzahlung ein Rücktrittsrecht, sofern der Versicherungsnehmer die Nichtzahlung zu vertreten hat. § 37 Abs. 2 Satz 2 knüpft die Leistungsfreiheit an eine Warnung: „Der Versicherer ist nur leistungsfrei, wenn er den Versicherungsnehmer durch gesonderte Mitteilung in Textform oder durch einen auffälligen Hinweis im Versicherungsschein auf diese Rechtsfolge der Nichtzahlung der Prämie aufmerksam gemacht hat.“ Dieses Hinweiserfordernis zieht sich durch das ganze VVG - vergleichen Sie § 19 Abs. 5 und § 28 Abs. 4.",
+    "en": "Section 33(1) VVG makes a single premium, or the first of recurring premiums, payable without undue delay after 14 days from receipt of the policy document. Section 37(1) gives the insurer a right of rescission on non-payment where the policyholder is responsible for it. Section 37(2) sentence 2 ties release from performance to a warning by separate notice in text form or a conspicuous note in the policy document. This notice requirement runs right through the VVG - compare section 19(5) and section 28(4)."
+   }
+  },
+  {
+   "id": "versverm-vertragsrecht_vvg-07",
+   "topic": "Vertragsrecht und besondere Vorschriften für den Versicherungsvertrag",
+   "topic_code": "vertragsrecht_vvg",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 95 VVG",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Kunde verkauft sein wohnwirtschaftlich genutztes Gebäude. Was geschieht mit der bestehenden Wohngebäudeversicherung?",
+     "options": {
+      "a": "Der Erwerber tritt an die Stelle des Veräußerers in die während der Dauer seines Eigentums entstehenden Rechte und Pflichten ein; Veräußerer und Erwerber haften für die Prämie der laufenden Versicherungsperiode als Gesamtschuldner",
+      "b": "Sie besteht unverändert beim Veräußerer weiter, weil der Vertrag personenbezogen ist",
+      "c": "Sie erlischt mit dem Eigentumsübergang automatisch",
+      "d": "Der Vertrag geht nur über, wenn der Versicherer vorher schriftlich zustimmt"
+     }
+    },
+    "en": {
+     "question": "A customer sells his residential building. What happens to the existing buildings insurance?",
+     "options": {
+      "a": "The acquirer takes the seller's place in the rights and duties arising during the period of his ownership; seller and acquirer are jointly and severally liable for the premium of the current insurance period",
+      "b": "It continues unchanged with the seller, because the contract is personal to him",
+      "c": "It lapses automatically on transfer of ownership",
+      "d": "The contract passes only if the insurer consents in writing beforehand"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 95 Abs. 1 VVG: „Wird die versicherte Sache vom Versicherungsnehmer veräußert, tritt an dessen Stelle der Erwerber in die während der Dauer seines Eigentums aus dem Versicherungsverhältnis sich ergebenden Rechte und Pflichten des Versicherungsnehmers ein.“ Abs. 2: „Der Veräußerer und der Erwerber haften für die Prämie, die auf die zur Zeit des Eintrittes des Erwerbers laufende Versicherungsperiode entfällt, als Gesamtschuldner.“ Abs. 3 stellt klar, dass der Versicherer den Eintritt erst gegen sich gelten lassen muss, wenn er davon Kenntnis erlangt hat - deshalb ist die Anzeige praktisch wichtig, aber sie ist keine Wirksamkeitsvoraussetzung des Übergangs. Anlage 1 Nr. 2.2.7 VersVermV nennt den „Eigentumswechsel in der Schadenversicherung“ ausdrücklich als Prüfungsinhalt.",
+    "en": "Section 95(1) VVG provides that where the insured item is sold by the policyholder, the acquirer takes his place in the rights and duties under the insurance relationship arising during the period of the acquirer's ownership. Subsection 2 makes seller and acquirer jointly and severally liable for the premium falling on the insurance period current when the acquirer enters. Subsection 3 clarifies that the insurer need only recognise the transfer once it has knowledge of it - which is why notification matters in practice, though it is not a condition of the transfer's validity. Annex 1 no. 2.2.7 VersVermV names 'change of ownership in indemnity insurance' expressly as examination content."
+   }
+  },
+  {
+   "id": "versverm-beratung_dokumentation-01",
+   "topic": "Beratungs-, Dokumentations- und Informationspflichten",
+   "topic_code": "beratung_dokumentation",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 61 Abs. 1 VVG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche vier Schritte verlangt § 61 Abs. 1 VVG vom Versicherungsvermittler, wenn die Schwierigkeit des Produkts oder die Situation des Kunden dazu Anlass gibt?",
+     "options": {
+      "a": "Bonitätsprüfung, Angebotsvergleich, Vertragsschluss und Nachbetreuung",
+      "b": "Befragen nach Wünschen und Bedürfnissen, Beraten, Angabe der Gründe für jeden erteilten Rat und Dokumentation",
+      "c": "Identitätsprüfung, Risikoprüfung, Prämienberechnung und Policierung",
+      "d": "Beraten, Vertragsschluss, Prämieneinzug und Schadenmeldung"
+     }
+    },
+    "en": {
+     "question": "Which four steps does section 61(1) VVG require of the insurance intermediary where the difficulty of the product or the customer's situation gives cause for them?",
+     "options": {
+      "a": "Creditworthiness check, comparison of offers, conclusion of contract and after-sales care",
+      "b": "Asking about wishes and needs, advising, stating the reasons for each recommendation, and documenting",
+      "c": "Identity check, risk assessment, premium calculation and issuing the policy",
+      "d": "Advising, concluding the contract, collecting the premium and reporting claims"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 61 Abs. 1 Satz 1 VVG: „Der Versicherungsvermittler hat den Versicherungsnehmer, soweit nach der Schwierigkeit, die angebotene Versicherung zu beurteilen, oder der Person des Versicherungsnehmers und dessen Situation hierfür Anlass besteht, nach seinen Wünschen und Bedürfnissen zu befragen und, auch unter Berücksichtigung eines angemessenen Verhältnisses zwischen Beratungsaufwand und der vom Versicherungsnehmer zu zahlenden Prämien, zu beraten sowie die Gründe für jeden zu einer bestimmten Versicherung erteilten Rat anzugeben.“ Satz 2 ergänzt die Dokumentationspflicht „unter Berücksichtigung der Komplexität des angebotenen Versicherungsvertrags nach § 62“. Die Anlassbezogenheit und die Verhältnismäßigkeit zwischen Beratungsaufwand und Prämienhöhe sind gesetzliche Begrenzungen, keine Ausnahmen - sie bestimmen den Umfang, nicht das Ob.",
+    "en": "Section 61(1) sentence 1 VVG requires the intermediary, where the difficulty of assessing the insurance offered or the policyholder's person and situation give cause, to ask about his wishes and needs, to advise him - having regard also to a reasonable relationship between the advisory effort and the premiums payable - and to state the reasons for each recommendation of a particular policy. Sentence 2 adds documentation, having regard to the complexity of the contract, under section 62. The cause requirement and the proportionality between advisory effort and premium level are statutory limits on the scope of the duty, not exceptions to it."
+   }
+  },
+  {
+   "id": "versverm-beratung_dokumentation-02",
+   "topic": "Beratungs-, Dokumentations- und Informationspflichten",
+   "topic_code": "beratung_dokumentation",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 62 Abs. 1 VVG",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Zu welchem Zeitpunkt und in welcher Form müssen die Angaben nach § 60 Abs. 2 VVG und die Dokumentation nach § 61 Abs. 1 VVG übermittelt werden?",
+     "options": {
+      "a": "Beide spätestens mit dem Versicherungsschein, mündlich genügt",
+      "b": "Beide innerhalb von 14 Tagen nach Vertragsschluss, in Textform",
+      "c": "Beide vor dem ersten Geschäftskontakt, schriftlich",
+      "d": "Die Angaben nach § 60 Abs. 2 vor Abgabe der Vertragserklärung des Versicherungsnehmers, die Dokumentation nach § 61 Abs. 1 vor Abschluss des Vertrags - beide klar und verständlich in Textform"
+     }
+    },
+    "en": {
+     "question": "At what point and in what form must the information under section 60(2) VVG and the documentation under section 61(1) VVG be provided?",
+     "options": {
+      "a": "Both at the latest with the policy document; orally suffices",
+      "b": "Both within 14 days of conclusion of the contract, in text form",
+      "c": "Both before the first business contact, in writing",
+      "d": "The information under section 60(2) before the policyholder makes his contractual declaration, the documentation under section 61(1) before conclusion of the contract - both clearly and comprehensibly in text form"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 62 Abs. 1 VVG: „Dem Versicherungsnehmer sind die Informationen nach § 60 Abs. 2 vor Abgabe seiner Vertragserklärung, die Informationen nach § 61 Abs. 1 vor dem Abschluss des Vertrags klar und verständlich in Textform zu übermitteln.“ Die beiden Zeitpunkte sind bewusst verschieden: Die Beratungsgrundlage muss der Kunde kennen, bevor er sich bindet; die Beratungsdokumentation muss spätestens bis zum Vertragsschluss vorliegen. § 62 Abs. 2 lässt eine mündliche Übermittlung nur zu, wenn der Versicherungsnehmer es wünscht oder soweit der Versicherer vorläufige Deckung gewährt; dann ist unverzüglich nach Vertragsschluss, spätestens mit dem Versicherungsschein, in Textform nachzuliefern - „dies gilt nicht für Verträge über vorläufige Deckung bei Pflichtversicherungen“.",
+    "en": "Section 62(1) VVG requires the section 60(2) information before the policyholder makes his contractual declaration and the section 61(1) information before conclusion of the contract, both clearly and comprehensibly in text form. The two points differ deliberately: the customer must know the advisory basis before he commits himself; the advice documentation must be available by the time the contract is concluded at the latest. Section 62(2) permits oral transmission only where the policyholder so wishes or where the insurer grants provisional cover, with text form to follow without undue delay after conclusion and at the latest with the policy document - and that exception does not apply to provisional cover in compulsory insurance."
+   }
+  },
+  {
+   "id": "versverm-beratung_dokumentation-03",
+   "topic": "Beratungs-, Dokumentations- und Informationspflichten",
+   "topic_code": "beratung_dokumentation",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 60 Abs. 1 und 2 VVG",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Worin unterscheidet sich die Beratungsgrundlage des Versicherungsmaklers von der des Versicherungsvertreters?",
+     "options": {
+      "a": "Beide müssen den gesamten Markt zugrunde legen",
+      "b": "Beide dürfen sich auf einen Versicherer beschränken, ohne dies mitzuteilen",
+      "c": "Der Vertreter muss den gesamten Markt zugrunde legen, der Makler nur seine Vertragspartner",
+      "d": "Der Makler muss grundsätzlich eine hinreichende Zahl von am Markt angebotenen Verträgen und Versicherern zugrunde legen und eine eingeschränkte Auswahl ausdrücklich vorher offenlegen; der Vertreter muss mitteilen, für welche Versicherer er tätig ist und ob ausschließlich"
+     }
+    },
+    "en": {
+     "question": "How does the advisory basis of the insurance broker differ from that of the insurance agent?",
+     "options": {
+      "a": "Both must base advice on the entire market",
+      "b": "Both may confine themselves to one insurer without saying so",
+      "c": "The agent must base advice on the entire market, the broker only on his contractual partners",
+      "d": "The broker must in principle base advice on a sufficient number of contracts and insurers offered on the market and must expressly disclose any restricted selection beforehand; the agent must state for which insurers he acts and whether exclusively"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 60 Abs. 1 Satz 1 VVG verpflichtet den Makler, „seinem Rat eine hinreichende Zahl von auf dem Markt angebotenen Versicherungsverträgen und von Versicherern zu Grunde zu legen, so dass er nach fachlichen Kriterien eine Empfehlung dahin abgeben kann, welcher Versicherungsvertrag geeignet ist, die Bedürfnisse des Versicherungsnehmers zu erfüllen“. Satz 2 lässt eine Einschränkung zu, wenn er „im Einzelfall vor Abgabe der Vertragserklärung des Versicherungsnehmers diesen ausdrücklich auf eine eingeschränkte Versicherer- und Vertragsauswahl hinweist“. Abs. 2 verlangt vom eingeschränkt beratenden Makler und von jedem Vertreter die Mitteilung der Markt- und Informationsgrundlage und der zugrunde gelegten Versicherer; der Vertreter muss zusätzlich mitteilen, „für welche Versicherer er seine Tätigkeit ausübt und ob er für diese ausschließlich tätig ist“. Kein Vermittler muss den gesamten Markt zugrunde legen.",
+    "en": "Section 60(1) sentence 1 VVG obliges the broker to base his advice on a sufficient number of contracts and insurers offered on the market so that he can recommend, on professional criteria, which contract is suitable to meet the policyholder's needs. Sentence 2 permits a restriction where he expressly points out the restricted selection of insurers and contracts before the policyholder makes his contractual declaration. Subsection 2 requires a restricted-selection broker and every agent to state their market and information basis and the insurers relied on; the agent must additionally state for which insurers he acts and whether exclusively. No intermediary is required to base advice on the entire market."
+   }
+  },
+  {
+   "id": "versverm-beratung_dokumentation-04",
+   "topic": "Beratungs-, Dokumentations- und Informationspflichten",
+   "topic_code": "beratung_dokumentation",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 6 Abs. 1 und 6 VVG, § 61 Abs. 1 VVG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Vertrag kommt über einen Versicherungsmakler zustande. Wen trifft die vorvertragliche Beratungspflicht?",
+     "options": {
+      "a": "Nur den Makler nach § 61 VVG; die Beratungspflicht des Versicherers nach § 6 VVG ist in diesem Fall ausdrücklich ausgeschlossen",
+      "b": "Nur den Versicherer nach § 6 VVG, weil der Makler nicht sein Erfüllungsgehilfe ist",
+      "c": "Beide gleichrangig und unabhängig voneinander",
+      "d": "Keinen von beiden, weil der Makler im Lager des Kunden steht"
+     }
+    },
+    "en": {
+     "question": "A contract is concluded through an insurance broker. Who bears the pre-contractual advisory duty?",
+     "options": {
+      "a": "Only the broker under section 61 VVG; the insurer's advisory duty under section 6 VVG is expressly excluded in that case",
+      "b": "Only the insurer under section 6 VVG, because the broker is not its agent for performance",
+      "c": "Both, equally and independently of one another",
+      "d": "Neither, because the broker sits on the customer's side"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 6 Abs. 1 VVG legt dem Versicherer eine eigene, anlassbezogene Frage-, Beratungs-, Begründungs- und Dokumentationspflicht auf. § 6 Abs. 6 VVG nimmt sie ihm aber wieder: Die Absätze 1 bis 5 sind nicht anzuwenden „auf Versicherungsverträge über ein Großrisiko im Sinn des § 210 Absatz 2 …, ferner dann nicht, wenn der Vertrag mit dem Versicherungsnehmer von einem Versicherungsmakler vermittelt wird“. Beim maklervermittelten Vertrag bleibt daher nur die Beratungspflicht des Maklers nach § 61 VVG - eine, nicht zwei. Beim vertretervermittelten Vertrag bestehen dagegen beide Pflichten nebeneinander. Das ist eine der prüfungsrelevantesten Konsequenzen der Unterscheidung zwischen Makler und Vertreter.",
+    "en": "Section 6(1) VVG imposes on the insurer its own cause-dependent duty to ask, advise, give reasons and document. Section 6(6) VVG then removes it: subsections 1 to 5 do not apply to large-risk contracts under section 210(2), nor where the contract is brokered for the policyholder by an insurance broker. In broker-intermediated business only the broker's duty under section 61 VVG therefore remains - one duty, not two. In agent-intermediated business both duties exist side by side. This is one of the most examinable consequences of the broker/agent distinction."
+   }
+  },
+  {
+   "id": "versverm-beratung_dokumentation-05",
+   "topic": "Beratungs-, Dokumentations- und Informationspflichten",
+   "topic_code": "beratung_dokumentation",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 15 Abs. 1 VersVermV, § 16 Abs. 1 VersVermV, § 26 Abs. 1 Nr. 3 VersVermV",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Wann und wie muss die Erstinformation nach § 15 VersVermV erteilt werden?",
+     "options": {
+      "a": "Spätestens mit dem Versicherungsschein, in beliebiger Form",
+      "b": "Beim ersten Geschäftskontakt, grundsätzlich auf Papier, in klarer, genauer und verständlicher Weise, in einer Amtssprache des Mitgliedstaats des belegenen Risikos oder einer vereinbarten Sprache, und unentgeltlich",
+      "c": "Nur auf ausdrückliches Verlangen des Versicherungsnehmers",
+      "d": "Innerhalb von 14 Tagen nach dem ersten Geschäftskontakt, elektronisch"
+     }
+    },
+    "en": {
+     "question": "When and how must the initial information under section 15 VersVermV be provided?",
+     "options": {
+      "a": "At the latest with the policy document, in any form",
+      "b": "At the first business contact, in principle on paper, in a clear, precise and comprehensible manner, in an official language of the member state where the risk is situated or another agreed language, and free of charge",
+      "c": "Only on the policyholder's express request",
+      "d": "Within 14 days of the first business contact, electronically"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 15 Abs. 1 VersVermV verpflichtet den Gewerbetreibenden, dem Versicherungsnehmer „beim ersten Geschäftskontakt“ zwölf Angaben mitzuteilen - unter anderem Status (Makler, Vertreter oder Berater und mit welcher Erlaubnis oder Ausnahme), Registrierungsnummer und wie sich die Eintragung überprüfen lässt, ob eine Beratung angeboten wird, die Art der Vergütung und ob sie direkt vom Kunden oder als Provision in der Prämie gezahlt wird, Beteiligungen über 10 Prozent in beide Richtungen sowie die Anschrift der Schlichtungsstelle. § 16 Abs. 1 VersVermV bestimmt Form und Sprache: „1. auf Papier, 2. in klarer, genauer und für den Versicherungsnehmer verständlicher Weise, 3. in einer Amtssprache des Mitgliedstaats, in dem das Risiko belegen ist … und 4. unentgeltlich.“ Abweichungen auf dauerhaften Datenträger oder Website sind nur unter den Voraussetzungen des § 16 Abs. 2 zulässig; bei telefonischem Kontakt ist unmittelbar nach dem ersten Geschäftskontakt nachzuliefern (§ 16 Abs. 4). Ein Verstoß ist Ordnungswidrigkeit nach § 26 Abs. 1 Nr. 3 VersVermV.",
+    "en": "Section 15(1) VersVermV requires the trader to give the policyholder twelve items of information at the first business contact - among them status (broker, agent or adviser, and under which licence or exemption), registration number and how the entry can be checked, whether advice is offered, the nature of the remuneration and whether it is paid directly by the customer or as commission within the premium, holdings above 10 per cent in both directions, and the address of the conciliation body. Section 16(1) VersVermV fixes form and language: on paper, clearly and comprehensibly, in an official language of the member state where the risk is situated, and free of charge. Departures to a durable medium or a website are permitted only under section 16(2); for telephone contact the information follows immediately after the first business contact (section 16(4)). Breach is a regulatory offence under section 26(1) no. 3 VersVermV."
+   }
+  },
+  {
+   "id": "versverm-beratung_dokumentation-06",
+   "topic": "Beratungs-, Dokumentations- und Informationspflichten",
+   "topic_code": "beratung_dokumentation",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 61 Abs. 2 VVG, § 63 VVG",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Kunde möchte auf Beratung und Dokumentation verzichten, um schneller abschließen zu können. Welche Anforderungen gelten für einen wirksamen Verzicht?",
+     "options": {
+      "a": "Ein mündlicher Verzicht im Beratungsgespräch genügt",
+      "b": "Ein Häkchen im Antragsformular genügt",
+      "c": "Er bedarf einer gesonderten schriftlichen Erklärung, in der der Vermittler ausdrücklich darauf hinweist, dass ein Verzicht die Möglichkeit beeinträchtigen kann, einen Schadensersatzanspruch nach § 63 VVG geltend zu machen; im Fernabsatz genügt Textform",
+      "d": "Ein Verzicht ist in keinem Fall möglich"
+     }
+    },
+    "en": {
+     "question": "A customer wants to waive advice and documentation in order to conclude the contract more quickly. What are the requirements for an effective waiver?",
+     "options": {
+      "a": "An oral waiver during the advisory conversation suffices",
+      "b": "A tick box in the application form suffices",
+      "c": "It requires a separate written declaration in which the intermediary expressly points out that a waiver may prejudice the ability to bring a damages claim under section 63 VVG; in distance selling text form suffices",
+      "d": "A waiver is never possible"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 61 Abs. 2 Satz 1 VVG: „Der Versicherungsnehmer kann auf die Beratung oder die Dokumentation nach Absatz 1 durch eine gesonderte schriftliche Erklärung verzichten, in der er vom Versicherungsvermittler ausdrücklich darauf hingewiesen wird, dass sich ein Verzicht nachteilig auf die Möglichkeit des Versicherungsnehmers auswirken kann, gegen den Versicherungsvermittler einen Schadensersatzanspruch nach § 63 geltend zu machen.“ Satz 2 lässt bei Fernabsatzverträgen nach § 312c BGB Textform genügen. „Gesondert“ schließt eine Klausel im Antragsformular aus; „schriftlich“ verlangt außerhalb des Fernabsatzes die Form des § 126 BGB. § 63 VVG selbst: „Der Versicherungsvermittler ist zum Ersatz des Schadens verpflichtet, der dem Versicherungsnehmer durch die Verletzung einer Pflicht nach § 60 oder § 61 entsteht“, es sei denn, er hat die Pflichtverletzung nicht zu vertreten.",
+    "en": "Section 61(2) sentence 1 VVG allows the policyholder to waive advice or documentation by a separate written declaration in which the intermediary expressly points out that a waiver may adversely affect his ability to bring a damages claim against the intermediary under section 63. Sentence 2 allows text form for distance contracts under section 312c BGB. 'Separate' rules out a clause in the application form; 'written' requires the form of section 126 BGB outside distance selling. Section 63 VVG itself makes the intermediary liable for damage caused by breach of a duty under section 60 or section 61, unless he is not responsible for the breach."
+   }
+  },
+  {
+   "id": "versverm-vorsorge-01",
+   "topic": "Vorsorge: gesetzliche Grundlagen der Alters-, Unfall- und Krankenabsicherung",
+   "topic_code": "vorsorge",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 35 SGB VI",
+   "points": 3,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche zwei Voraussetzungen müssen für einen Anspruch auf Regelaltersrente aus der gesetzlichen Rentenversicherung erfüllt sein?",
+     "options": {
+      "a": "Vollendung des 65. Lebensjahres und 5 Jahre Beitragszahlung in den letzten 10 Jahren",
+      "b": "Erreichen der Regelaltersgrenze - sie wird mit Vollendung des 67. Lebensjahres erreicht - und Erfüllung der allgemeinen Wartezeit",
+      "c": "Vollendung des 63. Lebensjahres und 45 Versicherungsjahre",
+      "d": "Erreichen der Regelaltersgrenze und ein Antrag auf Beendigung der Beschäftigung"
+     }
+    },
+    "en": {
+     "question": "Which two conditions must be met for entitlement to a standard old-age pension from the statutory pension insurance?",
+     "options": {
+      "a": "Reaching age 65 and five years of contributions in the last ten years",
+      "b": "Reaching the standard retirement age - reached on completion of the 67th year of life - and satisfying the general qualifying period",
+      "c": "Reaching age 63 and 45 years of insurance",
+      "d": "Reaching the standard retirement age and an application to end employment"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 35 SGB VI: „Versicherte haben Anspruch auf Regelaltersrente, wenn sie 1. die Regelaltersgrenze erreicht und 2. die allgemeine Wartezeit erfüllt haben. Die Regelaltersgrenze wird mit Vollendung des 67. Lebensjahres erreicht.“ Antwort (c) beschreibt die Altersrente für besonders langjährig Versicherte, die eine andere Rentenart mit eigenen Voraussetzungen ist. Für die Vermittlungspraxis ist die Regelaltersgrenze die Rechengrundlage der Versorgungslücke, die Anlage 1 Nr. 3.1.6 VersVermV ausdrücklich als Prüfungsinhalt nennt.",
+    "en": "Section 35 SGB VI grants entitlement to a standard old-age pension where the insured person has reached the standard retirement age and satisfied the general qualifying period, and fixes the standard retirement age at completion of the 67th year of life. Answer (c) describes the old-age pension for the very long insured, a different pension type with its own conditions. In distribution practice the standard retirement age is the basis for calculating the pension gap, which annex 1 no. 3.1.6 VersVermV names expressly as examination content."
+   }
+  },
+  {
+   "id": "versverm-vorsorge-02",
+   "topic": "Vorsorge: gesetzliche Grundlagen der Alters-, Unfall- und Krankenabsicherung",
+   "topic_code": "vorsorge",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 1a Abs. 1 und 1a BetrAVG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Arbeitnehmer verlangt von seinem Arbeitgeber Entgeltumwandlung für eine betriebliche Altersversorgung. In welcher Höhe besteht der Anspruch, und was schuldet der Arbeitgeber zusätzlich?",
+     "options": {
+      "a": "Bis zu 8 Prozent der Beitragsbemessungsgrenze; ein Arbeitgeberzuschuss ist nicht vorgesehen",
+      "b": "Bis zu 4 Prozent des Bruttoentgelts; der Arbeitgeber schuldet 20 Prozent Zuschuss",
+      "c": "In unbegrenzter Höhe; ein Zuschuss ist freiwillig",
+      "d": "Bis zu 4 Prozent der jeweiligen Beitragsbemessungsgrenze in der allgemeinen Rentenversicherung; der Arbeitgeber muss zusätzlich 15 Prozent des umgewandelten Entgelts weiterleiten, soweit er dadurch Sozialversicherungsbeiträge einspart"
+     }
+    },
+    "en": {
+     "question": "An employee asks his employer for salary conversion into an occupational pension. What is the extent of the entitlement, and what does the employer additionally owe?",
+     "options": {
+      "a": "Up to 8 per cent of the contribution assessment ceiling; no employer subsidy is provided for",
+      "b": "Up to 4 per cent of gross salary; the employer owes a 20 per cent subsidy",
+      "c": "An unlimited amount; a subsidy is voluntary",
+      "d": "Up to 4 per cent of the applicable contribution assessment ceiling in the general pension insurance; the employer must additionally pass on 15 per cent of the converted salary in so far as it thereby saves social security contributions"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 1a Abs. 1 Satz 1 BetrAVG: „Der Arbeitnehmer kann vom Arbeitgeber verlangen, dass von seinen künftigen Entgeltansprüchen bis zu 4 vom Hundert der jeweiligen Beitragsbemessungsgrenze in der allgemeinen Rentenversicherung durch Entgeltumwandlung für seine betriebliche Altersversorgung verwendet werden.“ Bezugsgröße ist die Beitragsbemessungsgrenze, nicht das individuelle Bruttoentgelt. § 1a Abs. 1a: „Der Arbeitgeber muss 15 Prozent des umgewandelten Entgelts zusätzlich als Arbeitgeberzuschuss an den Pensionsfonds, die Pensionskasse oder die Direktversicherung weiterleiten, soweit er durch die Entgeltumwandlung Sozialversicherungsbeiträge einspart.“ Nach § 1a Abs. 1 Satz 3 bestimmt zunächst der Arbeitgeber den Durchführungsweg; ist er zu Pensionsfonds oder Pensionskasse bereit, ist dort durchzuführen, andernfalls kann der Arbeitnehmer eine Direktversicherung verlangen.",
+    "en": "Section 1a(1) sentence 1 BetrAVG entitles the employee to require that up to 4 per cent of the applicable contribution assessment ceiling in the general pension insurance be converted from future salary claims into an occupational pension. The reference figure is the assessment ceiling, not individual gross salary. Section 1a(1a) requires the employer to pass on an additional 15 per cent of the converted salary as an employer subsidy in so far as the conversion saves it social security contributions. Under section 1a(1) sentence 3 the employer first determines the implementation route; if it is willing to use a pension fund or pension scheme the pension must be implemented there, otherwise the employee may require a direct insurance policy."
+   }
+  },
+  {
+   "id": "versverm-vorsorge-03",
+   "topic": "Vorsorge: gesetzliche Grundlagen der Alters-, Unfall- und Krankenabsicherung",
+   "topic_code": "vorsorge",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 8 Abs. 1 und 2 SGB VII, § 178 Abs. 2 VVG",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Worin unterscheidet sich der Unfallbegriff der gesetzlichen Unfallversicherung von dem der privaten Unfallversicherung?",
+     "options": {
+      "a": "Es gibt keinen Unterschied; beide verwenden denselben Begriff",
+      "b": "Die gesetzliche Unfallversicherung deckt auch Unfälle in der Freizeit ab, die private nicht",
+      "c": "Die gesetzliche Unfallversicherung setzt einen Zusammenhang mit einer versicherten Tätigkeit voraus und erfasst auch den Weg zur und von der Arbeit; die private Unfallversicherung setzt ein plötzlich von außen auf den Körper wirkendes Ereignis voraus, durch das die versicherte Person unfreiwillig eine Gesundheitsschädigung erleidet - unabhängig von einer Tätigkeit",
+      "d": "Die private Unfallversicherung setzt Verschulden eines Dritten voraus"
+     }
+    },
+    "en": {
+     "question": "How does the concept of an accident in the statutory accident insurance differ from that in private accident insurance?",
+     "options": {
+      "a": "There is no difference; both use the same concept",
+      "b": "The statutory accident insurance also covers leisure-time accidents; private accident insurance does not",
+      "c": "The statutory accident insurance requires a connection with an insured activity and also covers the direct journey to and from work; private accident insurance requires a sudden external event acting on the body through which the insured person involuntarily suffers damage to health - regardless of any activity",
+      "d": "Private accident insurance requires fault on the part of a third party"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 8 Abs. 1 Satz 1 SGB VII: „Arbeitsunfälle sind Unfälle von Versicherten infolge einer den Versicherungsschutz nach § 2, 3 oder 6 begründenden Tätigkeit (versicherte Tätigkeit).“ Satz 2 definiert Unfälle als „zeitlich begrenzte, von außen auf den Körper einwirkende Ereignisse, die zu einem Gesundheitsschaden oder zum Tod führen“. § 8 Abs. 2 Nr. 1 erstreckt den Schutz auf „das Zurücklegen des mit der versicherten Tätigkeit zusammenhängenden unmittelbaren Weges nach und von dem Ort der Tätigkeit“. § 178 Abs. 2 VVG für die private Unfallversicherung: „Ein Unfall liegt vor, wenn die versicherte Person durch ein plötzlich von außen auf ihren Körper wirkendes Ereignis unfreiwillig eine Gesundheitsschädigung erleidet. Die Unfreiwilligkeit wird bis zum Beweis des Gegenteils vermutet.“ Der Tätigkeitsbezug fehlt hier vollständig; dafür kommt das Merkmal der Plötzlichkeit hinzu. Die gesetzliche Unfallversicherung deckt gerade NICHT die private Freizeit ab - das ist die Deckungslücke, die eine private Unfallversicherung schließt, weshalb (b) die Sachlage umkehrt.",
+    "en": "Section 8(1) sentence 1 SGB VII defines industrial accidents as accidents of insured persons resulting from an activity giving rise to cover under sections 2, 3 or 6, and sentence 2 defines accidents as temporally limited events acting on the body from outside and causing damage to health or death. Section 8(2) no. 1 extends cover to the direct journey to and from the place of the activity. Section 178(2) VVG, for private accident insurance, defines an accident as occurring where the insured person involuntarily suffers damage to health through a sudden event acting externally on the body, with involuntariness presumed until the contrary is proved. The activity link is entirely absent there, while the element of suddenness is added. The statutory accident insurance precisely does not cover private leisure time - that is the gap private accident insurance closes, which is why (b) inverts the position."
+   }
+  },
+  {
+   "id": "versverm-vorsorge-04",
+   "topic": "Vorsorge: gesetzliche Grundlagen der Alters-, Unfall- und Krankenabsicherung",
+   "topic_code": "vorsorge",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 193 Abs. 3 VVG",
+   "points": 4,
+   "high_stakes": false,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Für wen gilt die Pflicht zum Abschluss einer Krankheitskostenversicherung nach § 193 Abs. 3 VVG?",
+     "options": {
+      "a": "Für alle Personen mit deutscher Staatsangehörigkeit, unabhängig vom Wohnsitz",
+      "b": "Für jede Person mit Wohnsitz im Inland, für sich und die von ihr gesetzlich vertretenen Personen - nicht jedoch unter anderem für gesetzlich Krankenversicherte, Beihilfeberechtigte und Personen mit Anspruch auf freie Heilfürsorge",
+      "c": "Nur für Selbstständige und Freiberufler",
+      "d": "Nur für Personen, deren Einkommen die Jahresarbeitsentgeltgrenze übersteigt"
+     }
+    },
+    "en": {
+     "question": "To whom does the duty to take out health-cost insurance under section 193(3) VVG apply?",
+     "options": {
+      "a": "To all German nationals, regardless of residence",
+      "b": "To every person resident in Germany, for themselves and for persons they legally represent - but not, among others, to those insured in the statutory health insurance, those entitled to civil-service medical allowances, and those entitled to free medical care",
+      "c": "Only to the self-employed and freelancers",
+      "d": "Only to persons whose income exceeds the annual earnings threshold"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 193 Abs. 3 Satz 1 VVG: „Jede Person mit Wohnsitz im Inland ist verpflichtet, bei einem in Deutschland zum Geschäftsbetrieb zugelassenen Versicherungsunternehmen für sich selbst und für die von ihr gesetzlich vertretenen Personen, soweit diese nicht selbst Verträge abschließen können, eine Krankheitskostenversicherung, die mindestens eine Kostenerstattung für ambulante und stationäre Heilbehandlung umfasst … abzuschließen und aufrechtzuerhalten“, wobei die vereinbarten Selbstbehalte auf eine betragsmäßige Auswirkung von kalenderjährlich 5 000 Euro je Person begrenzt sein müssen. Satz 2 nimmt unter anderem in der gesetzlichen Krankenversicherung Versicherte oder Versicherungspflichtige, Beihilfeberechtigte und Personen mit Anspruch auf freie Heilfürsorge aus. Anknüpfungspunkt ist der Wohnsitz, nicht die Staatsangehörigkeit oder der Erwerbsstatus.",
+    "en": "Section 193(3) sentence 1 VVG obliges every person resident in Germany to take out and maintain, with an insurer authorised to do business in Germany, health-cost insurance covering at least reimbursement for outpatient and inpatient treatment, for themselves and for persons they legally represent who cannot conclude contracts themselves, with agreed deductibles limited in monetary effect to EUR 5,000 per calendar year per insured person. Sentence 2 excepts, among others, those insured or subject to insurance in the statutory health insurance, those entitled to civil-service medical allowances, and those entitled to free medical care. The connecting factor is residence, not nationality or employment status."
+   }
+  },
+  {
+   "id": "versverm-sach_haftpflicht-01",
+   "topic": "Sach- und Haftpflichtversicherung: gesetzliche Grundlagen",
+   "topic_code": "sach_haftpflicht",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 100 VVG",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "d"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche zwei Leistungen schuldet der Haftpflichtversicherer nach § 100 VVG?",
+     "options": {
+      "a": "Nur die Zahlung an den geschädigten Dritten",
+      "b": "Nur die Übernahme der Prozesskosten",
+      "c": "Die Zahlung an den Versicherungsnehmer und die Regulierung gegenüber dem Dritten",
+      "d": "Die Freistellung des Versicherungsnehmers von begründeten Ansprüchen Dritter und die Abwehr unbegründeter Ansprüche"
+     }
+    },
+    "en": {
+     "question": "Which two performances does the liability insurer owe under section 100 VVG?",
+     "options": {
+      "a": "Only payment to the injured third party",
+      "b": "Only assumption of litigation costs",
+      "c": "Payment to the policyholder and settlement with the third party",
+      "d": "Indemnifying the policyholder against well-founded third-party claims and defending against unfounded claims"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 100 VVG: „Bei der Haftpflichtversicherung ist der Versicherer verpflichtet, den Versicherungsnehmer von Ansprüchen freizustellen, die von einem Dritten auf Grund der Verantwortlichkeit des Versicherungsnehmers für eine während der Versicherungszeit eintretende Tatsache geltend gemacht werden, und unbegründete Ansprüche abzuwehren.“ Die Haftpflichtversicherung hat damit eine doppelte Funktion: eine Freistellungsfunktion für begründete Ansprüche und eine passive Rechtsschutzfunktion für unbegründete. Die Abwehrfunktion wird in der Beratung regelmäßig unterschätzt, ist aber praktisch oft der wichtigere Teil - der Versicherer entscheidet, welcher Anspruch begründet ist, und trägt die Kosten der Abwehr.",
+    "en": "Section 100 VVG obliges the liability insurer to indemnify the policyholder against claims asserted by a third party on the basis of the policyholder's responsibility for a fact occurring during the insurance period, and to defend against unfounded claims. Liability insurance thus has a double function: indemnity for well-founded claims and passive legal protection against unfounded ones. The defence function is regularly underestimated in advice but is often the more important part in practice - the insurer decides which claim is well founded and bears the cost of defending."
+   }
+  },
+  {
+   "id": "versverm-sach_haftpflicht-02",
+   "topic": "Sach- und Haftpflichtversicherung: gesetzliche Grundlagen",
+   "topic_code": "sach_haftpflicht",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 75 VVG, § 74 VVG",
+   "points": 4,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "a"
+   ],
+   "text": {
+    "de": {
+     "question": "Eine Hausratversicherung ist mit einer Versicherungssumme von 40 000 Euro abgeschlossen; der Versicherungswert bei Eintritt des Versicherungsfalls beträgt 80 000 Euro. Es entsteht ein Schaden von 20 000 Euro. Welche Rechtsfolge sieht das VVG vor?",
+     "options": {
+      "a": "Unterversicherung: Der Versicherer leistet nur nach dem Verhältnis der Versicherungssumme zum Versicherungswert, hier also anteilig",
+      "b": "Der Versicherer leistet die vollen 20 000 Euro, weil der Schaden unter der Versicherungssumme liegt",
+      "c": "Der Vertrag ist nichtig",
+      "d": "Der Versicherer kann die Versicherungssumme rückwirkend erhöhen und die Differenzprämie nachfordern"
+     }
+    },
+    "en": {
+     "question": "A household contents policy is taken out with a sum insured of EUR 40,000; the insurable value at the time of the insured event is EUR 80,000. A loss of EUR 20,000 occurs. What consequence does the VVG provide for?",
+     "options": {
+      "a": "Underinsurance: the insurer pays only in the ratio of the sum insured to the insurable value, so proportionately here",
+      "b": "The insurer pays the full EUR 20,000, because the loss is below the sum insured",
+      "c": "The contract is void",
+      "d": "The insurer may increase the sum insured retroactively and demand the difference in premium"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 75 VVG: „Ist die Versicherungssumme erheblich niedriger als der Versicherungswert zur Zeit des Eintrittes des Versicherungsfalles, ist der Versicherer nur verpflichtet, die Leistung nach dem Verhältnis der Versicherungssumme zu diesem Wert zu erbringen.“ Die Unterversicherung wirkt sich damit auch auf Teilschäden aus, die für sich genommen unter der Versicherungssumme bleiben - genau das ist der in der Beratung am häufigsten missverstandene Punkt. Den umgekehrten Fall regelt § 74 VVG: Übersteigt die Versicherungssumme den Versicherungswert erheblich, kann jede Vertragspartei die Herabsetzung unter verhältnismäßiger Prämienminderung verlangen; bei Bereicherungsabsicht ist der Vertrag nach § 74 Abs. 2 nichtig. § 76 VVG erlaubt es, den Versicherungswert durch eine Taxe festzulegen.",
+    "en": "Section 75 VVG provides that where the sum insured is substantially lower than the insurable value at the time of the insured event, the insurer is only obliged to pay in the ratio of the sum insured to that value. Underinsurance therefore also affects partial losses that fall below the sum insured on their own - precisely the point most often misunderstood in advice. Section 74 VVG governs the converse case: where the sum insured substantially exceeds the insurable value, either party may demand a reduction with a proportionate reduction in premium, and where the policyholder acted with intent to enrich himself the contract is void under section 74(2). Section 76 VVG allows the insurable value to be fixed by an agreed valuation."
+   }
+  },
+  {
+   "id": "versverm-sach_haftpflicht-03",
+   "topic": "Sach- und Haftpflichtversicherung: gesetzliche Grundlagen",
+   "topic_code": "sach_haftpflicht",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 1 PflVG, Anlage zu § 4 Abs. 2 PflVG, § 115 Abs. 1 VVG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Wie hoch sind die gesetzlichen Mindestversicherungssummen in der Kfz-Haftpflichtversicherung je Schadensfall, und was gilt für den geschädigten Dritten?",
+     "options": {
+      "a": "5 Millionen Euro für Personenschäden, 1 Million Euro für Sachschäden; der Dritte muss stets zuerst den Halter verklagen",
+      "b": "7,5 Millionen Euro für Personenschäden, 1,3 Millionen Euro für Sachschäden; ein Direktanspruch besteht nur bei Insolvenz des Halters",
+      "c": "7,5 Millionen Euro für Personenschäden, 1 300 000 Euro für Sachschäden und 50 000 Euro für reine Vermögensschäden; der Dritte kann seinen Schadensersatzanspruch auch unmittelbar gegen den Versicherer geltend machen",
+      "d": "Es gibt keine gesetzlichen Mindestsummen; sie ergeben sich allein aus den Bedingungen"
+     }
+    },
+    "en": {
+     "question": "What are the statutory minimum sums insured in motor third-party liability insurance per loss event, and what applies to the injured third party?",
+     "options": {
+      "a": "EUR 5 million for personal injury, EUR 1 million for property damage; the third party must always sue the keeper first",
+      "b": "EUR 7.5 million for personal injury, EUR 1.3 million for property damage; a direct claim exists only on the keeper's insolvency",
+      "c": "EUR 7.5 million for personal injury, EUR 1,300,000 for property damage and EUR 50,000 for pure financial loss; the third party may also assert his damages claim directly against the insurer",
+      "d": "There are no statutory minimum sums; they follow solely from the policy conditions"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 1 PflVG begründet die Versicherungspflicht des Fahrzeughalters. Die Anlage zu § 4 Abs. 2 PflVG nennt die Mindesthöhen je Schadensfall: „a) für Personenschäden siebeneinhalb Millionen Euro, b) für Sachschäden 1 300 000 Euro, c) für die weder mittelbar noch unmittelbar mit einem Personen- oder Sachschaden zusammenhängenden Vermögensschäden (reine Vermögensschäden) 50 000 Euro“; bei Fahrzeugen mit mehr als neun Plätzen erhöhen sich die Beträge platzbezogen. § 115 Abs. 1 Satz 1 Nr. 1 VVG gibt dem Dritten den Direktanspruch, „wenn es sich um eine Haftpflichtversicherung zur Erfüllung einer nach § 1 des Pflichtversicherungsgesetzes … bestehenden Versicherungspflicht handelt“ - also bei jeder Kfz-Haftpflicht, nicht erst bei Insolvenz. Insolvenz (Nr. 2) und unbekannter Aufenthalt (Nr. 3) sind zusätzliche, eigenständige Fälle. Versicherer und ersatzpflichtiger Versicherungsnehmer haften als Gesamtschuldner.",
+    "en": "Section 1 PflVG creates the vehicle keeper's insurance obligation. The annex to section 4(2) PflVG sets the minimum amounts per loss event at EUR 7.5 million for personal injury, EUR 1,300,000 for property damage and EUR 50,000 for pure financial loss unconnected directly or indirectly with personal injury or property damage; for vehicles with more than nine seats the amounts increase per seat. Section 115(1) sentence 1 no. 1 VVG gives the third party a direct claim wherever the liability insurance serves to satisfy an insurance obligation under section 1 PflVG - so in every motor third-party case, not only on insolvency. Insolvency (no. 2) and unknown whereabouts (no. 3) are additional, free-standing cases. Insurer and liable policyholder are jointly and severally liable."
+   }
+  },
+  {
+   "id": "versverm-datenschutz_gwg-01",
+   "topic": "Datenschutz und Geldwäscheprävention in der Versicherungsvermittlung",
+   "topic_code": "datenschutz_gwg",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 213 Abs. 1 bis 4 VVG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "b"
+   ],
+   "text": {
+    "de": {
+     "question": "Ein Lebensversicherer möchte zur Risikoprüfung Gesundheitsdaten einer Antragstellerin bei deren Hausarzt erheben. Welche Anforderungen stellt § 213 VVG?",
+     "options": {
+      "a": "Die Erhebung ist bei jeder Stelle zulässig, solange sie der Risikoprüfung dient",
+      "b": "Die Erhebung ist nur bei den in § 213 Abs. 1 VVG abschließend genannten Stellen zulässig, nur soweit die Kenntnis für die Beurteilung des Risikos oder der Leistungspflicht erforderlich ist und nur mit Einwilligung; die betroffene Person ist vorher zu unterrichten und kann widersprechen",
+      "c": "Eine Einwilligung ist entbehrlich, weil die Erhebung der Vertragsdurchführung dient",
+      "d": "Die Erhebung ist stets unzulässig, weil Gesundheitsdaten besondere Kategorien personenbezogener Daten sind"
+     }
+    },
+    "en": {
+     "question": "A life insurer wants to obtain health data about an applicant from her family doctor in order to assess the risk. What does section 213 VVG require?",
+     "options": {
+      "a": "Collection is permitted from any body as long as it serves risk assessment",
+      "b": "Collection is permitted only from the bodies exhaustively listed in section 213(1) VVG, only in so far as knowledge of the data is necessary to assess the risk to be insured or the liability to pay, and only with consent; the data subject must be informed beforehand and may object",
+      "c": "Consent is dispensable because the collection serves the performance of the contract",
+      "d": "Collection is always impermissible because health data are special categories of personal data"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 213 Abs. 1 VVG ist eine versicherungsspezifische Sondervorschrift: „Die Erhebung personenbezogener Gesundheitsdaten durch den Versicherer darf nur bei Ärzten, Krankenhäusern und sonstigen Krankenanstalten, Pflegeheimen und Pflegepersonen, anderen Personenversicherern und gesetzlichen Krankenkassen sowie Berufsgenossenschaften und Behörden erfolgen; sie ist nur zulässig, soweit die Kenntnis der Daten für die Beurteilung des zu versichernden Risikos oder der Leistungspflicht erforderlich ist und die betroffene Person eine Einwilligung erteilt hat.“ Abs. 2: Die Einwilligung kann vor Abgabe der Vertragserklärung erteilt werden, die betroffene Person ist vor jeder Erhebung zu unterrichten und kann widersprechen. Abs. 3 gibt ihr das Recht, jederzeit eine Einzeleinwilligung zu verlangen; Abs. 4 verpflichtet zum Hinweis auf diese Rechte. QUERVERWEIS: Die allgemeinen Regeln der DSGVO - Rechtsgrundlagen nach Art. 6, besondere Kategorien nach Art. 9, Betroffenenrechte, Auftragsverarbeitung, Meldepflichten - werden hier bewusst nicht wiederholt; sie sind Gegenstand des Moduls „datenschutz“.",
+    "en": "Section 213(1) VVG is an insurance-specific special rule: the insurer may collect personal health data only from doctors, hospitals and other medical institutions, nursing homes and nursing staff, other personal-lines insurers and statutory health insurance funds, employers' liability insurance associations and public authorities; and only in so far as knowledge of the data is necessary to assess the risk to be insured or the liability to pay, and where the data subject has consented. Subsection 2 allows consent to be given before the contractual declaration, requires the data subject to be informed before each collection, and gives a right to object. Subsection 3 gives a right to demand consent for each individual collection; subsection 4 requires these rights to be pointed out. CROSS-REFERENCE: the general GDPR rules - legal bases under article 6, special categories under article 9, data-subject rights, processing on behalf of a controller, notification duties - are deliberately not repeated here; they are the subject of the 'datenschutz' module."
+   }
+  },
+  {
+   "id": "versverm-datenschutz_gwg-02",
+   "topic": "Datenschutz und Geldwäscheprävention in der Versicherungsvermittlung",
+   "topic_code": "datenschutz_gwg",
+   "class_scope": [
+    "ALL"
+   ],
+   "grundstoff": true,
+   "legal_basis": "§ 2 Abs. 1 Nr. 8 GwG, § 2 Abs. 1 Nr. 7 GwG",
+   "points": 5,
+   "high_stakes": true,
+   "question_type": "single_choice",
+   "image_ref": null,
+   "correct": [
+    "c"
+   ],
+   "text": {
+    "de": {
+     "question": "Welche Versicherungsvermittler sind Verpflichtete nach dem Geldwäschegesetz?",
+     "options": {
+      "a": "Alle Versicherungsvermittler, unabhängig von der vermittelten Sparte und der Erlaubnisform",
+      "b": "Nur Versicherungsmakler, nicht Versicherungsvertreter",
+      "c": "Versicherungsvermittler nach § 59 VVG, soweit sie die unter § 2 Abs. 1 Nr. 7 GwG fallenden Tätigkeiten - insbesondere Lebensversicherungstätigkeiten - vermitteln, mit Ausnahme der nach § 34d Abs. 6 oder Abs. 7 Nr. 1 GewO tätigen Versicherungsvermittler",
+      "d": "Kein Versicherungsvermittler; Verpflichtete sind ausschließlich die Versicherungsunternehmen"
+     }
+    },
+    "en": {
+     "question": "Which insurance intermediaries are obliged entities under the Money Laundering Act?",
+     "options": {
+      "a": "All insurance intermediaries, regardless of the line of business distributed and the form of licence",
+      "b": "Only insurance brokers, not insurance agents",
+      "c": "Insurance intermediaries within section 59 VVG, in so far as they distribute the activities, business, products or services falling under section 2(1) no. 7 GwG - in particular life assurance activities - with the exception of intermediaries acting under section 34d(6) or (7) no. 1 GewO",
+      "d": "No insurance intermediary; only insurance undertakings are obliged entities"
+     }
+    }
+   },
+   "explanation": {
+    "de": "§ 2 Abs. 1 Nr. 8 GwG erfasst „Versicherungsvermittler nach § 59 des Versicherungsvertragsgesetzes, soweit sie die unter Nummer 7 fallenden Tätigkeiten, Geschäfte, Produkte oder Dienstleistungen vermitteln, mit Ausnahme der gemäß § 34d Absatz 6 oder 7 Nummer 1 der Gewerbeordnung tätigen Versicherungsvermittler“. Daraus folgen drei Einschränkungen. Erstens die Sparte: Nummer 7 betrifft Versicherungsunternehmen, soweit sie unter anderem „Lebensversicherungstätigkeiten“ anbieten - Kraftfahrt-, Hausrat- oder Haftpflichtvermittlung löst die Verpflichteteneigenschaft nicht aus. Zweitens das „soweit“: Die Eigenschaft besteht nur für diese Geschäfte, nicht pauschal für den gesamten Betrieb. Drittens die ausdrückliche Ausnahme für produktakzessorische Vermittler (§ 34d Abs. 6 GewO) und gebundene Versicherungsvertreter (§ 34d Abs. 7 Nr. 1 GewO) - dieselbe Stufenlinie wie bei der Erlaubnispflicht. QUERVERWEIS: Das allgemeine Geldwäscherecht - Typologien, Kundensorgfaltspflichten, Verdachtsmeldung nach § 43 GwG, verstärkte Sorgfaltspflichten, Sanktionen - wird hier bewusst nicht wiederholt; es ist Gegenstand des Moduls „kyc_aml“.",
+    "en": "Section 2(1) no. 8 GwG covers insurance intermediaries within section 59 VVG in so far as they distribute the activities, business, products or services falling under no. 7, with the exception of intermediaries acting under section 34d(6) or (7) no. 1 GewO. Three limitations follow. First, the line of business: no. 7 concerns insurance undertakings in so far as they offer, among other things, life assurance activities - distributing motor, household contents or liability cover does not trigger obliged-entity status. Second, the words 'in so far as': the status exists only for that business, not for the whole operation. Third, the express exception for ancillary intermediaries (section 34d(6) GewO) and tied agents (section 34d(7) no. 1 GewO) - the same tier line as for the licensing requirement. CROSS-REFERENCE: general anti-money-laundering law - typologies, customer due diligence, suspicious-activity reporting under section 43 GwG, enhanced due diligence, sanctions - is deliberately not repeated here; it is the subject of the 'kyc_aml' module."
+   }
+  }
+ ]
+}
