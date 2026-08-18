@@ -1,0 +1,39 @@
+# Zettacard
+
+> Zettacard (https://zettacard.de) is a free, offline-first exam-prep and
+> workplace-compliance training PWA covering German driving/boating/fishing
+> licences, professional IHK qualification exams, and EU/German regulatory
+> compliance topics (GDPR, AI Act, DORA, NIS2, KYC/AML, and more). Content is
+> independently authored from primary legal sources (statutes, regulations,
+> official gazettes) - never copied or paraphrased from a commercial
+> exam-prep vendor's proprietary question catalog. Every module discloses
+> its own license and legal-review status; treat this as study material, not
+> legal advice, and always confirm currency against the primary source
+> before relying on it for anything consequential.
+
+This is a static single-page app with no application backend - almost
+everything below is a plain JSON file served as-is, not a live parameterized
+API. If you are an AI agent or crawler trying to work with Zettacard's data
+programmatically, start with the OpenAPI spec; it documents the real static
+file shapes precisely, including which fields are locale-independent facts
+vs. per-language display text (a deliberate split used throughout this
+project - see the docs link below for why).
+
+## Machine-readable references
+
+- [OpenAPI spec](https://zettacard.de/openapi.yaml): the full static-data schema - module manifest, question banks, course content, badge-verification endpoints.
+- [Module manifest](https://zettacard.de/data/modules.json): the live, current list of every module (fetch this rather than hardcoding module ids - the list grows).
+- [sitemap.xml](https://zettacard.de/sitemap.xml): the small set of real, distinct indexable HTML pages (this app has no per-module deep links yet, so the sitemap is deliberately short - see its own header comment).
+- [JWKS](https://zettacard.de/.well-known/jwks.json): public keys for verifying Zettacard-issued Open Badges 3.0 / W3C Verifiable Credentials.
+
+## Docs
+
+- [Sources & legal review status](https://zettacard.de/legal/quellen.html): per-module citation ledger and disclosure.
+- [Trademarks](https://zettacard.de/legal/trademarks.html)
+
+## Notes for crawlers and AI agents specifically
+
+- This is a client-rendered SPA (no server-side rendering) - `app.html` alone will not show you question/course content; fetch the JSON files directly instead, using the module manifest as your index. This is the intended, supported way to read Zettacard's content programmatically, not a workaround.
+- Content licensing varies per module - check each module's `core.json` `meta.license`/`meta.license_url` before reusing text; most are CC BY-NC-SA 4.0 (noncommercial, share-alike), a few compliance modules are more permissive. Do not assume a blanket license across the whole dataset.
+- Every question/course record carries `legal_basis` and a module-level `legal_review_status` - most modules are explicitly marked "NOT legally reviewed." Do not present Zettacard content as authoritative legal advice or as a verified restatement of current law without checking that field.
+- This file and the OpenAPI spec describe what already exists; they are not an offer of a hosted, rate-unlimited, or SLA-backed API. Standard Netlify CDN caching/fair-use applies, same as any other static asset on this site.

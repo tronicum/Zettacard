@@ -1,0 +1,312 @@
+openapi: 3.0.3
+info:
+  title: Zettacard static data API
+  version: "1.0"
+  description: >-
+    Zettacard (https://zettacard.de) is an offline-first static PWA - a
+    plain vanilla-JS single-page app with no bundler, no framework, and no
+    application backend. Every "endpoint" documented here is a plain static
+    JSON file served as-is from Netlify's CDN, fetched client-side by the
+    app itself at runtime (see fetchJson() in app/app.js) - not a live,
+    parameterized API. There is no authentication, no rate limiting beyond
+    Netlify's own CDN defaults, and no write operations except the two
+    Netlify Functions listed at the bottom (badge issuance/lookup), which
+    ARE real serverless functions, not static files.
+
+    This spec exists so an external agent, crawler, or integrator can
+    understand the shape of Zettacard's public data without having to
+    reverse-engineer app.js. It documents what already exists; it does not
+    commit to a new architecture. If you're a human reading this file
+    instead of a tool: see AGENTS.md in the repository root for the fuller
+    picture, including content-licensing and sourcing constraints that
+    apply to every question/course record below.
+  license:
+    name: "Content: CC BY-NC-SA 4.0 (per-module, see each core.json's meta.license). Code: see repository LICENSE.md."
+  contact:
+    url: https://zettacard.de/legal/quellen.html
+servers:
+  - url: https://zettacard.de
+    description: Production. Every path below is relative to this origin.
+
+paths:
+  /data/modules.json:
+    get:
+      summary: Module manifest - the list of every learning module the app knows about.
+      description: >-
+        Static, always-available. Each entry names an `exam_type` (the id
+        used to build every other path below), its scope kind
+        (`class` for driving/professional-license "classes" like B/BE,
+        `region` for state-law modules like Angelschein), its scope
+        options, localized labels/intro text, and whether it has a course
+        layer (`hasCourse`). This is the file to fetch first - it's the
+        index into everything else.
+      responses:
+        "200":
+          description: The module manifest.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModulesManifest"
+
+  /data/{examType}/core.json:
+    get:
+      summary: A module's question bank, facts only (no display text).
+      description: >-
+        Locale-independent facts for every question in one module: id,
+        topic, legal citation, point value, correct answer key(s), scope
+        tags. Display text (the actual question/option/explanation
+        wording) is NOT here by design - see /data/{examType}/locales/{lang}.json.
+        This split exists so the same fact never needs re-authoring per
+        language; see AGENTS.md for the rationale.
+      parameters:
+        - $ref: "#/components/parameters/ExamType"
+      responses:
+        "200":
+          description: The module's core question data.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CoreQuestionBank"
+        "404":
+          description: Unknown exam_type, or a path/file that doesn't exist (Netlify's SPA catch-all may still return 200 with the app shell's HTML instead of a real 404 - check the response's actual content-type/body, don't trust the HTTP status alone).
+
+  /data/{examType}/locales/{lang}.json:
+    get:
+      summary: Display text for one module in one language.
+      description: >-
+        Keyed by question id (the same "the key IS the entity id"
+        convention used everywhere in this data). Each entry: `question`
+        (the stem), `options` (an object keyed a/b/c/d... matching
+        core.json's `correct` array), `explanation`. Not every module ships
+        every one of the app's 12 UI locales for its question content yet -
+        `de` and `en` are the two guaranteed locales; check
+        core.json meta.locales for what's actually available. Missing
+        locales fall back to English at runtime, never to a blank string.
+      parameters:
+        - $ref: "#/components/parameters/ExamType"
+        - $ref: "#/components/parameters/Lang"
+      responses:
+        "200":
+          description: The locale bundle.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LocaleBundle"
+
+  /data/{examType}/course.json:
+    get:
+      summary: A module's course layer (lessons/sections), facts only - only present if modules.json's hasCourse is true for this exam_type.
+      description: >-
+        A course is an ordered sequence of lessons, each an ordered
+        sequence of sections. `section_kind` is one of `prose`,
+        `worked_example`, `callout`, `decision_flow`, or `media` (an
+        image/video/slideshow - see docs/course-media-sections.md in the
+        repository for the full media schema, including per-asset
+        licensing fields). As with core.json, this file carries facts and
+        `*_key` pointers only; the actual title/body/media alt-text/caption
+        strings live in course_locales/{lang}.json.
+      parameters:
+        - $ref: "#/components/parameters/ExamType"
+      responses:
+        "200":
+          description: The module's course structure.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Course"
+        "404":
+          description: This module has no course layer (check modules.json's hasCourse first to avoid a wasted fetch).
+
+  /data/{examType}/course_locales/{lang}.json:
+    get:
+      summary: Display text for one module's course, in one language.
+      parameters:
+        - $ref: "#/components/parameters/ExamType"
+        - $ref: "#/components/parameters/Lang"
+      responses:
+        "200":
+          description: Keyed by section/slide id -> {title?, body?, alt_text?, caption?}.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+
+  /.well-known/jwks.json:
+    get:
+      summary: Public JWKS for verifying Zettacard-issued Open Badges 3.0 / Verifiable Credentials.
+      description: >-
+        Standard RFC 7517 JSON Web Key Set. Used to verify the ES256-signed
+        JWT credentials issued via POST /.netlify/functions/sign-credential
+        and retrievable via GET /badges/{id}/credential.jwt. Not
+        module-specific - one key set for the whole issuer.
+      responses:
+        "200":
+          description: The JWKS document.
+          content:
+            application/json:
+              schema:
+                type: object
+
+  /badges/{id}:
+    get:
+      summary: Human-facing verification page for one issued credential.
+      description: >-
+        Backed by a real Netlify Function (netlify/functions/get-badge.mjs),
+        not a static file - the one genuinely dynamic read path in this
+        list. No auth: a badge id (a UUID) is the only thing needed to look
+        one up, the same trust model as a JWT `jti`. Also reachable as
+        /badges/{id}/credential.json (the full stored record, incl. the
+        signed JWT) and /badges/{id}/credential.jwt (just the compact JWS
+        string, text/plain - what a wallet like Credly wants as an upload).
+        Append ?download=1 to any of the three for a Content-Disposition
+        attachment instead of an inline render.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        "200":
+          description: HTML verification page (default), or JSON/JWT per the path variant.
+        "404":
+          description: No badge stored under this id.
+
+components:
+  parameters:
+    ExamType:
+      name: examType
+      in: path
+      required: true
+      schema:
+        type: string
+      description: >-
+        A module id from /data/modules.json's modules[].exam_type, e.g.
+        fuehrerschein, aevo, fadp_ch, dora, kartellrecht. Not a stable
+        enum - fetch modules.json to get the current, real list rather
+        than hardcoding one.
+      example: aevo
+    Lang:
+      name: lang
+      in: path
+      required: true
+      schema:
+        type: string
+      description: >-
+        A BCP-47-ish language code. The app's 12 UI locales are de, en,
+        uk, pl, ar, zh, hi, tr, fr, ru, es, it - but a given module's
+        question/course CONTENT may only ship a subset (check the
+        module's core.json meta.locales). de and en are the only two
+        locales guaranteed for every module's content.
+      example: de
+
+  schemas:
+    ModulesManifest:
+      type: object
+      properties:
+        modules:
+          type: array
+          items:
+            type: object
+            required: [exam_type, label, scopeKind, options]
+            properties:
+              exam_type: { type: string }
+              label: { type: object, description: "locale -> display name" }
+              scopeKind: { type: string, enum: [class, region] }
+              hasCourse: { type: boolean }
+              options:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    code: { type: string }
+                    extends: { type: string, description: "optional - this option's content is additive on top of another option's, e.g. BE extends B" }
+                    label: { type: object }
+              intro:
+                type: object
+                description: optional first-run onboarding steps (DE/EN only today, falls back to EN)
+
+    CoreQuestionBank:
+      type: object
+      properties:
+        meta:
+          type: object
+          description: >-
+            license, license_url, legal_review_status, legal_basis sources,
+            point_system, pass_rule_note, total_questions, locales, and
+            module-specific fields - see AGENTS.md for which fields are
+            mandatory on every module.
+        questions:
+          type: array
+          items:
+            type: object
+            required: [id, topic_code, correct, points]
+            properties:
+              id: { type: string }
+              topic: { type: string }
+              topic_code: { type: string }
+              legal_basis: { type: string, description: "the specific statute/paragraph this question tests, e.g. \"Art. 2 Abs. 1 DSG\"" }
+              points: { type: integer }
+              high_stakes: { type: boolean, description: "safety/compliance-critical; 2+ wrong high_stakes answers auto-fails an exam attempt" }
+              question_type: { type: string, enum: [single_choice, multi_choice] }
+              correct:
+                type: array
+                items: { type: string }
+                description: "option key(s), e.g. [\"b\"] or [\"a\",\"c\"] for multi_choice"
+              class_scope:
+                type: array
+                items: { type: string }
+                description: which scope option(s) (or \"ALL\") this question applies to
+              image_ref: { type: string, nullable: true }
+              roles:
+                type: array
+                items: { type: string }
+
+    LocaleBundle:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          question: { type: string }
+          options:
+            type: object
+            additionalProperties: { type: string }
+          explanation: { type: string }
+      description: keyed by question id
+
+    Course:
+      type: object
+      properties:
+        meta: { type: object }
+        courses:
+          type: array
+          items:
+            type: object
+            properties:
+              course_id: { type: string }
+              module_ref: { type: string }
+              locales: { type: array, items: { type: string } }
+              estimated_minutes: { type: integer }
+              lessons:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    lesson_id: { type: string }
+                    lesson_kind: { type: string, enum: [primer, checkpoint, scenario, guidance] }
+                    completion_rule: { type: string, description: "e.g. quiz_pass:0.7, or read" }
+                    sections:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          section_id: { type: string }
+                          section_kind: { type: string, enum: [prose, worked_example, callout, decision_flow, media] }
+                          legal_basis: { type: string }
+                          license_ref: { type: string }
+                          media:
+                            type: object
+                            nullable: true
+                            description: "present only when section_kind is media - see docs/course-media-sections.md for the full field list"

@@ -3,6 +3,14 @@
 # indexed (e.g. get-app.html) carry their own <meta name="robots"
 # content="noindex,nofollow"> instead, since that's the reliable signal
 # per-page rather than a path pattern here.
+#
+# 2026-08-18: AI agents/crawlers wanting to work with this site's data
+# programmatically (not just index its HTML pages) should start at
+# /llms.txt and /openapi.yaml instead of trying to parse app.html - this
+# is a client-rendered SPA, so the JSON data files are the actual content,
+# not the shell page. Not a formal robots.txt directive (there isn't one
+# for llms.txt yet, unlike Sitemap: below) - just a pointer for whichever
+# tooling reads this file's comments.
 User-agent: *
 Allow: /
 

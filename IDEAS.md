@@ -17,6 +17,30 @@ than deleting it, so the origin of an idea stays traceable.
 
 ## Open sparks
 
+### Accessibility / static-HTML fallback version
+**2026-08-18.** PO's own words, reacting to a Google AI Mode conversation about why AI
+crawlers can't read Zettacard's question content: "yeah i might add an accesibilty
+version, good milestone idea." The underlying diagnosis in that conversation was right
+(this is a client-rendered SPA - `app.html` alone shows a crawler nothing, the JSON
+data files are the real content) but its proposed fix assumed a React/Vite stack this
+app doesn't have. What a real version of this idea means here: a build-time script that
+walks the actual data (`app/data/<module>/core.json` + `locales/*.json`) and emits
+static, semantic HTML (proper `<label>`/`<fieldset>`/`<input type="radio">`, no JS
+required to read a question) for screen readers and non-JS crawlers alike - genuinely
+two audiences served by one fix, not just an SEO trick. Bigger than the llms.txt/
+OpenAPI spark below: it's a new static-generation step in the build pipeline, needs a
+decision on scope (every module, or a pilot first - this project's own established
+pattern for new format ideas), and where the output lives (its own path, e.g.
+`/accessible/<module>/`, kept out of the SPA's `/*` catch-all). Not scoped or built.
+
+### llms.txt + OpenAPI spec for the static JSON data — DONE, see BACKLOG DN-84
+**2026-08-18.** PO, reacting to the same AI Mode conversation: "for our service. they
+should now how to work with our jsons and maybe the open api setup." Landed the same
+day rather than staying a pure spark, since it was small, additive, and needed no new
+architecture decision (a validated OpenAPI 3.0.3 spec documenting the *existing* static
+JSON file shapes, not a live API - fits the zero-backend architecture as-is). Kept here
+only for the trail; see BACKLOG DN-84 for what actually shipped.
+
 ### Zettacard Badgify (or similar name) — scan-to-badge for external certificates
 **2026-08-17.** PO's framing, lightly paraphrased: a tool you can scan a paper or PDF
 external certificate into, that turns it into an encrypted PDF you can keep and share
