@@ -1,0 +1,43 @@
+{
+  "title": "CKA Lab: Expose It, Store It, Lock It Down",
+  "description": "Break a Service selector and watch endpoints disappear, restore it and reach it via NodePort, prove a PVC's data survives its Pod, then verify least-privilege RBAC in both directions.",
+  "details": {
+    "intro": {
+      "title": "Before you start",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Expose a Deployment and verify it from inside the cluster",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Break the selector on purpose, then watch the endpoints vanish",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Repair it, then reach it via NodePort",
+        "text": "step3/text.md",
+        "verify": "step3/verify.sh"
+      },
+      {
+        "title": "Data that survives the Pod",
+        "text": "step4/text.md",
+        "verify": "step4/verify.sh"
+      },
+      {
+        "title": "A ServiceAccount that cannot delete what it can read",
+        "text": "step5/text.md",
+        "verify": "step5/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}

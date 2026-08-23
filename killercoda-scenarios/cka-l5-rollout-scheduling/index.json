@@ -1,0 +1,48 @@
+{
+  "title": "CKA Lab: Roll Out, Roll Back, and Make the Scheduler Say No",
+  "description": "Watch a rolling update replace ReplicaSets, roll it back, break a rollout on purpose, then force three different Pending reasons and fix each one.",
+  "details": {
+    "intro": {
+      "title": "Before you start",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Watch two ReplicaSets trade places",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Roll it back",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Break the rollout with a bad image",
+        "text": "step3/text.md",
+        "verify": "step3/verify.sh"
+      },
+      {
+        "title": "Unschedulable, reason 1: not enough CPU",
+        "text": "step4/text.md",
+        "verify": "step4/verify.sh"
+      },
+      {
+        "title": "Unschedulable, reason 2: an untolerated taint",
+        "text": "step5/text.md",
+        "verify": "step5/verify.sh"
+      },
+      {
+        "title": "Unschedulable, reason 3: no node matches the label",
+        "text": "step6/text.md",
+        "verify": "step6/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}

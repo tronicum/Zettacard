@@ -1,0 +1,33 @@
+{
+  "title": "CKA Lab: Stand Up a Cluster and Break It Once",
+  "description": "kubeadm init a real control plane, verify every component the hard way, then break the API server on purpose and bring it back.",
+  "details": {
+    "intro": {
+      "title": "Before you start",
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "kubeadm init, then verify what you just read",
+        "text": "step1/text.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Break it once: move the API server manifest away",
+        "text": "step2/text.md",
+        "verify": "step2/verify.sh"
+      },
+      {
+        "title": "Bring it back and confirm recovery",
+        "text": "step3/text.md",
+        "verify": "step3/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
