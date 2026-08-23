@@ -17,6 +17,27 @@ than deleting it, so the origin of an idea stays traceable.
 
 ## Open sparks
 
+### Udemy-style video course bundled with Zettacard — PO records the videos himself
+**2026-08-23.** PO's framing, lightly paraphrased, mid-conversation during the CKA lab-fanout round:
+a real video course (YouTube-hosted or offline MP4, fitting `section_kind: "media"` infra already
+built for CKA/AEVO) bundled alongside Zettacard's existing quiz/lab content, explicitly recorded by
+the PO himself while he studies for CKA - "slop is annoying for k8s professionals," so this is
+deliberately NOT an AI-generated-video idea, it needs a real human presenter for a technical
+audience that would spot filler immediately. Economics, per the PO: some learners would pay just
+~10€ for a real video course + a training badge, as an explicit alternative to the "450€ Abzocke"
+(rip-off, his word) of the real Linux Foundation/CNCF exam - same reasoning already validated this
+session (see BACKLOG DN-87 and `docs/cka-lab-and-cloud-cert-hands-on-scoping-2026-08-23.md`): a
+cheap Zettacard badge can't substitute for the real $445 proctored exam, so it isn't competing with
+CNCF's exam revenue, it's serving learners who were never going to pay for the real thing anyway.
+Directly buildable on infra that already exists: `section_kind: "media"` (youtube/video_mp4, license/
+attribution fields already in the schema, see `docs/course-media-sections.md`) for the video layer,
+and the OB3/Verifiable-Credential badge pipeline (`netlify/functions/issue-badge.mjs`, JWKS, the
+`/badges/:id` URL scheme) for the "training badge" half - both landed for other modules already, so
+this is mostly a content-and-packaging question, not a new architecture one. Not scoped: how much
+video content, which module(s) first (CKA is the obvious pilot given the in-flight work), pricing
+mechanics for the paid tier (10€ how - one-time, per-module, subscription?), and whether "training
+badge" here means a real OB3 credential or a lighter Zettacard-only completion badge.
+
 ### Accessibility / static-HTML fallback version
 **2026-08-18.** PO's own words, reacting to a Google AI Mode conversation about why AI
 crawlers can't read Zettacard's question content: "yeah i might add an accesibilty
