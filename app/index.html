@@ -9,9 +9,16 @@
   <link rel="icon" type="image/svg+xml" href="icons/logo.svg" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
 
-  <!-- DN-55: SEO/discoverability pass. canonical points at the apex domain
-       (not the netlify.app alias) since zettacard.de is the primary
-       production URL as of the custom-domain migration; og:/twitter: tags
+  <!-- DN-55: SEO/discoverability pass. canonical points at www.zettacard.de
+       (not the netlify.app alias, and not the bare apex either) - corrected
+       2026-08-23: this comment originally said the apex was primary, but
+       Netlify's own project config (netlify-project-services-reader
+       get-project -> _enrichedFields.urls.primarySiteUrl) reports
+       "https://www.zettacard.de" as the actual primary domain, and the apex
+       redirects there. The sitemap/robots.txt/llms.txt/openapi.yaml base
+       URL and these tags were all updated to match in the same round -
+       check Netlify's actual domain config again before assuming either
+       one is current if this ever seems to drift again; og:/twitter: tags
        use the German copy as the single static fallback description (this
        page is otherwise fully client-side-i18n'd per LANDING_STRINGS below,
        but crawlers/social-share unfurlers execute no JS, so they only ever
@@ -21,49 +28,49 @@
        icons/og-banner.svg (same brand colors/logo as the app icon; kept as
        a separate rasterized asset since OG/Twitter unfurlers require a
        real image file, not inline SVG). -->
-  <link rel="canonical" href="https://zettacard.de/" />
+  <link rel="canonical" href="https://www.zettacard.de/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Zettacard" />
   <meta property="og:title" content="Zettacard — Lernkarten & Prüfungsvorbereitung" />
   <meta property="og:description" content="Lernmodule für Führerschein, Motorrad, LKW, Angelschein und betriebliche/unternehmensweite Pflichtthemen (u. a. Datenschutz, KI-Verordnung, Geldwäscheprävention, Kartellrecht) — in 12 Sprachen, kostenlos, offlinefähig, installierbar." />
-  <meta property="og:url" content="https://zettacard.de/" />
-  <meta property="og:image" content="https://zettacard.de/icons/og-banner.png" />
+  <meta property="og:url" content="https://www.zettacard.de/" />
+  <meta property="og:image" content="https://www.zettacard.de/icons/og-banner.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="de_DE" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Zettacard — Lernkarten & Prüfungsvorbereitung" />
   <meta name="twitter:description" content="Lernmodule für Führerschein, Angelschein und betriebliche/unternehmensweite Pflichtthemen — in 12 Sprachen, kostenlos, offlinefähig." />
-  <meta name="twitter:image" content="https://zettacard.de/icons/og-banner.png" />
+  <meta name="twitter:image" content="https://www.zettacard.de/icons/og-banner.png" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://zettacard.de/#organization",
+        "@id": "https://www.zettacard.de/#organization",
         "name": "tronicum networx GmbH",
-        "url": "https://zettacard.de/",
-        "logo": "https://zettacard.de/icons/icon-512.png",
+        "url": "https://www.zettacard.de/",
+        "logo": "https://www.zettacard.de/icons/icon-512.png",
         "email": "contact@zettacard.de"
       },
       {
         "@type": "WebSite",
-        "@id": "https://zettacard.de/#website",
-        "url": "https://zettacard.de/",
+        "@id": "https://www.zettacard.de/#website",
+        "url": "https://www.zettacard.de/",
         "name": "Zettacard",
         "inLanguage": ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"],
-        "publisher": { "@id": "https://zettacard.de/#organization" }
+        "publisher": { "@id": "https://www.zettacard.de/#organization" }
       },
       {
         "@type": "SoftwareApplication",
         "name": "Zettacard",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any (installable PWA)",
-        "url": "https://zettacard.de/",
+        "url": "https://www.zettacard.de/",
         "description": "Original practice questions for driving/motorcycle/truck/fishing licences and workplace/enterprise compliance training (data protection, AI Act, occupational safety, whistleblower protection, KYC/AML, antitrust law), in 12 languages.",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
-        "publisher": { "@id": "https://zettacard.de/#organization" }
+        "publisher": { "@id": "https://www.zettacard.de/#organization" }
       }
     ]
   }
