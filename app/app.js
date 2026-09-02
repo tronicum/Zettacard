@@ -1638,6 +1638,14 @@ function offlineAssetUrls() {
     urls.push(...mediaUrls);
   }
 
+  // kubectl command-recall drill (2026-09-02) - its own small sidecar file
+  // (data/cka/kubectl_drills.json, see copy_kubectl_drills() in
+  // build_modules.py), same "list it explicitly here or offline prep misses
+  // it" requirement primers/course above already established. CKA-only.
+  if (state.examType === "cka") {
+    urls.push(`data/cka/kubectl_drills.json`);
+  }
+
   return urls;
 }
 
@@ -4962,6 +4970,664 @@ function wireCourseControls() {
   window.addEventListener("offline", rerenderIfReaderOpen);
 }
 
+// --- kubectl command-recall drill (2026-09-02) --------------------------
+// A standalone, CKA-only feature: a custom lightweight terminal-look widget
+// (NOT xterm.js - see docs/kubectl-drill-prototype/README.md's Decision 1
+// for the ~65KB gzip cost evaluated and rejected; this app has zero external
+// JS dependencies and this feature doesn't need one either) that checks a
+// learner's typed kubectl command against data/cka/kubectl_drills.json's
+// accepted_grammar - a small structured description of what a correct
+// answer looks like, matched with plain string/token rules, entirely
+// client-side, entirely offline. There is NO real kubectl process, no
+// cluster, no WASM/container runtime behind this - see meta.
+// not_a_simulator_note in the data file itself and #kd-sim-badge below,
+// which is shown unconditionally before any task content so this can never
+// be mistaken for a real Kubernetes environment.
+//
+// Frontend prototyped separately in docs/kubectl-drill-prototype/ (verified
+// working standalone, not wired into the app) - matcher.js there was written
+// against a GUESSED grammar shape from the original task brief
+// (base_command/required_tokens/alternative_groups/optional_tokens). The
+// real content that actually landed in data/cka_kubectl_drills.json (a
+// separate, parallel workstream) uses a materially different, richer shape -
+// base_tokens/positional_args/required_flags/optional_flags/
+// required_trailing_args/forbidden_tokens, each "slot" a string OR an array
+// of alternative strings (see data/cka_kubectl_drills_NOTES.md) - so the
+// matcher below is a fresh implementation against the SHIPPED schema, not a
+// verbatim lift of the prototype's matcher.js. It keeps the prototype's
+// genuinely reusable ideas (quote-aware tokenization, `--flag=value`
+// expansion, folding a leading `k` alias to `kubectl`, base-tokens matching
+// in order but not necessarily contiguously since kubectl allows global
+// flags interspersed) and drops the parts that don't apply to the real
+// schema. Verified against all 50 tasks' own reference_command (every one
+// must match its own grammar) plus targeted positive/negative cases for
+// every gotcha data/cka_kubectl_drills_NOTES.md calls out, via a throwaway
+// Python port of this exact algorithm before writing the JS (see this
+// round's session notes) - not just eyeballed.
+//
+// Three deliberate departures from the prototype, each because the REAL
+// content's own documented gotchas required it:
+//   1. Case-SENSITIVE matching throughout (prototype case-folded). NOTES
+//      gotcha #4 is explicit: "Nginx" != "nginx" in kubectl, and folding
+//      case would silently accept namespace/label/flag-value typos a real
+//      exam wouldn't forgive.
+//   2. A hand-rolled character-by-character tokenizer, not the prototype's
+//      single regex. The prototype's `"([^"]*)"|'([^']*)'|(\S+)` only
+//      quote-handles a token that is ENTIRELY quoted - it mis-tokenizes
+//      `--schedule="0 2 * * *"` (quote embedded mid-token, a real case in
+//      kubectl-drill-012 and called out by NOTES gotcha #1) into five
+//      tokens instead of one flag/value pair. kdTokenize() below walks the
+//      string char-by-char and only treats quote characters specially while
+//      already inside a token, so an embedded quote's contents (including
+//      spaces) stay part of the same token.
+//   3. No separate hardcoded boolean-flag registry (NOTES gotcha #2's own
+//      suggested fix). Not needed: each task's own required_flags entries
+//      already say whether a flag takes a value (has a "value" key) or is
+//      presence-only (no "value" key) - kdFlagSatisfied() below reads that
+//      directly off the task's grammar instead of consuming "the next
+//      token" unconditionally, so `-f api` never gets misparsed as
+//      `--follow api` the way a naive matcher would (kubectl-drill-044).
+//
+// One accepted, documented leniency (not a bug): positional_args and
+// required_flags are matched independently of each other - a token that
+// happens to equal both a positional arg's expected string AND a flag's
+// expected value could in principle satisfy both at once. This only makes
+// the matcher MORE forgiving, never less (a correct learner is never
+// unfairly rejected), it matches every one of the 50 real tasks correctly today
+// (verified - see above), and it mirrors the schema notes' own instruction
+// (gotcha #5) not to build a stricter matcher than the content actually
+// needs. Flagged in this round's report as a judgment call, not hidden.
+
+const KD_HINT_AFTER_ATTEMPTS = 2;   // authored hint shown starting on the 2nd wrong attempt
+const KD_REVEAL_AFTER_ATTEMPTS = 3; // reference_command revealed starting on the 3rd wrong attempt
+
+// ---- matcher (pure, DOM-free) ------------------------------------------
+
+// Quote-aware, char-by-char (not a single regex - see departure #2 above):
+// whitespace splits tokens, but a ' or " character starts a span that is
+// consumed verbatim (including inner whitespace) up to its matching close
+// quote, wherever in the token it appears - so `--schedule="0 2 * * *"`
+// becomes ONE token, `--schedule=0 2 * * *`, not five.
+function kdTokenize(raw) {
+  const s = String(raw == null ? "" : raw);
+  const tokens = [];
+  let i = 0;
+  const n = s.length;
+  while (i < n) {
+    while (i < n && /\s/.test(s[i])) i += 1;
+    if (i >= n) break;
+    let tok = "";
+    while (i < n && !/\s/.test(s[i])) {
+      const c = s[i];
+      if (c === '"' || c === "'") {
+        const quote = c;
+        i += 1;
+        while (i < n && s[i] !== quote) { tok += s[i]; i += 1; }
+        if (i < n) i += 1; // skip the closing quote
+      } else {
+        tok += c;
+        i += 1;
+      }
+    }
+    tokens.push(tok);
+  }
+  return tokens;
+}
+
+const KD_FLAG_EQ_RE = /^(--?[A-Za-z][\w-]*)=(.+)$/;
+
+// kubectl accepts both `--flag=value` and `--flag value` - split the `=`
+// form into two tokens so both spellings compare equal to the grammar's
+// required_flags. Also folds a bare leading `k` (the common shell alias)
+// into `kubectl`, but ONLY at token index 0, so a resource literally named
+// "k" elsewhere in a command is untouched.
+function kdExpandTokens(tokens) {
+  const out = [];
+  tokens.forEach((t, i) => {
+    if (i === 0 && t.toLowerCase() === "k") { out.push("kubectl"); return; }
+    const m = KD_FLAG_EQ_RE.exec(t);
+    if (m) { out.push(m[1], m[2]); } else { out.push(t); }
+  });
+  return out;
+}
+
+// A "slot" (an entry in base_tokens/positional_args/required_trailing_args)
+// is either a plain string (exact single token) or an array of alternative
+// strings - each alternative may itself be multi-word (space-separated,
+// e.g. "deployment api" as the split-token spelling of "deployment/api" in
+// kubectl-drill-015), which must then match that many CONSECUTIVE tokens.
+function kdSlotAlternatives(slot) {
+  if (Array.isArray(slot)) return slot.map((alt) => String(alt).split(/\s+/).filter(Boolean));
+  return [[String(slot)]];
+}
+
+// Earliest position at/after fromIndex where any of the slot's alternatives
+// matches, case-sensitive (NOTES gotcha #4 - no case-folding). Returns
+// {index, length} of the match, or null.
+function kdFindSlot(tokens, fromIndex, slot) {
+  const alts = kdSlotAlternatives(slot);
+  for (let i = fromIndex; i < tokens.length; i += 1) {
+    for (const alt of alts) {
+      if (i + alt.length > tokens.length) continue;
+      let ok = true;
+      for (let j = 0; j < alt.length; j += 1) {
+        if (tokens[i + j] !== alt[j]) { ok = false; break; }
+      }
+      if (ok) return { index: i, length: alt.length };
+    }
+  }
+  return null;
+}
+
+// Matches a sequence of slots IN ORDER but not necessarily contiguously
+// (kubectl allows other tokens - typically flags - between them: global
+// flags between base_tokens per NOTES gotcha #5, and e.g. a boolean flag
+// between a verb and its positional arg, per kubectl-drill-044). Returns the
+// token index just past the last matched slot, or null if any slot is
+// missing.
+function kdMatchSlotSequence(tokens, fromIndex, slots) {
+  let cursor = fromIndex;
+  for (const slot of slots || []) {
+    const found = kdFindSlot(tokens, cursor, slot);
+    if (!found) return null;
+    cursor = found.index + found.length;
+  }
+  return cursor;
+}
+
+// required_flags entries: {forms: [...], value?: string, value_match?: "exact"}.
+// No "value" key = presence-only boolean flag (-f/--follow, --rm, --force,
+// ...) - satisfied by the form appearing anywhere, full stop. This is
+// exactly departure #3 above: whether a flag "consumes" a following token as
+// its value is read straight off the task's own grammar, never guessed.
+function kdFlagSatisfied(tokens, flagSpec) {
+  const forms = flagSpec.forms || [];
+  const hasValue = Object.prototype.hasOwnProperty.call(flagSpec, "value");
+  for (let i = 0; i < tokens.length; i += 1) {
+    if (forms.includes(tokens[i])) {
+      if (!hasValue) return true;
+      // Only "exact" (case-sensitive) value_match appears in the shipped
+      // content; this is the one place a future value_match variant would
+      // need a new branch.
+      if (i + 1 < tokens.length && tokens[i + 1] === flagSpec.value) return true;
+    }
+  }
+  return false;
+}
+
+// required_trailing_args: token slots that must appear, in order, right
+// after a literal "--" separator (kubectl's own flags/passthrough-command
+// boundary, e.g. `kubectl run ... -- echo hi`). Only a handful of tasks use
+// this (Job/CronJob tasks).
+function kdTrailingArgsSatisfied(tokens, trailingSlots) {
+  if (!trailingSlots || trailingSlots.length === 0) return true;
+  const dashIdx = tokens.indexOf("--");
+  if (dashIdx === -1) return false;
+  return kdMatchSlotSequence(tokens, dashIdx + 1, trailingSlots) !== null;
+}
+
+function kdHasForbiddenToken(tokens, forbidden) {
+  if (!forbidden || forbidden.length === 0) return false;
+  const set = new Set(forbidden);
+  return tokens.some((t) => set.has(t));
+}
+
+// Checks one learner input against one task's accepted_grammar. Never
+// throws on a malformed/partial grammar (missing arrays default to empty).
+function kdCheckCommand(rawInput, grammar) {
+  grammar = grammar || {};
+  const tokens = kdExpandTokens(kdTokenize(String(rawInput == null ? "" : rawInput).trim()));
+
+  if (kdHasForbiddenToken(tokens, grammar.forbidden_tokens)) {
+    return { success: false, reason: "forbidden_token", tokens };
+  }
+
+  const baseEnd = kdMatchSlotSequence(tokens, 0, grammar.base_tokens);
+  if (baseEnd === null) return { success: false, reason: "base", tokens };
+
+  const posEnd = kdMatchSlotSequence(tokens, baseEnd, grammar.positional_args);
+  if (posEnd === null) return { success: false, reason: "positional", tokens };
+
+  const flagsOk = (grammar.required_flags || []).every((f) => kdFlagSatisfied(tokens, f));
+  if (!flagsOk) return { success: false, reason: "flag", tokens };
+
+  if (!kdTrailingArgsSatisfied(tokens, grammar.required_trailing_args)) {
+    return { success: false, reason: "trailing", tokens };
+  }
+
+  return { success: true, tokens };
+}
+
+// ---- data + per-profile progress ----------------------------------------
+
+const kdDrillsCache = {};
+
+async function loadKubectlDrills(examType) {
+  if (kdDrillsCache[examType]) return kdDrillsCache[examType];
+  const data = await fetchJson(`data/${examType}/kubectl_drills.json`);
+  kdDrillsCache[examType] = data;
+  return data;
+}
+
+// Per-profile progress, same profileKey()-namespaced JSON-map convention as
+// loadSrsData()/loadSeenData()/loadStarredData() above:
+//   { [taskId]: { attempts: <cumulative int>, solved: bool, solvedAt?: <epoch ms> } }
+// "attempts" is cumulative across every session (unlike the in-session
+// state.kdAttempts counter that drives the hint/reveal progressive-
+// disclosure timing below, which intentionally resets every time a task is
+// (re)opened) - this is the per-task stat the task brief asked to track,
+// independent of how fast any one sitting reveals a hint.
+function kdLoadProgress() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(profileKey("kubectl-drill-progress")) || "{}");
+    return raw && typeof raw === "object" ? raw : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function kdSaveProgress(data) {
+  try { localStorage.setItem(profileKey("kubectl-drill-progress"), JSON.stringify(data)); } catch (e) { /* non-fatal */ }
+}
+
+function kdRecordAttempt(taskId, solved) {
+  const progress = kdLoadProgress();
+  const entry = progress[taskId] || { attempts: 0, solved: false };
+  entry.attempts = (entry.attempts || 0) + 1;
+  if (solved) {
+    entry.solved = true;
+    entry.solvedAt = Date.now();
+  }
+  progress[taskId] = entry;
+  kdSaveProgress(progress);
+  return entry;
+}
+
+// ---- UI strings (12 locales - this is UI chrome, not exam content, so it
+// follows AGENTS.md constraint 5 and ships in all 12 from the start even
+// though the drill CONTENT itself (prompt/hint/success_message/explanation
+// in data/cka_kubectl_drills.json) is en/de/ja/zh-only, matching the rest of
+// the cka module's existing 4-locale scope - see cka_kubectl_drills_NOTES.md.
+// pickAlt() (used for the content fields below) already falls back
+// en -> de for any locale the content doesn't carry.
+const KUBECTL_DRILL_STRINGS = {
+  de: {
+    btn: "⌨️ kubectl-Übung", ariaLabel: "kubectl-Befehlsübung", title: "kubectl-Befehlsübung",
+    simBadge: "Simuliert — kein echter Cluster",
+    intro: "Tippe einen kubectl-Befehl ein und drücke Enter. Wird nur clientseitig gegen ein Muster geprüft — dahinter steht kein echter Cluster.",
+    progress: (i, n) => `Aufgabe ${i} / ${n}`, completed: (n, total) => `${n} / ${total} gelöst`,
+    diffEasy: "Leicht", diffMedium: "Mittel", diffHard: "Schwer",
+    back: "← Zurück", exit: "Beenden", skip: "Überspringen →", nextTask: "Nächste Aufgabe →",
+    allDone: "Alle 50 Aufgaben geschafft — gut gemacht.",
+    nudge: "Noch nicht richtig — prüfe den Befehl und versuche es erneut.",
+    hintPrefix: "Hinweis:", revealPrefix: "Musterlösung:",
+    revealFollow: "Schau sie dir an und tippe sie danach selbst ein, bevor du weitermachst.",
+    whyPrefix: "Warum:", inputPlaceholder: "kubectl-Befehl eingeben und Enter drücken",
+    inputAriaLabel: "Eingabefeld für kubectl-Befehl", logAriaLabel: "Terminal-Ausgabe",
+    terminalTitle: "lernende@zettacard-drill",
+  },
+  en: {
+    btn: "⌨️ kubectl Drill", ariaLabel: "kubectl command drill", title: "kubectl Command Drill",
+    simBadge: "Simulated — no real cluster",
+    intro: "Type one kubectl command and press Enter. Checked against a grammar client-side only — there is no real cluster behind this.",
+    progress: (i, n) => `Task ${i} / ${n}`, completed: (n, total) => `${n} / ${total} solved`,
+    diffEasy: "Easy", diffMedium: "Medium", diffHard: "Hard",
+    back: "← Back", exit: "Exit", skip: "Skip →", nextTask: "Next task →",
+    allDone: "All 50 tasks done — nice work.",
+    nudge: "Not quite — check the command and try again.",
+    hintPrefix: "Hint:", revealPrefix: "Reference solution:",
+    revealFollow: "Take a look, then try typing it yourself before continuing.",
+    whyPrefix: "Why:", inputPlaceholder: "type a kubectl command and press Enter",
+    inputAriaLabel: "kubectl command input", logAriaLabel: "Terminal output",
+    terminalTitle: "learner@zettacard-drill",
+  },
+  uk: {
+    btn: "⌨️ Тренування kubectl", ariaLabel: "Тренування команд kubectl", title: "Тренування команд kubectl",
+    simBadge: "Симуляція — не справжній кластер",
+    intro: "Введіть одну команду kubectl і натисніть Enter. Перевіряється лише на стороні клієнта за шаблоном — реального кластера тут немає.",
+    progress: (i, n) => `Завдання ${i} / ${n}`, completed: (n, total) => `${n} / ${total} вирішено`,
+    diffEasy: "Легко", diffMedium: "Середньо", diffHard: "Складно",
+    back: "← Назад", exit: "Вийти", skip: "Пропустити →", nextTask: "Наступне завдання →",
+    allDone: "Усі 50 завдань виконано — чудова робота.",
+    nudge: "Ще не так — перевірте команду і спробуйте ще раз.",
+    hintPrefix: "Підказка:", revealPrefix: "Еталонне рішення:",
+    revealFollow: "Подивіться на нього, а потім спробуйте ввести його самостійно, перш ніж рухатися далі.",
+    whyPrefix: "Чому:", inputPlaceholder: "введіть команду kubectl і натисніть Enter",
+    inputAriaLabel: "Поле введення команди kubectl", logAriaLabel: "Вивід терміналу",
+    terminalTitle: "той-хто-навчається@zettacard-drill",
+  },
+  pl: {
+    btn: "⌨️ Trening kubectl", ariaLabel: "Trening poleceń kubectl", title: "Trening poleceń kubectl",
+    simBadge: "Symulacja — brak prawdziwego klastra",
+    intro: "Wpisz jedno polecenie kubectl i naciśnij Enter. Sprawdzane wyłącznie po stronie klienta względem wzorca — nie ma za tym prawdziwego klastra.",
+    progress: (i, n) => `Zadanie ${i} / ${n}`, completed: (n, total) => `${n} / ${total} rozwiązanych`,
+    diffEasy: "Łatwe", diffMedium: "Średnie", diffHard: "Trudne",
+    back: "← Wstecz", exit: "Zakończ", skip: "Pomiń →", nextTask: "Następne zadanie →",
+    allDone: "Wszystkie 50 zadań ukończone — dobra robota.",
+    nudge: "Jeszcze nie tak — sprawdź polecenie i spróbuj ponownie.",
+    hintPrefix: "Wskazówka:", revealPrefix: "Rozwiązanie wzorcowe:",
+    revealFollow: "Przyjrzyj się mu, a potem spróbuj wpisać je samodzielnie, zanim przejdziesz dalej.",
+    whyPrefix: "Dlaczego:", inputPlaceholder: "wpisz polecenie kubectl i naciśnij Enter",
+    inputAriaLabel: "Pole wpisywania polecenia kubectl", logAriaLabel: "Dane wyjściowe terminala",
+    terminalTitle: "uczący-się@zettacard-drill",
+  },
+  ar: {
+    btn: "⌨️ تدريب kubectl", ariaLabel: "تدريب أوامر kubectl", title: "تدريب أوامر kubectl",
+    simBadge: "محاكاة — لا يوجد عنقود حقيقي",
+    intro: "اكتب أمر kubectl واحدًا واضغط Enter. يتم التحقق منه على جهاز المتصفح فقط مقابل قواعد نحوية محددة — لا يوجد عنقود (cluster) حقيقي خلف هذا التدريب.",
+    progress: (i, n) => `المهمة ${i} / ${n}`, completed: (n, total) => `${n} / ${total} تم حلها`,
+    diffEasy: "سهل", diffMedium: "متوسط", diffHard: "صعب",
+    back: "← رجوع", exit: "خروج", skip: "تخطي →", nextTask: "المهمة التالية →",
+    allDone: "أُنجزت جميع المهام الـ٥٠ — عمل ممتاز.",
+    nudge: "ليس تمامًا — تحقق من الأمر وحاول مرة أخرى.",
+    hintPrefix: "تلميح:", revealPrefix: "الحل المرجعي:",
+    revealFollow: "ألقِ نظرة عليه، ثم حاول كتابته بنفسك قبل المتابعة.",
+    whyPrefix: "لماذا:", inputPlaceholder: "اكتب أمر kubectl واضغط Enter",
+    inputAriaLabel: "حقل إدخال أمر kubectl", logAriaLabel: "مخرجات الطرفية",
+    terminalTitle: "المتعلم@zettacard-drill",
+  },
+  zh: {
+    btn: "⌨️ kubectl 练习", ariaLabel: "kubectl 命令练习", title: "kubectl 命令练习",
+    simBadge: "模拟 — 非真实集群",
+    intro: "输入一条 kubectl 命令并按 Enter。仅在客户端按语法规则校验——背后没有真实集群。",
+    progress: (i, n) => `任务 ${i} / ${n}`, completed: (n, total) => `已完成 ${n} / ${total}`,
+    diffEasy: "简单", diffMedium: "中等", diffHard: "困难",
+    back: "← 返回", exit: "退出", skip: "跳过 →", nextTask: "下一个任务 →",
+    allDone: "全部 50 个任务已完成——做得好。",
+    nudge: "还不对——检查一下命令，再试一次。",
+    hintPrefix: "提示：", revealPrefix: "参考答案：",
+    revealFollow: "先看一下，然后在继续之前自己动手输入一遍。",
+    whyPrefix: "原因：", inputPlaceholder: "输入 kubectl 命令并按 Enter",
+    inputAriaLabel: "kubectl 命令输入框", logAriaLabel: "终端输出",
+    terminalTitle: "learner@zettacard-drill",
+  },
+  hi: {
+    btn: "⌨️ kubectl अभ्यास", ariaLabel: "kubectl कमांड अभ्यास", title: "kubectl कमांड अभ्यास",
+    simBadge: "सिम्युलेटेड — कोई वास्तविक क्लस्टर नहीं",
+    intro: "एक kubectl कमांड टाइप करें और Enter दबाएं। इसे केवल क्लाइंट-साइड पर एक व्याकरण के विरुद्ध जांचा जाता है — इसके पीछे कोई वास्तविक क्लस्टर नहीं है।",
+    progress: (i, n) => `कार्य ${i} / ${n}`, completed: (n, total) => `${n} / ${total} हल`,
+    diffEasy: "आसान", diffMedium: "मध्यम", diffHard: "कठिन",
+    back: "← वापस", exit: "बाहर निकलें", skip: "छोड़ें →", nextTask: "अगला कार्य →",
+    allDone: "सभी 50 कार्य पूर्ण — बहुत बढ़िया।",
+    nudge: "अभी सही नहीं है — कमांड जांचें और फिर से प्रयास करें।",
+    hintPrefix: "संकेत:", revealPrefix: "संदर्भ समाधान:",
+    revealFollow: "इसे देखें, फिर आगे बढ़ने से पहले इसे स्वयं टाइप करके देखें।",
+    whyPrefix: "क्यों:", inputPlaceholder: "kubectl कमांड टाइप करें और Enter दबाएं",
+    inputAriaLabel: "kubectl कमांड इनपुट फ़ील्ड", logAriaLabel: "टर्मिनल आउटपुट",
+    terminalTitle: "learner@zettacard-drill",
+  },
+  tr: {
+    btn: "⌨️ kubectl Alıştırması", ariaLabel: "kubectl komut alıştırması", title: "kubectl Komut Alıştırması",
+    simBadge: "Simüle edilmiş — gerçek küme yok",
+    intro: "Tek bir kubectl komutu yazıp Enter'a basın. Yalnızca istemci tarafında bir dilbilgisine göre kontrol edilir — arkasında gerçek bir küme yoktur.",
+    progress: (i, n) => `Görev ${i} / ${n}`, completed: (n, total) => `${n} / ${total} çözüldü`,
+    diffEasy: "Kolay", diffMedium: "Orta", diffHard: "Zor",
+    back: "← Geri", exit: "Çık", skip: "Atla →", nextTask: "Sonraki görev →",
+    allDone: "50 görevin tamamı bitti — tebrikler.",
+    nudge: "Henüz doğru değil — komutu kontrol edip tekrar dene.",
+    hintPrefix: "İpucu:", revealPrefix: "Referans çözüm:",
+    revealFollow: "Önce göz at, sonra devam etmeden kendin yazmayı dene.",
+    whyPrefix: "Neden:", inputPlaceholder: "bir kubectl komutu yaz ve Enter'a bas",
+    inputAriaLabel: "kubectl komut giriş alanı", logAriaLabel: "Terminal çıktısı",
+    terminalTitle: "öğrenen@zettacard-drill",
+  },
+  fr: {
+    btn: "⌨️ Entraînement kubectl", ariaLabel: "Entraînement aux commandes kubectl", title: "Entraînement aux commandes kubectl",
+    simBadge: "Simulé — aucun cluster réel",
+    intro: "Tapez une commande kubectl et appuyez sur Entrée. Vérifiée uniquement côté client par rapport à une grammaire — aucun cluster réel ne se trouve derrière.",
+    progress: (i, n) => `Tâche ${i} / ${n}`, completed: (n, total) => `${n} / ${total} résolues`,
+    diffEasy: "Facile", diffMedium: "Moyen", diffHard: "Difficile",
+    back: "← Retour", exit: "Quitter", skip: "Passer →", nextTask: "Tâche suivante →",
+    allDone: "Les 50 tâches sont terminées — bien joué.",
+    nudge: "Pas tout à fait — vérifiez la commande et réessayez.",
+    hintPrefix: "Indice :", revealPrefix: "Solution de référence :",
+    revealFollow: "Regardez-la, puis essayez de la taper vous-même avant de continuer.",
+    whyPrefix: "Pourquoi :", inputPlaceholder: "tapez une commande kubectl et appuyez sur Entrée",
+    inputAriaLabel: "Champ de saisie de la commande kubectl", logAriaLabel: "Sortie du terminal",
+    terminalTitle: "apprenant@zettacard-drill",
+  },
+  ru: {
+    btn: "⌨️ Тренировка kubectl", ariaLabel: "Тренировка команд kubectl", title: "Тренировка команд kubectl",
+    simBadge: "Симуляция — не настоящий кластер",
+    intro: "Введите одну команду kubectl и нажмите Enter. Проверяется только на стороне клиента по шаблону — реального кластера за этим нет.",
+    progress: (i, n) => `Задание ${i} / ${n}`, completed: (n, total) => `${n} / ${total} решено`,
+    diffEasy: "Легко", diffMedium: "Средне", diffHard: "Сложно",
+    back: "← Назад", exit: "Выйти", skip: "Пропустить →", nextTask: "Следующее задание →",
+    allDone: "Все 50 заданий выполнены — отличная работа.",
+    nudge: "Пока не то — проверьте команду и попробуйте снова.",
+    hintPrefix: "Подсказка:", revealPrefix: "Эталонное решение:",
+    revealFollow: "Посмотрите на него, а затем попробуйте ввести его самостоятельно, прежде чем продолжить.",
+    whyPrefix: "Почему:", inputPlaceholder: "введите команду kubectl и нажмите Enter",
+    inputAriaLabel: "Поле ввода команды kubectl", logAriaLabel: "Вывод терминала",
+    terminalTitle: "ученик@zettacard-drill",
+  },
+  es: {
+    btn: "⌨️ Práctica de kubectl", ariaLabel: "Práctica de comandos kubectl", title: "Práctica de comandos kubectl",
+    simBadge: "Simulado — sin clúster real",
+    intro: "Escribe un comando kubectl y pulsa Intro. Se comprueba solo en el cliente contra una gramática — no hay un clúster real detrás.",
+    progress: (i, n) => `Tarea ${i} / ${n}`, completed: (n, total) => `${n} / ${total} resueltas`,
+    diffEasy: "Fácil", diffMedium: "Media", diffHard: "Difícil",
+    back: "← Atrás", exit: "Salir", skip: "Omitir →", nextTask: "Siguiente tarea →",
+    allDone: "Las 50 tareas completadas — buen trabajo.",
+    nudge: "Aún no es correcto — revisa el comando e inténtalo de nuevo.",
+    hintPrefix: "Pista:", revealPrefix: "Solución de referencia:",
+    revealFollow: "Échale un vistazo y luego intenta escribirlo tú mismo antes de continuar.",
+    whyPrefix: "Por qué:", inputPlaceholder: "escribe un comando kubectl y pulsa Intro",
+    inputAriaLabel: "Campo de entrada del comando kubectl", logAriaLabel: "Salida de la terminal",
+    terminalTitle: "estudiante@zettacard-drill",
+  },
+  it: {
+    btn: "⌨️ Esercitazione kubectl", ariaLabel: "Esercitazione sui comandi kubectl", title: "Esercitazione sui comandi kubectl",
+    simBadge: "Simulato — nessun cluster reale",
+    intro: "Digita un comando kubectl e premi Invio. Viene verificato solo lato client rispetto a una grammatica — non c'è un cluster reale dietro.",
+    progress: (i, n) => `Attività ${i} / ${n}`, completed: (n, total) => `${n} / ${total} risolte`,
+    diffEasy: "Facile", diffMedium: "Media", diffHard: "Difficile",
+    back: "← Indietro", exit: "Esci", skip: "Salta →", nextTask: "Attività successiva →",
+    allDone: "Tutte le 50 attività completate — ottimo lavoro.",
+    nudge: "Non ancora corretto — controlla il comando e riprova.",
+    hintPrefix: "Suggerimento:", revealPrefix: "Soluzione di riferimento:",
+    revealFollow: "Dai un'occhiata, poi prova a digitarlo tu stesso prima di continuare.",
+    whyPrefix: "Perché:", inputPlaceholder: "digita un comando kubectl e premi Invio",
+    inputAriaLabel: "Campo di inserimento del comando kubectl", logAriaLabel: "Output del terminale",
+    terminalTitle: "studente@zettacard-drill",
+  },
+};
+
+function kdStrings(lang) {
+  return KUBECTL_DRILL_STRINGS[lang] || KUBECTL_DRILL_STRINGS.en;
+}
+
+// ---- view ----------------------------------------------------------------
+
+function kdCurrentTask() {
+  return state.kdTasks && state.kdTasks[state.kdIndex];
+}
+
+function kdAppendLine(text, cls) {
+  const log = el("#kd-log");
+  const line = document.createElement("div");
+  line.className = "kd-line" + (cls ? " " + cls : "");
+  line.textContent = text;
+  log.appendChild(line);
+  log.scrollTop = log.scrollHeight;
+}
+
+function kdRenderTaskHeader() {
+  const S = kdStrings(state.lang);
+  const tasks = state.kdTasks || [];
+  const i = state.kdIndex;
+  const task = tasks[i];
+  if (!task) return;
+  const progress = kdLoadProgress();
+  const completedCount = tasks.filter((t) => progress[t.id] && progress[t.id].solved).length;
+  el("#kd-progress-label").textContent = `${S.progress(i + 1, tasks.length)} · ${S.completed(completedCount, tasks.length)}`;
+  const diffLabel = task.difficulty === "easy" ? S.diffEasy : task.difficulty === "hard" ? S.diffHard : S.diffMedium;
+  el("#kd-task-meta").textContent = `${getTopicLabel(task.topic_code, task.topic_code)} · ${diffLabel}`;
+  el("#kd-task-prompt").textContent = pickAlt(task.prompt, state.lang);
+}
+
+function kdUpdateNav() {
+  const S = kdStrings(state.lang);
+  const nextBtn = el("#kd-next-btn");
+  nextBtn.innerHTML = `<strong>${state.kdSolved ? S.nextTask : S.skip}</strong>`;
+  nextBtn.classList.toggle("kd-next-solved", !!state.kdSolved);
+  el("#kd-back-btn").disabled = state.kdIndex === 0;
+}
+
+function kdRenderTask() {
+  const S = kdStrings(state.lang);
+  const task = kdCurrentTask();
+  if (!task) return;
+  state.kdAttempts = 0;
+  state.kdSolved = false;
+
+  kdRenderTaskHeader();
+
+  const log = el("#kd-log");
+  log.innerHTML = "";
+  log.setAttribute("aria-label", S.logAriaLabel);
+  kdAppendLine(pickAlt(task.prompt, state.lang), "kd-tasknote");
+
+  const input = el("#kd-input");
+  input.value = "";
+  input.disabled = false;
+  input.placeholder = S.inputPlaceholder;
+  input.setAttribute("aria-label", S.inputAriaLabel);
+
+  kdUpdateNav();
+  input.focus();
+}
+
+function kdGoTo(idx) {
+  const tasks = state.kdTasks || [];
+  if (idx < 0 || idx >= tasks.length) return;
+  state.kdIndex = idx;
+  kdRenderTask();
+}
+
+function kdHandleNext() {
+  const tasks = state.kdTasks || [];
+  if (state.kdIndex + 1 < tasks.length) {
+    kdGoTo(state.kdIndex + 1);
+    return;
+  }
+  const S = kdStrings(state.lang);
+  kdAppendLine(S.allDone, "kd-alldone");
+  el("#kd-input").disabled = true;
+  el("#kd-next-btn").disabled = true;
+}
+
+function kdHandleSubmit() {
+  const S = kdStrings(state.lang);
+  const input = el("#kd-input");
+  const raw = input.value;
+  if (!raw.trim() || state.kdSolved) return;
+
+  kdAppendLine(`$ ${raw}`, "kd-echo");
+  input.value = "";
+
+  const task = kdCurrentTask();
+  const result = kdCheckCommand(raw, task.accepted_grammar);
+
+  if (result.success) {
+    state.kdSolved = true;
+    kdRecordAttempt(task.id, true);
+    kdAppendLine(pickAlt(task.success_message, state.lang), "kd-success");
+    const explanation = pickAlt(task.explanation, state.lang);
+    if (explanation) kdAppendLine(`${S.whyPrefix} ${explanation}`, "kd-explanation");
+    input.disabled = true;
+    kdRenderTaskHeader(); // refresh the "N / 50 solved" count
+    kdUpdateNav();
+    el("#kd-next-btn").focus();
+    return;
+  }
+
+  state.kdAttempts += 1;
+  kdRecordAttempt(task.id, false);
+
+  // Progressive disclosure per attempt count (see KD_HINT_AFTER_ATTEMPTS/
+  // KD_REVEAL_AFTER_ATTEMPTS above) - deliberately withholds the authored
+  // hint on the very first miss (a typo shouldn't get an immediate spoiler),
+  // and never surfaces the matcher's own internal reasoning (result.reason /
+  // which specific token was missing) so a determined learner can't
+  // reverse-engineer the grammar from error messages - same design as the
+  // prototype's feedback flow (docs/kubectl-drill-prototype/README.md).
+  if (state.kdAttempts >= KD_REVEAL_AFTER_ATTEMPTS) {
+    kdAppendLine(`${S.revealPrefix} ${task.reference_command}`, "kd-reveal");
+    kdAppendLine(S.revealFollow, "kd-reveal-note");
+  } else if (state.kdAttempts >= KD_HINT_AFTER_ATTEMPTS) {
+    kdAppendLine(`${S.hintPrefix} ${pickAlt(task.hint, state.lang)}`, "kd-hint");
+  } else {
+    kdAppendLine(S.nudge, "kd-nudge");
+  }
+}
+
+async function kdOpenDrillView() {
+  const S = kdStrings(state.lang);
+  let data;
+  try {
+    data = await loadKubectlDrills(state.examType);
+  } catch (e) {
+    return; // defensive no-op - the button only shows for cka, which always ships this file
+  }
+  const tasks = data.tasks || [];
+  if (tasks.length === 0) return;
+  state.kdTasks = tasks;
+
+  const progress = kdLoadProgress();
+  const resumeIdx = tasks.findIndex((t) => !(progress[t.id] && progress[t.id].solved));
+  state.kdIndex = resumeIdx === -1 ? 0 : resumeIdx;
+
+  el("#kubectl-drill-view").hidden = false;
+  history.pushState({ view: "kubectl-drill" }, "");
+  setInertBehindDialog(true);
+
+  el("#kd-title").textContent = S.title;
+  el("#kd-sim-badge").textContent = S.simBadge;
+  el("#kd-terminal-title").textContent = S.terminalTitle;
+  el("#kd-back-btn").textContent = S.back;
+  el("#kd-exit-btn").textContent = S.exit;
+
+  kdRenderTask();
+  el("#kd-title").focus();
+}
+
+function kdCloseView() {
+  el("#kubectl-drill-view").hidden = true;
+  setInertBehindDialog(false);
+}
+
+function wireKubectlDrillControls() {
+  el("#kubectl-drill-btn").addEventListener("click", kdOpenDrillView);
+  el("#kd-exit-btn").addEventListener("click", () => history.back());
+  el("#kd-back-btn").addEventListener("click", () => kdGoTo(state.kdIndex - 1));
+  el("#kd-next-btn").addEventListener("click", kdHandleNext);
+
+  const input = el("#kd-input");
+  input.addEventListener("keydown", (ev) => {
+    if (ev.key !== "Enter") return;
+    // IME composition guard (flagged in docs/kubectl-drill-prototype/
+    // README.md's UX rough edges): committing a composed candidate in a
+    // ja/zh IME also fires a keydown Enter event - without this guard that
+    // would be misread as "submit the command" mid-composition. kubectl
+    // commands are themselves pure ASCII, but the surrounding UI (this app
+    // explicitly supports ja is not in its 12-locale set, but zh is, and
+    // zh/other CJK IME contexts are a real risk for ANY text input) still
+    // needs the guard. event.isComposing is the modern check; keyCode 229
+    // is the legacy fallback some browsers still use during composition.
+    if (ev.isComposing || ev.keyCode === 229) return;
+    ev.preventDefault();
+    kdHandleSubmit();
+  });
+
+  // Clicking anywhere in the terminal focuses the input, mimicking a real
+  // terminal - but doesn't steal focus from the nav buttons.
+  el("#kd-terminal").addEventListener("click", (ev) => {
+    if (ev.target === input) return;
+    if (!input.disabled) input.focus();
+  });
+}
+
 // --- Exam mode (DN-29) --------------------------------------------------
 // Reverses the original Sprint-1 "no exam mode" boundary, with explicit PO
 // sign-off (see docs/KANBAN.md retro log). Two modes share the same draw
@@ -6156,6 +6822,17 @@ function render() {
   courseBtn.title = CS.title;
   courseBtn.setAttribute("aria-label", CS.ariaLabel);
 
+  // kubectl command-recall drill (2026-09-02) - CKA-only, hardcoded on
+  // examType the same way Sign Reference/Learn are Fuehrerschein-only above,
+  // not a modules_manifest.json flag (see the block comment above
+  // wireKubectlDrillControls()).
+  const drillBtn = el("#kubectl-drill-btn");
+  drillBtn.hidden = state.examType !== "cka";
+  const KD = kdStrings(state.lang);
+  drillBtn.textContent = KD.btn;
+  drillBtn.title = KD.title;
+  drillBtn.setAttribute("aria-label", KD.ariaLabel);
+
   // 2026-08-16: now a full-width row inside #app-menu rather than a
   // cramped header icon, so it needs real label text, not just the bare
   // "ⓘ"/"🎓" glyph the old compact header button got away with.
@@ -6641,6 +7318,7 @@ function wireStaticControls() {
   el("#sign-reference-btn").addEventListener("click", openSignReferenceView);
   wirePrimerControls();
   wireCourseControls();
+  wireKubectlDrillControls();
   el("#offline-prep-btn").addEventListener("click", () => { prepareOffline(); });
   el("#sign-reference-close-btn").addEventListener("click", () => history.back());
 
@@ -6681,6 +7359,7 @@ function wireStaticControls() {
     if (!el("#primers-view").hidden) closePrimersView();
     if (el("#course-reader") && !el("#course-reader").hidden) closeCourseLesson();
     if (el("#course-view") && !el("#course-view").hidden) closeCourseView();
+    if (el("#kubectl-drill-view") && !el("#kubectl-drill-view").hidden) kdCloseView();
     if (el("#app-menu") && !el("#app-menu").hidden) closeAppMenu();
     if (!el("#profile-view").hidden) closeProfileSwitcher();
     if (!el("#module-picker").hidden) {

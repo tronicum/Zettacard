@@ -1560,3 +1560,173 @@ main {
 .exam-review-item .right-answer {
   color: var(--green);
 }
+
+/* --- kubectl command-recall drill (2026-09-02) --------------------------
+   A custom lightweight terminal-look widget - NOT xterm.js (see
+   docs/kubectl-drill-prototype/README.md's Decision 1). Reuses this app's
+   existing theme tokens (--card/--bg/--border/--text/--accent/--amber/
+   --green/--red, both light and dark) rather than the prototype's own
+   hardcoded dark-only hex palette, so it follows the user's theme choice
+   like every other view in the app - the prototype's README explicitly
+   flagged this as something "the real integration should route through
+   this app's existing theme system rather than hardcoding colors again". */
+
+.kd-card {
+  max-width: 560px;
+  text-align: left;
+}
+
+.kd-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.kd-header h2 {
+  margin: 0;
+  text-align: left;
+}
+
+/* Reuses the already contrast-verified --amber/--amber-bg warning pair
+   (.badge.high-stakes etc. above) rather than a new color - this badge is
+   the explicit "not a real cluster" disclaimer and must read as a genuine
+   notice, not a decorative pill. Shown unconditionally, before any task
+   content, on every open of this view. */
+.badge.kd-sim-badge {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.kd-progress-label {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin: 4px 0 0;
+  text-align: left;
+}
+
+.kd-task-meta {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  margin: 2px 0 10px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.kd-task-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.kd-terminal {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  /* Kubectl syntax is ASCII shell text and must never be bidi-reordered,
+     even when the surrounding UI (labels, buttons) is RTL (ar). */
+  direction: ltr;
+}
+
+.kd-terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.kd-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.kd-dot-red { background: var(--red); }
+.kd-dot-yellow { background: var(--amber); }
+.kd-dot-green { background: var(--green); }
+
+.kd-terminal-title {
+  margin-left: 6px;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.kd-terminal-log {
+  padding: 10px 12px 2px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  max-height: 40vh;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: left;
+}
+
+.kd-line { margin-bottom: 2px; }
+.kd-tasknote { color: var(--text-dim); }
+.kd-echo { color: var(--text); }
+.kd-success { color: var(--green); font-weight: 600; }
+.kd-explanation { color: var(--text-dim); }
+.kd-nudge { color: var(--red); }
+.kd-hint { color: var(--amber); }
+.kd-reveal { color: var(--accent); }
+.kd-reveal-note { color: var(--text-dim); }
+.kd-alldone { color: var(--green); font-weight: 700; }
+
+.kd-terminal-input-row {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px 12px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.85rem;
+}
+
+.kd-terminal-prompt {
+  color: var(--green);
+  white-space: nowrap;
+  margin-right: 6px;
+  user-select: none;
+}
+
+.kd-terminal-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font: inherit;
+  caret-color: var(--accent);
+}
+.kd-terminal-input::placeholder { color: var(--text-dim); }
+.kd-terminal-input:disabled { opacity: 0.5; }
+
+.kd-nav {
+  margin-top: 4px;
+}
+
+/* Highlights the primary nav button once a task is solved (label swaps from
+   "Skip" to "Next task" in kdUpdateNav()) - reuses the existing --green/
+   --correct-bg pairing (.badge.multi-select above) so a solved task's call
+   to action stands out without a new color. */
+.kd-nav .kd-next-solved {
+  background: var(--correct-bg);
+  color: var(--green);
+  border-color: var(--green);
+}

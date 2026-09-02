@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>kubectl drill prototype (scratch)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page-head">
+    <h1>CKA command-recall drill — prototype</h1>
+    <span class="sim-badge" id="sim-badge">Simulated — no real cluster</span>
+  </header>
+  <p class="subhead">Type a single kubectl command and press Enter. Client-side syntax matching only, zero network requests, zero external dependencies. Not a cluster simulator.</p>
+
+  <div class="task-bar">
+    <span id="task-label"></span>
+    <button id="lang-btn" type="button">DE</button>
+  </div>
+
+  <div class="task-card" id="task-prompt"></div>
+
+  <div id="term-window">
+    <div class="term-titlebar">
+      <span class="term-dot red"></span>
+      <span class="term-dot yellow"></span>
+      <span class="term-dot green"></span>
+      <span class="title">learner@zettacard-drill</span>
+    </div>
+    <div id="term-log"></div>
+    <div class="term-input-row">
+      <span class="term-prompt">$</span>
+      <input id="term-input" type="text" autocomplete="off" autocapitalize="off"
+             autocorrect="off" spellcheck="false" inputmode="text">
+    </div>
+  </div>
+
+  <div class="controls">
+    <button id="next-btn" type="button" hidden></button>
+  </div>
+
+  <footer class="note">
+    Prototype only — not wired into the real app. Sample tasks are hand-written placeholders,
+    not the reviewed content going into <code>data/cka_kubectl_drills.json</code>.
+    See <code>README.md</code> in this folder for the matching-engine design and integration notes.
+  </footer>
+
+</div>
+
+<script src="drills.fallback.js"></script>
+<script src="matcher.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

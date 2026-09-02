@@ -102,6 +102,13 @@
         <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
         <button class="module-switch-btn" id="primers-btn" hidden aria-label="Learn the basics">🧭 Learn</button>
         <button class="module-switch-btn" id="course-btn" hidden aria-label="Course">📘 Course</button>
+        <!-- kubectl command-recall drill (2026-09-02): CKA-only, gated on
+             state.examType === "cka" directly in render() - same hardcoded
+             per-module visibility pattern #sign-reference-btn/#primers-btn
+             already use for Fuehrerschein, not a new modules_manifest.json
+             flag. See #kubectl-drill-view below and wireKubectlDrillControls()
+             in app.js. -->
+        <button class="module-switch-btn" id="kubectl-drill-btn" hidden aria-label="kubectl drill">⌨️ kubectl Drill</button>
         <button class="module-switch-btn" id="sign-reference-btn" hidden aria-label="Sign reference">📚 Signs</button>
         <span class="offline-prep-wrap">
           <button class="module-switch-btn" id="offline-prep-btn" hidden aria-label="Make available offline">📥</button>
@@ -322,6 +329,64 @@
         <button class="back-btn" id="course-reader-back"></button>
         <button class="back-btn" id="course-reader-exit"></button>
         <button class="exam-mode-btn intro-next-btn" id="course-reader-next"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- kubectl command-recall drill (2026-09-02): a lightweight, custom
+       terminal-look widget - NOT xterm.js (see docs/kubectl-drill-prototype/
+       README.md's Decision 1 for the evaluated cost/benefit) and NOT a real
+       cluster/kubectl/WASM behind it - a typed command is checked
+       client-side, offline, against data/cka/kubectl_drills.json's
+       accepted_grammar (see data/cka_kubectl_drills_NOTES.md). The
+       #kd-sim-badge disclaimer is shown unconditionally, before any task
+       content, so this never reads as a real Kubernetes environment (this
+       session's explicit design requirement). One flat session through all
+       50 tasks in id order, reusing the exact back/exit/next .intro-nav
+       wizard mechanic every other reader in this file already uses
+       (#course-reader, #primer-reader) rather than inventing a new one -
+       kdOpenDrillView()/kdRenderTask()/wireKubectlDrillControls() in app.js.
+       #kd-log is a role="log" aria-live="polite" region (flagged as missing
+       in the prototype's own README) so screen-reader users hear each new
+       nudge/hint/success line as it's appended, matching this app's existing
+       aria-live use on #explanation. -->
+  <div class="exam-modal" id="kubectl-drill-view" hidden role="dialog" aria-modal="true" aria-labelledby="kd-title">
+    <div class="exam-modal-card kd-card">
+      <div class="kd-header">
+        <h2 id="kd-title" tabindex="-1"></h2>
+        <span class="badge kd-sim-badge" id="kd-sim-badge"></span>
+      </div>
+      <p class="kd-progress-label" id="kd-progress-label"></p>
+      <p class="kd-task-meta" id="kd-task-meta"></p>
+      <div class="kd-task-card" id="kd-task-prompt"></div>
+
+      <div class="kd-terminal" id="kd-terminal">
+        <div class="kd-terminal-titlebar">
+          <span class="kd-dot kd-dot-red" aria-hidden="true"></span>
+          <span class="kd-dot kd-dot-yellow" aria-hidden="true"></span>
+          <span class="kd-dot kd-dot-green" aria-hidden="true"></span>
+          <span class="kd-terminal-title" id="kd-terminal-title"></span>
+        </div>
+        <!-- role="log" + aria-live="polite": each appended line (nudge,
+             hint, reveal, success) is announced without needing to move
+             focus off the input - same non-focus-stealing feedback pattern
+             #explanation already uses elsewhere in this app. -->
+        <div class="kd-terminal-log" id="kd-log" role="log" aria-live="polite"></div>
+        <div class="kd-terminal-input-row">
+          <span class="kd-terminal-prompt" aria-hidden="true">$</span>
+          <!-- dir="ltr" forced regardless of UI language/RTL (see #app dir
+               attribute on <html> for ar): kubectl commands are ASCII shell
+               syntax and must never be bidi-reordered. -->
+          <input type="text" id="kd-input" class="kd-terminal-input"
+                 autocomplete="off" autocapitalize="off" autocorrect="off"
+                 spellcheck="false" inputmode="text" dir="ltr" />
+        </div>
+      </div>
+
+      <div class="intro-nav kd-nav">
+        <button class="back-btn" id="kd-back-btn"></button>
+        <button class="back-btn" id="kd-exit-btn"></button>
+        <button class="exam-mode-btn intro-next-btn" id="kd-next-btn"></button>
       </div>
     </div>
   </div>

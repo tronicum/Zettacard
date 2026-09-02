@@ -1,0 +1,193 @@
+// Inline copy of drills.sample.json, used only when fetch() of the local
+// JSON file is blocked by the browser under a bare file:// URL (Chrome does
+// this; Firefox generally does not). See the fetch().catch() in app.js.
+// Keep this in sync with drills.sample.json by hand for this prototype —
+// the real integration drops this fallback file entirely and fetches
+// app/data/.../cka_kubectl_drills.json the normal way, same as every other
+// content type in this app already does.
+window.KUBECTL_DRILLS_FALLBACK = {
+  "_note": "HAND-WRITTEN SAMPLE DATA for the matching-engine prototype only. A separate agent is authoring the real content into data/cka_kubectl_drills.json in the same shape — this file is not that file and should not be treated as reviewed content.",
+  "drills": [
+    {
+      "id": "kd-001",
+      "prompt": {
+        "en": "List all pods running in the kube-system namespace.",
+        "de": "Liste alle Pods im Namespace kube-system auf."
+      },
+      "accepted_grammar": {
+        "base_command": [
+          "kubectl",
+          "get",
+          "pods"
+        ],
+        "required_tokens": [],
+        "alternative_groups": [
+          [
+            "-n kube-system",
+            "--namespace kube-system",
+            "--namespace=kube-system",
+            "-n=kube-system"
+          ]
+        ],
+        "optional_tokens": [
+          "-o wide",
+          "--output wide",
+          "-o json",
+          "--output json"
+        ]
+      },
+      "reference_command": "kubectl get pods -n kube-system",
+      "hint": {
+        "en": "You need the resource type and a way to scope the command to one namespace.",
+        "de": "Du brauchst den Ressourcentyp und eine Möglichkeit, den Befehl auf einen Namespace einzugrenzen."
+      },
+      "success_message": {
+        "en": "Correct — that lists every pod in kube-system.",
+        "de": "Richtig — das listet alle Pods im Namespace kube-system auf."
+      }
+    },
+    {
+      "id": "kd-002",
+      "prompt": {
+        "en": "Show detailed information (describe) for the pod named nginx-abc123.",
+        "de": "Zeige detaillierte Informationen (describe) zum Pod nginx-abc123."
+      },
+      "accepted_grammar": {
+        "base_command": [
+          "kubectl",
+          "describe"
+        ],
+        "required_tokens": [
+          "nginx-abc123"
+        ],
+        "alternative_groups": [
+          [
+            "pod",
+            "pods",
+            "po"
+          ]
+        ],
+        "optional_tokens": []
+      },
+      "reference_command": "kubectl describe pod nginx-abc123",
+      "hint": {
+        "en": "'describe' needs both a resource type and the exact object name.",
+        "de": "'describe' braucht sowohl den Ressourcentyp als auch den genauen Objektnamen."
+      },
+      "success_message": {
+        "en": "Correct — kubectl describe pod nginx-abc123 shows events, conditions and container status.",
+        "de": "Richtig — kubectl describe pod nginx-abc123 zeigt Events, Conditions und Container-Status."
+      }
+    },
+    {
+      "id": "kd-003",
+      "prompt": {
+        "en": "Imperatively create a deployment named web using the nginx image.",
+        "de": "Erstelle imperativ ein Deployment namens web mit dem Image nginx."
+      },
+      "accepted_grammar": {
+        "base_command": [
+          "kubectl",
+          "create",
+          "deployment",
+          "web"
+        ],
+        "required_tokens": [],
+        "alternative_groups": [
+          [
+            "--image=nginx",
+            "--image nginx"
+          ]
+        ],
+        "optional_tokens": [
+          "--replicas=1",
+          "--replicas 1",
+          "--dry-run=client",
+          "--dry-run=server"
+        ]
+      },
+      "reference_command": "kubectl create deployment web --image=nginx",
+      "hint": {
+        "en": "The subcommand path is 'create deployment <name>', then a flag tells it which image to run.",
+        "de": "Der Unterbefehlspfad ist 'create deployment <name>', danach sagt ein Flag, welches Image laufen soll."
+      },
+      "success_message": {
+        "en": "Correct — that creates a Deployment named web running nginx.",
+        "de": "Richtig — das erstellt ein Deployment namens web mit dem Image nginx."
+      }
+    },
+    {
+      "id": "kd-004",
+      "prompt": {
+        "en": "Scale the deployment named web to 3 replicas.",
+        "de": "Skaliere das Deployment web auf 3 Replicas."
+      },
+      "accepted_grammar": {
+        "base_command": [
+          "kubectl",
+          "scale",
+          "deployment",
+          "web"
+        ],
+        "required_tokens": [],
+        "alternative_groups": [
+          [
+            "--replicas=3",
+            "--replicas 3"
+          ]
+        ],
+        "optional_tokens": []
+      },
+      "reference_command": "kubectl scale deployment web --replicas=3",
+      "hint": {
+        "en": "'scale' targets an existing object and needs one flag saying the desired replica count.",
+        "de": "'scale' zielt auf ein existierendes Objekt und braucht ein Flag mit der gewünschten Replica-Anzahl."
+      },
+      "success_message": {
+        "en": "Correct — the deployment now has 3 desired replicas.",
+        "de": "Richtig — das Deployment hat jetzt 3 gewünschte Replicas."
+      }
+    },
+    {
+      "id": "kd-005",
+      "prompt": {
+        "en": "Follow (stream) the logs of container app inside pod nginx-abc123.",
+        "de": "Verfolge (streame) die Logs des Containers app im Pod nginx-abc123."
+      },
+      "accepted_grammar": {
+        "base_command": [
+          "kubectl",
+          "logs"
+        ],
+        "required_tokens": [
+          "nginx-abc123"
+        ],
+        "alternative_groups": [
+          [
+            "-f",
+            "--follow"
+          ],
+          [
+            "-c app",
+            "--container app",
+            "--container=app"
+          ]
+        ],
+        "optional_tokens": [
+          "--tail=50",
+          "--tail 50",
+          "--since=5m"
+        ]
+      },
+      "reference_command": "kubectl logs -f nginx-abc123 -c app",
+      "hint": {
+        "en": "You need the pod name, a flag to keep streaming new lines, and a flag to pick which container.",
+        "de": "Du brauchst den Pod-Namen, ein Flag zum Weiterstreamen neuer Zeilen und ein Flag zur Auswahl des Containers."
+      },
+      "success_message": {
+        "en": "Correct — that streams the app container's logs live.",
+        "de": "Richtig — das streamt die Logs des Containers app live."
+      }
+    }
+  ]
+};

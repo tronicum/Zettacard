@@ -1,0 +1,2657 @@
+{
+  "meta": {
+    "app": "Zettacard / cka-kubectl-drills",
+    "content_kind": "kubectl_command_recall_drill",
+    "version": "0.1",
+    "generated": "2026-09-02",
+    "generator": "authored:claude-sonnet-5/2026-09-02 -- AI-authored content, NOT reviewed by a Kubernetes/CKA professional; treat as a first pass and re-verify every reference_command against a real cluster before shipping",
+    "legal_review_status": "pending -- not legally or technically reviewed; PO/legal sign-off required before this batch goes live, per AGENTS.md constraint 4",
+    "license_ref": "CC-BY-NC-SA-4.0",
+    "license_note": "Zettacard's own default content license (see repo-root LICENSE.md). Applies to this file's prompts, hints, explanations and success messages -- kubectl command syntax itself is not copyrightable and is grounded in the public CNCF curriculum, not any commercial exam-prep source.",
+    "source_ref": "CNCF curriculum (github.com/cncf/curriculum, CC-BY 4.0+): Cluster Architecture/Installation & Configuration, Workloads & Scheduling, Services & Networking, Storage, and Troubleshooting domains. Task scenarios, wording, hints and explanations are original Zettacard content, not paraphrased from any commercial CKA course, book, or Killercoda/A Cloud Guru-style material -- see AGENTS.md constraint 1.",
+    "domain_weight_note": "topic_code task counts below loosely track publicly known, approximate CKA exam blueprint weighting (Troubleshooting and Cluster Architecture/Installation & Configuration the two heaviest domains, Storage the lightest) -- these are general-knowledge approximations, not sourced from any specific paid material, and should not be read as an exact/official percentage.",
+    "canonical_locale": "en",
+    "locales": [
+      "en",
+      "de",
+      "ja",
+      "zh"
+    ],
+    "not_a_simulator_note": "This is a pure content/grammar-matching exercise -- no real kubectl process runs, no live cluster exists behind it, and no WASM/container runtime is involved. A typed command is checked against accepted_grammar client-side only. See data/cka_kubectl_drills_NOTES.md for the matching-engine design this schema assumes.",
+    "topic_code_taxonomy_ref": "data/cka_course.json / data/cka_pilot.json (core_concepts, workloads, config_scheduling, networking, storage, security_admin, troubleshooting)",
+    "task_count": 50,
+    "topic_code_counts": {
+      "core_concepts": 7,
+      "workloads": 8,
+      "config_scheduling": 7,
+      "networking": 8,
+      "storage": 4,
+      "security_admin": 6,
+      "troubleshooting": 10
+    },
+    "difficulty_counts": {
+      "easy": 21,
+      "medium": 21,
+      "hard": 8
+    }
+  },
+  "tasks": [
+    {
+      "id": "kubectl-drill-001",
+      "topic_code": "core_concepts",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "List every Pod running in the kube-system namespace.",
+        "de": "Liste alle Pods im Namespace kube-system auf.",
+        "ja": "kube-system 名前空間で実行されているすべての Pod を一覧表示してください。",
+        "zh": "列出 kube-system 命名空间中所有正在运行的 Pod。"
+      },
+      "reference_command": "kubectl get pods -n kube-system",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get",
+          [
+            "pods",
+            "pod",
+            "po"
+          ]
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "kube-system",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "You need the get verb on the pods resource, plus a namespace flag pointed at kube-system.",
+        "de": "Du brauchst das Verb get auf der Ressource pods, dazu ein Namespace-Flag mit Wert kube-system.",
+        "ja": "pods リソースに対する get 動詞に加え、kube-system を指す namespace フラグが必要です。",
+        "zh": "需要对 pods 资源使用 get 动词，并附带指向 kube-system 的命名空间参数。"
+      },
+      "success_message": {
+        "en": "Correct -- that's a fully valid form of the command.",
+        "de": "Richtig -- das ist eine vollstandig gultige Form des Befehls.",
+        "ja": "正解です。この形はコマンドとして完全に有効です。",
+        "zh": "正确——这是该命令的一种完全有效的写法。"
+      },
+      "explanation": {
+        "en": "kube-system holds the cluster's own infrastructure Pods -- CoreDNS, kube-proxy, and on a kubeadm cluster the control-plane components themselves, running as static Pods.",
+        "de": "kube-system enthalt die Infrastruktur-Pods des Clusters selbst -- CoreDNS, kube-proxy und auf einem kubeadm-Cluster die Control-Plane-Komponenten als statische Pods.",
+        "ja": "kube-system にはクラスター自身のインフラ用 Pod（CoreDNS、kube-proxy、そして kubeadm クラスターでは静的 Pod として動くコントロールプレーンのコンポーネント自体）が入っています。",
+        "zh": "kube-system 中存放着集群自身的基础设施 Pod——CoreDNS、kube-proxy，以及在 kubeadm 集群上以静态 Pod 形式运行的控制平面组件本身。"
+      }
+    },
+    {
+      "id": "kubectl-drill-002",
+      "topic_code": "core_concepts",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Show the Kubernetes client and server (control plane) version information.",
+        "de": "Zeige die Versionsinformationen von kubectl-Client und Server (Control Plane).",
+        "ja": "kubectl クライアントとサーバー（コントロールプレーン）のバージョン情報を表示してください。",
+        "zh": "显示 kubectl 客户端与服务端（控制平面）的版本信息。"
+      },
+      "reference_command": "kubectl version",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "version"
+        ]
+      },
+      "hint": {
+        "en": "No flags needed -- this is a bare one-word subcommand.",
+        "de": "Keine Flags notig -- das ist ein blankes Ein-Wort-Subkommando.",
+        "ja": "フラグは不要です。これは単語1つだけのサブコマンドです。",
+        "zh": "不需要任何参数——这只是一个单词的子命令。"
+      },
+      "success_message": {
+        "en": "That works. kubectl accepts more than one correct spelling here, and yours is one of them.",
+        "de": "Das funktioniert. kubectl akzeptiert hier mehr als eine korrekte Schreibweise, und deine ist eine davon.",
+        "ja": "それで動きます。kubectl はここで複数の正しい書き方を許容しており、あなたの入力もその一つです。",
+        "zh": "可以运行。kubectl 在这里接受不止一种正确写法，你的写法就是其中之一。"
+      },
+      "explanation": {
+        "en": "A client/server version mismatch is a common source of confusing errors; checking it is a habit worth having before you assume a bug in your YAML.",
+        "de": "Eine Diskrepanz zwischen Client- und Server-Version ist eine haufige Ursache verwirrender Fehler; sie zu prufen ist eine gute Gewohnheit, bevor du einen Fehler im YAML vermutest.",
+        "ja": "クライアントとサーバーのバージョン不一致は、わかりにくいエラーのよくある原因です。YAML のバグを疑う前に確認する習慣をつけましょう。",
+        "zh": "客户端与服务端版本不一致是很多令人困惑的错误的常见原因；在怀疑 YAML 写错之前，先养成检查版本的习惯。"
+      }
+    },
+    {
+      "id": "kubectl-drill-003",
+      "topic_code": "core_concepts",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Check overall control-plane health using the API server's verbose readiness endpoint.",
+        "de": "Prufe die allgemeine Control-Plane-Gesundheit uber den ausfuhrlichen Readiness-Endpunkt des API-Servers.",
+        "ja": "API サーバーの verbose なレディネスエンドポイントを使って、コントロールプレーン全体の健全性を確認してください。",
+        "zh": "使用 API Server 的详细就绪端点检查整个控制平面的健康状况。"
+      },
+      "reference_command": "kubectl get --raw='/readyz?verbose'",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--raw"
+            ],
+            "value": "/readyz?verbose",
+            "value_match": "exact"
+          }
+        ],
+        "notes": "Value has no surrounding quotes once tokenized; matcher should strip a leading/trailing ' or \" from a --raw=... value before comparing."
+      },
+      "hint": {
+        "en": "This is a --raw request straight to an API path, not a normal get on a resource kind.",
+        "de": "Das ist eine --raw-Anfrage direkt an einen API-Pfad, kein normales get auf eine Ressourcenart.",
+        "ja": "これは通常のリソース get ではなく、API パスへ直接投げる --raw リクエストです。",
+        "zh": "这是直接对某个 API 路径发起的 --raw 请求，而不是对某种资源类型的普通 get。"
+      },
+      "success_message": {
+        "en": "Nicely done -- the cluster would accept exactly this command.",
+        "de": "Gut gemacht -- der Cluster wurde genau diesen Befehl akzeptieren.",
+        "ja": "よくできました。クラスターはまさにこのコマンドを受け付けます。",
+        "zh": "做得好——集群会接受完全这样的命令。"
+      },
+      "explanation": {
+        "en": "kubectl get componentstatuses still prints something on many clusters but is deprecated; /readyz?verbose is the modern, per-check breakdown of control-plane health.",
+        "de": "kubectl get componentstatuses gibt auf vielen Clustern noch etwas aus, ist aber deprecated; /readyz?verbose liefert die moderne, checkweise Aufschlusselung der Control-Plane-Gesundheit.",
+        "ja": "kubectl get componentstatuses は多くのクラスターでまだ何か出力しますが非推奨です。/readyz?verbose は、コントロールプレーンの健全性をチェックごとに分解して示す現代的な方法です。",
+        "zh": "kubectl get componentstatuses 在很多集群上仍会输出内容，但已被弃用；/readyz?verbose 是逐项列出控制平面健康状况的现代方式。"
+      }
+    },
+    {
+      "id": "kubectl-drill-004",
+      "topic_code": "core_concepts",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Show which kubeconfig context is currently active.",
+        "de": "Zeige, welcher kubeconfig-Kontext aktuell aktiv ist.",
+        "ja": "現在アクティブな kubeconfig コンテキストを表示してください。",
+        "zh": "显示当前生效的 kubeconfig 上下文。"
+      },
+      "reference_command": "kubectl config current-context",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "config",
+          "current-context"
+        ]
+      },
+      "hint": {
+        "en": "It's a config subcommand, not a get on some resource -- contexts live in kubeconfig, not in the cluster.",
+        "de": "Es ist ein config-Subkommando, kein get auf eine Ressource -- Kontexte leben in der kubeconfig, nicht im Cluster.",
+        "ja": "これは config サブコマンドであり、何かのリソースへの get ではありません。コンテキストはクラスターではなく kubeconfig の中にあります。",
+        "zh": "这是一个 config 子命令，不是对某种资源的 get——上下文存在于 kubeconfig 中，而不是集群里。"
+      },
+      "success_message": {
+        "en": "That's a match. Command recall like this is most of what the real exam rewards.",
+        "de": "Treffer. Genau dieses Befehls-Gedachtnis ist es, was die echte Prufung vor allem belohnt.",
+        "ja": "一致しています。実際の試験で評価されるのは、まさにこうしたコマンドの想起力です。",
+        "zh": "匹配成功。真实考试考察的主要就是这种命令记忆能力。"
+      },
+      "explanation": {
+        "en": "On the exam you routinely juggle several clusters from one terminal; confirming the active context before running a destructive command is the single habit that prevents the worst mistakes.",
+        "de": "In der Prufung jonglierst du standig mehrere Cluster aus einem Terminal; den aktiven Kontext vor einem destruktiven Befehl zu prufen ist die eine Gewohnheit, die die schlimmsten Fehler verhindert.",
+        "ja": "試験では 1 つの端末から複数のクラスターを頻繁に切り替えます。破壊的なコマンドを実行する前にアクティブなコンテキストを確認する習慣が、最悪のミスを防ぎます。",
+        "zh": "在考试中你会经常在一个终端里切换多个集群；在执行破坏性命令之前先确认当前上下文，是避免最严重失误的关键习惯。"
+      }
+    },
+    {
+      "id": "kubectl-drill-005",
+      "topic_code": "core_concepts",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Switch your active kubeconfig context to one named prod-cluster.",
+        "de": "Wechsle deinen aktiven kubeconfig-Kontext zu einem namens prod-cluster.",
+        "ja": "アクティブな kubeconfig コンテキストを prod-cluster という名前のものに切り替えてください。",
+        "zh": "将当前生效的 kubeconfig 上下文切换为名为 prod-cluster 的上下文。"
+      },
+      "reference_command": "kubectl config use-context prod-cluster",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "config",
+          "use-context"
+        ],
+        "positional_args": [
+          "prod-cluster"
+        ]
+      },
+      "hint": {
+        "en": "The subcommand is use-context, and the context name is a bare positional argument, not a flag value.",
+        "de": "Das Subkommando ist use-context, und der Kontextname ist ein reines Positionsargument, kein Flag-Wert.",
+        "ja": "サブコマンドは use-context で、コンテキスト名はフラグの値ではなく単純な位置引数です。",
+        "zh": "子命令是 use-context，上下文名称是一个普通的位置参数，而不是某个参数的值。"
+      },
+      "success_message": {
+        "en": "Confirmed correct. Try to notice which flags you reached for automatically -- that's the muscle memory you want.",
+        "de": "Bestatigt korrekt. Achte darauf, welche Flags du automatisch parat hattest -- genau das ist das Muskelgedachtnis, das du willst.",
+        "ja": "正解を確認しました。どのフラグが自然に出てきたか意識してみてください。それが身につけたい体で覚える感覚です。",
+        "zh": "已确认正确。留意一下你下意识用到的那些参数——那正是你想要练出的肌肉记忆。"
+      },
+      "explanation": {
+        "en": "This edits only your local kubeconfig -- it does not touch the cluster itself, so it's always safe to run.",
+        "de": "Das andert nur deine lokale kubeconfig -- es beruhrt den Cluster selbst nicht und ist daher immer gefahrlos auszufuhren.",
+        "ja": "これはローカルの kubeconfig を書き換えるだけで、クラスター自体には触れません。そのため常に安全に実行できます。",
+        "zh": "这只会修改你本地的 kubeconfig，并不会触及集群本身，因此随时执行都是安全的。"
+      }
+    },
+    {
+      "id": "kubectl-drill-006",
+      "topic_code": "core_concepts",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "List every Node in the cluster along with its status.",
+        "de": "Liste jeden Node im Cluster zusammen mit seinem Status auf.",
+        "ja": "クラスター内のすべての Node をステータスとともに一覧表示してください。",
+        "zh": "列出集群中所有节点及其状态。"
+      },
+      "reference_command": "kubectl get nodes",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get",
+          [
+            "nodes",
+            "node",
+            "no"
+          ]
+        ]
+      },
+      "hint": {
+        "en": "Just get on the nodes resource -- status is already a default output column, no extra flag needed.",
+        "de": "Einfach get auf der Ressource nodes -- Status ist schon eine Standard-Ausgabespalte, kein Extra-Flag notig.",
+        "ja": "nodes リソースへの get だけです。ステータスはデフォルトの出力列に既に含まれており、追加のフラグは不要です。",
+        "zh": "只需对 nodes 资源执行 get 即可——状态本来就是默认输出列之一，不需要额外参数。"
+      },
+      "success_message": {
+        "en": "Correct -- that's a fully valid form of the command.",
+        "de": "Richtig -- das ist eine vollstandig gultige Form des Befehls.",
+        "ja": "正解です。この形はコマンドとして完全に有効です。",
+        "zh": "正确——这是该命令的一种完全有效的写法。"
+      },
+      "explanation": {
+        "en": "A node stuck NotReady right after kubeadm init is expected, not broken -- it usually means no CNI plugin has been applied yet.",
+        "de": "Ein Node, der direkt nach kubeadm init auf NotReady hangt, ist erwartet und nicht kaputt -- meist fehlt schlicht noch ein CNI-Plugin.",
+        "ja": "kubeadm init 直後にノードが NotReady のままなのは想定内であり故障ではありません。多くの場合、まだ CNI プラグインが適用されていないだけです。",
+        "zh": "kubeadm init 之后节点卡在 NotReady 是正常现象，不是故障——通常只是还没有部署 CNI 插件。"
+      }
+    },
+    {
+      "id": "kubectl-drill-007",
+      "topic_code": "core_concepts",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Show kubectl's built-in field documentation for a Pod's spec.containers.",
+        "de": "Zeige kubectls eingebaute Felddokumentation fur spec.containers eines Pods.",
+        "ja": "Pod の spec.containers に関する kubectl 組み込みのフィールドドキュメントを表示してください。",
+        "zh": "显示 kubectl 内置的关于 Pod 的 spec.containers 字段文档。"
+      },
+      "reference_command": "kubectl explain pod.spec.containers",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "explain"
+        ],
+        "positional_args": [
+          "pod.spec.containers"
+        ]
+      },
+      "hint": {
+        "en": "The whole dotted path is one positional argument to explain, not separate flags.",
+        "de": "Der gesamte gepunktete Pfad ist ein einziges Positionsargument fur explain, keine getrennten Flags.",
+        "ja": "ドット区切りのパス全体が explain への 1 つの位置引数であり、別々のフラグではありません。",
+        "zh": "整个用点分隔的路径是 explain 的一个位置参数，而不是分开的多个参数。"
+      },
+      "success_message": {
+        "en": "That works. kubectl accepts more than one correct spelling here, and yours is one of them.",
+        "de": "Das funktioniert. kubectl akzeptiert hier mehr als eine korrekte Schreibweise, und deine ist eine davon.",
+        "ja": "それで動きます。kubectl はここで複数の正しい書き方を許容しており、あなたの入力もその一つです。",
+        "zh": "可以运行。kubectl 在这里接受不止一种正确写法，你的写法就是其中之一。"
+      },
+      "explanation": {
+        "en": "kubectl explain reads the live API schema, so it never goes stale the way a memorized field list would -- worth reaching for whenever you're unsure of a spec's exact shape.",
+        "de": "kubectl explain liest das lebende API-Schema und veraltet daher nie so wie eine auswendig gelernte Feldliste -- greif darauf zuruck, sobald du dir uber die genaue Form eines spec unsicher bist.",
+        "ja": "kubectl explain は実際に稼働している API スキーマを読むため、暗記したフィールド一覧のように古くなることがありません。spec の正確な形が分からないときは頼るべき手段です。",
+        "zh": "kubectl explain 读取的是实时的 API schema，因此不会像死记硬背的字段列表那样过时——当你不确定某个 spec 的确切结构时，值得随手使用。"
+      }
+    },
+    {
+      "id": "kubectl-drill-008",
+      "topic_code": "workloads",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Create a Pod named nginx using the nginx:1.25 image, without creating a Deployment.",
+        "de": "Erstelle einen Pod namens nginx mit dem Image nginx:1.25, ohne dabei ein Deployment zu erzeugen.",
+        "ja": "Deployment を作成せずに、nginx:1.25 イメージを使って nginx という名前の Pod を作成してください。",
+        "zh": "在不创建 Deployment 的情况下，使用 nginx:1.25 镜像创建一个名为 nginx 的 Pod。"
+      },
+      "reference_command": "kubectl run nginx --image=nginx:1.25",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "run"
+        ],
+        "positional_args": [
+          "nginx"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--image"
+            ],
+            "value": "nginx:1.25",
+            "value_match": "exact"
+          }
+        ],
+        "forbidden_tokens": [
+          "deployment",
+          "deploy"
+        ],
+        "notes": "If the learner's tokens include the literal word 'deployment' anywhere, treat as wrong -- kubectl create deployment is a different, incorrect answer for this specific task.",
+        "common_wrong_attempts": [
+          {
+            "command": "kubectl create deployment nginx --image=nginx:1.25",
+            "why_key": "creates_deployment_not_bare_pod"
+          }
+        ]
+      },
+      "hint": {
+        "en": "kubectl run is the one imperative verb left that creates a bare Pod directly; kubectl create deployment would give you three extra objects you don't want here.",
+        "de": "kubectl run ist das einzig verbliebene imperative Verb, das direkt einen nackten Pod erzeugt; kubectl create deployment wurde dir hier drei zusatzliche, ungewollte Objekte bescheren.",
+        "ja": "裸の Pod を直接作る唯一の命令的動詞が kubectl run です。kubectl create deployment ではここで不要な追加のオブジェクトが3つできてしまいます。",
+        "zh": "kubectl run 是唯一仍然保留、可以直接创建裸 Pod 的命令式动词；用 kubectl create deployment 会在这里多产生三个你并不需要的对象。"
+      },
+      "success_message": {
+        "en": "Nicely done -- the cluster would accept exactly this command.",
+        "de": "Gut gemacht -- der Cluster wurde genau diesen Befehl akzeptieren.",
+        "ja": "よくできました。クラスターはまさにこのコマンドを受け付けます。",
+        "zh": "做得好——集群会接受完全这样的命令。"
+      },
+      "explanation": {
+        "en": "kubectl run creates exactly one Pod object with no owning controller -- delete it and nothing brings it back, unlike a Pod managed by a Deployment's ReplicaSet.",
+        "de": "kubectl run erzeugt genau ein Pod-Objekt ohne besitzenden Controller -- loschst du es, kommt nichts zuruck, anders als bei einem von einem ReplicaSet verwalteten Pod.",
+        "ja": "kubectl run は所有コントローラーを持たない Pod オブジェクトを1つだけ作ります。削除しても、ReplicaSet に管理された Pod と違い、何も自動で戻ってきません。",
+        "zh": "kubectl run 只会创建一个没有所属控制器的 Pod 对象——删掉它就不会有任何东西把它拉回来，这与由 Deployment 的 ReplicaSet 管理的 Pod 不同。"
+      }
+    },
+    {
+      "id": "kubectl-drill-009",
+      "topic_code": "workloads",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Create a Deployment named web using the nginx:1.25 image with 3 replicas.",
+        "de": "Erstelle ein Deployment namens web mit dem Image nginx:1.25 und 3 Replikaten.",
+        "ja": "nginx:1.25 イメージを使い、レプリカ数 3 の web という名前の Deployment を作成してください。",
+        "zh": "使用 nginx:1.25 镜像创建一个名为 web、副本数为 3 的 Deployment。"
+      },
+      "reference_command": "kubectl create deployment web --image=nginx:1.25 --replicas=3",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "create",
+          "deployment"
+        ],
+        "positional_args": [
+          "web"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--image"
+            ],
+            "value": "nginx:1.25",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--replicas"
+            ],
+            "value": "3",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "create deployment takes both --image and --replicas as flags on the same line -- there's no separate scale step required here.",
+        "de": "create deployment nimmt sowohl --image als auch --replicas als Flags in derselben Zeile -- ein separater Scale-Schritt ist hier nicht notig.",
+        "ja": "create deployment は --image と --replicas の両方を同じ行のフラグとして受け取ります。ここでは別途 scale する必要はありません。",
+        "zh": "create deployment 可以在同一条命令里同时接受 --image 和 --replicas 两个参数——这里不需要额外的 scale 步骤。"
+      },
+      "success_message": {
+        "en": "That's a match. Command recall like this is most of what the real exam rewards.",
+        "de": "Treffer. Genau dieses Befehls-Gedachtnis ist es, was die echte Prufung vor allem belohnt.",
+        "ja": "一致しています。実際の試験で評価されるのは、まさにこうしたコマンドの想起力です。",
+        "zh": "匹配成功。真实考试考察的主要就是这种命令记忆能力。"
+      },
+      "explanation": {
+        "en": "A Deployment's whole job is owning a ReplicaSet that owns the Pods -- three layers of indirection that buy you rolling updates and self-healing, which a bare kubectl run Pod never gets.",
+        "de": "Die ganze Aufgabe eines Deployments besteht darin, ein ReplicaSet zu besitzen, das wiederum die Pods besitzt -- drei Ebenen Indirektion, die dir Rolling Updates und Selbstheilung verschaffen, was ein nackter kubectl-run-Pod nie bekommt.",
+        "ja": "Deployment の仕事全体は、Pod を所有する ReplicaSet を所有することです。この3段階の間接参照のおかげでローリングアップデートと自己修復が得られますが、裸の kubectl run Pod ではこれは得られません。",
+        "zh": "Deployment 的全部职责就是拥有一个 ReplicaSet，再由 ReplicaSet 拥有这些 Pod——这三层间接关系换来了滚动更新和自愈能力，而 kubectl run 出来的裸 Pod 从来没有这些。"
+      }
+    },
+    {
+      "id": "kubectl-drill-010",
+      "topic_code": "workloads",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Scale the Deployment named web in namespace shop to 5 replicas.",
+        "de": "Skaliere das Deployment namens web im Namespace shop auf 5 Replikate.",
+        "ja": "shop 名前空間の web という Deployment をレプリカ数 5 にスケールしてください。",
+        "zh": "将 shop 命名空间中名为 web 的 Deployment 扩缩到 5 个副本。"
+      },
+      "reference_command": "kubectl scale deployment web -n shop --replicas=5",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "scale",
+          [
+            "deployment",
+            "deploy"
+          ]
+        ],
+        "positional_args": [
+          "web"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--replicas"
+            ],
+            "value": "5",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "shop",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "scale is its own verb -- you don't re-run create deployment to change the replica count of one that already exists.",
+        "de": "scale ist ein eigenes Verb -- du fuhrst nicht erneut create deployment aus, um die Replikatzahl eines bereits existierenden zu andern.",
+        "ja": "scale はそれ自体が独立した動詞です。既存の Deployment のレプリカ数を変えるために create deployment をもう一度実行するわけではありません。",
+        "zh": "scale 是一个独立的动词——要修改已有 Deployment 的副本数，不需要再执行一次 create deployment。"
+      },
+      "success_message": {
+        "en": "Confirmed correct. Try to notice which flags you reached for automatically -- that's the muscle memory you want.",
+        "de": "Bestatigt korrekt. Achte darauf, welche Flags du automatisch parat hattest -- genau das ist das Muskelgedachtnis, das du willst.",
+        "ja": "正解を確認しました。どのフラグが自然に出てきたか意識してみてください。それが身につけたい体で覚える感覚です。",
+        "zh": "已确认正确。留意一下你下意识用到的那些参数——那正是你想要练出的肌肉记忆。"
+      },
+      "explanation": {
+        "en": "kubectl scale just patches spec.replicas; the Deployment controller then reconciles its ReplicaSet up or down to match, same reconciliation loop as everything else in the cluster.",
+        "de": "kubectl scale patcht lediglich spec.replicas; der Deployment-Controller gleicht daraufhin sein ReplicaSet nach oben oder unten ab -- derselbe Reconciliation-Loop wie uberall sonst im Cluster.",
+        "ja": "kubectl scale は spec.replicas をパッチするだけです。その後 Deployment コントローラーが ReplicaSet を増減させて一致させます。これはクラスター内の他の仕組みと同じ調整ループです。",
+        "zh": "kubectl scale 只是修改了 spec.replicas；随后 Deployment 控制器会相应地调大或调小其 ReplicaSet，使用的是与集群中其他一切相同的调谐循环。"
+      }
+    },
+    {
+      "id": "kubectl-drill-011",
+      "topic_code": "workloads",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Create a Job named batch-once that runs the busybox image and executes the command echo hello.",
+        "de": "Erstelle einen Job namens batch-once, der das Image busybox verwendet und den Befehl echo hello ausfuhrt.",
+        "ja": "busybox イメージを使い、echo hello コマンドを実行する batch-once という名前の Job を作成してください。",
+        "zh": "创建一个名为 batch-once 的 Job，使用 busybox 镜像并执行命令 echo hello。"
+      },
+      "reference_command": "kubectl create job batch-once --image=busybox -- echo hello",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "create",
+          "job"
+        ],
+        "positional_args": [
+          "batch-once"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--image"
+            ],
+            "value": "busybox",
+            "value_match": "exact"
+          }
+        ],
+        "required_trailing_args": [
+          "echo",
+          "hello"
+        ],
+        "notes": "required_trailing_args must appear, in order, immediately after a literal '--' token."
+      },
+      "hint": {
+        "en": "Everything after a lone -- is the container's command, passed through verbatim -- it isn't a kubectl flag.",
+        "de": "Alles nach einem alleinstehenden -- ist der Befehl des Containers, unverandert durchgereicht -- es ist kein kubectl-Flag.",
+        "ja": "単独の -- の後にあるものはすべてコンテナのコマンドとしてそのまま渡されます。kubectl のフラグではありません。",
+        "zh": "单独的 -- 之后的所有内容都是容器要执行的命令，会原样传递——它不是 kubectl 的参数。"
+      },
+      "success_message": {
+        "en": "Correct -- that's a fully valid form of the command.",
+        "de": "Richtig -- das ist eine vollstandig gultige Form des Befehls.",
+        "ja": "正解です。この形はコマンドとして完全に有効です。",
+        "zh": "正确——这是该命令的一种完全有效的写法。"
+      },
+      "explanation": {
+        "en": "A Job runs its Pod to completion rather than keeping it alive forever, and retries failures up to spec.backoffLimit -- the right controller for one-off or batch work, unlike a Deployment.",
+        "de": "Ein Job fuhrt seinen Pod bis zum Abschluss aus, statt ihn dauerhaft am Leben zu halten, und wiederholt Fehlschlage bis zu spec.backoffLimit -- der richtige Controller fur einmalige oder Batch-Arbeit, anders als ein Deployment.",
+        "ja": "Job は Pod を永続的に生かし続けるのではなく完了まで実行し、失敗した場合は spec.backoffLimit まで再試行します。Deployment とは異なり、単発やバッチ処理に適したコントローラーです。",
+        "zh": "Job 会让它的 Pod 运行到完成，而不是让它一直存活，并且会在 spec.backoffLimit 范围内重试失败——与 Deployment 不同，它才是适合一次性或批处理任务的控制器。"
+      }
+    },
+    {
+      "id": "kubectl-drill-012",
+      "topic_code": "workloads",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Create a CronJob named nightly that runs the busybox image on the schedule \"0 2 * * *\" (2 AM daily), executing the command echo hi.",
+        "de": "Erstelle einen CronJob namens nightly, der das Image busybox nach dem Zeitplan \"0 2 * * *\" (taglich 2 Uhr) ausfuhrt und den Befehl echo hi aufruft.",
+        "ja": "busybox イメージを使い、スケジュール \"0 2 * * *\"（毎日午前2時）で echo hi コマンドを実行する nightly という名前の CronJob を作成してください。",
+        "zh": "创建一个名为 nightly 的 CronJob，使用 busybox 镜像，按照 \"0 2 * * *\"（每天凌晨 2 点）的计划执行命令 echo hi。"
+      },
+      "reference_command": "kubectl create cronjob nightly --image=busybox --schedule=\"0 2 * * *\" -- echo hi",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "create",
+          "cronjob"
+        ],
+        "positional_args": [
+          "nightly"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--image"
+            ],
+            "value": "busybox",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--schedule"
+            ],
+            "value": "0 2 * * *",
+            "value_match": "exact"
+          }
+        ],
+        "required_trailing_args": [
+          "echo",
+          "hi"
+        ],
+        "notes": "The --schedule value contains spaces and must be quoted by the learner; tokenizer must respect quotes (single or double) so '0 2 * * *' stays one token/value, not five."
+      },
+      "hint": {
+        "en": "The schedule string has spaces in it, so it needs quotes around it in your shell -- kubectl still just sees it as one flag value.",
+        "de": "Der Zeitplan-String enthalt Leerzeichen und muss in deiner Shell in Anfuhrungszeichen stehen -- kubectl sieht ihn trotzdem nur als einen Flag-Wert.",
+        "ja": "スケジュール文字列にはスペースが含まれるため、シェル上では引用符で囲む必要があります。kubectl 側ではあくまで1つのフラグ値として扱われます。",
+        "zh": "计划字符串中包含空格，因此在 shell 中需要用引号括起来——但对 kubectl 来说，它仍然只是一个参数值。"
+      },
+      "success_message": {
+        "en": "That works. kubectl accepts more than one correct spelling here, and yours is one of them.",
+        "de": "Das funktioniert. kubectl akzeptiert hier mehr als eine korrekte Schreibweise, und deine ist eine davon.",
+        "ja": "それで動きます。kubectl はここで複数の正しい書き方を許容しており、あなたの入力もその一つです。",
+        "zh": "可以运行。kubectl 在这里接受不止一种正确写法，你的写法就是其中之一。"
+      },
+      "explanation": {
+        "en": "A CronJob is just a Job factory on a timer -- it creates a fresh Job (and Pod) at each firing, so a single stuck run never blocks the next scheduled one.",
+        "de": "Ein CronJob ist im Grunde eine Job-Fabrik mit Zeitschaltuhr -- er erzeugt bei jedem Auslosen einen frischen Job (und Pod), sodass ein einzelner hangender Lauf den nachsten geplanten nie blockiert.",
+        "ja": "CronJob は基本的にタイマー付きの Job 生成装置です。発火のたびに新しい Job（と Pod）を作るため、1回のハングした実行が次回のスケジュールをブロックすることはありません。",
+        "zh": "CronJob 本质上就是一个带定时器的 Job 工厂——它在每次触发时都会创建一个全新的 Job（和 Pod），所以某一次运行卡住也不会阻塞下一次计划中的运行。"
+      }
+    },
+    {
+      "id": "kubectl-drill-013",
+      "topic_code": "workloads",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Delete the Pod named orphan in namespace test immediately, without waiting for graceful termination.",
+        "de": "Losche den Pod namens orphan im Namespace test sofort, ohne auf ein sanftes Beenden zu warten.",
+        "ja": "test 名前空間の orphan という Pod を、正常終了を待たずに即座に削除してください。",
+        "zh": "立即删除 test 命名空间中名为 orphan 的 Pod，不等待优雅终止。"
+      },
+      "reference_command": "kubectl delete pod orphan -n test --grace-period=0 --force",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "delete",
+          [
+            "pod",
+            "pods",
+            "po"
+          ]
+        ],
+        "positional_args": [
+          "orphan"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "test",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--grace-period"
+            ],
+            "value": "0",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--force"
+            ]
+          }
+        ]
+      },
+      "hint": {
+        "en": "Plain kubectl delete pod waits out the container's grace period -- you need both --grace-period=0 and --force to skip that.",
+        "de": "Ein einfaches kubectl delete pod wartet die Grace Period des Containers ab -- fur das Uberspringen brauchst du sowohl --grace-period=0 als auch --force.",
+        "ja": "普通の kubectl delete pod はコンテナの猶予期間を待ちます。それを飛ばすには --grace-period=0 と --force の両方が必要です。",
+        "zh": "普通的 kubectl delete pod 会等待容器的优雅终止期——要跳过它，需要同时使用 --grace-period=0 和 --force。"
+      },
+      "success_message": {
+        "en": "Nicely done -- the cluster would accept exactly this command.",
+        "de": "Gut gemacht -- der Cluster wurde genau diesen Befehl akzeptieren.",
+        "ja": "よくできました。クラスターはまさにこのコマンドを受け付けます。",
+        "zh": "做得好——集群会接受完全这样的命令。"
+      },
+      "explanation": {
+        "en": "Force-deleting a Pod removes its API object immediately but doesn't guarantee the kubelet has actually stopped the container yet -- useful for an unresponsive node, risky as a habit.",
+        "de": "Ein forciertes Loschen entfernt das API-Objekt eines Pods sofort, garantiert aber nicht, dass das kubelet den Container tatsachlich schon gestoppt hat -- nutzlich bei einem nicht reagierenden Node, riskant als Gewohnheit.",
+        "ja": "強制削除は Pod の API オブジェクトを即座に取り除きますが、kubelet が実際にコンテナを停止済みである保証はありません。応答しないノードでは有用ですが、常用するのは危険です。",
+        "zh": "强制删除会立即移除该 Pod 的 API 对象，但并不保证 kubelet 已经真正停止了容器——在节点无响应时很有用，但作为习惯性操作则有风险。"
+      }
+    },
+    {
+      "id": "kubectl-drill-014",
+      "topic_code": "workloads",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Generate the YAML for a Deployment named cache using the redis:7 image, without actually creating it on the cluster (client-side dry run).",
+        "de": "Erzeuge das YAML fur ein Deployment namens cache mit dem Image redis:7, ohne es tatsachlich im Cluster anzulegen (Client-seitiger Dry Run).",
+        "ja": "redis:7 イメージを使う cache という名前の Deployment の YAML を、実際にはクラスターに作成せずに生成してください（クライアント側のドライラン）。",
+        "zh": "为名为 cache、使用 redis:7 镜像的 Deployment 生成 YAML，但不要真正在集群上创建它（客户端 dry-run）。"
+      },
+      "reference_command": "kubectl create deployment cache --image=redis:7 --dry-run=client -o yaml",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "create",
+          "deployment"
+        ],
+        "positional_args": [
+          "cache"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--image"
+            ],
+            "value": "redis:7",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--dry-run"
+            ],
+            "value": "client",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "-o",
+              "--output"
+            ],
+            "value": "yaml",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "Two extra flags on top of the usual create deployment: --dry-run=client so nothing is sent to the API server, and -o yaml so you get text back instead of a one-line confirmation.",
+        "de": "Zwei Extra-Flags zum ublichen create deployment: --dry-run=client, damit nichts an den API-Server geschickt wird, und -o yaml, damit du Text statt einer Ein-Zeilen-Bestatigung zuruckbekommst.",
+        "ja": "通常の create deployment に加えて2つのフラグが必要です。API サーバーに何も送らない --dry-run=client と、1行の確認メッセージではなくテキストを得るための -o yaml です。",
+        "zh": "在常规的 create deployment 之外还需要两个参数：--dry-run=client 使命令不会真正发往 API Server，-o yaml 让你得到文本输出而不是一行确认信息。"
+      },
+      "success_message": {
+        "en": "That's a match. Command recall like this is most of what the real exam rewards.",
+        "de": "Treffer. Genau dieses Befehls-Gedachtnis ist es, was die echte Prufung vor allem belohnt.",
+        "ja": "一致しています。実際の試験で評価されるのは、まさにこうしたコマンドの想起力です。",
+        "zh": "匹配成功。真实考试考察的主要就是这种命令记忆能力。"
+      },
+      "explanation": {
+        "en": "Generate-then-edit is the fastest path to a starting manifest in the exam: produce YAML with a dry-run, redirect it to a file, then hand-edit only the parts the task actually needs changed.",
+        "de": "Erzeugen-dann-bearbeiten ist in der Prufung der schnellste Weg zu einem Ausgangsmanifest: YAML per Dry Run erzeugen, in eine Datei umleiten und dann nur die Teile per Hand andern, die die Aufgabe tatsachlich verlangt.",
+        "ja": "試験では「まず生成し、後で編集する」が出発点となるマニフェストを得る最速の方法です。ドライランで YAML を作り、ファイルにリダイレクトし、課題で本当に必要な部分だけを手で編集します。",
+        "zh": "先生成再编辑是在考试中获得起始清单最快的方式：通过 dry-run 生成 YAML，重定向到文件，然后只手动修改任务真正需要改动的部分。"
+      }
+    },
+    {
+      "id": "kubectl-drill-015",
+      "topic_code": "workloads",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Restart the Deployment named api in namespace shop by triggering a fresh rollout, without changing its image.",
+        "de": "Starte das Deployment namens api im Namespace shop neu, indem du ein frisches Rollout auslost, ohne sein Image zu andern.",
+        "ja": "イメージを変更せずに、shop 名前空間の api という Deployment を新しいロールアウトによって再起動してください。",
+        "zh": "在不修改镜像的情况下，通过触发一次新的滚动更新来重启 shop 命名空间中的 api Deployment。"
+      },
+      "reference_command": "kubectl rollout restart deployment/api -n shop",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "rollout",
+          "restart"
+        ],
+        "positional_args": [
+          [
+            "deployment/api",
+            "deployment api"
+          ]
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "shop",
+            "value_match": "exact"
+          }
+        ],
+        "notes": "positional_args here is a single logical token that may be spelled either 'deployment/api' (one shell token) or as two tokens 'deployment' 'api' -- matcher should accept both spellings, same as it does for every other TYPE NAME pair in this file, which is written kind/name style deliberately to show the alternative."
+      },
+      "hint": {
+        "en": "There's a dedicated rollout restart verb for exactly this -- you don't need to patch a label or touch the image to force new Pods.",
+        "de": "Fur genau diesen Zweck gibt es das eigene Verb rollout restart -- du musst kein Label patchen oder das Image anfassen, um neue Pods zu erzwingen.",
+        "ja": "まさにこの目的のための rollout restart という専用の動詞があります。新しい Pod を強制するためにラベルをパッチしたりイメージに触れたりする必要はありません。",
+        "zh": "正好有一个专门的 rollout restart 动词用于这个目的——不需要修改标签或改动镜像就能强制产生新的 Pod。"
+      },
+      "success_message": {
+        "en": "Confirmed correct. Try to notice which flags you reached for automatically -- that's the muscle memory you want.",
+        "de": "Bestatigt korrekt. Achte darauf, welche Flags du automatisch parat hattest -- genau das ist das Muskelgedachtnis, das du willst.",
+        "ja": "正解を確認しました。どのフラグが自然に出てきたか意識してみてください。それが身につけたい体で覚える感覚です。",
+        "zh": "已确认正确。留意一下你下意识用到的那些参数——那正是你想要练出的肌肉记忆。"
+      },
+      "explanation": {
+        "en": "rollout restart patches a restart timestamp annotation on the Pod template, which is enough to make the Deployment controller roll every Pod through the same update strategy as a real image change would use.",
+        "de": "rollout restart patcht eine Restart-Zeitstempel-Annotation auf dem Pod-Template, was ausreicht, damit der Deployment-Controller jeden Pod uber dieselbe Update-Strategie rollt, die auch eine echte Image-Anderung nutzen wurde.",
+        "ja": "rollout restart は Pod テンプレートに再起動タイムスタンプの annotation をパッチします。これだけで、Deployment コントローラーは実際のイメージ変更時と同じ更新戦略で全 Pod をローリングします。",
+        "zh": "rollout restart 会在 Pod 模板上打一个重启时间戳注解，这就足以让 Deployment 控制器以与真正修改镜像时相同的更新策略滚动所有 Pod。"
+      }
+    },
+    {
+      "id": "kubectl-drill-016",
+      "topic_code": "config_scheduling",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Create a ConfigMap named app-config with a literal key APP_MODE set to production.",
+        "de": "Erstelle eine ConfigMap namens app-config mit dem literalen Schlussel APP_MODE, gesetzt auf production.",
+        "ja": "APP_MODE というリテラルキーに production を設定した app-config という名前の ConfigMap を作成してください。",
+        "zh": "创建一个名为 app-config 的 ConfigMap，其中包含一个字面量键 APP_MODE，值为 production。"
+      },
+      "reference_command": "kubectl create configmap app-config --from-literal=APP_MODE=production",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "create",
+          [
+            "configmap",
+            "cm"
+          ]
+        ],
+        "positional_args": [
+          "app-config"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--from-literal"
+            ],
+            "value": "APP_MODE=production",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "--from-literal takes one KEY=VALUE pair as its whole value -- there's no separate --key or --value flag.",
+        "de": "--from-literal nimmt ein KEY=VALUE-Paar als gesamten Wert -- es gibt kein separates --key- oder --value-Flag.",
+        "ja": "--from-literal は KEY=VALUE のペア全体を1つの値として受け取ります。別々の --key や --value というフラグはありません。",
+        "zh": "--from-literal 接受一个完整的 KEY=VALUE 作为其值——并没有单独的 --key 或 --value 参数。"
+      },
+      "success_message": {
+        "en": "Correct -- that's a fully valid form of the command.",
+        "de": "Richtig -- das ist eine vollstandig gultige Form des Befehls.",
+        "ja": "正解です。この形はコマンドとして完全に有効です。",
+        "zh": "正确——这是该命令的一种完全有效的写法。"
+      },
+      "explanation": {
+        "en": "A ConfigMap separates non-secret configuration from the container image, so the same image can run in dev, staging and prod just by mounting a different ConfigMap.",
+        "de": "Eine ConfigMap trennt nicht-geheime Konfiguration vom Container-Image, sodass dasselbe Image in Dev, Staging und Prod laufen kann, indem einfach eine andere ConfigMap gemountet wird.",
+        "ja": "ConfigMap は機密でない設定をコンテナイメージから分離するので、マウントする ConfigMap を変えるだけで同じイメージを dev・staging・prod で動かせます。",
+        "zh": "ConfigMap 把非敏感配置与容器镜像分离开来，这样只需挂载不同的 ConfigMap，同一个镜像就能在 dev、staging 和 prod 中运行。"
+      }
+    },
+    {
+      "id": "kubectl-drill-017",
+      "topic_code": "config_scheduling",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Create a generic Secret named db-creds with a literal key password set to s3cr3t.",
+        "de": "Erstelle ein generisches Secret namens db-creds mit dem literalen Schlussel password, gesetzt auf s3cr3t.",
+        "ja": "password というリテラルキーに s3cr3t を設定した db-creds という名前の generic Secret を作成してください。",
+        "zh": "创建一个名为 db-creds 的通用（generic）Secret，其中包含一个字面量键 password，值为 s3cr3t。"
+      },
+      "reference_command": "kubectl create secret generic db-creds --from-literal=password=s3cr3t",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "create",
+          "secret",
+          "generic"
+        ],
+        "positional_args": [
+          "db-creds"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--from-literal"
+            ],
+            "value": "password=s3cr3t",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "secret needs a type right after it -- generic is the plain key/value kind, as opposed to docker-registry or tls.",
+        "de": "secret braucht direkt danach einen Typ -- generic ist die einfache Key/Value-Art, im Gegensatz zu docker-registry oder tls.",
+        "ja": "secret の直後には種類が必要です。generic は docker-registry や tls とは違い、単純なキー/値の種類です。",
+        "zh": "secret 后面紧跟着需要一个类型——generic 是普通的键值类型，区别于 docker-registry 或 tls。"
+      },
+      "success_message": {
+        "en": "That works. kubectl accepts more than one correct spelling here, and yours is one of them.",
+        "de": "Das funktioniert. kubectl akzeptiert hier mehr als eine korrekte Schreibweise, und deine ist eine davon.",
+        "ja": "それで動きます。kubectl はここで複数の正しい書き方を許容しており、あなたの入力もその一つです。",
+        "zh": "可以运行。kubectl 在这里接受不止一种正确写法，你的写法就是其中之一。"
+      },
+      "explanation": {
+        "en": "A Secret's contents are base64-encoded in etcd, not encrypted by default -- fine for the exam's purposes, but worth knowing it's obfuscation, not real secrecy, unless encryption-at-rest is configured.",
+        "de": "Der Inhalt eines Secrets ist in etcd base64-kodiert, standardmassig aber nicht verschlusselt -- fur die Prufungszwecke in Ordnung, aber es lohnt sich zu wissen, dass das Verschleierung, keine echte Geheimhaltung ist, sofern nicht Encryption-at-Rest konfiguriert wurde.",
+        "ja": "Secret の内容は etcd 内で base64 エンコードされているだけで、既定では暗号化されていません。試験の目的には十分ですが、encryption-at-rest が設定されていない限り、それは難読化であって本当の秘匿性ではないと知っておく価値があります。",
+        "zh": "Secret 的内容在 etcd 中只是做了 base64 编码，默认并未加密——对考试来说够用了，但值得知道的是，除非配置了静态加密，否则这只是混淆，而不是真正的保密。"
+      }
+    },
+    {
+      "id": "kubectl-drill-018",
+      "topic_code": "config_scheduling",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Add the label disktype=ssd to node worker-2.",
+        "de": "Fuge dem Node worker-2 das Label disktype=ssd hinzu.",
+        "ja": "worker-2 ノードに disktype=ssd というラベルを追加してください。",
+        "zh": "为节点 worker-2 添加标签 disktype=ssd。"
+      },
+      "reference_command": "kubectl label node worker-2 disktype=ssd",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "label",
+          [
+            "node",
+            "nodes",
+            "no"
+          ]
+        ],
+        "positional_args": [
+          "worker-2",
+          "disktype=ssd"
+        ]
+      },
+      "hint": {
+        "en": "label takes the object's type and name, then the KEY=VALUE pair -- all as plain positional arguments, no flag needed for the label itself.",
+        "de": "label nimmt den Typ und Namen des Objekts, dann das KEY=VALUE-Paar -- alles als reine Positionsargumente, kein Flag fur das Label selbst notig.",
+        "ja": "label はオブジェクトの種類と名前、続いて KEY=VALUE のペアを取ります。すべて単純な位置引数であり、ラベル自体にフラグは不要です。",
+        "zh": "label 接受对象的类型和名称，然后是 KEY=VALUE 键值对——全部作为普通位置参数，标签本身不需要任何参数标志。"
+      },
+      "success_message": {
+        "en": "Nicely done -- the cluster would accept exactly this command.",
+        "de": "Gut gemacht -- der Cluster wurde genau diesen Befehl akzeptieren.",
+        "ja": "よくできました。クラスターはまさにこのコマンドを受け付けます。",
+        "zh": "做得好——集群会接受完全这样的命令。"
+      },
+      "explanation": {
+        "en": "Node labels are what a Pod's nodeSelector or nodeAffinity actually match against -- this is the setup step that a later 'pin this Pod to SSD nodes' task depends on.",
+        "de": "Node-Labels sind das, wogegen der nodeSelector oder die nodeAffinity eines Pods tatsachlich abgleicht -- dies ist der Vorbereitungsschritt, von dem eine spatere Aufgabe wie 'diesen Pod an SSD-Nodes binden' abhangt.",
+        "ja": "ノードラベルこそが、Pod の nodeSelector や nodeAffinity が実際に照合する対象です。これは、後の「この Pod を SSD ノードに固定する」といった課題が前提とする準備ステップです。",
+        "zh": "节点标签正是 Pod 的 nodeSelector 或 nodeAffinity 实际匹配的对象——这是后续「把该 Pod 固定到 SSD 节点」这类任务所依赖的前置步骤。"
+      }
+    },
+    {
+      "id": "kubectl-drill-019",
+      "topic_code": "config_scheduling",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Taint node gpu-1 with key gpu, value true, and effect NoSchedule, so only Pods that explicitly tolerate it can be scheduled there.",
+        "de": "Versehe den Node gpu-1 mit einem Taint mit Schlussel gpu, Wert true und Effekt NoSchedule, sodass nur Pods, die ihn explizit tolerieren, dort geplant werden konnen.",
+        "ja": "gpu-1 ノードに、キー gpu、値 true、効果 NoSchedule の taint を付与し、明示的に許容（tolerate）する Pod だけがそこにスケジューリングされるようにしてください。",
+        "zh": "为节点 gpu-1 打上污点（taint）：键为 gpu，值为 true，效果为 NoSchedule，使得只有显式容忍该污点的 Pod 才能被调度到该节点上。"
+      },
+      "reference_command": "kubectl taint node gpu-1 gpu=true:NoSchedule",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "taint",
+          [
+            "node",
+            "nodes",
+            "no"
+          ]
+        ],
+        "positional_args": [
+          "gpu-1",
+          "gpu=true:NoSchedule"
+        ],
+        "notes": "The KEY=VALUE:EFFECT triple is one shell token with no spaces; matcher should compare it as a single string, not split on the colon."
+      },
+      "hint": {
+        "en": "The taint itself is one token shaped key=value:effect -- don't split it into separate flags.",
+        "de": "Der Taint selbst ist ein einziges Token in der Form key=value:effect -- teile es nicht in separate Flags auf.",
+        "ja": "taint 自体は key=value:effect という形の1つのトークンです。別々のフラグに分割しないでください。",
+        "zh": "污点本身是一个形如 key=value:effect 的整体 token，不要把它拆成多个参数。"
+      },
+      "success_message": {
+        "en": "That's a match. Command recall like this is most of what the real exam rewards.",
+        "de": "Treffer. Genau dieses Befehls-Gedachtnis ist es, was die echte Prufung vor allem belohnt.",
+        "ja": "一致しています。実際の試験で評価されるのは、まさにこうしたコマンドの想起力です。",
+        "zh": "匹配成功。真实考试考察的主要就是这种命令记忆能力。"
+      },
+      "explanation": {
+        "en": "Taints and tolerations are a repel mechanism owned by the node, the opposite direction from nodeAffinity's attract mechanism owned by the Pod -- exam questions like to combine the two.",
+        "de": "Taints und Tolerations sind ein vom Node ausgehender Abstossungsmechanismus, die Gegenrichtung zum vom Pod ausgehenden Anziehungsmechanismus der nodeAffinity -- Prufungsfragen kombinieren die beiden gerne.",
+        "ja": "Taint と Toleration はノード側が持つ「反発」の仕組みであり、Pod 側が持つ nodeAffinity の「吸引」の仕組みとは逆方向です。試験問題ではこの2つを組み合わせるのが好まれます。",
+        "zh": "污点与容忍是由节点主导的「排斥」机制，方向与由 Pod 主导的 nodeAffinity「吸引」机制相反——考试题目喜欢把这两者结合起来考。"
+      }
+    },
+    {
+      "id": "kubectl-drill-020",
+      "topic_code": "config_scheduling",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Set the namespace billing as the default namespace for your current kubeconfig context.",
+        "de": "Setze den Namespace billing als Standard-Namespace fur deinen aktuellen kubeconfig-Kontext.",
+        "ja": "billing 名前空間を、現在の kubeconfig コンテキストのデフォルト名前空間として設定してください。",
+        "zh": "将 billing 命名空间设置为当前 kubeconfig 上下文的默认命名空间。"
+      },
+      "reference_command": "kubectl config set-context --current --namespace=billing",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "config",
+          "set-context"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--current"
+            ]
+          },
+          {
+            "forms": [
+              "--namespace"
+            ],
+            "value": "billing",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "set-context with --current edits the context you're already using -- you don't need to spell its name out again.",
+        "de": "set-context mit --current bearbeitet den Kontext, den du bereits benutzt -- du musst seinen Namen nicht erneut ausschreiben.",
+        "ja": "--current 付きの set-context は、今まさに使っているコンテキストを編集します。その名前を改めて書く必要はありません。",
+        "zh": "带 --current 的 set-context 会编辑你正在使用的那个上下文——不需要再重新写出它的名字。"
+      },
+      "success_message": {
+        "en": "Confirmed correct. Try to notice which flags you reached for automatically -- that's the muscle memory you want.",
+        "de": "Bestatigt korrekt. Achte darauf, welche Flags du automatisch parat hattest -- genau das ist das Muskelgedachtnis, das du willst.",
+        "ja": "正解を確認しました。どのフラグが自然に出てきたか意識してみてください。それが身につけたい体で覚える感覚です。",
+        "zh": "已确认正确。留意一下你下意识用到的那些参数——那正是你想要练出的肌肉记忆。"
+      },
+      "explanation": {
+        "en": "This changes only which namespace kubectl assumes when you omit -n, saving a lot of typing in a task that's entirely scoped to one namespace -- but it's easy to forget you set it and be confused later.",
+        "de": "Das andert nur, welchen Namespace kubectl annimmt, wenn du -n weglasst -- spart viel Tipparbeit bei einer Aufgabe, die sich vollstandig auf einen Namespace bezieht, aber man vergisst leicht, dass man es gesetzt hat, und ist spater verwirrt.",
+        "ja": "これは -n を省略したときに kubectl が想定する名前空間を変えるだけです。1つの名前空間に完結する作業では大幅にタイプ量を減らせますが、設定したことを忘れて後で混乱しがちです。",
+        "zh": "这只会改变你省略 -n 时 kubectl 默认使用的命名空间——在任务完全局限于单一命名空间时能省不少输入，但很容易忘记自己设置过它，之后反而造成困惑。"
+      }
+    },
+    {
+      "id": "kubectl-drill-021",
+      "topic_code": "config_scheduling",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Open the Deployment named web for live editing in your default editor.",
+        "de": "Offne das Deployment namens web zur direkten Bearbeitung in deinem Standardeditor.",
+        "ja": "web という Deployment をデフォルトエディタでその場編集のために開いてください。",
+        "zh": "在默认编辑器中打开名为 web 的 Deployment 进行实时编辑。"
+      },
+      "reference_command": "kubectl edit deployment web",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "edit",
+          [
+            "deployment",
+            "deploy"
+          ]
+        ],
+        "positional_args": [
+          "web"
+        ]
+      },
+      "hint": {
+        "en": "edit is its own verb that opens the live object's YAML in $EDITOR and applies it on save -- no -o yaml or apply step involved.",
+        "de": "edit ist ein eigenes Verb, das das YAML des lebenden Objekts in $EDITOR offnet und es beim Speichern anwendet -- kein -o yaml oder apply-Schritt notig.",
+        "ja": "edit はそれ自体が独立した動詞で、実在するオブジェクトの YAML を $EDITOR で開き、保存時に適用します。-o yaml や apply の手順は不要です。",
+        "zh": "edit 是一个独立的动词，会在 $EDITOR 中打开该对象当前的 YAML，并在保存时直接应用——不需要 -o yaml 或额外的 apply 步骤。"
+      },
+      "success_message": {
+        "en": "Correct -- that's a fully valid form of the command.",
+        "de": "Richtig -- das ist eine vollstandig gultige Form des Befehls.",
+        "ja": "正解です。この形はコマンドとして完全に有効です。",
+        "zh": "正确——这是该命令的一种完全有效的写法。"
+      },
+      "explanation": {
+        "en": "kubectl edit is genuinely handy for a small, one-off change under time pressure, but on the exam a get -o yaml, edit the file, then apply -f leaves you a paper trail if you make a mistake.",
+        "de": "kubectl edit ist fur eine kleine, einmalige Anderung unter Zeitdruck wirklich praktisch, aber in der Prufung hinterlasst dir get -o yaml, Datei bearbeiten, dann apply -f eine Nachvollziehbarkeit, falls dir ein Fehler unterlauft.",
+        "ja": "kubectl edit は時間的プレッシャーの中での小さな一度きりの変更には本当に便利ですが、試験では get -o yaml、ファイル編集、apply -f という手順を踏めば、ミスをしても後で辿れる記録が残ります。",
+        "zh": "在时间紧张时做一次小改动，kubectl edit 确实很方便，但在考试中，先 get -o yaml、编辑文件、再 apply -f，会在出错时给你留下可回溯的记录。"
+      }
+    },
+    {
+      "id": "kubectl-drill-022",
+      "topic_code": "config_scheduling",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Set CPU/memory requests of 250m/128Mi and limits of 500m/256Mi on the Deployment named web, without hand-editing YAML.",
+        "de": "Setze CPU/Memory-Requests von 250m/128Mi und Limits von 500m/256Mi fur das Deployment namens web, ohne YAML von Hand zu bearbeiten.",
+        "ja": "YAML を手で編集せずに、web という Deployment に CPU/メモリの requests 250m/128Mi と limits 500m/256Mi を設定してください。",
+        "zh": "在不手动编辑 YAML 的情况下，为名为 web 的 Deployment 设置 CPU/内存请求（requests）250m/128Mi 和限制（limits）500m/256Mi。"
+      },
+      "reference_command": "kubectl set resources deployment web --requests=cpu=250m,memory=128Mi --limits=cpu=500m,memory=256Mi",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "set",
+          "resources",
+          [
+            "deployment",
+            "deploy"
+          ]
+        ],
+        "positional_args": [
+          "web"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--requests"
+            ],
+            "value": "cpu=250m,memory=128Mi",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--limits"
+            ],
+            "value": "cpu=500m,memory=256Mi",
+            "value_match": "exact"
+          }
+        ],
+        "notes": "Each of --requests/--limits packs a comma-separated cpu=...,memory=... pair as one value; matcher should compare the whole comma-joined string, order of cpu/memory inside it does not matter for grading (accept either order) even though the reference_command lists cpu first."
+      },
+      "hint": {
+        "en": "kubectl set resources is the imperative shortcut for exactly this -- both --requests and --limits take a single comma-separated cpu=...,memory=... value.",
+        "de": "kubectl set resources ist der imperative Shortcut fur genau das -- sowohl --requests als auch --limits nehmen einen einzigen, kommagetrennten cpu=...,memory=...-Wert.",
+        "ja": "kubectl set resources はまさにこのための命令的ショートカットです。--requests と --limits はどちらも、カンマ区切りの cpu=...,memory=... という1つの値を取ります。",
+        "zh": "kubectl set resources 正是为此设计的命令式快捷方式——--requests 和 --limits 都接受一个逗号分隔的 cpu=...,memory=... 值。"
+      },
+      "success_message": {
+        "en": "That works. kubectl accepts more than one correct spelling here, and yours is one of them.",
+        "de": "Das funktioniert. kubectl akzeptiert hier mehr als eine korrekte Schreibweise, und deine ist eine davon.",
+        "ja": "それで動きます。kubectl はここで複数の正しい書き方を許容しており、あなたの入力もその一つです。",
+        "zh": "可以运行。kubectl 在这里接受不止一种正确写法，你的写法就是其中之一。"
+      },
+      "explanation": {
+        "en": "requests are what the scheduler uses to decide if a node has room for the Pod; limits are what the kubelet enforces at runtime -- mixing the two up is a classic source of surprise OOMKills or surprise unschedulable Pods.",
+        "de": "Requests sind das, wonach der Scheduler entscheidet, ob ein Node Platz fur den Pod hat; Limits sind das, was das kubelet zur Laufzeit durchsetzt -- die beiden zu verwechseln ist eine klassische Quelle uberraschender OOMKills oder unschedulable Pods.",
+        "ja": "requests は、スケジューラーがノードに Pod の余地があるかを判断する基準です。limits は、kubelet が実行時に強制するものです。この2つを混同すると、思いがけない OOMKill やスケジュール不能な Pod の典型的な原因になります。",
+        "zh": "requests 是调度器用来判断某个节点是否有空间容纳该 Pod 的依据；limits 则是 kubelet 在运行时强制执行的上限——把这两者搞混，是导致意外 OOMKill 或 Pod 无法被调度的典型原因。"
+      }
+    },
+    {
+      "id": "kubectl-drill-023",
+      "topic_code": "networking",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "List all Services in namespace shop.",
+        "de": "Liste alle Services im Namespace shop auf.",
+        "ja": "shop 名前空間のすべての Service を一覧表示してください。",
+        "zh": "列出 shop 命名空间中所有的 Service。"
+      },
+      "reference_command": "kubectl get services -n shop",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get",
+          [
+            "services",
+            "service",
+            "svc"
+          ]
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "shop",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "Just get on the services resource with the right namespace -- svc is the short form worth knowing.",
+        "de": "Einfach get auf der Ressource services mit dem passenden Namespace -- svc ist die Kurzform, die man kennen sollte.",
+        "ja": "適切な namespace とともに services リソースへの get だけです。svc は覚えておく価値のある短縮形です。",
+        "zh": "只需对 services 资源使用 get 并指定正确的命名空间——svc 是值得记住的简写形式。"
+      },
+      "success_message": {
+        "en": "Nicely done -- the cluster would accept exactly this command.",
+        "de": "Gut gemacht -- der Cluster wurde genau diesen Befehl akzeptieren.",
+        "ja": "よくできました。クラスターはまさにこのコマンドを受け付けます。",
+        "zh": "做得好——集群会接受完全这样的命令。"
+      },
+      "explanation": {
+        "en": "A Service's own IP (ClusterIP) never changes for as long as the Service exists, even as the Pods behind it come and go -- that stability is the entire point of the object.",
+        "de": "Die eigene IP eines Service (ClusterIP) andert sich nie, solange der Service existiert, selbst wenn die dahinterliegenden Pods kommen und gehen -- diese Stabilitat ist der ganze Zweck des Objekts.",
+        "ja": "Service 自身の IP（ClusterIP）は、その背後の Pod が入れ替わっても、Service が存在する限り変わりません。この安定性こそがこのオブジェクトの存在意義です。",
+        "zh": "只要 Service 存在，它自己的 IP（ClusterIP）就不会改变，即便其背后的 Pod 不断更替——这种稳定性正是这个对象存在的全部意义。"
+      }
+    },
+    {
+      "id": "kubectl-drill-024",
+      "topic_code": "networking",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Expose the Deployment named web as a ClusterIP Service on port 80, targeting container port 8080.",
+        "de": "Exponiere das Deployment namens web als ClusterIP-Service auf Port 80, mit Ziel auf Container-Port 8080.",
+        "ja": "web という Deployment を、コンテナポート 8080 を対象とするポート 80 の ClusterIP Service として公開してください。",
+        "zh": "将名为 web 的 Deployment 以 ClusterIP Service 的形式暴露在 80 端口，目标端口为容器的 8080 端口。"
+      },
+      "reference_command": "kubectl expose deployment web --port=80 --target-port=8080",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "expose",
+          [
+            "deployment",
+            "deploy"
+          ]
+        ],
+        "positional_args": [
+          "web"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--port"
+            ],
+            "value": "80",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--target-port"
+            ],
+            "value": "8080",
+            "value_match": "exact"
+          }
+        ],
+        "optional_flags": [
+          {
+            "forms": [
+              "--type"
+            ],
+            "value": "ClusterIP",
+            "value_match": "exact"
+          }
+        ],
+        "notes": "--type=ClusterIP is optional because ClusterIP is kubectl expose's own default type -- omitting it is equally correct, so it must not be required."
+      },
+      "hint": {
+        "en": "--port is what the Service itself listens on; --target-port is where traffic actually gets forwarded on the Pod -- ClusterIP is already the default type, so you don't have to name it.",
+        "de": "--port ist das, worauf der Service selbst lauscht; --target-port ist, wohin der Datenverkehr auf dem Pod tatsachlich weitergeleitet wird -- ClusterIP ist bereits der Standardtyp, du musst ihn nicht nennen.",
+        "ja": "--port は Service 自体が待ち受けるポートで、--target-port は実際にトラフィックが Pod 上のどこへ転送されるかです。ClusterIP は既定の type なので、明示する必要はありません。",
+        "zh": "--port 是 Service 自身监听的端口；--target-port 是流量实际转发到 Pod 上的端口——ClusterIP 已经是默认类型，不需要显式指定。"
+      },
+      "success_message": {
+        "en": "That's a match. Command recall like this is most of what the real exam rewards.",
+        "de": "Treffer. Genau dieses Befehls-Gedachtnis ist es, was die echte Prufung vor allem belohnt.",
+        "ja": "一致しています。実際の試験で評価されるのは、まさにこうしたコマンドの想起力です。",
+        "zh": "匹配成功。真实考试考察的主要就是这种命令记忆能力。"
+      },
+      "explanation": {
+        "en": "kubectl expose reads the Deployment's own Pod template labels to build the Service's selector automatically -- that's the whole reason it's faster than writing a Service manifest from scratch here.",
+        "de": "kubectl expose liest die eigenen Pod-Template-Labels des Deployments, um den Selector des Service automatisch zu bauen -- das ist der ganze Grund, warum es hier schneller ist, als ein Service-Manifest von Grund auf zu schreiben.",
+        "ja": "kubectl expose は Deployment 自身の Pod テンプレートのラベルを読み取り、自動的に Service のセレクターを組み立てます。これこそが、ゼロから Service マニフェストを書くよりここで速い理由です。",
+        "zh": "kubectl expose 会读取该 Deployment 自身 Pod 模板上的标签，自动构建出 Service 的 selector——这正是它比从零手写 Service 清单更快的全部原因。"
+      }
+    },
+    {
+      "id": "kubectl-drill-025",
+      "topic_code": "networking",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Expose the Pod named web as a NodePort Service on port 80.",
+        "de": "Exponiere den Pod namens web als NodePort-Service auf Port 80.",
+        "ja": "web という Pod を、ポート 80 の NodePort Service として公開してください。",
+        "zh": "将名为 web 的 Pod 以 NodePort Service 的形式暴露在 80 端口。"
+      },
+      "reference_command": "kubectl expose pod web --port=80 --type=NodePort",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "expose",
+          [
+            "pod",
+            "pods",
+            "po"
+          ]
+        ],
+        "positional_args": [
+          "web"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--port"
+            ],
+            "value": "80",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--type"
+            ],
+            "value": "NodePort",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "Unlike the ClusterIP case, NodePort is not the default -- you must spell out --type=NodePort explicitly.",
+        "de": "Anders als beim ClusterIP-Fall ist NodePort nicht der Standard -- du musst --type=NodePort explizit angeben.",
+        "ja": "ClusterIP の場合と違い、NodePort はデフォルトではありません。--type=NodePort を明示的に指定する必要があります。",
+        "zh": "与 ClusterIP 的情形不同，NodePort 并不是默认类型——必须显式写出 --type=NodePort。"
+      },
+      "success_message": {
+        "en": "Confirmed correct. Try to notice which flags you reached for automatically -- that's the muscle memory you want.",
+        "de": "Bestatigt korrekt. Achte darauf, welche Flags du automatisch parat hattest -- genau das ist das Muskelgedachtnis, das du willst.",
+        "ja": "正解を確認しました。どのフラグが自然に出てきたか意識してみてください。それが身につけたい体で覚える感覚です。",
+        "zh": "已确认正确。留意一下你下意识用到的那些参数——那正是你想要练出的肌肉记忆。"
+      },
+      "explanation": {
+        "en": "A NodePort Service opens the same high port (30000-32767 by default) on every node in the cluster, on top of still getting a normal ClusterIP -- it's additive, not a replacement for ClusterIP access.",
+        "de": "Ein NodePort-Service offnet denselben hohen Port (standardmassig 30000-32767) auf jedem Node im Cluster, zusatzlich zur weiterhin bestehenden normalen ClusterIP -- er ist eine Erganzung, kein Ersatz fur den ClusterIP-Zugriff.",
+        "ja": "NodePort Service は、通常の ClusterIP アクセスに加えて、クラスター内のすべてのノード上で同じ高位ポート（既定で 30000-32767）を開きます。これは置き換えではなく追加です。",
+        "zh": "NodePort Service 会在集群中每个节点上开放相同的高位端口（默认 30000-32767），同时仍然保留正常的 ClusterIP——它是叠加的，而不是替代 ClusterIP 访问方式。"
+      }
+    },
+    {
+      "id": "kubectl-drill-026",
+      "topic_code": "networking",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Forward local port 8080 to port 80 on the Pod named web in namespace shop.",
+        "de": "Leite lokalen Port 8080 an Port 80 des Pods namens web im Namespace shop weiter.",
+        "ja": "shop 名前空間の web という Pod のポート 80 に、ローカルポート 8080 をフォワードしてください。",
+        "zh": "将本地 8080 端口转发到 shop 命名空间中 web Pod 的 80 端口。"
+      },
+      "reference_command": "kubectl port-forward pod/web 8080:80 -n shop",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "port-forward"
+        ],
+        "positional_args": [
+          [
+            "pod/web",
+            "web"
+          ],
+          "8080:80"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "shop",
+            "value_match": "exact"
+          }
+        ],
+        "notes": "Target may be spelled 'pod/web' (kind/name) or bare 'web' (kubectl defaults an unprefixed name to Pod for port-forward) -- both correct."
+      },
+      "hint": {
+        "en": "The port mapping is written LOCAL:REMOTE as one token -- 8080:80, not two separate flags.",
+        "de": "Die Port-Zuordnung wird als ein Token LOCAL:REMOTE geschrieben -- 8080:80, nicht als zwei getrennte Flags.",
+        "ja": "ポートのマッピングは LOCAL:REMOTE という1つのトークンで書きます。8080:80 であり、別々の2つのフラグではありません。",
+        "zh": "端口映射写成 LOCAL:REMOTE 这样一个整体 token——即 8080:80，而不是两个独立的参数。"
+      },
+      "success_message": {
+        "en": "Correct -- that's a fully valid form of the command.",
+        "de": "Richtig -- das ist eine vollstandig gultige Form des Befehls.",
+        "ja": "正解です。この形はコマンドとして完全に有効です。",
+        "zh": "正确——这是该命令的一种完全有效的写法。"
+      },
+      "explanation": {
+        "en": "port-forward tunnels through the API server to one specific Pod, entirely bypassing Services and kube-proxy -- handy for debugging a single instance directly, useless for testing load balancing.",
+        "de": "port-forward tunnelt uber den API-Server direkt zu einem bestimmten Pod und umgeht dabei vollstandig Services und kube-proxy -- praktisch, um eine einzelne Instanz direkt zu debuggen, nutzlos zum Testen von Load Balancing.",
+        "ja": "port-forward は API サーバー経由で特定の1つの Pod へトンネルし、Service と kube-proxy を完全に迂回します。単一インスタンスを直接デバッグするには便利ですが、負荷分散のテストには使えません。",
+        "zh": "port-forward 通过 API Server 直接隧道连接到某一个具体的 Pod，完全绕过了 Service 和 kube-proxy——适合直接调试单个实例，但无法用来测试负载均衡。"
+      }
+    },
+    {
+      "id": "kubectl-drill-027",
+      "topic_code": "networking",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Show the endpoints backing the Service named web in namespace shop.",
+        "de": "Zeige die Endpoints, die dem Service namens web im Namespace shop zugrunde liegen.",
+        "ja": "shop 名前空間の web という Service の背後にある endpoints を表示してください。",
+        "zh": "显示 shop 命名空间中名为 web 的 Service 背后的 endpoints。"
+      },
+      "reference_command": "kubectl get endpoints web -n shop",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get",
+          [
+            "endpoints",
+            "endpoint",
+            "ep"
+          ]
+        ],
+        "positional_args": [
+          "web"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "shop",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "Endpoints share their Service's own name -- get the endpoints object called web, same as the Service.",
+        "de": "Endpoints tragen denselben Namen wie ihr Service -- hole das Endpoints-Objekt namens web, genau wie der Service.",
+        "ja": "Endpoints はその Service と同じ名前を共有します。Service と同じく web という名前の endpoints オブジェクトを取得してください。",
+        "zh": "Endpoints 与其对应的 Service 共用同一个名字——获取名为 web 的 endpoints 对象，和 Service 同名。"
+      },
+      "success_message": {
+        "en": "That works. kubectl accepts more than one correct spelling here, and yours is one of them.",
+        "de": "Das funktioniert. kubectl akzeptiert hier mehr als eine korrekte Schreibweise, und deine ist eine davon.",
+        "ja": "それで動きます。kubectl はここで複数の正しい書き方を許容しており、あなたの入力もその一つです。",
+        "zh": "可以运行。kubectl 在这里接受不止一种正确写法，你的写法就是其中之一。"
+      },
+      "explanation": {
+        "en": "An empty ADDRESSES column here, with the Service otherwise looking fine, is one of the most common real-world symptoms of a selector that doesn't actually match any Pod's labels.",
+        "de": "Eine leere ADDRESSES-Spalte hier, bei ansonsten unauffalligem Service, ist eines der haufigsten realen Symptome eines Selectors, der tatsachlich mit keinem Pod-Label ubereinstimmt.",
+        "ja": "Service 自体は一見問題なさそうなのに ADDRESSES 列が空、というのは、実際にはどの Pod のラベルとも一致しないセレクターの、実務上もっとも一般的な症状の1つです。",
+        "zh": "在 Service 本身看起来一切正常的情况下，这里的 ADDRESSES 列却为空，是 selector 实际上没有匹配到任何 Pod 标签这一问题最常见的现实症状之一。"
+      }
+    },
+    {
+      "id": "kubectl-drill-028",
+      "topic_code": "networking",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Run a temporary Pod using the busybox:1.36 image that executes nslookup kubernetes.default and is automatically removed afterward.",
+        "de": "Fuhre einen temporaren Pod mit dem Image busybox:1.36 aus, der nslookup kubernetes.default ausfuhrt und danach automatisch entfernt wird.",
+        "ja": "busybox:1.36 イメージを使い、nslookup kubernetes.default を実行して終了後に自動削除される一時的な Pod を実行してください。",
+        "zh": "运行一个临时 Pod，使用 busybox:1.36 镜像执行 nslookup kubernetes.default，并在结束后自动删除该 Pod。"
+      },
+      "reference_command": "kubectl run dns-test --image=busybox:1.36 --rm -it --restart=Never -- nslookup kubernetes.default",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "run"
+        ],
+        "positional_args": [
+          "dns-test"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--image"
+            ],
+            "value": "busybox:1.36",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--rm"
+            ]
+          },
+          {
+            "forms": [
+              "--restart"
+            ],
+            "value": "Never",
+            "value_match": "exact"
+          }
+        ],
+        "optional_flags": [
+          {
+            "forms": [
+              "-it",
+              "-i",
+              "-t",
+              "--stdin",
+              "--tty"
+            ]
+          }
+        ],
+        "required_trailing_args": [
+          "nslookup",
+          "kubernetes.default"
+        ],
+        "notes": "Pod name itself is not specified by the task and is graded as free-form (any valid DNS-1123 label) -- do not hardcode 'dns-test' as a required value, only as the illustrative reference_command's choice.",
+        "common_wrong_attempts": [
+          {
+            "command": "kubectl run dns-test --image=busybox:1.36 -- nslookup kubernetes.default",
+            "why_key": "missing_rm_leaves_pod_behind"
+          }
+        ]
+      },
+      "hint": {
+        "en": "This is the standard disposable-debug-pod pattern: name it anything you like, but you need --rm so it cleans up after itself and --restart=Never so it runs once instead of being treated as a long-lived workload.",
+        "de": "Das ist das Standardmuster fur einen wegwerfbaren Debug-Pod: nenne ihn wie du willst, aber du brauchst --rm, damit er sich selbst aufraumt, und --restart=Never, damit er einmal lauft, statt als langlebiger Workload behandelt zu werden.",
+        "ja": "これは使い捨てのデバッグ用 Pod の標準的なパターンです。名前は自由に付けてよいですが、自動的に片付けるための --rm と、長期稼働のワークロードとしてではなく一度だけ実行するための --restart=Never が必要です。",
+        "zh": "这是一次性调试 Pod 的标准用法：名字可以随意起，但需要 --rm 让它用完自动清理，还需要 --restart=Never 让它只运行一次，而不是被当作长期存活的工作负载。"
+      },
+      "success_message": {
+        "en": "Nicely done -- the cluster would accept exactly this command.",
+        "de": "Gut gemacht -- der Cluster wurde genau diesen Befehl akzeptieren.",
+        "ja": "よくできました。クラスターはまさにこのコマンドを受け付けます。",
+        "zh": "做得好——集群会接受完全这样的命令。"
+      },
+      "explanation": {
+        "en": "kubernetes.default is the in-cluster DNS name of the API server's own Service -- if this lookup fails, CoreDNS itself (not your application) is where to look next.",
+        "de": "kubernetes.default ist der clusterinterne DNS-Name des eigenen Service des API-Servers -- schlagt diese Auflosung fehl, ist CoreDNS selbst (nicht deine Anwendung) der nachste Ort, an dem du nachsehen solltest.",
+        "ja": "kubernetes.default は API サーバー自身の Service のクラスター内 DNS 名です。この名前解決が失敗する場合、次に見るべきはアプリケーションではなく CoreDNS 自体です。",
+        "zh": "kubernetes.default 是 API Server 自身那个 Service 在集群内的 DNS 名称——如果这个解析失败，接下来该排查的是 CoreDNS 本身，而不是你的应用。"
+      }
+    },
+    {
+      "id": "kubectl-drill-029",
+      "topic_code": "networking",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "List all NetworkPolicies across every namespace in the cluster.",
+        "de": "Liste alle NetworkPolicies uber samtliche Namespaces im Cluster hinweg auf.",
+        "ja": "クラスター内のすべての名前空間にわたる NetworkPolicy を一覧表示してください。",
+        "zh": "列出集群中所有命名空间下的 NetworkPolicy。"
+      },
+      "reference_command": "kubectl get networkpolicy --all-namespaces",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get",
+          [
+            "networkpolicy",
+            "networkpolicies",
+            "netpol"
+          ]
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--all-namespaces",
+              "-A"
+            ]
+          }
+        ]
+      },
+      "hint": {
+        "en": "--all-namespaces (or its short form -A) replaces a specific -n here -- you want every namespace, not one.",
+        "de": "--all-namespaces (oder die Kurzform -A) ersetzt hier ein bestimmtes -n -- du willst jeden Namespace, nicht einen einzelnen.",
+        "ja": "ここでは特定の -n の代わりに --all-namespaces（またはその短縮形 -A）を使います。1つではなくすべての名前空間が対象です。",
+        "zh": "这里用 --all-namespaces（或其简写 -A）代替某个具体的 -n——你要的是所有命名空间，而不是某一个。"
+      },
+      "success_message": {
+        "en": "That's a match. Command recall like this is most of what the real exam rewards.",
+        "de": "Treffer. Genau dieses Befehls-Gedachtnis ist es, was die echte Prufung vor allem belohnt.",
+        "ja": "一致しています。実際の試験で評価されるのは、まさにこうしたコマンドの想起力です。",
+        "zh": "匹配成功。真实考试考察的主要就是这种命令记忆能力。"
+      },
+      "explanation": {
+        "en": "An empty result here doesn't mean traffic is unrestricted -- it means no NetworkPolicy has opted any namespace into restriction yet, which depends entirely on whether the CNI plugin enforces NetworkPolicy at all.",
+        "de": "Ein leeres Ergebnis bedeutet hier nicht, dass der Datenverkehr unbeschrankt ist -- es bedeutet, dass noch keine NetworkPolicy irgendeinen Namespace in eine Beschrankung einbezogen hat, was ganzlich davon abhangt, ob das CNI-Plugin NetworkPolicy uberhaupt durchsetzt.",
+        "ja": "ここで結果が空でも、トラフィックが無制限であることを意味するわけではありません。まだどの名前空間も NetworkPolicy による制限の対象になっていないだけであり、そもそも CNI プラグインが NetworkPolicy を強制するかどうかに完全に依存します。",
+        "zh": "这里结果为空并不意味着流量不受限制——它只是说明还没有任何 NetworkPolicy 把某个命名空间纳入限制范围，而这完全取决于所用的 CNI 插件是否真正实现了 NetworkPolicy 的强制执行。"
+      }
+    },
+    {
+      "id": "kubectl-drill-030",
+      "topic_code": "networking",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Delete the Service named legacy-api in namespace shop.",
+        "de": "Losche den Service namens legacy-api im Namespace shop.",
+        "ja": "shop 名前空間の legacy-api という Service を削除してください。",
+        "zh": "删除 shop 命名空间中名为 legacy-api 的 Service。"
+      },
+      "reference_command": "kubectl delete service legacy-api -n shop",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "delete",
+          [
+            "service",
+            "services",
+            "svc"
+          ]
+        ],
+        "positional_args": [
+          "legacy-api"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "shop",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "Straightforward delete on the services resource -- no special flags needed, unlike force-deleting a Pod.",
+        "de": "Ein einfaches delete auf der Ressource services -- keine besonderen Flags notig, anders als beim forcierten Loschen eines Pods.",
+        "ja": "services リソースへの単純な delete です。Pod を強制削除する場合と違い、特別なフラグは不要です。",
+        "zh": "对 services 资源执行一次简单的 delete 即可——不像强制删除 Pod 那样需要特殊参数。"
+      },
+      "success_message": {
+        "en": "Confirmed correct. Try to notice which flags you reached for automatically -- that's the muscle memory you want.",
+        "de": "Bestatigt korrekt. Achte darauf, welche Flags du automatisch parat hattest -- genau das ist das Muskelgedachtnis, das du willst.",
+        "ja": "正解を確認しました。どのフラグが自然に出てきたか意識してみてください。それが身につけたい体で覚える感覚です。",
+        "zh": "已确认正确。留意一下你下意识用到的那些参数——那正是你想要练出的肌肉记忆。"
+      },
+      "explanation": {
+        "en": "Deleting a Service removes only the stable virtual IP and its DNS entry -- the Pods it was pointing at keep running untouched, which surprises people expecting delete to cascade the way it does for owned objects.",
+        "de": "Das Loschen eines Service entfernt nur die stabile virtuelle IP und ihren DNS-Eintrag -- die Pods, auf die er zeigte, laufen unberuhrt weiter, was uberrascht, wenn man erwartet, dass delete kaskadiert wie bei besessenen Objekten.",
+        "ja": "Service を削除しても、安定した仮想 IP とその DNS エントリが消えるだけです。それが指していた Pod はそのまま動き続けます。所有されたオブジェクトのようにカスケード削除されると思っていると驚くところです。",
+        "zh": "删除 Service 只会移除那个稳定的虚拟 IP 及其 DNS 记录——它原本指向的 Pod 会照常运行不受影响，如果以为删除会像对被拥有对象那样级联生效，这里会让人意外。"
+      }
+    },
+    {
+      "id": "kubectl-drill-031",
+      "topic_code": "storage",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "List all PersistentVolumeClaims in namespace data.",
+        "de": "Liste alle PersistentVolumeClaims im Namespace data auf.",
+        "ja": "data 名前空間のすべての PersistentVolumeClaim を一覧表示してください。",
+        "zh": "列出 data 命名空间中所有的 PersistentVolumeClaim。"
+      },
+      "reference_command": "kubectl get pvc -n data",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get",
+          [
+            "pvc",
+            "persistentvolumeclaims",
+            "persistentvolumeclaim"
+          ]
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "data",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "pvc is the short name almost everyone actually types -- the long form works too, but there's no reason to type it here.",
+        "de": "pvc ist der Kurzname, den fast jeder tatsachlich tippt -- die Langform funktioniert auch, aber es gibt keinen Grund, sie hier zu tippen.",
+        "ja": "pvc は実際にほとんどの人が入力する短縮名です。正式名称でも動きますが、ここでそれを入力する理由はありません。",
+        "zh": "pvc 是几乎所有人实际都会用的简写——完整名称也能用，但这里没有理由去输入它。"
+      },
+      "success_message": {
+        "en": "Correct -- that's a fully valid form of the command.",
+        "de": "Richtig -- das ist eine vollstandig gultige Form des Befehls.",
+        "ja": "正解です。この形はコマンドとして完全に有効です。",
+        "zh": "正确——这是该命令的一种完全有效的写法。"
+      },
+      "explanation": {
+        "en": "A PersistentVolumeClaim is a namespaced request for storage; the PersistentVolume it eventually binds to is cluster-scoped, which is why the two live in different get commands with different flags.",
+        "de": "Eine PersistentVolumeClaim ist eine namespaced Speicheranfrage; der PersistentVolume, an den sie schliesslich gebunden wird, ist cluster-scoped -- deshalb leben die beiden in unterschiedlichen get-Befehlen mit unterschiedlichen Flags.",
+        "ja": "PersistentVolumeClaim は名前空間スコープのストレージ要求であり、最終的にバインドされる PersistentVolume はクラスタースコープです。だからこそ両者は異なるフラグを持つ別々の get コマンドに存在します。",
+        "zh": "PersistentVolumeClaim 是一个命名空间级别的存储请求；它最终绑定的 PersistentVolume 是集群级别的资源——这也是为什么两者要用带不同参数的不同 get 命令来查看。"
+      }
+    },
+    {
+      "id": "kubectl-drill-032",
+      "topic_code": "storage",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Show detailed information about the PersistentVolume named pv-fast-01, including its reclaim policy and status.",
+        "de": "Zeige detaillierte Informationen zum PersistentVolume namens pv-fast-01, einschliesslich Reclaim Policy und Status.",
+        "ja": "pv-fast-01 という PersistentVolume について、回収ポリシーやステータスを含む詳細情報を表示してください。",
+        "zh": "显示名为 pv-fast-01 的 PersistentVolume 的详细信息，包括其回收策略（reclaim policy）和状态。"
+      },
+      "reference_command": "kubectl describe pv pv-fast-01",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "describe",
+          [
+            "pv",
+            "persistentvolume",
+            "persistentvolumes"
+          ]
+        ],
+        "positional_args": [
+          "pv-fast-01"
+        ]
+      },
+      "hint": {
+        "en": "describe, not get -- the reclaim policy and current status/events are exactly what describe surfaces that a plain get table hides.",
+        "de": "describe, nicht get -- die Reclaim Policy und der aktuelle Status/Events sind genau das, was describe zeigt und eine schlichte get-Tabelle verbirgt.",
+        "ja": "get ではなく describe です。回収ポリシーと現在のステータスやイベントこそ、単純な get の表では隠れてしまい、describe だからこそ見える情報です。",
+        "zh": "是 describe，而不是 get——回收策略以及当前状态/事件正是 describe 会展示、而普通 get 表格会隐藏的内容。"
+      },
+      "success_message": {
+        "en": "That works. kubectl accepts more than one correct spelling here, and yours is one of them.",
+        "de": "Das funktioniert. kubectl akzeptiert hier mehr als eine korrekte Schreibweise, und deine ist eine davon.",
+        "ja": "それで動きます。kubectl はここで複数の正しい書き方を許容しており、あなたの入力もその一つです。",
+        "zh": "可以运行。kubectl 在这里接受不止一种正确写法，你的写法就是其中之一。"
+      },
+      "explanation": {
+        "en": "A PersistentVolume, unlike a PVC, is not namespaced -- no -n flag exists for it, because it belongs to the whole cluster and can in principle be bound by a claim from any namespace.",
+        "de": "Ein PersistentVolume ist, anders als eine PVC, nicht namespaced -- es gibt dafur kein -n-Flag, weil es zum gesamten Cluster gehort und im Prinzip von einer Claim aus jedem Namespace gebunden werden kann.",
+        "ja": "PersistentVolume は PVC と違って名前空間スコープではありません。-n フラグは存在しません。クラスター全体に属しており、原理的にはどの名前空間の claim からでもバインドされ得るからです。",
+        "zh": "与 PVC 不同，PersistentVolume 不属于任何命名空间——它没有 -n 参数，因为它属于整个集群，原则上可以被来自任意命名空间的 claim 绑定。"
+      }
+    },
+    {
+      "id": "kubectl-drill-033",
+      "topic_code": "storage",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "List all StorageClasses in the cluster.",
+        "de": "Liste alle StorageClasses im Cluster auf.",
+        "ja": "クラスター内のすべての StorageClass を一覧表示してください。",
+        "zh": "列出集群中所有的 StorageClass。"
+      },
+      "reference_command": "kubectl get storageclass",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get",
+          [
+            "storageclass",
+            "storageclasses",
+            "sc"
+          ]
+        ]
+      },
+      "hint": {
+        "en": "No namespace flag here -- StorageClass is cluster-scoped, same as PersistentVolume.",
+        "de": "Kein Namespace-Flag hier -- StorageClass ist cluster-scoped, ebenso wie PersistentVolume.",
+        "ja": "ここでは名前空間フラグは不要です。StorageClass は PersistentVolume と同様にクラスタースコープです。",
+        "zh": "这里不需要命名空间参数——StorageClass 和 PersistentVolume 一样是集群级别的资源。"
+      },
+      "success_message": {
+        "en": "Nicely done -- the cluster would accept exactly this command.",
+        "de": "Gut gemacht -- der Cluster wurde genau diesen Befehl akzeptieren.",
+        "ja": "よくできました。クラスターはまさにこのコマンドを受け付けます。",
+        "zh": "做得好——集群会接受完全这样的命令。"
+      },
+      "explanation": {
+        "en": "The default StorageClass (marked via an annotation, shown as (default) in the NAME column) is what a PVC gets if it doesn't request a storageClassName at all -- worth checking before assuming dynamic provisioning will pick the class you expect.",
+        "de": "Die Standard-StorageClass (uber eine Annotation markiert, in der NAME-Spalte als (default) angezeigt) ist das, was eine PVC bekommt, wenn sie uberhaupt keinen storageClassName anfordert -- lohnt sich zu prufen, bevor man annimmt, die dynamische Provisionierung wahle die erwartete Klasse.",
+        "ja": "既定の StorageClass（annotation でマークされ、NAME 列に (default) と表示される）は、PVC が storageClassName をまったく指定しなかった場合に割り当てられるものです。動的プロビジョニングが期待通りのクラスを選ぶと思い込む前に確認する価値があります。",
+        "zh": "默认的 StorageClass（通过注解标记，在 NAME 列显示为 (default)）是当 PVC 完全没有指定 storageClassName 时会使用的类——在假设动态供给会选中你期望的那个类之前，值得先检查一下。"
+      }
+    },
+    {
+      "id": "kubectl-drill-034",
+      "topic_code": "storage",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Delete the PersistentVolumeClaim named old-data in namespace archive.",
+        "de": "Losche die PersistentVolumeClaim namens old-data im Namespace archive.",
+        "ja": "archive 名前空間の old-data という PersistentVolumeClaim を削除してください。",
+        "zh": "删除 archive 命名空间中名为 old-data 的 PersistentVolumeClaim。"
+      },
+      "reference_command": "kubectl delete pvc old-data -n archive",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "delete",
+          [
+            "pvc",
+            "persistentvolumeclaims",
+            "persistentvolumeclaim"
+          ]
+        ],
+        "positional_args": [
+          "old-data"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "archive",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "Straightforward delete on pvc, namespaced this time -- remember the -n, unlike the PV describe task.",
+        "de": "Ein einfaches delete auf pvc, diesmal namespaced -- denk an -n, anders als bei der PV-describe-Aufgabe.",
+        "ja": "pvc に対する単純な delete ですが、今回は名前空間スコープです。PV describe の課題と違い、-n を忘れないでください。",
+        "zh": "对 pvc 执行一次简单的 delete，这次是命名空间级别的——别忘了 -n，这一点和查看 PV 的任务不同。"
+      },
+      "success_message": {
+        "en": "That's a match. Command recall like this is most of what the real exam rewards.",
+        "de": "Treffer. Genau dieses Befehls-Gedachtnis ist es, was die echte Prufung vor allem belohnt.",
+        "ja": "一致しています。実際の試験で評価されるのは、まさにこうしたコマンドの想起力です。",
+        "zh": "匹配成功。真实考试考察的主要就是这种命令记忆能力。"
+      },
+      "explanation": {
+        "en": "What actually happens to the underlying PersistentVolume after this depends entirely on its reclaim policy -- Delete removes the backing storage too, Retain leaves it behind in a Released state for an admin to handle by hand.",
+        "de": "Was mit dem zugrunde liegenden PersistentVolume danach tatsachlich passiert, hangt vollstandig von seiner Reclaim Policy ab -- Delete entfernt auch den zugrunde liegenden Speicher, Retain lasst ihn im Zustand Released zuruck, damit ein Admin ihn von Hand behandelt.",
+        "ja": "この後、背後の PersistentVolume に実際に何が起こるかは、そのreclaim policy に完全に依存します。Delete なら裏側のストレージも削除されますが、Retain なら Released 状態のまま残り、管理者が手動で対処することになります。",
+        "zh": "此后底层的 PersistentVolume 究竟会怎样，完全取决于它的回收策略——Delete 会连同底层存储一起删除，而 Retain 则会让它保留在 Released 状态，等待管理员手动处理。"
+      }
+    },
+    {
+      "id": "kubectl-drill-035",
+      "topic_code": "security_admin",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Create a ServiceAccount named ci-bot in namespace ci.",
+        "de": "Erstelle einen ServiceAccount namens ci-bot im Namespace ci.",
+        "ja": "ci 名前空間に ci-bot という ServiceAccount を作成してください。",
+        "zh": "在 ci 命名空间中创建一个名为 ci-bot 的 ServiceAccount。"
+      },
+      "reference_command": "kubectl create serviceaccount ci-bot -n ci",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "create",
+          [
+            "serviceaccount",
+            "sa"
+          ]
+        ],
+        "positional_args": [
+          "ci-bot"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "ci",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "sa is the short resource name -- no other flags are needed for a bare ServiceAccount, just its name and namespace.",
+        "de": "sa ist der Kurzname der Ressource -- fur einen blossen ServiceAccount sind keine weiteren Flags notig, nur Name und Namespace.",
+        "ja": "sa は短縮リソース名です。単なる ServiceAccount には名前と名前空間以外のフラグは不要です。",
+        "zh": "sa 是该资源的简写——一个普通的 ServiceAccount 除了名称和命名空间之外不需要其他参数。"
+      },
+      "success_message": {
+        "en": "Confirmed correct. Try to notice which flags you reached for automatically -- that's the muscle memory you want.",
+        "de": "Bestatigt korrekt. Achte darauf, welche Flags du automatisch parat hattest -- genau das ist das Muskelgedachtnis, das du willst.",
+        "ja": "正解を確認しました。どのフラグが自然に出てきたか意識してみてください。それが身につけたい体で覚える感覚です。",
+        "zh": "已确认正确。留意一下你下意识用到的那些参数——那正是你想要练出的肌肉记忆。"
+      },
+      "explanation": {
+        "en": "A ServiceAccount is an identity for processes, not people -- every Pod already runs as one (the default ServiceAccount of its namespace, unless you set spec.serviceAccountName), even when nobody thinks about it.",
+        "de": "Ein ServiceAccount ist eine Identitat fur Prozesse, nicht fur Menschen -- jeder Pod lauft bereits als einer (der Default-ServiceAccount seines Namespace, sofern nicht spec.serviceAccountName gesetzt ist), auch wenn niemand daruber nachdenkt.",
+        "ja": "ServiceAccount は人間ではなくプロセスのためのアイデンティティです。spec.serviceAccountName を設定しない限り、どの Pod も既にその名前空間の default ServiceAccount として動いています。誰も意識していなくてもです。",
+        "zh": "ServiceAccount 是给进程用的身份，而不是给人用的——即便没有人特意去设置，每个 Pod 也已经在以某个 ServiceAccount 身份运行（除非设置了 spec.serviceAccountName，否则就是其命名空间的 default ServiceAccount）。"
+      }
+    },
+    {
+      "id": "kubectl-drill-036",
+      "topic_code": "security_admin",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Create a Role named pod-reader in namespace shop that allows the get, list and watch verbs on pods.",
+        "de": "Erstelle eine Role namens pod-reader im Namespace shop, die die Verben get, list und watch auf pods erlaubt.",
+        "ja": "shop 名前空間に pod-reader という Role を作成し、pods に対する get・list・watch の動詞を許可してください。",
+        "zh": "在 shop 命名空间中创建一个名为 pod-reader 的 Role，允许对 pods 执行 get、list、watch 动词。"
+      },
+      "reference_command": "kubectl create role pod-reader --verb=get,list,watch --resource=pods -n shop",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "create",
+          "role"
+        ],
+        "positional_args": [
+          "pod-reader"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--verb"
+            ],
+            "value": "get,list,watch",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--resource"
+            ],
+            "value": "pods",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "shop",
+            "value_match": "exact"
+          }
+        ],
+        "notes": "--verb value is a single comma-separated list; matcher should treat the three verbs as an unordered set within that one flag value (get,list,watch == list,get,watch), not require the exact substring order shown in reference_command."
+      },
+      "hint": {
+        "en": "Both --verb and --resource take comma-separated lists as one flag value each -- the order of verbs inside the list doesn't matter.",
+        "de": "Sowohl --verb als auch --resource nehmen kommagetrennte Listen als je einen Flag-Wert -- die Reihenfolge der Verben in der Liste spielt keine Rolle.",
+        "ja": "--verb と --resource はどちらもカンマ区切りのリストを1つのフラグ値として取ります。リスト内の動詞の順序は関係ありません。",
+        "zh": "--verb 和 --resource 都各自接受一个逗号分隔的列表作为参数值——列表中动词的顺序并不重要。"
+      },
+      "success_message": {
+        "en": "Correct -- that's a fully valid form of the command.",
+        "de": "Richtig -- das ist eine vollstandig gultige Form des Befehls.",
+        "ja": "正解です。この形はコマンドとして完全に有効です。",
+        "zh": "正确——这是该命令的一种完全有效的写法。"
+      },
+      "explanation": {
+        "en": "A Role only grants permissions inside its own namespace -- the same rule as a ClusterRole is cluster-wide, and this Role/ClusterRole split is exactly parallel to the RoleBinding/ClusterRoleBinding split you'll use to actually attach it.",
+        "de": "Eine Role gewahrt Berechtigungen nur innerhalb ihres eigenen Namespace -- dieselbe Regel wie bei einer ClusterRole, die cluster-weit gilt, und diese Aufteilung Role/ClusterRole entspricht genau der Aufteilung RoleBinding/ClusterRoleBinding, die du zum tatsachlichen Anbinden verwendest.",
+        "ja": "Role は自身の名前空間の中でのみ権限を付与します。クラスター全体に及ぶ ClusterRole とは対照的で、この Role と ClusterRole の分け方は、実際にそれを紐付ける際に使う RoleBinding と ClusterRoleBinding の分け方とちょうど対応しています。",
+        "zh": "Role 只在其所属命名空间内授予权限——与作用于整个集群的 ClusterRole 形成对照，而这种 Role/ClusterRole 的划分，恰好与你之后用来真正绑定它的 RoleBinding/ClusterRoleBinding 划分相对应。"
+      }
+    },
+    {
+      "id": "kubectl-drill-037",
+      "topic_code": "security_admin",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Bind the ServiceAccount ci-bot (namespace ci) to the Role pod-reader in the same namespace, via a RoleBinding named ci-bot-binding.",
+        "de": "Binde den ServiceAccount ci-bot (Namespace ci) uber eine RoleBinding namens ci-bot-binding an die Role pod-reader im selben Namespace.",
+        "ja": "ci-bot という ServiceAccount（ci 名前空間）を、同じ名前空間の pod-reader という Role に、ci-bot-binding という名前の RoleBinding で紐付けてください。",
+        "zh": "通过一个名为 ci-bot-binding 的 RoleBinding，将 ServiceAccount ci-bot（ci 命名空间）绑定到同一命名空间下的 pod-reader Role。"
+      },
+      "reference_command": "kubectl create rolebinding ci-bot-binding --role=pod-reader --serviceaccount=ci:ci-bot -n ci",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "create",
+          "rolebinding"
+        ],
+        "positional_args": [
+          "ci-bot-binding"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--role"
+            ],
+            "value": "pod-reader",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--serviceaccount"
+            ],
+            "value": "ci:ci-bot",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "ci",
+            "value_match": "exact"
+          }
+        ],
+        "notes": "--serviceaccount value is NAMESPACE:NAME as one colon-joined token, not comma or space separated -- a very common typo point."
+      },
+      "hint": {
+        "en": "--serviceaccount takes one value shaped namespace:name, not two separate flags for namespace and account -- and --role, not --clusterrole, since you're pointing at a namespaced Role.",
+        "de": "--serviceaccount nimmt einen Wert der Form namespace:name, nicht zwei getrennte Flags fur Namespace und Account -- und --role, nicht --clusterrole, da du auf eine namespaced Role zeigst.",
+        "ja": "--serviceaccount は namespace:name という形の1つの値を取り、namespace と account 用の別々のフラグではありません。また、namespace スコープの Role を指すので --clusterrole ではなく --role です。",
+        "zh": "--serviceaccount 接受一个形如 namespace:name 的整体值，而不是命名空间和账号分开的两个参数；而且因为指向的是命名空间级的 Role，所以用 --role 而不是 --clusterrole。"
+      },
+      "success_message": {
+        "en": "That works. kubectl accepts more than one correct spelling here, and yours is one of them.",
+        "de": "Das funktioniert. kubectl akzeptiert hier mehr als eine korrekte Schreibweise, und deine ist eine davon.",
+        "ja": "それで動きます。kubectl はここで複数の正しい書き方を許容しており、あなたの入力もその一つです。",
+        "zh": "可以运行。kubectl 在这里接受不止一种正确写法，你的写法就是其中之一。"
+      },
+      "explanation": {
+        "en": "A RoleBinding is the only object that actually grants anything -- a Role or ClusterRole sitting alone with nothing bound to it is inert, a common exam trap when a permission check unexpectedly fails.",
+        "de": "Eine RoleBinding ist das einzige Objekt, das tatsachlich etwas gewahrt -- eine Role oder ClusterRole, die allein steht, ohne dass etwas daran gebunden ist, ist wirkungslos, eine haufige Prufungsfalle, wenn eine Berechtigungsprufung unerwartet fehlschlagt.",
+        "ja": "実際に権限を付与するのは RoleBinding だけです。何にも紐付いていない単独の Role や ClusterRole は無効です。権限チェックが予想外に失敗したときの典型的な試験の落とし穴です。",
+        "zh": "真正授予权限的只有 RoleBinding——一个孤立存在、没有绑定任何东西的 Role 或 ClusterRole 是不起作用的，这是权限检查意外失败时常见的考试陷阱。"
+      }
+    },
+    {
+      "id": "kubectl-drill-038",
+      "topic_code": "security_admin",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Create a ClusterRole named node-viewer that allows the get and list verbs on nodes.",
+        "de": "Erstelle eine ClusterRole namens node-viewer, die die Verben get und list auf nodes erlaubt.",
+        "ja": "node-viewer という ClusterRole を作成し、nodes に対する get・list の動詞を許可してください。",
+        "zh": "创建一个名为 node-viewer 的 ClusterRole，允许对 nodes 执行 get、list 动词。"
+      },
+      "reference_command": "kubectl create clusterrole node-viewer --verb=get,list --resource=nodes",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "create",
+          "clusterrole"
+        ],
+        "positional_args": [
+          "node-viewer"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--verb"
+            ],
+            "value": "get,list",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--resource"
+            ],
+            "value": "nodes",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "clusterrole, not role -- and no -n flag makes sense here anyway, since Nodes are cluster-scoped resources.",
+        "de": "clusterrole, nicht role -- und ein -n-Flag ergibt hier ohnehin keinen Sinn, da Nodes cluster-scoped Ressourcen sind.",
+        "ja": "role ではなく clusterrole です。そもそも Node はクラスタースコープのリソースなので、-n フラグに意味はありません。",
+        "zh": "是 clusterrole，而不是 role——而且这里加 -n 参数本来就没有意义，因为 Node 是集群级别的资源。"
+      },
+      "success_message": {
+        "en": "Nicely done -- the cluster would accept exactly this command.",
+        "de": "Gut gemacht -- der Cluster wurde genau diesen Befehl akzeptieren.",
+        "ja": "よくできました。クラスターはまさにこのコマンドを受け付けます。",
+        "zh": "做得好——集群会接受完全这样的命令。"
+      },
+      "explanation": {
+        "en": "Nodes, like PersistentVolumes and StorageClasses, are cluster-scoped -- no namespaced Role could ever grant access to them no matter how it's written, only a ClusterRole can.",
+        "de": "Nodes sind, ebenso wie PersistentVolumes und StorageClasses, cluster-scoped -- keine namespaced Role konnte jemals Zugriff auf sie gewahren, egal wie sie geschrieben ist, nur eine ClusterRole kann das.",
+        "ja": "Node は PersistentVolume や StorageClass と同様にクラスタースコープです。どう書こうと、名前空間スコープの Role がそれへのアクセスを許可することは決してできません。できるのは ClusterRole だけです。",
+        "zh": "Node 和 PersistentVolume、StorageClass 一样是集群级别的资源——无论怎么写，命名空间级的 Role 都不可能授予对它们的访问权限，只有 ClusterRole 才可以。"
+      }
+    },
+    {
+      "id": "kubectl-drill-039",
+      "topic_code": "security_admin",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Check whether the ServiceAccount ci-bot in namespace ci is allowed to delete deployments in that namespace.",
+        "de": "Prufe, ob der ServiceAccount ci-bot im Namespace ci Deployments in diesem Namespace loschen darf.",
+        "ja": "ci 名前空間の ci-bot という ServiceAccount が、その名前空間で deployments を削除する権限を持つかどうかを確認してください。",
+        "zh": "检查 ci 命名空间中的 ServiceAccount ci-bot 是否被允许在该命名空间中删除 deployments。"
+      },
+      "reference_command": "kubectl auth can-i delete deployments -n ci --as=system:serviceaccount:ci:ci-bot",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "auth",
+          "can-i",
+          "delete",
+          [
+            "deployments",
+            "deployment",
+            "deploy"
+          ]
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "ci",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "--as"
+            ],
+            "value": "system:serviceaccount:ci:ci-bot",
+            "value_match": "exact"
+          }
+        ],
+        "notes": "--as value is the full system:serviceaccount:<namespace>:<name> impersonation string, colon-joined as one token."
+      },
+      "hint": {
+        "en": "auth can-i takes the verb and resource as plain positional words, then --as impersonates the ServiceAccount using its full system:serviceaccount:<namespace>:<name> identity string.",
+        "de": "auth can-i nimmt Verb und Ressource als reine Positionswörter, dann imitiert --as den ServiceAccount uber dessen vollstandigen Identitats-String system:serviceaccount:<namespace>:<name>.",
+        "ja": "auth can-i は動詞とリソースを単純な位置引数として取り、その後 --as が system:serviceaccount:<namespace>:<name> という完全な識別子文字列で ServiceAccount になりすまします。",
+        "zh": "auth can-i 把动词和资源作为普通的位置参数，然后用 --as 以完整的 system:serviceaccount:<namespace>:<name> 身份字符串来模拟该 ServiceAccount。"
+      },
+      "success_message": {
+        "en": "That's a match. Command recall like this is most of what the real exam rewards.",
+        "de": "Treffer. Genau dieses Befehls-Gedachtnis ist es, was die echte Prufung vor allem belohnt.",
+        "ja": "一致しています。実際の試験で評価されるのは、まさにこうしたコマンドの想起力です。",
+        "zh": "匹配成功。真实考试考察的主要就是这种命令记忆能力。"
+      },
+      "explanation": {
+        "en": "auth can-i queries the API server's own authorization decision without actually performing the action -- the single fastest way to debug 'why does my ServiceAccount get Forbidden' instead of guessing at RBAC objects by eye.",
+        "de": "auth can-i fragt die tatsachliche Autorisierungsentscheidung des API-Servers ab, ohne die Aktion wirklich auszufuhren -- der mit Abstand schnellste Weg, um 'warum bekommt mein ServiceAccount Forbidden' zu debuggen, statt RBAC-Objekte per Augenmass zu erraten.",
+        "ja": "auth can-i は実際にその操作を行うことなく、API サーバー自身の認可判断を問い合わせます。RBAC オブジェクトを目視で推測するのではなく、「なぜこの ServiceAccount は Forbidden になるのか」を最速でデバッグする方法です。",
+        "zh": "auth can-i 会直接查询 API Server 自身的授权判定结果，而不会真正执行该操作——这是排查「为什么我的 ServiceAccount 被拒绝（Forbidden）」问题最快的方式，而不是靠肉眼去猜测 RBAC 对象。"
+      }
+    },
+    {
+      "id": "kubectl-drill-040",
+      "topic_code": "security_admin",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "List all ClusterRoleBindings in the cluster.",
+        "de": "Liste alle ClusterRoleBindings im Cluster auf.",
+        "ja": "クラスター内のすべての ClusterRoleBinding を一覧表示してください。",
+        "zh": "列出集群中所有的 ClusterRoleBinding。"
+      },
+      "reference_command": "kubectl get clusterrolebindings",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get",
+          [
+            "clusterrolebindings",
+            "clusterrolebinding",
+            "crb"
+          ]
+        ]
+      },
+      "hint": {
+        "en": "No namespace flag -- ClusterRoleBindings, like ClusterRoles, are cluster-scoped by definition.",
+        "de": "Kein Namespace-Flag -- ClusterRoleBindings sind, wie ClusterRoles, per Definition cluster-scoped.",
+        "ja": "名前空間フラグは不要です。ClusterRoleBinding は ClusterRole と同様、定義上クラスタースコープです。",
+        "zh": "不需要命名空间参数——ClusterRoleBinding 和 ClusterRole 一样，本质上就是集群级别的资源。"
+      },
+      "success_message": {
+        "en": "Confirmed correct. Try to notice which flags you reached for automatically -- that's the muscle memory you want.",
+        "de": "Bestatigt korrekt. Achte darauf, welche Flags du automatisch parat hattest -- genau das ist das Muskelgedachtnis, das du willst.",
+        "ja": "正解を確認しました。どのフラグが自然に出てきたか意識してみてください。それが身につけたい体で覚える感覚です。",
+        "zh": "已确认正确。留意一下你下意识用到的那些参数——那正是你想要练出的肌肉记忆。"
+      },
+      "explanation": {
+        "en": "The cluster-admin ClusterRole almost always shows up bound here to some identity -- worth a glance any time you're auditing who has effectively unrestricted access to the whole cluster.",
+        "de": "Die ClusterRole cluster-admin taucht hier fast immer an irgendeine Identitat gebunden auf -- einen Blick wert, wann immer du prufst, wer effektiv uneingeschrankten Zugriff auf den gesamten Cluster hat.",
+        "ja": "cluster-admin という ClusterRole は、ほぼ必ずここで何らかのアイデンティティに紐付いて表示されます。誰がクラスター全体に対して事実上無制限のアクセス権を持っているかを監査する際には、一度目を通す価値があります。",
+        "zh": "cluster-admin 这个 ClusterRole 几乎总会在这里被绑定到某个身份上——每当你审查谁对整个集群拥有事实上不受限制的访问权限时，都值得瞄一眼这里。"
+      }
+    },
+    {
+      "id": "kubectl-drill-041",
+      "topic_code": "troubleshooting",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Show all cluster events, sorted by when they were created.",
+        "de": "Zeige alle Cluster-Events, sortiert nach ihrem Erstellungszeitpunkt.",
+        "ja": "クラスターのすべてのイベントを、作成日時でソートして表示してください。",
+        "zh": "显示所有集群事件，并按创建时间排序。"
+      },
+      "reference_command": "kubectl get events --sort-by=.metadata.creationTimestamp",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get",
+          [
+            "events",
+            "event",
+            "ev"
+          ]
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--sort-by"
+            ],
+            "value": ".metadata.creationTimestamp",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "--sort-by takes a JSONPath expression as its value -- .metadata.creationTimestamp is the field you're sorting on.",
+        "de": "--sort-by nimmt einen JSONPath-Ausdruck als Wert -- .metadata.creationTimestamp ist das Feld, nach dem sortiert wird.",
+        "ja": "--sort-by は JSONPath 式を値として取ります。.metadata.creationTimestamp がソート対象のフィールドです。",
+        "zh": "--sort-by 接受一个 JSONPath 表达式作为值——.metadata.creationTimestamp 就是用来排序的字段。"
+      },
+      "success_message": {
+        "en": "Correct -- that's a fully valid form of the command.",
+        "de": "Richtig -- das ist eine vollstandig gultige Form des Befehls.",
+        "ja": "正解です。この形はコマンドとして完全に有効です。",
+        "zh": "正确——这是该命令的一种完全有效的写法。"
+      },
+      "explanation": {
+        "en": "Without --sort-by, kubectl get events prints roughly in whatever order the API server happens to return them, which is not reliably chronological -- for a real incident you want the newest events grouped at the bottom, not scattered.",
+        "de": "Ohne --sort-by gibt kubectl get events ungefahr in der Reihenfolge aus, in der der API-Server sie zufallig zuruckgibt, was nicht verlasslich chronologisch ist -- bei einem echten Vorfall willst du die neuesten Events gebundelt unten, nicht verstreut.",
+        "ja": "--sort-by なしでは、kubectl get events は API サーバーがたまたま返した順序でおおよそ表示され、時系列としては信頼できません。実際のインシデントでは、最新のイベントが下にまとまって表示されてほしいはずです。",
+        "zh": "如果不加 --sort-by，kubectl get events 大致会按 API Server 恰好返回的顺序输出，这在时间上并不可靠——在真正的故障排查中，你希望最新的事件集中显示在末尾，而不是散乱分布。"
+      }
+    },
+    {
+      "id": "kubectl-drill-042",
+      "topic_code": "troubleshooting",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Show detailed status information, including recent events, for Pod web-7f9c in namespace shop.",
+        "de": "Zeige detaillierte Statusinformationen, einschliesslich der jungsten Events, fur den Pod web-7f9c im Namespace shop.",
+        "ja": "shop 名前空間の web-7f9c という Pod について、直近のイベントを含む詳細なステータス情報を表示してください。",
+        "zh": "显示 shop 命名空间中 web-7f9c 这个 Pod 的详细状态信息，包括最近的事件。"
+      },
+      "reference_command": "kubectl describe pod web-7f9c -n shop",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "describe",
+          [
+            "pod",
+            "pods",
+            "po"
+          ]
+        ],
+        "positional_args": [
+          "web-7f9c"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "shop",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "describe is the go-to first move for almost any broken object -- the Events section at the bottom is usually the actual answer.",
+        "de": "describe ist der erste Griff bei fast jedem kaputten Objekt -- der Events-Abschnitt am Ende liefert meist die eigentliche Antwort.",
+        "ja": "describe は、ほぼどんな壊れたオブジェクトに対しても最初に試すべき手です。末尾の Events セクションが、たいてい本当の答えになります。",
+        "zh": "describe 几乎是排查任何异常对象时的第一动作——底部的 Events 部分通常才是真正的答案所在。"
+      },
+      "success_message": {
+        "en": "That works. kubectl accepts more than one correct spelling here, and yours is one of them.",
+        "de": "Das funktioniert. kubectl akzeptiert hier mehr als eine korrekte Schreibweise, und deine ist eine davon.",
+        "ja": "それで動きます。kubectl はここで複数の正しい書き方を許容しており、あなたの入力もその一つです。",
+        "zh": "可以运行。kubectl 在这里接受不止一种正确写法，你的写法就是其中之一。"
+      },
+      "explanation": {
+        "en": "ImagePullBackOff, CrashLoopBackOff, FailedScheduling, and most other Pod-stuck symptoms all announce their actual cause in the Events section that describe prints, not in the status table above it.",
+        "de": "ImagePullBackOff, CrashLoopBackOff, FailedScheduling und die meisten anderen Symptome eines hangenden Pods verkunden ihre tatsachliche Ursache im Events-Abschnitt, den describe ausgibt, nicht in der Statustabelle daruber.",
+        "ja": "ImagePullBackOff、CrashLoopBackOff、FailedScheduling など、Pod がスタックするほとんどの症状の実際の原因は、describe が出力する Events セクションに現れます。その上のステータステーブルにではありません。",
+        "zh": "ImagePullBackOff、CrashLoopBackOff、FailedScheduling 以及大多数其他 Pod 卡住的症状，其真正原因都会出现在 describe 输出的 Events 部分，而不是上面的状态表格中。"
+      }
+    },
+    {
+      "id": "kubectl-drill-043",
+      "topic_code": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "View the logs of the previous (crashed) instance of container app in Pod worker-0.",
+        "de": "Zeige die Logs der vorherigen (abgesturzten) Instanz des Containers app im Pod worker-0.",
+        "ja": "worker-0 という Pod のコンテナ app について、以前の（クラッシュした）インスタンスのログを表示してください。",
+        "zh": "查看 worker-0 这个 Pod 中容器 app 上一次（已崩溃）实例的日志。"
+      },
+      "reference_command": "kubectl logs worker-0 -c app --previous",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "logs"
+        ],
+        "positional_args": [
+          "worker-0"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-c",
+              "--container"
+            ],
+            "value": "app",
+            "value_match": "exact"
+          },
+          {
+            "forms": [
+              "-p",
+              "--previous"
+            ]
+          }
+        ]
+      },
+      "hint": {
+        "en": "Plain kubectl logs shows the current container instance's output -- add --previous (or -p) to see the instance before the last restart, which is where the crash reason usually is.",
+        "de": "Ein einfaches kubectl logs zeigt die Ausgabe der aktuellen Container-Instanz -- fuge --previous (oder -p) hinzu, um die Instanz vor dem letzten Neustart zu sehen, wo meist der Absturzgrund steht.",
+        "ja": "普通の kubectl logs は現在のコンテナインスタンスの出力を表示します。--previous（または -p）を加えると、最後の再起動前のインスタンスが見られ、たいていそこにクラッシュの原因があります。",
+        "zh": "普通的 kubectl logs 显示的是当前容器实例的输出——加上 --previous（或 -p）就能看到上一次重启之前那个实例的日志，崩溃原因通常就在那里。"
+      },
+      "success_message": {
+        "en": "Nicely done -- the cluster would accept exactly this command.",
+        "de": "Gut gemacht -- der Cluster wurde genau diesen Befehl akzeptieren.",
+        "ja": "よくできました。クラスターはまさにこのコマンドを受け付けます。",
+        "zh": "做得好——集群会接受完全这样的命令。"
+      },
+      "explanation": {
+        "en": "Once a container restarts, its old stdout/stderr is gone from the running instance's view entirely -- --previous is the only way to read what a container printed right before it died, and it's exactly what a CrashLoopBackOff investigation needs.",
+        "de": "Sobald ein Container neu startet, ist seine alte stdout/stderr-Ausgabe aus Sicht der laufenden Instanz vollstandig verschwunden -- --previous ist der einzige Weg zu lesen, was ein Container unmittelbar vor seinem Tod ausgegeben hat, und genau das braucht eine CrashLoopBackOff-Untersuchung.",
+        "ja": "コンテナが再起動すると、その古い stdout/stderr は現在稼働中のインスタンスの視点から完全に消えます。--previous だけが、死ぬ直前にコンテナが出力した内容を読む方法であり、CrashLoopBackOff の調査にまさに必要なものです。",
+        "zh": "容器一旦重启，它旧的 stdout/stderr 在当前运行实例的视角下就完全看不到了——--previous 是唯一能读到容器死亡前一刻打印内容的方式，而这正是排查 CrashLoopBackOff 所需要的。"
+      }
+    },
+    {
+      "id": "kubectl-drill-044",
+      "topic_code": "troubleshooting",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Stream the live logs of Pod api in namespace prod, following new output as it happens.",
+        "de": "Verfolge live die Logs des Pods api im Namespace prod, wobei neue Ausgabe fortlaufend angezeigt wird.",
+        "ja": "prod 名前空間の api という Pod のログを、新しい出力が発生するたびにライブでフォローしてください。",
+        "zh": "实时跟踪 prod 命名空间中 api 这个 Pod 的日志，持续显示新产生的输出。"
+      },
+      "reference_command": "kubectl logs -f api -n prod",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "logs"
+        ],
+        "positional_args": [
+          "api"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-f",
+              "--follow"
+            ]
+          },
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "prod",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "-f (or --follow) is what turns a one-shot log dump into a live tail -- same idea as tail -f on a plain file.",
+        "de": "-f (oder --follow) macht aus einem einmaligen Log-Dump ein Live-Tail -- dieselbe Idee wie tail -f bei einer normalen Datei.",
+        "ja": "-f（または --follow）が、一度きりのログダンプをライブの tail に変えます。普通のファイルに対する tail -f と同じ発想です。",
+        "zh": "-f（或 --follow）能把一次性的日志输出变成实时跟踪——就像对普通文件使用 tail -f 一样。"
+      },
+      "success_message": {
+        "en": "That's a match. Command recall like this is most of what the real exam rewards.",
+        "de": "Treffer. Genau dieses Befehls-Gedachtnis ist es, was die echte Prufung vor allem belohnt.",
+        "ja": "一致しています。実際の試験で評価されるのは、まさにこうしたコマンドの想起力です。",
+        "zh": "匹配成功。真实考试考察的主要就是这种命令记忆能力。"
+      },
+      "explanation": {
+        "en": "-f only follows one Pod at a time by default -- for a Deployment with several replicas you'd normally reach for a label selector plus --all-containers or a separate tool, not this single-Pod form.",
+        "de": "-f folgt standardmassig immer nur einem Pod gleichzeitig -- bei einem Deployment mit mehreren Replikaten wurdest du normalerweise zu einem Label-Selector plus --all-containers oder einem separaten Werkzeug greifen, nicht zu dieser Ein-Pod-Form.",
+        "ja": "-f は既定では一度に1つの Pod しか追跡しません。複数レプリカを持つ Deployment では、通常このような単一 Pod 用の形ではなく、ラベルセレクターと --all-containers、あるいは別のツールを使います。",
+        "zh": "-f 默认一次只能跟踪一个 Pod——对于有多个副本的 Deployment，通常需要借助标签选择器加 --all-containers，或者用别的工具，而不是这种单 Pod 的形式。"
+      }
+    },
+    {
+      "id": "kubectl-drill-045",
+      "topic_code": "troubleshooting",
+      "difficulty": "easy",
+      "prompt": {
+        "en": "Watch the rollout status of Deployment checkout in namespace shop until it completes.",
+        "de": "Beobachte den Rollout-Status des Deployments checkout im Namespace shop, bis er abgeschlossen ist.",
+        "ja": "shop 名前空間の checkout という Deployment のロールアウト状況を、完了するまで監視してください。",
+        "zh": "监视 shop 命名空间中 checkout Deployment 的滚动更新状态，直到完成为止。"
+      },
+      "reference_command": "kubectl rollout status deployment/checkout -n shop",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "rollout",
+          "status"
+        ],
+        "positional_args": [
+          [
+            "deployment/checkout",
+            "deployment checkout"
+          ]
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "shop",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "rollout status blocks in your terminal and streams progress until the rollout finishes (or fails) -- you don't need a separate -w/--watch flag on top of it.",
+        "de": "rollout status blockiert dein Terminal und streamt Fortschritt, bis der Rollout beendet ist (oder fehlschlagt) -- ein separates -w/--watch-Flag brauchst du zusatzlich nicht.",
+        "ja": "rollout status はターミナルをブロックし、ロールアウトが完了（または失敗）するまで進捗をストリーミングします。追加で -w/--watch フラグは不要です。",
+        "zh": "rollout status 会阻塞你的终端并持续输出进度，直到滚动更新完成（或失败）——不需要再额外加 -w/--watch 参数。"
+      },
+      "success_message": {
+        "en": "Confirmed correct. Try to notice which flags you reached for automatically -- that's the muscle memory you want.",
+        "de": "Bestatigt korrekt. Achte darauf, welche Flags du automatisch parat hattest -- genau das ist das Muskelgedachtnis, das du willst.",
+        "ja": "正解を確認しました。どのフラグが自然に出てきたか意識してみてください。それが身につけたい体で覚える感覚です。",
+        "zh": "已确认正确。留意一下你下意识用到的那些参数——那正是你想要练出的肌肉记忆。"
+      },
+      "explanation": {
+        "en": "This command returns a non-zero exit code if the rollout stalls or fails, which is exactly what makes it scriptable in a CI pipeline as a real gate rather than something a human has to eyeball.",
+        "de": "Dieser Befehl liefert einen von null verschiedenen Exit-Code, wenn der Rollout stockt oder fehlschlagt -- genau das macht ihn skriptfahig als echtes Gate in einer CI-Pipeline, statt etwas, das ein Mensch mit dem Auge prufen muss.",
+        "ja": "このコマンドは、ロールアウトが止まったり失敗したりすると非ゼロの終了コードを返します。これこそが、人間が目視で確認するのではなく、CI パイプラインの本物のゲートとしてスクリプト化できる理由です。",
+        "zh": "如果滚动更新停滞或失败，这条命令会返回非零的退出码——这正是它能作为真正的 CI 流水线关卡被脚本化调用，而不用靠人工肉眼判断的原因。"
+      }
+    },
+    {
+      "id": "kubectl-drill-046",
+      "topic_code": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Roll back Deployment checkout in namespace shop to its previous revision.",
+        "de": "Setze das Deployment checkout im Namespace shop auf seine vorherige Revision zuruck.",
+        "ja": "shop 名前空間の checkout という Deployment を、1つ前のリビジョンにロールバックしてください。",
+        "zh": "将 shop 命名空间中的 checkout Deployment 回滚到上一个修订版本。"
+      },
+      "reference_command": "kubectl rollout undo deployment/checkout -n shop",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "rollout",
+          "undo"
+        ],
+        "positional_args": [
+          [
+            "deployment/checkout",
+            "deployment checkout"
+          ]
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "-n",
+              "--namespace"
+            ],
+            "value": "shop",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "undo with no --to-revision goes back exactly one step, to whatever revision was current immediately before this one -- that's what 'previous' means here.",
+        "de": "undo ohne --to-revision geht genau einen Schritt zuruck, zu der Revision, die unmittelbar vor dieser aktuell war -- das ist hier mit 'vorherig' gemeint.",
+        "ja": "--to-revision を指定しない undo は、ちょうど1段階だけ戻り、直前まで現在だったリビジョンに戻ります。ここでの「1つ前」とはその意味です。",
+        "zh": "不带 --to-revision 的 undo 只会往回退一步，回到紧邻当前版本之前的那个修订版本——这里所说的「上一个」就是这个意思。"
+      },
+      "success_message": {
+        "en": "Correct -- that's a fully valid form of the command.",
+        "de": "Richtig -- das ist eine vollstandig gultige Form des Befehls.",
+        "ja": "正解です。この形はコマンドとして完全に有効です。",
+        "zh": "正确——这是该命令的一种完全有效的写法。"
+      },
+      "explanation": {
+        "en": "A rollback only works at all because every previous ReplicaSet a Deployment created is kept around (up to spec.revisionHistoryLimit) instead of being deleted -- rollout undo just tells the Deployment controller to scale an old ReplicaSet back up.",
+        "de": "Ein Rollback funktioniert uberhaupt nur, weil jedes fruhere ReplicaSet, das ein Deployment erzeugt hat, aufbewahrt wird (bis zu spec.revisionHistoryLimit), statt geloscht zu werden -- rollout undo sagt dem Deployment-Controller einfach, ein altes ReplicaSet wieder hochzuskalieren.",
+        "ja": "ロールバックがそもそも機能するのは、Deployment が作成した過去の各 ReplicaSet が（spec.revisionHistoryLimit まで）削除されずに保持されているからです。rollout undo は、単に Deployment コントローラーに古い ReplicaSet を再びスケールアップするよう指示しているだけです。",
+        "zh": "回滚之所以能够生效，是因为 Deployment 创建过的每一个旧 ReplicaSet 都会被保留下来（最多保留到 spec.revisionHistoryLimit），而不是被删除——rollout undo 只是告诉 Deployment 控制器把某个旧的 ReplicaSet 重新扩容上去。"
+      }
+    },
+    {
+      "id": "kubectl-drill-047",
+      "topic_code": "troubleshooting",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "List all Pods across every namespace that are not currently in the Running phase.",
+        "de": "Liste alle Pods uber samtliche Namespaces auf, die sich aktuell nicht in der Phase Running befinden.",
+        "ja": "すべての名前空間にわたって、現在 Running フェーズにない Pod を一覧表示してください。",
+        "zh": "列出所有命名空间中当前不处于 Running 阶段的 Pod。"
+      },
+      "reference_command": "kubectl get pods --all-namespaces --field-selector=status.phase!=Running",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "get",
+          [
+            "pods",
+            "pod",
+            "po"
+          ]
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--all-namespaces",
+              "-A"
+            ]
+          },
+          {
+            "forms": [
+              "--field-selector"
+            ],
+            "value": "status.phase!=Running",
+            "value_match": "exact"
+          }
+        ]
+      },
+      "hint": {
+        "en": "--field-selector filters on actual API object fields, not labels -- status.phase!=Running with the != operator is the whole filter.",
+        "de": "--field-selector filtert nach tatsachlichen API-Objektfeldern, nicht nach Labels -- status.phase!=Running mit dem !=-Operator ist der ganze Filter.",
+        "ja": "--field-selector はラベルではなく実際の API オブジェクトのフィールドで絞り込みます。!= 演算子を使った status.phase!=Running がフィルターの全てです。",
+        "zh": "--field-selector 是按实际的 API 对象字段过滤，而不是按标签——用 != 运算符写成 status.phase!=Running 就是整个过滤条件。"
+      },
+      "success_message": {
+        "en": "That works. kubectl accepts more than one correct spelling here, and yours is one of them.",
+        "de": "Das funktioniert. kubectl akzeptiert hier mehr als eine korrekte Schreibweise, und deine ist eine davon.",
+        "ja": "それで動きます。kubectl はここで複数の正しい書き方を許容しており、あなたの入力もその一つです。",
+        "zh": "可以运行。kubectl 在这里接受不止一种正确写法，你的写法就是其中之一。"
+      },
+      "explanation": {
+        "en": "This is a field-selector, not a label-selector (-l) -- status.phase is a status field every Pod carries regardless of how it was labeled, so this filter works cluster-wide with zero assumptions about naming conventions.",
+        "de": "Das ist ein Field-Selector, kein Label-Selector (-l) -- status.phase ist ein Statusfeld, das jeder Pod tragt, unabhangig davon, wie er gelabelt wurde, sodass dieser Filter clusterweit ohne Annahmen uber Namenskonventionen funktioniert.",
+        "ja": "これはラベルセレクター（-l）ではなく、フィールドセレクターです。status.phase は、ラベルの付け方に関わらずすべての Pod が持つステータスフィールドなので、この絞り込みは命名規則についての前提なしにクラスター全体で機能します。",
+        "zh": "这是字段选择器，而不是标签选择器（-l）——status.phase 是每个 Pod 都自带的状态字段，与它被打了什么标签无关，所以这个过滤条件不依赖任何命名约定，可以在整个集群范围内生效。"
+      }
+    },
+    {
+      "id": "kubectl-drill-048",
+      "topic_code": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Mark node worker-3 as unschedulable for new Pods, without evicting the Pods already running on it.",
+        "de": "Markiere den Node worker-3 als nicht mehr planbar fur neue Pods, ohne die bereits darauf laufenden Pods zu vertreiben.",
+        "ja": "worker-3 ノードを、既に稼働中の Pod は追い出さずに、新しい Pod のスケジューリング対象外としてマークしてください。",
+        "zh": "将 worker-3 节点标记为不可调度新 Pod，但不驱逐已经在其上运行的 Pod。"
+      },
+      "reference_command": "kubectl cordon worker-3",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "cordon"
+        ],
+        "positional_args": [
+          "worker-3"
+        ]
+      },
+      "hint": {
+        "en": "This is its own dedicated verb, not a taint and not drain -- one word, one node name.",
+        "de": "Das ist ein eigenes, dediziertes Verb, kein Taint und kein Drain -- ein Wort, ein Node-Name.",
+        "ja": "これは専用の独立した動詞であり、taint でも drain でもありません。1つの単語と1つのノード名だけです。",
+        "zh": "这是一个独立的专用动词，既不是 taint，也不是 drain——只有一个动词加一个节点名。"
+      },
+      "success_message": {
+        "en": "Nicely done -- the cluster would accept exactly this command.",
+        "de": "Gut gemacht -- der Cluster wurde genau diesen Befehl akzeptieren.",
+        "ja": "よくできました。クラスターはまさにこのコマンドを受け付けます。",
+        "zh": "做得好——集群会接受完全这样的命令。"
+      },
+      "explanation": {
+        "en": "cordon sets spec.unschedulable on the Node object -- it's purely advisory to the scheduler for future placements, and touches nothing about Pods that are already there, which is exactly the difference from drain.",
+        "de": "cordon setzt spec.unschedulable am Node-Objekt -- es ist rein beratend fur den Scheduler bei kunftigen Platzierungen und beruhrt nichts an bereits vorhandenen Pods, was genau den Unterschied zu drain ausmacht.",
+        "ja": "cordon は Node オブジェクトの spec.unschedulable を設定します。これは将来の配置に関してスケジューラーへの単なる助言にすぎず、既にそこにある Pod には一切影響しません。これが drain との明確な違いです。",
+        "zh": "cordon 只是设置了 Node 对象上的 spec.unschedulable——这只是给调度器关于未来放置 Pod 的一个提示，完全不会影响已经在该节点上运行的 Pod，这正是它与 drain 的区别所在。"
+      }
+    },
+    {
+      "id": "kubectl-drill-049",
+      "topic_code": "troubleshooting",
+      "difficulty": "hard",
+      "prompt": {
+        "en": "Safely drain node worker-3 for maintenance, ignoring the Pods managed by DaemonSets.",
+        "de": "Entleere (drain) den Node worker-3 sicher fur Wartungsarbeiten, wobei die von DaemonSets verwalteten Pods ignoriert werden.",
+        "ja": "worker-3 ノードをメンテナンスのために安全に drain し、DaemonSet が管理する Pod は無視してください。",
+        "zh": "为了维护安全地清空（drain）worker-3 节点，忽略由 DaemonSet 管理的 Pod。"
+      },
+      "reference_command": "kubectl drain worker-3 --ignore-daemonsets",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "drain"
+        ],
+        "positional_args": [
+          "worker-3"
+        ],
+        "required_flags": [
+          {
+            "forms": [
+              "--ignore-daemonsets"
+            ]
+          }
+        ]
+      },
+      "hint": {
+        "en": "drain implies cordon automatically as its first step -- the one extra flag you need on top is --ignore-daemonsets, or DaemonSet-managed Pods will block it.",
+        "de": "drain impliziert automatisch cordon als ersten Schritt -- das eine zusatzliche Flag, das du obendrauf brauchst, ist --ignore-daemonsets, sonst blockieren DaemonSet-verwaltete Pods den Vorgang.",
+        "ja": "drain は最初のステップとして自動的に cordon を含みます。追加で必要なのは --ignore-daemonsets という1つのフラグだけです。これがないと DaemonSet 管理の Pod がブロックします。",
+        "zh": "drain 会自动先执行 cordon 这一步——在此基础上唯一需要额外加的就是 --ignore-daemonsets 参数，否则由 DaemonSet 管理的 Pod 会阻止该操作。"
+      },
+      "success_message": {
+        "en": "That's a match. Command recall like this is most of what the real exam rewards.",
+        "de": "Treffer. Genau dieses Befehls-Gedachtnis ist es, was die echte Prufung vor allem belohnt.",
+        "ja": "一致しています。実際の試験で評価されるのは、まさにこうしたコマンドの想起力です。",
+        "zh": "匹配成功。真实考试考察的主要就是这种命令记忆能力。"
+      },
+      "explanation": {
+        "en": "DaemonSet Pods are, by design, meant to run on every matching node including this one, so drain refuses to evict them by default -- --ignore-daemonsets tells it that's fine and to just leave them running through the maintenance.",
+        "de": "DaemonSet-Pods sind per Design dafur gedacht, auf jedem passenden Node zu laufen, auch auf diesem, weshalb drain sie standardmassig nicht vertreibt -- --ignore-daemonsets sagt, dass das in Ordnung ist und sie wahrend der Wartung einfach weiterlaufen sollen.",
+        "ja": "DaemonSet の Pod は設計上、この Node を含む条件に合うすべてのノードで動くことを意図されているため、drain は既定ではそれらを追い出しません。--ignore-daemonsets は、それで問題なく、メンテナンス中もそのまま動かしておいてよいと伝えるものです。",
+        "zh": "DaemonSet 的 Pod 按设计本就应该在每个匹配的节点（包括这个节点）上运行，所以 drain 默认不会驱逐它们——--ignore-daemonsets 就是告诉它这没问题，维护期间让它们继续留在原地运行即可。"
+      }
+    },
+    {
+      "id": "kubectl-drill-050",
+      "topic_code": "troubleshooting",
+      "difficulty": "medium",
+      "prompt": {
+        "en": "Show current CPU and memory usage for every Node in the cluster.",
+        "de": "Zeige die aktuelle CPU- und Speichernutzung fur jeden Node im Cluster.",
+        "ja": "クラスター内のすべての Node について、現在の CPU とメモリ使用率を表示してください。",
+        "zh": "显示集群中每个节点当前的 CPU 和内存使用情况。"
+      },
+      "reference_command": "kubectl top nodes",
+      "accepted_grammar": {
+        "base_tokens": [
+          "kubectl",
+          "top",
+          [
+            "nodes",
+            "node"
+          ]
+        ]
+      },
+      "hint": {
+        "en": "top is its own verb, separate from get -- it queries live metrics rather than the API server's stored object state.",
+        "de": "top ist ein eigenes Verb, getrennt von get -- es fragt Live-Metriken ab statt den gespeicherten Objektzustand des API-Servers.",
+        "ja": "top は get とは別の独立した動詞です。API サーバーに保存されたオブジェクトの状態ではなく、ライブのメトリクスを問い合わせます。",
+        "zh": "top 是与 get 相互独立的动词——它查询的是实时指标，而不是 API Server 中保存的对象状态。"
+      },
+      "success_message": {
+        "en": "Confirmed correct. Try to notice which flags you reached for automatically -- that's the muscle memory you want.",
+        "de": "Bestatigt korrekt. Achte darauf, welche Flags du automatisch parat hattest -- genau das ist das Muskelgedachtnis, das du willst.",
+        "ja": "正解を確認しました。どのフラグが自然に出てきたか意識してみてください。それが身につけたい体で覚える感覚です。",
+        "zh": "已确认正确。留意一下你下意识用到的那些参数——那正是你想要练出的肌肉记忆。"
+      },
+      "explanation": {
+        "en": "kubectl top only returns data if the metrics-server add-on is installed and healthy -- an error here often means that add-on, not the node, is actually the broken thing.",
+        "de": "kubectl top liefert nur dann Daten, wenn das Add-on metrics-server installiert und gesund ist -- ein Fehler hier bedeutet oft, dass eigentlich dieses Add-on kaputt ist, nicht der Node.",
+        "ja": "kubectl top は metrics-server アドオンがインストールされ正常に動作している場合にのみデータを返します。ここでエラーが出るのは、多くの場合ノードではなくそのアドオンが壊れていることを意味します。",
+        "zh": "只有在安装了 metrics-server 插件并且运行正常时，kubectl top 才会返回数据——这里报错往往说明真正出问题的是这个插件，而不是节点本身。"
+      }
+    }
+  ]
+}

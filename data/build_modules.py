@@ -381,6 +381,79 @@ def split_course(exam_type, locales):
     return True
 
 
+def copy_kubectl_drills(exam_type):
+    """2026-09-02: kubectl command-recall drill set (data/cka_kubectl_drills.json),
+    authored separately from the question bank / course layer by a parallel
+    content workstream (see data/cka_kubectl_drills_NOTES.md). Wired into the
+    build here as its own small sidecar, same "opt-in per module, absent
+    source file = no-op" shape as split_course() above, rather than folded
+    into split_module() - the shape is fundamentally different (a `tasks`
+    array of drill/grammar objects, not `questions` with `text`/`explanation`
+    per-locale blocks) and doesn't need a fact/text split: unlike course.json
+    (12-locale modules, split to avoid every visitor downloading all 12),
+    this file already only carries the cka module's existing 4-locale set
+    (en/de/ja/zh, see meta.locales) inline per task, and at ~50 short tasks
+    the whole file is small enough (a few hundred KB) that a per-locale split
+    would add real complexity (a new course_locales-style directory, a new
+    fetchLocaleTextWithFallback-shaped fallback chain in app.js) for a
+    download-size saving that doesn't matter at this size. Revisit if a
+    future drill set grows enough per-locale bytes to matter, or if it moves
+    to the module's full 12-locale set the way courses can.
+
+    Copied through mostly verbatim - the one thing genuinely worth validating
+    at build time (same "fail loudly here, not at runtime for a learner"
+    principle check_media_src()/normalize_youtube_id() apply above) is that
+    meta.task_count / meta.locales actually match the real `tasks` array, so
+    a future hand-edit to the source file that drifts the two can't ship
+    silently.
+    """
+    src_path = os.path.join(HERE, f"{exam_type}_kubectl_drills.json")
+    if not os.path.exists(src_path):
+        return False
+
+    src = json.load(open(src_path, encoding="utf-8"))
+    tasks = src.get("tasks") or []
+    meta = src.get("meta") or {}
+
+    declared_count = meta.get("task_count")
+    if declared_count is not None and declared_count != len(tasks):
+        raise ValueError(
+            f"{exam_type}_kubectl_drills.json: meta.task_count ({declared_count}) "
+            f"!= actual len(tasks) ({len(tasks)})."
+        )
+
+    locales = meta.get("locales") or []
+    if not locales:
+        raise ValueError(f"{exam_type}_kubectl_drills.json: meta.locales is empty.")
+    seen_ids = set()
+    for t in tasks:
+        tid = t.get("id")
+        if not tid:
+            raise ValueError(f"{exam_type}_kubectl_drills.json: a task is missing 'id'.")
+        if tid in seen_ids:
+            raise ValueError(f"{exam_type}_kubectl_drills.json: duplicate task id {tid!r}.")
+        seen_ids.add(tid)
+        for field in ("prompt", "hint", "success_message", "explanation"):
+            val = t.get(field) or {}
+            missing = [loc for loc in locales if loc not in val]
+            if missing:
+                raise ValueError(
+                    f"{exam_type}_kubectl_drills.json: task {tid} field {field!r} "
+                    f"missing locale(s) {missing} declared in meta.locales."
+                )
+        if "accepted_grammar" not in t or "reference_command" not in t:
+            raise ValueError(
+                f"{exam_type}_kubectl_drills.json: task {tid} needs both "
+                "reference_command and accepted_grammar."
+            )
+
+    module_dir = os.path.join(APP_DATA, exam_type)
+    os.makedirs(module_dir, exist_ok=True)
+    json.dump(src, open(os.path.join(module_dir, "kubectl_drills.json"), "w", encoding="utf-8"),
+              ensure_ascii=False, indent=2)
+    return True
+
+
 def main():
     # Cleanup used to be an unconditional shutil.rmtree(APP_DATA), which is
     # why BACKLOG.md's 2026-08 content-expansion rounds all record "build_
@@ -401,7 +474,7 @@ def main():
     os.makedirs(APP_DATA, exist_ok=True)
     for name in BUILT_MODULES:
         module_dir = os.path.join(APP_DATA, name)
-        for owned in ("core.json", "locales", "course.json", "course_locales"):
+        for owned in ("core.json", "locales", "course.json", "course_locales", "kubectl_drills.json"):
             p = os.path.join(module_dir, owned)
             if os.path.isdir(p):
                 shutil.rmtree(p)
@@ -600,6 +673,16 @@ def main():
     print(f"cka: {cka_count} questions, locale gaps: {cka_missing}")
     if split_course("cka", ["en", "de", "ja", "zh"]):
         print("cka: course layer built (en, de, ja, zh)")
+
+    # 2026-09-02: kubectl command-recall drill set - see copy_kubectl_drills()
+    # docstring above for why this is its own small sidecar rather than a
+    # split_module()/split_course() call. Standalone frontend feature (a
+    # terminal-look widget, not a course lesson), gated in app.js on
+    # state.examType === "cka" directly, same as Sign Reference/Learn are
+    # gated on state.examType === "fuehrerschein" - no modules_manifest.json
+    # flag needed for it.
+    if copy_kubectl_drills("cka"):
+        print("cka: kubectl drill set built (en, de, ja, zh)")
 
     # 2026-08-17: aevo - the German IHK/HWK Ausbildereignungspruefung under the
     # Ausbilder-Eignungsverordnung (AusbEignV 2009). 76-question DE/EN pilot,
