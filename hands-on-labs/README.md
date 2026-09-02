@@ -75,7 +75,7 @@ publishing is not something this session can do. To make them real:
    Either point Killercoda's scenario importer at this Zettacard repo
    directly (if it's public, or via their git-integration flow — check
    `killercoda.com/creators` for the current "import from git" option), or
-   copy each `killercoda-scenarios/cka-l*/` directory's contents into
+   copy each `hands-on-labs/cka-l*/` directory's contents into
    whatever repo/location their dashboard asks for per scenario. Killercoda
    scenarios are one-directory-per-scenario, which is exactly how these are
    laid out already.
