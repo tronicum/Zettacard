@@ -1224,6 +1224,302 @@
       ],
       "legal_review_status": "NOT legally reviewed",
       "hasCourse": true
+    },
+    {
+      "exam_type": "california_us",
+      "label": {
+        "de": "Verkehrsregeln Kalifornien (Fun-Modul)",
+        "en": "Road rules of California (fun module)",
+        "uk": "Правила дорожнього руху Каліфорнії (фан-модуль)",
+        "pl": "Przepisy drogowe Kalifornii (moduł dla zabawy)",
+        "ar": "قواعد المرور في كاليفورنيا (وحدة ترفيهية)",
+        "zh": "加利福尼亚交通规则（趣味模块）",
+        "hi": "कैलिफ़ोर्निया के यातायात नियम (मज़ेदार मॉड्यूल)",
+        "tr": "Kaliforniya trafik kuralları (eğlence modülü)",
+        "fr": "Code de la route de Californie (module ludique)",
+        "ru": "Правила дорожного движения Калифорнии (развлекательный модуль)",
+        "es": "Normas de tráfico de California (módulo lúdico)",
+        "it": "Codice della strada della California (modulo ludico)"
+      },
+      "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from California Vehicle Code (CVC) — the statute itself, all 50 questions: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/california_us/, exported to data/california_us_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Alle Themen",
+            "en": "All topics",
+            "uk": "Усі теми",
+            "pl": "Wszystkie tematy",
+            "ar": "جميع الموضوعات",
+            "zh": "全部主题",
+            "hi": "सभी विषय",
+            "tr": "Tüm konular",
+            "fr": "Tous les thèmes",
+            "ru": "Все темы",
+            "es": "Todos los temas",
+            "it": "Tutti gli argomenti"
+          }
+        }
+      ],
+      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
+      "intro": {
+        "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages. Step 1 is the mandatory identification banner required by data-rules.md § 3b, quoted verbatim from the KB module.json's `identification` block so there is exactly one wording of it.",
+        "steps": [
+          {
+            "de": {
+              "title": "Was dieses Modul ist – und was nicht",
+              "body": "Dieses Modul behandelt die Verkehrsregeln von Kalifornien (USA). Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von Kalifornien (USA), und es verleiht keinerlei Berechtigung."
+            },
+            "en": {
+              "title": "What this module is — and is not",
+              "body": "This module covers the road rules of California (USA). It is a study aid in German and English. It is not a German licence, it is not an official examination of California (USA), and it confers nothing."
+            }
+          },
+          {
+            "de": {
+              "title": "Was abgefragt wird",
+              "body": "50 Fragen aus 7 Themenbereichen: Alkohol, Vorrang, Geschwindigkeit, Verkehrszeichen, Abbiegen, Überholen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung."
+            },
+            "en": {
+              "title": "What's covered",
+              "body": "50 questions across 7 topic areas: alcohol, right of way, speed, signs, turning, overtaking and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam."
+            }
+          },
+          {
+            "de": {
+              "title": "Woher die Fragen stammen",
+              "body": "Die Fragen sind eigenständig aus dem California Vehicle Code (CVC), dem Gesetzestext selbst verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes."
+            },
+            "en": {
+              "title": "Where the questions come from",
+              "body": "The questions were written independently from the California Vehicle Code (CVC) — the statute itself, not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "exam_type": "uk_gb",
+      "label": {
+        "de": "Verkehrsregeln Vereinigtes Königreich (Fun-Modul)",
+        "en": "Road rules of the United Kingdom (fun module)",
+        "uk": "Правила дорожнього руху Великої Британії (фан-модуль)",
+        "pl": "Przepisy drogowe Wielkiej Brytanii (moduł dla zabawy)",
+        "ar": "قواعد المرور في المملكة المتحدة (وحدة ترفيهية)",
+        "zh": "英国交通规则（趣味模块）",
+        "hi": "यूनाइटेड किंगडम के यातायात नियम (मज़ेदार मॉड्यूल)",
+        "tr": "Birleşik Krallık trafik kuralları (eğlence modülü)",
+        "fr": "Code de la route du Royaume-Uni (module ludique)",
+        "ru": "Правила дорожного движения Великобритании (развлекательный модуль)",
+        "es": "Normas de tráfico del Reino Unido (módulo lúdico)",
+        "it": "Codice della strada del Regno Unito (modulo ludico)"
+      },
+      "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from Road Traffic Act 1988, Road Traffic Regulation Act 1984, TSRGD 2016 and further statutory instruments — the legislation itself, NOT the Highway Code: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/uk_gb/, exported to data/uk_gb_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Alle Themen",
+            "en": "All topics",
+            "uk": "Усі теми",
+            "pl": "Wszystkie tematy",
+            "ar": "جميع الموضوعات",
+            "zh": "全部主题",
+            "hi": "सभी विषय",
+            "tr": "Tüm konular",
+            "fr": "Tous les thèmes",
+            "ru": "Все темы",
+            "es": "Todos los temas",
+            "it": "Tutti gli argomenti"
+          }
+        }
+      ],
+      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
+      "intro": {
+        "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages. Step 1 is the mandatory identification banner required by data-rules.md § 3b, quoted verbatim from the KB module.json's `identification` block so there is exactly one wording of it.",
+        "steps": [
+          {
+            "de": {
+              "title": "Was dieses Modul ist – und was nicht",
+              "body": "Dieses Modul behandelt die Verkehrsregeln von dem Vereinigten Königreich. Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von dem Vereinigten Königreich, und es verleiht keinerlei Berechtigung."
+            },
+            "en": {
+              "title": "What this module is — and is not",
+              "body": "This module covers the road rules of the United Kingdom. It is a study aid in German and English. It is not a German licence, it is not an official examination of the United Kingdom, and it confers nothing."
+            }
+          },
+          {
+            "de": {
+              "title": "Was abgefragt wird",
+              "body": "50 Fragen aus 6 Themenbereichen: Dokumente und Zulassung, Vorrang, Geschwindigkeit, Verkehrszeichen, Überholen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung."
+            },
+            "en": {
+              "title": "What's covered",
+              "body": "50 questions across 6 topic areas: documents and licensing, right of way, speed, signs, overtaking and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam."
+            }
+          },
+          {
+            "de": {
+              "title": "Woher die Fragen stammen",
+              "body": "Die Fragen sind eigenständig aus den Gesetzen und Verordnungen selbst (Road Traffic Act 1988, Road Traffic Regulation Act 1984, TSRGD 2016 und weitere Statutory Instruments) verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes."
+            },
+            "en": {
+              "title": "Where the questions come from",
+              "body": "The questions were written independently from the legislation itself (Road Traffic Act 1988, Road Traffic Regulation Act 1984, TSRGD 2016 and further statutory instruments), not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "exam_type": "austria_at",
+      "label": {
+        "de": "Verkehrsregeln Österreich (Fun-Modul)",
+        "en": "Road rules of Austria (fun module)",
+        "uk": "Правила дорожнього руху Австрії (фан-модуль)",
+        "pl": "Przepisy drogowe Austrii (moduł dla zabawy)",
+        "ar": "قواعد المرور في النمسا (وحدة ترفيهية)",
+        "zh": "奥地利交通规则（趣味模块）",
+        "hi": "ऑस्ट्रिया के यातायात नियम (मज़ेदार मॉड्यूल)",
+        "tr": "Avusturya trafik kuralları (eğlence modülü)",
+        "fr": "Code de la route autrichien (module ludique)",
+        "ru": "Правила дорожного движения Австрии (развлекательный модуль)",
+        "es": "Normas de tráfico de Austria (módulo lúdico)",
+        "it": "Codice della strada austriaco (modulo ludico)"
+      },
+      "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from StVO 1960, FSG, KFG and IG-L — the statutes themselves: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/austria_at/, exported to data/austria_at_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Alle Themen",
+            "en": "All topics",
+            "uk": "Усі теми",
+            "pl": "Wszystkie tematy",
+            "ar": "جميع الموضوعات",
+            "zh": "全部主题",
+            "hi": "सभी विषय",
+            "tr": "Tüm konular",
+            "fr": "Tous les thèmes",
+            "ru": "Все темы",
+            "es": "Todos los temas",
+            "it": "Tutti gli argomenti"
+          }
+        }
+      ],
+      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
+      "intro": {
+        "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages. Step 1 is the mandatory identification banner required by data-rules.md § 3b, quoted verbatim from the KB module.json's `identification` block so there is exactly one wording of it.",
+        "steps": [
+          {
+            "de": {
+              "title": "Was dieses Modul ist – und was nicht",
+              "body": "Dieses Modul behandelt die Verkehrsregeln von Österreich. Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von Österreich, und es verleiht keinerlei Berechtigung."
+            },
+            "en": {
+              "title": "What this module is — and is not",
+              "body": "This module covers the road rules of Austria. It is a study aid in German and English. It is not a German licence, it is not an official examination of Austria, and it confers nothing."
+            }
+          },
+          {
+            "de": {
+              "title": "Was abgefragt wird",
+              "body": "50 Fragen aus 6 Themenbereichen: Alkohol, Dokumente, Vorrang, Geschwindigkeit, Verkehrszeichen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung."
+            },
+            "en": {
+              "title": "What's covered",
+              "body": "50 questions across 6 topic areas: alcohol, documents, right of way, speed, signs and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam."
+            }
+          },
+          {
+            "de": {
+              "title": "Woher die Fragen stammen",
+              "body": "Die Fragen sind eigenständig aus den Gesetzen selbst (StVO 1960, FSG, KFG, IG-L) verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes."
+            },
+            "en": {
+              "title": "Where the questions come from",
+              "body": "The questions were written independently from the statutes themselves (StVO 1960, FSG, KFG, IG-L), not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "exam_type": "switzerland_ch",
+      "label": {
+        "de": "Verkehrsregeln Schweiz (Fun-Modul)",
+        "en": "Road rules of Switzerland (fun module)",
+        "uk": "Правила дорожнього руху Швейцарії (фан-модуль)",
+        "pl": "Przepisy drogowe Szwajcarii (moduł dla zabawy)",
+        "ar": "قواعد المرور في سويسرا (وحدة ترفيهية)",
+        "zh": "瑞士交通规则（趣味模块）",
+        "hi": "स्विट्ज़रलैंड के यातायात नियम (मज़ेदार मॉड्यूल)",
+        "tr": "İsviçre trafik kuralları (eğlence modülü)",
+        "fr": "Code de la route suisse (module ludique)",
+        "ru": "Правила дорожного движения Швейцарии (развлекательный модуль)",
+        "es": "Normas de tráfico de Suiza (módulo lúdico)",
+        "it": "Codice della strada svizzero (modulo ludico)"
+      },
+      "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from SVG, VRV, SSV, VZV, VTS, SKV, NSAG and OBV — the enactments themselves: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/switzerland_ch/, exported to data/switzerland_ch_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
+      "scopeKind": "class",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "de": "Alle Themen",
+            "en": "All topics",
+            "uk": "Усі теми",
+            "pl": "Wszystkie tematy",
+            "ar": "جميع الموضوعات",
+            "zh": "全部主题",
+            "hi": "सभी विषय",
+            "tr": "Tüm konular",
+            "fr": "Tous les thèmes",
+            "ru": "Все темы",
+            "es": "Todos los temas",
+            "it": "Tutti gli argomenti"
+          }
+        }
+      ],
+      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
+      "intro": {
+        "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages. Step 1 is the mandatory identification banner required by data-rules.md § 3b, quoted verbatim from the KB module.json's `identification` block so there is exactly one wording of it.",
+        "steps": [
+          {
+            "de": {
+              "title": "Was dieses Modul ist – und was nicht",
+              "body": "Dieses Modul behandelt die Verkehrsregeln von der Schweiz. Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von der Schweiz, und es verleiht keinerlei Berechtigung."
+            },
+            "en": {
+              "title": "What this module is — and is not",
+              "body": "This module covers the road rules of Switzerland. It is a study aid in German and English. It is not a German licence, it is not an official examination of Switzerland, and it confers nothing."
+            }
+          },
+          {
+            "de": {
+              "title": "Was abgefragt wird",
+              "body": "50 Fragen aus 5 Themenbereichen: Alkohol, Vorrang, Geschwindigkeit, Verkehrszeichen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung."
+            },
+            "en": {
+              "title": "What's covered",
+              "body": "50 questions across 5 topic areas: alcohol, right of way, speed, signs and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam."
+            }
+          },
+          {
+            "de": {
+              "title": "Woher die Fragen stammen",
+              "body": "Die Fragen sind eigenständig aus den Erlassen selbst (SVG, VRV, SSV, VZV, VTS und weitere) verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes."
+            },
+            "en": {
+              "title": "Where the questions come from",
+              "body": "The questions were written independently from the enactments themselves (SVG, VRV, SSV, VZV, VTS and others), not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information."
+            }
+          }
+        ]
+      }
     }
   ]
 }

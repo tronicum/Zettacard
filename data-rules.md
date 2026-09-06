@@ -197,7 +197,8 @@ we can be wrong in our own words.
 > Zettacard ist kein amtlicher Prüfungssimulator. Original-Lerninhalte,
 > CC BY-NC-SA 4.0.
 
-That is the default. There is one deliberate exception.
+That is the default. There are two deliberate exceptions: ND for compliance, and
+per-source non-NC sub-content (below).
 
 | Content | Terms | Why |
 |---|---|---|
@@ -220,6 +221,47 @@ modules' `meta.license` fields still read `CC BY-NC-SA 4.0`, in both the masters
 and everything generated from them, and `app/legal/quellen.html` does not state it.
 Changing them is a content change and must go through the normal path — it has not
 been done.
+
+### Sub-content may carry its own, non-NC terms (PO decision, 2026-09-06)
+
+**The module licence is the licence of what we wrote. It is not a claim over
+material we incorporated under someone else's terms.** Where a module includes
+sub-content that arrives under a licence of its own — including a licence with no
+NC clause, or one whose share-alike we cannot satisfy at module level — that
+sub-content keeps its own terms, is **marked at the point of use**, and gets a row
+in `app/legal/quellen.html` linking to the source and naming its licence.
+
+This is what makes the THW pack possible. THWiki text is **CC BY-SA 4.0**
+(`https://thwiki.org/t=THWiki:Urheberrecht`), and BY-SA share-alike cannot be
+satisfied by redistributing under BY-NC-SA, because NC is an added restriction.
+Rather than relicense a whole module or refuse the source, the rule is:
+
+- The **module** stays CC BY-NC-SA 4.0 for the parts we authored.
+- Any **incorporated BY-SA passage** is attributed and stays BY-SA, and is marked
+  as such where it appears. It is a quoted, attributed component, not something we
+  sublicense.
+- The **register carries the row**: source, licence, URL, and what was taken.
+- If a module ever reaches the point where the BY-SA material is no longer a
+  component but the substance of it, that module is BY-SA, not BY-NC-SA. Say so
+  rather than let the ratio drift.
+
+Three things this decision does **not** change:
+
+1. **§ 11 constraint 1 still stands.** Third-party exam-prep catalogues —
+   thw-trainer.de, thw-theorie.de, any Fahrschul-Verlag — remain off limits
+   whatever their licence, because the objection there is not the licence.
+2. **Per-image licences are per image.** THWiki images are individually tagged
+   `cc-by-nc-sa 3.0`, plain `copyright`, `copyright:thwhs`, `thw` or `thw-pd`
+   (`https://thwiki.org/t=THWiki:Hilfe_zu_Bildern`). There is no wiki-wide image
+   licence, so no image may be used on the strength of the text licence.
+3. **Compliance modules are still ND.** ND and BY-SA cannot be mixed at all, so a
+   compliance module takes no BY-SA sub-content. This exemption is for
+   `exam_prep` and `fun_translation` only.
+
+The THW pack is therefore authored from Dienstvorschriften, UVV, the THW-Gesetz
+and any official curriculum whose terms permit it (PO decision, 2026-09-06), with
+THWiki available as an attributed, marked component where it genuinely adds
+something we cannot get from the primary source.
 
 ### The public source register: `app/legal/quellen.html`
 
@@ -251,6 +293,8 @@ Rows that already carry real terms, and the constraints they impose:
 | Wikimedia Commons sign SVGs | gemeinfrei, § 5 Abs. 1 UrhG (amtliches Werk mit regelndem Inhalt) | free reuse; a faithful redraw carries no derivative-work risk |
 | Légifrance / DILA LEGI | Licence Ouverte / Etalab 2.0, attribution required | planned boating modules must attribute |
 | COLREG 1972 | public domain, 17 USC § 105 | free reuse |
+| THWiki (thwiki.org), **text** | CC BY-SA 4.0 | usable as marked, attributed sub-content in `exam_prep` / `fun_translation` modules only; never in a compliance (ND) module; attribution and a link are mandatory |
+| THWiki (thwiki.org), **images** | per image: `cc-by-nc-sa 3.0`, `copyright`, `copyright:thwhs`, `thw`, `thw-pd` | no wiki-wide image licence — each image must be checked individually before use |
 
 ### Amtliches Werk: what is ours in the Sportboot modules, and what is not
 

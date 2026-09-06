@@ -25,6 +25,7 @@
     "test:layout": "node scripts/layout_audit.mjs",
     "test:exam": "node scripts/test_exam_matrix.mjs",
     "test:exam:quick": "node scripts/test_exam_matrix.mjs --quick",
+    "test:journeys": "node scripts/test_user_journeys.mjs",
     "serve": "node scripts/serve-app.mjs",
     "check:all": "npm run check:data && npm run check:translations",
     "qa:i18n:test": "python3 scripts/i18n_qa/test_offline.py",

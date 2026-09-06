@@ -1228,6 +1228,32 @@ function resolveImage(q, revealed) {
 // its filter-chip list from Object.keys(TOPIC_LABELS[examType] || {}), so a
 // missing module gets NO topic filter row at all, silently. Check both
 // failure modes when auditing this file, not just per-locale gaps.
+// 2026-09-06: the four fun_translation modules (california_us, uk_gb,
+// austria_at, switzerland_ch) all tag their questions with the SAME rule
+// families - the cross-jurisdiction tagging data-rules.md § 3b asks for, so
+// the differential rulebook can later be generated from this corpus rather
+// than re-authored. The family labels are therefore written once here and
+// referenced from each module's TOPIC_LABELS entry below, instead of being
+// copy-pasted four times and drifting.
+//
+// The per-module entries below deliberately list only the families that
+// module's pool ACTUALLY contains (switzerland_ch has no documents/
+// overtaking/turning questions, uk_gb has no alcohol ones, and so on).
+// renderFilters() builds its chip row from Object.keys(TOPIC_LABELS[type]),
+// so listing a family a module has no questions for would ship a dead filter
+// chip that always yields an empty list - the mirror image of the
+// missing-module failure the comment above describes.
+const ROAD_RULE_FAMILY_LABELS = {
+  priority: { de: "Vorrang und Vorfahrt", en: "Right of way", uk: "Черговість проїзду", pl: "Pierwszeństwo przejazdu", ar: "أحقية المرور", zh: "路权", hi: "प्राथमिकता (राइट ऑफ़ वे)", tr: "Geçiş hakkı", fr: "Priorité", ru: "Приоритет проезда", es: "Prioridad de paso", it: "Precedenza" },
+  speed: { de: "Geschwindigkeit", en: "Speed limits", uk: "Обмеження швидкості", pl: "Ograniczenia prędkości", ar: "حدود السرعة", zh: "限速", hi: "गति सीमा", tr: "Hız sınırları", fr: "Limitations de vitesse", ru: "Ограничения скорости", es: "Límites de velocidad", it: "Limiti di velocità" },
+  signs: { de: "Verkehrszeichen", en: "Traffic signs", uk: "Дорожні знаки", pl: "Znaki drogowe", ar: "إشارات المرور", zh: "交通标志", hi: "यातायात संकेत", tr: "Trafik işaretleri", fr: "Panneaux de signalisation", ru: "Дорожные знаки", es: "Señales de tráfico", it: "Segnaletica stradale" },
+  alcohol: { de: "Alkohol und Fahrtüchtigkeit", en: "Alcohol & fitness to drive", uk: "Алкоголь і придатність до керування", pl: "Alkohol i zdolność do jazdy", ar: "الكحول واللياقة للقيادة", zh: "酒精与驾驶适宜性", hi: "शराब और ड्राइविंग योग्यता", tr: "Alkol ve sürüşe uygunluk", fr: "Alcool et aptitude à conduire", ru: "Алкоголь и годность к вождению", es: "Alcohol y aptitud para conducir", it: "Alcol e idoneità alla guida" },
+  vulnerable_users: { de: "Schwächere Verkehrsteilnehmende", en: "Vulnerable road users", uk: "Вразливі учасники дорожнього руху", pl: "Niechronieni uczestnicy ruchu", ar: "مستخدمو الطريق المعرضون للخطر", zh: "弱势道路使用者", hi: "संवेदनशील सड़क उपयोगकर्ता", tr: "Korunmasız yol kullanıcıları", fr: "Usagers vulnérables", ru: "Уязвимые участники движения", es: "Usuarios vulnerables de la vía", it: "Utenti vulnerabili della strada" },
+  documents: { de: "Dokumente und Zulassung", en: "Documents & licensing", uk: "Документи та реєстрація", pl: "Dokumenty i uprawnienia", ar: "الوثائق والترخيص", zh: "证件与牌照", hi: "दस्तावेज़ और लाइसेंसिंग", tr: "Belgeler ve ruhsat", fr: "Documents et immatriculation", ru: "Документы и регистрация", es: "Documentos y permisos", it: "Documenti e abilitazioni" },
+  overtaking: { de: "Überholen", en: "Overtaking", uk: "Обгін", pl: "Wyprzedzanie", ar: "التجاوز", zh: "超车", hi: "ओवरटेकिंग", tr: "Sollama", fr: "Dépassement", ru: "Обгон", es: "Adelantamiento", it: "Sorpasso" },
+  turning: { de: "Abbiegen und Wenden", en: "Turning & U-turns", uk: "Повороти та розворот", pl: "Skręcanie i zawracanie", ar: "الانعطاف والدوران للخلف", zh: "转弯与掉头", hi: "मोड़ना और यू-टर्न", tr: "Dönüşler ve U dönüşü", fr: "Virages et demi-tours", ru: "Повороты и разворот", es: "Giros y cambios de sentido", it: "Svolte e inversioni" },
+};
+
 const TOPIC_LABELS = {
   fuehrerschein: {
     vorfahrt: { de: "Vorfahrt und Kreuzungen", en: "Right of way & intersections", uk: "Проїзд перехресть", pl: "Pierwszeństwo i skrzyżowania", ar: "الأولوية والتقاطعات", zh: "路权与交叉路口", hi: "प्राथमिकता और चौराहे", tr: "Geçiş hakkı ve kavşaklar", fr: "Priorité et intersections", ru: "Приоритет проезда и перекрёстки", es: "Prioridad de paso e intersecciones", it: "Precedenza e incroci" },
@@ -1464,6 +1490,46 @@ const TOPIC_LABELS = {
     ausbildung_vorbereiten: { de: "HF 2: Vorbereiten und Einstellung", en: "Field 2: Preparation & recruitment", uk: "Поле 2: Підготовка та набір", pl: "Obszar 2: Przygotowanie i nabór", ar: "المجال 2: التحضير والتعيين", zh: "行动领域 2：准备与录用", hi: "क्षेत्र 2: तैयारी और नियुक्ति", tr: "Alan 2: Hazırlık ve işe alım", fr: "Champ 2 : préparation et recrutement", ru: "Поле 2: подготовка и приём", es: "Campo 2: preparación y contratación", it: "Campo 2: preparazione e assunzione" },
     ausbildung_durchfuehren: { de: "HF 3: Ausbildung durchführen", en: "Field 3: Delivering the training", uk: "Поле 3: Проведення навчання", pl: "Obszar 3: Prowadzenie szkolenia", ar: "المجال 3: تنفيذ التدريب", zh: "行动领域 3：实施培训", hi: "क्षेत्र 3: प्रशिक्षण संचालन", tr: "Alan 3: Eğitimin yürütülmesi", fr: "Champ 3 : conduite de la formation", ru: "Поле 3: проведение обучения", es: "Campo 3: impartir la formación", it: "Campo 3: attuazione della formazione" },
     ausbildung_abschliessen: { de: "HF 4: Ausbildung abschließen", en: "Field 4: Concluding the training", uk: "Поле 4: Завершення навчання", pl: "Obszar 4: Zakończenie szkolenia", ar: "المجال 4: إتمام التدريب", zh: "行动领域 4：结束培训", hi: "क्षेत्र 4: प्रशिक्षण समापन", tr: "Alan 4: Eğitimin tamamlanması", fr: "Champ 4 : achèvement de la formation", ru: "Поле 4: завершение обучения", es: "Campo 4: conclusión de la formación", it: "Campo 4: conclusione della formazione" },
+  },
+  // Kalifornien (USA) — CVC. Note `signs` is only 2 questions and
+  // `overtaking` only 1: the CVC pool leans on turning/alcohol/priority.
+  california_us: {
+    priority: ROAD_RULE_FAMILY_LABELS.priority,
+    speed: ROAD_RULE_FAMILY_LABELS.speed,
+    signs: ROAD_RULE_FAMILY_LABELS.signs,
+    alcohol: ROAD_RULE_FAMILY_LABELS.alcohol,
+    vulnerable_users: ROAD_RULE_FAMILY_LABELS.vulnerable_users,
+    turning: ROAD_RULE_FAMILY_LABELS.turning,
+    overtaking: ROAD_RULE_FAMILY_LABELS.overtaking,
+  },
+  // United Kingdom — Road Traffic Act 1988 and friends. No alcohol
+  // family in this pool; `documents` (10 questions) is the largest.
+  uk_gb: {
+    priority: ROAD_RULE_FAMILY_LABELS.priority,
+    speed: ROAD_RULE_FAMILY_LABELS.speed,
+    signs: ROAD_RULE_FAMILY_LABELS.signs,
+    documents: ROAD_RULE_FAMILY_LABELS.documents,
+    vulnerable_users: ROAD_RULE_FAMILY_LABELS.vulnerable_users,
+    overtaking: ROAD_RULE_FAMILY_LABELS.overtaking,
+  },
+  // Österreich — StVO/FSG/KFG/IG-L. Both alcohol (7) and
+  // documents (3) are present.
+  austria_at: {
+    priority: ROAD_RULE_FAMILY_LABELS.priority,
+    speed: ROAD_RULE_FAMILY_LABELS.speed,
+    signs: ROAD_RULE_FAMILY_LABELS.signs,
+    alcohol: ROAD_RULE_FAMILY_LABELS.alcohol,
+    documents: ROAD_RULE_FAMILY_LABELS.documents,
+    vulnerable_users: ROAD_RULE_FAMILY_LABELS.vulnerable_users,
+  },
+  // Schweiz — SVG/VRV/SSV. The evenest of the four: 5 families,
+  // 10 questions each, no documents/overtaking/turning.
+  switzerland_ch: {
+    priority: ROAD_RULE_FAMILY_LABELS.priority,
+    speed: ROAD_RULE_FAMILY_LABELS.speed,
+    signs: ROAD_RULE_FAMILY_LABELS.signs,
+    alcohol: ROAD_RULE_FAMILY_LABELS.alcohol,
+    vulnerable_users: ROAD_RULE_FAMILY_LABELS.vulnerable_users,
   },
 };
 
@@ -6734,6 +6800,21 @@ const EXAM_QUESTION_COUNT_BY_TYPE = {
   // run to one sitting. Not the 6-question compliance-check pattern: this is
   // real exam prep for a real 3-hour exam (§ 4 Abs. 2 AEVO).
   aevo: 40,
+  // 2026-09-06: the four fun_translation modules. 50-question pool each,
+  // 20-question draw. WHY 20: these are not exam prep for anything - there is
+  // no real exam to model a draw length on, so the number is chosen for the
+  // pool instead. 20 of 50 is large enough that a run reaches every rule
+  // family in the pool (the smallest of the four has 5 families, the largest
+  // 7) usually more than once, and small enough that a learner can take
+  // several runs before repeats dominate. Deliberately NOT the 6-question
+  // compliance pattern (this is a quiz someone chose for fun, not a
+  // 5-minute workplace check) and NOT 30 (that is the German-exam draw
+  // length, and borrowing it would imply these modules simulate an exam -
+  // exactly the impression the § 3b identification banner exists to prevent).
+  california_us: 20,
+  uk_gb: 20,
+  austria_at: 20,
+  switzerland_ch: 20,
 };
 function examQuestionCount(examType) {
   return EXAM_QUESTION_COUNT_BY_TYPE[examType] || EXAM_QUESTION_COUNT_DEFAULT;
@@ -6765,6 +6846,12 @@ const EXAM_TIME_LIMIT_MS_BY_TYPE = {
   // dauern"), so the time pressure per question is realistic rather than
   // arbitrary.
   aevo: 90 * 60 * 1000,
+  // 2026-09-06: the four fun_translation modules deliberately have NO entry
+  // here and fall through to the 45-minute default. There is no real exam
+  // behind them to model a time budget on, and 45 minutes for a 20-question
+  // draw is simply generous rather than wrong - which is the bar for adding
+  // an override. A tighter limit would manufacture exam pressure for a module
+  // whose whole point is that it examines nothing.
 };
 function examTimeLimitMs(examType) {
   return EXAM_TIME_LIMIT_MS_BY_TYPE[examType] || EXAM_TIME_LIMIT_MS_DEFAULT;
@@ -6803,6 +6890,18 @@ const MAX_ERROR_POINTS_BY_TYPE = {
   // still applies on top, which is why data/gen_aevo.py deliberately calibrates
   // high_stakes down to 12 of 76 (~16 %) - see HIGH_STAKES_IDS there.
   aevo: 80,
+  // 2026-09-06: fun_translation modules. Every question in these pools is
+  // worth a flat 3 points (they carry no per-card difficulty weighting in the
+  // KB), so a 20-question draw is exactly 60 points and the DEFAULT of 10
+  // would silently mean a different pass bar than it means anywhere else:
+  // 3 wrong of 20 here vs. the ~10 % of total points it represents on the
+  // driving exam. 6 is the same bar sportboot_see already uses for an
+  // identically shaped draw (20 questions x 3 points): two wrong is
+  // tolerated, three is not.
+  california_us: 6,
+  uk_gb: 6,
+  austria_at: 6,
+  switzerland_ch: 6,
 };
 function maxErrorPoints(examType) {
   return MAX_ERROR_POINTS_BY_TYPE[examType] != null ? MAX_ERROR_POINTS_BY_TYPE[examType] : MAX_ERROR_POINTS_DEFAULT;
@@ -6978,6 +7077,18 @@ const EXAM_TOPIC_DRAW = {
     fahrzeugtechnik_bus: 7,
     notfall_bus: 7,
   },
+  // 2026-09-06: the four fun_translation modules deliberately have NO entry
+  // here, and fall through to drawExamQuestions()'s uniform-random top-up (the
+  // documented behaviour for a module with no weighting - see this object's
+  // header comment). Three of the four pools are already near-uniform per rule
+  // family (switzerland_ch is 5 x 10, austria_at and uk_gb are 10/10/10/10/9
+  // plus one small family), so uniform random over 50 -> 20 reproduces the
+  // pool's own distribution closely enough. The one pool that is NOT uniform,
+  // california_us, has a 2-question `signs` family and a 1-question
+  // `overtaking` family; pinning a draw there would have to force those edge
+  // families into every run, over-representing them by design. That trick is
+  // worth it for sportboot (where an edge topic is genuinely examinable
+  // content) and not here, where nothing is examined.
 };
 
 function shuffle(arr) {

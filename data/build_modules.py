@@ -59,13 +59,29 @@ SCOPE_FIELDS = ["class_scope", "region_scope"]
 # apart. NOTE: app/data/ also contains module directories this script does
 # NOT build (they have no *_pilot.json source in data/) - see main()'s
 # cleanup comment.
+# 2026-09-06: the four fun_translation modules (zettacard-kb module_kind
+# "fun_translation" - another country's road rules as a comparison object, see
+# data-rules.md § 3b in the KB). Their masters are data/<module>_fun.json, not
+# _pilot.json, because they are deliberately NOT part of the German exam set.
+#
+# They live in their own tuple and are folded into BUILT_MODULES below, and
+# main() builds them by iterating THIS SAME tuple. That is on purpose: this
+# file's history contains two separate outages (dora/nis2 on 2026-08-15,
+# sportboot_binnen/see the same day) caused by a module sitting in
+# BUILT_MODULES with no split_module() call, so the cleanup pass deleted its
+# built output and nothing rebuilt it. Driving both ends off one tuple makes
+# that particular drift impossible for these four. All are DE/EN only.
+FUN_TRANSLATION_MODULES = (
+    "california_us", "uk_gb", "austria_at", "switzerland_ch",
+)
+
 BUILT_MODULES = (
     "fuehrerschein", "angelschein", "angelschein_bayern", "angelschein_nrw",
     "motorrad", "lkw", "fuehrerschein_bus",
     "datenschutz", "fadp_ch", "arbeitssicherheit", "ki_act", "it_sicherheit",
     "hinweisgeberschutz", "kyc_aml", "kartellrecht",
     "dora", "nis2", "sportboot_binnen", "sportboot_see", "cka", "aevo",
-)
+) + FUN_TRANSLATION_MODULES
 
 
 def split_module(src_path, exam_type, locales, out_meta_extra=None,
@@ -742,6 +758,33 @@ def main():
     print(f"aevo: {aevo_count} questions, locale gaps: {aevo_missing}")
     if split_course("aevo", ["de", "en"]):
         print("aevo: course layer built (de, en)")
+
+    # 2026-09-06: the four fun_translation modules. 50 questions each, DE/EN
+    # only (data-rules.md § 3b in zettacard-kb: these sit outside the 15-locale
+    # set and must never be counted as locale-coverage gaps), authored from the
+    # primary law of each jurisdiction and exported by
+    # zettacard-kb/src/export_to_zettacard.py to data/<module>_fun.json.
+    #
+    # out_meta_extra carries the mandatory § 3b identification banner (DE+EN)
+    # from the master's meta into app/data/<module>/core.json's meta, so the
+    # app has the "this is a study aid, not a German licence, not that
+    # country's official exam, confers nothing" text available at render time
+    # in the same place it reads total_questions from. The manifest's intro
+    # step states the same thing in the same words - both come from the KB
+    # module.json's `identification` block, so there is one wording, not two.
+    for fun_type in FUN_TRANSLATION_MODULES:
+        fun_src = os.path.join(HERE, f"{fun_type}_fun.json")
+        fun_meta = json.load(open(fun_src, encoding="utf-8"))["meta"]
+        identification = fun_meta.get("identification")
+        if not identification:
+            raise AssertionError(
+                f"{fun_type}: no identification banner in {fun_src}. It is "
+                f"mandatory for fun_translation modules (data-rules.md § 3b); "
+                f"refusing to build a module that cannot show it.")
+        fun_count, fun_missing = split_module(
+            fun_src, fun_type, ["de", "en"],
+            out_meta_extra={"identification": identification})
+        print(f"{fun_type}: {fun_count} questions, locale gaps: {fun_missing}")
 
     # Sanity: every core question must resolve in at least its canonical
     # locale, and every core question's scope field must be present -
