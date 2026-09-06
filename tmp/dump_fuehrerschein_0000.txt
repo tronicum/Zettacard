@@ -1,0 +1,700 @@
+### vorfahrt-01 correct=['b']
+DE-Q: An einer Kreuzung ohne Verkehrszeichen und ohne Ampel nähern sich zwei Fahrzeuge gleichzeitig. Wer hat Vorfahrt?
+EN-Q: At an intersection with no signs or traffic lights, two vehicles approach at the same time. Who has right of way?
+  DE-a: Wer zuerst an der Kreuzung ankommt
+  EN-a: Whoever reaches the intersection first
+ *DE-b: Das Fahrzeug von rechts
+ *EN-b: The vehicle coming from the right
+  DE-c: Das Fahrzeug von links
+  EN-c: The vehicle coming from the left
+  DE-d: Beide fahren gleichzeitig weiter, ohne sich abzustimmen
+  EN-d: Both keep driving at the same time, without giving way
+DE-EXPL: Ohne abweichende Beschilderung gilt die Grundregel 'rechts vor links'.
+EN-EXPL: Without signs stating otherwise, the basic rule 'right before left' applies.
+
+### vorfahrt-02 correct=['c']
+DE-Q: Sie sehen ein dreieckiges Schild mit der Spitze nach unten und rotem Rand (Zeichen 205). Was bedeutet es?
+EN-Q: You see a downward-pointing triangular sign with a red border (Zeichen 205). What does it mean?
+  DE-a: Vorfahrtstraße - Sie behalten durchgehend Vorfahrt
+  EN-a: Priority road - you keep right of way continuously
+  DE-b: Sie müssen in jedem Fall kurz anhalten, auch wenn niemand kommt
+  EN-b: You must always stop briefly, even if no one is coming
+ *DE-c: Vorfahrt gewähren
+ *EN-c: Yield / give way
+  DE-d: Stoppschild - Sie müssen immer vollständig anhalten
+  EN-d: Stop sign - you must always come to a complete stop
+DE-EXPL: Zeichen 205 zwingt zum Vorfahrtgewähren, aber nicht zum vollständigen Anhalten, sofern die Sicht ausreicht.
+EN-EXPL: Zeichen 205 requires yielding right of way, but not a full stop, as long as visibility is sufficient.
+
+### vorfahrt-03 correct=['a']
+DE-Q: Was müssen Sie an einem achteckigen roten Schild mit der Aufschrift 'STOP' (Zeichen 206) tun?
+EN-Q: What must you do at an octagonal red sign reading 'STOP' (Zeichen 206)?
+ *DE-a: immer vollständig anhalten, auch wenn kein anderes Fahrzeug zu sehen ist
+ *EN-a: always come to a complete stop, even if no other vehicle is visible
+  DE-b: nur dann anhalten, wenn Sie ein anderes Fahrzeug sehen
+  EN-b: stop only if you see another vehicle
+  DE-c: die Geschwindigkeit deutlich verringern, aber nicht komplett stehen bleiben
+  EN-c: slow down clearly, but not come to a complete stop
+  DE-d: so lange langsam weiterrollen, bis die Kreuzung frei ist
+  EN-d: keep rolling slowly until the intersection is clear
+DE-EXPL: Das Stoppschild verlangt in jedem Fall ein vollständiges Anhalten, unabhängig vom übrigen Verkehr.
+EN-EXPL: The stop sign always requires a complete stop, regardless of other traffic.
+
+### vorfahrt-04 correct=['b']
+DE-Q: Sie sehen ein gelbes Schild, das auf der Spitze steht und einen weißen Rand hat (Zeichen 301). Was bedeutet es?
+EN-Q: You see a yellow, diamond-shaped sign with a white border (Zeichen 301). What does it mean?
+  DE-a: Sie haben ab hier durchgehend, auf der ganzen Straße, Vorfahrt
+  EN-a: From here on you have right of way continuously, along the whole road
+ *DE-b: Sie an dieser Stelle Vorfahrt haben
+ *EN-b: you have right of way at this point
+  DE-c: Sie müssen an der nächsten Kreuzung besonders auf Vorfahrt achten, haben aber selbst noch keine
+  EN-c: You must pay special attention to right of way at the next intersection, but don't have it yet yourself
+  DE-d: Die Vorfahrt gilt nur gegenüber Fußgängern, nicht gegenüber Fahrzeugen
+  EN-d: The right of way only applies toward pedestrians, not toward vehicles
+DE-EXPL: Zeichen 301 markiert punktuell Vorfahrt gegenüber der kreuzenden Straße.
+EN-EXPL: Zeichen 301 marks priority at that single point relative to the crossing road.
+
+### vorfahrt-05 correct=['a']
+DE-Q: Sie sehen ein rechteckiges gelbes Schild mit weißem Rand (Zeichen 306). Manchmal zeigt es zusätzlich die Kurven der Straße. Was bedeutet es?
+EN-Q: You see a rectangular yellow sign with a white border (Zeichen 306). Sometimes it also shows the bends in the road. What does it mean?
+ *DE-a: Vorfahrtstraße - Sie haben Vorfahrt auf der ganzen Strecke, die mit diesem Schild markiert ist
+ *EN-a: Priority road - you have right of way along the whole stretch marked by this sign
+  DE-b: Vorfahrtstraße, aber die Vorfahrt gilt nur an der nächsten Kreuzung
+  EN-b: Priority road, but the right of way only applies at the next intersection
+  DE-c: Ende der Vorfahrtstraße
+  EN-c: End of the priority road
+  DE-d: Fußgängerzone
+  EN-d: Pedestrian zone
+DE-EXPL: Anders als Zeichen 301 gilt Zeichen 306 durchgehend entlang der gesamten Vorfahrtstraße, bis Zeichen 307 sie aufhebt.
+EN-EXPL: Unlike Zeichen 301, Zeichen 306 applies continuously along the entire priority road until Zeichen 307 ends it.
+
+### vorfahrt-06 correct=['b']
+DE-Q: Sie fahren in einen Kreisverkehr (Zeichen 215) ein. Es gibt keine zusätzlichen Schilder. Wer hat Vorfahrt?
+EN-Q: You are entering a roundabout (Zeichen 215). There are no additional signs. Who has right of way?
+  DE-a: Fahrzeuge, die einfahren wollen, haben Vorfahrt
+  EN-a: Vehicles entering the roundabout have priority
+ *DE-b: Fahrzeuge, die sich bereits im Kreisverkehr befinden, haben Vorfahrt
+ *EN-b: Vehicles already in the roundabout have priority
+  DE-c: Es gilt rechts vor links
+  EN-c: Right before left applies
+  DE-d: Wer zuerst blinkt, bekommt Vorfahrt
+  EN-d: Whoever signals first gets right of way
+DE-EXPL: Im Kreisverkehr hat der fließende Verkehr im Kreis grundsätzlich Vorrang vor einfahrenden Fahrzeugen.
+EN-EXPL: In a roundabout, traffic already circulating generally has priority over vehicles entering.
+
+### vorfahrt-07 correct=['c']
+DE-Q: Sie wollen an einer Kreuzung ohne Ampel nach links abbiegen. Entgegenkommender Verkehr fährt geradeaus. Wer hat Vorfahrt?
+EN-Q: You want to turn left at an unsignalled intersection. Oncoming traffic is going straight. Who has right of way?
+  DE-a: Sie, weil Sie zuerst an der Kreuzung waren
+  EN-a: You, because you arrived at the intersection first
+  DE-b: Niemand, beide müssen warten
+  EN-b: Neither, both must wait
+ *DE-c: Der entgegenkommende, geradeausfahrende Verkehr
+ *EN-c: The oncoming traffic going straight
+  DE-d: Der Linksabbieger, wenn er blinkt
+  EN-d: The vehicle turning left, if it signals
+DE-EXPL: Wer links abbiegt, muss entgegenkommenden, geradeausfahrenden oder rechtsabbiegenden Verkehr durchfahren lassen.
+EN-EXPL: A vehicle turning left must let oncoming traffic going straight or turning right pass first.
+
+### vorfahrt-08 correct=['a']
+DE-Q: Zwei Fahrzeuge aus entgegengesetzter Richtung wollen an derselben Kreuzung gleichzeitig links abbiegen. Wie fahren sie üblicherweise?
+EN-Q: Two vehicles from opposite directions both want to turn left at the same intersection at the same time. How do they usually proceed?
+ *DE-a: Sie fahren 'Kurve vor Kurve' rechts an rechts vorbei
+ *EN-a: They pass each other 'curve before curve', right side to right side
+  DE-b: Der linke muss immer warten
+  EN-b: The one on the left always has to wait
+  DE-c: Beide müssen vollständig anhalten und sich einigen
+  EN-c: Both must stop completely and negotiate
+  DE-d: Der rechte muss immer warten
+  EN-d: The one on the right always has to wait
+DE-EXPL: Beim gleichzeitigen Linksabbiegen fahren beide Fahrzeuge in der Regel voreinander vorbei (rechts an rechts).
+EN-EXPL: When both turn left simultaneously, they normally pass each other right side to right side (curve before curve).
+
+### vorfahrt-09 correct=['b']
+DE-Q: Eine Straßenbahn kommt von rechts aus einer Nebenstraße. Es gibt kein Schild, das etwas anderes vorschreibt. Wer hat Vorfahrt?
+EN-Q: A tram is coming from the right out of a side street. There is no sign saying otherwise. Who has right of way?
+  DE-a: Sie haben Vorfahrt, da die Straßenbahn aus der Nebenstraße kommt
+  EN-a: You have right of way because the tram is coming from a minor road
+ *DE-b: Die Straßenbahn hat grundsätzlich Vorfahrt
+ *EN-b: The tram generally has right of way
+  DE-c: Es gilt rechts vor links wie bei Autos
+  EN-c: Right before left applies just like for cars
+  DE-d: Vorfahrt hängt davon ab, wer zuerst bremst
+  EN-d: Right of way depends on who brakes first
+DE-EXPL: Schienenfahrzeuge haben grundsätzlich Vorfahrt, unabhängig davon, aus welcher Richtung sie kommen.
+EN-EXPL: Rail vehicles generally have right of way, regardless of the direction they come from.
+
+### vorfahrt-10 correct=['c']
+DE-Q: Ein Fahrstreifen endet und der Verkehr muss sich einordnen. Wie funktioniert das Reißverschlussverfahren?
+EN-Q: A lane ends and traffic must merge. How does the 'zip merge' (Reißverschlussverfahren) work?
+  DE-a: Wer zuerst da ist, darf zuerst fahren
+  EN-a: Whoever gets there first goes first
+  DE-b: Der linke Fahrstreifen hat immer Vorrang
+  EN-b: The left lane always has priority
+ *DE-c: Die Fahrzeuge beider Streifen wechseln sich beim Einfädeln ab
+ *EN-c: Vehicles from both lanes take turns merging one after another
+  DE-d: Der rechte Fahrstreifen muss immer zuerst durchfahren
+  EN-d: The right-hand lane must always go first
+DE-EXPL: Kurz vor der Verengung lässt man abwechselnd je ein Fahrzeug aus dem endenden Streifen einfädeln.
+EN-EXPL: Just before the lane narrows, vehicles from the ending lane are let in one at a time, alternating.
+
+### vorfahrt-11 correct=['b']
+DE-Q: Sie fahren aus einem erkennbaren Feldweg auf eine normale Straße. Ein Fahrzeug nähert sich von rechts auf der Straße. Wer hat Vorfahrt?
+EN-Q: You are driving from a clearly recognizable field/dirt track onto a normal road. A vehicle is approaching from the right on the road. Who has right of way?
+  DE-a: Sie, weil 'rechts vor links' nur zwischen gleichrangigen Straßen gilt
+  EN-a: You, because 'right before left' only applies between roads of equal importance
+ *DE-b: Das Fahrzeug auf der Straße, der Feldweg gilt als untergeordnet
+ *EN-b: The vehicle on the road; the field track counts as a minor road
+  DE-c: Rechts vor links gilt uneingeschränkt
+  EN-c: Right before left applies without restriction
+  DE-d: Beide müssen gleichzeitig anhalten
+  EN-d: Both must stop at the same time
+DE-EXPL: Erkennbar untergeordnete Wege (Feldwege, Grundstücksausfahrten) genießen keine Vorfahrt, selbst ohne Schild.
+EN-EXPL: Clearly minor routes (field tracks, driveways) have no right of way even without a sign.
+
+### vorfahrt-12 correct=['a']
+DE-Q: Sie fahren aus einer Grundstücksausfahrt auf die Straße. Welche Regel gilt?
+EN-Q: You are driving from a driveway onto the road. What rule applies?
+ *DE-a: Sie müssen sich wie aus einer untergeordneten Straße verhalten und haben keine Vorfahrt
+ *EN-a: You must behave as if coming from a minor road and have no right of way
+  DE-b: Rechts vor links gilt normal
+  EN-b: Right before left applies normally
+  DE-c: Sie haben immer Vorfahrt gegenüber dem fließenden Verkehr
+  EN-c: You always have priority over moving traffic
+  DE-d: Nur wenn der Gegenverkehr blinkt, müssen Sie warten
+  EN-d: You only have to wait if oncoming traffic signals
+DE-EXPL: Wer aus einem Grundstück, einer Parklücke oder ähnlichem einfährt, muss sich besonders vorsichtig verhalten und hat keine Vorfahrt.
+EN-EXPL: Anyone entering traffic from a driveway, parking space, or similar must proceed with special caution and has no right of way.
+
+### vorfahrt-13 correct=['b']
+DE-Q: Ein Polizist macht an einer Kreuzung Handzeichen. Diese Handzeichen widersprechen der Ampel. Was gilt?
+EN-Q: A police officer is giving hand signals at an intersection. These hand signals contradict the traffic light. What applies?
+  DE-a: Die Ampel hat immer Vorrang
+  EN-a: The traffic light always takes precedence
+ *DE-b: Die Zeichen des Polizisten haben Vorrang vor Ampeln und Verkehrszeichen
+ *EN-b: The officer's signals take precedence over traffic lights and signs
+  DE-c: Die neuere Regelung, also meist die Ampel, hat Vorrang
+  EN-c: Whichever rule was set more recently, usually the traffic light, has priority
+  DE-d: Beide Regelungen gelten gleichzeitig
+  EN-d: Both regulations apply simultaneously
+DE-EXPL: Zeichen und Weisungen von Polizeibeamten gehen Lichtzeichenanlagen und Verkehrszeichen immer vor.
+EN-EXPL: Signals and instructions from police officers always take precedence over traffic lights and signs.
+
+### vorfahrt-14 correct=['c']
+DE-Q: An einer Ampel mit grünem Blinkpfeil nach rechts (Zeichen 720) dürfen Sie bei Rot rechts abbiegen. Was müssen Sie trotzdem tun?
+EN-Q: At a traffic light with a green arrow sign allowing right turns on red (Zeichen 720), you may turn right on red. What must you still do?
+  DE-a: Nichts, Sie dürfen ungebremst durchfahren
+  EN-a: Nothing, you may proceed without stopping
+  DE-b: Nur den Blinker setzen und weiterfahren
+  EN-b: Just signal and keep driving
+ *DE-c: Zunächst anhalten und übrigen Verkehr sowie Fußgänger beachten
+ *EN-c: Stop first and yield to other traffic and pedestrians
+  DE-d: Nur anhalten, wenn Fußgänger sichtbar sind
+  EN-d: Only stop if pedestrians are visible
+DE-EXPL: Der Grünpfeil erlaubt das Rechtsabbiegen bei Rot nur nach vorherigem Halt und wenn niemand gefährdet wird.
+EN-EXPL: The green arrow only allows a right turn on red after coming to a full stop and if no one is endangered.
+
+### vorfahrt-15 correct=['a']
+DE-Q: Sie nähern sich einem Fußgängerüberweg (Zebrastreifen, Zeichen 293). Ein Fußgänger will die Straße überqueren. Wie verhalten Sie sich?
+EN-Q: You are approaching a pedestrian crossing (zebra crossing, Zeichen 293). A pedestrian wants to cross the road. How do you behave?
+ *DE-a: Sie müssen warten und dem Fußgänger das Überqueren ermöglichen
+ *EN-a: You must wait and allow the pedestrian to cross
+  DE-b: Der Fußgänger muss warten, bis Sie durchgefahren sind
+  EN-b: The pedestrian must wait until you have passed
+  DE-c: Nur bei Rot müssen Sie anhalten
+  EN-c: You only need to stop at a red light
+  DE-d: Sie müssen nur langsamer fahren, aber nicht anhalten
+  EN-d: You only have to slow down, not stop
+DE-EXPL: An einem Zebrastreifen haben Fußgänger, die erkennbar die Fahrbahn überqueren wollen, Vorrang.
+EN-EXPL: At a zebra crossing, pedestrians who clearly intend to cross have priority.
+
+### vorfahrt-16 correct=['a']
+DE-Q: An einer Kreuzung ist die Ampel wegen eines Stromausfalls komplett ausgefallen und es gibt keine weiteren Schilder. Was gilt?
+EN-Q: At an intersection, the traffic light has completely failed due to a power outage and there are no other signs. What applies?
+ *DE-a: Rechts vor links
+ *EN-a: Right before left
+  DE-b: Die Kreuzung darf nicht befahren werden
+  EN-b: The intersection may not be entered at all
+  DE-c: Wer zuerst kommt, fährt zuerst
+  EN-c: First to arrive goes first
+  DE-d: Es gilt automatisch eine Vorfahrtstraße
+  EN-d: A priority road automatically applies
+DE-EXPL: Fällt die Ampel aus und fehlen andere Regelungen, gilt die Grundregel rechts vor links.
+EN-EXPL: If the traffic light fails and no other regulation applies, the basic right-before-left rule takes over.
+
+### vorfahrt-17 correct=['b']
+DE-Q: Sie biegen rechts ab. Neben Ihnen fährt ein Radfahrer geradeaus auf einem Radweg, den Radfahrer benutzen müssen (Zeichen 237). Wer hat Vorrang?
+EN-Q: You are turning right. Next to you, a cyclist is riding straight ahead on a bike path cyclists are required to use (Zeichen 237). Who has priority?
+  DE-a: Sie, weil Sie sich bereits zum Abbiegen eingeordnet haben
+  EN-a: You, because you have already positioned yourself to turn
+ *DE-b: Der geradeausfahrende Radfahrer
+ *EN-b: The cyclist going straight
+  DE-c: Der Radfahrer muss Sie zuerst durchfahren lassen, weil Sie im Auto sitzen
+  EN-c: The cyclist must let you go through first, because you are in a car
+  DE-d: Nur wenn der Radweg nicht benutzungspflichtig ist, hat der Radfahrer Vorrang
+  EN-d: The cyclist only has priority if the bike path is not mandatory to use
+DE-EXPL: Beim Abbiegen muss geradeausfahrenden Rad- und Fußverkehr Vorrang gewährt werden; im Zweifel Schrittgeschwindigkeit.
+EN-EXPL: When turning, priority must be given to cyclists and pedestrians going straight; when in doubt, proceed at walking pace.
+
+### vorfahrt-18 correct=['b']
+DE-Q: Sie haben sich schon zum Abbiegen eingeordnet und blinken. Was gilt jetzt für Ihre Vorfahrt?
+EN-Q: You have already moved into position to turn and are signalling. What now applies to your right of way?
+  DE-a: Ihre Vorfahrtberechtigung erlischt automatisch
+  EN-a: Your right of way automatically ends
+ *DE-b: Ihre Vorfahrt gilt unverändert weiter, bis Sie abgebogen sind
+ *EN-b: Your right of way continues unchanged until you have turned
+  DE-c: Sie müssen in jedem Fall warten
+  EN-c: You must wait in every case
+  DE-d: Der Blinker gibt Ihnen automatisch Vorfahrt
+  EN-d: The indicator automatically grants you right of way
+DE-EXPL: Einordnen und Blinken ändern nichts an einer bestehenden Vorfahrtberechtigung.
+EN-EXPL: Positioning and signalling do not change an existing right of way.
+
+### vorfahrt-19 correct=['a']
+DE-Q: Ein Einsatzfahrzeug nähert sich mit Blaulicht und Martinshorn von hinten. Was müssen Sie tun, auch wenn Sie eigentlich Vorfahrt hätten?
+EN-Q: An emergency vehicle with blue lights and siren approaches from behind. What must you do, even if you would normally have right of way?
+ *DE-a: Sofort freie Bahn schaffen, notfalls durch Bilden einer Rettungsgasse oder Ranfahren
+ *EN-a: Immediately clear a path, if necessary by forming an emergency corridor or pulling over
+  DE-b: Normal weiterfahren, da Sie Vorfahrt haben
+  EN-b: Continue driving normally, since you have right of way
+  DE-c: Beschleunigen, um die Kreuzung zuerst zu erreichen
+  EN-c: Accelerate to reach the intersection first
+  DE-d: Rechts heranfahren, aber weiter auf Ihrer Vorfahrt bestehen
+  EN-d: Pull over to the right, but still insist on your right of way
+DE-EXPL: Sonderrechte von Einsatzfahrzeugen mit Blaulicht und Martinshorn gehen jeder sonstigen Vorfahrtregel vor.
+EN-EXPL: The special rights of emergency vehicles with blue lights and siren override every other right-of-way rule.
+
+### vorfahrt-20 correct=['b']
+DE-Q: Ein dreieckiges Schild mit rotem Rand zeigt ein Kreuzsymbol (Zeichen 102, 'Kreuzung'). Was bedeutet es?
+EN-Q: A triangular sign with a red border shows a cross symbol (Zeichen 102, 'intersection'). What does it mean?
+  DE-a: Es regelt selbst die Vorfahrt an dieser Kreuzung neu
+  EN-a: It re-regulates right of way at this intersection
+ *DE-b: Es warnt lediglich vor einer Kreuzung; rechts vor links gilt weiterhin
+ *EN-b: It merely warns of an upcoming intersection; right before left still applies
+  DE-c: Es zeigt eine Vorfahrtstraße an
+  EN-c: It indicates a priority road
+  DE-d: Es kündigt eine Ampel an dieser Kreuzung an
+  EN-d: It announces a traffic light at this intersection
+DE-EXPL: Gefahrzeichen wie 102 warnen nur; sie verändern nicht die geltende Vorfahrtregel.
+EN-EXPL: Warning signs like 102 only warn; they do not change the applicable right-of-way rule.
+
+### vorfahrt-21 correct=['b']
+DE-Q: Eine Vorfahrtstraße (Zeichen 306) kreuzt einen Bahnübergang ohne Schranke. Ein Zug nähert sich. Wer hat Vorrang?
+EN-Q: A priority road (Zeichen 306) crosses a railway crossing without a barrier. A train is approaching. Who has priority?
+  DE-a: Die Vorfahrtstraße, da sie durch Zeichen 306 geschützt ist
+  EN-a: The priority road, since it is protected by Zeichen 306
+ *DE-b: Der Zug hat unabhängig von der Straßenbeschilderung immer Vorrang
+ *EN-b: The train always has priority regardless of road signage
+  DE-c: Rechts vor links entscheidet
+  EN-c: Right before left decides
+  DE-d: Der zuerst ankommende Verkehrsteilnehmer
+  EN-d: Whoever arrives first
+DE-EXPL: Schienenfahrzeuge an Bahnübergängen haben immer Vorrang vor dem Straßenverkehr, unabhängig von sonstiger Beschilderung.
+EN-EXPL: Trains at level crossings always have priority over road traffic, regardless of other signage.
+
+### vorfahrt-22 correct=['a']
+DE-Q: Eine Straße hat eine Mittelinsel. Sie kreuzt eine gleichrangige Straße ohne Schilder. Wie gilt die Vorfahrt?
+EN-Q: A road has a central island. It crosses an equally-ranked road with no signs. How does right of way apply?
+ *DE-a: Rechts vor links gilt für die gesamte Straße einheitlich, unabhängig von der Mittelinsel
+ *EN-a: Right before left applies uniformly to the whole road, regardless of the island
+  DE-b: Jede Fahrbahnhälfte hat eine eigene Vorfahrtregel
+  EN-b: Each half of the carriageway has its own right-of-way rule
+  DE-c: Die Mittelinsel hebt jede Vorfahrtregelung auf
+  EN-c: The central island cancels any right-of-way rule
+  DE-d: Es gilt automatisch eine Vorfahrtstraße
+  EN-d: A priority road automatically applies
+DE-EXPL: Eine bauliche Teilung durch eine Mittelinsel ändert nichts an der grundsätzlichen Vorfahrtregelung der Straße.
+EN-EXPL: A structural division by a central island does not change the road's basic right-of-way rule.
+
+### vorfahrt-23 correct=['b']
+DE-Q: Sie kommen aus einer Einbahnstraße ohne Vorfahrtsschilder und treffen auf eine gleichrangige Straße. Welche Regel gilt?
+EN-Q: You come out of a one-way street with no priority signs and meet a road of equal rank. What rule applies?
+  DE-a: Die Einbahnstraße hat automatisch Vorfahrt
+  EN-a: The one-way street automatically has priority
+ *DE-b: Rechts vor links gilt wie an jeder anderen gleichrangigen Kreuzung
+ *EN-b: Right before left applies as at any other intersection of equal-ranking roads
+  DE-c: Die Kreuzung muss neu geregelt werden, weil eine Einbahnstraße beteiligt ist
+  EN-c: The intersection has to follow special rules because a one-way street is involved
+  DE-d: Es gibt keine Vorfahrtregel in Einbahnstraßen
+  EN-d: There is no right-of-way rule in one-way streets
+DE-EXPL: Eine Einbahnstraße ist für die Vorfahrt eine ganz normale Straße; ohne Schilder gilt rechts vor links.
+EN-EXPL: A one-way street is a perfectly normal road for right-of-way purposes; without signs, right before left applies.
+
+### vorfahrt-24 correct=['a']
+DE-Q: Auf Ihrer Straßenseite steht ein Hindernis, zum Beispiel parken dort Autos. Sie müssen deshalb auf die Gegenfahrbahn ausweichen. Was gilt jetzt, auch wenn sonst rechts vor links gelten würde?
+EN-Q: There is an obstacle on your side of the road, for example parked cars. Because of this you have to move into the oncoming lane. What applies now, even if right-before-left would otherwise apply?
+ *DE-a: Sie müssen dem Gegenverkehr Vorrang gewähren und dürfen ihn nicht behindern
+ *EN-a: You must give way to oncoming traffic and must not obstruct it
+  DE-b: Sie haben automatisch Vorfahrt, weil das Hindernis Sie zwingt auszuweichen
+  EN-b: You automatically have priority because the obstacle forces you to swerve
+  DE-c: Der Gegenverkehr muss anhalten und warten
+  EN-c: Oncoming traffic must stop and wait
+  DE-d: Es gilt rechts vor links wie an einer Kreuzung
+  EN-d: Right before left applies as at an intersection
+DE-EXPL: Wer wegen eines Hindernisses die Gegenfahrbahn benutzen muss, hat dem Gegenverkehr Vorrang zu gewähren.
+EN-EXPL: Anyone who must use the opposite lane because of an obstacle must give way to oncoming traffic.
+
+### vorfahrt-25 correct=['c']
+DE-Q: Ein Schild wie Zeichen 306, jedoch grau/schwarz durchgestrichen (Zeichen 307), bedeutet:
+EN-Q: A sign like Zeichen 306 but crossed out in grey/black (Zeichen 307) means:
+  DE-a: Beginn einer neuen Vorfahrtstraße
+  EN-a: Start of a new priority road
+  DE-b: Verbot der Einfahrt in die Straße
+  EN-b: No entry into the road
+ *DE-c: Ende der Vorfahrtstraße
+ *EN-c: End of the priority road
+  DE-d: Vorfahrt gilt nur noch an der nächsten Kreuzung
+  EN-d: Right of way only still applies at the next intersection
+DE-EXPL: Zeichen 307 hebt die durch Zeichen 306 angeordnete durchgehende Vorfahrt wieder auf.
+EN-EXPL: Zeichen 307 cancels the continuous right of way established by Zeichen 306.
+
+### zeichen-01 correct=['b']
+DE-Q: Ein weißes rundes Schild mit rotem Rand und einer schwarzen Zahl (z. B. '50') zeigt an:
+EN-Q: A white round sign with a red border and a black number (e.g. '50') indicates:
+  DE-a: Empfohlene Mindestgeschwindigkeit
+  EN-a: Recommended minimum speed
+ *DE-b: Zulässige Höchstgeschwindigkeit in km/h
+ *EN-b: Maximum permitted speed in km/h
+  DE-c: Höchstgeschwindigkeit, die nur bei Nässe oder Nebel gilt
+  EN-c: Maximum speed that only applies in wet weather or fog
+  DE-d: Unverbindliche Geschwindigkeitsempfehlung
+  EN-d: Non-binding speed recommendation
+DE-EXPL: Zeichen 274 legt die höchstzulässige Geschwindigkeit fest, die nicht überschritten werden darf.
+EN-EXPL: Zeichen 274 sets the maximum permitted speed, which must not be exceeded.
+
+### zeichen-02 correct=['a']
+DE-Q: Das gleiche Schild wie die Geschwindigkeitsbegrenzung, aber grau durchgestrichen (Zeichen 278), bedeutet:
+EN-Q: The same sign as the speed limit but crossed out in grey (Zeichen 278) means:
+ *DE-a: Ende der zuvor angeordneten Geschwindigkeitsbegrenzung
+ *EN-a: End of the previously ordered speed limit
+  DE-b: Zusätzliche Geschwindigkeitsbegrenzung bei Nässe
+  EN-b: Additional speed limit in wet conditions
+  DE-c: Verbot des Überholens endet
+  EN-c: End of the overtaking ban
+  DE-d: Beginn eines Tempolimits
+  EN-d: Start of a speed limit
+DE-EXPL: Ein durchgestrichenes Zeichen hebt die zuvor geltende Anordnung auf.
+EN-EXPL: A crossed-out sign cancels the previously applicable order.
+
+### zeichen-03 correct=['c']
+DE-Q: Ein rundes rotes Schild mit einem weißen waagerechten Balken (Zeichen 267) bedeutet:
+EN-Q: A round red sign with a white horizontal bar (Zeichen 267) means:
+  DE-a: Halt, Vorfahrt gewähren
+  EN-a: Stop, give way
+  DE-b: Durchfahrt für alle Fahrzeuge frei
+  EN-b: Free passage for all vehicles
+ *DE-c: Verbot der Einfahrt für Fahrzeuge aller Art
+ *EN-c: No entry for vehicles of any kind
+  DE-d: Einbahnstraße in Fahrtrichtung
+  EN-d: One-way street in the direction of travel
+DE-EXPL: Zeichen 267 verbietet die Einfahrt in diese Richtung, typisch am Ende einer Einbahnstraße.
+EN-EXPL: Zeichen 267 prohibits entry in that direction, typically at the end of a one-way street.
+
+### zeichen-04 correct=['b']
+DE-Q: Ein dreieckiges Warnschild mit spielenden Kindern (Zeichen 136) weist auf was hin?
+EN-Q: A triangular warning sign showing playing children (Zeichen 136) warns of:
+  DE-a: Eine Schule ohne besondere Vorsicht nötig
+  EN-a: A school where no special caution is needed
+ *DE-b: Dass Kinder plötzlich auf die Straße laufen können
+ *EN-b: That children might suddenly run onto the road
+  DE-c: Ein Spielplatzverbot
+  EN-c: A ban on playgrounds
+  DE-d: Ein Tempolimit von 30 km/h zwingend
+  EN-d: A mandatory 30 km/h speed limit
+DE-EXPL: Das Schild warnt vor Kindern in der Nähe der Fahrbahn, z. B. bei Schulen oder Spielplätzen; erhöhte Vorsicht und Bremsbereitschaft sind geboten.
+EN-EXPL: The sign warns of children near the road, e.g. near schools or playgrounds; increased caution and readiness to brake are required.
+
+### zeichen-05 correct=['a']
+DE-Q: Ein dreieckiges Schild mit rotem Rand und einem Ausrufezeichen (Zeichen 101) bedeutet allgemein:
+EN-Q: A triangular sign with a red border and an exclamation mark (Zeichen 101) generally means:
+ *DE-a: Allgemeine Gefahrstelle - erhöhte Aufmerksamkeit erforderlich
+ *EN-a: General danger spot - increased attention required
+  DE-b: Verbot jeglicher Fahrzeuge
+  EN-b: Prohibition of all vehicles
+  DE-c: Vorfahrtstraße beginnt
+  EN-c: Priority road begins
+  DE-d: Ende aller Verbote und Beschränkungen
+  EN-d: End of all prohibitions and restrictions
+DE-EXPL: Dieses Zeichen wird oft mit einem Zusatzschild kombiniert, das die konkrete Gefahr benennt.
+EN-EXPL: This sign is often combined with an additional plate specifying the concrete danger.
+
+### zeichen-06 correct=['c']
+DE-Q: Ein dreieckiges Schild warnt: Die Fahrbahn wird enger (Zeichen 120/121). Was sollten Sie tun?
+EN-Q: A triangular sign warns: the road is narrowing (Zeichen 120/121). What should you do?
+  DE-a: Beschleunigen, um die Engstelle schnell zu passieren
+  EN-a: Accelerate to pass the narrow section quickly
+  DE-b: Ignorieren, wenn kein Gegenverkehr sichtbar ist
+  EN-b: Ignore it if no oncoming traffic is visible
+ *DE-c: Geschwindigkeit anpassen und sich rechtzeitig einordnen
+ *EN-c: Adjust speed and merge into the correct lane in good time
+  DE-d: Nur den Blinker setzen, ohne die Geschwindigkeit zu ändern
+  EN-d: Just signal, without changing your speed
+DE-EXPL: Bei Fahrbahnverengungen ist rechtzeitiges, vorausschauendes Einordnen und angepasste Geschwindigkeit wichtig.
+EN-EXPL: At road narrowings, merging early with foresight and adjusting speed is important.
+
+### zeichen-07 correct=['b']
+DE-Q: Ein dreieckiges Warnschild mit einem Zugsymbol (z. B. Zeichen 151) kündigt an:
+EN-Q: A triangular warning sign with a train symbol (e.g. Zeichen 151) announces:
+  DE-a: Eine U-Bahn-Station in der Nähe
+  EN-a: A subway station nearby
+ *DE-b: Einen Bahnübergang ohne Schranken oder Halbschranken
+ *EN-b: A level crossing without full or half barriers
+  DE-c: Eine Straßenbahnhaltestelle
+  EN-c: A tram stop
+  DE-d: Einen Bahnübergang, der nur für Güterzüge gilt
+  EN-d: A level crossing that only applies to freight trains
+DE-EXPL: Solche Schilder kündigen unbeschrankte Bahnübergänge an, an denen besondere Vorsicht geboten ist.
+EN-EXPL: Such signs announce level crossings without barriers, where special caution is required.
+
+### zeichen-08 correct=['a']
+DE-Q: Ein weißes Schild mit rotem Andreaskreuz (Zeichen 201) an einem eingleisigen Bahnübergang bedeutet:
+EN-Q: A white sign with a red St. Andrew's cross (Zeichen 201) at a single-track level crossing means:
+ *DE-a: Bei einem herannahenden Schienenfahrzeug muss unbedingt angehalten werden
+ *EN-a: You must always stop if a rail vehicle is approaching
+  DE-b: Sie müssen nur langsamer fahren, aber nicht zwingend anhalten
+  EN-b: You only have to slow down, not necessarily stop
+  DE-c: Vorfahrt für die Straße gegenüber der Bahn
+  EN-c: The road has priority over the railway
+  DE-d: Die Bahnstrecke ist stillgelegt
+  EN-d: The rail line is out of service
+DE-EXPL: Das Andreaskreuz markiert einen Bahnübergang; bei Annäherung eines Zuges muss zwingend angehalten werden.
+EN-EXPL: The St. Andrew's cross marks a level crossing; you must stop if a train is approaching.
+
+### zeichen-09 correct=['b']
+DE-Q: Ein rundes weißes Schild mit rotem Rand ohne weitere Symbole (Zeichen 250) bedeutet:
+EN-Q: A round white sign with a red border and no further symbols (Zeichen 250) means:
+  DE-a: Verbot nur für Motorräder
+  EN-a: Prohibition for motorcycles only
+ *DE-b: Verbot für Fahrzeuge aller Art
+ *EN-b: Prohibition for vehicles of any kind
+  DE-c: Ende aller Verbote
+  EN-c: End of all prohibitions
+  DE-d: Verbot nur für Fahrzeuge mit Anhänger
+  EN-d: Prohibition only for vehicles with a trailer
+DE-EXPL: Zeichen 250 sperrt die Strecke für sämtliche Fahrzeugarten, mit wenigen gesetzlichen Ausnahmen.
+EN-EXPL: Zeichen 250 closes the route to all types of vehicles, with a few statutory exceptions.
+
+### zeichen-10 correct=['a']
+DE-Q: Ein rundes weißes Schild mit rotem Rand, das ein Auto und ein Motorrad zeigt (Zeichen 260), bedeutet:
+EN-Q: A round white sign with a red border showing a car and a motorcycle (Zeichen 260) means:
+ *DE-a: Verbot für Kraftfahrzeuge
+ *EN-a: Prohibition for motor vehicles
+  DE-b: Nur Kraftfahrzeuge erlaubt
+  EN-b: Only motor vehicles allowed
+  DE-c: Parkverbot für Kraftfahrzeuge
+  EN-c: No parking for motor vehicles
+  DE-d: Verbot nur für Motorräder, PKW weiterhin erlaubt
+  EN-d: Prohibition only for motorcycles, cars still allowed
+DE-EXPL: Zeichen 260 verbietet motorisierten Fahrzeugen die Durchfahrt (mit definierten Ausnahmen, z. B. Mofas unter bestimmten Bedingungen).
+EN-EXPL: Zeichen 260 prohibits motorized vehicles from passing (with defined exceptions, e.g. mopeds under certain conditions).
+
+### zeichen-11 correct=['b']
+DE-Q: Ein blaues rundes Schild mit weißem Fahrrad-Symbol (Zeichen 237) bedeutet:
+EN-Q: A round blue sign with a white bicycle symbol (Zeichen 237) means:
+  DE-a: Fahrräder sind hier verboten
+  EN-a: Bicycles are prohibited here
+ *DE-b: Radweg mit Benutzungspflicht für Radfahrer
+ *EN-b: Cycle path with mandatory use for cyclists
+  DE-c: Radweg, den Radfahrer freiwillig nutzen können
+  EN-c: Bike path that cyclists may use voluntarily
+  DE-d: Gemeinsamer Geh- und Radweg
+  EN-d: Shared pedestrian and bike path
+DE-EXPL: Ist ein Radweg mit Zeichen 237 gekennzeichnet, müssen Radfahrer ihn benutzen, sofern er verkehrssicher ist.
+EN-EXPL: If a cycle path is marked with Zeichen 237, cyclists must use it, provided it is safe to use.
+
+### zeichen-12 correct=['c']
+DE-Q: Ein blaues rundes Schild mit einem Fußgänger- und einem Fahrrad-Symbol übereinander (Zeichen 240) bedeutet:
+EN-Q: A round blue sign with a pedestrian symbol above a bicycle symbol (Zeichen 240) means:
+  DE-a: Getrennter Rad- und Gehweg
+  EN-a: Separate cycle and footpath
+  DE-b: Nur für Fahrräder, Fußgänger müssen den Gehweg auf der anderen Seite nutzen
+  EN-b: Bikes only, pedestrians must use the footpath on the other side
+ *DE-c: Gemeinsamer Geh- und Radweg
+ *EN-c: Shared pedestrian and cycle path
+  DE-d: Radweg mit Benutzungspflicht, Fußgänger dürfen dort nicht gehen
+  EN-d: Mandatory bike path, pedestrians are not allowed to walk there
+DE-EXPL: Auf einem gemeinsamen Geh- und Radweg müssen sich Fußgänger und Radfahrer den Weg teilen und gegenseitig Rücksicht nehmen.
+EN-EXPL: On a shared pedestrian and cycle path, pedestrians and cyclists must share the space and show mutual consideration.
+
+### zeichen-13 correct=['a']
+DE-Q: Ein blaues rechteckiges Schild mit weißem Pfeil nach oben und der Aufschrift 'Einbahnstraße' (Zeichen 220) bedeutet:
+EN-Q: A blue rectangular sign with a white upward arrow reading 'Einbahnstraße' (Zeichen 220) means:
+ *DE-a: Die Straße darf nur in Pfeilrichtung befahren werden
+ *EN-a: The road may only be driven in the direction of the arrow
+  DE-b: Die Straße ist für alle Richtungen frei
+  EN-b: The road is open in all directions
+  DE-c: Die Straße ist gesperrt
+  EN-c: The road is closed
+  DE-d: Die Richtung gilt nur für Fahrräder, Autos dürfen in beide Richtungen fahren
+  EN-d: The direction only applies to bicycles, cars may drive both ways
+DE-EXPL: In einer Einbahnstraße ist das Fahren nur in der durch den Pfeil vorgegebenen Richtung erlaubt.
+EN-EXPL: On a one-way street, driving is only permitted in the direction indicated by the arrow.
+
+### zeichen-14 correct=['b']
+DE-Q: Ein blaues Schild mit stilisierter Autobahnbrücke (Zeichen 330.1) zeigt an:
+EN-Q: A blue sign with a stylised motorway bridge symbol (Zeichen 330.1) indicates:
+  DE-a: Ende der Autobahn
+  EN-a: End of the motorway
+ *DE-b: Beginn der Autobahn
+ *EN-b: Start of the motorway
+  DE-c: Autobahn beginnt erst nach der nächsten Ausfahrt
+  EN-c: The motorway only starts after the next exit
+  DE-d: Zubringer zur Autobahn, noch nicht die Autobahn selbst
+  EN-d: A feeder road to the motorway, not the motorway itself yet
+DE-EXPL: Ab diesem Schild gelten die besonderen Regeln für Autobahnen, z. B. Verbot für Fußgänger und langsame Fahrzeuge.
+EN-EXPL: From this sign onward, special motorway rules apply, e.g. prohibition of pedestrians and slow vehicles.
+
+### zeichen-15 correct=['a']
+DE-Q: Das gleiche Symbol wie der Autobahnbeginn, jedoch grau durchgestrichen (Zeichen 330.2), zeigt an:
+EN-Q: The same symbol as the motorway start, but crossed out in grey (Zeichen 330.2), indicates:
+ *DE-a: Ende der Autobahn
+ *EN-a: End of the motorway
+  DE-b: Beginn der Autobahn
+  EN-b: Start of the motorway
+  DE-c: Raststätte in 300 Metern
+  EN-c: Service area in 300 meters
+  DE-d: Die Autobahn wird zur Kraftfahrstraße
+  EN-d: The motorway changes into an expressway
+DE-EXPL: Ab diesem Schild gelten wieder die normalen Straßenverkehrsregeln.
+EN-EXPL: From this sign onward, normal road traffic rules apply again.
+
+### zeichen-16 correct=['b']
+DE-Q: Ein blaues rundes Schild mit rotem Rand und rotem Diagonalkreuz (Zeichen 283) bedeutet:
+EN-Q: A blue round sign with a red border and a red diagonal cross (Zeichen 283) means:
+  DE-a: Eingeschränktes Haltverbot
+  EN-a: Restricted no-stopping zone
+ *DE-b: Absolutes Haltverbot
+ *EN-b: Absolute no-stopping zone
+  DE-c: Haltverbot, das nur werktags gilt
+  EN-c: No-stopping rule that only applies on weekdays
+  DE-d: Haltverbot nur für Lkw
+  EN-d: No-stopping rule only for trucks
+DE-EXPL: Beim absoluten Haltverbot darf zu keiner Zeit gehalten werden, auch nicht kurz zum Ein- oder Aussteigen.
+EN-EXPL: In an absolute no-stopping zone, stopping is never permitted, not even briefly to let someone in or out.
+
+### zeichen-17 correct=['a']
+DE-Q: Ein blaues rundes Schild mit rotem Rand und einem einzelnen roten Diagonalstrich (Zeichen 286) bedeutet:
+EN-Q: A blue round sign with a red border and a single red diagonal stripe (Zeichen 286) means:
+ *DE-a: Eingeschränktes Haltverbot - kurzes Halten zum Be- oder Entladen ist erlaubt
+ *EN-a: Restricted no-stopping zone - brief stopping to load or unload is allowed
+  DE-b: Absolutes Haltverbot ohne Ausnahme
+  EN-b: Absolute no-stopping zone with no exceptions
+  DE-c: Parken für maximal eine Stunde erlaubt
+  EN-c: Parking allowed for up to one hour
+  DE-d: Absolutes Haltverbot, kein Halten erlaubt
+  EN-d: Absolute no-stopping zone, no stopping allowed at all
+DE-EXPL: Beim eingeschränkten Haltverbot ist kurzes Halten erlaubt, aber kein Parken (länger als 3 Minuten verlassen).
+EN-EXPL: In a restricted no-stopping zone, brief stopping is allowed but not parking (leaving the vehicle for more than 3 minutes).
+
+### zeichen-18 correct=['c']
+DE-Q: Ein blaues quadratisches Schild mit weißem 'P' (Zeichen 314) bedeutet:
+EN-Q: A blue square sign with a white 'P' (Zeichen 314) means:
+  DE-a: Parken verboten
+  EN-a: Parking prohibited
+  DE-b: Parken nur für Anwohner erlaubt
+  EN-b: Parking only allowed for residents
+ *DE-c: Parken erlaubt
+ *EN-c: Parking allowed
+  DE-d: Parken nur mit Parkschein erlaubt
+  EN-d: Parking only allowed with a parking ticket
+DE-EXPL: Zeichen 314 markiert einen Bereich, in dem das Parken ausdrücklich erlaubt ist.
+EN-EXPL: Zeichen 314 marks an area where parking is explicitly allowed.
+
+### zeichen-19 correct=['b']
+DE-Q: Ein blaues Schild mit 'P' und einem Symbol, das teilweises Parken auf dem Gehweg zeigt (Zeichen 315), bedeutet:
+EN-Q: A blue sign with a 'P' and a symbol showing partial parking on the pavement (Zeichen 315) means:
+  DE-a: Parken auf dem Gehweg ist grundsätzlich verboten
+  EN-a: Parking on the pavement is generally prohibited
+ *DE-b: Parken ist teilweise oder ganz auf dem Gehweg erlaubt, je nach Zusatzsymbol
+ *EN-b: Parking is allowed partly or fully on the pavement, depending on the sub-symbol
+  DE-c: Parken auf dem Gehweg ist immer vollständig erlaubt, egal welches Symbol zu sehen ist
+  EN-c: Parking on the footpath is always fully allowed, regardless of the symbol shown
+  DE-d: Parken auf dem Gehweg ist nur nachts erlaubt
+  EN-d: Parking on the footpath is only allowed at night
+DE-EXPL: Die genaue Art des erlaubten Gehwegparkens (ganz, halb, quer) wird durch das jeweilige Symbol festgelegt.
+EN-EXPL: The exact type of permitted pavement parking (full, half, perpendicular) is defined by the specific symbol.
+
+### zeichen-20 correct=['a']
+DE-Q: Ein dreieckiges Warnschild mit einer Person und einer Schaufel (Zeichen 123) kündigt an:
+EN-Q: A triangular warning sign showing a person with a shovel (Zeichen 123) announces:
+ *DE-a: Eine Arbeitsstelle bzw. Baustelle
+ *EN-a: A road works / construction site
+  DE-b: Ein Landwirtschaftsgebiet
+  EN-b: An agricultural area
+  DE-c: Ein Wanderweg beginnt
+  EN-c: A hiking trail begins
+  DE-d: Eine Fußgängerzone beginnt in Kürze
+  EN-d: A pedestrian zone begins shortly
+DE-EXPL: Das Schild warnt vor einer Arbeitsstelle; erhöhte Aufmerksamkeit und reduzierte Geschwindigkeit sind angebracht.
+EN-EXPL: The sign warns of a work site; increased attention and reduced speed are appropriate.
+
+### zeichen-21 correct=['b']
+DE-Q: Ein blaues quadratisches Schild mit einem weißen Dreieck und einer Person darauf, die eine Straße überquert (Zeichen 350), markiert:
+EN-Q: A blue square sign with a white triangle showing a person crossing (Zeichen 350) marks:
+  DE-a: Eine Bushaltestelle
+  EN-a: A bus stop
+ *DE-b: Einen Fußgängerüberweg
+ *EN-b: A pedestrian crossing
+  DE-c: Eine Fußgängerzone
+  EN-c: A pedestrian zone
+  DE-d: Einen verkehrsberuhigten Bereich
+  EN-d: A traffic-calmed area
+DE-EXPL: Dieses Schild kennzeichnet gemeinsam mit der Zebrastreifen-Markierung einen Fußgängerüberweg.
+EN-EXPL: This sign, together with the zebra-stripe road markings, indicates a pedestrian crossing.
+
+### zeichen-22 correct=['a']
+DE-Q: Ein rundes weißes Schild mit fünf schrägen schwarzen Streifen (Zeichen 282) bedeutet:
+EN-Q: A round white sign with five diagonal black stripes (Zeichen 282) means:
+ *DE-a: Ende sämtlicher zuvor angeordneter Streckenverbote/-beschränkungen
+ *EN-a: End of all previously ordered restrictions on that stretch of road
+  DE-b: Beginn eines Überholverbots
+  EN-b: Start of an overtaking ban
+  DE-c: Baustellenende
+  EN-c: End of roadworks
+  DE-d: Ende nur des Überholverbots, alle anderen Beschränkungen bleiben bestehen
+  EN-d: End of only the overtaking ban, all other restrictions stay in place
+DE-EXPL: Zeichen 282 hebt gebündelt alle vorher geltenden streckenbezogenen Verbote und Beschränkungen auf.
+EN-EXPL: Zeichen 282 collectively cancels all previously applicable stretch-related prohibitions and restrictions.
+
+### zeichen-23 correct=['c']
+DE-Q: Ein rundes weißes Schild mit rotem Rand, das zwei Autos zeigt, eines schwarz und eines rot (Zeichen 276), bedeutet:
+EN-Q: A round white sign with a red border showing two cars, one black and one red (Zeichen 276), means:
+  DE-a: Überholverbot nur für Lkw
+  EN-a: Overtaking ban only for trucks
+  DE-b: Überholverbot, das nur bei Nässe gilt
+  EN-b: Overtaking ban that only applies in wet weather
+ *DE-c: Überholverbot für Kraftfahrzeuge
+ *EN-c: No overtaking for motor vehicles
+  DE-d: Ende des Überholverbots
+  EN-d: End of the overtaking ban
+DE-EXPL: Zeichen 276 verbietet das Überholen von Kraftfahrzeugen; das Verbot endet i. d. R. mit Zeichen 280.
+EN-EXPL: Zeichen 276 prohibits overtaking motor vehicles; the prohibition usually ends with Zeichen 280.
+
+### zeichen-24 correct=['b']
+DE-Q: Ein blaues rundes Schild mit weißem Pfeil, der nach rechts zeigt (Zeichen 209), bedeutet:
+EN-Q: A round blue sign with a white arrow pointing right (Zeichen 209) means:
+  DE-a: Empfehlung, nach rechts zu fahren
+  EN-a: Recommendation to go right
+ *DE-b: Vorgeschriebene Fahrtrichtung nach rechts
+ *EN-b: Mandatory direction of travel to the right
+  DE-c: Rechtsabbiegen verboten
+  EN-c: Turning right prohibited
+  DE-d: Rechts vorbeifahren an Hindernissen erlaubt
+  EN-d: Passing obstacles on the right is allowed
+DE-EXPL: Vorgeschriebene Richtungspfeile (Zeichen 209ff.) zwingen zum Fahren in die angezeigte Richtung.
+EN-EXPL: Mandatory direction arrows (Zeichen 209 ff.) require driving in the indicated direction.
+
+### zeichen-25 correct=['a']
+DE-Q: Unter einem Verkehrszeichen befindet sich ein kleines weißes Rechteck mit zusätzlichem Text oder Symbol. Was ist das?
+EN-Q: Below a traffic sign there is a small white rectangle with additional text or a symbol. What is that?
+ *DE-a: Ein Zusatzzeichen, das den Geltungsbereich oder die Bedeutung des Hauptschilds präzisiert
+ *EN-a: An additional plate that specifies the scope or meaning of the main sign
+  DE-b: Ein rein dekoratives Element ohne rechtliche Bedeutung
+  EN-b: A purely decorative element with no legal meaning
+  DE-c: Ein Hinweis, der nur für Lkw gilt
+  EN-c: A notice that only applies to trucks
+  DE-d: Ein zweites Hauptschild mit eigener, unabhängiger Bedeutung
+  EN-d: A second main sign with its own independent meaning
+DE-EXPL: Zusatzzeichen können z. B. Geltungszeiten, Entfernungen oder Ausnahmen für bestimmte Fahrzeugarten angeben.
+EN-EXPL: Additional plates can specify, for example, validity times, distances, or exceptions for certain vehicle types.
+

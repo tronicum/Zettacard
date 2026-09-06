@@ -1,0 +1,700 @@
+### gefahr-01 correct=['b']
+DE-Q: Sie fahren bei Regen auf der Autobahn. Wie verändert sich der Bremsweg im Vergleich zu trockener Fahrbahn?
+EN-Q: You are driving on the motorway in the rain. How does the braking distance change compared to a dry road?
+  DE-a: Er bleibt fast gleich, nur die Lenkung wird schwerer
+  EN-a: It stays almost the same, only steering gets heavier
+ *DE-b: Er wird deutlich länger, weil die Reifen weniger Grip haben
+ *EN-b: It becomes clearly longer because the tyres grip less
+  DE-c: Er wird kürzer, weil das Wasser die Bremsen kühlt
+  EN-c: It becomes shorter because water cools the brakes
+  DE-d: Er ändert sich nur bei Tempo über 150 km/h
+  EN-d: It only changes above 150 km/h
+DE-EXPL: Nasse Fahrbahn senkt die Reibung zwischen Reifen und Straße. Dadurch braucht das Auto mehr Weg zum Stehen, man muss den Abstand vergrößern.
+EN-EXPL: A wet road reduces friction between tyre and surface. The car needs more distance to stop, so you must increase your following distance.
+
+### gefahr-02 correct=['c']
+DE-Q: Was ist Aquaplaning?
+EN-Q: What is aquaplaning?
+  DE-a: Ein Reifenschaden durch zu wenig Luftdruck
+  EN-a: Tyre damage caused by too little air pressure
+  DE-b: Ein Bremsfehler bei nassem Wetter
+  EN-b: A braking fault that happens in wet weather
+ *DE-c: Ein Wasserfilm hebt die Reifen von der Fahrbahn ab
+ *EN-c: A film of water lifts the tyres off the road
+  DE-d: Ein Motorschaden durch eingedrungenes Wasser
+  EN-d: Engine damage caused by water getting inside
+DE-EXPL: Bei viel Wasser auf der Fahrbahn und hoher Geschwindigkeit kann sich ein Wasserkeil bilden, der den Reifen vom Asphalt trennt. Das Auto verliert dann Bodenkontakt und lässt sich kaum noch lenken oder bremsen.
+EN-EXPL: With a lot of water on the road and high speed, a wedge of water can form and separate the tyre from the asphalt. The car then loses contact with the road and becomes hard to steer or brake.
+
+### gefahr-03 correct=['a']
+DE-Q: Wie sollten Sie bei Aquaplaning reagieren?
+EN-Q: How should you react during aquaplaning?
+ *DE-a: Gas wegnehmen, Lenkrad gerade halten, nicht scharf bremsen
+ *EN-a: Ease off the accelerator, keep the wheel straight, don't brake hard
+  DE-b: Sofort voll bremsen, damit die Räder wieder greifen
+  EN-b: Brake fully at once so the wheels grip again
+  DE-c: Stark gegenlenken, um die Spur zu halten
+  EN-c: Steer strongly against it to hold your lane
+  DE-d: Beschleunigen, um schneller aus der Wasserlache zu kommen
+  EN-d: Accelerate to get through the puddle faster
+DE-EXPL: Solange die Reifen keinen Kontakt zur Fahrbahn haben, wirken Lenken und Bremsen kaum. Man sollte das Gas loslassen, ruhig geradeaus rollen lassen und warten, bis die Reifen wieder greifen.
+EN-EXPL: As long as the tyres have no contact with the road, steering and braking barely work. You should release the accelerator, roll straight ahead calmly, and wait until the tyres grip again.
+
+### gefahr-04 correct=['b']
+DE-Q: An welchen Stellen bildet sich im Winter besonders schnell Glatteis, auch wenn die restliche Straße noch trocken ist?
+EN-Q: In winter, where does black ice form especially fast, even while the rest of the road is still dry?
+  DE-a: Mitten auf breiten Hauptstraßen
+  EN-a: In the middle of wide main roads
+ *DE-b: Auf Brücken und im Schatten von Bäumen
+ *EN-b: On bridges and in the shade of trees
+  DE-c: Nur auf Autobahnen
+  EN-c: Only on motorways
+  DE-d: Nur direkt vor Ampeln
+  EN-d: Only right before traffic lights
+DE-EXPL: Brücken kühlen von oben und unten ab und frieren deshalb zuerst. Schattige Stellen bekommen weniger Sonne ab und bleiben länger kalt und feucht. Dort ist die Gefahr besonders hoch.
+EN-EXPL: Bridges cool down from both above and below, so they freeze first. Shaded spots get less sun and stay cold and damp longer. The risk there is especially high.
+
+### gefahr-05 correct=['c']
+DE-Q: Sie fahren mit 80 km/h. Wie lang ist ungefähr Ihr Reaktionsweg, bevor Sie überhaupt zu bremsen beginnen?
+EN-Q: You are driving at 80 km/h. Roughly how long is your reaction distance before you even start braking?
+  DE-a: Etwa 8 Meter
+  EN-a: About 8 metres
+  DE-b: Etwa 16 Meter
+  EN-b: About 16 metres
+ *DE-c: Etwa 24 Meter
+ *EN-c: About 24 metres
+  DE-d: Etwa 40 Meter
+  EN-d: About 40 metres
+DE-EXPL: Eine einfache Faustformel ist: Geschwindigkeit in km/h geteilt durch 10 und dann mal 3 ergibt den Reaktionsweg in Metern. Bei 80 km/h sind das etwa 24 Meter.
+EN-EXPL: A simple rule of thumb: divide the speed in km/h by 10, then multiply by 3, to get the reaction distance in metres. At 80 km/h that is roughly 24 metres.
+
+### gefahr-06 correct=['a']
+DE-Q: Was bedeutet die Faustregel 'halber Tacho' für den Sicherheitsabstand auf der Autobahn?
+EN-Q: What does the 'half your speedometer reading' rule of thumb mean for following distance on the motorway?
+ *DE-a: Der Abstand in Metern soll mindestens der halben Geschwindigkeit in km/h entsprechen
+ *EN-a: The distance in metres should be at least half your speed in km/h
+  DE-b: Man soll nur halb so schnell fahren wie erlaubt
+  EN-b: You should only drive at half the allowed speed
+  DE-c: Der Abstand darf höchstens die halbe Fahrzeuglänge betragen
+  EN-c: The distance may be at most half a vehicle length
+  DE-d: Man soll nach der Hälfte der Strecke eine Pause machen
+  EN-d: You should take a break after half the route
+DE-EXPL: Bei 100 km/h wären das mindestens 50 Meter Abstand. Diese Faustregel ist einfach zu merken, ersetzt aber keine genauere Berechnung bei schlechten Bedingungen.
+EN-EXPL: At 100 km/h that would be at least 50 metres of distance. This rule of thumb is easy to remember but does not replace a more careful calculation in poor conditions.
+
+### gefahr-07 correct=['b']
+DE-Q: Wie funktioniert die 'Drei-Sekunden-Regel' zur Abstandskontrolle?
+EN-Q: How does the 'three-second rule' for checking following distance work?
+  DE-a: Man zählt drei Sekunden, bevor man losfährt
+  EN-a: You count three seconds before pulling away
+ *DE-b: Man merkt sich einen festen Punkt und zählt, wie viele Sekunden bis dahin vergehen, bevor das eigene Auto ihn erreicht
+ *EN-b: You pick a fixed point and count how many seconds pass before your own car reaches it
+  DE-c: Man hält drei Sekunden lang die Hupe gedrückt bei Gefahr
+  EN-c: You hold the horn for three seconds when there is danger
+  DE-d: Man wartet drei Sekunden nach dem Bremsen, bevor man weiterfährt
+  EN-d: You wait three seconds after braking before driving on
+DE-EXPL: Wenn das vorausfahrende Fahrzeug einen Punkt passiert, beginnt man zu zählen. Erreicht man selbst den Punkt vor Ablauf von drei Sekunden, ist der Abstand zu gering.
+EN-EXPL: When the vehicle ahead passes a point, you start counting. If you reach that point before three seconds pass, your distance is too short.
+
+### gefahr-08 correct=['b']
+DE-Q: Sie sehen am Straßenrand einen Ball auf die Fahrbahn rollen. Wie sollten Sie reagieren?
+EN-Q: You see a ball roll onto the road from the roadside. How should you react?
+  DE-a: Normal weiterfahren, ein Ball ist kein Hindernis
+  EN-a: Keep driving normally, a ball is not an obstacle
+ *DE-b: Sofort Geschwindigkeit verringern und mit einem Kind rechnen, das dem Ball hinterherläuft
+ *EN-b: Slow down at once and expect a child to run after the ball
+  DE-c: Nur hupen und normal weiterfahren
+  EN-c: Just sound the horn and keep driving normally
+  DE-d: Beschleunigen, um schnell an der Stelle vorbeizukommen
+  EN-d: Speed up to get past the spot quickly
+DE-EXPL: Ein rollender Ball ist ein klassisches Warnzeichen dafür, dass gleich ein Kind unachtsam auf die Straße laufen könnte. Vorsichtiges Verlangsamen und Bremsbereitschaft sind hier wichtig.
+EN-EXPL: A rolling ball is a classic warning sign that a child may run onto the road right after it without looking. Slowing down carefully and being ready to brake is important here.
+
+### gefahr-09 correct=['a']
+DE-Q: Ein Linienbus hält an einer Haltestelle und setzt den Blinker. Was müssen Sie als Fahrer eines anderen Fahrzeugs tun?
+EN-Q: A bus stops at a bus stop and signals with its indicator. What must you do as the driver of another vehicle?
+ *DE-a: Die Geschwindigkeit so anpassen, dass dem Bus notfalls das Einfahren ermöglicht wird
+ *EN-a: Adjust your speed so the bus can pull out again if needed
+  DE-b: Zügig überholen, bevor der Bus losfährt
+  EN-b: Overtake quickly before the bus moves off
+  DE-c: Nur hupen, um den Busfahrer zu warnen
+  EN-c: Just sound the horn to warn the bus driver
+  DE-d: Nichts, der Bus muss auf freie Fahrt warten
+  EN-d: Nothing, the bus has to wait for a gap itself
+DE-EXPL: Wenn ein Linienbus an einer Haltestelle blinkt, muss man ihm das Wiedereinfahren in den Verkehr ermöglichen und notfalls die eigene Geschwindigkeit verringern.
+EN-EXPL: When a bus at a stop signals, you must let it pull back into traffic and, if necessary, reduce your own speed.
+
+### gefahr-10 correct=['c']
+DE-Q: Warum ist der 'tote Winkel' beim Spurwechsel gefährlich?
+EN-Q: Why is the 'blind spot' dangerous when changing lanes?
+  DE-a: Er betrifft nur Motorräder
+  EN-a: It only affects motorcycles
+  DE-b: Er existiert nur bei Dunkelheit
+  EN-b: It only exists in the dark
+ *DE-c: In ihm sieht man weder im Innen- noch im Außenspiegel ein Fahrzeug daneben
+ *EN-c: A vehicle beside you can be invisible in both the mirrors
+  DE-d: Er tritt nur bei Regen auf
+  EN-d: It only occurs in rain
+DE-EXPL: Neben und leicht hinter dem Fahrzeug gibt es einen Bereich, den weder Innen- noch Außenspiegel abdecken. Deshalb sollte man vor dem Spurwechsel zusätzlich über die Schulter schauen.
+EN-EXPL: There is an area beside and slightly behind the car that neither the interior nor the side mirrors show. That is why you should also glance over your shoulder before changing lanes.
+
+### gefahr-11 correct=['b']
+DE-Q: Sie fahren nachts bei Nebel. Welches Verhalten ist richtig?
+EN-Q: You are driving at night in fog. What is the correct behaviour?
+  DE-a: Fernlicht einschalten, damit man weiter sieht
+  EN-a: Turn on full beam so you can see further
+ *DE-b: Geschwindigkeit deutlich reduzieren und Abblendlicht oder Nebelscheinwerfer nutzen
+ *EN-b: Reduce speed significantly and use dipped headlights or fog lights
+  DE-c: Warnblinker dauerhaft einschalten und normal weiterfahren
+  EN-c: Leave the hazard lights on permanently and keep driving normally
+  DE-d: So dicht wie möglich auffahren, um die Rücklichter zu sehen
+  EN-d: Follow as closely as possible so you can see the tail lights
+DE-EXPL: Fernlicht blendet im Nebel durch Reflexion der Wassertröpfchen und verschlechtert die Sicht sogar. Abblendlicht oder Nebelscheinwerfer und eine reduzierte Geschwindigkeit sind richtig.
+EN-EXPL: Full beam reflects off the water droplets in fog and actually worsens visibility. Dipped headlights or fog lights along with reduced speed are correct.
+
+### gefahr-12 correct=['a']
+DE-Q: Bei starkem Nebel dürfen Nebelschlussleuchten laut Regel nur genutzt werden, wenn die Sicht wie weit eingeschränkt ist?
+EN-Q: According to the rule, rear fog lights may only be used when visibility is reduced to below how far?
+ *DE-a: Unter 50 Meter
+ *EN-a: Below 50 metres
+  DE-b: Unter 500 Meter
+  EN-b: Below 500 metres
+  DE-c: Unter 5 Meter
+  EN-c: Below 5 metres
+  DE-d: Immer bei jedem Nebel, egal wie dicht
+  EN-d: Always in any fog, no matter how light
+DE-EXPL: Nebelschlussleuchten sind sehr hell und blenden andere, wenn die Sicht besser ist. Sie dürfen erst ab einer Sichtweite von unter 50 Metern eingeschaltet werden.
+EN-EXPL: Rear fog lights are very bright and dazzle others when visibility is better. They may only be switched on once visibility drops below 50 metres.
+
+### gefahr-13 correct=['c']
+DE-Q: Warum ist Sekundenschlaf am Steuer besonders gefährlich?
+EN-Q: Why is microsleep at the wheel especially dangerous?
+  DE-a: Man merkt rechtzeitig, dass man einschläft, und kann vorher anhalten
+  EN-a: You notice in time that you are falling asleep and can stop beforehand
+  DE-b: Er tritt ausschließlich bei stundenlangen Nachtfahrten auf, tagsüber ist er ausgeschlossen
+  EN-b: It only happens on hours-long night drives, never during the day
+ *DE-c: Man verliert für Sekunden komplett die Kontrolle, ohne es rechtzeitig zu merken
+ *EN-c: You lose control completely for a few seconds without noticing in time
+  DE-d: Er dauert meist mehrere Minuten, sodass genug Zeit bleibt, um rechtzeitig zu reagieren
+  EN-d: It usually lasts several minutes, leaving enough time to react in time
+DE-EXPL: Schon wenige Sekunden Sekundenschlaf reichen bei Autobahntempo aus, um weit von der Spur abzukommen. Müdigkeit muss man deshalb ernst nehmen und rechtzeitig Pausen machen.
+EN-EXPL: Even a few seconds of microsleep at motorway speed are enough to drift far off your lane. That is why tiredness must be taken seriously, with breaks taken in good time.
+
+### gefahr-14 correct=['b']
+DE-Q: Wie wirkt sich Alkohol im Blut typischerweise auf das Fahrverhalten aus?
+EN-Q: How does alcohol in the blood typically affect driving behaviour?
+  DE-a: Er verbessert die Konzentration, verlangsamt aber die Reaktion leicht
+  EN-a: It improves concentration but slightly slows reaction time
+ *DE-b: Er verlängert die Reaktionszeit und führt zu Selbstüberschätzung
+ *EN-b: It lengthens reaction time and leads to overestimating one's own ability
+  DE-c: Er wirkt sich nur auf das Sehen bei Nacht aus
+  EN-c: It only affects night vision
+  DE-d: Er hat unterhalb von 0,5 Promille keinerlei Wirkung
+  EN-d: It has no effect at all below 0.5 per mille
+DE-EXPL: Alkohol beeinträchtigt schon in geringen Mengen die Reaktionsfähigkeit und das Urteilsvermögen. Viele Betroffene schätzen sich selbst als weniger beeinträchtigt ein, als sie tatsächlich sind.
+EN-EXPL: Even small amounts of alcohol impair reaction time and judgement. Many affected drivers rate themselves as less impaired than they actually are.
+
+### gefahr-15 correct=['a']
+DE-Q: Sie fahren bei tiefstehender Sonne, die Sie stark blendet. Was ist richtig?
+EN-Q: You are driving into low sun that is dazzling you badly. What is correct?
+ *DE-a: Sonnenblende nutzen, Tempo reduzieren und notfalls anhalten, wenn nichts mehr zu erkennen ist
+ *EN-a: Use the sun visor, reduce speed, and stop if you can no longer see anything
+  DE-b: Fenster öffnen, damit man besser sieht
+  EN-b: Open the window so you can see better
+  DE-c: Augen kurz schließen, bis die Blendung vorbei ist
+  EN-c: Close your eyes briefly until the glare passes
+  DE-d: Fernlicht einschalten, um den Kontrast zu erhöhen
+  EN-d: Turn on full beam to increase contrast
+DE-EXPL: Bei starker Blendung durch tiefstehende Sonne sieht man Hindernisse oder Fußgänger oft zu spät. Man muss die Geschwindigkeit anpassen und im Extremfall an einer sicheren Stelle anhalten.
+EN-EXPL: In strong glare from low sun, obstacles or pedestrians are often seen too late. You must adjust your speed and, in extreme cases, stop in a safe spot.
+
+### gefahr-16 correct=['b']
+DE-Q: Warum sind geparkte Fahrzeuge am Fahrbahnrand eine typische Gefahrenquelle?
+EN-Q: Why are vehicles parked at the roadside a typical source of danger?
+  DE-a: Nur falsch geparkte Fahrzeuge stellen eine Gefahr dar, korrekt geparkte nicht
+  EN-a: Only illegally parked vehicles pose a danger, correctly parked ones do not
+ *DE-b: Kinder oder Fußgänger können plötzlich dahinter hervortreten
+ *EN-b: Children or pedestrians can suddenly step out from behind them
+  DE-c: Die Gefahr besteht nur bei Dunkelheit, tagsüber sieht man rechtzeitig genug
+  EN-c: The danger only exists in the dark; in daylight you see in time
+  DE-d: Bei Schrittgeschwindigkeit besteht keinerlei Gefahr mehr
+  EN-d: At walking pace there is no longer any danger at all
+DE-EXPL: Parkende Autos versperren die Sicht auf den Gehweg. Ein Kind oder ein Fußgänger kann dahinter unsichtbar sein und plötzlich auf die Straße treten.
+EN-EXPL: Parked cars block the view of the pavement. A child or pedestrian can be hidden behind them and suddenly step onto the road.
+
+### gefahr-17 correct=['c']
+DE-Q: Sie fahren an einem Waldstück vorbei und sehen ein Schild mit einem springenden Tier. Was sollten Sie tun?
+EN-Q: You drive past a wooded area and see a sign showing a leaping animal. What should you do?
+  DE-a: Beschleunigen, um schnell durch die Gefahrenstelle zu kommen
+  EN-a: Speed up to get through the danger zone quickly
+  DE-b: Nur bei Dunkelheit langsamer fahren
+  EN-b: Only slow down if it is dark
+ *DE-c: Geschwindigkeit verringern und den Fahrbahnrand aufmerksam beobachten
+ *EN-c: Reduce speed and watch the edges of the road closely
+  DE-d: Ignorieren, das Schild gilt nur für Motorradfahrer
+  EN-d: Ignore it, the sign only applies to motorcyclists
+DE-EXPL: Das Wildwechsel-Schild warnt davor, dass Tiere plötzlich aus dem Wald auf die Straße laufen können. Langsameres Fahren und aufmerksames Beobachten des Randbereichs verringern das Risiko.
+EN-EXPL: The animal crossing sign warns that animals may suddenly run out of the woods onto the road. Slowing down and watching the roadside closely reduces the risk.
+
+### gefahr-18 correct=['a']
+DE-Q: Was passiert grundsätzlich mit dem Bremsweg, wenn sich die Geschwindigkeit verdoppelt?
+EN-Q: What generally happens to the braking distance if speed doubles?
+ *DE-a: Er wird etwa viermal so lang
+ *EN-a: It becomes roughly four times as long
+  DE-b: Er wird etwa doppelt so lang
+  EN-b: It becomes roughly twice as long
+  DE-c: Er bleibt fast gleich
+  EN-c: It stays almost the same
+  DE-d: Er wird nur um zehn Prozent länger
+  EN-d: It only becomes about ten percent longer
+DE-EXPL: Der reine Bremsweg wächst mit dem Quadrat der Geschwindigkeit. Doppelte Geschwindigkeit bedeutet also etwa vierfachen Bremsweg.
+EN-EXPL: The pure braking distance grows with the square of the speed. Double the speed roughly means four times the braking distance.
+
+### gefahr-19 correct=['b']
+DE-Q: Warum sollten Sie bei Kolonnenfahrt hinter einem Lastwagen mehr Abstand halten als üblich?
+EN-Q: Why should you keep more distance than usual when following a truck in a line of traffic?
+  DE-a: Weil Lastwagen leichter bremsen als Autos
+  EN-a: Because trucks brake more easily than cars
+ *DE-b: Weil die Sicht nach vorn versperrt ist und Gefahren später erkannt werden
+ *EN-b: Because the view ahead is blocked and hazards are seen later
+  DE-c: Weil Lastwagen keine Bremslichter haben
+  EN-c: Because trucks have no brake lights
+  DE-d: Weil es dort gesetzlich verboten ist, weniger Abstand zu halten als 100 Meter
+  EN-d: Because keeping less than 100 metres is illegal there
+DE-EXPL: Hinter einem großen Fahrzeug sieht man die Verkehrssituation weiter vorne kaum. Mehr Abstand gibt zusätzliche Zeit, um auf plötzliches Bremsen zu reagieren.
+EN-EXPL: Behind a large vehicle you can barely see the traffic situation further ahead. More distance gives you extra time to react to sudden braking.
+
+### gefahr-20 correct=['d']
+DE-Q: Ein Kind steht allein am Fahrbahnrand und schaut nicht in Ihre Richtung. Wie verhalten Sie sich?
+EN-Q: A child is standing alone at the edge of the road and is not looking in your direction. How do you behave?
+  DE-a: Mit ausreichend Seitenabstand vorbeifahren und die Geschwindigkeit beibehalten, das reicht als Sicherheitsmaßnahme
+  EN-a: Pass with enough side clearance and keep your speed, that is enough of a safety margin
+  DE-b: Hupen, damit das Kind rechtzeitig zur Seite tritt, und die Geschwindigkeit beibehalten
+  EN-b: Sound the horn so the child steps aside in time, and keep your speed
+  DE-c: Nur prüfen, ob die zulässige Höchstgeschwindigkeit eingehalten wird, mehr Vorsicht ist nicht nötig
+  EN-c: Just check that you are within the speed limit, no extra caution is needed
+ *DE-d: Geschwindigkeit verringern und bremsbereit sein, da das Kind unvorhersehbar reagieren kann
+ *EN-d: Reduce speed and be ready to brake, since children can react unpredictably
+DE-EXPL: Kinder können ihre eigene Gefährdung im Straßenverkehr oft noch nicht richtig einschätzen und plötzlich loslaufen. Fahrer müssen deshalb in der Nähe von Kindern besonders vorsichtig und bremsbereit sein.
+EN-EXPL: Children often cannot yet properly judge the danger they are in around traffic and may suddenly run. Drivers must therefore be especially careful and ready to brake near children.
+
+### gefahr-21 correct=['c']
+DE-Q: Wie beeinflusst Übermüdung die Fahrtauglichkeit im Vergleich zu leichtem Alkoholkonsum?
+EN-Q: How does severe tiredness affect fitness to drive compared with mild alcohol consumption?
+  DE-a: Müdigkeit hat gar keinen Einfluss auf das Fahren
+  EN-a: Tiredness has no effect on driving at all
+  DE-b: Müdigkeit wirkt sich nur auf die Sicht, nicht auf die Reaktion aus
+  EN-b: Tiredness only affects eyesight, not reaction time
+ *DE-c: Starke Müdigkeit kann die Reaktionsfähigkeit ähnlich stark beeinträchtigen wie Alkohol
+ *EN-c: Severe tiredness can impair reaction ability similarly to alcohol
+  DE-d: Müdigkeit betrifft nur Berufskraftfahrer
+  EN-d: Tiredness only affects professional drivers
+DE-EXPL: Studien zeigen, dass starke Übermüdung die Reaktionszeit und Aufmerksamkeit ähnlich stark verschlechtern kann wie ein erhöhter Alkoholpegel. Pausen bei Müdigkeit sind deshalb sehr wichtig.
+EN-EXPL: Studies show that severe tiredness can worsen reaction time and attention about as much as an elevated blood alcohol level. Breaks when tired are therefore very important.
+
+### gefahr-22 correct=['b']
+DE-Q: Sie nähern sich einer Straßenbahnhaltestelle, an der Fahrgäste aussteigen. Was ist zu beachten?
+EN-Q: You approach a tram stop where passengers are getting off. What must you keep in mind?
+  DE-a: Man darf ohne Einschränkung an der Straßenbahn vorbeifahren
+  EN-a: You may pass the tram without any restriction
+ *DE-b: Man muss besonders langsam fahren und Fußgängern das Überqueren zur Haltestelle ermöglichen
+ *EN-b: You must drive especially slowly and let pedestrians cross to the stop safely
+  DE-c: Man muss immer hinter der Bahn stehen bleiben, bis sie komplett leer ist
+  EN-c: You must always wait behind the tram until it is completely empty
+  DE-d: Die Regel gilt nur für Fahrräder
+  EN-d: The rule only applies to cyclists
+DE-EXPL: Fahrgäste, die aus der Straßenbahn aussteigen, müssen oft die Fahrbahn überqueren, um den Gehweg zu erreichen. Fahrzeuge müssen deshalb besonders langsam und vorsichtig vorbeifahren.
+EN-EXPL: Passengers getting off a tram often have to cross the road to reach the pavement. Vehicles must therefore pass especially slowly and carefully.
+
+### gefahr-23 correct=['a']
+DE-Q: Warum ist eine mit nassem Laub bedeckte Fahrbahn im Herbst besonders gefährlich?
+EN-Q: Why is a road covered with wet autumn leaves especially dangerous?
+ *DE-a: Nasses Laub kann die Reibung zwischen Reifen und Fahrbahn fast so stark verringern wie Glätte, besonders beim Bremsen und in Kurven
+ *EN-a: Wet leaves can reduce the friction between tyre and road almost as much as ice, especially when braking or cornering
+  DE-b: Laub verringert nur die Sicht auf die Fahrbahn, die Bodenhaftung bleibt unverändert
+  EN-b: Leaves only reduce visibility of the road surface, grip stays unchanged
+  DE-c: Laub ist nur für Fahrradfahrer gefährlich, nicht für Autos
+  EN-c: Leaves are only dangerous for cyclists, not for cars
+  DE-d: Trockenes wie nasses Laub verbessert sogar den Grip, weil es wie eine Matte wirkt
+  EN-d: Both dry and wet leaves actually improve grip because they act like a mat
+DE-EXPL: Nasses Laub bildet einen rutschigen Film auf dem Asphalt und kann die Reibung ähnlich stark reduzieren wie Eis. Besonders beim Bremsen oder in Kurven kann es deshalb schnell zum Rutschen kommen.
+EN-EXPL: Wet leaves form a slippery film on the asphalt and can reduce friction almost as much as ice. This can quickly lead to skidding, especially when braking or cornering.
+
+### gefahr-24 correct=['a']
+DE-Q: Warum sind Radfahrer im toten Winkel von Lastwagen beim Abbiegen besonders gefährdet?
+EN-Q: Why are cyclists especially at risk in a truck's blind spot when it turns?
+ *DE-a: Der Lkw-Fahrer kann sie in bestimmten Bereichen neben und vor dem Fahrzeug gar nicht sehen
+ *EN-a: The truck driver simply cannot see them in certain areas beside and in front of the vehicle
+  DE-b: Radfahrer fahren dort grundsätzlich zu schnell
+  EN-b: Cyclists there are always riding too fast
+  DE-c: Lastwagen haben keine Spiegel
+  EN-c: Trucks have no mirrors
+  DE-d: Das Problem betrifft nur Fahrräder ohne Licht
+  EN-d: The problem only affects bicycles without lights
+DE-EXPL: Große Fahrzeuge haben tote Winkel, in denen selbst mit Spiegeln kein Radfahrer zu sehen ist. Besonders beim Rechtsabbiegen kommt es dadurch immer wieder zu Unfällen.
+EN-EXPL: Large vehicles have blind spots where a cyclist cannot be seen even with mirrors. This repeatedly causes accidents, especially when turning right.
+
+### gefahr-25 correct=['b']
+DE-Q: Sie fahren durch eine Pfütze, die tiefer ist, als sie aussieht. Was kann passieren?
+EN-Q: You drive through a puddle that is deeper than it looks. What can happen?
+  DE-a: Nichts, tiefe Pfützen sind ungefährlich für Autos
+  EN-a: Nothing, deep puddles are harmless for cars
+ *DE-b: Das Lenkrad kann plötzlich ruckartig ziehen und das Auto kann von der Spur abkommen
+ *EN-b: The steering can suddenly pull hard and the car can drift off its lane
+  DE-c: Das Auto wird automatisch langsamer
+  EN-c: The car automatically slows down
+  DE-d: Nur die Fenster können beschlagen
+  EN-d: Only the windows can fog up
+DE-EXPL: Ungleicher Wasserwiderstand auf beiden Fahrzeugseiten kann das Fahrzeug plötzlich zur Seite ziehen. Man sollte tiefe Pfützen möglichst langsam und mit festem Lenkradgriff durchfahren.
+EN-EXPL: Uneven water resistance on the two sides of the car can suddenly pull it sideways. You should drive through deep puddles slowly and hold the wheel firmly.
+
+### umwelt-01 correct=['c']
+DE-Q: Welche Fahrweise spart am meisten Kraftstoff?
+EN-Q: Which driving style saves the most fuel?
+  DE-a: Ständiges starkes Beschleunigen und Abbremsen
+  EN-a: Constant hard acceleration and braking
+  DE-b: Immer im niedrigsten Gang fahren
+  EN-b: Always driving in the lowest gear
+ *DE-c: Vorausschauend fahren und früh in einen höheren Gang schalten
+ *EN-c: Driving with foresight and shifting to a higher gear early
+  DE-d: Den Motor bei jedem Stopp länger im Leerlauf laufen lassen
+  EN-d: Letting the engine idle longer at every stop
+DE-EXPL: Wer den Verkehr vorausschaut und Bremsen sowie Beschleunigen vermeidet, verbraucht deutlich weniger Kraftstoff. Frühes Hochschalten hält die Drehzahl niedrig und spart zusätzlich.
+EN-EXPL: Anticipating traffic and avoiding heavy braking and acceleration clearly reduces fuel use. Shifting up early keeps the engine speed low and saves even more.
+
+### umwelt-02 correct=['b']
+DE-Q: Wie tief muss die Profiltiefe eines Reifens bei einem Pkw mindestens sein, damit er noch zulässig ist?
+EN-Q: What is the minimum legal tread depth for a car tyre?
+  DE-a: 0,4 Millimeter
+  EN-a: 0.4 millimetres
+ *DE-b: 1,6 Millimeter
+ *EN-b: 1.6 millimetres
+  DE-c: 4 Millimeter
+  EN-c: 4 millimetres
+  DE-d: 8 Millimeter
+  EN-d: 8 millimetres
+DE-EXPL: Die gesetzliche Mindestprofiltiefe beträgt 1,6 Millimeter. Für gute Sicherheit bei Nässe wird jedoch oft ein deutlich höherer Wert empfohlen.
+EN-EXPL: The legal minimum tread depth is 1.6 millimetres. For good safety in wet conditions, a much higher value is often recommended.
+
+### umwelt-03 correct=['a']
+DE-Q: Welche Folge hat zu niedriger Reifendruck für den Kraftstoffverbrauch und die Sicherheit?
+EN-Q: What effect does too-low tyre pressure have on fuel use and safety?
+ *DE-a: Der Verbrauch steigt und der Bremsweg kann sich verlängern
+ *EN-a: Fuel use rises and braking distance can get longer
+  DE-b: Der Verbrauch sinkt, aber der Bremsweg wird länger
+  EN-b: Fuel use drops but braking distance gets longer
+  DE-c: Beides bleibt unverändert
+  EN-c: Both stay unchanged
+  DE-d: Der Reifen hält dadurch länger
+  EN-d: The tyre lasts longer as a result
+DE-EXPL: Ein zu niedriger Reifendruck erhöht den Rollwiderstand, was den Verbrauch steigen lässt, und verschlechtert gleichzeitig das Fahrverhalten. Regelmäßiges Prüfen des Reifendrucks lohnt sich deshalb.
+EN-EXPL: Tyre pressure that is too low increases rolling resistance, which raises fuel use, and also worsens handling. Checking tyre pressure regularly is therefore worthwhile.
+
+### umwelt-04 correct=['d']
+DE-Q: Was bewirkt ein ABS-System (Antiblockiersystem)?
+EN-Q: What does an ABS (anti-lock braking system) do?
+  DE-a: Es verkürzt automatisch jeden Bremsweg auf ein Minimum
+  EN-a: It automatically shortens every braking distance to a minimum
+  DE-b: Es funktioniert nur bei Geschwindigkeiten über 30 km/h
+  EN-b: It only works at speeds above 30 km/h
+  DE-c: Es verhindert vollständig ein Wegrutschen des Fahrzeugs auf Glatteis
+  EN-c: It completely prevents the vehicle from sliding on black ice
+ *DE-d: Es verhindert, dass die Räder beim starken Bremsen blockieren, sodass man lenkfähig bleibt
+ *EN-d: It stops the wheels locking under hard braking, so you stay able to steer
+DE-EXPL: ABS verhindert das Blockieren der Räder bei starkem Bremsen. Dadurch bleibt das Fahrzeug lenkbar, auch wenn der Bremsweg selbst dadurch nicht unbedingt kürzer wird.
+EN-EXPL: ABS prevents the wheels from locking under hard braking. This keeps the vehicle steerable, even though the braking distance itself is not necessarily shortened by it.
+
+### umwelt-05 correct=['b']
+DE-Q: Was macht ein ESP-System (elektronisches Stabilitätsprogramm)?
+EN-Q: What does an ESP system (electronic stability programme) do?
+  DE-a: Es begrenzt automatisch die Höchstgeschwindigkeit bei schlechtem Wetter
+  EN-a: It automatically limits top speed in bad weather
+ *DE-b: Es bremst einzelne Räder gezielt ab, um ein Schleudern des Fahrzeugs zu verhindern
+ *EN-b: It brakes individual wheels selectively to stop the vehicle from skidding
+  DE-c: Es steuert automatisch das Lenkrad in Kurven
+  EN-c: It automatically steers the wheel through corners
+  DE-d: Es warnt nur vor zu geringem Reifendruck
+  EN-d: It only warns of low tyre pressure
+DE-EXPL: ESP erkennt, wenn das Fahrzeug von der gewollten Spur abzukommen droht, und bremst gezielt einzelne Räder ab, um es zu stabilisieren.
+EN-EXPL: ESP detects when the vehicle is about to slide off its intended path and selectively brakes individual wheels to stabilise it.
+
+### umwelt-06 correct=['b']
+DE-Q: Warum muss der Sicherheitsgurt schon bei kurzen Fahrten angelegt werden?
+EN-Q: Why must the seatbelt be worn even on short trips?
+  DE-a: Nur weil es sonst ein Bußgeld gibt, gefährlich ist eine kurze Fahrt nicht
+  EN-a: Only because of the fine, a short trip itself is not dangerous
+ *DE-b: Auch bei geringem Tempo können Unfälle zu schweren Verletzungen führen, der Gurt hält die Person zurück
+ *EN-b: Even at low speed, accidents can cause serious injury; the belt holds the person back
+  DE-c: Der Gurt ist bei kurzen Fahrten nicht notwendig, weil das Auto langsamer fährt
+  EN-c: The belt is not necessary on short trips because the car goes slower
+  DE-d: Der Gurt ist ausschließlich für Beifahrer vorgeschrieben
+  EN-d: The belt is only required for passengers
+DE-EXPL: Auch bei niedrigem Tempo können plötzliche Bremsungen oder Zusammenstöße zu schweren Verletzungen führen. Der Gurt verteilt die Kraft und verhindert, dass man nach vorne geschleudert wird.
+EN-EXPL: Even at low speed, sudden braking or collisions can cause serious injury. The belt spreads the force and prevents you from being thrown forward.
+
+### umwelt-07 correct=['c']
+DE-Q: Wozu dient ein Airbag im Auto?
+EN-Q: What is the purpose of an airbag in a car?
+  DE-a: Er ersetzt den Sicherheitsgurt vollständig
+  EN-a: It completely replaces the seatbelt
+  DE-b: Er löst bei jedem, auch kleineren Aufprall aus, egal wie stark
+  EN-b: It deploys in every impact, however minor, no matter how light
+ *DE-c: Er dämpft den Aufprall von Kopf und Oberkörper zusätzlich zum Gurt
+ *EN-c: It cushions the impact on head and upper body in addition to the belt
+  DE-d: Er schützt nur den Fahrer, nicht die Beifahrer
+  EN-d: It only protects the driver, not the passengers
+DE-EXPL: Der Airbag entfaltet sich bei einem starken Aufprall und dämpft den Stoß auf Kopf und Oberkörper. Er ersetzt den Gurt nicht, sondern ergänzt ihn.
+EN-EXPL: The airbag deploys during a strong impact and cushions the blow to the head and upper body. It does not replace the belt, but complements it.
+
+### umwelt-08 correct=['a']
+DE-Q: Woran erkennt man einen echten Winterreifen im Gegensatz zu einem reinen Sommerreifen?
+EN-Q: How do you recognize a genuine winter tyre as opposed to a pure summer tyre?
+ *DE-a: Am Alpine-Symbol (Bergpiktogramm mit Schneeflocke) auf der Reifenflanke
+ *EN-a: By the Alpine symbol (a mountain with a snowflake) on the tyre sidewall
+  DE-b: Am M+S-Kürzel allein, unabhängig vom Herstellungsdatum des Reifens
+  EN-b: By the M+S marking alone, regardless of when the tyre was made
+  DE-c: An besonders breiten Reifen, breite Reifen sind automatisch Winterreifen
+  EN-c: By especially wide tyres, since wide tyres are automatically winter tyres
+  DE-d: Daran, dass der Reifen als 'Ganzjahresreifen' verkauft wird
+  EN-d: By the fact that it is sold as an 'all-season tyre'
+DE-EXPL: Das Alpine-Symbol zeigt, dass ein Reifen die Anforderungen an Wintertauglichkeit erfüllt. Das ältere M+S-Kürzel allein reicht seit einer Übergangsfrist nicht mehr für alle neu hergestellten Reifen aus.
+EN-EXPL: The Alpine symbol shows that a tyre meets the requirements for winter suitability. Since a transition period ended, the older M+S marking alone is no longer sufficient for newly manufactured tyres.
+
+### umwelt-09 correct=['b']
+DE-Q: Wozu dient die Hauptuntersuchung (HU) beim TÜV oder einer anderen Prüfstelle?
+EN-Q: What is the purpose of the periodic technical inspection (HU) at a testing organisation?
+  DE-a: Sie prüft ausschließlich die Abgaswerte des Fahrzeugs
+  EN-a: It only checks the vehicle's exhaust emissions
+ *DE-b: Sie prüft die Verkehrssicherheit und den technischen Zustand des Fahrzeugs
+ *EN-b: It checks the vehicle's road safety and technical condition
+  DE-c: Sie ist nur für neue Fahrzeuge notwendig
+  EN-c: It is only necessary for new vehicles
+  DE-d: Wenn das Fahrzeug die HU besteht, sind bis zur nächsten Prüfung keine Reparaturen mehr nötig
+  EN-d: If the vehicle passes the HU, no repairs are needed until the next inspection
+DE-EXPL: Bei der Hauptuntersuchung werden unter anderem Bremsen, Lenkung, Beleuchtung und Abgase geprüft, um sicherzustellen, dass das Fahrzeug den Verkehrssicherheits- und Umweltanforderungen entspricht.
+EN-EXPL: During the periodic inspection, brakes, steering, lights and emissions are checked, among other things, to ensure the vehicle meets road safety and environmental requirements.
+
+### umwelt-10 correct=['c']
+DE-Q: Welche Maßnahme senkt den Kraftstoffverbrauch, wenn Sie im Stau länger als eine Minute stehen?
+EN-Q: Which action lowers fuel consumption if you are stuck in traffic for more than a minute?
+  DE-a: Im Leerlauf stehen bleiben, das verbraucht kaum mehr Kraftstoff als Abstellen und Neustarten
+  EN-a: Stay idling, that barely uses more fuel than switching off and restarting
+  DE-b: Den Motor bei jedem noch so kurzen Stopp abstellen, auch für nur ein bis zwei Sekunden
+  EN-b: Switch off the engine at every stop, however short, even for just one or two seconds
+ *DE-c: Den Motor abstellen, wenn Stillstand absehbar länger dauert
+ *EN-c: Switch off the engine when the stop is expected to last a while
+  DE-d: Die Lüftung und Klimaanlage weiterlaufen lassen, das spart mehr Kraftstoff als der Motor abzustellen
+  EN-d: Keep the ventilation and air conditioning running, that saves more fuel than switching off the engine
+DE-EXPL: Bei längeren Standzeiten spart das Abschalten des Motors Kraftstoff und reduziert Emissionen. Viele moderne Autos machen dies automatisch per Start-Stopp-Automatik.
+EN-EXPL: During longer stops, switching off the engine saves fuel and reduces emissions. Many modern cars do this automatically via a start-stop system.
+
+### umwelt-11 correct=['a']
+DE-Q: Welchen Einfluss hat unnötiges Gewicht im Auto, zum Beispiel ungenutztes Gepäck im Kofferraum, auf den Verbrauch?
+EN-Q: How does unnecessary weight in the car, such as unused luggage in the boot, affect fuel consumption?
+ *DE-a: Mehr Gewicht erhöht den Kraftstoffverbrauch spürbar
+ *EN-a: More weight noticeably increases fuel consumption
+  DE-b: Gewicht spielt für den Verbrauch keine Rolle
+  EN-b: Weight has no effect on consumption at all
+  DE-c: Mehr Gewicht senkt den Verbrauch, weil das Auto ruhiger fährt
+  EN-c: More weight lowers consumption because the car drives more steadily
+  DE-d: Gewicht wirkt sich nur auf die Bremsen aus, nicht auf den Verbrauch
+  EN-d: Weight only affects the brakes, not consumption
+DE-EXPL: Je schwerer das Fahrzeug, desto mehr Energie braucht es zum Beschleunigen. Unnötigen Ballast sollte man daher entfernen, um Kraftstoff zu sparen.
+EN-EXPL: The heavier the vehicle, the more energy it needs to accelerate. Unnecessary extra weight should therefore be removed to save fuel.
+
+### umwelt-12 correct=['d']
+DE-Q: Warum sollte man einen Dachgepäckträger abbauen, wenn er nicht gebraucht wird?
+EN-Q: Why should you remove a roof rack when it is not needed?
+  DE-a: Weil er das Fahrzeuggewicht so stark erhöht, dass es sich stärker auf den Verbrauch auswirkt als der Luftwiderstand
+  EN-a: Because it adds so much weight that this affects consumption more than air resistance does
+  DE-b: Weil er bei Nässe die Bremswirkung verschlechtert
+  EN-b: Because it worsens braking performance in wet conditions
+  DE-c: Weil er die Sicht auf den Rückspiegel versperrt
+  EN-c: Because it blocks the view of the rear mirror
+ *DE-d: Weil er den Luftwiderstand erhöht und dadurch mehr Kraftstoff verbraucht wird
+ *EN-d: Because it increases air resistance, which raises fuel consumption
+DE-EXPL: Ein montierter Dachgepäckträger erhöht den Luftwiderstand deutlich, besonders bei höherem Tempo. Das führt zu spürbar mehr Kraftstoffverbrauch, auch wenn nichts darauf liegt.
+EN-EXPL: A mounted roof rack noticeably increases air resistance, especially at higher speed. This leads to clearly higher fuel consumption, even when nothing is loaded on it.
+
+### umwelt-13 correct=['b']
+DE-Q: Welche Halterpflicht betrifft die regelmäßige Wartung des Fahrzeugs?
+EN-Q: Which owner's duty relates to regular vehicle maintenance?
+  DE-a: Der Halter muss das Fahrzeug nur einmal jährlich zur Hauptuntersuchung bringen, mehr ist nicht vorgeschrieben
+  EN-a: The owner only has to bring the vehicle to the periodic inspection once a year, nothing more is required
+ *DE-b: Der Halter muss dafür sorgen, dass das Fahrzeug verkehrssicher bleibt, zum Beispiel durch rechtzeitige Wartung
+ *EN-b: The owner must ensure the vehicle stays roadworthy, for example through timely maintenance
+  DE-c: Nur der Hersteller ist für die Wartung verantwortlich
+  EN-c: Only the manufacturer is responsible for maintenance
+  DE-d: Wartung ist freiwillig und hat keinen rechtlichen Hintergrund
+  EN-d: Maintenance is voluntary and has no legal basis
+DE-EXPL: Der Halter eines Fahrzeugs ist dafür verantwortlich, dass es in einem verkehrssicheren Zustand bleibt. Das schließt regelmäßige Wartung und die Behebung erkannter Mängel mit ein.
+EN-EXPL: The keeper of a vehicle is responsible for keeping it in a roadworthy condition. This includes regular maintenance and fixing any known defects.
+
+### umwelt-14 correct=['a']
+DE-Q: Wie oft sollten Sie als Fahrer den Ölstand und die Kühlflüssigkeit grob kontrollieren?
+EN-Q: How often should you, as the driver, roughly check the oil level and coolant?
+ *DE-a: Regelmäßig, zum Beispiel vor längeren Fahrten oder in festen Abständen
+ *EN-a: Regularly, for example before longer trips or at fixed intervals
+  DE-b: Nur einmal beim Autokauf
+  EN-b: Only once when buying the car
+  DE-c: Nie, das übernimmt automatisch der Motor
+  EN-c: Never, the engine handles it automatically
+  DE-d: Nur wenn im Armaturenbrett eine Warnleuchte aufleuchtet
+  EN-d: Only when a warning light comes on in the dashboard
+DE-EXPL: Wer regelmäßig Ölstand und Kühlflüssigkeit prüft, erkennt Probleme frühzeitig und vermeidet Motorschäden oder Pannen auf längeren Fahrten.
+EN-EXPL: Anyone who regularly checks the oil level and coolant will spot problems early and avoid engine damage or breakdowns on longer trips.
+
+### umwelt-15 correct=['c']
+DE-Q: Was deutet darauf hin, dass die Bremsflüssigkeit gewechselt werden sollte?
+EN-Q: What indicates that the brake fluid should be replaced?
+  DE-a: Ein quietschendes Geräusch beim Bremsen, das deutet immer auf verbrauchte Bremsflüssigkeit hin
+  EN-a: A squeaking noise when braking, which always indicates worn-out brake fluid
+  DE-b: Die Bremsflüssigkeit muss nur nach Kilometerstand gewechselt werden, unabhängig vom Zustand
+  EN-b: Brake fluid only needs to be changed based on mileage, regardless of its condition
+ *DE-c: Das Bremspedal fühlt sich weich oder schwammig an
+ *EN-c: The brake pedal feels soft or spongy
+  DE-d: Eine dunklere Farbe der Bremsflüssigkeit ist rein optisch und hat keine Bedeutung
+  EN-d: A darker colour of the brake fluid is purely cosmetic and has no meaning
+DE-EXPL: Bremsflüssigkeit nimmt mit der Zeit Feuchtigkeit auf, wodurch die Bremswirkung nachlassen kann. Ein weiches oder schwammiges Bremspedal ist ein Warnzeichen, das man in der Werkstatt prüfen lassen sollte.
+EN-EXPL: Brake fluid absorbs moisture over time, which can weaken braking performance. A soft or spongy brake pedal is a warning sign that should be checked at a workshop.
+
+### umwelt-16 correct=['b']
+DE-Q: Was müssen Sie tun, wenn eine Scheinwerferlampe an Ihrem Auto ausgefallen ist?
+EN-Q: What must you do if a headlight bulb on your car has failed?
+  DE-a: Nichts, solange die andere Seite noch leuchtet
+  EN-a: Nothing, as long as the other side still lights up
+ *DE-b: Die Lampe möglichst bald reparieren lassen, da volle Beleuchtung für die Verkehrssicherheit wichtig ist
+ *EN-b: Have it repaired as soon as possible, since full lighting matters for road safety
+  DE-c: Nur bei Tageslicht weiterfahren, dann ist es egal
+  EN-c: Only drive in daylight, then it doesn't matter
+  DE-d: Warten, bis auch die zweite Lampe ausfällt, und dann beide gleichzeitig wechseln lassen
+  EN-d: Wait until the second bulb fails too, then have both replaced at the same time
+DE-EXPL: Vorschriftsmäßige Beleuchtung ist wichtig, damit man selbst sieht und von anderen gesehen wird. Eine defekte Lampe sollte man daher zügig ersetzen lassen.
+EN-EXPL: Proper lighting is important so you can see and be seen by others. A faulty bulb should therefore be replaced promptly.
+
+### umwelt-17 correct=['a']
+DE-Q: Was regelt die Umweltzone (Feinstaubplakette) in vielen deutschen Innenstädten?
+EN-Q: What does the environmental zone (emissions sticker) regulate in many German city centres?
+ *DE-a: Nur Fahrzeuge mit ausreichender Plakette (meist grün) dürfen die Zone befahren, um die Luftqualität zu verbessern
+ *EN-a: Only vehicles with a sufficient sticker (usually green) may enter the zone, to improve air quality
+  DE-b: Die Plakette gilt nur für Lastwagen, Pkw dürfen unabhängig von der Plakette immer einfahren
+  EN-b: The sticker only applies to trucks; cars may always enter regardless of the sticker
+  DE-c: Fahrzeuge ohne Plakette dürfen einfahren, wenn sie besonders langsam fahren
+  EN-c: Vehicles without a sticker may enter if they drive especially slowly
+  DE-d: Die Plakette muss nur bei der jährlichen Hauptuntersuchung gezeigt werden, nicht im Straßenverkehr
+  EN-d: The sticker only needs to be shown at the annual technical inspection, not while driving
+DE-EXPL: In Umweltzonen dürfen nur Fahrzeuge mit ausreichender Feinstaubplakette fahren. Das soll die Luftverschmutzung durch Fahrzeugabgase in belasteten Innenstädten verringern. Fehlt die Plakette, drohen Bußgelder, unabhängig von der gefahrenen Geschwindigkeit.
+EN-EXPL: Only vehicles with a sufficient emissions sticker may drive in environmental zones. This is meant to reduce air pollution from vehicle exhaust in heavily polluted city centres. Driving without the required sticker can lead to a fine, regardless of the speed driven.
+
+### umwelt-18 correct=['b']
+DE-Q: Warum sollten Sie im Winter Frostschutzmittel im Kühlwasser prüfen lassen?
+EN-Q: Why should you have the antifreeze in the coolant checked in winter?
+  DE-a: Damit der Motor im Winter schneller warm wird
+  EN-a: So the engine warms up faster in winter
+ *DE-b: Damit das Kühlwasser bei Frost nicht einfriert und den Motor beschädigt
+ *EN-b: So the coolant doesn't freeze in frost and damage the engine
+  DE-c: Damit die Kühlflüssigkeit im Sommer schneller verdunstet
+  EN-c: So the coolant evaporates faster in summer
+  DE-d: Es hat keinen technischen Nutzen, nur optischen
+  EN-d: It has no technical use, only a cosmetic one
+DE-EXPL: Ohne ausreichend Frostschutz kann das Kühlwasser bei starkem Frost gefrieren und den Motor beschädigen. Ein rechtzeitiger Check vor dem Winter beugt teuren Schäden vor.
+EN-EXPL: Without enough antifreeze, the coolant can freeze in hard frost and damage the engine. Checking it in good time before winter prevents costly damage.
+
+### umwelt-19 correct=['c']
+DE-Q: Welche Wirkung hat eine unnötig laufende Klimaanlage auf den Kraftstoffverbrauch?
+EN-Q: What effect does unnecessarily running the air conditioning have on fuel consumption?
+  DE-a: Sie hat keinen messbaren Einfluss
+  EN-a: It has no measurable effect
+  DE-b: Sie senkt den Verbrauch, weil der Motor kühler bleibt
+  EN-b: It lowers consumption because the engine stays cooler
+ *DE-c: Sie erhöht den Verbrauch, weil sie zusätzliche Motorleistung braucht
+ *EN-c: It increases consumption because it needs extra engine power
+  DE-d: Sie wirkt sich nur bei Fahrten unter 10 Minuten auf den Verbrauch aus
+  EN-d: It only affects consumption on trips shorter than 10 minutes
+DE-EXPL: Die Klimaanlage wird vom Motor angetrieben und braucht dafür zusätzliche Energie. Wer sie nur bei Bedarf nutzt, spart Kraftstoff.
+EN-EXPL: The air conditioning is driven by the engine and needs extra energy for that. Using it only when needed saves fuel.
+
+### umwelt-20 correct=['a']
+DE-Q: Warum kann falsch eingestellter Reifendruck die Fahrsicherheit beeinträchtigen?
+EN-Q: Why can incorrectly set tyre pressure affect driving safety?
+ *DE-a: Er verändert die Kontaktfläche des Reifens zur Straße und damit Grip und Bremsverhalten
+ *EN-a: It changes the tyre's contact area with the road and therefore grip and braking
+  DE-b: Er hat nur Einfluss auf das Aussehen des Reifens
+  EN-b: It only affects how the tyre looks
+  DE-c: Er wirkt sich nur auf den Kraftstoffverbrauch aus, nicht auf Grip oder Bremsweg
+  EN-c: It only affects fuel consumption, not grip or braking distance
+  DE-d: Er ändert nichts an Grip oder Bremsweg
+  EN-d: It changes nothing about grip or braking distance
+DE-EXPL: Zu hoher oder zu niedriger Reifendruck verändert die Auflagefläche des Reifens auf der Straße. Das wirkt sich direkt auf Grip, Fahrverhalten und Bremsweg aus.
+EN-EXPL: Tyre pressure that is too high or too low changes the tyre's contact patch on the road. This directly affects grip, handling, and braking distance.
+
+### umwelt-21 correct=['d']
+DE-Q: Welche einfache Maßnahme senkt beim Autokauf oder Fahren langfristig den CO2-Ausstoß am meisten?
+EN-Q: Which simple measure most reduces CO2 emissions over time, whether buying a car or driving one?
+  DE-a: Regelmäßig mit hoher Drehzahl fahren
+  EN-a: Regularly driving at high engine speed
+  DE-b: Immer das Fenster statt der Lüftung nutzen, egal bei welchem Tempo
+  EN-b: Always using the window instead of ventilation, at any speed
+  DE-c: Nur unnötige kurze Kaltstarts vermeiden, alles andere spielt keine Rolle
+  EN-c: Only avoiding unnecessary short cold starts, nothing else matters
+ *DE-d: Sparsam fahren, das Fahrzeug regelmäßig warten und unnötige Fahrten vermeiden
+ *EN-d: Driving economically, maintaining the vehicle regularly, and avoiding unnecessary trips
+DE-EXPL: Sparsames Fahren, regelmäßige Wartung und das Vermeiden unnötiger Fahrten senken den Kraftstoffverbrauch und damit auch den CO2-Ausstoß spürbar über die Zeit.
+EN-EXPL: Economical driving, regular maintenance, and avoiding unnecessary trips clearly reduce fuel consumption and therefore CO2 emissions over time.
+
+### umwelt-22 correct=['b']
+DE-Q: Welchen technischen Zweck erfüllt die Kopfstütze im Auto?
+EN-Q: What technical purpose does the headrest in a car serve?
+  DE-a: Sie ist nur für den Komfort gedacht
+  EN-a: It is only meant for comfort
+ *DE-b: Sie verringert bei einem Auffahrunfall das Risiko eines Schleudertraumas
+ *EN-b: It reduces the risk of whiplash injury in a rear-end collision
+  DE-c: Sie ersetzt den Sicherheitsgurt bei kurzen Fahrten
+  EN-c: It replaces the seatbelt on short trips
+  DE-d: Sie schützt nur bei einem Frontalzusammenstoß, nicht bei einem Auffahrunfall von hinten
+  EN-d: It only protects in a head-on collision, not in a rear-end collision
+DE-EXPL: Bei einem Auffahrunfall wird der Kopf schnell nach hinten und wieder nach vorne geschleudert. Eine richtig eingestellte Kopfstütze verringert das Risiko eines Schleudertraumas.
+EN-EXPL: In a rear-end collision, the head is thrown backward and then forward very fast. A correctly adjusted headrest reduces the risk of whiplash injury.
+
+### umwelt-23 correct=['a']
+DE-Q: Warum sollten Reifen regelmäßig auf ungleichmäßige Abnutzung geprüft werden?
+EN-Q: Why should tyres be checked regularly for uneven wear?
+ *DE-a: Ungleichmäßiger Verschleiß kann auf falsche Spureinstellung oder falschen Reifendruck hinweisen
+ *EN-a: Uneven wear can point to incorrect wheel alignment or wrong tyre pressure
+  DE-b: Ungleichmäßiger Verschleiß hat keinerlei Ursache und ist normal
+  EN-b: Uneven wear has no cause at all and is normal
+  DE-c: Ungleichmäßiger Verschleiß tritt nur bei Sommerreifen auf, nie bei Winterreifen
+  EN-c: Uneven wear only occurs on summer tyres, never on winter tyres
+  DE-d: Ungleichmäßiger Verschleiß betrifft nur die Optik, die Fahrsicherheit bleibt unverändert
+  EN-d: Uneven wear is only cosmetic; driving safety stays unaffected
+DE-EXPL: Wenn ein Reifen an einer Seite oder Stelle deutlich stärker abgenutzt ist, deutet das oft auf ein technisches Problem wie falsche Spur oder falschen Luftdruck hin. Das sollte in einer Werkstatt geprüft werden.
+EN-EXPL: If a tyre is noticeably more worn on one side or spot, this often points to a technical issue like incorrect alignment or wrong pressure. It should be checked at a workshop.
+
+### umwelt-24 correct=['c']
+DE-Q: Warum ist unnötiger Lärm durch das Fahrzeug, zum Beispiel starkes Aufheulenlassen des Motors, verboten?
+EN-Q: Why is unnecessary noise from a vehicle, such as heavily revving the engine, prohibited?
+  DE-a: Weil lautes Motorengeräusch automatisch auf einen technischen Defekt hinweist
+  EN-a: Because a loud engine noise automatically indicates a technical defect
+  DE-b: Weil es nur bei Nacht verboten ist
+  EN-b: Because it is only prohibited at night
+ *DE-c: Weil vermeidbarer Lärm andere Menschen unnötig belästigt
+ *EN-c: Because avoidable noise needlessly disturbs other people
+  DE-d: Weil es nur in verkehrsberuhigten Bereichen ein Problem darstellt, sonst überall erlaubt ist
+  EN-d: Because it is only a problem in traffic-calmed areas, and is allowed everywhere else
+DE-EXPL: Vermeidbarer Lärm, etwa durch starkes Beschleunigen oder unnötiges Aufheulenlassen des Motors, stört Anwohner und andere Verkehrsteilnehmer und soll vermieden werden.
+EN-EXPL: Avoidable noise, such as heavy acceleration or unnecessarily revving the engine, disturbs residents and other road users and should be avoided.
+
+### umwelt-25 correct=['b']
+DE-Q: Welchen Vorteil bietet eine Fahrgemeinschaft für die Umwelt?
+EN-Q: What environmental advantage does carpooling offer?
+  DE-a: Sie hat keinen Effekt, weil jedes Auto trotzdem einzeln fährt
+  EN-a: It has no effect since each car still drives individually
+ *DE-b: Weniger Fahrzeuge auf der Straße bedeuten weniger Gesamtverbrauch und weniger Emissionen
+ *EN-b: Fewer vehicles on the road mean lower total consumption and fewer emissions
+  DE-c: Der Effekt ist nur bei sehr langen Strecken über 500 Kilometer spürbar
+  EN-c: The effect is only noticeable on very long trips over 500 kilometres
+  DE-d: Sie ist nur bei Elektroautos sinnvoll
+  EN-d: It is only worthwhile for electric cars
+DE-EXPL: Wenn sich mehrere Personen ein Fahrzeug für dieselbe Strecke teilen, fahren insgesamt weniger Autos. Das senkt den gesamten Kraftstoffverbrauch und die Emissionen pro Person.
+EN-EXPL: When several people share one vehicle for the same route, fewer cars drive overall. This lowers total fuel consumption and emissions per person.
+

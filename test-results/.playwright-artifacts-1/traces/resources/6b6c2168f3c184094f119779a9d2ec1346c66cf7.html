@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Zettacard</title>
+  <meta name="description" content="Original practice questions for driving licences, fishing licences, and workplace compliance training, multilingual. Not an exam simulator." />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0b1220" />
+  <link rel="icon" type="image/svg+xml" href="icons/logo.svg" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Zettacard" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    // Apply saved/system theme before first paint to avoid a flash of the wrong theme.
+    (function () {
+      try {
+        var saved = localStorage.getItem("dn-theme");
+        var theme = saved || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) { /* storage/matchMedia unavailable - default dark styling still applies */ }
+    })();
+  </script>
+</head>
+<body>
+  <!-- DN-89: storage-consent notice. Shown, at most, once per device before
+       any localStorage read/write happens (see ensureStorageConsentDecision()
+       in app.js) - hidden by default; JS un-hides it only when no consent
+       decision has been recorded yet. Not a modal dialog (aria-modal=false)
+       since it deliberately does NOT block reading the app underneath, only
+       gates whether anything actually gets persisted - see app.js for why. -->
+  <div id="storage-consent-notice" class="storage-consent-notice" hidden role="dialog" aria-modal="false" aria-labelledby="storage-consent-title">
+    <div class="storage-consent-card">
+      <h2 id="storage-consent-title"></h2>
+      <p id="storage-consent-body"></p>
+      <p class="storage-consent-timeout-note" id="storage-consent-timeout-note"></p>
+      <div class="storage-consent-actions">
+        <button type="button" class="storage-consent-btn storage-consent-yes" id="storage-consent-yes"></button>
+        <button type="button" class="storage-consent-btn storage-consent-no" id="storage-consent-no"></button>
+      </div>
+      <a id="storage-consent-privacy-link" class="storage-consent-privacy-link" href="./datenschutzerklaerung.html" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
+  <header>
+    <div class="title-row">
+      <div>
+        <h1 id="app-title">Zettacard</h1>
+        <div class="subtitle" id="app-subtitle"></div>
+      </div>
+      <div class="header-controls">
+        <!-- 2026-08-16: was a flat row of up to 11 icon-buttons here
+             (module-info/learn/course/signs/offline-prep/certificates/
+             review/profile-switch, plus these 4) - on a narrow phone that
+             row has no wrap and no scroll affordance, so most buttons
+             render fully off-screen and unreachable (confirmed by a live
+             iPhone Safari screenshot: only the offline-prep button was
+             visible, everything else invisible). Kept the 4 most-used
+             controls (change exam / start exam / theme / language) here;
+             everything else moved into #app-menu below, opened via this
+             hamburger button - same .exam-modal list pattern already used
+             for the module picker/certificates/primers, so it looks native
+             rather than bolted on.
+
+             2026-09-02: that trim didn't fully fix the underlying bug -
+             it was left as a plain `style="display:flex; gap:8px;
+             align-items:center;"` with no wrap, the exact anti-pattern
+             the 2026-08-11 "Mobile header horizontal-overflow fix" had
+             already fixed once (that fix's `.header-controls` class and
+             its CSS-side `overflow-x:hidden` backstop were both gone by
+             this point, presumably lost during this same redesign since
+             the class they applied to no longer existed). Confirmed via
+             real WebKit (Playwright iPhone 13 profile, not just Chromium
+             mobile emulation, which showed a different/misleading
+             viewport-width artifact) that on a 390px-wide phone this row
+             (menu / change-exam / exam / theme / language-select) is
+             wider than what's left after the title, and instead of
+             wrapping it overflows straight off the right edge -
+             `.lang-select-wrap` (flag+language picker) was the worst
+             offender, rendering ~195px past the visible screen and
+             completely unreachable. Restored this element's real class
+             (`.header-controls`, same name the 2026-08-11 fix used) with
+             a wrap rule in styles.css, plus the html/body overflow-x
+             backstop, rather than reaching for an inline style again. -->
+        <button class="theme-toggle" id="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
+        <button class="module-switch-btn" id="module-switch-btn"></button>
+        <button class="exam-start-btn" id="exam-start-btn"></button>
+      </div>
+    </div>
+    <div class="filters" id="filters"></div>
+    <!-- DN-44: role-relevance filter, additive to the topic filter above -
+         only shown (via renderRoleFilter() in app.js) for the 4 workplace-
+         compliance modules, which are the only content carrying a per-
+         question `roles` tag. Hidden by default so it never flashes empty
+         before the first render() call for another module. -->
+    <div class="filters role-filters" id="role-filters" hidden></div>
+  </header>
+
+  <!-- App menu (2026-08-16): everything that used to crowd the header icon
+       row now lives here instead, opened via the ☰ button above. These are
+       the SAME elements/ids as before (just relocated + restyled as list
+       rows via #app-menu-list's CSS) - every render()/wiring call that
+       targets them by id (visibility toggling, textContent, click
+       handlers) is unchanged. Clicking an item opens its own modal on top
+       of this one (same 2-level stacking as #course-view/#course-reader) -
+       no extra close-then-open choreography needed, the existing
+       pushState/popstate guards already handle it. -->
+  <div class="exam-modal" id="app-menu" hidden role="dialog" aria-modal="true" aria-labelledby="app-menu-title">
+    <div class="exam-modal-card" style="max-width:420px;">
+      <h2 id="app-menu-title" tabindex="-1"></h2>
+      <div id="app-menu-list">
+        <!-- 2026-09-02: theme + language moved here from the header's
+             .header-controls row (they used to sit alongside menu/change-
+             exam/exam as one 5-item cluster that had to wrap, then looked
+             like an accidental two-tier blob on narrow phones rather than
+             a deliberate layout - see the .header-controls comment above
+             in <header>). Both are "set once, rarely touched" settings,
+             exactly the kind of control the 2026-08-16 redesign already
+             moved everything else into this menu for - these two were
+             just left behind. Header now keeps only 3 items (menu/
+             change-exam/exam), which fit on one line at any phone width,
+             so there's nothing left to wrap. Same ids, so every existing
+             render()/wiring call (renderThemeToggle(), the lang-select
+             change listener, state.lang sync) is unchanged - only the DOM
+             location moved. -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme"></button>
+        <div class="lang-select-wrap">
+          <span class="lang-icon" aria-hidden="true">🌐</span>
+          <select class="lang-select" id="lang-select">
+            <!-- Flags added per explicit user request (2026-08-05) as a
+                 decorative prefix alongside each language's own endonym
+                 text - NOT flags-only. An earlier UX review rejected a
+                 flags-ONLY picker (flags represent countries, not
+                 languages: Arabic has no single flag, English/Chinese span
+                 many countries) - keeping the real language name as the
+                 primary, authoritative label avoids reintroducing that
+                 problem while still giving the visual flair asked for.
+                 Picks are a common-convention "best representative"
+                 country per language, not a claim of exclusivity. -->
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="uk">🇺🇦 Українська</option>
+            <option value="pl">🇵🇱 Polski</option>
+            <option value="ar">🇸🇦 العربية</option>
+            <option value="zh">🇨🇳 简体中文</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+            <option value="tr">🇹🇷 Türkçe</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="it">🇮🇹 Italiano</option>
+          </select>
+        </div>
+        <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
+        <button class="module-switch-btn" id="primers-btn" hidden aria-label="Learn the basics">🧭 Learn</button>
+        <button class="module-switch-btn" id="course-btn" hidden aria-label="Course">📘 Course</button>
+        <!-- kubectl command-recall drill (2026-09-02): CKA-only, gated on
+             state.examType === "cka" directly in render() - same hardcoded
+             per-module visibility pattern #sign-reference-btn/#primers-btn
+             already use for Fuehrerschein, not a new modules_manifest.json
+             flag. See #kubectl-drill-view below and wireKubectlDrillControls()
+             in app.js. -->
+        <button class="module-switch-btn" id="kubectl-drill-btn" hidden aria-label="kubectl drill">⌨️ kubectl Drill</button>
+        <button class="module-switch-btn" id="sign-reference-btn" hidden aria-label="Sign reference">📚 Signs</button>
+        <span class="offline-prep-wrap">
+          <button class="module-switch-btn" id="offline-prep-btn" hidden aria-label="Make available offline">📥</button>
+          <span class="offline-prep-status" id="offline-prep-status" hidden></span>
+        </span>
+        <button class="module-switch-btn" id="certificates-btn" aria-label="My certificates">🎓</button>
+        <button class="review-btn" id="review-btn" aria-label="Review due questions"></button>
+        <button class="module-switch-btn" id="profile-switch-btn" aria-label="Switch profile"></button>
+      </div>
+      <button class="back-btn" id="app-menu-close-btn"></button>
+    </div>
+  </div>
+
+  <main>
+    <div class="list" id="list"></div>
+  </main>
+
+  <div class="install-hint" id="install-hint"></div>
+
+  <div class="detail" id="detail-view" hidden role="dialog" aria-modal="true" aria-labelledby="detail-question">
+    <div class="detail-header">
+      <button class="back-btn" id="back-btn"></button>
+      <div class="progress-bar" id="detail-progress" style="margin:0; flex:1;"></div>
+      <button class="theme-toggle" id="detail-theme-toggle" aria-label="Toggle light/dark theme"></button>
+      <div class="lang-select-wrap">
+        <span class="lang-icon" aria-hidden="true">🌐</span>
+        <select class="lang-select" id="detail-lang-select">
+          <option value="de">🇩🇪 Deutsch</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="uk">🇺🇦 Українська</option>
+          <option value="pl">🇵🇱 Polski</option>
+          <option value="ar">🇸🇦 العربية</option>
+          <option value="zh">🇨🇳 简体中文</option>
+          <option value="hi">🇮🇳 हिन्दी</option>
+          <option value="tr">🇹🇷 Türkçe</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="es">🇪🇸 Español</option>
+          <option value="it">🇮🇹 Italiano</option>
+        </select>
+      </div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-meta" id="detail-meta"></div>
+      <p class="detail-question" id="detail-question" tabindex="-1"></p>
+      <div class="image-note" id="image-note"></div>
+      <div class="options" id="options"></div>
+      <!-- DN-14: manual star/bookmark toggle - independent of the Leitner
+           spaced-repetition system and of whether the question was answered
+           right or wrong. aria-pressed toggled in renderDetail() (app.js),
+           same pattern as the exam option cards' own aria-pressed/aria-checked
+           toggle-button convention. -->
+      <button class="star-btn" id="star-btn" aria-pressed="false"></button>
+      <button class="reveal-btn" id="reveal-btn"></button>
+      <div class="explanation" id="explanation" hidden tabindex="-1" aria-live="polite"></div>
+      <!-- Self-assessment for spaced-repetition review mode (DN-16). The
+           flashcard view otherwise has no explicit right/wrong signal (unlike
+           exam mode's real answer capture), so reviewing a due question needs
+           its own "did I actually know that" input to feed the Leitner box
+           update - shown only while state.reviewMode is true and the answer
+           has been revealed (see renderDetail() in app.js). -->
+      <div class="review-actions" id="review-actions" hidden>
+        <!-- Short caption so the two buttons below have context even for a
+             user who hasn't tried answering the card themselves first (see
+             the new pre-reveal "try it yourself" option-picking above) -
+             users found the bare green/red buttons hard to connect to
+             anything on their own. -->
+        <p class="review-actions-caption" id="review-actions-caption"></p>
+        <div class="review-actions-buttons">
+          <button class="review-know-btn" id="review-know-btn"></button>
+          <button class="review-dontknow-btn" id="review-dontknow-btn"></button>
+        </div>
+      </div>
+      <div id="detail-nav-row" style="display:flex; gap:10px; margin-top:20px;">
+        <button class="back-btn" id="prev-btn" style="flex:1;"></button>
+        <button class="back-btn" id="next-btn" style="flex:1;"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module picker (DN-39): which exam module (Fuehrerschein, Angelschein,
+       future modules), then which class/region within it. Shown blocking on
+       first visit (no saved selection); reopenable any time via the header
+       "change exam" button. Step content is built entirely in JS
+       (renderModulePicker) since the number of modules/options is dynamic. -->
+  <div class="exam-modal" id="module-picker" hidden role="dialog" aria-modal="true" aria-labelledby="module-picker-title">
+    <div class="exam-modal-card">
+      <h2 id="module-picker-title" tabindex="-1"></h2>
+      <div id="module-picker-body"></div>
+      <button class="back-btn" id="module-picker-cancel"></button>
+    </div>
+  </div>
+
+  <!-- My certificates (DN-14 completion tracking): lists every passed
+       Simulation-mode exam completion recorded on this device, each with a
+       downloadable printable certificate and a self-issued (unsigned)
+       Open-Badges-shaped credential JSON. Completion records are stored
+       locally (localStorage) - the record itself never leaves the device
+       until the user explicitly downloads a certificate/credential file,
+       which is the actual portable artifact (not the app's local state). -->
+  <div class="exam-modal" id="certificates-view" hidden role="dialog" aria-modal="true" aria-labelledby="certificates-title">
+    <div class="exam-modal-card" style="max-width:560px;">
+      <h2 id="certificates-title" tabindex="-1"></h2>
+      <p id="certificates-intro"></p>
+      <div id="certificates-list"></div>
+      <button class="back-btn" id="certificates-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Local profile switcher: lets multiple people share one device (e.g. a
+       family) without their progress/settings colliding. NOT a real
+       account/recovery system - purely a local-device convenience, see
+       profileKey()/migrateOrInitProfiles() in app.js. Follows the exact same
+       .exam-modal dialog pattern as #certificates-view/#module-picker. -->
+  <div class="exam-modal" id="profile-view" hidden role="dialog" aria-modal="true" aria-labelledby="profile-title">
+    <div class="exam-modal-card" style="max-width:480px;">
+      <h2 id="profile-title" tabindex="-1"></h2>
+      <div id="profile-list"></div>
+      <div class="profile-add-row">
+        <input type="text" id="profile-add-input" class="profile-add-input" />
+        <button class="exam-mode-btn profile-add-btn" id="profile-add-btn"></button>
+      </div>
+      <button class="back-btn" id="profile-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Sign Reference (Fuehrerschein-only): a browsable study reference of
+       every StVO sign actually cited by a Fuehrerschein question's
+       image_ref, grouped by sign category and reusing already-verified
+       correct-option/explanation text (see assets/build_sign_reference.py)
+       instead of asserting any new fact about a sign's meaning. Only shown
+       when state.examType === "fuehrerschein" (see render()), same pattern
+       as #module-info-btn. -->
+  <div class="exam-modal" id="sign-reference-view" hidden role="dialog" aria-modal="true" aria-labelledby="sign-reference-title">
+    <div class="exam-modal-card" style="max-width:640px;">
+      <h2 id="sign-reference-title" tabindex="-1"></h2>
+      <p id="sign-reference-intro"></p>
+      <div id="sign-reference-list"></div>
+      <button class="back-btn" id="sign-reference-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Kickstart-learning-journey topic primers (DN-52 Phase 1): a browsable
+       list of short 5-10 minute "learn the basics" guides - one for sign
+       shapes/categories plus one per Fuehrerschein exam topic - that bridge
+       a total beginner to a topic area before they start practicing real
+       exam questions. Fuehrerschein-only (state.examType === "fuehrerschein"),
+       same visibility pattern as #sign-reference-view. See
+       docs/kickstart-learning-journey-scoping.md. -->
+  <div class="exam-modal" id="primers-view" hidden role="dialog" aria-modal="true" aria-labelledby="primers-title">
+    <div class="exam-modal-card" style="max-width:560px;">
+      <h2 id="primers-title" tabindex="-1"></h2>
+      <p id="primers-intro"></p>
+      <div id="primers-list"></div>
+      <button class="back-btn" id="primers-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Primer reader: one topic's primer, chunk by chunk, reusing the exact
+       dots/back/next wizard mechanic already established by the module-intro
+       wizard below (#module-intro) for a consistent, already-familiar
+       navigation pattern rather than inventing a new one. -->
+  <div class="exam-modal" id="primer-reader" hidden role="dialog" aria-modal="true" aria-labelledby="primer-reader-title">
+    <div class="exam-modal-card">
+      <h2 id="primer-reader-title" tabindex="-1"></h2>
+      <p id="primer-reader-body"></p>
+      <div class="intro-dots" id="primer-reader-dots" aria-hidden="true"></div>
+      <div class="intro-nav">
+        <button class="back-btn" id="primer-reader-back"></button>
+        <button class="back-btn" id="primer-reader-exit"></button>
+        <button class="exam-mode-btn intro-next-btn" id="primer-reader-next"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- v1 course layer (modular-course-architecture-v1, 2026-08-15): a
+       browsable list of a module's exam-prep lessons (primer/checkpoint
+       lesson_kinds only - lab lessons are hands-on and run outside
+       Zettacard, no in-app presentation yet), grouped by week/unit. Shown
+       only for modules flagged "hasCourse": true in modules_manifest.json
+       (see render() in app.js), same visibility pattern as Sign Reference/
+       Learn above. -->
+  <div class="exam-modal" id="course-view" hidden role="dialog" aria-modal="true" aria-labelledby="course-title">
+    <div class="exam-modal-card" style="max-width:560px;">
+      <h2 id="course-title" tabindex="-1"></h2>
+      <p id="course-intro"></p>
+      <div id="course-list"></div>
+      <button class="back-btn" id="course-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- Course lesson reader: one lesson's sections, one at a time, reusing
+       the exact dots/back/next wizard mechanic already established by the
+       primer reader and module-intro wizard. On a lesson's final section,
+       "next" becomes "Practice this lesson now" and hands off directly into
+       a practice-quiz run scoped to that lesson's topic_codes (see
+       courseLessonHandoff() in app.js) - the exam-prep tie-in this whole
+       view exists for. #course-reader-related surfaces a lesson's
+       cross-module related[] notes (e.g. CKA's troubleshooting checkpoint
+       linking to the same root-cause-analysis concept in the DORA course). -->
+  <div class="exam-modal" id="course-reader" hidden role="dialog" aria-modal="true" aria-labelledby="course-reader-title">
+    <div class="exam-modal-card">
+      <h2 id="course-reader-title" tabindex="-1"></h2>
+      <p class="course-section-title" id="course-reader-section-title"></p>
+      <p id="course-reader-body"></p>
+      <!-- 2026-08-17: section_kind "media" renders here, NOT inside
+           #course-reader-body. Deliberate: the body element is a <p>, and a
+           <figure>/<iframe>/<video>/<img> block inside a <p> is invalid HTML
+           the parser silently splits, so media gets its own sibling
+           container that renderCourseMedia() fills with real DOM nodes
+           (never innerHTML - see that function's comment on why URLs are
+           set as properties). Empty and hidden for every non-media section,
+           which is every section of every course shipped before today. -->
+      <div id="course-reader-media" hidden></div>
+      <div id="course-reader-related" hidden></div>
+      <div class="intro-dots" id="course-reader-dots" aria-hidden="true"></div>
+      <div class="intro-nav">
+        <button class="back-btn" id="course-reader-back"></button>
+        <button class="back-btn" id="course-reader-exit"></button>
+        <button class="exam-mode-btn intro-next-btn" id="course-reader-next"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- kubectl command-recall drill (2026-09-02): a lightweight, custom
+       terminal-look widget - NOT xterm.js (see docs/kubectl-drill-prototype/
+       README.md's Decision 1 for the evaluated cost/benefit) and NOT a real
+       cluster/kubectl/WASM behind it - a typed command is checked
+       client-side, offline, against data/cka/kubectl_drills.json's
+       accepted_grammar (see data/cka_kubectl_drills_NOTES.md). The
+       #kd-sim-badge disclaimer is shown unconditionally, before any task
+       content, so this never reads as a real Kubernetes environment (this
+       session's explicit design requirement). One flat session through all
+       50 tasks in id order, reusing the exact back/exit/next .intro-nav
+       wizard mechanic every other reader in this file already uses
+       (#course-reader, #primer-reader) rather than inventing a new one -
+       kdOpenDrillView()/kdRenderTask()/wireKubectlDrillControls() in app.js.
+       #kd-log is a role="log" aria-live="polite" region (flagged as missing
+       in the prototype's own README) so screen-reader users hear each new
+       nudge/hint/success line as it's appended, matching this app's existing
+       aria-live use on #explanation. -->
+  <div class="exam-modal" id="kubectl-drill-view" hidden role="dialog" aria-modal="true" aria-labelledby="kd-title">
+    <div class="exam-modal-card kd-card">
+      <div class="kd-header">
+        <h2 id="kd-title" tabindex="-1"></h2>
+        <span class="badge kd-sim-badge" id="kd-sim-badge"></span>
+      </div>
+      <p class="kd-progress-label" id="kd-progress-label"></p>
+      <p class="kd-task-meta" id="kd-task-meta"></p>
+      <div class="kd-task-card" id="kd-task-prompt"></div>
+
+      <div class="kd-terminal" id="kd-terminal">
+        <div class="kd-terminal-titlebar">
+          <span class="kd-dot kd-dot-red" aria-hidden="true"></span>
+          <span class="kd-dot kd-dot-yellow" aria-hidden="true"></span>
+          <span class="kd-dot kd-dot-green" aria-hidden="true"></span>
+          <span class="kd-terminal-title" id="kd-terminal-title"></span>
+        </div>
+        <!-- role="log" + aria-live="polite": each appended line (nudge,
+             hint, reveal, success) is announced without needing to move
+             focus off the input - same non-focus-stealing feedback pattern
+             #explanation already uses elsewhere in this app. -->
+        <div class="kd-terminal-log" id="kd-log" role="log" aria-live="polite"></div>
+        <div class="kd-terminal-input-row">
+          <span class="kd-terminal-prompt" aria-hidden="true">$</span>
+          <!-- dir="ltr" forced regardless of UI language/RTL (see #app dir
+               attribute on <html> for ar): kubectl commands are ASCII shell
+               syntax and must never be bidi-reordered. -->
+          <input type="text" id="kd-input" class="kd-terminal-input"
+                 autocomplete="off" autocapitalize="off" autocorrect="off"
+                 spellcheck="false" inputmode="text" dir="ltr" />
+        </div>
+      </div>
+
+      <div class="intro-nav kd-nav">
+        <button class="back-btn" id="kd-back-btn"></button>
+        <button class="back-btn" id="kd-exit-btn"></button>
+        <button class="exam-mode-btn intro-next-btn" id="kd-next-btn"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module intro wizard (DN-43): a short, skippable walkthrough of what a
+       module actually covers, shown once per device before a user's first
+       study session in a module that has one (see modules_manifest.json's
+       optional "intro" block), and reopenable any time via the header "ⓘ"
+       button. Step content is built entirely in JS (renderModuleIntro). -->
+  <div class="exam-modal" id="module-intro" hidden role="dialog" aria-modal="true" aria-labelledby="module-intro-title">
+    <div class="exam-modal-card">
+      <h2 id="module-intro-title" tabindex="-1"></h2>
+      <p id="module-intro-body"></p>
+      <div class="intro-dots" id="module-intro-dots" aria-hidden="true"></div>
+      <div class="intro-nav">
+        <button class="back-btn" id="module-intro-back"></button>
+        <button class="back-btn" id="module-intro-skip"></button>
+        <button class="exam-mode-btn intro-next-btn" id="module-intro-next"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exam mode picker: choice between untimed training and the timed,
+       strictly-scored simulation, per the real exam's own two-tier framing
+       (DN-29, activated with explicit PO sign-off - see AGENTS.md history:
+       this reverses the original Sprint-1 "no exam mode" boundary). -->
+  <div class="exam-modal" id="exam-picker" hidden role="dialog" aria-modal="true" aria-labelledby="exam-picker-title">
+    <div class="exam-modal-card">
+      <h2 id="exam-picker-title"></h2>
+      <p id="exam-picker-desc"></p>
+      <button class="exam-mode-btn" id="exam-pick-training"></button>
+      <button class="exam-mode-btn" id="exam-pick-simulation"></button>
+      <!-- DN-52 Phase 2: practice-quiz entry point, same mode-choice card as
+           Training/Simulation - see renderExamPicker()/openPracticePicker()
+           in app.js. -->
+      <button class="exam-mode-btn" id="exam-pick-practice"></button>
+      <button class="back-btn" id="exam-picker-cancel"></button>
+    </div>
+  </div>
+
+  <!-- DN-52 Phase 2: practice-quiz scope picker - "mixed" plus one button per
+       topic (same topic set/labels the topic-filter chips use), reusing the
+       exam-modal look. See renderPracticePicker() in app.js. -->
+  <div class="exam-modal" id="practice-picker" hidden role="dialog" aria-modal="true" aria-labelledby="practice-picker-title">
+    <div class="exam-modal-card">
+      <h2 id="practice-picker-title"></h2>
+      <p id="practice-picker-desc"></p>
+      <div id="practice-picker-topics" style="display:flex; flex-direction:column; gap:8px; max-height:50vh; overflow-y:auto;"></div>
+      <button class="back-btn" id="practice-picker-cancel"></button>
+    </div>
+  </div>
+
+  <!-- DN-52 Phase 2: practice-quiz run - one question at a time with
+       IMMEDIATE per-question feedback (unlike exam mode's reveal-at-the-end),
+       reusing the flashcard self-answer visual language. No timer, no
+       skip button, no pass/fail - see renderPracticeQuestion() in app.js. -->
+  <div class="exam-view" id="practice-view" hidden role="dialog" aria-modal="true" aria-labelledby="practice-question">
+    <div class="detail-header">
+      <button class="back-btn" id="practice-exit-btn"></button>
+      <div class="progress-bar" id="practice-progress" style="margin:0; flex:1;"></div>
+    </div>
+    <div class="detail-body">
+      <div class="detail-meta" id="practice-meta"></div>
+      <p class="detail-question" id="practice-question" tabindex="-1"></p>
+      <div class="image-note" id="practice-image-note"></div>
+      <div class="options" id="practice-options"></div>
+      <div class="explanation" id="practice-explanation" hidden tabindex="-1" aria-live="polite"></div>
+      <div style="display:flex; gap:10px; margin-top:20px;">
+        <button class="back-btn" id="practice-check-btn" style="flex:1;" hidden></button>
+        <button class="back-btn" id="practice-next-btn" style="flex:1;" hidden></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DN-52 Phase 2: practice-quiz results - plain score summary, deliberately
+       has NO certificate section at all (unlike #exam-results), so there's
+       structurally nothing here that could grow into one by accident. See
+       renderPracticeResults() in app.js. -->
+  <div class="exam-view" id="practice-results" hidden role="dialog" aria-modal="true" aria-labelledby="practice-results-title">
+    <div class="detail-header">
+      <button class="back-btn" id="practice-results-close-btn"></button>
+      <div style="flex:1;"></div>
+    </div>
+    <div class="detail-body">
+      <h2 id="practice-results-title"></h2>
+      <div id="practice-results-summary"></div>
+    </div>
+  </div>
+
+  <!-- Live exam run: one question at a time, answers captured but not
+       revealed until the end (matches how the real exam works) - see
+       renderExam* functions in app.js. -->
+  <div class="exam-view" id="exam-view" hidden role="dialog" aria-modal="true" aria-labelledby="exam-question">
+    <div class="detail-header">
+      <button class="back-btn" id="exam-exit-btn"></button>
+      <div class="progress-bar" id="exam-progress" style="margin:0; flex:1;"></div>
+      <div class="exam-timer" id="exam-timer" hidden></div>
+    </div>
+    <div class="detail-body">
+      <!-- "Frage schieben" (skip-and-revisit) second-pass banner - only
+           shown while state.exam.reviewPass is true (see
+           renderExamQuestion() in app.js), so a test-taker can never mistake
+           this bounded review-only pass for a fresh run through the whole
+           exam. -->
+      <div class="exam-skip-banner" id="exam-skip-banner" hidden></div>
+      <div class="detail-meta" id="exam-meta"></div>
+      <p class="detail-question" id="exam-question" tabindex="-1"></p>
+      <div class="image-note" id="exam-image-note"></div>
+      <div class="options" id="exam-options"></div>
+      <div style="display:flex; gap:10px; margin-top:20px;">
+        <!-- Simulation-mode-only skip button (hidden for Training mode and
+             during the skipped-questions review pass) - see examSkip()/
+             renderExamQuestion() in app.js. -->
+        <button class="back-btn" id="exam-skip-btn" style="flex:1;" hidden></button>
+        <button class="back-btn" id="exam-next-btn" style="flex:1;"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exam results: pass/fail per the real point-based rule, plus a review
+       list of every wrong answer with the correct one shown, since a
+       nervous test-taker's actual goal is learning from the miss, not just
+       a score. -->
+  <div class="exam-view" id="exam-results" hidden role="dialog" aria-modal="true" aria-labelledby="exam-results-title">
+    <div class="detail-header">
+      <button class="back-btn" id="exam-results-close-btn"></button>
+      <div style="flex:1;"></div>
+    </div>
+    <div class="detail-body">
+      <h2 id="exam-results-title"></h2>
+      <div id="exam-results-summary"></div>
+      <div id="exam-results-certificate"></div>
+      <div id="exam-results-review"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

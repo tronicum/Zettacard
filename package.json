@@ -5,13 +5,32 @@
   "description": "Zettacard exam-prep PWA. This package.json exists solely so Netlify's function bundler (zip-it-and-ship-it/esbuild) can resolve and bundle npm dependencies for netlify/functions/*.js - the app itself (app/) remains a build-step-free static PWA (see netlify.toml).",
   "dependencies": {
     "@netlify/blobs": "^10.7.13",
-    "jose": "^6.2.8"
+    "jose": "^6.2.8",
+    "pdf-lib": "^1.17.1",
+    "qrcode": "^1.5.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.62.1",
     "playwright": "^1.47.0"
   },
   "scripts": {
+    "dev": "scripts/dev-serve.sh",
     "test:sign-credential": "node scripts/test_sign_credential.js",
-    "test:full-exam-badge": "node scripts/test_full_exam_badge.mjs"
+    "test:full-exam-badge": "node scripts/test_full_exam_badge.mjs",
+    "test:storage-consent": "node scripts/test_storage_consent.mjs",
+    "check:data": "python3 scripts/check_data_integrity.py",
+    "check:translations": "python3 scripts/translation_ledger.py check",
+    "translations:status": "python3 scripts/translation_ledger.py status",
+    "translations:stamp": "python3 scripts/translation_ledger.py stamp",
+    "test:layout": "node scripts/layout_audit.mjs",
+    "test:exam": "node scripts/test_exam_matrix.mjs",
+    "test:exam:quick": "node scripts/test_exam_matrix.mjs --quick",
+    "serve": "node scripts/serve-app.mjs",
+    "check:all": "npm run check:data && npm run check:translations",
+    "qa:i18n:test": "python3 scripts/i18n_qa/test_offline.py",
+    "qa:i18n:preflight": "python3 scripts/i18n_qa/ollama_client.py --model bge-m3 --model qwen2.5:7b-instruct",
+    "qa:i18n:seed": "python3 scripts/i18n_qa/seed_eval.py build-seed",
+    "qa:i18n:eval": "python3 scripts/i18n_qa/seed_eval.py run",
+    "check:receipts": "python3 scripts/i18n_qa/verify_receipts.py --require high_stakes"
   }
 }

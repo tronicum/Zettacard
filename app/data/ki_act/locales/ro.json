@@ -1,0 +1,402 @@
+{
+  "ki_act-grundlagen-01": {
+    "question": "Care este obiectivul fundamental al Regulamentului UE privind inteligența artificială (AI Act)?",
+    "options": {
+      "a": "Interzice în general întreprinderilor din UE utilizarea inteligenței artificiale",
+      "b": "Reglementează utilizarea sistemelor de IA pe baza riscurilor, pentru a proteja drepturile fundamentale și securitatea și, în același timp, pentru a permite inovarea",
+      "c": "Stabilește exclusiv norme tehnice pentru dezvoltatorii de software, fără efect juridic pentru întreprinderi",
+      "d": "Înlocuiește complet RGPD pentru toate prelucrările de date în care este implicată IA"
+    },
+    "explanation": "AI Act urmează o abordare bazată pe riscuri: cu cât riscul unui sistem de IA pentru securitate sau pentru drepturile fundamentale este mai mare, cu atât cerințele sunt mai stricte. Nu există o interdicție generală a IA, iar regulamentul nu înlocuiește nici RGPD - ambele se aplică în paralel."
+  },
+  "ki_act-grundlagen-02": {
+    "question": "În câte niveluri fundamentale de risc împarte AI Act sistemele de IA?",
+    "options": {
+      "a": "În două niveluri: permise și interzise",
+      "b": "În cinci niveluri, eșalonate pe sectoare de activitate",
+      "c": "În patru niveluri: risc inacceptabil, risc ridicat, risc limitat (obligații de transparență) și risc minim",
+      "d": "În trei niveluri, stabilite exclusiv în funcție de mărimea întreprinderii"
+    },
+    "explanation": "Conceptul central al AI Act este piramida riscurilor: risc inacceptabil (interzis), risc ridicat (cerințe stricte, de exemplu la selecția candidaților sau la evaluarea bonității), risc limitat (în principal obligații de transparență, de exemplu chatboți) și risc minim (aproape fără obligații, de exemplu filtre antispam sau IA din jocuri video)."
+  },
+  "ki_act-grundlagen-03": {
+    "question": "Ce caracteristică este decisivă pentru un „sistem de IA”, potrivit definiției din art. 3 pct. 1 din Regulamentul privind IA?",
+    "options": {
+      "a": "Este un sistem bazat pe mașini, care funcționează cu un anumit grad de autonomie și care deduce („deduce prin inferență”) din datele de intrare rezultate precum conținuturi, previziuni, recomandări sau decizii",
+      "b": "Trebuie să se bazeze obligatoriu pe rețele neuronale sau pe IA generativă, altfel nu este considerat sistem de IA",
+      "c": "Trebuie să funcționeze întotdeauna în cloud; software-ul local nu intră niciodată sub incidența definiției",
+      "d": "Trebuie să fie promovat de un om drept „IA”, altfel regulamentul nu se aplică"
+    },
+    "explanation": "Definiția este în mod deliberat neutră din punct de vedere tehnologic: decisivă este capacitatea de a trage concluzii din datele de intrare și de a genera pe această bază rezultate - indiferent dacă în spate se află un simplu sistem de reguli, învățarea automată sau un model lingvistic de mari dimensiuni. Un set de reguli simplu, programat fix, fără nicio formă de inferență, nu intră, de regulă, sub incidența definiției."
+  },
+  "ki_act-grundlagen-04": {
+    "question": "Care dintre următoarele exemple se numără în mod tipic printre „sistemele de IA cu grad ridicat de risc” în sensul AI Act?",
+    "options": {
+      "a": "O IA care corectează automat greșelile de ortografie din e-mailuri",
+      "b": "O funcție de recomandare a filmelor bazată pe IA într-o aplicație de streaming",
+      "c": "Un chatbot cu IA care răspunde la întrebări generale despre produse în serviciul clienți",
+      "d": "Un software cu IA care presortează dosarele de candidatură și contribuie la decizia privind invitarea la interviuri"
+    },
+    "explanation": "IA folosită în resurse umane, care contribuie la deciziile de angajare, promovare sau concediere, este menționată expres în anexa III la AI Act ca domeniu cu grad ridicat de risc, deoarece poate avea efecte considerabile asupra drepturilor și șanselor unor persoane. Corectarea ortografiei, recomandările de filme și chatboții simpli sunt considerate, în schimb, cu risc minim, respectiv limitat."
+  },
+  "ki_act-ki_kompetenz-01": {
+    "question": "Pe cine obligă art. 4 din Regulamentul privind IA să asigure un nivel suficient de „alfabetizare în domeniul IA” (AI literacy)?",
+    "options": {
+      "a": "Numai producătorii (furnizorii) de sisteme de IA, nu și întreprinderile care utilizează aceste sisteme în activitatea curentă",
+      "b": "Numai marile grupuri cu peste 250 de angajați",
+      "c": "Atât furnizorii, cât și implementatorii (deployer) de sisteme de IA - deci și întreprinderile care doar utilizează instrumente de IA gata realizate",
+      "d": "Exclusiv departamentele IT, deoarece numai acestea intră tehnic în contact cu sistemele de IA"
+    },
+    "explanation": "Art. 4 se adresează expres atât furnizorilor (care dezvoltă sisteme de IA sau le introduc pe piață), cât și implementatorilor (deployer), care utilizează sisteme de IA pe propria răspundere - de exemplu o întreprindere care folosește în serviciul clienți un instrument de IA achiziționat. Ambele categorii trebuie să se asigure că personalul lor dispune de o alfabetizare suficientă în domeniul IA."
+  },
+  "ki_act-ki_kompetenz-02": {
+    "question": "Pentru ce categorie de persoane din întreprindere trebuie asigurată, potrivit art. 4 din Regulamentul privind IA, alfabetizarea în domeniul IA?",
+    "options": {
+      "a": "Numai pentru angajații cu contract permanent, nu și pentru furnizorii externi de servicii sau colaboratorii independenți",
+      "b": "Pentru toate persoanele care se ocupă, în numele furnizorului sau al implementatorului, de operarea și utilizarea sistemelor de IA - inclusiv angajați și alte persoane mandatate",
+      "c": "Numai pentru conducere, deoarece aceasta poartă răspunderea finală",
+      "d": "Numai pentru persoanele care programează sau antrenează ele însele modele de IA"
+    },
+    "explanation": "Obligația este formulată în mod deliberat larg și nu îi vizează doar pe angajații cu contract permanent, ci pe toate persoanele care lucrează cu sisteme de IA în numele întreprinderii - acestea pot fi și colaboratori independenți, lucrători temporari sau furnizori externi de servicii care folosesc, de exemplu, un instrument de IA în relația cu clienții."
+  },
+  "ki_act-ki_kompetenz-03": {
+    "question": "Trebuie ca instruirea privind alfabetizarea în domeniul IA potrivit art. 4 din Regulamentul privind IA să fie identică pentru toți angajații unei întreprinderi?",
+    "options": {
+      "a": "Nu - amploarea instruirii trebuie să se orienteze după cunoștințele tehnice prealabile, experiența, formarea, precum și după contextul concret de utilizare al fiecărei persoane",
+      "b": "Da - regulamentul impune o programă standard unitară la nivel național, cu conținut identic pentru toate rolurile",
+      "c": "Da - numai o singură instruire obligatorie la nivelul întregii întreprinderi, cu același test pentru toți, îndeplinește cerințele",
+      "d": "Nu, conținuturile instruirii sunt complet la liberă alegere și nu trebuie să trateze nici riscurile, nici utilizarea practică"
+    },
+    "explanation": "Art. 4 impune expres luarea în considerare a cunoștințelor prealabile, a experienței, a formării, precum și a contextului în care urmează să fie utilizate sistemele de IA - instruirile ar trebui deci adaptate în funcție de rol. O persoană care folosește doar ocazional un asistent de scriere bazat pe IA are nevoie de alte conținuturi decât cineva care ia decizii asistate de IA în domeniul cu grad ridicat de risc."
+  },
+  "ki_act-ki_kompetenz-04": {
+    "question": "De când se aplică deja în practică obligația privind alfabetizarea în domeniul IA potrivit art. 4 din Regulamentul privind IA?",
+    "options": {
+      "a": "Abia de la 2 august 2027, concomitent cu cele mai stricte obligații privind riscul ridicat",
+      "b": "Încă de la 2 februarie 2025 - împreună cu interzicerea anumitor practici de IA potrivit art. 5",
+      "c": "Abia de la 2 august 2026, împreună cu majoritatea obligațiilor de transparență",
+      "d": "Obligația se aplică abia din momentul în care o întreprindere utilizează un sistem de IA cu grad ridicat de risc în sensul anexei III"
+    },
+    "explanation": "Potrivit art. 113 lit. a) din Regulamentul privind IA, capitolul I (printre altele art. 4, alfabetizarea în domeniul IA) și capitolul II (art. 5, practici interzise) se aplică încă de la 2 februarie 2025 - considerabil mai devreme decât cea mai mare parte a regulamentului, care devine aplicabilă abia de la 2 august 2026. Cine a ignorat până acum obligația privind alfabetizarea în domeniul IA este deci deja în întârziere, nu abia „cândva în viitor”."
+  },
+  "ki_act-verbotene_praktiken-01": {
+    "question": "O întreprindere are în vedere introducerea unui sistem de IA care evaluează angajații pe baza comportamentului lor social și a unor caracteristici personale și care generează din aceasta un „scor de încredere” general, utilizat în contexte foarte diferite (de exemplu evaluare, acces la resurse). Cum se încadrează acest lucru potrivit AI Act?",
+    "options": {
+      "a": "Nu ridică probleme, atât timp cât angajații își dau acordul în mod informal",
+      "b": "Interzis doar în Germania, în celelalte state ale UE fiind permis în mod expres",
+      "c": "Permis, cu condiția ca scorul să nu fie publicat",
+      "d": "Un astfel de „scor social” al persoanelor, aplicat transversal între contexte, se numără printre practicile interzise potrivit art. 5 și nu poate fi utilizat pe teritoriul UE"
+    },
+    "explanation": "Scorul social - evaluarea sau clasificarea persoanelor fizice pe o perioadă mai îndelungată, pe baza comportamentului lor social sau a unor caracteristici personale, cu un tratament defavorabil dedus din aceasta în contexte fără legătură - este una dintre „liniile roșii” clasice ale art. 5 din Regulamentul privind IA și este interzisă în întreaga UE, indiferent de un acord individual."
+  },
+  "ki_act-verbotene_praktiken-02": {
+    "question": "Utilizarea „identificării biometrice la distanță în timp real” prin sisteme de IA în spații accesibile publicului, în scopul asigurării respectării legii, este în principiu interzisă potrivit art. 5 din Regulamentul privind IA. Este acest lucru valabil fără nicio excepție?",
+    "options": {
+      "a": "Da, nu există absolut nicio excepție - orice utilizare este interzisă în orice caz",
+      "b": "Nu, serviciile private de securitate o pot utiliza complet liber și fără restricții",
+      "c": "Nu, există excepții strict delimitate (de exemplu căutarea țintită a unor persoane dispărute, prevenirea unei amenințări teroriste concrete), care sunt condiționate de cerințe stricte și, de regulă, de o autorizare judiciară",
+      "d": "Nu, orice întreprindere o poate utiliza, cu condiția să efectueze în prealabil o evaluare a impactului asupra protecției datelor"
+    },
+    "explanation": "Regulamentul prevede pentru identificarea biometrică la distanță în timp real în spații accesibile publicului, în scopul asigurării respectării legii, excepții limitate și enumerate exhaustiv (de exemplu căutarea unor copii dispăruți, prevenirea unei amenințări teroriste concrete și prezente), care necesită, în principiu, o autorizare prealabilă judiciară sau a unei autorități administrative independente. Pentru întreprinderile private, în afara activității de asigurare a respectării legii, utilizarea rămâne, oricum, de regulă interzisă."
+  },
+  "ki_act-verbotene_praktiken-03": {
+    "question": "O echipă de marketing dorește să utilizeze un sistem de IA care folosește în mod țintit stimuli subliminali, nepercepuți în mod conștient de utilizatori, pentru a le manipula decizia de cumpărare și a le provoca astfel un prejudiciu semnificativ. Cum se apreciază acest lucru?",
+    "options": {
+      "a": "Aceasta intră sub incidența practicilor manipulatoare, respectiv înșelătoare interzise potrivit art. 5 din Regulamentul privind IA, întrucât sunt folosite în mod deliberat tehnici subliminale pentru a influența substanțial comportamentul, cu potențial de prejudiciu",
+      "b": "Este marketing creativ și admisibil, atât timp cât condițiile generale conțin o mențiune privind „publicitatea personalizată”",
+      "c": "Este interzis doar în cazul publicității destinate copiilor, în cazul adulților fiind în principiu permis",
+      "d": "Nu intră sub incidența AI Act, întrucât este vorba despre marketing, nu despre un sistem cu grad ridicat de risc"
+    },
+    "explanation": "Art. 5 din Regulamentul privind IA interzice utilizarea sistemelor de IA care folosesc tehnici subliminale, manipulatoare sau înșelătoare, dincolo de conștiința unei persoane, pentru a-i influența substanțial comportamentul și a-i provoca astfel un prejudiciu semnificativ - indiferent dacă grupul-țintă îl constituie copiii sau adulții. O mențiune în condițiile generale nu schimbă nimic, întrucât tehnica vizează tocmai influențarea inconștientă."
+  },
+  "ki_act-verbotene_praktiken-04": {
+    "question": "Un sistem de IA urmează să fie conceput în mod țintit astfel încât să exploateze vulnerabilitatea persoanelor în vârstă sau a persoanelor aflate într-o situație economică dificilă, pentru a le influența comportamentul în dezavantajul lor. Cum încadrează AI Act acest lucru?",
+    "options": {
+      "a": "Ca practică cu grad ridicat de risc, care poate fi însă utilizată legal pe baza unei evaluări a conformității",
+      "b": "Ca una dintre practicile interzise potrivit art. 5, întrucât este exploatată în mod țintit vulnerabilitatea determinată de vârstă, de un handicap sau de situația socială ori economică, pentru a acționa în dezavantajul persoanelor vizate",
+      "c": "Ca fiind complet lipsit de probleme, atât timp cât nu se produce un prejudiciu financiar",
+      "d": "Ca un caz de obligație de transparență, în care este suficientă o simplă mențiune „Interacționați cu o IA”"
+    },
+    "explanation": "Exploatarea țintită a vulnerabilității anumitor categorii de persoane - de exemplu din cauza vârstei, a unui handicap sau a unei situații sociale ori economice dificile -, cu scopul de a le influența comportamentul în dezavantajul lor, se numără printre practicile interzise în mod expres potrivit art. 5. O evaluare a conformității sau o mențiune de transparență nu poate „remedia” o astfel de interdicție, întrucât practicile interzise nu pot fi, în general, legalizate prin condiții suplimentare."
+  },
+  "ki_act-transparenzpflichten-01": {
+    "question": "Întreprinderea dumneavoastră utilizează un chatbot care răspunde automat la solicitările clienților. Ce impune, în principiu, art. 50 din Regulamentul privind IA în acest caz?",
+    "options": {
+      "a": "Chatbotul trebuie oprit complet de îndată ce un client întreabă despre acest lucru",
+      "b": "Nu există nicio obligație, atât timp cât chatbotul funcționează impecabil din punct de vedere tehnic",
+      "c": "Clienții trebuie informați clar și în timp util că interacționează cu un sistem de IA, și nu cu un om - cu excepția cazului în care acest lucru este oricum evident",
+      "d": "Chatbotul poate fi utilizat numai dacă s-a efectuat în prealabil o evaluare a conformității, ca în cazul sistemelor cu grad ridicat de risc"
+    },
+    "explanation": "Art. 50 din Regulamentul privind IA impune, pentru sistemele destinate interacțiunii directe cu persoane fizice, ca utilizatorii să fie informați că interacționează cu un sistem de IA - cu excepția cazului în care acest lucru este evident pentru o persoană suficient de informată și de atentă (de exemplu în cazul unor boți de tip FAQ, vizibil automatizați). O evaluare a conformității pentru risc ridicat nu este necesară în acest scop, întrucât un chatbot simplu nu este, de regulă, un sistem cu grad ridicat de risc."
+  },
+  "ki_act-transparenzpflichten-02": {
+    "question": "Un coleg realizează cu un generator de imagini bazat pe IA un videoclip cu aspect realist, în care o persoană cunoscută face afirmații pe care nu le-a făcut niciodată („deepfake”), și dorește să îl distribuie intern și extern. Ce se aplică, în principiu, aici?",
+    "options": {
+      "a": "Videoclipul trebuie marcat ca fiind generat de IA, respectiv manipulat, pentru ca privitorii să poată recunoaște că conținutul și afirmațiile nu sunt autentice",
+      "b": "O obligație de marcare există doar în cazul utilizării comerciale în afara UE",
+      "c": "Deepfake-urile sunt în principiu interzise și nu pot fi create în niciun caz",
+      "d": "Nu există o obligație de marcare atât timp cât nu se obține un câștig financiar"
+    },
+    "explanation": "Art. 50 din Regulamentul privind IA obligă la marcarea drept conținut creat artificial, respectiv manipulat, a conținuturilor de tip imagine, audio sau video generate ori manipulate de IA, care fac ca persoane, obiecte, locuri sau evenimente reale să pară în mod fals autentice („deepfake”). Deepfake-urile nu sunt interzise în sine, dar trebuie făcute transparente - spre deosebire, de exemplu, de scorul social, ele nu constituie o „linie roșie” potrivit art. 5, ci sunt supuse unei obligații de marcare."
+  },
+  "ki_act-transparenzpflichten-03": {
+    "question": "Un sistem de IA pentru recunoașterea emoțiilor este utilizat la locul de muncă pentru a surprinde starea de spirit a angajaților în timpul ședințelor. Ce impune cel puțin art. 50 din Regulamentul privind IA în acest sens?",
+    "options": {
+      "a": "Utilizarea este întotdeauna interzisă, indiferent de context",
+      "b": "Persoanele vizate trebuie informate cu privire la faptul că se utilizează un sistem de recunoaștere a emoțiilor",
+      "c": "Este suficientă o mențiune în documentația IT internă; informarea persoanelor vizate nu este necesară",
+      "d": "O obligație de informare există numai față de comitetul de întreprindere, nu și față de angajați în mod individual"
+    },
+    "explanation": "Pentru sistemele de recunoaștere a emoțiilor sau de clasificare biometrică, art. 50 din Regulamentul privind IA prevede o obligație de informare față de persoanele fizice expuse sistemului - acestea trebuie informate cu privire la funcționarea sistemului. Aceasta nu înlocuiește, de altfel, eventualele drepturi suplimentare de codecizie din dreptul muncii, de exemplu ale comitetului de întreprindere, ci se adaugă acestora."
+  },
+  "ki_act-transparenzpflichten-04": {
+    "question": "De când sunt aplicabile obligațiile generale de transparență prevăzute la art. 50 din Regulamentul privind IA (printre altele marcarea chatboților, etichetarea deepfake-urilor)?",
+    "options": {
+      "a": "Încă de la intrarea în vigoare a regulamentului, în august 2024",
+      "b": "Abia de la 2 august 2027",
+      "c": "Încă de la 2 februarie 2025, împreună cu practicile interzise",
+      "d": "De la 2 august 2026, împreună cu cea mai mare parte a celorlalte obligații din regulament"
+    },
+    "explanation": "Spre deosebire de obligația privind alfabetizarea în domeniul IA (art. 4) și de practicile interzise (art. 5), care se aplică încă de la 2 februarie 2025, obligațiile de transparență prevăzute la art. 50 se aplică abia de la data generală de aplicare, 2 august 2026 - împreună cu cea mai mare parte a celorlalte obligații din regulament. Întreprinderile ar trebui să aibă în vedere aceste termene diferite."
+  },
+  "ki_act-ki_am_arbeitsplatz-01": {
+    "question": "Un coleg dorește să introducă date confidențiale ale clienților într-un chatbot cu IA disponibil public, pentru a primi ajutor la formularea unui răspuns. La ce ar trebui să se gândească mai întâi?",
+    "options": {
+      "a": "Nu ridică probleme, întrucât furnizorii de IA nu stochează, în principiu, datele introduse",
+      "b": "Datele cu caracter personal sau confidențiale nu pot fi, de regulă, introduse fără verificare în instrumente externe de IA, deoarece acest lucru poate încălca cerințele privind protecția datelor și politicile interne - independent de AI Act, se aplică aici suplimentar și RGPD",
+      "c": "Este permis, atât timp cât colegul îl informează ulterior, informal, pe client despre acest lucru",
+      "d": "AI Act interzice în principiu orice utilizare a chatboților externi cu IA la locul de muncă"
+    },
+    "explanation": "AI Act reglementează în principal riscurile care provin de la sistemul de IA însuși, dar nu înlocuiește RGPD. Cine introduce date cu caracter personal sau confidențiale într-un instrument extern de IA poate încălca, independent de AI Act, legislația privind protecția datelor și politicile interne, de exemplu pentru că datele sunt prelucrate pe servere aflate în afara controlului întreprinderii. Ambele cadre juridice - AI Act și RGPD - trebuie respectate în paralel."
+  },
+  "ki_act-ki_am_arbeitsplatz-02": {
+    "question": "Un sistem de IA cu grad ridicat de risc sprijină preselecția candidaturilor. Un angajat preia fără verificare fiecare propunere a IA, deoarece „IA are de cele mai multe ori dreptate”. Cum se apreciază acest comportament din perspectiva cerințelor privind supravegherea umană?",
+    "options": {
+      "a": "Complet în regulă, întrucât formal decizia a fost luată de IA",
+      "b": "Problematic doar dacă un candidat depune plângere",
+      "c": "Problematic: supravegherea umană în cazul sistemelor cu grad ridicat de risc înseamnă verificarea critică a propunerilor IA și capacitatea de a le motiva, în loc de a le valida automat",
+      "d": "Fără probleme, deoarece producătorul IA poartă răspunderea pentru toate deciziile"
+    },
+    "explanation": "AI Act impune pentru sistemele cu grad ridicat de risc o supraveghere umană eficace: persoana responsabilă trebuie să fie în măsură să înțeleagă rezultatele IA, să le chestioneze critic și, la nevoie, să le corecteze sau să le respingă (evitarea „automation bias”). Preluarea oarbă a propunerilor IA contravine acestei idei fundamentale și poate conduce, în final, la decizii discriminatorii, pentru care întreprinderea rămâne în continuare responsabilă."
+  },
+  "ki_act-ki_am_arbeitsplatz-03": {
+    "question": "O persoană cu funcție de conducere ia, pe baza unei recomandări a IA, o decizie de personal defavorabilă, care se dovedește ulterior eronată și discriminatorie. Argumentul persoanei: „Așa a propus IA, eu doar am preluat.” Este acest argument sustenabil juridic?",
+    "options": {
+      "a": "Nu - răspunderea pentru o decizie rămâne, în principiu, la om, respectiv la întreprinderea care, în calitate de implementator, utilizează sistemul de IA; „așa a spus IA” nu exonerează de propria obligație de diligență",
+      "b": "Da - din momentul în care un sistem de IA formulează o recomandare, întreaga răspundere juridică trece automat asupra producătorului IA",
+      "c": "Da, dar numai dacă întreprinderea are mai puțin de 50 de angajați",
+      "d": "Acest lucru este irelevant juridic, întrucât AI Act nu conține reglementări privind răspunderea implementatorilor"
+    },
+    "explanation": "AI Act impune implementatorilor (deployer) de sisteme de IA cu grad ridicat de risc obligații proprii, printre altele privind supravegherea umană adecvată și utilizarea corespunzătoare, conform instrucțiunilor de utilizare ale producătorului. Aceste obligații - și răspunderea care rezultă din ele pentru deciziile concrete din activitate - rămân, în principiu, la întreprindere, respectiv la persoana care acționează, chiar dacă o IA a furnizat recomandarea de la bază."
+  },
+  "ki_act-ki_am_arbeitsplatz-04": {
+    "question": "Care este o regulă de conduită utilă și practică pentru utilizarea asistenților de IA generativă (de exemplu pentru redactarea de texte) în activitatea zilnică?",
+    "options": {
+      "a": "Preluarea textelor generate de IA întotdeauna nemodificate și neverificate, pentru a economisi timp",
+      "b": "Verificarea pe fond a rezultatelor generate de IA înainte de utilizare, în special sub aspectul exactității, al prejudecăților și al protecției datelor - iar în caz de dubiu, compararea utilizării cu politicile interne aplicabile",
+      "c": "Utilizarea IA generative doar în afara programului de lucru și fără nicio relevanță pentru activitatea de serviciu",
+      "d": "Renunțarea la orice verificare, atât timp cât niciun client nu vede direct conținuturile"
+    },
+    "explanation": "IA generativă poate fi foarte utilă în muncă, dar nu înlocuiește propria răspundere profesională și juridică. Rezultatele pot fi eronate pe fond („halucinații”), pot conține distorsiuni inconștiente sau pot fi problematice din perspectiva protecției datelor, dacă au fost introduse din greșeală informații confidențiale - de aceea o verificare critică înainte de utilizarea ulterioară face parte din bunele practici din întreprindere."
+  },
+  "ki_act-grundlagen-05": {
+    "question": "Un sistem de IA este dezvoltat și utilizat exclusiv în scopuri militare de apărare națională. Se aplică AI Act în acest caz?",
+    "options": {
+      "a": "Nu - potrivit art. 2 alin. (3), AI Act nu se aplică sistemelor de IA introduse pe piață, puse în funcțiune sau utilizate exclusiv în scopuri militare, de apărare sau de securitate națională",
+      "b": "Da, fără restricții - utilizarea militară este menționată expres ca domeniu distinct cu grad ridicat de risc în anexa III",
+      "c": "Nu, dar numai dacă sistemul a fost în plus certificat oficial de NATO",
+      "d": "Da, dar cel puțin obligațiile de transparență prevăzute la art. 50 continuă totuși să se aplice fără restricții"
+    },
+    "explanation": "Art. 2 alin. (3) din Regulamentul privind IA exclude complet din domeniul de aplicare al regulamentului sistemele de IA destinate exclusiv unor scopuri militare, de apărare sau de securitate națională - indiferent de tipul de entitate care le operează. Nu există în acest scop o certificare NATO distinctă, iar în acest caz nici obligațiile de transparență nu se aplică."
+  },
+  "ki_act-grundlagen-06": {
+    "question": "O echipă de cercetare dezvoltă și testează un nou model de IA exclusiv în cadrul cercetării științifice, înainte ca acesta să fie vreodată introdus pe piață sau pus în funcțiune. Cum se încadrează acest lucru potrivit AI Act?",
+    "options": {
+      "a": "Astfel de activități de cercetare, testare și dezvoltare anterioare introducerii pe piață, respectiv punerii în funcțiune, nu intră, în principiu, sub incidența regulamentului",
+      "b": "Și cercetarea pură trebuie să parcurgă în prealabil o evaluare completă a conformității, ca un sistem cu grad ridicat de risc",
+      "c": "Excepția se aplică numai dacă cercetarea are loc într-o universitate de stat, nu și în mediul privat",
+      "d": "Excepția continuă să se aplice neschimbată din momentul în care modelul este pus ulterior la dispoziția unor utilizatori reali pe piață"
+    },
+    "explanation": "Art. 2 alin. (8) din Regulamentul privind IA exclude din domeniul de aplicare activitățile de cercetare, testare și dezvoltare privind sisteme sau modele de IA, anterioare introducerii pe piață ori punerii în funcțiune. Excepția nu se limitează la instituțiile de stat, dar încetează din momentul în care sistemul este efectiv pus la dispoziție pe piață sau pus în funcțiune - din acel moment se aplică obligațiile obișnuite."
+  },
+  "ki_act-grundlagen-07": {
+    "question": "Cine este considerat „furnizor” (provider) al unui sistem de IA, potrivit definiției din art. 3 pct. 3 din Regulamentul privind IA?",
+    "options": {
+      "a": "Numai o persoană fizică ce scrie personal cod de programare pentru un sistem de IA",
+      "b": "Orice persoană fizică sau juridică, autoritate publică, agenție sau alt organism care dezvoltă un sistem de IA sau dispune dezvoltarea acestuia și îl introduce pe piață ori îl pune în funcțiune sub propriul nume sau sub propria marcă - contra cost sau gratuit",
+      "c": "Exclusiv întreprinderile cu sediul în afara UE, care exportă sisteme de IA în UE",
+      "d": "Orice întreprindere care doar utilizează în activitatea proprie un instrument de IA gata realizat al unui terț, fără a-l transmite mai departe"
+    },
+    "explanation": "Definiția furnizorului este formulată în mod deliberat larg și nu este legată de sediul întreprinderii sau de caracterul oneros, ci de faptul că cineva dezvoltă un sistem de IA (sau dispune dezvoltarea acestuia) și îl introduce pe piață ori îl pune în funcțiune sub propriul nume, respectiv sub propria marcă. Varianta d) descrie, în schimb, mai degrabă rolul unui implementator (deployer), care doar utilizează un sistem străin."
+  },
+  "ki_act-grundlagen-08": {
+    "question": "Pe lângă lista din anexa III, există o a doua cale, independentă, prin care un sistem de IA poate deveni sistem cu grad ridicat de risc. Care este aceasta?",
+    "options": {
+      "a": "Atunci când sistemul de IA este el însuși un produs sau este integrat ca element de siguranță într-un produs care intră sub incidența legislației UE privind siguranța produselor enumerate în anexa I (de exemplu mașini, dispozitive medicale), iar acest produs necesită o evaluare a conformității efectuată de o parte terță",
+      "b": "Atunci când întreprinderea care utilizează IA are mai mult de 500 de angajați",
+      "c": "Atunci când sistemul de IA este utilizat simultan în mai mult de trei state membre ale UE",
+      "d": "Atunci când sistemul de IA este oferit public și gratuit pe internet"
+    },
+    "explanation": "Art. 6 alin. (1) din Regulamentul privind IA deschide, pe lângă încadrarea bazată pe utilizare potrivit anexei III, o a doua cale, bazată pe produs: dacă sistemul de IA este el însuși un produs sau un element de siguranță al unui produs care intră deja sub incidența legislației UE existente privind siguranța produselor (anexa I, de exemplu Regulamentul privind mașinile, Regulamentul privind dispozitivele medicale) și care necesită acolo o evaluare a conformității efectuată de o parte terță, sistemul de IA este considerat de asemenea sistem cu grad ridicat de risc."
+  },
+  "ki_act-ki_kompetenz-05": {
+    "question": "Cum definește art. 3 pct. 56 din Regulamentul privind IA noțiunea de „alfabetizare în domeniul IA” (AI literacy)?",
+    "options": {
+      "a": "Ca fiind competențele, cunoștințele și înțelegerea care permit furnizorilor, implementatorilor și persoanelor afectate să utilizeze în cunoștință de cauză sistemele de IA și să devină conștienți de oportunitățile și riscurile IA, precum și de posibilele prejudicii",
+      "b": "Ca o certificare formală, care poate fi acordată exclusiv de organisme de examinare acreditate de stat",
+      "c": "Ca fiind cunoștințe pur tehnice despre limbaje de programare, care privesc exclusiv personalul IT de specialitate",
+      "d": "Ca o obligație legală de a documenta anual un număr minim stabilit de ore de instruire"
+    },
+    "explanation": "Definiția din art. 3 pct. 56 din Regulamentul privind IA este formulată în mod deliberat larg: nu este vorba despre o anumită certificare sau despre simple cunoștințe de programare, ci despre competențe, cunoștințe și înțelegere care permit decizii informate în relația cu IA și care creează o conștientizare a oportunităților, riscurilor și posibilelor prejudicii."
+  },
+  "ki_act-ki_kompetenz-06": {
+    "question": "Cui ar trebui să îi profite, în cele din urmă, alfabetizarea în domeniul IA potrivit considerentului 20 din Regulamentul privind IA - dincolo de proprii angajați ai furnizorilor și implementatorilor?",
+    "options": {
+      "a": "Exclusiv conducerii, pentru ca aceasta să poată lua decizii de investiții fundamentate",
+      "b": "Și persoanelor afectate de decizii asistate de IA, pentru ca acestea să poată înțelege cum le afectează deciziile luate cu ajutorul IA",
+      "c": "Exclusiv autorităților naționale de supraveghere a pieței, care controlează respectarea regulamentului",
+      "d": "Numai dezvoltatorilor de software externi, care antrenează la comandă noi modele de IA"
+    },
+    "explanation": "Considerentul 20 din Regulamentul privind IA precizează că alfabetizarea în domeniul IA nu trebuie să servească doar furnizorilor și implementatorilor înșiși, ci trebuie să ofere și persoanelor afectate cunoștințele necesare pentru a înțelege cum le afectează deciziile luate cu ajutorul IA."
+  },
+  "ki_act-ki_kompetenz-07": {
+    "question": "Impune art. 4 din Regulamentul privind IA un anumit format de instruire prevăzut de lege (de exemplu un examen certificat) pentru alfabetizarea în domeniul IA?",
+    "options": {
+      "a": "Nu - textul obligă furnizorii și implementatorii să ia măsuri adecvate „în cea mai mare măsură posibilă”; art. 4 nu prevede un anumit format sau o certificare",
+      "b": "Da, trebuie să fie obligatoriu o instruire cu prezență fizică de mai multe zile, cu certificat extern",
+      "c": "Da, numai un curs de e-learning recunoscut de stat îndeplinește cerințele art. 4",
+      "d": "Da, dar numai pentru întreprinderile care furnizează în același timp și sisteme de IA cu grad ridicat de risc"
+    },
+    "explanation": "Art. 4 din Regulamentul privind IA este formulat ca obligație de diligență („în cea mai mare măsură posibilă”), nu ca obligație de rezultat cu un format impus. Legea lasă deschis modul concret în care arată măsurile - atât timp cât acestea sunt adecvate și țin seama de cunoștințele prealabile, de context și de categoriile de persoane vizate."
+  },
+  "ki_act-ki_kompetenz-08": {
+    "question": "O întreprindere utilizează exclusiv un sistem de IA cu risc minim (de exemplu o verificare ortografică asistată de IA), dar niciun sistem cu grad ridicat de risc. Trebuie totuși să respecte art. 4 din Regulamentul privind IA referitor la alfabetizarea în domeniul IA?",
+    "options": {
+      "a": "Da - obligația privind alfabetizarea în domeniul IA se aplică furnizorilor și implementatorilor independent de clasa de risc a sistemului de IA utilizat, nu doar sistemelor cu grad ridicat de risc",
+      "b": "Nu, art. 4 se aplică exclusiv furnizorilor și implementatorilor de sisteme de IA cu grad ridicat de risc potrivit anexei III",
+      "c": "Nu, obligația se aplică abia din momentul în care întreprinderea utilizează mai mult de 50 de aplicații de IA diferite",
+      "d": "Nu, în cazul riscului minim se aplică exclusiv obligația de transparență prevăzută la art. 50, nu și art. 4"
+    },
+    "explanation": "Art. 4 din Regulamentul privind IA nu este limitat la sistemele cu grad ridicat de risc, ci se aplică „sistemelor de IA” în general. O întreprindere nu se poate deci prevala de faptul că utilizează doar instrumente cu risc redus pentru a se sustrage obligației privind alfabetizarea în domeniul IA - o concluzie eronată răspândită, dar cu un risc real de conformitate."
+  },
+  "ki_act-verbotene_praktiken-05": {
+    "question": "O autoritate dorește să utilizeze un sistem de IA care prezice, exclusiv pe baza creării de profiluri și a trăsăturilor de personalitate, riscul ca anumite persoane să comită în viitor o infracțiune, pentru a deduce din aceasta anumite măsuri. Cum se apreciază acest lucru potrivit AI Act?",
+    "options": {
+      "a": "Un astfel de „predictive policing” asistat de IA, care întemeiază prognoza privind săvârșirea de infracțiuni exclusiv pe crearea de profiluri sau pe trăsături de personalitate, se numără printre practicile interzise potrivit art. 5 alin. (1) lit. d)",
+      "b": "Este permis, atât timp cât un funcționar semnează formal, la final, măsura propusă de IA",
+      "c": "Este un sistem obișnuit cu grad ridicat de risc, care poate fi utilizat liber după o evaluare a conformității",
+      "d": "Este în principiu admisibil, deoarece o evaluare umană a unor infracțiuni concrete, sprijinită pe fapte obiective și verificabile, este în general interzisă"
+    },
+    "explanation": "Art. 5 alin. (1) lit. d) din Regulamentul privind IA interzice evaluările de risc, respectiv prognozele privind săvârșirea de infracțiuni de către o persoană, întemeiate exclusiv pe crearea de profiluri sau pe trăsături de personalitate. Rămâne, în schimb, admisibil sprijinul acordat de IA unei evaluări umane care se bazează pe fapte obiective și verificabile, legate direct de un comportament infracțional concret - aceasta este excepția strictă, nu regula."
+  },
+  "ki_act-verbotene_praktiken-06": {
+    "question": "Un furnizor dorește să construiască o bază de date de recunoaștere facială, colectând automat și fără țintă imagini faciale de pe internetul deschis, precum și din înregistrări de supraveghere video. Cum încadrează AI Act acest lucru?",
+    "options": {
+      "a": "Extragerea fără țintă („untargeted scraping”) a imaginilor faciale de pe internet sau din înregistrări de supraveghere video, în vederea creării sau extinderii unor baze de date de recunoaștere facială, se numără printre practicile interzise potrivit art. 5 alin. (1) lit. e)",
+      "b": "Este permis, atât timp cât imaginile colectate sunt stocate ulterior pseudonimizat",
+      "c": "Este interzis doar în cazul imaginilor cu minori; în cazul adulților este, în principiu, admisibil",
+      "d": "Nu intră deloc sub incidența AI Act, întrucât formal este vorba despre o bază de date, nu despre un sistem de IA de sine stătător"
+    },
+    "explanation": "Art. 5 alin. (1) lit. e) din Regulamentul privind IA interzice în mod expres colectarea fără țintă a imaginilor faciale de pe internet sau din înregistrări CCTV pentru crearea ori extinderea unor baze de date de recunoaștere facială - indiferent de pseudonimizare sau de vârsta persoanelor din imagini. Logica de colectare și prelucrare din spate intră sub incidența AI Act, chiar dacă rezultatul este formal „doar” o bază de date."
+  },
+  "ki_act-verbotene_praktiken-07": {
+    "question": "O școală dorește să utilizeze un sistem de IA care, prin cameră și microfon, recunoaște și analizează emoțiile elevilor în timpul orelor - nu din motive medicale sau de siguranță. Cum se apreciază acest lucru potrivit AI Act?",
+    "options": {
+      "a": "Utilizarea recunoașterii emoțiilor în instituțiile de învățământ, în afara unor motive medicale sau de siguranță, se numără printre practicile interzise potrivit art. 5 alin. (1) lit. f)",
+      "b": "Este întotdeauna permis, atât timp cât școala face publică recunoașterea emoțiilor potrivit art. 50 din Regulamentul privind IA",
+      "c": "Este interzis doar dacă rezultatele obținute sunt ulterior publicate",
+      "d": "Este interzis exclusiv la locul de muncă, în instituțiile de învățământ fiind în principiu admisibil"
+    },
+    "explanation": "Art. 5 alin. (1) lit. f) din Regulamentul privind IA interzice utilizarea sistemelor de recunoaștere a emoțiilor atât la locul de muncă, cât și în instituțiile de învățământ, cu excepția cazurilor în care există motive medicale sau de siguranță (de exemplu detectarea oboselii în activități critice pentru siguranță). O simplă comunicare potrivit art. 50 din Regulamentul privind IA nu este suficientă aici - interdicția se aplică indiferent dacă se informează transparent."
+  },
+  "ki_act-verbotene_praktiken-08": {
+    "question": "O întreprindere dorește să utilizeze un sistem de IA care, pe baza datelor biometrice (de exemplu recunoaștere facială sau vocală), deduce automat orientarea sexuală, opinia politică sau convingerea religioasă presupuse ale unor persoane. Cum se încadrează acest lucru?",
+    "options": {
+      "a": "O astfel de categorizare biometrică pentru deducerea unor caracteristici deosebit de sensibile, precum orientarea sexuală, opinia politică sau convingerea religioasă, se numără printre practicile interzise potrivit art. 5 alin. (1) lit. g)",
+      "b": "Este permis, atât timp cât persoana vizată a acceptat în prealabil o politică generală de confidențialitate",
+      "c": "Este în principiu admisibil dacă se face exclusiv în scopuri de marketing",
+      "d": "Este interzis doar dacă trăsăturile deduse sunt ulterior revândute unor terți"
+    },
+    "explanation": "Art. 5 alin. (1) lit. g) din Regulamentul privind IA interzice categorizarea biometrică a persoanelor fizice pentru a deduce rasa, opiniile politice, apartenența sindicală, convingerile religioase sau filozofice, viața sexuală ori orientarea sexuală. O politică de confidențialitate acceptată sau un scop de marketing nu schimbă nimic - excepțiile sunt strict delimitate, de exemplu pentru etichetarea/filtrarea legală a seturilor de date sau pentru categorizarea biometrică efectuată de autoritățile de aplicare a legii."
+  },
+  "ki_act-transparenzpflichten-05": {
+    "question": "Întreprinderea dumneavoastră utilizează un sistem de IA generativă care creează automat conținuturi de tip imagine și text. Ce impune art. 50 alin. (2) din Regulamentul privind IA, în această privință, furnizorului unui astfel de sistem?",
+    "options": {
+      "a": "Furnizorul trebuie să se asigure că rezultatele generate sunt marcate într-un format care poate fi citit automat și pot fi recunoscute ca fiind create artificial, respectiv manipulate, în măsura în care acest lucru este fezabil din punct de vedere tehnic",
+      "b": "Furnizorul trebuie să obțină, pentru fiecare conținut generat, aprobarea unei autorități naționale de supraveghere înainte de publicare",
+      "c": "Nu există o obligație de marcare atât timp cât conținuturile nu sunt utilizate comercial",
+      "d": "Obligația de marcare se aplică exclusiv conținuturilor video, nu și textelor sau imaginilor"
+    },
+    "explanation": "Art. 50 alin. (2) din Regulamentul privind IA obligă furnizorii de sisteme de IA care generează conținut sintetic de tip imagine, audio, video sau text să se asigure că aceste rezultate sunt marcate într-un format care poate fi citit automat și pot fi recunoscute ca fiind create artificial ori manipulate, în măsura în care acest lucru este fezabil din punct de vedere tehnic - independent de o aprobare prealabilă din partea autorităților sau de utilizarea comercială."
+  },
+  "ki_act-transparenzpflichten-06": {
+    "question": "Se aplică obligația prevăzută la art. 50 alin. (1) din Regulamentul privind IA, de a informa persoanele că interacționează cu un sistem de IA, fără excepție oricărui sistem?",
+    "options": {
+      "a": "Nu - obligația nu se aplică, printre altele, sistemelor de IA autorizate prin lege pentru depistarea, prevenirea, investigarea sau urmărirea penală a infracțiunilor, sub rezerva unor garanții adecvate pentru drepturile terților - cu excepția cazului în care sistemul este pus la dispoziția publicului pentru sesizarea unei infracțiuni",
+      "b": "Da, nu există absolut nicio excepție - orice sistem de IA trebuie să se facă întotdeauna cunoscut ca atare",
+      "c": "Nu, obligația nu se aplică, în principiu, niciunei entități publice, indiferent de scopul utilizării",
+      "d": "Nu, obligația se aplică doar sistemelor de IA oferite contra cost"
+    },
+    "explanation": "Art. 50 alin. (1) din Regulamentul privind IA prevede o excepție limitată pentru sistemele de IA autorizate prin lege pentru depistarea, prevenirea, investigarea sau urmărirea penală a infracțiunilor, sub rezerva unor garanții adecvate pentru drepturile terților. Această excepție nu se aplică însă atunci când sistemul este pus la dispoziția publicului pentru sesizarea unei infracțiuni - acolo obligația de informare se menține. Nu există o excludere generalizată a tuturor entităților publice."
+  },
+  "ki_act-transparenzpflichten-07": {
+    "question": "O redacție folosește IA generativă pentru a crea și publica un text pe o temă de interes public. Textul este însă revizuit redacțional înainte de publicare, iar o persoană poartă răspunderea editorială pentru acesta. Trebuie totuși comunicat faptul că a fost implicată IA?",
+    "options": {
+      "a": "Nu - dacă un astfel de text parcurge un proces de verificare umană, respectiv de control editorial, iar o persoană poartă răspunderea editorială pentru el, obligația de comunicare prevăzută la art. 50 alin. (4) al doilea paragraf nu se aplică",
+      "b": "Da, orice utilizare a IA generative în textele jurnalistice trebuie comunicată fără excepție potrivit AI Act",
+      "c": "Nu, deoarece conținuturile jurnalistice sunt în general complet excluse din domeniul de aplicare al AI Act",
+      "d": "Da, dar numai dacă textul publicat are mai mult de 1.000 de cuvinte"
+    },
+    "explanation": "Art. 50 alin. (4) al doilea paragraf din Regulamentul privind IA prevede, în principiu, o obligație de comunicare pentru textele generate ori manipulate de IA care sunt publicate pe teme de interes public. Aceasta nu se aplică însă atunci când conținutul a parcurs un proces de verificare umană, respectiv de control editorial, iar o persoană fizică sau juridică poartă răspunderea editorială pentru publicare."
+  },
+  "ki_act-transparenzpflichten-08": {
+    "question": "Întreprinderea dumneavoastră utilizează un sistem de IA cu grad ridicat de risc care intră în același timp și sub incidența obligațiilor de transparență prevăzute la art. 50 din Regulamentul privind IA (de exemplu pentru că interacționează direct cu persoane). Se exclud reciproc obligațiile din art. 50 și obligațiile pentru sistemele cu grad ridicat de risc din capitolul III?",
+    "options": {
+      "a": "Nu - art. 50 alin. (6) precizează că obligațiile de transparență nu aduc atingere cerințelor din capitolul III; ambele categorii de obligații se pot aplica în paralel și trebuie îndeplinite cumulativ",
+      "b": "Da, din momentul în care un sistem este considerat cu grad ridicat de risc, obligațiile din capitolul III înlocuiesc automat toate obligațiile de transparență din art. 50",
+      "c": "Da, art. 50 se aplică în principiu numai sistemelor cu risc minim, niciodată celor cu grad ridicat de risc",
+      "d": "Nu, dar trebuie îndeplinită doar cea mai strictă dintre cele două categorii de obligații, nu ambele simultan"
+    },
+    "explanation": "Art. 50 alin. (6) din Regulamentul privind IA precizează expres că obligațiile de transparență prevăzute la alineatele (1)-(4) nu aduc atingere cerințelor și obligațiilor din capitolul III (sisteme cu grad ridicat de risc). Un sistem cu grad ridicat de risc care intră totodată în domeniul de aplicare al art. 50 trebuie deci să îndeplinească ambele categorii de obligații cumulativ, nu doar una dintre ele."
+  },
+  "ki_act-ki_am_arbeitsplatz-05": {
+    "question": "O întreprindere dorește să introducă un sistem de IA cu grad ridicat de risc pentru evaluarea performanței angajaților. Ce impune art. 26 alin. (7) din Regulamentul privind IA unui angajator în calitate de implementator, înainte ca sistemul să fie utilizat la locul de muncă?",
+    "options": {
+      "a": "Angajatorul trebuie să informeze reprezentanții lucrătorilor și angajații vizați că vor fi supuși utilizării sistemului de IA cu grad ridicat de risc, înainte ca acesta să fie pus în funcțiune, respectiv utilizat",
+      "b": "Este suficient ca informarea să fie transmisă ulterior, după primele trei luni de utilizare",
+      "c": "O informare este necesară numai dacă utilizarea afectează mai mult de 50 de angajați",
+      "d": "Este suficient ca sistemul să fie menționat în politica generală de confidențialitate a întreprinderii, fără a informa în mod expres angajații"
+    },
+    "explanation": "Art. 26 alin. (7) din Regulamentul privind IA obligă angajatorii care, în calitate de implementatori, utilizează un sistem de IA cu grad ridicat de risc la locul de muncă să informeze în prealabil reprezentanții lucrătorilor și angajații vizați - nu abia ulterior, indiferent de mărimea unității, și nu doar generic, într-o politică generală de confidențialitate."
+  },
+  "ki_act-ki_am_arbeitsplatz-06": {
+    "question": "Care dintre următoarele aplicații se numără expres, potrivit anexei III pct. 4 din Regulamentul privind IA, printre domeniile cu grad ridicat de risc „ocuparea forței de muncă, gestionarea lucrătorilor și accesul la activități independente”?",
+    "options": {
+      "a": "Un software cu IA care repartizează automat sarcini angajaților sau care monitorizează și evaluează continuu performanța și comportamentul acestora",
+      "b": "O aplicație de cantină asistată de IA, care face propuneri de meniuri vegetariene pentru angajați",
+      "c": "O IA care corectează automat greșelile de ortografie din e-mailurile interne ale angajaților",
+      "d": "O aplicație de pontaj asistată de IA, care înregistrează exclusiv prezența, fără nicio evaluare a performanței"
+    },
+    "explanation": "Anexa III pct. 4 lit. b) din Regulamentul privind IA menționează expres sistemele de IA care iau decizii privind condițiile de muncă, promovarea sau încetarea raporturilor de muncă, care repartizează sarcini pe baza comportamentului individual ori a unor trăsături personale sau care monitorizează și evaluează continuu performanța și comportamentul angajaților. Instrumentele pur administrative, fără funcție de evaluare (aplicația de cantină, verificarea ortografică, simpla înregistrare a prezenței) nu intră în această categorie."
+  },
+  "ki_act-ki_am_arbeitsplatz-07": {
+    "question": "Un sistem de IA cu grad ridicat de risc pentru preselecția candidaturilor urmează să fie utilizat în întreprindere. Ce trebuie să permită tehnic sistemul însuși, potrivit art. 14 alin. (4) din Regulamentul privind IA, persoanelor însărcinate cu supravegherea umană?",
+    "options": {
+      "a": "Trebuie proiectat astfel încât persoana care exercită supravegherea să poată monitoriza funcționarea, să interpreteze corect rezultatele, să decidă să nu îl utilizeze, respectiv să ignore, să infirme sau să anuleze rezultatul, și să poată întrerupe funcționarea printr-un „buton de oprire” sau printr-o procedură similară",
+      "b": "Trebuie proiectat astfel încât să poată fi oprit de la distanță exclusiv de producător, nu și de întreprinderea care îl utilizează",
+      "c": "Este suficient ca o persoană să consulte prin sondaj, o dată pe an, jurnalele sistemului",
+      "d": "Trebuie proiectat astfel încât deciziile sistemului să nu mai poată fi, în principiu, anulate, pentru a împiedica manipularea ulterioară"
+    },
+    "explanation": "Art. 14 alin. (4) din Regulamentul privind IA impune ca sistemele de IA cu grad ridicat de risc să fie proiectate astfel încât persoana însărcinată cu supravegherea să înțeleagă capacitățile și limitele sistemului, să îi poată interpreta corect rezultatele, să poată decide să nu îl utilizeze ori să ignore, să infirme sau să anuleze rezultatul și să poată întrerupe funcționarea printr-un „buton de oprire” sau printr-o procedură comparabilă. O verificare anuală prin sondaj sau o posibilitate de oprire aflată exclusiv la producător nu îndeplinește această cerință."
+  },
+  "ki_act-ki_am_arbeitsplatz-08": {
+    "question": "Un sistem de IA ia, fără nicio participare umană, decizia finală de a respinge o candidată, exclusiv pe baza unei evaluări automate a dosarului său de candidatură. Ce drept suplimentar poate invoca această candidată, independent de AI Act?",
+    "options": {
+      "a": "Dreptul prevăzut la art. 22 din RGPD de a nu face obiectul unei decizii bazate exclusiv pe prelucrarea automată, care produce efecte juridice sau efecte similare semnificative, sub rezerva excepțiilor prevăzute acolo",
+      "b": "Un drept la angajare imediată, independent de rezultatul pe fond al candidaturii",
+      "c": "Dreptul ca producătorul software-ului de IA să îi divulge integral codul sursă",
+      "d": "Nu există un drept suplimentar, deoarece AI Act înlocuiește complet RGPD în chestiuni legate de ocuparea forței de muncă"
+    },
+    "explanation": "AI Act reglementează în primul rând riscurile care provin de la sistemul de IA însuși și nu înlocuiește RGPD. În paralel, art. 22 din RGPD conferă persoanelor vizate dreptul de a nu face obiectul unei decizii bazate exclusiv pe prelucrarea automată, cu efecte juridice sau efecte similare semnificative - de exemplu o respingere complet automatizată a unei candidaturi, fără nicio implicare umană, sub rezerva excepțiilor stricte prevăzute de lege."
+  }
+}

@@ -164,8 +164,8 @@
     "options": {
       "a": "Vous, car vous vous êtes déjà placé pour tourner",
       "b": "Le cycliste qui va tout droit",
-      "c": "Cela se négocie par gestes de la main",
-      "d": "Le cycliste doit toujours mettre pied à terre"
+      "c": "Le cycliste doit d'abord vous laisser passer, car vous êtes en voiture",
+      "d": "Le cycliste n'est prioritaire que si la piste cyclable n'est pas à usage obligatoire"
     },
     "explanation": "Lors d'un virage, la priorité doit être accordée aux cyclistes et piétons qui vont tout droit ; en cas de doute, roulez à l'allure du pas."
   },
@@ -384,8 +384,8 @@
     "options": {
       "a": "La fin de l'autoroute",
       "b": "Le début de l'autoroute",
-      "c": "Une aire de repos dans 500 m",
-      "d": "Des travaux sur l'autoroute"
+      "c": "L'autoroute ne commence qu'après la prochaine sortie",
+      "d": "Une bretelle d'accès vers l'autoroute, mais pas encore l'autoroute elle-même"
     },
     "explanation": "À partir de ce panneau, les règles spécifiques aux autoroutes s'appliquent, par exemple l'interdiction pour les piétons et les véhicules lents."
   },
@@ -394,8 +394,8 @@
     "options": {
       "a": "La fin de l'autoroute",
       "b": "Une bretelle d'accès supplémentaire",
-      "c": "Un échangeur autoroutier imminent",
-      "d": "Une limitation de vitesse augmentée"
+      "c": "Une aire de repos dans 300 mètres",
+      "d": "L'autoroute devient une voie express"
     },
     "explanation": "À partir de ce panneau, les règles de circulation normales s'appliquent de nouveau."
   },
@@ -2172,12 +2172,12 @@
   "zeichen-68": {
     "question": "Qu'indique ce panneau de signalisation ?",
     "options": {
-      "a": "Vous devez passer par la droite.",
-      "b": "Vous devez passer par la gauche.",
-      "c": "L'obstacle peut être contourné au choix par la gauche ou par la droite.",
-      "d": "Il est interdit de le contourner."
+      "a": "Vous devez continuer tout droit ou tourner à droite ici.",
+      "b": "Vous ne devez tourner qu'à droite ici.",
+      "c": "Il est interdit d'aller tout droit ici.",
+      "d": "Vous pouvez circuler dans n'importe quelle direction ici."
     },
-    "explanation": "Le Zeichen 214 autorise à contourner un obstacle au choix par la gauche ou par la droite."
+    "explanation": "Le Zeichen 214 est un panneau de prescription indiquant la direction obligatoire : à cet endroit, seule la direction tout droit ou à droite est autorisée ; toutes les autres directions (par exemple tourner à gauche ou faire demi-tour) sont interdites."
   },
   "zeichen-69": {
     "question": "Que signifie ce panneau de signalisation ?",
@@ -2674,7 +2674,7 @@
     "options": {
       "a": "À partir d'ici commence une agglomération ; en agglomération, la vitesse est en principe limitée à 50 km/h.",
       "b": "L'agglomération se termine à partir d'ici.",
-      "c": "Il s'agit d'une simple indication directionnelle sans portée juridique.",
+      "c": "Il indique en même temps la fin d'une voie express",
       "d": "Une limitation de vitesse de 30 km/h s'applique à partir d'ici."
     },
     "explanation": "Le Zeichen 310 (panneau d'agglomération, face avant) marque le début d'une agglomération ; sauf signalisation contraire, la vitesse de 50 km/h s'applique à partir de ce point."
@@ -2810,14 +2810,14 @@
     "explanation": "« Anlieger frei » exempte de l'interdiction la circulation à destination ou en provenance des lieux (riverains, visiteurs, livraisons ayant réellement une destination sur place) ; le trafic de transit reste interdit."
   },
   "zeichen-132": {
-    "question": "Un panonceau sous un panneau d'interdiction porte la mention « Mofa frei » (cyclomoteurs exemptés). Que s'applique-t-il ici ?",
+    "question": "Un panonceau blanc portant la mention « Piétons » se trouve sous un panneau de signalisation. Que signifie-t-il ?",
     "options": {
-      "a": "Les cyclomoteurs ne peuvent être poussés ici que moteur éteint",
-      "b": "L'interdiction s'applique encore plus strictement aux cyclomoteurs qu'aux autres véhicules",
-      "c": "Les conducteurs de cyclomoteurs sont exemptés de l'interdiction du panneau principal et peuvent continuer",
-      "d": "Seules les motos jusqu'à 125 cm³ peuvent continuer, pas les cyclomoteurs"
+      "a": "Le panonceau indique que le panneau principal s'applique (aussi) aux piétons.",
+      "b": "Les piétons sont par principe exemptés de toute règle imposée par le panneau principal.",
+      "c": "Il s'agit d'une indication signalant une zone piétonne.",
+      "d": "Le panonceau ne s'applique qu'aux utilisateurs de fauteuil roulant, et non aux autres piétons."
     },
-    "explanation": "« Mofa frei » exempte les conducteurs de cyclomoteurs de l'interdiction qui s'applique aux autres véhicules sur ce tronçon."
+    "explanation": "Le panonceau 1010-53 « Piétons » précise le champ d'application du panneau principal placé au-dessus : il indique clairement que la règle concerne aussi les piétons, et non uniquement les véhicules, comme on pourrait le supposer en l'absence de ce panonceau."
   },
   "zeichen-133": {
     "question": "Un panonceau montre le symbole d'un vélo barré d'une ligne diagonale et est fixé sous un autre panneau de signalisation. Que signifie-t-il ?",

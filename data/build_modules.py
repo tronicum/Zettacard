@@ -29,7 +29,16 @@ import re
 import shutil
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-APP_DATA = os.path.join(HERE, "..", "app", "data")
+APP_DATA = os.path.normpath(os.path.join(HERE, "..", "app", "data"))
+REPO_ROOT = os.path.normpath(os.path.join(HERE, ".."))
+# Guard rail for main()'s cleanup rmtree()s below: APP_DATA must resolve to
+# exactly <repo>/app/data, never the repo root or an ancestor of it. If a
+# future refactor changes HERE/APP_DATA's derivation and widens that, this
+# assertion fails loudly instead of silently deleting something else.
+assert APP_DATA == os.path.join(REPO_ROOT, "app", "data"), (
+    f"APP_DATA resolved to an unexpected path: {APP_DATA!r}")
+assert os.path.commonpath([APP_DATA, REPO_ROOT]) == REPO_ROOT and APP_DATA != REPO_ROOT, (
+    f"APP_DATA {APP_DATA!r} is not safely nested under repo root {REPO_ROOT!r}")
 
 CORE_FIELDS = [
     "id", "topic", "topic_code", "exam_type", "grundstoff", "legal_basis",
@@ -475,7 +484,12 @@ def main():
     for name in BUILT_MODULES:
         module_dir = os.path.join(APP_DATA, name)
         for owned in ("core.json", "locales", "course.json", "course_locales", "kubectl_drills.json"):
-            p = os.path.join(module_dir, owned)
+            p = os.path.normpath(os.path.join(module_dir, owned))
+            # Belt-and-braces: never delete anything that isn't actually
+            # inside APP_DATA (the generated app/data/ tree), no matter what
+            # `name`/`owned` end up being after a future edit.
+            assert os.path.commonpath([p, APP_DATA]) == APP_DATA, (
+                f"refusing to delete {p!r}: outside APP_DATA {APP_DATA!r}")
             if os.path.isdir(p):
                 shutil.rmtree(p)
             elif os.path.isfile(p):
@@ -490,7 +504,18 @@ def main():
     json.dump(manifest, open(os.path.join(APP_DATA, "modules.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)
 
-    fs_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
+    # 2026-09-05: "bar" (Bavarian), "fa" (Persian) and "ro" (Romanian) added for
+    # fuehrerschein. NOTE the rmtree() in main(): a locale that exists as a
+    # generated app/data/<module>/locales/<lang>.json but is NOT listed here is
+    # DELETED by the next build with nothing to rebuild it from. That nearly
+    # destroyed the Romanian compliance locale on 2026-09-05. If you add a
+    # locale to the master files, add it here in the same commit.
+    # 2026-09-06: el, hr, pt added — official exam languages for the German
+    # Theorieprüfung, drafted in the KB and now carried by the app. A locale
+    # MUST be listed here or split_module() will not emit it, and rmtree()
+    # above has already removed whatever was there.
+    fs_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it",
+                  "bar", "fa", "ro", "el", "hr", "pt"]
     fs_count, fs_missing = split_module(
         os.path.join(HERE, "pilot_questions.json"), "fuehrerschein", fs_locales)
     print(f"fuehrerschein: {fs_count} questions, locale gaps: {fs_missing}")
@@ -563,7 +588,17 @@ def main():
     # 20-question/DE-EN-only pilot batch; DN-48 (2026-08-05) scaled each to
     # 40 questions (clearing the 30-question exam-mode threshold) and added
     # the same 10 additional languages every other module now has.
-    compliance_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it"]
+    # 2026-09-05: "ro" added. Romanian was created by a translation round that
+    # wrote only the generated app/data/<module>/locales/ro.json files; the
+    # masters had no `ro` text at all. Because main()'s cleanup rmtree()s each
+    # built module's whole locales/ directory before regenerating it, a build
+    # would have deleted all four ro.json files outright with nothing to
+    # rebuild them from. The Romanian text has now been folded back into the
+    # *_pilot.json masters, and listing it here is what keeps it alive.
+    # 2026-09-06: "fa" added — the KB now carries Persian for every compliance
+    # module. A locale MUST be in this list or split_module() will not emit it
+    # (and rmtree() above has already removed whatever was there).
+    compliance_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it", "ro", "bar", "fa"]
     dsg_count, dsg_missing = split_module(
         os.path.join(HERE, "datenschutz_pilot.json"), "datenschutz", compliance_locales)
     print(f"datenschutz: {dsg_count} questions, locale gaps: {dsg_missing}")
@@ -619,13 +654,13 @@ def main():
         print("hinweisgeberschutz: course layer built (de, en)")
 
     kyc_count, kyc_missing = split_module(
-        os.path.join(HERE, "kyc_aml_pilot.json"), "kyc_aml", ["de", "en"])
+        os.path.join(HERE, "kyc_aml_pilot.json"), "kyc_aml", compliance_locales)
     print(f"kyc_aml: {kyc_count} questions, locale gaps: {kyc_missing}")
     if split_course("kyc_aml", ["de", "en"]):
         print("kyc_aml: course layer built (de, en)")
 
     kartell_count, kartell_missing = split_module(
-        os.path.join(HERE, "kartellrecht_pilot.json"), "kartellrecht", ["de", "en"])
+        os.path.join(HERE, "kartellrecht_pilot.json"), "kartellrecht", compliance_locales)
     print(f"kartellrecht: {kartell_count} questions, locale gaps: {kartell_missing}")
     if split_course("kartellrecht", ["de", "en"]):
         print("kartellrecht: course layer built (de, en)")

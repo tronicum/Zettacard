@@ -25,13 +25,31 @@
   </script>
 </head>
 <body>
+  <!-- DN-89: storage-consent notice. Shown, at most, once per device before
+       any localStorage read/write happens (see ensureStorageConsentDecision()
+       in app.js) - hidden by default; JS un-hides it only when no consent
+       decision has been recorded yet. Not a modal dialog (aria-modal=false)
+       since it deliberately does NOT block reading the app underneath, only
+       gates whether anything actually gets persisted - see app.js for why. -->
+  <div id="storage-consent-notice" class="storage-consent-notice" hidden role="dialog" aria-modal="false" aria-labelledby="storage-consent-title">
+    <div class="storage-consent-card">
+      <h2 id="storage-consent-title"></h2>
+      <p id="storage-consent-body"></p>
+      <p class="storage-consent-timeout-note" id="storage-consent-timeout-note"></p>
+      <div class="storage-consent-actions">
+        <button type="button" class="storage-consent-btn storage-consent-yes" id="storage-consent-yes"></button>
+        <button type="button" class="storage-consent-btn storage-consent-no" id="storage-consent-no"></button>
+      </div>
+      <a id="storage-consent-privacy-link" class="storage-consent-privacy-link" href="./datenschutzerklaerung.html" target="_blank" rel="noopener"></a>
+    </div>
+  </div>
   <header>
     <div class="title-row">
       <div>
         <h1 id="app-title">Zettacard</h1>
         <div class="subtitle" id="app-subtitle"></div>
       </div>
-      <div style="display:flex; gap:8px; align-items:center;">
+      <div class="header-controls">
         <!-- 2026-08-16: was a flat row of up to 11 icon-buttons here
              (module-info/learn/course/signs/offline-prep/certificates/
              review/profile-switch, plus these 4) - on a narrow phone that
@@ -43,38 +61,31 @@
              everything else moved into #app-menu below, opened via this
              hamburger button - same .exam-modal list pattern already used
              for the module picker/certificates/primers, so it looks native
-             rather than bolted on. -->
+             rather than bolted on.
+
+             2026-09-02: that trim didn't fully fix the underlying bug -
+             it was left as a plain `style="display:flex; gap:8px;
+             align-items:center;"` with no wrap, the exact anti-pattern
+             the 2026-08-11 "Mobile header horizontal-overflow fix" had
+             already fixed once (that fix's `.header-controls` class and
+             its CSS-side `overflow-x:hidden` backstop were both gone by
+             this point, presumably lost during this same redesign since
+             the class they applied to no longer existed). Confirmed via
+             real WebKit (Playwright iPhone 13 profile, not just Chromium
+             mobile emulation, which showed a different/misleading
+             viewport-width artifact) that on a 390px-wide phone this row
+             (menu / change-exam / exam / theme / language-select) is
+             wider than what's left after the title, and instead of
+             wrapping it overflows straight off the right edge -
+             `.lang-select-wrap` (flag+language picker) was the worst
+             offender, rendering ~195px past the visible screen and
+             completely unreachable. Restored this element's real class
+             (`.header-controls`, same name the 2026-08-11 fix used) with
+             a wrap rule in styles.css, plus the html/body overflow-x
+             backstop, rather than reaching for an inline style again. -->
         <button class="theme-toggle" id="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
         <button class="module-switch-btn" id="module-switch-btn"></button>
         <button class="exam-start-btn" id="exam-start-btn"></button>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme"></button>
-        <div class="lang-select-wrap">
-          <span class="lang-icon" aria-hidden="true">🌐</span>
-          <select class="lang-select" id="lang-select">
-            <!-- Flags added per explicit user request (2026-08-05) as a
-                 decorative prefix alongside each language's own endonym
-                 text - NOT flags-only. An earlier UX review rejected a
-                 flags-ONLY picker (flags represent countries, not
-                 languages: Arabic has no single flag, English/Chinese span
-                 many countries) - keeping the real language name as the
-                 primary, authoritative label avoids reintroducing that
-                 problem while still giving the visual flair asked for.
-                 Picks are a common-convention "best representative"
-                 country per language, not a claim of exclusivity. -->
-            <option value="de">🇩🇪 Deutsch</option>
-            <option value="en">🇬🇧 English</option>
-            <option value="uk">🇺🇦 Українська</option>
-            <option value="pl">🇵🇱 Polski</option>
-            <option value="ar">🇸🇦 العربية</option>
-            <option value="zh">🇨🇳 简体中文</option>
-            <option value="hi">🇮🇳 हिन्दी</option>
-          <option value="tr">🇹🇷 Türkçe</option>
-          <option value="fr">🇫🇷 Français</option>
-          <option value="ru">🇷🇺 Русский</option>
-          <option value="es">🇪🇸 Español</option>
-          <option value="it">🇮🇹 Italiano</option>
-          </select>
-        </div>
       </div>
     </div>
     <div class="filters" id="filters"></div>
@@ -99,6 +110,54 @@
     <div class="exam-modal-card" style="max-width:420px;">
       <h2 id="app-menu-title" tabindex="-1"></h2>
       <div id="app-menu-list">
+        <!-- 2026-09-02: theme + language moved here from the header's
+             .header-controls row (they used to sit alongside menu/change-
+             exam/exam as one 5-item cluster that had to wrap, then looked
+             like an accidental two-tier blob on narrow phones rather than
+             a deliberate layout - see the .header-controls comment above
+             in <header>). Both are "set once, rarely touched" settings,
+             exactly the kind of control the 2026-08-16 redesign already
+             moved everything else into this menu for - these two were
+             just left behind. Header now keeps only 3 items (menu/
+             change-exam/exam), which fit on one line at any phone width,
+             so there's nothing left to wrap. Same ids, so every existing
+             render()/wiring call (renderThemeToggle(), the lang-select
+             change listener, state.lang sync) is unchanged - only the DOM
+             location moved. -->
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme"></button>
+        <div class="lang-select-wrap">
+          <span class="lang-icon" aria-hidden="true">🌐</span>
+          <select class="lang-select" id="lang-select">
+            <!-- Flags added per explicit user request (2026-08-05) as a
+                 decorative prefix alongside each language's own endonym
+                 text - NOT flags-only. An earlier UX review rejected a
+                 flags-ONLY picker (flags represent countries, not
+                 languages: Arabic has no single flag, English/Chinese span
+                 many countries) - keeping the real language name as the
+                 primary, authoritative label avoids reintroducing that
+                 problem while still giving the visual flair asked for.
+                 Picks are a common-convention "best representative"
+                 country per language, not a claim of exclusivity. -->
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="uk">🇺🇦 Українська</option>
+            <option value="pl">🇵🇱 Polski</option>
+            <option value="ar">🇸🇦 العربية</option>
+            <option value="zh">🇨🇳 简体中文</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+            <option value="tr">🇹🇷 Türkçe</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="it">🇮🇹 Italiano</option>
+            <option value="fa">🇮🇷 فارسی</option>
+            <option value="ro">🇷🇴 Română</option>
+            <option value="el">🇬🇷 Ελληνικά</option>
+            <option value="hr">🇭🇷 Hrvatski</option>
+            <option value="pt">🇵🇹 Português</option>
+            <option value="bar">🥨 Boarisch</option>
+          </select>
+        </div>
         <button class="module-switch-btn" id="module-info-btn" hidden aria-label="About this module">ⓘ</button>
         <button class="module-switch-btn" id="primers-btn" hidden aria-label="Learn the basics">🧭 Learn</button>
         <button class="module-switch-btn" id="course-btn" hidden aria-label="Course">📘 Course</button>
@@ -148,6 +207,12 @@
           <option value="ru">🇷🇺 Русский</option>
           <option value="es">🇪🇸 Español</option>
           <option value="it">🇮🇹 Italiano</option>
+          <option value="fa">🇮🇷 فارسی</option>
+          <option value="ro">🇷🇴 Română</option>
+          <option value="el">🇬🇷 Ελληνικά</option>
+          <option value="hr">🇭🇷 Hrvatski</option>
+          <option value="pt">🇵🇹 Português</option>
+          <option value="bar">🥨 Boarisch</option>
         </select>
       </div>
     </div>

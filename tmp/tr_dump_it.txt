@@ -1,0 +1,897 @@
+TOTAL: 64
+
+===== ID it_sicherheit-zugriffsschutz-01 correct=['b'] =====
+DE-Q: Welche Eigenschaft macht ein Passwort grundsätzlich sicherer gegen automatisierte Rateangriffe?
+TR-Q: Bir parolayı otomatik tahmin saldırılarına karşı temelde daha dirençli hale getiren özellik nedir?
+  DE[a]: Es enthält den Namen der Abteilung, damit man es sich leichter merken kann
+  TR[a]: Daha kolay hatırlanabilmesi için bölüm adını içerir
+  DE[b]: Es ist lang, einzigartig für diesen einen Account und nicht leicht zu erraten
+  TR[b]: Uzun, yalnızca bu hesaba özgü ve tahmin edilmesi zor
+  DE[c]: Es wird alle drei Tage durch ein sehr ähnliches Passwort ersetzt
+  TR[c]: Üç günde bir çok benzer bir parolayla değiştirilir
+  DE[d]: Es besteht nur aus Ziffern, weil das die Eingabe beschleunigt
+  TR[d]: Yazımı hızlandırdığı için yalnızca rakamlardan oluşur
+DE-EXPL: Länge und Einzigartigkeit sind die wichtigsten Faktoren gegen automatisiertes Ausprobieren und gegen sogenanntes Credential Stuffing, bei dem gestohlene Zugangsdaten aus anderen Diensten ausprobiert werden. Ein Passwort mit Bezug zum Arbeitsplatz ist leicht zu erraten, häufiges Wechseln auf ein sehr ähnliches Passwort bringt kaum Sicherheitsgewinn, und rein numerische Passwörter haben zu wenig mögliche Kombinationen.
+TR-EXPL: Uzunluk ve benzersizlik, otomatik deneme saldırılarına ve diğer hizmetlerden çalınan giriş bilgilerinin denendiği sözde credential stuffing'e karşı en önemli faktörlerdir. İş yeriyle ilgili bir parola tahmin edilmesi kolaydır, çok benzer bir parolaya sık sık geçiş yapmak neredeyse hiç güvenlik kazancı sağlamaz ve yalnızca sayısal parolaların olası kombinasyon sayısı çok azdır.
+
+===== ID it_sicherheit-zugriffsschutz-02 correct=['c'] =====
+DE-Q: Warum gilt Multi-Faktor-Authentifizierung (MFA) als deutlich sicherer als ein Passwort allein?
+TR-Q: Çok faktörlü kimlik doğrulama (MFA) neden tek başına bir paroladan çok daha güvenli kabul edilir?
+  DE[a]: Weil sie das Passwort überflüssig macht und man sich nichts mehr merken muss
+  TR[a]: Parolayı gereksiz kıldığı ve artık hiçbir şeyi hatırlamak gerekmediği için
+  DE[b]: Weil sie das Konto vor allen Arten von Angriffen vollständig schützt
+  TR[b]: Hesabı her türlü saldırıya karşı tamamen koruduğu için
+  DE[c]: Weil ein Angreifer selbst bei einem gestohlenen Passwort zusätzlich den zweiten Faktor bräuchte
+  TR[c]: Bir saldırgan çalınmış bir parolaya sahip olsa bile ek olarak ikinci faktöre ihtiyaç duyacağı için
+  DE[d]: Weil sie ausschließlich für Administratorkonten technisch möglich ist
+  TR[d]: Teknik olarak yalnızca yönetici hesapları için mümkün olduğu için
+DE-EXPL: MFA kombiniert etwas, das man weiß (Passwort), mit etwas, das man besitzt (z. B. eine App oder ein Token) oder ist. Ein gestohlenes Passwort allein reicht einem Angreifer damit nicht mehr aus. MFA ersetzt das Passwort nicht, bietet keinen vollständigen Schutz gegen jede Angriffsart und ist heute für praktisch jedes Nutzerkonto verfügbar, nicht nur für Administratoren.
+TR-EXPL: MFA, bilinen bir şeyi (parola) sahip olunan bir şeyle (örneğin bir uygulama veya token) ya da kişinin kendisiyle ilgili bir özellikle birleştirir. Çalınmış bir parola tek başına artık bir saldırgana yetmez. MFA parolanın yerini almaz, her türlü saldırıya karşı tam koruma sağlamaz ve bugün neredeyse her kullanıcı hesabı için, yalnızca yöneticiler için değil, kullanılabilir durumdadır.
+
+===== ID it_sicherheit-zugriffsschutz-03 correct=['a'] =====
+DE-Q: Ein Kollege bittet Sie, kurz sein persönliches Benutzerkonto samt Passwort mitzubenutzen, weil sein eigener Zugang gerade gesperrt ist. Wie sollten Sie reagieren?
+TR-Q: Bir meslektaşınız, kendi erişimi şu anda engellendiği için kısa süreliğine kişisel kullanıcı hesabını parolasıyla birlikte kullanmanızı istiyor. Nasıl tepki vermelisiniz?
+  DE[a]: Ablehnen und stattdessen den zuständigen IT-Support oder die Führungskraft informieren
+  TR[a]: Reddedip bunun yerine ilgili BT desteğini veya yöneticiyi bilgilendirmek
+  DE[b]: Zustimmen, solange nur kurzfristig damit gearbeitet wird
+  TR[b]: Yalnızca kısa süreli olması koşuluyla kabul etmek
+  DE[c]: Zustimmen, aber danach das Passwort des Kollegen selbst ändern
+  TR[c]: Kabul edip sonrasında meslektaşın parolasını kendiniz değiştirmek
+  DE[d]: Zustimmen, wenn die Aufgabe dringend ist und kein anderer Zugang möglich erscheint
+  TR[d]: Görev acil ise ve başka bir erişim mümkün görünmüyorsa kabul etmek
+DE-EXPL: Konten sind personenbezogen, damit Handlungen im System eindeutig einer Person zuordenbar bleiben (Nachvollziehbarkeit). Wird ein Konto geteilt, lässt sich im Nachhinein nicht mehr klären, wer was getan hat - das erschwert auch die Aufklärung von Sicherheitsvorfällen erheblich. Dringlichkeit rechtfertigt keine Ausnahme; der richtige Weg ist, den eigentlichen Zugriffsweg über IT-Support wiederherzustellen.
+TR-EXPL: Hesaplar kişiseldir, böylece sistemdeki eylemler her zaman açıkça bir kişiye atfedilebilir (izlenebilirlik). Bir hesap paylaşıldığında, sonradan kimin ne yaptığını belirlemek artık mümkün değildir - bu durum güvenlik olaylarının aydınlatılmasını da önemli ölçüde zorlaştırır. Aciliyet bir istisnayı haklı çıkarmaz; doğru yol, gerçek erişimi BT desteği aracılığıyla yeniden sağlamaktır.
+
+===== ID it_sicherheit-zugriffsschutz-04 correct=['b'] =====
+DE-Q: Sie verlassen Ihren Arbeitsplatz für ein kurzes Gespräch im Nachbarbüro. Was ist der richtige Umgang mit Ihrem entsperrten Computer?
+TR-Q: Komşu ofiste kısa bir görüşme için çalışma yerinizi terk ediyorsunuz. Kilidi açık bilgisayarınızla doğru davranış nedir?
+  DE[a]: Nichts unternehmen, da es sich um ein internes Bürogebäude handelt
+  TR[a]: Hiçbir şey yapmamak, çünkü şirket içi bir ofis binasıdır
+  DE[b]: Den Bildschirm sperren, bevor Sie den Arbeitsplatz verlassen
+  TR[b]: Çalışma yerinizi terk etmeden önce ekranı kilitlemek
+  DE[c]: Nur das geöffnete Dokument schließen, der Rest kann offen bleiben
+  TR[c]: Yalnızca açık olan belgeyi kapatmak, geri kalanı açık kalabilir
+  DE[d]: Den Monitor ausschalten, das genügt als Schutz
+  TR[d]: Monitörü kapatmak, koruma olarak bu yeterlidir
+DE-EXPL: Ein entsperrter Rechner erlaubt jedem, der kurz Zugang zum Raum hat - auch Besuchern, Reinigungspersonal oder unbefugten Dritten -, auf alle geöffneten Programme und Daten zuzugreifen. Ein ausgeschalteter Monitor ändert daran nichts, da die Sitzung im Hintergrund weiterläuft. Bildschirmsperren (z. B. per Tastenkürzel) sind eine einfache, wirksame Basismaßnahme, unabhängig davon, wie vertrauenswürdig die Umgebung erscheint.
+TR-EXPL: Kilidi açık bir bilgisayar, odaya kısa süreliğine erişimi olan herkesin - ziyaretçiler, temizlik personeli veya yetkisiz üçüncü şahıslar dahil - tüm açık programlara ve verilere erişmesine izin verir. Kapalı bir monitör hiçbir şeyi değiştirmez, çünkü oturum arka planda çalışmaya devam eder. Ekran kilidi (örneğin bir klavye kısayoluyla) ortamın ne kadar güvenilir görünmesinden bağımsız olarak basit ve etkili bir temel önlemdir.
+
+===== ID it_sicherheit-phishing-01 correct=['c'] =====
+DE-Q: Welches der folgenden Merkmale ist ein typisches Warnsignal für eine Phishing-E-Mail?
+TR-Q: Aşağıdaki özelliklerden hangisi bir kimlik avı (phishing) e-postası için tipik bir uyarı işaretidir?
+  DE[a]: Die E-Mail kommt während der üblichen Arbeitszeit an
+  TR[a]: E-posta olağan çalışma saatlerinde gelir
+  DE[b]: Die E-Mail enthält das Firmenlogo im Anhang
+  TR[b]: E-posta şirket logosunu ek olarak içerir
+  DE[c]: Die E-Mail erzeugt Zeitdruck und fordert zu einer sofortigen, unüblichen Handlung auf
+  TR[c]: E-posta zaman baskısı yaratır ve derhal, alışılmadık bir eylem talep eder
+  DE[d]: Die E-Mail wurde an mehrere Kollegen gleichzeitig verschickt
+  TR[d]: E-posta aynı anda birden fazla meslektaşa gönderilmiştir
+DE-EXPL: Angreifer setzen gezielt auf künstlichen Zeitdruck und emotionale Dringlichkeit, damit Empfänger nicht in Ruhe nachdenken oder Rücksprache halten, sondern sofort handeln - etwa auf einen Link klicken oder Daten preisgeben. Logos, normale Versandzeiten oder ein größerer Empfängerkreis sagen für sich genommen nichts über die Echtheit einer Nachricht aus, da Logos leicht kopiert und Versandzeiten sowie Empfängerlisten beliebig gewählt werden können.
+TR-EXPL: Saldırganlar, alıcının sakin bir şekilde düşünmemesi veya danışmaması, bunun yerine hemen harekete geçmesi - örneğin bir bağlantıya tıklaması veya verileri açığa çıkarması - için bilinçli olarak yapay zaman baskısına ve duygusal aciliyete başvururlar. Logolar, olağan gönderim saatleri veya daha geniş bir alıcı çevresi, tek başına bir mesajın gerçekliği hakkında hiçbir şey söylemez, çünkü logolar kolayca kopyalanabilir ve gönderim saatleri ile alıcı listeleri keyfi olarak seçilebilir.
+
+===== ID it_sicherheit-phishing-02 correct=['b'] =====
+DE-Q: Sie erhalten scheinbar von der Geschäftsführung eine E-Mail, die Sie auffordert, dringend und vertraulich eine hohe Summe an ein neues, unbekanntes Konto zu überweisen. Was ist der richtige erste Schritt?
+TR-Q: Görünüşte yönetimden, acil ve gizli şekilde yeni, bilinmeyen bir hesaba yüksek bir tutar transfer etmenizi isteyen bir e-posta alıyorsunuz. Doğru ilk adım nedir?
+  DE[a]: Die Überweisung sofort ausführen, da Anweisungen der Geschäftsführung Vorrang haben
+  TR[a]: Yönetimin talimatları öncelikli olduğu için transferi hemen gerçekleştirmek
+  DE[b]: Die Anfrage über einen bekannten, unabhängigen Kanal (z. B. Telefonanruf) persönlich verifizieren, bevor irgendetwas geschieht
+  TR[b]: Herhangi bir şey yapmadan önce talebi bilinen, bağımsız bir kanal üzerinden (örneğin bir telefon görüşmesi) kişisel olarak doğrulamak
+  DE[c]: Auf die E-Mail antworten und dort nach einer schriftlichen Bestätigung fragen
+  TR[c]: E-postaya cevap vererek orada yazılı bir onay istemek
+  DE[d]: Die Überweisung durchführen, aber einen kleineren Betrag als angefordert senden
+  TR[d]: Transferi gerçekleştirmek, ancak istenen tutardan daha küçük bir miktar göndermek
+DE-EXPL: Dieses Muster wird häufig als "CEO-Fraud" bezeichnet: Angreifer geben sich als Führungskraft aus und nutzen Autorität, Vertraulichkeit und Zeitdruck, um Kontrollen zu umgehen. Eine Antwort innerhalb derselben E-Mail-Konversation hilft nicht, da der Angreifer genau diesen Kanal kontrolliert. Entscheidend ist die Verifikation über einen unabhängigen, bereits bekannten Kontaktweg - etwa ein Anruf unter einer hinterlegten Telefonnummer -, bevor irgendeine Zahlung oder Handlung erfolgt.
+TR-EXPL: Bu düzen genellikle "CEO dolandırıcılığı" olarak adlandırılır: saldırganlar bir yönetici gibi davranır ve kontrolleri atlatmak için otorite, gizlilik ve zaman baskısından yararlanır. Aynı e-posta yazışması içinde cevap vermek yardımcı olmaz, çünkü tam olarak bu kanalı saldırgan kontrol etmektedir. Herhangi bir ödeme veya eylemden önce bağımsız, zaten bilinen bir iletişim kanalı üzerinden - örneğin kayıtlı bir telefon numarasından arama yaparak - doğrulama yapmak belirleyicidir.
+
+===== ID it_sicherheit-phishing-03 correct=['a'] =====
+DE-Q: In einer E-Mail wird ein Link angezeigt, der angeblich zur bekannten Login-Seite Ihres Unternehmens führt. Wie prüfen Sie am sinnvollsten, ob der Link vertrauenswürdig ist, ohne ihn anzuklicken?
+TR-Q: Bir e-postada şirketinizin bilinen giriş sayfasına gittiği iddia edilen bir bağlantı gösteriliyor. Tıklamadan bağlantının güvenilir olup olmadığını en mantıklı şekilde nasıl kontrol edersiniz?
+  DE[a]: Mit der Maus über den Link fahren (ohne zu klicken) und die tatsächliche Zieladresse in der Statusanzeige prüfen
+  TR[a]: Fareyi bağlantının üzerine getirip (tıklamadan) durum çubuğunda gerçek hedef adresini kontrol etmek
+  DE[b]: Den Link anklicken und dann sofort schauen, ob die Seite echt aussieht
+  TR[b]: Bağlantıya tıklayıp sayfanın gerçek görünüp görünmediğine hemen bakmak
+  DE[c]: Prüfen, ob die E-Mail in korrektem Deutsch geschrieben ist
+  TR[c]: E-postanın doğru bir Almanca ile yazılıp yazılmadığını kontrol etmek
+  DE[d]: Den Absendernamen im Anzeigefeld des E-Mail-Programms kontrollieren
+  TR[d]: E-posta programında görüntülenen gönderen adını kontrol etmek
+DE-EXPL: Der angezeigte Linktext kann beliebig von der tatsächlichen Zieladresse abweichen; erst das Überfahren mit der Maus zeigt die reale URL in der Statusleiste des Browsers oder E-Mail-Programms. Anklicken birgt bereits ein Risiko, da manche gefälschten Seiten automatisch Schadcode laden. Fehlerfreie Sprache ist kein verlässliches Kriterium mehr, da Phishing-Texte heute oft sehr professionell wirken, und der angezeigte Absendername lässt sich leicht fälschen, ohne dass die tatsächliche Absenderadresse dazu passt.
+TR-EXPL: Görüntülenen bağlantı metni, gerçek hedef adresten keyfi olarak farklılık gösterebilir; yalnızca fareyi üzerine getirmek, tarayıcının veya e-posta programının durum çubuğunda gerçek URL'yi gösterir. Tıklamak zaten bir risk taşır, çünkü bazı sahte sayfalar otomatik olarak zararlı kod yükler. Kusursuz dil artık güvenilir bir kriter değildir, çünkü kimlik avı metinleri bugün genellikle çok profesyonel görünmektedir ve görüntülenen gönderen adı, gerçek gönderen adresiyle uyuşmadan kolayca sahtelenebilir.
+
+===== ID it_sicherheit-phishing-04 correct=['d'] =====
+DE-Q: Sie haben auf einen Link in einer verdächtigen E-Mail geklickt und dort versehentlich Ihre Zugangsdaten eingegeben. Was ist die richtige Reaktion?
+TR-Q: Şüpheli bir e-postadaki bir bağlantıya tıkladınız ve orada yanlışlıkla giriş bilgilerinizi girdiniz. Doğru tepki nedir?
+  DE[a]: Abwarten, ob sich etwas Ungewöhnliches im Konto zeigt, und erst dann reagieren
+  TR[a]: Hesapta olağan dışı bir şey görünüp görünmeyeceğini bekleyip ancak o zaman tepki vermek
+  DE[b]: Nichts tun, da es sich vermutlich um einen harmlosen Einzelfall handelt
+  TR[b]: Hiçbir şey yapmamak, çünkü muhtemelen zararsız, tekil bir olaydır
+  DE[c]: Das Passwort in den nächsten Tagen ändern, wenn Zeit dafür ist
+  TR[c]: Zaman olduğunda önümüzdeki günlerde parolayı değiştirmek
+  DE[d]: Sofort das Passwort ändern und den Vorfall umgehend der zuständigen internen Stelle (z. B. IT-Sicherheit) melden
+  TR[d]: Parolayı hemen değiştirmek ve olayı derhal ilgili iç birime (örneğin BT güvenliğine) bildirmek
+DE-EXPL: Je schneller ein kompromittiertes Zugangsdatum geändert und der Vorfall gemeldet wird, desto kleiner bleibt das Zeitfenster, in dem ein Angreifer die gestohlenen Daten missbrauchen kann. Abwarten, Nichtstun oder Verzögern erhöht das Risiko unnötig, insbesondere wenn dasselbe Passwort auch für weitere Systeme genutzt wird. Die Meldung an die zuständige Stelle ermöglicht zusätzlich, weitere Schutzmaßnahmen einzuleiten und andere Beschäftigte zu warnen.
+TR-EXPL: Güvenliği ihlal edilmiş giriş bilgileri ne kadar hızlı değiştirilir ve olay bildirilirse, bir saldırganın çalınan verileri kötüye kullanabileceği zaman penceresi o kadar küçük kalır. Beklemek, hiçbir şey yapmamak veya geciktirmek, özellikle aynı parola başka sistemler için de kullanılıyorsa riski gereksiz yere artırır. İlgili birime bildirim yapmak ayrıca daha fazla koruma önlemi alınmasını ve diğer çalışanların uyarılmasını mümkün kılar.
+
+===== ID it_sicherheit-datensicherung-01 correct=['b'] =====
+DE-Q: Warum sind regelmäßige, geplante Datensicherungen (Backups) wichtig, auch wenn ein Gerät technisch zuverlässig läuft?
+TR-Q: Bir cihaz teknik olarak güvenilir çalışsa bile düzenli, planlı veri yedeklemeleri (backup) neden önemlidir?
+  DE[a]: Weil Backups die Notwendigkeit von Passwörtern ersetzen
+  TR[a]: Çünkü yedeklemeler parola ihtiyacının yerini alır
+  DE[b]: Weil Daten auch durch Fehlbedienung, technischen Defekt oder Schadsoftware wie Ransomware verloren gehen können, unabhängig von der aktuellen Zuverlässigkeit des Geräts
+  TR[b]: Çünkü veriler, cihazın mevcut güvenilirliğinden bağımsız olarak, hatalı kullanım, teknik arıza veya fidye yazılımı gibi zararlı yazılımlar nedeniyle de kaybedilebilir
+  DE[c]: Weil Backups ausschließlich für sehr alte Geräte vorgeschrieben sind
+  TR[c]: Çünkü yedeklemeler yalnızca çok eski cihazlar için zorunludur
+  DE[d]: Weil ohne Backup die Internetverbindung langsamer wird
+  TR[d]: Çünkü yedekleme olmadan internet bağlantısı yavaşlar
+DE-EXPL: Ein Backup schützt vor ganz unterschiedlichen Ursachen für Datenverlust: versehentliches Löschen, Hardwaredefekte, aber auch Ransomware, die Dateien verschlüsselt. Die bisherige Zuverlässigkeit eines Geräts sagt nichts über zukünftige Ausfälle oder Angriffe aus. Backups haben nichts mit Passwörtern oder Internetgeschwindigkeit zu tun und sind unabhängig vom Alter des Geräts sinnvoll.
+TR-EXPL: Bir yedekleme, veri kaybının çok farklı nedenlerine karşı koruma sağlar: yanlışlıkla silme, donanım arızaları, ama aynı zamanda dosyaları şifreleyen fidye yazılımları. Bir cihazın şimdiye kadarki güvenilirliği, gelecekteki arızalar veya saldırılar hakkında hiçbir şey söylemez. Yedeklemelerin parolalarla veya internet hızıyla hiçbir ilgisi yoktur ve cihazın yaşından bağımsız olarak anlamlıdır.
+
+===== ID it_sicherheit-datensicherung-02 correct=['c'] =====
+DE-Q: Sie finden auf dem Firmenparkplatz einen USB-Stick ohne Kennzeichnung. Was ist der richtige Umgang damit?
+TR-Q: Şirket otoparkında işaretsiz bir USB bellek buluyorsunuz. Bununla doğru davranış nedir?
+  DE[a]: Den Stick an einem Firmenrechner einstecken, um herauszufinden, wem er gehört
+  TR[a]: Kime ait olduğunu öğrenmek için belleği şirket bilgisayarına takmak
+  DE[b]: Den Stick mitnehmen und privat weiterverwenden, da niemand ihn vermisst
+  TR[b]: Belleği alıp kimse aramadığı için özel olarak kullanmak
+  DE[c]: Den Stick nicht anschließen, sondern der IT-Abteilung oder dem Sicherheitspersonal übergeben
+  TR[c]: Belleği takmamak, bunun yerine BT departmanına veya güvenlik personeline teslim etmek
+  DE[d]: Den Stick an einem privaten Gerät prüfen, bevor eine Entscheidung getroffen wird
+  TR[d]: Bir karar vermeden önce belleği kişisel bir cihazda kontrol etmek
+DE-EXPL: Unbekannte USB-Sticks sind ein klassisches Einfallstor für Schadsoftware: Sie können so präpariert sein, dass sie beim Einstecken automatisch Schadcode ausführen, auch bevor eine Datei geöffnet wird. Das gilt für Firmenrechner ebenso wie für private Geräte. Der sichere Weg ist, den Fund nicht selbst zu untersuchen, sondern an die zuständige Stelle weiterzugeben, die ihn kontrolliert prüfen kann.
+TR-EXPL: Bilinmeyen USB bellekler, zararlı yazılım için klasik bir giriş kapısıdır: herhangi bir dosya açılmadan önce bile, takıldığında otomatik olarak zararlı kod çalıştıracak şekilde hazırlanmış olabilirler. Bu, şirket bilgisayarları için olduğu kadar kişisel cihazlar için de geçerlidir. Güvenli yol, bulunan öğeyi kendiniz incelemek değil, kontrollü bir şekilde inceleyebilecek ilgili birime teslim etmektir.
+
+===== ID it_sicherheit-datensicherung-03 correct=['a'] =====
+DE-Q: Warum sollten Sie Sicherheitsupdates für Betriebssystem und Programme auf Ihrem Arbeitsgerät zeitnah installieren, wenn das System es anbietet?
+TR-Q: Sistem sunduğunda, iş cihazınızdaki işletim sistemi ve programlar için güvenlik güncellemelerini neden zaman geçirmeden yüklemelisiniz?
+  DE[a]: Weil Updates häufig bekannt gewordene Sicherheitslücken schließen, die sonst von Angreifern ausgenutzt werden können
+  TR[a]: Çünkü güncellemeler, aksi takdirde saldırganlar tarafından istismar edilebilecek bilinen güvenlik açıklarını sıklıkla kapatır
+  DE[b]: Weil Updates hauptsächlich das Design der Benutzeroberfläche verbessern
+  TR[b]: Çünkü güncellemeler esas olarak kullanıcı arayüzü tasarımını iyileştirir
+  DE[c]: Weil Updates ausschließlich die Geschwindigkeit des Geräts erhöhen
+  TR[c]: Çünkü güncellemeler yalnızca cihazın hızını artırır
+  DE[d]: Weil Updates nur bei privat genutzten Geräten sicherheitsrelevant sind
+  TR[d]: Çünkü güncellemeler yalnızca özel kullanılan cihazlarda güvenlik açısından önemlidir
+DE-EXPL: Sicherheitslücken in Betriebssystemen und Anwendungen werden fortlaufend entdeckt und veröffentlicht; Hersteller schließen sie über Updates. Wird ein Update aufgeschoben, bleibt die Lücke offen, und Angreifer nutzen häufig gerade den Zeitraum kurz nach Bekanntwerden gezielt aus. Oberflächengestaltung oder Geschwindigkeit sind allenfalls Nebeneffekte, nicht der eigentliche Sicherheitsgrund, und die Update-Disziplin gilt für dienstliche Geräte genauso wie für private.
+TR-EXPL: İşletim sistemlerindeki ve uygulamalardaki güvenlik açıkları sürekli olarak keşfedilir ve yayınlanır; üreticiler bunları güncellemelerle kapatır. Bir güncelleme ertelendiğinde açık kalır ve saldırganlar genellikle açığın bilinir hale gelmesinden hemen sonraki dönemi hedefli olarak kullanırlar. Arayüz tasarımı veya hız, en fazla yan etkilerdir, gerçek güvenlik nedeni değildir ve güncelleme disiplini kurumsal cihazlar için özel cihazlarda olduğu kadar geçerlidir.
+
+===== ID it_sicherheit-datensicherung-04 correct=['d'] =====
+DE-Q: Ein Kollege empfiehlt Ihnen ein praktisches, kostenloses Zusatzprogramm aus dem Internet für Ihren Firmenrechner. Wie gehen Sie am sinnvollsten vor?
+TR-Q: Bir meslektaşınız şirket bilgisayarınız için internetten pratik, ücretsiz bir ek program öneriyor. En mantıklı yaklaşım nedir?
+  DE[a]: Das Programm sofort installieren, da es kostenlos ist und keine Kosten verursacht
+  TR[a]: Programı hemen kurmak, çünkü ücretsizdir ve masraf yaratmaz
+  DE[b]: Das Programm installieren, aber nur auf dem Rechner, nicht auf dem Diensthandy
+  TR[b]: Programı yalnızca bilgisayara kurmak, iş telefonuna değil
+  DE[c]: Das Programm installieren, solange es von einer bekannten Webseite heruntergeladen wird
+  TR[c]: Bilinen bir web sitesinden indirildiği sürece programı kurmak
+  DE[d]: Vor der Installation die zuständige IT-Stelle fragen, ob und wie die Software freigegeben werden kann
+  TR[d]: Kurulumdan önce ilgili BT birimine yazılımın onaylanıp onaylanamayacağını veya nasıl onaylanabileceğini sormak
+DE-EXPL: Nicht freigegebene Software kann Sicherheitslücken enthalten, mit anderen Programmen in Konflikt geraten oder gegen Lizenz- und Compliance-Vorgaben verstoßen - unabhängig davon, ob sie kostenlos ist, von welcher Webseite sie stammt oder auf welchem Gerätetyp sie installiert wird. Die IT-Abteilung kann prüfen, ob eine Software sicher und regelkonform eingesetzt werden kann, und gegebenenfalls eine geprüfte Alternative bereitstellen.
+TR-EXPL: Onaylanmamış yazılımlar, ücretsiz olup olmadığından, hangi web sitesinden geldiğinden veya hangi cihaz türüne kurulduğundan bağımsız olarak güvenlik açıkları içerebilir, diğer programlarla çakışabilir veya lisans ve uyumluluk gerekliliklerini ihlal edebilir. BT departmanı, bir yazılımın güvenli ve kurallara uygun şekilde kullanılıp kullanılamayacağını kontrol edebilir ve gerekirse test edilmiş bir alternatif sunabilir.
+
+===== ID it_sicherheit-mobil_homeoffice-01 correct=['b'] =====
+DE-Q: Welche Maßnahme trägt am meisten dazu bei, das heimische WLAN für dienstliche Arbeit im Homeoffice abzusichern?
+TR-Q: Ev ofisinde iş amaçlı çalışma için ev Wi-Fi ağını güvence altına almaya en çok hangi önlem katkıda bulunur?
+  DE[a]: Den Namen (SSID) des WLANs so einstellen, dass er unauffällig klingt
+  TR[a]: Wi-Fi'nin adını (SSID) dikkat çekmeyecek şekilde ayarlamak
+  DE[b]: Ein starkes, individuelles WLAN-Passwort und eine aktuelle Verschlüsselung (z. B. WPA2/WPA3) verwenden
+  TR[b]: Güçlü, bireysel bir Wi-Fi parolası ve güncel bir şifreleme (örneğin WPA2/WPA3) kullanmak
+  DE[c]: Das WLAN nur tagsüber einschalten und nachts komplett abschalten
+  TR[c]: Wi-Fi'yi yalnızca gündüz açmak ve geceleri tamamen kapatmak
+  DE[d]: Den werkseitig voreingestellten Router-Zugang unverändert beibehalten, um Fehler zu vermeiden
+  TR[d]: Hataları önlemek için fabrika ayarlı yönlendirici erişimini değiştirmeden korumak
+DE-EXPL: Ein starkes, individuelles Passwort zusammen mit moderner Verschlüsselung verhindert, dass Unbefugte in Reichweite sich einfach ins Netzwerk einklinken und den Datenverkehr mitlesen oder manipulieren können. Ein unauffälliger Netzwerkname bietet keinen technischen Schutz, ein zeitweises Abschalten löst das Grundproblem nicht, und werkseitige Voreinstellungen (Standardpasswörter, Standard-SSID) sind oft öffentlich bekannt und daher besonders unsicher.
+TR-EXPL: Güçlü, bireysel bir parola ile modern şifreleme birlikte, menzil içindeki yetkisiz kişilerin ağa kolayca bağlanıp veri trafiğini okumasını veya değiştirmesini engeller. Dikkat çekmeyen bir ağ adı teknik koruma sağlamaz, geçici olarak kapatmak temel sorunu çözmez ve fabrika ayarları (varsayılan parolalar, varsayılan SSID) genellikle kamuya açık şekilde bilinir ve bu nedenle özellikle güvensizdir.
+
+===== ID it_sicherheit-mobil_homeoffice-02 correct=['c'] =====
+DE-Q: Sie müssen unterwegs kurz auf dienstliche E-Mails zugreifen und finden ein offenes, unverschlüsseltes WLAN in einem Café. Wie gehen Sie am sichersten vor?
+TR-Q: Yolda kısa süreliğine iş e-postalarına erişmeniz gerekiyor ve bir kafede açık, şifrelenmemiş bir Wi-Fi buluyorsunuz. En güvenli şekilde nasıl davranırsınız?
+  DE[a]: Das offene WLAN direkt nutzen, da E-Mail-Abrufe unkritisch sind
+  TR[a]: E-posta kontrolü kritik olmadığı için açık Wi-Fi'yi doğrudan kullanmak
+  DE[b]: Das offene WLAN nutzen, aber vorher das eigene Passwort ändern
+  TR[b]: Açık Wi-Fi'yi kullanmak ama önce kendi parolanızı değiştirmek
+  DE[c]: Statt des offenen WLANs eine gesicherte Verbindung nutzen, etwa mobile Daten oder ein Firmen-VPN
+  TR[c]: Açık Wi-Fi yerine mobil veri veya şirket VPN'i gibi güvenli bir bağlantı kullanmak
+  DE[d]: Das offene WLAN nutzen, solange die Café-Webseite ein Schloss-Symbol in der Adresszeile zeigt
+  TR[d]: Kafenin web sitesi adres çubuğunda bir kilit simgesi gösterdiği sürece açık Wi-Fi'yi kullanmak
+DE-EXPL: In offenen, unverschlüsselten WLANs kann der Datenverkehr von Dritten im selben Netz mitgelesen oder umgeleitet werden, auch wenn einzelne Webseiten selbst verschlüsselt sind (das Schloss-Symbol bezieht sich nur auf diese eine Verbindung, nicht auf das gesamte Netz). Mobile Daten oder ein Firmen-VPN bauen eine zusätzlich abgesicherte, verschlüsselte Verbindung auf, die deutlich schwerer abzuhören ist. Ein vorheriger Passwortwechsel löst das eigentliche Risiko nicht.
+TR-EXPL: Açık, şifrelenmemiş Wi-Fi ağlarında, tek tek web siteleri kendi başlarına şifreli olsa bile (kilit simgesi yalnızca o tek bağlantıyla ilgilidir, tüm ağla değil) aynı ağdaki üçüncü şahıslar veri trafiğini okuyabilir veya yönlendirebilir. Mobil veri veya şirket VPN'i, dinlenmesi çok daha zor olan ek olarak güvence altına alınmış, şifreli bir bağlantı kurar. Önceden parola değiştirmek gerçek riski ortadan kaldırmaz.
+
+===== ID it_sicherheit-mobil_homeoffice-03 correct=['a'] =====
+DE-Q: Sie arbeiten im Zug an einem vertraulichen Dokument auf Ihrem Laptop. Was sollten Sie zum Schutz vor Mitlesen beachten?
+TR-Q: Trende dizüstü bilgisayarınızda gizli bir belge üzerinde çalışıyorsunuz. Gözetlenmeye karşı korunmak için nelere dikkat etmelisiniz?
+  DE[a]: Auf die Umgebung achten und bei Bedarf einen Sichtschutzfilter oder eine sitzplatzbedingt geschützte Position nutzen
+  TR[a]: Çevreye dikkat etmek ve gerekirse bir ekran gizlilik filtresi veya korunaklı bir oturma konumu kullanmak
+  DE[b]: Das Dokument einfach kleiner zoomen, damit es aus der Ferne nicht lesbar ist
+  TR[b]: Belgenin uzaktan okunamaması için sadece yakınlaştırmayı azaltmak
+  DE[c]: Nur den Dateinamen anonymisieren, der Inhalt selbst ist unkritisch
+  TR[c]: Yalnızca dosya adını anonimleştirmek, içeriğin kendisi kritik değildir
+  DE[d]: Vertrauliche Dokumente unterwegs generell genauso behandeln wie öffentlich zugängliche Informationen
+  TR[d]: Yolda gizli belgeleri genel olarak halka açık bilgiler gibi ele almak
+DE-EXPL: "Shoulder surfing" - das Mitlesen von Bildschirminhalten durch umstehende Personen - ist ein reales Risiko in öffentlichen Umgebungen wie Zügen oder Wartebereichen. Ein Sichtschutzfilter oder eine geschickte Sitzposition verringert dieses Risiko wirksam. Kleineres Zoomen schützt nicht zuverlässig, der Dateiname ist nicht der eigentliche Schutzgegenstand, und vertrauliche Inhalte benötigen unabhängig vom Ort immer den entsprechenden Schutz, nicht nur im Büro.
+TR-EXPL: "Shoulder surfing" - çevredeki kişiler tarafından ekran içeriğinin gözetlenmesi - trenler veya bekleme alanları gibi kamuya açık ortamlarda gerçek bir risktir. Bir ekran gizlilik filtresi veya akıllıca bir oturma konumu bu riski etkili bir şekilde azaltır. Daha küçük yakınlaştırma güvenilir bir koruma sağlamaz, dosya adı gerçek korunması gereken şey değildir ve gizli içerik, yalnızca ofiste değil, yerden bağımsız olarak her zaman uygun korumaya ihtiyaç duyar.
+
+===== ID it_sicherheit-mobil_homeoffice-04 correct=['b'] =====
+DE-Q: Sie sind dienstlich unterwegs und müssen Ihren Firmenlaptop kurz im geparkten Auto zurücklassen. Was ist der sicherste Umgang damit?
+TR-Q: İş seyahatindesiniz ve şirket dizüstü bilgisayarınızı kısa süreliğine park edilmiş bir arabada bırakmanız gerekiyor. Bununla en güvenli davranış nedir?
+  DE[a]: Den Laptop gut sichtbar auf dem Beifahrersitz liegen lassen, damit er nicht vergessen wird
+  TR[a]: Unutulmaması için dizüstü bilgisayarı yolcu koltuğunda iyice görünür bırakmak
+  DE[b]: Den Laptop in den nicht einsehbaren Kofferraum legen und das Fahrzeug verschließen, oder ihn möglichst ganz mitnehmen
+  TR[b]: Dizüstü bilgisayarı dışarıdan görünmeyen bagaja koyup aracı kilitlemek veya mümkünse tamamen yanınızda götürmek
+  DE[c]: Den Laptop unter einer Jacke auf dem Rücksitz verstecken, das genügt als Schutz
+  TR[c]: Dizüstü bilgisayarı arka koltukta bir ceketin altına saklamak, koruma olarak bu yeterlidir
+  DE[d]: Es spielt keine Rolle, solange der Laptop mit einem Benutzerkennwort geschützt ist
+  TR[d]: Dizüstü bilgisayar bir kullanıcı parolasıyla korunduğu sürece önemli değildir
+DE-EXPL: Sichtbare Wertgegenstände im Auto erhöhen das Risiko eines Einbruchs erheblich; ein nicht einsehbarer Kofferraum oder das Mitnehmen des Geräts verringern dieses Risiko deutlich. Eine Jacke als Sichtschutz ist unzuverlässig und schützt nicht vor einem gezielten Einbruch. Ein Benutzerkennwort schützt zwar die Daten auf dem Gerät im Falle eines Diebstahls teilweise, verhindert aber nicht den physischen Verlust des Geräts selbst und ersetzt daher nicht die sichere Aufbewahrung.
+TR-EXPL: Arabada görünür değerli eşyalar hırsızlık riskini önemli ölçüde artırır; dışarıdan görünmeyen bir bagaj veya cihazı yanınızda götürmek bu riski belirgin şekilde azaltır. Görünürlük perdesi olarak bir ceket güvenilir değildir ve hedefli bir hırsızlığa karşı koruma sağlamaz. Bir kullanıcı parolası, hırsızlık durumunda cihazdaki verileri kısmen korur, ancak cihazın kendisinin fiziksel olarak kaybolmasını engellemez ve bu nedenle güvenli saklamanın yerini almaz.
+
+===== ID it_sicherheit-meldepflicht_it-01 correct=['b'] =====
+DE-Q: Sie vermuten, dass Ihr Firmenrechner mit Schadsoftware infiziert ist, sind sich aber nicht ganz sicher. Wie sollten Sie sich verhalten?
+TR-Q: Şirket bilgisayarınızın zararlı yazılımla enfekte olduğundan şüpheleniyorsunuz ama tam emin değilsiniz. Nasıl davranmalısınız?
+  DE[a]: Abwarten, bis eindeutige Beweise vorliegen, um keine Fehlmeldung abzugeben
+  TR[a]: Yanlış bir bildirimde bulunmamak için kesin kanıtlar olana kadar beklemek
+  DE[b]: Den Verdacht umgehend der zuständigen internen Stelle (z. B. IT-Sicherheit oder Helpdesk) melden, auch bei Unsicherheit
+  TR[b]: Belirsizlik durumunda bile şüpheyi derhal ilgili iç birime (örneğin BT güvenliği veya yardım masası) bildirmek
+  DE[c]: Den Rechner selbst neu aufsetzen und danach normal weiterarbeiten
+  TR[c]: Bilgisayarı kendiniz yeniden kurmak ve ardından normal şekilde çalışmaya devam etmek
+  DE[d]: Erst Kollegen fragen, ob ihnen Ähnliches aufgefallen ist, bevor irgendetwas gemeldet wird
+  TR[d]: Herhangi bir şey bildirmeden önce meslektaşlara benzer bir şey fark edip etmediklerini sormak
+DE-EXPL: Eine funktionierende Melde- und Reaktionskultur setzt voraus, dass auch bloße Verdachtsfälle frühzeitig gemeldet werden, statt auf eindeutige Beweise zu warten - je früher ein möglicher Vorfall bekannt wird, desto besser lässt sich eine Ausbreitung eindämmen. Eigenständiges Neuaufsetzen des Rechners kann wichtige Spuren zur Ursachenklärung zerstören. Auch das informelle Nachfragen bei Kollegen verzögert die Meldung unnötig und ersetzt nicht die Information der zuständigen Stelle.
+TR-EXPL: İşleyen bir bildirim ve tepki kültürü, kesin kanıtları beklemek yerine yalnızca şüphelerin bile erkenden bildirilmesini gerektirir - olası bir olay ne kadar erken bilinirse, yayılması o kadar iyi sınırlandırılabilir. Bilgisayarı kendiliğinden yeniden kurmak, nedenin aydınlatılması için önemli izleri yok edebilir. Meslektaşlara resmi olmayan şekilde sormak da bildirimi gereksiz yere geciktirir ve ilgili birimin bilgilendirilmesinin yerini almaz.
+
+===== ID it_sicherheit-meldepflicht_it-02 correct=['c'] =====
+DE-Q: Warum legt die EU-Richtlinie zur Netz- und Informationssicherheit (NIS2) für betroffene Organisationen so kurze Fristen für die erste Meldung eines erheblichen Sicherheitsvorfalls fest (grob: eine frühe Warnung innerhalb von Stunden, gefolgt von einer ausführlicheren Meldung)?
+TR-Q: AB Ağ ve Bilgi Sistemleri Güvenliği Direktifi (NIS2), etkilenen kuruluşlar için önemli bir güvenlik olayının ilk bildirimi için neden bu kadar kısa süreler belirler (kabaca: saatler içinde erken bir uyarı, ardından daha ayrıntılı bir bildirim)?
+  DE[a]: Damit Unternehmen möglichst viel Zeit gewinnen, um den Vorfall intern zu verschweigen
+  TR[a]: Şirketlerin olayı iç kısımda gizlemek için mümkün olduğunca fazla zaman kazanması için
+  DE[b]: Weil eine vollständige technische Untersuchung ohnehin nie möglich ist
+  TR[b]: Çünkü zaten tam bir teknik araştırma asla mümkün değildir
+  DE[c]: Damit zuständige Stellen frühzeitig reagieren und andere potenziell betroffene Organisationen rechtzeitig gewarnt werden können
+  TR[c]: Yetkili makamların erkenden tepki verebilmesi ve potansiyel olarak etkilenen diğer kuruluşların zamanında uyarılabilmesi için
+  DE[d]: Weil kurze Fristen ausschließlich für IT-Dienstleister gelten, nicht für deren Kunden
+  TR[d]: Çünkü kısa süreler yalnızca BT hizmet sağlayıcıları için geçerlidir, müşterileri için değil
+DE-EXPL: Kurze Meldefristen sollen sicherstellen, dass Behörden und andere betroffene Stellen schnell informiert werden, um eine Ausbreitung einzudämmen und Gegenmaßnahmen zu koordinieren - nicht, um internes Verschweigen zu ermöglichen. Eine erste, frühe Meldung darf bewusst noch unvollständig sein und wird später ergänzt; das ist gerade der Sinn eines gestuften Meldeverfahrens. Die Meldepflichten richten sich an betroffene Organisationen insgesamt, nicht nur an IT-Dienstleister.
+TR-EXPL: Kısa bildirim süreleri, yayılmayı sınırlamak ve karşı önlemleri koordine etmek için yetkililerin ve diğer ilgili kurumların hızla bilgilendirilmesini sağlamayı amaçlar - iç gizlemeyi mümkün kılmak için değil. İlk, erken bildirim bilinçli olarak henüz eksik olabilir ve daha sonra tamamlanır; kademeli bir bildirim prosedürünün amacı tam olarak budur. Bildirim yükümlülükleri, yalnızca BT hizmet sağlayıcılarına değil, etkilenen kuruluşların bütününe yöneliktir.
+
+===== ID it_sicherheit-meldepflicht_it-03 correct=['a'] =====
+DE-Q: Warum verlangt eine gute Sicherheitskultur, dass Beschäftigte einen vermuteten Sicherheitsvorfall melden, statt zu versuchen, ihn selbst "still" zu beheben?
+TR-Q: İyi bir güvenlik kültürü, çalışanların şüphelenilen bir güvenlik olayını "sessizce" kendi başlarına çözmeye çalışmak yerine bildirmesini neden gerektirir?
+  DE[a]: Weil ein Einzelner oft nicht das gesamte Ausmaß und die Ursache eines Vorfalls überblicken kann und eigenmächtiges Handeln Spuren verwischen oder das Problem verschlimmern kann
+  TR[a]: Çünkü tek bir kişi genellikle bir olayın tüm kapsamını ve nedenini kavrayamaz ve kendi başına hareket etmek izleri silebilir veya sorunu daha da kötüleştirebilir
+  DE[b]: Weil eigenständiges Beheben grundsätzlich gegen das Urheberrecht verstößt
+  TR[b]: Çünkü kendi başına çözmek temel olarak telif hakkını ihlal eder
+  DE[c]: Weil nur so die Kosten für IT-Sicherheit im Unternehmen reduziert werden können
+  TR[c]: Çünkü şirketin BT güvenlik maliyetlerini yalnızca bu şekilde azaltmak mümkündür
+  DE[d]: Weil Beschäftigte ohne Meldung automatisch persönlich haftbar gemacht werden können
+  TR[d]: Çünkü bildirim olmadan çalışanlar otomatik olarak kişisel olarak sorumlu tutulabilir
+DE-EXPL: Ein einzelner Vorfall kann Teil eines größeren Musters sein - etwa ein Angriff, der mehrere Systeme betrifft. Wer versucht, das Problem allein und ohne Meldung zu lösen, kann wichtige Spuren zerstören, die für die Ursachenklärung nötig wären, und riskiert, dass sich der Vorfall unbemerkt weiter ausbreitet. Die genannten Alternativen (Urheberrecht, Kostensenkung, automatische persönliche Haftung) beschreiben nicht den eigentlichen Grund für die Meldepflicht.
+TR-EXPL: Tek bir olay, örneğin birden fazla sistemi etkileyen bir saldırı gibi daha büyük bir örüntünün parçası olabilir. Sorunu tek başına ve bildirmeden çözmeye çalışan kişi, nedenin aydınlatılması için gerekli önemli izleri yok edebilir ve olayın fark edilmeden yayılmaya devam etmesi riskini alır. Belirtilen alternatifler (telif hakkı, maliyet azaltma, otomatik kişisel sorumluluk) bildirim yükümlülüğünün gerçek nedenini açıklamaz.
+
+===== ID it_sicherheit-meldepflicht_it-04 correct=['d'] =====
+DE-Q: Sie sind unsicher, wer im Unternehmen für die Meldung eines vermuteten IT-Sicherheitsvorfalls zuständig ist. Was ist der sinnvollste Ansatz?
+TR-Q: Şirkette şüpheli bir BT güvenlik olayını bildirmekten kimin sorumlu olduğundan emin değilsiniz. En mantıklı yaklaşım nedir?
+  DE[a]: Den Vorfall in einem öffentlichen internen Chatkanal posten, damit ihn irgendjemand sieht
+  TR[a]: Birinin görmesi için olayı herkese açık bir dahili sohbet kanalında paylaşmak
+  DE[b]: Abwarten, bis jemand anderes das Problem zufällig bemerkt und meldet
+  TR[b]: Başka birinin sorunu tesadüfen fark edip bildirmesini beklemek
+  DE[c]: Den Vorfall in sozialen Medien schildern, um schnell Aufmerksamkeit zu bekommen
+  TR[c]: Hızlıca dikkat çekmek için olayı sosyal medyada anlatmak
+  DE[d]: Die im Unternehmen festgelegten Meldewege nutzen (z. B. IT-Support, Sicherheitsbeauftragte oder Führungskraft) oder im Zweifel bei der eigenen Führungskraft nachfragen
+  TR[d]: Şirkette belirlenmiş bildirim kanallarını (örneğin BT desteği, güvenlik sorumlusu veya yönetici) kullanmak veya şüphe durumunda kendi yöneticinize sormak
+DE-EXPL: Ein vorbereitetes Meldeverfahren mit klar zuständigen Stellen sorgt dafür, dass ein Vorfall schnell bei den richtigen Personen ankommt, die geeignete Gegenmaßnahmen einleiten können. Ein öffentlicher Chatkanal oder gar soziale Medien sind ungeeignet und können den Vorfall zusätzlich öffentlich machen oder Angreifer warnen. Abwarten verzögert die Reaktion unnötig; im Zweifel ist die eigene Führungskraft immer ein sinnvoller erster Ansprechpartner, um den richtigen Meldeweg zu finden.
+TR-EXPL: Açıkça sorumlu birimlerle hazırlanmış bir bildirim prosedürü, bir olayın hızlı bir şekilde uygun karşı önlemleri başlatabilecek doğru kişilere ulaşmasını sağlar. Herkese açık bir sohbet kanalı veya hatta sosyal medya uygun değildir ve olayı ayrıca kamuoyuna duyurabilir veya saldırganı uyarabilir. Beklemek tepkiyi gereksiz yere geciktirir; şüphe durumunda kendi yöneticiniz doğru bildirim yolunu bulmak için her zaman mantıklı bir ilk temas noktasıdır.
+
+===== ID it_sicherheit-zugriffsschutz-05 correct=['b'] =====
+DE-Q: Warum sollen Beschäftigte nur die Zugriffsrechte erhalten, die sie für ihre konkrete Aufgabe tatsächlich benötigen ("Minimalprinzip")?
+TR-Q: Çalışanlar neden yalnızca somut görevleri için gerçekten ihtiyaç duydukları erişim haklarını almalıdır ("asgari yetki ilkesi")?
+  DE[a]: Damit weniger Passwörter verwaltet werden müssen
+  TR[a]: Daha az parola yönetilmesi gerekmesi için
+  DE[b]: Damit im Falle eines kompromittierten Kontos oder eines Fehlers der mögliche Schaden auf das Nötigste begrenzt bleibt
+  TR[b]: Ele geçirilmiş bir hesap veya bir hata durumunda olası zararın en gerekli düzeyde sınırlı kalması için
+  DE[c]: Damit die IT-Abteilung weniger Support-Anfragen bearbeiten muss
+  TR[c]: BT departmanının daha az destek talebi işlemesi için
+  DE[d]: Damit alle Beschäftigten gleich viele Rechte besitzen und niemand benachteiligt wird
+  TR[d]: Tüm çalışanların eşit sayıda hakka sahip olması ve kimsenin dezavantajlı olmaması için
+DE-EXPL: Das Minimalprinzip (Least-Privilege) begrenzt den Schaden, den ein gestohlenes Konto oder eine versehentliche Fehlbedienung anrichten kann, weil nur auf die tatsächlich benötigten Systeme und Daten zugegriffen werden kann. Es geht nicht um Passwortanzahl, Supportaufwand oder formale Gleichbehandlung, sondern um die Begrenzung des Risikos entlang der jeweiligen Aufgabe.
+TR-EXPL: Asgari yetki ilkesi (least privilege), yalnızca gerçekten ihtiyaç duyulan sistemlere ve verilere erişilebildiği için çalınan bir hesabın veya kazara yapılan bir hatanın verebileceği zararı sınırlar. Konu parola sayısı, destek yükü veya biçimsel eşit muamele değil, ilgili görev doğrultusunda riskin sınırlandırılmasıdır.
+
+===== ID it_sicherheit-zugriffsschutz-06 correct=['c'] =====
+DE-Q: Eine Kollegin wechselt intern in eine andere Abteilung mit anderen Aufgaben. Was sollte in Bezug auf ihre bisherigen Systemzugriffe geschehen?
+TR-Q: Bir meslektaş şirket içinde başka görevlere sahip başka bir departmana geçiyor. Önceki sistem erişimleri için ne yapılmalıdır?
+  DE[a]: Nichts, da sie ja weiterhin im selben Unternehmen arbeitet
+  TR[a]: Hiçbir şey, çünkü hâlâ aynı şirkette çalışıyor
+  DE[b]: Die bisherigen Zugriffe bleiben zusätzlich zu den neuen bestehen, damit sie flexibel aushelfen kann
+  TR[b]: Önceki erişimler, esnek şekilde yardımcı olabilmesi için yenilere ek olarak korunur
+  DE[c]: Die nicht mehr benötigten Zugriffsrechte werden entzogen und die Berechtigungen an die neue Rolle angepasst
+  TR[c]: Artık ihtiyaç duyulmayan erişim hakları geri alınır ve yetkiler yeni role uyarlanır
+  DE[d]: Nur das Passwort wird geändert, die Rechte bleiben unverändert
+  TR[d]: Yalnızca parola değiştirilir, haklar değişmeden kalır
+DE-EXPL: Berechtigungen sollen dem aktuellen Aufgabenbereich entsprechen; bei einem Rollenwechsel müssen nicht mehr benötigte Zugriffsrechte entzogen und neue, passende Rechte vergeben werden. Andernfalls sammeln sich über die Zeit unnötige, überflüssige Berechtigungen an ("Rechteinflation"), die das Risiko im Falle eines kompromittierten Kontos unnötig erhöhen. Ein reiner Passwortwechsel ändert daran nichts.
+TR-EXPL: Yetkiler mevcut görev alanına uygun olmalıdır; bir rol değişikliğinde artık ihtiyaç duyulmayan erişim haklarının geri alınması ve yeni, uygun hakların verilmesi gerekir. Aksi takdirde zamanla gereksiz, fazladan yetkiler birikir ("yetki enflasyonu"), bu da hesabın ele geçirilmesi durumunda riski gereksiz yere artırır. Sadece bir parola değişikliği bu konuda hiçbir şeyi değiştirmez.
+
+===== ID it_sicherheit-zugriffsschutz-07 correct=['a'] =====
+DE-Q: Sie müssen sich viele unterschiedliche Passwörter für dienstliche Systeme merken. Welche Vorgehensweise ist am sinnvollsten?
+TR-Q: İş sistemleri için birçok farklı parolayı hatırlamanız gerekiyor. En mantıklı yaklaşım nedir?
+  DE[a]: Einen von der IT freigegebenen Passwort-Manager verwenden, statt Passwörter mehrfach zu verwenden oder ungeschützt zu notieren
+  TR[a]: Parolaları tekrar tekrar kullanmak veya korumasız not almak yerine BT tarafından onaylanmış bir parola yöneticisi kullanmak
+  DE[b]: Für alle Systeme dasselbe leicht zu merkende Passwort verwenden
+  TR[b]: Tüm sistemler için aynı, hatırlaması kolay parolayı kullanmak
+  DE[c]: Die Passwörter auf einem Klebezettel am Monitor notieren, damit man sie schnell findet
+  TR[c]: Parolaları hızlıca bulabilmek için monitöre yapıştırılmış bir yapışkan nota yazmak
+  DE[d]: Die Passwörter in einer unverschlüsselten Textdatei auf dem Desktop speichern
+  TR[d]: Parolaları masaüstünde şifrelenmemiş bir metin dosyasında saklamak
+DE-EXPL: Ein freigegebener Passwort-Manager erlaubt es, für jedes System ein langes, einzigartiges Passwort zu nutzen, ohne sich alle einzeln merken zu müssen, und schützt die gespeicherten Zugangsdaten selbst durch Verschlüsselung. Passwort-Wiederverwendung bedeutet, dass ein einziges Datenleck alle betroffenen Konten gefährdet; Klebezettel und unverschlüsselte Dateien sind für jeden mit physischem oder digitalem Zugang sofort einsehbar.
+TR-EXPL: Onaylanmış bir parola yöneticisi, her sistem için hepsini tek tek hatırlamak zorunda kalmadan uzun, benzersiz bir parola kullanmaya olanak tanır ve saklanan giriş bilgilerinin kendisini şifrelemeyle korur. Parolaların tekrar kullanılması, tek bir veri sızıntısının etkilenen tüm hesapları tehlikeye atması anlamına gelir; yapışkan notlar ve şifrelenmemiş dosyalar fiziksel veya dijital erişimi olan herkes tarafından hemen görülebilir.
+
+===== ID it_sicherheit-zugriffsschutz-08 correct=['d'] =====
+DE-Q: Sie verlassen abends Ihren Arbeitsplatz im Großraumbüro nach Feierabend. Was entspricht der Clear-Desk-Grundregel?
+TR-Q: Akşam mesai bitiminden sonra açık ofisteki çalışma yerinizi terk ediyorsunuz. Temiz masa ("clean desk") temel kuralına karşılık gelen nedir?
+  DE[a]: Nur den Bildschirm sperren, Unterlagen können offen liegen bleiben
+  TR[a]: Yalnızca ekranı kilitlemek, belgeler açıkta kalabilir
+  DE[b]: Vertrauliche Unterlagen dürfen offen liegen bleiben, solange die Bürotür abgeschlossen ist
+  TR[b]: Ofis kapısı kilitli olduğu sürece gizli belgeler açıkta kalabilir
+  DE[c]: Nur besonders als "geheim" gekennzeichnete Dokumente müssen weggeräumt werden
+  TR[c]: Yalnızca özellikle "gizli" olarak işaretlenmiş belgelerin kaldırılması gerekir
+  DE[d]: Vertrauliche Unterlagen und Datenträger wegschließen und den Schreibtisch aufgeräumt hinterlassen
+  TR[d]: Gizli belgeleri ve veri taşıyıcılarını kilit altına almak ve masayı düzenli bırakmak
+DE-EXPL: Der Clear-Desk-Grundsatz verlangt, vertrauliche Papierunterlagen und Datenträger bei Abwesenheit wegzuschließen, damit sie für Unbefugte - etwa Reinigungspersonal, Besucher oder andere Beschäftigte ohne Berechtigung - nicht frei zugänglich sind. Eine abgeschlossene Bürotür allein schützt nicht vor allen Personen mit Zutritt zum Gebäude oder Raum, und die Regel gilt für vertrauliche Unterlagen allgemein, nicht nur für explizit als "geheim" markierte.
+TR-EXPL: Temiz masa ilkesi, temizlik personeli, ziyaretçiler veya yetkisiz diğer çalışanlar gibi yetkisiz kişilere serbestçe erişilebilir olmaması için, yokluk durumunda gizli kağıt belgelerin ve veri taşıyıcılarının kilit altına alınmasını gerektirir. Kilitli bir ofis kapısı tek başına binaya veya odaya erişimi olan herkese karşı koruma sağlamaz ve kural, yalnızca açıkça "gizli" olarak işaretlenenler için değil, genel olarak gizli belgeler için geçerlidir.
+
+===== ID it_sicherheit-phishing-05 correct=['c'] =====
+DE-Q: Sie erhalten eine E-Mail mit einem unerwarteten Rechnungsanhang, der Sie auffordert, eine "Bearbeitung von Makros" oder "Inhalt aktivieren" zuzulassen, um die Rechnung anzuzeigen. Wie reagieren Sie am sinnvollsten?
+TR-Q: Faturayı görüntülemek için "makro işlemeye" veya "içeriği etkinleştirmeye" izin vermenizi isteyen beklenmedik bir fatura eki içeren bir e-posta alıyorsunuz. En mantıklı tepki nedir?
+  DE[a]: Die Bearbeitung von Makros erlauben, sonst lässt sich die Rechnung nicht öffnen
+  TR[a]: Makro işlemeye izin vermek, aksi takdirde fatura açılamaz
+  DE[b]: Den Anhang öffnen, aber erst nach einem Neustart des Rechners
+  TR[b]: Eki açmak ama yalnızca bilgisayarın yeniden başlatılmasından sonra
+  DE[c]: Makros nicht aktivieren und die E-Mail bei Unsicherheit über die üblichen Meldewege prüfen lassen
+  TR[c]: Makroları etkinleştirmemek ve belirsizlik durumunda e-postayı olağan bildirim kanalları üzerinden kontrol ettirmek
+  DE[d]: Den Anhang an einen privaten Kollegen weiterleiten, damit er ihn zuerst öffnet
+  TR[d]: İlk önce açması için eki özel bir meslektaşa iletmek
+DE-EXPL: Die Aufforderung, Makros zu aktivieren, ist ein bekanntes Angriffsmuster: Erst durch das Aktivieren wird in der Datei enthaltener Schadcode ausgeführt, der ohne diese Zustimmung inaktiv bliebe. Ein Neustart des Rechners ändert daran nichts, und das Weiterleiten an einen Kollegen verlagert das Risiko nur, statt es zu beseitigen. Bei Unsicherheit über Absender oder Inhalt sollte die E-Mail über die üblichen internen Meldewege geprüft werden, bevor irgendetwas geöffnet oder aktiviert wird.
+TR-EXPL: Makroları etkinleştirme talebi bilinen bir saldırı düzenidir: dosyada bulunan zararlı kod ancak etkinleştirmeyle çalıştırılır, bu onay olmadan etkisiz kalırdı. Bilgisayarı yeniden başlatmak hiçbir şeyi değiştirmez ve bir meslektaşa iletmek riski ortadan kaldırmak yerine yalnızca taşır. Gönderen veya içerik hakkında belirsizlik varsa, herhangi bir şey açılmadan veya etkinleştirilmeden önce e-posta olağan iç bildirim kanalları üzerinden kontrol edilmelidir.
+
+===== ID it_sicherheit-phishing-06 correct=['b'] =====
+DE-Q: Was unterscheidet "Spear-Phishing" von einer klassischen, breit gestreuten Phishing-Kampagne?
+TR-Q: "Hedefli kimlik avı" (spear phishing), klasik, geniş çaplı bir kimlik avı kampanyasından neyle ayrılır?
+  DE[a]: Spear-Phishing wird ausschließlich per Telefon durchgeführt, nie per E-Mail
+  TR[a]: Hedefli kimlik avı yalnızca telefonla yapılır, asla e-posta ile değil
+  DE[b]: Spear-Phishing ist auf eine bestimmte Person oder Organisation zugeschnitten und nutzt gezielt recherchierte, glaubwürdige Details
+  TR[b]: Hedefli kimlik avı belirli bir kişiye veya kuruluşa uyarlanmıştır ve özellikle araştırılmış, inandırıcı ayrıntılar kullanır
+  DE[c]: Spear-Phishing verzichtet komplett auf Links oder Anhänge
+  TR[c]: Hedefli kimlik avı bağlantı veya eklerden tamamen vazgeçer
+  DE[d]: Spear-Phishing betrifft ausschließlich private E-Mail-Konten, niemals dienstliche
+  TR[d]: Hedefli kimlik avı yalnızca özel e-posta hesaplarını etkiler, asla iş hesaplarını değil
+DE-EXPL: Beim Spear-Phishing recherchieren Angreifer gezielt Informationen über eine Person oder Organisation - etwa Namen von Vorgesetzten, laufende Projekte oder interne Abläufe -, um eine Nachricht besonders glaubwürdig und individuell wirken zu lassen. Das macht diese Angriffe schwerer zu erkennen als generische Massen-Phishing-Mails. Weder Kommunikationskanal noch Verzicht auf Links/Anhänge noch die Beschränkung auf private Konten sind das entscheidende Merkmal.
+TR-EXPL: Hedefli kimlik avında saldırganlar, bir mesajı özellikle inandırıcı ve kişiselleştirilmiş göstermek için bir kişi veya kuruluş hakkında - örneğin yöneticilerin isimleri, devam eden projeler veya iç süreçler gibi - özellikle bilgi araştırır. Bu, bu tür saldırıları genel toplu kimlik avı e-postalarından daha zor tanınır hale getirir. Ne iletişim kanalı, ne bağlantı/ek eksikliği, ne de özel hesaplarla sınırlı olma belirleyici özelliktir.
+
+===== ID it_sicherheit-phishing-07 correct=['a'] =====
+DE-Q: Sie erhalten eine SMS, die angeblich von einem Paketdienst stammt und einen Link zur "Zollgebühr-Zahlung" enthält, obwohl Sie kein Paket erwarten. Wie ordnen Sie diesen Vorfall ein und wie reagieren Sie?
+TR-Q: Hiçbir paket beklemiyor olmanıza rağmen, sözde bir kargo şirketinden gelen ve bir "gümrük ücreti ödemesi" bağlantısı içeren bir SMS alıyorsunuz. Bu durumu nasıl sınıflandırır ve nasıl tepki verirsiniz?
+  DE[a]: Es handelt sich vermutlich um "Smishing" (Phishing per SMS); den Link nicht anklicken und die Sendung stattdessen direkt über die offizielle Webseite oder App des Paketdienstes prüfen
+  TR[a]: Bu muhtemelen "smishing" (SMS yoluyla kimlik avı) dır; bağlantıya tıklamayın ve bunun yerine gönderiyi doğrudan kargo şirketinin resmi web sitesi veya uygulaması üzerinden kontrol edin
+  DE[b]: SMS-Nachrichten können generell nicht gefälscht werden, daher ist der Link sicher
+  TR[b]: SMS mesajları genel olarak sahtelenemez, bu yüzden bağlantı güvenlidir
+  DE[c]: Da es sich um eine private SMS handelt, betrifft das Thema nicht die Arbeit und kann ignoriert werden
+  TR[c]: Özel bir SMS olduğu için konu işle ilgili değildir ve göz ardı edilebilir
+  DE[d]: Den Link anklicken, aber keine Zahlungsdaten eingeben, um zu sehen, ob es sich um eine echte Sendung handelt
+  TR[d]: Gerçek bir gönderi olup olmadığını görmek için bağlantıya tıklayın ama ödeme bilgisi girmeyin
+DE-EXPL: Phishing beschränkt sich nicht auf E-Mails: "Smishing" nutzt SMS-Nachrichten mit demselben Grundprinzip aus Dringlichkeit und einem manipulierten Link. Auch der Absendername einer SMS lässt sich fälschen. Sicherer ist es, den angeblichen Anlass unabhängig über die offizielle Webseite oder App zu prüfen, statt dem Link zu folgen. Das Thema ist auch für Beschäftigte relevant, da dieselben Muster auch dienstliche Geräte oder Kontaktinformationen betreffen können, und selbst das bloße Anklicken eines präparierten Links kann bereits ein Risiko darstellen.
+TR-EXPL: Kimlik avı e-postalarla sınırlı değildir: "smishing", aynı temel aciliyet ilkesi ve manipüle edilmiş bir bağlantı ile SMS mesajlarını kullanır. Bir SMS'in gönderen adı da sahtelenebilir. İddia edilen nedeni bağlantıyı takip etmek yerine resmi web sitesi veya uygulama üzerinden bağımsız olarak kontrol etmek daha güvenlidir. Konu çalışanlar için de önemlidir, çünkü aynı örüntüler iş cihazlarını veya iletişim bilgilerini de etkileyebilir ve hazırlanmış bir bağlantıya tıklamanın kendisi bile zaten bir risk oluşturabilir.
+
+===== ID it_sicherheit-phishing-08 correct=['b'] =====
+DE-Q: Eine E-Mail scheint von "support@ihre-firma-online.de" zu stammen, obwohl die tatsächliche Firmendomain "ihrefirma.de" lautet. Wie ist diese leicht abweichende Absenderdomain am ehesten einzuordnen?
+TR-Q: Bir e-posta "support@ihre-firma-online.de" adresinden geliyormuş gibi görünüyor, oysa şirketin gerçek alan adı "ihrefirma.de". Gönderenin alan adındaki bu küçük farklılık en iyi şekilde nasıl sınıflandırılır?
+  DE[a]: Als unbedeutender Tippfehler ohne sicherheitsrelevante Bedeutung
+  TR[a]: Güvenlik açısından önemi olmayan önemsiz bir yazım hatası olarak
+  DE[b]: Als mögliches Anzeichen für eine gefälschte, zum Verwechseln ähnliche Domain ("Typosquatting"), die zur Täuschung genutzt wird
+  TR[b]: Aldatmak için kullanılan, kafa karıştırıcı derecede benzer, sahte bir alan adının ("typosquatting") olası bir işareti olarak
+  DE[c]: Als Bestätigung, dass die Nachricht garantiert von der eigenen IT-Abteilung stammt
+  TR[c]: Mesajın kesinlikle kendi BT departmanından geldiğinin bir onayı olarak
+  DE[d]: Als reine Geschmacksfrage des jeweiligen Absenders bei der Wahl der Domain
+  TR[d]: İlgili gönderenin alan adı seçiminde tamamen bir zevk meselesi olarak
+DE-EXPL: Angreifer registrieren gezielt Domains, die der echten Firmendomain zum Verwechseln ähnlich sehen (z. B. zusätzliche Wörter, vertauschte Buchstaben oder andere Endungen), um Vertrauen vorzutäuschen. Eine solche Abweichung ist ein ernstzunehmendes Warnsignal und keine Belanglosigkeit oder reine Geschmacksfrage. Die tatsächliche Absenderadresse sollte bei Auffälligkeiten genau geprüft und im Zweifel über einen unabhängigen Kanal nachgefragt werden, statt automatisch von Echtheit auszugehen.
+TR-EXPL: Saldırganlar, güveni taklit etmek için gerçek şirket alan adına kafa karıştırıcı derecede benzeyen alan adlarını (örneğin ek kelimeler, yer değiştirmiş harfler veya farklı uzantılar) bilinçli olarak kaydeder. Böyle bir sapma önemsiz bir şey veya zevk meselesi değil, ciddiye alınması gereken bir uyarı işaretidir. Şüpheli durumlarda gerçek gönderen adresi dikkatle kontrol edilmeli ve otomatik olarak gerçekliğinden emin olmak yerine şüphe durumunda bağımsız bir kanal üzerinden sorgulanmalıdır.
+
+===== ID it_sicherheit-datensicherung-05 correct=['c'] =====
+DE-Q: Warum reicht es gegen Ransomware nicht aus, ein Backup direkt auf demselben, permanent verbundenen Netzlaufwerk zu speichern wie die Originaldaten?
+TR-Q: Fidye yazılımına karşı, bir yedeği doğrudan orijinal verilerle aynı, sürekli bağlı olan ağ sürücüsünde saklamak neden yeterli değildir?
+  DE[a]: Weil Netzlaufwerke technisch grundsätzlich langsamer sind als lokale Festplatten
+  TR[a]: Çünkü ağ sürücüleri teknik olarak her zaman yerel sabit disklerden daha yavaştır
+  DE[b]: Weil auf Netzlaufwerken generell keine Backups gespeichert werden dürfen
+  TR[b]: Çünkü ağ sürücülerinde genel olarak yedek saklanmasına izin verilmez
+  DE[c]: Weil Ransomware bei einem permanent verbundenen Laufwerk auch die dort liegende Sicherungskopie mitverschlüsseln kann
+  TR[c]: Çünkü fidye yazılımı, sürekli bağlı bir sürücüde orada bulunan yedek kopyayı da şifreleyebilir
+  DE[d]: Weil Netzlaufwerke ausschließlich für die Speicherung von E-Mails vorgesehen sind
+  TR[d]: Çünkü ağ sürücüleri yalnızca e-posta depolamak için tasarlanmıştır
+DE-EXPL: Ransomware verschlüsselt in der Regel alle erreichbaren Laufwerke, einschließlich dauerhaft verbundener Netzlaufwerke - eine Sicherungskopie dort bietet dann keinen echten Schutz mehr, da sie ebenfalls betroffen sein kann. Ein wirksames Backup-Konzept sieht daher mindestens eine Kopie vor, die getrennt (offline oder zeitversetzt) vom Produktivsystem aufbewahrt wird, damit sie von einem Angriff auf das Hauptsystem nicht miterfasst wird.
+TR-EXPL: Fidye yazılımları genellikle erişilebilen tüm sürücüleri, sürekli bağlı ağ sürücüleri dahil şifreler - oradaki bir yedek kopya da etkilenebileceği için artık gerçek bir koruma sağlamaz. Bu nedenle etkili bir yedekleme konsepti, ana sisteme yapılan bir saldırıdan etkilenmemesi için üretim sisteminden ayrı (çevrimdışı veya zaman farkıyla) tutulan en az bir kopya öngörür.
+
+===== ID it_sicherheit-datensicherung-06 correct=['a'] =====
+DE-Q: Ein Backup wird planmäßig jede Nacht automatisch erstellt. Warum reicht das allein noch nicht aus, um sich auf die Datensicherung wirklich verlassen zu können?
+TR-Q: Bir yedekleme planlandığı gibi her gece otomatik olarak oluşturuluyor. Bu tek başına neden veri yedeklemesine gerçekten güvenebilmek için hâlâ yeterli değildir?
+  DE[a]: Weil regelmäßig geprüft werden muss, ob sich aus dem Backup tatsächlich Daten erfolgreich wiederherstellen lassen
+  TR[a]: Çünkü yedekten gerçekten başarılı bir şekilde veri geri yüklenip yüklenemeyeceğinin düzenli olarak kontrol edilmesi gerekir
+  DE[b]: Weil ein Backup grundsätzlich nur einmal pro Jahr erstellt werden sollte
+  TR[b]: Çünkü bir yedekleme temelde yılda sadece bir kez oluşturulmalıdır
+  DE[c]: Weil automatische Backups technisch nie fehlschlagen können
+  TR[c]: Çünkü otomatik yedeklemeler teknik olarak asla başarısız olamaz
+  DE[d]: Weil ein erstelltes Backup nur für maximal 24 Stunden gültig bleibt
+  TR[d]: Çünkü oluşturulan bir yedek en fazla 24 saat geçerli kalır
+DE-EXPL: Ein Backup-Lauf kann fehlschlagen oder eine beschädigte, unvollständige Kopie erzeugen, ohne dass dies sofort auffällt. Nur ein regelmäßiger Wiederherstellungstest zeigt verlässlich, ob im Ernstfall tatsächlich Daten zurückgespielt werden können. Die Häufigkeit der Sicherung selbst richtet sich nach dem Bedarf und ist nicht auf ein Mal pro Jahr begrenzt, automatische Prozesse können durchaus fehlschlagen, und ein Backup verliert nicht nach 24 Stunden automatisch seine Gültigkeit.
+TR-EXPL: Bir yedekleme işlemi başarısız olabilir veya bu hemen fark edilmeden hasarlı, eksik bir kopya oluşturabilir. Yalnızca düzenli bir geri yükleme testi, gerekirse verilerin gerçekten geri yüklenip yüklenemeyeceğini güvenilir şekilde gösterir. Yedeklemenin kendisinin sıklığı ihtiyaca göre belirlenir ve yılda bir kezle sınırlı değildir, otomatik süreçler gayet başarısız olabilir ve bir yedek 24 saat sonra otomatik olarak geçerliliğini yitirmez.
+
+===== ID it_sicherheit-datensicherung-07 correct=['b'] =====
+DE-Q: Sie möchten vertrauliche Firmendaten auf einem externen USB-Datenträger transportieren. Was ist die wichtigste Schutzmaßnahme dafür?
+TR-Q: Gizli şirket verilerini harici bir USB veri taşıyıcısında taşımak istiyorsunuz. Bunun için en önemli koruma önlemi nedir?
+  DE[a]: Den Datenträger mit einem auffälligen Aufkleber "vertraulich" versehen, damit niemand ihn verlegt
+  TR[a]: Kimse kaybetmesin diye veri taşıyıcısına göze çarpan bir "gizli" etiketi koymak
+  DE[b]: Den Datenträger verschlüsseln, damit die Daten bei Verlust oder Diebstahl nicht ohne Weiteres lesbar sind
+  TR[b]: Kaybolma veya çalınma durumunda verilerin sorunsuzca okunamaması için veri taşıyıcısını şifrelemek
+  DE[c]: Den Datenträger möglichst klein und unauffällig wählen, damit er nicht auffällt
+  TR[c]: Dikkat çekmemesi için veri taşıyıcısını mümkün olduğunca küçük ve göze çarpmayan şekilde seçmek
+  DE[d]: Die Dateien vor dem Kopieren einfach umbenennen, damit ihr Inhalt nicht sofort erkennbar ist
+  TR[d]: İçeriğinin hemen tanınamaması için kopyalamadan önce dosyaları basitçe yeniden adlandırmak
+DE-EXPL: Wechseldatenträger gehen leicht verloren oder werden gestohlen; ohne Verschlüsselung sind die darauf gespeicherten Daten dann für jeden mit physischem Zugriff sofort lesbar. Verschlüsselung sorgt dafür, dass die Daten auch im Verlustfall geschützt bleiben, sofern der Schlüssel bzw. das Passwort geheim bleibt. Ein Aufkleber, eine unauffällige Bauform oder umbenannte Dateien bieten dagegen keinen echten technischen Schutz vor unbefugtem Lesen.
+TR-EXPL: Çıkarılabilir veri taşıyıcıları kolayca kaybolur veya çalınır; şifreleme olmadan üzerlerinde saklanan veriler o zaman fiziksel erişimi olan herkes tarafından hemen okunabilir. Şifreleme, anahtar veya parola gizli kaldığı sürece verilerin kaybolma durumunda bile korunmasını sağlar. Bir etiket, göze çarpmayan bir tasarım veya yeniden adlandırılmış dosyalar ise yetkisiz okumaya karşı gerçek bir teknik koruma sağlamaz.
+
+===== ID it_sicherheit-datensicherung-08 correct=['d'] =====
+DE-Q: Ein alter Firmenlaptop soll ausgemustert und entsorgt werden. Was ist im Hinblick auf die darauf gespeicherten Daten der richtige Umgang?
+TR-Q: Eski bir şirket dizüstü bilgisayarı devre dışı bırakılıp elden çıkarılacak. Üzerinde saklanan veriler açısından doğru davranış nedir?
+  DE[a]: Nur die sichtbaren Dateien im Papierkorb löschen und diesen leeren
+  TR[a]: Yalnızca geri dönüşüm kutusundaki görünür dosyaları silmek ve kutuyu boşaltmak
+  DE[b]: Den Laptop unverändert an einen gemeinnützigen Zweitmarkt weitergeben, um Ressourcen zu sparen
+  TR[b]: Kaynakları korumak için dizüstü bilgisayarı değiştirmeden hayır amaçlı ikinci el pazarına devretmek
+  DE[c]: Die Festplatte ausbauen und im Hausmüll entsorgen
+  TR[c]: Sabit diski sökmek ve ev çöpüne atmak
+  DE[d]: Die Daten durch die zuständige IT-Stelle sicher und unwiederherstellbar löschen (oder den Datenträger fachgerecht vernichten) lassen, bevor das Gerät weitergegeben oder entsorgt wird
+  TR[d]: Cihaz devredilmeden veya elden çıkarılmadan önce, ilgili BT biriminin verileri güvenli ve geri döndürülemez şekilde silmesini (veya veri taşıyıcısını profesyonelce imha etmesini) sağlamak
+DE-EXPL: Einfaches Löschen im Papierkorb oder Formatieren entfernt Dateien meist nur aus dem sichtbaren Verzeichnis, während die eigentlichen Daten mit geeigneten Mitteln oft wiederherstellbar bleiben. Vor Weitergabe oder Entsorgung müssen Datenträger daher sicher gelöscht (z. B. durch mehrfaches Überschreiben) oder physisch zerstört werden, damit vertrauliche Firmendaten nicht in falsche Hände geraten. Das Wegwerfen im Hausmüll ist zudem aus Umwelt- und Entsorgungsgründen unzulässig.
+TR-EXPL: Geri dönüşüm kutusunda basit silme veya biçimlendirme genellikle dosyaları yalnızca görünür dizinden kaldırır, oysa verilerin kendisi uygun araçlarla sıklıkla geri getirilebilir kalır. Bu nedenle devretmeden veya elden çıkarmadan önce, gizli şirket verilerinin yanlış ellere düşmemesi için veri taşıyıcıları güvenli şekilde silinmeli (örneğin çoklu üzerine yazma yoluyla) veya fiziksel olarak imha edilmelidir. Ev çöpüne atmak ayrıca çevre ve elden çıkarma nedenleriyle de yasaktır.
+
+===== ID it_sicherheit-mobil_homeoffice-05 correct=['b'] =====
+DE-Q: Warum ist die Festplattenverschlüsselung auf einem Laptop, der für Homeoffice und dienstliche Reisen genutzt wird, besonders wichtig?
+TR-Q: Ev ofisi ve iş seyahatleri için kullanılan bir dizüstü bilgisayarda sabit disk şifrelemesi neden özellikle önemlidir?
+  DE[a]: Weil sie den Laptop automatisch schneller startet
+  TR[a]: Çünkü dizüstü bilgisayarın otomatik olarak daha hızlı başlamasını sağlar
+  DE[b]: Weil sie im Falle von Diebstahl oder Verlust verhindert, dass Unbefugte ohne Weiteres auf die gespeicherten Daten zugreifen können
+  TR[b]: Çünkü çalınma veya kaybolma durumunda yetkisiz kişilerin saklanan verilere kolayca erişmesini engeller
+  DE[c]: Weil sie ausschließlich für Geräte vorgeschrieben ist, die niemals das Büro verlassen
+  TR[c]: Çünkü yalnızca ofisi asla terk etmeyen cihazlar için zorunludur
+  DE[d]: Weil sie ein Anmeldepasswort vollständig überflüssig macht
+  TR[d]: Çünkü bir giriş parolasını tamamen gereksiz kılar
+DE-EXPL: Geräte, die außerhalb des Büros genutzt werden, sind einem höheren Risiko von Diebstahl oder Verlust ausgesetzt - etwa im Zug, im Auto oder unterwegs beim Kunden. Ohne Festplattenverschlüsselung lässt sich die eingebaute Festplatte oft ausbauen und die Daten direkt auslesen, unabhängig vom Anmeldepasswort des Betriebssystems. Verschlüsselung und Anmeldepasswort ergänzen sich, ersetzen sich aber nicht gegenseitig, und die Startgeschwindigkeit hat damit nichts zu tun.
+TR-EXPL: Ofis dışında kullanılan cihazlar, örneğin trende, arabada veya bir müşteriye giderken daha yüksek bir çalınma veya kaybolma riskiyle karşı karşıyadır. Disk şifrelemesi olmadan, dahili sabit disk genellikle sökülebilir ve işletim sisteminin giriş parolasından bağımsız olarak veriler doğrudan okunabilir. Şifreleme ve giriş parolası birbirini tamamlar ama birbirinin yerini almaz ve başlangıç hızının bununla hiçbir ilgisi yoktur.
+
+===== ID it_sicherheit-mobil_homeoffice-06 correct=['a'] =====
+DE-Q: Warum sollte auf einem dienstlich genutzten Smartphone eine kurze automatische Displaysperre (z. B. nach 30 Sekunden Inaktivität) aktiviert sein?
+TR-Q: İş amaçlı kullanılan bir akıllı telefonda neden kısa bir otomatik ekran kilidi (örneğin 30 saniye hareketsizlikten sonra) etkinleştirilmelidir?
+  DE[a]: Damit das Gerät bei kurzem Liegenlassen oder Verlust nicht sofort ungeschützt zugänglich ist
+  TR[a]: Kısa süreliğine bırakılma veya kaybolma durumunda cihazın hemen korumasız erişilebilir olmaması için
+  DE[b]: Damit der Akku des Geräts länger hält
+  TR[b]: Cihazın pilinin daha uzun dayanması için
+  DE[c]: Damit Anrufe automatisch stummgeschaltet werden
+  TR[c]: Aramaların otomatik olarak sessize alınması için
+  DE[d]: Weil eine Displaysperre gesetzlich nur für Diensthandys der Geschäftsführung vorgeschrieben ist
+  TR[d]: Ekran kilidi yasal olarak yalnızca yönetimin iş telefonları için zorunlu olduğu için
+DE-EXPL: Ein kurzes Sperrintervall verkleinert das Zeitfenster, in dem ein kurz liegen gelassenes oder verlorenes Gerät ohne Authentifizierung genutzt werden kann, etwa um auf E-Mails, Kontakte oder Firmen-Apps zuzugreifen. Akkulaufzeit und Anrufeinstellungen stehen damit in keinem sicherheitsrelevanten Zusammenhang, und die Regel gilt sinnvollerweise für alle dienstlich genutzten Geräte, nicht nur für bestimmte Personengruppen.
+TR-EXPL: Kısa bir kilitleme aralığı, kısa süreliğine bırakılan veya kaybolan bir cihazın örneğin e-postalara, kişilere veya şirket uygulamalarına erişmek için kimlik doğrulaması olmadan kullanılabileceği zaman penceresini küçültür. Pil ömrü ve arama ayarlarının güvenlikle hiçbir ilgisi yoktur ve kural, yalnızca belirli kişi gruplarına değil, iş amaçlı kullanılan tüm cihazlara mantıklı olarak uygulanır.
+
+===== ID it_sicherheit-mobil_homeoffice-07 correct=['c'] =====
+DE-Q: Sie nutzen für dienstliche Zwecke gelegentlich Ihr privates Smartphone ("Bring Your Own Device"). Was ist dabei aus Sicherheitssicht am wichtigsten zu beachten?
+TR-Q: İş amaçları için ara sıra kişisel akıllı telefonunuzu kullanıyorsunuz ("Bring Your Own Device"). Güvenlik açısından burada en önemli husus nedir?
+  DE[a]: Private und dienstliche Daten möglichst vermischt in denselben Apps zu speichern, damit nichts verloren geht
+  TR[a]: Hiçbir şeyin kaybolmaması için özel ve iş verilerini aynı uygulamalarda mümkün olduğunca karışık saklamak
+  DE[b]: Es reicht aus, dass das Gerät irgendein Passwort besitzt, unabhängig von weiteren Vorgaben
+  TR[b]: Diğer gerekliliklerden bağımsız olarak, cihazın herhangi bir parolaya sahip olması yeterlidir
+  DE[c]: Die betrieblichen Vorgaben zu BYOD (z. B. Mindestschutzmaßnahmen, Trennung dienstlicher Daten, Fernlöschungsmöglichkeit) einzuhalten, bevor das Gerät dienstlich genutzt wird
+  TR[c]: Cihaz iş amaçlı kullanılmadan önce şirketin BYOD yönergelerine (örneğin asgari koruma önlemleri, iş verilerinin ayrılması, uzaktan silme imkânı) uymak
+  DE[d]: BYOD-Regeln sind rein freiwillig und müssen nicht eingehalten werden, solange das Gerät privat bezahlt wurde
+  TR[d]: BYOD kuralları tamamen isteğe bağlıdır ve cihaz özel olarak ödendiği sürece uyulması gerekmez
+DE-EXPL: Werden private Geräte dienstlich genutzt, müssen dieselben Schutzziele wie bei Firmengeräten erreicht werden - etwa durch Mindestanforderungen an Verschlüsselung, Bildschirmsperre, getrennte Bereiche für dienstliche Daten und die Möglichkeit, im Verlustfall dienstliche Daten aus der Ferne zu löschen. Eine Vermischung von privaten und dienstlichen Daten erschwert genau diesen Schutz, und ein beliebiges Passwort allein oder die private Finanzierung des Geräts befreien nicht von den geltenden betrieblichen Vorgaben.
+TR-EXPL: Özel cihazlar iş amaçlı kullanıldığında, şirket cihazlarıyla aynı koruma hedeflerine ulaşılmalıdır - örneğin şifreleme, ekran kilidi, iş verileri için ayrılmış alanlar ve kaybolma durumunda iş verilerini uzaktan silme imkânı gibi asgari gereklilikler yoluyla. Özel ve iş verilerinin karıştırılması tam olarak bu korumayı zorlaştırır ve herhangi bir parola tek başına veya cihazın özel olarak finanse edilmesi, geçerli kurumsal yönergelerden muaf tutmaz.
+
+===== ID it_sicherheit-mobil_homeoffice-08 correct=['b'] =====
+DE-Q: Sie nehmen von zu Hause aus an einer dienstlichen Videokonferenz teil, bei der vertrauliche Inhalte besprochen werden. Worauf sollten Sie besonders achten?
+TR-Q: Gizli içeriklerin görüşüldüğü bir iş video konferansına evden katılıyorsunuz. Nelere özellikle dikkat etmelisiniz?
+  DE[a]: Der Bildschirm kann problemlos für Mitbewohner sichtbar bleiben, solange niemand aktiv mitliest
+  TR[a]: Kimse aktif olarak izlemediği sürece ekran ev arkadaşları için sorunsuz görünür kalabilir
+  DE[b]: Darauf, dass Mitbewohner, Familienmitglieder oder Geräte mit Sprachassistenten die vertraulichen Inhalte nicht mithören oder mitsehen können
+  TR[b]: Ev arkadaşlarının, aile üyelerinin veya sesli asistanlı cihazların gizli içerikleri duyamaması veya görememesine
+  DE[c]: Nur darauf, dass die Internetverbindung schnell genug für Video ist
+  TR[c]: Yalnızca internet bağlantısının video için yeterince hızlı olmasına
+  DE[d]: Es genügt, die Kamera auszuschalten, das Mikrofon ist dabei ohne Bedeutung
+  TR[d]: Kamerayı kapatmak yeterlidir, mikrofonun bir önemi yoktur
+DE-EXPL: Im häuslichen Umfeld können auch Personen mitbekommen, was am Bildschirm zu sehen oder über das Mikrofon zu hören ist, etwa Familienmitglieder oder Besucher, ebenso können in der Nähe befindliche Sprachassistenten unbeabsichtigt mithören. Ein ruhiger, abgeschirmter Ort und bewusster Umgang mit Bildschirm und Mikrofon schützen die Vertraulichkeit. Die reine Verbindungsgeschwindigkeit betrifft die Qualität, nicht die Vertraulichkeit, und ein ausgeschaltetes Mikrofon ist für gesprochene vertrauliche Inhalte mindestens genauso wichtig wie die Kamera.
+TR-EXPL: Ev ortamında, ekranda görülebilen veya mikrofon aracılığıyla duyulabilen şeyler diğer kişiler tarafından da fark edilebilir - örneğin aile üyeleri veya ziyaretçiler tarafından, ayrıca yakındaki sesli asistanlar da istemeden dinleyebilir. Sakin, izole bir yer ve ekran ile mikrofonun bilinçli kullanımı gizliliği korur. Bağlantı hızının kendisi kaliteyi ilgilendirir, gizliliği değil, ve sözlü gizli içerik için kapalı bir mikrofon en az kamera kadar önemlidir.
+
+===== ID it_sicherheit-meldepflicht_it-05 correct=['b'] =====
+DE-Q: Wie ist das gestufte Meldeverfahren der NIS2-Richtlinie für einen erheblichen Sicherheitsvorfall zeitlich grob aufgebaut?
+TR-Q: NIS2 direktifinin önemli bir güvenlik olayı için kademeli bildirim prosedürü zaman açısından kabaca nasıl yapılandırılmıştır?
+  DE[a]: Eine einzige, vollständige Meldung genügt, spätestens ein Jahr nach dem Vorfall
+  TR[a]: Olaydan en geç bir yıl sonra tek, eksiksiz bir bildirim yeterlidir
+  DE[b]: Eine Frühwarnung innerhalb von 24 Stunden, eine ausführlichere Meldung innerhalb von 72 Stunden, gefolgt von einem Abschlussbericht spätestens einen Monat nach der Meldung
+  TR[b]: 24 saat içinde erken bir uyarı, 72 saat içinde daha ayrıntılı bir bildirim, ardından bildirimden en geç bir ay sonra bir sonuç raporu
+  DE[c]: Nur ein Abschlussbericht, der innerhalb von 24 Stunden nach dem Vorfall vollständig fertiggestellt sein muss
+  TR[c]: Yalnızca olaydan sonraki 24 saat içinde tamamen bitirilmesi gereken bir sonuç raporu
+  DE[d]: Eine Meldung ist erst erforderlich, wenn ein Vorfall bereits öffentlich bekannt geworden ist
+  TR[d]: Bir bildirim yalnızca bir olay zaten kamuoyunda bilinir hale geldiğinde gereklidir
+DE-EXPL: Die NIS2-Richtlinie sieht ein gestuftes Verfahren vor: eine Frühwarnung binnen 24 Stunden ab Kenntnisnahme, eine ausführlichere Meldung binnen 72 Stunden, und einen Abschlussbericht spätestens einen Monat nach dieser Meldung. Diese Stufung erlaubt eine schnelle erste Reaktion, auch wenn noch nicht alle Details bekannt sind. Eine einmalige Meldung nach einem Jahr, ein sofort vollständiger Bericht innerhalb von 24 Stunden oder das Abwarten öffentlicher Bekanntheit entsprechen nicht dem tatsächlichen Verfahren.
+TR-EXPL: NIS2 direktifi kademeli bir prosedür öngörür: öğrenilmesinden itibaren 24 saat içinde erken bir uyarı, 72 saat içinde daha ayrıntılı bir bildirim ve bu bildirimden en geç bir ay sonra bir sonuç raporu. Bu kademelendirme, tüm ayrıntılar henüz bilinmese bile hızlı bir ilk tepkiye olanak tanır. Bir yıl sonra tek bir bildirim, 24 saat içinde derhal tam bir rapor veya kamuoyunda bilinir hale gelmesini beklemek gerçek prosedüre karşılık gelmez.
+
+===== ID it_sicherheit-meldepflicht_it-06 correct=['a'] =====
+DE-Q: Nach welchem Grundgedanken bestimmt die NIS2-Richtlinie, ob ein Sicherheitsvorfall als "erheblich" gilt und damit der Meldepflicht unterliegt?
+TR-Q: NIS2 direktifi, bir güvenlik olayının "önemli" olarak kabul edilip edilmediğini ve dolayısıyla bildirim yükümlülüğüne tabi olup olmadığını hangi temel fikre göre belirler?
+  DE[a]: Ob der Vorfall eine schwerwiegende Betriebsstörung oder einen finanziellen Schaden verursacht (oder verursachen kann), oder ob andere Personen oder Organisationen erheblich geschädigt werden (oder werden können)
+  TR[a]: Olayın ciddi bir işletme kesintisine veya finansal zarara neden olup olmadığı (veya olabileceği), ya da başka kişi veya kuruluşların önemli ölçüde zarar görüp görmediği (veya görebileceği)
+  DE[b]: Ob der Vorfall ausschließlich die IT-Abteilung selbst betrifft, unabhängig vom tatsächlichen Ausmaß
+  TR[b]: Olayın gerçek kapsamından bağımsız olarak yalnızca BT departmanının kendisini etkileyip etkilemediği
+  DE[c]: Ob der Vorfall länger als eine Arbeitswoche andauert, unabhängig von seinen Auswirkungen
+  TR[c]: Olayın sonuçlarından bağımsız olarak bir iş haftasından uzun sürüp sürmediği
+  DE[d]: Ob der Vorfall zufällig während der Kernarbeitszeit auftritt
+  TR[d]: Olayın tesadüfen ana çalışma saatlerinde meydana gelip gelmediği
+DE-EXPL: Ein Vorfall gilt nach NIS2 insbesondere dann als erheblich, wenn er eine schwerwiegende Betriebsstörung oder einen finanziellen Schaden für die betroffene Organisation verursacht oder verursachen kann, oder wenn dadurch andere natürliche oder juristische Personen erheblich geschädigt werden oder werden können. Weder die reine Betroffenheit der IT-Abteilung noch die Dauer oder Tageszeit des Vorfalls sind für sich genommen das entscheidende Kriterium - maßgeblich ist das tatsächliche oder mögliche Ausmaß der Auswirkungen.
+TR-EXPL: NIS2'ye göre bir olay, özellikle etkilenen kuruluş için ciddi bir işletme kesintisine veya finansal zarara neden olduğunda veya olabileceğinde, ya da bu nedenle diğer gerçek veya tüzel kişilerin önemli ölçüde zarar görmesi veya görebilmesi durumunda önemli kabul edilir. Ne yalnızca BT departmanının etkilenmesi ne de olayın süresi veya günün saati tek başına belirleyici kriterdir - belirleyici olan sonuçların gerçek veya olası kapsamıdır.
+
+===== ID it_sicherheit-meldepflicht_it-07 correct=['c'] =====
+DE-Q: Sie vermuten einen laufenden Sicherheitsvorfall auf Ihrem Firmenrechner. Warum sollten Sie das Gerät nicht eigenmächtig neu starten oder komplett herunterfahren, bevor Sie den Vorfall gemeldet haben?
+TR-Q: Şirket bilgisayarınızda devam eden bir güvenlik olayından şüpheleniyorsunuz. Olayı bildirmeden önce cihazı neden kendi başınıza yeniden başlatmamalı veya tamamen kapatmamalısınız?
+  DE[a]: Weil ein Neustart grundsätzlich mehr Strom verbraucht als der laufende Betrieb
+  TR[a]: Çünkü yeniden başlatma temelde sürekli çalışmadan daha fazla elektrik tüketir
+  DE[b]: Weil ein Neustart automatisch alle Firmendaten auf dem Gerät löscht
+  TR[b]: Çünkü yeniden başlatma cihazdaki tüm şirket verilerini otomatik olarak siler
+  DE[c]: Weil dadurch flüchtige Spuren (z. B. im Arbeitsspeicher) verloren gehen können, die für die spätere Untersuchung des Vorfalls wichtig sind
+  TR[c]: Çünkü bu, olayın sonraki incelenmesi için önemli olan uçucu izlerin (örneğin çalışma belleğinde) kaybolmasına neden olabilir
+  DE[d]: Weil ein Neustart den Vorfall automatisch behebt und eine Meldung dadurch überflüssig wird
+  TR[d]: Çünkü yeniden başlatma olayı otomatik olarak giderir, böylece bir bildirim gereksiz hale gelir
+DE-EXPL: Manche wichtigen Spuren eines Vorfalls - etwa aktive Netzwerkverbindungen oder Prozesse im Arbeitsspeicher - gehen bei einem Neustart oder Herunterfahren verloren und lassen sich danach nicht mehr rekonstruieren. Für eine spätere Ursachenklärung ist es daher wichtig, das System möglichst unverändert zu lassen und den Vorfall zunächst zu melden, damit die zuständige Stelle über das weitere Vorgehen entscheiden kann. Ein Neustart löscht keine Firmendaten automatisch und behebt auch keinen zugrunde liegenden Sicherheitsvorfall.
+TR-EXPL: Bir olayın bazı önemli izleri - örneğin aktif ağ bağlantıları veya çalışma belleğindeki işlemler - yeniden başlatma veya kapatma sırasında kaybolur ve sonradan yeniden oluşturulamaz. Bu nedenle nedenin sonradan aydınlatılması için sistemi mümkün olduğunca değiştirmeden bırakmak ve ilgili birimin sonraki adımlara nasıl karar vereceğine karar verebilmesi için önce olayı bildirmek önemlidir. Yeniden başlatma otomatik olarak şirket verilerini silmez ve altta yatan güvenlik olayını da gidermez.
+
+===== ID it_sicherheit-meldepflicht_it-08 correct=['d'] =====
+DE-Q: Welche Angaben sind bei der Meldung eines vermuteten IT-Sicherheitsvorfalls an die zuständige interne Stelle besonders hilfreich?
+TR-Q: Şüphelenilen bir BT güvenlik olayının ilgili iç birime bildirilmesinde hangi bilgiler özellikle yararlıdır?
+  DE[a]: Ausschließlich der eigene Name, weitere Angaben verzögern die Meldung nur unnötig
+  TR[a]: Yalnızca kendi adı, diğer bilgiler bildirimi yalnızca gereksiz yere geciktirir
+  DE[b]: Eine möglichst kurze Meldung ohne Zeitangabe, damit sie schnell verschickt werden kann
+  TR[b]: Hızlıca gönderilebilmesi için zaman belirtmeden mümkün olduğunca kısa bir bildirim
+  DE[c]: Nur eine grobe Vermutung darüber, wer für den Vorfall verantwortlich sein könnte
+  TR[c]: Olaydan kimin sorumlu olabileceğine dair yalnızca kaba bir tahmin
+  DE[d]: Möglichst genaue Angaben zu Zeitpunkt, beobachteten Auffälligkeiten und betroffenen Systemen oder Daten
+  TR[d]: Zaman, gözlemlenen anormallikler ve etkilenen sistemler veya veriler hakkında mümkün olduğunca kesin bilgiler
+DE-EXPL: Konkrete Angaben zu Zeitpunkt, beobachtetem Verhalten (z. B. ungewöhnliche Pop-ups, unerklärliche Dateiänderungen) und den betroffenen Systemen oder Daten helfen der zuständigen Stelle, den Vorfall schnell einzuordnen, das Ausmaß abzuschätzen und geeignete Gegenmaßnahmen einzuleiten. Der eigene Name allein reicht dafür nicht aus, eine Meldung ohne Zeitangabe erschwert die zeitliche Einordnung, und Vermutungen über eine "Schuldfrage" sind für die technische Bearbeitung des Vorfalls nicht der entscheidende Punkt.
+TR-EXPL: Zaman, gözlemlenen davranış (örneğin olağan dışı açılır pencereler, açıklanamayan dosya değişiklikleri) ve etkilenen sistemler veya veriler hakkında somut bilgiler, ilgili birimin olayı hızla sınıflandırmasına, kapsamını tahmin etmesine ve uygun karşı önlemleri başlatmasına yardımcı olur. Yalnızca ad bunun için yeterli değildir, zaman belirtilmeden yapılan bir bildirim zamansal sınıflandırmayı zorlaştırır ve bir "suç meselesi" hakkındaki tahminler olayın teknik olarak işlenmesi için belirleyici nokta değildir.
+
+===== ID it_sicherheit-social_engineering-01 correct=['b'] =====
+DE-Q: Ein Anrufer gibt sich als IT-Support aus und bittet Sie dringend, ihm Ihr aktuelles Passwort zu nennen, um ein angebliches Sicherheitsproblem zu beheben. Wie reagieren Sie?
+TR-Q: Bir arayan kişi kendisini BT desteği olarak tanıtıyor ve sözde bir güvenlik sorununu çözmek için acilen mevcut şifrenizi söylemenizi istiyor. Nasıl tepki verirsiniz?
+  DE[a]: Das Passwort nennen, da IT-Support-Anfragen meist dringend sind
+  TR[a]: Şifreyi söylemek, çünkü BT destek talepleri genellikle acildir
+  DE[b]: Das Passwort nicht nennen und die Anfrage über einen bekannten, unabhängigen Kanal (z. B. offizielle IT-Hotline) überprüfen
+  TR[b]: Şifreyi söylememek ve talebi bilinen, bağımsız bir kanal üzerinden (ör. resmi BT yardım hattı) doğrulamak
+  DE[c]: Ein neues, ähnliches Passwort erfinden und dieses stattdessen weitergeben
+  TR[c]: Bunun yerine benzer görünümlü yeni bir şifre uydurup onu vermek
+  DE[d]: Nur den Benutzernamen nennen, das Passwort aber weglassen
+  TR[d]: Yalnızca kullanıcı adını söylemek, şifreyi ise atlamak
+DE-EXPL: Kein legitimer IT-Support benötigt jemals Ihr Passwort im Klartext - das ist ein klassisches Pretexting-Muster (Vortäuschen einer falschen Identität/Dringlichkeit). Echte Anfragen lassen sich immer über einen unabhängigen, bereits bekannten Kanal zurückverifizieren, statt der im Anruf selbst genannten Nummer zu vertrauen.
+TR-EXPL: Hiçbir meşru BT desteği asla şifrenizi düz metin olarak istemez - bu klasik bir pretexting (sahte kimlik/aciliyet uydurma) örüntüsüdür. Gerçek talepler her zaman, aramada verilen numaraya güvenmek yerine, zaten bilinen bağımsız bir kanal üzerinden yeniden doğrulanabilir.
+
+===== ID it_sicherheit-social_engineering-02 correct=['c'] =====
+DE-Q: Sie betreten das Bürogebäude mit Ihrer Zugangskarte. Eine unbekannte Person ohne sichtbaren Ausweis läuft dicht hinter Ihnen mit durch die Tür ('Tailgating'). Was ist die richtige Reaktion?
+TR-Q: Ofis binasına erişim kartınızla giriyorsunuz. Görünürde bir kimlik kartı olmayan tanımadığınız bir kişi, kapıdan sizin hemen arkanızdan içeri giriyor ('tailgating'). Doğru tepki nedir?
+  DE[a]: Die Tür einfach offen halten, Höflichkeit hat Vorrang
+  TR[a]: Kapıyı sadece açık tutmak, nezaket her şeyden önce gelir
+  DE[b]: Nichts tun, das ist Aufgabe des Empfangs
+  TR[b]: Hiçbir şey yapmamak, bu resepsiyonun görevidir
+  DE[c]: Die Person freundlich nach ihrem Ausweis/Anliegen fragen oder das Ereignis der Security/dem Empfang melden
+  TR[c]: Kişiye nazikçe kimliğini/amacını sormak veya durumu güvenlik/resepsiyona bildirmek
+  DE[d]: Die Person ignorieren, solange sie nicht verdächtig aussieht
+  TR[d]: Şüpheli görünmediği sürece kişiyi görmezden gelmek
+DE-EXPL: Tailgating ist eine der häufigsten Methoden, physische Zutrittskontrollen zu umgehen - 'verdächtig aussehen' ist kein verlässliches Kriterium, da Angreifer bewusst unauffällig auftreten. Ein freundliches Nachfragen oder eine Meldung an Security kostet wenig und schließt eine reale Sicherheitslücke.
+TR-EXPL: Tailgating, fiziksel giriş kontrollerini aşmanın en yaygın yollarından biridir - 'şüpheli görünmek' güvenilir bir kriter değildir, çünkü saldırganlar bilinçli olarak göze batmamaya çalışır. Nazikçe sormak veya güvenliğe bildirmek çok az çaba gerektirir ve gerçek bir güvenlik açığını kapatır.
+
+===== ID it_sicherheit-social_engineering-03 correct=['b'] =====
+DE-Q: Sie finden einen unbeschrifteten USB-Stick auf dem Firmenparkplatz. Was tun Sie?
+TR-Q: Şirket otoparkında üzerinde etiket olmayan bir USB bellek buluyorsunuz. Ne yaparsınız?
+  DE[a]: Den Stick an Ihrem Arbeitsrechner anschließen, um den Besitzer über die Dateien zu ermitteln
+  TR[a]: Sahibini dosyalardan tespit etmek için belleği iş bilgisayarınıza takmak
+  DE[b]: Den Stick nicht anschließen und stattdessen der IT-Sicherheit melden bzw. übergeben
+  TR[b]: Belleği takmamak, bunun yerine BT güvenliğine bildirmek/teslim etmek
+  DE[c]: Den Stick an einem privaten Rechner zu Hause prüfen, dort besteht kein Firmenrisiko
+  TR[c]: Belleği evde kişisel bir bilgisayarda kontrol etmek, orada şirket riski yoktur
+  DE[d]: Den Stick wegwerfen, damit niemand sonst ihn findet
+  TR[d]: Belleği atmak, böylece başka kimse bulamaz
+DE-EXPL: Ein absichtlich 'verlorener' USB-Stick ist ein bekannter Angriffsweg ('USB-Drop-Attack'), um Schadsoftware einzuschleusen, sobald jemand ihn aus Neugier ansteckt. Das gilt genauso an einem privaten Rechner, da darüber gestohlene Daten oder Zugänge abfließen können. Die IT-Sicherheit kann den Stick sicher (isoliert) prüfen.
+TR-EXPL: Kasıtlı olarak 'kaybedilmiş' bir USB bellek, birisi merakla takar takmaz kötü amaçlı yazılım bulaştırmak için kullanılan bilinen bir saldırı yöntemidir ('USB drop attack'). Bu risk kişisel bir bilgisayarda da aynen geçerlidir, çünkü çalınan veriler veya erişim bilgileri oradan da sızabilir. BT güvenliği belleği güvenli (izole) şekilde inceleyebilir.
+
+===== ID it_sicherheit-social_engineering-04 correct=['c'] =====
+DE-Q: Sie erhalten einen Anruf einer angeblichen Bank-Mitarbeiterin, die Sie bittet, 'zur Sicherheit' Ihre PIN am Telefon zu bestätigen ('Vishing'). Wie reagieren Sie richtig?
+TR-Q: Sözde bir banka çalışanından, 'güvenlik amacıyla' PIN'inizi telefonda onaylamanızı isteyen bir arama alıyorsunuz ('vishing'). Doğru şekilde nasıl tepki verirsiniz?
+  DE[a]: Die PIN nennen, da die Anruferin den Kontostand bereits genannt hat und das vertrauenswürdig wirkte
+  TR[a]: PIN'i söylemek, çünkü arayan kişi hesap bakiyesini zaten biliyordu ve bu güvenilir görünüyordu
+  DE[b]: Nur die letzten beiden Ziffern der PIN nennen, das sei sicher genug
+  TR[b]: PIN'in yalnızca son iki rakamını söylemek, bunun yeterince güvenli olduğunu düşünmek
+  DE[c]: Die PIN keinesfalls am Telefon nennen und selbst über die offizielle, bekannte Bank-Telefonnummer zurückrufen
+  TR[c]: PIN'i kesinlikle telefonda söylememek ve bankayı, resmi ve bilinen telefon numarasından kendiniz aramak
+  DE[d]: Auflegen und die PIN sicherheitshalber sofort ändern, ohne die Bank zu informieren
+  TR[d]: Telefonu kapatmak ve bankayı bilgilendirmeden, önlem olarak PIN'i hemen değiştirmek
+DE-EXPL: Banken fragen niemals die vollständige PIN am Telefon ab - auch teilweise Angaben oder scheinbar bekannte Kontodaten (die z. B. aus Datenlecks stammen können) beweisen keine echte Identität des Anrufers. Der sichere Weg ist immer der selbst initiierte Rückruf über eine unabhängig verifizierte Nummer.
+TR-EXPL: Bankalar telefonda asla tam PIN sormaz - kısmi bilgiler veya (ör. veri sızıntılarından elde edilebilecek) görünürde bilinen hesap bilgileri bile arayanın gerçek kimliğini kanıtlamaz. Güvenli yol her zaman, bağımsız olarak doğrulanmış bir numara üzerinden kendiniz başlattığınız geri aramadır.
+
+===== ID it_sicherheit-social_engineering-05 correct=['b'] =====
+DE-Q: Sie erhalten eine SMS von einem angeblichen Paketdienst: 'Ihr Paket konnte nicht zugestellt werden, bestätigen Sie Ihre Adresse und Zahlungsdaten über diesen Link' ('Smishing'). Was ist die richtige Reaktion?
+TR-Q: Sözde bir kargo şirketinden şu SMS'i alıyorsunuz: 'Paketiniz teslim edilemedi, lütfen adresinizi ve ödeme bilgilerinizi bu bağlantı üzerinden onaylayın' ('smishing'). Doğru tepki nedir?
+  DE[a]: Den Link öffnen, aber keine Zahlungsdaten eingeben
+  TR[a]: Bağlantıyı açmak ama ödeme bilgilerini girmemek
+  DE[b]: Den Link nicht öffnen und die Sendungsnummer stattdessen direkt auf der offiziellen Website des Paketdienstes prüfen
+  TR[b]: Bağlantıyı açmamak ve bunun yerine takip numarasını doğrudan kargo şirketinin resmi web sitesinde kontrol etmek
+  DE[c]: Die SMS an Kollegen weiterleiten, damit diese den Link testen
+  TR[c]: SMS'i, bağlantıyı test etmeleri için meslektaşlara iletmek
+  DE[d]: Auf 'Stop' antworten, um sich von der Liste abzumelden
+  TR[d]: Listeden çıkmak için 'Stop' yazarak yanıt vermek
+DE-EXPL: Auch nur das Öffnen eines Links kann bereits Geräteinformationen preisgeben oder zu einer täuschend echten Fake-Seite führen, die Zugangsdaten abgreift. Die sichere Prüfung erfolgt immer über die selbst eingegebene, offizielle Adresse - nie über einen Link aus einer unaufgeforderten Nachricht.
+TR-EXPL: Sadece bir bağlantıyı açmak bile cihaz bilgilerini ifşa edebilir veya erişim bilgilerini çalmayı amaçlayan gerçeğine çok benzeyen sahte bir sayfaya yönlendirebilir. Güvenli kontrol her zaman kendinizin girdiği resmi adres üzerinden yapılır - talep edilmemiş bir mesajdaki bağlantı üzerinden asla.
+
+===== ID it_sicherheit-social_engineering-06 correct=['c'] =====
+DE-Q: Sie erhalten eine E-Mail, die angeblich von der Geschäftsführung stammt: 'Dringend und vertraulich - bitte sofort eine Überweisung von 45.000 € auf dieses neue Konto veranlassen, ich bin gerade nicht erreichbar' ('CEO-Fraud' / Business Email Compromise). Wie handeln Sie?
+TR-Q: Görünüşte üst yönetimden gelen bir e-posta alıyorsunuz: 'Acil ve gizli - lütfen derhal bu yeni hesaba 45.000 € tutarında bir havale yapılmasını sağlayın, şu anda ulaşılamıyorum' ('CEO dolandırıcılığı' / Business Email Compromise). Nasıl davranırsınız?
+  DE[a]: Die Überweisung sofort ausführen, da Vertraulichkeit und Dringlichkeit betont wurden
+  TR[a]: Gizlilik ve aciliyet vurgulandığı için havaleyi hemen gerçekleştirmek
+  DE[b]: Auf die E-Mail antworten und um weitere Details bitten, dann überweisen
+  TR[b]: E-postayı yanıtlayıp daha fazla ayrıntı istemek, ardından havale yapmak
+  DE[c]: Die Anfrage über einen unabhängigen, bekannten Kanal (z. B. Rückruf auf bekannter Nummer) verifizieren und den regulären Freigabeprozess einhalten, auch unter Zeitdruck
+  TR[c]: Talebi bağımsız, bilinen bir kanal üzerinden (ör. bilinen bir numaradan geri arama) doğrulamak ve zaman baskısı altında dahi olağan onay sürecine uymak
+  DE[d]: Einen Kollegen bitten, die Überweisung ohne Rückfrage zu übernehmen, um Zeit zu sparen
+  TR[d]: Zaman kazanmak için bir meslektaştan, soru sormadan havaleyi üstlenmesini istemek
+DE-EXPL: Dringlichkeit, Vertraulichkeit und Unerreichbarkeit der angeblichen Absenderperson sind die klassischen Druckmittel bei CEO-Fraud - sie sollen genau verhindern, dass der reguläre Freigabeprozess (z. B. Vier-Augen-Prinzip) eingehalten wird. Ein Angreifer, der auf eine E-Mail antwortet, bleibt derselbe Angreifer; nur ein unabhängiger Rückkanal schafft echte Sicherheit.
+TR-EXPL: Aciliyet, gizlilik ve sözde gönderenin ulaşılamaz olması, CEO dolandırıcılığında kullanılan klasik baskı unsurlarıdır - bunlar tam olarak olağan onay sürecine (ör. dört göz ilkesi) uyulmasını engellemek için kullanılır. Bir e-postayı yanıtlayan kişi yine aynı saldırgana ulaşır; gerçek güvenliği ancak bağımsız bir geri doğrulama kanalı sağlar.
+
+===== ID it_sicherheit-social_engineering-07 correct=['b'] =====
+DE-Q: Eine E-Mail, angeblich von einem langjährigen Lieferanten, teilt mit, dass sich die Bankverbindung geändert hat, und bittet, künftige Zahlungen auf das neue Konto zu leisten. Was ist der richtige erste Schritt?
+TR-Q: Uzun süredir çalıştığınız bir tedarikçiden geldiği belirtilen bir e-posta, banka bilgilerinin değiştiğini bildiriyor ve gelecekteki ödemelerin yeni hesaba yapılmasını istiyor. Doğru ilk adım nedir?
+  DE[a]: Die Zahlungsdaten im System sofort aktualisieren, da der Lieferant bekannt ist
+  TR[a]: Tedarikçi bilindiği için sistemdeki ödeme bilgilerini hemen güncellemek
+  DE[b]: Die Änderung über einen unabhängigen, bereits bekannten Kontakt beim Lieferanten (Telefonnummer aus früheren Unterlagen, nicht aus der E-Mail) verifizieren, bevor irgendetwas geändert wird
+  TR[b]: Herhangi bir şey değiştirilmeden önce, değişikliği tedarikçideki bağımsız, önceden bilinen bir irtibat kişisi üzerinden (e-postadan değil, önceki belgelerden alınan bir telefon numarasından) doğrulamak
+  DE[c]: Eine kleine Testüberweisung auf das neue Konto senden, um es zu prüfen
+  TR[c]: Yeni hesabı kontrol etmek için küçük bir test havalesi göndermek
+  DE[d]: Die E-Mail ignorieren, aber die alte Bankverbindung vorsichtshalber trotzdem sperren
+  TR[d]: E-postayı görmezden gelmek, ancak eski banka bilgilerini yine de önlem olarak engellemek
+DE-EXPL: Änderungen von Bankverbindungen sind ein bevorzugtes Ziel für Business-Email-Compromise-Angriffe, da E-Mail-Konten von Lieferanten kompromittiert und Rechnungen täuschend echt nachgebaut werden können. Eine Verifizierung über einen unabhängigen, aus früherer Zusammenarbeit bekannten Kanal ist der einzige verlässliche Schutz - eine Testüberweisung schützt nicht vor dem eigentlichen Betrag.
+TR-EXPL: Banka bilgisi değişiklikleri, Business Email Compromise saldırılarının tercih ettiği bir hedeftir, çünkü tedarikçilerin e-posta hesapları ele geçirilebilir ve faturalar gerçeğine çok benzer şekilde sahtelenebilir. Önceki iş birliğinden bilinen bağımsız bir kanal üzerinden doğrulama tek güvenilir korumadır - test havalesi asıl tutarı korumaz.
+
+===== ID it_sicherheit-social_engineering-08 correct=['c'] =====
+DE-Q: Ein Kollege hat seine Zugangskarte vergessen und bittet Sie, ihn einfach mit Ihrer eigenen Karte durch die Sicherheitstür zu lassen ('Badge Sharing'). Was ist die richtige Reaktion?
+TR-Q: Bir meslektaşınız erişim kartını unutmuş ve kendi kartınızla onu güvenlik kapısından içeri almanızı istiyor ('badge sharing'). Doğru tepki nedir?
+  DE[a]: Ihn einfach mitgehen lassen, es ist schließlich ein bekannter Kollege
+  TR[a]: Onu içeri almak, sonuçta tanıdığınız bir meslektaş
+  DE[b]: Ihm Ihre Karte für den Tag ausleihen
+  TR[b]: Kartınızı gün boyunca ona ödünç vermek
+  DE[c]: Ihn an den Empfang oder die Security verweisen, damit dort ein regulärer temporärer Zugang ausgestellt wird
+  TR[c]: Onu resepsiyona veya güvenliğe yönlendirmek, böylece orada geçici bir erişim düzenli olarak verilebilir
+  DE[d]: Die Tür für ihn aufhalten, solange niemand sonst zusieht
+  TR[d]: Kimse görmediği sürece kapıyı onun için tutmak
+DE-EXPL: Zugangskarten sind personenbezogen, damit im Ernstfall (z. B. Vorfallaufklärung) nachvollziehbar bleibt, wer wann wo war - Badge Sharing untergräbt das, selbst unter Kollegen, und ist zudem ein Muster, das Social Engineers gezielt ausnutzen ('ich hab meine Karte vergessen'). Der reguläre Weg über Empfang/Security bleibt schnell und sicher zugleich.
+TR-EXPL: Erişim kartları kişiye özeldir, böylece olası bir olay incelemesinde kimin ne zaman nerede olduğu izlenebilir - badge sharing, meslektaşlar arasında bile olsa bunu baltalar ve ayrıca sosyal mühendislerin bilinçli olarak kullandığı bir örüntüdür ('kartımı unuttum'). Resepsiyon/güvenlik üzerinden olağan yol hem hızlı hem de güvenli kalır.
+
+===== ID it_sicherheit-ransomware-01 correct=['b'] =====
+DE-Q: Auf Ihrem Bildschirm erscheint plötzlich eine Nachricht, dass alle Ihre Dateien verschlüsselt wurden und nur gegen Zahlung eines Lösegelds ('Ransomware') wieder freigegeben werden. Was ist Ihr allererster Schritt?
+TR-Q: Ekranınızda aniden tüm dosyalarınızın şifrelendiğini ve yalnızca bir fidye ödenmesi karşılığında ('ransomware') tekrar serbest bırakılacağını belirten bir mesaj çıkıyor. İlk yapmanız gereken nedir?
+  DE[a]: Sofort versuchen, das geforderte Lösegeld zu zahlen, um Zeit zu sparen
+  TR[a]: Zaman kazanmak için istenen fidyeyi hemen ödemeye çalışmak
+  DE[b]: Das Gerät umgehend vom Netzwerk trennen (Netzwerkkabel ziehen / WLAN deaktivieren) und sofort die IT-Sicherheit informieren
+  TR[b]: Cihazı derhal ağdan ayırmak (ağ kablosunu çekmek / Wi-Fi'yi kapatmak) ve hemen BT güvenliğini bilgilendirmek
+  DE[c]: Den Rechner neu starten, um zu sehen, ob das Problem verschwindet
+  TR[c]: Sorunun kaybolup kaybolmadığını görmek için bilgisayarı yeniden başlatmak
+  DE[d]: Selbst versuchen, die Dateien mit einer im Internet gefundenen Software zu entschlüsseln
+  TR[d]: İnternette bulunan bir yazılımla dosyaları kendiniz çözmeye çalışmak
+DE-EXPL: Die sofortige Trennung vom Netzwerk verhindert, dass sich die Ransomware auf weitere Systeme im Firmennetz ausbreitet - das ist der wichtigste Sofortschritt vor jeder weiteren Maßnahme. Die IT-Sicherheit kann dann den Vorfall fachgerecht eindämmen; eigenmächtige Entschlüsselungsversuche oder ein Neustart können Spuren zerstören oder die Lage verschlimmern.
+TR-EXPL: Ağ bağlantısının hemen kesilmesi, fidye yazılımının şirket ağındaki diğer sistemlere yayılmasını önler - bu, başka herhangi bir işlemden önce atılması gereken en önemli ilk adımdır. BT güvenliği daha sonra olayı doğru şekilde sınırlandırabilir; kendi başına şifre çözme girişimleri veya bir yeniden başlatma izleri yok edebilir ya da durumu kötüleştirebilir.
+
+===== ID it_sicherheit-ransomware-02 correct=['c'] =====
+DE-Q: Sollte ein Unternehmen bei einem Ransomware-Angriff das geforderte Lösegeld zahlen?
+TR-Q: Bir şirket, bir fidye yazılımı saldırısında istenen fidyeyi ödemeli midir?
+  DE[a]: Ja, das ist immer der schnellste und sicherste Weg, um wieder an die Daten zu kommen
+  TR[a]: Evet, verilere yeniden ulaşmanın her zaman en hızlı ve en güvenli yolu budur
+  DE[b]: Ja, aber nur wenn der geforderte Betrag niedrig genug erscheint
+  TR[b]: Evet, ama sadece istenen tutar yeterince düşük görünüyorsa
+  DE[c]: Das BSI rät grundsätzlich von Zahlungen ab - sie garantieren keine Datenfreigabe, finanzieren weitere Angriffe und können erneut ins Visier geraten lassen; die Entscheidung liegt bei Geschäftsführung/IT-Sicherheit im Rahmen des Notfallplans, nicht bei Einzelpersonen
+  TR[c]: BSI, ödemeleri genel olarak önermez - ödeme verilerin serbest bırakılacağını garanti etmez, yeni saldırıları finanse eder ve tekrar hedef haline gelinmesine yol açabilir; karar bireylere değil, acil durum planı kapsamında üst yönetime/BT güvenliğine aittir
+  DE[d]: Das spielt keine Rolle, da Backups eine Zahlung ohnehin immer überflüssig machen
+  TR[d]: Bunun bir önemi yok, çünkü yedeklemeler zaten ödemeyi her zaman gereksiz kılar
+DE-EXPL: Eine Zahlung ist keine Garantie für die Wiederherstellung der Daten und finanziert kriminelle Infrastruktur weiter. Selbst mit guten Backups bleibt die Zahlungsentscheidung im Ernstfall komplex (z. B. wegen exfiltrierter Daten) und ist daher immer eine Entscheidung der Unternehmensleitung im Rahmen des dokumentierten Notfallplans, nicht einer einzelnen Person vor Ort.
+TR-EXPL: Bir ödeme, verilerin geri getirileceğine dair bir garanti değildir ve suç altyapısını finanse etmeye devam eder. İyi yedeklemeler olsa bile, gerçek bir olayda ödeme kararı karmaşık kalır (ör. dışarı sızdırılmış veriler nedeniyle) ve bu yüzden her zaman sahadaki bir bireyin değil, belgelenmiş acil durum planı kapsamında şirket yönetiminin kararıdır.
+
+===== ID it_sicherheit-ransomware-03 correct=['a'] =====
+DE-Q: Über welchen Weg gelangt Ransomware am häufigsten in Unternehmensnetzwerke?
+TR-Q: Fidye yazılımı, şirket ağlarına en sık hangi yoldan bulaşır?
+  DE[a]: Über Phishing-E-Mails mit schädlichem Anhang oder Link sowie über ungepatchte, aus dem Internet erreichbare Systeme
+  TR[a]: Kötü amaçlı ek veya bağlantı içeren kimlik avı (phishing) e-postaları ile internetten erişilebilen, yamaları yapılmamış sistemler üzerinden
+  DE[b]: Fast ausschließlich über physisch gestohlene Laptops
+  TR[b]: Neredeyse yalnızca fiziksel olarak çalınan dizüstü bilgisayarlar üzerinden
+  DE[c]: Fast ausschließlich über kompromittierte Druckerkabel
+  TR[c]: Neredeyse yalnızca ele geçirilmiş yazıcı kabloları üzerinden
+  DE[d]: Ransomware verbreitet sich grundsätzlich nur über bereits infizierte USB-Sticks
+  TR[d]: Fidye yazılımı temelde yalnızca zaten enfekte olmuş USB bellekler üzerinden yayılır
+DE-EXPL: Phishing-E-Mails und ungepatchte, extern erreichbare Systeme (z. B. Fernzugriffslösungen) sind laut BSI-Lageberichten die dominierenden Einfallstore. Das macht sowohl wachsame Mitarbeitende beim Öffnen von Anhängen/Links als auch zeitnahes Einspielen von Sicherheitsupdates zu zentralen Schutzmaßnahmen.
+TR-EXPL: BSI durum raporlarına göre, kimlik avı e-postaları ile internetten erişilebilen, yamaları yapılmamış sistemler (ör. uzaktan erişim çözümleri) en yaygın giriş noktalarıdır. Bu durum, hem eklerin/bağlantıların açılmasında dikkatli çalışanları hem de güvenlik güncellemelerinin zamanında uygulanmasını temel koruma önlemleri haline getirir.
+
+===== ID it_sicherheit-ransomware-04 correct=['c'] =====
+DE-Q: Warum sind regelmäßige, vom Netzwerk getrennte ('offline') oder unveränderbare ('immutable') Backups besonders wichtig für den Schutz vor Ransomware?
+TR-Q: Düzenli olarak alınan, ağdan bağlantısı kesilmiş ('çevrimdışı') veya değiştirilemez ('immutable') yedeklemeler neden fidye yazılımına karşı korumada özellikle önemlidir?
+  DE[a]: Sie sind es nicht - jede Art von Backup reicht aus, solange sie regelmäßig läuft
+  TR[a]: Önemli değildir - düzenli olarak çalıştığı sürece herhangi bir tür yedekleme yeterlidir
+  DE[b]: Nur damit die IT-Abteilung Speicherplatz sparen kann
+  TR[b]: Sadece BT departmanının depolama alanından tasarruf edebilmesi için
+  DE[c]: Weil Ransomware gezielt versucht, auch im Netzwerk erreichbare Backups zu verschlüsseln - nur getrennte oder unveränderbare Kopien bleiben im Ernstfall garantiert nutzbar
+  TR[c]: Çünkü fidye yazılımı, ağ üzerinden erişebildiği yedeklemeleri de kasıtlı olarak şifrelemeye çalışır - gerçek bir olayda yalnızca bağlantısı kesilmiş veya değiştirilemez kopyaların kullanılabilir kalacağı garanti edilir
+  DE[d]: Ausschließlich aus Compliance-Gründen, technisch spielt der Backup-Typ keine Rolle
+  TR[d]: Yalnızca uyumluluk (compliance) nedenleriyle, teknik açıdan yedekleme türünün bir önemi yoktur
+DE-EXPL: Moderne Ransomware sucht aktiv nach erreichbaren Netzlaufwerken und Backup-Systemen, um auch diese zu verschlüsseln und den Druck zur Lösegeldzahlung zu erhöhen. Ein Backup, das offline oder technisch unveränderbar ist, kann davon nicht betroffen sein und ermöglicht eine Wiederherstellung ohne Zahlung.
+TR-EXPL: Modern fidye yazılımları, ağ üzerinden erişilebilen sürücüleri ve yedekleme sistemlerini aktif olarak arar, bunları da şifreleyerek fidye ödeme baskısını artırmayı amaçlar. Çevrimdışı veya teknik olarak değiştirilemez bir yedekleme bundan etkilenemez ve ödeme yapmadan geri yükleme yapılmasını sağlar.
+
+===== ID it_sicherheit-ransomware-05 correct=['b'] =====
+DE-Q: Sie bemerken eine Ransomware-Infektion auf Ihrem Firmenrechner. Sollten Sie den Rechner neu starten, um das Problem selbst zu beheben?
+TR-Q: Şirket bilgisayarınızda bir fidye yazılımı bulaşması fark ediyorsunuz. Sorunu kendiniz çözmek için bilgisayarı yeniden başlatmalı mısınız?
+  DE[a]: Ja, ein Neustart behebt die meisten Softwareprobleme
+  TR[a]: Evet, yeniden başlatma çoğu yazılım sorununu çözer
+  DE[b]: Nein - ein Neustart oder Herunterfahren kann laufende Verschlüsselungsprozesse beschleunigen oder wichtige forensische Spuren zerstören; stattdessen vom Netzwerk trennen und den Vorfall melden
+  TR[b]: Hayır - yeniden başlatma veya kapatma, devam eden şifreleme sürecini hızlandırabilir veya önemli adli izleri yok edebilir; bunun yerine ağdan bağlantıyı kesin ve olayı bildirin
+  DE[c]: Ja, aber nur im abgesicherten Modus
+  TR[c]: Evet, ama yalnızca güvenli modda
+  DE[d]: Das ist egal, solange man danach ein Antivirenprogramm laufen lässt
+  TR[d]: Bunun bir önemi yok, sonrasında bir antivirüs programı çalıştırdığınız sürece
+DE-EXPL: Manche Ransomware-Varianten setzen die Verschlüsselung nach einem Neustart fort oder löschen dabei Hinweise, die für die spätere Analyse des Angriffswegs wichtig wären. Die IT-Sicherheit trifft die Entscheidung über die nächsten Schritte auf Basis des unveränderten Systemzustands.
+TR-EXPL: Bazı fidye yazılımı türleri, yeniden başlatmadan sonra şifrelemeye devam eder ya da bu sırada saldırı yolunun sonradan analiz edilmesi için önemli olacak ipuçlarını siler. BT güvenliği, bir sonraki adımlara sistemin değiştirilmemiş durumuna dayanarak karar verir.
+
+===== ID it_sicherheit-ransomware-06 correct=['c'] =====
+DE-Q: Ein Kollege bittet Sie, bei einem vermuteten Ransomware-Vorfall auf seinem Rechner zu helfen, ohne die IT-Sicherheit einzuschalten, 'um keinen Ärger zu bekommen'. Wie reagieren Sie?
+TR-Q: Bir meslektaşınız, bilgisayarında şüphelenilen bir fidye yazılımı olayında, 'başının derde girmemesi için' BT güvenliğini devreye sokmadan yardım etmenizi istiyor. Nasıl tepki verirsiniz?
+  DE[a]: Helfen, wie gewünscht, und die Sache diskret unter sich behalten
+  TR[a]: İstendiği gibi yardım etmek ve konuyu aranızda gizli tutmak
+  DE[b]: Selbst eine im Internet gefundene Anleitung zur Entschlüsselung ausprobieren
+  TR[b]: İnternette bulunan bir şifre çözme kılavuzunu kendiniz denemek
+  DE[c]: Auf einer sofortigen Meldung an die IT-Sicherheit bestehen - schnelles Melden verringert den Schaden und ist wichtiger als mögliche Unannehmlichkeiten
+  TR[c]: BT güvenliğine derhal bildirim yapılması konusunda ısrar etmek - hızlı bildirim, oluşabilecek zararı azaltır ve olası sıkıntılardan daha önemlidir
+  DE[d]: Den Rechner einfach ausschalten und das Thema damit als erledigt betrachten
+  TR[d]: Bilgisayarı sadece kapatmak ve konuyu bu şekilde çözülmüş saymak
+DE-EXPL: Verzögertes oder unterlassenes Melden ist eines der größten Risiken bei Sicherheitsvorfällen, da sich Ransomware in der verstreichenden Zeit im Netzwerk weiter ausbreiten kann. Eine gute Sicherheitskultur behandelt schnelles Melden als erwünschtes Verhalten, nicht als etwas, das Ärger nach sich zieht.
+TR-EXPL: Gecikmiş veya yapılmayan bildirim, güvenlik olaylarındaki en büyük risklerden biridir, çünkü fidye yazılımı geçen zaman içinde ağda yayılmaya devam edebilir. İyi bir güvenlik kültürü, hızlı bildirimi sıkıntı yaratan bir şey olarak değil, istenen bir davranış olarak ele alır.
+
+===== ID it_sicherheit-ransomware-07 correct=['b'] =====
+DE-Q: Welches Anzeichen deutet am ehesten darauf hin, dass ein System sich möglicherweise in einer frühen Phase eines Ransomware-Angriffs befindet, noch bevor eine Lösegeldforderung erscheint?
+TR-Q: Bir fidye talebi görünmeden önce, bir sistemin muhtemelen bir fidye yazılımı saldırısının erken aşamasında olduğuna en çok hangi belirti işaret eder?
+  DE[a]: Der Bildschirmschoner hat sich geändert
+  TR[a]: Ekran koruyucu değişti
+  DE[b]: Auffällig viele Dateien werden in kurzer Zeit umbenannt oder erhalten ungewöhnliche neue Dateiendungen, das System wird spürbar langsamer, und das Antivirenprogramm meldet mehrfach blockierte verdächtige Prozesse
+  TR[b]: Kısa sürede dikkat çekici sayıda dosya yeniden adlandırılıyor veya alışılmadık yeni dosya uzantıları alıyor, sistem belirgin şekilde yavaşlıyor ve antivirüs programı tekrar tekrar engellenmiş şüpheli süreçler bildiriyor
+  DE[c]: Der Rechner ist etwas leiser als sonst
+  TR[c]: Bilgisayar her zamankinden biraz daha sessiz
+  DE[d]: Es gibt keine erkennbaren Anzeichen vor der Lösegeldforderung
+  TR[d]: Fidye talebinden önce fark edilebilir herhangi bir belirti yoktur
+DE-EXPL: Die eigentliche Verschlüsselung läuft oft im Hintergrund, bevor die Lösegeldforderung sichtbar wird - massenhaftes Umbenennen von Dateien, spürbare Verlangsamung und wiederholte Antivirenwarnungen sind frühe Warnsignale, bei denen sofortiges Melden den entstehenden Schaden noch begrenzen kann.
+TR-EXPL: Asıl şifreleme genellikle fidye talebi görünür hale gelmeden önce arka planda çalışır - toplu dosya yeniden adlandırma, belirgin yavaşlama ve tekrarlanan antivirüs uyarıları erken uyarı işaretleridir; bu aşamada hemen bildirim yapmak, oluşan zararı henüz sınırlayabilir.
+
+===== ID it_sicherheit-ransomware-08 correct=['a', 'b', 'd'] =====
+DE-Q: Welche der folgenden Maßnahmen senken das Risiko, dass Ransomware sich im Firmennetzwerk ausbreitet? (Mehrfachauswahl)
+TR-Q: Aşağıdaki önlemlerden hangileri, fidye yazılımının şirket ağında yayılma riskini azaltır? (Birden fazla seçim)
+  DE[a]: Zeitnahes Einspielen von Sicherheitsupdates auf allen Systemen
+  TR[a]: Tüm sistemlerde güvenlik güncellemelerinin zamanında uygulanması
+  DE[b]: Nutzerkonten nur mit den tatsächlich benötigten Rechten ausstatten (Prinzip der geringsten Rechte)
+  TR[b]: Kullanıcı hesaplarına yalnızca gerçekten ihtiyaç duyulan yetkilerin verilmesi (en az yetki ilkesi)
+  DE[c]: Alle Mitarbeitenden mit Administratorrechten auf ihrem Arbeitsrechner ausstatten, damit sie IT-Probleme selbst lösen können
+  TR[c]: Tüm çalışanlara, BT sorunlarını kendileri çözebilsinler diye iş bilgisayarlarında yönetici yetkileri verilmesi
+  DE[d]: Regelmäßige, getrennte Backups mit getesteter Wiederherstellung
+  TR[d]: Test edilmiş geri yükleme ile düzenli, bağlantısı kesilmiş yedeklemeler
+DE-EXPL: Aktuelle Systeme, minimale Rechte und getestete Backups gehören zu den wirksamsten technischen Schutzmaßnahmen. Breite Administratorrechte für alle wirken genau entgegengesetzt: Sie erleichtern es Ransomware, sich mit denselben erhöhten Rechten im Netzwerk auszubreiten.
+TR-EXPL: Güncel sistemler, minimum yetkiler ve test edilmiş yedeklemeler en etkili teknik koruma önlemleri arasındadır. Herkese geniş yönetici yetkileri verilmesi ise tam tersi bir etki yaratır: fidye yazılımının aynı yükseltilmiş yetkilerle ağda yayılmasını kolaylaştırır.
+
+===== ID it_sicherheit-ki_bedrohungen-01 correct=['b'] =====
+DE-Q: Was ist im Sicherheitskontext mit einem 'Deepfake' gemeint?
+TR-Q: Güvenlik bağlamında 'deepfake' ile ne kastedilir?
+  DE[a]: Ein besonders raffiniert gefälschtes physisches Dokument
+  TR[a]: Özellikle ustaca sahtelenmiş fiziksel bir belge
+  DE[b]: Ein mittels künstlicher Intelligenz erzeugtes, täuschend echtes Audio-, Bild- oder Videomaterial, das eine reale Person imitiert
+  TR[b]: Yapay zeka kullanılarak üretilen, gerçek bir kişiyi taklit eden, gerçeğine çok benzeyen ses, görüntü veya video materyali
+  DE[c]: Ein technischer Fachbegriff für besonders tief verschachtelte Phishing-Links
+  TR[c]: Özellikle derinlemesine iç içe geçmiş phishing bağlantıları için teknik bir terim
+  DE[d]: Ein veralteter Begriff, der in der Praxis keine Rolle mehr spielt
+  TR[d]: Pratikte artık bir önemi olmayan eski bir terim
+DE-EXPL: Deepfakes nutzen KI-Modelle, um Stimme, Gesicht oder Bewegungen einer realen Person nachzubilden - inzwischen mit so geringem Aufwand, dass sie zunehmend für gezielte Betrugsversuche wie gefälschte Anrufe oder Videobotschaften eingesetzt werden.
+TR-EXPL: Deepfake'ler, gerçek bir kişinin sesini, yüzünü veya hareketlerini yeniden oluşturmak için yapay zeka modellerini kullanır - artık o kadar az çabayla üretilebiliyor ki, sahte aramalar veya video mesajları gibi hedefli dolandırıcılık girişimlerinde giderek daha fazla kullanılıyor.
+
+===== ID it_sicherheit-ki_bedrohungen-02 correct=['c'] =====
+DE-Q: Sie erhalten einen Telefonanruf, dessen Stimme exakt wie die Ihrer Geschäftsführung klingt und der eine dringende, ungewöhnliche Überweisung fordert - eine Rückrufnummer wird explizit abgelehnt ('Ich bin gleich im Flugzeug'). Was ist die richtige Reaktion?
+TR-Q: Sesinin tam olarak üst yönetiminizin sesi gibi geldiği ve acil, olağandışı bir havale talep eden bir telefon görüşmesi alıyorsunuz - bir geri arama numarası açıkça reddediliyor ('Az sonra uçağa bineceğim'). Doğru tepki nedir?
+  DE[a]: Handeln, da die Stimme zweifelsfrei erkannt wurde
+  TR[a]: Ses hiç şüphesiz tanındığı için harekete geçmek
+  DE[b]: Die Überweisung ausführen, aber nur die Hälfte des geforderten Betrags
+  TR[b]: Havaleyi yapmak ama sadece istenen tutarın yarısı kadar
+  DE[c]: Der Anfrage nicht folgen und die Identität über einen unabhängigen, bereits bekannten Kanal verifizieren - Stimmerkennung allein ist durch KI-Stimmklonung keine verlässliche Bestätigung mehr
+  TR[c]: Talebe uymamak ve kimliği bağımsız, önceden bilinen bir kanal üzerinden doğrulamak - yapay zeka ses klonlaması nedeniyle yalnızca sesin tanınması artık güvenilir bir doğrulama değildir
+  DE[d]: Die Anfrage ignorieren, ohne sie zu melden
+  TR[d]: Talebi bildirmeden görmezden gelmek
+DE-EXPL: KI-Stimmklonung kann mit wenigen Sekunden echten Audiomaterials eine täuschend echte Stimme erzeugen - genau die Kombination aus Dringlichkeit, ungewöhnlicher Forderung und Ablehnung eines Rückrufs ist ein typisches Warnsignal, unabhängig davon, wie echt die Stimme klingt. Auch ein Nicht-Handeln sollte gemeldet werden, damit weitere Kolleginnen und Kollegen gewarnt werden können.
+TR-EXPL: Yapay zeka ses klonlaması, birkaç saniyelik gerçek ses kaydından bile gerçeğine çok benzeyen bir ses üretebilir - sesin ne kadar gerçek çıktığından bağımsız olarak, aciliyet, olağandışı talep ve geri aramanın reddedilmesi bileşiminin tam olarak kendisi tipik bir uyarı işaretidir. Harekete geçilmese bile, diğer meslektaşların uyarılabilmesi için durum yine de bildirilmelidir.
+
+===== ID it_sicherheit-ki_bedrohungen-03 correct=['c'] =====
+DE-Q: Früher galten Rechtschreib- und Grammatikfehler als zuverlässiges Erkennungsmerkmal von Phishing-E-Mails. Warum reicht dieses Kriterium heute allein nicht mehr aus?
+TR-Q: Eskiden yazım ve dil bilgisi hataları, phishing e-postalarını tanımada güvenilir bir işaret olarak kabul edilirdi. Bu kriter neden artık tek başına yeterli değil?
+  DE[a]: Weil E-Mail-Programme Rechtschreibfehler inzwischen automatisch korrigieren
+  TR[a]: Çünkü e-posta programları artık yazım hatalarını otomatik olarak düzeltiyor
+  DE[b]: Weil Rechtschreibfehler ohnehin nie ein zuverlässiges Kriterium waren
+  TR[b]: Çünkü yazım hataları zaten hiçbir zaman güvenilir bir kriter olmamıştı
+  DE[c]: Weil KI-Sprachmodelle sprachlich einwandfreie, personalisierte Phishing-Texte erzeugen können - andere Warnsignale wie abweichende Absenderadresse, ungewöhnliche Links oder unerwartete Dringlichkeit werden dadurch wichtiger
+  TR[c]: Çünkü yapay zeka dil modelleri dilbilgisi açısından kusursuz, kişiselleştirilmiş phishing metinleri üretebiliyor - bu da yanlış gönderen adresi, olağandışı bağlantılar veya beklenmedik aciliyet gibi diğer uyarı işaretlerini daha önemli hale getiriyor
+  DE[d]: Weil moderne Phishing-Angriffe grundsätzlich ohne Text auskommen
+  TR[d]: Çünkü modern phishing saldırıları temelde metin içermiyor
+DE-EXPL: KI-generierte Texte sind sprachlich oft nicht mehr von echter Kommunikation zu unterscheiden und können zudem individuell auf die Zielperson zugeschnitten werden. Die verlässlicheren Prüfpunkte bleiben deshalb die tatsächliche Absenderadresse, die Ziel-URL eines Links und ob die Anfrage inhaltlich plausibel und über den erwarteten Kanal kommt.
+TR-EXPL: Yapay zeka tarafından üretilen metinler, dil açısından çoğu zaman gerçek iletişimden ayırt edilemez hale gelmiştir ve ayrıca hedef kişiye özel olarak da uyarlanabilir. Bu nedenle daha güvenilir kontrol noktaları, gerçek gönderen adresi, bir bağlantının hedef URL'si ve talebin içerik olarak makul olup olmadığı ile beklenen kanal üzerinden gelip gelmediğidir.
+
+===== ID it_sicherheit-ki_bedrohungen-04 correct=['b'] =====
+DE-Q: In einem spontan angesetzten Videoanruf fordert eine Person, die optisch und stimmlich wie ein bekannter Vorgesetzter wirkt, die sofortige Weitergabe vertraulicher Kundendaten. Die Bild-/Tonqualität ist leicht ungewöhnlich. Wie reagieren Sie?
+TR-Q: Aniden ayarlanan bir görüntülü görüşmede, görünüş ve ses olarak bilinen bir yöneticiyi andıran bir kişi, gizli müşteri verilerinin derhal paylaşılmasını talep ediyor. Görüntü/ses kalitesi hafifçe olağandışı. Nasıl tepki verirsiniz?
+  DE[a]: Die Daten weitergeben, da Bild und Stimme übereinstimmten
+  TR[a]: Görüntü ve ses uyuştuğu için verileri paylaşmak
+  DE[b]: Die Weitergabe verweigern oder verzögern und die Anfrage über einen unabhängigen, bereits bekannten Kanal (z. B. Rückruf, persönliches Gespräch) verifizieren
+  TR[b]: Paylaşımı reddetmek veya ertelemek ve talebi bağımsız, önceden bilinen bir kanal üzerinden (ör. geri arama, yüz yüze görüşme) doğrulamak
+  DE[c]: Nur einen Teil der Daten weitergeben, um das Risiko zu begrenzen
+  TR[c]: Riski sınırlamak için verilerin yalnızca bir kısmını paylaşmak
+  DE[d]: Im Anruf direkt nachfragen, ob es sich um einen Deepfake handelt, und der Antwort vertrauen
+  TR[d]: Görüşme sırasında doğrudan bunun bir deepfake olup olmadığını sormak ve verilen yanıta güvenmek
+DE-EXPL: Leicht unstimmige Bild-/Tonqualität, eine spontane Ansetzung und eine ungewöhnliche vertrauliche Anfrage sind zusammen typische Warnsignale für einen Deepfake-Angriff. Ein Angreifer, der eine Person täuschend echt imitiert, wird auf direkte Nachfrage im Anruf selbstverständlich ebenfalls verneinen - nur ein unabhängiger Kanal schafft echte Klarheit.
+TR-EXPL: Hafifçe uyumsuz görüntü/ses kalitesi, aniden ayarlanmış bir görüşme ve olağandışı, gizli bir talep bir araya geldiğinde, bunlar birlikte tipik bir deepfake saldırısı uyarı işaretleridir. Bir kişiyi gerçeğine çok benzer şekilde taklit eden bir saldırgan, görüşme sırasında doğrudan sorulduğunda tabii ki bunu inkar edecektir - gerçek netliği yalnızca bağımsız bir kanal sağlar.
+
+===== ID it_sicherheit-ki_bedrohungen-05 correct=['b'] =====
+DE-Q: Warum wird Social Engineering durch den Einsatz von KI-Werkzeugen allgemein als größeres Risiko eingeschätzt als zuvor?
+TR-Q: Yapay zeka araçlarının kullanımı nedeniyle sosyal mühendislik genel olarak neden öncekinden daha büyük bir risk olarak değerlendiriliyor?
+  DE[a]: Weil KI-Werkzeuge ausschließlich von IT-Sicherheitsteams genutzt werden können
+  TR[a]: Çünkü yapay zeka araçları yalnızca BT güvenliği ekipleri tarafından kullanılabilir
+  DE[b]: Weil KI-Werkzeuge es Angreifern erlauben, überzeugende, individuell zugeschnittene Angriffe (Text, Stimme, Video) in großem Umfang und mit geringem Aufwand zu erstellen
+  TR[b]: Çünkü yapay zeka araçları, saldırganların ikna edici, kişiye özel olarak uyarlanmış saldırıları (metin, ses, video) büyük ölçekte ve az bir çabayla oluşturmasına olanak tanır
+  DE[c]: Weil KI-Werkzeuge Social-Engineering-Angriffe grundsätzlich unmöglich machen
+  TR[c]: Çünkü yapay zeka araçları sosyal mühendislik saldırılarını temelde imkansız hale getiriyor
+  DE[d]: Das Risiko hat sich durch KI-Werkzeuge nicht verändert
+  TR[d]: Yapay zeka araçları nedeniyle risk değişmedi
+DE-EXPL: Was früher hohen manuellen Aufwand erforderte (z. B. das Nachahmen einer Stimme oder das Verfassen überzeugender, fehlerfreier Texte in einer Fremdsprache), lässt sich heute mit KI-Werkzeugen schnell und in großer Zahl automatisieren - das erhöht sowohl die Menge als auch die Qualität der Angriffe.
+TR-EXPL: Eskiden yüksek manuel çaba gerektiren şeyler (ör. bir sesi taklit etmek veya yabancı bir dilde ikna edici, hatasız metinler yazmak), bugün yapay zeka araçlarıyla hızlı ve büyük sayılarda otomatikleştirilebiliyor - bu hem saldırıların miktarını hem de kalitesini artırıyor.
+
+===== ID it_sicherheit-ki_bedrohungen-06 correct=['b'] =====
+DE-Q: Was ist der wirksamste Schutz gegen Betrug per Deepfake-Anruf oder -Videobotschaft?
+TR-Q: Deepfake araması veya video mesajı yoluyla yapılan dolandırıcılığa karşı en etkili koruma nedir?
+  DE[a]: Genau darauf achten, ob die Stimme oder das Bild 'echt genug' klingt bzw. aussieht
+  TR[a]: Sesin veya görüntünün 'yeterince gerçek' gelip gelmediğine dikkatlice bakmak
+  DE[b]: Feste, im Voraus vereinbarte Verifizierungsverfahren (z. B. Rückruf über eine bekannte Nummer, ein vorab vereinbartes Codewort) für ungewöhnliche oder finanzielle Anfragen konsequent einhalten - unabhängig davon, wie echt Stimme oder Bild wirken
+  TR[b]: Olağandışı veya finansal talepler için önceden kararlaştırılmış, sabit doğrulama prosedürlerine (ör. bilinen bir numaradan geri arama, önceden kararlaştırılmış bir kod kelimesi) sesin veya görüntünün ne kadar gerçek göründüğünden bağımsız olarak tutarlı bir şekilde uymak
+  DE[c]: Anrufe grundsätzlich nur noch schriftlich per E-Mail bestätigen lassen
+  TR[c]: Aramaları temelde artık yalnızca e-posta yoluyla yazılı olarak onaylatmak
+  DE[d]: Es gibt derzeit keinen wirksamen Schutz dagegen
+  TR[d]: Şu anda buna karşı etkili bir koruma yoktur
+DE-EXPL: Da Deepfakes gezielt darauf ausgelegt sind, menschliche Erkennung zu täuschen, ist das eigene Urteil über 'Echtheit' kein verlässlicher Schutz mehr. Vorab vereinbarte, von der jeweiligen Kommunikationsform unabhängige Verifizierungsverfahren funktionieren dagegen unabhängig davon, wie überzeugend eine Fälschung ist.
+TR-EXPL: Deepfake'ler bilinçli olarak insan algısını yanıltmak üzere tasarlandığından, 'gerçeklik' konusundaki kendi kararınız artık güvenilir bir koruma değildir. Buna karşılık, ilgili iletişim biçiminden bağımsız olarak önceden kararlaştırılmış doğrulama prosedürleri, bir sahtekarlığın ne kadar ikna edici olduğundan bağımsız olarak işe yarar.
+
+===== ID it_sicherheit-ki_bedrohungen-07 correct=['c'] =====
+DE-Q: Sie möchten einen öffentlich zugänglichen KI-Chatbot nutzen, um schnell einen internen Bericht mit vertraulichen Kundendaten zusammenzufassen. Ist das unbedenklich?
+TR-Q: Gizli müşteri verileri içeren dahili bir raporu hızlıca özetlemek için herkese açık bir yapay zeka sohbet botu kullanmak istiyorsunuz. Bu sakıncalı mıdır?
+  DE[a]: Ja, öffentliche KI-Chatbots speichern grundsätzlich keine eingegebenen Daten
+  TR[a]: Evet, herkese açık yapay zeka sohbet botları girilen verileri temelde hiç saklamaz
+  DE[b]: Ja, solange man die Kundennamen vorher durch Platzhalter ersetzt, ist alles Weitere unkritisch
+  TR[b]: Evet, müşteri isimlerini önceden yer tutucularla değiştirdiğiniz sürece geri kalan her şey sorun teşkil etmez
+  DE[c]: Nein - vertrauliche oder personenbezogene Daten sollten nur in von der eigenen Organisation freigegebene KI-Werkzeuge eingegeben werden, da bei öffentlichen Diensten unklar sein kann, wie die Eingaben weiterverarbeitet werden
+  TR[c]: Hayır - gizli veya kişisel veriler yalnızca kendi kurumunuzun onayladığı yapay zeka araçlarına girilmelidir, çünkü herkese açık hizmetlerde girilen verilerin nasıl işlendiği belirsiz olabilir
+  DE[d]: Das ist ausschließlich eine Frage des Datenschutzbeauftragten und betrifft normale Mitarbeitende nicht
+  TR[d]: Bu tamamen veri koruma sorumlusunu ilgilendiren bir konudur ve normal çalışanları ilgilendirmez
+DE-EXPL: Bei öffentlichen KI-Diensten ist oft nicht transparent, ob und wie eingegebene Daten gespeichert, zur Modellverbesserung genutzt oder anderweitig weiterverarbeitet werden. Vertrauliche oder personenbezogene Daten gehören deshalb nur in von der eigenen Organisation geprüfte und freigegebene Werkzeuge - eine unternehmensweite Richtlinie dazu betrifft alle Mitarbeitenden, nicht nur Fachabteilungen.
+TR-EXPL: Herkese açık yapay zeka hizmetlerinde, girilen verilerin saklanıp saklanmadığı, model geliştirmede kullanılıp kullanılmadığı veya başka şekilde işlenip işlenmediği çoğu zaman şeffaf değildir. Bu nedenle gizli veya kişisel veriler yalnızca kendi kurumunuzun incelediği ve onayladığı araçlara girilmelidir - bu konudaki şirket çapında bir politika yalnızca uzman departmanları değil, tüm çalışanları ilgilendirir.
+
+===== ID it_sicherheit-ki_bedrohungen-08 correct=['b'] =====
+DE-Q: Sie vermuten, dass Sie soeben Ziel eines KI-gestützten Betrugsversuchs (z. B. Deepfake-Anruf oder täuschend echte KI-Phishing-Mail) geworden sind, konnten den Betrug aber rechtzeitig erkennen und haben nicht reagiert. Sollten Sie den Vorfall trotzdem melden?
+TR-Q: Az önce yapay zeka destekli bir dolandırıcılık girişiminin (ör. deepfake araması veya gerçeğine çok benzeyen yapay zeka phishing e-postası) hedefi olduğunuzu düşünüyorsunuz, ancak dolandırıcılığı zamanında fark edip tepki vermediniz. Olayı yine de bildirmeli misiniz?
+  DE[a]: Nein, da nichts passiert ist, besteht kein Handlungsbedarf
+  TR[a]: Hayır, hiçbir şey olmadığı için harekete geçmeye gerek yoktur
+  DE[b]: Ja - der gleiche Meldeweg wie bei jedem anderen Social-Engineering-Versuch gilt auch hier, damit andere Kolleginnen und Kollegen gewarnt und ähnliche Angriffe erkannt werden können
+  TR[b]: Evet - diğer sosyal mühendislik girişimlerinde olduğu gibi aynı bildirim yolu burada da geçerlidir, böylece diğer meslektaşlar uyarılabilir ve benzer saldırılar tanınabilir
+  DE[c]: Nur melden, wenn tatsächlich ein finanzieller Schaden entstanden ist
+  TR[c]: Yalnızca gerçekten mali bir zarar oluşmuşsa bildirin
+  DE[d]: Nur melden, wenn die IT-Abteilung ausdrücklich danach fragt
+  TR[d]: Yalnızca BT departmanı açıkça sorarsa bildirin
+DE-EXPL: Auch ein abgewehrter Angriffsversuch liefert wertvolle Informationen - etwa welche Masche gerade im Umlauf ist oder ob mehrere Mitarbeitende gleichzeitig angegriffen wurden. Frühzeitiges Melden erkannter, aber erfolgloser Versuche ist ein zentraler Baustein einer wirksamen Sicherheitskultur.
+TR-EXPL: Başarısızlığa uğratılmış bir saldırı girişimi bile değerli bilgiler sağlar - ör. şu anda hangi dolandırıcılık yönteminin dolaşımda olduğu veya birden fazla çalışanın aynı anda hedef alınıp alınmadığı gibi. Fark edilen ama başarısız olan girişimlerin erken bildirilmesi, etkili bir güvenlik kültürünün temel bir parçasıdır.

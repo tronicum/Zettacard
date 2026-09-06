@@ -7,7 +7,7 @@
       "c": "Se sustituye cada tres días por una contraseña muy parecida",
       "d": "Consiste solo en cifras, porque eso acelera la escritura"
     },
-    "explanation": "La longitud y la unicidad son los factores más importantes frente a los intentos automatizados y frente al llamado credential stuffing, en el que se prueban credenciales robadas de otros servicios. Una contraseña relacionada con el puesto de trabajo es fácil de adivinar, cambiarla frecuentemente por una muy parecida apenas aporta seguridad, y las contraseñas puramente numéricas tienen demasiadas pocas combinaciones posibles."
+    "explanation": "La longitud y la unicidad son los factores más importantes frente a los intentos automatizados y frente al llamado credential stuffing, en el que se prueban credenciales robadas de otros servicios. Una contraseña relacionada con el puesto de trabajo es fácil de adivinar, cambiarla frecuentemente por una muy parecida apenas aporta seguridad, y las contraseñas puramente numéricas tienen demasiado pocas combinaciones posibles."
   },
   "it_sicherheit-zugriffsschutz-02": {
     "question": "¿Por qué se considera la autenticación multifactor (MFA) mucho más segura que una contraseña por sí sola?",
@@ -367,7 +367,7 @@
       "c": "Solo un informe final, que debe estar completamente terminado en un plazo de 24 horas tras el incidente",
       "d": "Solo es necesaria una notificación cuando un incidente ya se ha hecho público"
     },
-    "explanation": "La directiva NIS2 prevé un procedimiento escalonado: una alerta temprana en un plazo de 24 horas desde el conocimiento del incidente, una notificación más detallada en un plazo de 72 horas, y un informe final a más tardar un mes después de dicha notificación. Esta escalonamiento permite una primera reacción rápida, incluso cuando aún no se conocen todos los detalles. Una notificación única al cabo de un año, un informe completo inmediato en 24 horas o esperar a que se haga público el incidente no corresponden al procedimiento real."
+    "explanation": "La directiva NIS2 prevé un procedimiento escalonado: una alerta temprana en un plazo de 24 horas desde el conocimiento del incidente, una notificación más detallada en un plazo de 72 horas, y un informe final a más tardar un mes después de dicha notificación. Este escalonamiento permite una primera reacción rápida, incluso cuando aún no se conocen todos los detalles. Una notificación única al cabo de un año, un informe completo inmediato en 24 horas o esperar a que se haga público el incidente no corresponden al procedimiento real."
   },
   "it_sicherheit-meldepflicht_it-06": {
     "question": "¿Según qué idea básica determina la directiva NIS2 si un incidente de seguridad se considera \"importante\" y, por tanto, sujeto a la obligación de notificación?",
@@ -460,14 +460,14 @@
     "explanation": "La urgencia, la confidencialidad y la supuesta inaccesibilidad del remitente son las tácticas de presión clásicas del fraude del CEO: buscan precisamente impedir que se siga el proceso de aprobación habitual (p. ej., el principio de doble validación). Un atacante que responde a un correo sigue siendo el mismo atacante; solo un canal de verificación independiente aporta seguridad real."
   },
   "it_sicherheit-social_engineering-07": {
-    "question": "Un correo electrónico, aparentemente de un proveedor de larga confianza, informa de que sus datos bancarios han cambiado y pide que los pagos futuros se realicen en la nueva cuenta. ¿Cuál es el primer paso correcto?",
+    "question": "Un correo electrónico, aparentemente de un proveedor con el que se trabaja desde hace años, informa de que sus datos bancarios han cambiado y pide que los pagos futuros se realicen en la nueva cuenta. ¿Cuál es el primer paso correcto?",
     "options": {
       "a": "Actualizar de inmediato los datos de pago en el sistema, ya que el proveedor es conocido",
       "b": "Verificar el cambio a través de un contacto independiente y ya conocido en el proveedor (un número de teléfono de documentación anterior, no el del correo) antes de cambiar nada",
       "c": "Enviar una pequeña transferencia de prueba a la nueva cuenta para comprobarla",
       "d": "Ignorar el correo, pero bloquear igualmente los datos bancarios antiguos por precaución"
     },
-    "explanation": "Los cambios de datos bancarios son un objetivo predilecto de los ataques de tipo Business Email Compromise, ya que la cuenta de correo de un proveedor puede verse comprometida y las facturas pueden falsificarse de forma muy convincente. La verificación a través de un canal independiente ya conocido por colaboraciones previas es la única protección fiable; una transferencia de prueba no protege en absoluto el importe real."
+    "explanation": "Los cambios de datos bancarios son un objetivo predilecto de los ataques de tipo Business Email Compromise, ya que la cuenta de correo de un proveedor puede verse comprometida y las facturas pueden falsificarse de forma muy convincente. La verificación a través de un canal independiente ya conocido por colaboraciones previas es la única protección fiable; una transferencia de prueba no protege frente a la pérdida del importe real."
   },
   "it_sicherheit-social_engineering-08": {
     "question": "Un compañero ha olvidado su tarjeta de acceso y le pide simplemente que lo deje pasar por la puerta de seguridad con su propia tarjeta ('badge sharing'). ¿Cuál es la reacción correcta?",
@@ -547,7 +547,7 @@
       "c": "El ordenador está algo más silencioso de lo habitual",
       "d": "No hay señales detectables antes de que aparezca la nota de rescate"
     },
-    "explanation": "El cifrado en sí suele ejecutarse en segundo plano antes de que la nota de rescate se haga visible; el renombrado masivo de archivos, una ralentización notable y avisos repetidos del antivirus son señales de alerta temprana, en las que informar de inmediato aún puede limitar el daño mientras ocurre."
+    "explanation": "El cifrado en sí suele ejecutarse en segundo plano antes de que la nota de rescate se haga visible; el renombrado masivo de archivos, una ralentización notable y avisos repetidos del antivirus son señales de alerta temprana, en las que informar de inmediato aún puede limitar el daño que se está produciendo."
   },
   "it_sicherheit-ransomware-08": {
     "question": "¿Cuáles de las siguientes medidas reducen el riesgo de que el ransomware se propague por la red de la empresa? (Selección múltiple)",
@@ -584,7 +584,7 @@
     "options": {
       "a": "Porque los programas de correo ahora corrigen automáticamente las faltas de ortografía",
       "b": "Porque las faltas de ortografía nunca fueron en realidad un criterio fiable",
-      "c": "Porque los modelos de lenguaje de IA pueden generar textos de phishing lingüísticamente impecables y personalizados, lo que hace más importantes otras señales de alerta, como una dirección de remitente incorrecta, enlaces inusuales o urgencia inesperada",
+      "c": "Porque los modelos de lenguaje de IA pueden generar textos de phishing lingüísticamente impecables y personalizados, lo que hace más importantes otras señales de alerta, como una dirección de remitente que no coincide, enlaces inusuales o urgencia inesperada",
       "d": "Porque los ataques de phishing modernos ya no utilizan texto"
     },
     "explanation": "Los textos generados por IA a menudo ya no se distinguen lingüísticamente de una comunicación genuina y, además, pueden adaptarse individualmente a la persona objetivo. Por eso, los puntos de comprobación más fiables siguen siendo la dirección real del remitente, la URL de destino real de un enlace, y si la solicitud es plausible en su contenido y llega por el canal esperado."

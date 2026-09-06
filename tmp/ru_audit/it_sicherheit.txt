@@ -1,0 +1,895 @@
+=== ID it_sicherheit-zugriffsschutz-01 | correct=['b'] ===
+DE Q: Welche Eigenschaft macht ein Passwort grundsätzlich sicherer gegen automatisierte Rateangriffe?
+RU Q: Какое свойство делает пароль принципиально более устойчивым к автоматизированным атакам подбора?
+  DE[a]: Es enthält den Namen der Abteilung, damit man es sich leichter merken kann
+  RU[a]: Он содержит название отдела, чтобы его было легче запомнить
+  DE[b]: Es ist lang, einzigartig für diesen einen Account und nicht leicht zu erraten
+  RU[b]: Он длинный, уникальный для этой одной учётной записи и его трудно угадать
+  DE[c]: Es wird alle drei Tage durch ein sehr ähnliches Passwort ersetzt
+  RU[c]: Его каждые три дня заменяют на очень похожий пароль
+  DE[d]: Es besteht nur aus Ziffern, weil das die Eingabe beschleunigt
+  RU[d]: Он состоит только из цифр, потому что это ускоряет ввод
+DE EXP: Länge und Einzigartigkeit sind die wichtigsten Faktoren gegen automatisiertes Ausprobieren und gegen sogenanntes Credential Stuffing, bei dem gestohlene Zugangsdaten aus anderen Diensten ausprobiert werden. Ein Passwort mit Bezug zum Arbeitsplatz ist leicht zu erraten, häufiges Wechseln auf ein sehr ähnliches Passwort bringt kaum Sicherheitsgewinn, und rein numerische Passwörter haben zu wenig mögliche Kombinationen.
+RU EXP: Длина и уникальность — важнейшие факторы против автоматизированного подбора и так называемого credential stuffing, когда пробуются украденные учётные данные из других сервисов. Пароль, связанный с рабочим местом, легко угадать, частая смена на очень похожий пароль почти не повышает безопасность, а чисто цифровые пароли имеют слишком мало возможных комбинаций.
+
+=== ID it_sicherheit-zugriffsschutz-02 | correct=['c'] ===
+DE Q: Warum gilt Multi-Faktor-Authentifizierung (MFA) als deutlich sicherer als ein Passwort allein?
+RU Q: Почему многофакторная аутентификация (MFA) считается значительно более безопасной, чем один только пароль?
+  DE[a]: Weil sie das Passwort überflüssig macht und man sich nichts mehr merken muss
+  RU[a]: Потому что она делает пароль ненужным и больше ничего не нужно запоминать
+  DE[b]: Weil sie das Konto vor allen Arten von Angriffen vollständig schützt
+  RU[b]: Потому что она полностью защищает учётную запись от всех видов атак
+  DE[c]: Weil ein Angreifer selbst bei einem gestohlenen Passwort zusätzlich den zweiten Faktor bräuchte
+  RU[c]: Потому что злоумышленнику, даже имея украденный пароль, дополнительно потребовался бы второй фактор
+  DE[d]: Weil sie ausschließlich für Administratorkonten technisch möglich ist
+  RU[d]: Потому что она технически возможна только для учётных записей администраторов
+DE EXP: MFA kombiniert etwas, das man weiß (Passwort), mit etwas, das man besitzt (z. B. eine App oder ein Token) oder ist. Ein gestohlenes Passwort allein reicht einem Angreifer damit nicht mehr aus. MFA ersetzt das Passwort nicht, bietet keinen vollständigen Schutz gegen jede Angriffsart und ist heute für praktisch jedes Nutzerkonto verfügbar, nicht nur für Administratoren.
+RU EXP: MFA сочетает что-то, что человек знает (пароль), с чем-то, что он имеет (например, приложение или токен), или чем он является. Одного украденного пароля злоумышленнику уже недостаточно. MFA не заменяет пароль, не даёт полной защиты от любого вида атак и сегодня доступна практически для любой учётной записи пользователя, а не только для администраторов.
+
+=== ID it_sicherheit-zugriffsschutz-03 | correct=['a'] ===
+DE Q: Ein Kollege bittet Sie, kurz sein persönliches Benutzerkonto samt Passwort mitzubenutzen, weil sein eigener Zugang gerade gesperrt ist. Wie sollten Sie reagieren?
+RU Q: Коллега просит вас ненадолго воспользоваться его личной учётной записью вместе с паролем, так как его собственный доступ сейчас заблокирован. Как вам следует отреагировать?
+  DE[a]: Ablehnen und stattdessen den zuständigen IT-Support oder die Führungskraft informieren
+  RU[a]: Отказать и вместо этого сообщить в соответствующую ИТ-поддержку или руководителю
+  DE[b]: Zustimmen, solange nur kurzfristig damit gearbeitet wird
+  RU[b]: Согласиться, если это будет только кратковременным использованием
+  DE[c]: Zustimmen, aber danach das Passwort des Kollegen selbst ändern
+  RU[c]: Согласиться, но затем самому сменить пароль коллеги
+  DE[d]: Zustimmen, wenn die Aufgabe dringend ist und kein anderer Zugang möglich erscheint
+  RU[d]: Согласиться, если задача срочная и другого доступа, кажется, нет
+DE EXP: Konten sind personenbezogen, damit Handlungen im System eindeutig einer Person zuordenbar bleiben (Nachvollziehbarkeit). Wird ein Konto geteilt, lässt sich im Nachhinein nicht mehr klären, wer was getan hat - das erschwert auch die Aufklärung von Sicherheitsvorfällen erheblich. Dringlichkeit rechtfertigt keine Ausnahme; der richtige Weg ist, den eigentlichen Zugriffsweg über IT-Support wiederherzustellen.
+RU EXP: Учётные записи являются персональными, чтобы действия в системе всегда можно было однозначно отнести к конкретному человеку (прослеживаемость). Если учётную запись делят, впоследствии невозможно установить, кто что сделал — это также существенно затрудняет расследование инцидентов безопасности. Срочность не оправдывает исключения; правильный путь — восстановить собственный доступ через ИТ-поддержку.
+
+=== ID it_sicherheit-zugriffsschutz-04 | correct=['b'] ===
+DE Q: Sie verlassen Ihren Arbeitsplatz für ein kurzes Gespräch im Nachbarbüro. Was ist der richtige Umgang mit Ihrem entsperrten Computer?
+RU Q: Вы покидаете своё рабочее место для короткого разговора в соседнем кабинете. Как правильно поступить с разблокированным компьютером?
+  DE[a]: Nichts unternehmen, da es sich um ein internes Bürogebäude handelt
+  RU[a]: Ничего не предпринимать, так как это внутреннее офисное здание
+  DE[b]: Den Bildschirm sperren, bevor Sie den Arbeitsplatz verlassen
+  RU[b]: Заблокировать экран перед тем, как покинуть рабочее место
+  DE[c]: Nur das geöffnete Dokument schließen, der Rest kann offen bleiben
+  RU[c]: Закрыть только открытый документ, остальное может остаться открытым
+  DE[d]: Den Monitor ausschalten, das genügt als Schutz
+  RU[d]: Выключить монитор, этого достаточно как защита
+DE EXP: Ein entsperrter Rechner erlaubt jedem, der kurz Zugang zum Raum hat - auch Besuchern, Reinigungspersonal oder unbefugten Dritten -, auf alle geöffneten Programme und Daten zuzugreifen. Ein ausgeschalteter Monitor ändert daran nichts, da die Sitzung im Hintergrund weiterläuft. Bildschirmsperren (z. B. per Tastenkürzel) sind eine einfache, wirksame Basismaßnahme, unabhängig davon, wie vertrauenswürdig die Umgebung erscheint.
+RU EXP: Разблокированный компьютер позволяет любому, кто ненадолго получит доступ в помещение — включая посетителей, уборщиков или посторонних лиц, — получить доступ ко всем открытым программам и данным. Выключенный монитор ничего не меняет, так как сеанс продолжает работать в фоновом режиме. Блокировка экрана (например, сочетанием клавиш) — простая и эффективная базовая мера, независимо от того, насколько надёжной кажется обстановка.
+
+=== ID it_sicherheit-phishing-01 | correct=['c'] ===
+DE Q: Welches der folgenden Merkmale ist ein typisches Warnsignal für eine Phishing-E-Mail?
+RU Q: Какой из следующих признаков является типичным тревожным сигналом фишингового письма?
+  DE[a]: Die E-Mail kommt während der üblichen Arbeitszeit an
+  RU[a]: Письмо приходит в обычное рабочее время
+  DE[b]: Die E-Mail enthält das Firmenlogo im Anhang
+  RU[b]: Письмо содержит логотип компании во вложении
+  DE[c]: Die E-Mail erzeugt Zeitdruck und fordert zu einer sofortigen, unüblichen Handlung auf
+  RU[c]: Письмо создаёт давление времени и требует немедленного, нетипичного действия
+  DE[d]: Die E-Mail wurde an mehrere Kollegen gleichzeitig verschickt
+  RU[d]: Письмо было отправлено одновременно нескольким коллегам
+DE EXP: Angreifer setzen gezielt auf künstlichen Zeitdruck und emotionale Dringlichkeit, damit Empfänger nicht in Ruhe nachdenken oder Rücksprache halten, sondern sofort handeln - etwa auf einen Link klicken oder Daten preisgeben. Logos, normale Versandzeiten oder ein größerer Empfängerkreis sagen für sich genommen nichts über die Echtheit einer Nachricht aus, da Logos leicht kopiert und Versandzeiten sowie Empfängerlisten beliebig gewählt werden können.
+RU EXP: Злоумышленники целенаправленно используют искусственное давление времени и эмоциональную срочность, чтобы получатель не успел спокойно подумать или посоветоваться, а действовал немедленно — например, нажал на ссылку или раскрыл данные. Логотипы, обычное время отправки или более широкий круг получателей сами по себе ничего не говорят о подлинности сообщения, поскольку логотипы легко скопировать, а время отправки и списки получателей можно выбрать произвольно.
+
+=== ID it_sicherheit-phishing-02 | correct=['b'] ===
+DE Q: Sie erhalten scheinbar von der Geschäftsführung eine E-Mail, die Sie auffordert, dringend und vertraulich eine hohe Summe an ein neues, unbekanntes Konto zu überweisen. Was ist der richtige erste Schritt?
+RU Q: Вы получаете якобы от руководства письмо, требующее срочно и конфиденциально перевести крупную сумму на новый, неизвестный счёт. Каков правильный первый шаг?
+  DE[a]: Die Überweisung sofort ausführen, da Anweisungen der Geschäftsführung Vorrang haben
+  RU[a]: Немедленно выполнить перевод, так как указания руководства имеют приоритет
+  DE[b]: Die Anfrage über einen bekannten, unabhängigen Kanal (z. B. Telefonanruf) persönlich verifizieren, bevor irgendetwas geschieht
+  RU[b]: Лично проверить запрос через известный, независимый канал (например, телефонный звонок), прежде чем что-либо предпринимать
+  DE[c]: Auf die E-Mail antworten und dort nach einer schriftlichen Bestätigung fragen
+  RU[c]: Ответить на письмо и попросить там письменное подтверждение
+  DE[d]: Die Überweisung durchführen, aber einen kleineren Betrag als angefordert senden
+  RU[d]: Выполнить перевод, но отправить сумму меньше запрошенной
+DE EXP: Dieses Muster wird häufig als "CEO-Fraud" bezeichnet: Angreifer geben sich als Führungskraft aus und nutzen Autorität, Vertraulichkeit und Zeitdruck, um Kontrollen zu umgehen. Eine Antwort innerhalb derselben E-Mail-Konversation hilft nicht, da der Angreifer genau diesen Kanal kontrolliert. Entscheidend ist die Verifikation über einen unabhängigen, bereits bekannten Kontaktweg - etwa ein Anruf unter einer hinterlegten Telefonnummer -, bevor irgendeine Zahlung oder Handlung erfolgt.
+RU EXP: Эту схему часто называют "мошенничество от имени руководителя": злоумышленники выдают себя за руководителя и используют авторитет, конфиденциальность и давление времени, чтобы обойти контроль. Ответ в той же переписке по электронной почте не поможет, поскольку именно этот канал контролирует злоумышленник. Решающее значение имеет проверка через независимый, уже известный канал связи — например, звонок по сохранённому номеру телефона — прежде чем совершить любой платёж или действие.
+
+=== ID it_sicherheit-phishing-03 | correct=['a'] ===
+DE Q: In einer E-Mail wird ein Link angezeigt, der angeblich zur bekannten Login-Seite Ihres Unternehmens führt. Wie prüfen Sie am sinnvollsten, ob der Link vertrauenswürdig ist, ohne ihn anzuklicken?
+RU Q: В письме показана ссылка, которая якобы ведёт на известную страницу входа вашей компании. Как наиболее разумно проверить надёжность ссылки, не нажимая на неё?
+  DE[a]: Mit der Maus über den Link fahren (ohne zu klicken) und die tatsächliche Zieladresse in der Statusanzeige prüfen
+  RU[a]: Навести курсор мыши на ссылку (не нажимая) и проверить фактический адрес назначения в строке состояния
+  DE[b]: Den Link anklicken und dann sofort schauen, ob die Seite echt aussieht
+  RU[b]: Нажать на ссылку и сразу посмотреть, выглядит ли страница подлинной
+  DE[c]: Prüfen, ob die E-Mail in korrektem Deutsch geschrieben ist
+  RU[c]: Проверить, написано ли письмо на правильном немецком языке
+  DE[d]: Den Absendernamen im Anzeigefeld des E-Mail-Programms kontrollieren
+  RU[d]: Проверить имя отправителя, отображаемое в почтовой программе
+DE EXP: Der angezeigte Linktext kann beliebig von der tatsächlichen Zieladresse abweichen; erst das Überfahren mit der Maus zeigt die reale URL in der Statusleiste des Browsers oder E-Mail-Programms. Anklicken birgt bereits ein Risiko, da manche gefälschten Seiten automatisch Schadcode laden. Fehlerfreie Sprache ist kein verlässliches Kriterium mehr, da Phishing-Texte heute oft sehr professionell wirken, und der angezeigte Absendername lässt sich leicht fälschen, ohne dass die tatsächliche Absenderadresse dazu passt.
+RU EXP: Отображаемый текст ссылки может произвольно отличаться от фактического адреса назначения; только наведение курсора мыши показывает реальный URL в строке состояния браузера или почтовой программы. Само нажатие уже несёт риск, поскольку некоторые поддельные страницы автоматически загружают вредоносный код. Безупречный язык больше не является надёжным критерием, поскольку фишинговые тексты сегодня часто выглядят очень профессионально, а отображаемое имя отправителя легко подделать без соответствия фактическому адресу отправителя.
+
+=== ID it_sicherheit-phishing-04 | correct=['d'] ===
+DE Q: Sie haben auf einen Link in einer verdächtigen E-Mail geklickt und dort versehentlich Ihre Zugangsdaten eingegeben. Was ist die richtige Reaktion?
+RU Q: Вы нажали на ссылку в подозрительном письме и случайно ввели там свои учётные данные. Какова правильная реакция?
+  DE[a]: Abwarten, ob sich etwas Ungewöhnliches im Konto zeigt, und erst dann reagieren
+  RU[a]: Подождать, не появится ли что-то необычное в учётной записи, и реагировать только тогда
+  DE[b]: Nichts tun, da es sich vermutlich um einen harmlosen Einzelfall handelt
+  RU[b]: Ничего не делать, так как это, вероятно, безобидный единичный случай
+  DE[c]: Das Passwort in den nächsten Tagen ändern, wenn Zeit dafür ist
+  RU[c]: Сменить пароль в ближайшие дни, когда будет время
+  DE[d]: Sofort das Passwort ändern und den Vorfall umgehend der zuständigen internen Stelle (z. B. IT-Sicherheit) melden
+  RU[d]: Немедленно сменить пароль и незамедлительно сообщить об инциденте в соответствующее внутреннее подразделение (например, ИТ-безопасность)
+DE EXP: Je schneller ein kompromittiertes Zugangsdatum geändert und der Vorfall gemeldet wird, desto kleiner bleibt das Zeitfenster, in dem ein Angreifer die gestohlenen Daten missbrauchen kann. Abwarten, Nichtstun oder Verzögern erhöht das Risiko unnötig, insbesondere wenn dasselbe Passwort auch für weitere Systeme genutzt wird. Die Meldung an die zuständige Stelle ermöglicht zusätzlich, weitere Schutzmaßnahmen einzuleiten und andere Beschäftigte zu warnen.
+RU EXP: Чем быстрее будут изменены скомпрометированные учётные данные и сообщено об инциденте, тем меньше остаётся временное окно, в котором злоумышленник может злоупотребить украденными данными. Ожидание, бездействие или промедление неоправданно повышают риск, особенно если тот же пароль используется и для других систем. Сообщение в соответствующее подразделение дополнительно позволяет принять дальнейшие защитные меры и предупредить других сотрудников.
+
+=== ID it_sicherheit-datensicherung-01 | correct=['b'] ===
+DE Q: Warum sind regelmäßige, geplante Datensicherungen (Backups) wichtig, auch wenn ein Gerät technisch zuverlässig läuft?
+RU Q: Почему регулярное, запланированное резервное копирование данных важно, даже если устройство технически работает надёжно?
+  DE[a]: Weil Backups die Notwendigkeit von Passwörtern ersetzen
+  RU[a]: Потому что резервные копии заменяют необходимость в паролях
+  DE[b]: Weil Daten auch durch Fehlbedienung, technischen Defekt oder Schadsoftware wie Ransomware verloren gehen können, unabhängig von der aktuellen Zuverlässigkeit des Geräts
+  RU[b]: Потому что данные могут быть утрачены также из-за неправильного использования, технической неисправности или вредоносного ПО, такого как программы-вымогатели, независимо от текущей надёжности устройства
+  DE[c]: Weil Backups ausschließlich für sehr alte Geräte vorgeschrieben sind
+  RU[c]: Потому что резервные копии обязательны только для очень старых устройств
+  DE[d]: Weil ohne Backup die Internetverbindung langsamer wird
+  RU[d]: Потому что без резервной копии интернет-соединение становится медленнее
+DE EXP: Ein Backup schützt vor ganz unterschiedlichen Ursachen für Datenverlust: versehentliches Löschen, Hardwaredefekte, aber auch Ransomware, die Dateien verschlüsselt. Die bisherige Zuverlässigkeit eines Geräts sagt nichts über zukünftige Ausfälle oder Angriffe aus. Backups haben nichts mit Passwörtern oder Internetgeschwindigkeit zu tun und sind unabhängig vom Alter des Geräts sinnvoll.
+RU EXP: Резервная копия защищает от самых разных причин потери данных: случайного удаления, аппаратных сбоев, а также программ-вымогателей, шифрующих файлы. Прежняя надёжность устройства ничего не говорит о будущих сбоях или атаках. Резервные копии не имеют ничего общего с паролями или скоростью интернета и имеют смысл независимо от возраста устройства.
+
+=== ID it_sicherheit-datensicherung-02 | correct=['c'] ===
+DE Q: Sie finden auf dem Firmenparkplatz einen USB-Stick ohne Kennzeichnung. Was ist der richtige Umgang damit?
+RU Q: Вы находите на парковке компании USB-накопитель без маркировки. Как правильно поступить?
+  DE[a]: Den Stick an einem Firmenrechner einstecken, um herauszufinden, wem er gehört
+  RU[a]: Подключить накопитель к компьютеру компании, чтобы выяснить, кому он принадлежит
+  DE[b]: Den Stick mitnehmen und privat weiterverwenden, da niemand ihn vermisst
+  RU[b]: Забрать накопитель и использовать его в личных целях, раз никто его не ищет
+  DE[c]: Den Stick nicht anschließen, sondern der IT-Abteilung oder dem Sicherheitspersonal übergeben
+  RU[c]: Не подключать накопитель, а передать его в ИТ-отдел или службу безопасности
+  DE[d]: Den Stick an einem privaten Gerät prüfen, bevor eine Entscheidung getroffen wird
+  RU[d]: Проверить накопитель на личном устройстве, прежде чем принять решение
+DE EXP: Unbekannte USB-Sticks sind ein klassisches Einfallstor für Schadsoftware: Sie können so präpariert sein, dass sie beim Einstecken automatisch Schadcode ausführen, auch bevor eine Datei geöffnet wird. Das gilt für Firmenrechner ebenso wie für private Geräte. Der sichere Weg ist, den Fund nicht selbst zu untersuchen, sondern an die zuständige Stelle weiterzugeben, die ihn kontrolliert prüfen kann.
+RU EXP: Неизвестные USB-накопители — классический путь проникновения вредоносного ПО: они могут быть подготовлены так, чтобы автоматически выполнять вредоносный код при подключении, ещё до открытия какого-либо файла. Это относится как к компьютерам компании, так и к личным устройствам. Безопасный путь — не исследовать находку самостоятельно, а передать её ответственной службе, которая сможет проверить её контролируемым образом.
+
+=== ID it_sicherheit-datensicherung-03 | correct=['a'] ===
+DE Q: Warum sollten Sie Sicherheitsupdates für Betriebssystem und Programme auf Ihrem Arbeitsgerät zeitnah installieren, wenn das System es anbietet?
+RU Q: Почему вам следует своевременно устанавливать обновления безопасности операционной системы и программ на рабочем устройстве, когда система их предлагает?
+  DE[a]: Weil Updates häufig bekannt gewordene Sicherheitslücken schließen, die sonst von Angreifern ausgenutzt werden können
+  RU[a]: Потому что обновления часто закрывают ставшие известными уязвимости безопасности, которые иначе могли бы использовать злоумышленники
+  DE[b]: Weil Updates hauptsächlich das Design der Benutzeroberfläche verbessern
+  RU[b]: Потому что обновления в основном улучшают дизайн пользовательского интерфейса
+  DE[c]: Weil Updates ausschließlich die Geschwindigkeit des Geräts erhöhen
+  RU[c]: Потому что обновления исключительно повышают скорость устройства
+  DE[d]: Weil Updates nur bei privat genutzten Geräten sicherheitsrelevant sind
+  RU[d]: Потому что обновления важны для безопасности только на устройствах личного использования
+DE EXP: Sicherheitslücken in Betriebssystemen und Anwendungen werden fortlaufend entdeckt und veröffentlicht; Hersteller schließen sie über Updates. Wird ein Update aufgeschoben, bleibt die Lücke offen, und Angreifer nutzen häufig gerade den Zeitraum kurz nach Bekanntwerden gezielt aus. Oberflächengestaltung oder Geschwindigkeit sind allenfalls Nebeneffekte, nicht der eigentliche Sicherheitsgrund, und die Update-Disziplin gilt für dienstliche Geräte genauso wie für private.
+RU EXP: Уязвимости безопасности в операционных системах и приложениях постоянно обнаруживаются и публикуются; производители закрывают их с помощью обновлений. Если обновление откладывается, уязвимость остаётся открытой, и злоумышленники часто целенаправленно используют именно период сразу после её обнародования. Оформление интерфейса или скорость — в лучшем случае побочные эффекты, а не истинная причина безопасности, а дисциплина обновлений касается служебных устройств так же, как и личных.
+
+=== ID it_sicherheit-datensicherung-04 | correct=['d'] ===
+DE Q: Ein Kollege empfiehlt Ihnen ein praktisches, kostenloses Zusatzprogramm aus dem Internet für Ihren Firmenrechner. Wie gehen Sie am sinnvollsten vor?
+RU Q: Коллега рекомендует вам удобную бесплатную дополнительную программу из интернета для вашего рабочего компьютера. Как наиболее разумно поступить?
+  DE[a]: Das Programm sofort installieren, da es kostenlos ist und keine Kosten verursacht
+  RU[a]: Установить программу сразу, так как она бесплатна и не влечёт затрат
+  DE[b]: Das Programm installieren, aber nur auf dem Rechner, nicht auf dem Diensthandy
+  RU[b]: Установить программу, но только на компьютер, не на служебный телефон
+  DE[c]: Das Programm installieren, solange es von einer bekannten Webseite heruntergeladen wird
+  RU[c]: Установить программу, если она загружена с известного веб-сайта
+  DE[d]: Vor der Installation die zuständige IT-Stelle fragen, ob und wie die Software freigegeben werden kann
+  RU[d]: Перед установкой спросить соответствующее ИТ-подразделение, можно ли и как разрешить это программное обеспечение
+DE EXP: Nicht freigegebene Software kann Sicherheitslücken enthalten, mit anderen Programmen in Konflikt geraten oder gegen Lizenz- und Compliance-Vorgaben verstoßen - unabhängig davon, ob sie kostenlos ist, von welcher Webseite sie stammt oder auf welchem Gerätetyp sie installiert wird. Die IT-Abteilung kann prüfen, ob eine Software sicher und regelkonform eingesetzt werden kann, und gegebenenfalls eine geprüfte Alternative bereitstellen.
+RU EXP: Неутверждённое программное обеспечение может содержать уязвимости безопасности, конфликтовать с другими программами или нарушать требования лицензирования и соответствия — независимо от того, бесплатно ли оно, с какого сайта происходит или на каком типе устройства устанавливается. ИТ-отдел может проверить, можно ли использовать программу безопасно и в соответствии с правилами, и при необходимости предоставить проверенную альтернативу.
+
+=== ID it_sicherheit-mobil_homeoffice-01 | correct=['b'] ===
+DE Q: Welche Maßnahme trägt am meisten dazu bei, das heimische WLAN für dienstliche Arbeit im Homeoffice abzusichern?
+RU Q: Какая мера больше всего способствует защите домашней Wi-Fi сети для служебной работы в дистанционном формате?
+  DE[a]: Den Namen (SSID) des WLANs so einstellen, dass er unauffällig klingt
+  RU[a]: Настроить имя (SSID) Wi-Fi так, чтобы оно звучало неприметно
+  DE[b]: Ein starkes, individuelles WLAN-Passwort und eine aktuelle Verschlüsselung (z. B. WPA2/WPA3) verwenden
+  RU[b]: Использовать надёжный, индивидуальный пароль Wi-Fi и современное шифрование (например, WPA2/WPA3)
+  DE[c]: Das WLAN nur tagsüber einschalten und nachts komplett abschalten
+  RU[c]: Включать Wi-Fi только днём и полностью выключать ночью
+  DE[d]: Den werkseitig voreingestellten Router-Zugang unverändert beibehalten, um Fehler zu vermeiden
+  RU[d]: Оставить заводской доступ к маршрутизатору без изменений, чтобы избежать ошибок
+DE EXP: Ein starkes, individuelles Passwort zusammen mit moderner Verschlüsselung verhindert, dass Unbefugte in Reichweite sich einfach ins Netzwerk einklinken und den Datenverkehr mitlesen oder manipulieren können. Ein unauffälliger Netzwerkname bietet keinen technischen Schutz, ein zeitweises Abschalten löst das Grundproblem nicht, und werkseitige Voreinstellungen (Standardpasswörter, Standard-SSID) sind oft öffentlich bekannt und daher besonders unsicher.
+RU EXP: Надёжный, индивидуальный пароль вместе с современным шифрованием не позволяет посторонним лицам в зоне действия легко подключиться к сети и читать или изменять трафик данных. Неприметное имя сети не даёт технической защиты, временное отключение не решает основную проблему, а заводские настройки (пароли по умолчанию, стандартный SSID) часто общеизвестны и потому особенно небезопасны.
+
+=== ID it_sicherheit-mobil_homeoffice-02 | correct=['c'] ===
+DE Q: Sie müssen unterwegs kurz auf dienstliche E-Mails zugreifen und finden ein offenes, unverschlüsseltes WLAN in einem Café. Wie gehen Sie am sichersten vor?
+RU Q: Вам нужно ненадолго получить доступ к служебной почте в дороге, и вы находите открытую, незашифрованную Wi-Fi сеть в кафе. Как поступить наиболее безопасно?
+  DE[a]: Das offene WLAN direkt nutzen, da E-Mail-Abrufe unkritisch sind
+  RU[a]: Использовать открытую Wi-Fi сеть напрямую, так как проверка почты некритична
+  DE[b]: Das offene WLAN nutzen, aber vorher das eigene Passwort ändern
+  RU[b]: Использовать открытую Wi-Fi сеть, но сначала сменить собственный пароль
+  DE[c]: Statt des offenen WLANs eine gesicherte Verbindung nutzen, etwa mobile Daten oder ein Firmen-VPN
+  RU[c]: Вместо открытой Wi-Fi сети использовать защищённое соединение, например мобильные данные или корпоративный VPN
+  DE[d]: Das offene WLAN nutzen, solange die Café-Webseite ein Schloss-Symbol in der Adresszeile zeigt
+  RU[d]: Использовать открытую Wi-Fi сеть, если сайт кафе показывает значок замка в адресной строке
+DE EXP: In offenen, unverschlüsselten WLANs kann der Datenverkehr von Dritten im selben Netz mitgelesen oder umgeleitet werden, auch wenn einzelne Webseiten selbst verschlüsselt sind (das Schloss-Symbol bezieht sich nur auf diese eine Verbindung, nicht auf das gesamte Netz). Mobile Daten oder ein Firmen-VPN bauen eine zusätzlich abgesicherte, verschlüsselte Verbindung auf, die deutlich schwerer abzuhören ist. Ein vorheriger Passwortwechsel löst das eigentliche Risiko nicht.
+RU EXP: В открытых, незашифрованных Wi-Fi сетях трафик данных может быть прочитан или перенаправлен третьими лицами в той же сети, даже если отдельные веб-сайты сами по себе зашифрованы (значок замка относится только к этому одному соединению, а не ко всей сети). Мобильные данные или корпоративный VPN создают дополнительно защищённое, зашифрованное соединение, которое значительно труднее прослушать. Предварительная смена пароля не устраняет реальный риск.
+
+=== ID it_sicherheit-mobil_homeoffice-03 | correct=['a'] ===
+DE Q: Sie arbeiten im Zug an einem vertraulichen Dokument auf Ihrem Laptop. Was sollten Sie zum Schutz vor Mitlesen beachten?
+RU Q: Вы работаете в поезде над конфиденциальным документом на ноутбуке. Что вам следует учесть для защиты от подглядывания?
+  DE[a]: Auf die Umgebung achten und bei Bedarf einen Sichtschutzfilter oder eine sitzplatzbedingt geschützte Position nutzen
+  RU[a]: Обращать внимание на окружение и при необходимости использовать защитный фильтр экрана или защищённое положение сидения
+  DE[b]: Das Dokument einfach kleiner zoomen, damit es aus der Ferne nicht lesbar ist
+  RU[b]: Просто уменьшить масштаб документа, чтобы его нельзя было прочитать издалека
+  DE[c]: Nur den Dateinamen anonymisieren, der Inhalt selbst ist unkritisch
+  RU[c]: Анонимизировать только название файла, само содержимое некритично
+  DE[d]: Vertrauliche Dokumente unterwegs generell genauso behandeln wie öffentlich zugängliche Informationen
+  RU[d]: В дороге в целом относиться к конфиденциальным документам так же, как к общедоступной информации
+DE EXP: "Shoulder surfing" - das Mitlesen von Bildschirminhalten durch umstehende Personen - ist ein reales Risiko in öffentlichen Umgebungen wie Zügen oder Wartebereichen. Ein Sichtschutzfilter oder eine geschickte Sitzposition verringert dieses Risiko wirksam. Kleineres Zoomen schützt nicht zuverlässig, der Dateiname ist nicht der eigentliche Schutzgegenstand, und vertrauliche Inhalte benötigen unabhängig vom Ort immer den entsprechenden Schutz, nicht nur im Büro.
+RU EXP: "Подглядывание через плечо" — считывание содержимого экрана посторонними людьми — реальный риск в публичных местах, таких как поезда или залы ожидания. Защитный фильтр экрана или удачное положение сидения эффективно снижают этот риск. Меньший масштаб не обеспечивает надёжной защиты, название файла не является настоящим объектом защиты, а конфиденциальное содержимое всегда требует соответствующей защиты независимо от места, а не только в офисе.
+
+=== ID it_sicherheit-mobil_homeoffice-04 | correct=['b'] ===
+DE Q: Sie sind dienstlich unterwegs und müssen Ihren Firmenlaptop kurz im geparkten Auto zurücklassen. Was ist der sicherste Umgang damit?
+RU Q: Вы в служебной командировке и должны ненадолго оставить служебный ноутбук в припаркованном автомобиле. Как безопаснее всего с ним поступить?
+  DE[a]: Den Laptop gut sichtbar auf dem Beifahrersitz liegen lassen, damit er nicht vergessen wird
+  RU[a]: Оставить ноутбук хорошо видимым на пассажирском сиденье, чтобы о нём не забыть
+  DE[b]: Den Laptop in den nicht einsehbaren Kofferraum legen und das Fahrzeug verschließen, oder ihn möglichst ganz mitnehmen
+  RU[b]: Положить ноутбук в невидимый снаружи багажник и запереть автомобиль, или по возможности взять его с собой
+  DE[c]: Den Laptop unter einer Jacke auf dem Rücksitz verstecken, das genügt als Schutz
+  RU[c]: Спрятать ноутбук под курткой на заднем сиденье, этого достаточно как защита
+  DE[d]: Es spielt keine Rolle, solange der Laptop mit einem Benutzerkennwort geschützt ist
+  RU[d]: Это не имеет значения, пока ноутбук защищён паролем пользователя
+DE EXP: Sichtbare Wertgegenstände im Auto erhöhen das Risiko eines Einbruchs erheblich; ein nicht einsehbarer Kofferraum oder das Mitnehmen des Geräts verringern dieses Risiko deutlich. Eine Jacke als Sichtschutz ist unzuverlässig und schützt nicht vor einem gezielten Einbruch. Ein Benutzerkennwort schützt zwar die Daten auf dem Gerät im Falle eines Diebstahls teilweise, verhindert aber nicht den physischen Verlust des Geräts selbst und ersetzt daher nicht die sichere Aufbewahrung.
+RU EXP: Видимые ценные вещи в автомобиле значительно повышают риск взлома; невидимый снаружи багажник или взятие устройства с собой заметно снижают этот риск. Куртка как визуальная защита ненадёжна и не защищает от целенаправленного взлома. Пароль пользователя частично защищает данные на устройстве в случае кражи, но не предотвращает физическую утрату самого устройства и поэтому не заменяет безопасное хранение.
+
+=== ID it_sicherheit-meldepflicht_it-01 | correct=['b'] ===
+DE Q: Sie vermuten, dass Ihr Firmenrechner mit Schadsoftware infiziert ist, sind sich aber nicht ganz sicher. Wie sollten Sie sich verhalten?
+RU Q: Вы подозреваете, что ваш служебный компьютер заражён вредоносным ПО, но не совсем уверены в этом. Как вам следует себя вести?
+  DE[a]: Abwarten, bis eindeutige Beweise vorliegen, um keine Fehlmeldung abzugeben
+  RU[a]: Подождать, пока появятся однозначные доказательства, чтобы не подать ложное сообщение
+  DE[b]: Den Verdacht umgehend der zuständigen internen Stelle (z. B. IT-Sicherheit oder Helpdesk) melden, auch bei Unsicherheit
+  RU[b]: Немедленно сообщить о подозрении в соответствующее внутреннее подразделение (например, ИТ-безопасность или службу поддержки), даже при неуверенности
+  DE[c]: Den Rechner selbst neu aufsetzen und danach normal weiterarbeiten
+  RU[c]: Самостоятельно переустановить компьютер и затем продолжить работать как обычно
+  DE[d]: Erst Kollegen fragen, ob ihnen Ähnliches aufgefallen ist, bevor irgendetwas gemeldet wird
+  RU[d]: Сначала спросить коллег, не заметили ли они чего-то подобного, прежде чем что-либо сообщать
+DE EXP: Eine funktionierende Melde- und Reaktionskultur setzt voraus, dass auch bloße Verdachtsfälle frühzeitig gemeldet werden, statt auf eindeutige Beweise zu warten - je früher ein möglicher Vorfall bekannt wird, desto besser lässt sich eine Ausbreitung eindämmen. Eigenständiges Neuaufsetzen des Rechners kann wichtige Spuren zur Ursachenklärung zerstören. Auch das informelle Nachfragen bei Kollegen verzögert die Meldung unnötig und ersetzt nicht die Information der zuständigen Stelle.
+RU EXP: Работающая культура сообщений и реагирования предполагает, что даже простые подозрения сообщаются заблаговременно, вместо того чтобы ждать однозначных доказательств — чем раньше становится известно о возможном инциденте, тем лучше можно сдержать его распространение. Самостоятельная переустановка компьютера может уничтожить важные следы, необходимые для выяснения причины. Неформальные расспросы коллег также неоправданно задерживают сообщение и не заменяют информирование ответственного подразделения.
+
+=== ID it_sicherheit-meldepflicht_it-02 | correct=['c'] ===
+DE Q: Warum legt die EU-Richtlinie zur Netz- und Informationssicherheit (NIS2) für betroffene Organisationen so kurze Fristen für die erste Meldung eines erheblichen Sicherheitsvorfalls fest (grob: eine frühe Warnung innerhalb von Stunden, gefolgt von einer ausführlicheren Meldung)?
+RU Q: Почему директива ЕС о безопасности сетей и информационных систем (NIS2) устанавливает такие короткие сроки для первого сообщения о значительном инциденте безопасности для затронутых организаций (примерно: раннее предупреждение в течение нескольких часов, за которым следует более подробное сообщение)?
+  DE[a]: Damit Unternehmen möglichst viel Zeit gewinnen, um den Vorfall intern zu verschweigen
+  RU[a]: Чтобы компании получили как можно больше времени для внутреннего сокрытия инцидента
+  DE[b]: Weil eine vollständige technische Untersuchung ohnehin nie möglich ist
+  RU[b]: Потому что полное техническое расследование в любом случае никогда невозможно
+  DE[c]: Damit zuständige Stellen frühzeitig reagieren und andere potenziell betroffene Organisationen rechtzeitig gewarnt werden können
+  RU[c]: Чтобы ответственные органы могли отреагировать заблаговременно, а другие потенциально затронутые организации могли быть своевременно предупреждены
+  DE[d]: Weil kurze Fristen ausschließlich für IT-Dienstleister gelten, nicht für deren Kunden
+  RU[d]: Потому что короткие сроки касаются исключительно ИТ-поставщиков услуг, а не их клиентов
+DE EXP: Kurze Meldefristen sollen sicherstellen, dass Behörden und andere betroffene Stellen schnell informiert werden, um eine Ausbreitung einzudämmen und Gegenmaßnahmen zu koordinieren - nicht, um internes Verschweigen zu ermöglichen. Eine erste, frühe Meldung darf bewusst noch unvollständig sein und wird später ergänzt; das ist gerade der Sinn eines gestuften Meldeverfahrens. Die Meldepflichten richten sich an betroffene Organisationen insgesamt, nicht nur an IT-Dienstleister.
+RU EXP: Короткие сроки уведомления призваны обеспечить быстрое информирование органов власти и других заинтересованных структур, чтобы сдержать распространение и скоординировать ответные меры — а не для того, чтобы позволить внутреннее сокрытие. Первое, раннее уведомление может сознательно быть ещё неполным и дополняется позже; именно в этом и заключается смысл поэтапной процедуры уведомления. Обязанности по уведомлению касаются затронутых организаций в целом, а не только ИТ-поставщиков услуг.
+
+=== ID it_sicherheit-meldepflicht_it-03 | correct=['a'] ===
+DE Q: Warum verlangt eine gute Sicherheitskultur, dass Beschäftigte einen vermuteten Sicherheitsvorfall melden, statt zu versuchen, ihn selbst "still" zu beheben?
+RU Q: Почему хорошая культура безопасности требует, чтобы сотрудники сообщали о предполагаемом инциденте безопасности, вместо того чтобы пытаться устранить его самостоятельно "тихо"?
+  DE[a]: Weil ein Einzelner oft nicht das gesamte Ausmaß und die Ursache eines Vorfalls überblicken kann und eigenmächtiges Handeln Spuren verwischen oder das Problem verschlimmern kann
+  RU[a]: Потому что отдельный человек часто не может охватить весь масштаб и причину инцидента, а самовольные действия могут стереть следы или усугубить проблему
+  DE[b]: Weil eigenständiges Beheben grundsätzlich gegen das Urheberrecht verstößt
+  RU[b]: Потому что самостоятельное устранение принципиально нарушает авторское право
+  DE[c]: Weil nur so die Kosten für IT-Sicherheit im Unternehmen reduziert werden können
+  RU[c]: Потому что только так можно снизить расходы компании на ИТ-безопасность
+  DE[d]: Weil Beschäftigte ohne Meldung automatisch persönlich haftbar gemacht werden können
+  RU[d]: Потому что без уведомления сотрудники автоматически могут быть привлечены к личной ответственности
+DE EXP: Ein einzelner Vorfall kann Teil eines größeren Musters sein - etwa ein Angriff, der mehrere Systeme betrifft. Wer versucht, das Problem allein und ohne Meldung zu lösen, kann wichtige Spuren zerstören, die für die Ursachenklärung nötig wären, und riskiert, dass sich der Vorfall unbemerkt weiter ausbreitet. Die genannten Alternativen (Urheberrecht, Kostensenkung, automatische persönliche Haftung) beschreiben nicht den eigentlichen Grund für die Meldepflicht.
+RU EXP: Отдельный инцидент может быть частью более широкой схемы — например, атаки, затрагивающей несколько систем. Тот, кто пытается решить проблему самостоятельно и без уведомления, может уничтожить важные следы, необходимые для выяснения причины, и рискует тем, что инцидент незаметно продолжит распространяться. Указанные альтернативы (авторское право, снижение затрат, автоматическая личная ответственность) не описывают истинную причину обязанности уведомления.
+
+=== ID it_sicherheit-meldepflicht_it-04 | correct=['d'] ===
+DE Q: Sie sind unsicher, wer im Unternehmen für die Meldung eines vermuteten IT-Sicherheitsvorfalls zuständig ist. Was ist der sinnvollste Ansatz?
+RU Q: Вы не уверены, кто в компании отвечает за сообщение о предполагаемом инциденте ИТ-безопасности. Какой подход наиболее разумен?
+  DE[a]: Den Vorfall in einem öffentlichen internen Chatkanal posten, damit ihn irgendjemand sieht
+  RU[a]: Опубликовать инцидент в публичном внутреннем чат-канале, чтобы кто-нибудь это увидел
+  DE[b]: Abwarten, bis jemand anderes das Problem zufällig bemerkt und meldet
+  RU[b]: Подождать, пока кто-то другой случайно заметит проблему и сообщит о ней
+  DE[c]: Den Vorfall in sozialen Medien schildern, um schnell Aufmerksamkeit zu bekommen
+  RU[c]: Описать инцидент в социальных сетях, чтобы быстро привлечь внимание
+  DE[d]: Die im Unternehmen festgelegten Meldewege nutzen (z. B. IT-Support, Sicherheitsbeauftragte oder Führungskraft) oder im Zweifel bei der eigenen Führungskraft nachfragen
+  RU[d]: Использовать установленные в компании каналы уведомления (например, ИТ-поддержку, ответственного за безопасность или руководителя) или в случае сомнений обратиться к собственному руководителю
+DE EXP: Ein vorbereitetes Meldeverfahren mit klar zuständigen Stellen sorgt dafür, dass ein Vorfall schnell bei den richtigen Personen ankommt, die geeignete Gegenmaßnahmen einleiten können. Ein öffentlicher Chatkanal oder gar soziale Medien sind ungeeignet und können den Vorfall zusätzlich öffentlich machen oder Angreifer warnen. Abwarten verzögert die Reaktion unnötig; im Zweifel ist die eigene Führungskraft immer ein sinnvoller erster Ansprechpartner, um den richtigen Meldeweg zu finden.
+RU EXP: Подготовленная процедура уведомления с чётко определёнными ответственными подразделениями обеспечивает, что инцидент быстро доходит до нужных людей, которые могут принять соответствующие ответные меры. Публичный чат-канал или тем более социальные сети непригодны и могут дополнительно предать инцидент огласке или предупредить злоумышленника. Ожидание неоправданно задерживает реакцию; в случае сомнений собственный руководитель всегда является разумным первым контактом для поиска правильного пути уведомления.
+
+=== ID it_sicherheit-zugriffsschutz-05 | correct=['b'] ===
+DE Q: Warum sollen Beschäftigte nur die Zugriffsrechte erhalten, die sie für ihre konkrete Aufgabe tatsächlich benötigen ("Minimalprinzip")?
+RU Q: Почему сотрудники должны получать только те права доступа, которые им действительно нужны для конкретной задачи ("принцип минимальных привилегий")?
+  DE[a]: Damit weniger Passwörter verwaltet werden müssen
+  RU[a]: Чтобы нужно было управлять меньшим количеством паролей
+  DE[b]: Damit im Falle eines kompromittierten Kontos oder eines Fehlers der mögliche Schaden auf das Nötigste begrenzt bleibt
+  RU[b]: Чтобы в случае компрометации учётной записи или ошибки возможный ущерб оставался ограниченным до самого необходимого
+  DE[c]: Damit die IT-Abteilung weniger Support-Anfragen bearbeiten muss
+  RU[c]: Чтобы ИТ-отдел обрабатывал меньше запросов на поддержку
+  DE[d]: Damit alle Beschäftigten gleich viele Rechte besitzen und niemand benachteiligt wird
+  RU[d]: Чтобы все сотрудники обладали одинаковым количеством прав и никто не был обделён
+DE EXP: Das Minimalprinzip (Least-Privilege) begrenzt den Schaden, den ein gestohlenes Konto oder eine versehentliche Fehlbedienung anrichten kann, weil nur auf die tatsächlich benötigten Systeme und Daten zugegriffen werden kann. Es geht nicht um Passwortanzahl, Supportaufwand oder formale Gleichbehandlung, sondern um die Begrenzung des Risikos entlang der jeweiligen Aufgabe.
+RU EXP: Принцип минимальных привилегий (least privilege) ограничивает ущерб, который может причинить украденная учётная запись или случайная ошибка, поскольку доступ возможен только к действительно необходимым системам и данным. Речь идёт не о количестве паролей, объёме поддержки или формальном равном обращении, а об ограничении риска в соответствии с конкретной задачей.
+
+=== ID it_sicherheit-zugriffsschutz-06 | correct=['c'] ===
+DE Q: Eine Kollegin wechselt intern in eine andere Abteilung mit anderen Aufgaben. Was sollte in Bezug auf ihre bisherigen Systemzugriffe geschehen?
+RU Q: Коллега переходит внутри компании в другой отдел с другими задачами. Что должно произойти с её прежними доступами к системам?
+  DE[a]: Nichts, da sie ja weiterhin im selben Unternehmen arbeitet
+  RU[a]: Ничего, так как она по-прежнему работает в той же компании
+  DE[b]: Die bisherigen Zugriffe bleiben zusätzlich zu den neuen bestehen, damit sie flexibel aushelfen kann
+  RU[b]: Прежние доступы сохраняются дополнительно к новым, чтобы она могла гибко помогать
+  DE[c]: Die nicht mehr benötigten Zugriffsrechte werden entzogen und die Berechtigungen an die neue Rolle angepasst
+  RU[c]: Уже не нужные права доступа отзываются, а полномочия корректируются в соответствии с новой ролью
+  DE[d]: Nur das Passwort wird geändert, die Rechte bleiben unverändert
+  RU[d]: Меняется только пароль, права остаются без изменений
+DE EXP: Berechtigungen sollen dem aktuellen Aufgabenbereich entsprechen; bei einem Rollenwechsel müssen nicht mehr benötigte Zugriffsrechte entzogen und neue, passende Rechte vergeben werden. Andernfalls sammeln sich über die Zeit unnötige, überflüssige Berechtigungen an ("Rechteinflation"), die das Risiko im Falle eines kompromittierten Kontos unnötig erhöhen. Ein reiner Passwortwechsel ändert daran nichts.
+RU EXP: Полномочия должны соответствовать текущей области задач; при смене роли уже не нужные права доступа должны быть отозваны, а новые, соответствующие права — предоставлены. В противном случае со временем накапливаются ненужные, избыточные полномочия ("инфляция прав"), что неоправданно повышает риск в случае компрометации учётной записи. Простая смена пароля ничего не меняет в этом отношении.
+
+=== ID it_sicherheit-zugriffsschutz-07 | correct=['a'] ===
+DE Q: Sie müssen sich viele unterschiedliche Passwörter für dienstliche Systeme merken. Welche Vorgehensweise ist am sinnvollsten?
+RU Q: Вам нужно запомнить много разных паролей для служебных систем. Какой подход наиболее разумен?
+  DE[a]: Einen von der IT freigegebenen Passwort-Manager verwenden, statt Passwörter mehrfach zu verwenden oder ungeschützt zu notieren
+  RU[a]: Использовать менеджер паролей, одобренный ИТ-отделом, вместо многократного использования паролей или их незащищённой записи
+  DE[b]: Für alle Systeme dasselbe leicht zu merkende Passwort verwenden
+  RU[b]: Использовать один и тот же легко запоминающийся пароль для всех систем
+  DE[c]: Die Passwörter auf einem Klebezettel am Monitor notieren, damit man sie schnell findet
+  RU[c]: Записать пароли на липком листке на мониторе, чтобы быстро их находить
+  DE[d]: Die Passwörter in einer unverschlüsselten Textdatei auf dem Desktop speichern
+  RU[d]: Хранить пароли в незашифрованном текстовом файле на рабочем столе
+DE EXP: Ein freigegebener Passwort-Manager erlaubt es, für jedes System ein langes, einzigartiges Passwort zu nutzen, ohne sich alle einzeln merken zu müssen, und schützt die gespeicherten Zugangsdaten selbst durch Verschlüsselung. Passwort-Wiederverwendung bedeutet, dass ein einziges Datenleck alle betroffenen Konten gefährdet; Klebezettel und unverschlüsselte Dateien sind für jeden mit physischem oder digitalem Zugang sofort einsehbar.
+RU EXP: Одобренный менеджер паролей позволяет использовать для каждой системы длинный, уникальный пароль, не запоминая все по отдельности, и защищает сами хранимые учётные данные с помощью шифрования. Повторное использование паролей означает, что одна утечка данных ставит под угрозу все связанные учётные записи; листки и незашифрованные файлы сразу доступны для просмотра любому, у кого есть физический или цифровой доступ.
+
+=== ID it_sicherheit-zugriffsschutz-08 | correct=['d'] ===
+DE Q: Sie verlassen abends Ihren Arbeitsplatz im Großraumbüro nach Feierabend. Was entspricht der Clear-Desk-Grundregel?
+RU Q: Вечером вы покидаете своё рабочее место в общем офисе после окончания рабочего дня. Что соответствует основному правилу "чистого стола"?
+  DE[a]: Nur den Bildschirm sperren, Unterlagen können offen liegen bleiben
+  RU[a]: Заблокировать только экран, документы могут оставаться открытыми
+  DE[b]: Vertrauliche Unterlagen dürfen offen liegen bleiben, solange die Bürotür abgeschlossen ist
+  RU[b]: Конфиденциальные документы могут оставаться открытыми, пока дверь офиса заперта
+  DE[c]: Nur besonders als "geheim" gekennzeichnete Dokumente müssen weggeräumt werden
+  RU[c]: Убрать нужно только документы, специально помеченные как "секретно"
+  DE[d]: Vertrauliche Unterlagen und Datenträger wegschließen und den Schreibtisch aufgeräumt hinterlassen
+  RU[d]: Запереть конфиденциальные документы и носители данных и оставить рабочий стол убранным
+DE EXP: Der Clear-Desk-Grundsatz verlangt, vertrauliche Papierunterlagen und Datenträger bei Abwesenheit wegzuschließen, damit sie für Unbefugte - etwa Reinigungspersonal, Besucher oder andere Beschäftigte ohne Berechtigung - nicht frei zugänglich sind. Eine abgeschlossene Bürotür allein schützt nicht vor allen Personen mit Zutritt zum Gebäude oder Raum, und die Regel gilt für vertrauliche Unterlagen allgemein, nicht nur für explizit als "geheim" markierte.
+RU EXP: Принцип чистого стола требует запирать конфиденциальные бумажные документы и носители данных в отсутствие сотрудника, чтобы они не были свободно доступны посторонним лицам — например, уборщикам, посетителям или другим сотрудникам без соответствующих полномочий. Одна лишь запертая дверь офиса не защищает от всех людей с доступом в здание или помещение, а правило касается конфиденциальных документов в целом, а не только явно помеченных как "секретно".
+
+=== ID it_sicherheit-phishing-05 | correct=['c'] ===
+DE Q: Sie erhalten eine E-Mail mit einem unerwarteten Rechnungsanhang, der Sie auffordert, eine "Bearbeitung von Makros" oder "Inhalt aktivieren" zuzulassen, um die Rechnung anzuzeigen. Wie reagieren Sie am sinnvollsten?
+RU Q: Вы получаете письмо с неожиданным вложением-счётом, которое просит разрешить "обработку макросов" или "включить содержимое", чтобы отобразить счёт. Как наиболее разумно отреагировать?
+  DE[a]: Die Bearbeitung von Makros erlauben, sonst lässt sich die Rechnung nicht öffnen
+  RU[a]: Разрешить обработку макросов, иначе счёт нельзя открыть
+  DE[b]: Den Anhang öffnen, aber erst nach einem Neustart des Rechners
+  RU[b]: Открыть вложение, но только после перезагрузки компьютера
+  DE[c]: Makros nicht aktivieren und die E-Mail bei Unsicherheit über die üblichen Meldewege prüfen lassen
+  RU[c]: Не активировать макросы и при неуверенности дать проверить письмо через обычные каналы уведомления
+  DE[d]: Den Anhang an einen privaten Kollegen weiterleiten, damit er ihn zuerst öffnet
+  RU[d]: Переслать вложение частному коллеге, чтобы он открыл его первым
+DE EXP: Die Aufforderung, Makros zu aktivieren, ist ein bekanntes Angriffsmuster: Erst durch das Aktivieren wird in der Datei enthaltener Schadcode ausgeführt, der ohne diese Zustimmung inaktiv bliebe. Ein Neustart des Rechners ändert daran nichts, und das Weiterleiten an einen Kollegen verlagert das Risiko nur, statt es zu beseitigen. Bei Unsicherheit über Absender oder Inhalt sollte die E-Mail über die üblichen internen Meldewege geprüft werden, bevor irgendetwas geöffnet oder aktiviert wird.
+RU EXP: Запрос активировать макросы — известная схема атаки: только активация приводит к выполнению вредоносного кода, содержащегося в файле, который без этого согласия остался бы неактивным. Перезагрузка компьютера ничего не меняет, а пересылка коллеге лишь переносит риск, а не устраняет его. При неуверенности относительно отправителя или содержимого письмо следует проверить через обычные внутренние каналы уведомления, прежде чем что-либо открывать или активировать.
+
+=== ID it_sicherheit-phishing-06 | correct=['b'] ===
+DE Q: Was unterscheidet "Spear-Phishing" von einer klassischen, breit gestreuten Phishing-Kampagne?
+RU Q: Чем "целевой фишинг" (spear phishing) отличается от классической, широко распространённой фишинговой кампании?
+  DE[a]: Spear-Phishing wird ausschließlich per Telefon durchgeführt, nie per E-Mail
+  RU[a]: Целевой фишинг проводится исключительно по телефону, никогда по электронной почте
+  DE[b]: Spear-Phishing ist auf eine bestimmte Person oder Organisation zugeschnitten und nutzt gezielt recherchierte, glaubwürdige Details
+  RU[b]: Целевой фишинг нацелен на конкретного человека или организацию и использует целенаправленно собранные, убедительные детали
+  DE[c]: Spear-Phishing verzichtet komplett auf Links oder Anhänge
+  RU[c]: Целевой фишинг полностью обходится без ссылок или вложений
+  DE[d]: Spear-Phishing betrifft ausschließlich private E-Mail-Konten, niemals dienstliche
+  RU[d]: Целевой фишинг касается исключительно личных почтовых ящиков, никогда служебных
+DE EXP: Beim Spear-Phishing recherchieren Angreifer gezielt Informationen über eine Person oder Organisation - etwa Namen von Vorgesetzten, laufende Projekte oder interne Abläufe -, um eine Nachricht besonders glaubwürdig und individuell wirken zu lassen. Das macht diese Angriffe schwerer zu erkennen als generische Massen-Phishing-Mails. Weder Kommunikationskanal noch Verzicht auf Links/Anhänge noch die Beschränkung auf private Konten sind das entscheidende Merkmal.
+RU EXP: При целевом фишинге злоумышленники целенаправленно собирают информацию о человеке или организации — например, имена руководителей, текущие проекты или внутренние процессы, — чтобы сообщение выглядело особенно убедительно и персонализированно. Это делает такие атаки труднее распознаваемыми, чем обычные массовые фишинговые письма. Ни канал связи, ни отказ от ссылок/вложений, ни ограничение личными учётными записями не являются решающим признаком.
+
+=== ID it_sicherheit-phishing-07 | correct=['a'] ===
+DE Q: Sie erhalten eine SMS, die angeblich von einem Paketdienst stammt und einen Link zur "Zollgebühr-Zahlung" enthält, obwohl Sie kein Paket erwarten. Wie ordnen Sie diesen Vorfall ein und wie reagieren Sie?
+RU Q: Вы получаете SMS, якобы от службы доставки посылок, содержащее ссылку на "оплату таможенного сбора", хотя вы не ожидаете никакой посылки. Как классифицировать этот случай и как реагировать?
+  DE[a]: Es handelt sich vermutlich um "Smishing" (Phishing per SMS); den Link nicht anklicken und die Sendung stattdessen direkt über die offizielle Webseite oder App des Paketdienstes prüfen
+  RU[a]: Это, вероятно, "смишинг" (фишинг по SMS); не нажимать на ссылку, а вместо этого проверить отправление напрямую через официальный веб-сайт или приложение службы доставки
+  DE[b]: SMS-Nachrichten können generell nicht gefälscht werden, daher ist der Link sicher
+  RU[b]: SMS-сообщения в принципе нельзя подделать, поэтому ссылка безопасна
+  DE[c]: Da es sich um eine private SMS handelt, betrifft das Thema nicht die Arbeit und kann ignoriert werden
+  RU[c]: Так как это личное SMS, тема не касается работы и её можно игнорировать
+  DE[d]: Den Link anklicken, aber keine Zahlungsdaten eingeben, um zu sehen, ob es sich um eine echte Sendung handelt
+  RU[d]: Нажать на ссылку, но не вводить платёжные данные, чтобы посмотреть, действительно ли это отправление
+DE EXP: Phishing beschränkt sich nicht auf E-Mails: "Smishing" nutzt SMS-Nachrichten mit demselben Grundprinzip aus Dringlichkeit und einem manipulierten Link. Auch der Absendername einer SMS lässt sich fälschen. Sicherer ist es, den angeblichen Anlass unabhängig über die offizielle Webseite oder App zu prüfen, statt dem Link zu folgen. Das Thema ist auch für Beschäftigte relevant, da dieselben Muster auch dienstliche Geräte oder Kontaktinformationen betreffen können, und selbst das bloße Anklicken eines präparierten Links kann bereits ein Risiko darstellen.
+RU EXP: Фишинг не ограничивается электронной почтой: "смишинг" использует SMS-сообщения с тем же базовым принципом срочности и манипулированной ссылкой. Имя отправителя SMS тоже можно подделать. Безопаснее независимо проверить якобы имеющийся повод через официальный веб-сайт или приложение, а не переходить по ссылке. Эта тема актуальна и для сотрудников, поскольку те же схемы могут касаться и служебных устройств или контактной информации, и уже само нажатие на подготовленную ссылку может представлять риск.
+
+=== ID it_sicherheit-phishing-08 | correct=['b'] ===
+DE Q: Eine E-Mail scheint von "support@ihre-firma-online.de" zu stammen, obwohl die tatsächliche Firmendomain "ihrefirma.de" lautet. Wie ist diese leicht abweichende Absenderdomain am ehesten einzuordnen?
+RU Q: Письмо выглядит так, будто оно пришло от "support@ihre-firma-online.de", тогда как фактический домен компании — "ihrefirma.de". Как лучше всего классифицировать это небольшое расхождение в домене отправителя?
+  DE[a]: Als unbedeutender Tippfehler ohne sicherheitsrelevante Bedeutung
+  RU[a]: Как незначительную опечатку без значения для безопасности
+  DE[b]: Als mögliches Anzeichen für eine gefälschte, zum Verwechseln ähnliche Domain ("Typosquatting"), die zur Täuschung genutzt wird
+  RU[b]: Как возможный признак поддельного, обманчиво похожего домена ("тайпсквоттинг"), используемого для обмана
+  DE[c]: Als Bestätigung, dass die Nachricht garantiert von der eigenen IT-Abteilung stammt
+  RU[c]: Как подтверждение того, что сообщение гарантированно исходит от собственного ИТ-отдела
+  DE[d]: Als reine Geschmacksfrage des jeweiligen Absenders bei der Wahl der Domain
+  RU[d]: Как чисто вопрос вкуса соответствующего отправителя при выборе домена
+DE EXP: Angreifer registrieren gezielt Domains, die der echten Firmendomain zum Verwechseln ähnlich sehen (z. B. zusätzliche Wörter, vertauschte Buchstaben oder andere Endungen), um Vertrauen vorzutäuschen. Eine solche Abweichung ist ein ernstzunehmendes Warnsignal und keine Belanglosigkeit oder reine Geschmacksfrage. Die tatsächliche Absenderadresse sollte bei Auffälligkeiten genau geprüft und im Zweifel über einen unabhängigen Kanal nachgefragt werden, statt automatisch von Echtheit auszugehen.
+RU EXP: Злоумышленники целенаправленно регистрируют домены, обманчиво похожие на настоящий домен компании (например, дополнительные слова, переставленные буквы или другие окончания), чтобы имитировать доверие. Такое расхождение — серьёзный тревожный сигнал, а не мелочь или вопрос вкуса. Фактический адрес отправителя следует тщательно проверять при подозрительных признаках и при сомнениях уточнять через независимый канал, а не автоматически исходить из его подлинности.
+
+=== ID it_sicherheit-datensicherung-05 | correct=['c'] ===
+DE Q: Warum reicht es gegen Ransomware nicht aus, ein Backup direkt auf demselben, permanent verbundenen Netzlaufwerk zu speichern wie die Originaldaten?
+RU Q: Почему против программ-вымогателей недостаточно хранить резервную копию непосредственно на том же самом, постоянно подключённом сетевом диске, что и оригинальные данные?
+  DE[a]: Weil Netzlaufwerke technisch grundsätzlich langsamer sind als lokale Festplatten
+  RU[a]: Потому что сетевые диски технически всегда медленнее, чем локальные жёсткие диски
+  DE[b]: Weil auf Netzlaufwerken generell keine Backups gespeichert werden dürfen
+  RU[b]: Потому что на сетевых дисках вообще нельзя хранить резервные копии
+  DE[c]: Weil Ransomware bei einem permanent verbundenen Laufwerk auch die dort liegende Sicherungskopie mitverschlüsseln kann
+  RU[c]: Потому что программа-вымогатель на постоянно подключённом диске может зашифровать и находящуюся там резервную копию
+  DE[d]: Weil Netzlaufwerke ausschließlich für die Speicherung von E-Mails vorgesehen sind
+  RU[d]: Потому что сетевые диски предназначены исключительно для хранения электронной почты
+DE EXP: Ransomware verschlüsselt in der Regel alle erreichbaren Laufwerke, einschließlich dauerhaft verbundener Netzlaufwerke - eine Sicherungskopie dort bietet dann keinen echten Schutz mehr, da sie ebenfalls betroffen sein kann. Ein wirksames Backup-Konzept sieht daher mindestens eine Kopie vor, die getrennt (offline oder zeitversetzt) vom Produktivsystem aufbewahrt wird, damit sie von einem Angriff auf das Hauptsystem nicht miterfasst wird.
+RU EXP: Программы-вымогатели, как правило, шифруют все доступные диски, включая постоянно подключённые сетевые диски — резервная копия там уже не даёт реальной защиты, поскольку тоже может пострадать. Поэтому эффективная концепция резервного копирования предусматривает как минимум одну копию, хранящуюся отдельно (офлайн или с временной задержкой) от рабочей системы, чтобы она не пострадала при атаке на основную систему.
+
+=== ID it_sicherheit-datensicherung-06 | correct=['a'] ===
+DE Q: Ein Backup wird planmäßig jede Nacht automatisch erstellt. Warum reicht das allein noch nicht aus, um sich auf die Datensicherung wirklich verlassen zu können?
+RU Q: Резервная копия создаётся автоматически каждую ночь по расписанию. Почему одного этого ещё недостаточно, чтобы действительно полагаться на резервное копирование данных?
+  DE[a]: Weil regelmäßig geprüft werden muss, ob sich aus dem Backup tatsächlich Daten erfolgreich wiederherstellen lassen
+  RU[a]: Потому что регулярно нужно проверять, действительно ли можно успешно восстановить данные из резервной копии
+  DE[b]: Weil ein Backup grundsätzlich nur einmal pro Jahr erstellt werden sollte
+  RU[b]: Потому что резервную копию в принципе следует создавать только раз в год
+  DE[c]: Weil automatische Backups technisch nie fehlschlagen können
+  RU[c]: Потому что автоматические резервные копии технически никогда не могут дать сбой
+  DE[d]: Weil ein erstelltes Backup nur für maximal 24 Stunden gültig bleibt
+  RU[d]: Потому что созданная резервная копия остаётся действительной максимум 24 часа
+DE EXP: Ein Backup-Lauf kann fehlschlagen oder eine beschädigte, unvollständige Kopie erzeugen, ohne dass dies sofort auffällt. Nur ein regelmäßiger Wiederherstellungstest zeigt verlässlich, ob im Ernstfall tatsächlich Daten zurückgespielt werden können. Die Häufigkeit der Sicherung selbst richtet sich nach dem Bedarf und ist nicht auf ein Mal pro Jahr begrenzt, automatische Prozesse können durchaus fehlschlagen, und ein Backup verliert nicht nach 24 Stunden automatisch seine Gültigkeit.
+RU EXP: Выполнение резервного копирования может дать сбой или создать повреждённую, неполную копию без немедленного обнаружения этого. Только регулярный тест восстановления надёжно показывает, действительно ли в случае необходимости можно вернуть данные. Частота самого резервного копирования зависит от потребности и не ограничена одним разом в год, автоматические процессы вполне могут давать сбой, а резервная копия автоматически не теряет силу через 24 часа.
+
+=== ID it_sicherheit-datensicherung-07 | correct=['b'] ===
+DE Q: Sie möchten vertrauliche Firmendaten auf einem externen USB-Datenträger transportieren. Was ist die wichtigste Schutzmaßnahme dafür?
+RU Q: Вы хотите перенести конфиденциальные данные компании на внешнем USB-носителе. Какая самая важная защитная мера для этого?
+  DE[a]: Den Datenträger mit einem auffälligen Aufkleber "vertraulich" versehen, damit niemand ihn verlegt
+  RU[a]: Наклеить на носитель заметную наклейку "конфиденциально", чтобы никто его не потерял
+  DE[b]: Den Datenträger verschlüsseln, damit die Daten bei Verlust oder Diebstahl nicht ohne Weiteres lesbar sind
+  RU[b]: Зашифровать носитель, чтобы данные при потере или краже не были легко читаемы
+  DE[c]: Den Datenträger möglichst klein und unauffällig wählen, damit er nicht auffällt
+  RU[c]: Выбрать носитель максимально маленьким и неприметным, чтобы он не бросался в глаза
+  DE[d]: Die Dateien vor dem Kopieren einfach umbenennen, damit ihr Inhalt nicht sofort erkennbar ist
+  RU[d]: Просто переименовать файлы перед копированием, чтобы их содержимое не было сразу узнаваемым
+DE EXP: Wechseldatenträger gehen leicht verloren oder werden gestohlen; ohne Verschlüsselung sind die darauf gespeicherten Daten dann für jeden mit physischem Zugriff sofort lesbar. Verschlüsselung sorgt dafür, dass die Daten auch im Verlustfall geschützt bleiben, sofern der Schlüssel bzw. das Passwort geheim bleibt. Ein Aufkleber, eine unauffällige Bauform oder umbenannte Dateien bieten dagegen keinen echten technischen Schutz vor unbefugtem Lesen.
+RU EXP: Съёмные носители данных легко теряются или крадутся; без шифрования хранящиеся на них данные сразу читаемы для любого, у кого есть физический доступ. Шифрование обеспечивает защиту данных даже в случае потери, пока ключ или пароль остаются в тайне. Наклейка, неприметная форма или переименованные файлы, напротив, не дают реальной технической защиты от несанкционированного чтения.
+
+=== ID it_sicherheit-datensicherung-08 | correct=['d'] ===
+DE Q: Ein alter Firmenlaptop soll ausgemustert und entsorgt werden. Was ist im Hinblick auf die darauf gespeicherten Daten der richtige Umgang?
+RU Q: Старый служебный ноутбук должен быть выведен из эксплуатации и утилизирован. Как правильно поступить с хранящимися на нём данными?
+  DE[a]: Nur die sichtbaren Dateien im Papierkorb löschen und diesen leeren
+  RU[a]: Удалить только видимые файлы в корзине и очистить её
+  DE[b]: Den Laptop unverändert an einen gemeinnützigen Zweitmarkt weitergeben, um Ressourcen zu sparen
+  RU[b]: Передать ноутбук без изменений на благотворительный вторичный рынок для экономии ресурсов
+  DE[c]: Die Festplatte ausbauen und im Hausmüll entsorgen
+  RU[c]: Демонтировать жёсткий диск и выбросить его в бытовой мусор
+  DE[d]: Die Daten durch die zuständige IT-Stelle sicher und unwiederherstellbar löschen (oder den Datenträger fachgerecht vernichten) lassen, bevor das Gerät weitergegeben oder entsorgt wird
+  RU[d]: Поручить ответственному ИТ-подразделению безопасно и безвозвратно удалить данные (или профессионально уничтожить носитель), прежде чем устройство будет передано дальше или утилизировано
+DE EXP: Einfaches Löschen im Papierkorb oder Formatieren entfernt Dateien meist nur aus dem sichtbaren Verzeichnis, während die eigentlichen Daten mit geeigneten Mitteln oft wiederherstellbar bleiben. Vor Weitergabe oder Entsorgung müssen Datenträger daher sicher gelöscht (z. B. durch mehrfaches Überschreiben) oder physisch zerstört werden, damit vertrauliche Firmendaten nicht in falsche Hände geraten. Das Wegwerfen im Hausmüll ist zudem aus Umwelt- und Entsorgungsgründen unzulässig.
+RU EXP: Простое удаление в корзину или форматирование обычно убирает файлы только из видимого каталога, тогда как сами данные подходящими средствами часто остаются восстановимыми. Перед передачей или утилизацией носители данных поэтому должны быть безопасно удалены (например, многократной перезаписью) или физически уничтожены, чтобы конфиденциальные данные компании не попали в чужие руки. Выбрасывание в бытовой мусор также недопустимо по экологическим причинам и причинам утилизации.
+
+=== ID it_sicherheit-mobil_homeoffice-05 | correct=['b'] ===
+DE Q: Warum ist die Festplattenverschlüsselung auf einem Laptop, der für Homeoffice und dienstliche Reisen genutzt wird, besonders wichtig?
+RU Q: Почему шифрование жёсткого диска на ноутбуке, используемом для дистанционной работы и служебных поездок, особенно важно?
+  DE[a]: Weil sie den Laptop automatisch schneller startet
+  RU[a]: Потому что оно автоматически ускоряет запуск ноутбука
+  DE[b]: Weil sie im Falle von Diebstahl oder Verlust verhindert, dass Unbefugte ohne Weiteres auf die gespeicherten Daten zugreifen können
+  RU[b]: Потому что в случае кражи или потери оно не позволяет посторонним легко получить доступ к хранящимся данным
+  DE[c]: Weil sie ausschließlich für Geräte vorgeschrieben ist, die niemals das Büro verlassen
+  RU[c]: Потому что оно обязательно исключительно для устройств, которые никогда не покидают офис
+  DE[d]: Weil sie ein Anmeldepasswort vollständig überflüssig macht
+  RU[d]: Потому что оно полностью делает ненужным пароль для входа
+DE EXP: Geräte, die außerhalb des Büros genutzt werden, sind einem höheren Risiko von Diebstahl oder Verlust ausgesetzt - etwa im Zug, im Auto oder unterwegs beim Kunden. Ohne Festplattenverschlüsselung lässt sich die eingebaute Festplatte oft ausbauen und die Daten direkt auslesen, unabhängig vom Anmeldepasswort des Betriebssystems. Verschlüsselung und Anmeldepasswort ergänzen sich, ersetzen sich aber nicht gegenseitig, und die Startgeschwindigkeit hat damit nichts zu tun.
+RU EXP: Устройства, используемые вне офиса, подвержены более высокому риску кражи или потери — например, в поезде, автомобиле или в поездке к клиенту. Без шифрования диска встроенный жёсткий диск часто можно демонтировать и напрямую считать данные, независимо от пароля входа операционной системы. Шифрование и пароль входа дополняют друг друга, но не заменяют, а скорость запуска не имеет к этому никакого отношения.
+
+=== ID it_sicherheit-mobil_homeoffice-06 | correct=['a'] ===
+DE Q: Warum sollte auf einem dienstlich genutzten Smartphone eine kurze automatische Displaysperre (z. B. nach 30 Sekunden Inaktivität) aktiviert sein?
+RU Q: Почему на служебном смартфоне следует активировать короткую автоматическую блокировку экрана (например, через 30 секунд бездействия)?
+  DE[a]: Damit das Gerät bei kurzem Liegenlassen oder Verlust nicht sofort ungeschützt zugänglich ist
+  RU[a]: Чтобы при кратком оставлении без присмотра или потере устройство не было сразу незащищённо доступным
+  DE[b]: Damit der Akku des Geräts länger hält
+  RU[b]: Чтобы аккумулятор устройства держал заряд дольше
+  DE[c]: Damit Anrufe automatisch stummgeschaltet werden
+  RU[c]: Чтобы звонки автоматически отключались
+  DE[d]: Weil eine Displaysperre gesetzlich nur für Diensthandys der Geschäftsführung vorgeschrieben ist
+  RU[d]: Потому что блокировка экрана законодательно обязательна только для служебных телефонов руководства
+DE EXP: Ein kurzes Sperrintervall verkleinert das Zeitfenster, in dem ein kurz liegen gelassenes oder verlorenes Gerät ohne Authentifizierung genutzt werden kann, etwa um auf E-Mails, Kontakte oder Firmen-Apps zuzugreifen. Akkulaufzeit und Anrufeinstellungen stehen damit in keinem sicherheitsrelevanten Zusammenhang, und die Regel gilt sinnvollerweise für alle dienstlich genutzten Geräte, nicht nur für bestimmte Personengruppen.
+RU EXP: Короткий интервал блокировки уменьшает временное окно, в котором ненадолго оставленное без присмотра или потерянное устройство может использоваться без аутентификации, например для доступа к электронной почте, контактам или корпоративным приложениям. Время работы аккумулятора и настройки звонков не имеют никакого отношения к безопасности, а правило разумно применяется ко всем служебно используемым устройствам, а не только к определённым группам лиц.
+
+=== ID it_sicherheit-mobil_homeoffice-07 | correct=['c'] ===
+DE Q: Sie nutzen für dienstliche Zwecke gelegentlich Ihr privates Smartphone ("Bring Your Own Device"). Was ist dabei aus Sicherheitssicht am wichtigsten zu beachten?
+RU Q: Вы иногда используете свой личный смартфон в служебных целях ("Bring Your Own Device"). Что здесь самое важное с точки зрения безопасности?
+  DE[a]: Private und dienstliche Daten möglichst vermischt in denselben Apps zu speichern, damit nichts verloren geht
+  RU[a]: Хранить личные и служебные данные максимально смешанными в одних и тех же приложениях, чтобы ничего не потерялось
+  DE[b]: Es reicht aus, dass das Gerät irgendein Passwort besitzt, unabhängig von weiteren Vorgaben
+  RU[b]: Достаточно, чтобы устройство имело хоть какой-то пароль, независимо от прочих требований
+  DE[c]: Die betrieblichen Vorgaben zu BYOD (z. B. Mindestschutzmaßnahmen, Trennung dienstlicher Daten, Fernlöschungsmöglichkeit) einzuhalten, bevor das Gerät dienstlich genutzt wird
+  RU[c]: Соблюдать корпоративные требования к BYOD (например, минимальные защитные меры, разделение служебных данных, возможность удалённого удаления) перед служебным использованием устройства
+  DE[d]: BYOD-Regeln sind rein freiwillig und müssen nicht eingehalten werden, solange das Gerät privat bezahlt wurde
+  RU[d]: Правила BYOD чисто добровольны, и их не нужно соблюдать, пока устройство оплачено лично
+DE EXP: Werden private Geräte dienstlich genutzt, müssen dieselben Schutzziele wie bei Firmengeräten erreicht werden - etwa durch Mindestanforderungen an Verschlüsselung, Bildschirmsperre, getrennte Bereiche für dienstliche Daten und die Möglichkeit, im Verlustfall dienstliche Daten aus der Ferne zu löschen. Eine Vermischung von privaten und dienstlichen Daten erschwert genau diesen Schutz, und ein beliebiges Passwort allein oder die private Finanzierung des Geräts befreien nicht von den geltenden betrieblichen Vorgaben.
+RU EXP: Если личные устройства используются в служебных целях, должны быть достигнуты те же цели защиты, что и для корпоративных устройств — например, за счёт минимальных требований к шифрованию, блокировке экрана, разделённым областям для служебных данных и возможности удалённо удалить служебные данные в случае потери. Смешивание личных и служебных данных как раз затрудняет эту защиту, а любой произвольный пароль сам по себе или личное финансирование устройства не освобождают от действующих корпоративных требований.
+
+=== ID it_sicherheit-mobil_homeoffice-08 | correct=['b'] ===
+DE Q: Sie nehmen von zu Hause aus an einer dienstlichen Videokonferenz teil, bei der vertrauliche Inhalte besprochen werden. Worauf sollten Sie besonders achten?
+RU Q: Вы участвуете из дома в служебной видеоконференции, на которой обсуждается конфиденциальное содержимое. На что вам следует особенно обратить внимание?
+  DE[a]: Der Bildschirm kann problemlos für Mitbewohner sichtbar bleiben, solange niemand aktiv mitliest
+  RU[a]: Экран без проблем может оставаться видимым для соседей по квартире, пока никто активно не подглядывает
+  DE[b]: Darauf, dass Mitbewohner, Familienmitglieder oder Geräte mit Sprachassistenten die vertraulichen Inhalte nicht mithören oder mitsehen können
+  RU[b]: На то, чтобы соседи по квартире, члены семьи или устройства с голосовыми помощниками не могли слышать или видеть конфиденциальное содержимое
+  DE[c]: Nur darauf, dass die Internetverbindung schnell genug für Video ist
+  RU[c]: Только на то, чтобы интернет-соединение было достаточно быстрым для видео
+  DE[d]: Es genügt, die Kamera auszuschalten, das Mikrofon ist dabei ohne Bedeutung
+  RU[d]: Достаточно выключить камеру, микрофон при этом не имеет значения
+DE EXP: Im häuslichen Umfeld können auch Personen mitbekommen, was am Bildschirm zu sehen oder über das Mikrofon zu hören ist, etwa Familienmitglieder oder Besucher, ebenso können in der Nähe befindliche Sprachassistenten unbeabsichtigt mithören. Ein ruhiger, abgeschirmter Ort und bewusster Umgang mit Bildschirm und Mikrofon schützen die Vertraulichkeit. Die reine Verbindungsgeschwindigkeit betrifft die Qualität, nicht die Vertraulichkeit, und ein ausgeschaltetes Mikrofon ist für gesprochene vertrauliche Inhalte mindestens genauso wichtig wie die Kamera.
+RU EXP: В домашней обстановке и другие люди могут заметить то, что видно на экране или слышно через микрофон — например, члены семьи или гости, а находящиеся поблизости голосовые помощники могут непреднамеренно подслушать. Спокойное, изолированное место и осознанное обращение с экраном и микрофоном защищают конфиденциальность. Сама скорость соединения касается качества, а не конфиденциальности, а выключенный микрофон как минимум так же важен для произносимого конфиденциального содержимого, как и камера.
+
+=== ID it_sicherheit-meldepflicht_it-05 | correct=['b'] ===
+DE Q: Wie ist das gestufte Meldeverfahren der NIS2-Richtlinie für einen erheblichen Sicherheitsvorfall zeitlich grob aufgebaut?
+RU Q: Как приблизительно по времени построена поэтапная процедура уведомления директивы NIS2 для значительного инцидента безопасности?
+  DE[a]: Eine einzige, vollständige Meldung genügt, spätestens ein Jahr nach dem Vorfall
+  RU[a]: Достаточно одного полного уведомления, не позднее чем через год после инцидента
+  DE[b]: Eine Frühwarnung innerhalb von 24 Stunden, eine ausführlichere Meldung innerhalb von 72 Stunden, gefolgt von einem Abschlussbericht spätestens einen Monat nach der Meldung
+  RU[b]: Раннее предупреждение в течение 24 часов, более подробное уведомление в течение 72 часов, за которым следует итоговый отчёт не позднее чем через месяц после уведомления
+  DE[c]: Nur ein Abschlussbericht, der innerhalb von 24 Stunden nach dem Vorfall vollständig fertiggestellt sein muss
+  RU[c]: Только итоговый отчёт, который должен быть полностью готов в течение 24 часов после инцидента
+  DE[d]: Eine Meldung ist erst erforderlich, wenn ein Vorfall bereits öffentlich bekannt geworden ist
+  RU[d]: Уведомление требуется только тогда, когда инцидент уже стал общеизвестным
+DE EXP: Die NIS2-Richtlinie sieht ein gestuftes Verfahren vor: eine Frühwarnung binnen 24 Stunden ab Kenntnisnahme, eine ausführlichere Meldung binnen 72 Stunden, und einen Abschlussbericht spätestens einen Monat nach dieser Meldung. Diese Stufung erlaubt eine schnelle erste Reaktion, auch wenn noch nicht alle Details bekannt sind. Eine einmalige Meldung nach einem Jahr, ein sofort vollständiger Bericht innerhalb von 24 Stunden oder das Abwarten öffentlicher Bekanntheit entsprechen nicht dem tatsächlichen Verfahren.
+RU EXP: Директива NIS2 предусматривает поэтапную процедуру: раннее предупреждение в течение 24 часов с момента получения сведений, более подробное уведомление в течение 72 часов и итоговый отчёт не позднее чем через месяц после этого уведомления. Такая поэтапность позволяет быстро отреагировать вначале, даже если ещё не все детали известны. Однократное уведомление через год, сразу полный отчёт в течение 24 часов или ожидание общественной огласки не соответствуют реальной процедуре.
+
+=== ID it_sicherheit-meldepflicht_it-06 | correct=['a'] ===
+DE Q: Nach welchem Grundgedanken bestimmt die NIS2-Richtlinie, ob ein Sicherheitsvorfall als "erheblich" gilt und damit der Meldepflicht unterliegt?
+RU Q: По какому основному принципу директива NIS2 определяет, считается ли инцидент безопасности "значительным" и, следовательно, подлежащим обязательному уведомлению?
+  DE[a]: Ob der Vorfall eine schwerwiegende Betriebsstörung oder einen finanziellen Schaden verursacht (oder verursachen kann), oder ob andere Personen oder Organisationen erheblich geschädigt werden (oder werden können)
+  RU[a]: Вызывает ли инцидент (или может вызвать) серьёзное нарушение работы или финансовый ущерб, или же другие лица или организации несут (или могут понести) значительный ущерб
+  DE[b]: Ob der Vorfall ausschließlich die IT-Abteilung selbst betrifft, unabhängig vom tatsächlichen Ausmaß
+  RU[b]: Касается ли инцидент исключительно самого ИТ-отдела, независимо от фактического масштаба
+  DE[c]: Ob der Vorfall länger als eine Arbeitswoche andauert, unabhängig von seinen Auswirkungen
+  RU[c]: Длится ли инцидент дольше одной рабочей недели, независимо от его последствий
+  DE[d]: Ob der Vorfall zufällig während der Kernarbeitszeit auftritt
+  RU[d]: Происходит ли инцидент случайно в основное рабочее время
+DE EXP: Ein Vorfall gilt nach NIS2 insbesondere dann als erheblich, wenn er eine schwerwiegende Betriebsstörung oder einen finanziellen Schaden für die betroffene Organisation verursacht oder verursachen kann, oder wenn dadurch andere natürliche oder juristische Personen erheblich geschädigt werden oder werden können. Weder die reine Betroffenheit der IT-Abteilung noch die Dauer oder Tageszeit des Vorfalls sind für sich genommen das entscheidende Kriterium - maßgeblich ist das tatsächliche oder mögliche Ausmaß der Auswirkungen.
+RU EXP: Согласно NIS2, инцидент считается значительным, в частности, когда он вызывает или может вызвать серьёзное нарушение работы или финансовый ущерб для затронутой организации, или когда из-за него другие физические или юридические лица несут или могут понести значительный ущерб. Ни само по себе затрагивание ИТ-отдела, ни продолжительность или время суток инцидента сами по себе не являются решающим критерием — определяющим является фактический или возможный масштаб последствий.
+
+=== ID it_sicherheit-meldepflicht_it-07 | correct=['c'] ===
+DE Q: Sie vermuten einen laufenden Sicherheitsvorfall auf Ihrem Firmenrechner. Warum sollten Sie das Gerät nicht eigenmächtig neu starten oder komplett herunterfahren, bevor Sie den Vorfall gemeldet haben?
+RU Q: Вы подозреваете продолжающийся инцидент безопасности на своём служебном компьютере. Почему вам не следует самовольно перезагружать или полностью выключать устройство, прежде чем вы сообщили об инциденте?
+  DE[a]: Weil ein Neustart grundsätzlich mehr Strom verbraucht als der laufende Betrieb
+  RU[a]: Потому что перезагрузка принципиально потребляет больше электроэнергии, чем непрерывная работа
+  DE[b]: Weil ein Neustart automatisch alle Firmendaten auf dem Gerät löscht
+  RU[b]: Потому что перезагрузка автоматически удаляет все данные компании на устройстве
+  DE[c]: Weil dadurch flüchtige Spuren (z. B. im Arbeitsspeicher) verloren gehen können, die für die spätere Untersuchung des Vorfalls wichtig sind
+  RU[c]: Потому что из-за этого могут быть утрачены летучие следы (например, в оперативной памяти), важные для последующего расследования инцидента
+  DE[d]: Weil ein Neustart den Vorfall automatisch behebt und eine Meldung dadurch überflüssig wird
+  RU[d]: Потому что перезагрузка автоматически устраняет инцидент, делая тем самым уведомление излишним
+DE EXP: Manche wichtigen Spuren eines Vorfalls - etwa aktive Netzwerkverbindungen oder Prozesse im Arbeitsspeicher - gehen bei einem Neustart oder Herunterfahren verloren und lassen sich danach nicht mehr rekonstruieren. Für eine spätere Ursachenklärung ist es daher wichtig, das System möglichst unverändert zu lassen und den Vorfall zunächst zu melden, damit die zuständige Stelle über das weitere Vorgehen entscheiden kann. Ein Neustart löscht keine Firmendaten automatisch und behebt auch keinen zugrunde liegenden Sicherheitsvorfall.
+RU EXP: Некоторые важные следы инцидента — например, активные сетевые соединения или процессы в оперативной памяти — теряются при перезагрузке или выключении и впоследствии не могут быть восстановлены. Поэтому для последующего выяснения причины важно оставить систему максимально неизменной и сначала сообщить об инциденте, чтобы ответственное подразделение могло принять решение о дальнейших действиях. Перезагрузка автоматически не удаляет данные компании и не устраняет лежащий в основе инцидент безопасности.
+
+=== ID it_sicherheit-meldepflicht_it-08 | correct=['d'] ===
+DE Q: Welche Angaben sind bei der Meldung eines vermuteten IT-Sicherheitsvorfalls an die zuständige interne Stelle besonders hilfreich?
+RU Q: Какие сведения особенно полезны при уведомлении соответствующего внутреннего подразделения о предполагаемом инциденте ИТ-безопасности?
+  DE[a]: Ausschließlich der eigene Name, weitere Angaben verzögern die Meldung nur unnötig
+  RU[a]: Исключительно собственное имя, дальнейшие сведения только неоправданно задерживают уведомление
+  DE[b]: Eine möglichst kurze Meldung ohne Zeitangabe, damit sie schnell verschickt werden kann
+  RU[b]: Максимально короткое уведомление без указания времени, чтобы его можно было быстро отправить
+  DE[c]: Nur eine grobe Vermutung darüber, wer für den Vorfall verantwortlich sein könnte
+  RU[c]: Только смутное предположение о том, кто мог бы быть ответственным за инцидент
+  DE[d]: Möglichst genaue Angaben zu Zeitpunkt, beobachteten Auffälligkeiten und betroffenen Systemen oder Daten
+  RU[d]: Максимально точные сведения о времени, замеченных отклонениях и затронутых системах или данных
+DE EXP: Konkrete Angaben zu Zeitpunkt, beobachtetem Verhalten (z. B. ungewöhnliche Pop-ups, unerklärliche Dateiänderungen) und den betroffenen Systemen oder Daten helfen der zuständigen Stelle, den Vorfall schnell einzuordnen, das Ausmaß abzuschätzen und geeignete Gegenmaßnahmen einzuleiten. Der eigene Name allein reicht dafür nicht aus, eine Meldung ohne Zeitangabe erschwert die zeitliche Einordnung, und Vermutungen über eine "Schuldfrage" sind für die technische Bearbeitung des Vorfalls nicht der entscheidende Punkt.
+RU EXP: Конкретные сведения о времени, замеченном поведении (например, необычные всплывающие окна, необъяснимые изменения файлов) и затронутых системах или данных помогают ответственному подразделению быстро классифицировать инцидент, оценить масштаб и принять соответствующие ответные меры. Одного лишь имени для этого недостаточно, уведомление без указания времени затрудняет хронологическую классификацию, а предположения о "вине" не являются решающим моментом для технической обработки инцидента.
+
+=== ID it_sicherheit-social_engineering-01 | correct=['b'] ===
+DE Q: Ein Anrufer gibt sich als IT-Support aus und bittet Sie dringend, ihm Ihr aktuelles Passwort zu nennen, um ein angebliches Sicherheitsproblem zu beheben. Wie reagieren Sie?
+RU Q: Звонящий представляется сотрудником ИТ-поддержки и настойчиво просит назвать ваш текущий пароль, чтобы якобы устранить проблему безопасности. Как вы поступите?
+  DE[a]: Das Passwort nennen, da IT-Support-Anfragen meist dringend sind
+  RU[a]: Назвать пароль, так как запросы от ИТ-поддержки обычно срочные
+  DE[b]: Das Passwort nicht nennen und die Anfrage über einen bekannten, unabhängigen Kanal (z. B. offizielle IT-Hotline) überprüfen
+  RU[b]: Не называть пароль и проверить запрос через известный, независимый канал (например, официальную горячую линию ИТ)
+  DE[c]: Ein neues, ähnliches Passwort erfinden und dieses stattdessen weitergeben
+  RU[c]: Придумать новый, похожий пароль и сообщить его вместо настоящего
+  DE[d]: Nur den Benutzernamen nennen, das Passwort aber weglassen
+  RU[d]: Назвать только имя пользователя, а пароль не сообщать
+DE EXP: Kein legitimer IT-Support benötigt jemals Ihr Passwort im Klartext - das ist ein klassisches Pretexting-Muster (Vortäuschen einer falschen Identität/Dringlichkeit). Echte Anfragen lassen sich immer über einen unabhängigen, bereits bekannten Kanal zurückverifizieren, statt der im Anruf selbst genannten Nummer zu vertrauen.
+RU EXP: Ни одна легитимная ИТ-поддержка никогда не запрашивает пароль в открытом виде - это классическая схема претекстинга (выдача себя за другое лицо и искусственное создание срочности). Подлинный запрос всегда можно перепроверить через независимый, уже известный канал, вместо того чтобы доверять номеру, названному во время самого звонка.
+
+=== ID it_sicherheit-social_engineering-02 | correct=['c'] ===
+DE Q: Sie betreten das Bürogebäude mit Ihrer Zugangskarte. Eine unbekannte Person ohne sichtbaren Ausweis läuft dicht hinter Ihnen mit durch die Tür ('Tailgating'). Was ist die richtige Reaktion?
+RU Q: Вы входите в офисное здание по своей карте доступа. Незнакомый человек без видимого пропуска проходит прямо за вами через дверь («тейлгейтинг»). Какая реакция правильна?
+  DE[a]: Die Tür einfach offen halten, Höflichkeit hat Vorrang
+  RU[a]: Просто придержать дверь, вежливость важнее всего
+  DE[b]: Nichts tun, das ist Aufgabe des Empfangs
+  RU[b]: Ничего не делать, это задача ресепшена
+  DE[c]: Die Person freundlich nach ihrem Ausweis/Anliegen fragen oder das Ereignis der Security/dem Empfang melden
+  RU[c]: Вежливо спросить человека о пропуске/цели визита либо сообщить о случае службе безопасности/ресепшену
+  DE[d]: Die Person ignorieren, solange sie nicht verdächtig aussieht
+  RU[d]: Игнорировать человека, пока он не выглядит подозрительно
+DE EXP: Tailgating ist eine der häufigsten Methoden, physische Zutrittskontrollen zu umgehen - 'verdächtig aussehen' ist kein verlässliches Kriterium, da Angreifer bewusst unauffällig auftreten. Ein freundliches Nachfragen oder eine Meldung an Security kostet wenig und schließt eine reale Sicherheitslücke.
+RU EXP: Тейлгейтинг - один из самых распространённых способов обойти физический контроль доступа: критерий «выглядит подозрительно» ненадёжен, поскольку злоумышленники намеренно стараются не выделяться. Вежливый вопрос или сообщение службе безопасности требует немного усилий, но закрывает реальную брешь в безопасности.
+
+=== ID it_sicherheit-social_engineering-03 | correct=['b'] ===
+DE Q: Sie finden einen unbeschrifteten USB-Stick auf dem Firmenparkplatz. Was tun Sie?
+RU Q: Вы находите неподписанную USB-флешку на парковке компании. Что вы делаете?
+  DE[a]: Den Stick an Ihrem Arbeitsrechner anschließen, um den Besitzer über die Dateien zu ermitteln
+  RU[a]: Подключить флешку к своему рабочему компьютеру, чтобы определить владельца по файлам
+  DE[b]: Den Stick nicht anschließen und stattdessen der IT-Sicherheit melden bzw. übergeben
+  RU[b]: Не подключать флешку, а сообщить о ней или передать её службе ИТ-безопасности
+  DE[c]: Den Stick an einem privaten Rechner zu Hause prüfen, dort besteht kein Firmenrisiko
+  RU[c]: Проверить флешку на личном компьютере дома, так как это не несёт риска для компании
+  DE[d]: Den Stick wegwerfen, damit niemand sonst ihn findet
+  RU[d]: Выбросить флешку, чтобы её больше никто не нашёл
+DE EXP: Ein absichtlich 'verlorener' USB-Stick ist ein bekannter Angriffsweg ('USB-Drop-Attack'), um Schadsoftware einzuschleusen, sobald jemand ihn aus Neugier ansteckt. Das gilt genauso an einem privaten Rechner, da darüber gestohlene Daten oder Zugänge abfließen können. Die IT-Sicherheit kann den Stick sicher (isoliert) prüfen.
+RU EXP: Намеренно «потерянная» USB-флешка - известный метод атаки (атака с подброшенной USB-флешкой), позволяющий внедрить вредоносное ПО, как только кто-то из любопытства её подключит. Тот же риск существует и на личном компьютере, так как оттуда тоже могут утечь украденные данные или учётные данные. Служба ИТ-безопасности может проверить флешку безопасно, в изолированной среде.
+
+=== ID it_sicherheit-social_engineering-04 | correct=['c'] ===
+DE Q: Sie erhalten einen Anruf einer angeblichen Bank-Mitarbeiterin, die Sie bittet, 'zur Sicherheit' Ihre PIN am Telefon zu bestätigen ('Vishing'). Wie reagieren Sie richtig?
+RU Q: Вам звонит человек, представляющийся сотрудницей банка, и просит «в целях безопасности» подтвердить ваш PIN-код по телефону («вишинг»). Как правильно поступить?
+  DE[a]: Die PIN nennen, da die Anruferin den Kontostand bereits genannt hat und das vertrauenswürdig wirkte
+  RU[a]: Назвать PIN-код, ведь звонившая уже назвала остаток на счёте, что выглядело убедительно
+  DE[b]: Nur die letzten beiden Ziffern der PIN nennen, das sei sicher genug
+  RU[b]: Назвать только последние две цифры PIN-кода, этого достаточно безопасно
+  DE[c]: Die PIN keinesfalls am Telefon nennen und selbst über die offizielle, bekannte Bank-Telefonnummer zurückrufen
+  RU[c]: Ни в коем случае не называть PIN-код по телефону, а самостоятельно перезвонить по официальному, известному номеру банка
+  DE[d]: Auflegen und die PIN sicherheitshalber sofort ändern, ohne die Bank zu informieren
+  RU[d]: Положить трубку и сразу сменить PIN-код на всякий случай, не сообщая банку
+DE EXP: Banken fragen niemals die vollständige PIN am Telefon ab - auch teilweise Angaben oder scheinbar bekannte Kontodaten (die z. B. aus Datenlecks stammen können) beweisen keine echte Identität des Anrufers. Der sichere Weg ist immer der selbst initiierte Rückruf über eine unabhängig verifizierte Nummer.
+RU EXP: Банки никогда не запрашивают полный PIN-код по телефону - даже частичные сведения или якобы известные данные счёта (которые могут происходить, например, из утечек данных) не доказывают подлинность собеседника. Безопасный путь - всегда самостоятельно инициированный звонок по независимо проверенному номеру.
+
+=== ID it_sicherheit-social_engineering-05 | correct=['b'] ===
+DE Q: Sie erhalten eine SMS von einem angeblichen Paketdienst: 'Ihr Paket konnte nicht zugestellt werden, bestätigen Sie Ihre Adresse und Zahlungsdaten über diesen Link' ('Smishing'). Was ist die richtige Reaktion?
+RU Q: Вы получаете SMS от якобы службы доставки: «Ваша посылка не может быть доставлена, подтвердите адрес и платёжные данные по этой ссылке» («смишинг»). Как правильно поступить?
+  DE[a]: Den Link öffnen, aber keine Zahlungsdaten eingeben
+  RU[a]: Открыть ссылку, но не вводить платёжные данные
+  DE[b]: Den Link nicht öffnen und die Sendungsnummer stattdessen direkt auf der offiziellen Website des Paketdienstes prüfen
+  RU[b]: Не открывать ссылку, а проверить номер отправления напрямую на официальном сайте службы доставки
+  DE[c]: Die SMS an Kollegen weiterleiten, damit diese den Link testen
+  RU[c]: Переслать SMS коллегам, чтобы они проверили ссылку
+  DE[d]: Auf 'Stop' antworten, um sich von der Liste abzumelden
+  RU[d]: Ответить «Stop», чтобы отписаться от рассылки
+DE EXP: Auch nur das Öffnen eines Links kann bereits Geräteinformationen preisgeben oder zu einer täuschend echten Fake-Seite führen, die Zugangsdaten abgreift. Die sichere Prüfung erfolgt immer über die selbst eingegebene, offizielle Adresse - nie über einen Link aus einer unaufgeforderten Nachricht.
+RU EXP: Уже само открытие ссылки может раскрыть информацию об устройстве или привести на убедительно поддельную страницу, которая похищает учётные данные. Безопасная проверка всегда выполняется через адрес, введённый самостоятельно, а не через ссылку из незапрошенного сообщения.
+
+=== ID it_sicherheit-social_engineering-06 | correct=['c'] ===
+DE Q: Sie erhalten eine E-Mail, die angeblich von der Geschäftsführung stammt: 'Dringend und vertraulich - bitte sofort eine Überweisung von 45.000 € auf dieses neue Konto veranlassen, ich bin gerade nicht erreichbar' ('CEO-Fraud' / Business Email Compromise). Wie handeln Sie?
+RU Q: Вы получаете письмо, якобы от руководства компании: «Срочно и конфиденциально - пожалуйста, немедленно организуйте перевод 45 000 € на этот новый счёт, я сейчас недоступен(-на)» («мошенничество от имени руководителя» / Business Email Compromise). Как вы поступите?
+  DE[a]: Die Überweisung sofort ausführen, da Vertraulichkeit und Dringlichkeit betont wurden
+  RU[a]: Сразу выполнить перевод, так как подчёркнуты конфиденциальность и срочность
+  DE[b]: Auf die E-Mail antworten und um weitere Details bitten, dann überweisen
+  RU[b]: Ответить на письмо и попросить больше деталей, а затем выполнить перевод
+  DE[c]: Die Anfrage über einen unabhängigen, bekannten Kanal (z. B. Rückruf auf bekannter Nummer) verifizieren und den regulären Freigabeprozess einhalten, auch unter Zeitdruck
+  RU[c]: Проверить запрос через независимый, известный канал (например, звонок по известному номеру) и соблюсти обычный порядок утверждения, даже под давлением времени
+  DE[d]: Einen Kollegen bitten, die Überweisung ohne Rückfrage zu übernehmen, um Zeit zu sparen
+  RU[d]: Попросить коллегу выполнить перевод без лишних вопросов, чтобы сэкономить время
+DE EXP: Dringlichkeit, Vertraulichkeit und Unerreichbarkeit der angeblichen Absenderperson sind die klassischen Druckmittel bei CEO-Fraud - sie sollen genau verhindern, dass der reguläre Freigabeprozess (z. B. Vier-Augen-Prinzip) eingehalten wird. Ein Angreifer, der auf eine E-Mail antwortet, bleibt derselbe Angreifer; nur ein unabhängiger Rückkanal schafft echte Sicherheit.
+RU EXP: Срочность, конфиденциальность и недоступность якобы отправителя - классические инструменты давления при мошенничестве от имени руководителя; они нужны именно для того, чтобы помешать соблюдению обычного порядка утверждения (например, принципа двойного контроля). Злоумышленник, отвечающий на письмо, остаётся тем же злоумышленником - реальную уверенность даёт только независимый обратный канал.
+
+=== ID it_sicherheit-social_engineering-07 | correct=['b'] ===
+DE Q: Eine E-Mail, angeblich von einem langjährigen Lieferanten, teilt mit, dass sich die Bankverbindung geändert hat, und bittet, künftige Zahlungen auf das neue Konto zu leisten. Was ist der richtige erste Schritt?
+RU Q: Письмо, якобы от давнего поставщика, сообщает, что изменились банковские реквизиты, и просит впредь направлять платежи на новый счёт. Каков правильный первый шаг?
+  DE[a]: Die Zahlungsdaten im System sofort aktualisieren, da der Lieferant bekannt ist
+  RU[a]: Немедленно обновить платёжные данные в системе, поскольку поставщик известен
+  DE[b]: Die Änderung über einen unabhängigen, bereits bekannten Kontakt beim Lieferanten (Telefonnummer aus früheren Unterlagen, nicht aus der E-Mail) verifizieren, bevor irgendetwas geändert wird
+  RU[b]: Проверить изменение через независимый, уже известный контакт у поставщика (номер телефона из прежних документов, а не из письма), прежде чем что-либо менять
+  DE[c]: Eine kleine Testüberweisung auf das neue Konto senden, um es zu prüfen
+  RU[c]: Отправить небольшой тестовый перевод на новый счёт, чтобы проверить его
+  DE[d]: Die E-Mail ignorieren, aber die alte Bankverbindung vorsichtshalber trotzdem sperren
+  RU[d]: Проигнорировать письмо, но на всякий случай всё же заблокировать старые банковские реквизиты
+DE EXP: Änderungen von Bankverbindungen sind ein bevorzugtes Ziel für Business-Email-Compromise-Angriffe, da E-Mail-Konten von Lieferanten kompromittiert und Rechnungen täuschend echt nachgebaut werden können. Eine Verifizierung über einen unabhängigen, aus früherer Zusammenarbeit bekannten Kanal ist der einzige verlässliche Schutz - eine Testüberweisung schützt nicht vor dem eigentlichen Betrag.
+RU EXP: Изменение банковских реквизитов - излюбленная цель атак Business Email Compromise, поскольку почтовый ящик поставщика может быть скомпрометирован, а счета убедительно подделаны. Проверка через независимый канал, известный из предыдущего сотрудничества, - единственная надёжная защита; тестовый перевод не защищает от потери основной суммы.
+
+=== ID it_sicherheit-social_engineering-08 | correct=['c'] ===
+DE Q: Ein Kollege hat seine Zugangskarte vergessen und bittet Sie, ihn einfach mit Ihrer eigenen Karte durch die Sicherheitstür zu lassen ('Badge Sharing'). Was ist die richtige Reaktion?
+RU Q: Коллега забыл свою карту доступа и просит вас просто провести его через дверь безопасности по своей карте (передача пропуска). Как правильно поступить?
+  DE[a]: Ihn einfach mitgehen lassen, es ist schließlich ein bekannter Kollege
+  RU[a]: Просто провести его, ведь это знакомый коллега
+  DE[b]: Ihm Ihre Karte für den Tag ausleihen
+  RU[b]: Одолжить ему свою карту на день
+  DE[c]: Ihn an den Empfang oder die Security verweisen, damit dort ein regulärer temporärer Zugang ausgestellt wird
+  RU[c]: Направить его на ресепшен или в службу безопасности, чтобы там оформили временный доступ в обычном порядке
+  DE[d]: Die Tür für ihn aufhalten, solange niemand sonst zusieht
+  RU[d]: Придержать для него дверь, пока никто больше не видит
+DE EXP: Zugangskarten sind personenbezogen, damit im Ernstfall (z. B. Vorfallaufklärung) nachvollziehbar bleibt, wer wann wo war - Badge Sharing untergräbt das, selbst unter Kollegen, und ist zudem ein Muster, das Social Engineers gezielt ausnutzen ('ich hab meine Karte vergessen'). Der reguläre Weg über Empfang/Security bleibt schnell und sicher zugleich.
+RU EXP: Карты доступа привязаны к конкретному человеку, чтобы при необходимости (например, при расследовании инцидента) можно было установить, кто, когда и где находился - передача пропуска подрывает это даже между коллегами, а также является моделью поведения, которую социальные инженеры намеренно эксплуатируют («я забыл пропуск»). Обычный путь через ресепшен/службу безопасности остаётся одновременно быстрым и надёжным.
+
+=== ID it_sicherheit-ransomware-01 | correct=['b'] ===
+DE Q: Auf Ihrem Bildschirm erscheint plötzlich eine Nachricht, dass alle Ihre Dateien verschlüsselt wurden und nur gegen Zahlung eines Lösegelds ('Ransomware') wieder freigegeben werden. Was ist Ihr allererster Schritt?
+RU Q: На вашем экране внезапно появляется сообщение о том, что все ваши файлы зашифрованы и будут разблокированы только после уплаты выкупа («ransomware»). Каков ваш самый первый шаг?
+  DE[a]: Sofort versuchen, das geforderte Lösegeld zu zahlen, um Zeit zu sparen
+  RU[a]: Сразу попытаться заплатить требуемый выкуп, чтобы сэкономить время
+  DE[b]: Das Gerät umgehend vom Netzwerk trennen (Netzwerkkabel ziehen / WLAN deaktivieren) und sofort die IT-Sicherheit informieren
+  RU[b]: Немедленно отключить устройство от сети (вынуть сетевой кабель / выключить Wi-Fi) и сразу сообщить службе ИТ-безопасности
+  DE[c]: Den Rechner neu starten, um zu sehen, ob das Problem verschwindet
+  RU[c]: Перезагрузить компьютер, чтобы проверить, исчезнет ли проблема
+  DE[d]: Selbst versuchen, die Dateien mit einer im Internet gefundenen Software zu entschlüsseln
+  RU[d]: Попытаться самостоятельно расшифровать файлы с помощью программы, найденной в интернете
+DE EXP: Die sofortige Trennung vom Netzwerk verhindert, dass sich die Ransomware auf weitere Systeme im Firmennetz ausbreitet - das ist der wichtigste Sofortschritt vor jeder weiteren Maßnahme. Die IT-Sicherheit kann dann den Vorfall fachgerecht eindämmen; eigenmächtige Entschlüsselungsversuche oder ein Neustart können Spuren zerstören oder die Lage verschlimmern.
+RU EXP: Немедленное отключение от сети предотвращает распространение вредоносной программы на другие системы в сети компании - это самый важный первый шаг перед любыми другими действиями. Служба ИТ-безопасности сможет затем профессионально локализовать инцидент; самовольные попытки расшифровки или перезагрузка могут уничтожить улики или ухудшить ситуацию.
+
+=== ID it_sicherheit-ransomware-02 | correct=['c'] ===
+DE Q: Sollte ein Unternehmen bei einem Ransomware-Angriff das geforderte Lösegeld zahlen?
+RU Q: Должна ли компания платить выкуп, требуемый при атаке программы-вымогателя (ransomware)?
+  DE[a]: Ja, das ist immer der schnellste und sicherste Weg, um wieder an die Daten zu kommen
+  RU[a]: Да, это всегда самый быстрый и надёжный способ вернуть данные
+  DE[b]: Ja, aber nur wenn der geforderte Betrag niedrig genug erscheint
+  RU[b]: Да, но только если требуемая сумма кажется достаточно небольшой
+  DE[c]: Das BSI rät grundsätzlich von Zahlungen ab - sie garantieren keine Datenfreigabe, finanzieren weitere Angriffe und können erneut ins Visier geraten lassen; die Entscheidung liegt bei Geschäftsführung/IT-Sicherheit im Rahmen des Notfallplans, nicht bei Einzelpersonen
+  RU[c]: BSI принципиально не рекомендует платить - оплата не гарантирует возврата данных, финансирует дальнейшие атаки и может сделать компанию повторной мишенью; решение принимает руководство/служба ИТ-безопасности в рамках плана реагирования на инциденты, а не отдельные сотрудники
+  DE[d]: Das spielt keine Rolle, da Backups eine Zahlung ohnehin immer überflüssig machen
+  RU[d]: Это не имеет значения, так как резервные копии в любом случае делают оплату ненужной
+DE EXP: Eine Zahlung ist keine Garantie für die Wiederherstellung der Daten und finanziert kriminelle Infrastruktur weiter. Selbst mit guten Backups bleibt die Zahlungsentscheidung im Ernstfall komplex (z. B. wegen exfiltrierter Daten) und ist daher immer eine Entscheidung der Unternehmensleitung im Rahmen des dokumentierten Notfallplans, nicht einer einzelnen Person vor Ort.
+RU EXP: Оплата не гарантирует восстановления данных и дополнительно финансирует криминальную инфраструктуру. Даже при наличии хороших резервных копий решение об оплате в реальной ситуации остаётся сложным (например, из-за похищенных данных), поэтому это всегда решение руководства компании в рамках задокументированного плана реагирования, а не отдельного человека на месте.
+
+=== ID it_sicherheit-ransomware-03 | correct=['a'] ===
+DE Q: Über welchen Weg gelangt Ransomware am häufigsten in Unternehmensnetzwerke?
+RU Q: Каким путём программы-вымогатели (ransomware) чаще всего проникают в корпоративные сети?
+  DE[a]: Über Phishing-E-Mails mit schädlichem Anhang oder Link sowie über ungepatchte, aus dem Internet erreichbare Systeme
+  RU[a]: Через фишинговые письма со вредоносным вложением или ссылкой, а также через незащищённые (без обновлений) системы, доступные из интернета
+  DE[b]: Fast ausschließlich über physisch gestohlene Laptops
+  RU[b]: Почти исключительно через физически украденные ноутбуки
+  DE[c]: Fast ausschließlich über kompromittierte Druckerkabel
+  RU[c]: Почти исключительно через скомпрометированные кабели принтеров
+  DE[d]: Ransomware verbreitet sich grundsätzlich nur über bereits infizierte USB-Sticks
+  RU[d]: Ransomware всегда распространяется только через уже заражённые USB-накопители
+DE EXP: Phishing-E-Mails und ungepatchte, extern erreichbare Systeme (z. B. Fernzugriffslösungen) sind laut BSI-Lageberichten die dominierenden Einfallstore. Das macht sowohl wachsame Mitarbeitende beim Öffnen von Anhängen/Links als auch zeitnahes Einspielen von Sicherheitsupdates zu zentralen Schutzmaßnahmen.
+RU EXP: Согласно отчётам о состоянии безопасности BSI, фишинговые письма и незащищённые, доступные извне системы (например, решения для удалённого доступа) являются доминирующими точками входа. Это делает как бдительность сотрудников при открытии вложений/ссылок, так и своевременную установку обновлений безопасности ключевыми мерами защиты.
+
+=== ID it_sicherheit-ransomware-04 | correct=['c'] ===
+DE Q: Warum sind regelmäßige, vom Netzwerk getrennte ('offline') oder unveränderbare ('immutable') Backups besonders wichtig für den Schutz vor Ransomware?
+RU Q: Почему регулярные резервные копии, отключённые от сети («офлайн») или неизменяемые («immutable»), особенно важны для защиты от программ-вымогателей?
+  DE[a]: Sie sind es nicht - jede Art von Backup reicht aus, solange sie regelmäßig läuft
+  RU[a]: Это не так - подходит любой тип резервной копии, если она делается регулярно
+  DE[b]: Nur damit die IT-Abteilung Speicherplatz sparen kann
+  RU[b]: Только для того, чтобы ИТ-отдел мог сэкономить место на диске
+  DE[c]: Weil Ransomware gezielt versucht, auch im Netzwerk erreichbare Backups zu verschlüsseln - nur getrennte oder unveränderbare Kopien bleiben im Ernstfall garantiert nutzbar
+  RU[c]: Потому что вымогательское ПО целенаправленно пытается зашифровать и резервные копии, доступные по сети - только отключённые или неизменяемые копии гарантированно остаются пригодными для использования в реальной ситуации
+  DE[d]: Ausschließlich aus Compliance-Gründen, technisch spielt der Backup-Typ keine Rolle
+  RU[d]: Исключительно из соображений соответствия требованиям, технически тип резервной копии значения не имеет
+DE EXP: Moderne Ransomware sucht aktiv nach erreichbaren Netzlaufwerken und Backup-Systemen, um auch diese zu verschlüsseln und den Druck zur Lösegeldzahlung zu erhöhen. Ein Backup, das offline oder technisch unveränderbar ist, kann davon nicht betroffen sein und ermöglicht eine Wiederherstellung ohne Zahlung.
+RU EXP: Современное вредоносное ПО-вымогатель активно ищет доступные сетевые диски и системы резервного копирования, чтобы зашифровать и их и усилить давление для уплаты выкупа. Резервная копия, которая является офлайновой или технически неизменяемой, не может быть этим затронута и позволяет восстановление без оплаты.
+
+=== ID it_sicherheit-ransomware-05 | correct=['b'] ===
+DE Q: Sie bemerken eine Ransomware-Infektion auf Ihrem Firmenrechner. Sollten Sie den Rechner neu starten, um das Problem selbst zu beheben?
+RU Q: Вы замечаете заражение программой-вымогателем на своём рабочем компьютере. Стоит ли перезагрузить компьютер, чтобы устранить проблему самостоятельно?
+  DE[a]: Ja, ein Neustart behebt die meisten Softwareprobleme
+  RU[a]: Да, перезагрузка решает большинство программных проблем
+  DE[b]: Nein - ein Neustart oder Herunterfahren kann laufende Verschlüsselungsprozesse beschleunigen oder wichtige forensische Spuren zerstören; stattdessen vom Netzwerk trennen und den Vorfall melden
+  RU[b]: Нет - перезагрузка или выключение может ускорить идущий процесс шифрования или уничтожить важные криминалистические следы; вместо этого нужно отключить устройство от сети и сообщить об инциденте
+  DE[c]: Ja, aber nur im abgesicherten Modus
+  RU[c]: Да, но только в безопасном режиме
+  DE[d]: Das ist egal, solange man danach ein Antivirenprogramm laufen lässt
+  RU[d]: Это не имеет значения, если потом запустить антивирусную программу
+DE EXP: Manche Ransomware-Varianten setzen die Verschlüsselung nach einem Neustart fort oder löschen dabei Hinweise, die für die spätere Analyse des Angriffswegs wichtig wären. Die IT-Sicherheit trifft die Entscheidung über die nächsten Schritte auf Basis des unveränderten Systemzustands.
+RU EXP: Некоторые варианты вымогательского ПО продолжают шифрование после перезагрузки, а сама перезагрузка может стереть следы, важные для последующего анализа хода атаки. Служба ИТ-безопасности принимает решение о дальнейших шагах на основе неизменённого состояния системы.
+
+=== ID it_sicherheit-ransomware-06 | correct=['c'] ===
+DE Q: Ein Kollege bittet Sie, bei einem vermuteten Ransomware-Vorfall auf seinem Rechner zu helfen, ohne die IT-Sicherheit einzuschalten, 'um keinen Ärger zu bekommen'. Wie reagieren Sie?
+RU Q: Коллега просит вас помочь с предполагаемым инцидентом заражения программой-вымогателем на его компьютере, не привлекая службу ИТ-безопасности, «чтобы не было проблем». Как вы поступите?
+  DE[a]: Helfen, wie gewünscht, und die Sache diskret unter sich behalten
+  RU[a]: Помочь, как просят, и оставить это между собой
+  DE[b]: Selbst eine im Internet gefundene Anleitung zur Entschlüsselung ausprobieren
+  RU[b]: Самостоятельно попробовать найденную в интернете инструкцию по расшифровке
+  DE[c]: Auf einer sofortigen Meldung an die IT-Sicherheit bestehen - schnelles Melden verringert den Schaden und ist wichtiger als mögliche Unannehmlichkeiten
+  RU[c]: Настоять на немедленном сообщении службе ИТ-безопасности - быстрое сообщение снижает ущерб и важнее возможных неудобств
+  DE[d]: Den Rechner einfach ausschalten und das Thema damit als erledigt betrachten
+  RU[d]: Просто выключить компьютер и считать вопрос закрытым
+DE EXP: Verzögertes oder unterlassenes Melden ist eines der größten Risiken bei Sicherheitsvorfällen, da sich Ransomware in der verstreichenden Zeit im Netzwerk weiter ausbreiten kann. Eine gute Sicherheitskultur behandelt schnelles Melden als erwünschtes Verhalten, nicht als etwas, das Ärger nach sich zieht.
+RU EXP: Задержка или отказ от сообщения об инциденте - один из главных рисков при инцидентах безопасности, поскольку за это время вредоносная программа может продолжить распространяться по сети. Здоровая культура безопасности воспринимает быстрое информирование как желаемое поведение, а не как источник проблем.
+
+=== ID it_sicherheit-ransomware-07 | correct=['b'] ===
+DE Q: Welches Anzeichen deutet am ehesten darauf hin, dass ein System sich möglicherweise in einer frühen Phase eines Ransomware-Angriffs befindet, noch bevor eine Lösegeldforderung erscheint?
+RU Q: Какой признак с наибольшей вероятностью указывает на то, что система может находиться на ранней стадии атаки вымогательского ПО, ещё до появления требования выкупа?
+  DE[a]: Der Bildschirmschoner hat sich geändert
+  RU[a]: Изменилась заставка экрана
+  DE[b]: Auffällig viele Dateien werden in kurzer Zeit umbenannt oder erhalten ungewöhnliche neue Dateiendungen, das System wird spürbar langsamer, und das Antivirenprogramm meldet mehrfach blockierte verdächtige Prozesse
+  RU[b]: Необычно большое количество файлов переименовывается или получает странные новые расширения за короткое время, система заметно замедляется, а антивирусная программа неоднократно сообщает о заблокированных подозрительных процессах
+  DE[c]: Der Rechner ist etwas leiser als sonst
+  RU[c]: Компьютер работает немного тише, чем обычно
+  DE[d]: Es gibt keine erkennbaren Anzeichen vor der Lösegeldforderung
+  RU[d]: Никаких заметных признаков до появления требования выкупа не существует
+DE EXP: Die eigentliche Verschlüsselung läuft oft im Hintergrund, bevor die Lösegeldforderung sichtbar wird - massenhaftes Umbenennen von Dateien, spürbare Verlangsamung und wiederholte Antivirenwarnungen sind frühe Warnsignale, bei denen sofortiges Melden den entstehenden Schaden noch begrenzen kann.
+RU EXP: Само шифрование часто происходит в фоновом режиме ещё до того, как появляется требование выкупа - массовое переименование файлов, заметное замедление и повторяющиеся предупреждения антивируса являются ранними тревожными сигналами, при которых немедленное сообщение ещё может ограничить причиняемый ущерб.
+
+=== ID it_sicherheit-ransomware-08 | correct=['a', 'b', 'd'] ===
+DE Q: Welche der folgenden Maßnahmen senken das Risiko, dass Ransomware sich im Firmennetzwerk ausbreitet? (Mehrfachauswahl)
+RU Q: Какие из перечисленных мер снижают риск распространения вымогательского ПО в корпоративной сети? (можно выбрать несколько вариантов)
+  DE[a]: Zeitnahes Einspielen von Sicherheitsupdates auf allen Systemen
+  RU[a]: Своевременная установка обновлений безопасности на всех системах
+  DE[b]: Nutzerkonten nur mit den tatsächlich benötigten Rechten ausstatten (Prinzip der geringsten Rechte)
+  RU[b]: Предоставление учётным записям пользователей только действительно необходимых прав доступа (принцип минимальных привилегий)
+  DE[c]: Alle Mitarbeitenden mit Administratorrechten auf ihrem Arbeitsrechner ausstatten, damit sie IT-Probleme selbst lösen können
+  RU[c]: Предоставление всем сотрудникам прав администратора на рабочем компьютере, чтобы они могли сами решать ИТ-проблемы
+  DE[d]: Regelmäßige, getrennte Backups mit getesteter Wiederherstellung
+  RU[d]: Регулярные, отключённые от сети резервные копии с проверенным восстановлением
+DE EXP: Aktuelle Systeme, minimale Rechte und getestete Backups gehören zu den wirksamsten technischen Schutzmaßnahmen. Breite Administratorrechte für alle wirken genau entgegengesetzt: Sie erleichtern es Ransomware, sich mit denselben erhöhten Rechten im Netzwerk auszubreiten.
+RU EXP: Актуальные системы, минимальные права доступа и проверенные резервные копии относятся к самым эффективным техническим мерам защиты. Широкие права администратора для всех действуют строго в обратном направлении: они облегчают вымогательскому ПО распространение по сети с теми же повышенными правами.
+
+=== ID it_sicherheit-ki_bedrohungen-01 | correct=['b'] ===
+DE Q: Was ist im Sicherheitskontext mit einem 'Deepfake' gemeint?
+RU Q: Что в контексте безопасности подразумевается под термином «дипфейк»?
+  DE[a]: Ein besonders raffiniert gefälschtes physisches Dokument
+  RU[a]: Особенно искусно подделанный физический документ
+  DE[b]: Ein mittels künstlicher Intelligenz erzeugtes, täuschend echtes Audio-, Bild- oder Videomaterial, das eine reale Person imitiert
+  RU[b]: Созданные с помощью искусственного интеллекта убедительно реалистичные аудио-, фото- или видеоматериалы, имитирующие реального человека
+  DE[c]: Ein technischer Fachbegriff für besonders tief verschachtelte Phishing-Links
+  RU[c]: Технический термин для обозначения особенно глубоко вложенных фишинговых ссылок
+  DE[d]: Ein veralteter Begriff, der in der Praxis keine Rolle mehr spielt
+  RU[d]: Устаревший термин, который на практике больше не имеет значения
+DE EXP: Deepfakes nutzen KI-Modelle, um Stimme, Gesicht oder Bewegungen einer realen Person nachzubilden - inzwischen mit so geringem Aufwand, dass sie zunehmend für gezielte Betrugsversuche wie gefälschte Anrufe oder Videobotschaften eingesetzt werden.
+RU EXP: Дипфейки используют модели искусственного интеллекта для воссоздания голоса, лица или движений реального человека - теперь это возможно с такими малыми усилиями, что их всё чаще применяют для целенаправленных попыток мошенничества, например поддельных звонков или видеосообщений.
+
+=== ID it_sicherheit-ki_bedrohungen-02 | correct=['c'] ===
+DE Q: Sie erhalten einen Telefonanruf, dessen Stimme exakt wie die Ihrer Geschäftsführung klingt und der eine dringende, ungewöhnliche Überweisung fordert - eine Rückrufnummer wird explizit abgelehnt ('Ich bin gleich im Flugzeug'). Was ist die richtige Reaktion?
+RU Q: Вам звонят, и голос звучит точь-в-точь как голос вашего руководителя, требуя срочного, необычного перевода денег - возможность перезвонить прямо отвергается («я скоро сяду в самолёт»). Как правильно поступить?
+  DE[a]: Handeln, da die Stimme zweifelsfrei erkannt wurde
+  RU[a]: Действовать, так как голос узнан без сомнений
+  DE[b]: Die Überweisung ausführen, aber nur die Hälfte des geforderten Betrags
+  RU[b]: Выполнить перевод, но только на половину требуемой суммы
+  DE[c]: Der Anfrage nicht folgen und die Identität über einen unabhängigen, bereits bekannten Kanal verifizieren - Stimmerkennung allein ist durch KI-Stimmklonung keine verlässliche Bestätigung mehr
+  RU[c]: Не выполнять запрос и проверить личность через независимый, уже известный канал - само по себе узнавание голоса больше не является надёжным подтверждением из-за клонирования голоса с помощью ИИ
+  DE[d]: Die Anfrage ignorieren, ohne sie zu melden
+  RU[d]: Проигнорировать запрос, не сообщая о нём
+DE EXP: KI-Stimmklonung kann mit wenigen Sekunden echten Audiomaterials eine täuschend echte Stimme erzeugen - genau die Kombination aus Dringlichkeit, ungewöhnlicher Forderung und Ablehnung eines Rückrufs ist ein typisches Warnsignal, unabhängig davon, wie echt die Stimme klingt. Auch ein Nicht-Handeln sollte gemeldet werden, damit weitere Kolleginnen und Kollegen gewarnt werden können.
+RU EXP: Клонирование голоса с помощью ИИ способно создать убедительно реалистичный голос всего из нескольких секунд настоящей аудиозаписи - именно сочетание срочности, необычного требования и отказа от обратного звонка является типичным тревожным сигналом, независимо от того, насколько реально звучит голос. Даже если вы не стали действовать, о случае всё равно стоит сообщить, чтобы предупредить других коллег.
+
+=== ID it_sicherheit-ki_bedrohungen-03 | correct=['c'] ===
+DE Q: Früher galten Rechtschreib- und Grammatikfehler als zuverlässiges Erkennungsmerkmal von Phishing-E-Mails. Warum reicht dieses Kriterium heute allein nicht mehr aus?
+RU Q: Раньше орфографические и грамматические ошибки считались надёжным признаком фишинговых писем. Почему сегодня одного этого критерия уже недостаточно?
+  DE[a]: Weil E-Mail-Programme Rechtschreibfehler inzwischen automatisch korrigieren
+  RU[a]: Потому что почтовые программы теперь автоматически исправляют орфографические ошибки
+  DE[b]: Weil Rechtschreibfehler ohnehin nie ein zuverlässiges Kriterium waren
+  RU[b]: Потому что орфографические ошибки и раньше никогда не были надёжным критерием
+  DE[c]: Weil KI-Sprachmodelle sprachlich einwandfreie, personalisierte Phishing-Texte erzeugen können - andere Warnsignale wie abweichende Absenderadresse, ungewöhnliche Links oder unerwartete Dringlichkeit werden dadurch wichtiger
+  RU[c]: Потому что языковые модели ИИ способны создавать грамматически безупречные, персонализированные фишинговые тексты - из-за этого другие тревожные сигналы, такие как несовпадающий адрес отправителя, необычные ссылки или неожиданная срочность, становятся важнее
+  DE[d]: Weil moderne Phishing-Angriffe grundsätzlich ohne Text auskommen
+  RU[d]: Потому что современные фишинговые атаки в принципе обходятся без текста
+DE EXP: KI-generierte Texte sind sprachlich oft nicht mehr von echter Kommunikation zu unterscheiden und können zudem individuell auf die Zielperson zugeschnitten werden. Die verlässlicheren Prüfpunkte bleiben deshalb die tatsächliche Absenderadresse, die Ziel-URL eines Links und ob die Anfrage inhaltlich plausibel und über den erwarteten Kanal kommt.
+RU EXP: Тексты, сгенерированные ИИ, часто уже неотличимы по языку от подлинного общения, а также могут быть индивидуально адаптированы под конкретную цель. Поэтому более надёжными критериями проверки остаются фактический адрес отправителя, реальный целевой URL ссылки и то, выглядит ли запрос содержательно правдоподобным и приходит ли он по ожидаемому каналу.
+
+=== ID it_sicherheit-ki_bedrohungen-04 | correct=['b'] ===
+DE Q: In einem spontan angesetzten Videoanruf fordert eine Person, die optisch und stimmlich wie ein bekannter Vorgesetzter wirkt, die sofortige Weitergabe vertraulicher Kundendaten. Die Bild-/Tonqualität ist leicht ungewöhnlich. Wie reagieren Sie?
+RU Q: Во время спонтанно организованного видеозвонка человек, который выглядит и звучит как известный руководитель, требует немедленно передать конфиденциальные данные клиентов. Качество изображения/звука слегка необычное. Как вы поступите?
+  DE[a]: Die Daten weitergeben, da Bild und Stimme übereinstimmten
+  RU[a]: Передать данные, так как изображение и голос совпали
+  DE[b]: Die Weitergabe verweigern oder verzögern und die Anfrage über einen unabhängigen, bereits bekannten Kanal (z. B. Rückruf, persönliches Gespräch) verifizieren
+  RU[b]: Отказаться от передачи или отложить её и проверить запрос через независимый, уже известный канал (например, обратный звонок, личный разговор)
+  DE[c]: Nur einen Teil der Daten weitergeben, um das Risiko zu begrenzen
+  RU[c]: Передать только часть данных, чтобы ограничить риск
+  DE[d]: Im Anruf direkt nachfragen, ob es sich um einen Deepfake handelt, und der Antwort vertrauen
+  RU[d]: Прямо во время звонка спросить, не дипфейк ли это, и поверить ответу
+DE EXP: Leicht unstimmige Bild-/Tonqualität, eine spontane Ansetzung und eine ungewöhnliche vertrauliche Anfrage sind zusammen typische Warnsignale für einen Deepfake-Angriff. Ein Angreifer, der eine Person täuschend echt imitiert, wird auf direkte Nachfrage im Anruf selbstverständlich ebenfalls verneinen - nur ein unabhängiger Kanal schafft echte Klarheit.
+RU EXP: Слегка нестыкующееся качество изображения/звука, спонтанность организации и необычный конфиденциальный запрос вместе являются типичными тревожными сигналами атаки с использованием дипфейка. Злоумышленник, убедительно имитирующий человека, разумеется, тоже станет всё отрицать в ответ на прямой вопрос во время звонка - подлинную ясность даёт только независимый канал.
+
+=== ID it_sicherheit-ki_bedrohungen-05 | correct=['b'] ===
+DE Q: Warum wird Social Engineering durch den Einsatz von KI-Werkzeugen allgemein als größeres Risiko eingeschätzt als zuvor?
+RU Q: Почему социальная инженерия в целом считается более серьёзным риском с распространением инструментов ИИ?
+  DE[a]: Weil KI-Werkzeuge ausschließlich von IT-Sicherheitsteams genutzt werden können
+  RU[a]: Потому что инструменты ИИ могут использовать исключительно команды ИТ-безопасности
+  DE[b]: Weil KI-Werkzeuge es Angreifern erlauben, überzeugende, individuell zugeschnittene Angriffe (Text, Stimme, Video) in großem Umfang und mit geringem Aufwand zu erstellen
+  RU[b]: Потому что инструменты ИИ позволяют злоумышленникам создавать убедительные, индивидуально адаптированные атаки (текст, голос, видео) в большом масштабе и с небольшими усилиями
+  DE[c]: Weil KI-Werkzeuge Social-Engineering-Angriffe grundsätzlich unmöglich machen
+  RU[c]: Потому что инструменты ИИ в принципе делают атаки социальной инженерии невозможными
+  DE[d]: Das Risiko hat sich durch KI-Werkzeuge nicht verändert
+  RU[d]: Риск не изменился из-за инструментов ИИ
+DE EXP: Was früher hohen manuellen Aufwand erforderte (z. B. das Nachahmen einer Stimme oder das Verfassen überzeugender, fehlerfreier Texte in einer Fremdsprache), lässt sich heute mit KI-Werkzeugen schnell und in großer Zahl automatisieren - das erhöht sowohl die Menge als auch die Qualität der Angriffe.
+RU EXP: То, что раньше требовало значительных ручных усилий (например, имитация голоса или написание убедительного, безошибочного текста на иностранном языке), сегодня можно быстро и в большом объёме автоматизировать с помощью инструментов ИИ - это повышает как количество, так и качество атак.
+
+=== ID it_sicherheit-ki_bedrohungen-06 | correct=['b'] ===
+DE Q: Was ist der wirksamste Schutz gegen Betrug per Deepfake-Anruf oder -Videobotschaft?
+RU Q: Какая защита наиболее эффективна против мошенничества с помощью дипфейк-звонка или видеосообщения?
+  DE[a]: Genau darauf achten, ob die Stimme oder das Bild 'echt genug' klingt bzw. aussieht
+  RU[a]: Внимательно оценивать, звучит ли голос или выглядит ли изображение «достаточно реалистично»
+  DE[b]: Feste, im Voraus vereinbarte Verifizierungsverfahren (z. B. Rückruf über eine bekannte Nummer, ein vorab vereinbartes Codewort) für ungewöhnliche oder finanzielle Anfragen konsequent einhalten - unabhängig davon, wie echt Stimme oder Bild wirken
+  RU[b]: Последовательно соблюдать фиксированные, заранее согласованные процедуры проверки (например, обратный звонок по известному номеру, заранее оговорённое кодовое слово) для необычных или финансовых запросов - независимо от того, насколько реальным кажется голос или изображение
+  DE[c]: Anrufe grundsätzlich nur noch schriftlich per E-Mail bestätigen lassen
+  RU[c]: Подтверждать звонки принципиально только письменно, по электронной почте
+  DE[d]: Es gibt derzeit keinen wirksamen Schutz dagegen
+  RU[d]: В настоящее время эффективной защиты от этого не существует
+DE EXP: Da Deepfakes gezielt darauf ausgelegt sind, menschliche Erkennung zu täuschen, ist das eigene Urteil über 'Echtheit' kein verlässlicher Schutz mehr. Vorab vereinbarte, von der jeweiligen Kommunikationsform unabhängige Verifizierungsverfahren funktionieren dagegen unabhängig davon, wie überzeugend eine Fälschung ist.
+RU EXP: Поскольку дипфейки целенаправленно созданы для того, чтобы обмануть человеческое восприятие, собственная оценка «подлинности» больше не является надёжной защитой. Заранее согласованные процедуры проверки, независимые от конкретного канала связи, напротив, работают независимо от того, насколько убедительна подделка.
+
+=== ID it_sicherheit-ki_bedrohungen-07 | correct=['c'] ===
+DE Q: Sie möchten einen öffentlich zugänglichen KI-Chatbot nutzen, um schnell einen internen Bericht mit vertraulichen Kundendaten zusammenzufassen. Ist das unbedenklich?
+RU Q: Вы хотите воспользоваться общедоступным ИИ-чат-ботом, чтобы быстро обобщить внутренний отчёт с конфиденциальными данными клиентов. Безопасно ли это?
+  DE[a]: Ja, öffentliche KI-Chatbots speichern grundsätzlich keine eingegebenen Daten
+  RU[a]: Да, общедоступные ИИ-чат-боты в принципе не сохраняют введённые данные
+  DE[b]: Ja, solange man die Kundennamen vorher durch Platzhalter ersetzt, ist alles Weitere unkritisch
+  RU[b]: Да, достаточно заранее заменить имена клиентов на плейсхолдеры, всё остальное не критично
+  DE[c]: Nein - vertrauliche oder personenbezogene Daten sollten nur in von der eigenen Organisation freigegebene KI-Werkzeuge eingegeben werden, da bei öffentlichen Diensten unklar sein kann, wie die Eingaben weiterverarbeitet werden
+  RU[c]: Нет - конфиденциальные или персональные данные следует вводить только в инструменты ИИ, одобренные вашей организацией, поскольку для общедоступных сервисов часто неясно, как дальше обрабатываются введённые данные
+  DE[d]: Das ist ausschließlich eine Frage des Datenschutzbeauftragten und betrifft normale Mitarbeitende nicht
+  RU[d]: Это исключительно вопрос ответственного за защиту данных и не касается рядовых сотрудников
+DE EXP: Bei öffentlichen KI-Diensten ist oft nicht transparent, ob und wie eingegebene Daten gespeichert, zur Modellverbesserung genutzt oder anderweitig weiterverarbeitet werden. Vertrauliche oder personenbezogene Daten gehören deshalb nur in von der eigenen Organisation geprüfte und freigegebene Werkzeuge - eine unternehmensweite Richtlinie dazu betrifft alle Mitarbeitenden, nicht nur Fachabteilungen.
+RU EXP: У общедоступных сервисов ИИ часто нет прозрачности в том, сохраняются ли и как вводимые данные, используются ли они для улучшения модели или обрабатываются каким-либо иным образом. Поэтому конфиденциальные или персональные данные должны вводиться только в инструменты, проверенные и одобренные вашей организацией, - общекорпоративная политика на этот счёт касается всех сотрудников, а не только профильных подразделений.
+
+=== ID it_sicherheit-ki_bedrohungen-08 | correct=['b'] ===
+DE Q: Sie vermuten, dass Sie soeben Ziel eines KI-gestützten Betrugsversuchs (z. B. Deepfake-Anruf oder täuschend echte KI-Phishing-Mail) geworden sind, konnten den Betrug aber rechtzeitig erkennen und haben nicht reagiert. Sollten Sie den Vorfall trotzdem melden?
+RU Q: Вы подозреваете, что только что стали целью мошенничества с использованием ИИ (например, звонка с дипфейком или убедительно реалистичного фишингового письма, созданного ИИ), но вовремя распознали обман и не отреагировали на него. Стоит ли всё равно сообщить об инциденте?
+  DE[a]: Nein, da nichts passiert ist, besteht kein Handlungsbedarf
+  RU[a]: Нет, поскольку ничего не произошло, действовать не нужно
+  DE[b]: Ja - der gleiche Meldeweg wie bei jedem anderen Social-Engineering-Versuch gilt auch hier, damit andere Kolleginnen und Kollegen gewarnt und ähnliche Angriffe erkannt werden können
+  RU[b]: Да - тот же порядок сообщения, что и при любой другой попытке социальной инженерии, применяется и здесь, чтобы предупредить других коллег и распознавать подобные атаки
+  DE[c]: Nur melden, wenn tatsächlich ein finanzieller Schaden entstanden ist
+  RU[c]: Сообщать только в том случае, если действительно был причинён финансовый ущерб
+  DE[d]: Nur melden, wenn die IT-Abteilung ausdrücklich danach fragt
+  RU[d]: Сообщать только по прямому запросу ИТ-отдела
+DE EXP: Auch ein abgewehrter Angriffsversuch liefert wertvolle Informationen - etwa welche Masche gerade im Umlauf ist oder ob mehrere Mitarbeitende gleichzeitig angegriffen wurden. Frühzeitiges Melden erkannter, aber erfolgloser Versuche ist ein zentraler Baustein einer wirksamen Sicherheitskultur.
+RU EXP: Даже отражённая попытка атаки даёт ценную информацию - например, какая именно схема сейчас распространяется или были ли атакованы одновременно несколько сотрудников. Своевременное сообщение о распознанных, но неудавшихся попытках атак - ключевой элемент эффективной культуры безопасности.

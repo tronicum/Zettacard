@@ -38,6 +38,25 @@
 // 2026-08-17, round 4: added the format=html/jwt paths above (previously
 // this only ever returned the raw JSON record, at the raw function URL
 // with no clean public path in front of it at all).
+//
+// 2026-09-03, round 5: netlify.toml's :id-in-query-string redirects
+// (`to = "/.netlify/functions/get-badge?id=:id&format=json"` etc.) were
+// found to NOT actually substitute :id into the destination on this
+// deploy method - every one of /badges/:id, /badges/:id/credential.json
+// and /badges/:id/credential.jwt came back 400 "Invalid or missing 'id'
+// query parameter", while the direct function-call form
+// (/.netlify/functions/get-badge?id=<id>&format=<format>) worked fine.
+// Netlify's placeholder substitution into a PATH segment is the
+// documented/well-supported form; substitution into a query-string value
+// is the part that wasn't working here. Fix: netlify.toml's three rules
+// now rewrite to a path-shaped destination
+// (/.netlify/functions/get-badge/:id/:format) with force = true instead,
+// and this function now ALSO parses id/format from the trailing path
+// segments of the incoming request URL, added below, falling back to the
+// original ?id=&format= query-string parsing when no path segments are
+// present - so a direct function call using the old query-string form
+// (still how a caller might reach this without going through the
+// netlify.toml redirects at all) keeps working exactly as before.
 // -----------------------------------------------------------------------
 import { getStore } from "@netlify/blobs";
 
@@ -89,8 +108,15 @@ function renderFoundHtml(record, badgeId) {
       <dt>Badge ID</dt><dd>${escapeHtml(badgeId)}</dd>
     </dl>
     <div class="downloads">
-      <a href="/badges/${encodeURIComponent(badgeId)}/credential.json?download=1">Download credential.json</a>
-      <a href="/badges/${encodeURIComponent(badgeId)}/credential.jwt?download=1">Download credential.jwt</a>
+      <!-- 2026-09-03: these used to point at the pretty /badges/:id/... form,
+           which still 400s (see the top-of-file comment on the routing bug -
+           not yet root-caused). Switched to the direct function-call form,
+           which is the confirmed-working fallback issue-badge.mjs's own
+           response fields already use - a PO hit exactly this "Download"
+           button returning the 400 error before this fix. Revert once the
+           pretty-URL redirect bug is actually fixed. -->
+      <a href="/.netlify/functions/get-badge?id=${encodeURIComponent(badgeId)}&format=json&download=1">Download credential.json</a>
+      <a href="/.netlify/functions/get-badge?id=${encodeURIComponent(badgeId)}&format=jwt&download=1">Download credential.jwt</a>
     </div>
     <p class="note">This is a signed Open Badges 3.0 / Verifiable Credential. To import into a wallet like Credly, download one of the files above and upload it there directly - most importers (Credly included) accept a file upload only, not a URL.</p>
   </div>
@@ -140,18 +166,50 @@ function jsonResponse(statusCode, body) {
 // falling through to something unexpected.
 const VALID_FORMATS = new Set(["json", "html", "jwt"]);
 
+// 2026-09-03: parses id/format from the trailing path segments of the
+// incoming request, e.g. /.netlify/functions/get-badge/<id>/<format> (the
+// destination shape netlify.toml's rewrites now use - see top-of-file
+// comment). Returns { id, format } (format may be null if only one
+// trailing segment was present) or null if the path doesn't end in
+// anything path-shaped at all, in which case the caller falls back to
+// query-string parsing.
+function parsePathSegments(pathname) {
+  const segments = pathname.split("/").filter(Boolean);
+  // The function's own mount path is always at least
+  // ["", ".netlify", "functions", "get-badge"] worth of segments before
+  // anything path-shaped we added ourselves - a bare call to the function
+  // (no extra segments) still ends in "get-badge" itself, so requiring at
+  // least one segment *after* "get-badge" is what distinguishes "path form
+  // used" from "query-string form used, nothing extra in the path".
+  const fnIndex = segments.lastIndexOf("get-badge");
+  if (fnIndex === -1 || fnIndex === segments.length - 1) {
+    return null;
+  }
+  const extra = segments.slice(fnIndex + 1);
+  const id = extra[0];
+  const format = extra.length > 1 ? extra[1] : null;
+  return { id, format };
+}
+
 export default async (request) => {
   if (request.method !== "GET") {
     return jsonResponse(405, { error: "Method not allowed. Use GET." });
   }
 
   const url = new URL(request.url);
-  const id = url.searchParams.get("id");
+
+  // Path segments first (the netlify.toml-rewritten public paths), falling
+  // back to the original ?id=&format= query-string form - see top-of-file
+  // comment. This keeps a direct function call
+  // (/.netlify/functions/get-badge?id=...&format=...) working exactly as
+  // it always has.
+  const fromPath = parsePathSegments(url.pathname);
+  const id = fromPath ? fromPath.id : url.searchParams.get("id");
   if (typeof id !== "string" || !SAFE_BADGE_ID_RE.test(id)) {
     return jsonResponse(400, { error: "Invalid or missing 'id' query parameter." });
   }
 
-  const formatParam = url.searchParams.get("format") || "json";
+  const formatParam = (fromPath && fromPath.format) || url.searchParams.get("format") || "json";
   if (!VALID_FORMATS.has(formatParam)) {
     return jsonResponse(400, { error: "Invalid 'format' - must be json, html, or jwt." });
   }

@@ -61,14 +61,36 @@
   # Order matters here - Netlify evaluates redirects top-to-bottom and
   # stops at the first match, so these three MUST stay above the SPA
   # catch-all below or they'd never be reached.
+  #
+  # 2026-09-03: destinations changed from :id-in-query-string
+  # (`to = "/.netlify/functions/get-badge?id=:id&format=json"`) to
+  # :id-in-path (`to = "/.netlify/functions/get-badge/:id/json"`), with
+  # force = true added to each rule. The query-string form was found NOT
+  # to actually substitute :id into the destination on this deploy method -
+  # every one of these three redirects came back 400 "Invalid or missing
+  # 'id' query parameter" (confirmed live; the direct function-call form
+  # /.netlify/functions/get-badge?id=<id>&format=<format> worked fine in
+  # every format). Placeholder substitution into a PATH segment is
+  # Netlify's documented/well-supported form, unlike substitution into a
+  # query-string value, which is the part that wasn't working. force = true
+  # is required here because the destination path
+  # (/.netlify/functions/get-badge/...) itself looks like it could match a
+  # *later* rule or an existing file, and without force a rewrite to a
+  # function is otherwise skipped when Netlify thinks something else might
+  # already handle it. get-badge.mjs was updated in the same round to
+  # parse id/format from these trailing path segments, falling back to the
+  # original ?id=&format= query-string parsing so a direct function call
+  # using the old form keeps working unchanged.
   from = "/badges/:id/credential.jwt"
-  to = "/.netlify/functions/get-badge?id=:id&format=jwt"
+  to = "/.netlify/functions/get-badge/:id/jwt"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/badges/:id/credential.json"
-  to = "/.netlify/functions/get-badge?id=:id&format=json"
+  to = "/.netlify/functions/get-badge/:id/json"
   status = 200
+  force = true
 
 [[redirects]]
   # The bare /badges/<id> link - what actually gets shared/handed out
@@ -77,8 +99,9 @@
   # readable verification page with download links to the two machine-
   # readable forms above.
   from = "/badges/:id"
-  to = "/.netlify/functions/get-badge?id=:id&format=html"
+  to = "/.netlify/functions/get-badge/:id/html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/*"

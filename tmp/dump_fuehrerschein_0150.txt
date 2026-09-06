@@ -1,0 +1,700 @@
+### autobahn-01 correct=['b']
+DE-Q: Sie fahren mit einem Fahrzeug, das nicht schneller als 55 km/h fahren kann. Dürfen Sie auf die Autobahn?
+EN-Q: Can you take the motorway with a vehicle that cannot go faster than 55 km/h?
+  DE-a: Ja, wenn Sie den rechten Fahrstreifen benutzen
+  EN-a: Yes, if you use the right-hand lane
+ *DE-b: Nein, solche Fahrzeuge dürfen die Autobahn nicht benutzen
+ *EN-b: No, such vehicles are not allowed on the motorway
+  DE-c: Ja, aber nur nachts bei wenig Verkehr
+  EN-c: Yes, but only at night when traffic is light
+  DE-d: Ja, wenn Sie den Warnblinker einschalten
+  EN-d: Yes, if you switch on the hazard lights
+DE-EXPL: Auf der Autobahn muss ein Fahrzeug eine bestimmte Mindestgeschwindigkeit fahren können. Fahrzeuge, die das nicht schaffen, dürfen dort gar nicht fahren.
+EN-EXPL: Vehicles on the motorway must be able to reach a certain minimum speed. Vehicles that cannot are not allowed on it at all.
+
+### autobahn-02 correct=['c']
+DE-Q: Welches Fahrzeug darf laut Vorschrift nicht auf die Autobahn fahren?
+EN-Q: Which of these vehicles is not allowed on the motorway?
+  DE-a: Ein Wohnmobil
+  EN-a: A motorhome
+  DE-b: Ein Kleinbus
+  EN-b: A minibus
+ *DE-c: Ein Mofa
+ *EN-c: A moped
+  DE-d: Ein Kombi mit Anhänger
+  EN-d: An estate car with a trailer
+DE-EXPL: Mofas, Fahrräder und Fußgänger dürfen die Autobahn grundsätzlich nicht benutzen, weil sie die nötige Mindestgeschwindigkeit nicht erreichen.
+EN-EXPL: Mopeds, bicycles and pedestrians are generally not allowed on the motorway, because they cannot reach the required minimum speed.
+
+### autobahn-03 correct=['a']
+DE-Q: Sie haben auf der Autobahn eine Ausfahrt verpasst. Was müssen Sie tun?
+EN-Q: You have missed your exit on the motorway. What must you do?
+ *DE-a: Bis zur nächsten Ausfahrt weiterfahren
+ *EN-a: Keep driving to the next exit
+  DE-b: Vorsichtig auf dem Seitenstreifen zurücksetzen
+  EN-b: Carefully reverse along the hard shoulder
+  DE-c: Auf der Fahrbahn wenden, wenn kein Verkehr kommt
+  EN-c: Turn around on the carriageway if no traffic is coming
+  DE-d: Rückwärts über den Seitenstreifen zur Ausfahrt fahren
+  EN-d: Reverse along the hard shoulder to reach the exit
+DE-EXPL: Wenden und Rückwärtsfahren sind auf der Autobahn verboten. Eine verpasste Ausfahrt darf nur an der nächsten Ausfahrt korrigiert werden.
+EN-EXPL: Turning around and reversing are forbidden on the motorway. A missed exit can only be corrected at the next exit.
+
+### autobahn-04 correct=['b']
+DE-Q: Auf der Autobahn gibt es kein Tempolimit. Dürfen Sie trotzdem sehr langsam fahren, zum Beispiel 40 km/h?
+EN-Q: There is no general speed limit on the Autobahn. Are you still allowed to drive very slowly, for example 40 km/h?
+  DE-a: Ja, langsames Fahren ist auf der Autobahn immer erlaubt
+  EN-a: Yes, driving slowly is always allowed on the Autobahn
+ *DE-b: Nein, ungewöhnlich langsames Fahren ohne triftigen Grund ist verboten und gefährdet den Verkehr
+ *EN-b: No, unusually slow driving without a good reason is prohibited and endangers traffic
+  DE-c: Ja, solange Sie den rechten Fahrstreifen benutzen
+  EN-c: Yes, as long as you use the right-hand lane
+  DE-d: Nein, es gilt eine feste Mindestgeschwindigkeit von 80 km/h für alle Fahrzeuge
+  EN-d: No, a fixed minimum speed of 80 km/h applies to all vehicles
+DE-EXPL: Ohne triftigen Grund (z. B. Panne, dichter Nebel) darf man den Verkehrsfluss nicht durch unnötig langsames Fahren behindern.
+EN-EXPL: Without a good reason (e.g. a breakdown, dense fog), you must not obstruct the flow of traffic by driving unnecessarily slowly.
+
+### autobahn-05 correct=['a']
+DE-Q: Der Verkehr auf der Autobahn wird plötzlich sehr langsam. Wann müssen Sie eine Rettungsgasse bilden?
+EN-Q: Traffic on the motorway suddenly slows right down. When must you form an emergency lane?
+ *DE-a: Sobald sich der Verkehr auf Schrittgeschwindigkeit verlangsamt oder zum Stehen kommt
+ *EN-a: As soon as traffic slows to walking pace or comes to a stop
+  DE-b: Erst wenn ein Rettungsfahrzeug mit Blaulicht sichtbar ist
+  EN-b: Only once an emergency vehicle with flashing lights is visible
+  DE-c: Erst wenn der Verkehr seit mehr als zehn Minuten steht
+  EN-c: Only once traffic has been stationary for more than ten minutes
+  DE-d: Nur auf Anweisung der Polizei
+  EN-d: Only when instructed by the police
+DE-EXPL: Eine Rettungsgasse muss sofort gebildet werden, sobald der Verkehr auf Schrittgeschwindigkeit abbremst oder stehen bleibt, nicht erst wenn ein Rettungswagen kommt.
+EN-EXPL: An emergency lane must be formed immediately once traffic slows to walking pace or stops, not only once an emergency vehicle appears.
+
+### autobahn-06 correct=['b']
+DE-Q: Sie wollen die Autobahn über die Ausfahrt verlassen. Wann sollten Sie auf die Ausfädelspur wechseln?
+EN-Q: You want to leave the Autobahn via an exit. When should you move onto the deceleration lane?
+  DE-a: Erst kurz vor dem Ende der Ausfädelspur, um Zeit zu sparen
+  EN-a: Only just before the deceleration lane ends, to save time
+ *DE-b: Rechtzeitig, sobald die Ausfädelspur beginnt, nicht erst am Ende
+ *EN-b: In good time, as soon as the deceleration lane begins, not just at the end
+  DE-c: Nur wenn kein anderes Fahrzeug hinter Ihnen fährt
+  EN-c: Only if no other vehicle is behind you
+  DE-d: Die Geschwindigkeit muss vor dem Wechsel auf 30 km/h sinken
+  EN-d: You must slow to 30 km/h before changing lanes
+DE-EXPL: Man sollte frühzeitig auf die Ausfädelspur wechseln und dort abbremsen, statt auf dem durchgehenden Fahrstreifen zu bremsen.
+EN-EXPL: You should move onto the deceleration lane early and brake there, rather than braking on the through lane.
+
+### autobahn-07 correct=['b']
+DE-Q: Auf welcher Seite darf auf der Autobahn normalerweise überholt werden?
+EN-Q: On which side may you normally overtake on the motorway?
+  DE-a: Auf der Seite mit dem geringeren Verkehr
+  EN-a: On whichever side has less traffic
+ *DE-b: Nur auf der linken Seite
+ *EN-b: Only on the left side
+  DE-c: Auf beiden Seiten, je nach freier Spur
+  EN-c: On either side, depending on which lane is free
+  DE-d: Nur auf der rechten Seite
+  EN-d: Only on the right side
+DE-EXPL: Überholt werden darf grundsätzlich nur links. Rechtsüberholen ist auf der Autobahn nur erlaubt, wenn der Verkehr auf allen Fahrstreifen sich staut und langsamer fließt.
+EN-EXPL: Overtaking is generally only allowed on the left. Overtaking on the right is only permitted on the motorway when traffic on all lanes is jammed and moving slowly.
+
+### autobahn-08 correct=['a']
+DE-Q: Sie haben gerade ein Fahrzeug überholt. Wann dürfen Sie wieder nach rechts einscheren?
+EN-Q: You have just overtaken a vehicle. When may you move back to the right?
+ *DE-a: Erst wenn Sie das überholte Fahrzeug im Rückspiegel ausreichend sehen können
+ *EN-a: Only once you can see the overtaken vehicle clearly enough in your mirror
+  DE-b: Sofort nach dem Vorbeifahren, damit die linke Spur frei bleibt
+  EN-b: Immediately after passing it, so the left lane stays free
+  DE-c: Erst nachdem Sie den Blinker wieder ausgeschaltet haben
+  EN-c: Only after you have switched off the indicator
+  DE-d: Erst wenn das überholte Fahrzeug hupt
+  EN-d: Only once the overtaken vehicle honks
+DE-EXPL: Erst wenn das überholte Fahrzeug im Rückspiegel gut sichtbar ist, darf man sich wieder einordnen, ohne es zu gefährden.
+EN-EXPL: You may only pull back in once the overtaken vehicle is clearly visible in your mirror, so you don't endanger it.
+
+### autobahn-09 correct=['c']
+DE-Q: Die Fahrbahn ist durch eine durchgezogene Linie in zwei Fahrstreifen geteilt. Was bedeutet das für das Überholen?
+EN-Q: The carriageway is divided into two lanes by a solid line. What does this mean for overtaking?
+  DE-a: Überholen ist trotzdem uneingeschränkt erlaubt
+  EN-a: Overtaking is still allowed without restriction
+  DE-b: Überholen ist nur mit Warnblinker erlaubt
+  EN-b: Overtaking is only allowed with hazard lights on
+ *DE-c: Die durchgezogene Linie darf zum Überholen nicht überfahren werden
+ *EN-c: The solid line must not be crossed to overtake
+  DE-d: Überholen ist nur bei Tageslicht erlaubt
+  EN-d: Overtaking is only allowed in daylight
+DE-EXPL: Eine durchgezogene Linie darf nicht überfahren werden. Solange sie gilt, ist ein Überholvorgang, der die Linie kreuzt, verboten.
+EN-EXPL: A solid line must not be crossed. While it applies, an overtaking manoeuvre that crosses it is forbidden.
+
+### autobahn-10 correct=['b']
+DE-Q: Sie nähern sich einer unübersichtlichen Kuppe auf einer Landstraße. Dürfen Sie überholen?
+EN-Q: You are approaching a crest with poor visibility on a country road. May you overtake?
+  DE-a: Ja, wenn kein Fahrzeug hinter Ihnen fährt
+  EN-a: Yes, if no vehicle is behind you
+ *DE-b: Nein, weil Sie den Gegenverkehr nicht rechtzeitig sehen können
+ *EN-b: No, because you cannot see oncoming traffic in time
+  DE-c: Ja, wenn Sie schneller als 80 km/h fahren
+  EN-c: Yes, if you are driving faster than 80 km/h
+  DE-d: Ja, wenn Sie kurz hupen
+  EN-d: Yes, if you briefly honk your horn
+DE-EXPL: Vor unübersichtlichen Kuppen und Kurven ist Überholen verboten, weil Gegenverkehr zu spät erkannt würde. Das ist eine der gefährlichsten Ursachen für Frontalunfälle.
+EN-EXPL: Overtaking is forbidden before crests and bends with poor visibility, because oncoming traffic would be spotted too late. This is one of the most dangerous causes of head-on collisions.
+
+### autobahn-11 correct=['a']
+DE-Q: Es regnet stark. Sie überholen einen Lkw auf der Autobahn. Worauf müssen Sie besonders achten?
+EN-Q: It is raining heavily. You are overtaking a truck on the Autobahn. What must you especially watch out for?
+ *DE-a: Auf plötzliche Sichtbehinderung durch Gischt und Sprühnebel des Lkw
+ *EN-a: Sudden loss of visibility from spray thrown up by the truck
+  DE-b: Lkw erzeugen bei Regen keine zusätzliche Gischt
+  EN-b: Trucks do not produce extra spray in the rain
+  DE-c: Sie müssen nur die Geschwindigkeit erhöhen, um schneller vorbeizukommen
+  EN-c: You only need to increase your speed to get past faster
+  DE-d: Der Lkw-Fahrer ist allein für ausreichend Sicht verantwortlich
+  EN-d: The truck driver alone is responsible for ensuring enough visibility
+DE-EXPL: Lkw wirbeln bei Nässe viel Wasser auf; das kann beim Überholen kurzzeitig die Sicht stark einschränken.
+EN-EXPL: Trucks throw up a lot of water spray on wet roads, which can briefly and severely reduce visibility while overtaking.
+
+### autobahn-12 correct=['b']
+DE-Q: Sie überholen einen Radfahrer außerorts. Wie viel seitlichen Abstand sollten Sie mindestens einhalten?
+EN-Q: You overtake a cyclist outside built-up areas. What minimum lateral distance should you keep?
+  DE-a: Etwa 0,5 Meter genügen
+  EN-a: About 0.5 metres is enough
+ *DE-b: Mindestens etwa 2 Meter
+ *EN-b: At least about 2 metres
+  DE-c: Ein Meter genügt, wenn Sie langsam fahren
+  EN-c: One metre is enough if you drive slowly
+  DE-d: Abstand ist nicht wichtig, solange Sie hupen
+  EN-d: Distance does not matter as long as you honk
+DE-EXPL: Beim Überholen von Radfahrern muss innerorts mindestens etwa 1,5 Meter und außerorts mindestens etwa 2 Meter seitlicher Abstand eingehalten werden.
+EN-EXPL: When overtaking cyclists, a lateral distance of at least about 1.5 metres inside and about 2 metres outside built-up areas must be kept.
+
+### autobahn-13 correct=['a']
+DE-Q: Warum brauchen Sie beim Überholen eines Lastwagens mehr Zeit und Platz als bei einem Pkw?
+EN-Q: Why do you need more time and space to overtake a truck than a car?
+ *DE-a: Weil der Lastwagen deutlich länger ist und der Überholweg dadurch länger wird
+ *EN-a: Because the truck is much longer, which makes the overtaking distance longer
+  DE-b: Weil Lastwagen immer schneller als Pkw fahren
+  EN-b: Because trucks always drive faster than cars
+  DE-c: Weil Lastwagen keine Bremslichter haben
+  EN-c: Because trucks do not have brake lights
+  DE-d: Weil Lastwagen grundsätzlich links fahren müssen
+  EN-d: Because trucks always have to drive in the left lane
+DE-EXPL: Ein Lastwagen ist deutlich länger als ein Pkw. Deshalb dauert das Überholen länger und erfordert mehr freie Strecke und mehr Sicht auf den Gegenverkehr.
+EN-EXPL: A truck is much longer than a car. That is why overtaking it takes longer and requires more clear road and a better view of oncoming traffic.
+
+### autobahn-14 correct=['b']
+DE-Q: Vor Ihnen fährt eine lange Kolonne aus mehreren Lastwagen. Was ist beim Überholen besonders zu beachten?
+EN-Q: A long convoy of several trucks is driving ahead of you. What must you especially watch out for when overtaking?
+  DE-a: Die Kolonne darf nur an einer roten Ampel überholt werden
+  EN-a: The convoy may only be overtaken at a red traffic light
+ *DE-b: Der Überholvorgang dauert deutlich länger, deshalb muss die Strecke ausreichend frei und einsehbar sein
+ *EN-b: The overtaking manoeuvre takes much longer, so the road ahead must be clear and visible for a long enough distance
+  DE-c: Es reicht, nur den ersten Lastwagen zu überholen und dann wieder einzuscheren
+  EN-c: It is enough to overtake only the first truck and then pull back in
+  DE-d: Lastwagenkolonnen dürfen grundsätzlich nicht überholt werden
+  EN-d: Convoys of trucks may generally never be overtaken
+DE-EXPL: Beim Überholen mehrerer Fahrzeuge hintereinander dauert der Vorgang deutlich länger. Die Strecke muss so lange frei und übersichtlich sein, dass der Gegenverkehr sicher eingeschätzt werden kann.
+EN-EXPL: Overtaking several vehicles in a row takes much longer. The road must stay clear and visible long enough to safely judge oncoming traffic.
+
+### autobahn-15 correct=['b']
+DE-Q: Sie fahren über die Einfädelspur auf die Autobahn. Wie verhalten Sie sich richtig?
+EN-Q: You are driving along the acceleration lane onto the motorway. What is the correct behaviour?
+  DE-a: Sie fahren auf die Autobahn und die anderen müssen Ihnen Platz machen
+  EN-a: You merge onto the motorway and the other traffic must make room for you
+ *DE-b: Sie beschleunigen auf die Geschwindigkeit des fließenden Verkehrs und ordnen sich ein, wenn es sicher ist
+ *EN-b: You accelerate to match the speed of the flowing traffic and merge in when it is safe
+  DE-c: Sie fahren zuerst langsam und halten am Ende der Spur an
+  EN-c: You first drive slowly and stop at the end of the lane
+  DE-d: Sie fahren mit eingeschaltetem Warnblinker auf den linken Fahrstreifen
+  EN-d: You drive onto the left lane with your hazard lights switched on
+DE-EXPL: Wer über die Einfädelspur auffährt, muss sich der Geschwindigkeit des Autobahnverkehrs anpassen und sich einordnen, sobald eine sichere Lücke vorhanden ist. Vorfahrt hat der fließende Verkehr.
+EN-EXPL: A driver joining via the acceleration lane must match the speed of motorway traffic and merge in as soon as a safe gap appears. Flowing traffic has priority.
+
+### autobahn-16 correct=['a']
+DE-Q: Wo müssen Sie Ihre Geschwindigkeit vor dem Verlassen der Autobahn verringern?
+EN-Q: Where must you reduce your speed before leaving the motorway?
+ *DE-a: Erst auf der Ausfädelspur, nicht schon auf dem durchgehenden Fahrstreifen
+ *EN-a: Only on the deceleration lane, not already on the through lane
+  DE-b: Schon auf dem rechten durchgehenden Fahrstreifen
+  EN-b: Already on the right-hand through lane
+  DE-c: Erst hinter dem Autobahnende, auf der Landstraße
+  EN-c: Only after the end of the motorway, on the country road
+  DE-d: Bereits 5 Kilometer vor der Ausfahrt
+  EN-d: Already 5 kilometres before the exit
+DE-EXPL: Die Geschwindigkeit darf erst auf der Ausfädelspur verringert werden, nicht mehr auf dem durchgehenden Fahrstreifen. Sonst wird der nachfolgende Verkehr überrascht.
+EN-EXPL: Speed may only be reduced on the deceleration lane, not on the through lane. Otherwise following traffic is caught off guard.
+
+### autobahn-17 correct=['b']
+DE-Q: Ihr Fahrzeug bleibt auf der Autobahn liegen. Was ist richtig?
+EN-Q: Your vehicle breaks down on the motorway. What is correct?
+  DE-a: Sie bleiben im Fahrzeug sitzen und warten auf die Polizei
+  EN-a: You stay seated in the vehicle and wait for the police
+ *DE-b: Sie stellen Warnblinker und Warndreieck auf, ziehen eine Warnweste an und warten hinter der Leitplanke
+ *EN-b: You switch on the hazard lights, set up a warning triangle, put on a hi-vis vest, and wait behind the crash barrier
+  DE-c: Sie schieben das Fahrzeug selbst auf den linken Fahrstreifen
+  EN-c: You push the vehicle onto the left lane yourself
+  DE-d: Sie stellen das Warndreieck direkt hinter dem Fahrzeug auf, ohne Warnweste
+  EN-d: You set up the warning triangle directly behind the vehicle, without a hi-vis vest
+DE-EXPL: Bei einer Panne auf der Autobahn sichern Warnblinker und ein weit genug entfernt aufgestelltes Warndreieck die Unfallstelle. Danach sollten Sie sich und Mitfahrer hinter der Leitplanke in Sicherheit bringen.
+EN-EXPL: In case of a breakdown on the motorway, hazard lights and a warning triangle set up far enough back secure the scene. You and your passengers should then take shelter behind the crash barrier.
+
+### autobahn-18 correct=['b']
+DE-Q: Sie planen eine Autobahnfahrt. Warum sollten Sie vorher genug Kraftstoff tanken?
+EN-Q: You are planning a motorway trip. Why should you fill up with enough fuel beforehand?
+  DE-a: Weil auf der Autobahn generell keine Tankstellen erlaubt sind
+  EN-a: Because fuel stations are generally not allowed on motorways
+ *DE-b: Weil ein Stehenbleiben wegen leeren Tanks auf der Autobahn eine Ordnungswidrigkeit ist und sehr gefährlich sein kann
+ *EN-b: Because stopping due to an empty tank on the motorway is an offence and can be very dangerous
+  DE-c: Weil die Autobahn immer weiter als 500 km ist
+  EN-c: Because the motorway is always longer than 500 km
+  DE-d: Weil das Tanken nur alle 200 km erlaubt ist
+  EN-d: Because refuelling is only allowed every 200 km
+DE-EXPL: Wer ohne ausreichenden Kraftstoffvorrat auf die Autobahn fährt und liegenbleibt, handelt ordnungswidrig. Ein Stillstand auf der Fahrbahn ist zudem sehr gefährlich für alle Beteiligten.
+EN-EXPL: Driving onto the motorway without enough fuel and breaking down is an offence. Stopping on the carriageway is also very dangerous for everyone involved.
+
+### autobahn-19 correct=['c']
+DE-Q: Was bedeutet die Richtgeschwindigkeit von 130 km/h auf der Autobahn?
+EN-Q: What does the recommended speed (Richtgeschwindigkeit) of 130 km/h on the motorway mean?
+  DE-a: Es ist ein festes Tempolimit, dessen Überschreitung ein Bußgeld auslöst
+  EN-a: It is a fixed speed limit, and exceeding it triggers a fine
+  DE-b: Sie gilt nur für Lastwagen
+  EN-b: It only applies to trucks
+ *DE-c: Sie ist eine Empfehlung, keine verbindliche Höchstgeschwindigkeit, aber schnelleres Fahren kann bei einem Unfall die Haftung verschärfen
+ *EN-c: It is a recommendation, not a binding maximum speed, but driving faster can increase liability in a crash
+  DE-d: Sie gilt nur bei Nacht
+  EN-d: It only applies at night
+DE-EXPL: 130 km/h ist keine feste Höchstgeschwindigkeit, sondern eine Empfehlung. Bei einem Unfall kann schnelleres Fahren trotzdem zu einer höheren Mitschuld führen.
+EN-EXPL: 130 km/h is not a fixed maximum speed but a recommendation. In a crash, driving faster can still increase a driver's share of the blame.
+
+### autobahn-20 correct=['b']
+DE-Q: Was bedeutet das Verkehrszeichen 'Überholverbot für Kraftfahrzeuge aller Art'?
+EN-Q: What does the traffic sign 'no overtaking for motor vehicles of any kind' mean?
+  DE-a: Nur Lastwagen dürfen nicht überholen
+  EN-a: Only trucks are not allowed to overtake
+ *DE-b: Kein Kraftfahrzeug darf ein anderes Fahrzeug überholen, bis das Verbot aufgehoben wird
+ *EN-b: No motor vehicle may overtake another vehicle until the prohibition ends
+  DE-c: Überholen ist nur bei Tageslicht verboten
+  EN-c: Overtaking is only forbidden in daylight
+  DE-d: Überholen ist nur für Fahranfänger verboten
+  EN-d: Overtaking is only forbidden for learner drivers
+DE-EXPL: Das Zeichen verbietet allen Kraftfahrzeugen das Überholen, bis ein Zeichen das Verbot wieder aufhebt.
+EN-EXPL: The sign forbids all motor vehicles from overtaking until a sign lifts the prohibition again.
+
+### autobahn-21 correct=['a']
+DE-Q: Sie fahren durch einen Tunnel auf der Autobahn. Was ist richtig?
+EN-Q: You are driving through a tunnel on the motorway. What is correct?
+ *DE-a: Das Abblendlicht muss eingeschaltet sein
+ *EN-a: The dipped headlights must be switched on
+  DE-b: Der Sicherheitsabstand darf kleiner als sonst sein
+  EN-b: The safety distance may be shorter than usual
+  DE-c: Radio hören ist im Tunnel grundsätzlich verboten
+  EN-c: Listening to the radio is generally forbidden in tunnels
+  DE-d: Im Tunnel darf man ohne Grund anhalten, um sich zu orientieren
+  EN-d: You may stop in the tunnel without reason to get your bearings
+DE-EXPL: In Tunneln muss das Abblendlicht eingeschaltet sein. Es empfiehlt sich außerdem, auf einen Tunnelfunkkanal umzuschalten, um Warnungen zu hören, und ausreichend Abstand zu halten.
+EN-EXPL: Dipped headlights must be switched on in tunnels. It is also advisable to switch to a tunnel radio frequency to hear warnings, and to keep enough distance.
+
+### autobahn-22 correct=['c']
+DE-Q: Sie müssen auf der Autobahn plötzlich wegen eines Staus stark abbremsen. Was sollten Sie zusätzlich tun?
+EN-Q: You must suddenly brake hard on the motorway because of a traffic jam ahead. What should you also do?
+  DE-a: Nichts, das starke Bremsen allein reicht aus
+  EN-a: Nothing, braking hard alone is enough
+  DE-b: Die Lichthupe mehrfach betätigen
+  EN-b: Flash your headlights repeatedly
+ *DE-c: Kurz den Warnblinker einschalten, um nachfolgenden Verkehr zu warnen
+ *EN-c: Briefly switch on the hazard lights to warn following traffic
+  DE-d: Auf den Seitenstreifen ausweichen, um mehr Bremsweg zu haben
+  EN-d: Swerve onto the hard shoulder to get more braking distance
+DE-EXPL: Kurzes Einschalten des Warnblinkers macht nachfolgende Fahrzeuge auf eine plötzliche Gefahrenbremsung aufmerksam und kann Auffahrunfälle verhindern.
+EN-EXPL: Briefly switching on the hazard lights alerts following vehicles to sudden hard braking and can help prevent rear-end collisions.
+
+### autobahn-23 correct=['b']
+DE-Q: Sie fahren auf der Autobahn ohne zu überholen dauerhaft auf dem linken Fahrstreifen. Ist das erlaubt?
+EN-Q: You drive on the motorway permanently in the left lane without overtaking. Is that allowed?
+  DE-a: Ja, solange man nicht langsamer als 100 km/h fährt
+  EN-a: Yes, as long as you drive no slower than 100 km/h
+ *DE-b: Nein, der linke Fahrstreifen ist nur für den Überholvorgang zu benutzen
+ *EN-b: No, the left lane may only be used for overtaking
+  DE-c: Ja, wenn auf dem rechten Fahrstreifen ein Lastwagen fährt
+  EN-c: Yes, if there is a truck in the right lane
+  DE-d: Ja, solange man den Blinker gesetzt hat
+  EN-d: Yes, as long as you have your indicator on
+DE-EXPL: Es gilt das Rechtsfahrgebot. Der linke Fahrstreifen darf nur zum Überholen genutzt werden, nicht zum dauerhaften Fahren.
+EN-EXPL: The keep-right rule applies. The left lane may only be used for overtaking, not for permanent driving.
+
+### autobahn-24 correct=['a']
+DE-Q: Von Ihrem Anhänger fällt auf der Autobahn ein Gegenstand auf die Fahrbahn. Was ist zu tun?
+EN-Q: An object falls off your trailer onto the carriageway on the motorway. What must you do?
+ *DE-a: An einer sicheren Stelle halten, warnen und den Gegenstand entfernen lassen, ohne sich selbst in Gefahr zu bringen
+ *EN-a: Stop in a safe place, warn other traffic, and have the object removed without putting yourself at risk
+  DE-b: Sofort auf dem betroffenen Fahrstreifen anhalten und den Gegenstand aufheben
+  EN-b: Stop immediately in the affected lane and pick up the object
+  DE-c: Weiterfahren, weil die Ladung nicht Ihre Verantwortung ist
+  EN-c: Keep driving, because the load is not your responsibility
+  DE-d: Nur die Polizei rufen und selbst weiterfahren
+  EN-d: Only call the police and keep driving yourself
+DE-EXPL: Die Ladung ist Verantwortung des Fahrers. Fällt etwas herunter, muss sicher gehandelt werden, ohne sich selbst im fließenden Verkehr zu gefährden.
+EN-EXPL: The driver is responsible for the load. If something falls off, you must act safely without endangering yourself in flowing traffic.
+
+### autobahn-25 correct=['b']
+DE-Q: An einer Autobahnbaustelle endet plötzlich ein Fahrstreifen. Wie verhalten sich Fahrzeuge auf beiden Streifen richtig?
+EN-Q: At a motorway roadworks site, one lane suddenly ends. How should vehicles on both lanes behave correctly?
+  DE-a: Alle Fahrzeuge des endenden Streifens müssen sofort und weit vor der Verengung einscheren
+  EN-a: All vehicles in the ending lane must merge immediately and far ahead of the narrowing
+ *DE-b: Fahrzeuge wechseln abwechselnd, im Reißverschlussverfahren, erst kurz vor der Verengung
+ *EN-b: Vehicles merge alternately, using the zip merge, only shortly before the narrowing
+  DE-c: Der durchgehende Fahrstreifen muss anhalten, bis alle anderen eingeordnet sind
+  EN-c: The through lane must stop until everyone else has merged
+  DE-d: Nur Lastwagen dürfen den Streifen wechseln
+  EN-d: Only trucks are allowed to change lanes
+DE-EXPL: Beim Reißverschlussverfahren fahren beide Fahrstreifen bis kurz vor die Verengung und ordnen sich dann abwechselnd ein.
+EN-EXPL: In a zip merge, vehicles in both lanes drive up to shortly before the narrowing and then merge in alternately.
+
+### parken-01 correct=['c']
+DE-Q: Was unterscheidet 'Halten' von 'Parken'?
+EN-Q: What is the difference between 'stopping' (Halten) and 'parking' (Parken)?
+  DE-a: Halten ist grundsätzlich verboten, Parken ist immer erlaubt
+  EN-a: Stopping is generally forbidden, parking is always allowed
+  DE-b: Parken darf man nur mit eingeschaltetem Warnblinker
+  EN-b: You may only park with the hazard lights switched on
+ *DE-c: Parken liegt vor, wenn man länger als drei Minuten hält oder das Fahrzeug verlässt
+ *EN-c: It counts as parking if you stand still for more than three minutes or leave the vehicle
+  DE-d: Halten ist nur nachts erlaubt
+  EN-d: Stopping is only allowed at night
+DE-EXPL: Wer länger als drei Minuten hält oder das Fahrzeug verlässt, parkt im rechtlichen Sinn. Kürzeres Halten, zum Beispiel zum Ein- oder Aussteigen, zählt als Halten.
+EN-EXPL: Standing still for more than three minutes or leaving the vehicle counts legally as parking. Briefer stops, for example to let someone in or out, count as stopping.
+
+### parken-02 correct=['b']
+DE-Q: Wie nah an einer Kreuzung dürfen Sie normalerweise nicht parken?
+EN-Q: How close to an intersection are you normally not allowed to park?
+  DE-a: Innerhalb von 1 Meter vor und hinter der Kreuzung
+  EN-a: Within 1 metre before and after the intersection
+ *DE-b: Innerhalb von 5 Metern vor und hinter der Kreuzung
+ *EN-b: Within 5 metres before and after the intersection
+  DE-c: Innerhalb von 20 Metern vor und hinter der Kreuzung
+  EN-c: Within 20 metres before and after the intersection
+  DE-d: Das Parken vor Kreuzungen ist überall erlaubt
+  EN-d: Parking before intersections is allowed everywhere
+DE-EXPL: An Kreuzungen und Einmündungen darf im Bereich von 5 Metern vor und hinter der Kreuzung nicht geparkt werden, damit die Sicht frei bleibt.
+EN-EXPL: You may not park within 5 metres before and after an intersection or junction, so that visibility stays clear.
+
+### parken-03 correct=['a']
+DE-Q: Dürfen Sie direkt vor der Einfahrt eines Grundstücks parken?
+EN-Q: May you park directly in front of a driveway?
+ *DE-a: Nein, das würde die Ein- und Ausfahrt versperren
+ *EN-a: No, that would block entering and exiting
+  DE-b: Ja, solange Sie weniger als zehn Minuten bleiben
+  EN-b: Yes, as long as you stay less than ten minutes
+  DE-c: Ja, solange kein Schild das Parken ausdrücklich verbietet
+  EN-c: Yes, as long as no sign explicitly forbids parking
+  DE-d: Ja, solange der Eigentümer es nicht sehen kann
+  EN-d: Yes, as long as the owner cannot see it
+DE-EXPL: Vor Grundstücksein- und -ausfahrten darf nicht geparkt werden, da sonst die Zufahrt blockiert wird.
+EN-EXPL: Parking in front of driveways is forbidden, because it would block access.
+
+### parken-04 correct=['b']
+DE-Q: Sie wollen auf einer engen Straße parken. Worauf müssen Sie achten?
+EN-Q: You want to park on a narrow street. What must you pay attention to?
+  DE-a: Nur darauf, dass Ihr Fahrzeug nicht auf dem Gehweg steht
+  EN-a: Only that your vehicle is not standing on the pavement
+ *DE-b: Dass für andere Fahrzeuge, auch größere wie Rettungswagen, noch genug Platz zum Durchfahren bleibt
+ *EN-b: That enough space remains for other vehicles, including larger ones like ambulances, to pass through
+  DE-c: Dass Sie mindestens zwei Stunden Zeit für den Parkvorgang einplanen
+  EN-c: That you allow at least two hours for the parking manoeuvre
+  DE-d: Dass Sie in der Straßenmitte parken, damit beide Seiten gleich viel Platz haben
+  EN-d: That you park in the middle of the street so both sides have equal space
+DE-EXPL: Auf engen Straßen muss genug Platz bleiben, damit auch größere Fahrzeuge wie Rettungswagen noch durchfahren können.
+EN-EXPL: On narrow streets, enough space must remain so that even larger vehicles like ambulances can still pass through.
+
+### parken-05 correct=['b']
+DE-Q: Wie nah vor einem Fußgängerüberweg dürfen Sie nicht parken?
+EN-Q: How close before a pedestrian crossing are you not allowed to park?
+  DE-a: Innerhalb von 1 Meter davor
+  EN-a: Within 1 metre before it
+ *DE-b: Innerhalb von 5 Metern davor
+ *EN-b: Within 5 metres before it
+  DE-c: Innerhalb von 20 Metern davor
+  EN-c: Within 20 metres before it
+  DE-d: Das Parken davor ist grundsätzlich erlaubt
+  EN-d: Parking before it is generally allowed
+DE-EXPL: Vor Fußgängerüberwegen darf im Bereich von 5 Metern nicht geparkt werden, damit Fußgänger und Fahrer sich rechtzeitig sehen.
+EN-EXPL: You may not park within 5 metres before a pedestrian crossing, so that pedestrians and drivers can see each other in time.
+
+### parken-06 correct=['b']
+DE-Q: Wer darf einen speziell gekennzeichneten Behindertenparkplatz nutzen?
+EN-Q: Who may use a specially marked disabled parking space?
+  DE-a: Jeder, der nur kurz anhält
+  EN-a: Anyone who only stops briefly
+ *DE-b: Nur Fahrzeuge mit gültigem Schwerbehindertenausweis oder entsprechender Parkerlaubnis
+ *EN-b: Only vehicles with a valid disability parking permit or corresponding authorisation
+  DE-c: Jeder mit einem großen Fahrzeug
+  EN-c: Anyone with a large vehicle
+  DE-d: Nur Fahrzeuge mit Anhänger
+  EN-d: Only vehicles with a trailer
+DE-EXPL: Behindertenparkplätze sind nur für Fahrzeuge mit gültigem Ausweis oder entsprechender Erlaubnis reserviert.
+EN-EXPL: Disabled parking spaces are reserved only for vehicles with a valid permit or corresponding authorisation.
+
+### parken-07 correct=['b']
+DE-Q: Dürfen Sie nachts ohne Beleuchtung parken?
+EN-Q: May you park at night without lights?
+  DE-a: Nein, niemals, unabhängig vom Straßentyp
+  EN-a: No, never, regardless of the type of road
+ *DE-b: Ja, auf ausreichend beleuchteten Straßen mit zulässiger Höchstgeschwindigkeit bis 50 km/h
+ *EN-b: Yes, on sufficiently lit roads with a speed limit of up to 50 km/h
+  DE-c: Ja, aber nur wenn das Fahrzeug rot lackiert ist
+  EN-c: Yes, but only if the vehicle is painted red
+  DE-d: Ja, solange die Fahrertür nicht abgeschlossen ist
+  EN-d: Yes, as long as the driver's door is not locked
+DE-EXPL: Auf ausreichend beleuchteten Straßen mit einer zulässigen Höchstgeschwindigkeit bis 50 km/h darf grundsätzlich ohne zusätzliche Beleuchtung geparkt werden.
+EN-EXPL: On sufficiently lit roads with a speed limit of up to 50 km/h, parking is generally allowed without additional lights.
+
+### parken-08 correct=['a']
+DE-Q: Was bedeutet 'in zweiter Reihe parken'?
+EN-Q: What does 'double parking' mean?
+ *DE-a: Neben bereits geparkten Fahrzeugen halten, sodass diese eingeschlossen werden
+ *EN-a: Stopping alongside already parked vehicles so they get boxed in
+  DE-b: Auf zwei nebeneinanderliegenden Parkplätzen gleichzeitig parken
+  EN-b: Parking in two adjacent parking spaces at the same time
+  DE-c: Mit dem Heck zur Straße parken
+  EN-c: Parking with the rear of the vehicle facing the road
+  DE-d: Nur an Wochenenden erlaubtes Parken
+  EN-d: Parking that is only allowed on weekends
+DE-EXPL: Parken in zweiter Reihe blockiert bereits geparkte Fahrzeuge und ist verboten, da es den Verkehr und die eingeschlossenen Fahrzeuge behindert.
+EN-EXPL: Double parking blocks already parked vehicles and is forbidden, because it obstructs traffic and the boxed-in vehicles.
+
+### parken-09 correct=['b']
+DE-Q: In welcher Straße dürfen Sie auf der linken Seite in Fahrtrichtung parken?
+EN-Q: On which type of street may you park on the left side in the direction of travel?
+  DE-a: Auf jeder beliebigen Straße
+  EN-a: On any street
+ *DE-b: Nur in einer Einbahnstraße
+ *EN-b: Only in a one-way street
+  DE-c: Nur auf Landstraßen
+  EN-c: Only on country roads
+  DE-d: Nur wenn ein anderes Fahrzeug bereits links steht
+  EN-d: Only if another vehicle is already parked on the left
+DE-EXPL: Links parken ist grundsätzlich nur in Einbahnstraßen erlaubt. Auf normalen Straßen muss auf der rechten Seite geparkt werden.
+EN-EXPL: Parking on the left is generally only allowed in one-way streets. On normal streets, you must park on the right side.
+
+### parken-10 correct=['a']
+DE-Q: Sie parken in einer Zone mit Parkscheibenpflicht. Was müssen Sie tun?
+EN-Q: You park in a zone requiring a parking disc. What must you do?
+ *DE-a: Die tatsächliche Ankunftszeit einstellen und die Scheibe gut sichtbar hinter der Windschutzscheibe anbringen
+ *EN-a: Set the actual arrival time and place the disc clearly visible behind the windscreen
+  DE-b: Eine beliebige Uhrzeit einstellen, die länger Parken erlaubt
+  EN-b: Set any time that allows for longer parking
+  DE-c: Die Parkscheibe nur bei Kontrolle aus dem Handschuhfach holen
+  EN-c: Only get the parking disc from the glovebox when checked
+  DE-d: Nur an Werktagen eine Parkscheibe verwenden
+  EN-d: Only use a parking disc on weekdays
+DE-EXPL: Die Parkscheibe muss die tatsächliche Ankunftszeit zeigen und gut sichtbar hinter der Windschutzscheibe liegen, damit die erlaubte Parkdauer kontrolliert werden kann.
+EN-EXPL: The parking disc must show the actual arrival time and be clearly visible behind the windscreen, so the permitted parking duration can be checked.
+
+### parken-11 correct=['c']
+DE-Q: Sie stehen mit Ihrem Fahrzeug in einer Ladezone. Wann dürfen Sie dort stehen bleiben?
+EN-Q: You are standing with your vehicle in a loading zone. When are you allowed to stay there?
+  DE-a: Beliebig lange, solange Sie im Fahrzeug sitzen
+  EN-a: For as long as you like, as long as you sit in the vehicle
+  DE-b: Nur nachts
+  EN-b: Only at night
+ *DE-c: Nur solange Sie tatsächlich be- oder entladen
+ *EN-c: Only for as long as you are actually loading or unloading
+  DE-d: Nur wenn Sie einen Anhänger haben
+  EN-d: Only if you have a trailer
+DE-EXPL: Eine Ladezone darf nur zum tatsächlichen Be- und Entladen genutzt werden, nicht zum gewöhnlichen Parken.
+EN-EXPL: A loading zone may only be used for actual loading and unloading, not for ordinary parking.
+
+### parken-12 correct=['b']
+DE-Q: Dürfen Sie mit dem Auto auf dem Gehweg parken?
+EN-Q: May you park your car on the pavement?
+  DE-a: Ja, das ist überall erlaubt, wenn der Gehweg breit genug ist
+  EN-a: Yes, that is allowed everywhere if the pavement is wide enough
+ *DE-b: Nur dort, wo ein Zeichen das Gehwegparken ausdrücklich erlaubt
+ *EN-b: Only where a sign explicitly allows parking on the pavement
+  DE-c: Ja, aber nur mit zwei Rädern auf dem Gehweg
+  EN-c: Yes, but only with two wheels on the pavement
+  DE-d: Ja, wenn keine Fußgänger unterwegs sind
+  EN-d: Yes, if no pedestrians are around
+DE-EXPL: Parken auf dem Gehweg ist nur erlaubt, wo es durch ein Zeichen ausdrücklich freigegeben ist, zum Beispiel durch das Zeichen für Gehwegparken.
+EN-EXPL: Parking on the pavement is only allowed where a sign explicitly permits it, for example the pavement-parking sign.
+
+### parken-13 correct=['a']
+DE-Q: Warum dürfen Sie nicht direkt vor einem Hydranten parken?
+EN-Q: Why are you not allowed to park directly in front of a fire hydrant?
+ *DE-a: Weil die Feuerwehr im Ernstfall sofort Zugang zum Hydranten braucht
+ *EN-a: Because the fire brigade needs immediate access to the hydrant in an emergency
+  DE-b: Weil das Wasser sonst versehentlich das Auto beschädigen könnte
+  EN-b: Because the water could otherwise accidentally damage the car
+  DE-c: Weil Hydranten immer auf Privatgrundstücken stehen
+  EN-c: Because hydrants are always located on private property
+  DE-d: Weil dort nur Fahrräder abgestellt werden dürfen
+  EN-d: Because only bicycles may be left there
+DE-EXPL: Der Bereich vor einem Hydranten muss frei bleiben, damit die Feuerwehr im Notfall sofort einen Schlauch anschließen kann.
+EN-EXPL: The area in front of a hydrant must stay clear, so the fire brigade can connect a hose immediately in an emergency.
+
+### parken-14 correct=['c']
+DE-Q: In einer Kurzparkzone ist die Höchstparkdauer auf eine Stunde begrenzt. Was gilt, wenn Sie länger bleiben?
+EN-Q: In a short-term parking zone, the maximum duration is limited to one hour. What applies if you stay longer?
+  DE-a: Das ist erlaubt, solange die Parkscheibe sichtbar ist
+  EN-a: That is allowed, as long as the parking disc is visible
+  DE-b: Das ist erlaubt, solange ein Parkschein gekauft wurde
+  EN-b: That is allowed, as long as a parking ticket was bought
+ *DE-c: Das überschreitet die erlaubte Parkzeit und ist ein Verstoß
+ *EN-c: That exceeds the permitted parking time and is a violation
+  DE-d: Das ist erlaubt, wenn niemand kontrolliert
+  EN-d: That is allowed if nobody checks
+DE-EXPL: Wird die auf dem Zeichen angegebene Höchstparkdauer überschritten, liegt ein Verstoß gegen die Parkregelung vor, unabhängig davon, ob eine Parkscheibe ausliegt.
+EN-EXPL: Exceeding the maximum duration stated on the sign is a parking violation, regardless of whether a parking disc is displayed.
+
+### parken-15 correct=['b']
+DE-Q: Sie halten kurz in einer Straße, in der eigentlich Halteverbot gilt, und schalten den Warnblinker ein. Ist das erlaubt?
+EN-Q: You stop briefly on a street where stopping is actually forbidden, and switch on the hazard lights. Is that allowed?
+  DE-a: Ja, der Warnblinker macht jedes Halten automatisch erlaubt
+  EN-a: Yes, the hazard lights automatically make any stop legal
+ *DE-b: Nein, der Warnblinker hebt ein Halteverbot nicht auf
+ *EN-b: No, the hazard lights do not lift a no-stopping restriction
+  DE-c: Ja, solange Sie unter einer Minute bleiben
+  EN-c: Yes, as long as you stay under one minute
+  DE-d: Ja, solange keine anderen Fahrzeuge in der Nähe sind
+  EN-d: Yes, as long as no other vehicles are nearby
+DE-EXPL: Das Einschalten des Warnblinkers erlaubt kein verbotenes Halten. Es warnt lediglich andere Verkehrsteilnehmer, hebt aber kein Verbot auf.
+EN-EXPL: Switching on the hazard lights does not permit stopping where it is forbidden. It only warns other road users but does not lift a prohibition.
+
+### parken-16 correct=['b']
+DE-Q: Sie wollen aus Ihrem geparkten Auto aussteigen. Was müssen Sie vorher tun?
+EN-Q: You want to get out of your parked car. What must you do beforehand?
+  DE-a: Nur den Motor ausschalten
+  EN-a: Only switch off the engine
+ *DE-b: Sich über die Schulter umsehen und sicherstellen, dass kein Radfahrer oder Fahrzeug herankommt
+ *EN-b: Look back over your shoulder and make sure no cyclist or vehicle is approaching
+  DE-c: Nur den Rückspiegel prüfen, ein Blick reicht immer aus
+  EN-c: Only check the rear-view mirror, one glance is always enough
+  DE-d: Sofort die Tür öffnen, weil geparkte Autos keine Gefahr für andere darstellen
+  EN-d: Open the door immediately, because parked cars pose no danger to others
+DE-EXPL: Vor dem Aussteigen muss man sich vergewissern, dass kein Radfahrer oder Fahrzeug vorbeikommt. Eine unachtsam geöffnete Tür kann Radfahrer schwer verletzen.
+EN-EXPL: Before getting out, you must make sure no cyclist or vehicle is passing. A carelessly opened door can seriously injure cyclists.
+
+### parken-17 correct=['a']
+DE-Q: Sie parken bergauf an einem Bordstein ohne Leitplanke. Wie stellen Sie die Räder richtig ein?
+EN-Q: You park facing uphill at a kerb with no barrier. How do you correctly turn the wheels?
+ *DE-a: Die Vorderräder zum Bordstein hin einschlagen
+ *EN-a: Turn the front wheels towards the kerb
+  DE-b: Die Vorderräder von der Fahrbahn weg zur Straßenmitte einschlagen
+  EN-b: Turn the front wheels away from the road, towards the middle of the road
+  DE-c: Die Räder immer geradeaus stehen lassen
+  EN-c: Always leave the wheels pointing straight ahead
+  DE-d: Nur die Hinterräder einschlagen
+  EN-d: Only turn the rear wheels
+DE-EXPL: Bergauf werden die Vorderräder zum Bordstein eingeschlagen. Rollt das Fahrzeug ungewollt zurück, stoppt es am Bordstein.
+EN-EXPL: When parking uphill, the front wheels are turned towards the kerb. If the vehicle rolls back unintentionally, it stops at the kerb.
+
+### parken-18 correct=['b']
+DE-Q: Sie parken bergab an einem Bordstein. Wie stellen Sie die Räder richtig ein?
+EN-Q: You park facing downhill at a kerb. How do you correctly turn the wheels?
+  DE-a: Die Vorderräder von der Fahrbahn weg zur Straßenmitte einschlagen
+  EN-a: Turn the front wheels away from the road, towards the middle of the road
+ *DE-b: Die Vorderräder zum Bordstein hin einschlagen
+ *EN-b: Turn the front wheels towards the kerb
+  DE-c: Die Räder immer geradeaus stehen lassen
+  EN-c: Always leave the wheels pointing straight ahead
+  DE-d: Nur die Handbremse benutzen, die Räder spielen keine Rolle
+  EN-d: Only use the handbrake, the wheels do not matter
+DE-EXPL: Bergab werden die Vorderräder zum Bordstein hin eingeschlagen. Rollt das Fahrzeug ungewollt nach vorne, lenkt es zum Bordstein statt auf die Fahrbahn.
+EN-EXPL: When parking downhill, the front wheels are turned towards the kerb. If the vehicle rolls forward unintentionally, it steers towards the kerb instead of into the road.
+
+### parken-19 correct=['a']
+DE-Q: Dürfen Sie in der Nähe eines Bahnübergangs parken?
+EN-Q: May you park near a level crossing?
+ *DE-a: Nein, im Bereich vor und hinter einem Bahnübergang ist das Parken verboten
+ *EN-a: No, parking is forbidden in the area before and after a level crossing
+  DE-b: Ja, solange kein Zug in Sicht ist
+  EN-b: Yes, as long as no train is in sight
+  DE-c: Ja, wenn Sie die Warnblinker einschalten
+  EN-c: Yes, if you switch on the hazard lights
+  DE-d: Ja, solange Sie im Fahrzeug bleiben
+  EN-d: Yes, as long as you stay in the vehicle
+DE-EXPL: Vor und hinter Bahnübergängen darf nicht geparkt werden, weil die Sicht und der freie Zugang für Fahrzeuge und Schranken unbedingt frei bleiben müssen.
+EN-EXPL: Parking before and after level crossings is forbidden, because visibility and free access for vehicles and barriers must be kept clear at all costs.
+
+### parken-20 correct=['b']
+DE-Q: Wie nah an einer Bushaltestelle dürfen Sie normalerweise nicht parken?
+EN-Q: How close to a bus stop are you normally not allowed to park?
+  DE-a: Innerhalb von 5 Metern
+  EN-a: Within 5 metres
+ *DE-b: Innerhalb von 15 Metern vor und hinter dem Haltestellenschild
+ *EN-b: Within 15 metres before and after the bus stop sign
+  DE-c: Innerhalb von 1 Meter
+  EN-c: Within 1 metre
+  DE-d: Das Parken an Haltestellen ist grundsätzlich erlaubt
+  EN-d: Parking at bus stops is generally allowed
+DE-EXPL: An Haltestellen für Linienbusse oder Straßenbahnen darf im Bereich von 15 Metern vor und hinter dem Haltestellenschild nicht geparkt werden.
+EN-EXPL: Parking is forbidden within 15 metres before and after a bus or tram stop sign.
+
+### parken-21 correct=['c']
+DE-Q: Sie befinden sich in einem verkehrsberuhigten Bereich (Spielstraße). Wo dürfen Sie parken?
+EN-Q: You are in a traffic-calmed zone (a 'play street'). Where may you park?
+  DE-a: Überall, solange der Motor läuft
+  EN-a: Anywhere, as long as the engine is running
+  DE-b: Nur direkt vor einem Spielplatz
+  EN-b: Only directly in front of a playground
+ *DE-c: Nur auf den dafür markierten Flächen
+ *EN-c: Only in the areas specifically marked for parking
+  DE-d: Nirgendwo, Parken ist dort immer verboten
+  EN-d: Nowhere, parking is always forbidden there
+DE-EXPL: Im verkehrsberuhigten Bereich darf nur auf den dafür gekennzeichneten Flächen geparkt werden, damit spielende Kinder und Fußgänger genug Platz behalten.
+EN-EXPL: In a traffic-calmed zone, you may only park in the areas specifically marked for it, so that playing children and pedestrians keep enough space.
+
+### parken-22 correct=['b']
+DE-Q: Dürfen Sie vor der Zufahrt einer Feuerwache oder einer als Feuerwehrzufahrt gekennzeichneten Fläche parken?
+EN-Q: May you park in front of a fire station entrance or an area marked as a fire lane?
+  DE-a: Ja, solange es nachts ist
+  EN-a: Yes, as long as it is night-time
+ *DE-b: Nein, diese Zufahrten müssen jederzeit frei bleiben
+ *EN-b: No, these access routes must remain clear at all times
+  DE-c: Ja, solange kein Einsatzfahrzeug zu sehen ist
+  EN-c: Yes, as long as no emergency vehicle is visible
+  DE-d: Ja, für maximal fünf Minuten
+  EN-d: Yes, for a maximum of five minutes
+DE-EXPL: Feuerwehrzufahrten und Zufahrten zu Feuerwachen müssen jederzeit frei bleiben, damit Einsatzfahrzeuge ohne Verzögerung ausrücken können.
+EN-EXPL: Fire lanes and access routes to fire stations must remain clear at all times, so emergency vehicles can leave without delay.
+
+### parken-23 correct=['a']
+DE-Q: Sie parken außerhalb geschlossener Ortschaften auf einer unbeleuchteten Straße. Was müssen Sie beachten?
+EN-Q: You park outside built-up areas on an unlit road. What must you take into account?
+ *DE-a: Das Fahrzeug braucht Parklicht oder muss durch Rückstrahler erkennbar sein
+ *EN-a: The vehicle needs parking lights or must be recognisable by reflectors
+  DE-b: Beleuchtung ist dort nie nötig, weil kaum Verkehr herrscht
+  EN-b: Lighting is never needed there, because there is barely any traffic
+  DE-c: Es reicht, das Fahrzeug mit einer Decke abzudecken
+  EN-c: It is enough to cover the vehicle with a blanket
+  DE-d: Nur bei Regen ist Beleuchtung nötig
+  EN-d: Lighting is only needed when it rains
+DE-EXPL: Außerhalb geschlossener Ortschaften auf unbeleuchteten Straßen muss das geparkte Fahrzeug durch Beleuchtung oder Rückstrahler für andere gut erkennbar sein.
+EN-EXPL: Outside built-up areas on unlit roads, a parked vehicle must be clearly recognisable to others through lighting or reflectors.
+
+### parken-24 correct=['b']
+DE-Q: Sie wollen nur kurz anhalten, um einen Mitfahrer aussteigen zu lassen, in einem Bereich mit eingeschränktem Halteverbot. Ist das erlaubt?
+EN-Q: You want to stop briefly to let a passenger out, in an area with restricted no-stopping rules. Is that allowed?
+  DE-a: Nein, ein eingeschränktes Halteverbot verbietet jedes Anhalten ausnahmslos
+  EN-a: No, a restricted no-stopping zone forbids any stop without exception
+ *DE-b: Ja, kurzes Halten zum Ein- oder Aussteigen ist auch im eingeschränkten Halteverbot erlaubt
+ *EN-b: Yes, briefly stopping to let someone in or out is allowed even under restricted no-stopping rules
+  DE-c: Ja, aber nur mit vorheriger polizeilicher Genehmigung
+  EN-c: Yes, but only with prior police approval
+  DE-d: Nein, das ist nur auf Autobahnen erlaubt
+  EN-d: No, that is only allowed on motorways
+DE-EXPL: Ein eingeschränktes Halteverbot lässt kurzes Halten zum Ein- oder Aussteigen weiterhin zu, solange der Fahrer fahrbereit bleibt. Ein volles Halteverbot dagegen verbietet jedes Anhalten.
+EN-EXPL: A restricted no-stopping zone still allows briefly stopping to let someone in or out, as long as the driver stays ready to move on. A full no-stopping zone, however, forbids any stop.
+
+### parken-25 correct=['c']
+DE-Q: Dürfen Sie Ihr Auto auf einem Radweg abstellen?
+EN-Q: May you leave your car on a bike lane?
+  DE-a: Ja, solange Sie nur kurz einkaufen gehen
+  EN-a: Yes, as long as you only go shopping briefly
+  DE-b: Ja, solange die Warnblinker eingeschaltet sind
+  EN-b: Yes, as long as the hazard lights are switched on
+ *DE-c: Nein, Radwege müssen für Radfahrer frei bleiben
+ *EN-c: No, bike lanes must remain clear for cyclists
+  DE-d: Ja, wenn kein anderer Parkplatz frei ist
+  EN-d: Yes, if no other parking space is free
+DE-EXPL: Radwege dienen dem Radverkehr und müssen frei bleiben. Parken auf dem Radweg zwingt Radfahrer gefährlich in den fließenden Autoverkehr auszuweichen.
+EN-EXPL: Bike lanes are for cyclists and must remain clear. Parking on a bike lane forces cyclists to dangerously swerve into flowing car traffic.
+

@@ -1,0 +1,559 @@
+=== ID ki_act-grundlagen-01 | correct=['b'] ===
+DE Q: Was ist das grundlegende Ziel der EU-KI-Verordnung (AI Act)?
+RU Q: Какова основная цель регламента ЕС об искусственном интеллекте (AI Act)?
+  DE[a]: Sie verbietet Unternehmen in der EU generell die Nutzung von kuenstlicher Intelligenz
+  RU[a]: Он в целом запрещает компаниям в ЕС использовать искусственный интеллект
+  DE[b]: Sie regelt den Umgang mit KI-Systemen risikobasiert, um Grundrechte und Sicherheit zu schuetzen und gleichzeitig Innovation zu ermoeglichen
+  RU[b]: Он регулирует обращение с системами ИИ на основе риска, чтобы защитить основные права и безопасность, одновременно оставляя место для инноваций
+  DE[c]: Sie legt ausschliesslich technische Normen fuer Software-Entwickler fest, ohne rechtliche Wirkung fuer Unternehmen
+  RU[c]: Он устанавливает исключительно технические стандарты для разработчиков программного обеспечения, без каких-либо правовых последствий для компаний
+  DE[d]: Sie ersetzt die DSGVO vollstaendig fuer alle Datenverarbeitungen, bei denen KI beteiligt ist
+  RU[d]: Он полностью заменяет GDPR для любой обработки данных с участием ИИ
+DE EXP: Der AI Act verfolgt einen risikobasierten Ansatz: Je groesser das Risiko eines KI-Systems fuer Sicherheit oder Grundrechte, desto strenger die Anforderungen. Ein pauschales Verbot von KI gibt es nicht, und die Verordnung ersetzt auch nicht die DSGVO - beide gelten parallel nebeneinander.
+RU EXP: AI Act следует риск-ориентированному подходу: чем выше риск, который система ИИ создаёт для безопасности или основных прав, тем строже требования. Полного запрета ИИ не существует, и регламент не заменяет GDPR - оба действуют параллельно.
+
+=== ID ki_act-grundlagen-02 | correct=['c'] ===
+DE Q: In wie viele grundlegende Risikostufen teilt der AI Act KI-Systeme ein?
+RU Q: На сколько базовых уровней риска AI Act делит системы ИИ?
+  DE[a]: In zwei Stufen: erlaubt und verboten
+  RU[a]: На два уровня: разрешено и запрещено
+  DE[b]: In fuenf Stufen, gestaffelt nach Branche
+  RU[b]: На пять уровней, в зависимости от отрасли
+  DE[c]: In vier Stufen: unannehmbares Risiko, hohes Risiko, begrenztes Risiko (Transparenzpflichten) und minimales Risiko
+  RU[c]: На четыре уровня: неприемлемый риск, высокий риск, ограниченный риск (обязательства по прозрачности) и минимальный риск
+  DE[d]: In drei Stufen, die sich allein nach der Unternehmensgroesse richten
+  RU[d]: На три уровня, зависящих исключительно от размера компании
+DE EXP: Das zentrale Konzept des AI Act ist die Risikopyramide: unannehmbares Risiko (verboten), hohes Risiko (strenge Auflagen, z.B. bei Bewerberauswahl oder Kreditwuerdigkeitspruefung), begrenztes Risiko (v.a. Transparenzpflichten, z.B. Chatbots) und minimales Risiko (kaum Pflichten, z.B. Spamfilter oder Videospiel-KI).
+RU EXP: Центральная концепция AI Act - пирамида рисков: неприемлемый риск (запрещён), высокий риск (строгие требования, например при отборе кандидатов или оценке кредитоспособности), ограниченный риск (в основном обязательства по прозрачности, например чат-боты) и минимальный риск (почти нет обязательств, например спам-фильтры или ИИ в видеоиграх).
+
+=== ID ki_act-grundlagen-03 | correct=['a'] ===
+DE Q: Welches Merkmal ist laut der Definition in Art. 3 Nr. 1 KI-VO fuer ein 'KI-System' entscheidend?
+RU Q: Какой признак, согласно определению в ст. 3(1), является решающим для 'системы ИИ'?
+  DE[a]: Es ist ein maschinengestuetztes System, das mit einem gewissen Grad an Autonomie arbeitet und aus Eingaben Ausgaben wie Inhalte, Vorhersagen, Empfehlungen oder Entscheidungen ableitet ('inferiert')
+  RU[a]: Это машинная система, работающая с определённой степенью автономности и выводящая из входных данных такие результаты, как контент, прогнозы, рекомендации или решения
+  DE[b]: Es muss zwingend auf neuronalen Netzen oder generativer KI beruhen, sonst gilt es nicht als KI-System
+  RU[b]: Она обязательно должна основываться на нейронных сетях или генеративном ИИ, иначе не считается системой ИИ
+  DE[c]: Es muss immer in der Cloud betrieben werden, lokale Software faellt nie unter die Definition
+  RU[c]: Она обязательно должна работать в облаке; локально установленное программное обеспечение никогда не подпадает под это определение
+  DE[d]: Es muss von einem Menschen als 'KI' beworben werden, sonst greift die Verordnung nicht
+  RU[d]: Она должна быть представлена человеком как 'ИИ', иначе регламент не применяется
+DE EXP: Die Definition ist bewusst technologieneutral: Entscheidend ist die Faehigkeit, aus Eingabedaten Schlussfolgerungen zu ziehen und daraus Ergebnisse zu erzeugen - unabhaengig davon, ob ein einfaches Regelsystem, maschinelles Lernen oder ein grosses Sprachmodell dahintersteckt. Ein simples, fest programmiertes Regelwerk ohne jede Form von Inferenz faellt hingegen in der Regel nicht darunter.
+RU EXP: Определение намеренно технологически нейтрально: решающее значение имеет способность делать выводы из входных данных и на этой основе генерировать результаты - независимо от того, лежит ли в основе простая система правил, машинное обучение или большая языковая модель. Простой, жёстко запрограммированный набор правил без какой-либо формы вывода, как правило, под это не подпадает.
+
+=== ID ki_act-grundlagen-04 | correct=['d'] ===
+DE Q: Welches der folgenden Beispiele zaehlt typischerweise zu den 'Hochrisiko-KI-Systemen' im Sinne des AI Act?
+RU Q: Какой из следующих примеров обычно относится к 'системам ИИ высокого риска' по смыслу AI Act?
+  DE[a]: Eine KI, die automatisch Rechtschreibfehler in E-Mails korrigiert
+  RU[a]: ИИ, автоматически исправляющий орфографические ошибки в электронных письмах
+  DE[b]: Eine KI-gestuetzte Empfehlungsfunktion fuer Filme in einer Streaming-App
+  RU[b]: Функция рекомендации фильмов на основе ИИ в стриминговом приложении
+  DE[c]: Ein KI-Chatbot, der allgemeine Produktfragen im Kundenservice beantwortet
+  RU[c]: Чат-бот на основе ИИ, отвечающий на общие вопросы о продукте в службе поддержки клиентов
+  DE[d]: Eine KI-Software, die Bewerbungsunterlagen vorsortiert und ueber die Einladung zu Vorstellungsgespraechen mitentscheidet
+  RU[d]: Программное обеспечение на основе ИИ, которое предварительно отбирает заявки о приёме на работу и участвует в принятии решения о приглашении на собеседование
+DE EXP: KI im Personalwesen, die ueber Einstellung, Befoerderung oder Kuendigung mitentscheidet, ist in Anhang III des AI Act ausdruecklich als Hochrisiko-Bereich genannt, da sie erhebliche Auswirkungen auf die Rechte und Chancen einzelner Menschen haben kann. Rechtschreibkorrektur, Filmempfehlungen und einfache Chatbots gelten dagegen als minimales bzw. begrenztes Risiko.
+RU EXP: ИИ в сфере управления персоналом, участвующий в принятии решений о найме, повышении или увольнении, прямо указан в приложении III AI Act как область высокого риска, поскольку может существенно повлиять на права и возможности отдельных людей. Проверка орфографии, рекомендации фильмов и простые чат-боты, напротив, считаются минимальным или ограниченным риском.
+
+=== ID ki_act-ki_kompetenz-01 | correct=['c'] ===
+DE Q: Wen verpflichtet Art. 4 KI-VO dazu, fuer ausreichende 'KI-Kompetenz' (AI literacy) zu sorgen?
+RU Q: Кого статья 4 обязывает обеспечивать достаточную 'ИИ-грамотность' (AI literacy)?
+  DE[a]: Nur Hersteller (Anbieter) von KI-Systemen, nicht die Unternehmen, die diese Systeme im Alltag einsetzen
+  RU[a]: Только поставщиков (производителей) систем ИИ, а не компании, которые используют эти системы в повседневной работе
+  DE[b]: Nur grosse Konzerne mit mehr als 250 Mitarbeitenden
+  RU[b]: Только крупные корпорации с более чем 250 сотрудниками
+  DE[c]: Sowohl Anbieter als auch Betreiber (deployer) von KI-Systemen - also auch Unternehmen, die fertige KI-Tools lediglich einsetzen
+  RU[c]: Как поставщиков, так и операторов (deployer) систем ИИ - то есть также компании, которые лишь используют готовые ИИ-инструменты
+  DE[d]: Ausschliesslich IT-Abteilungen, da nur diese technisch mit KI-Systemen in Beruehrung kommen
+  RU[d]: Исключительно ИТ-отделы, поскольку только они технически соприкасаются с системами ИИ
+DE EXP: Art. 4 richtet sich ausdruecklich sowohl an Anbieter (die KI-Systeme entwickeln oder in Verkehr bringen) als auch an Betreiber (deployer), die KI-Systeme in eigener Verantwortung nutzen - etwa ein Unternehmen, das ein eingekauftes KI-Tool im Kundenservice einsetzt. Beide Gruppen muessen sicherstellen, dass ihr Personal ueber ausreichende KI-Kompetenz verfuegt.
+RU EXP: Статья 4 прямо адресована как поставщикам (которые разрабатывают или выводят на рынок системы ИИ), так и операторам (deployer), которые используют системы ИИ под собственную ответственность - например, компания, использующая приобретённый ИИ-инструмент в службе поддержки клиентов. Обе группы должны обеспечить, чтобы их персонал обладал достаточной ИИ-грамотностью.
+
+=== ID ki_act-ki_kompetenz-02 | correct=['b'] ===
+DE Q: Fuer welchen Personenkreis im Unternehmen muss laut Art. 4 KI-VO KI-Kompetenz sichergestellt werden?
+RU Q: Для какого круга лиц в компании, согласно статье 4, необходимо обеспечить ИИ-грамотность?
+  DE[a]: Nur fuer festangestellte Mitarbeitende, nicht fuer externe Dienstleister oder Freelancer
+  RU[a]: Только для штатных сотрудников, а не для внешних поставщиков услуг или фрилансеров
+  DE[b]: Fuer alle Personen, die im Auftrag des Anbieters oder Betreibers mit dem Betrieb und der Nutzung von KI-Systemen befasst sind - einschliesslich Beschaeftigter und sonstiger beauftragter Personen
+  RU[b]: Для всех лиц, которые по поручению поставщика или оператора занимаются эксплуатацией и использованием систем ИИ - включая сотрудников и иных привлечённых лиц
+  DE[c]: Nur fuer die Geschaeftsfuehrung, da diese die Letztverantwortung traegt
+  RU[c]: Только для руководства, поскольку оно несёт конечную ответственность
+  DE[d]: Nur fuer Personen, die selbst KI-Modelle programmieren oder trainieren
+  RU[d]: Только для лиц, которые самостоятельно программируют или обучают модели ИИ
+DE EXP: Die Pflicht ist bewusst weit gefasst und erfasst nicht nur festangestellte Beschaeftigte, sondern alle Personen, die im Auftrag des Unternehmens mit KI-Systemen umgehen - das koennen auch Freelancer, Zeitarbeitskraefte oder externe Dienstleister sein, die z.B. ein KI-Tool im Kundenkontakt nutzen.
+RU EXP: Это обязательство намеренно сформулировано широко и охватывает не только штатных сотрудников, но и всех лиц, которые по поручению компании имеют дело с системами ИИ - это могут быть фрилансеры, временные работники или внешние поставщики услуг, например использующие ИИ-инструмент в общении с клиентами.
+
+=== ID ki_act-ki_kompetenz-03 | correct=['a'] ===
+DE Q: Muss KI-Kompetenz-Schulung nach Art. 4 KI-VO fuer alle Mitarbeitenden eines Unternehmens identisch ausfallen?
+RU Q: Должно ли обучение ИИ-грамотности по статье 4 быть одинаковым для всех сотрудников компании?
+  DE[a]: Nein - der Umfang der Schulung soll sich nach technischen Vorkenntnissen, Erfahrung, Ausbildung sowie dem konkreten Einsatzkontext der jeweiligen Person richten
+  RU[a]: Нет - объём обучения должен учитывать технический уровень знаний, опыт, образование и конкретный контекст использования соответствующего лица
+  DE[b]: Ja - die Verordnung schreibt ein bundeseinheitliches Standardcurriculum mit identischem Inhalt fuer alle Rollen vor
+  RU[b]: Да - регламент предписывает единую общенациональную стандартную программу с одинаковым содержанием для всех ролей
+  DE[c]: Ja - nur eine einzige, unternehmensweite Pflichtschulung mit derselben Pruefung fuer alle erfuellt die Anforderungen
+  RU[c]: Да - только единое обязательное обучение для всей компании с одинаковым экзаменом для всех соответствует требованиям
+  DE[d]: Nein, Schulungsinhalte sind komplett freigestellt und muessen weder Risiken noch praktische Nutzung behandeln
+  RU[d]: Нет, содержание обучения совершенно свободно и не обязано касаться ни рисков, ни практического применения
+DE EXP: Art. 4 verlangt ausdruecklich, dass Vorkenntnisse, Erfahrung, Ausbildung sowie der Kontext, in dem die KI-Systeme eingesetzt werden sollen, beruecksichtigt werden - Schulungen sollten also rollenspezifisch zugeschnitten sein. Eine Person, die nur gelegentlich einen KI-Schreibassistenten nutzt, braucht andere Inhalte als jemand, der KI-gestuetzte Entscheidungen im Hochrisikobereich trifft.
+RU EXP: Статья 4 прямо требует учитывать предварительные знания, опыт, образование, а также контекст, в котором будут использоваться системы ИИ - поэтому обучение должно быть адаптировано под конкретную роль. Человеку, который лишь изредка пользуется ИИ-ассистентом для написания текстов, требуется иное содержание, чем тому, кто принимает решения с помощью ИИ в области высокого риска.
+
+=== ID ki_act-ki_kompetenz-04 | correct=['b'] ===
+DE Q: Seit wann gilt die Pflicht zur KI-Kompetenz nach Art. 4 KI-VO bereits in der Praxis?
+RU Q: С какого момента обязательство по ИИ-грамотности из статьи 4 уже применяется на практике?
+  DE[a]: Erst ab dem 2. August 2027, zeitgleich mit den strengsten Hochrisiko-Pflichten
+  RU[a]: Только с 2 августа 2027 года, одновременно с самыми строгими требованиями для систем высокого риска
+  DE[b]: Bereits seit dem 2. Februar 2025 - zusammen mit dem Verbot bestimmter KI-Praktiken nach Art. 5
+  RU[b]: Уже с 2 февраля 2025 года - вместе с запретом определённых практик ИИ по статье 5
+  DE[c]: Erst ab dem 2. August 2026, zusammen mit den meisten Transparenzpflichten
+  RU[c]: Только с 2 августа 2026 года, вместе с большинством требований прозрачности
+  DE[d]: Die Pflicht gilt erst, sobald ein Unternehmen ein Hochrisiko-KI-System im Sinne von Anhang III einsetzt
+  RU[d]: Обязательство применяется только тогда, когда компания использует систему ИИ высокого риска, перечисленную в приложении III
+DE EXP: Nach Art. 113 lit. a) KI-VO gelten Kapitel I (u.a. Art. 4, KI-Kompetenz) und Kapitel II (Art. 5, verbotene Praktiken) bereits seit dem 2. Februar 2025 - deutlich frueher als der Grossteil der Verordnung, der erst ab dem 2. August 2026 anwendbar wird. Wer die KI-Kompetenz-Pflicht bislang ignoriert, ist damit schon jetzt im Verzug, nicht erst 'irgendwann in der Zukunft'.
+RU EXP: Согласно статье 113(a), Глава I (включая статью 4, ИИ-грамотность) и Глава II (статья 5, запрещённые практики) применяются уже с 2 февраля 2025 года - значительно раньше большей части регламента, которая станет применимой только с 2 августа 2026 года. Организация, до сих пор игнорировавшая обязательство по ИИ-грамотности, уже отстаёт, а не просто столкнётся с будущим сроком.
+
+=== ID ki_act-verbotene_praktiken-01 | correct=['d'] ===
+DE Q: Ein Unternehmen erwaegt, ein KI-System einzufuehren, das Beschaeftigte anhand ihres Sozialverhaltens und persoenlicher Merkmale bewertet und daraus einen allgemeinen 'Vertrauensscore' bildet, der ueber ganz unterschiedliche Kontexte hinweg genutzt wird (z.B. Beurteilung, Zugang zu Ressourcen). Wie ist das nach dem AI Act einzuordnen?
+RU Q: Компания рассматривает возможность внедрения системы ИИ, которая оценивает сотрудников на основе их социального поведения и личных характеристик, формируя на этой основе общий 'рейтинг доверия', используемый в совершенно разных контекстах (например, оценка результативности, доступ к ресурсам). Как это квалифицируется по AI Act?
+  DE[a]: Unbedenklich, solange die Beschaeftigten formlos zustimmen
+  RU[a]: Допустимо, если сотрудники дают неформальное согласие
+  DE[b]: Nur in Deutschland verboten, in anderen EU-Staaten ausdruecklich erlaubt
+  RU[b]: Запрещено только в Германии, в других странах ЕС прямо разрешено
+  DE[c]: Erlaubt, sofern der Score nicht veroeffentlicht wird
+  RU[c]: Разрешено, если рейтинг не публикуется
+  DE[d]: Ein solches kontextuebergreifendes 'Social Scoring' von Personen zaehlt zu den nach Art. 5 verbotenen Praktiken und darf EU-weit nicht eingesetzt werden
+  RU[d]: Такая межконтекстная 'социальная оценка' людей относится к практикам, запрещённым статьёй 5, и не может применяться нигде в ЕС
+DE EXP: Social Scoring - die Bewertung oder Klassifizierung natuerlicher Personen ueber einen laengeren Zeitraum anhand ihres Sozialverhaltens oder persoenlicher Merkmale mit daraus abgeleiteter Schlechterbehandlung in sachfremden Kontexten - ist eine der klassischen 'roten Linien' des Art. 5 KI-VO und EU-weit verboten, unabhaengig von individueller Zustimmung.
+RU EXP: Социальная оценка (social scoring) - оценка или классификация физических лиц в течение длительного времени на основе их социального поведения или личных характеристик с последующим неблагоприятным обращением в несвязанных контекстах - одна из классических 'красных линий' статьи 5 AI Act и запрещена во всём ЕС независимо от индивидуального согласия.
+
+=== ID ki_act-verbotene_praktiken-02 | correct=['c'] ===
+DE Q: Der Einsatz von 'Echtzeit-Fernidentifizierung' per biometrischer KI-Systeme in oeffentlich zugaenglichen Raeumen zu Strafverfolgungszwecken ist nach Art. 5 KI-VO grundsaetzlich verboten. Trifft das ohne jede Ausnahme zu?
+RU Q: Использование 'удалённой биометрической идентификации в реальном времени' с помощью систем ИИ в общедоступных местах в целях правоприменения в принципе запрещено статьёй 5. Верно ли это без каких-либо исключений?
+  DE[a]: Ja, es gibt absolut keine Ausnahmen - jede Nutzung ist in jedem Fall verboten
+  RU[a]: Да, исключений абсолютно нет - любое использование запрещено в любом случае
+  DE[b]: Nein, private Sicherheitsdienste duerfen es voellig frei und ohne Einschraenkung einsetzen
+  RU[b]: Нет, частные охранные компании могут использовать это совершенно свободно и без ограничений
+  DE[c]: Nein, es gibt eng gefasste Ausnahmen (z.B. gezielte Suche nach vermissten Personen, Abwehr einer konkreten terroristischen Bedrohung), die an strenge Voraussetzungen und meist eine gerichtliche Genehmigung gebunden sind
+  RU[c]: Нет, существуют узко определённые исключения (например, целенаправленный поиск пропавших без вести лиц, предотвращение конкретной террористической угрозы), которые подчиняются строгим условиям и, как правило, требуют предварительного судебного разрешения
+  DE[d]: Nein, jedes Unternehmen darf es einsetzen, sofern es vorher eine Datenschutz-Folgenabschaetzung durchfuehrt
+  RU[d]: Нет, любая компания может это использовать, если предварительно проведёт оценку воздействия на защиту данных
+DE EXP: Die Verordnung sieht fuer die Echtzeit-biometrische Fernidentifizierung in oeffentlich zugaenglichen Raeumen zu Strafverfolgungszwecken enge, abschliessend aufgezaehlte Ausnahmen vor (z.B. Suche nach vermissten Kindern, Abwehr einer konkreten und gegenwaertigen terroristischen Bedrohung), die grundsaetzlich eine vorherige gerichtliche oder unabhaengige behoerdliche Genehmigung erfordern. Fuer private Unternehmen ausserhalb der Strafverfolgung bleibt der Einsatz in aller Regel ohnehin verboten.
+RU EXP: Регламент предусматривает для удалённой биометрической идентификации в реальном времени в общедоступных местах в целях правоприменения узкие, исчерпывающе перечисленные исключения (например, поиск пропавших детей, предотвращение конкретной и актуальной террористической угрозы), которые, как правило, требуют предварительного судебного или независимого административного разрешения. Для частных компаний вне сферы правоприменения такое использование, как правило, в любом случае остаётся запрещённым.
+
+=== ID ki_act-verbotene_praktiken-03 | correct=['a'] ===
+DE Q: Ein Marketing-Team moechte ein KI-System einsetzen, das gezielt unterschwellige, von Nutzern nicht bewusst wahrnehmbare Reize einsetzt, um deren Kaufentscheidung zu manipulieren und ihnen dadurch erheblichen Schaden zuzufuegen. Wie ist das zu bewerten?
+RU Q: Маркетинговая команда хочет использовать систему ИИ, которая намеренно применяет подпороговые стимулы, незаметные для пользователей, чтобы манипулировать их решением о покупке и причинить им существенный вред. Как это следует оценивать?
+  DE[a]: Das faellt unter die verbotenen manipulativen bzw. taeuschenden Praktiken nach Art. 5 KI-VO, da bewusst unterschwellige Techniken zur wesentlichen Verhaltensbeeinflussung mit Schadenspotenzial eingesetzt werden
+  RU[a]: Это подпадает под запрещённые манипулятивные или вводящие в заблуждение практики по статье 5, поскольку намеренно используются подпороговые техники для существенного искажения поведения с потенциалом причинения вреда
+  DE[b]: Das ist zulaessiges, kreatives Marketing, solange die AGB einen Hinweis auf 'personalisierte Werbung' enthalten
+  RU[b]: Это допустимый, творческий маркетинг, если условия использования содержат упоминание о 'персонализированной рекламе'
+  DE[c]: Das ist nur bei Werbung fuer Kinder verboten, bei Erwachsenen grundsaetzlich erlaubt
+  RU[c]: Это запрещено только в рекламе, ориентированной на детей, для взрослых в принципе разрешено
+  DE[d]: Das faellt nicht unter den AI Act, da es sich um Marketing und nicht um ein Hochrisikosystem handelt
+  RU[d]: Это вообще не подпадает под AI Act, поскольку речь идёт о маркетинге, а не о системе высокого риска
+DE EXP: Art. 5 KI-VO verbietet den Einsatz von KI-Systemen, die subliminale, manipulative oder taeuschende Techniken jenseits des Bewusstseins einer Person einsetzen, um deren Verhalten wesentlich zu beeinflussen und ihr dadurch einen erheblichen Schaden zuzufuegen - unabhaengig davon, ob die Zielgruppe Kinder oder Erwachsene sind. Ein Hinweis in den AGB aendert daran nichts, weil die Technik gerade auf unbewusste Beeinflussung abzielt.
+RU EXP: Статья 5 запрещает использование систем ИИ, которые применяют подпороговые, манипулятивные или вводящие в заблуждение техники за пределами сознания человека, чтобы существенно исказить его поведение и причинить ему значительный вред - независимо от того, являются ли целевой группой дети или взрослые. Упоминание в условиях использования ничего не меняет, поскольку техника специально направлена на бессознательное влияние.
+
+=== ID ki_act-verbotene_praktiken-04 | correct=['b'] ===
+DE Q: Ein KI-System soll gezielt so gestaltet werden, dass es die Schutzbeduerftigkeit aelterer Menschen oder von Personen in schwieriger wirtschaftlicher Lage ausnutzt, um deren Verhalten zu ihrem Nachteil zu beeinflussen. Wie ordnet der AI Act das ein?
+RU Q: Система ИИ намеренно разрабатывается так, чтобы использовать уязвимость пожилых людей или лиц в трудном экономическом положении, чтобы влиять на их поведение в их ущерб. Как AI Act это классифицирует?
+  DE[a]: Als Hochrisikopraxis, die aber mit einer Konformitaetsbewertung legal eingesetzt werden darf
+  RU[a]: Как практику высокого риска, которую, однако, можно законно использовать после оценки соответствия
+  DE[b]: Als eine der verbotenen Praktiken nach Art. 5, da gezielt Schutzbeduerftigkeit aufgrund von Alter, Behinderung oder sozialer/wirtschaftlicher Situation ausgenutzt wird, um zum Nachteil der Betroffenen zu handeln
+  RU[b]: Как одну из практик, запрещённых статьёй 5, поскольку намеренно эксплуатируется уязвимость из-за возраста, инвалидности или социального/экономического положения с целью действовать в ущерб соответствующим лицам
+  DE[c]: Als voellig unproblematisch, solange kein finanzieller Schaden entsteht
+  RU[c]: Как совершенно безобидное, пока не возникает финансовый ущерб
+  DE[d]: Als Transparenzpflicht-Fall, bei dem ein einfacher Hinweis 'Sie interagieren mit einer KI' ausreicht
+  RU[d]: Как случай, подпадающий под обязательство прозрачности, для которого достаточно простого уведомления 'Вы взаимодействуете с ИИ'
+DE EXP: Das gezielte Ausnutzen der Schutzbeduerftigkeit bestimmter Personengruppen - etwa aufgrund von Alter, Behinderung oder einer schwierigen sozialen bzw. wirtschaftlichen Lage - mit dem Ziel, deren Verhalten zu ihrem Nachteil zu beeinflussen, zaehlt zu den ausdruecklich verbotenen Praktiken nach Art. 5. Eine Konformitaetsbewertung oder ein Transparenzhinweis kann ein solches Verbot nicht 'heilen', weil verbotene Praktiken generell nicht durch Auflagen legalisiert werden koennen.
+RU EXP: Намеренная эксплуатация уязвимости определённых групп людей - например, из-за возраста, инвалидности или трудного социального или экономического положения - с целью повлиять на их поведение в их ущерб относится к практикам, прямо запрещённым статьёй 5. Оценка соответствия или уведомление о прозрачности не могут 'исправить' такой запрет, поскольку запрещённые практики в целом не могут быть легализованы дополнительными условиями.
+
+=== ID ki_act-transparenzpflichten-01 | correct=['c'] ===
+DE Q: Ihr Unternehmen setzt einen Chatbot ein, der Kundenanfragen automatisiert beantwortet. Was verlangt Art. 50 KI-VO in diesem Fall grundsaetzlich?
+RU Q: Ваша компания использует чат-бот, который автоматически отвечает на запросы клиентов. Что в этом случае в принципе требует статья 50?
+  DE[a]: Der Chatbot muss vollstaendig abgeschaltet werden, sobald ein Kunde danach fragt
+  RU[a]: Чат-бот должен быть полностью отключён, как только клиент об этом спросит
+  DE[b]: Es besteht keinerlei Pflicht, solange der Chatbot technisch fehlerfrei arbeitet
+  RU[b]: Никакого обязательства не существует, пока чат-бот работает технически без ошибок
+  DE[c]: Kunden muessen klar und rechtzeitig darueber informiert werden, dass sie mit einem KI-System und nicht mit einem Menschen interagieren - ausser dies ist ohnehin offensichtlich
+  RU[c]: Клиенты должны быть ясно и своевременно проинформированы, что они взаимодействуют с системой ИИ, а не с человеком - если только это уже не очевидно
+  DE[d]: Der Chatbot darf nur eingesetzt werden, wenn zuvor eine Konformitaetsbewertung wie bei Hochrisikosystemen durchgefuehrt wurde
+  RU[d]: Чат-бот можно использовать только после предварительного проведения оценки соответствия, как для систем высокого риска
+DE EXP: Art. 50 KI-VO verlangt fuer Systeme, die zur direkten Interaktion mit natuerlichen Personen bestimmt sind, dass Nutzer informiert werden, dass sie mit einem KI-System interagieren - es sei denn, dies ist fuer eine hinreichend informierte, aufmerksame Person offensichtlich (z.B. bei offensichtlich automatisierten Standard-FAQ-Bots). Eine Hochrisiko-Konformitaetsbewertung ist dafuer nicht erforderlich, da ein einfacher Chatbot in der Regel kein Hochrisikosystem ist.
+RU EXP: Статья 50 требует для систем, предназначенных для прямого взаимодействия с физическими лицами, чтобы пользователи были проинформированы о том, что они взаимодействуют с системой ИИ - если только это не очевидно для достаточно информированного, внимательного человека (например, в случае явно автоматизированных стандартных FAQ-ботов). Оценка соответствия для высокого риска здесь не требуется, поскольку простой чат-бот обычно не является системой высокого риска.
+
+=== ID ki_act-transparenzpflichten-02 | correct=['a'] ===
+DE Q: Ein Kollege erstellt mit einem KI-Bildgenerator ein realistisch wirkendes Video, das eine bekannte Person Aussagen treffen laesst, die sie nie gemacht hat ('Deepfake'), und moechte es intern und extern verbreiten. Was gilt hier grundsaetzlich?
+RU Q: Коллега с помощью генератора изображений ИИ создаёт реалистично выглядящее видео, в котором известный человек якобы говорит то, чего никогда не говорил ('дипфейк'), и хочет распространить его внутри компании и за её пределами. Что здесь в принципе применяется?
+  DE[a]: Das Video muss als KI-generiert bzw. manipuliert gekennzeichnet werden, damit fuer Betrachter erkennbar ist, dass Inhalt und Aussagen nicht authentisch sind
+  RU[a]: Видео должно быть помечено как созданное ИИ или изменённое, чтобы зрители могли распознать, что содержание и высказывания не являются подлинными
+  DE[b]: Eine Kennzeichnungspflicht besteht nur bei kommerzieller Nutzung ausserhalb der EU
+  RU[b]: Обязанность маркировки существует только для коммерческого использования за пределами ЕС
+  DE[c]: Deepfakes sind grundsaetzlich verboten und duerfen unter keinen Umstaenden erstellt werden
+  RU[c]: Дипфейки в принципе запрещены и не могут создаваться ни при каких обстоятельствах
+  DE[d]: Es besteht keine Kennzeichnungspflicht, solange kein finanzieller Gewinn erzielt wird
+  RU[d]: Обязанности маркировки нет, пока не извлекается финансовая выгода
+DE EXP: Art. 50 KI-VO verpflichtet dazu, KI-generierte oder manipulierte Bild-, Audio- oder Videoinhalte, die tatsaechliche Personen, Objekte, Orte oder Ereignisse faelschlicherweise als echt erscheinen lassen ('Deepfakes'), als kuenstlich erzeugt bzw. manipuliert zu kennzeichnen. Deepfakes sind nicht per se verboten, muessen aber transparent gemacht werden - anders als etwa Social Scoring sind sie keine 'rote Linie' nach Art. 5, sondern unterliegen einer Kennzeichnungspflicht.
+RU EXP: Статья 50 обязывает маркировать как искусственно созданный или изменённый контент изображения, аудио или видео, созданный или изменённый ИИ, который ложно представляет реальных людей, объекты, места или события как подлинные ('дипфейки'). Дипфейки не запрещены сами по себе, но должны быть прозрачными - в отличие, например, от социальной оценки, они не являются 'красной линией' статьи 5, а подпадают под обязанность маркировки.
+
+=== ID ki_act-transparenzpflichten-03 | correct=['b'] ===
+DE Q: Ein KI-System zur Emotionserkennung wird am Arbeitsplatz eingesetzt, um die Stimmung von Beschaeftigten waehrend Meetings zu erfassen. Was fordert Art. 50 KI-VO hierzu mindestens?
+RU Q: Система ИИ для распознавания эмоций используется на рабочем месте, чтобы фиксировать настроение сотрудников во время совещаний. Что как минимум требует статья 50 в этом случае?
+  DE[a]: Der Einsatz ist immer verboten, unabhaengig vom Kontext
+  RU[a]: Такое использование всегда запрещено, независимо от контекста
+  DE[b]: Die betroffenen Personen muessen darueber informiert werden, dass ein System zur Emotionserkennung eingesetzt wird
+  RU[b]: Соответствующие лица должны быть проинформированы о том, что используется система распознавания эмоций
+  DE[c]: Es reicht ein Vermerk in der internen IT-Dokumentation, eine Information der Betroffenen ist nicht erforderlich
+  RU[c]: Достаточно отметки во внутренней ИТ-документации, информировать заинтересованных лиц не требуется
+  DE[d]: Eine Informationspflicht besteht nur gegenueber dem Betriebsrat, nicht gegenueber den einzelnen Beschaeftigten
+  RU[d]: Обязанность информирования существует только по отношению к совету работников, а не к отдельным сотрудникам
+DE EXP: Fuer Systeme zur Emotionserkennung oder biometrischen Kategorisierung sieht Art. 50 KI-VO eine Informationspflicht gegenueber den natuerlichen Personen vor, die dem System ausgesetzt sind - sie muessen ueber den Betrieb des Systems informiert werden. Das ersetzt uebrigens nicht etwaige zusaetzliche arbeitsrechtliche Mitbestimmungsrechte, etwa des Betriebsrats, sondern kommt zusaetzlich dazu.
+RU EXP: Для систем распознавания эмоций или биометрической категоризации статья 50 предусматривает обязанность информирования физических лиц, подверженных воздействию системы - их необходимо проинформировать об эксплуатации системы. Это, кстати, не заменяет никакие дополнительные права соучастия по трудовому праву, например, совета работников, а дополняет их.
+
+=== ID ki_act-transparenzpflichten-04 | correct=['d'] ===
+DE Q: Ab wann sind die allgemeinen Transparenzpflichten nach Art. 50 KI-VO (u.a. Chatbot-Kennzeichnung, Deepfake-Labeling) anwendbar?
+RU Q: С какого момента применяются общие обязательства прозрачности по статье 50 (включая маркировку чат-ботов, маркировку дипфейков)?
+  DE[a]: Bereits seit Inkrafttreten der Verordnung im August 2024
+  RU[a]: Уже с момента вступления регламента в силу в августе 2024 года
+  DE[b]: Erst ab dem 2. August 2027
+  RU[b]: Только с 2 августа 2027 года
+  DE[c]: Bereits seit dem 2. Februar 2025, zusammen mit den verbotenen Praktiken
+  RU[c]: Уже с 2 февраля 2025 года, вместе с запрещёнными практиками
+  DE[d]: Ab dem 2. August 2026, zusammen mit dem Grossteil der uebrigen Pflichten der Verordnung
+  RU[d]: С 2 августа 2026 года, вместе с большинством остальных обязательств регламента
+DE EXP: Anders als die AI-Kompetenz-Pflicht (Art. 4) und die verbotenen Praktiken (Art. 5), die bereits seit dem 2. Februar 2025 gelten, greifen die Transparenzpflichten nach Art. 50 erst zum allgemeinen Anwendungsstichtag am 2. August 2026 - zusammen mit dem Grossteil der weiteren Pflichten der Verordnung. Unternehmen sollten diese unterschiedlichen Fristen im Blick behalten.
+RU EXP: В отличие от обязательства по ИИ-грамотности (статья 4) и запрещённых практик (статья 5), которые применяются уже с 2 февраля 2025 года, обязательства прозрачности по статье 50 вступают в силу только с общей даты применения 2 августа 2026 года - вместе с большинством остальных обязательств регламента. Компаниям следует учитывать эти разные сроки.
+
+=== ID ki_act-ki_am_arbeitsplatz-01 | correct=['b'] ===
+DE Q: Ein Kollege moechte vertrauliche Kundendaten in einen oeffentlich verfuegbaren KI-Chatbot eingeben, um sich bei der Formulierung einer Antwort helfen zu lassen. Was sollte er zuerst bedenken?
+RU Q: Коллега хочет ввести конфиденциальные данные клиентов в общедоступный чат-бот ИИ, чтобы получить помощь в формулировании ответа. Что ему следует учесть в первую очередь?
+  DE[a]: Das ist unproblematisch, da KI-Anbieter grundsaetzlich keine Eingaben speichern
+  RU[a]: Это не проблема, поскольку поставщики ИИ в принципе никогда не сохраняют вводимые данные
+  DE[b]: Personenbezogene oder vertrauliche Daten duerfen in der Regel nicht ungeprueft in externe KI-Tools eingegeben werden, da dies gegen Datenschutzvorgaben und interne Richtlinien verstossen kann - unabhaengig vom AI Act gilt hier zusaetzlich die DSGVO
+  RU[b]: Персональные или конфиденциальные данные, как правило, нельзя без проверки вводить во внешние ИИ-инструменты, поскольку это может нарушать требования защиты данных и внутренние политики - независимо от AI Act здесь дополнительно действует GDPR
+  DE[c]: Das ist erlaubt, solange der Kollege den Kunden im Nachhinein informell darueber unterrichtet
+  RU[c]: Это допустимо, если коллега впоследствии неформально проинформирует об этом клиента
+  DE[d]: Der AI Act verbietet grundsaetzlich jede Nutzung von externen KI-Chatbots am Arbeitsplatz
+  RU[d]: AI Act в принципе запрещает любое использование внешних ИИ-чат-ботов на рабочем месте
+DE EXP: Der AI Act regelt vor allem Risiken, die vom KI-System selbst ausgehen, ersetzt aber nicht die DSGVO. Wer personenbezogene oder vertrauliche Daten in ein externes KI-Tool eingibt, kann damit unabhaengig vom AI Act gegen Datenschutzrecht und interne Richtlinien verstossen, etwa weil die Daten auf Servern ausserhalb der Kontrolle des Unternehmens verarbeitet werden. Beide Rechtsrahmen - AI Act und DSGVO - muessen parallel beachtet werden.
+RU EXP: AI Act регулирует прежде всего риски, исходящие от самой системы ИИ, но не заменяет GDPR. Тот, кто вводит персональные или конфиденциальные данные во внешний ИИ-инструмент, может независимо от AI Act нарушить право защиты данных и внутренние политики, например, потому что данные обрабатываются на серверах вне контроля компании. Оба правовых режима - AI Act и GDPR - необходимо соблюдать параллельно.
+
+=== ID ki_act-ki_am_arbeitsplatz-02 | correct=['c'] ===
+DE Q: Ein Hochrisiko-KI-System unterstuetzt bei der Vorauswahl von Bewerbungen. Ein Mitarbeiter uebernimmt jeden Vorschlag der KI ungeprueft, weil 'die KI ja meistens richtig liegt'. Wie ist dieses Verhalten im Sinne der Anforderungen an menschliche Aufsicht zu bewerten?
+RU Q: Система ИИ высокого риска помогает в предварительном отборе заявок о приёме на работу. Сотрудник без проверки принимает каждое предложение ИИ, поскольку 'ИИ обычно прав'. Как оценить такое поведение с точки зрения требований человеческого надзора?
+  DE[a]: Vollkommen in Ordnung, da die KI die Entscheidung ja formal getroffen hat
+  RU[a]: Совершенно нормально, поскольку решение формально принял ИИ
+  DE[b]: Nur bedenklich, wenn der Bewerber sich beschwert
+  RU[b]: Проблематично только тогда, когда кандидат жалуется
+  DE[c]: Problematisch: Menschliche Aufsicht bei Hochrisikosystemen bedeutet, Vorschlaege der KI kritisch zu pruefen und begruenden zu koennen, statt sie automatisch durchzuwinken
+  RU[c]: Проблематично: человеческий надзор для систем высокого риска означает критически проверять предложения ИИ и уметь их обосновать, а не автоматически их одобрять
+  DE[d]: Unproblematisch, weil der Hersteller der KI die Verantwortung fuer alle Entscheidungen traegt
+  RU[d]: Не проблема, поскольку ответственность за все решения несёт производитель ИИ
+DE EXP: Der AI Act verlangt fuer Hochrisikosysteme eine wirksame menschliche Aufsicht: Die zustaendige Person muss in der Lage sein, Ergebnisse der KI zu verstehen, kritisch zu hinterfragen und im Zweifel zu korrigieren oder abzulehnen ('automation bias' vermeiden). Blindes Uebernehmen von KI-Vorschlaegen widerspricht diesem Grundgedanken und kann im Ergebnis auch zu diskriminierenden Entscheidungen fuehren, fuer die das Unternehmen weiterhin verantwortlich bleibt.
+RU EXP: AI Act требует для систем высокого риска эффективного человеческого надзора: ответственное лицо должно быть способно понимать результаты ИИ, критически их оценивать и в случае сомнений исправлять или отклонять (избегая 'предвзятости автоматизации'). Слепое принятие предложений ИИ противоречит этому принципу и может в итоге привести к дискриминационным решениям, за которые компания остаётся ответственной.
+
+=== ID ki_act-ki_am_arbeitsplatz-03 | correct=['a'] ===
+DE Q: Eine Fuehrungskraft trifft auf Basis einer KI-Empfehlung eine belastende Personalentscheidung, die sich im Nachhinein als fehlerhaft und diskriminierend herausstellt. Argument der Fuehrungskraft: 'Das hat die KI so vorgeschlagen, ich habe es nur uebernommen.' Ist dieses Argument rechtlich tragfaehig?
+RU Q: Руководитель на основе рекомендации ИИ принимает неблагоприятное кадровое решение, которое впоследствии оказывается ошибочным и дискриминационным. Аргумент руководителя: 'Так предложил ИИ, я лишь согласился.' Является ли этот аргумент юридически состоятельным?
+  DE[a]: Nein - die Verantwortung fuer eine Entscheidung verbleibt grundsaetzlich beim Menschen bzw. beim Unternehmen als Betreiber, der das KI-System einsetzt; 'die KI hat es gesagt' entbindet nicht von der eigenen Sorgfaltspflicht
+  RU[a]: Нет - ответственность за решение в принципе остаётся за человеком или компанией как оператором, использующим систему ИИ; 'так сказал ИИ' не освобождает от собственной обязанности проявлять осмотрительность
+  DE[b]: Ja - sobald ein KI-System eine Empfehlung ausspricht, geht die volle rechtliche Verantwortung automatisch auf den KI-Hersteller ueber
+  RU[b]: Да - как только система ИИ выдаёт рекомендацию, полная юридическая ответственность автоматически переходит к производителю ИИ
+  DE[c]: Ja, aber nur wenn das Unternehmen weniger als 50 Mitarbeitende hat
+  RU[c]: Да, но только если в компании менее 50 сотрудников
+  DE[d]: Das ist rechtlich irrelevant, da der AI Act keine Regelungen zu Verantwortlichkeiten von Betreibern enthaelt
+  RU[d]: Это юридически не имеет значения, поскольку AI Act не содержит положений об ответственности операторов
+DE EXP: Der AI Act legt Betreibern (deployer) von Hochrisiko-KI-Systemen eigene Pflichten auf, unter anderem zur angemessenen menschlichen Aufsicht und zur sachgerechten Nutzung gemaess der Gebrauchsanweisung des Herstellers. Diese Pflichten - und die daraus resultierende Verantwortung fuer konkrete Entscheidungen im Betrieb - verbleiben grundsaetzlich beim Unternehmen bzw. der handelnden Person, auch wenn eine KI die zugrunde liegende Empfehlung geliefert hat.
+RU EXP: AI Act возлагает на операторов (deployer) систем ИИ высокого риска собственные обязательства, включая надлежащий человеческий надзор и надлежащее использование в соответствии с инструкциями производителя. Эти обязательства - и вытекающая из них ответственность за конкретные решения, принимаемые в деятельности компании - в принципе остаются за компанией или действующим лицом, даже если базовую рекомендацию предоставил ИИ.
+
+=== ID ki_act-ki_am_arbeitsplatz-04 | correct=['b'] ===
+DE Q: Was ist eine sinnvolle, praxisnahe Verhaltensregel fuer den Einsatz generativer KI-Assistenten (z.B. zum Formulieren von Texten) im Arbeitsalltag?
+RU Q: Какое разумное, практическое правило поведения при использовании генеративных ИИ-ассистентов (например, для составления текстов) в повседневной работе?
+  DE[a]: KI-generierte Texte immer unveraendert und ungeprueft uebernehmen, um Zeit zu sparen
+  RU[a]: Всегда принимать сгенерированные ИИ тексты без изменений и без проверки, чтобы сэкономить время
+  DE[b]: KI-generierte Ergebnisse vor der Verwendung inhaltlich pruefen, insbesondere auf Richtigkeit, Voreingenommenheit und Datenschutz - und im Zweifel die Nutzung mit den geltenden internen Richtlinien abgleichen
+  RU[b]: Проверять содержательно результаты, сгенерированные ИИ, перед использованием, особенно на точность, предвзятость и защиту данных - и в случае сомнений сверять использование с действующими внутренними политиками
+  DE[c]: Generative KI grundsaetzlich nur ausserhalb der Arbeitszeit und ohne jede dienstliche Relevanz nutzen
+  RU[c]: Использовать генеративный ИИ в принципе только вне рабочего времени и без какой-либо служебной значимости
+  DE[d]: Auf jegliche Pruefung verzichten, solange kein Kunde die Inhalte direkt zu sehen bekommt
+  RU[d]: Отказаться от любой проверки, пока ни один клиент не видит контент напрямую
+DE EXP: Generative KI kann bei der Arbeit sehr nuetzlich sein, ersetzt aber nicht die eigene fachliche und rechtliche Verantwortung. Ergebnisse koennen sachlich falsch sein ('Halluzinationen'), unbewusste Verzerrungen enthalten oder datenschutzrechtlich problematisch sein, wenn versehentlich vertrauliche Informationen eingegeben wurden - deshalb gehoert eine kritische Pruefung vor der Weiterverwendung zur guten betrieblichen Praxis.
+RU EXP: Генеративный ИИ может быть очень полезен в работе, но не заменяет собственную профессиональную и юридическую ответственность. Результаты могут быть фактически неверными ('галлюцинации'), содержать неосознанные предубеждения или быть проблематичными с точки зрения защиты данных, если случайно были введены конфиденциальные сведения - поэтому критическая проверка перед дальнейшим использованием относится к хорошей деловой практике.
+
+=== ID ki_act-grundlagen-05 | correct=['a'] ===
+DE Q: Ein KI-System wird ausschliesslich fuer militaerische Zwecke der nationalen Verteidigung entwickelt und eingesetzt. Gilt der AI Act dafuer?
+RU Q: Система ИИ разрабатывается и используется исключительно в военных целях национальной обороны. Применяется ли к ней AI Act?
+  DE[a]: Nein - der AI Act gilt nach Art. 2 Abs. 3 nicht fuer KI-Systeme, die ausschliesslich fuer militaerische, verteidigungsbezogene oder nationale Sicherheitszwecke in Verkehr gebracht, in Betrieb genommen oder genutzt werden
+  RU[a]: Нет - согласно статье 2(3), AI Act не применяется к системам ИИ, которые выводятся на рынок, вводятся в эксплуатацию или используются исключительно в военных, оборонных целях или целях национальной безопасности
+  DE[b]: Ja, uneingeschraenkt - militaerische Nutzung ist ausdruecklich als eigener Hochrisikobereich in Anhang III gelistet
+  RU[b]: Да, без ограничений - военное использование прямо перечислено как отдельная область высокого риска в приложении III
+  DE[c]: Nein, aber nur wenn das System zusaetzlich von der NATO offiziell zertifiziert wurde
+  RU[c]: Нет, но только если система дополнительно официально сертифицирована НАТО
+  DE[d]: Ja, aber zumindest die Transparenzpflichten nach Art. 50 gelten dafuer trotzdem uneingeschraenkt weiter
+  RU[d]: Да, но по крайней мере обязательства прозрачности по статье 50 всё равно полностью применяются
+DE EXP: Art. 2 Abs. 3 KI-VO nimmt KI-Systeme, die ausschliesslich fuer militaerische, verteidigungsbezogene oder nationale Sicherheitszwecke bestimmt sind, vollstaendig vom Anwendungsbereich der Verordnung aus - unabhaengig davon, welche Art von Stelle sie betreibt. Es gibt hierfuer keine gesonderte NATO-Zertifizierung, und auch die Transparenzpflichten greifen in diesem Fall nicht.
+RU EXP: Статья 2(3) полностью исключает из сферы применения регламента системы ИИ, предназначенные исключительно для военных, оборонных целей или целей национальной безопасности - независимо от того, какой тип структуры их эксплуатирует. Для этого не существует отдельной сертификации НАТО, и обязательства прозрачности в этом случае также не применяются.
+
+=== ID ki_act-grundlagen-06 | correct=['a'] ===
+DE Q: Ein Forschungsteam entwickelt und testet ein neues KI-Modell ausschliesslich im Rahmen wissenschaftlicher Forschung, bevor es je auf den Markt gebracht oder in Betrieb genommen wird. Wie ist das nach dem AI Act einzuordnen?
+RU Q: Исследовательская группа разрабатывает и тестирует новую модель ИИ исключительно в рамках научных исследований, прежде чем она когда-либо будет выведена на рынок или введена в эксплуатацию. Как это квалифицируется по AI Act?
+  DE[a]: Solche Forschungs-, Test- und Entwicklungstaetigkeiten vor Markteinfuehrung bzw. Inbetriebnahme fallen grundsaetzlich nicht unter die Verordnung
+  RU[a]: Такая исследовательская, тестовая и разработческая деятельность до вывода на рынок или ввода в эксплуатацию в принципе не подпадает под сферу применения регламента
+  DE[b]: Auch reine Forschung muss vorab eine vollstaendige Konformitaetsbewertung wie ein Hochrisikosystem durchlaufen
+  RU[b]: Даже чисто научные исследования должны предварительно пройти полную оценку соответствия, как если бы это была система высокого риска
+  DE[c]: Die Ausnahme gilt nur, wenn die Forschung an einer staatlichen Universitaet stattfindet, nicht in der Privatwirtschaft
+  RU[c]: Исключение действует только в том случае, если исследование проводится в государственном университете, а не в частном секторе
+  DE[d]: Die Ausnahme gilt unveraendert weiter, sobald das Modell anschliessend echten Nutzern am Markt bereitgestellt wird
+  RU[d]: Исключение продолжает действовать без изменений, как только модель впоследствии предоставляется реальным пользователям на рынке
+DE EXP: Art. 2 Abs. 8 KI-VO nimmt Forschungs-, Test- und Entwicklungstaetigkeiten zu KI-Systemen oder -Modellen vor deren Inverkehrbringen bzw. Inbetriebnahme vom Anwendungsbereich aus. Die Ausnahme ist nicht auf staatliche Einrichtungen beschraenkt, endet aber, sobald das System tatsaechlich am Markt bereitgestellt oder in Betrieb genommen wird - ab diesem Zeitpunkt gelten die regulaeren Pflichten.
+RU EXP: Статья 2(8) исключает из сферы применения исследовательскую, тестовую и разработческую деятельность в отношении систем или моделей ИИ до их вывода на рынок или ввода в эксплуатацию. Исключение не ограничивается государственными учреждениями, но заканчивается, как только система фактически предоставляется на рынке или вводится в эксплуатацию - с этого момента действуют обычные обязательства.
+
+=== ID ki_act-grundlagen-07 | correct=['b'] ===
+DE Q: Wer gilt nach der Definition in Art. 3 Nr. 3 KI-VO als 'Anbieter' (provider) eines KI-Systems?
+RU Q: Кто, согласно определению в статье 3(3), считается 'поставщиком' (provider) системы ИИ?
+  DE[a]: Nur eine natuerliche Person, die persoenlich Programmiercode fuer ein KI-System schreibt
+  RU[a]: Только физическое лицо, которое лично пишет программный код для системы ИИ
+  DE[b]: Jede natuerliche oder juristische Person, Behoerde, Einrichtung oder sonstige Stelle, die ein KI-System entwickelt oder entwickeln laesst und es unter eigenem Namen oder eigener Marke in Verkehr bringt oder in Betrieb nimmt - entgeltlich oder unentgeltlich
+  RU[b]: Любое физическое или юридическое лицо, орган публичной власти, учреждение или иной орган, который разрабатывает систему ИИ или поручает её разработку и выводит её на рынок или вводит в эксплуатацию под собственным именем или торговой маркой - платно или бесплатно
+  DE[c]: Ausschliesslich Unternehmen mit Sitz ausserhalb der EU, die KI-Systeme in die EU exportieren
+  RU[c]: Исключительно компании, учреждённые за пределами ЕС, которые экспортируют системы ИИ в ЕС
+  DE[d]: Jedes Unternehmen, das ein fertiges KI-Tool eines Dritten lediglich im eigenen Betrieb nutzt, ohne es weiterzugeben
+  RU[d]: Любая компания, которая лишь использует готовый ИИ-инструмент третьей стороны в собственной деятельности, не передавая его дальше
+DE EXP: Die Anbieter-Definition ist bewusst weit gefasst und knuepft nicht an den Unternehmenssitz oder die Vergueltlichkeit an, sondern daran, dass jemand ein KI-System entwickelt (oder entwickeln laesst) und es unter eigenem Namen bzw. eigener Marke in Verkehr bringt oder in Betrieb nimmt. Option d beschreibt dagegen eher die Rolle eines Betreibers (deployer), der ein fremdes System lediglich nutzt.
+RU EXP: Определение поставщика намеренно широкое и не зависит от места учреждения компании или платности, а от того, что кто-то разрабатывает (или поручает разработать) систему ИИ и выводит её на рынок или вводит в эксплуатацию под собственным именем или торговой маркой. Вариант d, напротив, описывает скорее роль оператора (deployer), который лишь использует чужую систему.
+
+=== ID ki_act-grundlagen-08 | correct=['a'] ===
+DE Q: Neben der Liste in Anhang III gibt es einen zweiten, unabhaengigen Weg, wie ein KI-System zum Hochrisikosystem werden kann. Welcher ist das?
+RU Q: Помимо перечня в приложении III, существует второй, независимый способ, которым система ИИ может стать системой высокого риска. Какой это способ?
+  DE[a]: Wenn das KI-System selbst ein Produkt ist oder als Sicherheitsbauteil in ein Produkt integriert ist, das unter die in Anhang I gelistete EU-Produktsicherheitsgesetzgebung faellt (z.B. Maschinen, Medizinprodukte) und dieses Produkt einer Konformitaetsbewertung durch Dritte bedarf
+  RU[a]: Когда система ИИ сама является продуктом или компонентом безопасности, встроенным в продукт, подпадающий под перечисленное в приложении I законодательство ЕС о безопасности продукции (например, машины, медицинские изделия), и этот продукт требует оценки соответствия третьей стороной
+  DE[b]: Wenn das Unternehmen, das die KI einsetzt, mehr als 500 Mitarbeitende beschaeftigt
+  RU[b]: Когда компания, использующая ИИ, насчитывает более 500 сотрудников
+  DE[c]: Wenn das KI-System in mehr als drei EU-Mitgliedstaaten gleichzeitig eingesetzt wird
+  RU[c]: Когда система ИИ используется одновременно более чем в трёх государствах-членах ЕС
+  DE[d]: Wenn das KI-System oeffentlich zugaenglich und kostenlos im Internet angeboten wird
+  RU[d]: Когда система ИИ предлагается публично и бесплатно в интернете
+DE EXP: Art. 6 Abs. 1 KI-VO eroeffnet neben der anwendungsbasierten Einstufung ueber Anhang III einen zweiten, produktbasierten Weg: Ist das KI-System selbst ein Produkt oder Sicherheitsbauteil eines Produkts, das bereits unter bestehende EU-Produktsicherheitsvorschriften (Anhang I, z.B. Maschinenverordnung, Medizinprodukteverordnung) faellt und dort eine Konformitaetsbewertung durch Dritte erfordert, gilt das KI-System ebenfalls als Hochrisikosystem.
+RU EXP: Статья 6(1) открывает, наряду с классификацией на основе применения через приложение III, второй путь, основанный на продукте: если система ИИ сама является продуктом или компонентом безопасности продукта, который уже подпадает под действующее законодательство ЕС о безопасности продукции (приложение I, например, регламент о машинах, регламент о медицинских изделиях) и требует там оценки соответствия третьей стороной, система ИИ также считается высокорисковой.
+
+=== ID ki_act-ki_kompetenz-05 | correct=['a'] ===
+DE Q: Wie definiert Art. 3 Nr. 56 KI-VO den Begriff 'KI-Kompetenz' (AI literacy)?
+RU Q: Как статья 3(56) определяет понятие 'ИИ-грамотность' (AI literacy)?
+  DE[a]: Als Faehigkeiten, Kenntnisse und Verstaendnis, die es Anbietern, Betreibern und betroffenen Personen ermoeglichen, KI-Systeme informiert einzusetzen sowie sich der Chancen und Risiken von KI und moeglicher Schaeden bewusst zu werden
+  RU[a]: Как навыки, знания и понимание, которые позволяют поставщикам, операторам и затронутым лицам осознанно применять системы ИИ, а также осознавать возможности и риски ИИ и возможный вред
+  DE[b]: Als formale Zertifizierung, die ausschliesslich durch staatlich akkreditierte Pruefstellen vergeben werden darf
+  RU[b]: Как формальную сертификацию, которая может выдаваться исключительно государственно аккредитованными органами
+  DE[c]: Als rein technisches Wissen ueber Programmiersprachen, das ausschliesslich IT-Fachpersonal betrifft
+  RU[c]: Как чисто технические знания языков программирования, касающиеся исключительно ИТ-специалистов
+  DE[d]: Als gesetzliche Pflicht, jaehrlich eine festgelegte Mindestanzahl an Schulungsstunden zu dokumentieren
+  RU[d]: Как юридическую обязанность ежегодно документировать установленное минимальное количество часов обучения
+DE EXP: Die Definition in Art. 3 Nr. 56 KI-VO ist bewusst breit gefasst: Es geht nicht um eine bestimmte Zertifizierung oder reines Programmierwissen, sondern um Faehigkeiten, Kenntnisse und Verstaendnis, die informierte Entscheidungen im Umgang mit KI ermoeglichen und ein Bewusstsein fuer Chancen, Risiken und moegliche Schaeden schaffen.
+RU EXP: Определение в статье 3(56) намеренно широкое: речь идёт не об определённой сертификации или чисто программистских знаниях, а о навыках, знаниях и понимании, позволяющих принимать осознанные решения при обращении с ИИ и формирующих осознание возможностей, рисков и возможного вреда.
+
+=== ID ki_act-ki_kompetenz-06 | correct=['b'] ===
+DE Q: Wem soll KI-Kompetenz laut Erwaegungsgrund 20 KI-VO letztlich auch zugutekommen - ueber die eigenen Beschaeftigten von Anbietern und Betreibern hinaus?
+RU Q: Кому, согласно пункту преамбулы 20, в конечном счёте должна приносить пользу ИИ-грамотность - помимо собственного персонала поставщиков и операторов?
+  DE[a]: Ausschliesslich der Geschaeftsleitung, damit diese fundierte Investitionsentscheidungen treffen kann
+  RU[a]: Исключительно руководству, чтобы оно могло принимать обоснованные инвестиционные решения
+  DE[b]: Auch von KI-gestuetzten Entscheidungen betroffenen Personen, damit sie nachvollziehen koennen, wie sich mit Hilfe von KI getroffene Entscheidungen auf sie auswirken
+  RU[b]: Также лицам, затронутым решениями, поддерживаемыми ИИ, чтобы они могли понять, как решения, принятые с помощью ИИ, влияют на них
+  DE[c]: Ausschliesslich den nationalen Marktueberwachungsbehoerden, die die Einhaltung der Verordnung kontrollieren
+  RU[c]: Исключительно национальным органам надзора за рынком, контролирующим соблюдение регламента
+  DE[d]: Nur externen Softwareentwicklern, die im Auftrag neue KI-Modelle trainieren
+  RU[d]: Только внешним разработчикам программного обеспечения, которым поручено обучать новые модели ИИ
+DE EXP: Erwaegungsgrund 20 KI-VO stellt klar, dass KI-Kompetenz nicht nur Anbietern und Betreibern selbst dienen soll, sondern auch betroffenen Personen die notwendigen Kenntnisse vermitteln soll, um zu verstehen, wie sich mit Hilfe von KI getroffene Entscheidungen auf sie auswirken.
+RU EXP: Пункт преамбулы 20 поясняет, что ИИ-грамотность должна служить не только самим поставщикам и операторам, но и давать затронутым лицам знания, необходимые для понимания того, как решения, принятые с помощью ИИ, влияют на них.
+
+=== ID ki_act-ki_kompetenz-07 | correct=['a'] ===
+DE Q: Verlangt Art. 4 KI-VO ein bestimmtes, gesetzlich vorgeschriebenes Schulungsformat (z.B. eine zertifizierte Pruefung) fuer KI-Kompetenz?
+RU Q: Требует ли статья 4 определённого, законодательно установленного формата обучения (например, сертифицированного экзамена) для ИИ-грамотности?
+  DE[a]: Nein - der Wortlaut verpflichtet Anbieter und Betreiber, 'nach besten Kraeften' angemessene Massnahmen zu ergreifen; ein bestimmtes Format oder eine Zertifizierung schreibt Art. 4 nicht vor
+  RU[a]: Нет - формулировка обязывает поставщиков и операторов принимать надлежащие меры 'в меру своих возможностей'; статья 4 не предписывает какой-либо конкретный формат или сертификацию
+  DE[b]: Ja, es muss zwingend eine mehrtaegige Praesenzschulung mit externem Zertifikat sein
+  RU[b]: Да, это обязательно должно быть многодневное очное обучение с внешним сертификатом
+  DE[c]: Ja, nur ein staatlich anerkannter E-Learning-Kurs erfuellt die Anforderungen von Art. 4
+  RU[c]: Да, только государственно признанный онлайн-курс соответствует требованиям статьи 4
+  DE[d]: Ja, aber nur fuer Unternehmen, die zugleich auch Hochrisiko-KI-Systeme anbieten
+  RU[d]: Да, но только для компаний, которые одновременно предлагают системы ИИ высокого риска
+DE EXP: Art. 4 KI-VO ist als Bemuehenspflicht ('nach besten Kraeften') formuliert, nicht als Erfolgspflicht mit vorgeschriebenem Format. Das Gesetz laesst offen, wie die Massnahmen konkret aussehen - solange sie angemessen sind und Vorkenntnisse, Kontext und betroffene Personengruppen beruecksichtigen.
+RU EXP: Статья 4 сформулирована как обязательство прилагать усилия ('в меру своих возможностей'), а не как обязательство достижения результата с предписанным форматом. Закон оставляет открытым, как конкретно выглядят меры - при условии, что они уместны и учитывают предварительные знания, контекст и затронутые группы лиц.
+
+=== ID ki_act-ki_kompetenz-08 | correct=['a'] ===
+DE Q: Ein Unternehmen setzt ausschliesslich ein KI-System mit minimalem Risiko ein (z.B. eine KI-gestuetzte Rechtschreibpruefung), aber kein Hochrisikosystem. Muss es trotzdem Art. 4 KI-VO zur KI-Kompetenz beachten?
+RU Q: Компания использует только систему ИИ с минимальным риском (например, проверку орфографии на основе ИИ), но не систему высокого риска. Должна ли она всё же соблюдать статью 4 в отношении ИИ-грамотности?
+  DE[a]: Ja - die Pflicht zur KI-Kompetenz gilt fuer Anbieter und Betreiber unabhaengig von der Risikoklasse des jeweils eingesetzten KI-Systems, nicht nur fuer Hochrisikosysteme
+  RU[a]: Да - обязательство по ИИ-грамотности применяется к поставщикам и операторам независимо от класса риска фактически используемой системы ИИ, а не только к системам высокого риска
+  DE[b]: Nein, Art. 4 gilt ausschliesslich fuer Anbieter und Betreiber von Hochrisiko-KI-Systemen nach Anhang III
+  RU[b]: Нет, статья 4 применяется исключительно к поставщикам и операторам систем ИИ высокого риска согласно приложению III
+  DE[c]: Nein, die Pflicht greift erst, sobald das Unternehmen mehr als 50 verschiedene KI-Anwendungen im Einsatz hat
+  RU[c]: Нет, обязательство вступает в силу только тогда, когда компания использует более 50 различных ИИ-приложений
+  DE[d]: Nein, bei minimalem Risiko gilt ausschliesslich die Transparenzpflicht nach Art. 50, nicht Art. 4
+  RU[d]: Нет, при минимальном риске применяется исключительно обязательство прозрачности по статье 50, а не статья 4
+DE EXP: Art. 4 KI-VO ist nicht auf Hochrisikosysteme beschraenkt, sondern gilt fuer 'KI-Systeme' allgemein. Ein Unternehmen kann sich also nicht darauf berufen, nur risikoarme Tools einzusetzen, um sich von der Pflicht zur KI-Kompetenz zu befreien - ein verbreiteter, aber falscher Trugschluss mit echtem Compliance-Risiko.
+RU EXP: Статья 4 не ограничивается системами высокого риска, а применяется к 'системам ИИ' в целом. Поэтому компания не может ссылаться на то, что использует только низкорисковые инструменты, чтобы освободить себя от обязательства по ИИ-грамотности - это распространённое, но ошибочное заблуждение с реальным риском для соответствия требованиям.
+
+=== ID ki_act-verbotene_praktiken-05 | correct=['a'] ===
+DE Q: Eine Behoerde moechte ein KI-System einsetzen, das bei Personen allein anhand von Profiling und Persoenlichkeitsmerkmalen das Risiko vorhersagt, in Zukunft eine Straftat zu begehen, um daraus Massnahmen abzuleiten. Wie ist das nach dem AI Act zu bewerten?
+RU Q: Орган власти хочет использовать систему ИИ, которая исключительно на основе профилирования и личностных характеристик прогнозирует риск совершения человеком преступления в будущем, чтобы на этой основе принимать меры. Как это оценивается по AI Act?
+  DE[a]: Ein solches KI-gestuetztes 'Predictive Policing', das die Straftatprognose allein auf Profiling oder Persoenlichkeitsmerkmale stuetzt, zaehlt zu den verbotenen Praktiken nach Art. 5 Abs. 1 lit. d)
+  RU[a]: Такая ИИ-поддерживаемая 'предиктивная полиция' (predictive policing), основывающая прогноз преступности исключительно на профилировании или личностных характеристиках, относится к практикам, запрещённым статьёй 5(1)(d)
+  DE[b]: Das ist erlaubt, solange eine Amtsperson die von der KI vorgeschlagene Massnahme am Ende formal unterschreibt
+  RU[b]: Это допустимо, если должностное лицо в конечном итоге формально подпишет предложенную ИИ меру
+  DE[c]: Das ist ein gewoehnliches Hochrisikosystem, das nach einer Konformitaetsbewertung frei eingesetzt werden darf
+  RU[c]: Это обычная система высокого риска, которую можно свободно использовать после оценки соответствия
+  DE[d]: Das ist grundsaetzlich zulaessig, weil eine unterstuetzende menschliche Bewertung konkreter Straftaten auf objektiven, ueberpruefbaren Fakten generell verboten ist
+  RU[d]: Это в принципе допустимо, поскольку поддержка человеческой оценки конкретных преступлений на основе объективных, проверяемых фактов в целом запрещена
+DE EXP: Art. 5 Abs. 1 lit. d) KI-VO verbietet Risikobewertungen bzw. Prognosen zur Straffaelligkeit einer Person, die sich allein auf Profiling oder Persoenlichkeitsmerkmale stuetzen. Zulaessig bleibt dagegen die KI-gestuetzte Unterstuetzung einer menschlichen Bewertung, die auf objektiven, ueberpruefbaren Tatsachen mit direktem Bezug zu konkretem kriminellen Verhalten beruht - das ist die enge Ausnahme, nicht der Regelfall.
+RU EXP: Статья 5(1)(d) запрещает оценки риска или прогнозы склонности человека к преступлению, основанные исключительно на профилировании или личностных характеристиках. Допустимой остаётся, напротив, ИИ-поддержка человеческой оценки, основанной на объективных, проверяемых фактах, непосредственно связанных с конкретным преступным поведением - это узкое исключение, а не общее правило.
+
+=== ID ki_act-verbotene_praktiken-06 | correct=['a'] ===
+DE Q: Ein Anbieter moechte eine Gesichtserkennungsdatenbank aufbauen, indem er automatisiert und ungezielt Gesichtsbilder aus dem offenen Internet sowie aus Videoueberwachungsaufnahmen sammelt. Wie ordnet der AI Act das ein?
+RU Q: Поставщик хочет создать базу данных распознавания лиц, автоматически и нецеленаправленно собирая изображения лиц из открытого интернета и записей видеонаблюдения. Как AI Act это классифицирует?
+  DE[a]: Das ungezielte ('untargeted') Auslesen (Scraping) von Gesichtsbildern aus dem Internet oder aus Videoueberwachungsaufnahmen zum Aufbau oder zur Erweiterung von Gesichtserkennungsdatenbanken zaehlt zu den verbotenen Praktiken nach Art. 5 Abs. 1 lit. e)
+  RU[a]: Нецеленаправленный ('untargeted') сбор (скрапинг) изображений лиц из интернета или записей видеонаблюдения для создания или расширения баз данных распознавания лиц относится к практикам, запрещённым статьёй 5(1)(e)
+  DE[b]: Das ist erlaubt, solange die gesammelten Bilder anschliessend pseudonymisiert gespeichert werden
+  RU[b]: Это допустимо, если собранные изображения впоследствии хранятся в псевдонимизированном виде
+  DE[c]: Das ist nur bei Bildern von Minderjaehrigen verboten, bei Erwachsenen grundsaetzlich zulaessig
+  RU[c]: Это запрещено только в отношении изображений несовершеннолетних, для взрослых в принципе разрешено
+  DE[d]: Das faellt gar nicht unter den AI Act, da es sich formal um eine Datenbank und kein eigenstaendiges KI-System handelt
+  RU[d]: Это вообще не подпадает под AI Act, поскольку формально речь идёт о базе данных, а не о самостоятельной системе ИИ
+DE EXP: Art. 5 Abs. 1 lit. e) KI-VO verbietet gezielt das ungerichtete Sammeln von Gesichtsbildern aus dem Internet oder aus CCTV-Aufnahmen zum Aufbau oder zur Erweiterung von Gesichtserkennungsdatenbanken - unabhaengig von Pseudonymisierung oder dem Alter der abgebildeten Personen. Die dahinterstehende Sammel- und Verarbeitungslogik unterliegt dem AI Act, auch wenn das Ergebnis formal 'nur' eine Datenbank ist.
+RU EXP: Статья 5(1)(e) прямо запрещает нецеленаправленный сбор изображений лиц из интернета или записей видеонаблюдения для создания или расширения баз данных распознавания лиц - независимо от псевдонимизации или возраста изображённых лиц. Логика сбора и обработки, стоящая за этим, подпадает под AI Act, даже если результат формально является 'лишь' базой данных.
+
+=== ID ki_act-verbotene_praktiken-07 | correct=['a'] ===
+DE Q: Eine Schule moechte ein KI-System einsetzen, das per Kamera und Mikrofon die Emotionen von Schuelerinnen und Schuelern waehrend des Unterrichts erkennt und auswertet - nicht aus medizinischen oder sicherheitsrelevanten Gruenden. Wie ist das nach dem AI Act zu bewerten?
+RU Q: Школа хочет использовать систему ИИ, которая с помощью камеры и микрофона распознаёт и оценивает эмоции учащихся во время занятий - не по медицинским причинам и не из соображений безопасности. Как это оценивается по AI Act?
+  DE[a]: Der Einsatz von Emotionserkennung in Bildungseinrichtungen ausserhalb medizinischer oder sicherheitsbezogener Gruende zaehlt zu den nach Art. 5 Abs. 1 lit. f) verbotenen Praktiken
+  RU[a]: Использование распознавания эмоций в образовательных учреждениях вне медицинских или связанных с безопасностью причин относится к практикам, запрещённым статьёй 5(1)(f)
+  DE[b]: Das ist immer erlaubt, solange die Schule die Emotionserkennung gemaess Art. 50 KI-VO offenlegt
+  RU[b]: Это всегда допустимо, если школа раскрывает распознавание эмоций в соответствии со статьёй 50
+  DE[c]: Das ist nur verboten, wenn die erhobenen Ergebnisse spaeter veroeffentlicht werden
+  RU[c]: Это запрещено только тогда, когда полученные результаты впоследствии публикуются
+  DE[d]: Das ist ausschliesslich am Arbeitsplatz verboten, in Bildungseinrichtungen dagegen grundsaetzlich zulaessig
+  RU[d]: Это запрещено исключительно на рабочем месте, тогда как в образовательных учреждениях в принципе допустимо
+DE EXP: Art. 5 Abs. 1 lit. f) KI-VO verbietet den Einsatz von Emotionserkennungssystemen sowohl am Arbeitsplatz als auch in Bildungseinrichtungen, ausser wenn medizinische oder sicherheitsbezogene Gruende vorliegen (z.B. Erkennung von Muedigkeit bei sicherheitskritischen Taetigkeiten). Eine blosse Offenlegung nach Art. 50 KI-VO reicht hier nicht aus - das Verbot greift unabhaengig davon, ob transparent informiert wird.
+RU EXP: Статья 5(1)(f) запрещает использование систем распознавания эмоций как на рабочем месте, так и в образовательных учреждениях, за исключением случаев, когда существуют медицинские причины или причины безопасности (например, обнаружение усталости при выполнении критически важных для безопасности работ). Простого раскрытия по статье 50 здесь недостаточно - запрет действует независимо от того, предоставлена ли прозрачная информация.
+
+=== ID ki_act-verbotene_praktiken-08 | correct=['a'] ===
+DE Q: Ein Unternehmen moechte ein KI-System einsetzen, das anhand biometrischer Daten (z.B. Gesichts- oder Stimmerkennung) automatisiert auf die vermutete sexuelle Orientierung, politische Meinung oder religioese Ueberzeugung von Personen schliesst. Wie ist das einzuordnen?
+RU Q: Компания хочет использовать систему ИИ, которая на основе биометрических данных (например, распознавания лица или голоса) автоматически делает выводы о предполагаемой сексуальной ориентации, политических взглядах или религиозных убеждениях людей. Как это классифицируется?
+  DE[a]: Eine solche biometrische Kategorisierung zur Ableitung besonders sensibler Merkmale wie sexueller Orientierung, politischer Meinung oder religioeser Ueberzeugung zaehlt zu den verbotenen Praktiken nach Art. 5 Abs. 1 lit. g)
+  RU[a]: Такая биометрическая категоризация для выведения особо чувствительных характеристик, таких как сексуальная ориентация, политические взгляды или религиозные убеждения, относится к практикам, запрещённым статьёй 5(1)(g)
+  DE[b]: Das ist erlaubt, solange die betroffene Person vorab eine allgemeine Datenschutzerklaerung akzeptiert hat
+  RU[b]: Это допустимо, если соответствующее лицо заранее приняло общее уведомление о конфиденциальности
+  DE[c]: Das ist grundsaetzlich zulaessig, wenn es ausschliesslich zu Marketingzwecken erfolgt
+  RU[c]: Это в принципе допустимо, если делается исключительно в маркетинговых целях
+  DE[d]: Das ist nur verboten, wenn die abgeleiteten Merkmale anschliessend an Dritte weiterverkauft werden
+  RU[d]: Это запрещено только тогда, когда выведенные характеристики впоследствии перепродаются третьим лицам
+DE EXP: Art. 5 Abs. 1 lit. g) KI-VO verbietet die biometrische Kategorisierung natuerlicher Personen, um daraus Rueckschluesse auf Rasse, politische Meinung, Gewerkschaftszugehoerigkeit, religioese oder weltanschauliche Ueberzeugung, Sexualleben oder sexuelle Orientierung zu ziehen. Eine akzeptierte Datenschutzerklaerung oder ein Marketingzweck aendert daran nichts - Ausnahmen bestehen nur eng gefasst, etwa fuer die rechtmaessige Kennzeichnung/Filterung von Datensaetzen oder biometrische Kategorisierung durch Strafverfolgungsbehoerden.
+RU EXP: Статья 5(1)(g) запрещает биометрическую категоризацию физических лиц с целью вывода их расы, политических взглядов, членства в профсоюзе, религиозных или философских убеждений, сексуальной жизни или сексуальной ориентации. Принятое уведомление о конфиденциальности или маркетинговая цель ничего не меняют - исключения существуют лишь в узком виде, например для законной маркировки/фильтрации наборов данных или биометрической категоризации правоохранительными органами.
+
+=== ID ki_act-transparenzpflichten-05 | correct=['a'] ===
+DE Q: Ihr Unternehmen setzt ein generatives KI-System ein, das automatisiert Bild- und Textinhalte erzeugt. Was verlangt Art. 50 Abs. 2 KI-VO diesbezueglich vom Anbieter eines solchen Systems?
+RU Q: Ваша компания использует генеративную систему ИИ, которая автоматически создаёт изображения и текстовый контент. Что в этой связи требует статья 50(2) от поставщика такой системы?
+  DE[a]: Der Anbieter muss sicherstellen, dass die erzeugten Inhalte in maschinenlesbarer Form gekennzeichnet und als kuenstlich erzeugt bzw. manipuliert erkennbar sind, soweit dies technisch machbar ist
+  RU[a]: Поставщик должен обеспечить, чтобы созданный контент был помечен в машиночитаемом формате и распознаваем как искусственно созданный или изменённый, насколько это технически осуществимо
+  DE[b]: Der Anbieter muss jeden erzeugten Inhalt vor Veroeffentlichung durch eine nationale Aufsichtsbehoerde freigeben lassen
+  RU[b]: Поставщик должен получать одобрение каждого созданного контента у национального надзорного органа перед публикацией
+  DE[c]: Es besteht keine Kennzeichnungspflicht, solange die Inhalte nicht kommerziell verwendet werden
+  RU[c]: Обязанности маркировки нет, пока контент не используется в коммерческих целях
+  DE[d]: Die Kennzeichnungspflicht gilt ausschliesslich fuer Videoinhalte, nicht fuer Text oder Bilder
+  RU[d]: Обязанность маркировки применяется исключительно к видеоконтенту, а не к тексту или изображениям
+DE EXP: Art. 50 Abs. 2 KI-VO verpflichtet Anbieter von KI-Systemen, die synthetische Bild-, Audio-, Video- oder Textinhalte erzeugen, dafuer zu sorgen, dass diese Ausgaben in maschinenlesbarer Form gekennzeichnet und als kuenstlich erzeugt oder manipuliert erkennbar sind, soweit dies technisch machbar ist - unabhaengig von einer Vorabfreigabe durch Behoerden oder von kommerzieller Nutzung.
+RU EXP: Статья 50(2) обязывает поставщиков систем ИИ, генерирующих синтетический контент в виде изображений, аудио, видео или текста, обеспечивать, чтобы эти результаты были помечены в машиночитаемом формате и распознаваемы как искусственно созданные или изменённые, насколько это технически осуществимо - независимо от предварительного одобрения органов власти или коммерческого использования.
+
+=== ID ki_act-transparenzpflichten-06 | correct=['a'] ===
+DE Q: Gilt die Pflicht aus Art. 50 Abs. 1 KI-VO, Personen darueber zu informieren, dass sie mit einem KI-System interagieren, ausnahmslos fuer jedes System?
+RU Q: Применяется ли обязательство из статьи 50(1) информировать людей о том, что они взаимодействуют с системой ИИ, без исключения к каждой системе?
+  DE[a]: Nein - die Pflicht gilt unter anderem nicht fuer gesetzlich zur Straftataufdeckung, -verhuetung, -untersuchung oder -verfolgung befugte KI-Systeme, vorbehaltlich angemessener Schutzvorkehrungen fuer Rechte Dritter - ausser das System steht der Oeffentlichkeit zur Anzeige einer Straftat zur Verfuegung
+  RU[a]: Нет - это обязательство, среди прочего, не применяется к системам ИИ, законно уполномоченным выявлять, предотвращать, расследовать или преследовать уголовные преступления, при условии надлежащих гарантий прав третьих лиц - за исключением случаев, когда система доступна общественности для сообщения о преступлении
+  DE[b]: Ja, es gibt keinerlei Ausnahme - jedes KI-System muss sich in jedem Fall stets zu erkennen geben
+  RU[b]: Да, никаких исключений нет - каждая система ИИ всегда должна раскрывать себя в любом случае
+  DE[c]: Nein, die Pflicht entfaellt grundsaetzlich bei allen staatlichen Stellen, unabhaengig vom Verwendungszweck
+  RU[c]: Нет, обязательство в принципе не применяется ни к одному государственному органу, независимо от цели использования
+  DE[d]: Nein, die Pflicht gilt nur fuer KI-Systeme, die kostenpflichtig angeboten werden
+  RU[d]: Нет, обязательство применяется только к системам ИИ, предлагаемым за плату
+DE EXP: Art. 50 Abs. 1 KI-VO sieht eine begrenzte Ausnahme fuer KI-Systeme vor, die gesetzlich zur Straftataufdeckung, -verhuetung, -untersuchung oder -verfolgung befugt sind, vorbehaltlich angemessener Schutzvorkehrungen fuer die Rechte Dritter. Diese Ausnahme greift jedoch nicht, wenn das System der Oeffentlichkeit zur Anzeige einer Straftat zur Verfuegung steht - dort bleibt die Informationspflicht bestehen. Ein pauschaler Ausschluss aller staatlichen Stellen besteht nicht.
+RU EXP: Статья 50(1) предусматривает ограниченное исключение для систем ИИ, законно уполномоченных выявлять, предотвращать, расследовать или преследовать уголовные преступления, при условии надлежащих гарантий прав третьих лиц. Однако это исключение не применяется, когда система доступна общественности для сообщения о преступлении - там обязанность информирования сохраняется. Общего исключения для всех государственных органов не существует.
+
+=== ID ki_act-transparenzpflichten-07 | correct=['a'] ===
+DE Q: Eine Redaktion nutzt generative KI, um einen Text zu einem oeffentlich bedeutsamen Thema zu erstellen und zu veroeffentlichen. Der Text wird jedoch vor Veroeffentlichung redaktionell ueberarbeitet, und eine Person traegt die redaktionelle Verantwortung dafuer. Muss trotzdem offengelegt werden, dass KI beteiligt war?
+RU Q: Редакция использует генеративный ИИ для создания и публикации текста на общественно значимую тему. Однако текст перед публикацией проходит редакционную переработку, и определённое лицо несёт за него редакционную ответственность. Нужно ли всё же раскрывать участие ИИ?
+  DE[a]: Nein - durchlaeuft ein solcher Text einen Prozess menschlicher Ueberpruefung bzw. redaktioneller Kontrolle und traegt eine Person die redaktionelle Verantwortung dafuer, entfaellt die Offenlegungspflicht nach Art. 50 Abs. 4 UAbs. 2
+  RU[a]: Нет - если такой текст прошёл процесс человеческой проверки или редакционного контроля, и лицо несёт за него редакционную ответственность, обязательство раскрытия по статье 50(4), второй абзац, не применяется
+  DE[b]: Ja, jede Nutzung generativer KI bei journalistischen Texten muss nach dem AI Act ausnahmslos offengelegt werden
+  RU[b]: Да, согласно AI Act любое использование генеративного ИИ в журналистских текстах должно раскрываться без исключений
+  DE[c]: Nein, weil journalistische Inhalte generell vollstaendig vom Anwendungsbereich des AI Act ausgenommen sind
+  RU[c]: Нет, поскольку журналистский контент в целом полностью исключён из сферы применения AI Act
+  DE[d]: Ja, aber nur wenn der veroeffentlichte Text laenger als 1.000 Woerter ist
+  RU[d]: Да, но только если опубликованный текст длиннее 1000 слов
+DE EXP: Art. 50 Abs. 4 UAbs. 2 KI-VO sieht fuer KI-generierte oder manipulierte Texte, die zu oeffentlich bedeutsamen Themen veroeffentlicht werden, grundsaetzlich eine Offenlegungspflicht vor. Diese entfaellt jedoch, wenn der Inhalt einen Prozess menschlicher Ueberpruefung bzw. redaktioneller Kontrolle durchlaufen hat und eine natuerliche oder juristische Person die redaktionelle Verantwortung fuer die Veroeffentlichung traegt.
+RU EXP: Статья 50(4), второй абзац, в принципе предусматривает обязательство раскрытия для текстов, созданных или изменённых ИИ и опубликованных на общественно значимые темы. Однако это обязательство не применяется, если контент прошёл процесс человеческой проверки или редакционного контроля, и физическое или юридическое лицо несёт редакционную ответственность за публикацию.
+
+=== ID ki_act-transparenzpflichten-08 | correct=['a'] ===
+DE Q: Ihr Unternehmen setzt ein Hochrisiko-KI-System ein, das zugleich auch unter die Transparenzpflichten des Art. 50 KI-VO faellt (z.B. weil es direkt mit Personen interagiert). Schliessen sich die Pflichten aus Art. 50 und die Pflichten fuer Hochrisikosysteme aus Kapitel III gegenseitig aus?
+RU Q: Ваша компания использует систему ИИ высокого риска, которая одновременно подпадает под обязательства прозрачности по статье 50 (например, потому что она напрямую взаимодействует с людьми). Исключают ли обязательства по статье 50 и обязательства для систем высокого риска по Главе III друг друга?
+  DE[a]: Nein - Art. 50 Abs. 6 stellt klar, dass die Transparenzpflichten die Anforderungen aus Kapitel III unberuehrt lassen; beide Pflichtenkreise koennen nebeneinander gelten und muessen kumulativ erfuellt werden
+  RU[a]: Нет - статья 50(6) поясняет, что обязательства прозрачности не затрагивают требования Главы III; оба набора обязательств могут действовать параллельно и должны выполняться в совокупности
+  DE[b]: Ja, sobald ein System als Hochrisikosystem gilt, ersetzen die Kapitel-III-Pflichten automatisch saemtliche Transparenzpflichten aus Art. 50
+  RU[b]: Да, как только система считается системой высокого риска, обязательства Главы III автоматически заменяют все обязательства прозрачности по статье 50
+  DE[c]: Ja, Art. 50 gilt grundsaetzlich nur fuer Systeme mit minimalem Risiko, nie fuer Hochrisikosysteme
+  RU[c]: Да, статья 50 в принципе применяется только к системам минимального риска, никогда к системам высокого риска
+  DE[d]: Nein, aber es muss jeweils nur die strengere der beiden Pflichten erfuellt werden, nicht beide gleichzeitig
+  RU[d]: Нет, но нужно выполнить только более строгое из двух обязательств, а не оба одновременно
+DE EXP: Art. 50 Abs. 6 KI-VO stellt ausdruecklich klar, dass die Transparenzpflichten der Absaetze 1 bis 4 die Anforderungen und Pflichten aus Kapitel III (Hochrisikosysteme) unberuehrt lassen. Ein Hochrisikosystem, das gleichzeitig in den Anwendungsbereich des Art. 50 faellt, muss deshalb beide Pflichtenkreise kumulativ erfuellen, nicht nur einen davon.
+RU EXP: Статья 50(6) прямо поясняет, что обязательства прозрачности из пунктов 1-4 не затрагивают требования и обязательства Главы III (системы высокого риска). Система высокого риска, которая одновременно подпадает под сферу применения статьи 50, должна поэтому выполнять оба набора обязательств в совокупности, а не только один из них.
+
+=== ID ki_act-ki_am_arbeitsplatz-05 | correct=['a'] ===
+DE Q: Ein Unternehmen moechte ein Hochrisiko-KI-System zur Leistungsbewertung von Beschaeftigten einfuehren. Was verlangt Art. 26 Abs. 7 KI-VO von einem Arbeitgeber als Betreiber, bevor das System am Arbeitsplatz genutzt wird?
+RU Q: Компания хочет внедрить систему ИИ высокого риска для оценки результативности сотрудников. Что требует статья 26(7) от работодателя как оператора, прежде чем система будет использоваться на рабочем месте?
+  DE[a]: Der Arbeitgeber muss die Arbeitnehmervertretung und die betroffenen Beschaeftigten informieren, dass sie dem Einsatz des Hochrisiko-KI-Systems unterliegen werden, bevor es in Betrieb genommen bzw. genutzt wird
+  RU[a]: Работодатель должен проинформировать представителей работников и затронутых сотрудников о том, что они будут подвергаться воздействию системы ИИ высокого риска, до её ввода в эксплуатацию или использования
+  DE[b]: Es genuegt, die Information erst nachtraeglich nach Ablauf der ersten drei Monate der Nutzung nachzureichen
+  RU[b]: Достаточно предоставить информацию лишь впоследствии, после истечения первых трёх месяцев использования
+  DE[c]: Eine Information ist nur erforderlich, wenn mehr als 50 Beschaeftigte vom Einsatz betroffen sind
+  RU[c]: Информирование требуется только тогда, когда внедрение затрагивает более 50 сотрудников
+  DE[d]: Es reicht aus, das System in der allgemeinen Datenschutzerklaerung des Unternehmens zu erwaehnen, ohne die Beschaeftigten gezielt zu informieren
+  RU[d]: Достаточно упомянуть систему в общем уведомлении компании о конфиденциальности, не информируя сотрудников специально
+DE EXP: Art. 26 Abs. 7 KI-VO verpflichtet Arbeitgeber, die als Betreiber ein Hochrisiko-KI-System am Arbeitsplatz einsetzen, die Arbeitnehmervertretung und die betroffenen Beschaeftigten vorab zu informieren - nicht erst nachtraeglich, unabhaengig von der Betriebsgroesse, und nicht nur pauschal in einer allgemeinen Datenschutzerklaerung.
+RU EXP: Статья 26(7) обязывает работодателей, которые как операторы используют систему ИИ высокого риска на рабочем месте, заранее информировать представителей работников и затронутых сотрудников - а не только впоследствии, независимо от размера компании, и не только в общем виде в общем уведомлении о конфиденциальности.
+
+=== ID ki_act-ki_am_arbeitsplatz-06 | correct=['a'] ===
+DE Q: Welche der folgenden Anwendungen zaehlt laut Anhang III Nr. 4 KI-VO ausdruecklich zu den Hochrisikobereichen 'Beschaeftigung, Personalmanagement und Zugang zur Selbststaendigkeit'?
+RU Q: Какое из следующих применений, согласно приложению III, пункт 4, прямо относится к областям высокого риска 'занятость, управление персоналом и доступ к самозанятости'?
+  DE[a]: Eine KI-Software, die automatisiert Aufgaben auf Beschaeftigte verteilt oder deren Leistung und Verhalten laufend ueberwacht und bewertet
+  RU[a]: Программное обеспечение ИИ, которое автоматически распределяет задачи между сотрудниками или непрерывно отслеживает и оценивает их результативность и поведение
+  DE[b]: Eine KI-gestuetzte Kantinen-App, die vegetarische Menuevorschlaege fuer Beschaeftigte macht
+  RU[b]: Приложение для столовой на основе ИИ, которое предлагает сотрудникам варианты вегетарианского меню
+  DE[c]: Eine KI, die automatisch Rechtschreibfehler in internen E-Mails von Beschaeftigten korrigiert
+  RU[c]: ИИ, автоматически исправляющий орфографические ошибки во внутренних электронных письмах сотрудников
+  DE[d]: Eine KI-gestuetzte Zeiterfassungs-App, die ausschliesslich die Anwesenheit protokolliert, ohne jede Bewertung der Leistung
+  RU[d]: Приложение учёта рабочего времени на основе ИИ, которое исключительно фиксирует присутствие, без какой-либо оценки результативности
+DE EXP: Anhang III Nr. 4 lit. b) KI-VO nennt ausdruecklich KI-Systeme, die Entscheidungen ueber Arbeitsbedingungen, Befoerderung oder Kuendigung treffen, Aufgaben anhand individuellen Verhaltens oder persoenlicher Merkmale zuteilen oder Leistung und Verhalten von Beschaeftigten laufend ueberwachen und bewerten. Rein administrative Tools ohne Bewertungsfunktion (Kantinen-App, Rechtschreibpruefung, reine Anwesenheitserfassung) fallen nicht darunter.
+RU EXP: Приложение III, пункт 4(b), прямо называет системы ИИ, которые принимают решения об условиях труда, повышении или увольнении, распределяют задачи на основе индивидуального поведения или личных характеристик, либо непрерывно отслеживают и оценивают результативность и поведение сотрудников. Чисто административные инструменты без оценочной функции (приложение для столовой, проверка орфографии, простой учёт присутствия) сюда не относятся.
+
+=== ID ki_act-ki_am_arbeitsplatz-07 | correct=['a'] ===
+DE Q: Ein Hochrisiko-KI-System zur Vorauswahl von Bewerbungen soll im Betrieb eingesetzt werden. Was muss das System selbst laut Art. 14 Abs. 4 KI-VO den mit der menschlichen Aufsicht betrauten Personen technisch ermoeglichen?
+RU Q: Систему ИИ высокого риска для предварительного отбора заявок о приёме на работу планируется использовать в компании. Что сама система должна технически обеспечивать для лиц, ответственных за человеческий надзор, согласно статье 14(4)?
+  DE[a]: Es muss so gestaltet sein, dass die aufsichtsfuehrende Person den Betrieb ueberwachen, Ergebnisse korrekt interpretieren, sich gegen die Nutzung entscheiden bzw. die Ausgabe ignorieren, ueberstimmen oder rueckgaengig machen und den Betrieb ueber eine 'Stopp-Taste' oder ein aehnliches Verfahren unterbrechen kann
+  RU[a]: Она должна быть спроектирована так, чтобы лицо, осуществляющее надзор, могло отслеживать её работу, правильно интерпретировать результаты, принимать решение не использовать её или игнорировать, отменять либо аннулировать результат, а также прерывать её работу с помощью кнопки 'стоп' или аналогичной процедуры
+  DE[b]: Es muss so gestaltet sein, dass es ausschliesslich vom Hersteller aus der Ferne abgeschaltet werden kann, nicht vom einsetzenden Unternehmen
+  RU[b]: Она должна быть спроектирована так, чтобы её можно было отключить удалённо только производителем, а не компанией, которая её использует
+  DE[c]: Es reicht aus, wenn eine Person einmal jaehrlich die Systemprotokolle stichprobenartig einsieht
+  RU[c]: Достаточно, чтобы один человек раз в год выборочно просматривал системные журналы
+  DE[d]: Es muss so gestaltet sein, dass Entscheidungen des Systems grundsaetzlich nicht mehr rueckgaengig gemacht werden koennen, um nachtraegliche Manipulation zu verhindern
+  RU[d]: Она должна быть спроектирована так, чтобы решения системы в принципе никогда нельзя было отменить, чтобы предотвратить последующую манипуляцию
+DE EXP: Art. 14 Abs. 4 KI-VO verlangt, dass Hochrisiko-KI-Systeme so gestaltet sind, dass die mit der Aufsicht betraute Person die Faehigkeiten und Grenzen des Systems versteht, dessen Ausgaben korrekt interpretieren kann, sich gegen eine Nutzung entscheiden oder die Ausgabe ignorieren, ueberstimmen oder rueckgaengig machen kann, und den Betrieb ueber eine 'Stopp-Taste' oder ein vergleichbares Verfahren unterbrechen kann. Eine jaehrliche Stichprobe oder eine ausschliesslich beim Hersteller liegende Abschaltmoeglichkeit erfuellt diese Anforderung nicht.
+RU EXP: Статья 14(4) требует, чтобы системы ИИ высокого риска были спроектированы так, чтобы лицо, ответственное за надзор, понимало возможности и ограничения системы, могло правильно интерпретировать её результаты, принимать решение не использовать её или игнорировать, отменять либо аннулировать результат, а также прерывать её работу с помощью кнопки 'стоп' или аналогичной процедуры. Ежегодная выборочная проверка или возможность отключения, находящаяся исключительно у производителя, не отвечают этому требованию.
+
+=== ID ki_act-ki_am_arbeitsplatz-08 | correct=['a'] ===
+DE Q: Ein KI-System trifft ohne jede menschliche Beteiligung die abschliessende Entscheidung, einer Bewerberin eine Absage zu erteilen, allein auf Basis einer automatisierten Bewertung ihrer Bewerbungsunterlagen. Welches zusaetzliche Recht kann die Bewerberin unabhaengig vom AI Act geltend machen?
+RU Q: Система ИИ без какого-либо участия человека принимает окончательное решение отказать соискательнице, исключительно на основе автоматизированной оценки её документов заявки. Какое дополнительное право может заявить соискательница независимо от AI Act?
+  DE[a]: Das Recht aus Art. 22 DSGVO, nicht einer ausschliesslich auf einer automatisierten Verarbeitung beruhenden Entscheidung mit rechtlicher oder aehnlich erheblicher Wirkung unterworfen zu werden, vorbehaltlich der dort genannten Ausnahmen
+  RU[a]: Право по статье 22 GDPR не подвергаться решению, основанному исключительно на автоматизированной обработке, которое влечёт юридические последствия или подобным образом существенно затрагивает её, с учётом указанных там исключений
+  DE[b]: Ein Recht auf sofortige Einstellung, unabhaengig vom inhaltlichen Ergebnis der Bewerbung
+  RU[b]: Право на немедленное трудоустройство, независимо от содержательного результата заявки
+  DE[c]: Das Recht, dass der Hersteller der KI-Software ihr den vollstaendigen Quellcode offenlegen muss
+  RU[c]: Право требовать, чтобы производитель ИИ-программного обеспечения раскрыл ей полный исходный код
+  DE[d]: Es gibt kein zusaetzliches Recht, da der AI Act die DSGVO in Beschaeftigungsfragen vollstaendig verdraengt
+  RU[d]: Дополнительного права не существует, поскольку AI Act полностью вытесняет GDPR в вопросах занятости
+DE EXP: Der AI Act regelt in erster Linie Risiken, die vom KI-System selbst ausgehen, und ersetzt die DSGVO nicht. Parallel dazu gewaehrt Art. 22 DSGVO Betroffenen das Recht, nicht ausschliesslich einer automatisierten Entscheidung mit rechtlicher oder aehnlich erheblicher Wirkung unterworfen zu werden - etwa einer vollautomatisierten Bewerbungsabsage ohne jede menschliche Einbeziehung, vorbehaltlich der im Gesetz genannten engen Ausnahmen.
+RU EXP: AI Act регулирует прежде всего риски, исходящие от самой системы ИИ, и не заменяет GDPR. Параллельно с этим статья 22 GDPR предоставляет затронутым лицам право не подвергаться исключительно автоматизированному решению, которое влечёт юридические последствия или подобным образом существенно затрагивает их - например, полностью автоматизированному отказу в приёме на работу без какого-либо участия человека, с учётом узких исключений, предусмотренных законом.
