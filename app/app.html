@@ -560,6 +560,33 @@
     </div>
   </div>
 
+  <!-- ADR-app-0002 s 1: the module hub. What a learner lands on when they
+       open a module, and what the header's module button reopens. Every
+       value in it is derived in renderModuleHub() - nothing here is
+       per-module copy. Ordered exactly as the ADR specifies for 390px:
+       name, kind chip, primary action, progress, topics, runs, coverage,
+       then "about" collapsed below the fold. -->
+  <div class="exam-modal" id="module-hub" hidden role="dialog" aria-modal="true" aria-labelledby="module-hub-title">
+    <div class="exam-modal-card module-hub-card">
+      <h2 id="module-hub-title" tabindex="-1"></h2>
+      <p class="module-hub-chip" id="module-hub-chip"></p>
+      <button class="exam-mode-btn module-hub-primary" id="module-hub-primary"></button>
+      <p class="module-hub-progress" id="module-hub-progress"></p>
+      <p class="module-hub-coverage module-row-note" id="module-hub-coverage" hidden></p>
+      <h3 class="module-hub-section" id="module-hub-topics-title"></h3>
+      <div class="module-hub-topics" id="module-hub-topics"></div>
+      <h3 class="module-hub-section" id="module-hub-runs-title"></h3>
+      <button class="exam-mode-btn" id="module-hub-sim"></button>
+      <button class="exam-mode-btn" id="module-hub-training"></button>
+      <button class="exam-mode-btn" id="module-hub-practice"></button>
+      <details class="module-hub-about">
+        <summary id="module-hub-about-summary"></summary>
+        <div id="module-hub-about-body"></div>
+      </details>
+      <button class="back-btn" id="module-hub-close"></button>
+    </div>
+  </div>
+
   <!-- Exam mode picker: choice between untimed training and the timed,
        strictly-scored simulation, per the real exam's own two-tier framing
        (DN-29, activated with explicit PO sign-off - see AGENTS.md history:

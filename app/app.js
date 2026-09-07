@@ -2639,6 +2639,10 @@ function renderModulePicker() {
     mod.options.forEach((opt) => {
       const btn = document.createElement("button");
       btn.className = "exam-mode-btn";
+      // Same reasoning as buildModuleRow()'s data-exam-type: a scope row
+      // needs an identity a test or a bug report can name without going
+      // through a label that changes with the UI language.
+      btn.dataset.scopeCode = opt.code;
       btn.innerHTML = `<strong>${opt.label[state.lang] || opt.label.en}</strong>`;
       btn.addEventListener("click", () => selectModuleAndScope(mod.exam_type, opt.code));
       container.appendChild(btn);
@@ -2668,14 +2672,14 @@ async function selectModuleAndScope(examType, scopeCode) {
   history.replaceState({ view: "list" }, "");
   render();
 
-  // DN-43: if this module has an intro wizard and this device hasn't seen
-  // it yet for this exam_type, show it now (first real study session in
-  // the module) rather than dropping the user straight into a raw question
-  // list with no orientation.
-  const mod = state.pendingModule;
-  if (mod && mod.intro && !hasSeenIntro(examType)) {
-    openModuleIntro(mod);
-  }
+  // ADR-app-0002 s 1: opening a module lands on its HUB, every time - not
+  // on the intro wizard once and a raw question list forever after. The
+  // hub carries the primary action, so this is not a screen between the
+  // learner and their work; it is where they choose what the work is.
+  // (DN-43's once-per-device intro wizard is superseded. Its manifest copy
+  // is not wasted - renderModuleHub() shows it under "About this module".
+  // Roadmap 3.8 removes intro.steps from the manifest entirely.)
+  openModuleHub();
 }
 
 // Minimal standalone strings (not folded into UI_STRINGS/EXAM_STRINGS since
@@ -3156,10 +3160,269 @@ function wireModuleIntroControls() {
     }
   });
   el("#module-intro-skip").addEventListener("click", () => history.back());
-  el("#module-info-btn").addEventListener("click", () => {
-    const mod = moduleManifestFor(state.examType);
-    if (mod && mod.intro) openModuleIntro(mod);
+  el("#module-info-btn").addEventListener("click", () => openModuleHub());
+}
+
+// --- ADR-app-0002 § 1: the module hub -----------------------------------
+//
+// Replaces the module INTRO as the thing a learner lands on. The ADR's own
+// framing, and the reason this is a hub and not a nicer intro:
+//
+//   An intro explains the module. It is read once, and then costs a tap
+//   forever. A hub is where the user decides what to do next. It carries
+//   state and the primary action, so the tap is one they were going to
+//   make anyway.
+//
+// Everything on it is DERIVED - from `kind` in the manifest, the SRS boxes,
+// the exam attempt log and the lesson completions. No per-module copy is
+// written here and none should be added: 29 modules of hand-written hub
+// text is 29 things to translate 18 times and 29 things to keep true. The
+// hub for a module nobody has opened is the same code as the hub for one
+// with 400 answered cards; only the numbers differ.
+//
+// Strings: de and en only, deliberately. ADR-app-0002 § 3 fixes this
+// vocabulary in German and English (Lernen / Uebungsquiz /
+// Pruefungssimulation / Lernnachweis, and EN "readiness check" /
+// "self-assessment") and explicitly says the pairs are NOT translations of
+// each other. Coining the other 16 unreviewed would be inventing
+// terminology in languages nobody here can check, for terms whose whole
+// point is that they are precise. hubStrings() falls back to en, and
+// roadmap 3.7 retires these dictionaries into the KB where the translation
+// pipeline can see them. Flagged for the PO rather than guessed.
+const MODULE_HUB_STRINGS = {
+  de: {
+    continueLearning: "Weiterlernen",
+    startLearning: "Lernen starten",
+    learnedOf: (n, total) => `${n} von ${total} gelernt`,
+    dueToday: (n) => `Heute faellig: ${n}`,
+    noneDue: "Heute nichts faellig",
+    lastSimPassed: "Letzte Pruefungssimulation: bestanden",
+    lastSimFailed: "Letzte Pruefungssimulation: nicht bestanden",
+    noSimYet: "Noch keine Pruefungssimulation",
+    topics: "Themen",
+    runs: "Pruefen",
+    simulation: "Pruefungssimulation",
+    training: "Ueben ohne Zeitlimit",
+    practiceQuiz: "Uebungsquiz",
+    learn: "Lernen",
+    about: "Ueber dieses Modul",
+    questionCount: (n) => `${n} Fragen`,
+    close: "Schliessen",
+    kindLicence: "Staatliche Pruefung",
+    kindCompliance: "Pflichtschulung",
+    kindCert: "Berufliches Zertifikat",
+    kindCompare: "Zum Vergleich",
+    noCertificate: "kein Nachweis",
+  },
+  en: {
+    continueLearning: "Continue learning",
+    startLearning: "Start learning",
+    learnedOf: (n, total) => `${n} of ${total} learned`,
+    dueToday: (n) => `Due today: ${n}`,
+    noneDue: "Nothing due today",
+    lastSimPassed: "Last readiness check: passed",
+    lastSimFailed: "Last readiness check: not passed",
+    noSimYet: "No readiness check yet",
+    topics: "Topics",
+    runs: "Check",
+    simulation: "Readiness check",
+    training: "Practice without a time limit",
+    practiceQuiz: "Practice quiz",
+    learn: "Learn",
+    about: "About this module",
+    questionCount: (n) => `${n} questions`,
+    close: "Close",
+    kindLicence: "State exam",
+    kindCompliance: "Mandatory training",
+    kindCert: "Professional certificate",
+    kindCompare: "For comparison",
+    noCertificate: "no certificate",
+  },
+};
+
+function hubStrings(lang) {
+  return MODULE_HUB_STRINGS[lang] || MODULE_HUB_STRINGS.en;
+}
+
+// A card counts as "learned" once it has been promoted past the two short
+// boxes - box >= 2 is the first interval measured in days rather than
+// minutes. Deliberately not "has been seen": a card answered once and never
+// again is not learned, and a progress number that says otherwise is the
+// kind of number that makes the rest of the screen untrustworthy.
+const HUB_LEARNED_MIN_BOX = 2;
+
+function moduleProgressSummary() {
+  const srs = loadSrsData();
+  const qs = state.questions || [];
+  let learned = 0;
+  for (const q of qs) {
+    const entry = srs[q.id];
+    if (entry && (entry.box || 0) >= HUB_LEARNED_MIN_BOX) learned += 1;
+  }
+  const due = dueQuestionsForActiveScope().length;
+  // Simulation only. A training run is explicitly low-stakes and saying
+  // "last run: not passed" about one would misreport what the learner did.
+  const sims = getExamAttempts().filter(
+    (a) => a.examType === state.examType && a.mode === "simulation"
+  );
+  const lastSim = sims.length ? sims[sims.length - 1] : null;
+  return { learned, total: qs.length, due, lastSim };
+}
+
+// Per-topic counts for the same question set the list view is scoped to,
+// in the order the topics first appear in the data (which is the order the
+// module author put them in - not alphabetical, which would scatter a
+// deliberately ordered syllabus).
+function hubTopicRows() {
+  const srs = loadSrsData();
+  const order = [];
+  const byCode = new Map();
+  for (const q of state.questions || []) {
+    const code = q.topic_code;
+    if (!byCode.has(code)) {
+      byCode.set(code, { code, label: getTopicLabel(code, q.topic), total: 0, learned: 0 });
+      order.push(code);
+    }
+    const row = byCode.get(code);
+    row.total += 1;
+    const entry = srs[q.id];
+    if (entry && (entry.box || 0) >= HUB_LEARNED_MIN_BOX) row.learned += 1;
+  }
+  return order.map((c) => byCode.get(c));
+}
+
+function hubKindChip(mod, H) {
+  if (!mod) return "";
+  const byKind = {
+    licence: H.kindLicence,
+    compliance: H.kindCompliance,
+    cert: H.kindCert,
+    compare: H.kindCompare,
+  };
+  const parts = [byKind[mod.kind]].filter(Boolean);
+  // The scope is the second half of "Staatliche Pruefung - Klasse B". Only
+  // when the module actually has more than one scope; repeating the module
+  // name back at the user is not information.
+  const opts = (mod.options || []);
+  if (opts.length > 1) {
+    const active = opts.find((o) => o.code === state.scopeCode);
+    if (active) parts.push(active.label && (active.label[state.lang] || active.label.en) || active.code);
+  }
+  if (mod.kind === "compare") parts.push(H.noCertificate);
+  return parts.join(" \u00b7 ");
+}
+
+function openModuleHub() {
+  const mod = moduleManifestFor(state.examType);
+  if (!mod) return;
+  el("#module-hub").hidden = false;
+  history.pushState({ view: "module-hub" }, "");
+  renderModuleHub();
+  setInertBehindDialog(true);
+  el("#module-hub-title").focus();
+}
+
+function closeModuleHub() {
+  el("#module-hub").hidden = true;
+  setInertBehindDialog(false);
+}
+
+function renderModuleHub() {
+  const mod = moduleManifestFor(state.examType);
+  if (!mod) return;
+  const H = hubStrings(state.lang);
+  const G = moduleGroupStrings(state.lang);
+  const p = moduleProgressSummary();
+
+  el("#module-hub-title").textContent = mod.label[state.lang] || mod.label.en;
+  el("#module-hub-chip").textContent = hubKindChip(mod, H);
+
+  // 2. The primary action. "Weiterlernen" is a resume, so it only claims to
+  // be one when there is something to resume.
+  const primary = el("#module-hub-primary");
+  primary.innerHTML = `<strong>${p.learned > 0 || p.due > 0 ? H.continueLearning : H.startLearning}</strong>`;
+
+  // 3. Progress.
+  const prog = el("#module-hub-progress");
+  const bits = [H.learnedOf(p.learned, p.total), p.due ? H.dueToday(p.due) : H.noneDue];
+  if (p.lastSim) bits.push(p.lastSim.passed ? H.lastSimPassed : H.lastSimFailed);
+  else bits.push(H.noSimYet);
+  prog.textContent = bits.join(" \u00b7 ");
+
+  // 4. Topics, each a filtered entry into the list the app already has.
+  el("#module-hub-topics-title").textContent = H.topics;
+  const topics = el("#module-hub-topics");
+  topics.innerHTML = "";
+  for (const row of hubTopicRows()) {
+    const btn = document.createElement("button");
+    btn.className = "exam-mode-btn hub-topic-btn";
+    btn.dataset.topicCode = row.code;
+    btn.innerHTML = `<strong>${row.label}</strong><span class="module-row-note">${H.learnedOf(row.learned, row.total)}</span>`;
+    btn.addEventListener("click", () => {
+      state.topicFilter = row.code;
+      history.back();
+      render();
+    });
+    topics.appendChild(btn);
+  }
+
+  // 5. The runs, as buttons. ADR-app-0002 § 4: never behind a mode
+  // selector. (The further consolidation that ADR describes - one run with
+  // a "mit Zeitlimit" toggle instead of two buttons - changes startExam()'s
+  // contract and its other call sites, so it is left for that change.)
+  el("#module-hub-runs-title").textContent = H.runs;
+  el("#module-hub-sim").innerHTML = `<strong>${H.simulation}</strong>`;
+  el("#module-hub-training").innerHTML = `<strong>${H.training}</strong>`;
+  el("#module-hub-practice").innerHTML = `<strong>${H.practiceQuiz}</strong>`;
+
+  // 6. Coverage, only when this learner's language is not fully covered.
+  // Same fraction the picker row shows - never a module-level badge.
+  const cov = el("#module-hub-coverage");
+  const note = coverageNoteFor(mod, state.lang, G);
+  cov.textContent = note || "";
+  cov.hidden = !note;
+
+  // 7. "Ueber dieses Modul", collapsed. The licence line and the question
+  // count live here and nowhere above it.
+  el("#module-hub-about-summary").textContent = H.about;
+  const about = el("#module-hub-about-body");
+  about.innerHTML = "";
+  const count = document.createElement("p");
+  count.textContent = H.questionCount(p.total);
+  about.appendChild(count);
+  // The intro copy the manifest already carries is the honest source for
+  // "what is this module" - reused here as prose instead of being deleted
+  // with the wizard, and shown below the fold where scope text belongs.
+  const steps = (mod.intro && mod.intro.steps) || [];
+  for (const step of steps) {
+    const c = step[state.lang] || step.en || step.de;
+    if (!c) continue;
+    const para = document.createElement("p");
+    para.innerHTML = `<strong>${c.title}</strong><br>${c.body}`;
+    about.appendChild(para);
+  }
+  el("#module-hub-close").textContent = H.close;
+}
+
+function wireModuleHubControls() {
+  el("#module-hub-primary").addEventListener("click", () => {
+    state.topicFilter = "all";
+    history.back();
+    render();
   });
+  el("#module-hub-sim").addEventListener("click", () => {
+    closeModuleHub();
+    startExam("simulation");
+  });
+  el("#module-hub-training").addEventListener("click", () => {
+    closeModuleHub();
+    startExam("training");
+  });
+  el("#module-hub-practice").addEventListener("click", () => {
+    closeModuleHub();
+    openPracticePicker();
+  });
+  el("#module-hub-close").addEventListener("click", () => history.back());
 }
 
 // --- Completion tracking & certificates (DN-14 / DN-44 prep) -----------
@@ -8804,12 +9067,17 @@ function render() {
     moduleBtn.textContent = MP.changeExam;
   }
 
-  // DN-43: the "About this module" info button only makes sense once a
-  // module is active and that module actually has an intro wizard defined.
+  // The header button that returns to the module HUB. It is shown whenever
+  // a module is active - every module has a hub, because the hub is derived
+  // rather than authored. (It used to be gated on `moduleMod.intro`, since
+  // it reopened DN-43's intro wizard, which only 7 of 29 modules had. Under
+  // ADR-app-0002 that gate would hide the way back to the hub for the other
+  // 22, which is the one navigation the ADR says Back must always have.)
   const infoBtn = el("#module-info-btn");
-  infoBtn.hidden = !(moduleMod && moduleMod.intro);
-  infoBtn.title = introStrings(state.lang).aboutBtn;
-  infoBtn.setAttribute("aria-label", introStrings(state.lang).aboutBtn);
+  const H = hubStrings(state.lang);
+  infoBtn.hidden = !moduleMod;
+  infoBtn.title = H.about;
+  infoBtn.setAttribute("aria-label", H.about);
 
   // Sign Reference only makes sense for Fuehrerschein (that's the only
   // module whose questions carry StVO sign image_refs so far) - hidden for
@@ -9596,6 +9864,7 @@ function wireStaticControls() {
   el("#menu-btn").addEventListener("click", openAppMenu);
   el("#app-menu-close-btn").addEventListener("click", () => history.back());
   wireModuleIntroControls();
+  wireModuleHubControls();
   el("#certificates-btn").addEventListener("click", openCertificates);
   el("#certificates-close-btn").addEventListener("click", () => history.back());
   el("#review-btn").addEventListener("click", openReviewSession);
@@ -9639,6 +9908,7 @@ function wireStaticControls() {
     if (el("#practice-picker") && !el("#practice-picker").hidden) closePracticePicker();
     if ((el("#practice-view") && !el("#practice-view").hidden) || (el("#practice-results") && !el("#practice-results").hidden)) exitPracticeQuiz();
     if (!el("#module-intro").hidden) closeModuleIntro();
+    if (el("#module-hub") && !el("#module-hub").hidden) closeModuleHub();
     if (!el("#certificates-view").hidden) closeCertificates();
     if (!el("#sign-reference-view").hidden) closeSignReferenceView();
     if (!el("#primer-reader").hidden) closePrimerReader();

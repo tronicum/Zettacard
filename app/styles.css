@@ -2169,3 +2169,61 @@ main {
   color: var(--green);
   font-weight: 600;
 }
+
+/* --- ADR-app-0002 § 1: the module hub -------------------------------- */
+/* Sized for the 390px column the ADR specifies. The card scrolls rather
+   than the page behind it, so the primary action stays reachable on a
+   module with 25 topics without the hub becoming a second long list. */
+.module-hub-card {
+  max-height: 88vh;
+  overflow-y: auto;
+  text-align: start;
+}
+.module-hub-chip {
+  margin: 0.15rem 0 0.9rem;
+  font-size: 0.82rem;
+  opacity: 0.75;
+}
+/* The one button the ADR calls the primary action. It is the only filled
+   control above the fold; the runs below are peers of each other, not of
+   this. */
+.module-hub-primary {
+  font-size: 1.05rem;
+}
+.module-hub-progress {
+  margin: 0.7rem 0 0.2rem;
+  font-size: 0.9rem;
+}
+.module-hub-coverage {
+  display: block;
+  margin: 0.15rem 0 0.6rem;
+}
+.module-hub-section {
+  margin: 1.15rem 0 0.45rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+.module-hub-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.hub-topic-btn .module-row-note {
+  display: block;
+}
+/* Scope, question count and the licence line live below the fold, per the
+   ADR's list of what does NOT go on the hub. */
+.module-hub-about {
+  margin-top: 1.15rem;
+  font-size: 0.9rem;
+}
+.module-hub-about > summary {
+  cursor: pointer;
+  padding: 0.4rem 0;
+  opacity: 0.8;
+}
+.module-hub-about p {
+  margin: 0.5rem 0;
+}

@@ -51,7 +51,44 @@ async function freshPage(browser) {
     await page.click("#storage-consent-yes");
     await page.waitForTimeout(200);
   }
+  await enterAModule(page);
   return { ctx, page };
+}
+
+/**
+ * Get a fresh profile all the way to a loaded module, by clicking what a
+ * learner clicks. Without this every journey below runs against the
+ * MANDATORY module picker (a fresh profile has no module, so the picker
+ * cannot be dismissed) and fails on "no questions in the list" — which is
+ * why this suite had never passed.
+ *
+ * Three steps, each conditional, because not every module needs all three:
+ * the picker, then the scope step for a module with more than one scope
+ * (fuehrerschein is B / BE), then the module hub, whose primary action is
+ * the learner's way into the cards (ADR-app-0002 § 1).
+ */
+async function enterAModule(page, examType = "fuehrerschein") {
+  if (await page.isVisible("#module-picker")) {
+    const row = page.locator(`[data-exam-type="${examType}"]`);
+    if (await row.count()) {
+      await row.first().click();
+      await page.waitForTimeout(400);
+      // Prefer the stable identity; fall back to the first button in the
+      // picker body so this helper also drives builds from before
+      // data-scope-code existed (which is what an A/B against an older
+      // revision needs it to do).
+      let scope = page.locator("#module-picker [data-scope-code]");
+      if (!(await scope.count())) scope = page.locator("#module-picker-body button");
+      if (await scope.count()) {
+        await scope.first().click();
+        await page.waitForTimeout(2000);
+      }
+    }
+  }
+  if (await page.isVisible("#module-hub")) {
+    await page.locator("#module-hub-primary").click();
+    await page.waitForTimeout(600);
+  }
 }
 
 /** Nothing may be inert, and a known control must actually be clickable. */
@@ -80,7 +117,7 @@ async function journeyLearning(browser) {
   const { ctx, page } = await freshPage(browser);
 
   if (!(await page.isVisible("#list"))) fail("question list not visible on load");
-  const first = page.locator("#list li, #list .card, #list button").first();
+  const first = page.locator("#list .q-card").first();
   if (!(await first.count())) { fail("no questions in the list"); await ctx.close(); return; }
   await first.click();
   await page.waitForTimeout(300);
@@ -251,7 +288,7 @@ async function journeyStars(browser) {
   console.log("\n[5] stars — mark a card and reload");
   const { ctx, page } = await freshPage(browser);
 
-  await page.locator("#list li, #list .card, #list button").first().click();
+  await page.locator("#list .q-card").first().click();
   await page.waitForTimeout(300);
   const star = page.locator("#star-btn");
   if (!(await star.count())) { fail("no #star-btn on the detail view"); await ctx.close(); return; }
