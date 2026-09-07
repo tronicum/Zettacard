@@ -222,7 +222,7 @@ async function journeyExam(browser) {
   let answered = 0;
   for (let i = 0; i < 200; i++) {
     if (await page.isVisible("#exam-results")) break;
-    const opt = page.locator("#exam-options button, #exam-options label, #exam-options li").first();
+    const opt = page.locator("#exam-options .option").first();
     if (await opt.count()) { await opt.click(); answered++; }
     const next = page.locator("#exam-next-btn");
     if (!(await next.count()) || !(await next.isVisible())) break;
@@ -253,7 +253,7 @@ async function journeyResults(browser) {
   }
   for (let i = 0; i < 200; i++) {
     if (await page.isVisible("#exam-results")) break;
-    const opt = page.locator("#exam-options button, #exam-options label, #exam-options li").first();
+    const opt = page.locator("#exam-options .option").first();
     if (await opt.count()) await opt.click();
     const next = page.locator("#exam-next-btn");
     if (!(await next.count()) || !(await next.isVisible())) break;

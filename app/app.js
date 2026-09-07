@@ -3277,6 +3277,15 @@ const MODULE_HUB_STRINGS = {
     kindCert: "Berufliches Zertifikat",
     kindCompare: "Zum Vergleich",
     noCertificate: "kein Nachweis",
+    stateGrey: "noch nicht begonnen",
+    stateRed: "am Anfang",
+    stateYellow: "auf dem Weg",
+    stateGreen: "sitzt",
+    nextTitle: "Als Naechstes",
+    nextReview: (n) => `${n} faellige Karten wiederholen`,
+    nextLearn: (topic) => `Weiter mit ${topic}`,
+    nextSimulate: "Alles sitzt - Pruefungssimulation starten",
+    stateAria: (label, stateWord) => `${label}: ${stateWord}`,
   },
   en: {
     continueLearning: "Continue learning",
@@ -3301,6 +3310,15 @@ const MODULE_HUB_STRINGS = {
     kindCert: "Professional certificate",
     kindCompare: "For comparison",
     noCertificate: "no certificate",
+    stateGrey: "not started",
+    stateRed: "just started",
+    stateYellow: "getting there",
+    stateGreen: "solid",
+    nextTitle: "Next",
+    nextReview: (n) => `Review ${n} cards that are due`,
+    nextLearn: (topic) => `Carry on with ${topic}`,
+    nextSimulate: "All solid - start the readiness check",
+    stateAria: (label, stateWord) => `${label}: ${stateWord}`,
   },
 };
 
@@ -3341,18 +3359,96 @@ function hubTopicRows() {
   const srs = loadSrsData();
   const order = [];
   const byCode = new Map();
+  const now = Date.now();
   for (const q of state.questions || []) {
     const code = q.topic_code;
     if (!byCode.has(code)) {
-      byCode.set(code, { code, label: getTopicLabel(code, q.topic), total: 0, learned: 0 });
+      byCode.set(code, { code, label: getTopicLabel(code, q.topic), total: 0, learned: 0, seen: 0, due: 0 });
       order.push(code);
     }
     const row = byCode.get(code);
     row.total += 1;
     const entry = srs[q.id];
-    if (entry && (entry.box || 0) >= HUB_LEARNED_MIN_BOX) row.learned += 1;
+    if (!entry) continue;
+    row.seen += 1;
+    if ((entry.box || 0) >= HUB_LEARNED_MIN_BOX) row.learned += 1;
+    if (entry.dueAt <= now) row.due += 1;
   }
-  return order.map((c) => byCode.get(c));
+  // Rendered in the module's own topic order (TOPIC_LABELS' key order),
+  // falling back to the order topics appear in the data for a module with no
+  // labels yet. Not alphabetical, which would scatter a deliberately
+  // ordered syllabus, and not "worst first", which would fight it.
+  const authored = Object.keys(TOPIC_LABELS[state.examType] || {});
+  const ordered = authored.filter((c) => byCode.has(c));
+  for (const c of order) if (!ordered.includes(c)) ordered.push(c);
+  return ordered.map((c) => {
+    const row = byCode.get(c);
+    row.state = topicTrafficState(row);
+    return row;
+  });
+}
+
+// --- Roadmap 3.2: the traffic light and "what next" ---------------------
+//
+// Four states per topic, derived from the Leitner boxes that already exist -
+// fed by exam answers, practice runs and flashcard self-assessment alike, so
+// this reads every way the learner studies rather than one of them.
+//
+// `grundstoff` is deliberately NOT an input. The roadmap is explicit: it is
+// true for all 531 Fuehrerschein questions and discriminates in only 8 of 25
+// modules, so a signal built on it would be constant where it matters most.
+//
+// THRESHOLDS ARE NOT SETTLED BY THE ROADMAP OR ADR-app-0002. It fixes the
+// four colours, the source and "one derived next action", and stops there.
+// The numbers below are a defensible first cut, isolated here so they are
+// one edit to tune, not a rule spread through the rendering code:
+//
+//   grey    nothing in this topic has ever been answered
+//   green   >= 80% of the topic learned AND nothing overdue
+//   yellow  >= 40% learned
+//   red     started, but below that
+//
+// The two judgements in there, both of which want the PO's eye:
+//  - green REQUIRES nothing overdue. A topic you learned in March and have
+//    not seen since is not green, because the light is meant to answer "am I
+//    ready", not "was I ever ready". This is the one rule that can move a
+//    topic backwards without the learner getting anything wrong, which is
+//    honest but will surprise someone.
+//  - "learned" is box >= 2, the same definition the hub's progress line
+//    already uses. One shared definition, so the light and the number under
+//    it can never disagree.
+const TOPIC_STATE_GREEN_MIN = 0.8;
+const TOPIC_STATE_YELLOW_MIN = 0.4;
+
+/**
+ * The traffic light for one topic. Pure: takes counts, returns a state, so
+ * it can be tested against synthetic input without driving the UI.
+ */
+function topicTrafficState({ total, learned, seen, due }) {
+  if (!total || !seen) return "grey";
+  if (due > 0) return learned / total >= TOPIC_STATE_YELLOW_MIN ? "yellow" : "red";
+  if (learned / total >= TOPIC_STATE_GREEN_MIN) return "green";
+  if (learned / total >= TOPIC_STATE_YELLOW_MIN) return "yellow";
+  return "red";
+}
+
+/**
+ * The ONE next action, derived. Priority, and the reasoning for it:
+ *  1. Anything overdue -> review it. That is what a Leitner box is for; new
+ *     material on top of lapsed material is how a learner ends up with
+ *     neither.
+ *  2. Otherwise the first topic that is not green, in the module's own topic
+ *     order - which is the hand-authored ordering the roadmap asks for, and
+ *     already exists as the key order of TOPIC_LABELS. First, not weakest:
+ *     a syllabus is ordered for a reason, and jumping a learner to whichever
+ *     topic scores worst fights that order.
+ *  3. Everything green -> the run. There is nothing left to learn first.
+ */
+function hubNextAction(rows, due) {
+  if (due > 0) return { kind: "review", due };
+  const next = rows.find((r) => r.state !== "green");
+  if (next) return { kind: "learn", topic: next };
+  return { kind: "simulate" };
 }
 
 function hubKindChip(mod, H) {
@@ -3413,15 +3509,38 @@ function renderModuleHub() {
   else bits.push(H.noSimYet);
   prog.textContent = bits.join(" \u00b7 ");
 
+  // 3b. The one derived next action (roadmap 3.2). A line under the primary
+  // button, not a second button: the ADR allows one primary action on the
+  // hub, and two competing "do this next" controls is exactly the ambiguity
+  // a hub exists to remove.
+  const rows = hubTopicRows();
+  const next = hubNextAction(rows, p.due);
+  const nextBtn = el("#module-hub-next");
+  el("#module-hub-next-title").textContent = H.nextTitle;
+  nextBtn.dataset.nextKind = next.kind;
+  if (next.kind === "review") nextBtn.textContent = H.nextReview(next.due);
+  else if (next.kind === "learn") nextBtn.textContent = H.nextLearn(next.topic.label);
+  else nextBtn.textContent = H.nextSimulate;
+  state.hubNext = next;
+
   // 4. Topics, each a filtered entry into the list the app already has.
   el("#module-hub-topics-title").textContent = H.topics;
   const topics = el("#module-hub-topics");
   topics.innerHTML = "";
-  for (const row of hubTopicRows()) {
+  for (const row of rows) {
     const btn = document.createElement("button");
     btn.className = "exam-mode-btn hub-topic-btn";
     btn.dataset.topicCode = row.code;
-    btn.innerHTML = `<strong>${row.label}</strong><span class="module-row-note">${H.learnedOf(row.learned, row.total)}</span>`;
+    // The light is a dot AND a word. Colour alone would carry the whole
+    // signal for a screen reader, and for the ~8% of men with a red/green
+    // deficiency, on a screen whose entire job is telling you where you
+    // stand.
+    const stateWord = { grey: H.stateGrey, red: H.stateRed, yellow: H.stateYellow, green: H.stateGreen }[row.state];
+    btn.dataset.topicState = row.state;
+    btn.innerHTML =
+      `<strong><span class="topic-light" data-state="${row.state}" aria-hidden="true"></span>${row.label}</strong>` +
+      `<span class="module-row-note">${H.learnedOf(row.learned, row.total)} \u00b7 ${stateWord}</span>`;
+    btn.setAttribute("aria-label", H.stateAria(row.label, stateWord));
     btn.addEventListener("click", () => {
       state.topicFilter = row.code;
       history.back();
@@ -3485,6 +3604,15 @@ function wireModuleHubControls() {
   el("#module-hub-practice").addEventListener("click", () => {
     closeModuleHub();
     openPracticePicker();
+  });
+  el("#module-hub-next").addEventListener("click", () => {
+    const next = state.hubNext;
+    if (!next) return;
+    if (next.kind === "simulate") { closeModuleHub(); startExam("simulation"); return; }
+    if (next.kind === "review") { closeModuleHub(); openReviewSession(); return; }
+    state.topicFilter = next.topic.code;
+    history.back();
+    render();
   });
   el("#module-hub-close").addEventListener("click", () => history.back());
 }

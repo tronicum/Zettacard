@@ -23,19 +23,12 @@ Output layout (all under app/data/, replacing the old single app/data.json):
 
 Run from the data/ directory: `python3 build_modules.py`
 """
-import collections
 import json
 import os
 import re
 import shutil
-import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, ".."))
-# The sign shape -> category mapping lives with the sign generators that are
-# its source of truth (see roadmap 3.3 / split_verkehrszeichen_topics below).
-sys.path.insert(0, os.path.join(ROOT, "assets"))
-import sign_categories  # noqa: E402  (path set up immediately above)
 APP_DATA = os.path.normpath(os.path.join(HERE, "..", "app", "data"))
 REPO_ROOT = os.path.normpath(os.path.join(HERE, ".."))
 # Guard rail for main()'s cleanup rmtree()s below: APP_DATA must resolve to
@@ -109,103 +102,8 @@ BUILT_MODULES = (
 ) + FUN_TRANSLATION_MODULES
 
 
-# --- Roadmap 3.3: splitting `verkehrszeichen` ---------------------------
-#
-# 138 of fuehrerschein's 531 questions carried a single topic_code,
-# `verkehrszeichen` - 26% of the module in one topic, where every other
-# topic holds ~40. Under any per-topic scheme (the traffic light in roadmap
-# 3.2, the hub's per-topic progress) that is the topic that never goes
-# green, because it is four topics wearing one label.
-#
-# The split needs no new authoring and no judgement call per question: the
-# StVO already groups signs by shape and colour, assets/generate_signs.py
-# already draws each sign with the template for its shape, and
-# assets/sign_categories.py already turns that template into a category for
-# the sign reference screen. A question about a red triangle is a
-# Gefahrzeichen question. So the topic is DERIVED, here, on every build -
-# not written into the 8MB source file where it would have to be maintained
-# by hand and would drift from the sign reference the moment either moved.
-TOPIC_CODE_BY_SIGN_CATEGORY = {
-    "gefahrzeichen": "zeichen_gefahr",
-    "verbotszeichen": "zeichen_verbot",
-    "gebotszeichen": "zeichen_gebot",
-    "richtzeichen": "zeichen_richt",
-    "sonstige": "zeichen_sonstige",
-}
-
-SPLIT_TOPIC_CODE = "verkehrszeichen"
-
-
-def _sign_ref_candidates(q):
-    """Every string in a question that might name a sign, best first.
-
-    image_ref ("signs/274") is authoritative when present - it is the sign
-    the question actually shows. legal_basis ("§41 StVO, Zeichen 274.1") is
-    the fallback for the eight questions that show no sign image.
-    """
-    out = []
-    ref = q.get("image_ref")
-    if ref:
-        out.append(str(ref).rsplit("/", 1)[-1])
-    out += re.findall(r"Zeichen\s+([0-9][0-9.\-/]*)", q.get("legal_basis") or "")
-    return out
-
-
-def _normalised(ref):
-    """A sign ref and the coarser forms it may be registered under.
-
-    "274.1" (Zone 30) is a variant of 274 and belongs in the same category;
-    "151/138" names two signs and either one settles the category. Yielded
-    most specific first so an exact registry entry always wins.
-    """
-    ref = str(ref).strip()
-    seen = []
-    for cand in [ref] + re.split(r"[/]", ref):
-        for form in (cand, cand.split(".")[0], cand.split("-")[0]):
-            if form and form not in seen:
-                seen.append(form)
-                yield form
-
-
-def split_verkehrszeichen_topics(questions):
-    """Replace the `verkehrszeichen` topic_code with a per-shape one."""
-    ref_to_template = sign_categories.load_ref_to_template(ROOT)
-    counts = collections.Counter()
-    unresolved = []
-    for q in questions:
-        if q.get("topic_code") != SPLIT_TOPIC_CODE:
-            continue
-        category = None
-        for ref in _sign_ref_candidates(q):
-            for form in _normalised(ref):
-                category = sign_categories.category_for_ref(form, ref_to_template)
-                if category:
-                    break
-            if category:
-                break
-        if category is None:
-            # A question whose sign is not in the registry at all (Vorwegweiser,
-            # a bare Zusatzzeichen, or one keyed to a paragraph rather than a
-            # sign). "sonstige" is the sign reference's own catch-all and is
-            # where these belong; it is not a failure, but it IS reported, so
-            # a growing count shows up in the build output rather than
-            # silently swelling one bucket.
-            category = "sonstige"
-            unresolved.append(q.get("id"))
-        code = TOPIC_CODE_BY_SIGN_CATEGORY[category]
-        q["topic_code"] = code
-        counts[code] += 1
-    if counts:
-        summary = ", ".join(f"{c}={n}" for c, n in sorted(counts.items()))
-        print(f"  verkehrszeichen split by sign shape: {summary}")
-        if unresolved:
-            print(f"  ...{len(unresolved)} with no registry entry -> zeichen_sonstige: "
-                  f"{', '.join(unresolved)}")
-    return questions
-
-
 def split_module(src_path, exam_type, locales, out_meta_extra=None,
-                 core_key_order="canonical", transform=None):
+                 core_key_order="canonical"):
     """core_key_order controls the key order of the per-question objects
     written to core.json. "canonical" (default, and what every module built
     by this script has always used) emits CORE_FIELDS order first, then
@@ -226,8 +124,6 @@ def split_module(src_path, exam_type, locales, out_meta_extra=None,
     """
     src = json.load(open(src_path, encoding="utf-8"))
     questions = src["questions"]
-    if transform is not None:
-        questions = transform(questions)
     module_dir = os.path.join(APP_DATA, exam_type)
     locales_dir = os.path.join(module_dir, "locales")
     os.makedirs(locales_dir, exist_ok=True)
@@ -711,8 +607,7 @@ def main():
     fs_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it",
                   "bar", "fa", "ro", "el", "hr", "pt"]
     fs_count, fs_missing = split_module(
-        os.path.join(HERE, "pilot_questions.json"), "fuehrerschein", fs_locales,
-        transform=split_verkehrszeichen_topics)
+        os.path.join(HERE, "pilot_questions.json"), "fuehrerschein", fs_locales)
     print(f"fuehrerschein: {fs_count} questions, locale gaps: {fs_missing}")
     # 2026-08-17: fuehrerschein gains a course layer (it had none before) -
     # data/fuehrerschein_course.json, six labelled right-of-way scenario
