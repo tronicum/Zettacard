@@ -23,7 +23,9 @@ Run: python3 assets/build_sign_reference.py
 import json
 import os
 import re
+import sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
 CORE_PATH = os.path.join(ROOT, "app", "data", "fuehrerschein", "core.json")
@@ -31,59 +33,17 @@ LOCALE_DIR = os.path.join(ROOT, "app", "data", "fuehrerschein", "locales")
 GEN_SIGNS_PATH = os.path.join(HERE, "generate_signs.py")
 OUT_PATH = os.path.join(ROOT, "app", "data", "fuehrerschein", "sign_reference.json")
 
-TEMPLATE_TO_CATEGORY = {
-    "triangle_warning": "gefahrzeichen",
-    "circle_prohibition": "verbotszeichen",
-    "circle_no_entry": "verbotszeichen",
-    "circle_stopping_ban": "verbotszeichen",
-    "circle_end_restriction": "verbotszeichen",
-    "circle_mandatory": "gebotszeichen",
-    "square_blue": "richtzeichen",
-    "rect_white_black_border": "richtzeichen",
-    "rect_yellow_black_border": "richtzeichen",
-    "rect_green_white_border": "richtzeichen",
-    "sign_arrow_yellow": "richtzeichen",
-    "sign_arrow_blue": "richtzeichen",
-    "sign_zone_plate": "richtzeichen",
-}
-# anything else (andreaskreuz, yield_sign, stop_octagon, sym_zebra_marking,
-# priority_road, diamond_yellow_border, gruenpfeil, zusatzzeichen, or a ref
-# with no registry entry at all) falls into "sonstige".
-DEFAULT_CATEGORY = "sonstige"
-
-CATEGORY_ORDER = ["gefahrzeichen", "verbotszeichen", "gebotszeichen", "richtzeichen", "sonstige"]
-
-
-def extract_dict_block(text, dict_name):
-    """Return the raw source text of `dict_name = { ... }` (brace-matched)."""
-    m = re.search(re.escape(dict_name) + r"\s*=\s*\{", text)
-    if not m:
-        return ""
-    start = m.end() - 1  # position of the opening brace
-    depth = 0
-    for i in range(start, len(text)):
-        if text[i] == "{":
-            depth += 1
-        elif text[i] == "}":
-            depth -= 1
-            if depth == 0:
-                return text[start : i + 1]
-    return text[start:]
-
-
-def parse_ref_to_template(gen_text):
-    """Map each sign ref (dict key) to the outer template function name used
-    to build it, by scanning the top-level 'REF': template_fn(...) lines of
-    each registry dict in generate_signs.py."""
-    ref_to_template = {}
-    for dict_name in ["SIGNS", "BATCH_A_SIGNS", "BATCH_B_SIGNS", "BATCH_C_SIGNS", "BATCH_D_SIGNS"]:
-        block = extract_dict_block(gen_text, dict_name)
-        # Match lines like:  "205": yield_sign(),   or   "308": square_blue(...),
-        for m in re.finditer(r'"([\w.\-]+)"\s*:\s*([A-Za-z_][A-Za-z0-9_]*)\s*\(', block):
-            ref, fn = m.group(1), m.group(2)
-            ref_to_template[ref] = fn
-    return ref_to_template
-
+# The shape -> category mapping and the registry parser moved to
+# assets/sign_categories.py so data/build_modules.py can assign question
+# topic codes from the same grouping (roadmap 3.3). Re-exported here under
+# their original names so the rest of this script is unchanged.
+from sign_categories import (  # noqa: E402
+    TEMPLATE_TO_CATEGORY,
+    DEFAULT_CATEGORY,
+    CATEGORY_ORDER,
+    extract_dict_block,
+    parse_ref_to_template,
+)
 
 def category_for(ref, ref_to_template):
     fn = ref_to_template.get(ref)

@@ -1390,7 +1390,22 @@ const ROAD_RULE_FAMILY_LABELS = {
 const TOPIC_LABELS = {
   fuehrerschein: {
     vorfahrt: { de: "Vorfahrt und Kreuzungen", en: "Right of way & intersections", uk: "Проїзд перехресть", pl: "Pierwszeństwo i skrzyżowania", ar: "الأولوية والتقاطعات", zh: "路权与交叉路口", hi: "प्राथमिकता और चौराहे", tr: "Geçiş hakkı ve kavşaklar", fr: "Priorité et intersections", ru: "Приоритет проезда и перекрёстки", es: "Prioridad de paso e intersecciones", it: "Precedenza e incroci" },
-    verkehrszeichen: { de: "Verkehrszeichen", en: "Traffic signs", uk: "Дорожні знаки", pl: "Znaki drogowe", ar: "إشارات المرور", zh: "交通标志", hi: "यातायात संकेत", tr: "Trafik işaretleri", fr: "Panneaux de signalisation", ru: "Дорожные знаки", es: "Señales de tráfico", it: "Segnaletica stradale" },
+    // Roadmap 3.3: `verkehrszeichen` was 138 of 531 questions - 26% of the
+    // module in one topic, where every other topic holds ~40. It is split
+    // by the sign's own shape (data/build_modules.py assigns these codes
+    // from assets/sign_categories.py, the same grouping the sign reference
+    // screen uses), which brings the largest topic down to 48.
+    //
+    // No labels are written here. They ARE the sign reference's category
+    // labels - `signCategory` tells getTopicLabel() to resolve them from
+    // SIGN_CATEGORY_LABELS at call time, so the chip and the sign-reference
+    // heading can never drift apart, and there is one set of strings to
+    // translate rather than two. Order is the StVO's own.
+    zeichen_gefahr: { signCategory: "gefahrzeichen" },
+    zeichen_verbot: { signCategory: "verbotszeichen" },
+    zeichen_gebot: { signCategory: "gebotszeichen" },
+    zeichen_richt: { signCategory: "richtzeichen" },
+    zeichen_sonstige: { signCategory: "sonstige" },
     gefahr: { de: "Gefahrenlehre", en: "Hazard perception", uk: "Розпізнавання небезпек", pl: "Nauka o zagrożeniach", ar: "إدراك المخاطر", zh: "危险识别", hi: "खतरा पहचान", tr: "Tehlike algısı", fr: "Perception des dangers", ru: "Распознавание опасностей", es: "Percepción de riesgos", it: "Percezione del pericolo" },
     umwelt: { de: "Umwelt und Technik", en: "Environment & technology", uk: "Довкілля та техніка", pl: "Środowisko i technika", ar: "البيئة والتقنية", zh: "环境与技术", hi: "पर्यावरण और तकनीक", tr: "Çevre ve teknik", fr: "Environnement et technique", ru: "Экология и техника", es: "Medio ambiente y técnica", it: "Ambiente e tecnica" },
     verhalten: { de: "Allgemeines Verhalten", en: "General road behavior", uk: "Загальна поведінка на дорозі", pl: "Ogólne zachowanie na drodze", ar: "السلوك العام على الطريق", zh: "一般道路行为", hi: "सामान्य सड़क व्यवहार", tr: "Genel trafik davranışı", fr: "Comportement général", ru: "Общее поведение на дороге", es: "Comportamiento general", it: "Comportamento generale" },
@@ -1673,7 +1688,56 @@ function getTopicLabel(topicCode, fallbackTopic) {
   const forModule = TOPIC_LABELS[state.examType] || {};
   const entry = forModule[topicCode];
   if (!entry) return fallbackTopic;
+  // A topic that IS a sign-reference category borrows that category's label
+  // rather than carrying a second copy of it (see the zeichen_* entries).
+  if (entry.signCategory) return signCategoryLabel(entry.signCategory, state.lang);
   return entry[state.lang] || entry.en || entry.de || fallbackTopic;
+}
+
+// Topic codes that are an UMBRELLA over several real ones. `verkehrszeichen`
+// stopped being a question topic in roadmap 3.3, but it is still the topic a
+// primer hands off from ("practise this topic now" on any of the seven sign
+// primers, which teach how to read signs in general rather than one shape),
+// so it has to keep working as a filter. Filtering by an umbrella matches
+// every child; nothing else needs to know these exist.
+// An umbrella carries `members` and its own `label`. It needs the label
+// because it is NOT in TOPIC_LABELS - being there is what makes something a
+// filter chip (renderFilters() builds the row from that object's keys), and
+// a "Verkehrszeichen" chip beside its own five children would both duplicate
+// them and double-count. But it is still shown, as the heading over the
+// seven sign primers, so a label-less umbrella would render the raw code
+// there - which is exactly how anhaenger_be shipped once (see its comment
+// in TOPIC_LABELS). These are the strings 3.3 moved off `verkehrszeichen`,
+// verbatim; nothing new was written.
+const TOPIC_GROUPS = {
+  fuehrerschein: {
+    verkehrszeichen: {
+      members: ["zeichen_gefahr", "zeichen_verbot", "zeichen_gebot", "zeichen_richt", "zeichen_sonstige"],
+      label: { de: "Verkehrszeichen", en: "Traffic signs", uk: "Дорожні знаки", pl: "Znaki drogowe", ar: "إشارات المرور", zh: "交通标志", hi: "यातायात संकेत", tr: "Trafik işaretleri", fr: "Panneaux de signalisation", ru: "Дорожные знаки", es: "Señales de tráfico", it: "Segnaletica stradale" },
+    },
+  },
+};
+
+function topicGroup(topicCode, examType) {
+  return (TOPIC_GROUPS[examType || state.examType] || {})[topicCode] || null;
+}
+
+function topicFilterMatches(question, topicCode) {
+  if (question.topic_code === topicCode) return true;
+  const group = topicGroup(topicCode);
+  return !!group && group.members.includes(question.topic_code);
+}
+
+/** A topic label for a real topic OR an umbrella, in `lang`. */
+function topicOrGroupLabel(topicCode, lang, examType) {
+  const entry = (TOPIC_LABELS[examType] || {})[topicCode];
+  if (entry) {
+    if (entry.signCategory) return signCategoryLabel(entry.signCategory, lang);
+    return entry[lang] || entry.en || entry.de || topicCode;
+  }
+  const group = topicGroup(topicCode, examType);
+  if (group) return group.label[lang] || group.label.en || group.label.de || topicCode;
+  return null;
 }
 
 // --- Role filter (DN-44) -------------------------------------------------
@@ -5801,9 +5865,10 @@ const PRIMER_TOPIC_ORDER = ["shape_category", ...Object.keys(TOPIC_LABELS.fuehre
 
 function primerTopicLabel(topicCode, lang) {
   if (topicCode === "shape_category") return primerStrings(lang).shapeCategoryLabel;
-  const entry = TOPIC_LABELS.fuehrerschein[topicCode];
-  if (!entry) return topicCode;
-  return entry[lang] || entry.en || entry.de || topicCode;
+  // Umbrella-aware: the seven sign primers are filed under `verkehrszeichen`,
+  // which stopped being a question topic in roadmap 3.3 but is still what
+  // they teach and still what their "practise this topic now" hands off to.
+  return topicOrGroupLabel(topicCode, lang, "fuehrerschein") || topicCode;
 }
 
 // Fetched once and cached per (core, locale) - core structural data (id/
@@ -9026,7 +9091,7 @@ function filteredQuestions() {
   // doesn't apply while cycling through the due queue, see openReviewSession().
   if (state.reviewMode) return state.reviewQueue;
   let qs = state.questions;
-  if (state.topicFilter !== "all") qs = qs.filter((q) => q.topic_code === state.topicFilter);
+  if (state.topicFilter !== "all") qs = qs.filter((q) => topicFilterMatches(q, state.topicFilter));
   // Role filter (DN-44) is additive to the topic filter above, and only
   // ever meaningfully narrows anything for the compliance modules that
   // carry a "roles" field (every other module's questions have none, so
@@ -9208,6 +9273,9 @@ function renderFilters() {
   topics.forEach((code) => {
     const btn = document.createElement("button");
     btn.textContent = code === "all" ? S.filterAll : getTopicLabel(code, code);
+    // Stable identity for tests and bug reports, same reasoning as
+    // data-exam-type on module rows: the visible label is translated.
+    btn.dataset.topic = code;
     btn.className = state.topicFilter === code ? "active" : "";
     btn.setAttribute("aria-pressed", String(state.topicFilter === code));
     btn.addEventListener("click", () => {

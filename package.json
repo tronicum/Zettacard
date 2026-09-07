@@ -33,6 +33,7 @@
     "qa:i18n:seed": "python3 scripts/i18n_qa/seed_eval.py build-seed",
     "qa:i18n:eval": "python3 scripts/i18n_qa/seed_eval.py run",
     "check:receipts": "python3 scripts/i18n_qa/verify_receipts.py --require high_stakes",
-    "test:hub": "node scripts/test_module_hub.mjs"
+    "test:hub": "node scripts/test_module_hub.mjs",
+    "test:topics": "node scripts/test_topic_split.mjs"
   }
 }
