@@ -8,13 +8,27 @@
   directory = "netlify/functions"
 
 [build]
-  # No build step from Netlify's perspective - app/ is a flat static PWA.
-  # The data/ tree under app/ IS a build artifact, but it's generated ahead
-  # of time by data/build_modules.py (run from the repo root, not by
-  # Netlify) since it derives from the editable master content files, not
-  # from anything Netlify needs to compile. Publish app/ as-is.
+  # app/ is a flat static PWA - no compilation, no bundler. But app/data/ IS a
+  # build artifact of data/build_modules.py, and until 2026-09-07 that script
+  # was run by hand on someone's laptop while Netlify published whatever
+  # happened to be committed. That let two things drift apart silently: a
+  # changed master under data/ that nobody rebuilt, and a built tree assembled
+  # from a partial copy.
+  #
+  # So the build now regenerates and then REFUSES to publish a tree that is
+  # missing a module. check_deploy_preflight.py compares app/data/ against
+  # data/modules_manifest.json, which is what the app fetches to build its
+  # picker - a module listed there and absent from app/data/ is a picker entry
+  # leading nowhere. That check exists because app/data/ is only PARTLY
+  # generated: amateurfunk_a, amateurfunk_e, lksg and waffensachkunde have no
+  # source in the build path and survive only as committed output, so any
+  # partial tree drops four live modules and nothing objects.
+  #
+  # build_modules.py is deliberately NOT `set -e`-fragile here: it only removes
+  # the artefacts it owns (core.json, locales/, course.json, course_locales/)
+  # for the modules in BUILT_MODULES, and leaves everything else alone.
   publish = "app"
-  command = "true"
+  command = "python3 data/build_modules.py && python3 scripts/check_data_integrity.py && python3 scripts/check_deploy_preflight.py"
 
 [[headers]]
   for = "/service-worker.js"

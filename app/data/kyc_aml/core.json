@@ -1,24 +1,31 @@
 {
   "meta": {
-    "app": "Zettacard / kyc-aml-lernmodul",
-    "version": "0.2",
-    "generated": "2026-08-10",
-    "description": "Original MCQs for a German workplace-compliance training module on Know-Your-Customer (KYC) / Anti-Money-Laundering (AML) obligations under the Geldwaeschegesetz (GwG), covering scope of obligated entities (Verpflichtete) and the all-crimes predicate-offense approach under reformed Sec.261 StGB, general customer due diligence duties and EUR thresholds (Sec.10 GwG), suspicious-activity reporting to the FIU and the tipping-off prohibition (Sec.43, Sec.47 GwG), enhanced due diligence for PEPs/high-risk countries/complex transactions (Sec.15 GwG), and administrative fines (Sec.56 GwG) including a real 2025 BaFin enforcement example. Content is independently phrased and grounded directly in GwG/StGB statute text (cross-checked via dejure.org and lxgesetze.de statutory-text mirrors) and BaFin enforcement notices, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module - separate content pool, separate exam simulation from every other module.",
-    "class": "ALL",
-    "canonical_locale": "de",
-    "point_system": "2-5 points per question, matching this app's existing style",
-    "pass_rule_note": "DN-54 (2026-08-10): scaled from a 20-question DE/EN pilot to a 30-question pool (6 per topic) sized for a corporate compliance knowledge-check rather than a driving-exam-length test. Exam Simulation/Training now draws 6 questions per run (one topic gets 2, the other four get 1 each - every run touches all 5 topics), max 4 error points to pass (roughly a \"5 of 6 correct\" bar), auto-fail on 2+ wrong high_stakes questions, 10-minute time limit in Simulation mode. See app/app.js's EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW for the exact per-module config.",
     "legal_review_status": "Reviewed 2026-08-10 via an AI legal-review pass (see BACKLOG.md DN-53 entry) grounded in current GwG/StGB statute text - 18/20 questions confirmed accurate on first pass, 2 corrected (Leichtfertigkeit vs. simple Fahrlässigkeit distinction in §261 Abs. 6 StGB / §56 Abs. 1 GwG, now fixed). Still NOT reviewed by a licensed lawyer or GwG-Compliance-Beauftragter - that human-review gate remains before commercial/production use. Flag: the EU AML Regulation (EU) 2024/1624 (AMLR) applies from 10 July 2027 and will lower the general occasional-transaction threshold from EUR 15,000 to EUR 10,000 among other changes - re-review this module before that date regardless of the normal 12-month renewal cycle. Follow-up (2026-08-10): a second, independent fable-model pre-review-dossier pass re-verified all 20 citations against current statute text with zero new substantive errors found; refined the wording of kyc-aml-verdachtsmeldung-04 (professional-knowledge standard vs. client-intent framing, and softened the GwGMeldV-Immobilien scope claim) - this question remains flagged as the highest-value item for actual attorney review. Full dossier: claude/kyc-aml-pre-review-dossier-2026-08-10.md (Claude Project).",
-    "total_questions": 30,
     "license": "CC BY-NC-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
-    "renewal_months": 12,
-    "renewal_basis": "best_practice",
-    "renewal_note": "Sec. 6 Abs. 2 Nr. 6 GwG requires \"erstmalige und laufende Unterrichtung\" (initial and ongoing instruction/training) of relevant staff, without a fixed numeric interval in the statute text itself; annual refresher is used here as the de facto best-practice standard BaFin supervisory practice operationalizes this into, not a hard statutory number - re-verify before binding compliance claims.",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "description": "Original MCQs for a German workplace-compliance training module on Know-Your-Customer (KYC) / Anti-Money-Laundering (AML) obligations under the Geldwaeschegesetz (GwG), covering scope of obligated entities (Verpflichtete) and the all-crimes predicate-offense approach under reformed Sec.261 StGB, general customer due diligence duties and EUR thresholds (Sec.10 GwG), suspicious-activity reporting to the FIU and the tipping-off prohibition (Sec.43, Sec.47 GwG), enhanced due diligence for PEPs/high-risk countries/complex transactions (Sec.15 GwG), and administrative fines (Sec.56 GwG) including a real 2025 BaFin enforcement example. Content is independently phrased and grounded directly in GwG/StGB statute text (cross-checked via dejure.org and lxgesetze.de statutory-text mirrors) and BaFin enforcement notices, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module - separate content pool, separate exam simulation from every other module.",
+    "generated": "2026-09-06T10:50:47+00:00",
+    "total_questions": 30,
+    "canonical_locale": "de",
+    "exported_from": "zettacard-kb (content master); do not hand-edit this file — edits belong in the KB and are overwritten on the next export",
+    "module_kind": "exam_prep",
     "locales": [
       "de",
-      "en"
+      "en",
+      "uk",
+      "pl",
+      "ar",
+      "zh",
+      "hi",
+      "tr",
+      "fr",
+      "ru",
+      "es",
+      "it",
+      "ro",
+      "bar",
+      "fa"
     ]
   },
   "questions": [
@@ -31,7 +38,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -51,7 +57,6 @@
       "points": 2,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -71,7 +76,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "a"
       ],
@@ -91,7 +95,6 @@
       "points": 2,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -111,7 +114,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "d"
       ],
@@ -131,7 +133,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -151,7 +152,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "a"
       ],
@@ -171,7 +171,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -191,7 +190,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -211,7 +209,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -231,7 +228,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "a"
       ],
@@ -251,7 +247,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -271,7 +266,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "d"
       ],
@@ -291,7 +285,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -311,7 +304,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -331,7 +323,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "a"
       ],
@@ -351,7 +342,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -371,7 +361,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -391,7 +380,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -411,7 +399,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -431,7 +418,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -451,7 +437,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -471,7 +456,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -491,7 +475,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -511,7 +494,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -531,7 +513,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "a"
       ],
@@ -551,7 +532,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "d"
       ],
@@ -571,7 +551,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -591,7 +570,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -611,7 +589,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],

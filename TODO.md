@@ -100,7 +100,57 @@ list so a future session doesn't have to reconstruct it from chat history.
    session's bundled commits have actually been merged/pushed to GitHub
    yet.
 
-10. **zettacard-kb's eventual role: still an open design question, deliberately
+10. **Optimize the deploy workflow — it is entirely manual and undocumented.**
+    Flagged 2026-09-06, after wiring four `fun_translation` modules and finding
+    there was no way to ship them without a human doing it by hand.
+
+    **What exists today.** Nothing deploys on its own. There is no `.github/`
+    directory, `netlify.toml` has `publish = "app"` and `command = "true"`, and
+    the production project (`b244f9b2-e45a-48c0-9f59-0405f587c213`,
+    `www.zettacard.de`) has **no linked Git repo**. So `git push` publishes
+    nothing at all — which is easy to believe it does, and nobody finds out
+    until they check the live site. The current live deploy predates a day's
+    worth of committed content.
+
+    **The evidence it hurts.** The repo root currently holds
+    `zc_deploy.tar.gz`, `zc_deploy_bundle.tar.gz`, `zc_deploy_bundle4.tar.gz`
+    and `app_test_bundle.tar.gz` — four hand-rolled deploy tarballs, none
+    reproducible, none named after what is in them. Item 3 above records
+    production being deployed while staging was skipped, and staging still
+    holding an old question pool. That is the same problem twice.
+
+    **The step that is easy to get wrong.** `app/data/` is a build artifact of
+    `data/build_modules.py`, but only *partly*: the script owns
+    `core.json`/`locales/` for the modules in `BUILT_MODULES` and deliberately
+    leaves everything else alone. `amateurfunk_a`, `amateurfunk_e`, `lksg` and
+    `waffensachkunde` live under `app/data/` with **no source in the repo's
+    build path**. Any deploy assembled from a partial copy of `app/` — a
+    tarball, a staged subset, a fresh checkout that never had them — silently
+    drops four live modules. This was very nearly done on 2026-09-06 and was
+    caught only by listing the directory first.
+
+    **What "optimized" should mean, roughly in order:**
+    - A single documented command, in `package.json` next to the test scripts,
+      that runs `build_modules.py`, asserts no module directory disappeared,
+      runs the checks, and deploys. Not a tarball.
+    - **A preflight that fails loudly** if `app/data/` is missing any directory
+      the previous deploy had. This is the check that would have caught every
+      near-miss so far, and it is a dozen lines.
+    - Staging (`480e3ec6-76f6-414e-a7bc-eb3e661f5816`) first, then production —
+      currently possible and routinely skipped, so make skipping the deliberate
+      act rather than the default.
+    - Decide the Git question properly: either link the repo so pushes deploy,
+      or keep manual deploys and *say so* in `README.md` and `AGENTS.md`, since
+      the present state reads as continuous deployment and is not.
+    - Run `npm run test:journeys` against the built tree as part of it. The
+      journey tests exist as of 2026-09-06 and nothing calls them automatically.
+    - Resolve the four stray tarballs — `.gitignore` them or delete them, but
+      do not leave artifacts that look like a release process.
+
+    Depends on nothing. Blocked by nothing. Cheap, and every content round so
+    far has paid the cost of not having it.
+
+11. **zettacard-kb's eventual role: still an open design question, deliberately
     not decided 2026-08-15 (2:39am, PO explicitly deferred it).** Two framings
     surfaced in conversation, not yet reconciled:
     - Narrow/near-term: zettacard-kb as a place to hold most of Zettacard's

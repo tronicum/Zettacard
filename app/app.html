@@ -82,7 +82,26 @@
              completely unreachable. Restored this element's real class
              (`.header-controls`, same name the 2026-08-11 fix used) with
              a wrap rule in styles.css, plus the html/body overflow-x
-             backstop, rather than reaching for an inline style again. -->
+             backstop, rather than reaching for an inline style again.
+
+             2026-09-06: the 2026-09-02 move fixed the overflow but created a
+             worse failure. With the picker behind ☰, a user who lands in a
+             script they cannot read (picked Persian/Arabic by mistake, or
+             arrived with navigator.language set to one) has NO readable way
+             back: the only route is an unlabelled ☰ whose menu rows are in
+             that same script. Observed recovery path was "clear site data".
+             The overflow reasoning above still holds - what cost ~195px was
+             `.lang-select-wrap`, a pill wrapping a select element sized to
+             hold the longest endonym. (Written out rather than as a literal
+             tag: an earlier revision of this note ended the 2026-09-02
+             comment one paragraph too early, and the tag written literally
+             here then parsed as a REAL select that swallowed the rest of
+             the header and consumed the id="lang-select" open tag below.) A globe + 2-3 char code costs about what
+             the ☰ button costs (~48px), so it fits on the same line at
+             390px and does NOT reintroduce that bug. The glyph is a globe,
+             not text, so it stays findable in any script - which is the
+             whole point. The full picker is now a sheet (#lang-sheet), not
+             a cramped header control, so nothing wide lives in the header. -->
         <button class="theme-toggle" id="menu-btn" aria-label="Menu" aria-expanded="false">☰</button>
         <button class="module-switch-btn" id="module-switch-btn"></button>
         <button class="exam-start-btn" id="exam-start-btn"></button>
@@ -125,6 +144,16 @@
              change listener, state.lang sync) is unchanged - only the DOM
              location moved. -->
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark theme"></button>
+        <!-- 2026-09-06: kept as a SECONDARY path now that #lang-btn +
+             #lang-sheet exist. Not deleted, because #lang-select is read by
+             name elsewhere (its change listener in wireStaticControls(), the
+             value/aria-label sync in render(), and the sibling
+             #detail-lang-select in the question detail view, which has no
+             header of its own to host a globe button). Its hard-coded option
+             list happens to match index.json today but is stale by
+             construction (it needs a hand-edit per locale, and has drifted
+             before), so it is no longer the authoritative picker; treat the
+             sheet as the one users are meant to find. -->
         <div class="lang-select-wrap">
           <span class="lang-icon" aria-hidden="true">🌐</span>
           <select class="lang-select" id="lang-select">
@@ -178,6 +207,63 @@
         <button class="module-switch-btn" id="profile-switch-btn" aria-label="Switch profile"></button>
       </div>
       <button class="back-btn" id="app-menu-close-btn"></button>
+    </div>
+  </div>
+
+  <!-- The globe lives HERE, outside <header>, and that placement is the whole
+       fix - not a styling preference.
+
+       2026-09-06, first attempt: #lang-btn was put in .header-controls beside
+       ☰. It measured right (59px vs ~195px for the old .lang-select-wrap, so
+       no 390px overflow) and it was visible. It was also, on a fresh install,
+       completely unusable, and a browser hit-test is what caught it:
+
+         setInertBehindDialog(true) sets `header.inert = true` whenever ANY
+         dialog is open, and `inert` is INHERITED - a descendant cannot opt
+         back in. So while the storage-consent notice or the first-run module
+         picker is up, every control in the header is dead, the globe with it.
+
+       On a first run both of those appear before anything else. A user who
+       lands in Persian - by picking it, or because navigator.language matched
+       - therefore had to answer a privacy prompt and choose a module, both
+       rendered in a script they cannot read, before the one control that
+       could rescue them became clickable. That is worse than the hamburger it
+       replaced, and no static check finds it: the element is present, styled,
+       correctly sized, and 100% inert.
+
+       So it sits outside <header> and outside <main>, as a fixed-position
+       sibling of the modals, above them in the stacking order and never
+       touched by setInertBehindDialog(). It is reachable from every state the
+       app can be in, which is the only property that makes it a recovery
+       path. renderLangSheetChrome() likewise fills the sheet's own title and
+       close button on open, because render() has not run yet at consent time.
+
+       Hidden only during an exam run (see renderExamQuestion) - you cannot
+       change language mid-exam in the real Theorieprüfung either. -->
+  <button class="lang-btn lang-btn-float" id="lang-btn" aria-label="Language" aria-haspopup="dialog">
+    <span class="lang-btn-globe" aria-hidden="true">🌐</span>
+    <span class="lang-btn-code" id="lang-btn-code">DE</span>
+  </button>
+
+  <!-- Locale sheet (2026-09-06) - the recovery path for a user stranded in
+       a script they cannot read, opened by the header's 🌐 button. Same
+       .exam-modal shell as #app-menu/#course-view on purpose, so it inherits
+       the existing pushState/popstate/inert choreography verbatim (see
+       openLangSheet()/closeLangSheet() in app.js) rather than inventing a
+       second kind of modal.
+
+       Deliberately EMPTY here: the rows are built at runtime from
+       index.json (renderLangSheet() in app.js). index.json is the locale
+       existence gate generated from the KB, and it already carries
+       native_name and dir per locale. Any list hard-coded in this file is
+       stale the moment a locale is added - #lang-select below is the proof:
+       it was written when the app had 12 locales, index.json now lists 18,
+       and every new locale needed a hand-edit in three places. -->
+  <div class="exam-modal" id="lang-sheet" hidden role="dialog" aria-modal="true" aria-labelledby="lang-sheet-title">
+    <div class="exam-modal-card" style="max-width:420px;">
+      <h2 id="lang-sheet-title" tabindex="-1">🌐</h2>
+      <div id="lang-sheet-list"></div>
+      <button class="back-btn" id="lang-sheet-close-btn"></button>
     </div>
   </div>
 

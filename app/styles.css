@@ -205,6 +205,94 @@ h1 {
   line-height: 1;
 }
 
+/* Header globe button (2026-09-06) --------------------------------------
+   The compact, always-visible replacement for .lang-select-wrap in the
+   header. The 2026-09-02 overflow fix (see .header-controls above) was
+   right that a <select> sized to hold "Українська" cannot live in a 390px
+   header - it rendered ~195px off-screen. But hiding the only language
+   control behind ☰ strands anyone who cannot read the current script.
+   This costs roughly what the ☰ button costs (~48px: a globe glyph plus a
+   2-3 character code), so the header still fits on one line, and the full
+   picker moved to #lang-sheet where it has room. flex-shrink:0 + a real
+   min-height keep it a 44px touch target; the code is uppercased so "bar"
+   reads as a code, not a truncated word. */
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 44px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.lang-btn-globe {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-btn-code {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  /* The code is a Latin-script abbreviation and must stay one, whatever
+     direction the document is in - inside dir="rtl" an unmarked run can
+     reorder next to the globe. */
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Locale sheet rows (2026-09-06). Same visual weight as #app-menu-list's
+   rows so the sheet reads as part of the app, not a browser dialog. Each
+   row carries its own dir attribute (set from index.json in
+   renderLangSheet()), so an RTL endonym renders correctly inside this
+   LTR sheet; text-align:start follows that per-row dir. */
+#lang-sheet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 70vh;
+  max-height: 70dvh;
+  overflow-y: auto;
+  margin-bottom: 4px;
+}
+
+.lang-sheet-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  text-align: start;
+  cursor: pointer;
+}
+
+.lang-sheet-row[aria-current="true"] {
+  border-color: var(--accent, var(--text));
+  font-weight: 700;
+}
+
+.lang-sheet-row-name {
+  flex: 1;
+  min-width: 0;
+}
+
+.lang-sheet-row-check {
+  flex-shrink: 0;
+}
+
 .lang-select {
   border: none;
   background: transparent;
@@ -946,6 +1034,10 @@ main {
    off-screen, per the note above) while anchoring short content to the top
    instead of centering it in empty space. */
 #app-menu,
+/* 2026-09-06: #lang-sheet is a screen-like list, same shape as #app-menu -
+   with 18 locales it is taller than the menu, so centering it would push
+   rows off both ends on a short viewport. */
+#lang-sheet,
 /* DN-95 (2026-09-05): the same reasoning extended to the other SCREEN-like
    dialogs. A Playwright audit at 375x667 / 390x844 measured 210-309px of
    empty space both above and below these short cards - on a phone the whole
@@ -1996,3 +2088,22 @@ main {
   padding: 15px 8px;
   margin: -15px -8px;
 }
+
+/* The floating globe. Outside <header> on purpose - see the long comment in
+   app.html. `header.inert = true` is inherited and cannot be undone on a
+   descendant, so a language control inside the header is dead for exactly as
+   long as any dialog is open, which on a first run is before the user has
+   done anything at all. z-index sits above the highest modal layer (40) so it
+   stays hit-testable over the storage-consent notice and the module picker,
+   which are the two screens a stranded user meets first. */
+.lang-btn-float {
+  position: fixed;
+  top: 10px;
+  inset-inline-end: 12px;
+  z-index: 60;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.28);
+}
+
+/* Never over an exam run: no language change mid-Prüfung, same as the real
+   Theorieprüfung. Set by renderExamQuestion()/finishExam(). */
+.lang-btn-float[hidden] { display: none !important; }

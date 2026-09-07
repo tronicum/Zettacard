@@ -1,24 +1,31 @@
 {
   "meta": {
-    "app": "Zettacard / kartellrecht-lernmodul",
-    "version": "0.2",
-    "generated": "2026-08-10",
-    "description": "Original MCQs for a German antitrust/competition-law (Kartellrecht) compliance-training module, covering the cartel prohibition and the market-dominance test (Sec. 1/18 GWB, mirroring Art. 101 TFEU; Sec. 19 GWB's specific abuse-of-dominance categories and Art. 102 TFEU are researched but not yet covered by a dedicated question in this pilot round - flagged as a gap for the next scale-up), hardcore restrictions and real-world risk scenarios (trade-association information exchange, no-poach agreements, non-price cartels), the fine framework and the role of compliance programs in fine mitigation (Sec. 81c/81d GWB), self-cleaning for regaining public-tender eligibility (Sec. 125 GWB), and individual criminal liability for bid-rigging (Sec. 298 StGB) - including three real, named 2025-2026 enforcement examples (German road-construction bid-rigging, EU automotive-recycling cartel, Delivery Hero/Glovo no-poach case). Content is independently phrased and grounded directly in GWB/StGB statute text and primary enforcement sources (Bundeskartellamt press releases, EU Commission press releases), cross-checked via dejure.org and named case sources, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module - separate content pool, separate exam simulation from every other module. Confirmed: unlike the GwG (money-laundering law), there is no statutorily fixed training-frequency mandate for antitrust compliance training.",
-    "class": "ALL",
-    "canonical_locale": "de",
-    "point_system": "3-4 points per question, matching this app's existing style",
-    "pass_rule_note": "DN-54 (2026-08-10): scaled from a 20-question DE/EN pilot to a 30-question pool (6 per topic) sized for a corporate compliance knowledge-check rather than a driving-exam-length test. Exam Simulation/Training now draws 6 questions per run (one topic gets 2, the other four get 1 each - every run touches all 5 topics), max 4 error points to pass (roughly a \"5 of 6 correct\" bar), auto-fail on 2+ wrong high_stakes questions, 10-minute time limit in Simulation mode. See app/app.js's EXAM_QUESTION_COUNT_BY_TYPE / MAX_ERROR_POINTS_BY_TYPE / EXAM_TIME_LIMIT_MS_BY_TYPE / EXAM_TOPIC_DRAW for the exact per-module config.",
     "legal_review_status": "Reviewed 2026-08-10 via an AI legal-review pass (fable model, see BACKLOG.md DN-53 second-module entry), grounded in current GWB/StGB statute text and the three named enforcement sources. 17/20 questions confirmed accurate on first pass. Fixed 2 citation/wording defects that didn't change any answer key: kartellrecht-straftaten-04's legal_basis corrected from the wrong §81b GWB (association-fine liability) to §§81h ff. GWB (the actual Kronzeugenprogramm/Bonusregelung provisions); kartellrecht-selbstreinigung-03's claimed 'schriftlich' (written-form) requirement for §125 Abs. 2 GWB's reasons obligation removed - the statute does not in fact prescribe a specific form. Also fixed a garbled explanation sentence in kartellrecht-kernbeschraenkungen-03 (automotive-recycling cartel: manufacturers agreed among themselves not to advertise recyclability to customers, not 'to each other'). Still NOT reviewed by a licensed lawyer or Kartellrechts-Compliance-Beauftragter - that human-review gate remains before commercial/production use. Follow-up (2026-08-10): a second, independent fable-model pre-review-dossier pass re-verified all 20 citations with zero new substantive errors, but found 2 wording-precision issues (both fixed, no answer-key changes): kartellrecht-selbstreinigung-04 now distinguishes §123 GWB's mandatory exclusion grounds from §124 GWB's facultative ones (cartel offenses typically fall under the discretionary §124 ground, not an automatic §123 exclusion); kartellrecht-selbstreinigung-02 now describes training as part of the combined \"technical, organizational, and personnel measures\" requirement rather than implying a separate formal \"personnel measures\" category. Also corrected the module description's overclaim of Sec. 19 GWB / Art. 102 TFEU coverage (researched but no dedicated question exists yet - flagged for the next round). Full dossier: claude/kartellrecht-pre-review-dossier-2026-08-10.md (Claude Project).",
-    "total_questions": 30,
     "license": "CC BY-NC-SA 4.0",
-    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "license_note": "Attribution-NonCommercial-ShareAlike: free to use, adapt, and redistribute for non-commercial exam-prep purposes, with credit and under the same license. Commercial reuse needs a separate arrangement; non-commercial prep tools/forks are welcome.",
-    "renewal_months": 12,
-    "renewal_basis": "best_practice",
-    "renewal_note": "GWB imposes no fixed statutory training-refresher interval for antitrust compliance (confirmed - Bundeskartellamt's own guidance explicitly declines to prescribe one, scaling expectations to company size/structure/risk instead); annual refresher is used here purely as a de facto best-practice standard analogous to other compliance-training areas, not a hard statutory number.",
+    "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "description": "Original MCQs for a German antitrust/competition-law (Kartellrecht) compliance-training module, covering the cartel prohibition and the market-dominance test (Sec. 1/18 GWB, mirroring Art. 101 TFEU; Sec. 19 GWB's specific abuse-of-dominance categories and Art. 102 TFEU are researched but not yet covered by a dedicated question in this pilot round - flagged as a gap for the next scale-up), hardcore restrictions and real-world risk scenarios (trade-association information exchange, no-poach agreements, non-price cartels), the fine framework and the role of compliance programs in fine mitigation (Sec. 81c/81d GWB), self-cleaning for regaining public-tender eligibility (Sec. 125 GWB), and individual criminal liability for bid-rigging (Sec. 298 StGB) - including three real, named 2025-2026 enforcement examples (German road-construction bid-rigging, EU automotive-recycling cartel, Delivery Hero/Glovo no-poach case). Content is independently phrased and grounded directly in GWB/StGB statute text and primary enforcement sources (Bundeskartellamt press releases, EU Commission press releases), cross-checked via dejure.org and named case sources, NOT sourced or paraphrased from any commercial compliance-training vendor's catalog. This is a fully independent exam module - separate content pool, separate exam simulation from every other module. Confirmed: unlike the GwG (money-laundering law), there is no statutorily fixed training-frequency mandate for antitrust compliance training.",
+    "generated": "2026-09-06T10:50:47+00:00",
+    "total_questions": 30,
+    "canonical_locale": "de",
+    "exported_from": "zettacard-kb (content master); do not hand-edit this file — edits belong in the KB and are overwritten on the next export",
+    "module_kind": "exam_prep",
     "locales": [
       "de",
-      "en"
+      "en",
+      "uk",
+      "pl",
+      "ar",
+      "zh",
+      "hi",
+      "tr",
+      "fr",
+      "ru",
+      "es",
+      "it",
+      "ro",
+      "bar",
+      "fa"
     ]
   },
   "questions": [
@@ -31,7 +38,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -51,7 +57,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -71,7 +76,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -91,7 +95,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -111,7 +114,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -131,7 +133,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -151,7 +152,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -171,7 +171,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -191,7 +190,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -211,7 +209,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -231,7 +228,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -251,7 +247,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -271,7 +266,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "d"
       ],
@@ -291,7 +285,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -311,7 +304,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -331,7 +323,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -351,7 +342,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -371,7 +361,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -391,7 +380,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -411,7 +399,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -431,7 +418,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -451,7 +437,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -471,7 +456,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -491,7 +475,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -511,7 +494,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -531,7 +513,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -551,7 +532,6 @@
       "points": 4,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],
@@ -571,7 +551,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -591,7 +570,6 @@
       "points": 4,
       "high_stakes": true,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "b"
       ],
@@ -611,7 +589,6 @@
       "points": 3,
       "high_stakes": false,
       "question_type": "single_choice",
-      "image_ref": null,
       "correct": [
         "c"
       ],

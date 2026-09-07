@@ -947,15 +947,110 @@ function practiceQuizStrings(lang) {
   return PRACTICE_QUIZ_STRINGS[lang] || PRACTICE_QUIZ_STRINGS.en;
 }
 
-// Languages that read right-to-left - toggled via dir="rtl"/"ltr" on <html>.
-const RTL_LANGS = new Set(["ar", "fa"]);  // fa added 2026-09-06 — Persian is RTL
+// Locale registry (2026-09-06) ------------------------------------------
+//
+// This replaces `const RTL_LANGS = new Set(["ar", "fa"])`. That set was a
+// hand-maintained list of right-to-left languages, and it was wrong the day
+// Persian shipped: `fa` had to be appended by hand on 2026-09-06 after the
+// Persian UI went out rendering left-to-right. Direction is not a fact about
+// this file, it is a property of the language, and index.json - the locale
+// existence gate generated from the KB (ADR-app-0001) - already carries
+// `dir` per locale, alongside `native_name`. So the source of truth is the
+// registry, and the old hard-coded pair survives only as the fallback for
+// the window before index.json has loaded (or if the fetch fails), which is
+// exactly as correct as the old code was and no less.
+//
+// Everything that sets dir on <html> now goes through applyDocDirection();
+// there used to be three separate `setAttribute("dir", RTL_LANGS.has(...))`
+// call sites, which is how one of them could have gone stale unnoticed.
+const RTL_FALLBACK = new Set(["ar", "fa"]);
+
+// Populated by loadLocaleRegistry() at startup; null until then.
+let LOCALE_REGISTRY = null;
+
+function localeEntry(code) {
+  return LOCALE_REGISTRY ? LOCALE_REGISTRY.find((l) => l.code === code) : null;
+}
+
+function langDir(lang) {
+  const dir = localeEntry(lang)?.dir;
+  if (dir === "rtl" || dir === "ltr") return dir;
+  return RTL_FALLBACK.has(lang) ? "rtl" : "ltr";
+}
+
+function applyDocDirection(lang) {
+  // Mirrors layout direction for RTL scripts so reading order is correct
+  // (WCAG 1.3.2) rather than leaving RTL text inside an LTR container.
+  document.documentElement.setAttribute("dir", langDir(lang));
+}
+
+async function loadLocaleRegistry() {
+  try {
+    const data = await fetchJson("index.json");
+    const list = Array.isArray(data?.locales) ? data.locales.filter((l) => l && typeof l.code === "string") : [];
+    if (list.length) LOCALE_REGISTRY = list;
+  } catch (err) {
+    // Non-fatal by design: the app must still start (and must still be able
+    // to switch languages) if index.json is missing or unparseable. See
+    // availableLocales() for what the picker falls back to.
+  }
+  return LOCALE_REGISTRY;
+}
+
+// What the language picker offers. Registry first; if it never loaded, the
+// shipped UI translations are the honest second-best answer - a picker that
+// comes up EMPTY is the one outcome that must not happen here, since this
+// control is the only recovery route for someone stranded in a script they
+// cannot read.
+function availableLocales() {
+  if (LOCALE_REGISTRY && LOCALE_REGISTRY.length) return LOCALE_REGISTRY;
+  return Object.keys(UI_STRINGS).map((code) => ({
+    code,
+    native_name: code.toUpperCase(),
+    dir: RTL_FALLBACK.has(code) ? "rtl" : "ltr",
+  }));
+}
+
+// index.json carries no flag field, and inventing a flag-per-language map
+// here is exactly what the 2026-08-05 UX review rejected (flags are
+// countries, not languages: Arabic has no single flag, English and Chinese
+// span many). But the app already SHIPS a reviewed set of "best
+// representative" picks - the option labels in app.html's #lang-select - so
+// this reads the prefix back out of that existing markup rather than
+// authoring a second mapping. A locale with no option there simply gets no
+// flag; the endonym is the authoritative label either way.
+let langFlagMap = null;
+function langFlagFor(code) {
+  if (langFlagMap === null) {
+    langFlagMap = new Map();
+    const sel = el("#lang-select");
+    if (sel) {
+      for (const opt of sel.options) {
+        const first = (opt.textContent || "").trim().split(/\s+/)[0] || "";
+        // Only take a leading run that isn't letters/digits, i.e. the flag.
+        if (first && !/[\p{Letter}\p{Number}]/u.test(first)) langFlagMap.set(opt.value, first);
+      }
+    }
+  }
+  return langFlagMap.get(code) || "";
+}
 
 // Per-locale word for "Language," used as the select's aria-label - a UX
 // review flagged the previous approach (concatenating all 7 translations
 // into one aria-label, e.g. "Language / Sprache / Мова / ...") as verbose,
 // since a screen reader announces the whole string every time regardless
 // of which language is active. One word in the CURRENT language is enough.
-const LANG_PICKER_LABEL = { de: "Sprache", en: "Language", uk: "Мова", pl: "Język", ar: "اللغة", zh: "语言", hi: "भाषा", tr: "Dil", fr: "Langue", ru: "Язык", es: "Idioma", it: "Lingua" };
+//
+// 2026-09-06: extended from 12 to all 18 locales in index.json. It was
+// written when the app shipped 12 and never grew with the content, so the
+// six later locales - fa/ro/el/hr/pt/bar - silently fell back to the
+// English "Language". That was a cosmetic gap while this only labelled a
+// <select> buried in a menu; it is not one now that the same string is the
+// aria-label of #lang-btn, the control a stranded screen-reader user is
+// meant to find. (This map is UI chrome, not a locale list - index.json
+// remains the existence gate; a locale missing here still appears in the
+// sheet, just with the English word announced.)
+const LANG_PICKER_LABEL = { de: "Sprache", en: "Language", uk: "Мова", pl: "Język", ar: "اللغة", zh: "语言", hi: "भाषा", tr: "Dil", fr: "Langue", ru: "Язык", es: "Idioma", it: "Lingua", fa: "زبان", ro: "Limbă", el: "Γλώσσα", hr: "Jezik", pt: "Idioma", bar: "Sproch" };
 
 // Maps a browser's navigator.language (e.g. "uk-UA", "zh-CN", "pt-BR") to
 // the closest locale this app actually supports, so a first-time visitor
@@ -8072,6 +8167,22 @@ function render() {
     el("#" + id).setAttribute("aria-label", LANG_PICKER_LABEL[state.lang] || "Language");
   });
 
+  // 2026-09-06: the header globe. The VISIBLE part is a globe glyph plus the
+  // bare locale code - deliberately script-independent, because this control
+  // exists for the user who cannot read anything else on screen. The
+  // translated word only goes in aria-label/title, where it helps a screen
+  // reader user without costing header width.
+  const langLabel = LANG_PICKER_LABEL[state.lang] || "Language";
+  const langBtn = el("#lang-btn");
+  if (langBtn) {
+    el("#lang-btn-code").textContent = state.lang;
+    langBtn.setAttribute("aria-label", langLabel);
+    langBtn.title = langLabel;
+  }
+  renderLangSheetChrome();
+  // Keep an OPEN sheet in sync (checkmark/aria-current move with the pick).
+  if (el("#lang-sheet") && !el("#lang-sheet").hidden) renderLangSheet();
+
   const PR = profileStrings(state.lang);
   const profileBtn = el("#profile-switch-btn");
   profileBtn.textContent = `👤 ${currentProfileName()} ▾`;
@@ -8400,9 +8511,11 @@ function renderDetail() {
 async function setLang(lang) {
   state.lang = lang;
   document.documentElement.setAttribute("lang", lang); // keeps AT pronunciation correct (WCAG 3.1.1)
-  // Arabic reads right-to-left - mirrors layout direction for correct reading
-  // order (WCAG 1.3.2) rather than leaving RTL text inside an LTR container.
-  document.documentElement.setAttribute("dir", RTL_LANGS.has(lang) ? "rtl" : "ltr");
+  applyDocDirection(lang);
+  // The consent notice may be open and awaiting an answer - the globe works
+  // while it is up, on purpose. Re-label it so the question is asked in the
+  // language the user just chose.
+  renderStorageConsentStrings();
   try { storageSet(profileKey("lang"), lang); } catch (e) { /* storage unavailable, non-fatal */ }
   // Content is now loaded ONE locale at a time per module (DN-39) rather
   // than all 12 up front, so switching languages mid-session means
@@ -8534,6 +8647,23 @@ function storageConsentStrings(lang) {
 // storage - see that function for why this ordering is what makes this a
 // real gate rather than a decorative overlay on top of an already-running
 // app.
+// Pulled out of ensureStorageConsentDecision() on 2026-09-06 so setLang() can
+// call it again. The notice is the first thing a user sees and it awaits their
+// answer, and the globe is now reachable while it is up - so the language can
+// change underneath an open consent prompt. Before this it did not re-render:
+// someone who used the globe to escape a script they could not read was still
+// being asked for a privacy decision in that script, which defeats the point.
+function renderStorageConsentStrings() {
+  if (!el("#storage-consent-notice")) return;
+  const S = storageConsentStrings(state.lang);
+  el("#storage-consent-title").textContent = S.title;
+  el("#storage-consent-body").textContent = S.body;
+  el("#storage-consent-timeout-note").textContent = S.timeoutNote;
+  el("#storage-consent-yes").textContent = S.yes;
+  el("#storage-consent-no").textContent = S.no;
+  el("#storage-consent-privacy-link").textContent = S.privacyLink;
+}
+
 function ensureStorageConsentDecision() {
   return new Promise((resolve) => {
     if (getStorageConsent() !== null) {
@@ -8549,13 +8679,7 @@ function ensureStorageConsentDecision() {
     // machinery is allowed to run.
     state.lang = detectBrowserLang() || "de";
     const notice = el("#storage-consent-notice");
-    const S = storageConsentStrings(state.lang);
-    el("#storage-consent-title").textContent = S.title;
-    el("#storage-consent-body").textContent = S.body;
-    el("#storage-consent-timeout-note").textContent = S.timeoutNote;
-    el("#storage-consent-yes").textContent = S.yes;
-    el("#storage-consent-no").textContent = S.no;
-    el("#storage-consent-privacy-link").textContent = S.privacyLink;
+    renderStorageConsentStrings();
     notice.hidden = false;
 
     let settled = false;
@@ -8620,6 +8744,96 @@ function closeAppMenu() {
   setInertBehindDialog(false);
 }
 
+// Locale sheet (2026-09-06) - see #lang-sheet's comment in app.html for why
+// the language picker left the ☰ menu. Same open/close choreography as
+// openAppMenu()/closeAppMenu() above, deliberately copied rather than
+// generalised, so the existing pushState/popstate/inert guards apply
+// unchanged.
+function renderLangSheet() {
+  const list = el("#lang-sheet-list");
+  if (!list) return;
+  list.textContent = "";
+  for (const loc of availableLocales()) {
+    const row = document.createElement("button");
+    row.type = "button";
+    row.className = "lang-sheet-row";
+    row.dataset.lang = loc.code;
+    // Per-row dir from the registry, so an RTL endonym ("فارسی") renders
+    // correctly inside this sheet whatever direction the document is in -
+    // and so it keeps rendering correctly when a NEW RTL locale is added to
+    // index.json, with no code change here. That is the whole reason this
+    // is data-driven.
+    row.setAttribute("dir", loc.dir === "rtl" ? "rtl" : "ltr");
+    row.lang = loc.code;
+    const current = loc.code === state.lang;
+    row.setAttribute("aria-current", current ? "true" : "false");
+
+    const flag = langFlagFor(loc.code);
+    if (flag) {
+      const flagEl = document.createElement("span");
+      flagEl.setAttribute("aria-hidden", "true");
+      flagEl.textContent = flag;
+      row.appendChild(flagEl);
+    }
+    const name = document.createElement("span");
+    name.className = "lang-sheet-row-name";
+    // The endonym, NOT a name translated into the current UI language - a
+    // picker that says "Persisch" is useless to precisely the person who
+    // needs this sheet, because they cannot read the language it is in.
+    name.textContent = loc.native_name || loc.english_name || loc.code;
+    row.appendChild(name);
+    const check = document.createElement("span");
+    check.className = "lang-sheet-row-check";
+    check.setAttribute("aria-hidden", "true");
+    check.textContent = current ? "✓" : "";
+    row.appendChild(check);
+
+    row.addEventListener("click", () => {
+      history.back();          // symmetric with the close button / back gesture
+      setLang(loc.code);       // async; render() inside it repaints the header
+    });
+    list.appendChild(row);
+  }
+}
+
+// The sheet's own title and close-button text. Split out of render() on
+// 2026-09-06 and called from openLangSheet() as well, because render() only
+// runs once a module's data has loaded - so on the paths where it has not
+// (data/modules.json unreachable, offline first run, the module picker
+// still up) the sheet used to open with a bare globe for a title and a
+// completely EMPTY close button. Harmless for a settings screen; not
+// harmless for the one control that exists to rescue someone who cannot
+// read the current script, who would then find no visible way out of it.
+function renderLangSheetChrome() {
+  const title = el("#lang-sheet-title");
+  if (!title) return;
+  title.textContent = `🌐 ${LANG_PICKER_LABEL[state.lang] || "Language"}`;
+  el("#lang-sheet-close-btn").textContent = menuStrings(state.lang).close;
+}
+
+function openLangSheet() {
+  renderLangSheetChrome();
+  renderLangSheet();
+  el("#lang-sheet").hidden = false;
+  history.pushState({ view: "lang-sheet" }, "");
+  setInertBehindDialog(true);
+  el("#lang-sheet-title").focus();
+}
+
+function closeLangSheet() {
+  el("#lang-sheet").hidden = true;
+  setInertBehindDialog(false);
+}
+
+// The globe and its sheet are wired SEPARATELY from every other control, and
+// earlier - see wireLangControl()'s comment and init(). Splitting it out is
+// the point: everything below this line may safely wait for consent and for
+// module data; the language control may not.
+function wireLangControl() {
+  el("#lang-btn").addEventListener("click", openLangSheet);
+  el("#lang-sheet-close-btn").addEventListener("click", () => history.back());
+}
+
 function wireStaticControls() {
   el("#lang-select").addEventListener("change", (e) => setLang(e.target.value));
   el("#detail-lang-select").addEventListener("change", (e) => setLang(e.target.value));
@@ -8679,6 +8893,7 @@ function wireStaticControls() {
     if (el("#course-view") && !el("#course-view").hidden) closeCourseView();
     if (el("#kubectl-drill-view") && !el("#kubectl-drill-view").hidden) kdCloseView();
     if (el("#app-menu") && !el("#app-menu").hidden) closeAppMenu();
+    if (el("#lang-sheet") && !el("#lang-sheet").hidden) closeLangSheet();
     if (!el("#profile-view").hidden) closeProfileSwitcher();
     if (!el("#module-picker").hidden) {
       // On first-ever visit the module picker is mandatory (no content is
@@ -8788,7 +9003,7 @@ async function loadActiveProfileState() {
   } catch (e) { /* storage unavailable, defaults are fine */ }
 
   document.documentElement.setAttribute("lang", state.lang);
-  document.documentElement.setAttribute("dir", RTL_LANGS.has(state.lang) ? "rtl" : "ltr");
+  applyDocDirection(state.lang);
 
   let savedExamType = null, savedScopeCode = null;
   try {
@@ -8870,12 +9085,35 @@ async function loadActiveProfileState() {
 }
 
 async function init() {
+  // The locale registry and the globe are set up BEFORE the storage-consent
+  // gate, and that ordering is load-bearing.
+  //
+  // `ensureStorageConsentDecision()` awaits a human answering a privacy
+  // notice, and the first-run module picker follows it. Both are rendered in
+  // whatever locale detectLang() guessed. Wiring the globe after them meant a
+  // user who had guessed wrong - or landed in Persian or Arabic on purpose
+  // and changed their mind - had to answer a privacy prompt and pick a module
+  // in a script they could not read before the one control that could rescue
+  // them responded to a tap. The button was visible and correctly sized the
+  // whole time, which is why nothing static caught it; only a browser
+  // hit-test plus an actual click did.
+  //
+  // So: registry, direction, globe. Then consent. Then everything else.
+  // The registry fetch is one small local file and its failure is already
+  // non-fatal, so awaiting it here costs nothing and lets a right-to-left
+  // locale lay out correctly on the very first paint instead of flipping.
+  await loadLocaleRegistry();
+  document.documentElement.setAttribute("lang", state.lang);
+  applyDocDirection(state.lang);
+  renderLangSheetChrome();
+  wireLangControl();
+
   await ensureStorageConsentDecision();
   consumeFeatureFlagDeepLinks();
   migrateOrInitProfiles();
 
   document.documentElement.setAttribute("lang", state.lang);
-  document.documentElement.setAttribute("dir", RTL_LANGS.has(state.lang) ? "rtl" : "ltr");
+  applyDocDirection(state.lang);
   wireStaticControls();
   renderThemeToggle();
 

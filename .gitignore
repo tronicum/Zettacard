@@ -13,3 +13,11 @@ node_modules/
 # session can't push directly to GitHub) - never repo content, always
 # delivered via SendUserFile/device bridge and then deleted here.
 *.bundle
+
+# API tokens kept as loose files in the repo root. .token_resend was caught by
+# GitHub push protection on 2026-09-07 - it had been sitting in the working
+# tree, untracked by .gitignore, alongside .env/.env.local/*.pem which WERE
+# covered. Pattern rather than the one filename, so the next one is covered
+# before it is written.
+.token_*
+*.token
