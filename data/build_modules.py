@@ -75,6 +75,24 @@ FUN_TRANSLATION_MODULES = (
     "california_us", "uk_gb", "austria_at", "switzerland_ch",
 )
 
+# ADR-app-0002 § 5: per-locale question counts, collected by split_module()
+# as it writes each locale file and folded into app/data/modules.json at the
+# end of main(). {exam_type: {"total": int, "locales": {lang: int}}}.
+#
+# This script already computed the same information - missing_locale_count -
+# and printed it for a human to read, then dropped it on the floor. Meanwhile
+# the app told every user that every module was available in their language,
+# because nothing in the runtime data said otherwise. Both halves of that were
+# a choice made when there were two modules on two locales.
+#
+# It stays DERIVED and never hand-written into modules_manifest.json: a
+# hand-maintained copy of a number that changes with every content round is
+# exactly the failure mode this phase exists to fix, and it would go stale in
+# the direction that lies to the learner (claiming coverage that was removed).
+# A module with no split_module() call here therefore gets no coverage block at
+# all, and app.js says nothing about its languages rather than guessing.
+COVERAGE = {}
+
 BUILT_MODULES = (
     "fuehrerschein", "angelschein", "angelschein_bayern", "angelschein_nrw",
     "motorrad", "lkw", "fuehrerschein_bus",
@@ -150,6 +168,15 @@ def split_module(src_path, exam_type, locales, out_meta_extra=None,
         json.dump(per_locale[loc],
                   open(os.path.join(locales_dir, f"{loc}.json"), "w", encoding="utf-8"),
                   ensure_ascii=False, indent=2)
+
+    # ADR-app-0002 § 5. Counted off per_locale, not off `locales` minus
+    # missing_locale_count, so the number is literally "how many entries are
+    # in the file that just got written" - if the two ever disagree the file
+    # is what the app fetches, and the manifest must describe the file.
+    COVERAGE[exam_type] = {
+        "total": len(core_questions),
+        "locales": {loc: len(per_locale[loc]) for loc in locales},
+    }
 
     return len(core_questions), missing_locale_count
 
@@ -479,6 +506,50 @@ def copy_kubectl_drills(exam_type):
     return True
 
 
+def write_modules_json():
+    """Copy modules_manifest.json out to app/data/modules.json, folding in the
+    per-locale coverage COVERAGE collected during this build (ADR-app-0002 § 5).
+
+    The manifest on disk in data/ stays hand-edited and coverage-free; the
+    runtime copy is the derived one. Two things are checked here rather than
+    left to be noticed by a learner:
+
+      * every module named in COVERAGE must exist in the manifest - a module
+        built but not listed is a module nobody can reach;
+      * a module's `kind` must be one of the four the picker groups by, since
+        an unknown kind would silently drop its row out of every group.
+
+    A manifest module with NO coverage entry is allowed and left alone: those
+    are the four modules (lksg, waffensachkunde, amateurfunk_a/_e) that sit in
+    the manifest with no source file anywhere in data/ - see the recovery notes
+    in main() below. app.js shows no language marker for them.
+    """
+    manifest = json.load(open(os.path.join(HERE, "modules_manifest.json"), encoding="utf-8"))
+    by_type = {m["exam_type"]: m for m in manifest["modules"]}
+
+    unknown = sorted(set(COVERAGE) - set(by_type))
+    if unknown:
+        raise AssertionError(
+            f"built module(s) with no modules_manifest.json entry: {unknown}")
+    for m in manifest["modules"]:
+        kind = m.get("kind")
+        if kind not in ("licence", "compliance", "cert", "compare"):
+            raise AssertionError(
+                f"{m['exam_type']}: kind is {kind!r}; must be one of "
+                "licence/compliance/cert/compare (see the manifest's _comment).")
+
+    for exam_type, cov in COVERAGE.items():
+        by_type[exam_type]["coverage"] = cov
+
+    json.dump(manifest, open(os.path.join(APP_DATA, "modules.json"), "w", encoding="utf-8"),
+              ensure_ascii=False, indent=2)
+
+    uncovered = sorted(t for t in by_type if t not in COVERAGE)
+    if uncovered:
+        print("NOTE: manifest modules with no built content, so no locale "
+              "coverage and no language marker in the picker: " + ", ".join(uncovered))
+
+
 def main():
     # Cleanup used to be an unconditional shutil.rmtree(APP_DATA), which is
     # why BACKLOG.md's 2026-08 content-expansion rounds all record "build_
@@ -516,9 +587,12 @@ def main():
         print("WARNING: app/data/ module directories with no source in data/ "
               "(left untouched, NOT rebuilt): " + ", ".join(unbuilt))
 
-    manifest = json.load(open(os.path.join(HERE, "modules_manifest.json"), encoding="utf-8"))
-    json.dump(manifest, open(os.path.join(APP_DATA, "modules.json"), "w", encoding="utf-8"),
-              ensure_ascii=False, indent=2)
+    # The manifest used to be copied out to app/data/modules.json right here,
+    # before any module was built, because it was a pure copy and the ordering
+    # made no difference. It does now: ADR-app-0002 § 5 has the emitted copy
+    # carry each module's per-locale question counts, which only exist once
+    # split_module() has actually written the locale files. The copy therefore
+    # happens at the END of main(), in write_modules_json() below.
 
     # 2026-09-05: "bar" (Bavarian), "fa" (Persian) and "ro" (Romanian) added for
     # fuehrerschein. NOTE the rmtree() in main(): a locale that exists as a
@@ -798,6 +872,22 @@ def main():
         missing = [q["id"] for q in core["questions"] if q["id"] not in de]
         if missing:
             raise AssertionError(f"{exam_type}: {len(missing)} questions missing DE (canonical) text: {missing[:5]}")
+
+    # ADR-app-0002 § 5: the coverage numbers are only worth writing if they
+    # describe the files actually on disk, so check them against the files
+    # rather than against per_locale's own bookkeeping.
+    for exam_type, cov in COVERAGE.items():
+        for loc, n in cov["locales"].items():
+            path = os.path.join(APP_DATA, exam_type, "locales", f"{loc}.json")
+            actual = len(json.load(open(path, encoding="utf-8")))
+            if actual != n:
+                raise AssertionError(
+                    f"{exam_type}/{loc}: coverage says {n} but {path} holds {actual}")
+            if n > cov["total"]:
+                raise AssertionError(
+                    f"{exam_type}/{loc}: coverage {n} exceeds total {cov['total']}")
+
+    write_modules_json()
     print("Sanity checks passed.")
 
 

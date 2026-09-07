@@ -1,7 +1,9 @@
 {
+  "_comment": "ADR-app-0002 SS 0/2: every module carries exactly one \"kind\", and it is the ONLY per-module presentation fact in this file - the picker's grouping, its group headings, the muted treatment and the \"kein Nachweis\" marker on comparison modules are all derived from it in app.js (see MODULE_KIND_GROUPS / renderModulePicker there). Adding a second hand-written per-module presentation string is the thing this field exists to prevent: the picker was designed for a handful of modules, now lists 29, and any per-module copy would have to be written and translated 29 times and would go stale the way the hand-maintained locale claims did.\n  licence    - a real state exam exists elsewhere; we are exam prep for it.\n  compliance - no official exam anywhere; our completion record IS the proof.\n  cert       - an external professional exam exists (IHK/HWK, CNCF).\n  compare    - confers nothing anywhere; another jurisdiction's rules as a comparison object.\nDELIBERATELY NOT the same field as the KB's module_kind (exam_prep / compliance / fun_translation / ui_strings, data-rules.md SS 3). That one is a LICENSING and AUTHORING fact - it decides what a content round may source from and how it must be identified. This one is a PRESENTATION fact - it decides what a row looks like in one dialog. They agree today on most modules and would still have to be maintained apart: aevo and cka are both module_kind \"exam_prep\" like fuehrerschein, but a learner sorting 29 rows needs them separated from the state-exam set, and a future presentation split (or a KB kind with no picker consequence) must not force a re-licensing review. Merging them would couple a legal decision to a layout one.",
   "modules": [
     {
       "exam_type": "fuehrerschein",
+      "kind": "licence",
       "label": {
         "de": "Führerschein",
         "en": "Driving licence",
@@ -134,6 +136,7 @@
     },
     {
       "exam_type": "motorrad",
+      "kind": "licence",
       "label": {
         "de": "Motorrad",
         "en": "Motorcycle",
@@ -205,6 +208,7 @@
     },
     {
       "exam_type": "lkw",
+      "kind": "licence",
       "label": {
         "de": "LKW",
         "en": "Truck",
@@ -276,6 +280,7 @@
     },
     {
       "exam_type": "angelschein",
+      "kind": "licence",
       "label": {
         "de": "Angelschein",
         "en": "Fishing licence",
@@ -330,6 +335,7 @@
     },
     {
       "exam_type": "datenschutz",
+      "kind": "compliance",
       "label": {
         "de": "Datenschutz",
         "en": "Data protection",
@@ -369,6 +375,7 @@
     },
     {
       "exam_type": "fadp_ch",
+      "kind": "compliance",
       "label": {
         "de": "Schweizer Datenschutz (revDSG)",
         "en": "Swiss data protection (revFADP)",
@@ -408,6 +415,7 @@
     },
     {
       "exam_type": "arbeitssicherheit",
+      "kind": "compliance",
       "label": {
         "de": "Arbeitssicherheit",
         "en": "Occupational safety",
@@ -447,6 +455,7 @@
     },
     {
       "exam_type": "ki_act",
+      "kind": "compliance",
       "label": {
         "de": "KI-Verordnung",
         "en": "AI Act",
@@ -486,6 +495,7 @@
     },
     {
       "exam_type": "it_sicherheit",
+      "kind": "compliance",
       "label": {
         "de": "IT-Sicherheit",
         "en": "IT security",
@@ -525,6 +535,7 @@
     },
     {
       "exam_type": "hinweisgeberschutz",
+      "kind": "compliance",
       "label": {
         "de": "Hinweisgeberschutz",
         "en": "Whistleblower protection",
@@ -564,6 +575,7 @@
     },
     {
       "exam_type": "kyc_aml",
+      "kind": "compliance",
       "label": {
         "de": "Geldwäscheprävention (KYC/AML)",
         "en": "Anti-money laundering (KYC/AML)",
@@ -603,6 +615,7 @@
     },
     {
       "exam_type": "kartellrecht",
+      "kind": "compliance",
       "label": {
         "de": "Kartellrecht (Wettbewerbsrecht)",
         "en": "Antitrust & competition law",
@@ -642,6 +655,7 @@
     },
     {
       "exam_type": "lksg",
+      "kind": "compliance",
       "label": {
         "de": "Lieferkettengesetz (LkSG)",
         "en": "Supply Chain Due Diligence Act (LkSG)",
@@ -680,6 +694,7 @@
     },
     {
       "exam_type": "sportboot_binnen",
+      "kind": "licence",
       "label": {
         "de": "Sportbootführerschein Binnen",
         "en": "Inland powerboat licence",
@@ -718,6 +733,7 @@
     },
     {
       "exam_type": "sportboot_see",
+      "kind": "licence",
       "label": {
         "de": "Sportbootführerschein See",
         "en": "Coastal powerboat licence",
@@ -756,6 +772,7 @@
     },
     {
       "exam_type": "waffensachkunde",
+      "kind": "licence",
       "label": {
         "de": "Waffensachkunde (§7 WaffG)",
         "en": "Firearms expertise (§7 WaffG)",
@@ -794,6 +811,7 @@
     },
     {
       "exam_type": "amateurfunk_e",
+      "kind": "licence",
       "label": {
         "de": "Amateurfunkzeugnis Klasse E",
         "en": "Amateur radio licence Class E",
@@ -832,6 +850,7 @@
     },
     {
       "exam_type": "angelschein_bayern",
+      "kind": "licence",
       "label": {
         "de": "Angelschein Bayern",
         "en": "Fishing licence Bavaria",
@@ -870,6 +889,7 @@
     },
     {
       "exam_type": "angelschein_nrw",
+      "kind": "licence",
       "label": {
         "de": "Angelschein Nordrhein-Westfalen",
         "en": "Fishing licence North Rhine-Westphalia",
@@ -908,6 +928,7 @@
     },
     {
       "exam_type": "amateurfunk_a",
+      "kind": "licence",
       "label": {
         "de": "Amateurfunk Klasse A",
         "en": "Amateur radio Class A",
@@ -946,6 +967,7 @@
     },
     {
       "exam_type": "fuehrerschein_bus",
+      "kind": "licence",
       "label": {
         "de": "Führerschein Bus",
         "en": "Bus driving licence",
@@ -1034,6 +1056,7 @@
     },
     {
       "exam_type": "dora",
+      "kind": "compliance",
       "label": {
         "de": "DORA (Digitale operationale Resilienz)",
         "en": "Digital Operational Resilience Act (DORA)",
@@ -1073,6 +1096,7 @@
     },
     {
       "exam_type": "nis2",
+      "kind": "compliance",
       "label": {
         "de": "NIS2 (Cybersicherheit kritischer Einrichtungen)",
         "en": "NIS2 (Cybersecurity Directive)",
@@ -1112,6 +1136,7 @@
     },
     {
       "exam_type": "cka",
+      "kind": "cert",
       "label": {
         "de": "CKA (Kubernetes-Grundlagen)",
         "en": "CKA (Kubernetes fundamentals)",
@@ -1187,6 +1212,7 @@
     },
     {
       "exam_type": "aevo",
+      "kind": "cert",
       "label": {
         "de": "Ausbildereignung (AEVO)",
         "en": "Trainer aptitude (AEVO)",
@@ -1227,6 +1253,7 @@
     },
     {
       "exam_type": "california_us",
+      "kind": "compare",
       "label": {
         "de": "Verkehrsregeln Kalifornien (Fun-Modul)",
         "en": "Road rules of California (fun module)",
@@ -1301,6 +1328,7 @@
     },
     {
       "exam_type": "uk_gb",
+      "kind": "compare",
       "label": {
         "de": "Verkehrsregeln Vereinigtes Königreich (Fun-Modul)",
         "en": "Road rules of the United Kingdom (fun module)",
@@ -1375,6 +1403,7 @@
     },
     {
       "exam_type": "austria_at",
+      "kind": "compare",
       "label": {
         "de": "Verkehrsregeln Österreich (Fun-Modul)",
         "en": "Road rules of Austria (fun module)",
@@ -1449,6 +1478,7 @@
     },
     {
       "exam_type": "switzerland_ch",
+      "kind": "compare",
       "label": {
         "de": "Verkehrsregeln Schweiz (Fun-Modul)",
         "en": "Road rules of Switzerland (fun module)",

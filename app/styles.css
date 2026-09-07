@@ -1118,6 +1118,59 @@ main {
   font-size: 0.95rem;
 }
 
+/* ADR-app-0002 §§ 2/5 - module picker grouping and honest language coverage.
+   The group HEADINGS reuse .sign-ref-category (the same list-of-choices
+   heading the course dialog already borrows), so this adds only what is
+   genuinely new: the secondary line on a row, and the muted treatment for the
+   comparison group. */
+
+/* Second line under a module name: "kein Nachweis", "Nur auf Deutsch und
+   English", "Ελληνικά: 118 von 531". Dim and small on purpose - a module the
+   user CAN read says nothing at all here, so anything that does appear is
+   information they need, not decoration to scan past. */
+.module-row-note {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* The `compare` group (California/UK/Austria/Switzerland): these confer
+   nothing anywhere, so their rows must not look like the 25 above them that
+   lead to a real exam or a real record. Muted rather than hidden - the person
+   who came to read another country's rules should still find them - and the
+   dashed border carries the distinction independently of the opacity, so it
+   survives a high-contrast or forced-colors rendering where opacity alone
+   would not. The "kein Nachweis" marker in .module-row-note is the part that
+   does not rely on seeing anything at all. */
+.exam-mode-btn.module-row-muted {
+  border-style: dashed;
+  /* Unfilled, unlike every row above it. The dashed border alone was not
+     enough at --border's (deliberately low) contrast - checked in a browser
+     at 390px, where the four rows still read as part of the same stack. */
+  background: transparent;
+  opacity: 0.78;
+}
+
+.exam-mode-btn.module-row-muted:hover,
+.exam-mode-btn.module-row-muted:focus-visible {
+  opacity: 1;
+}
+
+/* One line above the first question when the questions are not in the
+   language the user picked. Neutral, not amber: nothing is wrong and nothing
+   needs fixing by the learner - they are being told which language they are
+   about to read, once, instead of finding out by reading it. */
+.content-lang-notice {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
 /* Module intro wizard (DN-43) */
 .intro-dots {
   display: flex;
@@ -2107,3 +2160,12 @@ main {
 /* Never over an exam run: no language change mid-Prüfung, same as the real
    Theorieprüfung. Set by renderExamQuestion()/finishExam(). */
 .lang-btn-float[hidden] { display: none !important; }
+
+/* Phase 3.1 (2026-09-07): completed-lesson marker in the course list.
+   Deliberately just the existing "correct/pass" accent on the meta line -
+   no progress bar, no separate badge chrome - so a completed lesson reads
+   as done at a glance without turning the list into a dashboard. */
+.course-lesson-done {
+  color: var(--green);
+  font-weight: 600;
+}
