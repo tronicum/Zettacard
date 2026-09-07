@@ -1,0 +1,46 @@
+import { createRequire } from 'module';
+const require = createRequire(process.env.HOME + '/mnt/Zettacard/package.json');
+const { chromium } = require('playwright');
+import http from 'http'; import fs from 'fs'; import path from 'path';
+const ROOT=process.env.HOME+'/mnt/Zettacard/app';
+const MIME={'.html':'text/html','.js':'text/javascript','.json':'application/json','.css':'text/css','.svg':'image/svg+xml','.png':'image/png','.webmanifest':'application/manifest+json','.ico':'image/x-icon'};
+const srv=http.createServer((q,r)=>{let p=decodeURIComponent(q.url.split('?')[0]);if(p==='/')p='/app.html';const f=path.join(ROOT,p);if(!f.startsWith(ROOT)||!fs.existsSync(f)||fs.statSync(f).isDirectory()){r.writeHead(404);return r.end('nf');}r.writeHead(200,{'content-type':MIME[path.extname(f)]||'application/octet-stream'});fs.createReadStream(f).pipe(r);});
+await new Promise(r=>srv.listen(8803,r));
+const b=await chromium.launch();
+const ctx=await b.newContext({locale:'de-DE'});
+const page=await ctx.newPage();
+const log=(...a)=>console.log(...a);
+await page.goto('http://localhost:8803/app.html',{waitUntil:'networkidle'});
+log('1 loaded');
+const c=page.locator('#storage-consent-yes');
+log('  consent count',await c.count(),'visible',await c.count()?await c.isVisible():'-');
+if (await c.count() && await c.isVisible()){await c.click();log('2 consent accepted');}
+await page.waitForTimeout(600);
+const mp=page.locator('#module-picker');
+log('3 module-picker visible:',await mp.isVisible());
+const btns=await page.locator('#module-picker button:visible').allInnerTexts();
+log('   buttons:',JSON.stringify(btns.slice(0,6)));
+await page.locator('#module-picker').getByRole('button',{name:'Führerschein'}).first().click();
+await page.waitForTimeout(700);
+log('4 after module click; picker visible:',await mp.isVisible());
+const sc=await page.locator('#module-picker .exam-mode-btn:visible').allInnerTexts();
+log('   scope opts:',JSON.stringify(sc));
+if (sc.length){await page.locator('#module-picker .exam-mode-btn:visible').first().click();await page.waitForTimeout(800);}
+log('5 picker visible now:',await mp.isVisible());
+for(let i=0;i<5;i++){const s=page.locator('#module-intro-skip');
+  if(!(await s.count())||!(await s.isVisible()))break;
+  await s.click();await page.waitForTimeout(250);log('   skipped intro',i);}
+const esb=page.locator('#exam-start-btn');
+log('6 exam-start visible:',await esb.isVisible(),'text:',JSON.stringify((await esb.innerText()).trim()));
+await esb.click();
+await page.locator('#exam-picker').waitFor({state:'visible',timeout:8000});
+log('7 exam picker open');
+await page.locator('#exam-pick-training').click();
+await page.locator('#exam-view').waitFor({state:'visible',timeout:8000});
+log('8 exam view open');
+const ids=await page.evaluate(()=>(typeof state!=='undefined'&&state.exam&&state.exam.questions||[]).map(q=>q.id));
+log('9 drew',ids.length,'ids:',ids.slice(0,5));
+const keys=await page.evaluate(()=>[...document.querySelectorAll('#exam-options .option')].map(o=>o.dataset.key));
+log('10 option keys:',keys);
+log('11 question:',JSON.stringify((await page.locator('#exam-question').innerText()).slice(0,80)));
+await b.close();srv.close();

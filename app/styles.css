@@ -1,4 +1,14 @@
 :root {
+  /* DN-95 (2026-09-05): single source of truth for the minimum comfortable
+     touch target. The codebase already used a bare `44px` min-height in
+     several places (language select, .filters buttons, etc.); a Playwright
+     audit at 375x667 and 390x844 found the controls below had been missed
+     and were sitting at 30-31px tall. 44px is Apple's HIG figure and WCAG
+     2.2 SC 2.5.5 (AAA); SC 2.5.8 (AA) only requires 24px, so this is the
+     project's own stricter bar rather than a legal minimum.
+     Deliberately NOT applied to .role-filters button, which is a secondary
+     filter row intentionally kept denser at 40px. */
+  --tap-min: 44px;
   --bg: #0b1220;
   --card: #141c2e;
   --card-hover: #1b2540;
@@ -73,8 +83,18 @@
   outline-offset: 2px;
 }
 
+html,
+body {
+  /* Belt-and-braces backstop from the 2026-08-11 mobile header fix so a
+     future unwrapped flex row (like the 2026-09-02 regression this was
+     re-added for) can't drag the whole page sideways again, even if its
+     own wrap rule is missed. */
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
+  max-width: 100vw;
   background: var(--bg);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -118,8 +138,28 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 8px;
   gap: 12px;
   margin-bottom: 12px;
+}
+
+/* 2026-09-02: restores the 2026-08-11 fix's class + wrap rule for the
+   header's right-hand control cluster (menu / change-exam / exam / theme
+   / language) - it had regressed back to a plain unwrapped inline
+   `style="display:flex; gap:8px;"` (see the comment in app.html above
+   this row), which on a narrow phone pushed the language picker ~195px
+   past the right edge of the screen instead of wrapping onto its own
+   line, exactly like the original bug this class was created to fix. */
+.header-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  row-gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 h1 {
@@ -165,6 +205,94 @@ h1 {
   line-height: 1;
 }
 
+/* Header globe button (2026-09-06) --------------------------------------
+   The compact, always-visible replacement for .lang-select-wrap in the
+   header. The 2026-09-02 overflow fix (see .header-controls above) was
+   right that a <select> sized to hold "Українська" cannot live in a 390px
+   header - it rendered ~195px off-screen. But hiding the only language
+   control behind ☰ strands anyone who cannot read the current script.
+   This costs roughly what the ☰ button costs (~48px: a globe glyph plus a
+   2-3 character code), so the header still fits on one line, and the full
+   picker moved to #lang-sheet where it has room. flex-shrink:0 + a real
+   min-height keep it a 44px touch target; the code is uppercased so "bar"
+   reads as a code, not a truncated word. */
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 44px;
+  padding: 0 8px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.lang-btn-globe {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.lang-btn-code {
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  /* The code is a Latin-script abbreviation and must stay one, whatever
+     direction the document is in - inside dir="rtl" an unmarked run can
+     reorder next to the globe. */
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+/* Locale sheet rows (2026-09-06). Same visual weight as #app-menu-list's
+   rows so the sheet reads as part of the app, not a browser dialog. Each
+   row carries its own dir attribute (set from index.json in
+   renderLangSheet()), so an RTL endonym renders correctly inside this
+   LTR sheet; text-align:start follows that per-row dir. */
+#lang-sheet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 70vh;
+  max-height: 70dvh;
+  overflow-y: auto;
+  margin-bottom: 4px;
+}
+
+.lang-sheet-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  text-align: start;
+  cursor: pointer;
+}
+
+.lang-sheet-row[aria-current="true"] {
+  border-color: var(--accent, var(--text));
+  font-weight: 700;
+}
+
+.lang-sheet-row-name {
+  flex: 1;
+  min-width: 0;
+}
+
+.lang-sheet-row-check {
+  flex-shrink: 0;
+}
+
 .lang-select {
   border: none;
   background: transparent;
@@ -179,10 +307,17 @@ h1 {
   flex-shrink: 0;
 }
 
+/* 2026-09-02: this used to be overflow-x:auto (a horizontal scroller), the
+   same "chip carousel" pattern apps like Twitter/YouTube use for category
+   filters. On a portrait phone that reads as a bug, not a pattern - a
+   sideways-scrolling strip on a page that only scrolls vertically, with no
+   visual hint more chips exist off to the right. Wrapping instead costs
+   vertical space when there are many topics, but nothing is ever reachable
+   only by a horizontal gesture. */
 .filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-  overflow-x: auto;
   padding-bottom: 2px;
 }
 
@@ -617,6 +752,12 @@ main {
   padding: 7px 12px;
   font-size: 0.82rem;
   font-weight: 600;
+  min-height: var(--tap-min);
+  /* min-height on a plain button leaves the label top-aligned in the taller
+     box; inline-flex centring keeps it visually identical to before. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
@@ -633,11 +774,30 @@ main {
   padding: 7px 10px;
   font-size: 0.78rem;
   font-weight: 600;
+  min-height: var(--tap-min);
   cursor: pointer;
   max-width: 160px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* 2026-09-02: a long module/class name (e.g. "Motorcycle - Class A1 (up to
+   125cc)") hit the 160px cap above and got chopped mid-word ("Motorcycle -
+   Clas..."), unreadable. .header-controls already wraps (see the 2026-09-02
+   overflow fix above), so instead of truncating, let this button wrap onto
+   its own row whenever it doesn't fit next to the icon controls - no fixed
+   px breakpoint (a hardcoded number like 480px is wrong for whatever the
+   window/device actually is; this reacts to the real available space via
+   flex-wrap instead of guessing a screen width). */
+.header-controls > .module-switch-btn {
+  order: 3;
+  flex: 1 1 100%;
+  max-width: none;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  text-align: left;
 }
 
 /* Spaced repetition / Leitner review mode (DN-16) ------------------- */
@@ -695,13 +855,18 @@ main {
   gap: 8px;
   text-align: left;
   max-height: 60vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 60dvh;
   overflow-y: auto;
   margin-bottom: 4px;
 }
 
 #app-menu-list > .module-switch-btn,
 #app-menu-list > .review-btn,
-#app-menu-list > .offline-prep-wrap {
+#app-menu-list > .offline-prep-wrap,
+#app-menu-list > .theme-toggle,
+#app-menu-list > .lang-select-wrap {
   width: 100%;
   max-width: none;
   white-space: normal;
@@ -711,6 +876,31 @@ main {
   padding: 12px 14px;
   font-size: 0.9rem;
   border-radius: 10px;
+}
+
+/* 2026-09-02: .theme-toggle's base rule (further down this file) is a
+   compact 44x44 circular icon button meant for the header - here it's a
+   full list row with a text label (see renderThemeToggle() in app.js),
+   so it needs the same left-aligned/auto-height treatment as every other
+   #app-menu-list row instead of a centered fixed-size circle. */
+#app-menu-list > .theme-toggle {
+  height: auto;
+  justify-content: flex-start;
+  gap: 8px;
+  background: transparent;
+}
+
+/* .lang-select-wrap's base rule is a compact pill sized for the header;
+   here it gets the same card-row treatment as its siblings, and the
+   select inside is allowed to grow instead of clipping at 120px, since a
+   full-width row has plenty of room to show the whole language name. */
+#app-menu-list > .lang-select-wrap {
+  border-radius: 10px;
+}
+
+#app-menu-list > .lang-select-wrap > .lang-select {
+  flex: 1;
+  max-width: none;
 }
 
 #app-menu-list > .offline-prep-wrap {
@@ -725,6 +915,20 @@ main {
   border: none;
   padding: 0;
   width: auto;
+  /* 2026-09-02: this selector never reset the base `.module-switch-btn`
+     rule's compact-pill sizing (max-width:160px; overflow:hidden;
+     text-overflow:ellipsis; white-space:nowrap) the way the sibling
+     selector list two rules up does for every OTHER row in this menu
+     (#app-menu-list > .module-switch-btn/.review-btn/.offline-prep-wrap)
+     - this button is one level deeper (wrapped in .offline-prep-wrap) so
+     it never matched that reset. Result: every other menu row wraps at
+     full width, but this one alone stayed clipped to 160px with an
+     ellipsis ("Make available offl...") - the visibly "off" row a user
+     would notice in an otherwise uniform list. */
+  max-width: none;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
 }
 
 #app-menu-list > .offline-prep-wrap > .offline-prep-status {
@@ -819,6 +1023,40 @@ main {
   align-items: safe center;
   justify-content: center;
   padding: 20px;
+}
+
+/* 2026-09-02: #app-menu (the hamburger menu) shares .exam-modal with the
+   module-picker above, so it inherited that same vertical centering. The
+   module-picker needs it (a long module list). The ☰ menu's list is short,
+   so centering it leaves large empty margins above and below on a tall
+   phone screen and reads as "floating" rather than an anchored menu.
+   flex-start keeps the same safe-scroll behavior (nothing can be pushed
+   off-screen, per the note above) while anchoring short content to the top
+   instead of centering it in empty space. */
+#app-menu,
+/* 2026-09-06: #lang-sheet is a screen-like list, same shape as #app-menu -
+   with 18 locales it is taller than the menu, so centering it would push
+   rows off both ends on a short viewport. */
+#lang-sheet,
+/* DN-95 (2026-09-05): the same reasoning extended to the other SCREEN-like
+   dialogs. A Playwright audit at 375x667 / 390x844 measured 210-309px of
+   empty space both above and below these short cards - on a phone the whole
+   interaction sat in a narrow band floating in the middle of the display.
+   These are full-screen views rather than decisions, so they anchor to the
+   top like the menu does.
+   Deliberately NOT extended to #module-picker (its module list is long and
+   genuinely needs `safe center`, per the note above) nor to the short
+   decision dialogs (#module-intro and the exam-mode chooser), where a
+   centred card is the right affordance for "pick one and move on".
+   `safe` flex-start keeps the anti-trapping behaviour described above. */
+#certificates-view,
+#profile-view,
+#sign-reference-view,
+#primers-view,
+#primer-reader,
+#course-view,
+#course-reader {
+  align-items: safe flex-start;
 }
 
 .exam-modal-card {
@@ -936,6 +1174,9 @@ main {
   font-size: 0.92rem;
   line-height: 1.55;
   max-height: 50vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 50dvh;
   overflow-y: auto;
 }
 
@@ -964,6 +1205,9 @@ main {
 #course-list {
   text-align: left;
   max-height: 55vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 55dvh;
   overflow-y: auto;
 }
 
@@ -1078,6 +1322,9 @@ main {
   max-width: 520px;
   height: auto;
   max-height: 46vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 46dvh;
   object-fit: contain;
   display: block;
   margin: 0 auto;
@@ -1172,6 +1419,9 @@ main {
 #profile-list {
   text-align: left;
   max-height: 45vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 45dvh;
   overflow-y: auto;
 }
 
@@ -1213,6 +1463,9 @@ main {
 #certificates-list {
   text-align: left;
   max-height: 55vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 55dvh;
   overflow-y: auto;
 }
 
@@ -1399,6 +1652,9 @@ main {
 #sign-reference-list {
   text-align: left;
   max-height: 60vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 60dvh;
   overflow-y: auto;
 }
 
@@ -1672,6 +1928,9 @@ main {
   font-size: 0.85rem;
   line-height: 1.55;
   max-height: 40vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 40dvh;
   overflow-y: auto;
   white-space: pre-wrap;
   word-break: break-word;
@@ -1730,3 +1989,121 @@ main {
   color: var(--green);
   border-color: var(--green);
 }
+
+/* DN-89: storage-consent notice - a floating, non-modal card (unlike
+   .exam-modal above, this deliberately does NOT cover/dim the whole
+   screen - the app underneath stays visible and interactive; only the
+   PERSISTING of state is gated, not reading the app itself). Positioned
+   as a bottom sheet on narrow screens and a corner card on wide ones,
+   similar in spirit to a standard cookie-notice pattern but honestly
+   labeled as local-storage rather than cookies (see app.js's comment on
+   STORAGE_CONSENT_STRINGS for why). */
+.storage-consent-notice {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.storage-consent-notice[hidden] {
+  display: none;
+}
+
+.storage-consent-card {
+  max-width: 480px;
+  width: 100%;
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+.storage-consent-card h2 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+.storage-consent-card p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.storage-consent-timeout-note {
+  font-size: 0.78rem !important;
+}
+
+.storage-consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.storage-consent-btn {
+  flex: 1 1 auto;
+  min-width: 140px;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 8px;
+  /* DN-95 (2026-09-05): measured at 38px tall on both iPhone SE and 14.
+     This is the DN-89 storage-consent gate - the very first thing every
+     visitor touches, before they have seen anything else - so it is the
+     worst place in the app to have an undersized target. */
+  min-height: var(--tap-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.storage-consent-yes {
+  border: none;
+  background: var(--accent, #2c4a86);
+  color: #fff;
+}
+
+.storage-consent-no {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.storage-consent-privacy-link {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  text-decoration: underline;
+  /* DN-95: measured 80x15. Padding rather than min-height keeps the
+     underline hugging the text (a 44px-tall underlined link looks broken)
+     while giving the tap area real vertical room. */
+  padding: 15px 8px;
+  margin: -15px -8px;
+}
+
+/* The floating globe. Outside <header> on purpose - see the long comment in
+   app.html. `header.inert = true` is inherited and cannot be undone on a
+   descendant, so a language control inside the header is dead for exactly as
+   long as any dialog is open, which on a first run is before the user has
+   done anything at all. z-index sits above the highest modal layer (40) so it
+   stays hit-testable over the storage-consent notice and the module picker,
+   which are the two screens a stranded user meets first. */
+.lang-btn-float {
+  position: fixed;
+  top: 10px;
+  inset-inline-end: 12px;
+  z-index: 60;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.28);
+}
+
+/* Never over an exam run: no language change mid-Prüfung, same as the real
+   Theorieprüfung. Set by renderExamQuestion()/finishExam(). */
+.lang-btn-float[hidden] { display: none !important; }

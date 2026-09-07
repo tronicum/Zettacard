@@ -1,0 +1,92 @@
+name: CI
+
+# Tiers 0 and 1 only - the deterministic half.
+#
+# scripts/i18n_qa/README.md draws the line and this file honours it: the
+# source-hash staleness ledger and the structural lint GATE a pull request,
+# because they are deterministic and catch what they catch with zero false
+# positives. The embedding pre-filter and the LLM judge (Tiers 2 and 3) never
+# gate anything - they open review items, they run on our own hardware, and a
+# model's opinion must not be able to block a merge.
+#
+# Netlify runs the deploy build separately, from the repo, on push. This
+# workflow is about refusing to merge something broken in the first place.
+
+on:
+  pull_request:
+  push:
+    branches: [main, staging]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # The app is a flat static PWA with no bundler; node_modules exists only
+      # for the Netlify function deps and for Playwright. `npm ci` needs the
+      # lockfile, which is committed.
+      - name: Install
+        run: npm ci
+
+      # A syntax error in a 700KB single-file app is not theoretical - app.js
+      # is edited by hand and by agents, and this is the cheapest possible
+      # guard.
+      - name: Syntax check app.js
+        run: node --check app/app.js
+
+      - name: Data integrity (Tier 1)
+        run: python3 scripts/check_data_integrity.py
+
+      - name: Translation staleness ledger (Tier 0)
+        run: python3 scripts/translation_ledger.py check
+
+      # Rebuild from the masters and prove no module vanished. This is the
+      # check that would have caught every deploy near-miss so far; see the
+      # docstring in check_deploy_preflight.py for the two that nearly landed.
+      - name: Rebuild app/data and run the deploy preflight
+        run: |
+          python3 data/build_modules.py
+          python3 scripts/check_deploy_preflight.py
+
+      # A rebuild that changes committed output means someone edited a master
+      # without rebuilding, and Netlify would publish something the repo does
+      # not show. Fail loudly rather than let the two drift.
+      - name: Built tree matches what is committed
+        run: |
+          if ! git diff --quiet -- app/data; then
+            echo "::error::app/data differs after rebuild - a master under data/ was changed without running data/build_modules.py"
+            git diff --stat -- app/data
+            exit 1
+          fi
+
+  journeys:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+
+      # Six user journeys - learning, walking around, an exam, results, stars,
+      # a language switch. Written 2026-09-06 against the principle that if a
+      # person has to click it, the test clicks it: page.evaluate only ever
+      # READS state. That rule exists because a shipped language-switch bug
+      # survived three test runs that set state directly instead.
+      - name: User journeys
+        run: |
+          npm run serve &
+          sleep 3
+          npm run test:journeys -- http://localhost:8000

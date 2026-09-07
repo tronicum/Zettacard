@@ -1,0 +1,46 @@
+<!--
+  Zettacard logo - scalable master.
+
+  Concept: "Zettacard" = Zettel (German for a note/index-slip/flashcard) +
+  card. The mark is literally a flashcard: a rounded index card with a
+  dog-eared top-right corner (the classic "slip of paper" cue), two dim
+  "note text" lines, and a bold checkmark - the same green used for
+  correct-answer feedback in the app itself - striking across the bottom,
+  read as "check your knowledge with flashcards." No illustration, just
+  flat geometric shapes, so it still reads clearly at 32x32 favicon size.
+
+  Colors are inlined as the literal hex values from app/styles.css's
+  root (dark theme) block, since favicons/app icons are rasterized/used
+  outside any page that could supply CSS custom properties:
+    background tile ....... accent      #3968d8
+    fold crease ............ accent-dim #2c4a86
+    card face .............. text       #eef1f8
+    note lines ............. text-dim   #9aa5bd
+    checkmark .............. green      #3fbf76
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Zettacard logo">
+  <!-- background tile (also serves as the maskable-icon safe background) -->
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="#3968d8"/>
+
+  <!-- the card itself, with its top-right corner cut away for a dog-ear fold -->
+  <path d="M14 13
+           a4 4 0 0 1 4 -4
+           h20
+           l12 12
+           v30
+           a4 4 0 0 1 -4 4
+           h-28
+           a4 4 0 0 1 -4 -4
+           z" fill="#eef1f8"/>
+  <!-- fold crease line, closing off the dog-ear triangle cut from the card -->
+  <path d="M38 9 L50 21 L38 21 Z" fill="#3968d8"/>
+  <line x1="38" y1="9" x2="50" y2="21" stroke="#2c4a86" stroke-width="1.5"/>
+
+  <!-- note-text lines -->
+  <rect x="20" y="21" width="18" height="3" rx="1.5" fill="#9aa5bd"/>
+  <rect x="20" y="28" width="13" height="3" rx="1.5" fill="#9aa5bd"/>
+
+  <!-- checkmark: same green the app uses for a correct answer -->
+  <path d="M20 41 L27 48 L44 29" fill="none" stroke="#3fbf76" stroke-width="5"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

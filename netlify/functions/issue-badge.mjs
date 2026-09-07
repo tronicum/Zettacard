@@ -56,6 +56,8 @@ import crypto from "node:crypto";
 import { importJWK, SignJWT } from "jose";
 import { getStore } from "@netlify/blobs";
 import { hashIdentity } from "./lib/identity-hash.mjs";
+import { MODULE_ACHIEVEMENTS } from "./lib/module-achievements.mjs";
+import { buildLinkedInAddUrl } from "./lib/linkedin.mjs";
 
 const ALG = "ES256";
 // Same issuer identity/JWKS as sign-credential.js - see that file's
@@ -78,9 +80,13 @@ const BLOBS_STORE_NAME = "test-badges";
 // app/assets/badges/test-badge.svg's *contents* for the real art when it
 // exists; the path/URL below can stay the same, so no code change is
 // needed to pick up new artwork for badges issued after the swap.
-// TODO once this endpoint issues more than one achievement type: replace
-// this single hardcoded path with a per-achievement slug -> image lookup.
+// 2026-09-03: this is now only the FALLBACK image, used when the caller
+// doesn't supply a `moduleType` (see MODULE_ACHIEVEMENTS in
+// ./lib/module-achievements.mjs for the per-module images that replace it
+// when one is given).
 const ACHIEVEMENT_IMAGE_PATH = "/assets/badges/test-badge.svg";
+
+const ALLOWED_MODULE_TYPES = Object.keys(MODULE_ACHIEVEMENTS);
 
 const MAX_NAME_LEN = 200;
 const MAX_ACHIEVEMENT_NAME_LEN = 200;
@@ -104,11 +110,22 @@ function jsonResponse(statusCode, body) {
 // validateCompletionPayload's style in sign-credential.js: explicit,
 // individually-messaged 400 rejections, no silent coercion of bad input
 // into "close enough" values.
+//
+// 2026-09-03: gained the optional `moduleType` field. Resolution order,
+// per field, is: an explicitly-supplied achievementName/achievementDescription
+// wins over MODULE_ACHIEVEMENTS[moduleType]'s corresponding value, which
+// wins over the old hardcoded default (there is no hardcoded default for
+// achievementName/achievementDescription any more - see below - so in
+// practice this is "explicit value, else the module's value"). This keeps
+// today's existing validation behavior for a caller that supplies neither
+// moduleType nor achievementName: it was already required before this
+// change, so a request with neither still needs to supply
+// achievementName+achievementDescription directly, exactly as before.
 function validateIssueBadgePayload(payload) {
   if (!payload || typeof payload !== "object") {
     return { ok: false, error: "Request body must be a JSON object." };
   }
-  const { name, email, achievementName, achievementDescription, test } = payload;
+  const { name, email, achievementName, achievementDescription, moduleType, test } = payload;
 
   // `test` must be exactly boolean true - this endpoint issues ONLY test
   // badges for now, so a missing/falsy/truthy-but-not-boolean value is
@@ -133,21 +150,66 @@ function validateIssueBadgePayload(payload) {
     return { ok: false, error: "Invalid or missing 'email'." };
   }
 
-  if (typeof achievementName !== "string" || achievementName.length < 1 || achievementName.length > MAX_ACHIEVEMENT_NAME_LEN) {
-    return { ok: false, error: "Invalid or missing 'achievementName'." };
+  // moduleType is optional, but if present must be one of the four known
+  // keys - fail closed (400) rather than silently falling through to "no
+  // module metadata" on a typo'd/unknown value, which would otherwise
+  // require achievementName/achievementDescription to also be present to
+  // not also fail, masking the real mistake.
+  let normalizedModuleType = null;
+  if (moduleType !== undefined && moduleType !== null) {
+    if (typeof moduleType !== "string" || !Object.prototype.hasOwnProperty.call(MODULE_ACHIEVEMENTS, moduleType)) {
+      return { ok: false, error: "Unknown moduleType.", allowed: ALLOWED_MODULE_TYPES };
+    }
+    normalizedModuleType = moduleType;
   }
 
-  if (typeof achievementDescription !== "string" || achievementDescription.length < 1 || achievementDescription.length > MAX_ACHIEVEMENT_DESC_LEN) {
-    return { ok: false, error: "Invalid or missing 'achievementDescription'." };
+  const moduleMeta = normalizedModuleType ? MODULE_ACHIEVEMENTS[normalizedModuleType] : null;
+
+  // Resolution order: explicit achievementName/achievementDescription wins
+  // over the module's corresponding value. Either an explicit
+  // achievementName or a moduleType must be present (same for
+  // achievementDescription) - this is the backward-compatible relaxation
+  // of what used to be an unconditionally-required field.
+  let resolvedAchievementName;
+  if (achievementName !== undefined && achievementName !== null) {
+    if (typeof achievementName !== "string" || achievementName.length < 1 || achievementName.length > MAX_ACHIEVEMENT_NAME_LEN) {
+      return { ok: false, error: "Invalid 'achievementName' (must be a string of 1-200 characters if present)." };
+    }
+    resolvedAchievementName = achievementName;
+  } else if (moduleMeta) {
+    resolvedAchievementName = moduleMeta.name;
+  } else {
+    return { ok: false, error: "Invalid or missing 'achievementName' (or supply a known 'moduleType')." };
   }
+
+  let resolvedAchievementDescription;
+  if (achievementDescription !== undefined && achievementDescription !== null) {
+    if (typeof achievementDescription !== "string" || achievementDescription.length < 1 || achievementDescription.length > MAX_ACHIEVEMENT_DESC_LEN) {
+      return { ok: false, error: "Invalid 'achievementDescription' (must be a string of 1-500 characters if present)." };
+    }
+    resolvedAchievementDescription = achievementDescription;
+  } else if (moduleMeta) {
+    resolvedAchievementDescription = moduleMeta.description;
+  } else {
+    return { ok: false, error: "Invalid or missing 'achievementDescription' (or supply a known 'moduleType')." };
+  }
+
+  // The achievement image: the module's own image if moduleType was given,
+  // else the existing generic placeholder - see ACHIEVEMENT_IMAGE_PATH's
+  // comment above. Resolved here (still a bare filename/path, not a full
+  // URL) so the caller of buildCredentialClaims() below doesn't need to
+  // know about MODULE_ACHIEVEMENTS at all.
+  const achievementImagePath = moduleMeta ? `/assets/badges/${moduleMeta.image}` : ACHIEVEMENT_IMAGE_PATH;
 
   return {
     ok: true,
     record: {
       name: normalizedName,
       email,
-      achievementName,
-      achievementDescription,
+      achievementName: resolvedAchievementName,
+      achievementDescription: resolvedAchievementDescription,
+      moduleType: normalizedModuleType,
+      achievementImagePath,
     },
   };
 }
@@ -158,7 +220,7 @@ function validateIssueBadgePayload(payload) {
 // type: ["VerifiableCredential", "OpenBadgeCredential"]), but with a
 // credentialSubject shaped for a hashed, privacy-preserving identity
 // rather than sign-credential.js's fully anonymous default.
-function buildCredentialClaims({ name, achievementName, achievementDescription, emailHash, emailSalt, nameHash, nameSalt, issuedAtIso, badgeId }) {
+function buildCredentialClaims({ name, achievementName, achievementDescription, achievementImagePath, emailHash, emailSalt, nameHash, nameSalt, issuedAtIso, badgeId }) {
   const identifier = [
     {
       type: "IdentityObject",
@@ -220,7 +282,11 @@ function buildCredentialClaims({ name, achievementName, achievementDescription, 
     // itself. jti (below, on the JWT) still carries the bare badgeId -
     // that's a separate, narrower "unique token identifier" concept and
     // doesn't need to be a URL.
-    id: `${ISSUER_URL}/badges/${badgeId}/credential.json`,
+    // See the badgeUrl/credentialJsonUrl fallback comment above the
+    // buildCredentialClaims() call site - same direct-function-URL
+    // fallback applied here so vc.id is itself a working, dereferenceable
+    // URL, not just the response fields.
+    id: `${ISSUER_URL}/.netlify/functions/get-badge?id=${badgeId}&format=json`,
     credentialSubject: {
       type: "AchievementSubject",
       // Only include `name` here if the caller supplied one - this is the
@@ -240,9 +306,12 @@ function buildCredentialClaims({ name, achievementName, achievementDescription, 
         criteria: {
           narrative: "Manually issued to verify the Zettacard identity-hashing and credential-storage pipeline end-to-end. Not a real completion credential.",
         },
-        // OB3 Achievement.image - see the ACHIEVEMENT_IMAGE_PATH comment
-        // above. `type: "Image"` matches the OB3 spec's Image class.
-        image: { id: `${ISSUER_URL}${ACHIEVEMENT_IMAGE_PATH}`, type: "Image" },
+        // OB3 Achievement.image - see the ACHIEVEMENT_IMAGE_PATH/
+        // MODULE_ACHIEVEMENTS comments above. `type: "Image"` matches the
+        // OB3 spec's Image class. achievementImagePath is resolved against
+        // ISSUER_URL here (never hardcoded into the stored module-metadata
+        // config itself).
+        image: { id: `${ISSUER_URL}${achievementImagePath}`, type: "Image" },
       },
     },
   };
@@ -271,9 +340,9 @@ export default async (request) => {
 
   const validation = validateIssueBadgePayload(payload);
   if (!validation.ok) {
-    return jsonResponse(400, { error: validation.error });
+    return jsonResponse(400, { error: validation.error, ...(validation.allowed ? { allowed: validation.allowed } : {}) });
   }
-  const { name, email, achievementName, achievementDescription } = validation.record;
+  const { name, email, achievementName, achievementDescription, moduleType, achievementImagePath } = validation.record;
 
   let privateJwk;
   try {
@@ -308,6 +377,7 @@ export default async (request) => {
       name,
       achievementName,
       achievementDescription,
+      achievementImagePath,
       emailHash: emailHashResult.hash,
       emailSalt: emailHashResult.salt,
       nameHash: nameHashResult ? nameHashResult.hash : undefined,
@@ -349,7 +419,9 @@ export default async (request) => {
       // never the raw value) plus non-PII metadata - deliberately NOT the
       // plaintext name or email, even though this is a test-badge-only
       // store, to keep the storage layer held to the same no-plaintext-PII
-      // bar as the credential itself.
+      // bar as the credential itself. `moduleType` (or null) is persisted
+      // alongside the rest so a stored record shows which module (if any)
+      // this test badge stands in for.
       await store.setJSON(badgeId, {
         jwt,
         badgeId,
@@ -358,6 +430,7 @@ export default async (request) => {
         jwksUrl,
         issuedAt,
         achievementName,
+        moduleType,
         hasName: !!name,
       });
       blobStored = true;
@@ -365,6 +438,22 @@ export default async (request) => {
       console.error("issue-badge: failed to store badge in Netlify Blobs:", storageErr);
       blobError = String((storageErr && storageErr.message) || storageErr);
     }
+
+    // 2026-09-03 PoC fix: the pretty /badges/:id[/credential.json|.jwt]
+    // redirects (netlify.toml) still 400 on this deploy after two fix
+    // attempts (query-string :id substitution, then a path-shaped
+    // destination with force=true) - confirmed live on staging after
+    // redeploying both. Root cause not yet found (see BACKLOG.md DN-91/
+    // DN-92). Falling back to the DIRECT function-call URL form, which is
+    // confirmed working (200) in every format - this is explicitly the
+    // documented fallback option (b) from this feature's own design spec,
+    // not a workaround invented ad hoc. Swap back to the /badges/:id form
+    // once the redirect bug is actually root-caused and fixed; until then
+    // every URL this function hands out must actually resolve, since
+    // these get pasted into LinkedIn's live "Add to Profile" flow.
+    const badgeUrl = `${ISSUER_URL}/.netlify/functions/get-badge?id=${badgeId}&format=html`;
+    const credentialJsonUrl = `${ISSUER_URL}/.netlify/functions/get-badge?id=${badgeId}&format=json`;
+    const credentialJwtUrl = `${ISSUER_URL}/.netlify/functions/get-badge?id=${badgeId}&format=jwt`;
 
     return jsonResponse(200, {
       ...(blobError ? { blobError } : {}),
@@ -384,9 +473,15 @@ export default async (request) => {
       // HTML page (e.g. a curl-based test script) doesn't have to
       // reconstruct them by hand. All three 404 until blobStored is true -
       // they read from the same Blobs record get-badge.mjs looks up.
-      badgeUrl: `${ISSUER_URL}/badges/${badgeId}`,
-      credentialJsonUrl: `${ISSUER_URL}/badges/${badgeId}/credential.json`,
-      credentialJwtUrl: `${ISSUER_URL}/badges/${badgeId}/credential.jwt`,
+      badgeUrl,
+      credentialJsonUrl,
+      credentialJwtUrl,
+      // 2026-09-03: LinkedIn's "Add to Profile" certification deep link -
+      // see netlify/functions/lib/linkedin.mjs for the full param
+      // rationale. Built from the *resolved* achievementName (module
+      // metadata or caller-supplied override, whichever won above) and the
+      // freshly-minted badgeUrl/badgeId/issuedAt above.
+      linkedinAddUrl: buildLinkedInAddUrl({ achievementName, badgeUrl, badgeId, issuedAt }),
     });
   } catch (e) {
     console.error("issue-badge: signing failed:", e);

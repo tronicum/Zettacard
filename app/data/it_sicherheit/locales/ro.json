@@ -1,0 +1,642 @@
+{
+  "it_sicherheit-zugriffsschutz-01": {
+    "question": "Ce însușire face, în principiu, o parolă mai sigură împotriva atacurilor automate de ghicire?",
+    "options": {
+      "a": "Conține numele departamentului, ca să fie mai ușor de reținut",
+      "b": "Este lungă, unică pentru acest cont și greu de ghicit",
+      "c": "Este înlocuită la fiecare trei zile cu o parolă foarte asemănătoare",
+      "d": "Este formată doar din cifre, deoarece astfel introducerea este mai rapidă"
+    },
+    "explanation": "Lungimea și unicitatea sunt cei mai importanți factori împotriva încercărilor automate și împotriva așa-numitului credential stuffing, în care sunt testate date de autentificare furate de la alte servicii. O parolă legată de locul de muncă este ușor de ghicit, schimbarea frecventă cu o parolă foarte asemănătoare aduce un câștig de securitate neglijabil, iar parolele pur numerice au prea puține combinații posibile."
+  },
+  "it_sicherheit-zugriffsschutz-02": {
+    "question": "De ce este autentificarea cu mai mulți factori (MFA) considerabil mai sigură decât o parolă singură?",
+    "options": {
+      "a": "Pentru că face parola inutilă și nu mai trebuie reținut nimic",
+      "b": "Pentru că protejează complet contul împotriva tuturor tipurilor de atacuri",
+      "c": "Pentru că un atacator, chiar și cu o parolă furată, ar avea nevoie suplimentar de al doilea factor",
+      "d": "Pentru că este posibilă tehnic exclusiv pentru conturile de administrator"
+    },
+    "explanation": "MFA combină ceva ce știi (parola) cu ceva ce deții (de exemplu o aplicație sau un token) sau ceva ce ești. O parolă furată nu îi mai este deci suficientă unui atacator. MFA nu înlocuiește parola, nu oferă o protecție completă împotriva oricărui tip de atac și este disponibilă astăzi pentru practic orice cont de utilizator, nu doar pentru administratori."
+  },
+  "it_sicherheit-zugriffsschutz-03": {
+    "question": "Un coleg vă roagă să folosiți pentru scurt timp contul său personal de utilizator, împreună cu parola, deoarece propriul său acces este momentan blocat. Cum ar trebui să reacționați?",
+    "options": {
+      "a": "Să refuzați și, în schimb, să informați suportul IT competent sau persoana cu funcție de conducere",
+      "b": "Să acceptați, atât timp cât se lucrează doar pentru scurt timp cu el",
+      "c": "Să acceptați, dar apoi să schimbați dumneavoastră parola colegului",
+      "d": "Să acceptați, dacă sarcina este urgentă și nu pare posibil un alt acces"
+    },
+    "explanation": "Conturile sunt personale, pentru ca acțiunile din sistem să poată fi atribuite fără echivoc unei persoane (trasabilitate). Dacă un cont este folosit în comun, ulterior nu se mai poate stabili cine ce a făcut - ceea ce îngreunează considerabil și clarificarea incidentelor de securitate. Urgența nu justifică o excepție; calea corectă este restabilirea accesului propriu prin suportul IT."
+  },
+  "it_sicherheit-zugriffsschutz-04": {
+    "question": "Vă părăsiți locul de muncă pentru o scurtă discuție în biroul alăturat. Care este modul corect de a proceda cu calculatorul dumneavoastră deblocat?",
+    "options": {
+      "a": "Să nu întreprindeți nimic, întrucât este vorba despre o clădire de birouri internă",
+      "b": "Să blocați ecranul înainte de a părăsi locul de muncă",
+      "c": "Să închideți doar documentul deschis, restul poate rămâne deschis",
+      "d": "Să opriți monitorul, acest lucru este suficient ca protecție"
+    },
+    "explanation": "Un calculator deblocat permite oricui are pentru scurt timp acces în încăpere - inclusiv vizitatorilor, personalului de curățenie sau unor terți neautorizați - să acceseze toate programele și datele deschise. Un monitor oprit nu schimbă nimic, întrucât sesiunea continuă în fundal. Blocarea ecranului (de exemplu printr-o combinație de taste) este o măsură de bază simplă și eficace, indiferent cât de sigur pare mediul."
+  },
+  "it_sicherheit-phishing-01": {
+    "question": "Care dintre următoarele caracteristici este un semnal tipic de alarmă pentru un e-mail de phishing?",
+    "options": {
+      "a": "E-mailul sosește în timpul programului obișnuit de lucru",
+      "b": "E-mailul conține logoul firmei în atașament",
+      "c": "E-mailul creează presiune de timp și solicită o acțiune imediată, neobișnuită",
+      "d": "E-mailul a fost trimis simultan mai multor colegi"
+    },
+    "explanation": "Atacatorii mizează în mod deliberat pe o presiune de timp artificială și pe urgență emoțională, pentru ca destinatarii să nu reflecteze în liniște sau să nu se consulte, ci să acționeze imediat - de exemplu să dea clic pe un link sau să divulge date. Logourile, orele obișnuite de expediere sau un cerc mai larg de destinatari nu spun, în sine, nimic despre autenticitatea unui mesaj, întrucât logourile pot fi copiate ușor, iar orele de expediere și listele de destinatari pot fi alese arbitrar."
+  },
+  "it_sicherheit-phishing-02": {
+    "question": "Primiți, aparent din partea conducerii, un e-mail care vă solicită să transferați urgent și confidențial o sumă mare către un cont nou, necunoscut. Care este primul pas corect?",
+    "options": {
+      "a": "Efectuarea imediată a transferului, întrucât dispozițiile conducerii au prioritate",
+      "b": "Verificarea personală a solicitării printr-un canal cunoscut și independent (de exemplu un apel telefonic), înainte de a face orice",
+      "c": "Răspunsul la e-mail și solicitarea acolo a unei confirmări scrise",
+      "d": "Efectuarea transferului, dar cu o sumă mai mică decât cea solicitată"
+    },
+    "explanation": "Acest tipar este denumit frecvent „fraudă de tip CEO”: atacatorii se dau drept persoane cu funcții de conducere și folosesc autoritatea, confidențialitatea și presiunea de timp pentru a eluda controalele. Un răspuns în cadrul aceleiași conversații de e-mail nu ajută, întrucât atacatorul controlează tocmai acest canal. Decisivă este verificarea printr-o cale de contact independentă și deja cunoscută - de exemplu un apel la un număr de telefon înregistrat -, înainte de orice plată sau acțiune."
+  },
+  "it_sicherheit-phishing-03": {
+    "question": "Într-un e-mail este afișat un link care ar duce, chipurile, la pagina de autentificare cunoscută a întreprinderii dumneavoastră. Cum verificați cel mai bine dacă linkul este de încredere, fără a da clic pe el?",
+    "options": {
+      "a": "Trecând cu mouse-ul peste link (fără a da clic) și verificând adresa de destinație reală în bara de stare",
+      "b": "Dând clic pe link și verificând imediat dacă pagina arată autentic",
+      "c": "Verificând dacă e-mailul este scris într-o germană corectă",
+      "d": "Controlând numele expeditorului din câmpul afișat al programului de e-mail"
+    },
+    "explanation": "Textul afișat al linkului poate diferi complet de adresa de destinație reală; abia trecerea cu mouse-ul arată URL-ul real în bara de stare a browserului sau a programului de e-mail. Clicul implică deja un risc, deoarece unele pagini falsificate încarcă automat cod malițios. O exprimare fără greșeli nu mai este un criteriu de încredere, întrucât textele de phishing par astăzi adesea foarte profesioniste, iar numele expeditorului afișat poate fi falsificat cu ușurință, fără ca adresa reală de expediere să corespundă."
+  },
+  "it_sicherheit-phishing-04": {
+    "question": "Ați dat clic pe un link dintr-un e-mail suspect și ați introdus acolo, din greșeală, datele dumneavoastră de autentificare. Care este reacția corectă?",
+    "options": {
+      "a": "Să așteptați dacă apare ceva neobișnuit în cont și abia atunci să reacționați",
+      "b": "Să nu faceți nimic, întrucât este vorba, probabil, despre un caz izolat, inofensiv",
+      "c": "Să schimbați parola în zilele următoare, când aveți timp",
+      "d": "Să schimbați imediat parola și să raportați neîntârziat incidentul structurii interne competente (de exemplu securitatea IT)"
+    },
+    "explanation": "Cu cât o dată de autentificare compromisă este schimbată mai repede și incidentul este raportat mai rapid, cu atât rămâne mai mică fereastra de timp în care un atacator poate abuza de datele furate. Așteptarea, inacțiunea sau amânarea cresc inutil riscul, în special dacă aceeași parolă este folosită și pentru alte sisteme. Raportarea către structura competentă permite, în plus, luarea unor măsuri suplimentare de protecție și avertizarea celorlalți angajați."
+  },
+  "it_sicherheit-datensicherung-01": {
+    "question": "De ce sunt importante copiile de rezervă (backup) periodice și planificate, chiar dacă un dispozitiv funcționează tehnic fiabil?",
+    "options": {
+      "a": "Pentru că backupurile înlocuiesc necesitatea parolelor",
+      "b": "Pentru că datele se pot pierde și prin operare greșită, defecțiuni tehnice sau programe malițioase precum ransomware, independent de fiabilitatea actuală a dispozitivului",
+      "c": "Pentru că backupurile sunt obligatorii exclusiv pentru dispozitivele foarte vechi",
+      "d": "Pentru că fără backup conexiunea la internet devine mai lentă"
+    },
+    "explanation": "Un backup protejează împotriva unor cauze foarte diferite de pierdere a datelor: ștergere accidentală, defecțiuni hardware, dar și ransomware care criptează fișierele. Fiabilitatea de până acum a unui dispozitiv nu spune nimic despre defecțiuni sau atacuri viitoare. Backupurile nu au nicio legătură cu parolele sau cu viteza internetului și sunt utile indiferent de vechimea dispozitivului."
+  },
+  "it_sicherheit-datensicherung-02": {
+    "question": "Găsiți în parcarea firmei un stick USB fără niciun marcaj. Care este modul corect de a proceda?",
+    "options": {
+      "a": "Să introduceți stickul într-un calculator al firmei pentru a afla cui aparține",
+      "b": "Să luați stickul și să îl folosiți în continuare în scopuri personale, întrucât nimeni nu îl caută",
+      "c": "Să nu conectați stickul, ci să îl predați departamentului IT sau personalului de securitate",
+      "d": "Să verificați stickul pe un dispozitiv personal înainte de a lua o decizie"
+    },
+    "explanation": "Stickurile USB necunoscute sunt o poartă de intrare clasică pentru programe malițioase: pot fi pregătite astfel încât la conectare să execute automat cod malițios, chiar înainte de deschiderea vreunui fișier. Acest lucru este valabil atât pentru calculatoarele firmei, cât și pentru dispozitivele personale. Calea sigură este să nu cercetați singur obiectul găsit, ci să îl predați structurii competente, care îl poate examina în condiții controlate."
+  },
+  "it_sicherheit-datensicherung-03": {
+    "question": "De ce ar trebui să instalați prompt actualizările de securitate pentru sistemul de operare și pentru programele de pe dispozitivul dumneavoastră de lucru, atunci când sistemul le propune?",
+    "options": {
+      "a": "Pentru că actualizările închid frecvent vulnerabilități de securitate devenite cunoscute, care altfel pot fi exploatate de atacatori",
+      "b": "Pentru că actualizările îmbunătățesc în principal designul interfeței de utilizare",
+      "c": "Pentru că actualizările cresc exclusiv viteza dispozitivului",
+      "d": "Pentru că actualizările sunt relevante pentru securitate doar în cazul dispozitivelor de uz personal"
+    },
+    "explanation": "Vulnerabilitățile de securitate din sistemele de operare și din aplicații sunt descoperite și publicate în mod continuu; producătorii le închid prin actualizări. Dacă o actualizare este amânată, vulnerabilitatea rămâne deschisă, iar atacatorii exploatează adesea în mod țintit tocmai perioada de imediat după aflarea acesteia. Aspectul interfeței sau viteza sunt cel mult efecte secundare, nu motivul propriu-zis de securitate, iar disciplina actualizărilor se aplică în egală măsură dispozitivelor de serviciu și celor personale."
+  },
+  "it_sicherheit-datensicherung-04": {
+    "question": "Un coleg vă recomandă un program suplimentar util și gratuit, de pe internet, pentru calculatorul dumneavoastră de serviciu. Cum procedați cel mai bine?",
+    "options": {
+      "a": "Instalați imediat programul, întrucât este gratuit și nu generează costuri",
+      "b": "Instalați programul, dar numai pe calculator, nu și pe telefonul de serviciu",
+      "c": "Instalați programul, atât timp cât este descărcat de pe un site cunoscut",
+      "d": "Înainte de instalare, întrebați structura IT competentă dacă și în ce condiții software-ul poate fi aprobat"
+    },
+    "explanation": "Software-ul neaprobat poate conține vulnerabilități de securitate, poate intra în conflict cu alte programe sau poate încălca cerințele de licențiere și de conformitate - indiferent dacă este gratuit, de pe ce site provine sau pe ce tip de dispozitiv este instalat. Departamentul IT poate verifica dacă un software poate fi utilizat în siguranță și conform regulilor și poate pune la dispoziție, dacă este cazul, o alternativă verificată."
+  },
+  "it_sicherheit-mobil_homeoffice-01": {
+    "question": "Ce măsură contribuie cel mai mult la securizarea rețelei WLAN de acasă pentru activitatea de serviciu în regim de telemuncă?",
+    "options": {
+      "a": "Setarea numelui (SSID) rețelei WLAN astfel încât să sune discret",
+      "b": "Utilizarea unei parole WLAN puternice și individuale și a unei criptări actuale (de exemplu WPA2/WPA3)",
+      "c": "Pornirea rețelei WLAN doar ziua și oprirea completă noaptea",
+      "d": "Păstrarea nemodificată a accesului la router presetat din fabrică, pentru a evita erorile"
+    },
+    "explanation": "O parolă puternică și individuală, împreună cu o criptare modernă, împiedică persoanele neautorizate aflate în raza de acoperire să se conecteze pur și simplu la rețea și să citească sau să manipuleze traficul de date. Un nume de rețea discret nu oferă nicio protecție tehnică, o oprire temporară nu rezolvă problema de fond, iar setările din fabrică (parole standard, SSID standard) sunt adesea cunoscute public și, prin urmare, deosebit de nesigure."
+  },
+  "it_sicherheit-mobil_homeoffice-02": {
+    "question": "Trebuie să accesați pentru scurt timp, în deplasare, e-mailurile de serviciu și găsiți o rețea WLAN deschisă, necriptată, într-o cafenea. Cum procedați cel mai sigur?",
+    "options": {
+      "a": "Folosiți direct rețeaua deschisă, întrucât consultarea e-mailurilor nu este critică",
+      "b": "Folosiți rețeaua deschisă, dar schimbați în prealabil propria parolă",
+      "c": "În locul rețelei deschise, folosiți o conexiune securizată, de exemplu date mobile sau un VPN al firmei",
+      "d": "Folosiți rețeaua deschisă, atât timp cât site-ul cafenelei afișează un simbol de lacăt în bara de adrese"
+    },
+    "explanation": "În rețelele WLAN deschise, necriptate, traficul de date poate fi citit sau redirecționat de terți din aceeași rețea, chiar dacă anumite site-uri sunt ele însele criptate (simbolul lacătului se referă doar la acea conexiune, nu la întreaga rețea). Datele mobile sau un VPN al firmei creează o conexiune suplimentar securizată și criptată, mult mai greu de interceptat. O schimbare prealabilă a parolei nu rezolvă riscul propriu-zis."
+  },
+  "it_sicherheit-mobil_homeoffice-03": {
+    "question": "Lucrați în tren la un document confidențial pe laptopul dumneavoastră. La ce ar trebui să fiți atent pentru a evita ca alții să citească conținutul?",
+    "options": {
+      "a": "Să fiți atent la mediul înconjurător și, la nevoie, să folosiți un filtru de confidențialitate sau o poziție protejată prin alegerea locului",
+      "b": "Să micșorați pur și simplu documentul, pentru a nu putea fi citit de la distanță",
+      "c": "Să anonimizați doar numele fișierului; conținutul în sine nu este critic",
+      "d": "Să tratați documentele confidențiale în deplasare exact la fel ca informațiile accesibile publicului"
+    },
+    "explanation": "„Shoulder surfing” - citirea conținutului ecranului de către persoanele din jur - este un risc real în medii publice, precum trenurile sau zonele de așteptare. Un filtru de confidențialitate sau o poziție de ședere bine aleasă reduc eficient acest risc. Micșorarea nu protejează în mod fiabil, numele fișierului nu este obiectul propriu-zis al protecției, iar conținuturile confidențiale au nevoie de protecția corespunzătoare indiferent de loc, nu doar la birou."
+  },
+  "it_sicherheit-mobil_homeoffice-04": {
+    "question": "Sunteți în deplasare de serviciu și trebuie să lăsați pentru scurt timp laptopul de serviciu în mașina parcată. Care este modul cel mai sigur de a proceda?",
+    "options": {
+      "a": "Să lăsați laptopul bine vizibil pe scaunul pasagerului, ca să nu fie uitat",
+      "b": "Să puneți laptopul în portbagajul care nu poate fi văzut din exterior și să încuiați vehiculul, sau, pe cât posibil, să îl luați cu dumneavoastră",
+      "c": "Să ascundeți laptopul sub o geacă, pe bancheta din spate; aceasta este o protecție suficientă",
+      "d": "Nu are importanță, atât timp cât laptopul este protejat cu o parolă de utilizator"
+    },
+    "explanation": "Bunurile de valoare vizibile în mașină cresc considerabil riscul unei spargeri; un portbagaj care nu poate fi văzut din exterior sau luarea dispozitivului cu dumneavoastră reduc semnificativ acest risc. O geacă drept paravan este nesigură și nu protejează împotriva unei spargeri țintite. O parolă de utilizator protejează parțial datele de pe dispozitiv în caz de furt, dar nu împiedică pierderea fizică a dispozitivului și nu înlocuiește deci păstrarea în siguranță."
+  },
+  "it_sicherheit-meldepflicht_it-01": {
+    "question": "Bănuiți că, pe calculatorul dumneavoastră de serviciu, există un program malițios, dar nu sunteți pe deplin sigur. Cum ar trebui să procedați?",
+    "options": {
+      "a": "Să așteptați până când există dovezi clare, pentru a nu face o raportare eronată",
+      "b": "Să raportați neîntârziat bănuiala structurii interne competente (de exemplu securitatea IT sau helpdesk), chiar și în caz de incertitudine",
+      "c": "Să reinstalați singur calculatorul și să lucrați apoi normal în continuare",
+      "d": "Să întrebați mai întâi colegii dacă au observat ceva asemănător, înainte de a raporta ceva"
+    },
+    "explanation": "O cultură funcțională de raportare și reacție presupune ca și simplele suspiciuni să fie raportate din timp, în loc să se aștepte dovezi clare - cu cât un posibil incident devine cunoscut mai devreme, cu atât mai bine poate fi limitată răspândirea. Reinstalarea pe cont propriu a calculatorului poate distruge urme importante pentru stabilirea cauzei. Și consultarea informală a colegilor întârzie inutil raportarea și nu înlocuiește informarea structurii competente."
+  },
+  "it_sicherheit-meldepflicht_it-02": {
+    "question": "De ce stabilește Directiva UE privind securitatea rețelelor și a sistemelor informatice (NIS2) termene atât de scurte pentru prima notificare a unui incident de securitate semnificativ de către organizațiile vizate (în linii mari: o avertizare timpurie în câteva ore, urmată de o notificare mai detaliată)?",
+    "options": {
+      "a": "Pentru ca întreprinderile să câștige cât mai mult timp, în vederea ascunderii interne a incidentului",
+      "b": "Pentru că o investigație tehnică completă oricum nu este niciodată posibilă",
+      "c": "Pentru ca structurile competente să poată reacționa din timp și pentru ca alte organizații potențial afectate să poată fi avertizate la timp",
+      "d": "Pentru că termenele scurte se aplică exclusiv furnizorilor de servicii IT, nu și clienților acestora"
+    },
+    "explanation": "Termenele scurte de notificare urmăresc să asigure informarea rapidă a autorităților și a celorlalte entități afectate, pentru a limita răspândirea și a coordona contramăsurile - nu pentru a permite ascunderea internă. O primă notificare timpurie poate fi, în mod deliberat, încă incompletă și este completată ulterior; tocmai acesta este sensul unei proceduri de notificare în etape. Obligațiile de notificare se adresează organizațiilor vizate în ansamblu, nu doar furnizorilor de servicii IT."
+  },
+  "it_sicherheit-meldepflicht_it-03": {
+    "question": "De ce impune o bună cultură de securitate ca angajații să raporteze un incident de securitate suspectat, în loc să încerce să îl remedieze singuri, „în liniște”?",
+    "options": {
+      "a": "Pentru că o singură persoană nu poate, adesea, cuprinde întreaga amploare și cauză a unui incident, iar acțiunea de unul singur poate șterge urme sau agrava problema",
+      "b": "Pentru că remedierea pe cont propriu încalcă, în principiu, dreptul de autor",
+      "c": "Pentru că numai astfel pot fi reduse costurile securității IT în întreprindere",
+      "d": "Pentru că, în lipsa unei raportări, angajații pot fi trași automat la răspundere personală"
+    },
+    "explanation": "Un incident izolat poate face parte dintr-un tipar mai amplu - de exemplu un atac care afectează mai multe sisteme. Cine încearcă să rezolve problema singur și fără raportare poate distruge urme importante, necesare pentru stabilirea cauzei, și riscă ca incidentul să se răspândească mai departe neobservat. Alternativele menționate (dreptul de autor, reducerea costurilor, răspunderea personală automată) nu descriu motivul propriu-zis al obligației de raportare."
+  },
+  "it_sicherheit-meldepflicht_it-04": {
+    "question": "Nu sunteți sigur cine este responsabil în întreprindere pentru raportarea unui incident de securitate IT suspectat. Care este abordarea cea mai rezonabilă?",
+    "options": {
+      "a": "Să publicați incidentul într-un canal de chat intern public, ca să îl vadă cineva",
+      "b": "Să așteptați până când altcineva observă întâmplător problema și o raportează",
+      "c": "Să descrieți incidentul pe rețelele sociale, pentru a atrage rapid atenția",
+      "d": "Să folosiți căile de raportare stabilite în întreprindere (de exemplu suportul IT, responsabilul cu securitatea sau persoana cu funcție de conducere) sau, în caz de dubiu, să întrebați propriul superior"
+    },
+    "explanation": "O procedură de raportare pregătită, cu structuri clar responsabile, asigură faptul că un incident ajunge rapid la persoanele potrivite, care pot iniția contramăsuri adecvate. Un canal de chat public sau, cu atât mai mult, rețelele sociale sunt nepotrivite și pot face incidentul public ori pot avertiza atacatorii. Așteptarea întârzie inutil reacția; în caz de dubiu, propriul superior este întotdeauna un prim interlocutor util pentru a găsi calea corectă de raportare."
+  },
+  "it_sicherheit-zugriffsschutz-05": {
+    "question": "De ce ar trebui ca angajații să primească doar drepturile de acces de care au efectiv nevoie pentru sarcina lor concretă („principiul minimului”)?",
+    "options": {
+      "a": "Pentru ca să fie administrate mai puține parole",
+      "b": "Pentru ca, în cazul unui cont compromis sau al unei erori, prejudiciul posibil să rămână limitat la strictul necesar",
+      "c": "Pentru ca departamentul IT să aibă de prelucrat mai puține solicitări de suport",
+      "d": "Pentru ca toți angajații să aibă la fel de multe drepturi și nimeni să nu fie dezavantajat"
+    },
+    "explanation": "Principiul minimului (least privilege) limitează prejudiciul pe care îl poate produce un cont furat sau o operare greșită accidentală, întrucât pot fi accesate numai sistemele și datele efectiv necesare. Nu este vorba despre numărul de parole, despre volumul de suport sau despre un tratament formal egal, ci despre limitarea riscului în funcție de sarcina respectivă."
+  },
+  "it_sicherheit-zugriffsschutz-06": {
+    "question": "O colegă se transferă intern într-un alt departament, cu alte atribuții. Ce ar trebui să se întâmple cu accesele sale la sistemele de până acum?",
+    "options": {
+      "a": "Nimic, întrucât ea lucrează în continuare în aceeași întreprindere",
+      "b": "Accesele de până acum rămân în vigoare pe lângă cele noi, pentru ca ea să poată ajuta flexibil",
+      "c": "Drepturile de acces care nu mai sunt necesare se retrag, iar autorizările se adaptează noului rol",
+      "d": "Se schimbă doar parola, drepturile rămân neschimbate"
+    },
+    "explanation": "Autorizările trebuie să corespundă domeniului de activitate actual; la o schimbare de rol, drepturile de acces care nu mai sunt necesare trebuie retrase și trebuie acordate drepturi noi, corespunzătoare. Altfel se acumulează în timp autorizări inutile, de prisos („inflație de drepturi”), care cresc inutil riscul în cazul unui cont compromis. O simplă schimbare de parolă nu schimbă nimic în această privință."
+  },
+  "it_sicherheit-zugriffsschutz-07": {
+    "question": "Trebuie să rețineți multe parole diferite pentru sistemele de serviciu. Care este modul de a proceda cel mai rezonabil?",
+    "options": {
+      "a": "Să folosiți un manager de parole aprobat de IT, în loc să reutilizați parolele sau să le notați neprotejat",
+      "b": "Să folosiți aceeași parolă, ușor de reținut, pentru toate sistemele",
+      "c": "Să notați parolele pe un bilețel adeziv lipit pe monitor, pentru a le găsi repede",
+      "d": "Să salvați parolele într-un fișier text necriptat pe desktop"
+    },
+    "explanation": "Un manager de parole aprobat permite utilizarea unei parole lungi și unice pentru fiecare sistem, fără a fi nevoie să le rețineți pe toate individual, și protejează prin criptare datele de autentificare stocate. Reutilizarea parolelor înseamnă că o singură scurgere de date pune în pericol toate conturile afectate; bilețelele adezive și fișierele necriptate pot fi consultate imediat de oricine are acces fizic sau digital."
+  },
+  "it_sicherheit-zugriffsschutz-08": {
+    "question": "Vă părăsiți seara locul de muncă din biroul open space, după terminarea programului. Ce corespunde regulii de bază „birou curat” (clear desk)?",
+    "options": {
+      "a": "Doar blocarea ecranului; documentele pot rămâne la vedere",
+      "b": "Documentele confidențiale pot rămâne la vedere, atât timp cât ușa biroului este încuiată",
+      "c": "Trebuie strânse doar documentele marcate special drept „secrete”",
+      "d": "Încuierea documentelor confidențiale și a suporturilor de date și lăsarea biroului ordonat"
+    },
+    "explanation": "Principiul biroului curat impune încuierea documentelor confidențiale pe hârtie și a suporturilor de date în absența angajatului, pentru ca acestea să nu fie liber accesibile persoanelor neautorizate - de exemplu personalului de curățenie, vizitatorilor sau altor angajați fără drept de acces. O ușă de birou încuiată nu protejează, singură, față de toate persoanele cu acces în clădire sau în încăpere, iar regula se aplică documentelor confidențiale în general, nu doar celor marcate explicit drept „secrete”."
+  },
+  "it_sicherheit-phishing-05": {
+    "question": "Primiți un e-mail cu un atașament neașteptat de tip factură, care vă solicită să permiteți „executarea macrocomenzilor” sau „activarea conținutului” pentru a vizualiza factura. Cum reacționați cel mai rezonabil?",
+    "options": {
+      "a": "Permiteți executarea macrocomenzilor, altfel factura nu poate fi deschisă",
+      "b": "Deschideți atașamentul, dar abia după repornirea calculatorului",
+      "c": "Nu activați macrocomenzile și, în caz de incertitudine, cereți verificarea e-mailului prin căile obișnuite de raportare",
+      "d": "Redirecționați atașamentul unui coleg apropiat, pentru ca el să îl deschidă primul"
+    },
+    "explanation": "Solicitarea de a activa macrocomenzile este un tipar de atac cunoscut: abia prin activare este executat codul malițios conținut în fișier, care fără acest acord ar rămâne inactiv. O repornire a calculatorului nu schimbă nimic, iar redirecționarea către un coleg doar mută riscul, în loc să îl elimine. În caz de incertitudine privind expeditorul sau conținutul, e-mailul ar trebui verificat prin căile interne obișnuite de raportare, înainte de a deschide sau activa ceva."
+  },
+  "it_sicherheit-phishing-06": {
+    "question": "Ce deosebește „spear phishing”-ul de o campanie clasică de phishing, difuzată pe scară largă?",
+    "options": {
+      "a": "Spear phishing-ul se realizează exclusiv telefonic, niciodată prin e-mail",
+      "b": "Spear phishing-ul este adaptat unei anumite persoane sau organizații și folosește detalii credibile, documentate în mod țintit",
+      "c": "Spear phishing-ul renunță complet la linkuri sau atașamente",
+      "d": "Spear phishing-ul vizează exclusiv conturile de e-mail personale, niciodată pe cele de serviciu"
+    },
+    "explanation": "În cazul spear phishing-ului, atacatorii caută în mod țintit informații despre o persoană sau o organizație - de exemplu numele superiorilor, proiectele în curs sau procesele interne -, pentru ca mesajul să pară deosebit de credibil și personalizat. Acest lucru face aceste atacuri mai greu de recunoscut decât e-mailurile generice de phishing în masă. Nici canalul de comunicare, nici renunțarea la linkuri/atașamente, nici limitarea la conturile personale nu constituie caracteristica decisivă."
+  },
+  "it_sicherheit-phishing-07": {
+    "question": "Primiți un SMS care ar proveni de la un serviciu de curierat și care conține un link pentru „plata taxei vamale”, deși nu așteptați niciun colet. Cum încadrați acest incident și cum reacționați?",
+    "options": {
+      "a": "Este vorba, probabil, despre „smishing” (phishing prin SMS); nu dați clic pe link și verificați expedierea direct pe site-ul sau în aplicația oficială a serviciului de curierat",
+      "b": "Mesajele SMS nu pot fi, în general, falsificate, prin urmare linkul este sigur",
+      "c": "Fiind vorba despre un SMS privat, subiectul nu privește activitatea profesională și poate fi ignorat",
+      "d": "Dați clic pe link, dar nu introduceți date de plată, pentru a vedea dacă este vorba despre o expediere reală"
+    },
+    "explanation": "Phishing-ul nu se limitează la e-mailuri: „smishing”-ul folosește mesaje SMS pe același principiu de bază, al urgenței și al unui link manipulat. Și numele expeditorului unui SMS poate fi falsificat. Mai sigur este să verificați independent presupusul motiv, pe site-ul sau în aplicația oficială, în loc să urmați linkul. Subiectul este relevant și pentru angajați, întrucât aceleași tipare pot viza și dispozitive sau date de contact de serviciu, iar chiar și simpla accesare a unui link pregătit poate reprezenta un risc."
+  },
+  "it_sicherheit-phishing-08": {
+    "question": "Un e-mail pare să provină de la „support@firma-dumneavoastra-online.de”, deși domeniul real al firmei este „firmadumneavoastra.de”. Cum trebuie încadrat cel mai probabil acest domeniu de expediere ușor diferit?",
+    "options": {
+      "a": "Ca o greșeală de tastare nesemnificativă, fără relevanță pentru securitate",
+      "b": "Ca posibil indiciu al unui domeniu falsificat, asemănător până la confuzie („typosquatting”), utilizat pentru inducerea în eroare",
+      "c": "Ca o confirmare a faptului că mesajul provine cu siguranță de la propriul departament IT",
+      "d": "Ca o simplă chestiune de gust a expeditorului în alegerea domeniului"
+    },
+    "explanation": "Atacatorii înregistrează în mod țintit domenii care seamănă până la confuzie cu domeniul real al firmei (de exemplu cuvinte suplimentare, litere inversate sau alte extensii), pentru a simula încrederea. O astfel de diferență este un semnal de alarmă serios, nu o banalitate sau o chestiune de gust. Adresa reală a expeditorului ar trebui verificată atent la orice element suspect și, în caz de dubiu, ar trebui făcută o verificare printr-un canal independent, în loc să se presupună automat autenticitatea."
+  },
+  "it_sicherheit-datensicherung-05": {
+    "question": "De ce nu este suficient, împotriva ransomware-ului, să salvați un backup direct pe aceeași unitate de rețea permanent conectată pe care se află datele originale?",
+    "options": {
+      "a": "Pentru că unitățile de rețea sunt, tehnic, în principiu mai lente decât hard diskurile locale",
+      "b": "Pentru că pe unitățile de rețea nu au voie, în general, să fie salvate backupuri",
+      "c": "Pentru că, în cazul unei unități permanent conectate, ransomware-ul poate cripta și copia de siguranță aflată acolo",
+      "d": "Pentru că unitățile de rețea sunt destinate exclusiv stocării e-mailurilor"
+    },
+    "explanation": "Ransomware-ul criptează, de regulă, toate unitățile accesibile, inclusiv unitățile de rețea conectate permanent - o copie de siguranță aflată acolo nu mai oferă deci o protecție reală, întrucât poate fi și ea afectată. Un concept eficient de backup prevede, prin urmare, cel puțin o copie păstrată separat (offline sau decalat în timp) de sistemul de producție, pentru a nu fi cuprinsă de un atac asupra sistemului principal."
+  },
+  "it_sicherheit-datensicherung-06": {
+    "question": "Un backup este creat automat, conform planificării, în fiecare noapte. De ce nu este acest lucru, singur, suficient pentru a te putea baza cu adevărat pe copia de rezervă?",
+    "options": {
+      "a": "Pentru că trebuie verificat periodic dacă din backup se pot restaura efectiv date cu succes",
+      "b": "Pentru că un backup ar trebui creat, în principiu, doar o dată pe an",
+      "c": "Pentru că backupurile automate nu pot eșua niciodată din punct de vedere tehnic",
+      "d": "Pentru că un backup creat rămâne valabil doar maximum 24 de ore"
+    },
+    "explanation": "O rulare de backup poate eșua sau poate genera o copie deteriorată, incompletă, fără ca acest lucru să fie observat imediat. Numai un test de restaurare periodic arată în mod fiabil dacă, într-o situație reală, datele pot fi într-adevăr readuse. Frecvența salvării depinde de necesități și nu se limitează la o dată pe an, procesele automate pot eșua, iar un backup nu își pierde automat valabilitatea după 24 de ore."
+  },
+  "it_sicherheit-datensicherung-07": {
+    "question": "Doriți să transportați date confidențiale ale firmei pe un suport de date USB extern. Care este cea mai importantă măsură de protecție în acest scop?",
+    "options": {
+      "a": "Aplicarea pe suport a unei etichete vizibile cu mențiunea „confidențial”, pentru ca nimeni să nu îl rătăcească",
+      "b": "Criptarea suportului, astfel încât, în caz de pierdere sau furt, datele să nu poată fi citite fără altă formalitate",
+      "c": "Alegerea unui suport cât mai mic și mai discret, pentru a nu atrage atenția",
+      "d": "Simpla redenumire a fișierelor înainte de copiere, pentru ca al lor conținut să nu fie imediat recognoscibil"
+    },
+    "explanation": "Suporturile de date detașabile se pierd ușor sau sunt furate; fără criptare, datele stocate pe ele sunt imediat lizibile pentru oricine are acces fizic. Criptarea face ca datele să rămână protejate și în caz de pierdere, atât timp cât cheia, respectiv parola, rămâne secretă. O etichetă, o formă discretă sau fișiere redenumite nu oferă, în schimb, nicio protecție tehnică reală împotriva citirii neautorizate."
+  },
+  "it_sicherheit-datensicherung-08": {
+    "question": "Un laptop vechi al firmei urmează să fie scos din uz și eliminat. Care este modul corect de a proceda în privința datelor stocate pe el?",
+    "options": {
+      "a": "Ștergerea doar a fișierelor vizibile în coșul de gunoi și golirea acestuia",
+      "b": "Predarea laptopului nemodificat către o piață second-hand cu scop caritabil, pentru a economisi resurse",
+      "c": "Demontarea hard diskului și aruncarea acestuia la gunoiul menajer",
+      "d": "Ștergerea sigură și irecuperabilă a datelor de către structura IT competentă (sau distrugerea în mod corespunzător a suportului de date), înainte ca dispozitivul să fie predat sau eliminat"
+    },
+    "explanation": "Simpla ștergere în coșul de gunoi sau formatarea elimină, de regulă, fișierele doar din structura vizibilă, în timp ce datele propriu-zise rămân adesea recuperabile cu mijloace adecvate. Înainte de predare sau eliminare, suporturile de date trebuie deci șterse în siguranță (de exemplu prin suprascriere repetată) sau distruse fizic, pentru ca datele confidențiale ale firmei să nu ajungă pe mâini greșite. Aruncarea la gunoiul menajer este, în plus, inadmisibilă din motive de mediu și de gestionare a deșeurilor."
+  },
+  "it_sicherheit-mobil_homeoffice-05": {
+    "question": "De ce este deosebit de importantă criptarea hard diskului pe un laptop utilizat pentru telemuncă și deplasări de serviciu?",
+    "options": {
+      "a": "Pentru că face laptopul să pornească automat mai repede",
+      "b": "Pentru că, în caz de furt sau pierdere, împiedică persoanele neautorizate să acceseze fără altă formalitate datele stocate",
+      "c": "Pentru că este obligatorie exclusiv pentru dispozitivele care nu părăsesc niciodată biroul",
+      "d": "Pentru că face complet inutilă o parolă de autentificare"
+    },
+    "explanation": "Dispozitivele utilizate în afara biroului sunt expuse unui risc mai ridicat de furt sau pierdere - de exemplu în tren, în mașină sau în deplasare la client. Fără criptarea hard diskului, discul încorporat poate fi adesea demontat, iar datele citite direct, independent de parola de autentificare a sistemului de operare. Criptarea și parola de autentificare se completează reciproc, dar nu se înlocuiesc una pe alta, iar viteza de pornire nu are nicio legătură cu acest lucru."
+  },
+  "it_sicherheit-mobil_homeoffice-06": {
+    "question": "De ce ar trebui activată pe un smartphone folosit în scopuri de serviciu o blocare automată rapidă a ecranului (de exemplu după 30 de secunde de inactivitate)?",
+    "options": {
+      "a": "Pentru ca dispozitivul să nu fie imediat accesibil neprotejat în cazul în care este lăsat pentru scurt timp nesupravegheat sau este pierdut",
+      "b": "Pentru ca bateria dispozitivului să reziste mai mult",
+      "c": "Pentru ca apelurile să fie trecute automat pe silențios",
+      "d": "Pentru că o blocare a ecranului este prevăzută legal doar pentru telefoanele de serviciu ale conducerii"
+    },
+    "explanation": "Un interval scurt de blocare micșorează fereastra de timp în care un dispozitiv lăsat pentru scurt timp nesupravegheat sau pierdut poate fi folosit fără autentificare, de exemplu pentru a accesa e-mailuri, contacte sau aplicații ale firmei. Autonomia bateriei și setările pentru apeluri nu au nicio legătură relevantă pentru securitate, iar regula se aplică în mod rezonabil tuturor dispozitivelor folosite în scopuri de serviciu, nu doar anumitor categorii de persoane."
+  },
+  "it_sicherheit-mobil_homeoffice-07": {
+    "question": "Folosiți ocazional, în scopuri de serviciu, smartphone-ul dumneavoastră personal („Bring Your Own Device”). La ce este cel mai important să fiți atent din perspectiva securității?",
+    "options": {
+      "a": "Să stocați datele personale și cele de serviciu cât mai amestecat, în aceleași aplicații, pentru a nu pierde nimic",
+      "b": "Este suficient ca dispozitivul să aibă o parolă oarecare, independent de alte cerințe",
+      "c": "Să respectați cerințele interne privind BYOD (de exemplu măsuri minime de protecție, separarea datelor de serviciu, posibilitatea de ștergere de la distanță) înainte ca dispozitivul să fie folosit în scopuri de serviciu",
+      "d": "Regulile BYOD sunt pur voluntare și nu trebuie respectate, atât timp cât dispozitivul a fost plătit din bani personali"
+    },
+    "explanation": "Atunci când dispozitivele personale sunt folosite în scopuri de serviciu, trebuie atinse aceleași obiective de protecție ca în cazul dispozitivelor firmei - de exemplu prin cerințe minime privind criptarea, blocarea ecranului, zone separate pentru datele de serviciu și posibilitatea de a șterge de la distanță datele de serviciu în caz de pierdere. Amestecarea datelor personale cu cele de serviciu îngreunează tocmai această protecție, iar o parolă oarecare sau finanțarea privată a dispozitivului nu scutesc de respectarea cerințelor interne aplicabile."
+  },
+  "it_sicherheit-mobil_homeoffice-08": {
+    "question": "Participați de acasă la o videoconferință de serviciu în cadrul căreia se discută conținuturi confidențiale. La ce ar trebui să fiți deosebit de atent?",
+    "options": {
+      "a": "Ecranul poate rămâne fără probleme vizibil pentru colocatari, atât timp cât nimeni nu citește în mod activ",
+      "b": "La faptul că locatarii, membrii familiei sau dispozitivele cu asistenți vocali să nu poată auzi sau vedea conținuturile confidențiale",
+      "c": "Doar la faptul ca legătura la internet să fie suficient de rapidă pentru video",
+      "d": "Este suficient să opriți camera; microfonul nu are importanță în acest context"
+    },
+    "explanation": "În mediul domestic, și alte persoane pot afla ce se vede pe ecran sau ce se aude prin microfon, de exemplu membri ai familiei sau vizitatori; de asemenea, asistenții vocali aflați în apropiere pot asculta neintenționat. Un loc liniștit și izolat, precum și o utilizare atentă a ecranului și a microfonului protejează confidențialitatea. Simpla viteză a conexiunii privește calitatea, nu confidențialitatea, iar un microfon oprit este, pentru conținuturile confidențiale rostite, cel puțin la fel de important ca și camera."
+  },
+  "it_sicherheit-meldepflicht_it-05": {
+    "question": "Cum este structurată în timp, în linii mari, procedura de notificare în etape a Directivei NIS2 pentru un incident de securitate semnificativ?",
+    "options": {
+      "a": "Este suficientă o singură notificare completă, cel târziu la un an de la incident",
+      "b": "O avertizare timpurie în termen de 24 de ore, o notificare mai detaliată în termen de 72 de ore, urmată de un raport final cel târziu la o lună de la notificare",
+      "c": "Doar un raport final, care trebuie finalizat complet în termen de 24 de ore de la incident",
+      "d": "O notificare este necesară abia atunci când un incident a devenit deja public"
+    },
+    "explanation": "Directiva NIS2 prevede o procedură în etape: o avertizare timpurie în termen de 24 de ore de la luarea la cunoștință, o notificare mai detaliată în termen de 72 de ore și un raport final cel târziu la o lună de la această notificare. Această eșalonare permite o primă reacție rapidă, chiar dacă nu sunt cunoscute încă toate detaliile. O notificare unică după un an, un raport complet imediat, în 24 de ore, sau așteptarea publicității nu corespund procedurii reale."
+  },
+  "it_sicherheit-meldepflicht_it-06": {
+    "question": "După ce idee de bază stabilește Directiva NIS2 dacă un incident de securitate este considerat „semnificativ” și, prin urmare, este supus obligației de notificare?",
+    "options": {
+      "a": "Dacă incidentul provoacă (sau poate provoca) o perturbare operațională gravă ori un prejudiciu financiar, sau dacă alte persoane ori organizații sunt (sau pot fi) prejudiciate în mod semnificativ",
+      "b": "Dacă incidentul afectează exclusiv departamentul IT însuși, independent de amploarea reală",
+      "c": "Dacă incidentul durează mai mult de o săptămână de lucru, independent de efectele sale",
+      "d": "Dacă incidentul se produce întâmplător în timpul programului de bază de lucru"
+    },
+    "explanation": "Potrivit NIS2, un incident este considerat semnificativ în special atunci când provoacă sau poate provoca o perturbare operațională gravă ori un prejudiciu financiar pentru organizația vizată, sau când prin el sunt ori pot fi prejudiciate în mod semnificativ alte persoane fizice sau juridice. Nici simpla afectare a departamentului IT, nici durata sau momentul din zi al incidentului nu sunt, în sine, criteriul decisiv - determinantă este amploarea reală sau posibilă a efectelor."
+  },
+  "it_sicherheit-meldepflicht_it-07": {
+    "question": "Bănuiți un incident de securitate în desfășurare pe calculatorul dumneavoastră de serviciu. De ce nu ar trebui să reporniți sau să opriți complet dispozitivul din proprie inițiativă, înainte de a raporta incidentul?",
+    "options": {
+      "a": "Pentru că o repornire consumă, în principiu, mai mult curent decât funcționarea continuă",
+      "b": "Pentru că o repornire șterge automat toate datele firmei de pe dispozitiv",
+      "c": "Pentru că astfel se pot pierde urme volatile (de exemplu din memoria de lucru), importante pentru investigarea ulterioară a incidentului",
+      "d": "Pentru că o repornire remediază automat incidentul, făcând inutilă o raportare"
+    },
+    "explanation": "Unele urme importante ale unui incident - de exemplu conexiunile de rețea active sau procesele din memoria de lucru - se pierd la o repornire sau oprire și nu mai pot fi reconstituite ulterior. Pentru stabilirea ulterioară a cauzei este deci important ca sistemul să fie lăsat pe cât posibil nemodificat și ca incidentul să fie raportat mai întâi, pentru ca structura competentă să decidă asupra pașilor următori. O repornire nu șterge automat datele firmei și nici nu remediază un incident de securitate subiacent."
+  },
+  "it_sicherheit-meldepflicht_it-08": {
+    "question": "Ce informații sunt deosebit de utile la raportarea unui incident de securitate IT suspectat către structura internă competentă?",
+    "options": {
+      "a": "Exclusiv numele propriu; alte informații nu fac decât să întârzie inutil raportarea",
+      "b": "O raportare cât mai scurtă, fără indicarea momentului, pentru a putea fi trimisă rapid",
+      "c": "Doar o presupunere generală privind cine ar putea fi răspunzător de incident",
+      "d": "Informații cât mai exacte privind momentul, elementele neobișnuite observate și sistemele sau datele afectate"
+    },
+    "explanation": "Informațiile concrete privind momentul, comportamentul observat (de exemplu ferestre pop-up neobișnuite, modificări inexplicabile ale fișierelor) și sistemele sau datele afectate ajută structura competentă să încadreze rapid incidentul, să estimeze amploarea și să inițieze contramăsuri adecvate. Numele propriu singur nu este suficient, o raportare fără indicarea momentului îngreunează încadrarea temporală, iar presupunerile privind „vinovăția” nu sunt punctul decisiv pentru tratarea tehnică a incidentului."
+  },
+  "it_sicherheit-social_engineering-01": {
+    "question": "Un apelant se prezintă drept suport IT și vă roagă insistent să îi comunicați parola dumneavoastră actuală, pentru a remedia o presupusă problemă de securitate. Cum reacționați?",
+    "options": {
+      "a": "Comunicați parola, întrucât solicitările suportului IT sunt de regulă urgente",
+      "b": "Nu comunicați parola și verificați solicitarea printr-un canal cunoscut și independent (de exemplu linia oficială de asistență IT)",
+      "c": "Inventați o parolă nouă, asemănătoare, și o transmiteți pe aceasta în locul celei reale",
+      "d": "Comunicați doar numele de utilizator, fără parolă"
+    },
+    "explanation": "Niciun suport IT legitim nu are vreodată nevoie de parola dumneavoastră în clar - acesta este un tipar clasic de pretexting (simularea unei identități false/a unei urgențe). Solicitările reale pot fi întotdeauna verificate printr-un canal independent și deja cunoscut, în loc să se acorde încredere numărului indicat chiar în cadrul apelului."
+  },
+  "it_sicherheit-social_engineering-02": {
+    "question": "Intrați în clădirea de birouri cu cardul dumneavoastră de acces. O persoană necunoscută, fără legitimație vizibilă, trece pe ușă imediat în urma dumneavoastră („tailgating”). Care este reacția corectă?",
+    "options": {
+      "a": "Să țineți ușa deschisă; politețea are prioritate",
+      "b": "Să nu faceți nimic, aceasta este sarcina recepției",
+      "c": "Să întrebați amabil persoana despre legitimația/motivul prezenței sale sau să raportați situația serviciului de securitate/recepției",
+      "d": "Să ignorați persoana, atât timp cât nu arată suspect"
+    },
+    "explanation": "Tailgating-ul este una dintre cele mai frecvente metode de eludare a controalelor fizice de acces - „a arăta suspect” nu este un criteriu de încredere, întrucât atacatorii se prezintă în mod deliberat discret. O întrebare amabilă sau o raportare către serviciul de securitate costă puțin și închide o breșă de securitate reală."
+  },
+  "it_sicherheit-social_engineering-03": {
+    "question": "Găsiți un stick USB fără inscripție în parcarea firmei. Ce faceți?",
+    "options": {
+      "a": "Conectați stickul la calculatorul dumneavoastră de serviciu, pentru a identifica proprietarul după fișiere",
+      "b": "Nu conectați stickul, ci îl raportați, respectiv îl predați securității IT",
+      "c": "Verificați stickul pe un calculator personal, acasă; acolo nu există un risc pentru firmă",
+      "d": "Aruncați stickul, pentru ca nimeni altcineva să nu îl găsească"
+    },
+    "explanation": "Un stick USB „pierdut” în mod intenționat este o cale de atac cunoscută („USB drop attack”), menită să introducă programe malițioase de îndată ce cineva îl conectează din curiozitate. Acest lucru este valabil în egală măsură pe un calculator personal, întrucât prin el pot fi sustrase date sau accesuri. Securitatea IT poate verifica stickul în siguranță (izolat)."
+  },
+  "it_sicherheit-social_engineering-04": {
+    "question": "Primiți un apel de la o presupusă angajată a băncii, care vă roagă să confirmați „pentru siguranță” PIN-ul dumneavoastră la telefon („vishing”). Cum reacționați corect?",
+    "options": {
+      "a": "Comunicați PIN-ul, întrucât apelanta a menționat deja soldul contului, ceea ce a părut demn de încredere",
+      "b": "Comunicați doar ultimele două cifre ale PIN-ului, acest lucru fiind suficient de sigur",
+      "c": "Nu comunicați în niciun caz PIN-ul la telefon și sunați dumneavoastră înapoi la numărul de telefon oficial și cunoscut al băncii",
+      "d": "Închideți și schimbați imediat PIN-ul pentru siguranță, fără a informa banca"
+    },
+    "explanation": "Băncile nu solicită niciodată PIN-ul complet la telefon - nici informațiile parțiale, nici datele de cont aparent cunoscute (care pot proveni, de exemplu, din scurgeri de date) nu dovedesc identitatea reală a apelantului. Calea sigură este întotdeauna apelul inițiat de dumneavoastră, către un număr verificat independent."
+  },
+  "it_sicherheit-social_engineering-05": {
+    "question": "Primiți un SMS de la un presupus serviciu de curierat: „Coletul dumneavoastră nu a putut fi livrat, confirmați adresa și datele de plată prin acest link” („smishing”). Care este reacția corectă?",
+    "options": {
+      "a": "Deschideți linkul, dar nu introduceți date de plată",
+      "b": "Nu deschideți linkul și verificați numărul de expediere direct pe site-ul oficial al serviciului de curierat",
+      "c": "Redirecționați SMS-ul colegilor, pentru ca aceștia să testeze linkul",
+      "d": "Răspundeți cu „Stop”, pentru a vă dezabona de pe listă"
+    },
+    "explanation": "Chiar și simpla deschidere a unui link poate divulga informații despre dispozitiv sau poate conduce la o pagină falsă, extrem de credibilă, care captează datele de autentificare. Verificarea sigură se face întotdeauna prin adresa oficială introdusă de dumneavoastră - niciodată printr-un link dintr-un mesaj nesolicitat."
+  },
+  "it_sicherheit-social_engineering-06": {
+    "question": "Primiți un e-mail care ar proveni de la conducere: „Urgent și confidențial - vă rog să dispuneți imediat un transfer de 45.000 € către acest cont nou, momentan nu sunt disponibil” („fraudă de tip CEO” / Business Email Compromise). Cum procedați?",
+    "options": {
+      "a": "Efectuați imediat transferul, întrucât au fost subliniate confidențialitatea și urgența",
+      "b": "Răspundeți la e-mail și cereți detalii suplimentare, apoi efectuați transferul",
+      "c": "Verificați solicitarea printr-un canal independent și cunoscut (de exemplu un apel înapoi la un număr cunoscut) și respectați procesul obișnuit de aprobare, chiar și sub presiunea timpului",
+      "d": "Rugați un coleg să preia transferul fără verificări suplimentare, pentru a economisi timp"
+    },
+    "explanation": "Urgența, confidențialitatea și indisponibilitatea presupusului expeditor sunt mijloacele clasice de presiune în frauda de tip CEO - ele urmăresc tocmai împiedicarea respectării procesului obișnuit de aprobare (de exemplu principiul celor patru ochi). Un atacator care răspunde la un e-mail rămâne același atacator; numai un canal de întoarcere independent oferă o siguranță reală."
+  },
+  "it_sicherheit-social_engineering-07": {
+    "question": "Un e-mail, aparent de la un furnizor de lungă durată, comunică faptul că datele bancare s-au schimbat și solicită ca plățile viitoare să fie efectuate în noul cont. Care este primul pas corect?",
+    "options": {
+      "a": "Actualizați imediat datele de plată în sistem, întrucât furnizorul este cunoscut",
+      "b": "Verificați modificarea printr-un contact independent și deja cunoscut la furnizor (număr de telefon din documente anterioare, nu din e-mail), înainte de a schimba ceva",
+      "c": "Trimiteți un mic transfer de test către noul cont, pentru a-l verifica",
+      "d": "Ignorați e-mailul, dar blocați totuși, pentru siguranță, vechile date bancare"
+    },
+    "explanation": "Modificările datelor bancare sunt o țintă preferată a atacurilor de tip Business Email Compromise, întrucât conturile de e-mail ale furnizorilor pot fi compromise, iar facturile pot fi reproduse extrem de credibil. O verificare printr-un canal independent, cunoscut dintr-o colaborare anterioară, este singura protecție fiabilă - un transfer de test nu protejează suma propriu-zisă."
+  },
+  "it_sicherheit-social_engineering-08": {
+    "question": "Un coleg și-a uitat cardul de acces și vă roagă să îl lăsați pur și simplu să treacă de ușa de securitate cu cardul dumneavoastră („badge sharing”). Care este reacția corectă?",
+    "options": {
+      "a": "Să îl lăsați pur și simplu să intre; până la urmă este un coleg cunoscut",
+      "b": "Să îi împrumutați cardul dumneavoastră pentru toată ziua",
+      "c": "Să îl îndrumați către recepție sau către serviciul de securitate, pentru ca acolo să i se elibereze un acces temporar în regulă",
+      "d": "Să îi țineți ușa deschisă, atât timp cât nu privește nimeni altcineva"
+    },
+    "explanation": "Cardurile de acces sunt personale, pentru ca într-o situație critică (de exemplu clarificarea unui incident) să rămână trasabil cine, când și unde s-a aflat - împărțirea cardului subminează acest lucru chiar și între colegi și este, în plus, un tipar exploatat în mod țintit de practicanții ingineriei sociale („mi-am uitat cardul”). Calea obișnuită, prin recepție/securitate, rămâne în același timp rapidă și sigură."
+  },
+  "it_sicherheit-ransomware-01": {
+    "question": "Pe ecranul dumneavoastră apare brusc un mesaj potrivit căruia toate fișierele au fost criptate și vor fi deblocate doar contra plății unei răscumpărări („ransomware”). Care este primul dumneavoastră pas?",
+    "options": {
+      "a": "Să încercați imediat să plătiți răscumpărarea solicitată, pentru a economisi timp",
+      "b": "Să deconectați imediat dispozitivul de la rețea (scoaterea cablului de rețea / dezactivarea WLAN) și să informați neîntârziat securitatea IT",
+      "c": "Să reporniți calculatorul, pentru a vedea dacă problema dispare",
+      "d": "Să încercați singur să decriptați fișierele cu un software găsit pe internet"
+    },
+    "explanation": "Deconectarea imediată de la rețea împiedică răspândirea ransomware-ului către alte sisteme din rețeaua firmei - acesta este cel mai important pas imediat, înaintea oricărei alte măsuri. Securitatea IT poate apoi limita incidentul în mod profesionist; încercările de decriptare pe cont propriu sau o repornire pot distruge urme ori pot agrava situația."
+  },
+  "it_sicherheit-ransomware-02": {
+    "question": "Ar trebui ca o întreprindere să plătească răscumpărarea solicitată în cazul unui atac ransomware?",
+    "options": {
+      "a": "Da, aceasta este întotdeauna calea cea mai rapidă și mai sigură pentru a recupera datele",
+      "b": "Da, dar numai dacă suma solicitată pare suficient de mică",
+      "c": "BSI descurajează, în principiu, plățile - acestea nu garantează deblocarea datelor, finanțează alte atacuri și pot atrage o nouă vizare; decizia aparține conducerii/securității IT, în cadrul planului de urgență, nu unor persoane individuale",
+      "d": "Nu are importanță, întrucât backupurile fac oricum întotdeauna inutilă o plată"
+    },
+    "explanation": "O plată nu garantează restaurarea datelor și finanțează în continuare infrastructura infracțională. Chiar și cu backupuri bune, decizia de plată rămâne complexă într-o situație reală (de exemplu din cauza datelor exfiltrate) și este, prin urmare, întotdeauna o decizie a conducerii întreprinderii, în cadrul planului de urgență documentat, nu a unei persoane aflate la fața locului."
+  },
+  "it_sicherheit-ransomware-03": {
+    "question": "Pe ce cale ajunge cel mai frecvent ransomware-ul în rețelele întreprinderilor?",
+    "options": {
+      "a": "Prin e-mailuri de phishing cu atașamente sau linkuri malițioase, precum și prin sisteme neactualizate, accesibile din internet",
+      "b": "Aproape exclusiv prin laptopuri furate fizic",
+      "c": "Aproape exclusiv prin cabluri de imprimantă compromise",
+      "d": "Ransomware-ul se răspândește, în principiu, doar prin stickuri USB deja infectate"
+    },
+    "explanation": "E-mailurile de phishing și sistemele neactualizate, accesibile din exterior (de exemplu soluțiile de acces la distanță), sunt, potrivit rapoartelor de situație ale BSI, principalele porți de intrare. Acest lucru face ca atât vigilența angajaților la deschiderea atașamentelor/linkurilor, cât și instalarea promptă a actualizărilor de securitate să fie măsuri de protecție centrale."
+  },
+  "it_sicherheit-ransomware-04": {
+    "question": "De ce sunt deosebit de importante pentru protecția împotriva ransomware-ului backupurile periodice, deconectate de la rețea („offline”) sau nemodificabile („immutable”)?",
+    "options": {
+      "a": "Nu sunt - orice tip de backup este suficient, atât timp cât rulează periodic",
+      "b": "Doar pentru ca departamentul IT să economisească spațiu de stocare",
+      "c": "Pentru că ransomware-ul încearcă în mod țintit să cripteze și backupurile accesibile în rețea - numai copiile deconectate sau nemodificabile rămân garantat utilizabile într-o situație reală",
+      "d": "Exclusiv din motive de conformitate; tehnic, tipul de backup nu are importanță"
+    },
+    "explanation": "Ransomware-ul modern caută activ unitățile de rețea și sistemele de backup accesibile, pentru a le cripta și pe acestea și pentru a crește presiunea în vederea plății răscumpărării. Un backup offline sau nemodificabil din punct de vedere tehnic nu poate fi afectat și permite o restaurare fără plată."
+  },
+  "it_sicherheit-ransomware-05": {
+    "question": "Observați o infecție cu ransomware pe calculatorul dumneavoastră de serviciu. Ar trebui să reporniți calculatorul pentru a remedia singur problema?",
+    "options": {
+      "a": "Da, o repornire remediază majoritatea problemelor de software",
+      "b": "Nu - o repornire sau o oprire poate accelera procesele de criptare în curs ori poate distruge urme criminalistice importante; în schimb, deconectați dispozitivul de la rețea și raportați incidentul",
+      "c": "Da, dar numai în modul de siguranță",
+      "d": "Nu are importanță, atât timp cât se rulează după aceea un program antivirus"
+    },
+    "explanation": "Unele variante de ransomware continuă criptarea după o repornire sau șterg cu această ocazie indicii importante pentru analiza ulterioară a căii de atac. Securitatea IT decide asupra pașilor următori pe baza stării nemodificate a sistemului."
+  },
+  "it_sicherheit-ransomware-06": {
+    "question": "Un coleg vă roagă să îl ajutați într-un incident suspectat de ransomware pe calculatorul său, fără a implica securitatea IT, „ca să nu aibă probleme”. Cum reacționați?",
+    "options": {
+      "a": "Îl ajutați, așa cum a cerut, și păstrați discret situația între dumneavoastră",
+      "b": "Încercați singur o instrucțiune de decriptare găsită pe internet",
+      "c": "Insistați asupra unei raportări imediate către securitatea IT - raportarea rapidă reduce prejudiciul și este mai importantă decât eventualele neplăceri",
+      "d": "Opriți pur și simplu calculatorul și considerați subiectul închis"
+    },
+    "explanation": "Raportarea întârziată sau omisă este unul dintre cele mai mari riscuri în cazul incidentelor de securitate, întrucât ransomware-ul se poate răspândi în continuare în rețea în timpul care trece. O bună cultură de securitate tratează raportarea rapidă drept un comportament dorit, nu drept ceva care atrage neplăceri."
+  },
+  "it_sicherheit-ransomware-07": {
+    "question": "Ce indiciu sugerează cel mai probabil că un sistem se află eventual într-o fază timpurie a unui atac ransomware, chiar înainte de apariția unei cereri de răscumpărare?",
+    "options": {
+      "a": "Economizorul de ecran s-a schimbat",
+      "b": "Un număr surprinzător de mare de fișiere sunt redenumite într-un timp scurt sau primesc extensii noi neobișnuite, sistemul devine simțitor mai lent, iar programul antivirus semnalează în mod repetat procese suspecte blocate",
+      "c": "Calculatorul este puțin mai silențios decât de obicei",
+      "d": "Nu există indicii vizibile înainte de cererea de răscumpărare"
+    },
+    "explanation": "Criptarea propriu-zisă rulează adesea în fundal, înainte ca cererea de răscumpărare să devină vizibilă - redenumirea în masă a fișierelor, încetinirea sesizabilă și avertismentele antivirus repetate sunt semnale de alarmă timpurii, în cazul cărora raportarea imediată poate încă limita prejudiciul produs."
+  },
+  "it_sicherheit-ransomware-08": {
+    "question": "Care dintre următoarele măsuri reduc riscul ca ransomware-ul să se răspândească în rețeaua firmei? (Selecție multiplă)",
+    "options": {
+      "a": "Instalarea promptă a actualizărilor de securitate pe toate sistemele",
+      "b": "Acordarea conturilor de utilizator doar a drepturilor efectiv necesare (principiul privilegiului minim)",
+      "c": "Acordarea de drepturi de administrator tuturor angajaților pe calculatorul lor de lucru, pentru a-și putea rezolva singuri problemele IT",
+      "d": "Backupuri periodice, separate, cu restaurare testată"
+    },
+    "explanation": "Sistemele actualizate, drepturile minime și backupurile testate se numără printre cele mai eficiente măsuri tehnice de protecție. Drepturile largi de administrator pentru toți au exact efectul opus: facilitează răspândirea ransomware-ului în rețea, cu aceleași drepturi ridicate."
+  },
+  "it_sicherheit-ki_bedrohungen-01": {
+    "question": "Ce se înțelege, în context de securitate, prin „deepfake”?",
+    "options": {
+      "a": "Un document fizic falsificat deosebit de rafinat",
+      "b": "Un material audio, foto sau video generat cu ajutorul inteligenței artificiale, extrem de credibil, care imită o persoană reală",
+      "c": "Un termen tehnic pentru linkuri de phishing deosebit de adânc imbricate",
+      "d": "Un termen depășit, care nu mai joacă niciun rol în practică"
+    },
+    "explanation": "Deepfake-urile folosesc modele de IA pentru a reproduce vocea, chipul sau mișcările unei persoane reale - între timp, cu un efort atât de redus, încât sunt folosite tot mai mult pentru tentative de fraudă țintite, precum apeluri sau mesaje video falsificate."
+  },
+  "it_sicherheit-ki_bedrohungen-02": {
+    "question": "Primiți un apel telefonic a cărui voce sună exact ca cea a conducerii dumneavoastră și care solicită un transfer urgent și neobișnuit - un număr de apel invers este refuzat în mod explicit („Urc imediat în avion”). Care este reacția corectă?",
+    "options": {
+      "a": "Să acționați, întrucât vocea a fost recunoscută fără dubiu",
+      "b": "Să efectuați transferul, dar numai pentru jumătate din suma solicitată",
+      "c": "Să nu dați curs solicitării și să verificați identitatea printr-un canal independent și deja cunoscut - recunoașterea vocii nu mai este, singură, o confirmare fiabilă, din cauza clonării vocale prin IA",
+      "d": "Să ignorați solicitarea, fără a o raporta"
+    },
+    "explanation": "Clonarea vocală prin IA poate genera, din câteva secunde de material audio real, o voce extrem de credibilă - tocmai combinația dintre urgență, o solicitare neobișnuită și refuzul unui apel invers este un semnal de alarmă tipic, indiferent cât de autentic sună vocea. Și lipsa de acțiune ar trebui raportată, pentru ca și ceilalți colegi să poată fi avertizați."
+  },
+  "it_sicherheit-ki_bedrohungen-03": {
+    "question": "Odinioară, greșelile de ortografie și de gramatică erau considerate un criteriu fiabil de recunoaștere a e-mailurilor de phishing. De ce nu mai este suficient astăzi acest criteriu, luat singur?",
+    "options": {
+      "a": "Pentru că programele de e-mail corectează între timp automat greșelile de ortografie",
+      "b": "Pentru că greșelile de ortografie nu au fost oricum niciodată un criteriu fiabil",
+      "c": "Pentru că modelele lingvistice de IA pot genera texte de phishing impecabile lingvistic și personalizate - alte semnale de alarmă, precum o adresă de expeditor diferită, linkuri neobișnuite sau o urgență neașteptată, devin astfel mai importante",
+      "d": "Pentru că atacurile moderne de phishing se lipsesc, în principiu, complet de text"
+    },
+    "explanation": "Textele generate de IA nu mai pot fi adesea deosebite lingvistic de comunicarea reală și pot fi, în plus, adaptate individual persoanei-țintă. Punctele de verificare mai fiabile rămân deci adresa reală a expeditorului, URL-ul de destinație al unui link și dacă solicitarea este plauzibilă pe fond și vine prin canalul așteptat."
+  },
+  "it_sicherheit-ki_bedrohungen-04": {
+    "question": "Într-un apel video stabilit spontan, o persoană care pare, vizual și vocal, un superior cunoscut solicită transmiterea imediată a unor date confidențiale ale clienților. Calitatea imaginii/sunetului este ușor neobișnuită. Cum reacționați?",
+    "options": {
+      "a": "Transmiteți datele, întrucât imaginea și vocea au corespuns",
+      "b": "Refuzați sau amânați transmiterea și verificați solicitarea printr-un canal independent și deja cunoscut (de exemplu un apel invers, o discuție personală)",
+      "c": "Transmiteți doar o parte din date, pentru a limita riscul",
+      "d": "Întrebați direct în cadrul apelului dacă este vorba despre un deepfake și dați crezare răspunsului"
+    },
+    "explanation": "O calitate ușor neobișnuită a imaginii/sunetului, o programare spontană și o solicitare confidențială neobișnuită sunt, împreună, semnale de alarmă tipice pentru un atac de tip deepfake. Un atacator care imită o persoană extrem de credibil va nega, firește, și la o întrebare directă în cadrul apelului - numai un canal independent oferă claritate reală."
+  },
+  "it_sicherheit-ki_bedrohungen-05": {
+    "question": "De ce este ingineria socială considerată, în general, un risc mai mare decât înainte, ca urmare a utilizării instrumentelor de IA?",
+    "options": {
+      "a": "Pentru că instrumentele de IA pot fi folosite exclusiv de echipele de securitate IT",
+      "b": "Pentru că instrumentele de IA le permit atacatorilor să creeze atacuri convingătoare și personalizate (text, voce, video) la scară largă și cu efort redus",
+      "c": "Pentru că instrumentele de IA fac, în principiu, imposibile atacurile de inginerie socială",
+      "d": "Riscul nu s-a modificat prin instrumentele de IA"
+    },
+    "explanation": "Ceea ce înainte necesita un efort manual ridicat (de exemplu imitarea unei voci sau redactarea unor texte convingătoare, fără greșeli, într-o limbă străină) poate fi astăzi automatizat rapid și în număr mare cu instrumente de IA - acest lucru crește atât cantitatea, cât și calitatea atacurilor."
+  },
+  "it_sicherheit-ki_bedrohungen-06": {
+    "question": "Care este protecția cea mai eficace împotriva fraudei prin apel sau mesaj video de tip deepfake?",
+    "options": {
+      "a": "Să fiți foarte atent dacă vocea sau imaginea sună, respectiv arată „suficient de autentic”",
+      "b": "Respectarea consecventă a unor proceduri de verificare fixe, convenite în prealabil (de exemplu apel invers la un număr cunoscut, un cuvânt-cod stabilit anterior) pentru solicitările neobișnuite sau financiare - indiferent cât de autentic par vocea sau imaginea",
+      "c": "Confirmarea apelurilor, în principiu, doar în scris, prin e-mail",
+      "d": "În prezent nu există nicio protecție eficace împotriva acestora"
+    },
+    "explanation": "Întrucât deepfake-urile sunt concepute tocmai pentru a înșela percepția umană, propria apreciere privind „autenticitatea” nu mai este o protecție fiabilă. În schimb, procedurile de verificare convenite în prealabil, independente de forma de comunicare, funcționează indiferent cât de convingătoare este falsificarea."
+  },
+  "it_sicherheit-ki_bedrohungen-07": {
+    "question": "Doriți să folosiți un chatbot cu IA accesibil public pentru a rezuma rapid un raport intern cu date confidențiale ale clienților. Este acest lucru lipsit de riscuri?",
+    "options": {
+      "a": "Da, chatboții publici cu IA nu stochează, în principiu, datele introduse",
+      "b": "Da, atât timp cât înlocuiți în prealabil numele clienților cu substituenți, restul nu este critic",
+      "c": "Nu - datele confidențiale sau cu caracter personal ar trebui introduse numai în instrumente de IA aprobate de propria organizație, întrucât în cazul serviciilor publice poate fi neclar cum sunt prelucrate mai departe datele introduse",
+      "d": "Aceasta este exclusiv o chestiune a responsabilului cu protecția datelor și nu îi privește pe angajații obișnuiți"
+    },
+    "explanation": "În cazul serviciilor publice de IA nu este adesea transparent dacă și cum sunt stocate datele introduse, dacă sunt folosite pentru îmbunătățirea modelului sau prelucrate în alt mod. Datele confidențiale sau cu caracter personal își au deci locul numai în instrumente verificate și aprobate de propria organizație - o politică internă în acest sens îi privește pe toți angajații, nu doar departamentele de specialitate."
+  },
+  "it_sicherheit-ki_bedrohungen-08": {
+    "question": "Bănuiți că tocmai ați devenit ținta unei tentative de fraudă asistată de IA (de exemplu un apel de tip deepfake sau un e-mail de phishing generat de IA, extrem de credibil), dar ați reușit să recunoașteți la timp frauda și nu ați reacționat. Ar trebui totuși să raportați incidentul?",
+    "options": {
+      "a": "Nu, întrucât nu s-a întâmplat nimic, nu este necesară nicio acțiune",
+      "b": "Da - aceeași cale de raportare ca la orice altă tentativă de inginerie socială se aplică și aici, pentru ca ceilalți colegi să fie avertizați și pentru ca atacuri similare să poată fi recunoscute",
+      "c": "Să raportați numai dacă s-a produs efectiv un prejudiciu financiar",
+      "d": "Să raportați numai dacă departamentul IT solicită în mod expres acest lucru"
+    },
+    "explanation": "Și o tentativă de atac respinsă furnizează informații valoroase - de exemplu ce schemă circulă în prezent sau dacă mai mulți angajați au fost atacați simultan. Raportarea din timp a tentativelor recunoscute, dar eșuate, este o componentă centrală a unei culturi de securitate eficace."
+  }
+}

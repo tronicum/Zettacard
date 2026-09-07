@@ -8,13 +8,27 @@
   directory = "netlify/functions"
 
 [build]
-  # No build step from Netlify's perspective - app/ is a flat static PWA.
-  # The data/ tree under app/ IS a build artifact, but it's generated ahead
-  # of time by data/build_modules.py (run from the repo root, not by
-  # Netlify) since it derives from the editable master content files, not
-  # from anything Netlify needs to compile. Publish app/ as-is.
+  # app/ is a flat static PWA - no compilation, no bundler. But app/data/ IS a
+  # build artifact of data/build_modules.py, and until 2026-09-07 that script
+  # was run by hand on someone's laptop while Netlify published whatever
+  # happened to be committed. That let two things drift apart silently: a
+  # changed master under data/ that nobody rebuilt, and a built tree assembled
+  # from a partial copy.
+  #
+  # So the build now regenerates and then REFUSES to publish a tree that is
+  # missing a module. check_deploy_preflight.py compares app/data/ against
+  # data/modules_manifest.json, which is what the app fetches to build its
+  # picker - a module listed there and absent from app/data/ is a picker entry
+  # leading nowhere. That check exists because app/data/ is only PARTLY
+  # generated: amateurfunk_a, amateurfunk_e, lksg and waffensachkunde have no
+  # source in the build path and survive only as committed output, so any
+  # partial tree drops four live modules and nothing objects.
+  #
+  # build_modules.py is deliberately NOT `set -e`-fragile here: it only removes
+  # the artefacts it owns (core.json, locales/, course.json, course_locales/)
+  # for the modules in BUILT_MODULES, and leaves everything else alone.
   publish = "app"
-  command = "true"
+  command = "python3 data/build_modules.py && python3 scripts/check_data_integrity.py && python3 scripts/check_deploy_preflight.py"
 
 [[headers]]
   for = "/service-worker.js"
@@ -61,14 +75,36 @@
   # Order matters here - Netlify evaluates redirects top-to-bottom and
   # stops at the first match, so these three MUST stay above the SPA
   # catch-all below or they'd never be reached.
+  #
+  # 2026-09-03: destinations changed from :id-in-query-string
+  # (`to = "/.netlify/functions/get-badge?id=:id&format=json"`) to
+  # :id-in-path (`to = "/.netlify/functions/get-badge/:id/json"`), with
+  # force = true added to each rule. The query-string form was found NOT
+  # to actually substitute :id into the destination on this deploy method -
+  # every one of these three redirects came back 400 "Invalid or missing
+  # 'id' query parameter" (confirmed live; the direct function-call form
+  # /.netlify/functions/get-badge?id=<id>&format=<format> worked fine in
+  # every format). Placeholder substitution into a PATH segment is
+  # Netlify's documented/well-supported form, unlike substitution into a
+  # query-string value, which is the part that wasn't working. force = true
+  # is required here because the destination path
+  # (/.netlify/functions/get-badge/...) itself looks like it could match a
+  # *later* rule or an existing file, and without force a rewrite to a
+  # function is otherwise skipped when Netlify thinks something else might
+  # already handle it. get-badge.mjs was updated in the same round to
+  # parse id/format from these trailing path segments, falling back to the
+  # original ?id=&format= query-string parsing so a direct function call
+  # using the old form keeps working unchanged.
   from = "/badges/:id/credential.jwt"
-  to = "/.netlify/functions/get-badge?id=:id&format=jwt"
+  to = "/.netlify/functions/get-badge/:id/jwt"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/badges/:id/credential.json"
-  to = "/.netlify/functions/get-badge?id=:id&format=json"
+  to = "/.netlify/functions/get-badge/:id/json"
   status = 200
+  force = true
 
 [[redirects]]
   # The bare /badges/<id> link - what actually gets shared/handed out
@@ -77,8 +113,9 @@
   # readable verification page with download links to the two machine-
   # readable forms above.
   from = "/badges/:id"
-  to = "/.netlify/functions/get-badge?id=:id&format=html"
+  to = "/.netlify/functions/get-badge/:id/html"
   status = 200
+  force = true
 
 [[redirects]]
   from = "/*"

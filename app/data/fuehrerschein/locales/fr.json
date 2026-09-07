@@ -164,8 +164,8 @@
     "options": {
       "a": "Vous, car vous vous êtes déjà placé pour tourner",
       "b": "Le cycliste qui va tout droit",
-      "c": "Cela se négocie par gestes de la main",
-      "d": "Le cycliste doit toujours mettre pied à terre"
+      "c": "Le cycliste doit d'abord vous laisser passer, car vous êtes en voiture",
+      "d": "Le cycliste n'est prioritaire que si la piste cyclable n'est pas à usage obligatoire"
     },
     "explanation": "Lors d'un virage, la priorité doit être accordée aux cyclistes et piétons qui vont tout droit ; en cas de doute, roulez à l'allure du pas."
   },
@@ -384,8 +384,8 @@
     "options": {
       "a": "La fin de l'autoroute",
       "b": "Le début de l'autoroute",
-      "c": "Une aire de repos dans 500 m",
-      "d": "Des travaux sur l'autoroute"
+      "c": "L'autoroute ne commence qu'après la prochaine sortie",
+      "d": "Une bretelle d'accès vers l'autoroute, mais pas encore l'autoroute elle-même"
     },
     "explanation": "À partir de ce panneau, les règles spécifiques aux autoroutes s'appliquent, par exemple l'interdiction pour les piétons et les véhicules lents."
   },
@@ -394,8 +394,8 @@
     "options": {
       "a": "La fin de l'autoroute",
       "b": "Une bretelle d'accès supplémentaire",
-      "c": "Un échangeur autoroutier imminent",
-      "d": "Une limitation de vitesse augmentée"
+      "c": "Une aire de repos dans 300 mètres",
+      "d": "L'autoroute devient une voie express"
     },
     "explanation": "À partir de ce panneau, les règles de circulation normales s'appliquent de nouveau."
   },
@@ -1910,14 +1910,14 @@
     "explanation": "Avant de sortir, il faut s'assurer qu'aucun cycliste ni véhicule ne passe. Une portière ouverte sans précaution peut gravement blesser un cycliste."
   },
   "parken-17": {
-    "question": "Vous stationnez en montée le long d'un trottoir sans glissière de sécurité. Comment orientez-vous correctement les roues ?",
+    "question": "Vous vous garez en montée le long d'un trottoir sans glissière de sécurité. Comment orientez-vous correctement les roues ?",
     "options": {
       "a": "Braquer les roues avant vers le trottoir",
-      "b": "Braquer les roues avant vers le milieu de la chaussée, à l'écart du trottoir",
-      "c": "Toujours laisser les roues droites",
+      "b": "Braquer les roues avant à l'opposé de la chaussée, vers le milieu de la route",
+      "c": "Laisser toujours les roues droites",
       "d": "Braquer uniquement les roues arrière"
     },
-    "explanation": "En montée, les roues avant doivent être braquées vers le trottoir. Si le véhicule recule involontairement, il s'arrête contre le trottoir."
+    "explanation": "En montée, le long d'un trottoir, on braque les roues avant à l'opposé de la chaussée, vers le milieu de la route. Si le véhicule recule involontairement, il est ainsi dirigé vers le trottoir, où il est arrêté. En descente, c'est l'inverse : on braque alors les roues vers le trottoir."
   },
   "parken-18": {
     "question": "Vous stationnez en descente le long d'un trottoir. Comment orientez-vous correctement les roues ?",
@@ -2172,12 +2172,12 @@
   "zeichen-68": {
     "question": "Qu'indique ce panneau de signalisation ?",
     "options": {
-      "a": "Vous devez passer par la droite.",
-      "b": "Vous devez passer par la gauche.",
-      "c": "L'obstacle peut être contourné au choix par la gauche ou par la droite.",
-      "d": "Il est interdit de le contourner."
+      "a": "Vous devez continuer tout droit ou tourner à droite ici.",
+      "b": "Vous ne devez tourner qu'à droite ici.",
+      "c": "Il est interdit d'aller tout droit ici.",
+      "d": "Vous pouvez circuler dans n'importe quelle direction ici."
     },
-    "explanation": "Le Zeichen 214 autorise à contourner un obstacle au choix par la gauche ou par la droite."
+    "explanation": "Le Zeichen 214 est un panneau de prescription indiquant la direction obligatoire : à cet endroit, seule la direction tout droit ou à droite est autorisée ; toutes les autres directions (par exemple tourner à gauche ou faire demi-tour) sont interdites."
   },
   "zeichen-69": {
     "question": "Que signifie ce panneau de signalisation ?",
@@ -2674,7 +2674,7 @@
     "options": {
       "a": "À partir d'ici commence une agglomération ; en agglomération, la vitesse est en principe limitée à 50 km/h.",
       "b": "L'agglomération se termine à partir d'ici.",
-      "c": "Il s'agit d'une simple indication directionnelle sans portée juridique.",
+      "c": "Il indique en même temps la fin d'une voie express",
       "d": "Une limitation de vitesse de 30 km/h s'applique à partir d'ici."
     },
     "explanation": "Le Zeichen 310 (panneau d'agglomération, face avant) marque le début d'une agglomération ; sauf signalisation contraire, la vitesse de 50 km/h s'applique à partir de ce point."
@@ -2810,14 +2810,14 @@
     "explanation": "« Anlieger frei » exempte de l'interdiction la circulation à destination ou en provenance des lieux (riverains, visiteurs, livraisons ayant réellement une destination sur place) ; le trafic de transit reste interdit."
   },
   "zeichen-132": {
-    "question": "Un panonceau sous un panneau d'interdiction porte la mention « Mofa frei » (cyclomoteurs exemptés). Que s'applique-t-il ici ?",
+    "question": "Un panonceau blanc portant la mention « Piétons » se trouve sous un panneau de signalisation. Que signifie-t-il ?",
     "options": {
-      "a": "Les cyclomoteurs ne peuvent être poussés ici que moteur éteint",
-      "b": "L'interdiction s'applique encore plus strictement aux cyclomoteurs qu'aux autres véhicules",
-      "c": "Les conducteurs de cyclomoteurs sont exemptés de l'interdiction du panneau principal et peuvent continuer",
-      "d": "Seules les motos jusqu'à 125 cm³ peuvent continuer, pas les cyclomoteurs"
+      "a": "Le panonceau indique que le panneau principal s'applique (aussi) aux piétons.",
+      "b": "Les piétons sont par principe exemptés de toute règle imposée par le panneau principal.",
+      "c": "Il s'agit d'une indication signalant une zone piétonne.",
+      "d": "Le panonceau ne s'applique qu'aux utilisateurs de fauteuil roulant, et non aux autres piétons."
     },
-    "explanation": "« Mofa frei » exempte les conducteurs de cyclomoteurs de l'interdiction qui s'applique aux autres véhicules sur ce tronçon."
+    "explanation": "Le panonceau 1010-53 « Piétons » précise le champ d'application du panneau principal placé au-dessus : il indique clairement que la règle concerne aussi les piétons, et non uniquement les véhicules, comme on pourrait le supposer en l'absence de ce panonceau."
   },
   "zeichen-133": {
     "question": "Un panonceau montre le symbole d'un vélo barré d'une ligne diagonale et est fixé sous un autre panneau de signalisation. Que signifie-t-il ?",
@@ -3480,14 +3480,14 @@
     "explanation": "En cas de brouillard, de chute de neige, de pluie ou de conditions similaires avec une visibilité fortement réduite, le véhicule doit être éclairé avec les feux de croisement, même de jour."
   },
   "verhalten-39": {
-    "question": "Vous traversez une zone signalisée limitée à 30 km/h devant une école. Suffit-il de respecter strictement les 30 km/h ?",
+    "question": "Vous circulez dans une zone signalée à 30 km/h devant une école. Suffit-il de respecter strictement les 30 km/h ?",
     "options": {
-      "a": "Oui, la limitation de vitesse seule couvre déjà toute la prudence nécessaire",
-      "b": "Non, il faut en plus être prêt à freiner et s'attendre à tout moment à un comportement imprudent des enfants",
-      "c": "Non, dans une zone 30 devant les écoles, il est en principe interdit de rouler, seulement de pousser le véhicule",
-      "d": "Oui, dès qu'un panneau est installé, tout devoir de prudence supplémentaire disparaît"
+      "a": "Oui, la limitation de vitesse à elle seule couvre déjà toute la prudence nécessaire",
+      "b": "Non, il faut en plus être prêt à freiner à tout moment et s'attendre à un comportement imprudent de la part des enfants",
+      "c": "Non, dans une zone à 30 km/h devant une école, il est en principe totalement interdit de rouler, seul le fait de pousser le véhicule est autorisé",
+      "d": "Oui, dès qu'un panneau est en place, tout devoir de prudence supplémentaire disparaît"
     },
-    "explanation": "Une signalisation de vitesse ne remplace pas le devoir général de prudence envers les enfants - être prêt à freiner et faire preuve d'une attention accrue restent en outre nécessaires."
+    "explanation": "La signalisation de la limitation de vitesse ne remplace pas le devoir général de prudence envers les enfants - il faut en outre rester prêt à freiner et faire preuve d'une attention accrue."
   },
   "verhalten-40": {
     "question": "Vous passez et observez que deux autres véhicules viennent de se percuter juste avant. Vous n'étiez pas vous-même impliqué dans l'accident. Comment vous comportez-vous ?",

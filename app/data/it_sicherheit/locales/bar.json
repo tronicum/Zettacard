@@ -1,0 +1,642 @@
+{
+  "it_sicherheit-zugriffsschutz-01": {
+    "question": "Wecha Eigenschaft macht a Passwort grundsätzlich sicherer geng automatisierte Rateangriffe?",
+    "options": {
+      "a": "Es enthoit'n Nam vo da Abteilung, dass ma's leichter merka ko",
+      "b": "Es is lang, einzigartig für den oan Account und ned leicht zum Erratn",
+      "c": "Es werd olle drei Tag durch a sehr ähnlichs Passwort ersetzt",
+      "d": "Es besteht bloß aus Ziffern, weil des d'Eingab schneller macht"
+    },
+    "explanation": "Läng und Einzigartigkeit san de wichtigstn Faktorn geng automatisiertes Ausprobiern und geng sogenannts Credential Stuffing, bei dem gstohlane Zugangsdatn aus andere Dienst ausprobiert wern. A Passwort mit Bezug zum Arbeitsplatz is leicht zum Erratn, ofters Wechsln auf a sehr ähnlichs Passwort bringt kaum Sicherheitsgwinn, und rein numerische Passwörter hom z'weng mögliche Kombinationen."
+  },
+  "it_sicherheit-zugriffsschutz-02": {
+    "question": "Warum gilt Multi-Faktor-Authentifizierung (MFA) als deutlich sicherer wia a Passwort alloa?",
+    "options": {
+      "a": "Weil's des Passwort überflüssig macht und ma sich nix mehr merka muas",
+      "b": "Weil's des Konto vor olle Arten vo Angriff vollständig schützt",
+      "c": "Weil a Angreifer aa bei am gstohlanan Passwort zusätzlich no den zwoatn Faktor braucha dat",
+      "d": "Weil's ausschließlich für Administratorkontn technisch möglich is"
+    },
+    "explanation": "MFA kombiniert ebbas, wos ma woaß (Passwort), mit ebbas, wos ma hot (z. B. a App oder a Token) oder is. A gstohlans Passwort alloa langt am Angreifer damit nimma. MFA ersetzt des Passwort ned, bietet koan vollständign Schutz geng jede Art vo Angriff, und is heid für praktisch jeds Nutzerkonto verfügbar, ned bloß für Administratorn."
+  },
+  "it_sicherheit-zugriffsschutz-03": {
+    "question": "A Kolleg bittet Eahna, kurz sei persönlichs Benutzerkonto samt Passwort mitz'benutzn, weil sei eigana Zugang grad gsperrt is. Wia soitn Sie reagiern?",
+    "options": {
+      "a": "Obleahna und stattdessen den zuständign IT-Support oder d'Führungskraft informiern",
+      "b": "Zuastimma, solang bloß kurzfristig damit gaarbeit werd",
+      "c": "Zuastimma, aba nacha's Passwort vom Kollegn selba ändern",
+      "d": "Zuastimma, wenn d'Aufgab dringend is und koa andera Zugang möglich erscheint"
+    },
+    "explanation": "Kontn san personenbezogen, dass Handlungen im System eindeutig oana Person zuordenbar bleim (Nachvollziehbarkeit). Werd a Konto teilt, losst si im Nachhinein nimma klärn, wer wos gmacht hot - des erschwert aa d'Aufklärung vo Sicherheitsvorfäll erheblich. Dringlichkeit rechtfertigt koa Ausnahm; der richtige Weg is, den eigentlichn Zugriffsweg über'n IT-Support wiederherz'stelln."
+  },
+  "it_sicherheit-zugriffsschutz-04": {
+    "question": "Sie verlossn Eahnan Arbeitsplatz für a kurze Gspräch im Nachbarbüro. Wos is da richtige Umgang mit Eahnam entsperrtn Computer?",
+    "options": {
+      "a": "Nix unternehma, weil's si um a internes Bürogebäude handelt",
+      "b": "'n Bildschirm sperrn, bevor Sie'n Arbeitsplatz verlossn",
+      "c": "Bloß des offane Dokument zuamachn, da Rest ko offa bleim",
+      "d": "'n Monitor ausschoitn, des langt scho as Schutz"
+    },
+    "explanation": "A entsperrta Rechner erlaubt jedm, der wo kurz Zugang zum Raum hot - aa Besucher, Reinigungspersonal oder unbefugte Dritte -, auf olle offane Programm und Datn zuazgreifn. A ausgschoitana Monitor ändert do nix dro, weil d'Sitzung im Hintergrund weiterlaaft. Bildschirmsperrn (z. B. per Tastnkürzl) san a oanfache, wirksame Basismaßnahm, egal wia vertrauenswürdig d'Umgebung erscheint."
+  },
+  "it_sicherheit-phishing-01": {
+    "question": "Wecha vo de folgendn Merkmal is a typisches Warnsignal für a Phishing-E-Mail?",
+    "options": {
+      "a": "D'E-Mail kimmt während da üblichn Arbeitszeit o",
+      "b": "D'E-Mail enthoit's Firmenlogo im Anhang",
+      "c": "D'E-Mail erzeugt Zeitdruck und foddert zu ana sofortign, unüblichn Handlung auf",
+      "d": "D'E-Mail is o mehrere Kollegn gleichzeitig verschickt worn"
+    },
+    "explanation": "Angreifer setzn gezielt auf künstlichn Zeitdruck und emotionale Dringlichkeit, dass Empfänger ned in Ruah nachdenka oder Rücksprach hoitn, sondern sofort handln - eppa auf an Link klicka oder Datn preisgebn. Logos, normale Versandzeitn oder a größera Empfängerkreis song für si genomma nix über d'Echtheit vo ana Nachricht aus, weil Logos leicht kopiert und Versandzeitn sowia Empfängerlistn beliebig gwählt wern kenna."
+  },
+  "it_sicherheit-phishing-02": {
+    "question": "Sie kriang scheinbar vo da Geschäftsführung a E-Mail, de wo Eahna auffoddert, dringend und vertraulich a hohe Summe auf a neis, unbekanntes Konto z'überweisn. Wos is da richtige erste Schritt?",
+    "options": {
+      "a": "D'Überweisung sofort ausführn, weil Anweisungen vo da Geschäftsführung Vorrang hom",
+      "b": "D'Anfrag über an bekanntn, unabhängign Kanal (z. B. Telefonanruf) persönlich verifiziern, bevor irgendebbas gschiacht",
+      "c": "Auf d'E-Mail antwortn und do noch ana schriftlichn Bestätigung frogn",
+      "d": "D'Überweisung durchführn, aba an kloanern Betrag wia gforderd schickn"
+    },
+    "explanation": "Des Muster werd oft als \"CEO-Fraud\" bezeichnet: Angreifer gebn si als Führungskraft aus und nutzn Autorität, Vertraulichkeit und Zeitdruck, dass Kontrolln umgangan wern. A Antwort innahoib derselbn E-Mail-Konversation hilft nix, weil da Angreifer genau den Kanal kontrolliert. Entscheidend is d'Verifikation über an unabhängign, scho bekanntn Kontaktweg - eppa a Anruf unter ana hinterlegtn Telefonnummer -, bevor irgendaner Zahlung oder Handlung ebbas gschiacht."
+  },
+  "it_sicherheit-phishing-03": {
+    "question": "In ana E-Mail werd a Link zoagt, der wo angeblich zur bekanntn Login-Seitn vo Eahnam Unternehma führt. Wia prüfn Sie am gscheitastn, ob der Link vertrauenswürdig is, ohne eahm anz'klickn?",
+    "options": {
+      "a": "Mit da Maus über'n Link fahrn (ohne z'klickn) und de tatsächliche Zieladress in da Statusanzeig prüfn",
+      "b": "Den Link anklickn und nacha glei schaugn, ob de Seitn echt ausschaugt",
+      "c": "Prüfn, ob d'E-Mail in korrektm Deitsch gschriebn is",
+      "d": "'n Absendernam im Anzeigfeld vom E-Mail-Programm kontrolliern"
+    },
+    "explanation": "Der zoagte Linktext ko beliebig vo da tatsächlichn Zieladress obweichn; erst des Überfahrn mit da Maus zoagt de reale URL in da Statuszeiln vom Browser oder E-Mail-Programm. Anklickn birgt scho a Risiko, weil manche gfälschte Seitn automatisch Schadcode ladn. Fehlerfreie Sprach is koa verlässlichs Kriterium mehr, weil Phishing-Text heid oft sehr professionell wirkt, und der zoagte Absendername losst si leicht fälschn, ohne dass de tatsächliche Absenderadress dazua passt."
+  },
+  "it_sicherheit-phishing-04": {
+    "question": "Sie hom auf an Link in ana verdächtign E-Mail klickt und dort aus Versehn Eahnare Zugangsdatn eingebm. Wos is de richtige Reaktion?",
+    "options": {
+      "a": "Obwartn, ob si ebbas Ungewöhnlichs im Konto zoagt, und erst nacha reagiern",
+      "b": "Nix tuan, weil's vermutlich um an harmlosn Einzelfoi handelt",
+      "c": "'s Passwort in de nächstn Tag ändern, wenn Zeit dafür is",
+      "d": "Sofort 's Passwort ändern und'n Vorfoi umgehend da zuständign internen Stölln (z. B. IT-Sicherheit) meldn"
+    },
+    "explanation": "Umso schneller a kompromittiertes Zugangsdatum gändert und da Vorfoi gmeldet werd, umso kloaner bleibt's Zeitfenster, in dem a Angreifer de gstohlan Datn missbraucha ko. Obwartn, Nixtuan oder Verzögern erhöht 's Risiko unnötig, bsonders wenn's gleiche Passwort aa für weitere System gnutzt werd. D'Meldung an de zuständige Stölln ermöglicht zusätzlich, weitere Schutzmaßnahma einzleitn und andere Beschäftigte z'warnen."
+  },
+  "it_sicherheit-datensicherung-01": {
+    "question": "Warum san regelmäßige, geplante Datnsicherunga (Backups) wichtig, aa wenn a Gerät technisch zuverlässig laaft?",
+    "options": {
+      "a": "Weil Backups d'Notwendigkeit vo Passwörter ersetzn",
+      "b": "Weil Datn aa durch Fehlbedienung, technischn Defekt oder Schadsoftware wia Ransomware verlorn gehn kenna, unabhängig vo da aktuelln Zuverlässigkeit vom Gerät",
+      "c": "Weil Backups ausschließlich für sehr oide Gräti vorgschriebn san",
+      "d": "Weil ohne Backup de Internetverbindung langsamer werd"
+    },
+    "explanation": "A Backup schützt vor ganz unterschiedliche Ursachn für Datnverlust: versehentlichs Löschn, Hardwaredefekte, aba aa Ransomware, de wo Datein verschlüsselt. De bisherige Zuverlässigkeit vo am Gerät sogt nix über zukünftige Ausfäll oder Angriff aus. Backups hom nix mit Passwörter oder Internetgschwindigkeit z'doa und san unabhängig vom Oita vom Gerät sinnvoi."
+  },
+  "it_sicherheit-datensicherung-02": {
+    "question": "Sie findn auf'm Firmenparkplatz an USB-Stick ohne Kennzeichnung. Wos is da richtige Umgang damit?",
+    "options": {
+      "a": "'n Stick o am Firmenrechner eistecka, dass ma rausfindt, wem er ghört",
+      "b": "'n Stick mitnehma und privat weiterverwenden, weil eahn ja neamand vermisst",
+      "c": "'n Stick ned oschließn, sondern da IT-Obteilung oder am Sicherheitspersonal übergebm",
+      "d": "'n Stick o am privatn Gerät prüfn, bevor a Entscheidung troffn werd"
+    },
+    "explanation": "Unbekannte USB-Sticks san a klassischs Einfallstor für Schadsoftware: Sie kenna so präpariert sei, dass sie beim Eistecka automatisch Schadcode ausführn, aa scho bevor a Datei aufgmacht werd. Des gilt für Firmenrechner gnauso wia für private Gräti. Der sichere Weg is, den Fund ned selba z'untersuacha, sondern an de zuständige Stölln weiterz'gebm, de wo eahn kontrolliert prüfn ko."
+  },
+  "it_sicherheit-datensicherung-03": {
+    "question": "Warum soitn Sie Sicherheitsupdates für's Betriebssystem und Programm o Eahnam Arbeitsgerät zeitnah installiern, wenn's System des ohbiat?",
+    "options": {
+      "a": "Weil Updates oft bekannt gwordane Sicherheitslückn schließn, de wo sonst vo Angreifer ausgnutzt wern kenna",
+      "b": "Weil Updates hauptsächlich 's Design vo da Benutzeroberflächn verbessern",
+      "c": "Weil Updates ausschließlich de Gschwindigkeit vom Gerät erhöhen",
+      "d": "Weil Updates bloß bei privat gnutzte Gräti sicherheitsrelevant san"
+    },
+    "explanation": "Sicherheitslückn in Betriebssystem und Anwendunga wern fortlaufend entdeckt und veröffentlicht; d'Hersteller schließn's über Updates. Werd a Update aufgschobn, bleibt de Lückn offa, und Angreifer nutzn oft grad den Zeitraum kurz noch'm Bekanntwern gezielt aus. Oberflächngstaltung oder Gschwindigkeit san hächstens Nebeneffekte, ned der eigentliche Sicherheitsgrund, und de Update-Disziplin gilt für dienstliche Gräti gnauso wia für private."
+  },
+  "it_sicherheit-datensicherung-04": {
+    "question": "A Kolleg empfiehlt Eahna a praktischs, kostenloses Zusatzprogramm aus'm Internet für Eahnan Firmenrechner. Wia gengan Sie am gscheitastn vor?",
+    "options": {
+      "a": "'s Programm sofort installiern, weil's kostenlos is und koane Kostn verursacht",
+      "b": "'s Programm installiern, aba bloß o'm Rechner, ned o'm Diensthandy",
+      "c": "'s Programm installiern, solang's vo ana bekanntn Webseitn obgladn werd",
+      "d": "Vor da Installation de zuständige IT-Stölln frogn, ob und wia de Software freiggebn wern ko"
+    },
+    "explanation": "Ned freiggebane Software ko Sicherheitslückn enthoitn, mit andere Programm in Konflikt geratn oder geng Lizenz- und Compliance-Vorgabn verstoßn - unabhängig davo, ob's kostenlos is, vo wecha Webseitn's kimmt oder auf wecha Gerätetyp's installiert werd. D'IT-Obteilung ko prüfn, ob a Software sicha und regelkonform eigsetzt wern ko, und gegebnenfalls a geprüfte Alternative bereitstön."
+  },
+  "it_sicherheit-mobil_homeoffice-01": {
+    "question": "Wecha Maßnahm trogt am moastn dazua bei, 's hoamische WLAN für dienstliche Arbeit im Homeoffice obzsichern?",
+    "options": {
+      "a": "'n Nam (SSID) vom WLAN so eistön, dass er unauffällig klingt",
+      "b": "A starks, individuells WLAN-Passwort und a aktuelle Verschlüsselung (z. B. WPA2/WPA3) verwendn",
+      "c": "'s WLAN bloß tagsüber eischoitn und nachts komplett obschoitn",
+      "d": "'n werksseitig voreigstelltn Router-Zugang unverändert beibehoitn, dass ma koane Fehler macht"
+    },
+    "explanation": "A starks, individuells Passwort zsamm mit moderna Verschlüsselung verhindert, dass Unbefugte in Reichweit si oafach ins Netzwerk eiklinka und'n Datnverkehr mitlesn oder manipuliern kenna. A unauffälliga Netzwerknam bietet koan technischn Schutz, a zeitweisas Obschoitn löst 's Grundproblem ned, und werksseitige Voreistellunga (Standardpasswörter, Standard-SSID) san oft öffentlich bekannt und desweng bsonders unsicha."
+  },
+  "it_sicherheit-mobil_homeoffice-02": {
+    "question": "Sie miassn unterwegs kurz auf dienstliche E-Mails zuagreifn und findn a offans, unverschlüsselts WLAN in am Café. Wia gengan Sie am sichersten vor?",
+    "options": {
+      "a": "'s offane WLAN direkt nutzn, weil E-Mail-Obrufe unkritisch san",
+      "b": "'s offane WLAN nutzn, aba vorher 's oagane Passwort ändern",
+      "c": "Statt vom offanan WLAN a gsicherte Verbindung nutzn, eppa mobile Datn oder a Firmen-VPN",
+      "d": "'s offane WLAN nutzn, solang de Café-Webseitn a Schloss-Symbol in da Adresszeiln zoagt"
+    },
+    "explanation": "In offanan, unverschlüsseltn WLANs ko da Datnverkehr vo Dritte im selbn Netz mitgelesn oder umgleit wern, aa wenn oanzelne Webseitn selba verschlüsselt san (des Schloss-Symbol bezieht si bloß auf de oane Verbindung, ned aufs gsamte Netz). Mobile Datn oder a Firmen-VPN baun a zusätzlich obgsicherte, verschlüsselte Verbindung auf, de wo deitlich schwera obzhörn is. A vorheriga Passwortwechsel löst 's eigentliche Risiko ned."
+  },
+  "it_sicherheit-mobil_homeoffice-03": {
+    "question": "Sie orbatn im Zug o am vertraulichn Dokument auf Eahnam Laptop. Wos soitn Sie zum Schutz vorm Mitlesn beachtn?",
+    "options": {
+      "a": "Auf de Umgebung achtn und bei Bedarf an Sichtschutzfilter oder a sitzplatzbedingt gschützte Position nutzn",
+      "b": "'s Dokument oafach kloaner zoomen, dass's aus da Ferne ned lesbar is",
+      "c": "Bloß'n Dateinam anonymisiern, der Inhoit selba is unkritisch",
+      "d": "Vertrauliche Dokument unterwegs generell gnauso behandln wia öffentlich zugängliche Informationen"
+    },
+    "explanation": "\"Shoulder surfing\" - des Mitlesn vo Bildschirminhalt durch umstehande Personen - is a reals Risiko in öffentliche Umgebunga wia Züg oder Wartebereich. A Sichtschutzfilter oder a gschickte Sitzposition verringert des Risiko wirksam. Kloaners Zoomen schützt ned zuverlässig, der Dateinam is ned der eigentliche Schutzgegenstand, und vertrauliche Inhalt brauchn unabhängig vom Ort oiwei den entsprechendn Schutz, ned bloß im Büro."
+  },
+  "it_sicherheit-mobil_homeoffice-04": {
+    "question": "Sie san dienstlich unterwegs und miassn Eahnan Firmenlaptop kurz im parktn Auto zruckloss'n. Wos is da sicherste Umgang damit?",
+    "options": {
+      "a": "'n Laptop guat sichtbar o am Beifahrersitz liegn lossn, dass er ned vergessn werd",
+      "b": "'n Laptop in'n ned oisehbarn Kofferraum legn und's Fahrzeig zuasperrn, oder eahm möglichst ganz mitnehma",
+      "c": "'n Laptop unter ana Jackn o am Ruckstz verstecka, des langt as Schutz",
+      "d": "Es spuit koa Roin, solang da Laptop mit am Benutzerkennwort gschützt is"
+    },
+    "explanation": "Sichtbare Wertgegenständ im Auto erhöhn 's Risiko vo am Eibruch erheblich; a ned oisehbara Kofferraum oder 's Mitnehma vom Gerät verringern des Risiko deitlich. A Jackn as Sichtschutz is unzuverlässig und schützt ned vor am gezieltn Eibruch. A Benutzerkennwort schützt zwoa de Datn o'm Gerät im Foi vo am Diebstohl teilweis, verhindert aba ned'n physischn Verlust vom Gerät selba und ersetzt desweng ned de sichere Aufbewahrung."
+  },
+  "it_sicherheit-meldepflicht_it-01": {
+    "question": "Sie vermuatn, dass Eahna Firmenrechner mit Schadsoftware infiziert is, san Eahna aba ned ganz sicha. Wia soitn Sie si verhoitn?",
+    "options": {
+      "a": "Obwartn, bis eindeutige Beweis vorliegn, dass ma koane Fehlmeldung obgibt",
+      "b": "'n Verdacht umgehend da zuständign internen Stölln (z. B. IT-Sicherheit oder Helpdesk) meldn, aa bei Unsicherheit",
+      "c": "'n Rechner selba neu aufsetzn und nacha normal weiteroarbeitn",
+      "d": "Erst Kollegn frogn, ob eahna ähnlichs aufgfoin is, bevor irgendebbas gmeldet werd"
+    },
+    "explanation": "A funktionierende Melde- und Reaktionskultur setzt voraus, dass aa bloße Verdachtsfäll frühzeitig gmeldet wern, statt auf eindeutige Beweis z'wartn - umso früher a möglicha Vorfoi bekannt werd, umso besser losst si a Ausbreitung eindämma. Eigenständigs Neiaufsetzn vom Rechner ko wichtige Spurn zur Ursachnklärung zerstörn. Aa's informelle Nochfrogn bei Kollegn verzögert de Meldung unnötig und ersetzt ned de Information vo da zuständign Stölln."
+  },
+  "it_sicherheit-meldepflicht_it-02": {
+    "question": "Warum legt de EU-Richtlinie zur Netz- und Informationssicherheit (NIS2) für betroffane Organisationa so kurze Fristn für de erste Meldung vo am erheblichn Sicherheitsvorfoi fest (grob: a frühe Warnung innahoib vo Stund, gfolgt vo ana ausführlichere Meldung)?",
+    "options": {
+      "a": "Dass Unternehma möglichst vui Zeit gwinna, um'n Vorfoi intern z'verschweign",
+      "b": "Weil a vollständige technische Untersuachung eh nia möglich is",
+      "c": "Dass zuständige Stölln frühzeitig reagiern und andere potenziell betroffane Organisationa rechtzeitig gwarnt wern kenna",
+      "d": "Weil kurze Fristn ausschließlich für IT-Dienstleister gejtn, ned für deren Kundn"
+    },
+    "explanation": "Kurze Meldefristn soin sichastön, dass Behördn und andere betroffane Stölln schnö informiert wern, dass a Ausbreitung eingdämmt und Gegenmaßnahma koordiniert wern kenna - ned, dass internes Verschweign möglich werd. A erste, frühe Meldung derf bewusst no unvollständig sei und werd später ergänzt; des is grad der Sinn vo am gestuftn Meldeverfahrn. De Meldepflichtn richtn si o betroffane Organisationa insgsamt, ned bloß o IT-Dienstleister."
+  },
+  "it_sicherheit-meldepflicht_it-03": {
+    "question": "Warum verlangt a guate Sicherheitskultur, dass Beschäftigte an vermuatetn Sicherheitsvorfall meldn, statt zum probiern, eahm selba \"still\" zum behebn?",
+    "options": {
+      "a": "Weil a Oanzölner oft ned's gsamte Ausmaß und de Ursach vo am Vorfoi überblicka ko und eigenmächtigs Handln Spurn verwischn oder's Problem verschlimmern ko",
+      "b": "Weil eigenständigs Behebn grundsätzlich geng's Urheberrecht verstößt",
+      "c": "Weil bloß so de Kostn für IT-Sicherheit im Unternehma reduziert wern kenna",
+      "d": "Weil Beschäftigte ohne Meldung automatisch persönlich haftbar gmacht wern kenna"
+    },
+    "explanation": "A oanzölner Vorfall ko Teil vo am größern Muster sei - eppa a Angriff, der wo mehrere System betrifft. Wer probiert, 's Problem alloa und ohne Meldung z'lösn, ko wichtige Spurn zerstörn, de wo für de Ursachnklärung nötig warn, und riskiert, dass si da Vorfall unbemerkt weiter ausbreit. De gnanntn Alternativn (Urheberrecht, Kostnsenkung, automatische persönliche Haftung) beschreibn ned'n eigentlichn Grund für de Meldepflicht."
+  },
+  "it_sicherheit-meldepflicht_it-04": {
+    "question": "Sie san unsicha, wer im Unternehma für de Meldung vo am vermuatetn IT-Sicherheitsvorfall zuständig is. Wos is da gscheitaste Onsotz?",
+    "options": {
+      "a": "'n Vorfoi in am öffentlichn interna Chatkanal postn, dass eahm irgendwer siacht",
+      "b": "Obwartn, bis wer anders 's Problem zuafällig bmerkt und meldt",
+      "c": "'n Vorfoi in soziale Medien schildern, dass ma schnö Aufmerksamkeit kriagt",
+      "d": "De im Unternehma festgelegtn Meldeweg nutzn (z. B. IT-Support, Sicherheitsbeauftragte oder Führungskraft) oder im Zweifi bei da oagana Führungskraft nochfrogn"
+    },
+    "explanation": "A vorbereits Meldeverfahrn mit klar zuständige Stölln sorgt dafür, dass a Vorfall schnö bei de richtign Personen okimmt, de wo geeignete Gegenmaßnahma einleitn kenna. A öffentlicha Chatkanal oder gar soziale Medien san ungeeignet und kenna'n Vorfall zusätzlich öffentlich macha oder Angreifer warnen. Obwartn verzögert de Reaktion unnötig; im Zweifi is de oagane Führungskraft oiwei a sinnvoia erste Ansprechpartner, dass da richtige Meldeweg gfundn werd."
+  },
+  "it_sicherheit-zugriffsschutz-05": {
+    "question": "Warum soin Beschäftigte bloß de Zugriffsrecht kriang, de wo's für ihre konkrete Aufgab tatsächlich brauchn (\"Minimalprinzip\")?",
+    "options": {
+      "a": "Dass weniger Passwörter verwoit wern miassn",
+      "b": "Dass im Foi vo am kompromittiertn Konto oder am Fehler der mögliche Schodn auf's Nötigste begrenzt bleibt",
+      "c": "Dass de IT-Obteilung weniger Support-Onfrogn bearbeitn muas",
+      "d": "Dass olle Beschäftigte gleich vui Recht besitzn und neamand benachteiligt werd"
+    },
+    "explanation": "'s Minimalprinzip (Least-Privilege) begrenzt'n Schodn, den a gstohlans Konto oder a versehentliche Fehlbedienung ohrichtn ko, weil bloß auf de tatsächlich brauchtn System und Datn zuagegriffn wern ko. Es geht ned um Passwortonzoi, Supportaufwand oder formale Gleichbehandlung, sondern um de Begrenzung vom Risiko entlang vo da jeweiligen Aufgab."
+  },
+  "it_sicherheit-zugriffsschutz-06": {
+    "question": "A Kollegin wechselt intern in a andere Obteilung mit andere Aufgabn. Wos soit in Bezug auf ihre bisherign Systemzugriff gscheghn?",
+    "options": {
+      "a": "Nix, weil's ja weiterhin im selbn Unternehma orbat",
+      "b": "De bisherign Zugriff bleim zusätzlich zu de neichn bestehn, dass sie flexibel aushelfn ko",
+      "c": "De ned mehr brauchtn Zugriffsrecht wern entzogn und de Berechtigunga o de neiche Roin ozpasst",
+      "d": "Bloß's Passwort werd gändert, de Recht bleim unverändert"
+    },
+    "explanation": "Berechtigunga soin'm aktuelln Aufgabnbereich entsprechn; bei am Roinwechsel miassn ned mehr brauchte Zugriffsrecht entzogn und neiche, passade Recht vergebn wern. Sonst sammeln si über de Zeit unnötige, überflüssige Berechtigunga o (\"Rechteinflation\"), de wo's Risiko im Foi vo am kompromittiertn Konto unnötig erhöhn. A reiner Passwortwechsel ändert do nix dro."
+  },
+  "it_sicherheit-zugriffsschutz-07": {
+    "question": "Sie miassn si vui unterschiedliche Passwörter für dienstliche System merka. Wecha Vorgehensweis is am gscheitastn?",
+    "options": {
+      "a": "An vo da IT freiggebana Passwort-Manager verwendn, statt Passwörter mehrfach z'verwendn oder ungschützt aufz'schreibn",
+      "b": "Für olle System 's gleiche leicht z'merkade Passwort verwendn",
+      "c": "De Passwörter o am Klebezettel am Monitor aufschreibn, dass ma's schnö findt",
+      "d": "De Passwörter in ana unverschlüsseltn Textdatei o'm Desktop speichern"
+    },
+    "explanation": "A freiggebana Passwort-Manager erlaubt's, für jeds System a langs, einzigartigs Passwort z'nutzn, ohne si olle oanzeln merka z'miassn, und schützt de gspeichertn Zugangsdatn selba durch Verschlüsselung. Passwort-Wiederverwendung bedeit, dass a oanzigs Datnleck olle betroffanen Kontn gfährdet; Klebezettel und unverschlüsselte Datein san für jedn mit physischm oder digitalm Zugang sofort oisehbar."
+  },
+  "it_sicherheit-zugriffsschutz-08": {
+    "question": "Sie verlossn obends Eahnan Arbeitsplatz im Großraumbüro noch Feierobend. Wos entspricht da Clear-Desk-Grundregl?",
+    "options": {
+      "a": "Bloß'n Bildschirm sperrn, Unterlagn kenna offa liegn bleim",
+      "b": "Vertrauliche Unterlagn derfn offa liegn bleim, solang de Bürotür zuagsperrt is",
+      "c": "Bloß bsonders als \"geheim\" kennzeichnete Dokument miassn weggräumt wern",
+      "d": "Vertrauliche Unterlagn und Datnträger wegsperrn und'n Schreibtisch aufgräumt hinterlossn"
+    },
+    "explanation": "Der Clear-Desk-Grundsatz verlangt, vertrauliche Papierunterlagn und Datnträger bei Obwesenheit wegz'sperrn, dass's für Unbefugte - eppa Reinigungspersonal, Besucher oder andere Beschäftigte ohne Berechtigung - ned frei zuagänglich san. A zuagsperrte Bürotür alloa schützt ned vor olle Personen mit Zutritt zum Gebäude oder Raum, und de Regl gilt für vertrauliche Unterlagn allgmein, ned bloß für explizit als \"geheim\" markierte."
+  },
+  "it_sicherheit-phishing-05": {
+    "question": "Sie kriang a E-Mail mit am unerwartetn Rechnungsanhang, der wo Eahna auffoddert, a \"Bearbeitung vo Makros\" oder \"Inhalt aktivieren\" zzualassn, dass de Rechnung ozoagt werd. Wia reagiern Sie am gscheitastn?",
+    "options": {
+      "a": "D'Bearbeitung vo Makros erlaubn, sonst losst si de Rechnung ned aufmacha",
+      "b": "'n Anhang aufmacha, aba erst noch am Neistart vom Rechner",
+      "c": "Makros ned aktiviern und d'E-Mail bei Unsicherheit über de üblichn Meldeweg prüfn lossn",
+      "d": "'n Anhang o an privatn Kollegn weiterleitn, dass er eahm zerst aufmacht"
+    },
+    "explanation": "D'Auffoddarung, Makros z'aktiviern, is a bekannts Angriffsmuster: Erst durch's Aktiviern werd in da Datei enthoitana Schadcode ausgführt, der wo ohne dera Zuastimmung inaktiv bliebm warad. A Neistart vom Rechner ändert do nix dro, und's Weiterleitn o an Kollegn verlagert 's Risiko bloß, statt es z'beseitign. Bei Unsicherheit über'n Absender oder Inhalt soit d'E-Mail über de üblichn interna Meldeweg prüft wern, bevor irgendebbas aufgmacht oder aktiviert werd."
+  },
+  "it_sicherheit-phishing-06": {
+    "question": "Wos unterscheidt \"Spear-Phishing\" vo ana klassischn, breit gstreutn Phishing-Kampagne?",
+    "options": {
+      "a": "Spear-Phishing werd ausschließlich per Telefon durchgführt, nia per E-Mail",
+      "b": "Spear-Phishing is auf a bestimmte Person oder Organisation zuagschnittn und nutzt gezielt recherchierte, glaubwürdige Details",
+      "c": "Spear-Phishing verzicht komplett auf Links oder Anhäng",
+      "d": "Spear-Phishing betrifft ausschließlich private E-Mail-Kontn, nia dienstliche"
+    },
+    "explanation": "Beim Spear-Phishing recherchiern Angreifer gezielt Informationa über a Person oder Organisation - eppa Nam vo Vorgsetztn, laufende Projekte oder interne Obläuf -, dass a Nachricht bsonders glaubwürdig und individuell wirkt. Des macht dö Angriff schwera z'erkenna wia generische Massn-Phishing-Mails. Weder Kommunikationskanal, no'r Verzicht auf Links/Anhäng, no'r de Beschränkung auf private Kontn san 's entscheidende Merkmal."
+  },
+  "it_sicherheit-phishing-07": {
+    "question": "Sie kriang a SMS, de wo angeblich vo am Paketdienst kimmt und an Link zur \"Zollgebühr-Zahlung\" enthoit, obwoi Sie koa Paket erwartn. Wia ordnan Sie den Vorfoi ei und wia reagiern Sie?",
+    "options": {
+      "a": "Es handelt si vermutlich um \"Smishing\" (Phishing per SMS); den Link ned oaklickn und de Sendung stattdessen direkt über de offizielle Webseitn oder App vom Paketdienst prüfn",
+      "b": "SMS-Nachrichtn kenna generell ned gfälscht wern, desweng is da Link sicha",
+      "c": "Weil's a private SMS is, betrifft's Thema ned d'Orbat und ko ignoriert wern",
+      "d": "'n Link oaklickn, aba koane Zahlungsdatn eigebn, dass ma siacht, ob's a echte Sendung is"
+    },
+    "explanation": "Phishing beschränkt si ned auf E-Mails: \"Smishing\" nutzt SMS-Nachrichtn mit'm gleichn Grundprinzip aus Dringlichkeit und am manipuliertn Link. Aa da Absendername vo ana SMS losst si fälschn. Sicherer is es, den angebliche Onlass unabhängig über de offizielle Webseitn oder App z'prüfn, statt dem Link z'folgn. 's Thema is aa für Beschäftigte relevant, weil de gleichn Muster aa dienstliche Gräti oder Kontaktinformationen betreffn kenna, und scho's bloße Oaklickn vo am präpariertn Link ko scho a Risiko darstön."
+  },
+  "it_sicherheit-phishing-08": {
+    "question": "A E-Mail scheint vo \"support@ihre-firma-online.de\" z'kemma, obwoi de tatsächliche Firmendomain \"ihrefirma.de\" hoaßt. Wia is dö leicht obweichade Absenderdomain am ehestn ei'z'ordnen?",
+    "options": {
+      "a": "As unbedeutender Tippfehler ohne sicherheitsrelevante Bedeitung",
+      "b": "As möglichs Anzeichn für a gfälschte, zum Verwechsln ähnliche Domain (\"Typosquatting\"), de wo zur Täuschung gnutzt werd",
+      "c": "As Bestätigung, dass de Nachricht garantiert vo da oagana IT-Obteilung kimmt",
+      "d": "As reine Gschmackssach vom jeweiligen Absender bei da Wahl vo da Domain"
+    },
+    "explanation": "Angreifer registriern gezielt Domains, de wo da echtn Firmendomain zum Verwechsln ähnlich schaugn (z. B. zusätzliche Wörter, vertauschte Buchstabm oder andere Endunga), dass Vertraun vorgtäuscht werd. A solche Obweichung is a ernstzunehmends Warnsignal und koa Belanglosigkeit oder reine Gschmackssach. De tatsächliche Absenderadress soit bei Auffälligkeitn genau prüft und im Zweifi über an unabhängign Kanal nochgfrogt wern, statt automatisch vo Echtheit auszgehn."
+  },
+  "it_sicherheit-datensicherung-05": {
+    "question": "Warum langt's geng Ransomware ned, a Backup direkt auf'm gleichn, permanent verbundnen Netzlaufwerk z'speichern wia de Originaldatn?",
+    "options": {
+      "a": "Weil Netzlaufwerke technisch grundsätzlich langsamer san wia lokale Festplattn",
+      "b": "Weil auf Netzlaufwerkn generell koane Backups gspeichert wern derfn",
+      "c": "Weil Ransomware bei am permanent verbundana Laufwerk aa de dortn liegade Sicherungskopie mitverschlüsseln ko",
+      "d": "Weil Netzlaufwerke ausschließlich für's Speichern vo E-Mails vorgsehn san"
+    },
+    "explanation": "Ransomware verschlüsselt in da Regl olle erreichbarn Laufwerke, einschließlich dauerhaft verbundane Netzlaufwerke - a Sicherungskopie dortn bietet nacha koan echtn Schutz mehr, weil sie aa betroffa sei ko. A wirksams Backup-Konzept sieht desweng mindestens a Kopie vor, de wo getrennt (offline oder zeitversetzt) vom Produktivsystem aufbewahrt werd, dass sie vo am Angriff auf's Hauptsystem ned mit'erfasst werd."
+  },
+  "it_sicherheit-datensicherung-06": {
+    "question": "A Backup werd planmäßig jede Nocht automatisch erstöt. Warum langt des alloa no ned, dass ma si auf de Datnsicherung wirklich verlossn ko?",
+    "options": {
+      "a": "Weil regelmäßig prüft wern muas, ob si aus'm Backup tatsächlich Datn erfolgreich wiederherstön lossn",
+      "b": "Weil a Backup grundsätzlich bloß amoi im Joahr erstöt wern soit",
+      "c": "Weil automatische Backups technisch nia fehlschlogn kenna",
+      "d": "Weil a erstöts Backup bloß für maximal 24 Stund gültig bleibt"
+    },
+    "explanation": "A Backup-Lauf ko fehlschlogn oder a bschädigte, unvollständige Kopie erzeugn, ohne dass des sofort auffoit. Bloß a regelmäßiga Wiederherstellungstest zoagt verlässlich, ob im Ernstfoi tatsächlich Datn zruckgspuit wern kenna. D'Häufigkeit vo da Sicherung selba richt si noch'm Bedarf und is ned auf amoi im Joahr begrenzt, automatische Prozesse kenna durchaus fehlschlogn, und a Backup verliert ned noch 24 Stund automatisch sei Gültigkeit."
+  },
+  "it_sicherheit-datensicherung-07": {
+    "question": "Sie mecht vertrauliche Firmendatn auf am externn USB-Datnträger transportiern. Wos is de wichtigste Schutzmaßnahm dafür?",
+    "options": {
+      "a": "'n Datnträger mit am auffälligen Aufkleber \"vertraulich\" versehn, dass eahm neamand verlegt",
+      "b": "'n Datnträger verschlüsseln, dass de Datn bei Verlust oder Diebstohl ned ohne weiters lesbar san",
+      "c": "'n Datnträger möglichst kloa und unauffällig wähln, dass er ned auffoit",
+      "d": "De Datein vor'm Kopiern oafach umbenenna, dass ihr Inhalt ned sofort erkennbar is"
+    },
+    "explanation": "Wechseldatnträger gehn leicht verlorn oder wern gstohln; ohne Verschlüsselung san de dortn gspeichertn Datn nacha für jedn mit physischm Zugriff sofort lesbar. Verschlüsselung sorgt dafür, dass de Datn aa im Verlustfoi gschützt bleim, sofern der Schlüssel bzw. 's Passwort geheim bleibt. A Aufkleber, a unauffällige Bauform oder umbenannte Datein bietn dagegn koan echtn technischn Schutz vor unbefugtem Lesn."
+  },
+  "it_sicherheit-datensicherung-08": {
+    "question": "A oida Firmenlaptop soit ausgmustert und entsorgt wern. Wos is im Hinblick auf de dortn gspeichertn Datn da richtige Umgang?",
+    "options": {
+      "a": "Bloß de sichtbarn Datein im Papierkorb löschn und den leern",
+      "b": "'n Laptop unverändert an an gmeinnützign Zweitmarkt weitergebn, dass Ressourcn gspart wern",
+      "c": "De Festplattn ausbaun und im Hausmüll entsorgn",
+      "d": "De Datn durch de zuständige IT-Stölln sicha und unwiederherstellbar löschn (oder'n Datnträger fachgerecht vernicht'n) lossn, bevor's Gerät weitergebm oder entsorgt werd"
+    },
+    "explanation": "Oafachs Löschn im Papierkorb oder Formatiern entfernt Datein meist bloß aus'm sichtbarn Verzeichnis, während de eigentlichn Datn mit geeignete Mittel oft wiederherstellbar bleim. Vor da Weitergab oder Entsorgung miassn Datnträger desweng sicha glöscht (z. B. durch mehrfachs Überschreibn) oder physisch zerstört wern, dass vertrauliche Firmendatn ned in falsche Händ geratn. 's Wegwerfn im Hausmüll is zudem aus Umwelt- und Entsorgungsgründ ned zuassig."
+  },
+  "it_sicherheit-mobil_homeoffice-05": {
+    "question": "Warum is de Festplattenverschlüsselung auf am Laptop, den wo ma fürs Homeoffice und für dienstliche Reisn nutzt, gar so wichtig?",
+    "options": {
+      "a": "Weil er dodurch automatisch schneller hochfahrt",
+      "b": "Weil's im Fall vo am Diebstahl oda Verlust verhindert, dass Unbefugte ohne Weiders auf de gspeichertn Daten zuagreifn kenna",
+      "c": "Weil des ausschließlich für Geräte vorgschriebn is, de wo nia's Büro verlassn",
+      "d": "Weil des a Anmeldpasswort vollkommen überflüssig macht"
+    },
+    "explanation": "Geräte, de wo außerhalb vom Büro gnutzt wern, san ana höherern Gfoahr vo Diebstahl oda Verlust ausgsetzt - ebba im Zug, im Auto oda unterwegs beim Kundn. Ohne Festplattenverschlüsselung lasst se de eingaute Festplatte oft ausbaun und de Daten direkt auslesn, unabhängig vom Anmeldpasswort vom Betriebssystem. Verschlüsselung und Anmeldpasswort ergänzn se, ersetzn se aba ned gegnseitig, und mit da Startgschwindigkeit hat des nix zum tun."
+  },
+  "it_sicherheit-mobil_homeoffice-06": {
+    "question": "Warum soit auf am dienstlich gnutztn Smartphone a kurze automatische Displaysperr (z. B. noch 30 Sekundn Inaktivität) aktiv sei?",
+    "options": {
+      "a": "Damit's Gerät, wenn's kurz liegn bleibt oda verlorn geht, ned glei ungschützt zuagänglich is",
+      "b": "Damit da Akku vom Gerät länger hoit",
+      "c": "Damit Anruf automatisch stummgschaltet wern",
+      "d": "Weil a Displaysperr gsetzlich bloß für Diensthandys vo da Gschäftsführung vorgschriebn is"
+    },
+    "explanation": "A kurzes Sperrintervall verkleinert des Zeitfenster, in dem a kurz liegn glassns oda verlorns Gerät ohne Authentifizierung gnutzt wern kann, ebba um auf E-Mails, Kontakt oda Firmen-Apps zuazugreifn. Akkulaufzeit und Anrufeinstellungen stengan damit in koam sicherheitsrelevantn Zsammenhang, und de Regl gilt sinnvollerweis für olle dienstlich gnutztn Geräte, ned bloß für bstimmte Personengruppn."
+  },
+  "it_sicherheit-mobil_homeoffice-07": {
+    "question": "Sie nutzn für dienstliche Zwecke ab und zua Eahna privates Smartphone (\"Bring Your Own Device\"). Wos is dabei aus Sicherheitssicht am wichtigstn zum beachtn?",
+    "options": {
+      "a": "Private und dienstliche Daten möglichst vermischt in de gleichn Apps speichern, damit nix verlorn geht",
+      "b": "Es langt, dass des Gerät irgendoa Passwort hot, wurscht vo weitere Vorgabm",
+      "c": "De betrieblichn Vorgabm zu BYOD (z. B. Mindestschutzmaßnahmen, Trennung vo dienstlichn Daten, Fernlöschungsmöglichkeit) einzhoitn, bevor des Gerät dienstlich gnutzt wird",
+      "d": "BYOD-Regln san rein freiwillig und miassn ned einghoitn wern, so long des Gerät privat bezahlt worn is"
+    },
+    "explanation": "Wenn private Geräte dienstlich gnutzt wern, miassn de gleichn Schutzziel wia bei Firmengeräte erreicht wern - ebba durch Mindestanforderungen an Verschlüsselung, Bildschirmsperr, getrennte Bereich für dienstliche Daten und de Möglichkeit, im Verlustfall dienstliche Daten aus da Ferne zum löschn. A Vermischung vo privatn und dienstlichn Daten erschwert grod des, und a beliebigs Passwort bloß oda de private Finanzierung vom Gerät befreit ned vo de gültign betrieblichn Vorgabm."
+  },
+  "it_sicherheit-mobil_homeoffice-08": {
+    "question": "Sie nehma vo dahoam aus an ana dienstlichn Videokonferenz teil, bei dera vertrauliche Inhalt bsprochn wern. Worauf soitn Sie besonders achtn?",
+    "options": {
+      "a": "Da Bildschirm ko problemlos für Mitbewohner sichtbar bleibn, so long neamd aktiv mitliest",
+      "b": "Drauf, dass Mitbewohner, Familienmitglieder oda Geräte mit Sprachassistentn de vertraulichn Inhalt ned mithern oda mitsehng kenna",
+      "c": "Bloß drauf, dass de Internetverbindung schnell gnua für Video is",
+      "d": "Es langt, de Kamera auszuaschoitn,'s Mikrofon is dabei ohne Bedeutung"
+    },
+    "explanation": "Im häuslichn Umfeld kenna aa andere Leit mitkriagn, wos am Bildschirm zum sehng oda übers Mikrofon zum hern is, ebba Familienmitglieder oda Besuch, und aa in da Näh befindliche Sprachassistentn kenna unbeabsichtigt mithern. A ruhiger, abgschirmter Ort und a bewusster Umgang mit Bildschirm und Mikrofon schützn de Vertraulichkeit. De reine Verbindungsgschwindigkeit betrifft de Qualität, ned de Vertraulichkeit, und a ausgschoitns Mikrofon is für gsprochane vertrauliche Inhalt mindestens genauso wichtig wia de Kamera."
+  },
+  "it_sicherheit-meldepflicht_it-05": {
+    "question": "Wia is des gstufte Meldeverfahrn vo da NIS2-Richtlinie für an erheblichn Sicherheitsvorfoi zeitlich grob aufbaut?",
+    "options": {
+      "a": "A oanzige, vollständige Meldung langt, spätestens a Joahr noch am Vorfoi",
+      "b": "A Frühwarnung innerhalb vo 24 Stundn, a ausführlichere Meldung innerhalb vo 72 Stundn, gfoigt vo am Abschlussbericht spätestens oan Monat noch da Meldung",
+      "c": "Bloß a Abschlussbericht, wo innerhalb vo 24 Stundn noch am Vorfoi vollständig fertigstellt sei muass",
+      "d": "A Meldung is erst erforderlich, wenn a Vorfoi schoa öffentlich bekannt worn is"
+    },
+    "explanation": "De NIS2-Richtlinie sicht a gstufts Verfahrn vor: a Frühwarnung binnan 24 Stundn ab Kenntnisnahme, a ausführlichere Meldung binnan 72 Stundn, und an Abschlussbericht spätestens oan Monat noch dera Meldung. Dia Stufung erlaabt a schnelle erste Reaktion, aa wenn nu ned olle Detail bekannt san. A oamoige Meldung noch am Joahr, a sofort vollständiga Bericht innerhalb vo 24 Stundn oda's Obwartn vo öffentlicher Bekanntheit entsprechn ned dem tatsächlichn Verfahrn."
+  },
+  "it_sicherheit-meldepflicht_it-06": {
+    "question": "Noch welchem Grundgedankn bestimmt de NIS2-Richtlinie, ob a Sicherheitsvorfoi als \"erheblich\" gilt und dodurch da Meldepflicht unterliegt?",
+    "options": {
+      "a": "Ob da Vorfoi a schwerwiegande Betriebsstörung oda an finanziellen Schadn verursacht (oda verursachn ko), oda ob andere Leit oda Organisationen erheblich gschädigt wern (oda wern kenna)",
+      "b": "Ob da Vorfoi ausschließlich de IT-Obteilung selm betrifft, wurscht vom tatsächlichn Ausmaß",
+      "c": "Ob da Vorfoi länger als a Orbatswoch andauert, wurscht vo seine Auswirkungen",
+      "d": "Ob da Vorfoi zufällig während da Kernarbeitszeit auftritt"
+    },
+    "explanation": "A Vorfoi gilt noch NIS2 insbesondere dann als erheblich, wenn er a schwerwiegande Betriebsstörung oda an finanziellen Schadn für de betroffane Organisation verursacht oda verursachn ko, oda wenn dodurch andere natürliche oda juristische Leit erheblich gschädigt wern oda wern kenna. Wedda de reine Betroffenheit vo da IT-Obteilung nu de Dauer oda Tageszeit vom Vorfoi san für se gnommen des entscheidande Kriterium - maßgeblich is des tatsächliche oda mögliche Ausmaß vo de Auswirkungen."
+  },
+  "it_sicherheit-meldepflicht_it-07": {
+    "question": "Sie vermuadn an laufandn Sicherheitsvorfoi auf Eahnam Firmenrechner. Warum soitn Sie des Gerät ned eigenmächtig neu startn oda komplett obidrahn, bevor Sie den Vorfoi gmeldt hom?",
+    "options": {
+      "a": "Weil a Neustart grundsätzlich mehr Strom verbraucht als da laufande Betrieb",
+      "b": "Weil a Neustart automatisch olle Firmendaten aufm Gerät löscht",
+      "c": "Weil dodurch flüchtige Spurn (z. B. im Arbeitsspeicher) verlorn gehng kenna, de wo für de spätere Untersuchung vom Vorfoi wichtig san",
+      "d": "Weil a Neustart den Vorfoi automatisch behebt und a Meldung dodurch überflüssig wird"
+    },
+    "explanation": "Manche wichtige Spurn vo am Vorfoi - ebba aktive Netzwerkverbindungen oda Prozess im Arbeitsspeicher - gehng bei am Neustart oda Obidrahn verlorn und lossn se drauf ned mehr rekonstruiern. Für a spätere Ursachnklärung is es drum wichtig, des System möglichst unverändert zum lossn und den Vorfoi zerst zum meldn, damit de zuständige Stell übers weitere Vorgehng entscheidn ko. A Neustart löscht koane Firmendaten automatisch und behebt aa koan zugrundliegandn Sicherheitsvorfoi."
+  },
+  "it_sicherheit-meldepflicht_it-08": {
+    "question": "Welche Angabm san bei da Meldung vo am vermuadn IT-Sicherheitsvorfoi an de zuständige interne Stell besonders hilfreich?",
+    "options": {
+      "a": "Ausschließlich da eigane Nam, weitere Angabm verzögern de Meldung bloß unnötig",
+      "b": "A möglichst kurze Meldung ohne Zeitangab, damit's schnell verschickt wern ko",
+      "c": "Bloß a grobe Vermuadung drüber, wer für den Vorfoi verantwortlich sei kannt",
+      "d": "Möglichst genaue Angabm zu Zeitpunkt, beobachtete Auffälligkeitn und betroffane Systeme oda Daten"
+    },
+    "explanation": "Konkrete Angabm zu Zeitpunkt, beobachtets Verhoitn (z. B. ungwöhnliche Pop-ups, unerklärliche Dateiänderungen) und de betroffanen Systeme oda Daten helfn da zuständign Stell, den Vorfoi schnell einzordnen,'s Ausmaß obzuschätzn und geeignete Gegenmaßnahmen einzleitn. Da eigane Nam bloß langt dafür ned, a Meldung ohne Zeitangab erschwert de zeitliche Einordnung, und Vermuadungen über a \"Schuldfrag\" san für de technische Bearbeitung vom Vorfoi ned da entscheidande Punkt."
+  },
+  "it_sicherheit-social_engineering-01": {
+    "question": "A Anrufer gibt se als IT-Support aus und bittet Sie dringend, eahm Eahna aktuelles Passwort zum sogn, um a angeblichs Sicherheitsproblem zum behebn. Wia reagiern Sie?",
+    "options": {
+      "a": "Des Passwort sogn, weil IT-Support-Anfragn meistns dringend san",
+      "b": "Des Passwort ned sogn und de Anfrag über an bekanntn, unabhängign Kanal (z. B. offizielle IT-Hotline) überprüfn",
+      "c": "A neichs, ähnlichs Passwort erfindn und des stattdessn weitergebm",
+      "d": "Bloß den Benutzernam sogn,'s Passwort aba weglossn"
+    },
+    "explanation": "Koa legitimer IT-Support braucht jemals Eahna Passwort im Klartext - des is a klassischs Pretexting-Muster (Vortäuschn vo ana falschn Identität/Dringlichkeit). Echte Anfragn lossn se oiwei über an unabhängign, scho bekanntn Kanal zruckverifiziern, statt dera im Anruf selm gnanntn Nummer zum vertraun."
+  },
+  "it_sicherheit-social_engineering-02": {
+    "question": "Sie betretn's Bürogebäude mit Eahna Zugangskart. A unbekannte Person ohne sichtbarn Ausweis lafft dicht hinter Eahna mit durch de Tür ('Tailgating'). Wos is de richtige Reaktion?",
+    "options": {
+      "a": "De Tür oafach offn hoitn, Höflichkeit hot Vorrang",
+      "b": "Nix tuan, des is Aufgab vom Empfang",
+      "c": "De Person freindlich noch ihram Ausweis/Anliegn frogn oda's Ereignis da Security/am Empfang meldn",
+      "d": "De Person ignoriern, so long's ned verdächtig ausschaugt"
+    },
+    "explanation": "Tailgating is oane vo de häufigstn Methodn, physische Zutrittskontrolln zum umgehng - 'verdächtig ausschaugn' is koa verlässlichs Kriterium, weil Angreifer bewusst unauffällig auftretn. A freindlichs Nochfrogn oda a Meldung an Security kost wenig und schließt a reale Sicherheitslückn."
+  },
+  "it_sicherheit-social_engineering-03": {
+    "question": "Sie findn an unbeschriftetn USB-Stick aufm Firmenparkplatz. Wos tuan Sie?",
+    "options": {
+      "a": "Den Stick am Eahna Arbeitsrechner oschließn, um den Besitzer über de Dateien zum ermittln",
+      "b": "Den Stick ned oschließn und stattdessn da IT-Sicherheit meldn bzw. übergebm",
+      "c": "Den Stick am am privatn Rechner dahoam prüafn, dort besteht koa Firmenrisiko",
+      "d": "Den Stick wegschmeißn, damit neamd sonst eahm findt"
+    },
+    "explanation": "A absichtlich 'verlorena' USB-Stick is a bekannta Angriffsweg ('USB-Drop-Attack'), um Schadsoftware einzschleusn, sobald wer eahm aus Neugier oschteckt. Des gilt genauso am privatn Rechner, weil drüber gstohlane Daten oda Zugäng obfließn kenna. De IT-Sicherheit ko den Stick sicher (isoliert) prüafn."
+  },
+  "it_sicherheit-social_engineering-04": {
+    "question": "Sie kriagn an Anruf vo ana angeblichn Bank-Mitarbeiterin, de wo Sie bittet, 'zur Sicherheit' Eahna PIN am Telefon zum bestätign ('Vishing'). Wia reagiern Sie richtig?",
+    "options": {
+      "a": "De PIN sogn, weil de Anruferin den Kontostand scho gnannt hot und des vertrauenswürdig gwirkt hot",
+      "b": "Bloß de letztn zwoa Ziffern vo da PIN sogn, des sei sicher gnua",
+      "c": "De PIN koafolls am Telefon sogn und selm über de offizielle, bekannte Bank-Telefonnummer zruckruafn",
+      "d": "Auflegn und de PIN sicherheitshalber sofort ändern, ohne de Bank zum informiern"
+    },
+    "explanation": "Bankn frogn nia de vollständige PIN am Telefon o - aa teilweise Angabm oda scheinbar bekannte Kontodaten (de wo z. B. aus Datenleck stammen kenna) beweisn koane echte Identität vom Anrufer. Da sichere Weg is oiwei da selm initiierte Rückruf über a unabhängig verifizierte Nummer."
+  },
+  "it_sicherheit-social_engineering-05": {
+    "question": "Sie kriagn a SMS vo am angeblichn Paketdienst: 'Eahna Paket hot ned zuagstellt wern kenna, bestätign Sie Eahna Adress und Zahlungsdaten über den Link' ('Smishing'). Wos is de richtige Reaktion?",
+    "options": {
+      "a": "Den Link öffna, aba koane Zahlungsdaten eingebm",
+      "b": "Den Link ned öffna und de Sendungsnummer stattdessn direkt auf da offiziellen Website vom Paketdienst prüafn",
+      "c": "De SMS an Kolleng weiterleitn, damit dia den Link testn",
+      "d": "Auf 'Stop' antwortn, um se vo da Listn obzumeldn"
+    },
+    "explanation": "Scho bloß's Öffna vo am Link ko Gerätinformationen preisgebm oda zu ana täuschend echtn Fake-Seitn führn, de wo Zugangsdaten obgreift. De sichere Prüfung erfoigt oiwei über de selm eingebane, offizielle Adress - nia über an Link aus ana unaufgforderten Nachricht."
+  },
+  "it_sicherheit-social_engineering-06": {
+    "question": "Sie kriagn a E-Mail, de wo angeblich vo da Gschäftsführung stammt: 'Dringend und vertraulich - bitte sofort a Überweisung vo 45.000 € auf des neiche Konto veranlassn, i bin grod ned erreichbar' ('CEO-Fraud' / Business Email Compromise). Wia hondln Sie?",
+    "options": {
+      "a": "De Überweisung sofort ausführn, weil Vertraulichkeit und Dringlichkeit betont worn san",
+      "b": "Auf de E-Mail antwortn und um weitere Detail bittn, dann überweisn",
+      "c": "De Anfrag über an unabhängign, bekanntn Kanal (z. B. Rückruf auf ana bekanntn Nummer) verifiziern und den regulärn Freigabprozess einhoitn, aa unter Zeitdruck",
+      "d": "An Kolleng bittn, de Überweisung ohne Rückfrag zum übernehma, um Zeit zum spoarn"
+    },
+    "explanation": "Dringlichkeit, Vertraulichkeit und Unerreichbarkeit vo dera angeblichn Absenderperson san de klassischn Druckmittl bei CEO-Fraud - sie soin grod verhindern, dass da reguläre Freigabprozess (z. B. Vier-Augn-Prinzip) einghoitn wird. A Angreifer, wo auf a E-Mail antwortet, bleibt derselbe Angreifer; bloß a unabhängiga Rückkanal schafft echte Sicherheit."
+  },
+  "it_sicherheit-social_engineering-07": {
+    "question": "A E-Mail, angeblich vo am langjährign Lieferant, teilt mit, dass se de Bankverbindung gändert hot, und bittet, künftige Zahlungen aufs neiche Konto zum leistn. Wos is da richtige erste Schritt?",
+    "options": {
+      "a": "De Zahlungsdaten im System sofort aktualisiern, weil da Lieferant bekannt is",
+      "b": "De Änderung über an unabhängign, scho bekanntn Kontakt beim Lieferant (Telefonnummer aus früherer Unterlagen, ned aus da E-Mail) verifiziern, bevor irgendwos gändert wird",
+      "c": "A kloane Testüberweisung aufs neiche Konto schickn, um's zum prüafn",
+      "d": "De E-Mail ignoriern, aba de oide Bankverbindung vorsichtshalber trotzdem sperrn"
+    },
+    "explanation": "Änderungen vo Bankverbindungen san a bevorzugts Ziel für Business-Email-Compromise-Angriff, weil E-Mail-Konten vo Lieferantn kompromittiert und Rechnungen täuschend echt nochbaut wern kenna. A Verifizierung über an unabhängign, aus früherer Zsammenarbeit bekanntn Kanal is da oanzige verlässliche Schutz - a Testüberweisung schützt ned vorm eigentlichn Betrag."
+  },
+  "it_sicherheit-social_engineering-08": {
+    "question": "A Kolleg hot seine Zugangskart vergessn und bittet Sie, eahm oafach mit Eahna eigana Kart durch de Sicherheitstür einezlossn ('Badge Sharing'). Wos is de richtige Reaktion?",
+    "options": {
+      "a": "Eahm oafach mitgehng lossn, es is schließlich a bekannta Kolleg",
+      "b": "Eahm Eahna Kart für den Tag ausleihn",
+      "c": "Eahm an Empfang oda de Security verweisn, damit dort a regulärer temporärer Zuagang ausgstellt wird",
+      "d": "De Tür für eahm auffhoitn, so long neamd sonst zuaschaut"
+    },
+    "explanation": "Zugangskartn san personenbezogn, damit im Ernstfoi (z. B. Vorfoiaufklärung) nochvollziehbar bleibt, wer wann wo woar - Badge Sharing untergräbt des, selbst unter Kolleng, und is außerdem a Muster, wo Social Engineers gezielt ausnutzn ('i hob mei Kart vergessn'). Da reguläre Weg über Empfang/Security bleibt schnell und sicher zugleich."
+  },
+  "it_sicherheit-ransomware-01": {
+    "question": "Auf Eahnam Bildschirm erscheint auf oamoi a Nachricht, dass olle Eahna Dateien verschlüsselt worn san und bloß gega Zahlung vo am Lösegeld ('Ransomware') wieda freiggebn wern. Wos is Eahna oiwei-erster Schritt?",
+    "options": {
+      "a": "Sofort probiern, des gforderte Lösegeld zum zoin, um Zeit zum spoarn",
+      "b": "Des Gerät umgehend vom Netzwerk trenna (Netzwerkkabel raus / WLAN obschoitn) und sofort de IT-Sicherheit informiern",
+      "c": "Den Rechner neu startn, um zum sehng, ob's Problem verschwindt",
+      "d": "Selm probiern, de Dateien mit ana im Internet gfundana Software zum entschlüsseln"
+    },
+    "explanation": "De sofortige Trennung vom Netzwerk verhindert, dass se de Ransomware auf weitere Systeme im Firmennetz ausbreitn ko - des is da wichtigste Sofortschritt vor jeder weitern Maßnahme. De IT-Sicherheit ko dann den Vorfoi fachgrecht eindämma; eigenmächtige Entschlüsselungsversuch oda a Neustart kenna Spurn zerstörn oda de Lag verschlimmern."
+  },
+  "it_sicherheit-ransomware-02": {
+    "question": "Soit a Unternehmen bei am Ransomware-Angriff des gforderte Lösegeld zoin?",
+    "options": {
+      "a": "Jo, des is oiwei da schnellste und sicherste Weg, um wieda an de Daten zum kemma",
+      "b": "Jo, aba bloß wenn da gforderte Betrag niedrig gnua erscheint",
+      "c": "Des BSI rat grundsätzlich vo Zahlungen ob - sie garantiern koa Datenfreigab, finanziern weitere Angriff und kenna dazua führn, dass ma nomoi ins Visier gerat; de Entscheidung liegt bei da Gschäftsführung/IT-Sicherheit im Rahma vom Notfoiplan, ned bei Einzelpersonen",
+      "d": "Des spielt koane Rolle, weil Backups a Zahlung eh oiwei überflüssig macha"
+    },
+    "explanation": "A Zahlung is koane Garantie für de Wiederherstellung vo de Daten und finanziert kriminelle Infrastruktur weiter. Selbst mit guate Backups bleibt de Zahlungsentscheidung im Ernstfoi komplex (z. B. wegn exfiltrierte Daten) und is drum oiwei a Entscheidung vo da Unternehmensleitung im Rahma vom dokumentiertn Notfoiplan, ned vo ana einzelnen Person vor Ort."
+  },
+  "it_sicherheit-ransomware-03": {
+    "question": "Über welchn Weg gelangt Ransomware am häufigstn in Unternehmensnetzwerk?",
+    "options": {
+      "a": "Über Phishing-E-Mails mit schädlichem Ohang oda Link sowia über ungepatchte, aus'm Internet erreichbare Systeme",
+      "b": "Fast ausschließlich über physisch gstohlane Laptops",
+      "c": "Fast ausschließlich über kompromittierte Druckerkabel",
+      "d": "Ransomware verbreitet se grundsätzlich bloß über bereits infizierte USB-Sticks"
+    },
+    "explanation": "Phishing-E-Mails und ungepatchte, extern erreichbare Systeme (z. B. Fernzugriffslösungen) san laut BSI-Lageberichte de dominierandn Einfallstor. Des macht sowoi wachsame Mitarbeitande beim Öffna vo Ohäng/Links als aa's zeitnahe Einspieln vo Sicherheitsupdates zu zentraln Schutzmaßnahmen."
+  },
+  "it_sicherheit-ransomware-04": {
+    "question": "Warum san regelmäßige, vom Netzwerk getrennte ('offline') oda unveränderbare ('immutable') Backups gar so wichtig für'n Schutz vor Ransomware?",
+    "options": {
+      "a": "San's ned - a jede Art vo Backup langt, so long's regelmäßig laft",
+      "b": "Bloß damit de IT-Obteilung Speicherplatz spoarn ko",
+      "c": "Weil Ransomware gezielt probiert, aa im Netzwerk erreichbare Backups zum verschlüsseln - bloß getrennte oda unveränderbare Kopien bleibn im Ernstfoi garantiert nutzbar",
+      "d": "Ausschließlich aus Compliance-Gründ, technisch spielt da Backup-Typ koane Rolle"
+    },
+    "explanation": "Moderne Ransomware suacht aktiv noch erreichbarn Netzlaufwerkn und Backup-Systemen, um aa dia zum verschlüsseln und den Druck zur Lösegeldzahlung zum erhöhn. A Backup, wo offline oda technisch unveränderbar is, ko dodavo ned betroffn sei und ermöglicht a Wiederherstellung ohne Zahlung."
+  },
+  "it_sicherheit-ransomware-05": {
+    "question": "Sie merkn a Ransomware-Infektion auf Eahnam Firmenrechner. Soitn Sie den Rechner neu startn, um's Problem selm zum behebn?",
+    "options": {
+      "a": "Jo, a Neustart behebt de meistn Softwareprobleme",
+      "b": "Na - a Neustart oda Obidrahn ko laufande Verschlüsselungsprozess beschleunign oda wichtige forensische Spurn zerstörn; stattdessn vom Netzwerk trenna und den Vorfoi meldn",
+      "c": "Jo, aba bloß im obgsicherten Modus",
+      "d": "Des is wurscht, so long ma nocher a Antivirenprogramm laffn losst"
+    },
+    "explanation": "Manche Ransomware-Variantn setzn de Verschlüsselung noch am Neustart fort oda löschn dabei Hinweis, de wo für de spätere Analyse vom Angriffsweg wichtig warn. De IT-Sicherheit trifft de Entscheidung über de nächstn Schritt auf Basis vom unveränderten Systemzustand."
+  },
+  "it_sicherheit-ransomware-06": {
+    "question": "A Kolleg bittet Sie, bei am vermuadn Ransomware-Vorfoi auf seim Rechner zum helfn, ohne de IT-Sicherheit einzschoitn, 'um koan Ärger zum kriagn'. Wia reagiern Sie?",
+    "options": {
+      "a": "Helfn, wia gwünscht, und de Sach diskret unter se behoitn",
+      "b": "Selm a im Internet gfundane Anleitung zur Entschlüsselung probiern",
+      "c": "Auf ana sofortign Meldung an de IT-Sicherheit bestehn - schnells Meldn verringert den Schadn und is wichtiger als mögliche Unannehmlichkeitn",
+      "d": "Den Rechner oafach obschoitn und's Thema damit als erledigt betrachtn"
+    },
+    "explanation": "Verzögerts oda unterlassns Meldn is ans vo de größtn Risikn bei Sicherheitsvorfäll, weil se Ransomware in dera verstreichandn Zeit im Netzwerk weiter ausbreitn ko. A guate Sicherheitskultur behandlt schnells Meldn als erwünschts Verhoitn, ned als ebbas, wo Ärger noch se ziagt."
+  },
+  "it_sicherheit-ransomware-07": {
+    "question": "Welchs Anzeichn deitet am ehestn drauf hin, dass a System se möglicherweis in ana frühen Phase vo am Ransomware-Angriff befindt, nu bevor a Lösegeldforderung erscheint?",
+    "options": {
+      "a": "Da Bildschirmschoner hot se gändert",
+      "b": "Auffällig vui Dateien wern in kurzer Zeit umbenennt oda kriagn ungwöhnliche neiche Dateiendungen, des System wird spürbar langsamer, und's Antivirenprogramm meldt mehrmals blockierte verdächtige Prozess",
+      "c": "Da Rechner is a bissl leiser als sonst",
+      "d": "Es gibt koane erkennbarn Anzeichn vor da Lösegeldforderung"
+    },
+    "explanation": "De eigentliche Verschlüsselung lafft oft im Hintergrund, bevor de Lösegeldforderung sichtbar wird - massenhafts Umbenenna vo Dateien, spürbare Verlangsamung und wiederhoite Antivirenwarnungen san frühe Warnsignal, bei dena a sofortigs Meldn den entstehandn Schadn nu eingrenzn ko."
+  },
+  "it_sicherheit-ransomware-08": {
+    "question": "Welche vo de folgendn Maßnahmen senkn's Risiko, dass se Ransomware im Firmennetzwerk ausbreitet? (Mehrfachauswahl)",
+    "options": {
+      "a": "Zeitnahes Einspieln vo Sicherheitsupdates auf olle Systeme",
+      "b": "Nutzerkontn bloß mit de tatsächlich benötigtn Rechte ausstatten (Prinzip vo de geringstn Rechte)",
+      "c": "Olle Mitarbeitande mit Administratorrechte auf ihram Arbeitsrechner ausstattn, damit's IT-Probleme selm lösn kenna",
+      "d": "Regelmäßige, getrennte Backups mit gtestada Wiederherstellung"
+    },
+    "explanation": "Aktuelle Systeme, minimale Rechte und gtestete Backups ghern zu de wirksamstn technischn Schutzmaßnahmen. Breite Administratorrechte für olle wirkn grod entgegengsetzt: Sie erleichtern's, dass se Ransomware mit denselbign erhöhtn Rechte im Netzwerk ausbreitn ko."
+  },
+  "it_sicherheit-ki_bedrohungen-01": {
+    "question": "Wos is im Sicherheitskontext mit am 'Deepfake' gmeint?",
+    "options": {
+      "a": "A besonders raffiniert gfälschts physischs Dokument",
+      "b": "A mittels künstlicher Intelligenz erzeugts, täuschend echts Audio-, Bild- oda Videomaterial, wo a reale Person imitiert",
+      "c": "A technischer Fachbegriff für besonders tiaf verschachtelte Phishing-Links",
+      "d": "A veraltata Begriff, wo in da Praxis koane Rolle mehr spielt"
+    },
+    "explanation": "Deepfakes nutzn KI-Modell, um Stimm, Gsicht oda Bewegungen vo ana realn Person nochzubildn - inzwischen mit so gringem Aufwand, dass sie zunehmend für gezielte Betrugsversuch wia gfälschte Anruf oda Videobotschaften eingsetzt wern."
+  },
+  "it_sicherheit-ki_bedrohungen-02": {
+    "question": "Sie kriagn an Telefonanruf, dessn Stimm exakt wia dia vo Eahnara Gschäftsführung klingt und wo a dringende, ungwöhnliche Überweisung fordert - a Rückrufnummer wird explizit oblehnt ('I bin glei im Flieger'). Wos is de richtige Reaktion?",
+    "options": {
+      "a": "Hondln, weil de Stimm zweifelsohne erkannt worn is",
+      "b": "De Überweisung ausführn, aba bloß de Hälfte vom gforderten Betrag",
+      "c": "Da Anfrag ned foign und de Identität über an unabhängign, scho bekanntn Kanal verifiziern - Stimmerkennung bloß is durch KI-Stimmklonung koa verlässliche Bestätigung mehr",
+      "d": "De Anfrag ignoriern, ohne sie zum meldn"
+    },
+    "explanation": "KI-Stimmklonung ko mit a paar Sekundn echtn Audiomaterial a täuschend echte Stimm erzeugn - grod dia Kombination aus Dringlichkeit, ungwöhnlicher Forderung und Oblehnung vo am Rückruf is a typischs Warnsignal, wurscht wia echt de Stimm klingt. Aa a Ned-Hondln soit gmeldt wern, damit weitere Kolleginnen und Kollegn gwarnt wern kenna."
+  },
+  "it_sicherheit-ki_bedrohungen-03": {
+    "question": "Früher hom Rechtschreib- und Grammatikfehler als verlässlichs Erkennungsmerkmal vo Phishing-E-Mails ghoitn. Warum langt des Kriterium heit alloa ned mehr?",
+    "options": {
+      "a": "Weil E-Mail-Programme Rechtschreibfehler inzwischen automatisch korrigiern",
+      "b": "Weil Rechtschreibfehler eh nia a verlässlichs Kriterium warn",
+      "c": "Weil KI-Sprachmodelle sprachlich einwandfreie, personalisierte Phishing-Text erzeugn kenna - andere Warnsignal wia a obweichande Absenderadress, ungwöhnliche Links oda unerwartete Dringlichkeit wern dodurch wichtiger",
+      "d": "Weil moderne Phishing-Angriff grundsätzlich ohne Text auskemma"
+    },
+    "explanation": "KI-generierte Text san sprachlich oft ned mehr vo echter Kommunikation zum unterscheidn und kenna zudem individuell auf de Zielperson zuagschnittn wern. De verlässlicherern Prüfpunkt bleibn drum de tatsächliche Absenderadress, de Ziel-URL vo am Link und ob de Anfrag inhaltlich plausibel is und über den erwartetn Kanal kimmt."
+  },
+  "it_sicherheit-ki_bedrohungen-04": {
+    "question": "In am spontan agsetztn Videoanruf fordert a Person, de wo optisch und stimmlich wia a bekannta Vorgesetzta wirkt, de sofortige Weitergab vo vertraulichn Kundendaten. De Bild-/Tonqualität is a bissl ungwöhnlich. Wia reagiern Sie?",
+    "options": {
+      "a": "De Daten weitergebm, weil Bild und Stimm übereinstimmt hom",
+      "b": "De Weitergab verweigern oda verzögern und de Anfrag über an unabhängign, scho bekanntn Kanal (z. B. Rückruf, persönlichs Gespräch) verifiziern",
+      "c": "Bloß an Teil vo de Daten weitergebm, um's Risiko zum begrenzn",
+      "d": "Im Anruf direkt nochfrogn, ob's se um an Deepfake hondlt, und da Antwort vertraun"
+    },
+    "explanation": "A bissl unstimmige Bild-/Tonqualität, a spontane Ansetzung und a ungwöhnliche vertrauliche Anfrag san zsammen typische Warnsignal für an Deepfake-Angriff. A Angreifer, wo a Person täuschend echt imitiert, wird auf a direkte Nochfrog im Anruf selbstverständlich aa verneina - bloß a unabhängiger Kanal schafft echte Klarheit."
+  },
+  "it_sicherheit-ki_bedrohungen-05": {
+    "question": "Warum wird Social Engineering durch'n Einsatz vo KI-Werkzeug allgemein als größers Risiko eingschätzt als davor?",
+    "options": {
+      "a": "Weil KI-Werkzeug ausschließlich vo IT-Sicherheitsteams gnutzt wern kenna",
+      "b": "Weil KI-Werkzeug's Angreifer erlaubn, überzeugande, individuell zuagschnittene Angriff (Text, Stimm, Video) in großem Umfang und mit gringem Aufwand zum erstelln",
+      "c": "Weil KI-Werkzeug Social-Engineering-Angriff grundsätzlich unmöglich macha",
+      "d": "Des Risiko hot se durch KI-Werkzeug ned verändert"
+    },
+    "explanation": "Wos früher an hohn manuelln Aufwand erfordert hot (z. B. des Nochahmen vo ana Stimm oda's Verfassn vo überzeugande, fehlerfreie Text in ana Fremdsprach), losst se heit mit KI-Werkzeug schnell und in großer Zoi automatisiern - des erhöht sowoi de Menge als aa de Qualität vo de Angriff."
+  },
+  "it_sicherheit-ki_bedrohungen-06": {
+    "question": "Wos is da wirksamste Schutz gega Betrug per Deepfake-Anruf oda -Videobotschaft?",
+    "options": {
+      "a": "Genau drauf achtn, ob de Stimm oda's Bild 'echt gnua' klingt bzw. ausschaugt",
+      "b": "Feste, im Voraus vereinbarte Verifizierungsverfahrn (z. B. Rückruf über a bekannte Nummer, a vorab vereinbarts Codewort) für ungwöhnliche oda finanzielle Anfragn konsequent einhoitn - wurscht wia echt Stimm oda Bild wirkn",
+      "c": "Anruf grundsätzlich bloß nu schriftlich per E-Mail bestätign lossn",
+      "d": "Es gibt derzeit koan wirksamn Schutz dagegn"
+    },
+    "explanation": "Weil Deepfakes gezielt drauf ausglegt san, menschliche Erkennung zum täuschn, is des eigane Urteil über 'Echtheit' koa verlässlicher Schutz mehr. Vorab vereinbarte, vo da jeweilign Kommunikationsform unabhängige Verifizierungsverfahrn funktioniern dagegn wurscht, wia überzeugand a Fälschung is."
+  },
+  "it_sicherheit-ki_bedrohungen-07": {
+    "question": "Sie mechatn an öffentlich zuagänglichn KI-Chatbot nutzn, um schnell an internen Bericht mit vertraulichn Kundendaten zsammenzfassn. Is des unbedenklich?",
+    "options": {
+      "a": "Jo, öffentliche KI-Chatbots speichern grundsätzlich koane eingebane Daten",
+      "b": "Jo, so long ma de Kundennam vorher durch Platzhalter ersetzt, is olls Weitere unkritisch",
+      "c": "Na - vertrauliche oda personenbezogane Daten soitn bloß in vo da eiganen Organisation freiggebane KI-Werkzeug eingebm wern, weil bei öffentlichn Diensten unkloar sei ko, wia de Eingabm weiterverarbeitet wern",
+      "d": "Des is ausschließlich a Frog vom Datenschutzbeauftragtn und betrifft normale Mitarbeitande ned"
+    },
+    "explanation": "Bei öffentlichn KI-Diensten is oft ned transparent, ob und wia eingebane Daten gspeichert, zur Modellverbesserung gnutzt oda andaweitig weiterverarbeitet wern. Vertrauliche oda personenbezogane Daten ghern drum bloß in vo da eiganen Organisation gprüfte und freiggebane Werkzeug - a unternehmensweite Richtlinie dodazua betrifft olle Mitarbeitande, ned bloß Fachobteilungen."
+  },
+  "it_sicherheit-ki_bedrohungen-08": {
+    "question": "Sie vermuadn, dass Sie grod Ziel vo am KI-gstützten Betrugsversuch (z. B. Deepfake-Anruf oda täuschend echte KI-Phishing-Mail) worn san, hom den Betrug aba rechtzeitig erkennt und ned reagiert. Soitn Sie den Vorfoi trotzdem meldn?",
+    "options": {
+      "a": "Na, weil nix passiert is, besteht koa Hondlungsbedarf",
+      "b": "Jo - derselbe Meldeweg wia bei jedem andern Social-Engineering-Versuch gilt aa do, damit andere Kolleginnen und Kollegn gwarnt und ähnliche Angriff erkannt wern kenna",
+      "c": "Bloß meldn, wenn tatsächlich a finanzieller Schadn entstanden is",
+      "d": "Bloß meldn, wenn de IT-Obteilung ausdrücklich dodanoch frogt"
+    },
+    "explanation": "Aa a obgwehrter Angriffsversuch liefert wertvolle Informationen - ebba welche Masche grod im Umlauf is oda ob mehrere Mitarbeitande gleichzeitig ogriffn worn san. Frühzeitigs Meldn vo erkannte, aba erfoiglose Versuch is a zentraler Baustein vo ana wirksamn Sicherheitskultur."
+  }
+}

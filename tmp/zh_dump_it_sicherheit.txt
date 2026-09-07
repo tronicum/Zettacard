@@ -1,0 +1,832 @@
+==================== it_sicherheit-zugriffsschutz-01 correct: ['b']
+DE Q: Welche Eigenschaft macht ein Passwort grundsätzlich sicherer gegen automatisierte Rateangriffe?
+ZH Q: 哪种特性从根本上使密码更能抵御自动化的猜测攻击?
+  a) DE: Es enthält den Namen der Abteilung, damit man es sich leichter merken kann
+  a) ZH: 包含部门名称，便于记忆
+  b) DE: Es ist lang, einzigartig für diesen einen Account und nicht leicht zu erraten
+  b) ZH: 长且仅用于该单一账户,难以被猜到
+  c) DE: Es wird alle drei Tage durch ein sehr ähnliches Passwort ersetzt
+  c) ZH: 每三天更换为一个非常相似的密码
+  d) DE: Es besteht nur aus Ziffern, weil das die Eingabe beschleunigt
+  d) ZH: 仅由数字组成,因为这样输入更快
+DE EXPL: Länge und Einzigartigkeit sind die wichtigsten Faktoren gegen automatisiertes Ausprobieren und gegen sogenanntes Credential Stuffing, bei dem gestohlene Zugangsdaten aus anderen Diensten ausprobiert werden. Ein Passwort mit Bezug zum Arbeitsplatz ist leicht zu erraten, häufiges Wechseln auf ein sehr ähnliches Passwort bringt kaum Sicherheitsgewinn, und rein numerische Passwörter haben zu wenig mögliche Kombinationen.
+ZH EXPL: 长度和唯一性是抵御自动化尝试以及所谓的"撞库"(利用从其他服务窃取的登录信息进行尝试)最重要的因素。与工作场所相关的密码很容易被猜到,频繁更换为非常相似的密码几乎没有安全收益,而纯数字密码的可能组合数量太少。
+==================== it_sicherheit-zugriffsschutz-02 correct: ['c']
+DE Q: Warum gilt Multi-Faktor-Authentifizierung (MFA) als deutlich sicherer als ein Passwort allein?
+ZH Q: 为什么多因素身份验证(MFA)被认为比单独使用密码安全得多?
+  a) DE: Weil sie das Passwort überflüssig macht und man sich nichts mehr merken muss
+  a) ZH: 因为它使密码变得多余,不再需要记住任何东西
+  b) DE: Weil sie das Konto vor allen Arten von Angriffen vollständig schützt
+  b) ZH: 因为它能完全保护账户免受所有类型的攻击
+  c) DE: Weil ein Angreifer selbst bei einem gestohlenen Passwort zusätzlich den zweiten Faktor bräuchte
+  c) ZH: 因为即使攻击者获得了被盗密码,还需要额外的第二因素
+  d) DE: Weil sie ausschließlich für Administratorkonten technisch möglich ist
+  d) ZH: 因为它在技术上仅适用于管理员账户
+DE EXPL: MFA kombiniert etwas, das man weiß (Passwort), mit etwas, das man besitzt (z. B. eine App oder ein Token) oder ist. Ein gestohlenes Passwort allein reicht einem Angreifer damit nicht mehr aus. MFA ersetzt das Passwort nicht, bietet keinen vollständigen Schutz gegen jede Angriffsart und ist heute für praktisch jedes Nutzerkonto verfügbar, nicht nur für Administratoren.
+ZH EXPL: MFA将你所知道的东西(密码)与你所拥有的东西(例如一个应用程序或令牌)或你本身的特征相结合。仅凭被盗密码已不足以让攻击者得逞。MFA并不能替代密码,也不能提供针对所有攻击类型的完全保护,如今它几乎适用于任何用户账户,而不仅仅是管理员账户。
+==================== it_sicherheit-zugriffsschutz-03 correct: ['a']
+DE Q: Ein Kollege bittet Sie, kurz sein persönliches Benutzerkonto samt Passwort mitzubenutzen, weil sein eigener Zugang gerade gesperrt ist. Wie sollten Sie reagieren?
+ZH Q: 一位同事因自己的账户暂时被锁,请求您短暂借用您的个人账户和密码。您应该如何应对?
+  a) DE: Ablehnen und stattdessen den zuständigen IT-Support oder die Führungskraft informieren
+  a) ZH: 拒绝,并转而通知相关IT支持或上级
+  b) DE: Zustimmen, solange nur kurzfristig damit gearbeitet wird
+  b) ZH: 只要只是短期使用,就同意
+  c) DE: Zustimmen, aber danach das Passwort des Kollegen selbst ändern
+  c) ZH: 同意,但事后自己更改该同事的密码
+  d) DE: Zustimmen, wenn die Aufgabe dringend ist und kein anderer Zugang möglich erscheint
+  d) ZH: 如果任务紧急且似乎没有其他访问方式,就同意
+DE EXPL: Konten sind personenbezogen, damit Handlungen im System eindeutig einer Person zuordenbar bleiben (Nachvollziehbarkeit). Wird ein Konto geteilt, lässt sich im Nachhinein nicht mehr klären, wer was getan hat - das erschwert auch die Aufklärung von Sicherheitsvorfällen erheblich. Dringlichkeit rechtfertigt keine Ausnahme; der richtige Weg ist, den eigentlichen Zugriffsweg über IT-Support wiederherzustellen.
+ZH EXPL: 账户是个人化的,以便系统中的操作始终能明确归属于某个人(可追溯性)。如果账户被共享,事后就无法确定谁做了什么——这也会大大增加安全事件调查的难度。紧急情况并不能成为例外的理由;正确的做法是通过IT支持恢复真正的访问权限。
+==================== it_sicherheit-zugriffsschutz-04 correct: ['b']
+DE Q: Sie verlassen Ihren Arbeitsplatz für ein kurzes Gespräch im Nachbarbüro. Was ist der richtige Umgang mit Ihrem entsperrten Computer?
+ZH Q: 您离开工作岗位,到隔壁办公室进行短暂交谈。对于未锁定的电脑,正确的处理方式是什么?
+  a) DE: Nichts unternehmen, da es sich um ein internes Bürogebäude handelt
+  a) ZH: 不采取任何措施,因为这是内部办公楼
+  b) DE: Den Bildschirm sperren, bevor Sie den Arbeitsplatz verlassen
+  b) ZH: 在离开工作岗位前锁定屏幕
+  c) DE: Nur das geöffnete Dokument schließen, der Rest kann offen bleiben
+  c) ZH: 只关闭打开的文档,其余的可以保持打开状态
+  d) DE: Den Monitor ausschalten, das genügt als Schutz
+  d) ZH: 关闭显示器,这样就足够了
+DE EXPL: Ein entsperrter Rechner erlaubt jedem, der kurz Zugang zum Raum hat - auch Besuchern, Reinigungspersonal oder unbefugten Dritten -, auf alle geöffneten Programme und Daten zuzugreifen. Ein ausgeschalteter Monitor ändert daran nichts, da die Sitzung im Hintergrund weiterläuft. Bildschirmsperren (z. B. per Tastenkürzel) sind eine einfache, wirksame Basismaßnahme, unabhängig davon, wie vertrauenswürdig die Umgebung erscheint.
+ZH EXPL: 未锁定的电脑会让任何短暂进入房间的人——包括访客、清洁人员或未经授权的第三方——访问所有已打开的程序和数据。关闭显示器并不能改变这一点,因为会话仍在后台运行。锁屏(例如通过快捷键)是一项简单而有效的基本措施,无论环境看起来多么可靠。
+==================== it_sicherheit-phishing-01 correct: ['c']
+DE Q: Welches der folgenden Merkmale ist ein typisches Warnsignal für eine Phishing-E-Mail?
+ZH Q: 以下哪项特征是钓鱼邮件的典型警示信号?
+  a) DE: Die E-Mail kommt während der üblichen Arbeitszeit an
+  a) ZH: 邮件在正常工作时间到达
+  b) DE: Die E-Mail enthält das Firmenlogo im Anhang
+  b) ZH: 邮件的附件中包含公司标志
+  c) DE: Die E-Mail erzeugt Zeitdruck und fordert zu einer sofortigen, unüblichen Handlung auf
+  c) ZH: 邮件制造时间压力,要求立即采取不寻常的行动
+  d) DE: Die E-Mail wurde an mehrere Kollegen gleichzeitig verschickt
+  d) ZH: 邮件同时发送给多位同事
+DE EXPL: Angreifer setzen gezielt auf künstlichen Zeitdruck und emotionale Dringlichkeit, damit Empfänger nicht in Ruhe nachdenken oder Rücksprache halten, sondern sofort handeln - etwa auf einen Link klicken oder Daten preisgeben. Logos, normale Versandzeiten oder ein größerer Empfängerkreis sagen für sich genommen nichts über die Echtheit einer Nachricht aus, da Logos leicht kopiert und Versandzeiten sowie Empfängerlisten beliebig gewählt werden können.
+ZH EXPL: 攻击者故意制造人为的时间压力和情绪紧迫感,使收件人来不及冷静思考或与他人商量,而是立即采取行动——例如点击链接或泄露数据。标志、通常的发送时间或较大的收件人范围本身并不能说明消息的真实性,因为标志很容易被复制,发送时间和收件人列表也可以随意选择。
+==================== it_sicherheit-phishing-02 correct: ['b']
+DE Q: Sie erhalten scheinbar von der Geschäftsführung eine E-Mail, die Sie auffordert, dringend und vertraulich eine hohe Summe an ein neues, unbekanntes Konto zu überweisen. Was ist der richtige erste Schritt?
+ZH Q: 您收到一封看似来自管理层的邮件,要求您紧急且保密地将一大笔款项转到一个陌生的新账户。正确的第一步是什么?
+  a) DE: Die Überweisung sofort ausführen, da Anweisungen der Geschäftsführung Vorrang haben
+  a) ZH: 立即执行转账,因为管理层的指示具有优先权
+  b) DE: Die Anfrage über einen bekannten, unabhängigen Kanal (z. B. Telefonanruf) persönlich verifizieren, bevor irgendetwas geschieht
+  b) ZH: 在采取任何行动前,通过已知的独立渠道(例如电话)亲自核实该请求
+  c) DE: Auf die E-Mail antworten und dort nach einer schriftlichen Bestätigung fragen
+  c) ZH: 回复该邮件,并在邮件中要求书面确认
+  d) DE: Die Überweisung durchführen, aber einen kleineren Betrag als angefordert senden
+  d) ZH: 执行转账,但汇出比要求金额更小的数目
+DE EXPL: Dieses Muster wird häufig als "CEO-Fraud" bezeichnet: Angreifer geben sich als Führungskraft aus und nutzen Autorität, Vertraulichkeit und Zeitdruck, um Kontrollen zu umgehen. Eine Antwort innerhalb derselben E-Mail-Konversation hilft nicht, da der Angreifer genau diesen Kanal kontrolliert. Entscheidend ist die Verifikation über einen unabhängigen, bereits bekannten Kontaktweg - etwa ein Anruf unter einer hinterlegten Telefonnummer -, bevor irgendeine Zahlung oder Handlung erfolgt.
+ZH EXPL: 这种模式通常被称为"CEO欺诈":攻击者冒充高层管理人员,利用权威、保密性和时间压力来规避管控。在同一封邮件对话中回复无济于事,因为攻击者正是控制着这个渠道。关键在于在进行任何付款或操作之前,通过一个独立的、已知的联系渠道——例如拨打已存的电话号码——进行核实。
+==================== it_sicherheit-phishing-03 correct: ['a']
+DE Q: In einer E-Mail wird ein Link angezeigt, der angeblich zur bekannten Login-Seite Ihres Unternehmens führt. Wie prüfen Sie am sinnvollsten, ob der Link vertrauenswürdig ist, ohne ihn anzuklicken?
+ZH Q: 一封邮件中显示的链接据称指向贵公司熟悉的登录页面。在不点击链接的情况下,最合理的验证方式是什么?
+  a) DE: Mit der Maus über den Link fahren (ohne zu klicken) und die tatsächliche Zieladresse in der Statusanzeige prüfen
+  a) ZH: 将鼠标悬停在链接上(不点击),在状态栏中查看实际的目标地址
+  b) DE: Den Link anklicken und dann sofort schauen, ob die Seite echt aussieht
+  b) ZH: 点击链接,然后立即查看页面是否看起来真实
+  c) DE: Prüfen, ob die E-Mail in korrektem Deutsch geschrieben ist
+  c) ZH: 检查邮件是否用规范的德语撰写
+  d) DE: Den Absendernamen im Anzeigefeld des E-Mail-Programms kontrollieren
+  d) ZH: 检查邮件程序中显示的发件人名称
+DE EXPL: Der angezeigte Linktext kann beliebig von der tatsächlichen Zieladresse abweichen; erst das Überfahren mit der Maus zeigt die reale URL in der Statusleiste des Browsers oder E-Mail-Programms. Anklicken birgt bereits ein Risiko, da manche gefälschten Seiten automatisch Schadcode laden. Fehlerfreie Sprache ist kein verlässliches Kriterium mehr, da Phishing-Texte heute oft sehr professionell wirken, und der angezeigte Absendername lässt sich leicht fälschen, ohne dass die tatsächliche Absenderadresse dazu passt.
+ZH EXPL: 显示的链接文字可以与实际目标地址任意不同;只有将鼠标悬停在链接上,才能在浏览器或邮件程序的状态栏中看到真实的URL。点击本身就已经存在风险,因为一些伪造页面会自动加载恶意代码。语言是否无误已不再是可靠的判断标准,因为如今的钓鱼文本往往显得非常专业,而显示的发件人名称很容易被伪造,与实际的发件地址不符。
+==================== it_sicherheit-phishing-04 correct: ['d']
+DE Q: Sie haben auf einen Link in einer verdächtigen E-Mail geklickt und dort versehentlich Ihre Zugangsdaten eingegeben. Was ist die richtige Reaktion?
+ZH Q: 您点击了一封可疑邮件中的链接,并不小心在其中输入了您的登录凭据。正确的反应是什么?
+  a) DE: Abwarten, ob sich etwas Ungewöhnliches im Konto zeigt, und erst dann reagieren
+  a) ZH: 等待观察账户是否出现异常情况,只有到那时才采取行动
+  b) DE: Nichts tun, da es sich vermutlich um einen harmlosen Einzelfall handelt
+  b) ZH: 不采取任何措施,因为这很可能是一个无害的个别事件
+  c) DE: Das Passwort in den nächsten Tagen ändern, wenn Zeit dafür ist
+  c) ZH: 在接下来几天有时间时再更改密码
+  d) DE: Sofort das Passwort ändern und den Vorfall umgehend der zuständigen internen Stelle (z. B. IT-Sicherheit) melden
+  d) ZH: 立即更改密码,并立即向相关内部部门(例如IT安全部门)报告该事件
+DE EXPL: Je schneller ein kompromittiertes Zugangsdatum geändert und der Vorfall gemeldet wird, desto kleiner bleibt das Zeitfenster, in dem ein Angreifer die gestohlenen Daten missbrauchen kann. Abwarten, Nichtstun oder Verzögern erhöht das Risiko unnötig, insbesondere wenn dasselbe Passwort auch für weitere Systeme genutzt wird. Die Meldung an die zuständige Stelle ermöglicht zusätzlich, weitere Schutzmaßnahmen einzuleiten und andere Beschäftigte zu warnen.
+ZH EXPL: 被泄露的登录凭据更改得越快、事件报告得越及时,攻击者滥用被盗数据的时间窗口就越小。等待、不作为或拖延会不必要地增加风险,尤其是当同一密码也用于其他系统时。向相关部门报告还能够促使采取进一步的保护措施并警示其他员工。
+==================== it_sicherheit-datensicherung-01 correct: ['b']
+DE Q: Warum sind regelmäßige, geplante Datensicherungen (Backups) wichtig, auch wenn ein Gerät technisch zuverlässig läuft?
+ZH Q: 即使设备在技术上运行可靠,为什么定期、有计划的数据备份仍然很重要?
+  a) DE: Weil Backups die Notwendigkeit von Passwörtern ersetzen
+  a) ZH: 因为备份可以取代密码的必要性
+  b) DE: Weil Daten auch durch Fehlbedienung, technischen Defekt oder Schadsoftware wie Ransomware verloren gehen können, unabhängig von der aktuellen Zuverlässigkeit des Geräts
+  b) ZH: 因为数据也可能因操作失误、技术故障或诸如勒索软件之类的恶意软件而丢失,与设备当前的可靠性无关
+  c) DE: Weil Backups ausschließlich für sehr alte Geräte vorgeschrieben sind
+  c) ZH: 因为备份仅对非常旧的设备才是强制性的
+  d) DE: Weil ohne Backup die Internetverbindung langsamer wird
+  d) ZH: 因为没有备份,互联网连接会变慢
+DE EXPL: Ein Backup schützt vor ganz unterschiedlichen Ursachen für Datenverlust: versehentliches Löschen, Hardwaredefekte, aber auch Ransomware, die Dateien verschlüsselt. Die bisherige Zuverlässigkeit eines Geräts sagt nichts über zukünftige Ausfälle oder Angriffe aus. Backups haben nichts mit Passwörtern oder Internetgeschwindigkeit zu tun und sind unabhängig vom Alter des Geräts sinnvoll.
+ZH EXPL: 备份可以防范导致数据丢失的多种不同原因:意外删除、硬件故障,以及会加密文件的勒索软件。设备迄今为止的可靠性并不能说明未来是否会发生故障或遭受攻击。备份与密码或网速毫无关系,而且无论设备使用年限如何都是有意义的。
+==================== it_sicherheit-datensicherung-02 correct: ['c']
+DE Q: Sie finden auf dem Firmenparkplatz einen USB-Stick ohne Kennzeichnung. Was ist der richtige Umgang damit?
+ZH Q: 您在公司停车场发现一个没有标记的U盘。正确的处理方式是什么?
+  a) DE: Den Stick an einem Firmenrechner einstecken, um herauszufinden, wem er gehört
+  a) ZH: 将U盘插入公司电脑,以查明它属于谁
+  b) DE: Den Stick mitnehmen und privat weiterverwenden, da niemand ihn vermisst
+  b) ZH: 拿走U盘并私下使用,反正没人会来认领
+  c) DE: Den Stick nicht anschließen, sondern der IT-Abteilung oder dem Sicherheitspersonal übergeben
+  c) ZH: 不要插入U盘,而是交给IT部门或安保人员
+  d) DE: Den Stick an einem privaten Gerät prüfen, bevor eine Entscheidung getroffen wird
+  d) ZH: 在决定之前先在私人设备上检查这个U盘
+DE EXPL: Unbekannte USB-Sticks sind ein klassisches Einfallstor für Schadsoftware: Sie können so präpariert sein, dass sie beim Einstecken automatisch Schadcode ausführen, auch bevor eine Datei geöffnet wird. Das gilt für Firmenrechner ebenso wie für private Geräte. Der sichere Weg ist, den Fund nicht selbst zu untersuchen, sondern an die zuständige Stelle weiterzugeben, die ihn kontrolliert prüfen kann.
+ZH EXPL: 来历不明的U盘是恶意软件的经典入侵途径:它们可能被预先设置为一插入就自动执行恶意代码,甚至在打开任何文件之前就已发生。这对公司电脑和私人设备同样适用。安全的做法是不要自己去检查这一发现,而是交给相关部门,由其进行受控检查。
+==================== it_sicherheit-datensicherung-03 correct: ['a']
+DE Q: Warum sollten Sie Sicherheitsupdates für Betriebssystem und Programme auf Ihrem Arbeitsgerät zeitnah installieren, wenn das System es anbietet?
+ZH Q: 当系统提供操作系统和程序的安全更新时,为什么您应该及时在工作设备上安装这些更新?
+  a) DE: Weil Updates häufig bekannt gewordene Sicherheitslücken schließen, die sonst von Angreifern ausgenutzt werden können
+  a) ZH: 因为更新通常会修补已知的安全漏洞,否则这些漏洞可能被攻击者利用
+  b) DE: Weil Updates hauptsächlich das Design der Benutzeroberfläche verbessern
+  b) ZH: 因为更新主要是改善用户界面的设计
+  c) DE: Weil Updates ausschließlich die Geschwindigkeit des Geräts erhöhen
+  c) ZH: 因为更新只会提高设备的速度
+  d) DE: Weil Updates nur bei privat genutzten Geräten sicherheitsrelevant sind
+  d) ZH: 因为更新只在私人使用的设备上才与安全相关
+DE EXPL: Sicherheitslücken in Betriebssystemen und Anwendungen werden fortlaufend entdeckt und veröffentlicht; Hersteller schließen sie über Updates. Wird ein Update aufgeschoben, bleibt die Lücke offen, und Angreifer nutzen häufig gerade den Zeitraum kurz nach Bekanntwerden gezielt aus. Oberflächengestaltung oder Geschwindigkeit sind allenfalls Nebeneffekte, nicht der eigentliche Sicherheitsgrund, und die Update-Disziplin gilt für dienstliche Geräte genauso wie für private.
+ZH EXPL: 操作系统和应用程序中的安全漏洞会不断被发现并公布;制造商通过更新来修补这些漏洞。如果推迟更新,漏洞就会一直存在,而攻击者往往正是专门利用漏洞公开后的这段时间进行攻击。界面设计或速度充其量只是附带效果,而不是真正的安全原因,更新纪律对办公设备和私人设备同样适用。
+==================== it_sicherheit-datensicherung-04 correct: ['d']
+DE Q: Ein Kollege empfiehlt Ihnen ein praktisches, kostenloses Zusatzprogramm aus dem Internet für Ihren Firmenrechner. Wie gehen Sie am sinnvollsten vor?
+ZH Q: 一位同事向您推荐了一个从网上下载的实用免费附加程序,供您在公司电脑上使用。最合理的做法是什么?
+  a) DE: Das Programm sofort installieren, da es kostenlos ist und keine Kosten verursacht
+  a) ZH: 立即安装该程序,因为它是免费的,不会产生费用
+  b) DE: Das Programm installieren, aber nur auf dem Rechner, nicht auf dem Diensthandy
+  b) ZH: 安装该程序,但只安装在电脑上,不安装在办公手机上
+  c) DE: Das Programm installieren, solange es von einer bekannten Webseite heruntergeladen wird
+  c) ZH: 只要是从知名网站下载的,就安装该程序
+  d) DE: Vor der Installation die zuständige IT-Stelle fragen, ob und wie die Software freigegeben werden kann
+  d) ZH: 在安装前先询问相关IT部门,该软件是否可以以及如何获得批准
+DE EXPL: Nicht freigegebene Software kann Sicherheitslücken enthalten, mit anderen Programmen in Konflikt geraten oder gegen Lizenz- und Compliance-Vorgaben verstoßen - unabhängig davon, ob sie kostenlos ist, von welcher Webseite sie stammt oder auf welchem Gerätetyp sie installiert wird. Die IT-Abteilung kann prüfen, ob eine Software sicher und regelkonform eingesetzt werden kann, und gegebenenfalls eine geprüfte Alternative bereitstellen.
+ZH EXPL: 未经批准的软件可能包含安全漏洞,与其他程序发生冲突,或违反许可和合规要求——无论它是否免费、来自哪个网站,或安装在哪种类型的设备上。IT部门可以检查某软件是否可以安全且合规地使用,并在必要时提供经过验证的替代方案。
+==================== it_sicherheit-mobil_homeoffice-01 correct: ['b']
+DE Q: Welche Maßnahme trägt am meisten dazu bei, das heimische WLAN für dienstliche Arbeit im Homeoffice abzusichern?
+ZH Q: 哪项措施对确保居家办公时使用的家庭WiFi的安全性贡献最大?
+  a) DE: Den Namen (SSID) des WLANs so einstellen, dass er unauffällig klingt
+  a) ZH: 将WiFi名称(SSID)设置得不引人注目
+  b) DE: Ein starkes, individuelles WLAN-Passwort und eine aktuelle Verschlüsselung (z. B. WPA2/WPA3) verwenden
+  b) ZH: 使用强大且独特的WiFi密码以及最新的加密方式(例如WPA2/WPA3)
+  c) DE: Das WLAN nur tagsüber einschalten und nachts komplett abschalten
+  c) ZH: 只在白天开启WiFi,晚上完全关闭
+  d) DE: Den werkseitig voreingestellten Router-Zugang unverändert beibehalten, um Fehler zu vermeiden
+  d) ZH: 保持路由器出厂默认访问设置不变,以避免出错
+DE EXPL: Ein starkes, individuelles Passwort zusammen mit moderner Verschlüsselung verhindert, dass Unbefugte in Reichweite sich einfach ins Netzwerk einklinken und den Datenverkehr mitlesen oder manipulieren können. Ein unauffälliger Netzwerkname bietet keinen technischen Schutz, ein zeitweises Abschalten löst das Grundproblem nicht, und werkseitige Voreinstellungen (Standardpasswörter, Standard-SSID) sind oft öffentlich bekannt und daher besonders unsicher.
+ZH EXPL: 强大且独特的密码配合现代加密方式,可以防止范围内未经授权的人轻易接入网络并读取或篡改数据流量。不引人注目的网络名称并不能提供任何技术保护,暂时关闭也无法解决根本问题,而出厂默认设置(默认密码、默认SSID)通常是公开已知的,因此特别不安全。
+==================== it_sicherheit-mobil_homeoffice-02 correct: ['c']
+DE Q: Sie müssen unterwegs kurz auf dienstliche E-Mails zugreifen und finden ein offenes, unverschlüsseltes WLAN in einem Café. Wie gehen Sie am sichersten vor?
+ZH Q: 您在外出途中需要短暂访问工作邮件,并在一家咖啡馆发现一个开放的、未加密的WiFi。最安全的做法是什么?
+  a) DE: Das offene WLAN direkt nutzen, da E-Mail-Abrufe unkritisch sind
+  a) ZH: 直接使用开放WiFi,因为查看邮件并不重要
+  b) DE: Das offene WLAN nutzen, aber vorher das eigene Passwort ändern
+  b) ZH: 使用开放WiFi,但先更改自己的密码
+  c) DE: Statt des offenen WLANs eine gesicherte Verbindung nutzen, etwa mobile Daten oder ein Firmen-VPN
+  c) ZH: 不使用开放WiFi,而是使用安全连接,例如移动数据或公司VPN
+  d) DE: Das offene WLAN nutzen, solange die Café-Webseite ein Schloss-Symbol in der Adresszeile zeigt
+  d) ZH: 只要咖啡馆网站的地址栏显示锁形图标,就使用开放WiFi
+DE EXPL: In offenen, unverschlüsselten WLANs kann der Datenverkehr von Dritten im selben Netz mitgelesen oder umgeleitet werden, auch wenn einzelne Webseiten selbst verschlüsselt sind (das Schloss-Symbol bezieht sich nur auf diese eine Verbindung, nicht auf das gesamte Netz). Mobile Daten oder ein Firmen-VPN bauen eine zusätzlich abgesicherte, verschlüsselte Verbindung auf, die deutlich schwerer abzuhören ist. Ein vorheriger Passwortwechsel löst das eigentliche Risiko nicht.
+ZH EXPL: 在开放的、未加密的WiFi中,即使某些网站本身是加密的(锁形图标只涉及这一个连接,而不涉及整个网络),同一网络中的第三方也可能读取或转发数据流量。移动数据或公司VPN会建立一个额外安全的加密连接,大大增加窃听的难度。事先更改密码并不能消除真正的风险。
+==================== it_sicherheit-mobil_homeoffice-03 correct: ['a']
+DE Q: Sie arbeiten im Zug an einem vertraulichen Dokument auf Ihrem Laptop. Was sollten Sie zum Schutz vor Mitlesen beachten?
+ZH Q: 您在火车上用笔记本电脑处理一份机密文档。为防止被人窥视,您应该注意什么?
+  a) DE: Auf die Umgebung achten und bei Bedarf einen Sichtschutzfilter oder eine sitzplatzbedingt geschützte Position nutzen
+  a) ZH: 注意周围环境,必要时使用屏幕防窥滤光片或选择受保护的座位位置
+  b) DE: Das Dokument einfach kleiner zoomen, damit es aus der Ferne nicht lesbar ist
+  b) ZH: 只需缩小文档的显示比例,使其无法从远处阅读
+  c) DE: Nur den Dateinamen anonymisieren, der Inhalt selbst ist unkritisch
+  c) ZH: 只需将文件名匿名化,内容本身并不重要
+  d) DE: Vertrauliche Dokumente unterwegs generell genauso behandeln wie öffentlich zugängliche Informationen
+  d) ZH: 在外出时,一般将机密文件与公开可获取的信息同等对待
+DE EXPL: "Shoulder surfing" - das Mitlesen von Bildschirminhalten durch umstehende Personen - ist ein reales Risiko in öffentlichen Umgebungen wie Zügen oder Wartebereichen. Ein Sichtschutzfilter oder eine geschickte Sitzposition verringert dieses Risiko wirksam. Kleineres Zoomen schützt nicht zuverlässig, der Dateiname ist nicht der eigentliche Schutzgegenstand, und vertrauliche Inhalte benötigen unabhängig vom Ort immer den entsprechenden Schutz, nicht nur im Büro.
+ZH EXPL: "肩窥"——即周围人窥视屏幕内容——在火车或候车区等公共场所是真实存在的风险。屏幕防窥滤光片或巧妙的座位位置能有效降低这一风险。缩小显示比例并不能提供可靠的保护,文件名并非真正需要保护的对象,机密内容无论身处何地都始终需要相应的保护,而不仅仅是在办公室里。
+==================== it_sicherheit-mobil_homeoffice-04 correct: ['b']
+DE Q: Sie sind dienstlich unterwegs und müssen Ihren Firmenlaptop kurz im geparkten Auto zurücklassen. Was ist der sicherste Umgang damit?
+ZH Q: 您在出差途中,必须将公司笔记本电脑短暂留在已停放的车内。最安全的处理方式是什么?
+  a) DE: Den Laptop gut sichtbar auf dem Beifahrersitz liegen lassen, damit er nicht vergessen wird
+  a) ZH: 将笔记本电脑显眼地放在副驾驶座位上,以免忘记它
+  b) DE: Den Laptop in den nicht einsehbaren Kofferraum legen und das Fahrzeug verschließen, oder ihn möglichst ganz mitnehmen
+  b) ZH: 将笔记本电脑放入外部无法看见的后备箱并锁车,或尽可能随身携带
+  c) DE: Den Laptop unter einer Jacke auf dem Rücksitz verstecken, das genügt als Schutz
+  c) ZH: 将笔记本电脑藏在后座的一件夹克下面,这样就足够了
+  d) DE: Es spielt keine Rolle, solange der Laptop mit einem Benutzerkennwort geschützt ist
+  d) ZH: 只要笔记本电脑有用户密码保护,放在哪里都无所谓
+DE EXPL: Sichtbare Wertgegenstände im Auto erhöhen das Risiko eines Einbruchs erheblich; ein nicht einsehbarer Kofferraum oder das Mitnehmen des Geräts verringern dieses Risiko deutlich. Eine Jacke als Sichtschutz ist unzuverlässig und schützt nicht vor einem gezielten Einbruch. Ein Benutzerkennwort schützt zwar die Daten auf dem Gerät im Falle eines Diebstahls teilweise, verhindert aber nicht den physischen Verlust des Geräts selbst und ersetzt daher nicht die sichere Aufbewahrung.
+ZH EXPL: 车内可见的贵重物品会大大增加被盗窃的风险;放入外部无法看见的后备箱或随身携带设备可以明显降低这一风险。用夹克遮挡视线并不可靠,也无法防止针对性的盗窃。用户密码在被盗情况下可以部分保护设备上的数据,但无法防止设备本身的实际丢失,因此不能替代安全存放。
+==================== it_sicherheit-meldepflicht_it-01 correct: ['b']
+DE Q: Sie vermuten, dass Ihr Firmenrechner mit Schadsoftware infiziert ist, sind sich aber nicht ganz sicher. Wie sollten Sie sich verhalten?
+ZH Q: 您怀疑自己的公司电脑感染了恶意软件,但并不完全确定。您应该如何处理?
+  a) DE: Abwarten, bis eindeutige Beweise vorliegen, um keine Fehlmeldung abzugeben
+  a) ZH: 等到有明确证据后再报告,以免造成误报
+  b) DE: Den Verdacht umgehend der zuständigen internen Stelle (z. B. IT-Sicherheit oder Helpdesk) melden, auch bei Unsicherheit
+  b) ZH: 即使不确定,也立即将疑虑报告给相关内部部门(例如IT安全部门或帮助台)
+  c) DE: Den Rechner selbst neu aufsetzen und danach normal weiterarbeiten
+  c) ZH: 自行重装电脑系统,然后照常继续工作
+  d) DE: Erst Kollegen fragen, ob ihnen Ähnliches aufgefallen ist, bevor irgendetwas gemeldet wird
+  d) ZH: 先询问同事是否也注意到类似情况,再决定是否报告
+DE EXPL: Eine funktionierende Melde- und Reaktionskultur setzt voraus, dass auch bloße Verdachtsfälle frühzeitig gemeldet werden, statt auf eindeutige Beweise zu warten - je früher ein möglicher Vorfall bekannt wird, desto besser lässt sich eine Ausbreitung eindämmen. Eigenständiges Neuaufsetzen des Rechners kann wichtige Spuren zur Ursachenklärung zerstören. Auch das informelle Nachfragen bei Kollegen verzögert die Meldung unnötig und ersetzt nicht die Information der zuständigen Stelle.
+ZH EXPL: 有效的报告与响应文化要求即使只是怀疑,也应尽早报告,而不是等待明确证据——一个潜在事件被知晓得越早,就越能有效遏制其蔓延。自行重装系统可能会破坏对查明原因至关重要的重要痕迹。非正式地询问同事同样会不必要地延迟报告,也无法替代对相关部门的告知。
+==================== it_sicherheit-meldepflicht_it-02 correct: ['c']
+DE Q: Warum legt die EU-Richtlinie zur Netz- und Informationssicherheit (NIS2) für betroffene Organisationen so kurze Fristen für die erste Meldung eines erheblichen Sicherheitsvorfalls fest (grob: eine frühe Warnung innerhalb von Stunden, gefolgt von einer ausführlicheren Meldung)?
+ZH Q: 为什么欧盟网络与信息安全指令(NIS2)为受影响组织首次报告重大安全事件设定了如此短的期限(大致为:数小时内发出早期预警,随后提交更详细的报告)?
+  a) DE: Damit Unternehmen möglichst viel Zeit gewinnen, um den Vorfall intern zu verschweigen
+  a) ZH: 为了让企业尽可能争取更多时间在内部隐瞒事件
+  b) DE: Weil eine vollständige technische Untersuchung ohnehin nie möglich ist
+  b) ZH: 因为完整的技术调查无论如何都永远不可能实现
+  c) DE: Damit zuständige Stellen frühzeitig reagieren und andere potenziell betroffene Organisationen rechtzeitig gewarnt werden können
+  c) ZH: 为了让主管部门能够及早做出反应,并使其他可能受影响的组织能够及时得到警示
+  d) DE: Weil kurze Fristen ausschließlich für IT-Dienstleister gelten, nicht für deren Kunden
+  d) ZH: 因为短期限仅适用于IT服务提供商,而不适用于其客户
+DE EXPL: Kurze Meldefristen sollen sicherstellen, dass Behörden und andere betroffene Stellen schnell informiert werden, um eine Ausbreitung einzudämmen und Gegenmaßnahmen zu koordinieren - nicht, um internes Verschweigen zu ermöglichen. Eine erste, frühe Meldung darf bewusst noch unvollständig sein und wird später ergänzt; das ist gerade der Sinn eines gestuften Meldeverfahrens. Die Meldepflichten richten sich an betroffene Organisationen insgesamt, nicht nur an IT-Dienstleister.
+ZH EXPL: 短的报告期限旨在确保主管部门和其他相关机构能够迅速获得信息,以遏制蔓延并协调应对措施——而不是为了让企业内部隐瞒事情。最初的早期报告可以有意保持不完整,并在之后加以补充;这正是分阶段报告程序的意义所在。报告义务针对的是整个受影响组织,而不仅仅是IT服务提供商。
+==================== it_sicherheit-meldepflicht_it-03 correct: ['a']
+DE Q: Warum verlangt eine gute Sicherheitskultur, dass Beschäftigte einen vermuteten Sicherheitsvorfall melden, statt zu versuchen, ihn selbst "still" zu beheben?
+ZH Q: 为什么良好的安全文化要求员工报告可疑的安全事件,而不是试图"悄悄地"自行处理?
+  a) DE: Weil ein Einzelner oft nicht das gesamte Ausmaß und die Ursache eines Vorfalls überblicken kann und eigenmächtiges Handeln Spuren verwischen oder das Problem verschlimmern kann
+  a) ZH: 因为个人往往无法全面了解事件的整体范围和原因,而擅自行动可能会消除痕迹或使问题恶化
+  b) DE: Weil eigenständiges Beheben grundsätzlich gegen das Urheberrecht verstößt
+  b) ZH: 因为自行处理从根本上违反了版权法
+  c) DE: Weil nur so die Kosten für IT-Sicherheit im Unternehmen reduziert werden können
+  c) ZH: 因为只有这样才能降低公司的IT安全成本
+  d) DE: Weil Beschäftigte ohne Meldung automatisch persönlich haftbar gemacht werden können
+  d) ZH: 因为不报告的话,员工可能会自动被追究个人责任
+DE EXPL: Ein einzelner Vorfall kann Teil eines größeren Musters sein - etwa ein Angriff, der mehrere Systeme betrifft. Wer versucht, das Problem allein und ohne Meldung zu lösen, kann wichtige Spuren zerstören, die für die Ursachenklärung nötig wären, und riskiert, dass sich der Vorfall unbemerkt weiter ausbreitet. Die genannten Alternativen (Urheberrecht, Kostensenkung, automatische persönliche Haftung) beschreiben nicht den eigentlichen Grund für die Meldepflicht.
+ZH EXPL: 单个事件可能是更大模式的一部分——例如一次影响多个系统的攻击。试图独自解决问题而不报告的人,可能会破坏查明原因所需的重要痕迹,并冒着事件在无人察觉的情况下继续蔓延的风险。所提到的其他选项(版权、降低成本、自动追究个人责任)都不能说明报告义务的真正原因。
+==================== it_sicherheit-meldepflicht_it-04 correct: ['d']
+DE Q: Sie sind unsicher, wer im Unternehmen für die Meldung eines vermuteten IT-Sicherheitsvorfalls zuständig ist. Was ist der sinnvollste Ansatz?
+ZH Q: 您不确定公司中谁负责报告可疑的IT安全事件。最合理的做法是什么?
+  a) DE: Den Vorfall in einem öffentlichen internen Chatkanal posten, damit ihn irgendjemand sieht
+  a) ZH: 在公开的内部聊天频道中发布该事件,以便有人看到
+  b) DE: Abwarten, bis jemand anderes das Problem zufällig bemerkt und meldet
+  b) ZH: 等待其他人偶然注意到问题并进行报告
+  c) DE: Den Vorfall in sozialen Medien schildern, um schnell Aufmerksamkeit zu bekommen
+  c) ZH: 在社交媒体上描述该事件,以迅速引起关注
+  d) DE: Die im Unternehmen festgelegten Meldewege nutzen (z. B. IT-Support, Sicherheitsbeauftragte oder Führungskraft) oder im Zweifel bei der eigenen Führungskraft nachfragen
+  d) ZH: 使用公司规定的报告渠道(例如IT支持、安全负责人或上级),如有疑问则询问自己的上级
+DE EXPL: Ein vorbereitetes Meldeverfahren mit klar zuständigen Stellen sorgt dafür, dass ein Vorfall schnell bei den richtigen Personen ankommt, die geeignete Gegenmaßnahmen einleiten können. Ein öffentlicher Chatkanal oder gar soziale Medien sind ungeeignet und können den Vorfall zusätzlich öffentlich machen oder Angreifer warnen. Abwarten verzögert die Reaktion unnötig; im Zweifel ist die eigene Führungskraft immer ein sinnvoller erster Ansprechpartner, um den richtigen Meldeweg zu finden.
+ZH EXPL: 一个准备好的、有明确责任部门的报告程序可以确保事件迅速到达能够采取适当应对措施的正确人员手中。公开的聊天频道甚至社交媒体都不合适,还可能使事件公开或警示攻击者。等待会不必要地延迟应对;如有疑问,自己的上级始终是寻找正确报告途径的合理第一联系人。
+==================== it_sicherheit-zugriffsschutz-05 correct: ['b']
+DE Q: Warum sollen Beschäftigte nur die Zugriffsrechte erhalten, die sie für ihre konkrete Aufgabe tatsächlich benötigen ("Minimalprinzip")?
+ZH Q: 为什么员工应该只获得完成其具体任务所实际需要的访问权限("最小权限原则")?
+  a) DE: Damit weniger Passwörter verwaltet werden müssen
+  a) ZH: 为了减少需要管理的密码数量
+  b) DE: Damit im Falle eines kompromittierten Kontos oder eines Fehlers der mögliche Schaden auf das Nötigste begrenzt bleibt
+  b) ZH: 为了在账户被攻陷或出现错误时,可能造成的损害仍能被限制在最必要的范围内
+  c) DE: Damit die IT-Abteilung weniger Support-Anfragen bearbeiten muss
+  c) ZH: 为了让IT部门处理的支持请求更少
+  d) DE: Damit alle Beschäftigten gleich viele Rechte besitzen und niemand benachteiligt wird
+  d) ZH: 为了让所有员工拥有相同数量的权限,不使任何人感到不公平
+DE EXPL: Das Minimalprinzip (Least-Privilege) begrenzt den Schaden, den ein gestohlenes Konto oder eine versehentliche Fehlbedienung anrichten kann, weil nur auf die tatsächlich benötigten Systeme und Daten zugegriffen werden kann. Es geht nicht um Passwortanzahl, Supportaufwand oder formale Gleichbehandlung, sondern um die Begrenzung des Risikos entlang der jeweiligen Aufgabe.
+ZH EXPL: 最小权限原则限制了被盗账户或意外错误可能造成的损害,因为只能访问实际需要的系统和数据。这与密码数量、支持工作量或形式上的平等待遇无关,而是根据具体任务限制风险。
+==================== it_sicherheit-zugriffsschutz-06 correct: ['c']
+DE Q: Eine Kollegin wechselt intern in eine andere Abteilung mit anderen Aufgaben. Was sollte in Bezug auf ihre bisherigen Systemzugriffe geschehen?
+ZH Q: 一位同事在公司内部调到另一个承担不同任务的部门。她之前的系统访问权限应该如何处理?
+  a) DE: Nichts, da sie ja weiterhin im selben Unternehmen arbeitet
+  a) ZH: 不需要任何处理,因为她仍在同一家公司工作
+  b) DE: Die bisherigen Zugriffe bleiben zusätzlich zu den neuen bestehen, damit sie flexibel aushelfen kann
+  b) ZH: 之前的访问权限除新权限外继续保留,以便她能灵活提供帮助
+  c) DE: Die nicht mehr benötigten Zugriffsrechte werden entzogen und die Berechtigungen an die neue Rolle angepasst
+  c) ZH: 撤销不再需要的访问权限,并根据新角色调整权限
+  d) DE: Nur das Passwort wird geändert, die Rechte bleiben unverändert
+  d) ZH: 只更改密码,权限保持不变
+DE EXPL: Berechtigungen sollen dem aktuellen Aufgabenbereich entsprechen; bei einem Rollenwechsel müssen nicht mehr benötigte Zugriffsrechte entzogen und neue, passende Rechte vergeben werden. Andernfalls sammeln sich über die Zeit unnötige, überflüssige Berechtigungen an ("Rechteinflation"), die das Risiko im Falle eines kompromittierten Kontos unnötig erhöhen. Ein reiner Passwortwechsel ändert daran nichts.
+ZH EXPL: 权限应与当前的任务范围相符;在角色变更时,必须撤销不再需要的访问权限,并授予新的、合适的权限。否则,随着时间推移会积累不必要的多余权限("权限膨胀"),这会在账户被攻陷时不必要地增加风险。仅仅更改密码对此毫无改变。
+==================== it_sicherheit-zugriffsschutz-07 correct: ['a']
+DE Q: Sie müssen sich viele unterschiedliche Passwörter für dienstliche Systeme merken. Welche Vorgehensweise ist am sinnvollsten?
+ZH Q: 您需要记住许多用于工作系统的不同密码。最合理的做法是什么?
+  a) DE: Einen von der IT freigegebenen Passwort-Manager verwenden, statt Passwörter mehrfach zu verwenden oder ungeschützt zu notieren
+  a) ZH: 使用IT部门批准的密码管理器,而不是重复使用密码或不受保护地记录密码
+  b) DE: Für alle Systeme dasselbe leicht zu merkende Passwort verwenden
+  b) ZH: 对所有系统使用同一个易记的密码
+  c) DE: Die Passwörter auf einem Klebezettel am Monitor notieren, damit man sie schnell findet
+  c) ZH: 将密码写在贴在显示器上的便签纸上,以便快速找到
+  d) DE: Die Passwörter in einer unverschlüsselten Textdatei auf dem Desktop speichern
+  d) ZH: 将密码保存在桌面上未加密的文本文件中
+DE EXPL: Ein freigegebener Passwort-Manager erlaubt es, für jedes System ein langes, einzigartiges Passwort zu nutzen, ohne sich alle einzeln merken zu müssen, und schützt die gespeicherten Zugangsdaten selbst durch Verschlüsselung. Passwort-Wiederverwendung bedeutet, dass ein einziges Datenleck alle betroffenen Konten gefährdet; Klebezettel und unverschlüsselte Dateien sind für jeden mit physischem oder digitalem Zugang sofort einsehbar.
+ZH EXPL: 经批准的密码管理器可以让每个系统都使用一个长而独特的密码,而无需逐一记住所有密码,并通过加密保护所存储的登录凭据本身。重复使用密码意味着一次数据泄露就会危及所有相关账户;而便签纸和未加密的文件则可被任何拥有物理或数字访问权限的人立即查看。
+==================== it_sicherheit-zugriffsschutz-08 correct: ['d']
+DE Q: Sie verlassen abends Ihren Arbeitsplatz im Großraumbüro nach Feierabend. Was entspricht der Clear-Desk-Grundregel?
+ZH Q: 下班后,您在下班时间离开开放式办公室的工作岗位。什么符合"清洁桌面"的基本规则?
+  a) DE: Nur den Bildschirm sperren, Unterlagen können offen liegen bleiben
+  a) ZH: 只锁定屏幕,文件可以摆在外面
+  b) DE: Vertrauliche Unterlagen dürfen offen liegen bleiben, solange die Bürotür abgeschlossen ist
+  b) ZH: 只要办公室门锁着,机密文件就可以摆在外面
+  c) DE: Nur besonders als "geheim" gekennzeichnete Dokumente müssen weggeräumt werden
+  c) ZH: 只需收好特别标记为"机密"的文件
+  d) DE: Vertrauliche Unterlagen und Datenträger wegschließen und den Schreibtisch aufgeräumt hinterlassen
+  d) ZH: 锁好机密文件和数据载体,并保持桌面整洁
+DE EXPL: Der Clear-Desk-Grundsatz verlangt, vertrauliche Papierunterlagen und Datenträger bei Abwesenheit wegzuschließen, damit sie für Unbefugte - etwa Reinigungspersonal, Besucher oder andere Beschäftigte ohne Berechtigung - nicht frei zugänglich sind. Eine abgeschlossene Bürotür allein schützt nicht vor allen Personen mit Zutritt zum Gebäude oder Raum, und die Regel gilt für vertrauliche Unterlagen allgemein, nicht nur für explizit als "geheim" markierte.
+ZH EXPL: 清洁桌面原则要求在离开时将机密纸质文件和数据载体锁起来,以免它们随意暴露给未经授权的人员——例如清洁人员、访客或其他没有相应权限的员工。仅仅锁上办公室门并不能防止所有能进入建筑或房间的人,而且这项规则适用于机密文件的总体范围,而不仅仅是明确标记为"机密"的文件。
+==================== it_sicherheit-phishing-05 correct: ['c']
+DE Q: Sie erhalten eine E-Mail mit einem unerwarteten Rechnungsanhang, der Sie auffordert, eine "Bearbeitung von Makros" oder "Inhalt aktivieren" zuzulassen, um die Rechnung anzuzeigen. Wie reagieren Sie am sinnvollsten?
+ZH Q: 您收到一封带有意外发票附件的邮件,要求您允许"处理宏"或"启用内容"以显示发票。最合理的反应是什么?
+  a) DE: Die Bearbeitung von Makros erlauben, sonst lässt sich die Rechnung nicht öffnen
+  a) ZH: 允许处理宏,否则无法打开发票
+  b) DE: Den Anhang öffnen, aber erst nach einem Neustart des Rechners
+  b) ZH: 打开附件,但仅在重启电脑之后
+  c) DE: Makros nicht aktivieren und die E-Mail bei Unsicherheit über die üblichen Meldewege prüfen lassen
+  c) ZH: 不激活宏,如有疑虑就通过常规报告渠道对该邮件进行核实
+  d) DE: Den Anhang an einen privaten Kollegen weiterleiten, damit er ihn zuerst öffnet
+  d) ZH: 私下将附件转发给同事,让他先打开
+DE EXPL: Die Aufforderung, Makros zu aktivieren, ist ein bekanntes Angriffsmuster: Erst durch das Aktivieren wird in der Datei enthaltener Schadcode ausgeführt, der ohne diese Zustimmung inaktiv bliebe. Ein Neustart des Rechners ändert daran nichts, und das Weiterleiten an einen Kollegen verlagert das Risiko nur, statt es zu beseitigen. Bei Unsicherheit über Absender oder Inhalt sollte die E-Mail über die üblichen internen Meldewege geprüft werden, bevor irgendetwas geöffnet oder aktiviert wird.
+ZH EXPL: 要求激活宏是一种已知的攻击模式:只有激活后,文件中包含的恶意代码才会被执行,若没有这一同意操作,该代码本会保持不活跃状态。重启电脑并不能改变这一点,而转发给同事只是转移了风险,而没有消除它。如果对发件人或内容存有疑虑,应在打开或激活任何内容之前,通过常规内部报告渠道对邮件进行核实。
+==================== it_sicherheit-phishing-06 correct: ['b']
+DE Q: Was unterscheidet "Spear-Phishing" von einer klassischen, breit gestreuten Phishing-Kampagne?
+ZH Q: "鱼叉式网络钓鱼"与传统的大范围传播的网络钓鱼活动有何区别?
+  a) DE: Spear-Phishing wird ausschließlich per Telefon durchgeführt, nie per E-Mail
+  a) ZH: 鱼叉式网络钓鱼仅通过电话进行,绝不通过电子邮件
+  b) DE: Spear-Phishing ist auf eine bestimmte Person oder Organisation zugeschnitten und nutzt gezielt recherchierte, glaubwürdige Details
+  b) ZH: 鱼叉式网络钓鱼针对特定的个人或组织,使用有针对性调查的、令人信服的细节
+  c) DE: Spear-Phishing verzichtet komplett auf Links oder Anhänge
+  c) ZH: 鱼叉式网络钓鱼完全不使用链接或附件
+  d) DE: Spear-Phishing betrifft ausschließlich private E-Mail-Konten, niemals dienstliche
+  d) ZH: 鱼叉式网络钓鱼仅涉及私人电子邮箱账户,绝不涉及工作账户
+DE EXPL: Beim Spear-Phishing recherchieren Angreifer gezielt Informationen über eine Person oder Organisation - etwa Namen von Vorgesetzten, laufende Projekte oder interne Abläufe -, um eine Nachricht besonders glaubwürdig und individuell wirken zu lassen. Das macht diese Angriffe schwerer zu erkennen als generische Massen-Phishing-Mails. Weder Kommunikationskanal noch Verzicht auf Links/Anhänge noch die Beschränkung auf private Konten sind das entscheidende Merkmal.
+ZH EXPL: 在鱼叉式网络钓鱼中,攻击者会有针对性地研究有关某个人或组织的信息——例如上级的姓名、正在进行的项目或内部流程——以使信息显得特别可信且个性化。这使得此类攻击比一般大规模网络钓鱼邮件更难识别。无论是通信渠道、放弃链接/附件,还是仅限于私人账户,都不是决定性特征。
+==================== it_sicherheit-phishing-07 correct: ['a']
+DE Q: Sie erhalten eine SMS, die angeblich von einem Paketdienst stammt und einen Link zur "Zollgebühr-Zahlung" enthält, obwohl Sie kein Paket erwarten. Wie ordnen Sie diesen Vorfall ein und wie reagieren Sie?
+ZH Q: 您收到一条据称来自快递公司的短信,其中包含一个"支付关税"的链接,但您并没有等待任何包裹。您如何判断这种情况,又该如何应对?
+  a) DE: Es handelt sich vermutlich um "Smishing" (Phishing per SMS); den Link nicht anklicken und die Sendung stattdessen direkt über die offizielle Webseite oder App des Paketdienstes prüfen
+  a) ZH: 这很可能是"短信钓鱼"(通过短信进行的网络钓鱼);不要点击链接,而是直接通过快递公司的官方网站或应用程序核实该包裹
+  b) DE: SMS-Nachrichten können generell nicht gefälscht werden, daher ist der Link sicher
+  b) ZH: 短信一般无法被伪造,因此该链接是安全的
+  c) DE: Da es sich um eine private SMS handelt, betrifft das Thema nicht die Arbeit und kann ignoriert werden
+  c) ZH: 由于这是一条私人短信,该话题与工作无关,可以忽略
+  d) DE: Den Link anklicken, aber keine Zahlungsdaten eingeben, um zu sehen, ob es sich um eine echte Sendung handelt
+  d) ZH: 点击链接,但不输入付款信息,以查看这是否是真实的包裹
+DE EXPL: Phishing beschränkt sich nicht auf E-Mails: "Smishing" nutzt SMS-Nachrichten mit demselben Grundprinzip aus Dringlichkeit und einem manipulierten Link. Auch der Absendername einer SMS lässt sich fälschen. Sicherer ist es, den angeblichen Anlass unabhängig über die offizielle Webseite oder App zu prüfen, statt dem Link zu folgen. Das Thema ist auch für Beschäftigte relevant, da dieselben Muster auch dienstliche Geräte oder Kontaktinformationen betreffen können, und selbst das bloße Anklicken eines präparierten Links kann bereits ein Risiko darstellen.
+ZH EXPL: 网络钓鱼不仅限于电子邮件:"短信钓鱼"利用短信,采用同样基于紧迫感和被操纵链接的基本原理。短信的发件人姓名同样可以被伪造。更安全的做法是通过官方网站或应用程序独立核实所谓的事由,而不是点击链接。这个话题对员工同样重要,因为同样的手法也可能涉及工作设备或联系信息,即使只是点击一个精心设计的链接也可能已经构成风险。
+==================== it_sicherheit-phishing-08 correct: ['b']
+DE Q: Eine E-Mail scheint von "support@ihre-firma-online.de" zu stammen, obwohl die tatsächliche Firmendomain "ihrefirma.de" lautet. Wie ist diese leicht abweichende Absenderdomain am ehesten einzuordnen?
+ZH Q: 一封邮件看似来自"support@ihre-firma-online.de",而公司的实际域名是"ihrefirma.de"。这种发件人域名的细微差异应如何最恰当地判断?
+  a) DE: Als unbedeutender Tippfehler ohne sicherheitsrelevante Bedeutung
+  a) ZH: 视为一个无关紧要、不涉及安全的拼写错误
+  b) DE: Als mögliches Anzeichen für eine gefälschte, zum Verwechseln ähnliche Domain ("Typosquatting"), die zur Täuschung genutzt wird
+  b) ZH: 视为可能的迹象,表明这是一个用于欺骗的、极易混淆的伪造域名("域名抢注/typosquatting")
+  c) DE: Als Bestätigung, dass die Nachricht garantiert von der eigenen IT-Abteilung stammt
+  c) ZH: 视为该消息确实来自公司自己IT部门的确认
+  d) DE: Als reine Geschmacksfrage des jeweiligen Absenders bei der Wahl der Domain
+  d) ZH: 视为发件人在选择域名时纯粹的个人喜好
+DE EXPL: Angreifer registrieren gezielt Domains, die der echten Firmendomain zum Verwechseln ähnlich sehen (z. B. zusätzliche Wörter, vertauschte Buchstaben oder andere Endungen), um Vertrauen vorzutäuschen. Eine solche Abweichung ist ein ernstzunehmendes Warnsignal und keine Belanglosigkeit oder reine Geschmacksfrage. Die tatsächliche Absenderadresse sollte bei Auffälligkeiten genau geprüft und im Zweifel über einen unabhängigen Kanal nachgefragt werden, statt automatisch von Echtheit auszugehen.
+ZH EXPL: 攻击者会故意注册与真实公司域名极易混淆的域名(例如添加额外的词语、颠倒字母顺序或使用不同的后缀),以此营造出可信的假象。这种差异是一个应认真对待的警示信号,而不是无关紧要的小事或个人喜好问题。在出现可疑迹象时,应仔细核实实际的发件地址,如有疑问应通过独立渠道进行确认,而不是自动假定其真实性。
+==================== it_sicherheit-datensicherung-05 correct: ['c']
+DE Q: Warum reicht es gegen Ransomware nicht aus, ein Backup direkt auf demselben, permanent verbundenen Netzlaufwerk zu speichern wie die Originaldaten?
+ZH Q: 为什么对抗勒索软件时,仅将备份直接存放在与原始数据相同的、持续连接的网络驱动器上是不够的?
+  a) DE: Weil Netzlaufwerke technisch grundsätzlich langsamer sind als lokale Festplatten
+  a) ZH: 因为网络驱动器在技术上总是比本地硬盘慢
+  b) DE: Weil auf Netzlaufwerken generell keine Backups gespeichert werden dürfen
+  b) ZH: 因为一般来说不允许在网络驱动器上存储备份
+  c) DE: Weil Ransomware bei einem permanent verbundenen Laufwerk auch die dort liegende Sicherungskopie mitverschlüsseln kann
+  c) ZH: 因为勒索软件在驱动器持续连接的情况下,也可能一并加密存放在那里的备份副本
+  d) DE: Weil Netzlaufwerke ausschließlich für die Speicherung von E-Mails vorgesehen sind
+  d) ZH: 因为网络驱动器仅用于存储电子邮件
+DE EXPL: Ransomware verschlüsselt in der Regel alle erreichbaren Laufwerke, einschließlich dauerhaft verbundener Netzlaufwerke - eine Sicherungskopie dort bietet dann keinen echten Schutz mehr, da sie ebenfalls betroffen sein kann. Ein wirksames Backup-Konzept sieht daher mindestens eine Kopie vor, die getrennt (offline oder zeitversetzt) vom Produktivsystem aufbewahrt wird, damit sie von einem Angriff auf das Hauptsystem nicht miterfasst wird.
+ZH EXPL: 勒索软件通常会加密所有可访问的驱动器,包括持续连接的网络驱动器——存放在那里的备份副本因此不再提供真正的保护,因为它同样可能受到影响。因此,有效的备份理念至少需要一份与生产系统分离保存(离线或有时间延迟)的副本,以免其在针对主系统的攻击中同时受损。
+==================== it_sicherheit-datensicherung-06 correct: ['a']
+DE Q: Ein Backup wird planmäßig jede Nacht automatisch erstellt. Warum reicht das allein noch nicht aus, um sich auf die Datensicherung wirklich verlassen zu können?
+ZH Q: 备份按计划每晚自动创建。为什么这单独一项还不足以真正依赖数据备份?
+  a) DE: Weil regelmäßig geprüft werden muss, ob sich aus dem Backup tatsächlich Daten erfolgreich wiederherstellen lassen
+  a) ZH: 因为必须定期检查是否真的能够成功从备份中恢复数据
+  b) DE: Weil ein Backup grundsätzlich nur einmal pro Jahr erstellt werden sollte
+  b) ZH: 因为从原则上讲,备份应该每年只创建一次
+  c) DE: Weil automatische Backups technisch nie fehlschlagen können
+  c) ZH: 因为自动备份在技术上永远不会失败
+  d) DE: Weil ein erstelltes Backup nur für maximal 24 Stunden gültig bleibt
+  d) ZH: 因为创建的备份最多只能保持有效24小时
+DE EXPL: Ein Backup-Lauf kann fehlschlagen oder eine beschädigte, unvollständige Kopie erzeugen, ohne dass dies sofort auffällt. Nur ein regelmäßiger Wiederherstellungstest zeigt verlässlich, ob im Ernstfall tatsächlich Daten zurückgespielt werden können. Die Häufigkeit der Sicherung selbst richtet sich nach dem Bedarf und ist nicht auf ein Mal pro Jahr begrenzt, automatische Prozesse können durchaus fehlschlagen, und ein Backup verliert nicht nach 24 Stunden automatisch seine Gültigkeit.
+ZH EXPL: 备份操作可能会失败,或生成一个损坏、不完整的副本,而不会立即被察觉。只有定期进行恢复测试,才能可靠地表明在需要时是否真的能够恢复数据。备份本身的频率取决于需求,并不限于每年一次,自动流程确实可能失败,而且备份并不会在24小时后自动失效。
+==================== it_sicherheit-datensicherung-07 correct: ['b']
+DE Q: Sie möchten vertrauliche Firmendaten auf einem externen USB-Datenträger transportieren. Was ist die wichtigste Schutzmaßnahme dafür?
+ZH Q: 您想在外部U盘上携带机密公司数据。为此最重要的保护措施是什么?
+  a) DE: Den Datenträger mit einem auffälligen Aufkleber "vertraulich" versehen, damit niemand ihn verlegt
+  a) ZH: 在U盘上贴一个显眼的"机密"标签,以免有人弄丢它
+  b) DE: Den Datenträger verschlüsseln, damit die Daten bei Verlust oder Diebstahl nicht ohne Weiteres lesbar sind
+  b) ZH: 对U盘进行加密,使数据在丢失或被盗时不能轻易被读取
+  c) DE: Den Datenträger möglichst klein und unauffällig wählen, damit er nicht auffällt
+  c) ZH: 选择尽可能小且不显眼的U盘,以免引人注意
+  d) DE: Die Dateien vor dem Kopieren einfach umbenennen, damit ihr Inhalt nicht sofort erkennbar ist
+  d) ZH: 只需在复制前简单地重命名文件,使其内容不会立即被识别
+DE EXPL: Wechseldatenträger gehen leicht verloren oder werden gestohlen; ohne Verschlüsselung sind die darauf gespeicherten Daten dann für jeden mit physischem Zugriff sofort lesbar. Verschlüsselung sorgt dafür, dass die Daten auch im Verlustfall geschützt bleiben, sofern der Schlüssel bzw. das Passwort geheim bleibt. Ein Aufkleber, eine unauffällige Bauform oder umbenannte Dateien bieten dagegen keinen echten technischen Schutz vor unbefugtem Lesen.
+ZH EXPL: 可移动存储介质很容易丢失或被盗;如果没有加密,存储在上面的数据会立即被任何拥有实际访问权限的人读取。加密可以确保即使在丢失的情况下,只要密钥或密码保密,数据依然受到保护。相比之下,贴标签、不显眼的外形或重命名的文件都不能提供真正的技术保护,防止未经授权的读取。
+==================== it_sicherheit-datensicherung-08 correct: ['d']
+DE Q: Ein alter Firmenlaptop soll ausgemustert und entsorgt werden. Was ist im Hinblick auf die darauf gespeicherten Daten der richtige Umgang?
+ZH Q: 一台旧的公司笔记本电脑要被淘汰并处理掉。对于其中存储的数据,正确的处理方式是什么?
+  a) DE: Nur die sichtbaren Dateien im Papierkorb löschen und diesen leeren
+  a) ZH: 只删除回收站中可见的文件并清空回收站
+  b) DE: Den Laptop unverändert an einen gemeinnützigen Zweitmarkt weitergeben, um Ressourcen zu sparen
+  b) ZH: 将笔记本电脑原封不动地捐赠给二手慈善市场,以节省资源
+  c) DE: Die Festplatte ausbauen und im Hausmüll entsorgen
+  c) ZH: 拆下硬盘,当作生活垃圾丢弃
+  d) DE: Die Daten durch die zuständige IT-Stelle sicher und unwiederherstellbar löschen (oder den Datenträger fachgerecht vernichten) lassen, bevor das Gerät weitergegeben oder entsorgt wird
+  d) ZH: 在设备被转交或处理之前,让相关IT部门安全且不可恢复地删除数据(或对存储介质进行专业销毁)
+DE EXPL: Einfaches Löschen im Papierkorb oder Formatieren entfernt Dateien meist nur aus dem sichtbaren Verzeichnis, während die eigentlichen Daten mit geeigneten Mitteln oft wiederherstellbar bleiben. Vor Weitergabe oder Entsorgung müssen Datenträger daher sicher gelöscht (z. B. durch mehrfaches Überschreiben) oder physisch zerstört werden, damit vertrauliche Firmendaten nicht in falsche Hände geraten. Das Wegwerfen im Hausmüll ist zudem aus Umwelt- und Entsorgungsgründen unzulässig.
+ZH EXPL: 简单地在回收站删除或格式化通常只会将文件从可见目录中移除,而数据本身用适当的手段往往仍可恢复。因此,在转交或处理之前,必须安全删除(例如通过多次覆写)或对存储介质进行物理销毁,以确保机密公司数据不会落入不当之手。将其作为生活垃圾丢弃也因环境和废物处理方面的原因而不被允许。
+==================== it_sicherheit-mobil_homeoffice-05 correct: ['b']
+DE Q: Warum ist die Festplattenverschlüsselung auf einem Laptop, der für Homeoffice und dienstliche Reisen genutzt wird, besonders wichtig?
+ZH Q: 为什么用于居家办公和商务出行的笔记本电脑上的硬盘加密特别重要?
+  a) DE: Weil sie den Laptop automatisch schneller startet
+  a) ZH: 因为它能自动让笔记本电脑启动更快
+  b) DE: Weil sie im Falle von Diebstahl oder Verlust verhindert, dass Unbefugte ohne Weiteres auf die gespeicherten Daten zugreifen können
+  b) ZH: 因为它能在被盗或丢失的情况下,防止未经授权的人员轻易访问存储的数据
+  c) DE: Weil sie ausschließlich für Geräte vorgeschrieben ist, die niemals das Büro verlassen
+  c) ZH: 因为它仅对从不离开办公室的设备是强制性的
+  d) DE: Weil sie ein Anmeldepasswort vollständig überflüssig macht
+  d) ZH: 因为它能使登录密码完全变得多余
+DE EXPL: Geräte, die außerhalb des Büros genutzt werden, sind einem höheren Risiko von Diebstahl oder Verlust ausgesetzt - etwa im Zug, im Auto oder unterwegs beim Kunden. Ohne Festplattenverschlüsselung lässt sich die eingebaute Festplatte oft ausbauen und die Daten direkt auslesen, unabhängig vom Anmeldepasswort des Betriebssystems. Verschlüsselung und Anmeldepasswort ergänzen sich, ersetzen sich aber nicht gegenseitig, und die Startgeschwindigkeit hat damit nichts zu tun.
+ZH EXPL: 在办公室以外使用的设备面临更高的被盗或丢失风险——例如在火车上、车内,或在拜访客户的途中。如果没有硬盘加密,内置硬盘往往可以被拆下并直接读取数据,而与操作系统的登录密码无关。加密和登录密码是相辅相成的,而不是相互替代的,启动速度与此毫无关系。
+==================== it_sicherheit-mobil_homeoffice-06 correct: ['a']
+DE Q: Warum sollte auf einem dienstlich genutzten Smartphone eine kurze automatische Displaysperre (z. B. nach 30 Sekunden Inaktivität) aktiviert sein?
+ZH Q: 为什么工作使用的智能手机上应该启用短暂的自动锁屏(例如30秒无操作后)?
+  a) DE: Damit das Gerät bei kurzem Liegenlassen oder Verlust nicht sofort ungeschützt zugänglich ist
+  a) ZH: 以便设备在短暂放置或丢失时不会立即处于不受保护的可访问状态
+  b) DE: Damit der Akku des Geräts länger hält
+  b) ZH: 以便设备的电池能使用更长时间
+  c) DE: Damit Anrufe automatisch stummgeschaltet werden
+  c) ZH: 以便来电自动静音
+  d) DE: Weil eine Displaysperre gesetzlich nur für Diensthandys der Geschäftsführung vorgeschrieben ist
+  d) ZH: 因为法律规定锁屏功能仅对管理层的工作手机是强制性的
+DE EXPL: Ein kurzes Sperrintervall verkleinert das Zeitfenster, in dem ein kurz liegen gelassenes oder verlorenes Gerät ohne Authentifizierung genutzt werden kann, etwa um auf E-Mails, Kontakte oder Firmen-Apps zuzugreifen. Akkulaufzeit und Anrufeinstellungen stehen damit in keinem sicherheitsrelevanten Zusammenhang, und die Regel gilt sinnvollerweise für alle dienstlich genutzten Geräte, nicht nur für bestimmte Personengruppen.
+ZH EXPL: 较短的锁定间隔时间缩小了短暂放置或丢失的设备在未经身份验证的情况下可被使用的时间窗口,例如用于访问电子邮件、联系人或公司应用程序。电池续航时间和来电设置与安全性没有任何关系,而这项规则合理地适用于所有用于工作的设备,而不仅仅是特定人群。
+==================== it_sicherheit-mobil_homeoffice-07 correct: ['c']
+DE Q: Sie nutzen für dienstliche Zwecke gelegentlich Ihr privates Smartphone ("Bring Your Own Device"). Was ist dabei aus Sicherheitssicht am wichtigsten zu beachten?
+ZH Q: 您偶尔将自己的私人智能手机用于工作目的("自带设备办公")。从安全角度来看,这里最重要的是什么?
+  a) DE: Private und dienstliche Daten möglichst vermischt in denselben Apps zu speichern, damit nichts verloren geht
+  a) ZH: 将私人数据和工作数据尽可能混合存储在相同的应用程序中,以免丢失任何东西
+  b) DE: Es reicht aus, dass das Gerät irgendein Passwort besitzt, unabhängig von weiteren Vorgaben
+  b) ZH: 只要设备有任何一种密码就足够了,无论其他要求如何
+  c) DE: Die betrieblichen Vorgaben zu BYOD (z. B. Mindestschutzmaßnahmen, Trennung dienstlicher Daten, Fernlöschungsmöglichkeit) einzuhalten, bevor das Gerät dienstlich genutzt wird
+  c) ZH: 在将设备用于工作目的之前,遵守公司关于自带设备(BYOD)的规定(例如最低保护措施、工作数据的分离、远程删除的可能性)
+  d) DE: BYOD-Regeln sind rein freiwillig und müssen nicht eingehalten werden, solange das Gerät privat bezahlt wurde
+  d) ZH: 自带设备的规定纯属自愿,只要设备是私人购买的,就无需遵守
+DE EXPL: Werden private Geräte dienstlich genutzt, müssen dieselben Schutzziele wie bei Firmengeräten erreicht werden - etwa durch Mindestanforderungen an Verschlüsselung, Bildschirmsperre, getrennte Bereiche für dienstliche Daten und die Möglichkeit, im Verlustfall dienstliche Daten aus der Ferne zu löschen. Eine Vermischung von privaten und dienstlichen Daten erschwert genau diesen Schutz, und ein beliebiges Passwort allein oder die private Finanzierung des Geräts befreien nicht von den geltenden betrieblichen Vorgaben.
+ZH EXPL: 如果私人设备用于工作目的,就必须达到与公司设备相同的保护目标——例如通过加密、锁屏、工作数据的独立区域以及在丢失情况下远程删除工作数据的可能性等最低要求。将私人数据和工作数据混合存储恰恰会妨碍这种保护,而任何一种密码本身或设备的私人出资都不能免除适用的公司规定。
+==================== it_sicherheit-mobil_homeoffice-08 correct: ['b']
+DE Q: Sie nehmen von zu Hause aus an einer dienstlichen Videokonferenz teil, bei der vertrauliche Inhalte besprochen werden. Worauf sollten Sie besonders achten?
+ZH Q: 您在家参加一场讨论机密内容的工作视频会议。您应该特别注意什么?
+  a) DE: Der Bildschirm kann problemlos für Mitbewohner sichtbar bleiben, solange niemand aktiv mitliest
+  a) ZH: 只要没有人主动窥视,屏幕就可以毫无问题地对室友保持可见
+  b) DE: Darauf, dass Mitbewohner, Familienmitglieder oder Geräte mit Sprachassistenten die vertraulichen Inhalte nicht mithören oder mitsehen können
+  b) ZH: 确保室友、家庭成员或带有语音助手的设备无法听到或看到机密内容
+  c) DE: Nur darauf, dass die Internetverbindung schnell genug für Video ist
+  c) ZH: 只需确保网络连接速度足以支持视频通话
+  d) DE: Es genügt, die Kamera auszuschalten, das Mikrofon ist dabei ohne Bedeutung
+  d) ZH: 只需关闭摄像头就够了,麦克风无关紧要
+DE EXPL: Im häuslichen Umfeld können auch Personen mitbekommen, was am Bildschirm zu sehen oder über das Mikrofon zu hören ist, etwa Familienmitglieder oder Besucher, ebenso können in der Nähe befindliche Sprachassistenten unbeabsichtigt mithören. Ein ruhiger, abgeschirmter Ort und bewusster Umgang mit Bildschirm und Mikrofon schützen die Vertraulichkeit. Die reine Verbindungsgeschwindigkeit betrifft die Qualität, nicht die Vertraulichkeit, und ein ausgeschaltetes Mikrofon ist für gesprochene vertrauliche Inhalte mindestens genauso wichtig wie die Kamera.
+ZH EXPL: 在家庭环境中,其他人也可能注意到屏幕上显示或麦克风中传出的内容——例如家庭成员或访客,附近的语音助手也可能无意中听到。安静、隔离的地点以及对屏幕和麦克风的谨慎处理都能保护机密性。连接速度本身只关乎质量,而不关乎机密性,而对于口头表达的机密内容而言,关闭麦克风至少与关闭摄像头同样重要。
+==================== it_sicherheit-meldepflicht_it-05 correct: ['b']
+DE Q: Wie ist das gestufte Meldeverfahren der NIS2-Richtlinie für einen erheblichen Sicherheitsvorfall zeitlich grob aufgebaut?
+ZH Q: NIS2指令针对重大安全事件的分阶段报告程序在时间上大致是如何安排的?
+  a) DE: Eine einzige, vollständige Meldung genügt, spätestens ein Jahr nach dem Vorfall
+  a) ZH: 只需一次完整报告,最迟在事件发生一年后提交即可
+  b) DE: Eine Frühwarnung innerhalb von 24 Stunden, eine ausführlichere Meldung innerhalb von 72 Stunden, gefolgt von einem Abschlussbericht spätestens einen Monat nach der Meldung
+  b) ZH: 24小时内发出早期预警,72小时内提交更详细的报告,随后最迟在报告后一个月内提交最终报告
+  c) DE: Nur ein Abschlussbericht, der innerhalb von 24 Stunden nach dem Vorfall vollständig fertiggestellt sein muss
+  c) ZH: 只需一份最终报告,该报告必须在事件发生后24小时内完全完成
+  d) DE: Eine Meldung ist erst erforderlich, wenn ein Vorfall bereits öffentlich bekannt geworden ist
+  d) ZH: 只有当事件已经公开为人所知时,才需要报告
+DE EXPL: Die NIS2-Richtlinie sieht ein gestuftes Verfahren vor: eine Frühwarnung binnen 24 Stunden ab Kenntnisnahme, eine ausführlichere Meldung binnen 72 Stunden, und einen Abschlussbericht spätestens einen Monat nach dieser Meldung. Diese Stufung erlaubt eine schnelle erste Reaktion, auch wenn noch nicht alle Details bekannt sind. Eine einmalige Meldung nach einem Jahr, ein sofort vollständiger Bericht innerhalb von 24 Stunden oder das Abwarten öffentlicher Bekanntheit entsprechen nicht dem tatsächlichen Verfahren.
+ZH EXPL: NIS2指令规定了一个分阶段的程序:在得知情况后24小时内发出早期预警,72小时内提交更详细的报告,并在该报告后最迟一个月内提交最终报告。即使并非所有细节都已知晓,这种分阶段安排也能实现快速的初步反应。一年后才进行一次性报告、在24小时内立即提交完整报告,或等到公开为人所知后才报告,都不符合实际的程序要求。
+==================== it_sicherheit-meldepflicht_it-06 correct: ['a']
+DE Q: Nach welchem Grundgedanken bestimmt die NIS2-Richtlinie, ob ein Sicherheitsvorfall als "erheblich" gilt und damit der Meldepflicht unterliegt?
+ZH Q: NIS2指令依据什么基本理念来判定一个安全事件是否被视为"重大"事件,从而须承担报告义务?
+  a) DE: Ob der Vorfall eine schwerwiegende Betriebsstörung oder einen finanziellen Schaden verursacht (oder verursachen kann), oder ob andere Personen oder Organisationen erheblich geschädigt werden (oder werden können)
+  a) ZH: 该事件是否造成(或可能造成)严重的运营中断或经济损失,或其他个人或组织是否遭受(或可能遭受)重大损害
+  b) DE: Ob der Vorfall ausschließlich die IT-Abteilung selbst betrifft, unabhängig vom tatsächlichen Ausmaß
+  b) ZH: 该事件是否仅涉及IT部门本身,与实际影响范围无关
+  c) DE: Ob der Vorfall länger als eine Arbeitswoche andauert, unabhängig von seinen Auswirkungen
+  c) ZH: 该事件是否持续超过一个工作周,与其影响无关
+  d) DE: Ob der Vorfall zufällig während der Kernarbeitszeit auftritt
+  d) ZH: 该事件是否恰好发生在核心工作时间
+DE EXPL: Ein Vorfall gilt nach NIS2 insbesondere dann als erheblich, wenn er eine schwerwiegende Betriebsstörung oder einen finanziellen Schaden für die betroffene Organisation verursacht oder verursachen kann, oder wenn dadurch andere natürliche oder juristische Personen erheblich geschädigt werden oder werden können. Weder die reine Betroffenheit der IT-Abteilung noch die Dauer oder Tageszeit des Vorfalls sind für sich genommen das entscheidende Kriterium - maßgeblich ist das tatsächliche oder mögliche Ausmaß der Auswirkungen.
+ZH EXPL: 根据NIS2,当一个事件对受影响的组织造成或可能造成严重的运营中断或经济损失,或因此使其他自然人或法人遭受或可能遭受重大损害时,该事件尤其被视为重大事件。无论是仅涉及IT部门本身,还是事件的持续时间或发生的时间段,这些本身都不是决定性标准——决定性因素是影响的实际或潜在范围。
+==================== it_sicherheit-meldepflicht_it-07 correct: ['c']
+DE Q: Sie vermuten einen laufenden Sicherheitsvorfall auf Ihrem Firmenrechner. Warum sollten Sie das Gerät nicht eigenmächtig neu starten oder komplett herunterfahren, bevor Sie den Vorfall gemeldet haben?
+ZH Q: 您怀疑自己的公司电脑上正在发生一起安全事件。为什么在报告该事件之前,您不应该擅自重启或完全关闭该设备?
+  a) DE: Weil ein Neustart grundsätzlich mehr Strom verbraucht als der laufende Betrieb
+  a) ZH: 因为重启从根本上比持续运行消耗更多电力
+  b) DE: Weil ein Neustart automatisch alle Firmendaten auf dem Gerät löscht
+  b) ZH: 因为重启会自动删除设备上所有的公司数据
+  c) DE: Weil dadurch flüchtige Spuren (z. B. im Arbeitsspeicher) verloren gehen können, die für die spätere Untersuchung des Vorfalls wichtig sind
+  c) ZH: 因为这样做可能会丢失对事后调查该事件很重要的易失性痕迹(例如内存中的信息)
+  d) DE: Weil ein Neustart den Vorfall automatisch behebt und eine Meldung dadurch überflüssig wird
+  d) ZH: 因为重启会自动解决该事件,从而使报告变得多余
+DE EXPL: Manche wichtigen Spuren eines Vorfalls - etwa aktive Netzwerkverbindungen oder Prozesse im Arbeitsspeicher - gehen bei einem Neustart oder Herunterfahren verloren und lassen sich danach nicht mehr rekonstruieren. Für eine spätere Ursachenklärung ist es daher wichtig, das System möglichst unverändert zu lassen und den Vorfall zunächst zu melden, damit die zuständige Stelle über das weitere Vorgehen entscheiden kann. Ein Neustart löscht keine Firmendaten automatisch und behebt auch keinen zugrunde liegenden Sicherheitsvorfall.
+ZH EXPL: 事件的一些重要痕迹——例如活动的网络连接或内存中的进程——会在重启或关机时丢失,之后无法再重建。因此,为了事后查明原因,重要的是尽可能保持系统不变,并先报告该事件,以便相关部门能够决定后续处理方式。重启并不会自动删除公司数据,也不能解决潜在的安全事件本身。
+==================== it_sicherheit-meldepflicht_it-08 correct: ['d']
+DE Q: Welche Angaben sind bei der Meldung eines vermuteten IT-Sicherheitsvorfalls an die zuständige interne Stelle besonders hilfreich?
+ZH Q: 在向相关内部部门报告可疑的IT安全事件时,哪些信息特别有用?
+  a) DE: Ausschließlich der eigene Name, weitere Angaben verzögern die Meldung nur unnötig
+  a) ZH: 仅提供自己的姓名,提供更多信息只会不必要地延误报告
+  b) DE: Eine möglichst kurze Meldung ohne Zeitangabe, damit sie schnell verschickt werden kann
+  b) ZH: 尽可能简短的报告,不提供时间信息,以便能够迅速发出
+  c) DE: Nur eine grobe Vermutung darüber, wer für den Vorfall verantwortlich sein könnte
+  c) ZH: 仅提供关于谁可能对该事件负责的粗略猜测
+  d) DE: Möglichst genaue Angaben zu Zeitpunkt, beobachteten Auffälligkeiten und betroffenen Systemen oder Daten
+  d) ZH: 尽可能准确地提供关于时间、观察到的异常情况以及受影响系统或数据的信息
+DE EXPL: Konkrete Angaben zu Zeitpunkt, beobachtetem Verhalten (z. B. ungewöhnliche Pop-ups, unerklärliche Dateiänderungen) und den betroffenen Systemen oder Daten helfen der zuständigen Stelle, den Vorfall schnell einzuordnen, das Ausmaß abzuschätzen und geeignete Gegenmaßnahmen einzuleiten. Der eigene Name allein reicht dafür nicht aus, eine Meldung ohne Zeitangabe erschwert die zeitliche Einordnung, und Vermutungen über eine "Schuldfrage" sind für die technische Bearbeitung des Vorfalls nicht der entscheidende Punkt.
+ZH EXPL: 关于时间、观察到的行为(例如异常的弹出窗口、无法解释的文件更改)以及受影响的系统或数据的具体信息,有助于相关部门迅速对事件进行分类、评估其影响范围,并采取适当的应对措施。仅凭姓名不足以做到这一点,不提供时间信息的报告会使按时间顺序进行分类变得困难,而关于"责任问题"的猜测对于事件的技术处理来说并非关键所在。
+==================== it_sicherheit-social_engineering-01 correct: ['b']
+DE Q: Ein Anrufer gibt sich als IT-Support aus und bittet Sie dringend, ihm Ihr aktuelles Passwort zu nennen, um ein angebliches Sicherheitsproblem zu beheben. Wie reagieren Sie?
+ZH Q: 一名来电者自称是IT支持人员,急切地要求您提供当前密码,以解决所谓的安全问题。您该如何应对?
+  a) DE: Das Passwort nennen, da IT-Support-Anfragen meist dringend sind
+  a) ZH: 告知密码,因为IT支持的请求通常都很紧急
+  b) DE: Das Passwort nicht nennen und die Anfrage über einen bekannten, unabhängigen Kanal (z. B. offizielle IT-Hotline) überprüfen
+  b) ZH: 不告知密码,并通过已知的独立渠道(例如官方IT服务热线)核实该请求
+  c) DE: Ein neues, ähnliches Passwort erfinden und dieses stattdessen weitergeben
+  c) ZH: 编造一个相似的新密码,提供这个假密码作为替代
+  d) DE: Nur den Benutzernamen nennen, das Passwort aber weglassen
+  d) ZH: 只告知用户名,但不透露密码
+DE EXPL: Kein legitimer IT-Support benötigt jemals Ihr Passwort im Klartext - das ist ein klassisches Pretexting-Muster (Vortäuschen einer falschen Identität/Dringlichkeit). Echte Anfragen lassen sich immer über einen unabhängigen, bereits bekannten Kanal zurückverifizieren, statt der im Anruf selbst genannten Nummer zu vertrauen.
+ZH EXPL: 任何正规的IT支持都绝不会要求您以明文告知密码——这是典型的'假托攻击'(Pretexting)手法,即冒充身份或制造紧迫感。对于真实的请求,应始终通过已知的独立渠道重新核实,而不是相信来电中提供的号码。
+==================== it_sicherheit-social_engineering-02 correct: ['c']
+DE Q: Sie betreten das Bürogebäude mit Ihrer Zugangskarte. Eine unbekannte Person ohne sichtbaren Ausweis läuft dicht hinter Ihnen mit durch die Tür ('Tailgating'). Was ist die richtige Reaktion?
+ZH Q: 您使用门禁卡进入办公楼。一名没有可见工牌的陌生人紧跟在您身后一同通过大门('尾随',Tailgating)。正确的应对方式是什么?
+  a) DE: Die Tür einfach offen halten, Höflichkeit hat Vorrang
+  a) ZH: 直接为对方扶着门,礼貌优先
+  b) DE: Nichts tun, das ist Aufgabe des Empfangs
+  b) ZH: 不采取任何行动,这是前台的职责
+  c) DE: Die Person freundlich nach ihrem Ausweis/Anliegen fragen oder das Ereignis der Security/dem Empfang melden
+  c) ZH: 礼貌地询问对方的工牌/来访事由,或将该情况报告给安保/前台
+  d) DE: Die Person ignorieren, solange sie nicht verdächtig aussieht
+  d) ZH: 只要对方看起来不可疑,就不予理会
+DE EXPL: Tailgating ist eine der häufigsten Methoden, physische Zutrittskontrollen zu umgehen - 'verdächtig aussehen' ist kein verlässliches Kriterium, da Angreifer bewusst unauffällig auftreten. Ein freundliches Nachfragen oder eine Meldung an Security kostet wenig und schließt eine reale Sicherheitslücke.
+ZH EXPL: 尾随('Tailgating')是绕过物理门禁管制最常见的手段之一——'看起来可疑'并非可靠的判断标准,因为攻击者往往刻意表现得不引人注意。礼貌询问或向安保报告所花代价很小,却能堵住真实存在的安全漏洞。
+==================== it_sicherheit-social_engineering-03 correct: ['b']
+DE Q: Sie finden einen unbeschrifteten USB-Stick auf dem Firmenparkplatz. Was tun Sie?
+ZH Q: 您在公司停车场发现一个没有标记的U盘。您该怎么做?
+  a) DE: Den Stick an Ihrem Arbeitsrechner anschließen, um den Besitzer über die Dateien zu ermitteln
+  a) ZH: 将U盘插入您的办公电脑,通过其中的文件确定失主身份
+  b) DE: Den Stick nicht anschließen und stattdessen der IT-Sicherheit melden bzw. übergeben
+  b) ZH: 不要插入U盘,而是将其上交或报告给IT安全部门
+  c) DE: Den Stick an einem privaten Rechner zu Hause prüfen, dort besteht kein Firmenrisiko
+  c) ZH: 在家里的私人电脑上检查U盘,因为那不会给公司带来风险
+  d) DE: Den Stick wegwerfen, damit niemand sonst ihn findet
+  d) ZH: 直接丢弃U盘,以免被其他人捡到
+DE EXPL: Ein absichtlich 'verlorener' USB-Stick ist ein bekannter Angriffsweg ('USB-Drop-Attack'), um Schadsoftware einzuschleusen, sobald jemand ihn aus Neugier ansteckt. Das gilt genauso an einem privaten Rechner, da darüber gestohlene Daten oder Zugänge abfließen können. Die IT-Sicherheit kann den Stick sicher (isoliert) prüfen.
+ZH EXPL: 故意'遗失'的U盘是一种已知的攻击手法('USB诱饵攻击'),一旦有人出于好奇将其插入设备,就会植入恶意软件。这种风险在私人电脑上同样存在,因为被盗的数据或账户凭据也可能从那里泄露出去。IT安全部门可以在隔离环境中安全地检测该U盘。
+==================== it_sicherheit-social_engineering-04 correct: ['c']
+DE Q: Sie erhalten einen Anruf einer angeblichen Bank-Mitarbeiterin, die Sie bittet, 'zur Sicherheit' Ihre PIN am Telefon zu bestätigen ('Vishing'). Wie reagieren Sie richtig?
+ZH Q: 您接到一通自称是银行工作人员的电话,对方要求您'出于安全考虑'在电话中确认您的银行卡密码(PIN)('语音钓鱼',Vishing)。正确的应对方式是什么?
+  a) DE: Die PIN nennen, da die Anruferin den Kontostand bereits genannt hat und das vertrauenswürdig wirkte
+  a) ZH: 告知密码,因为对方已经说出了您的账户余额,显得可信
+  b) DE: Nur die letzten beiden Ziffern der PIN nennen, das sei sicher genug
+  b) ZH: 只告知密码的最后两位数字,这样应该足够安全
+  c) DE: Die PIN keinesfalls am Telefon nennen und selbst über die offizielle, bekannte Bank-Telefonnummer zurückrufen
+  c) ZH: 无论如何都不在电话中透露密码,而是自己使用银行官方公布的电话号码回拨核实
+  d) DE: Auflegen und die PIN sicherheitshalber sofort ändern, ohne die Bank zu informieren
+  d) ZH: 挂断电话并立即自行更改密码,不通知银行
+DE EXPL: Banken fragen niemals die vollständige PIN am Telefon ab - auch teilweise Angaben oder scheinbar bekannte Kontodaten (die z. B. aus Datenlecks stammen können) beweisen keine echte Identität des Anrufers. Der sichere Weg ist immer der selbst initiierte Rückruf über eine unabhängig verifizierte Nummer.
+ZH EXPL: 银行绝不会在电话中索要完整密码——即便是部分透露,或对方掌握的看似真实的账户信息(这些可能来自数据泄露),也无法证明来电者的真实身份。安全的做法始终是由您本人主动、通过独立核实过的号码回拨确认。
+==================== it_sicherheit-social_engineering-05 correct: ['b']
+DE Q: Sie erhalten eine SMS von einem angeblichen Paketdienst: 'Ihr Paket konnte nicht zugestellt werden, bestätigen Sie Ihre Adresse und Zahlungsdaten über diesen Link' ('Smishing'). Was ist die richtige Reaktion?
+ZH Q: 您收到一条自称来自快递公司的短信:'您的包裹无法投递,请通过此链接确认您的地址和付款信息'('短信钓鱼',Smishing)。正确的应对方式是什么?
+  a) DE: Den Link öffnen, aber keine Zahlungsdaten eingeben
+  a) ZH: 打开链接,但不输入任何付款信息
+  b) DE: Den Link nicht öffnen und die Sendungsnummer stattdessen direkt auf der offiziellen Website des Paketdienstes prüfen
+  b) ZH: 不打开链接,而是直接在快递公司官方网站上查询运单号
+  c) DE: Die SMS an Kollegen weiterleiten, damit diese den Link testen
+  c) ZH: 将短信转发给同事,让他们测试该链接
+  d) DE: Auf 'Stop' antworten, um sich von der Liste abzumelden
+  d) ZH: 回复'Stop'以取消订阅
+DE EXPL: Auch nur das Öffnen eines Links kann bereits Geräteinformationen preisgeben oder zu einer täuschend echten Fake-Seite führen, die Zugangsdaten abgreift. Die sichere Prüfung erfolgt immer über die selbst eingegebene, offizielle Adresse - nie über einen Link aus einer unaufgeforderten Nachricht.
+ZH EXPL: 仅仅打开链接就可能泄露设备信息,或导向一个足以以假乱真、专门用来窃取账户凭据的仿冒网站。安全的核实方式始终是自己手动输入官方网址——绝不通过未经请求的消息中的链接进行核实。
+==================== it_sicherheit-social_engineering-06 correct: ['c']
+DE Q: Sie erhalten eine E-Mail, die angeblich von der Geschäftsführung stammt: 'Dringend und vertraulich - bitte sofort eine Überweisung von 45.000 € auf dieses neue Konto veranlassen, ich bin gerade nicht erreichbar' ('CEO-Fraud' / Business Email Compromise). Wie handeln Sie?
+ZH Q: 您收到一封看似来自公司高层的邮件:'紧急且保密——请立即安排向这个新账户转账45,000欧元,我目前无法联系'('CEO诈骗'/商业邮件诈骗)。您该怎么做?
+  a) DE: Die Überweisung sofort ausführen, da Vertraulichkeit und Dringlichkeit betont wurden
+  a) ZH: 立即执行转账,因为邮件强调了保密性和紧急性
+  b) DE: Auf die E-Mail antworten und um weitere Details bitten, dann überweisen
+  b) ZH: 回复邮件询问更多细节,然后再转账
+  c) DE: Die Anfrage über einen unabhängigen, bekannten Kanal (z. B. Rückruf auf bekannter Nummer) verifizieren und den regulären Freigabeprozess einhalten, auch unter Zeitdruck
+  c) ZH: 通过独立的已知渠道(例如拨打已知号码回电)核实该请求,并严格遵守正常的审批流程,即使在时间压力下也是如此
+  d) DE: Einen Kollegen bitten, die Überweisung ohne Rückfrage zu übernehmen, um Zeit zu sparen
+  d) ZH: 请同事在不多问的情况下代为处理转账,以节省时间
+DE EXPL: Dringlichkeit, Vertraulichkeit und Unerreichbarkeit der angeblichen Absenderperson sind die klassischen Druckmittel bei CEO-Fraud - sie sollen genau verhindern, dass der reguläre Freigabeprozess (z. B. Vier-Augen-Prinzip) eingehalten wird. Ein Angreifer, der auf eine E-Mail antwortet, bleibt derselbe Angreifer; nur ein unabhängiger Rückkanal schafft echte Sicherheit.
+ZH EXPL: 紧迫性、保密性以及所谓发件人'无法联系'是CEO诈骗中典型的施压手段——其目的正是为了阻止正常审批流程(例如双重审批/四眼原则)得到遵守。回复同一封邮件,联系到的仍然是同一个攻击者;只有独立的核实渠道才能提供真正的安全保障。
+==================== it_sicherheit-social_engineering-07 correct: ['b']
+DE Q: Eine E-Mail, angeblich von einem langjährigen Lieferanten, teilt mit, dass sich die Bankverbindung geändert hat, und bittet, künftige Zahlungen auf das neue Konto zu leisten. Was ist der richtige erste Schritt?
+ZH Q: 一封邮件看似来自一家长期合作的供应商,称其银行账户信息已变更,并要求未来的付款转到新账户。正确的第一步是什么?
+  a) DE: Die Zahlungsdaten im System sofort aktualisieren, da der Lieferant bekannt ist
+  a) ZH: 立即在系统中更新付款信息,因为该供应商是已知的合作方
+  b) DE: Die Änderung über einen unabhängigen, bereits bekannten Kontakt beim Lieferanten (Telefonnummer aus früheren Unterlagen, nicht aus der E-Mail) verifizieren, bevor irgendetwas geändert wird
+  b) ZH: 通过供应商方面一个独立的、已知的联系方式(来自以往记录的电话号码,而非邮件中提供的)核实该变更,然后再做任何更改
+  c) DE: Eine kleine Testüberweisung auf das neue Konto senden, um es zu prüfen
+  c) ZH: 先向新账户发送一笔小额测试转账以进行验证
+  d) DE: Die E-Mail ignorieren, aber die alte Bankverbindung vorsichtshalber trotzdem sperren
+  d) ZH: 忽略该邮件,但仍出于谨慎将旧的银行账户信息冻结
+DE EXPL: Änderungen von Bankverbindungen sind ein bevorzugtes Ziel für Business-Email-Compromise-Angriffe, da E-Mail-Konten von Lieferanten kompromittiert und Rechnungen täuschend echt nachgebaut werden können. Eine Verifizierung über einen unabhängigen, aus früherer Zusammenarbeit bekannten Kanal ist der einzige verlässliche Schutz - eine Testüberweisung schützt nicht vor dem eigentlichen Betrag.
+ZH EXPL: 银行账户变更是商业邮件诈骗的首选目标之一,因为供应商的邮件账户可能被攻破,发票也可能被伪造得极其逼真。通过以往合作中已知的独立联系渠道进行核实,是唯一可靠的防护手段——测试转账并不能保护实际的付款金额。
+==================== it_sicherheit-social_engineering-08 correct: ['c']
+DE Q: Ein Kollege hat seine Zugangskarte vergessen und bittet Sie, ihn einfach mit Ihrer eigenen Karte durch die Sicherheitstür zu lassen ('Badge Sharing'). Was ist die richtige Reaktion?
+ZH Q: 一位同事忘带了门禁卡,请求您直接用自己的卡带他/她一起通过安全门('共用门禁卡')。正确的应对方式是什么?
+  a) DE: Ihn einfach mitgehen lassen, es ist schließlich ein bekannter Kollege
+  a) ZH: 直接带对方进去,毕竟是认识的同事
+  b) DE: Ihm Ihre Karte für den Tag ausleihen
+  b) ZH: 把自己的门禁卡借给对方用一天
+  c) DE: Ihn an den Empfang oder die Security verweisen, damit dort ein regulärer temporärer Zugang ausgestellt wird
+  c) ZH: 让对方去前台或安保处办理正规的临时通行证
+  d) DE: Die Tür für ihn aufhalten, solange niemand sonst zusieht
+  d) ZH: 只要没有其他人看到,就为对方扶着门
+DE EXPL: Zugangskarten sind personenbezogen, damit im Ernstfall (z. B. Vorfallaufklärung) nachvollziehbar bleibt, wer wann wo war - Badge Sharing untergräbt das, selbst unter Kollegen, und ist zudem ein Muster, das Social Engineers gezielt ausnutzen ('ich hab meine Karte vergessen'). Der reguläre Weg über Empfang/Security bleibt schnell und sicher zugleich.
+ZH EXPL: 门禁卡与个人绑定,是为了在发生事故(例如事件调查)时,能够追溯谁在何时到过何处——共用门禁卡即使在同事之间也会破坏这一机制,而且这也是社会工程攻击者刻意利用的手法之一('我忘带门禁卡了')。走前台/安保的正规流程,既快捷又安全。
+==================== it_sicherheit-ransomware-01 correct: ['b']
+DE Q: Auf Ihrem Bildschirm erscheint plötzlich eine Nachricht, dass alle Ihre Dateien verschlüsselt wurden und nur gegen Zahlung eines Lösegelds ('Ransomware') wieder freigegeben werden. Was ist Ihr allererster Schritt?
+ZH Q: 您的屏幕上突然弹出一条消息,称您的所有文件已被加密,只有支付赎金('勒索软件')后才能解锁。您的第一步应该是什么?
+  a) DE: Sofort versuchen, das geforderte Lösegeld zu zahlen, um Zeit zu sparen
+  a) ZH: 立即尝试支付所要求的赎金,以节省时间
+  b) DE: Das Gerät umgehend vom Netzwerk trennen (Netzwerkkabel ziehen / WLAN deaktivieren) und sofort die IT-Sicherheit informieren
+  b) ZH: 立即将设备与网络断开(拔掉网线/关闭Wi-Fi),并马上通知IT安全部门
+  c) DE: Den Rechner neu starten, um zu sehen, ob das Problem verschwindet
+  c) ZH: 重启电脑,看看问题是否会自行消失
+  d) DE: Selbst versuchen, die Dateien mit einer im Internet gefundenen Software zu entschlüsseln
+  d) ZH: 自行尝试用网上找到的软件解密文件
+DE EXPL: Die sofortige Trennung vom Netzwerk verhindert, dass sich die Ransomware auf weitere Systeme im Firmennetz ausbreitet - das ist der wichtigste Sofortschritt vor jeder weiteren Maßnahme. Die IT-Sicherheit kann dann den Vorfall fachgerecht eindämmen; eigenmächtige Entschlüsselungsversuche oder ein Neustart können Spuren zerstören oder die Lage verschlimmern.
+ZH EXPL: 立即断开网络连接可以防止勒索软件蔓延到公司网络中的其他系统——这是在采取任何其他措施之前最重要的首要行动。之后IT安全部门可以专业地控制事态;擅自尝试解密或重启都可能破坏证据或使情况恶化。
+==================== it_sicherheit-ransomware-02 correct: ['c']
+DE Q: Sollte ein Unternehmen bei einem Ransomware-Angriff das geforderte Lösegeld zahlen?
+ZH Q: 公司在遭受勒索软件攻击时应该支付赎金吗?
+  a) DE: Ja, das ist immer der schnellste und sicherste Weg, um wieder an die Daten zu kommen
+  a) ZH: 应该,这始终是找回数据最快、最安全的方式
+  b) DE: Ja, aber nur wenn der geforderte Betrag niedrig genug erscheint
+  b) ZH: 应该,但仅当索要的金额看起来足够低时
+  c) DE: Das BSI rät grundsätzlich von Zahlungen ab - sie garantieren keine Datenfreigabe, finanzieren weitere Angriffe und können erneut ins Visier geraten lassen; die Entscheidung liegt bei Geschäftsführung/IT-Sicherheit im Rahmen des Notfallplans, nicht bei Einzelpersonen
+  c) ZH: BSI一般不建议支付赎金——支付并不能保证数据会被释放,还会助长更多攻击,并可能使受害者再次成为目标;这一决定应由管理层/IT安全部门在应急预案框架内做出,而非由个人决定
+  d) DE: Das spielt keine Rolle, da Backups eine Zahlung ohnehin immer überflüssig machen
+  d) ZH: 这无关紧要,因为有备份的话支付赎金总是没有必要的
+DE EXPL: Eine Zahlung ist keine Garantie für die Wiederherstellung der Daten und finanziert kriminelle Infrastruktur weiter. Selbst mit guten Backups bleibt die Zahlungsentscheidung im Ernstfall komplex (z. B. wegen exfiltrierter Daten) und ist daher immer eine Entscheidung der Unternehmensleitung im Rahmen des dokumentierten Notfallplans, nicht einer einzelnen Person vor Ort.
+ZH EXPL: 支付赎金并不能保证数据一定会被恢复,反而会进一步资助犯罪基础设施。即使拥有良好的备份,在真实事件中是否支付仍然是一个复杂的决定(例如可能涉及数据已被窃取的情况),因此这始终应是公司管理层在既定应急预案框架内做出的决定,而不是现场某个人的决定。
+==================== it_sicherheit-ransomware-03 correct: ['a']
+DE Q: Über welchen Weg gelangt Ransomware am häufigsten in Unternehmensnetzwerke?
+ZH Q: 勒索软件最常通过什么方式进入企业网络?
+  a) DE: Über Phishing-E-Mails mit schädlichem Anhang oder Link sowie über ungepatchte, aus dem Internet erreichbare Systeme
+  a) ZH: 通过带有恶意附件或链接的钓鱼邮件,以及未打补丁、可从互联网访问的系统
+  b) DE: Fast ausschließlich über physisch gestohlene Laptops
+  b) ZH: 几乎完全通过被盗的物理笔记本电脑
+  c) DE: Fast ausschließlich über kompromittierte Druckerkabel
+  c) ZH: 几乎完全通过被攻破的打印机线缆
+  d) DE: Ransomware verbreitet sich grundsätzlich nur über bereits infizierte USB-Sticks
+  d) ZH: 勒索软件只会通过已感染的U盘传播
+DE EXPL: Phishing-E-Mails und ungepatchte, extern erreichbare Systeme (z. B. Fernzugriffslösungen) sind laut BSI-Lageberichten die dominierenden Einfallstore. Das macht sowohl wachsame Mitarbeitende beim Öffnen von Anhängen/Links als auch zeitnahes Einspielen von Sicherheitsupdates zu zentralen Schutzmaßnahmen.
+ZH EXPL: 根据BSI的态势报告,钓鱼邮件以及未打补丁、可从外部访问的系统(例如远程访问方案)是最主要的入侵途径。这意味着,员工在打开附件/链接时保持警惕,以及及时安装安全补丁,都是核心的防护措施。
+==================== it_sicherheit-ransomware-04 correct: ['c']
+DE Q: Warum sind regelmäßige, vom Netzwerk getrennte ('offline') oder unveränderbare ('immutable') Backups besonders wichtig für den Schutz vor Ransomware?
+ZH Q: 为什么定期的、与网络断开('离线')或不可篡改('immutable')的备份对防范勒索软件尤为重要?
+  a) DE: Sie sind es nicht - jede Art von Backup reicht aus, solange sie regelmäßig läuft
+  a) ZH: 并不重要——只要定期备份,任何类型的备份都足够
+  b) DE: Nur damit die IT-Abteilung Speicherplatz sparen kann
+  b) ZH: 仅仅是为了让IT部门节省存储空间
+  c) DE: Weil Ransomware gezielt versucht, auch im Netzwerk erreichbare Backups zu verschlüsseln - nur getrennte oder unveränderbare Kopien bleiben im Ernstfall garantiert nutzbar
+  c) ZH: 因为勒索软件会刻意尝试加密它能通过网络访问到的备份——只有离线或不可篡改的副本才能保证在真实事件中仍然可用
+  d) DE: Ausschließlich aus Compliance-Gründen, technisch spielt der Backup-Typ keine Rolle
+  d) ZH: 纯粹出于合规原因,备份类型在技术上没有任何区别
+DE EXPL: Moderne Ransomware sucht aktiv nach erreichbaren Netzlaufwerken und Backup-Systemen, um auch diese zu verschlüsseln und den Druck zur Lösegeldzahlung zu erhöhen. Ein Backup, das offline oder technisch unveränderbar ist, kann davon nicht betroffen sein und ermöglicht eine Wiederherstellung ohne Zahlung.
+ZH EXPL: 现代勒索软件会主动搜索可访问的网络驱动器和备份系统,一并将其加密,以增加受害者支付赎金的压力。而离线或技术上不可篡改的备份不会受此影响,从而能够在不支付赎金的情况下恢复数据。
+==================== it_sicherheit-ransomware-05 correct: ['b']
+DE Q: Sie bemerken eine Ransomware-Infektion auf Ihrem Firmenrechner. Sollten Sie den Rechner neu starten, um das Problem selbst zu beheben?
+ZH Q: 您发现自己的办公电脑感染了勒索软件。您应该重启电脑来自行解决问题吗?
+  a) DE: Ja, ein Neustart behebt die meisten Softwareprobleme
+  a) ZH: 应该,重启能解决大多数软件问题
+  b) DE: Nein - ein Neustart oder Herunterfahren kann laufende Verschlüsselungsprozesse beschleunigen oder wichtige forensische Spuren zerstören; stattdessen vom Netzwerk trennen und den Vorfall melden
+  b) ZH: 不应该——重启或关机可能会加速正在进行中的加密过程,或破坏对后续分析很重要的取证线索;应改为断开网络连接并报告事件
+  c) DE: Ja, aber nur im abgesicherten Modus
+  c) ZH: 应该,但只能在安全模式下重启
+  d) DE: Das ist egal, solange man danach ein Antivirenprogramm laufen lässt
+  d) ZH: 无所谓,只要之后运行一次杀毒软件就行
+DE EXPL: Manche Ransomware-Varianten setzen die Verschlüsselung nach einem Neustart fort oder löschen dabei Hinweise, die für die spätere Analyse des Angriffswegs wichtig wären. Die IT-Sicherheit trifft die Entscheidung über die nächsten Schritte auf Basis des unveränderten Systemzustands.
+ZH EXPL: 有些勒索软件变种会在重启后继续加密,或者重启本身就可能抹去对后续分析攻击过程很重要的线索。IT安全部门会根据系统未被改动的状态来决定下一步措施。
+==================== it_sicherheit-ransomware-06 correct: ['c']
+DE Q: Ein Kollege bittet Sie, bei einem vermuteten Ransomware-Vorfall auf seinem Rechner zu helfen, ohne die IT-Sicherheit einzuschalten, 'um keinen Ärger zu bekommen'. Wie reagieren Sie?
+ZH Q: 一位同事请您帮忙处理他电脑上疑似发生的勒索软件事件,但要求不要通知IT安全部门,'以免惹麻烦'。您该怎么做?
+  a) DE: Helfen, wie gewünscht, und die Sache diskret unter sich behalten
+  a) ZH: 按对方的要求帮忙,并且此事只有你们两人知道
+  b) DE: Selbst eine im Internet gefundene Anleitung zur Entschlüsselung ausprobieren
+  b) ZH: 自己尝试网上找到的解密教程
+  c) DE: Auf einer sofortigen Meldung an die IT-Sicherheit bestehen - schnelles Melden verringert den Schaden und ist wichtiger als mögliche Unannehmlichkeiten
+  c) ZH: 坚持立即上报给IT安全部门——快速上报能够限制损失,这比可能带来的不便更重要
+  d) DE: Den Rechner einfach ausschalten und das Thema damit als erledigt betrachten
+  d) ZH: 直接把电脑关掉,认为事情就此了结
+DE EXPL: Verzögertes oder unterlassenes Melden ist eines der größten Risiken bei Sicherheitsvorfällen, da sich Ransomware in der verstreichenden Zeit im Netzwerk weiter ausbreiten kann. Eine gute Sicherheitskultur behandelt schnelles Melden als erwünschtes Verhalten, nicht als etwas, das Ärger nach sich zieht.
+ZH EXPL: 延迟或不予报告是安全事件中最大的风险之一,因为在这段时间里勒索软件可能继续在网络中蔓延。良好的安全文化应将快速报告视为值得鼓励的行为,而不是会招致麻烦的事情。
+==================== it_sicherheit-ransomware-07 correct: ['b']
+DE Q: Welches Anzeichen deutet am ehesten darauf hin, dass ein System sich möglicherweise in einer frühen Phase eines Ransomware-Angriffs befindet, noch bevor eine Lösegeldforderung erscheint?
+ZH Q: 在勒索赎金通知出现之前,哪种迹象最可能表明系统正处于勒索软件攻击的早期阶段?
+  a) DE: Der Bildschirmschoner hat sich geändert
+  a) ZH: 屏幕保护程序发生了变化
+  b) DE: Auffällig viele Dateien werden in kurzer Zeit umbenannt oder erhalten ungewöhnliche neue Dateiendungen, das System wird spürbar langsamer, und das Antivirenprogramm meldet mehrfach blockierte verdächtige Prozesse
+  b) ZH: 短时间内大量文件被重命名或获得异常的新扩展名,系统明显变慢,并且杀毒软件多次报告拦截了可疑进程
+  c) DE: Der Rechner ist etwas leiser als sonst
+  c) ZH: 电脑比平时安静了一些
+  d) DE: Es gibt keine erkennbaren Anzeichen vor der Lösegeldforderung
+  d) ZH: 在勒索通知出现之前不存在任何可察觉的迹象
+DE EXPL: Die eigentliche Verschlüsselung läuft oft im Hintergrund, bevor die Lösegeldforderung sichtbar wird - massenhaftes Umbenennen von Dateien, spürbare Verlangsamung und wiederholte Antivirenwarnungen sind frühe Warnsignale, bei denen sofortiges Melden den entstehenden Schaden noch begrenzen kann.
+ZH EXPL: 实际的加密过程往往在勒索通知出现之前就已在后台运行——大规模文件重命名、明显的运行变慢以及杀毒软件反复发出的警告都是早期预警信号,此时立即上报仍能限制正在发生的损害。
+==================== it_sicherheit-ransomware-08 correct: ['a', 'b', 'd']
+DE Q: Welche der folgenden Maßnahmen senken das Risiko, dass Ransomware sich im Firmennetzwerk ausbreitet? (Mehrfachauswahl)
+ZH Q: 以下哪些措施有助于降低勒索软件在公司网络中传播的风险?(多选)
+  a) DE: Zeitnahes Einspielen von Sicherheitsupdates auf allen Systemen
+  a) ZH: 在所有系统上及时安装安全更新
+  b) DE: Nutzerkonten nur mit den tatsächlich benötigten Rechten ausstatten (Prinzip der geringsten Rechte)
+  b) ZH: 用户账户只被授予实际所需的权限(最小权限原则)
+  c) DE: Alle Mitarbeitenden mit Administratorrechten auf ihrem Arbeitsrechner ausstatten, damit sie IT-Probleme selbst lösen können
+  c) ZH: 让每位员工在自己的办公电脑上拥有管理员权限,以便自行解决IT问题
+  d) DE: Regelmäßige, getrennte Backups mit getesteter Wiederherstellung
+  d) ZH: 定期进行、与网络断开的备份,并对恢复流程进行测试
+DE EXPL: Aktuelle Systeme, minimale Rechte und getestete Backups gehören zu den wirksamsten technischen Schutzmaßnahmen. Breite Administratorrechte für alle wirken genau entgegengesetzt: Sie erleichtern es Ransomware, sich mit denselben erhöhten Rechten im Netzwerk auszubreiten.
+ZH EXPL: 系统保持最新、权限最小化以及经过测试的备份,都属于最有效的技术防护措施之列。而让所有人都拥有广泛的管理员权限则恰恰相反:这会让勒索软件更容易利用同样的高权限在网络中扩散。
+==================== it_sicherheit-ki_bedrohungen-01 correct: ['b']
+DE Q: Was ist im Sicherheitskontext mit einem 'Deepfake' gemeint?
+ZH Q: 在安全语境下,'Deepfake'(深度伪造)指的是什么?
+  a) DE: Ein besonders raffiniert gefälschtes physisches Dokument
+  a) ZH: 一种特别精巧的伪造实体文件
+  b) DE: Ein mittels künstlicher Intelligenz erzeugtes, täuschend echtes Audio-, Bild- oder Videomaterial, das eine reale Person imitiert
+  b) ZH: 由人工智能生成的、足以以假乱真的音频、图像或视频内容,用于模仿真实人物
+  c) DE: Ein technischer Fachbegriff für besonders tief verschachtelte Phishing-Links
+  c) ZH: 一个用来描述嵌套特别深的钓鱼链接的技术术语
+  d) DE: Ein veralteter Begriff, der in der Praxis keine Rolle mehr spielt
+  d) ZH: 一个已经不再具有实际意义的过时术语
+DE EXPL: Deepfakes nutzen KI-Modelle, um Stimme, Gesicht oder Bewegungen einer realen Person nachzubilden - inzwischen mit so geringem Aufwand, dass sie zunehmend für gezielte Betrugsversuche wie gefälschte Anrufe oder Videobotschaften eingesetzt werden.
+ZH EXPL: '深度伪造'利用AI模型复刻真实人物的声音、面部或动作——如今实现这一点所需的成本已变得极低,因此越来越多地被用于针对性的欺诈行为,例如伪造的电话或视频消息。
+==================== it_sicherheit-ki_bedrohungen-02 correct: ['c']
+DE Q: Sie erhalten einen Telefonanruf, dessen Stimme exakt wie die Ihrer Geschäftsführung klingt und der eine dringende, ungewöhnliche Überweisung fordert - eine Rückrufnummer wird explizit abgelehnt ('Ich bin gleich im Flugzeug'). Was ist die richtige Reaktion?
+ZH Q: 您接到一通电话,来电声音听起来与您的高层管理人员一模一样,对方紧急要求一笔不寻常的转账——并明确拒绝提供回拨号码('我马上要登机了')。正确的应对方式是什么?
+  a) DE: Handeln, da die Stimme zweifelsfrei erkannt wurde
+  a) ZH: 立即照办,因为声音被毫无疑问地识别了出来
+  b) DE: Die Überweisung ausführen, aber nur die Hälfte des geforderten Betrags
+  b) ZH: 执行转账,但只转所要求金额的一半
+  c) DE: Der Anfrage nicht folgen und die Identität über einen unabhängigen, bereits bekannten Kanal verifizieren - Stimmerkennung allein ist durch KI-Stimmklonung keine verlässliche Bestätigung mehr
+  c) ZH: 不按要求行事,通过独立的、已知的渠道核实身份——由于AI语音克隆技术的存在,仅凭声音识别已不再是可靠的确认方式
+  d) DE: Die Anfrage ignorieren, ohne sie zu melden
+  d) ZH: 忽略该请求,不予上报
+DE EXPL: KI-Stimmklonung kann mit wenigen Sekunden echten Audiomaterials eine täuschend echte Stimme erzeugen - genau die Kombination aus Dringlichkeit, ungewöhnlicher Forderung und Ablehnung eines Rückrufs ist ein typisches Warnsignal, unabhängig davon, wie echt die Stimme klingt. Auch ein Nicht-Handeln sollte gemeldet werden, damit weitere Kolleginnen und Kollegen gewarnt werden können.
+ZH EXPL: AI语音克隆技术仅凭几秒钟的真实录音就能生成足以以假乱真的声音——紧迫性、不寻常的请求以及拒绝回拨这三者的组合正是典型的警示信号,无论声音听起来多么真实都是如此。即使您没有采取行动,也应该上报此事,以便提醒其他同事。
+==================== it_sicherheit-ki_bedrohungen-03 correct: ['c']
+DE Q: Früher galten Rechtschreib- und Grammatikfehler als zuverlässiges Erkennungsmerkmal von Phishing-E-Mails. Warum reicht dieses Kriterium heute allein nicht mehr aus?
+ZH Q: 以前,拼写和语法错误被视为识别钓鱼邮件的可靠标准。为什么如今这一标准已不再足够可靠?
+  a) DE: Weil E-Mail-Programme Rechtschreibfehler inzwischen automatisch korrigieren
+  a) ZH: 因为电子邮件程序现在会自动纠正拼写错误
+  b) DE: Weil Rechtschreibfehler ohnehin nie ein zuverlässiges Kriterium waren
+  b) ZH: 因为拼写错误本来就从未是一个可靠的判断标准
+  c) DE: Weil KI-Sprachmodelle sprachlich einwandfreie, personalisierte Phishing-Texte erzeugen können - andere Warnsignale wie abweichende Absenderadresse, ungewöhnliche Links oder unerwartete Dringlichkeit werden dadurch wichtiger
+  c) ZH: 因为AI语言模型能够生成语言上完全正确、且高度个性化的钓鱼文本——这使得其他警示信号,比如发件人地址不符、链接异常或不寻常的紧迫感,变得更加重要
+  d) DE: Weil moderne Phishing-Angriffe grundsätzlich ohne Text auskommen
+  d) ZH: 因为现代钓鱼攻击基本上已经不再使用文字了
+DE EXPL: KI-generierte Texte sind sprachlich oft nicht mehr von echter Kommunikation zu unterscheiden und können zudem individuell auf die Zielperson zugeschnitten werden. Die verlässlicheren Prüfpunkte bleiben deshalb die tatsächliche Absenderadresse, die Ziel-URL eines Links und ob die Anfrage inhaltlich plausibel und über den erwarteten Kanal kommt.
+ZH EXPL: AI生成的文本在语言上往往已经无法与真实的沟通区分开来,而且还可以针对目标个体进行精确定制。因此更可靠的核查要点仍然是:实际的发件人地址、链接的真实目标地址,以及请求内容是否合理、是否通过预期渠道送达。
+==================== it_sicherheit-ki_bedrohungen-04 correct: ['b']
+DE Q: In einem spontan angesetzten Videoanruf fordert eine Person, die optisch und stimmlich wie ein bekannter Vorgesetzter wirkt, die sofortige Weitergabe vertraulicher Kundendaten. Die Bild-/Tonqualität ist leicht ungewöhnlich. Wie reagieren Sie?
+ZH Q: 在一场临时安排的视频通话中,一个外貌和声音都与一位已知主管高度相似的人,要求立即交出机密客户数据。音视频质量略有异常。您该怎么做?
+  a) DE: Die Daten weitergeben, da Bild und Stimme übereinstimmten
+  a) ZH: 交出数据,因为画面和声音都对得上
+  b) DE: Die Weitergabe verweigern oder verzögern und die Anfrage über einen unabhängigen, bereits bekannten Kanal (z. B. Rückruf, persönliches Gespräch) verifizieren
+  b) ZH: 拒绝或推迟移交,并通过独立的、已知的渠道(例如回拨电话或当面沟通)核实该请求
+  c) DE: Nur einen Teil der Daten weitergeben, um das Risiko zu begrenzen
+  c) ZH: 只交出部分数据,以降低风险
+  d) DE: Im Anruf direkt nachfragen, ob es sich um einen Deepfake handelt, und der Antwort vertrauen
+  d) ZH: 在通话中直接询问这是否是深度伪造,并相信对方的回答
+DE EXPL: Leicht unstimmige Bild-/Tonqualität, eine spontane Ansetzung und eine ungewöhnliche vertrauliche Anfrage sind zusammen typische Warnsignale für einen Deepfake-Angriff. Ein Angreifer, der eine Person täuschend echt imitiert, wird auf direkte Nachfrage im Anruf selbstverständlich ebenfalls verneinen - nur ein unabhängiger Kanal schafft echte Klarheit.
+ZH EXPL: 略微异常的音视频质量、临时安排的通话,以及不寻常的机密请求,这三者结合在一起是深度伪造攻击的典型警示信号。一个能够以假乱真地冒充他人的攻击者,在通话中被直接问及时当然也会予以否认——只有独立渠道才能带来真正的确认。
+==================== it_sicherheit-ki_bedrohungen-05 correct: ['b']
+DE Q: Warum wird Social Engineering durch den Einsatz von KI-Werkzeugen allgemein als größeres Risiko eingeschätzt als zuvor?
+ZH Q: 为什么在AI工具广泛普及的今天,社会工程被普遍认为是比以往更大的风险?
+  a) DE: Weil KI-Werkzeuge ausschließlich von IT-Sicherheitsteams genutzt werden können
+  a) ZH: 因为AI工具只能被IT安全团队使用
+  b) DE: Weil KI-Werkzeuge es Angreifern erlauben, überzeugende, individuell zugeschnittene Angriffe (Text, Stimme, Video) in großem Umfang und mit geringem Aufwand zu erstellen
+  b) ZH: 因为AI工具让攻击者能够以极低的成本、大规模地制作出令人信服、个性化定制的攻击内容(文本、语音、视频)
+  c) DE: Weil KI-Werkzeuge Social-Engineering-Angriffe grundsätzlich unmöglich machen
+  c) ZH: 因为AI工具从根本上使社会工程攻击变得不可能
+  d) DE: Das Risiko hat sich durch KI-Werkzeuge nicht verändert
+  d) ZH: AI工具并没有改变这种风险
+DE EXPL: Was früher hohen manuellen Aufwand erforderte (z. B. das Nachahmen einer Stimme oder das Verfassen überzeugender, fehlerfreier Texte in einer Fremdsprache), lässt sich heute mit KI-Werkzeugen schnell und in großer Zahl automatisieren - das erhöht sowohl die Menge als auch die Qualität der Angriffe.
+ZH EXPL: 过去需要投入大量人工才能做到的事(例如模仿声音,或用外语写出令人信服、没有错误的文本),如今借助AI工具可以快速、大规模地自动完成——这既提高了攻击的数量,也提升了攻击的质量。
+==================== it_sicherheit-ki_bedrohungen-06 correct: ['b']
+DE Q: Was ist der wirksamste Schutz gegen Betrug per Deepfake-Anruf oder -Videobotschaft?
+ZH Q: 防范深度伪造电话或视频诈骗最有效的方法是什么?
+  a) DE: Genau darauf achten, ob die Stimme oder das Bild 'echt genug' klingt bzw. aussieht
+  a) ZH: 仔细判断声音或画面听起来/看起来是否'足够真实'
+  b) DE: Feste, im Voraus vereinbarte Verifizierungsverfahren (z. B. Rückruf über eine bekannte Nummer, ein vorab vereinbartes Codewort) für ungewöhnliche oder finanzielle Anfragen konsequent einhalten - unabhängig davon, wie echt Stimme oder Bild wirken
+  b) ZH: 对于异常或涉及资金的请求,始终坚持遵循事先约定好的固定核实流程(例如回拨已知号码、使用事先约定的暗号)——无论声音或画面看起来多么真实
+  c) DE: Anrufe grundsätzlich nur noch schriftlich per E-Mail bestätigen lassen
+  c) ZH: 从今以后只通过电子邮件以书面形式确认电话内容
+  d) DE: Es gibt derzeit keinen wirksamen Schutz dagegen
+  d) ZH: 目前没有有效的防范方法
+DE EXPL: Da Deepfakes gezielt darauf ausgelegt sind, menschliche Erkennung zu täuschen, ist das eigene Urteil über 'Echtheit' kein verlässlicher Schutz mehr. Vorab vereinbarte, von der jeweiligen Kommunikationsform unabhängige Verifizierungsverfahren funktionieren dagegen unabhängig davon, wie überzeugend eine Fälschung ist.
+ZH EXPL: 由于深度伪造正是刻意设计来欺骗人类感知的,单凭自己判断'是否真实'已不再是可靠的防护手段。相反,与具体沟通方式无关、事先约定好的核实流程,无论伪造有多逼真,都能持续有效发挥作用。
+==================== it_sicherheit-ki_bedrohungen-07 correct: ['c']
+DE Q: Sie möchten einen öffentlich zugänglichen KI-Chatbot nutzen, um schnell einen internen Bericht mit vertraulichen Kundendaten zusammenzufassen. Ist das unbedenklich?
+ZH Q: 您想使用一个公开可用的AI聊天机器人,快速总结一份包含机密客户数据的内部报告。这样做安全吗?
+  a) DE: Ja, öffentliche KI-Chatbots speichern grundsätzlich keine eingegebenen Daten
+  a) ZH: 安全,公开的AI聊天机器人从不存储任何输入的数据
+  b) DE: Ja, solange man die Kundennamen vorher durch Platzhalter ersetzt, ist alles Weitere unkritisch
+  b) ZH: 安全,只要事先用占位符替换客户姓名,其余内容就都不算敏感
+  c) DE: Nein - vertrauliche oder personenbezogene Daten sollten nur in von der eigenen Organisation freigegebene KI-Werkzeuge eingegeben werden, da bei öffentlichen Diensten unklar sein kann, wie die Eingaben weiterverarbeitet werden
+  c) ZH: 不安全——机密或个人数据只应输入公司自己批准的AI工具中,因为公开服务如何进一步处理输入内容往往并不透明
+  d) DE: Das ist ausschließlich eine Frage des Datenschutzbeauftragten und betrifft normale Mitarbeitende nicht
+  d) ZH: 这纯粹是数据保护官需要考虑的问题,与普通员工无关
+DE EXPL: Bei öffentlichen KI-Diensten ist oft nicht transparent, ob und wie eingegebene Daten gespeichert, zur Modellverbesserung genutzt oder anderweitig weiterverarbeitet werden. Vertrauliche oder personenbezogene Daten gehören deshalb nur in von der eigenen Organisation geprüfte und freigegebene Werkzeuge - eine unternehmensweite Richtlinie dazu betrifft alle Mitarbeitenden, nicht nur Fachabteilungen.
+ZH EXPL: 对于公开的AI服务,输入的数据是否会被存储、用于改进模型或以其他方式进一步处理,往往并不透明。因此机密或个人数据只应输入公司自己审核并批准过的工具中——公司范围内关于这方面的政策适用于每一位员工,而不仅仅是专业部门。
+==================== it_sicherheit-ki_bedrohungen-08 correct: ['b']
+DE Q: Sie vermuten, dass Sie soeben Ziel eines KI-gestützten Betrugsversuchs (z. B. Deepfake-Anruf oder täuschend echte KI-Phishing-Mail) geworden sind, konnten den Betrug aber rechtzeitig erkennen und haben nicht reagiert. Sollten Sie den Vorfall trotzdem melden?
+ZH Q: 您怀疑自己刚刚成为AI辅助诈骗尝试(例如深度伪造电话或以假乱真的AI钓鱼邮件)的目标,但及时识破并未采取行动。您是否仍应该报告此事件?
+  a) DE: Nein, da nichts passiert ist, besteht kein Handlungsbedarf
+  a) ZH: 不需要,既然什么都没发生,就没有必要采取行动
+  b) DE: Ja - der gleiche Meldeweg wie bei jedem anderen Social-Engineering-Versuch gilt auch hier, damit andere Kolleginnen und Kollegen gewarnt und ähnliche Angriffe erkannt werden können
+  b) ZH: 需要——与任何其他社会工程尝试一样,同样的报告渠道也适用于这种情况,以便提醒其他同事并识别类似攻击
+  c) DE: Nur melden, wenn tatsächlich ein finanzieller Schaden entstanden ist
+  c) ZH: 只有在实际造成财务损失时才需要报告
+  d) DE: Nur melden, wenn die IT-Abteilung ausdrücklich danach fragt
+  d) ZH: 只有在IT部门明确询问时才需要报告
+DE EXPL: Auch ein abgewehrter Angriffsversuch liefert wertvolle Informationen - etwa welche Masche gerade im Umlauf ist oder ob mehrere Mitarbeitende gleichzeitig angegriffen wurden. Frühzeitiges Melden erkannter, aber erfolgloser Versuche ist ein zentraler Baustein einer wirksamen Sicherheitskultur.
+ZH EXPL: 即使是一次被成功识破的攻击尝试,也能提供有价值的信息——例如当前正在流传的是哪种诈骗手法,或者是否有多名员工同时被盯上。及时报告已识别但未得逞的尝试,是有效安全文化的重要组成部分。

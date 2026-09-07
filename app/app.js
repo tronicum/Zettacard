@@ -55,6 +55,162 @@ const UI_STRINGS = {
     offlinePrepLoading: (i, n) => `Loading ${i}/${n}…`,
     offlinePrepError: "⚠️ Some files failed — try again",
   },
+  bar: {
+    title: "Zettacard — Karteikartn",
+    subtitle: (n) => `${n} Fragen · Karteikartn & Prüfungssimulation`,
+    filterAll: "Ois",
+    back: "← Liste",
+    reveal: "Antwort zoagn",
+    revealed: "Antwort zoagt",
+    prev: "← Voriga",
+    next: "Nächste →",
+    progress: (i, n) => `Frag ${i} von ${n}`,
+    points: (p) => `${p} Punkt`,
+    highStakes: "Sicherheitsrelevante Frag",
+    multiSelectHint: "Mehrere Antworten möglich",
+    tryItHint: "Antippen zum Probiern",
+    yourPickWrong: "Dei Antwort",
+    imageNote: "🖼️ Bild kummt no — Ref: ",
+    explanationLabel: "Erklärung",
+    legalBasis: "Rechtsgrundlage",
+    installHint: "Auf'm Homescreen speichern, damit's a offline geht.",
+    empty: "Koa Frag in derer Kategorie.",
+    correctMark: "Richtig",
+    offlinePrepBtn: "📥 Offline verfügbar mach'n",
+    offlinePrepReady: "✅ Offline verfügbar",
+    offlinePrepLoading: (i, n) => `Läd ${i}/${n}…`,
+    offlinePrepError: "⚠️ A paar Dateien ham ned funktioniert — nochmoi probiern",
+  },
+  ro: {
+    title: "Zettacard — Cartonașe",
+    subtitle: (n) => `${n} întrebări · cartonașe și simulare de examen`,
+    filterAll: "Toate",
+    back: "← Listă",
+    reveal: "Arată răspunsul",
+    revealed: "Răspuns afișat",
+    prev: "← Anterior",
+    next: "Următoarea →",
+    progress: (i, n) => `Întrebarea ${i} din ${n}`,
+    points: (p) => `${p} puncte`,
+    highStakes: "Întrebare critică pentru siguranță",
+    multiSelectHint: "Sunt posibile mai multe răspunsuri",
+    tryItHint: "Atinge pentru a încerca să răspunzi",
+    yourPickWrong: "Răspunsul tău",
+    imageNote: "🖼️ Imagine în așteptare — ref: ",
+    explanationLabel: "Explicație",
+    legalBasis: "Temei legal",
+    installHint: "Adaugă pe ecranul de start pentru a folosi aplicația offline.",
+    empty: "Nicio întrebare în această categorie.",
+    correctMark: "Corect",
+    offlinePrepBtn: "📥 Fă disponibil offline",
+    offlinePrepReady: "✅ Disponibil offline",
+    offlinePrepLoading: (i, n) => `Se încarcă ${i}/${n}…`,
+    offlinePrepError: "⚠️ Unele fișiere nu au putut fi descărcate — încearcă din nou",
+  },
+  pt: {
+    title: "Zettacard — Cartões de estudo",
+    subtitle: (n) => `${n} perguntas · cartões de estudo & simulação de exame`,
+    filterAll: "Todas",
+    back: "← Lista",
+    reveal: "Mostrar resposta",
+    revealed: "Resposta mostrada",
+    prev: "← Anterior",
+    next: "Seguinte →",
+    progress: (i, n) => `Pergunta ${i} de ${n}`,
+    points: (p) => `${p} pontos`,
+    highStakes: "Pergunta crítica para a segurança",
+    multiSelectHint: "Podem ser várias respostas certas",
+    tryItHint: "Toque para tentar responder",
+    yourPickWrong: "A sua resposta",
+    imageNote: "🖼️ Imagem pendente — ref.: ",
+    explanationLabel: "Explicação",
+    legalBasis: "Base legal",
+    installHint: "Adicione ao ecrã principal para usar offline.",
+    empty: "Não há perguntas nesta categoria.",
+    correctMark: "Correto",
+    offlinePrepBtn: "📥 Disponibilizar offline",
+    offlinePrepReady: "✅ Disponível offline",
+    offlinePrepLoading: (i, n) => `A carregar ${i}/${n}…`,
+    offlinePrepError: "⚠️ Alguns ficheiros falharam — tente novamente",
+  },
+  hr: {
+    title: "Zettacard — Kartice za učenje",
+    subtitle: (n) => `${n} pitanja · kartice za učenje i simulacija ispita`,
+    filterAll: "Sve",
+    back: "← Popis",
+    reveal: "Prikaži odgovor",
+    revealed: "Odgovor prikazan",
+    prev: "← Prethodno",
+    next: "Sljedeće →",
+    progress: (i, n) => `Pitanje ${i} od ${n}`,
+    points: (p) => `${p} bodova`,
+    highStakes: "Sigurnosno kritično pitanje",
+    multiSelectHint: "Moguće je više odgovora",
+    tryItHint: "Dodirni za pokušaj odgovora",
+    yourPickWrong: "Tvoj odgovor",
+    imageNote: "🖼️ Slika u pripremi — ref: ",
+    explanationLabel: "Objašnjenje",
+    legalBasis: "Pravna osnova",
+    installHint: "Dodaj na početni zaslon za korištenje bez interneta.",
+    empty: "Nema pitanja u ovoj kategoriji.",
+    correctMark: "Točno",
+    offlinePrepBtn: "📥 Omogući izvanmrežno korištenje",
+    offlinePrepReady: "✅ Dostupno izvanmrežno",
+    offlinePrepLoading: (i, n) => `Učitavanje ${i}/${n}…`,
+    offlinePrepError: "⚠️ Neke datoteke nisu uspjele — pokušaj ponovno",
+  },
+  el: {
+    title: "Zettacard — Κάρτες μελέτης",
+    subtitle: (n) => `${n} ερωτήσεις · κάρτες μελέτης & προσομοίωση εξέτασης`,
+    filterAll: "Όλα",
+    back: "← Λίστα",
+    reveal: "Εμφάνιση απάντησης",
+    revealed: "Η απάντηση εμφανίστηκε",
+    prev: "← Προηγούμενη",
+    next: "Επόμενη →",
+    progress: (i, n) => `Ερώτηση ${i} από ${n}`,
+    points: (p) => `${p} πόντοι`,
+    highStakes: "Ερώτηση κρίσιμη για την ασφάλεια",
+    multiSelectHint: "Πιθανές πολλαπλές απαντήσεις",
+    tryItHint: "Πατήστε για να δοκιμάσετε να απαντήσετε",
+    yourPickWrong: "Η απάντησή σας",
+    imageNote: "🖼️ Εκκρεμεί εικόνα — αναφ.: ",
+    explanationLabel: "Επεξήγηση",
+    legalBasis: "Νομική βάση",
+    installHint: "Προσθέστε το στην αρχική οθόνη για χρήση εκτός σύνδεσης.",
+    empty: "Δεν υπάρχουν ερωτήσεις σε αυτή την κατηγορία.",
+    correctMark: "Σωστό",
+    offlinePrepBtn: "📥 Διαθεσιμότητα εκτός σύνδεσης",
+    offlinePrepReady: "✅ Διαθέσιμο εκτός σύνδεσης",
+    offlinePrepLoading: (i, n) => `Φόρτωση ${i}/${n}…`,
+    offlinePrepError: "⚠️ Ορισμένα αρχεία απέτυχαν — δοκιμάστε ξανά",
+  },
+  fa: {
+    title: "زتاکارت — فلش‌کارت",
+    subtitle: (n) => `${n} سؤال · فلش‌کارت و شبیه‌سازی آزمون`,
+    filterAll: "همه",
+    back: "← فهرست",
+    reveal: "نمایش پاسخ",
+    revealed: "پاسخ نمایش داده شد",
+    prev: "← قبلی",
+    next: "بعدی →",
+    progress: (i, n) => `سؤال ${i} از ${n}`,
+    points: (p) => `${p} امتیاز`,
+    highStakes: "سؤال حیاتی برای ایمنی",
+    multiSelectHint: "امکان انتخاب چند پاسخ",
+    tryItHint: "برای پاسخ دادن ضربه بزنید",
+    yourPickWrong: "پاسخ شما",
+    imageNote: "🖼️ تصویر در انتظار — مرجع: ",
+    explanationLabel: "توضیح",
+    legalBasis: "مبنای قانونی",
+    installHint: "برای استفاده آفلاین، به صفحه اصلی اضافه کنید.",
+    empty: "در این دسته سؤالی وجود ندارد.",
+    correctMark: "درست",
+    offlinePrepBtn: "📥 آماده‌سازی برای آفلاین",
+    offlinePrepReady: "✅ به‌صورت آفلاین در دسترس است",
+    offlinePrepLoading: (i, n) => `در حال بارگذاری ${i}/${n}…`,
+    offlinePrepError: "⚠️ بارگذاری برخی فایل‌ها ناموفق بود — دوباره امتحان کنید",
+  },
   uk: {
     title: "Zettacard — Картки для навчання",
     subtitle: (n) => `${n} питань · картки та симуляція іспиту`,
@@ -341,6 +497,66 @@ const EXAM_STRINGS = {
     reviewLabel: "Review of wrong answers", yourAnswer: "Your answer", rightAnswer: "Correct answer",
     close: "Close", noMistakes: "All questions answered correctly — well done!", confirmExit: "Really cancel the exam? Progress will be lost.",
     skip: "Answer later", skipBanner: "Reviewing skipped questions — these must be answered now.", skipProgress: (i, n) => `Skipped questions: ${i} of ${n}` },
+  bar: { startBtn: "Prüfung", pickerTitle: "Prüfungsmodus auswähln", pickerDesc: (count) => `Wähl aus, wia du üben magst. Beide Modi ziag'n ${count} Fragen, mit realistischer Gwichtung, und wertn nach der echten Bestehensregel aus.`,
+    trainingTitle: "Übungsprüfung", trainingDesc: "Koa Zeitlimit. Guat zum ruhigen Üben.",
+    simTitle: "Simulierte echte Prüfung", simDesc: (minutes) => `${minutes} Minuten Zeitlimit, wia bei der echten Theorieprüfung.`,
+    cancel: "Abbrechen", progress: (i, n) => `Frag ${i} von ${n}`, next: "Weiter", finish: "Prüfung abschließen",
+    exit: "Abbrechen", timeUp: "D'Zeit is um — d'Prüfung wurd automatisch abgschickt.",
+    resultsPass: "Bestanden", resultsFail: "Ned bestanden",
+    summary: (err, max, wrong) => `Fehlerpunkte: ${err} von max. ${max} erlaubt. Falsch beantwortete sicherheitsrelevante Fragen: ${wrong} (2 oder mehr bedeut automatisch durchgfalln).`,
+    reviewLabel: "Übersicht der falschen Antworten", yourAnswer: "Dei Antwort", rightAnswer: "Richtige Antwort",
+    close: "Schließen", noMistakes: "Alle Fragen richtig beantwortet — fei guat gmacht!", confirmExit: "Wirklich d'Prüfung abbrechen? Dei Fortschritt geht verlorn.",
+    skip: "Später beantworten", skipBanner: "Übersprungene Fragen werdn wiederhoit — de mou'st jetzt beantworten.", skipProgress: (i, n) => `Übersprungene Fragen: ${i} von ${n}` },
+  ro: { startBtn: "Examen", pickerTitle: "Alege modul de examen", pickerDesc: (count) => `Alege cum vrei să exersezi. Ambele moduri includ ${count} întrebări cu ponderare realistă și evaluare conform regulii reale de promovare.`,
+    trainingTitle: "Examen de antrenament", trainingDesc: "Fără limită de timp. Bun pentru exersare relaxată.",
+    simTitle: "Simulare examen real", simDesc: (minutes) => `Limită de timp de ${minutes} minute, ca la examenul real.`,
+    cancel: "Anulează", progress: (i, n) => `Întrebarea ${i} din ${n}`, next: "Următoarea", finish: "Termină examenul",
+    exit: "Anulează", timeUp: "Timpul a expirat — examenul a fost trimis automat.",
+    resultsPass: "Promovat", resultsFail: "Nepromovat",
+    summary: (err, max, wrong) => `Puncte de eroare: ${err} din maximum ${max} permise. Întrebări critice greșite: ${wrong} (2 sau mai multe înseamnă respingere automată).`,
+    reviewLabel: "Recapitulare răspunsuri greșite", yourAnswer: "Răspunsul tău", rightAnswer: "Răspunsul corect",
+    close: "Închide", noMistakes: "Toate întrebările au fost răspunse corect — felicitări!", confirmExit: "Sigur vrei să anulezi examenul? Progresul se va pierde.",
+    skip: "Răspunde mai târziu", skipBanner: "Se recapitulează întrebările sărite — acestea trebuie răspunse acum.", skipProgress: (i, n) => `Întrebări sărite: ${i} din ${n}` },
+  pt: { startBtn: "Exame", pickerTitle: "Escolha o modo de exame", pickerDesc: (count) => `Escolha como quer praticar. Ambos os modos usam ${count} perguntas com uma ponderação realista e a pontuação segue a regra de aprovação real.`,
+    trainingTitle: "Exame de treino", trainingDesc: "Sem limite de tempo. Bom para praticar com calma.",
+    simTitle: "Simulação de exame real", simDesc: (minutes) => `Limite de ${minutes} minutos, tal como no exame real.`,
+    cancel: "Cancelar", progress: (i, n) => `Pergunta ${i} de ${n}`, next: "Seguinte", finish: "Terminar exame",
+    exit: "Cancelar", timeUp: "O tempo esgotou-se — o exame foi submetido automaticamente.",
+    resultsPass: "Aprovado", resultsFail: "Não aprovado",
+    summary: (err, max, wrong) => `Pontos de erro: ${err} de máx. ${max} permitidos. Perguntas críticas de segurança erradas: ${wrong} (2 ou mais significa reprovação automática).`,
+    reviewLabel: "Revisão das respostas erradas", yourAnswer: "A sua resposta", rightAnswer: "Resposta correta",
+    close: "Fechar", noMistakes: "Todas as perguntas respondidas corretamente — muito bem!", confirmExit: "Cancelar mesmo o exame? O progresso será perdido.",
+    skip: "Responder mais tarde", skipBanner: "A rever perguntas saltadas — estas têm de ser respondidas agora.", skipProgress: (i, n) => `Perguntas saltadas: ${i} de ${n}` },
+  hr: { startBtn: "Ispit", pickerTitle: "Odaberi način ispita", pickerDesc: (count) => `Odaberi kako želiš vježbati. Oba načina koriste ${count} pitanja s realističnom raspodjelom težine i bodovanjem prema stvarnom pravilu za prolaz.`,
+    trainingTitle: "Ispit za vježbu", trainingDesc: "Bez vremenskog ograničenja. Dobro za mirno vježbanje.",
+    simTitle: "Simulacija stvarnog ispita", simDesc: (minutes) => `Vremensko ograničenje od ${minutes} minuta, kao na stvarnom ispitu.`,
+    cancel: "Odustani", progress: (i, n) => `Pitanje ${i} od ${n}`, next: "Sljedeće", finish: "Završi ispit",
+    exit: "Odustani", timeUp: "Vrijeme je isteklo — ispit je automatski predan.",
+    resultsPass: "Položeno", resultsFail: "Nije položeno",
+    summary: (err, max, wrong) => `Bodovi grešaka: ${err} od maks. ${max} dopuštenih. Netočna sigurnosno kritična pitanja: ${wrong} (2 ili više znači automatski pad).`,
+    reviewLabel: "Pregled netočnih odgovora", yourAnswer: "Tvoj odgovor", rightAnswer: "Točan odgovor",
+    close: "Zatvori", noMistakes: "Sva pitanja točno odgovorena — bravo!", confirmExit: "Doista prekinuti ispit? Napredak će biti izgubljen.",
+    skip: "Odgovori kasnije", skipBanner: "Pregled preskočenih pitanja — na ova se sada mora odgovoriti.", skipProgress: (i, n) => `Preskočena pitanja: ${i} od ${n}` },
+  el: { startBtn: "Εξέταση", pickerTitle: "Επιλέξτε τρόπο εξέτασης", pickerDesc: (count) => `Επιλέξτε πώς θέλετε να εξασκηθείτε. Και οι δύο τρόποι περιλαμβάνουν ${count} ερωτήσεις με ρεαλιστική στάθμιση και βαθμολόγηση σύμφωνα με τον πραγματικό κανόνα επιτυχίας.`,
+    trainingTitle: "Εξέταση εξάσκησης", trainingDesc: "Χωρίς χρονικό όριο. Ιδανική για ήρεμη εξάσκηση.",
+    simTitle: "Προσομοίωση πραγματικής εξέτασης", simDesc: (minutes) => `Χρονικό όριο ${minutes} λεπτών, όπως στην πραγματική εξέταση.`,
+    cancel: "Ακύρωση", progress: (i, n) => `Ερώτηση ${i} από ${n}`, next: "Επόμενη", finish: "Ολοκλήρωση εξέτασης",
+    exit: "Ακύρωση", timeUp: "Ο χρόνος έληξε — η εξέταση υποβλήθηκε αυτόματα.",
+    resultsPass: "Επιτυχία", resultsFail: "Αποτυχία",
+    summary: (err, max, wrong) => `Βαθμοί σφάλματος: ${err} από μέγ. ${max} επιτρεπόμενους. Λανθασμένες ερωτήσεις κρίσιμες για την ασφάλεια: ${wrong} (2 ή περισσότερες σημαίνουν αυτόματη αποτυχία).`,
+    reviewLabel: "Επισκόπηση λανθασμένων απαντήσεων", yourAnswer: "Η απάντησή σας", rightAnswer: "Σωστή απάντηση",
+    close: "Κλείσιμο", noMistakes: "Όλες οι ερωτήσεις απαντήθηκαν σωστά — μπράβο!", confirmExit: "Θέλετε πραγματικά να ακυρώσετε την εξέταση; Η πρόοδος θα χαθεί.",
+    skip: "Απάντηση αργότερα", skipBanner: "Επισκόπηση παραλειφθεισών ερωτήσεων — αυτές πρέπει να απαντηθούν τώρα.", skipProgress: (i, n) => `Παραλειφθείσες ερωτήσεις: ${i} από ${n}` },
+  fa: { startBtn: "آزمون", pickerTitle: "حالت آزمون را انتخاب کنید", pickerDesc: (count) => `نحوهٔ تمرین را انتخاب کنید. هر دو حالت ${count} سؤال را با وزن‌دهی واقعی انتخاب می‌کنند و بر اساس قانون واقعی قبولی نمره‌دهی می‌شوند.`,
+    trainingTitle: "آزمون تمرینی", trainingDesc: "بدون محدودیت زمانی. مناسب برای تمرین آرام.",
+    simTitle: "شبیه‌سازی آزمون واقعی", simDesc: (minutes) => `محدودیت زمانی ${minutes} دقیقه‌ای، مانند آزمون واقعی.`,
+    cancel: "لغو", progress: (i, n) => `سؤال ${i} از ${n}`, next: "بعدی", finish: "پایان آزمون",
+    exit: "لغو", timeUp: "زمان به پایان رسید — آزمون به‌صورت خودکار ثبت شد.",
+    resultsPass: "قبول", resultsFail: "مردود",
+    summary: (err, max, wrong) => `امتیاز خطا: ${err} از حداکثر مجاز ${max}. سؤالات حیاتیِ ایمنیِ پاسخ‌غلط: ${wrong} (2 یا بیشتر یعنی مردودی خودکار).`,
+    reviewLabel: "مرور پاسخ‌های نادرست", yourAnswer: "پاسخ شما", rightAnswer: "پاسخ درست",
+    close: "بستن", noMistakes: "به همهٔ سؤالات درست پاسخ دادید — آفرین!", confirmExit: "آزمون واقعاً لغو شود؟ پیشرفت شما از بین خواهد رفت.",
+    skip: "پاسخ بعداً", skipBanner: "مرور سؤالات رد‌شده — اکنون باید به این سؤالات پاسخ دهید.", skipProgress: (i, n) => `سؤالات رد‌شده: ${i} از ${n}` },
   uk: { startBtn: "Іспит", pickerTitle: "Виберіть режим іспиту", pickerDesc: (count) => `Оберіть, як тренуватися. В обох режимах ${count} питань з реальним розподілом і оцінюванням за справжнім правилом складання.`,
     trainingTitle: "Тренувальний іспит", trainingDesc: "Без обмеження часу. Підходить для спокійного тренування.",
     simTitle: "Симуляція реального іспиту", simDesc: (minutes) => `Обмеження ${minutes} хвилин, як на справжньому іспиті.`,
@@ -486,20 +702,355 @@ const PRACTICE_QUIZ_STRINGS = {
     retryHint: "You can start this quiz again any time, with the same or different topics.",
     close: "Close",
   },
+  uk: {
+    entryTitle: "Тренувальний тест", entryDesc: "Коротко, невимушено, без обмеження часу — не враховується для сертифіката.",
+    pickerTitle: "Почати тренувальний тест", pickerDesc: (count) => `Без обмеження часу, без правила складання/незкладання, без сертифіката — просто ${count} питань для практики. Виберіть, на чому зосередитися:`,
+    mixedTitle: "Змішаний", mixedDesc: "Питання з усіх тем.",
+    cancel: "Скасувати",
+    progress: (i, n) => `Питання ${i} з ${n}`,
+    checkBtn: "Перевірити відповідь", nextBtn: "Наступне питання", finishBtn: "Завершити тест",
+    correctLabel: "Правильно!", wrongLabel: "Не зовсім.",
+    exit: "Вийти",
+    noStakesNote: "Це лише для практики — цей тест не враховується як спроба іспиту і не видає сертифікат.",
+    resultsTitle: (score, total) => `${score} з ${total} правильно`,
+    resultsNote: "Це був тренувальний тест — він не був зафіксований як спроба іспиту, і сертифікат не було створено. Для отримання сертифіката скористайтеся симуляцією іспиту.",
+    retryHint: "Ви можете почати цей тест знову в будь-який час, з тими самими або іншими темами.",
+    close: "Закрити",
+  },
+  pl: {
+    entryTitle: "Quiz ćwiczeniowy", entryDesc: "Krótko, na luzie, bez presji czasu — nie liczy się do certyfikatu.",
+    pickerTitle: "Rozpocznij quiz ćwiczeniowy", pickerDesc: (count) => `Bez limitu czasu, bez zasady zdał/nie zdał, bez certyfikatu — po prostu ${count} pytań do przećwiczenia. Wybierz, na czym się skupić:`,
+    mixedTitle: "Mieszany", mixedDesc: "Pytania ze wszystkich tematów.",
+    cancel: "Anuluj",
+    progress: (i, n) => `Pytanie ${i} z ${n}`,
+    checkBtn: "Sprawdź odpowiedź", nextBtn: "Następne pytanie", finishBtn: "Zakończ quiz",
+    correctLabel: "Poprawnie!", wrongLabel: "Niezupełnie.",
+    exit: "Wyjdź",
+    noStakesNote: "To tylko ćwiczenie — ten quiz nie liczy się jako podejście do egzaminu i nie generuje certyfikatu.",
+    resultsTitle: (score, total) => `${score} z ${total} poprawnie`,
+    resultsNote: "To był quiz ćwiczeniowy — nie został zarejestrowany jako podejście do egzaminu i nie wygenerowano certyfikatu. Aby uzyskać certyfikat, skorzystaj z Symulacji egzaminu.",
+    retryHint: "Możesz rozpocząć ten quiz ponownie w dowolnym momencie, z tymi samymi lub innymi tematami.",
+    close: "Zamknij",
+  },
+  ar: {
+    entryTitle: "اختبار تدريبي", entryDesc: "قصير وغير رسمي وبدون ضغط الوقت — لا يُحتسب ضمن الشهادة.",
+    pickerTitle: "ابدأ اختبارًا تدريبيًا", pickerDesc: (count) => `بدون حد زمني، وبدون قاعدة نجاح/رسوب، وبدون شهادة — فقط ${count} أسئلة للتدرب عليها. اختر ما تريد التركيز عليه:`,
+    mixedTitle: "مختلط", mixedDesc: "أسئلة من جميع المواضيع.",
+    cancel: "إلغاء",
+    progress: (i, n) => `السؤال ${i} من ${n}`,
+    checkBtn: "تحقق من الإجابة", nextBtn: "السؤال التالي", finishBtn: "إنهاء الاختبار",
+    correctLabel: "إجابة صحيحة!", wrongLabel: "ليست صحيحة تمامًا.",
+    exit: "خروج",
+    noStakesNote: "هذا للتدريب فقط — لا يُحتسب هذا الاختبار كمحاولة امتحان ولا يُصدر شهادة.",
+    resultsTitle: (score, total) => `${score} من ${total} إجابة صحيحة`,
+    resultsNote: "كان هذا اختبارًا تدريبيًا — لم يُسجَّل كمحاولة امتحان ولم يتم إصدار شهادة. للحصول على شهادة، استخدم محاكاة الامتحان.",
+    retryHint: "يمكنك بدء هذا الاختبار مرة أخرى في أي وقت، بنفس المواضيع أو بمواضيع مختلفة.",
+    close: "إغلاق",
+  },
+  zh: {
+    entryTitle: "练习测验", entryDesc: "简短随意，没有时间压力——不计入证书。",
+    pickerTitle: "开始练习测验", pickerDesc: (count) => `没有时间限制，没有及格/不及格规则，也没有证书——只是${count}道题目供你练习。选择你想专注的内容：`,
+    mixedTitle: "混合", mixedDesc: "来自所有主题的题目。",
+    cancel: "取消",
+    progress: (i, n) => `第 ${i} 题，共 ${n} 题`,
+    checkBtn: "检查答案", nextBtn: "下一题", finishBtn: "完成测验",
+    correctLabel: "回答正确！", wrongLabel: "不太对。",
+    exit: "退出",
+    noStakesNote: "这只是练习——本次测验不计入考试尝试，也不会生成证书。",
+    resultsTitle: (score, total) => `共 ${total} 题，答对 ${score} 题`,
+    resultsNote: "这是一次练习测验——未被记录为考试尝试，也未生成证书。如需获得证书，请使用模拟考试。",
+    retryHint: "你可以随时重新开始这个测验，使用相同或不同的主题。",
+    close: "关闭",
+  },
+  hi: {
+    entryTitle: "अभ्यास क्विज़", entryDesc: "छोटा, सहज, कोई समय दबाव नहीं — यह प्रमाणपत्र में नहीं गिना जाता।",
+    pickerTitle: "अभ्यास क्विज़ शुरू करें", pickerDesc: (count) => `कोई समय सीमा नहीं, पास/फेल का कोई नियम नहीं, कोई प्रमाणपत्र नहीं — बस अभ्यास के लिए ${count} प्रश्न। चुनें कि किस पर ध्यान देना है:`,
+    mixedTitle: "मिश्रित", mixedDesc: "हर विषय के प्रश्न।",
+    cancel: "रद्द करें",
+    progress: (i, n) => `प्रश्न ${i} में से ${n}`,
+    checkBtn: "उत्तर जांचें", nextBtn: "अगला प्रश्न", finishBtn: "क्विज़ समाप्त करें",
+    correctLabel: "सही!", wrongLabel: "बिल्कुल सही नहीं।",
+    exit: "बाहर निकलें",
+    noStakesNote: "यह केवल अभ्यास के लिए है — यह क्विज़ परीक्षा के प्रयास के रूप में नहीं गिना जाता और इससे कोई प्रमाणपत्र नहीं बनता।",
+    resultsTitle: (score, total) => `${total} में से ${score} सही`,
+    resultsNote: "यह एक अभ्यास क्विज़ था — इसे परीक्षा के प्रयास के रूप में दर्ज नहीं किया गया और कोई प्रमाणपत्र नहीं बनाया गया। प्रमाणपत्र के लिए, परीक्षा सिमुलेशन का उपयोग करें।",
+    retryHint: "आप इसी या अलग विषयों के साथ यह क्विज़ कभी भी दोबारा शुरू कर सकते हैं।",
+    close: "बंद करें",
+  },
+  tr: {
+    entryTitle: "Alıştırma testi", entryDesc: "Kısa, samimi, zaman baskısı yok — sertifika için sayılmaz.",
+    pickerTitle: "Alıştırma testi başlat", pickerDesc: (count) => `Zaman sınırı yok, geçme/kalma kuralı yok, sertifika yok — sadece denemek için ${count} soru. Neye odaklanmak istediğinizi seçin:`,
+    mixedTitle: "Karışık", mixedDesc: "Her konudan sorular.",
+    cancel: "İptal",
+    progress: (i, n) => `Soru ${i} / ${n}`,
+    checkBtn: "Cevabı kontrol et", nextBtn: "Sonraki soru", finishBtn: "Testi bitir",
+    correctLabel: "Doğru!", wrongLabel: "Tam olarak değil.",
+    exit: "Çıkış",
+    noStakesNote: "Bu sadece alıştırma içindir — bu test sınav denemesi olarak sayılmaz ve sertifika oluşturmaz.",
+    resultsTitle: (score, total) => `${total} sorudan ${score} doğru`,
+    resultsNote: "Bu bir alıştırma testiydi — sınav denemesi olarak kaydedilmedi ve sertifika oluşturulmadı. Sertifika için Sınav Simülasyonu'nu kullanın.",
+    retryHint: "Bu testi istediğiniz zaman aynı veya farklı konularla tekrar başlatabilirsiniz.",
+    close: "Kapat",
+  },
+  fr: {
+    entryTitle: "Quiz d'entraînement", entryDesc: "Court, décontracté, sans pression de temps — ne compte pas pour un certificat.",
+    pickerTitle: "Démarrer un quiz d'entraînement", pickerDesc: (count) => `Pas de limite de temps, pas de règle de réussite/échec, pas de certificat — juste ${count} questions pour s'entraîner. Choisissez sur quoi vous concentrer :`,
+    mixedTitle: "Mixte", mixedDesc: "Des questions de tous les thèmes.",
+    cancel: "Annuler",
+    progress: (i, n) => `Question ${i} sur ${n}`,
+    checkBtn: "Vérifier la réponse", nextBtn: "Question suivante", finishBtn: "Terminer le quiz",
+    correctLabel: "Correct !", wrongLabel: "Pas tout à fait.",
+    exit: "Quitter",
+    noStakesNote: "C'est juste pour s'entraîner — ce quiz ne compte pas comme une tentative d'examen et ne délivre pas de certificat.",
+    resultsTitle: (score, total) => `${score} sur ${total} correctes`,
+    resultsNote: "C'était un quiz d'entraînement — il n'a pas été enregistré comme une tentative d'examen et aucun certificat n'a été créé. Pour obtenir un certificat, utilisez la Simulation d'examen.",
+    retryHint: "Vous pouvez recommencer ce quiz à tout moment, avec les mêmes thèmes ou d'autres.",
+    close: "Fermer",
+  },
+  ru: {
+    entryTitle: "Тренировочный тест", entryDesc: "Коротко, непринуждённо, без ограничения по времени — не учитывается для сертификата.",
+    pickerTitle: "Начать тренировочный тест", pickerDesc: (count) => `Без ограничения по времени, без правила сдал/не сдал, без сертификата — просто ${count} вопросов для практики. Выберите, на чём сосредоточиться:`,
+    mixedTitle: "Смешанный", mixedDesc: "Вопросы по всем темам.",
+    cancel: "Отмена",
+    progress: (i, n) => `Вопрос ${i} из ${n}`,
+    checkBtn: "Проверить ответ", nextBtn: "Следующий вопрос", finishBtn: "Завершить тест",
+    correctLabel: "Верно!", wrongLabel: "Не совсем.",
+    exit: "Выйти",
+    noStakesNote: "Это только для практики — этот тест не засчитывается как попытка экзамена и не даёт сертификат.",
+    resultsTitle: (score, total) => `${score} из ${total} правильно`,
+    resultsNote: "Это был тренировочный тест — он не был зафиксирован как попытка экзамена, и сертификат не был выдан. Чтобы получить сертификат, используйте симуляцию экзамена.",
+    retryHint: "Вы можете начать этот тест заново в любое время, с теми же или другими темами.",
+    close: "Закрыть",
+  },
+  es: {
+    entryTitle: "Cuestionario de práctica", entryDesc: "Breve, informal, sin presión de tiempo — no cuenta para un certificado.",
+    pickerTitle: "Iniciar un cuestionario de práctica", pickerDesc: (count) => `Sin límite de tiempo, sin regla de aprobado/suspenso, sin certificado — solo ${count} preguntas para practicar. Elige en qué centrarte:`,
+    mixedTitle: "Mixto", mixedDesc: "Preguntas de todos los temas.",
+    cancel: "Cancelar",
+    progress: (i, n) => `Pregunta ${i} de ${n}`,
+    checkBtn: "Comprobar respuesta", nextBtn: "Siguiente pregunta", finishBtn: "Finalizar cuestionario",
+    correctLabel: "¡Correcto!", wrongLabel: "No exactamente.",
+    exit: "Salir",
+    noStakesNote: "Esto es solo para practicar — este cuestionario no cuenta como intento de examen y no genera un certificado.",
+    resultsTitle: (score, total) => `${score} de ${total} correctas`,
+    resultsNote: "Esto fue un cuestionario de práctica — no se registró como intento de examen y no se creó ningún certificado. Para obtener un certificado, usa la Simulación de examen.",
+    retryHint: "Puedes volver a iniciar este cuestionario en cualquier momento, con los mismos temas o con otros distintos.",
+    close: "Cerrar",
+  },
+  it: {
+    entryTitle: "Quiz di pratica", entryDesc: "Breve, informale, senza pressione di tempo — non conta ai fini del certificato.",
+    pickerTitle: "Avvia un quiz di pratica", pickerDesc: (count) => `Nessun limite di tempo, nessuna regola di superamento/bocciatura, nessun certificato — solo ${count} domande per esercitarti. Scegli su cosa concentrarti:`,
+    mixedTitle: "Misto", mixedDesc: "Domande da tutti gli argomenti.",
+    cancel: "Annulla",
+    progress: (i, n) => `Domanda ${i} di ${n}`,
+    checkBtn: "Controlla risposta", nextBtn: "Prossima domanda", finishBtn: "Termina quiz",
+    correctLabel: "Corretto!", wrongLabel: "Non proprio.",
+    exit: "Esci",
+    noStakesNote: "È solo per esercitarsi — questo quiz non conta come tentativo d'esame e non genera un certificato.",
+    resultsTitle: (score, total) => `${score} su ${total} corrette`,
+    resultsNote: "Questo era un quiz di pratica — non è stato registrato come tentativo d'esame e non è stato creato alcun certificato. Per ottenere un certificato, usa la Simulazione d'esame.",
+    retryHint: "Puoi ricominciare questo quiz in qualsiasi momento, con gli stessi argomenti o con altri diversi.",
+    close: "Chiudi",
+  },
+  bar: {
+    entryTitle: "Übungsquiz", entryDesc: "Kurz, locker, ohne Zeitdruck — zählt ned für a Zertifikat.",
+    pickerTitle: "A Übungsquiz starten", pickerDesc: (count) => `Koa Zeitlimit, koa Bestehensregel, koa Zertifikat — nur ${count} Fragen zum Probiern. Wähl aus, worauf du di konzentrieren magst:`,
+    mixedTitle: "Gmischt", mixedDesc: "Fragen aus alle Themen.",
+    cancel: "Abbrechen",
+    progress: (i, n) => `Frag ${i} von ${n}`,
+    checkBtn: "Antwort prüfen", nextBtn: "Nächste Frag", finishBtn: "Quiz beenden",
+    correctLabel: "Richtig!", wrongLabel: "Ned ganz.",
+    exit: "Verlassen",
+    noStakesNote: "Nur zum Üben — des Quiz zählt ned als Prüfungsversuch und bringt koa Zertifikat.",
+    resultsTitle: (score, total) => `${score} von ${total} richtig`,
+    resultsNote: "Des war a Übungsquiz — es wurd ned als Prüfungsversuch gspeichert und es is koa Zertifikat entstanden. Für a Zertifikat nimm d'Prüfungssimulation.",
+    retryHint: "Du kannst des Quiz jederzeit nochmoi starten, mit de gleichen oder anderen Themen.",
+    close: "Schließen",
+  },
+  ro: {
+    entryTitle: "Test de exersare", entryDesc: "Scurt, relaxat, fără presiune de timp — nu contează pentru un certificat.",
+    pickerTitle: "Începe un test de exersare", pickerDesc: (count) => `Fără limită de timp, fără regulă de promovare/respingere, fără certificat — doar ${count} întrebări de încercat. Alege pe ce vrei să te concentrezi:`,
+    mixedTitle: "Mixt", mixedDesc: "Întrebări din toate subiectele.",
+    cancel: "Anulează",
+    progress: (i, n) => `Întrebarea ${i} din ${n}`,
+    checkBtn: "Verifică răspunsul", nextBtn: "Întrebarea următoare", finishBtn: "Termină testul",
+    correctLabel: "Corect!", wrongLabel: "Nu chiar.",
+    exit: "Ieși",
+    noStakesNote: "Doar pentru exersare — acest test nu contează ca o încercare de examen și nu generează un certificat.",
+    resultsTitle: (score, total) => `${score} din ${total} corecte`,
+    resultsNote: "Acesta a fost un test de exersare — nu a fost înregistrat ca încercare de examen și nu s-a creat niciun certificat. Pentru un certificat, folosește Simularea de examen.",
+    retryHint: "Poți relua acest test oricând, cu aceleași subiecte sau cu altele.",
+    close: "Închide",
+  },
+  pt: {
+    entryTitle: "Questionário de prática", entryDesc: "Curto, descontraído, sem pressão de tempo — não conta para um certificado.",
+    pickerTitle: "Iniciar um questionário de prática", pickerDesc: (count) => `Sem limite de tempo, sem regra de aprovação/reprovação, sem certificado — apenas ${count} perguntas para experimentar. Escolha o que quer praticar:`,
+    mixedTitle: "Misto", mixedDesc: "Perguntas de todos os temas.",
+    cancel: "Cancelar",
+    progress: (i, n) => `Pergunta ${i} de ${n}`,
+    checkBtn: "Verificar resposta", nextBtn: "Pergunta seguinte", finishBtn: "Terminar questionário",
+    correctLabel: "Correto!", wrongLabel: "Não é bem isso.",
+    exit: "Sair",
+    noStakesNote: "Só para praticar — este questionário não conta como tentativa de exame nem gera certificado.",
+    resultsTitle: (score, total) => `${score} de ${total} corretas`,
+    resultsNote: "Isto foi um questionário de prática — não ficou registado como tentativa de exame e não foi criado nenhum certificado. Para obter um certificado, use a Simulação de Exame.",
+    retryHint: "Pode iniciar este questionário novamente a qualquer momento, com os mesmos temas ou com outros.",
+    close: "Fechar",
+  },
+  hr: {
+    entryTitle: "Kviz za vježbu", entryDesc: "Kratko, opušteno, bez vremenskog pritiska — ne broji se za certifikat.",
+    pickerTitle: "Pokreni kviz za vježbu", pickerDesc: (count) => `Bez vremenskog ograničenja, bez pravila prolaz/pad, bez certifikata — samo ${count} pitanja za vježbu. Odaberi na što se želiš usredotočiti:`,
+    mixedTitle: "Mješovito", mixedDesc: "Pitanja iz svih tema.",
+    cancel: "Odustani",
+    progress: (i, n) => `Pitanje ${i} od ${n}`,
+    checkBtn: "Provjeri odgovor", nextBtn: "Sljedeće pitanje", finishBtn: "Završi kviz",
+    correctLabel: "Točno!", wrongLabel: "Nije baš tako.",
+    exit: "Izlaz",
+    noStakesNote: "Samo za vježbu — ovaj kviz ne broji se kao pokušaj ispita i ne izdaje certifikat.",
+    resultsTitle: (score, total) => `${score} od ${total} točno`,
+    resultsNote: "Ovo je bio kviz za vježbu — nije zabilježen kao pokušaj ispita i nije izdan certifikat. Za certifikat koristi simulaciju ispita.",
+    retryHint: "Ovaj kviz možeš ponovno pokrenuti bilo kada, s istim ili drugim temama.",
+    close: "Zatvori",
+  },
+  el: {
+    entryTitle: "Κουίζ εξάσκησης", entryDesc: "Σύντομο, χαλαρό, χωρίς πίεση χρόνου — δεν προσμετράται για πιστοποιητικό.",
+    pickerTitle: "Έναρξη κουίζ εξάσκησης", pickerDesc: (count) => `Χωρίς χρονικό όριο, χωρίς κανόνα επιτυχίας/αποτυχίας, χωρίς πιστοποιητικό — απλώς ${count} ερωτήσεις για δοκιμή. Επιλέξτε σε τι θα εστιάσετε:`,
+    mixedTitle: "Μικτό", mixedDesc: "Ερωτήσεις από όλα τα θέματα.",
+    cancel: "Ακύρωση",
+    progress: (i, n) => `Ερώτηση ${i} από ${n}`,
+    checkBtn: "Έλεγχος απάντησης", nextBtn: "Επόμενη ερώτηση", finishBtn: "Ολοκλήρωση κουίζ",
+    correctLabel: "Σωστά!", wrongLabel: "Όχι ακριβώς.",
+    exit: "Έξοδος",
+    noStakesNote: "Μόνο για εξάσκηση — αυτό το κουίζ δεν προσμετράται ως προσπάθεια εξέτασης και δεν εκδίδει πιστοποιητικό.",
+    resultsTitle: (score, total) => `${score} από ${total} σωστές`,
+    resultsNote: "Αυτό ήταν ένα κουίζ εξάσκησης — δεν καταγράφηκε ως προσπάθεια εξέτασης και δεν δημιουργήθηκε πιστοποιητικό. Για πιστοποιητικό, χρησιμοποιήστε την Προσομοίωση Εξέτασης.",
+    retryHint: "Μπορείτε να ξεκινήσετε ξανά αυτό το κουίζ οποιαδήποτε στιγμή, με τα ίδια ή διαφορετικά θέματα.",
+    close: "Κλείσιμο",
+  },
+  fa: {
+    entryTitle: "آزمون تمرینی کوتاه", entryDesc: "کوتاه، بدون فشار زمانی و غیررسمی — در گواهی‌نامه محاسبه نمی‌شود.",
+    pickerTitle: "شروع یک آزمون تمرینی کوتاه", pickerDesc: (count) => `بدون محدودیت زمانی، بدون قانون قبولی/مردودی و بدون گواهی — فقط ${count} سؤال برای تمرین. موضوع تمرکز را انتخاب کنید:`,
+    mixedTitle: "ترکیبی", mixedDesc: "سؤالاتی از همهٔ موضوعات.",
+    cancel: "لغو",
+    progress: (i, n) => `سؤال ${i} از ${n}`,
+    checkBtn: "بررسی پاسخ", nextBtn: "سؤال بعدی", finishBtn: "پایان آزمون تمرینی",
+    correctLabel: "درست است!", wrongLabel: "درست نیست.",
+    exit: "خروج",
+    noStakesNote: "فقط برای تمرین — این آزمون به‌عنوان تلاش برای آزمون رسمی محسوب نمی‌شود و گواهی صادر نمی‌کند.",
+    resultsTitle: (score, total) => `${score} پاسخ درست از ${total}`,
+    resultsNote: "این یک آزمون تمرینی بود — به‌عنوان تلاش برای آزمون ثبت نشد و گواهی‌ای صادر نشد. برای دریافت گواهی از «شبیه‌سازی آزمون» استفاده کنید.",
+    retryHint: "می‌توانید این آزمون تمرینی را هر زمان که خواستید، با همان موضوعات یا موضوعاتی دیگر، دوباره شروع کنید.",
+    close: "بستن",
+  },
 };
 function practiceQuizStrings(lang) {
   return PRACTICE_QUIZ_STRINGS[lang] || PRACTICE_QUIZ_STRINGS.en;
 }
 
-// Languages that read right-to-left - toggled via dir="rtl"/"ltr" on <html>.
-const RTL_LANGS = new Set(["ar"]);
+// Locale registry (2026-09-06) ------------------------------------------
+//
+// This replaces `const RTL_LANGS = new Set(["ar", "fa"])`. That set was a
+// hand-maintained list of right-to-left languages, and it was wrong the day
+// Persian shipped: `fa` had to be appended by hand on 2026-09-06 after the
+// Persian UI went out rendering left-to-right. Direction is not a fact about
+// this file, it is a property of the language, and index.json - the locale
+// existence gate generated from the KB (ADR-app-0001) - already carries
+// `dir` per locale, alongside `native_name`. So the source of truth is the
+// registry, and the old hard-coded pair survives only as the fallback for
+// the window before index.json has loaded (or if the fetch fails), which is
+// exactly as correct as the old code was and no less.
+//
+// Everything that sets dir on <html> now goes through applyDocDirection();
+// there used to be three separate `setAttribute("dir", RTL_LANGS.has(...))`
+// call sites, which is how one of them could have gone stale unnoticed.
+const RTL_FALLBACK = new Set(["ar", "fa"]);
+
+// Populated by loadLocaleRegistry() at startup; null until then.
+let LOCALE_REGISTRY = null;
+
+function localeEntry(code) {
+  return LOCALE_REGISTRY ? LOCALE_REGISTRY.find((l) => l.code === code) : null;
+}
+
+function langDir(lang) {
+  const dir = localeEntry(lang)?.dir;
+  if (dir === "rtl" || dir === "ltr") return dir;
+  return RTL_FALLBACK.has(lang) ? "rtl" : "ltr";
+}
+
+function applyDocDirection(lang) {
+  // Mirrors layout direction for RTL scripts so reading order is correct
+  // (WCAG 1.3.2) rather than leaving RTL text inside an LTR container.
+  document.documentElement.setAttribute("dir", langDir(lang));
+}
+
+async function loadLocaleRegistry() {
+  try {
+    const data = await fetchJson("index.json");
+    const list = Array.isArray(data?.locales) ? data.locales.filter((l) => l && typeof l.code === "string") : [];
+    if (list.length) LOCALE_REGISTRY = list;
+  } catch (err) {
+    // Non-fatal by design: the app must still start (and must still be able
+    // to switch languages) if index.json is missing or unparseable. See
+    // availableLocales() for what the picker falls back to.
+  }
+  return LOCALE_REGISTRY;
+}
+
+// What the language picker offers. Registry first; if it never loaded, the
+// shipped UI translations are the honest second-best answer - a picker that
+// comes up EMPTY is the one outcome that must not happen here, since this
+// control is the only recovery route for someone stranded in a script they
+// cannot read.
+function availableLocales() {
+  if (LOCALE_REGISTRY && LOCALE_REGISTRY.length) return LOCALE_REGISTRY;
+  return Object.keys(UI_STRINGS).map((code) => ({
+    code,
+    native_name: code.toUpperCase(),
+    dir: RTL_FALLBACK.has(code) ? "rtl" : "ltr",
+  }));
+}
+
+// index.json carries no flag field, and inventing a flag-per-language map
+// here is exactly what the 2026-08-05 UX review rejected (flags are
+// countries, not languages: Arabic has no single flag, English and Chinese
+// span many). But the app already SHIPS a reviewed set of "best
+// representative" picks - the option labels in app.html's #lang-select - so
+// this reads the prefix back out of that existing markup rather than
+// authoring a second mapping. A locale with no option there simply gets no
+// flag; the endonym is the authoritative label either way.
+let langFlagMap = null;
+function langFlagFor(code) {
+  if (langFlagMap === null) {
+    langFlagMap = new Map();
+    const sel = el("#lang-select");
+    if (sel) {
+      for (const opt of sel.options) {
+        const first = (opt.textContent || "").trim().split(/\s+/)[0] || "";
+        // Only take a leading run that isn't letters/digits, i.e. the flag.
+        if (first && !/[\p{Letter}\p{Number}]/u.test(first)) langFlagMap.set(opt.value, first);
+      }
+    }
+  }
+  return langFlagMap.get(code) || "";
+}
 
 // Per-locale word for "Language," used as the select's aria-label - a UX
 // review flagged the previous approach (concatenating all 7 translations
 // into one aria-label, e.g. "Language / Sprache / Мова / ...") as verbose,
 // since a screen reader announces the whole string every time regardless
 // of which language is active. One word in the CURRENT language is enough.
-const LANG_PICKER_LABEL = { de: "Sprache", en: "Language", uk: "Мова", pl: "Język", ar: "اللغة", zh: "语言", hi: "भाषा", tr: "Dil", fr: "Langue", ru: "Язык", es: "Idioma", it: "Lingua" };
+//
+// 2026-09-06: extended from 12 to all 18 locales in index.json. It was
+// written when the app shipped 12 and never grew with the content, so the
+// six later locales - fa/ro/el/hr/pt/bar - silently fell back to the
+// English "Language". That was a cosmetic gap while this only labelled a
+// <select> buried in a menu; it is not one now that the same string is the
+// aria-label of #lang-btn, the control a stranded screen-reader user is
+// meant to find. (This map is UI chrome, not a locale list - index.json
+// remains the existence gate; a locale missing here still appears in the
+// sheet, just with the English word announced.)
+const LANG_PICKER_LABEL = { de: "Sprache", en: "Language", uk: "Мова", pl: "Język", ar: "اللغة", zh: "语言", hi: "भाषा", tr: "Dil", fr: "Langue", ru: "Язык", es: "Idioma", it: "Lingua", fa: "زبان", ro: "Limbă", el: "Γλώσσα", hr: "Jezik", pt: "Idioma", bar: "Sproch" };
 
 // Maps a browser's navigator.language (e.g. "uk-UA", "zh-CN", "pt-BR") to
 // the closest locale this app actually supports, so a first-time visitor
@@ -772,6 +1323,32 @@ function resolveImage(q, revealed) {
 // its filter-chip list from Object.keys(TOPIC_LABELS[examType] || {}), so a
 // missing module gets NO topic filter row at all, silently. Check both
 // failure modes when auditing this file, not just per-locale gaps.
+// 2026-09-06: the four fun_translation modules (california_us, uk_gb,
+// austria_at, switzerland_ch) all tag their questions with the SAME rule
+// families - the cross-jurisdiction tagging data-rules.md § 3b asks for, so
+// the differential rulebook can later be generated from this corpus rather
+// than re-authored. The family labels are therefore written once here and
+// referenced from each module's TOPIC_LABELS entry below, instead of being
+// copy-pasted four times and drifting.
+//
+// The per-module entries below deliberately list only the families that
+// module's pool ACTUALLY contains (switzerland_ch has no documents/
+// overtaking/turning questions, uk_gb has no alcohol ones, and so on).
+// renderFilters() builds its chip row from Object.keys(TOPIC_LABELS[type]),
+// so listing a family a module has no questions for would ship a dead filter
+// chip that always yields an empty list - the mirror image of the
+// missing-module failure the comment above describes.
+const ROAD_RULE_FAMILY_LABELS = {
+  priority: { de: "Vorrang und Vorfahrt", en: "Right of way", uk: "Черговість проїзду", pl: "Pierwszeństwo przejazdu", ar: "أحقية المرور", zh: "路权", hi: "प्राथमिकता (राइट ऑफ़ वे)", tr: "Geçiş hakkı", fr: "Priorité", ru: "Приоритет проезда", es: "Prioridad de paso", it: "Precedenza" },
+  speed: { de: "Geschwindigkeit", en: "Speed limits", uk: "Обмеження швидкості", pl: "Ograniczenia prędkości", ar: "حدود السرعة", zh: "限速", hi: "गति सीमा", tr: "Hız sınırları", fr: "Limitations de vitesse", ru: "Ограничения скорости", es: "Límites de velocidad", it: "Limiti di velocità" },
+  signs: { de: "Verkehrszeichen", en: "Traffic signs", uk: "Дорожні знаки", pl: "Znaki drogowe", ar: "إشارات المرور", zh: "交通标志", hi: "यातायात संकेत", tr: "Trafik işaretleri", fr: "Panneaux de signalisation", ru: "Дорожные знаки", es: "Señales de tráfico", it: "Segnaletica stradale" },
+  alcohol: { de: "Alkohol und Fahrtüchtigkeit", en: "Alcohol & fitness to drive", uk: "Алкоголь і придатність до керування", pl: "Alkohol i zdolność do jazdy", ar: "الكحول واللياقة للقيادة", zh: "酒精与驾驶适宜性", hi: "शराब और ड्राइविंग योग्यता", tr: "Alkol ve sürüşe uygunluk", fr: "Alcool et aptitude à conduire", ru: "Алкоголь и годность к вождению", es: "Alcohol y aptitud para conducir", it: "Alcol e idoneità alla guida" },
+  vulnerable_users: { de: "Schwächere Verkehrsteilnehmende", en: "Vulnerable road users", uk: "Вразливі учасники дорожнього руху", pl: "Niechronieni uczestnicy ruchu", ar: "مستخدمو الطريق المعرضون للخطر", zh: "弱势道路使用者", hi: "संवेदनशील सड़क उपयोगकर्ता", tr: "Korunmasız yol kullanıcıları", fr: "Usagers vulnérables", ru: "Уязвимые участники движения", es: "Usuarios vulnerables de la vía", it: "Utenti vulnerabili della strada" },
+  documents: { de: "Dokumente und Zulassung", en: "Documents & licensing", uk: "Документи та реєстрація", pl: "Dokumenty i uprawnienia", ar: "الوثائق والترخيص", zh: "证件与牌照", hi: "दस्तावेज़ और लाइसेंसिंग", tr: "Belgeler ve ruhsat", fr: "Documents et immatriculation", ru: "Документы и регистрация", es: "Documentos y permisos", it: "Documenti e abilitazioni" },
+  overtaking: { de: "Überholen", en: "Overtaking", uk: "Обгін", pl: "Wyprzedzanie", ar: "التجاوز", zh: "超车", hi: "ओवरटेकिंग", tr: "Sollama", fr: "Dépassement", ru: "Обгон", es: "Adelantamiento", it: "Sorpasso" },
+  turning: { de: "Abbiegen und Wenden", en: "Turning & U-turns", uk: "Повороти та розворот", pl: "Skręcanie i zawracanie", ar: "الانعطاف والدوران للخلف", zh: "转弯与掉头", hi: "मोड़ना और यू-टर्न", tr: "Dönüşler ve U dönüşü", fr: "Virages et demi-tours", ru: "Повороты и разворот", es: "Giros y cambios de sentido", it: "Svolte e inversioni" },
+};
+
 const TOPIC_LABELS = {
   fuehrerschein: {
     vorfahrt: { de: "Vorfahrt und Kreuzungen", en: "Right of way & intersections", uk: "Проїзд перехресть", pl: "Pierwszeństwo i skrzyżowania", ar: "الأولوية والتقاطعات", zh: "路权与交叉路口", hi: "प्राथमिकता और चौराहे", tr: "Geçiş hakkı ve kavşaklar", fr: "Priorité et intersections", ru: "Приоритет проезда и перекрёстки", es: "Prioridad de paso e intersecciones", it: "Precedenza e incroci" },
@@ -1009,6 +1586,46 @@ const TOPIC_LABELS = {
     ausbildung_durchfuehren: { de: "HF 3: Ausbildung durchführen", en: "Field 3: Delivering the training", uk: "Поле 3: Проведення навчання", pl: "Obszar 3: Prowadzenie szkolenia", ar: "المجال 3: تنفيذ التدريب", zh: "行动领域 3：实施培训", hi: "क्षेत्र 3: प्रशिक्षण संचालन", tr: "Alan 3: Eğitimin yürütülmesi", fr: "Champ 3 : conduite de la formation", ru: "Поле 3: проведение обучения", es: "Campo 3: impartir la formación", it: "Campo 3: attuazione della formazione" },
     ausbildung_abschliessen: { de: "HF 4: Ausbildung abschließen", en: "Field 4: Concluding the training", uk: "Поле 4: Завершення навчання", pl: "Obszar 4: Zakończenie szkolenia", ar: "المجال 4: إتمام التدريب", zh: "行动领域 4：结束培训", hi: "क्षेत्र 4: प्रशिक्षण समापन", tr: "Alan 4: Eğitimin tamamlanması", fr: "Champ 4 : achèvement de la formation", ru: "Поле 4: завершение обучения", es: "Campo 4: conclusión de la formación", it: "Campo 4: conclusione della formazione" },
   },
+  // Kalifornien (USA) — CVC. Note `signs` is only 2 questions and
+  // `overtaking` only 1: the CVC pool leans on turning/alcohol/priority.
+  california_us: {
+    priority: ROAD_RULE_FAMILY_LABELS.priority,
+    speed: ROAD_RULE_FAMILY_LABELS.speed,
+    signs: ROAD_RULE_FAMILY_LABELS.signs,
+    alcohol: ROAD_RULE_FAMILY_LABELS.alcohol,
+    vulnerable_users: ROAD_RULE_FAMILY_LABELS.vulnerable_users,
+    turning: ROAD_RULE_FAMILY_LABELS.turning,
+    overtaking: ROAD_RULE_FAMILY_LABELS.overtaking,
+  },
+  // United Kingdom — Road Traffic Act 1988 and friends. No alcohol
+  // family in this pool; `documents` (10 questions) is the largest.
+  uk_gb: {
+    priority: ROAD_RULE_FAMILY_LABELS.priority,
+    speed: ROAD_RULE_FAMILY_LABELS.speed,
+    signs: ROAD_RULE_FAMILY_LABELS.signs,
+    documents: ROAD_RULE_FAMILY_LABELS.documents,
+    vulnerable_users: ROAD_RULE_FAMILY_LABELS.vulnerable_users,
+    overtaking: ROAD_RULE_FAMILY_LABELS.overtaking,
+  },
+  // Österreich — StVO/FSG/KFG/IG-L. Both alcohol (7) and
+  // documents (3) are present.
+  austria_at: {
+    priority: ROAD_RULE_FAMILY_LABELS.priority,
+    speed: ROAD_RULE_FAMILY_LABELS.speed,
+    signs: ROAD_RULE_FAMILY_LABELS.signs,
+    alcohol: ROAD_RULE_FAMILY_LABELS.alcohol,
+    documents: ROAD_RULE_FAMILY_LABELS.documents,
+    vulnerable_users: ROAD_RULE_FAMILY_LABELS.vulnerable_users,
+  },
+  // Schweiz — SVG/VRV/SSV. The evenest of the four: 5 families,
+  // 10 questions each, no documents/overtaking/turning.
+  switzerland_ch: {
+    priority: ROAD_RULE_FAMILY_LABELS.priority,
+    speed: ROAD_RULE_FAMILY_LABELS.speed,
+    signs: ROAD_RULE_FAMILY_LABELS.signs,
+    alcohol: ROAD_RULE_FAMILY_LABELS.alcohol,
+    vulnerable_users: ROAD_RULE_FAMILY_LABELS.vulnerable_users,
+  },
 };
 
 // Looks up a topic label for the CURRENT module/locale, falling back to EN
@@ -1040,6 +1657,12 @@ const ROLE_FILTER_CODES = ["all", "all_staff", "hr", "it", "management"];
 const ROLE_FILTER_STRINGS = {
   de: { label: "Rolle", all: "Alle Rollen", all_staff: "Alle Mitarbeitenden", hr: "Personalabteilung", it: "IT", management: "Führungskraft" },
   en: { label: "Role", all: "All roles", all_staff: "All staff", hr: "HR", it: "IT", management: "Management" },
+  bar: { label: "Rolle", all: "Alle Rollen", all_staff: "Alle Mitarbeiter", hr: "HR", it: "IT", management: "Management" },
+  ro: { label: "Rol", all: "Toate rolurile", all_staff: "Tot personalul", hr: "HR", it: "IT", management: "Management" },
+  pt: { label: "Função", all: "Todas as funções", all_staff: "Todos os colaboradores", hr: "RH", it: "TI", management: "Direção" },
+  hr: { label: "Uloga", all: "Sve uloge", all_staff: "Svo osoblje", hr: "Ljudski resursi", it: "IT", management: "Uprava" },
+  el: { label: "Ρόλος", all: "Όλοι οι ρόλοι", all_staff: "Όλο το προσωπικό", hr: "Ανθρώπινο δυναμικό", it: "Πληροφορική", management: "Διοίκηση" },
+  fa: { label: "نقش", all: "همهٔ نقش‌ها", all_staff: "همهٔ کارکنان", hr: "منابع انسانی", it: "فناوری اطلاعات", management: "مدیریت" },
   uk: { label: "Роль", all: "Усі ролі", all_staff: "Весь персонал", hr: "Відділ кадрів", it: "ІТ", management: "Керівництво" },
   pl: { label: "Rola", all: "Wszystkie role", all_staff: "Wszyscy pracownicy", hr: "Dział HR", it: "IT", management: "Kierownictwo" },
   ar: { label: "الدور", all: "كل الأدوار", all_staff: "جميع الموظفين", hr: "الموارد البشرية", it: "تقنية المعلومات", management: "الإدارة" },
@@ -1064,6 +1687,12 @@ function roleFilterStrings(lang) {
 const STAR_STRINGS = {
   de: { star: "☆ Merken", starred: "⭐ Gemerkt", starAria: "Diese Frage merken", starredAria: "Markierung entfernen", filterChip: "⭐ Nur markierte", filterAria: "Nur markierte Fragen anzeigen", emptyStarred: "Noch keine markierten Fragen in dieser Kategorie." },
   en: { star: "☆ Star", starred: "⭐ Starred", starAria: "Star this question", starredAria: "Remove star", filterChip: "⭐ Starred only", filterAria: "Show only starred questions", emptyStarred: "No starred questions in this category yet." },
+  bar: { star: "☆ Merka", starred: "⭐ Gmerkt", starAria: "Frag merka", starredAria: "Markierung entfernen", filterChip: "⭐ Nur Gmerkte", filterAria: "Nur gmerkte Fragen zoagn", emptyStarred: "In derer Kategorie hast no koa Frag gmerkt." },
+  ro: { star: "☆ Marchează", starred: "⭐ Marcat", starAria: "Marchează această întrebare", starredAria: "Elimină marcajul", filterChip: "⭐ Doar marcate", filterAria: "Arată doar întrebările marcate", emptyStarred: "Nicio întrebare marcată în această categorie încă." },
+  pt: { star: "☆ Marcar", starred: "⭐ Marcada", starAria: "Marcar esta pergunta", starredAria: "Remover marcação", filterChip: "⭐ Só marcadas", filterAria: "Mostrar apenas as perguntas marcadas", emptyStarred: "Ainda não há perguntas marcadas nesta categoria." },
+  hr: { star: "☆ Označi zvjezdicom", starred: "⭐ Označeno", starAria: "Označi ovo pitanje zvjezdicom", starredAria: "Ukloni oznaku zvjezdicom", filterChip: "⭐ Samo označena", filterAria: "Prikaži samo pitanja označena zvjezdicom", emptyStarred: "U ovoj kategoriji još nema pitanja označenih zvjezdicom." },
+  el: { star: "☆ Σημείωση", starred: "⭐ Σημειωμένο", starAria: "Σημείωση αυτής της ερώτησης", starredAria: "Αφαίρεση σημείωσης", filterChip: "⭐ Μόνο σημειωμένα", filterAria: "Εμφάνιση μόνο σημειωμένων ερωτήσεων", emptyStarred: "Δεν υπάρχουν ακόμη σημειωμένες ερωτήσεις σε αυτή την κατηγορία." },
+  fa: { star: "☆ ستاره", starred: "⭐ ستاره‌دار", starAria: "ستاره‌دار کردن این سؤال", starredAria: "حذف ستاره", filterChip: "⭐ فقط ستاره‌دارها", filterAria: "نمایش فقط سؤالات ستاره‌دار", emptyStarred: "هنوز سؤال ستاره‌داری در این دسته وجود ندارد." },
   uk: { star: "☆ Позначити", starred: "⭐ Позначено", starAria: "Позначити це питання зіркою", starredAria: "Прибрати позначку", filterChip: "⭐ Лише позначені", filterAria: "Показати лише позначені питання", emptyStarred: "У цій категорії ще немає позначених питань." },
   pl: { star: "☆ Oznacz", starred: "⭐ Oznaczone", starAria: "Oznacz to pytanie gwiazdką", starredAria: "Usuń oznaczenie", filterChip: "⭐ Tylko oznaczone", filterAria: "Pokaż tylko oznaczone pytania", emptyStarred: "W tej kategorii nie ma jeszcze oznaczonych pytań." },
   ar: { star: "☆ تمييز", starred: "⭐ مميزة", starAria: "تمييز هذا السؤال", starredAria: "إزالة التمييز", filterChip: "⭐ المميزة فقط", filterAria: "عرض الأسئلة المميزة فقط", emptyStarred: "لا توجد أسئلة مميزة في هذه الفئة بعد." },
@@ -1116,11 +1745,94 @@ const FEATURE_FLAGS_CONFIG = {
   cert_email: { dev: false, staging: false, live: false },
 };
 
+// --- Storage consent (DN-89) --------------------------------------------
+// Zettacard uses no real cookies anywhere (see app/datenschutzerklaerung.html
+// section 3, and app/impressum.html) - every persisted bit of app state is
+// plain localStorage. This section gives a first-time visitor an explicit
+// Yes/No choice over whether that's allowed at all, instead of the
+// previous implied-consent-by-use posture that section 3 describes. EVERY
+// localStorage read/write in this file (the sole exception being this
+// consent flag itself, which has to be readable/writable regardless of the
+// choice it records - otherwise the notice would show forever even after a
+// real answer) goes through storageGet/storageSet/storageRemove/
+// storageKeys below instead of calling localStorage.* directly, so a
+// declined visitor gets a session that behaves like using the app with
+// storage disabled entirely in the browser: nothing persists across a
+// reload, nothing breaks either.
+//
+// Real gate, not just a dismissible banner: showStorageConsentNoticeIfNeeded()
+// (wired from init(), see below) runs BEFORE migrateOrInitProfiles()/
+// loadActiveProfileState() are ever called when no consent decision has
+// been recorded yet - so nothing touches app storage until the visitor has
+// answered (explicit Yes/No), or 10s pass with no answer, which per the
+// PO's explicit decision counts as a decline (silence isn't consent).
+const STORAGE_CONSENT_KEY = "zc-storage-consent"; // values: "granted" | "declined"; absent = not yet decided
+
+function getStorageConsent() {
+  try { return localStorage.getItem(STORAGE_CONSENT_KEY); } catch (e) { return null; }
+}
+
+function storageAllowed() {
+  return getStorageConsent() === "granted";
+}
+
+// Called once, right after a decline (explicit click or the notice's own
+// 10s auto-dismiss) - removes every key this app has ever written under
+// its own namespaces, so a returning visitor from before this feature
+// existed (implied-consent era) gets a real wipe, not just a freeze of
+// whatever was already sitting there.
+function wipeAppStorage() {
+  // Deliberately raw localStorage.removeItem, NOT storageRemove() - this
+  // runs exactly when consent has just been set to "declined" (see
+  // setStorageConsent below), so storageRemove()'s own gate check would
+  // make it a silent no-op at precisely the moment it needs to actually
+  // delete something. (A find-and-replace pass earlier in this file's
+  // history briefly introduced exactly that bug - caught in testing
+  // before it shipped; this comment is here so it doesn't happen again.)
+  try {
+    Object.keys(localStorage).forEach((k) => {
+      if (k === STORAGE_CONSENT_KEY) return;
+      if (k.startsWith("dn-") || k.startsWith("zc-")) {
+        try { localStorage.removeItem(k); } catch (e) { /* non-fatal */ }
+      }
+    });
+  } catch (e) { /* storage unavailable - nothing to wipe */ }
+}
+
+function setStorageConsent(value) {
+  try { localStorage.setItem(STORAGE_CONSENT_KEY, value); } catch (e) { /* non-fatal */ }
+  if (value === "declined") wipeAppStorage();
+}
+
+function storageGet(key) {
+  if (!storageAllowed()) return null;
+  try { return localStorage.getItem(key); } catch (e) { return null; }
+}
+
+function storageSet(key, value) {
+  if (!storageAllowed()) return;
+  try { localStorage.setItem(key, value); } catch (e) { /* non-fatal */ }
+}
+
+function storageRemove(key) {
+  if (!storageAllowed()) return;
+  try { localStorage.removeItem(key); } catch (e) { /* non-fatal */ }
+}
+
+// Object.keys(localStorage) scans (e.g. migrateOrInitProfiles' old-flat-key
+// discovery below) also need to respect a decline, since even just LISTING
+// keys implies storage was read. Empty array under decline is correct: a
+// declined visitor is never treated as "has old data to migrate."
+function storageKeys(prefix) {
+  if (!storageAllowed()) return [];
+  try { return Object.keys(localStorage).filter((k) => k.startsWith(prefix)); } catch (e) { return []; }
+}
+
 const FEATURE_OVERRIDES_KEY = "zc-feature-overrides"; // deliberately device-level, NOT profileKey()'d - a deep-link unlock shouldn't vanish when switching study profiles.
 
 function loadFeatureOverrides() {
   try {
-    const raw = JSON.parse(localStorage.getItem(FEATURE_OVERRIDES_KEY) || "{}");
+    const raw = JSON.parse(storageGet(FEATURE_OVERRIDES_KEY) || "{}");
     return raw && typeof raw === "object" ? raw : {};
   } catch (e) {
     return {};
@@ -1131,7 +1843,7 @@ function setFeatureOverride(name, enabled) {
   try {
     const overrides = loadFeatureOverrides();
     overrides[name] = !!enabled;
-    localStorage.setItem(FEATURE_OVERRIDES_KEY, JSON.stringify(overrides));
+    storageSet(FEATURE_OVERRIDES_KEY, JSON.stringify(overrides));
   } catch (e) { /* storage unavailable - override just won't persist */ }
 }
 
@@ -1264,7 +1976,7 @@ function profileKey(base) {
 
 function loadProfileRegistry() {
   try {
-    const raw = JSON.parse(localStorage.getItem(PROFILE_REGISTRY_KEY) || "null");
+    const raw = JSON.parse(storageGet(PROFILE_REGISTRY_KEY) || "null");
     return Array.isArray(raw) ? raw : null;
   } catch (e) {
     return null;
@@ -1272,11 +1984,11 @@ function loadProfileRegistry() {
 }
 
 function saveProfileRegistry(list) {
-  try { localStorage.setItem(PROFILE_REGISTRY_KEY, JSON.stringify(list)); } catch (e) { /* non-fatal */ }
+  try { storageSet(PROFILE_REGISTRY_KEY, JSON.stringify(list)); } catch (e) { /* non-fatal */ }
 }
 
 function setActiveProfileId(id) {
-  try { localStorage.setItem(PROFILE_ACTIVE_KEY, id); } catch (e) { /* non-fatal */ }
+  try { storageSet(PROFILE_ACTIVE_KEY, id); } catch (e) { /* non-fatal */ }
 }
 
 // Runs once, before anything else touches localStorage. If a profile
@@ -1292,7 +2004,7 @@ function migrateOrInitProfiles() {
   if (existing && existing.length > 0) {
     state.profiles = existing;
     let activeId = null;
-    try { activeId = localStorage.getItem(PROFILE_ACTIVE_KEY); } catch (e) { /* non-fatal */ }
+    try { activeId = storageGet(PROFILE_ACTIVE_KEY); } catch (e) { /* non-fatal */ }
     state.activeProfileId = (activeId && existing.some((p) => p.id === activeId)) ? activeId : existing[0].id;
     return;
   }
@@ -1300,28 +2012,28 @@ function migrateOrInitProfiles() {
   const id = genProfileId();
   let introSeenKeys = [];
   try {
-    introSeenKeys = Object.keys(localStorage).filter((k) => k.startsWith("dn-intro-seen-"));
+    introSeenKeys = storageKeys("dn-intro-seen-");
   } catch (e) { /* non-fatal */ }
 
   const hasOldData = OLD_FLAT_KEYS.some((k) => {
-    try { return localStorage.getItem(k) !== null; } catch (e) { return false; }
+    try { return storageGet(k) !== null; } catch (e) { return false; }
   }) || introSeenKeys.length > 0;
 
   if (hasOldData) {
     OLD_FLAT_KEYS.forEach((k) => {
       try {
-        const v = localStorage.getItem(k);
+        const v = storageGet(k);
         if (v !== null) {
-          localStorage.setItem(`dn-p-${id}-${k.slice(3)}`, v);
-          localStorage.removeItem(k);
+          storageSet(`dn-p-${id}-${k.slice(3)}`, v);
+          storageRemove(k);
         }
       } catch (e) { /* non-fatal */ }
     });
     introSeenKeys.forEach((k) => {
       try {
-        const v = localStorage.getItem(k);
-        localStorage.setItem(`dn-p-${id}-${k.slice(3)}`, v);
-        localStorage.removeItem(k);
+        const v = storageGet(k);
+        storageSet(`dn-p-${id}-${k.slice(3)}`, v);
+        storageRemove(k);
       } catch (e) { /* non-fatal */ }
     });
   }
@@ -1342,6 +2054,12 @@ function currentProfileName() {
 const PROFILE_STRINGS = {
   de: { switchAria: "Profil wechseln", title: "Profile auf diesem Gerät", close: "← Zurück", addPlaceholder: "Profilname", addConfirm: "+ Profil hinzufügen" },
   en: { switchAria: "Switch profile", title: "Profiles on this device", close: "← Back", addPlaceholder: "Profile name", addConfirm: "+ Add profile" },
+  bar: { switchAria: "Profil wechsln", title: "Profile auf dem Gerät", close: "← Zruck", addPlaceholder: "Profilname", addConfirm: "+ Profil eintragen" },
+  ro: { switchAria: "Schimbă profilul", title: "Profiluri pe acest dispozitiv", close: "← Înapoi", addPlaceholder: "Numele profilului", addConfirm: "+ Adaugă profil" },
+  pt: { switchAria: "Mudar de perfil", title: "Perfis neste dispositivo", close: "← Voltar", addPlaceholder: "Nome do perfil", addConfirm: "+ Adicionar perfil" },
+  hr: { switchAria: "Promijeni profil", title: "Profili na ovom uređaju", close: "← Natrag", addPlaceholder: "Naziv profila", addConfirm: "+ Dodaj profil" },
+  el: { switchAria: "Αλλαγή προφίλ", title: "Προφίλ σε αυτή τη συσκευή", close: "← Πίσω", addPlaceholder: "Όνομα προφίλ", addConfirm: "+ Προσθήκη προφίλ" },
+  fa: { switchAria: "تغییر پروفایل", title: "پروفایل‌های این دستگاه", close: "← بازگشت", addPlaceholder: "نام پروفایل", addConfirm: "+ افزودن پروفایل" },
   uk: { switchAria: "Змінити профіль", title: "Профілі на цьому пристрої", close: "← Назад", addPlaceholder: "Назва профілю", addConfirm: "+ Додати профіль" },
   pl: { switchAria: "Zmień profil", title: "Profile na tym urządzeniu", close: "← Wstecz", addPlaceholder: "Nazwa profilu", addConfirm: "+ Dodaj profil" },
   ar: { switchAria: "تبديل الملف الشخصي", title: "الملفات الشخصية على هذا الجهاز", close: "→ رجوع", addPlaceholder: "اسم الملف الشخصي", addConfirm: "+ إضافة ملف شخصي" },
@@ -1541,8 +2259,8 @@ async function loadModuleData(examType, scopeCode) {
   }
 
   try {
-    localStorage.setItem(profileKey("exam-type"), examType);
-    localStorage.setItem(profileKey("scope-code"), scopeCode);
+    storageSet(profileKey("exam-type"), examType);
+    storageSet(profileKey("scope-code"), scopeCode);
   } catch (e) { /* non-fatal */ }
 
   // DN-46: re-check (read-only, no fetching) whether this module+language
@@ -1845,6 +2563,12 @@ async function selectModuleAndScope(examType, scopeCode) {
 const MODULE_PICKER_STRINGS = {
   de: { chooseModule: "Welche Prüfung lernst du?", back: "← Zurück", changeExam: "Prüfung wechseln", cancel: "Abbrechen" },
   en: { chooseModule: "Which exam are you studying for?", back: "← Back", changeExam: "Change exam", cancel: "Cancel" },
+  bar: { chooseModule: "Für wölche Prüfung lernst denn?", back: "← Zruck", changeExam: "Prüfung wechsln", cancel: "Abbrechen" },
+  ro: { chooseModule: "Pentru ce examen te pregătești?", back: "← Înapoi", changeExam: "Schimbă examenul", cancel: "Anulează" },
+  pt: { chooseModule: "Para que exame está a estudar?", back: "← Voltar", changeExam: "Mudar de exame", cancel: "Cancelar" },
+  hr: { chooseModule: "Za koji se ispit pripremaš?", back: "← Natrag", changeExam: "Promijeni ispit", cancel: "Odustani" },
+  el: { chooseModule: "Για ποια εξέταση προετοιμάζεστε;", back: "← Πίσω", changeExam: "Αλλαγή εξέτασης", cancel: "Ακύρωση" },
+  fa: { chooseModule: "برای کدام آزمون در حال آماده‌شدن هستید؟", back: "← بازگشت", changeExam: "تغییر آزمون", cancel: "لغو" },
   uk: { chooseModule: "До якого іспиту ви готуєтесь?", back: "← Назад", changeExam: "Змінити іспит", cancel: "Скасувати" },
   pl: { chooseModule: "Do jakiego egzaminu się przygotowujesz?", back: "← Wstecz", changeExam: "Zmień egzamin", cancel: "Anuluj" },
   ar: { chooseModule: "لأي امتحان تستعد؟", back: "→ رجوع", changeExam: "تغيير الامتحان", cancel: "إلغاء" },
@@ -1869,6 +2593,12 @@ const MODULE_PICKER_STRINGS = {
 const MODULE_INTRO_STRINGS = {
   de: { next: "Weiter", back: "← Zurück", skip: "Überspringen", start: "Los geht's", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "Über dieses Modul" },
   en: { next: "Next", back: "← Back", skip: "Skip", start: "Let's start", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "About this module" },
+  bar: { next: "Weiter", back: "← Zruck", skip: "Überspringa", start: "Auf geht's", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "Über des Modul" },
+  ro: { next: "Următorul", back: "← Înapoi", skip: "Sari peste", start: "Să începem", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "Despre acest modul" },
+  pt: { next: "Seguinte", back: "← Voltar", skip: "Saltar", start: "Vamos começar", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "Sobre este módulo" },
+  hr: { next: "Sljedeće", back: "← Natrag", skip: "Preskoči", start: "Krenimo", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "O ovom modulu" },
+  el: { next: "Επόμενο", back: "← Πίσω", skip: "Παράλειψη", start: "Ας ξεκινήσουμε", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "Σχετικά με αυτή την ενότητα" },
+  fa: { next: "بعدی", back: "← بازگشت", skip: "رد کردن", start: "شروع می‌کنیم", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "دربارهٔ این ماژول" },
   uk: { next: "Далі", back: "← Назад", skip: "Пропустити", start: "Почати", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "Про цей модуль" },
   pl: { next: "Dalej", back: "← Wstecz", skip: "Pomiń", start: "Zaczynajmy", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "O tym module" },
   ar: { next: "التالي", back: "← رجوع", skip: "تخطي", start: "لنبدأ", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "حول هذه الوحدة" },
@@ -1886,7 +2616,7 @@ function introStrings(lang) {
 
 function hasSeenIntro(examType) {
   try {
-    return localStorage.getItem(profileKey(`intro-seen-${examType}`)) === "1";
+    return storageGet(profileKey(`intro-seen-${examType}`)) === "1";
   } catch (e) {
     return false;
   }
@@ -1894,7 +2624,7 @@ function hasSeenIntro(examType) {
 
 function markIntroSeen(examType) {
   try {
-    localStorage.setItem(profileKey(`intro-seen-${examType}`), "1");
+    storageSet(profileKey(`intro-seen-${examType}`), "1");
   } catch (e) { /* non-fatal */ }
 }
 
@@ -2090,6 +2820,240 @@ const CERT_STRINGS = {
     walletIdentityDoneMsg: "Done - the personalized file was downloaded.",
     walletIdentityErrorMsg: "Couldn't create a personalized file. Please try again later.",
     walletIdentityTooManyMsg: (n) => `At most ${n} email addresses allowed.`,
+  },
+  bar: {
+    btn: "Meine Zertifikate", title: "Meine Zertifikate", close: "← Zurück",
+    intro: "Bestandene Prüfungssimulationen werden hier als Nachweis erfasst (nur auf diesem Gerät). Laden Sie eine Zertifikatsdatei herunter, um sie aufzubewahren oder zu teilen - diese Datei ist das eigentliche portable Dokument, nicht der interne Zustand der App.",
+    empty: "Noch keine bestandene Prüfungssimulation. Bestehen Sie eine Prüfungssimulation (nicht den Übungsmodus), um hier ein Zertifikat zu erhalten.",
+    passedOn: (d) => `Bestanden am ${d}`,
+    certDocTitle: "Teilnahmezertifikat", certLangSelectLabel: "Zertifikatssprache", certDocSummary: (n, err, wrong) => `Prüfungssimulation mit ${n} Fragen · ${err} Fehlerpunkt(e) · ${wrong} verpasste sicherheitsrelevante Frage(n)`,
+    downloadCert: "Zertifikat herunterladen (HTML)", downloadPdf: "Zertifikat herunterladen (PDF)", downloadCred: "Nachweis herunterladen (JSON)",
+    downloadJwt: "Signierten Nachweis herunterladen (JWT, für Wallets)",
+    disclaimer: "Selbst erstellter Nachweis, nicht kryptografisch signiert oder unabhängig geprüft.",
+    certVerifyIntro: "Scannen Sie den QR-Code oder öffnen Sie den Link, um dieses Zertifikat online zu prüfen:",
+    certSignedNoLinkNote: (d) => `Dieses Zertifikat ist kryptografisch von Zettacard signiert (Schlüssel-ID ${d}), es wurde jedoch noch kein öffentlicher Prüflink erstellt. Erstellen Sie einen unter „Meine Zertifikate", damit andere ihn online prüfen können, oder nutzen Sie den separaten signierten JWT-Download zur Offline-Prüfung.`,
+    renewalOverdue: (d) => `Auffrischung überfällig seit ${d}`,
+    renewalDueSoon: (d) => `Auffrischung fällig bis ${d}`,
+    verifiedLabel: "✅ Signiertes Abzeichen", selfIssuedLabel: "Unbestätigt",
+    verifiedHint: "Kryptografisch signiert, von Dritten unabhängig überprüfbar.",
+    selfIssuedHint: "Selbst erstellt, nicht signiert.",
+    verifyRowTitle: "Dauerhafter Prüflink",
+    verifyRowIntro: "Für Compliance-Zertifikate: Erstellen Sie einen dauerhaften Link, über den jeder (z. B. Ihr Arbeitgeber) die Signatur direkt online prüfen kann.",
+    verifyNamePlaceholder: "Name (optional)",
+    verifyCreateBtn: "Prüflink erstellen",
+    verifyCreating: "Wird erstellt …",
+    verifyLinkLabel: "Ihr Prüflink:",
+    verifyCopyBtn: "Kopieren",
+    verifyCopiedBtn: "Kopiert!",
+    verifyError: "Der Prüflink konnte nicht erstellt werden. Bitte versuchen Sie es später erneut.",
+    emailLabel: "Per E-Mail senden", emailPlaceholder: "E-Mail-Adresse(n), durch Komma getrennt", emailSendBtn: "Zertifikat per E-Mail zusenden",
+    emailSending: "Wird gesendet …", emailSentMsg: "Gesendet! Bitte prüfen Sie auch Ihren Spam-Ordner.", emailErrorMsg: "Senden fehlgeschlagen. Bitte versuchen Sie es später erneut.", emailTooManyMsg: (n) => `Maximal ${n} Empfänger pro Versand.`,
+    walletRowTitle: "Zu einer Badge-Wallet hinzufügen", walletRowIntro: "Nutzen Sie die oben herunterladbare signierte Nachweisdatei (JWT), um dieses Abzeichen in einer externen Wallet-App zu speichern:",
+    walletCredlyStep: "Credly: Gehen Sie zu Ihrem Profil → Reiter \"Other\" → laden Sie die heruntergeladene JWT-Datei hoch.", walletObpStep: "Open Badge Passport: Wählen Sie \"Import a badge\" und laden Sie dieselbe JWT-Datei hoch.", walletLcwStep: "Learner Credential Wallet: Der Import per Fingertipp wird noch nicht unterstützt - dafür wäre ein eigener VC-API-Austauschdienst nötig, ein größeres neues Backend-System. Folgt vielleicht bei entsprechendem Bedarf.",
+    walletEmailNote: "Wollen Sie nur eine Kopie für später aufbewahren? Nutzen Sie stattdessen die E-Mail-Option oben.",
+    walletIdentityTitle: "Machen Sie Ihr Abzeichen unabhängig von Ihrer dienstlichen E-Mail-Adresse",
+    walletIdentityIntro: "Geben Sie eine oder mehrere private E-Mail-Adressen ein, über die Sie verfügen - sie werden nur gehasht (nie im Klartext gespeichert) in eine separate, personalisierte Nachweisdatei aufgenommen, damit z. B. Credly sie mit der E-Mail-Adresse Ihres eigenen Kontos abgleichen kann, egal welche Sie dort verwenden. Es wird nirgends etwas gespeichert - die Angabe wird nur für diesen einen Download verwendet.",
+    walletIdentityPlaceholder: "z. B. privat@gmail.com (bis zu 3, durch Komma getrennt)",
+    walletIdentityDownloadBtn: "Personalisierten Nachweis herunterladen",
+    walletIdentitySigning: "Wird signiert…",
+    walletIdentityDoneMsg: "Fertig - die personalisierte Datei wurde heruntergeladen.",
+    walletIdentityErrorMsg: "Es konnte keine personalisierte Datei erstellt werden. Bitte versuchen Sie es später erneut.",
+    walletIdentityTooManyMsg: (n) => `Maximal ${n} E-Mail-Adressen erlaubt.`,
+  },
+  ro: {
+    btn: "Certificatele mele", title: "Certificatele mele", close: "← Înapoi",
+    intro: "Simulările de examen promovate sunt înregistrate aici ca dovadă de finalizare (doar pe acest dispozitiv). Descarcă un fișier de certificat pentru a-l păstra sau a-l distribui - acel fișier este artefactul portabil propriu-zis, nu starea internă a aplicației.",
+    empty: "Nicio simulare de examen promovată încă. Promovează o Simulare de examen (nu modul Antrenament) pentru a obține un certificat aici.",
+    passedOn: (d) => `Promovat pe ${d}`,
+    certDocTitle: "Certificat de absolvire", certLangSelectLabel: "Limba certificatului", certDocSummary: (n, err, wrong) => `Simulare de examen cu ${n} întrebări · ${err} punct(e) de eroare · ${wrong} întrebare(-ări) critică(e) greșită(e)`,
+    downloadCert: "Descarcă certificatul (HTML)", downloadPdf: "Descarcă certificatul (PDF)", downloadCred: "Descarcă acreditarea (JSON)",
+    downloadJwt: "Descarcă acreditarea semnată (JWT, pentru portofele digitale)",
+    disclaimer: "Înregistrare generată automat, nesemnată criptografic și neverificată independent.",
+    certVerifyIntro: "Scanează codul QR sau deschide linkul pentru a verifica acest certificat online:",
+    certSignedNoLinkNote: (d) => `Acest certificat este semnat criptografic de Zettacard (ID cheie ${d}), dar nu a fost creat încă un link public de verificare. Creează unul la secțiunea "Certificatele mele" pentru ca alții să îl poată verifica online, sau folosește descărcarea separată a JWT-ului semnat pentru verificare offline.`,
+    renewalOverdue: (d) => `Reîmprospătare restantă din ${d}`,
+    renewalDueSoon: (d) => `Reîmprospătare necesară până la ${d}`,
+    verifiedLabel: "✅ Insignă semnată", selfIssuedLabel: "Neverificat",
+    verifiedHint: "Semnat criptografic, verificabil independent de către terți.",
+    selfIssuedHint: "Generat automat, nesemnat.",
+    verifyRowTitle: "Link permanent de verificare",
+    verifyRowIntro: "Pentru certificate de conformitate: creează un link permanent unde oricine (de ex. angajatorul tău) poate verifica semnătura direct online.",
+    verifyNamePlaceholder: "Nume (opțional)",
+    verifyCreateBtn: "Creează link de verificare",
+    verifyCreating: "Se creează …",
+    verifyLinkLabel: "Linkul tău de verificare:",
+    verifyCopyBtn: "Copiază",
+    verifyCopiedBtn: "Copiat!",
+    verifyError: "Linkul de verificare nu a putut fi creat. Te rugăm să încerci din nou mai târziu.",
+    emailLabel: "Trimite prin email", emailPlaceholder: "Adresă/adrese de email, separate prin virgulă", emailSendBtn: "Trimite-mi certificatul prin email",
+    emailSending: "Se trimite …", emailSentMsg: "Trimis! Verifică și folderul de spam.", emailErrorMsg: "Trimiterea a eșuat. Te rugăm să încerci din nou mai târziu.", emailTooManyMsg: (n) => `Maximum ${n} destinatari per trimitere.`,
+    walletRowTitle: "Adaugă într-un portofel de insigne", walletRowIntro: "Folosește fișierul de acreditare semnat (JWT) descărcabil mai sus pentru a salva această insignă într-o aplicație externă de tip portofel:",
+    walletCredlyStep: "Credly: mergi la profilul tău → fila \"Other\" → încarcă fișierul JWT descărcat.", walletObpStep: "Open Badge Passport: alege \"Import a badge\" și încarcă același fișier JWT.", walletLcwStep: "Learner Credential Wallet: importul cu un singur clic nu este încă acceptat - ar necesita un serviciu dedicat de schimb VC-API, o infrastructură nouă de backend mult mai amplă. Poate fi adăugat dacă apare o cerere reală.",
+    walletEmailNote: "Vrei doar să păstrezi o copie pentru mai târziu? Folosește în schimb opțiunea de email de mai sus.",
+    walletIdentityTitle: "Fă-ți insigna independentă de emailul de serviciu",
+    walletIdentityIntro: "Introdu una sau mai multe adrese de email personale pe care le deții - acestea sunt doar transformate în hash (niciodată stocate în text simplu) într-un fișier de acreditare separat și personalizat, astfel încât, de exemplu, Credly să îl poată asocia cu adresa de email a contului tău, oricare ar fi ea acolo. Nimic nu este stocat nicăieri - este folosit doar pentru această descărcare.",
+    walletIdentityPlaceholder: "de ex. personal@gmail.com (până la 3, separate prin virgulă)",
+    walletIdentityDownloadBtn: "Descarcă acreditarea personalizată",
+    walletIdentitySigning: "Se semnează…",
+    walletIdentityDoneMsg: "Gata - fișierul personalizat a fost descărcat.",
+    walletIdentityErrorMsg: "Nu s-a putut crea un fișier personalizat. Te rugăm să încerci din nou mai târziu.",
+    walletIdentityTooManyMsg: (n) => `Sunt permise cel mult ${n} adrese de email.`,
+  },
+  pt: {
+    btn: "Os meus certificados", title: "Os meus certificados", close: "← Voltar",
+    intro: "As simulações de exame aprovadas ficam aqui registadas como comprovativo de conclusão (apenas neste dispositivo). Descarregue um ficheiro de certificado para o guardar ou partilhar - esse ficheiro é o verdadeiro artefacto portátil, não o estado interno da aplicação.",
+    empty: "Ainda não aprovou nenhuma simulação de exame. Aprove uma Simulação de Exame (não o modo de Treino) para obter aqui um certificado.",
+    passedOn: (d) => `Aprovado em ${d}`,
+    certDocTitle: "Certificado de Conclusão", certLangSelectLabel: "Idioma do certificado", certDocSummary: (n, err, wrong) => `Simulação de exame de ${n} perguntas · ${err} ponto(s) de erro · ${wrong} falha(s) crítica(s) de segurança`,
+    downloadCert: "Descarregar certificado (HTML)", downloadPdf: "Descarregar certificado (PDF)", downloadCred: "Descarregar credencial (JSON)",
+    downloadJwt: "Descarregar credencial assinada (JWT, para carteiras digitais)",
+    disclaimer: "Registo autogerado, não assinado criptograficamente nem verificado de forma independente.",
+    certVerifyIntro: "Digitalize o código QR ou abra a ligação para verificar este certificado online:",
+    certSignedNoLinkNote: (d) => `Este certificado está assinado criptograficamente pela Zettacard (ID da chave ${d}), mas ainda não foi criada nenhuma ligação pública de verificação. Crie uma em "Os meus certificados" para que outras pessoas o possam verificar online, ou utilize o descarregamento separado do JWT assinado para verificação offline.`,
+    renewalOverdue: (d) => `Reciclagem em atraso desde ${d}`,
+    renewalDueSoon: (d) => `Reciclagem a realizar até ${d}`,
+    verifiedLabel: "✅ Distintivo assinado", selfIssuedLabel: "Não verificado",
+    verifiedHint: "Assinado criptograficamente, verificável de forma independente por terceiros.",
+    selfIssuedHint: "Autogerado, não assinado.",
+    verifyRowTitle: "Ligação de verificação permanente",
+    verifyRowIntro: "Para certificados de conformidade: crie uma ligação permanente onde qualquer pessoa (por exemplo, a sua entidade patronal) pode verificar a assinatura diretamente online.",
+    verifyNamePlaceholder: "Nome (opcional)",
+    verifyCreateBtn: "Criar ligação de verificação",
+    verifyCreating: "A criar …",
+    verifyLinkLabel: "A sua ligação de verificação:",
+    verifyCopyBtn: "Copiar",
+    verifyCopiedBtn: "Copiado!",
+    verifyError: "Não foi possível criar a ligação de verificação. Tente novamente mais tarde.",
+    emailLabel: "Enviar por email", emailPlaceholder: "Endereço(s) de email, separados por vírgula", emailSendBtn: "Enviar-me o certificado por email",
+    emailSending: "A enviar …", emailSentMsg: "Enviado! Verifique também a pasta de spam.", emailErrorMsg: "Falha no envio. Tente novamente mais tarde.", emailTooManyMsg: (n) => `Máximo de ${n} destinatários por envio.`,
+    walletRowTitle: "Adicionar a uma carteira de distintivos", walletRowIntro: "Utilize o ficheiro de credencial assinada (JWT) disponível para descarregar acima para guardar este distintivo numa aplicação de carteira externa:",
+    walletCredlyStep: "Credly: aceda ao seu perfil → separador \"Other\" → carregue o ficheiro JWT descarregado.", walletObpStep: "Open Badge Passport: escolha \"Import a badge\" e carregue o mesmo ficheiro JWT.", walletLcwStep: "Learner Credential Wallet: a importação num só toque ainda não é suportada - exigiria um serviço dedicado de troca VC-API, uma peça nova e maior de infraestrutura de backend. Poderá vir a ser feito se houver procura real.",
+    walletEmailNote: "Só quer guardar uma cópia para mais tarde? Use antes a opção de email acima.",
+    walletIdentityTitle: "Torne o seu distintivo independente do seu email profissional",
+    walletIdentityIntro: "Introduza um ou mais endereços de email pessoais que controle - são apenas cifrados (hash) (nunca guardados em texto simples) num ficheiro de credencial separado e personalizado, para que, por exemplo, o Credly o possa associar ao email da sua própria conta, seja qual for o que aí utiliza. Nada é guardado em lado nenhum - é usado apenas para este único descarregamento.",
+    walletIdentityPlaceholder: "ex.: pessoal@gmail.com (até 3, separados por vírgula)",
+    walletIdentityDownloadBtn: "Descarregar credencial personalizada",
+    walletIdentitySigning: "A assinar…",
+    walletIdentityDoneMsg: "Concluído - o ficheiro personalizado foi descarregado.",
+    walletIdentityErrorMsg: "Não foi possível criar um ficheiro personalizado. Tente novamente mais tarde.",
+    walletIdentityTooManyMsg: (n) => `São permitidos, no máximo, ${n} endereços de email.`,
+  },
+  hr: {
+    btn: "Moji certifikati", title: "Moji certifikati", close: "← Natrag",
+    intro: "Položene simulacije ispita bilježe se ovdje kao dokaz o završetku (samo na ovom uređaju). Preuzmi datoteku certifikata da je zadržiš ili podijeliš - ta je datoteka stvarni prenosivi artefakt, a ne interno stanje aplikacije.",
+    empty: "Još nema položene simulacije ispita. Položi simulaciju ispita (ne način za vježbu) da ovdje dobiješ certifikat.",
+    passedOn: (d) => `Položeno ${d}`,
+    certDocTitle: "Potvrda o završetku", certLangSelectLabel: "Jezik certifikata", certDocSummary: (n, err, wrong) => `Simulacija ispita s ${n} pitanja · ${err} bod(ova) grešaka · ${wrong} propušten(ih) sigurnosno kritičn(ih) pitanja`,
+    downloadCert: "Preuzmi certifikat (HTML)", downloadPdf: "Preuzmi certifikat (PDF)", downloadCred: "Preuzmi vjerodajnicu (JSON)",
+    downloadJwt: "Preuzmi potpisanu vjerodajnicu (JWT, za novčanike)",
+    disclaimer: "Samostalno generiran zapis, nije kriptografski potpisan niti neovisno provjeren.",
+    certVerifyIntro: "Skeniraj QR kod ili otvori poveznicu za online provjeru ovog certifikata:",
+    certSignedNoLinkNote: (d) => `Ovaj je certifikat kriptografski potpisan od strane Zettacarda (ID ključa ${d}), ali još nije izrađena javna poveznica za provjeru. Izradi je pod "Moji certifikati" kako bi je i drugi mogli provjeriti online, ili koristi zasebno preuzimanje potpisanog JWT-a za izvanmrežnu provjeru.`,
+    renewalOverdue: (d) => `Obnova kasni od ${d}`,
+    renewalDueSoon: (d) => `Obnova dospijeva do ${d}`,
+    verifiedLabel: "✅ Potpisana oznaka", selfIssuedLabel: "Nepotvrđeno",
+    verifiedHint: "Kriptografski potpisano, neovisno provjerljivo od treće strane.",
+    selfIssuedHint: "Samostalno generirano, nije potpisano.",
+    verifyRowTitle: "Trajna poveznica za provjeru",
+    verifyRowIntro: "Za certifikate usklađenosti: izradi trajnu poveznicu na kojoj bilo tko (npr. tvoj poslodavac) može izravno online provjeriti potpis.",
+    verifyNamePlaceholder: "Ime (neobavezno)",
+    verifyCreateBtn: "Izradi poveznicu za provjeru",
+    verifyCreating: "Izrada …",
+    verifyLinkLabel: "Tvoja poveznica za provjeru:",
+    verifyCopyBtn: "Kopiraj",
+    verifyCopiedBtn: "Kopirano!",
+    verifyError: "Poveznicu za provjeru nije bilo moguće izraditi. Pokušaj ponovno kasnije.",
+    emailLabel: "Pošalji e-poštom", emailPlaceholder: "Adresa(e) e-pošte, odvojene zarezom", emailSendBtn: "Pošalji mi certifikat e-poštom",
+    emailSending: "Slanje …", emailSentMsg: "Poslano! Provjeri i mapu neželjene pošte.", emailErrorMsg: "Slanje nije uspjelo. Pokušaj ponovno kasnije.", emailTooManyMsg: (n) => `Najviše ${n} primatelja po slanju.`,
+    walletRowTitle: "Dodaj u novčanik značaka", walletRowIntro: "Koristi gore preuzetu potpisanu datoteku vjerodajnice (JWT) za spremanje ove značke u vanjsku aplikaciju novčanika:",
+    walletCredlyStep: "Credly: idi na svoj profil → karticu \"Other\" → učitaj preuzetu JWT datoteku.", walletObpStep: "Open Badge Passport: odaberi \"Import a badge\" i učitaj istu JWT datoteku.", walletLcwStep: "Learner Credential Wallet: uvoz jednim dodirom još nije podržan - zahtijevao bi namjensku VC-API razmjensku uslugu, veći novi dio pozadinske infrastrukture. Možda slijedi ako postoji stvarna potražnja.",
+    walletEmailNote: "Samo želiš zadržati kopiju za kasnije? Umjesto toga koristi gornju opciju e-pošte.",
+    walletIdentityTitle: "Učini svoju značku neovisnom o poslovnoj e-pošti",
+    walletIdentityIntro: "Unesi jednu ili više osobnih adresa e-pošte koje kontroliraš - samo se hashiraju (nikad se ne pohranjuju u čitljivom obliku) u zasebnu, personaliziranu datoteku vjerodajnice, tako da je npr. Credly može uskladiti s e-poštom tvog vlastitog računa, koju god ondje koristio. Ništa se nigdje ne pohranjuje - koristi se samo za ovo jedno preuzimanje.",
+    walletIdentityPlaceholder: "npr. osobna@gmail.com (do 3, odvojene zarezom)",
+    walletIdentityDownloadBtn: "Preuzmi personaliziranu vjerodajnicu",
+    walletIdentitySigning: "Potpisivanje…",
+    walletIdentityDoneMsg: "Gotovo - personalizirana datoteka je preuzeta.",
+    walletIdentityErrorMsg: "Personaliziranu datoteku nije bilo moguće izraditi. Pokušaj ponovno kasnije.",
+    walletIdentityTooManyMsg: (n) => `Dopušteno je najviše ${n} adresa e-pošte.`,
+  },
+  el: {
+    btn: "Τα πιστοποιητικά μου", title: "Τα πιστοποιητικά μου", close: "← Πίσω",
+    intro: "Οι επιτυχημένες προσομοιώσεις εξέτασης καταγράφονται εδώ ως αποδεικτικό ολοκλήρωσης (μόνο σε αυτή τη συσκευή). Κατεβάστε ένα αρχείο πιστοποιητικού για να το διατηρήσετε ή να το μοιραστείτε - αυτό το αρχείο είναι το πραγματικό φορητό τεκμήριο, όχι η εσωτερική κατάσταση της εφαρμογής.",
+    empty: "Δεν υπάρχει ακόμη επιτυχημένη προσομοίωση εξέτασης. Περάστε μια Προσομοίωση Εξέτασης (όχι τη λειτουργία Εξάσκησης) για να αποκτήσετε εδώ ένα πιστοποιητικό.",
+    passedOn: (d) => `Επιτυχία στις ${d}`,
+    certDocTitle: "Πιστοποιητικό Ολοκλήρωσης", certLangSelectLabel: "Γλώσσα πιστοποιητικού", certDocSummary: (n, err, wrong) => `Προσομοίωση εξέτασης ${n} ερωτήσεων · ${err} βαθμός(οί) σφάλματος · ${wrong} λάθος(η) κρίσιμο(α) για την ασφάλεια`,
+    downloadCert: "Λήψη πιστοποιητικού (HTML)", downloadPdf: "Λήψη πιστοποιητικού (PDF)", downloadCred: "Λήψη διαπιστευτηρίου (JSON)",
+    downloadJwt: "Λήψη υπογεγραμμένου διαπιστευτηρίου (JWT, για πορτοφόλια)",
+    disclaimer: "Αυτοδημιουργούμενη καταγραφή, χωρίς κρυπτογραφική υπογραφή ή ανεξάρτητη επαλήθευση.",
+    certVerifyIntro: "Σαρώστε τον κωδικό QR ή ανοίξτε τον σύνδεσμο για να ελέγξετε αυτό το πιστοποιητικό online:",
+    certSignedNoLinkNote: (d) => `Αυτό το πιστοποιητικό είναι κρυπτογραφικά υπογεγραμμένο από τη Zettacard (ID κλειδιού ${d}), αλλά δεν έχει δημιουργηθεί ακόμη δημόσιος σύνδεσμος επαλήθευσης. Δημιουργήστε έναν στην ενότητα "Τα πιστοποιητικά μου" ώστε άλλοι να μπορούν να τον ελέγξουν online, ή χρησιμοποιήστε τη ξεχωριστή λήψη υπογεγραμμένου JWT για επαλήθευση εκτός σύνδεσης.`,
+    renewalOverdue: (d) => `Εκκρεμεί ανανέωση από ${d}`,
+    renewalDueSoon: (d) => `Ανανέωση έως ${d}`,
+    verifiedLabel: "✅ Υπογεγραμμένο σήμα", selfIssuedLabel: "Μη επαληθευμένο",
+    verifiedHint: "Κρυπτογραφικά υπογεγραμμένο, ανεξάρτητα επαληθεύσιμο από τρίτο μέρος.",
+    selfIssuedHint: "Αυτοδημιουργούμενο, χωρίς υπογραφή.",
+    verifyRowTitle: "Μόνιμος σύνδεσμος επαλήθευσης",
+    verifyRowIntro: "Για πιστοποιητικά συμμόρφωσης: δημιουργήστε έναν μόνιμο σύνδεσμο όπου οποιοσδήποτε (π.χ. ο εργοδότης σας) μπορεί να ελέγξει απευθείας την υπογραφή online.",
+    verifyNamePlaceholder: "Όνομα (προαιρετικό)",
+    verifyCreateBtn: "Δημιουργία συνδέσμου επαλήθευσης",
+    verifyCreating: "Δημιουργία …",
+    verifyLinkLabel: "Ο σύνδεσμος επαλήθευσής σας:",
+    verifyCopyBtn: "Αντιγραφή",
+    verifyCopiedBtn: "Αντιγράφηκε!",
+    verifyError: "Δεν ήταν δυνατή η δημιουργία του συνδέσμου επαλήθευσης. Δοκιμάστε ξανά αργότερα.",
+    emailLabel: "Αποστολή με email", emailPlaceholder: "Διεύθυνση(εις) email, χωρισμένες με κόμμα", emailSendBtn: "Αποστολή πιστοποιητικού με email",
+    emailSending: "Αποστολή …", emailSentMsg: "Στάλθηκε! Ελέγξτε επίσης τον φάκελο ανεπιθύμητων μηνυμάτων.", emailErrorMsg: "Η αποστολή απέτυχε. Δοκιμάστε ξανά αργότερα.", emailTooManyMsg: (n) => `Έως ${n} παραλήπτες ανά αποστολή.`,
+    walletRowTitle: "Προσθήκη σε πορτοφόλι σημάτων", walletRowIntro: "Χρησιμοποιήστε το αρχείο υπογεγραμμένου διαπιστευτηρίου (JWT) που κατεβάσατε παραπάνω για να αποθηκεύσετε αυτό το σήμα σε μια εξωτερική εφαρμογή πορτοφολιού:",
+    walletCredlyStep: "Credly: πηγαίνετε στο προφίλ σας → την καρτέλα \"Other\" → ανεβάστε το αρχείο JWT που κατεβάσατε.", walletObpStep: "Open Badge Passport: επιλέξτε \"Import a badge\" και ανεβάστε το ίδιο αρχείο JWT.", walletLcwStep: "Learner Credential Wallet: η εισαγωγή με ένα πάτημα δεν υποστηρίζεται ακόμη - θα απαιτούσε μια ειδική υπηρεσία ανταλλαγής VC-API, ένα μεγαλύτερο νέο κομμάτι υποδομής backend. Ίσως προστεθεί αν υπάρξει πραγματική ζήτηση.",
+    walletEmailNote: "Θέλετε απλώς να κρατήσετε ένα αντίγραφο για αργότερα; Χρησιμοποιήστε την επιλογή email παραπάνω.",
+    walletIdentityTitle: "Κάντε το σήμα σας ανεξάρτητο από το email εργασίας σας",
+    walletIdentityIntro: "Εισαγάγετε μία ή περισσότερες προσωπικές διευθύνσεις email που ελέγχετε - γίνονται μόνο hashing (ποτέ δεν αποθηκεύονται σε απλό κείμενο) σε ένα ξεχωριστό, εξατομικευμένο αρχείο διαπιστευτηρίου, ώστε π.χ. το Credly να μπορεί να το αντιστοιχίσει με το email του δικού σας λογαριασμού, όποιο κι αν χρησιμοποιείτε εκεί. Τίποτα δεν αποθηκεύεται πουθενά - χρησιμοποιείται μόνο για αυτή τη μία λήψη.",
+    walletIdentityPlaceholder: "π.χ. personal@gmail.com (έως 3, χωρισμένα με κόμμα)",
+    walletIdentityDownloadBtn: "Λήψη εξατομικευμένου διαπιστευτηρίου",
+    walletIdentitySigning: "Υπογραφή…",
+    walletIdentityDoneMsg: "Ολοκληρώθηκε - το εξατομικευμένο αρχείο κατέβηκε.",
+    walletIdentityErrorMsg: "Δεν ήταν δυνατή η δημιουργία εξατομικευμένου αρχείου. Δοκιμάστε ξανά αργότερα.",
+    walletIdentityTooManyMsg: (n) => `Επιτρέπονται το πολύ ${n} διευθύνσεις email.`,
+  },
+  fa: {
+    btn: "گواهی‌های من", title: "گواهی‌های من", close: "← بازگشت",
+    intro: "شبیه‌سازی‌های آزمونی که با موفقیت گذرانده‌اید، به‌عنوان مدرک تکمیل دوره در اینجا ثبت می‌شوند (فقط روی همین دستگاه). برای نگهداری یا اشتراک‌گذاری، فایل گواهی را دانلود کنید - این فایل مدرک قابل‌انتقال واقعی است، نه وضعیت داخلی برنامه.",
+    empty: "هنوز هیچ شبیه‌سازی آزمونی با موفقیت گذرانده نشده است. برای دریافت گواهی در اینجا، باید در «شبیه‌سازی آزمون» (نه حالت تمرینی) قبول شوید.",
+    passedOn: (d) => `تاریخ قبولی: ${d}`,
+    certDocTitle: "گواهی تکمیل دوره", certLangSelectLabel: "زبان گواهی", certDocSummary: (n, err, wrong) => `شبیه‌سازی آزمون ${n} سؤالی · ${err} امتیاز خطا · ${wrong} خطای حیاتی ایمنی`,
+    downloadCert: "دانلود گواهی (HTML)", downloadPdf: "دانلود گواهی (PDF)", downloadCred: "دانلود مدرک دیجیتال (JSON)",
+    downloadJwt: "دانلود مدرک امضاشده (JWT، برای کیف‌پول‌های دیجیتال)",
+    disclaimer: "این یک سند خوداظهاری است که به‌صورت رمزنگاری‌شده امضا نشده و به‌طور مستقل تأیید نشده است.",
+    certVerifyIntro: "برای بررسی آنلاین این گواهی، کد QR را اسکن کنید یا لینک را باز کنید:",
+    certSignedNoLinkNote: (d) => `این گواهی به‌صورت رمزنگاری‌شده توسط زتاکارت امضا شده است (شناسهٔ کلید ${d})، اما هنوز لینک عمومی برای تأیید آن ایجاد نشده است. برای اینکه دیگران بتوانند آن را به‌صورت آنلاین بررسی کنند، در بخش "گواهی‌های من" یک لینک ایجاد کنید، یا برای تأیید آفلاین از فایل JWT امضاشدهٔ جداگانه استفاده کنید.`,
+    renewalOverdue: (d) => `دوره بازآموزی از تاریخ ${d} به تعویق افتاده است`,
+    renewalDueSoon: (d) => `موعد دوره بازآموزی: ${d}`,
+    verifiedLabel: "✅ نشان امضاشده", selfIssuedLabel: "تأییدنشده",
+    verifiedHint: "به‌صورت رمزنگاری‌شده امضا شده و توسط اشخاص ثالث قابل تأیید مستقل است.",
+    selfIssuedHint: "به‌صورت خودکار ایجاد شده و امضا نشده است.",
+    verifyRowTitle: "لینک دائمی تأیید",
+    verifyRowIntro: "برای گواهی‌های انطباق: یک لینک دائمی ایجاد کنید تا هر کسی (مثلاً کارفرمای شما) بتواند امضا را مستقیماً به‌صورت آنلاین بررسی کند.",
+    verifyNamePlaceholder: "نام (اختیاری)",
+    verifyCreateBtn: "ایجاد لینک تأیید",
+    verifyCreating: "در حال ایجاد …",
+    verifyLinkLabel: "لینک تأیید شما:",
+    verifyCopyBtn: "کپی",
+    verifyCopiedBtn: "کپی شد!",
+    verifyError: "ایجاد لینک تأیید ممکن نشد. لطفاً بعداً دوباره امتحان کنید.",
+    emailLabel: "ارسال با ایمیل", emailPlaceholder: "آدرس(های) ایمیل، جدا‌شده با ویرگول", emailSendBtn: "ارسال گواهی به ایمیل من",
+    emailSending: "در حال ارسال …", emailSentMsg: "ارسال شد! لطفاً پوشهٔ اسپم خود را نیز بررسی کنید.", emailErrorMsg: "ارسال ناموفق بود. لطفاً بعداً دوباره امتحان کنید.", emailTooManyMsg: (n) => `حداکثر ${n} گیرنده در هر ارسال مجاز است.`,
+    walletRowTitle: "افزودن به کیف‌پول نشان", walletRowIntro: "برای ذخیرهٔ این نشان در یک برنامهٔ کیف‌پول خارجی، از فایل مدرک امضاشده (JWT) که در بالا قابل دانلود است استفاده کنید:",
+    walletCredlyStep: "Credly: به پروفایل خود بروید ← تب \"Other\" ← فایل JWT دانلودشده را بارگذاری کنید.", walletObpStep: "Open Badge Passport: گزینهٔ \"Import a badge\" را انتخاب کرده و همان فایل JWT را بارگذاری کنید.", walletLcwStep: "Learner Credential Wallet: درون‌ریزی یک‌ضربه‌ای هنوز پشتیبانی نمی‌شود - این کار به یک سرویس اختصاصی تبادل VC-API نیاز دارد که زیرساخت بک‌اندی بزرگ و جدیدی است. اگر تقاضای واقعی وجود داشته باشد، ممکن است در آینده اضافه شود.",
+    walletEmailNote: "فقط می‌خواهید یک نسخه برای بعد نگه دارید؟ در عوض از گزینهٔ ایمیل بالا استفاده کنید.",
+    walletIdentityTitle: "نشان خود را مستقل از ایمیل کاری کنید",
+    walletIdentityIntro: "یک یا چند آدرس ایمیل شخصی که در اختیار دارید وارد کنید - این آدرس‌ها فقط به‌صورت هش‌شده (و هرگز به‌صورت متن ساده) در یک فایل مدرک شخصی‌سازی‌شدهٔ جداگانه ذخیره می‌شوند، تا مثلاً Credly بتواند آن را با ایمیل حساب کاربری‌تان، هر کدام که در آنجا استفاده می‌کنید، تطبیق دهد. هیچ‌چیز در هیچ‌کجا ذخیره نمی‌شود - فقط برای همین یک دانلود استفاده می‌شود.",
+    walletIdentityPlaceholder: "مثلاً personal@gmail.com (حداکثر 3 مورد، جدا‌شده با ویرگول)",
+    walletIdentityDownloadBtn: "دانلود مدرک شخصی‌سازی‌شده",
+    walletIdentitySigning: "در حال امضا…",
+    walletIdentityDoneMsg: "انجام شد - فایل شخصی‌سازی‌شده دانلود شد.",
+    walletIdentityErrorMsg: "ایجاد فایل شخصی‌سازی‌شده ممکن نشد. لطفاً بعداً دوباره امتحان کنید.",
+    walletIdentityTooManyMsg: (n) => `حداکثر ${n} آدرس ایمیل مجاز است.`,
   },
   uk: {
     btn: "Мої сертифікати", title: "Мої сертифікати", close: "← Назад",
@@ -2527,7 +3491,7 @@ function escapeCertLangLabel(s) {
 
 function getCompletions() {
   try {
-    return JSON.parse(localStorage.getItem(profileKey("completions")) || "[]");
+    return JSON.parse(storageGet(profileKey("completions")) || "[]");
   } catch (e) {
     return [];
   }
@@ -2552,7 +3516,7 @@ function persistCompletionUpdate(record) {
     const idx = all.findIndex((r) => r.id === record.id);
     if (idx === -1) return;
     all[idx] = { ...all[idx], signedJwt: record.signedJwt, verified: record.verified, signedKid: record.signedKid, signedAlg: record.signedAlg };
-    localStorage.setItem(profileKey("completions"), JSON.stringify(all));
+    storageSet(profileKey("completions"), JSON.stringify(all));
   } catch (e) { /* non-fatal - storage may be full/unavailable */ }
 }
 
@@ -2566,7 +3530,7 @@ function persistVerifyUrl(record) {
     const idx = all.findIndex((r) => r.id === record.id);
     if (idx === -1) return;
     all[idx] = { ...all[idx], verifyUrl: record.verifyUrl };
-    localStorage.setItem(profileKey("completions"), JSON.stringify(all));
+    storageSet(profileKey("completions"), JSON.stringify(all));
   } catch (e) { /* non-fatal - storage may be full/unavailable */ }
 }
 
@@ -2693,7 +3657,7 @@ function recordCompletion(examType, scopeCode, results) {
   const all = getCompletions();
   all.push(record);
   try {
-    localStorage.setItem(profileKey("completions"), JSON.stringify(all));
+    storageSet(profileKey("completions"), JSON.stringify(all));
   } catch (e) { /* non-fatal - storage may be full/unavailable */ }
   // Best-effort, non-blocking: try to get a real signature right away so
   // it's likely already available by the time the user opens the
@@ -3496,7 +4460,7 @@ const SRS_BOX_INTERVAL_MS = [
 // first exam attempt or flashcard self-assessment touches it.
 function loadSrsData() {
   try {
-    const raw = JSON.parse(localStorage.getItem(profileKey("srs")) || "{}");
+    const raw = JSON.parse(storageGet(profileKey("srs")) || "{}");
     return raw && typeof raw === "object" ? raw : {};
   } catch (e) {
     return {};
@@ -3504,7 +4468,7 @@ function loadSrsData() {
 }
 
 function saveSrsData(data) {
-  try { localStorage.setItem(profileKey("srs"), JSON.stringify(data)); } catch (e) { /* non-fatal */ }
+  try { storageSet(profileKey("srs"), JSON.stringify(data)); } catch (e) { /* non-fatal */ }
 }
 
 // Single entry point for both feed paths (exam mode's real right/wrong and
@@ -3530,7 +4494,7 @@ function updateSrsBox(questionId, wasCorrect) {
 // feature in itself.
 function loadSeenData() {
   try {
-    const raw = JSON.parse(localStorage.getItem(profileKey("seen")) || "{}");
+    const raw = JSON.parse(storageGet(profileKey("seen")) || "{}");
     return raw && typeof raw === "object" ? raw : {};
   } catch (e) {
     return {};
@@ -3541,7 +4505,7 @@ function markSeen(questionId) {
   const seen = loadSeenData();
   if (seen[questionId]) return; // already recorded - avoid a redundant write on every render
   seen[questionId] = Date.now();
-  try { localStorage.setItem(profileKey("seen"), JSON.stringify(seen)); } catch (e) { /* non-fatal */ }
+  try { storageSet(profileKey("seen"), JSON.stringify(seen)); } catch (e) { /* non-fatal */ }
 }
 
 // "Starred": { [questionId]: true }. A manual bookmark independent of
@@ -3551,7 +4515,7 @@ function markSeen(questionId) {
 // the main list (see renderFilters()/filteredQuestions() below).
 function loadStarredData() {
   try {
-    const raw = JSON.parse(localStorage.getItem(profileKey("starred")) || "{}");
+    const raw = JSON.parse(storageGet(profileKey("starred")) || "{}");
     return raw && typeof raw === "object" ? raw : {};
   } catch (e) {
     return {};
@@ -3559,7 +4523,7 @@ function loadStarredData() {
 }
 
 function saveStarredData(data) {
-  try { localStorage.setItem(profileKey("starred"), JSON.stringify(data)); } catch (e) { /* non-fatal */ }
+  try { storageSet(profileKey("starred"), JSON.stringify(data)); } catch (e) { /* non-fatal */ }
 }
 
 function isStarred(questionId) {
@@ -3593,6 +4557,12 @@ function dueQuestionsForActiveScope() {
 const SRS_STRINGS = {
   de: { reviewBtn: (n) => `📅 Wiederholen (${n})`, reviewAria: "Fällige Wiederholungen", know: "Ich wusste es", dontKnow: "Ich wusste es nicht", caption: "Wie lief's mit dieser Karte?" },
   en: { reviewBtn: (n) => `📅 Review (${n})`, reviewAria: "Questions due for review", know: "I knew it", dontKnow: "I didn't know it", caption: "How did that go?" },
+  bar: { reviewBtn: (n) => `📅 Wiederhoin (${n})`, reviewAria: "Fragen, de fällig san zum Wiederhoin", know: "Des hab i gwusst", dontKnow: "Des hab i ned gwusst", caption: "Wia is es glaufa?" },
+  ro: { reviewBtn: (n) => `📅 Recapitulare (${n})`, reviewAria: "Întrebări de recapitulat", know: "Am știut", dontKnow: "Nu am știut", caption: "Cum a fost?" },
+  pt: { reviewBtn: (n) => `📅 Revisão (${n})`, reviewAria: "Perguntas para rever", know: "Eu sabia", dontKnow: "Não sabia", caption: "Como correu?" },
+  hr: { reviewBtn: (n) => `📅 Ponavljanje (${n})`, reviewAria: "Pitanja za ponavljanje", know: "Znao/la sam", dontKnow: "Nisam znao/la", caption: "Kako je prošlo?" },
+  el: { reviewBtn: (n) => `📅 Επανάληψη (${n})`, reviewAria: "Ερωτήσεις προς επανάληψη", know: "Το ήξερα", dontKnow: "Δεν το ήξερα", caption: "Πώς πήγε;" },
+  fa: { reviewBtn: (n) => `📅 مرور (${n})`, reviewAria: "سؤالات موعد مرور", know: "بلد بودم", dontKnow: "بلد نبودم", caption: "چطور بود؟" },
   uk: { reviewBtn: (n) => `📅 Повторення (${n})`, reviewAria: "Питання для повторення", know: "Я знав(ла) це", dontKnow: "Я не знав(ла) цього", caption: "Як пройшло з цією карткою?" },
   pl: { reviewBtn: (n) => `📅 Powtórka (${n})`, reviewAria: "Pytania do powtórki", know: "Wiedziałem/am to", dontKnow: "Nie wiedziałem/am tego", caption: "Jak poszło z tą kartą?" },
   ar: { reviewBtn: (n) => `📅 مراجعة (${n})`, reviewAria: "أسئلة مستحقة للمراجعة", know: "كنت أعرف ذلك", dontKnow: "لم أكن أعرف ذلك", caption: "كيف سارت الأمور مع هذه البطاقة؟" },
@@ -3676,6 +4646,36 @@ const SIGN_REF_STRINGS = {
     btn: "📚 Signs", ariaLabel: "Sign reference", title: "Sign reference",
     intro: "Every traffic sign referenced by a Fuehrerschein question, with its meaning - grouped by sign category.",
     close: "← Back", empty: "No sign reference available.",
+  },
+  bar: {
+    btn: "📚 Schilder", ariaLabel: "Schilder-Übersicht", title: "Schilder-Übersicht",
+    intro: "Jeds Verkehrszeichen, auf des si a Fuehrerschein-Frag bezieht, mit seiner Bedeutung - nach Schilderkategorie sortiert.",
+    close: "← Zruck", empty: "Koa Schilder-Übersicht verfügbar.",
+  },
+  ro: {
+    btn: "📚 Semne", ariaLabel: "Ghid de semne", title: "Ghid de semne",
+    intro: "Fiecare semn de circulație menționat într-o întrebare Fuehrerschein, împreună cu semnificația sa - grupate pe categorii de semne.",
+    close: "← Înapoi", empty: "Niciun ghid de semne disponibil.",
+  },
+  pt: {
+    btn: "📚 Sinais", ariaLabel: "Referência de sinais", title: "Referência de sinais",
+    intro: "Todos os sinais de trânsito referenciados numa pergunta da carta de condução alemã (Führerschein), com o seu significado - agrupados por categoria de sinal.",
+    close: "← Voltar", empty: "Não há referência de sinais disponível.",
+  },
+  hr: {
+    btn: "📚 Znakovi", ariaLabel: "Pregled prometnih znakova", title: "Pregled prometnih znakova",
+    intro: "Svaki prometni znak spomenut u pitanju za vozačku dozvolu, s njegovim značenjem - grupirano po kategoriji znaka.",
+    close: "← Natrag", empty: "Pregled znakova nije dostupan.",
+  },
+  el: {
+    btn: "📚 Πινακίδες", ariaLabel: "Οδηγός πινακίδων", title: "Οδηγός πινακίδων",
+    intro: "Κάθε πινακίδα κυκλοφορίας που αναφέρεται σε ερώτηση του Fuehrerschein, με τη σημασία της - ομαδοποιημένη ανά κατηγορία πινακίδας.",
+    close: "← Πίσω", empty: "Δεν υπάρχει διαθέσιμος οδηγός πινακίδων.",
+  },
+  fa: {
+    btn: "📚 تابلوها", ariaLabel: "مرجع تابلوها", title: "مرجع تابلوها",
+    intro: "همهٔ تابلوهای راهنمایی‌ای که در سؤالات گواهینامهٔ رانندگی (Führerschein) به آن‌ها اشاره شده، همراه با معنی‌شان - دسته‌بندی‌شده بر اساس نوع تابلو.",
+    close: "← بازگشت", empty: "هیچ مرجع تابلویی در دسترس نیست.",
   },
   uk: {
     btn: "📚 Знаки", ariaLabel: "Довідник знаків", title: "Довідник знаків",
@@ -3879,6 +4879,54 @@ const PRIMER_STRINGS = {
     shapeCategoryLabel: "Sign shapes & categories",
     next: "Next", back: "← Back", exit: "Exit", stepOf: (i, n) => `${i} / ${n}`,
     practiceNow: "Practice this topic now",
+  },
+  bar: {
+    btn: "🧭 Lerna", ariaLabel: "D'Grundlagen lerna", title: "D'Grundlagen lerna",
+    intro: "Kurze Einführungen, 5-10 Minuten, zu jedem Prüfungsthema, bevor's mit de echten Prüfungsfragen losgeht.",
+    close: "← Zruck", empty: "Koane Einführungen verfügbar.",
+    shapeCategoryLabel: "Schilderformen & Kategorien",
+    next: "Weiter", back: "← Zruck", exit: "Verlassen", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Des Thema jetzt üben",
+  },
+  ro: {
+    btn: "🧭 Învață", ariaLabel: "Învață noțiunile de bază", title: "Învață noțiunile de bază",
+    intro: "Introduceri scurte de 5-10 minute pentru fiecare subiect de examen, înainte de a începe să exersezi întrebări reale de examen.",
+    close: "← Înapoi", empty: "Nicio introducere disponibilă.",
+    shapeCategoryLabel: "Forme și categorii de semne",
+    next: "Următorul", back: "← Înapoi", exit: "Ieși", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Exersează acest subiect acum",
+  },
+  pt: {
+    btn: "🧭 Aprender", ariaLabel: "Aprender o básico", title: "Aprender o básico",
+    intro: "Introduções curtas de 5 a 10 minutos a cada tema do exame, antes de começar a praticar com perguntas reais de exame.",
+    close: "← Voltar", empty: "Não há introduções disponíveis.",
+    shapeCategoryLabel: "Formas e categorias de sinais",
+    next: "Seguinte", back: "← Voltar", exit: "Sair", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Praticar este tema agora",
+  },
+  hr: {
+    btn: "🧭 Uči", ariaLabel: "Nauči osnove", title: "Nauči osnove",
+    intro: "Kratki uvodi od 5 do 10 minuta u svaku ispitnu temu, prije nego što počneš vježbati stvarna ispitna pitanja.",
+    close: "← Natrag", empty: "Nema dostupnih uvoda.",
+    shapeCategoryLabel: "Oblici i kategorije znakova",
+    next: "Sljedeće", back: "← Natrag", exit: "Izlaz", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Vježbaj ovu temu sada",
+  },
+  el: {
+    btn: "🧭 Μάθηση", ariaLabel: "Μάθετε τα βασικά", title: "Μάθετε τα βασικά",
+    intro: "Σύντομες εισαγωγές 5-10 λεπτών σε κάθε θέμα της εξέτασης, πριν ξεκινήσετε να εξασκείστε με πραγματικές ερωτήσεις εξέτασης.",
+    close: "← Πίσω", empty: "Δεν υπάρχουν διαθέσιμες εισαγωγές.",
+    shapeCategoryLabel: "Σχήματα & κατηγορίες πινακίδων",
+    next: "Επόμενο", back: "← Πίσω", exit: "Έξοδος", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "Εξάσκηση σε αυτό το θέμα τώρα",
+  },
+  fa: {
+    btn: "🧭 آموزش", ariaLabel: "آموزش مبانی", title: "آموزش مبانی",
+    intro: "معرفی‌های کوتاه 5 تا 10 دقیقه‌ای برای هر موضوع آزمون، پیش از شروع تمرین با سؤالات واقعی آزمون.",
+    close: "← بازگشت", empty: "هیچ معرفی‌ای در دسترس نیست.",
+    shapeCategoryLabel: "شکل‌ها و دسته‌های تابلوها",
+    next: "بعدی", back: "← بازگشت", exit: "خروج", stepOf: (i, n) => `${i} / ${n}`,
+    practiceNow: "اکنون این موضوع را تمرین کنید",
   },
   uk: {
     btn: "🧭 Навчання", ariaLabel: "Вивчити основи", title: "Вивчити основи",
@@ -4133,7 +5181,7 @@ function primerReaderHandoff() {
   if (topicCode && TOPIC_LABELS.fuehrerschein[topicCode]) {
     state.topicFilter = topicCode;
     state.detailIndex = null;
-    try { localStorage.setItem(profileKey(`filter-${state.examType}`), topicCode); } catch (e) { /* non-fatal */ }
+    try { storageSet(profileKey(`filter-${state.examType}`), topicCode); } catch (e) { /* non-fatal */ }
   }
   render();
 }
@@ -4618,6 +5666,60 @@ const COURSE_STRINGS = {
     mediaPlay: "Play video", mediaYoutubeNotice: "The video is only loaded from YouTube (youtube-nocookie.com) once you click. Nothing is sent to YouTube before that.",
     mediaOffline: "Offline: this media needs an internet connection.", mediaSlidePos: (i, n) => `${i} / ${n}`,
     mediaPrevSlide: "Previous image", mediaNextSlide: "Next image", mediaLicenseLabel: "License", mediaSourceLabel: "Source", mediaSlideshowLabel: "Image sequence",
+  },
+  bar: {
+    btn: "📘 Kurs", ariaLabel: "Kurs", title: "Kurs", empty: "No Kursinhalt verfügbar.",
+    close: "← Zruck", kindPrimer: "Lektion", kindCheckpoint: "Checkpoint", kindScenario: "Szenario", kindGuidance: "Hintergrund",
+    minutes: (n) => `~${n} Min`, back: "← Zruck", exit: "Verlassen", next: "Weiter", done: "Fertig",
+    practiceNow: "Dei Lektion jetzt üben", relatedTitle: "A no interessant",
+    mediaPlay: "Video obspün", mediaYoutubeNotice: "Des Video wird erst von YouTube (youtube-nocookie.com) glada, wennst draufklickst. Vorher wird nix an YouTube gschickt.",
+    mediaOffline: "Offline: für des Medium brauchst a Internetverbindung.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Voriges Bild", mediaNextSlide: "Nächstes Bild", mediaLicenseLabel: "Lizenz", mediaSourceLabel: "Quelle", mediaSlideshowLabel: "Bilderfolge",
+  },
+  ro: {
+    btn: "📘 Curs", ariaLabel: "Curs", title: "Curs", empty: "Niciun conținut de curs disponibil încă.",
+    close: "← Înapoi", kindPrimer: "Lecție", kindCheckpoint: "Verificare", kindScenario: "Scenariu", kindGuidance: "Context",
+    minutes: (n) => `~${n} min`, back: "← Înapoi", exit: "Ieși", next: "Următorul", done: "Gata",
+    practiceNow: "Exersează această lecție acum", relatedTitle: "De asemenea relevant",
+    mediaPlay: "Redă videoclipul", mediaYoutubeNotice: "Videoclipul este încărcat de pe YouTube (youtube-nocookie.com) abia după ce dai click. Nimic nu este trimis către YouTube înainte de asta.",
+    mediaOffline: "Offline: acest conținut media necesită o conexiune la internet.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Imaginea anterioară", mediaNextSlide: "Imaginea următoare", mediaLicenseLabel: "Licență", mediaSourceLabel: "Sursă", mediaSlideshowLabel: "Secvență de imagini",
+  },
+  pt: {
+    btn: "📘 Curso", ariaLabel: "Curso", title: "Curso", empty: "Ainda não há conteúdo do curso disponível.",
+    close: "← Voltar", kindPrimer: "Lição", kindCheckpoint: "Ponto de controlo", kindScenario: "Cenário", kindGuidance: "Contexto",
+    minutes: (n) => `~${n} min`, back: "← Voltar", exit: "Sair", next: "Seguinte", done: "Concluído",
+    practiceNow: "Praticar esta lição agora", relatedTitle: "Também relevante",
+    mediaPlay: "Reproduzir vídeo", mediaYoutubeNotice: "O vídeo só é carregado a partir do YouTube (youtube-nocookie.com) depois de clicar. Nada é enviado ao YouTube antes disso.",
+    mediaOffline: "Offline: este conteúdo multimédia precisa de ligação à Internet.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Imagem anterior", mediaNextSlide: "Imagem seguinte", mediaLicenseLabel: "Licença", mediaSourceLabel: "Fonte", mediaSlideshowLabel: "Sequência de imagens",
+  },
+  hr: {
+    btn: "📘 Tečaj", ariaLabel: "Tečaj", title: "Tečaj", empty: "Sadržaj tečaja još nije dostupan.",
+    close: "← Natrag", kindPrimer: "Lekcija", kindCheckpoint: "Provjera znanja", kindScenario: "Scenarij", kindGuidance: "Pozadina",
+    minutes: (n) => `~${n} min`, back: "← Natrag", exit: "Izlaz", next: "Sljedeće", done: "Gotovo",
+    practiceNow: "Vježbaj ovu lekciju sada", relatedTitle: "Također relevantno",
+    mediaPlay: "Reproduciraj video", mediaYoutubeNotice: "Video se učitava s YouTubea (youtube-nocookie.com) tek nakon klika. Do tada se ništa ne šalje YouTubeu.",
+    mediaOffline: "Izvanmrežno: ovaj medijski sadržaj zahtijeva internetsku vezu.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Prethodna slika", mediaNextSlide: "Sljedeća slika", mediaLicenseLabel: "Licencija", mediaSourceLabel: "Izvor", mediaSlideshowLabel: "Niz slika",
+  },
+  el: {
+    btn: "📘 Μάθημα", ariaLabel: "Μάθημα", title: "Μάθημα", empty: "Δεν υπάρχει ακόμη διαθέσιμο περιεχόμενο μαθήματος.",
+    close: "← Πίσω", kindPrimer: "Μάθημα", kindCheckpoint: "Σημείο ελέγχου", kindScenario: "Σενάριο", kindGuidance: "Ιστορικό",
+    minutes: (n) => `~${n} λεπτά`, back: "← Πίσω", exit: "Έξοδος", next: "Επόμενο", done: "Ολοκληρώθηκε",
+    practiceNow: "Εξάσκηση σε αυτό το μάθημα τώρα", relatedTitle: "Επίσης σχετικό",
+    mediaPlay: "Αναπαραγωγή βίντεο", mediaYoutubeNotice: "Το βίντεο φορτώνεται μόνο από το YouTube (youtube-nocookie.com) όταν κάνετε κλικ. Τίποτα δεν αποστέλλεται στο YouTube πριν από αυτό.",
+    mediaOffline: "Εκτός σύνδεσης: αυτό το περιεχόμενο απαιτεί σύνδεση στο διαδίκτυο.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "Προηγούμενη εικόνα", mediaNextSlide: "Επόμενη εικόνα", mediaLicenseLabel: "Άδεια χρήσης", mediaSourceLabel: "Πηγή", mediaSlideshowLabel: "Ακολουθία εικόνων",
+  },
+  fa: {
+    btn: "📘 دوره", ariaLabel: "دوره", title: "دوره", empty: "هنوز محتوایی برای این دوره در دسترس نیست.",
+    close: "← بازگشت", kindPrimer: "درس", kindCheckpoint: "ایست بازبینی", kindScenario: "سناریو", kindGuidance: "پیش‌زمینه",
+    minutes: (n) => `~${n} دقیقه`, back: "← بازگشت", exit: "خروج", next: "بعدی", done: "پایان",
+    practiceNow: "اکنون این درس را تمرین کنید", relatedTitle: "مرتبط با این موضوع",
+    mediaPlay: "پخش ویدیو", mediaYoutubeNotice: "ویدیو فقط پس از کلیک شما از یوتیوب (youtube-nocookie.com) بارگذاری می‌شود. پیش از آن چیزی به یوتیوب ارسال نمی‌شود.",
+    mediaOffline: "آفلاین: این محتوا نیاز به اتصال اینترنت دارد.", mediaSlidePos: (i, n) => `${i} / ${n}`,
+    mediaPrevSlide: "تصویر قبلی", mediaNextSlide: "تصویر بعدی", mediaLicenseLabel: "مجوز", mediaSourceLabel: "منبع", mediaSlideshowLabel: "توالی تصاویر",
   },
   uk: {
     btn: "📘 Курс", ariaLabel: "Курс", title: "Курс", empty: "Вміст курсу поки що недоступний.",
@@ -5219,7 +6321,7 @@ async function loadKubectlDrills(examType) {
 // independent of how fast any one sitting reveals a hint.
 function kdLoadProgress() {
   try {
-    const raw = JSON.parse(localStorage.getItem(profileKey("kubectl-drill-progress")) || "{}");
+    const raw = JSON.parse(storageGet(profileKey("kubectl-drill-progress")) || "{}");
     return raw && typeof raw === "object" ? raw : {};
   } catch (e) {
     return {};
@@ -5227,7 +6329,7 @@ function kdLoadProgress() {
 }
 
 function kdSaveProgress(data) {
-  try { localStorage.setItem(profileKey("kubectl-drill-progress"), JSON.stringify(data)); } catch (e) { /* non-fatal */ }
+  try { storageSet(profileKey("kubectl-drill-progress"), JSON.stringify(data)); } catch (e) { /* non-fatal */ }
 }
 
 function kdRecordAttempt(taskId, solved) {
@@ -5279,6 +6381,96 @@ const KUBECTL_DRILL_STRINGS = {
     revealFollow: "Take a look, then try typing it yourself before continuing.",
     whyPrefix: "Why:", inputPlaceholder: "type a kubectl command and press Enter",
     inputAriaLabel: "kubectl command input", logAriaLabel: "Terminal output",
+    terminalTitle: "learner@zettacard-drill",
+  },
+  bar: {
+    btn: "⌨️ kubectl Drill", ariaLabel: "kubectl-Befehlsdrill", title: "kubectl-Befehlsdrill",
+    simBadge: "Simuliert — koa echter Cluster",
+    intro: "Gib an kubectl-Befehl ei und drück Enter. Wird nur clientseitig gegen a Grammatik gprüft — dahinter is koa echter Cluster.",
+    progress: (i, n) => `Aufgab ${i} / ${n}`, completed: (n, total) => `${n} / ${total} glöst`,
+    diffEasy: "Leicht", diffMedium: "Mittel", diffHard: "Schwer",
+    back: "← Zruck", exit: "Verlassen", skip: "Überspringa →", nextTask: "Nächste Aufgab →",
+    allDone: "Alle 50 Aufgabn glöst — fei guat gmacht.",
+    nudge: "Ned ganz — schau da'n Befehl nochmoi o und probier's nochmoi.",
+    hintPrefix: "Tipp:", revealPrefix: "Referenzlösung:",
+    revealFollow: "Schau's da o und probier's dann selber, bevor's weitergeht.",
+    whyPrefix: "Warum:", inputPlaceholder: "an kubectl-Befehl eingeb'n und Enter drucka",
+    inputAriaLabel: "kubectl-Befehlseingab", logAriaLabel: "Terminal-Ausgab",
+    terminalTitle: "learner@zettacard-drill",
+  },
+  ro: {
+    btn: "⌨️ Exercițiu kubectl", ariaLabel: "Exercițiu de comenzi kubectl", title: "Exercițiu de comenzi kubectl",
+    simBadge: "Simulat — fără cluster real",
+    intro: "Scrie o comandă kubectl și apasă Enter. Este verificată doar față de o gramatică, local, pe client — nu există un cluster real în spate.",
+    progress: (i, n) => `Sarcina ${i} / ${n}`, completed: (n, total) => `${n} / ${total} rezolvate`,
+    diffEasy: "Ușor", diffMedium: "Mediu", diffHard: "Dificil",
+    back: "← Înapoi", exit: "Ieși", skip: "Sari peste →", nextTask: "Sarcina următoare →",
+    allDone: "Toate cele 50 de sarcini sunt finalizate — bravo!",
+    nudge: "Nu chiar — verifică comanda și încearcă din nou.",
+    hintPrefix: "Indiciu:", revealPrefix: "Soluție de referință:",
+    revealFollow: "Aruncă o privire, apoi încearcă să o tastezi singur înainte de a continua.",
+    whyPrefix: "De ce:", inputPlaceholder: "scrie o comandă kubectl și apasă Enter",
+    inputAriaLabel: "Câmp pentru comanda kubectl", logAriaLabel: "Ieșire terminal",
+    terminalTitle: "learner@zettacard-drill",
+  },
+  pt: {
+    btn: "⌨️ Treino kubectl", ariaLabel: "Treino de comandos kubectl", title: "Treino de Comandos kubectl",
+    simBadge: "Simulado — sem cluster real",
+    intro: "Escreva um comando kubectl e prima Enter. Verificado apenas contra uma gramática no lado do cliente — não existe nenhum cluster real por trás disto.",
+    progress: (i, n) => `Tarefa ${i} / ${n}`, completed: (n, total) => `${n} / ${total} resolvidas`,
+    diffEasy: "Fácil", diffMedium: "Médio", diffHard: "Difícil",
+    back: "← Voltar", exit: "Sair", skip: "Saltar →", nextTask: "Tarefa seguinte →",
+    allDone: "As 50 tarefas concluídas — bom trabalho.",
+    nudge: "Não é bem isso — verifique o comando e tente novamente.",
+    hintPrefix: "Sugestão:", revealPrefix: "Solução de referência:",
+    revealFollow: "Veja com atenção e depois tente escrevê-lo você mesmo antes de continuar.",
+    whyPrefix: "Porquê:", inputPlaceholder: "escreva um comando kubectl e prima Enter",
+    inputAriaLabel: "Campo de comando kubectl", logAriaLabel: "Saída do terminal",
+    terminalTitle: "learner@zettacard-drill",
+  },
+  hr: {
+    btn: "⌨️ kubectl vježba", ariaLabel: "Vježba kubectl naredbi", title: "Vježba kubectl naredbi",
+    simBadge: "Simulirano — bez stvarnog klastera",
+    intro: "Upiši jednu kubectl naredbu i pritisni Enter. Provjerava se prema gramatici isključivo na strani klijenta — iza ovoga ne stoji stvarni klaster.",
+    progress: (i, n) => `Zadatak ${i} / ${n}`, completed: (n, total) => `${n} / ${total} riješeno`,
+    diffEasy: "Lako", diffMedium: "Srednje", diffHard: "Teško",
+    back: "← Natrag", exit: "Izlaz", skip: "Preskoči →", nextTask: "Sljedeći zadatak →",
+    allDone: "Svih 50 zadataka riješeno — odličan posao.",
+    nudge: "Nije baš to — provjeri naredbu i pokušaj ponovno.",
+    hintPrefix: "Savjet:", revealPrefix: "Referentno rješenje:",
+    revealFollow: "Pogledaj, a zatim pokušaj sam/a upisati prije nego što nastaviš.",
+    whyPrefix: "Zašto:", inputPlaceholder: "upiši kubectl naredbu i pritisni Enter",
+    inputAriaLabel: "Unos kubectl naredbe", logAriaLabel: "Izlaz terminala",
+    terminalTitle: "learner@zettacard-drill",
+  },
+  el: {
+    btn: "⌨️ Άσκηση kubectl", ariaLabel: "Άσκηση εντολών kubectl", title: "Άσκηση Εντολών kubectl",
+    simBadge: "Προσομοίωση — χωρίς πραγματικό cluster",
+    intro: "Πληκτρολογήστε μία εντολή kubectl και πατήστε Enter. Ελέγχεται μόνο βάσει γραμματικής στην πλευρά του client — δεν υπάρχει πραγματικό cluster από πίσω.",
+    progress: (i, n) => `Εργασία ${i} / ${n}`, completed: (n, total) => `${n} / ${total} λύθηκαν`,
+    diffEasy: "Εύκολο", diffMedium: "Μέτριο", diffHard: "Δύσκολο",
+    back: "← Πίσω", exit: "Έξοδος", skip: "Παράλειψη →", nextTask: "Επόμενη εργασία →",
+    allDone: "Ολοκληρώθηκαν και οι 50 εργασίες — μπράβο.",
+    nudge: "Όχι ακριβώς — ελέγξτε την εντολή και δοκιμάστε ξανά.",
+    hintPrefix: "Υπόδειξη:", revealPrefix: "Ενδεικτική λύση:",
+    revealFollow: "Ρίξτε μια ματιά, μετά δοκιμάστε να την πληκτρολογήσετε μόνοι σας πριν συνεχίσετε.",
+    whyPrefix: "Γιατί:", inputPlaceholder: "πληκτρολογήστε μια εντολή kubectl και πατήστε Enter",
+    inputAriaLabel: "Πεδίο εισαγωγής εντολής kubectl", logAriaLabel: "Έξοδος τερματικού",
+    terminalTitle: "learner@zettacard-drill",
+  },
+  fa: {
+    btn: "⌨️ تمرین kubectl", ariaLabel: "تمرین دستورهای kubectl", title: "تمرین دستورهای kubectl",
+    simBadge: "شبیه‌سازی‌شده — بدون خوشهٔ واقعی",
+    intro: "یک دستور kubectl تایپ کنید و Enter را بزنید. بررسی فقط بر اساس یک دستور زبان در سمت کاربر انجام می‌شود — هیچ خوشهٔ واقعی‌ای پشت آن وجود ندارد.",
+    progress: (i, n) => `تمرین ${i} / ${n}`, completed: (n, total) => `${n} / ${total} حل‌شده`,
+    diffEasy: "آسان", diffMedium: "متوسط", diffHard: "سخت",
+    back: "← بازگشت", exit: "خروج", skip: "رد کردن →", nextTask: "تمرین بعدی →",
+    allDone: "همهٔ 50 تمرین انجام شد — آفرین.",
+    nudge: "درست نیست — دستور را بررسی کنید و دوباره امتحان کنید.",
+    hintPrefix: "راهنمایی:", revealPrefix: "پاسخ نمونه:",
+    revealFollow: "نگاهی بیندازید، سپس پیش از ادامه خودتان آن را تایپ کنید.",
+    whyPrefix: "چرا:", inputPlaceholder: "یک دستور kubectl تایپ کنید و Enter را بزنید",
+    inputAriaLabel: "ورودی دستور kubectl", logAriaLabel: "خروجی ترمینال",
     terminalTitle: "learner@zettacard-drill",
   },
   uk: {
@@ -5703,6 +6895,21 @@ const EXAM_QUESTION_COUNT_BY_TYPE = {
   // run to one sitting. Not the 6-question compliance-check pattern: this is
   // real exam prep for a real 3-hour exam (§ 4 Abs. 2 AEVO).
   aevo: 40,
+  // 2026-09-06: the four fun_translation modules. 50-question pool each,
+  // 20-question draw. WHY 20: these are not exam prep for anything - there is
+  // no real exam to model a draw length on, so the number is chosen for the
+  // pool instead. 20 of 50 is large enough that a run reaches every rule
+  // family in the pool (the smallest of the four has 5 families, the largest
+  // 7) usually more than once, and small enough that a learner can take
+  // several runs before repeats dominate. Deliberately NOT the 6-question
+  // compliance pattern (this is a quiz someone chose for fun, not a
+  // 5-minute workplace check) and NOT 30 (that is the German-exam draw
+  // length, and borrowing it would imply these modules simulate an exam -
+  // exactly the impression the § 3b identification banner exists to prevent).
+  california_us: 20,
+  uk_gb: 20,
+  austria_at: 20,
+  switzerland_ch: 20,
 };
 function examQuestionCount(examType) {
   return EXAM_QUESTION_COUNT_BY_TYPE[examType] || EXAM_QUESTION_COUNT_DEFAULT;
@@ -5734,6 +6941,12 @@ const EXAM_TIME_LIMIT_MS_BY_TYPE = {
   // dauern"), so the time pressure per question is realistic rather than
   // arbitrary.
   aevo: 90 * 60 * 1000,
+  // 2026-09-06: the four fun_translation modules deliberately have NO entry
+  // here and fall through to the 45-minute default. There is no real exam
+  // behind them to model a time budget on, and 45 minutes for a 20-question
+  // draw is simply generous rather than wrong - which is the bar for adding
+  // an override. A tighter limit would manufacture exam pressure for a module
+  // whose whole point is that it examines nothing.
 };
 function examTimeLimitMs(examType) {
   return EXAM_TIME_LIMIT_MS_BY_TYPE[examType] || EXAM_TIME_LIMIT_MS_DEFAULT;
@@ -5772,6 +6985,18 @@ const MAX_ERROR_POINTS_BY_TYPE = {
   // still applies on top, which is why data/gen_aevo.py deliberately calibrates
   // high_stakes down to 12 of 76 (~16 %) - see HIGH_STAKES_IDS there.
   aevo: 80,
+  // 2026-09-06: fun_translation modules. Every question in these pools is
+  // worth a flat 3 points (they carry no per-card difficulty weighting in the
+  // KB), so a 20-question draw is exactly 60 points and the DEFAULT of 10
+  // would silently mean a different pass bar than it means anywhere else:
+  // 3 wrong of 20 here vs. the ~10 % of total points it represents on the
+  // driving exam. 6 is the same bar sportboot_see already uses for an
+  // identically shaped draw (20 questions x 3 points): two wrong is
+  // tolerated, three is not.
+  california_us: 6,
+  uk_gb: 6,
+  austria_at: 6,
+  switzerland_ch: 6,
 };
 function maxErrorPoints(examType) {
   return MAX_ERROR_POINTS_BY_TYPE[examType] != null ? MAX_ERROR_POINTS_BY_TYPE[examType] : MAX_ERROR_POINTS_DEFAULT;
@@ -5947,6 +7172,18 @@ const EXAM_TOPIC_DRAW = {
     fahrzeugtechnik_bus: 7,
     notfall_bus: 7,
   },
+  // 2026-09-06: the four fun_translation modules deliberately have NO entry
+  // here, and fall through to drawExamQuestions()'s uniform-random top-up (the
+  // documented behaviour for a module with no weighting - see this object's
+  // header comment). Three of the four pools are already near-uniform per rule
+  // family (switzerland_ch is 5 x 10, austria_at and uk_gb are 10/10/10/10/9
+  // plus one small family), so uniform random over 50 -> 20 reproduces the
+  // pool's own distribution closely enough. The one pool that is NOT uniform,
+  // california_us, has a 2-question `signs` family and a 1-question
+  // `overtaking` family; pinning a draw there would have to force those edge
+  // families into every run, over-representing them by design. That trick is
+  // worth it for sportboot (where an edge topic is genuinely examinable
+  // content) and not here, where nothing is examined.
 };
 
 function shuffle(arr) {
@@ -5956,6 +7193,66 @@ function shuffle(arr) {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+
+// TODO.md item 7: randomize per-question answer-option order at render
+// time, so a fixed a/b/c/d position can't be memorized (and, for the
+// verbatim-official-catalog ELWIS/sportboot pools, so a publicly
+// circulating "question number -> correct letter" cheat sheet stops
+// working). Flashcards (renderDetail), exam mode (renderExamQuestion) and
+// the practice quiz (renderPracticeQuestion) all funnel through this one
+// helper instead of each shuffling independently.
+//
+// Safety audit (2026-09-03): grepped every app/data/*/locales/*.json option
+// string across all pools (515-question sportboot_see/sportboot_binnen
+// ELWIS pools included) for patterns that would break under reordering -
+// "position N", "option/answer A/B/C/D", "both A and B", "as above/below",
+// first/second-mentioned, etc. Real hits were all either unrelated uses of
+// the word ("dominant market position", "seat position", GPS "position")
+// or "beide"/"both" referring to entities IN the question (both vessels,
+// both engines, both rules) rather than to sibling answer options, and the
+// sportboot_binnen questions that label vessels A/B/C (e.g. elwis-183/185/
+// 188/189) do so via the question text and diagram, not via the answer
+// option lettering - so they're unaffected by shuffling option order. No
+// question needed exclusion. NO_SHUFFLE_QUESTION_IDS below is the escape
+// hatch for any future import that does need one - add a question's `id`
+// with a comment saying why; data files stay untouched.
+const NO_SHUFFLE_QUESTION_IDS = new Set([
+  // (none currently - see audit note above)
+]);
+
+const OPTION_DISPLAY_LETTERS = ["a", "b", "c", "d", "e", "f", "g", "h"];
+
+// Per-question-id cache so the shuffled order is picked once and then
+// stays put for the rest of the page's lifetime - re-renders triggered by
+// picking an option (renderPracticeQuestion, renderDetail both fully
+// re-render on every pick) must not visibly reshuffle the options out from
+// under the user's cursor.
+const _optionOrderCache = new Map();
+
+// Returns this question's options as an array of {key, text, letter},
+// in randomized render order, where `key` is the ORIGINAL option key from
+// the source JSON (unchanged - this is what gets stored in
+// ex.answers/pq.answers/state.detailPick and compared against q.correct,
+// so no answer-checking/SRS/certificate/review-queue code needs to change)
+// and `letter` is the freshly assigned display label (a, b, c, ...) shown
+// to the user, decoupled from `key` so a memorized "the answer is always
+// C" cheat sheet no longer lines up with anything real.
+function shuffledOptionEntries(q, t) {
+  const entries = Object.entries(t.options); // [[key, text], ...] in source order
+  if (NO_SHUFFLE_QUESTION_IDS.has(q.id)) {
+    return entries.map(([key, text]) => ({ key, text, letter: key }));
+  }
+  let orderedKeys = _optionOrderCache.get(q.id);
+  if (!orderedKeys) {
+    orderedKeys = shuffle(entries.map(([key]) => key));
+    _optionOrderCache.set(q.id, orderedKeys);
+  }
+  return orderedKeys.map((key, i) => ({
+    key,
+    text: t.options[key],
+    letter: OPTION_DISPLAY_LETTERS[i] || key,
+  }));
 }
 
 function drawExamQuestions() {
@@ -6189,7 +7486,7 @@ function renderExamQuestion() {
       if (mark) mark.textContent = isSel ? "✓" : "";
     });
   };
-  Object.entries(t.options).forEach(([key, text]) => {
+  shuffledOptionEntries(q, t).forEach(({ key, text, letter }) => {
     const div = document.createElement("div");
     div.className = "option" + (isMultiSelect ? " option-checkbox" : "");
     div.dataset.key = key;
@@ -6206,7 +7503,7 @@ function renderExamQuestion() {
     // color-only signal, same class of issue this project already fixed
     // for the correct-answer mark. The checkmark span makes selection a
     // shape change too, not just a color change, for colorblind users.
-    div.innerHTML = `<span class="key">${key.toUpperCase()}</span><span>${text}</span><span class="selected-mark" aria-hidden="true"></span>`;
+    div.innerHTML = `<span class="key">${letter.toUpperCase()}</span><span>${text}</span><span class="selected-mark" aria-hidden="true"></span>`;
     const pick = () => {
       if (isMultiSelect) {
         const current = Array.isArray(ex.answers[q.id]) ? ex.answers[q.id] : [];
@@ -6606,7 +7903,7 @@ function renderPracticeQuestion() {
 
   const optionsEl = el("#practice-options");
   optionsEl.innerHTML = "";
-  Object.entries(t.options).forEach(([key, text]) => {
+  shuffledOptionEntries(q, t).forEach(({ key, text, letter }) => {
     const isCorrect = q.correct.includes(key);
     const wasPicked = pickedKeys.includes(key);
     const showCorrect = isChecked && isCorrect;
@@ -6624,7 +7921,7 @@ function renderPracticeQuestion() {
       else div.setAttribute("aria-pressed", String(wasPicked));
       div.tabIndex = 0;
     }
-    div.innerHTML = `<span class="key">${key.toUpperCase()}</span><span>${text}</span>${
+    div.innerHTML = `<span class="key">${letter.toUpperCase()}</span><span>${text}</span>${
       showCorrect ? `<span class="correct-mark">✓ ${S.correctMark}</span>`
       : showWrongPick ? `<span class="wrong-pick-mark">✗ ${S.yourPickWrong}</span>`
       : ""
@@ -6846,6 +8143,18 @@ function render() {
   el("#app-menu-title").textContent = MS.title;
   el("#app-menu-close-btn").textContent = MS.close;
 
+  // 2026-09-02: #theme-toggle only got a translated label once it moved
+  // into this menu (see renderThemeToggle()) - before that it was just an
+  // icon, so a language switch never had anything to go stale. It's only
+  // otherwise called from setTheme()/init(), neither of which runs on a
+  // language change, so without this call switching languages left the
+  // PREVIOUS language's label sitting under a now-translated menu title -
+  // exactly the kind of visible inconsistency this whole redesign was
+  // meant to clean up. Cheap to call unconditionally alongside the other
+  // menu-string refreshes above/below rather than threading a "did the
+  // language change" flag through render()'s many call sites.
+  renderThemeToggle();
+
   // DN-46: "prepare for offline" button/status - shown for every module
   // (not Fuehrerschein-only like Sign Reference above), hidden only when no
   // module is loaded. Pure repaint from state.offlinePrep - never re-checks
@@ -6857,6 +8166,22 @@ function render() {
     el("#" + id).value = state.lang;
     el("#" + id).setAttribute("aria-label", LANG_PICKER_LABEL[state.lang] || "Language");
   });
+
+  // 2026-09-06: the header globe. The VISIBLE part is a globe glyph plus the
+  // bare locale code - deliberately script-independent, because this control
+  // exists for the user who cannot read anything else on screen. The
+  // translated word only goes in aria-label/title, where it helps a screen
+  // reader user without costing header width.
+  const langLabel = LANG_PICKER_LABEL[state.lang] || "Language";
+  const langBtn = el("#lang-btn");
+  if (langBtn) {
+    el("#lang-btn-code").textContent = state.lang;
+    langBtn.setAttribute("aria-label", langLabel);
+    langBtn.title = langLabel;
+  }
+  renderLangSheetChrome();
+  // Keep an OPEN sheet in sync (checkmark/aria-current move with the pick).
+  if (el("#lang-sheet") && !el("#lang-sheet").hidden) renderLangSheet();
 
   const PR = profileStrings(state.lang);
   const profileBtn = el("#profile-switch-btn");
@@ -6902,7 +8227,7 @@ function renderFilters() {
       // Scoped per module (2026-08-08 fix) - see loadActiveProfileState()'s
       // comment for why an unscoped key let one module's filter selection
       // leak into another after an app reload.
-      try { localStorage.setItem(profileKey(`filter-${state.examType}`), code); } catch (e) { /* non-fatal */ }
+      try { storageSet(profileKey(`filter-${state.examType}`), code); } catch (e) { /* non-fatal */ }
       render();
     });
     container.appendChild(btn);
@@ -6953,7 +8278,7 @@ function renderRoleFilter() {
       state.detailIndex = null;
       // Scoped per module (2026-08-08 fix) - same cross-module leak as the
       // topic filter above.
-      try { localStorage.setItem(profileKey(`role-filter-${state.examType}`), code); } catch (e) { /* non-fatal */ }
+      try { storageSet(profileKey(`role-filter-${state.examType}`), code); } catch (e) { /* non-fatal */ }
       render();
     });
     container.appendChild(btn);
@@ -7089,7 +8414,7 @@ function renderDetail() {
 
   const optionsEl = el("#options");
   optionsEl.innerHTML = "";
-  Object.entries(t.options).forEach(([key, text]) => {
+  shuffledOptionEntries(q, t).forEach(({ key, text, letter }) => {
     const isCorrect = q.correct.includes(key);
     const showCorrect = state.revealed && isCorrect;
     const wasPicked = pickedKeys.includes(key);
@@ -7110,7 +8435,7 @@ function renderDetail() {
     // Marks are always text/icon + color together, never color alone -
     // same accessibility principle already applied to .correct-mark/
     // .selected-mark elsewhere in this app.
-    div.innerHTML = `<span class="key">${key.toUpperCase()}</span><span>${text}</span>${
+    div.innerHTML = `<span class="key">${letter.toUpperCase()}</span><span>${text}</span>${
       showCorrect ? `<span class="correct-mark">✓ ${S.correctMark}</span>`
       : showWrongPick ? `<span class="wrong-pick-mark">✗ ${S.yourPickWrong}</span>`
       : ""
@@ -7186,10 +8511,12 @@ function renderDetail() {
 async function setLang(lang) {
   state.lang = lang;
   document.documentElement.setAttribute("lang", lang); // keeps AT pronunciation correct (WCAG 3.1.1)
-  // Arabic reads right-to-left - mirrors layout direction for correct reading
-  // order (WCAG 1.3.2) rather than leaving RTL text inside an LTR container.
-  document.documentElement.setAttribute("dir", RTL_LANGS.has(lang) ? "rtl" : "ltr");
-  try { localStorage.setItem(profileKey("lang"), lang); } catch (e) { /* storage unavailable, non-fatal */ }
+  applyDocDirection(lang);
+  // The consent notice may be open and awaiting an answer - the globe works
+  // while it is up, on purpose. Re-label it so the question is asked in the
+  // language the user just chose.
+  renderStorageConsentStrings();
+  try { storageSet(profileKey("lang"), lang); } catch (e) { /* storage unavailable, non-fatal */ }
   // Content is now loaded ONE locale at a time per module (DN-39) rather
   // than all 12 up front, so switching languages mid-session means
   // re-fetching that module's text file for the newly-selected language -
@@ -7208,7 +8535,7 @@ async function setLang(lang) {
 
 function setTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
-  try { localStorage.setItem("dn-theme", theme); } catch (e) { /* non-fatal */ }
+  try { storageSet("dn-theme", theme); } catch (e) { /* non-fatal */ }
   renderThemeToggle();
 }
 
@@ -7219,10 +8546,20 @@ function currentTheme() {
 function renderThemeToggle() {
   const isLight = currentTheme() === "light";
   const icon = isLight ? "🌙" : "☀️";
-  ["theme-toggle", "detail-theme-toggle"].forEach((id) => {
-    el("#" + id).textContent = icon;
-    el("#" + id).setAttribute("aria-pressed", String(isLight));
-  });
+  // 2026-09-02: #theme-toggle now lives as a full row in #app-menu-list
+  // (moved out of the header's compact icon cluster - see the comment in
+  // app.html), so it needs real label text like its menu siblings, not
+  // just the bare glyph the old header icon got away with. The label
+  // matches what the icon has always meant - the DESTINATION a tap leads
+  // to, not the current theme - so isLight pairs with "Dark mode"
+  // (🌙 Dark mode = tap to go dark) the same way the icon already did.
+  // #detail-theme-toggle stays icon-only - it's still the compact
+  // detail-view header, unaffected by this move.
+  const M = menuStrings(state.lang);
+  el("#theme-toggle").textContent = `${icon} ${isLight ? M.themeDark : M.themeLight}`;
+  el("#theme-toggle").setAttribute("aria-pressed", String(isLight));
+  el("#detail-theme-toggle").textContent = icon;
+  el("#detail-theme-toggle").setAttribute("aria-pressed", String(isLight));
 }
 
 function setInertBehindDialog(isInert) {
@@ -7271,19 +8608,124 @@ function closeDetail() {
 // covers this one visually (same 2-level stacking #course-view/
 // #course-reader already rely on). A single back-step from the item
 // closes it and lands back on this menu; a second closes the menu itself.
+// Storage-consent notice strings (DN-89). Same 12-locale bar as every other
+// piece of app UI text (MENU_STRINGS etc. below) - unlike the two static
+// legal pages (datenschutzerklaerung.html/impressum.html, deliberately
+// DE/EN-authoritative-only per their own header comments), this notice is
+// live app UI shown to every first-time visitor regardless of language.
+const STORAGE_CONSENT_STRINGS = {
+  de: { title: "Lokale Speicherung auf diesem Ger\u00e4t", body: "Zettacard merkt sich Ihren Lernfortschritt (z.\u00a0B. Profile, Wiederholungssystem, markierte/gesehene Fragen, abgeschlossene Pr\u00fcfungen) sowie Sprache und Design ausschlie\u00dflich lokal auf diesem Ger\u00e4t \u2014 nicht als Cookie, sondern als Browser-\u201elocalStorage\u201c. Stimmen Sie zu, speichern wir dazu eine einzige technische Markierung, damit dieser Hinweis nicht erneut erscheint. Lehnen Sie ab, wird nichts gespeichert (vorhandene Daten werden gel\u00f6scht) und der Hinweis erscheint beim n\u00e4chsten Besuch erneut.", timeoutNote: "Ohne Auswahl verschwindet dieser Hinweis in 10 Sekunden \u2014 das z\u00e4hlt als Ablehnung, Ihr Fortschritt wird dann nicht gespeichert.", yes: "Ja, lokal speichern", no: "Nein, nicht speichern", privacyLink: "Datenschutzerkl\u00e4rung" },
+  en: { title: "Local storage on this device", body: "Zettacard remembers your learning progress (e.g. profiles, spaced-repetition progress, starred/seen questions, completed exams) plus your language and theme, only on this device \u2014 not as a cookie, but as browser \"local storage\". If you agree, we save one small technical flag so this notice doesn't show again. If you decline, nothing is saved (anything already stored is cleared), and this notice reappears next time.", timeoutNote: "If you don't choose, this notice disappears in 10 seconds \u2014 that counts as declining, and your progress won't be saved.", yes: "Yes, save locally", no: "No, don't save", privacyLink: "Privacy policy" },
+  bar: { title: "Lokaler Speicher auf diesem Gerät", body: "Zettacard speichert Ihren Lernfortschritt (z. B. Profile, Fortschritt der Wiederholungsplanung, markierte/gesehene Fragen, abgeschlossene Prüfungen) sowie Ihre Sprache und Ihr Design, ausschließlich auf diesem Gerät — nicht als Cookie, sondern als \"lokaler Speicher\" des Browsers. Wenn Sie zustimmen, speichern wir ein kleines technisches Merkmal, damit dieser Hinweis nicht erneut erscheint. Wenn Sie ablehnen, wird nichts gespeichert (bereits Gespeichertes wird gelöscht), und dieser Hinweis erscheint beim nächsten Mal wieder.", timeoutNote: "Wenn Sie keine Auswahl treffen, verschwindet dieser Hinweis nach 10 Sekunden — das gilt als Ablehnung, und Ihr Fortschritt wird nicht gespeichert.", yes: "Ja, lokal speichern", no: "Nein, nicht speichern", privacyLink: "Datenschutzerklärung" },
+  ro: { title: "Stocare locală pe acest dispozitiv", body: "Zettacard reține progresul tău de învățare (de ex. profiluri, progresul repetiției spațiate, întrebările marcate/văzute, examenele finalizate), precum și limba și tema, doar pe acest dispozitiv \u2014 nu ca un cookie, ci ca \"stocare locală\" (local storage) a browserului. Dacă ești de acord, salvăm un mic indicator tehnic pentru ca acest mesaj să nu mai apară din nou. Dacă refuzi, nu se salvează nimic (tot ce este deja stocat este șters), iar acest mesaj va reapărea data viitoare.", timeoutNote: "Dacă nu alegi, acest mesaj dispare în 10 secunde \u2014 asta este considerat refuz, iar progresul tău nu va fi salvat.", yes: "Da, salvează local", no: "Nu, nu salva", privacyLink: "Politica de confidențialitate" },
+  pt: { title: "Armazenamento local neste dispositivo", body: "A Zettacard guarda o seu progresso de aprendizagem (por exemplo, perfis, progresso da repetição espaçada, perguntas marcadas/vistas, exames concluídos), além do seu idioma e tema, apenas neste dispositivo \u2014 não como cookie, mas como \"armazenamento local\" do navegador. Se concordar, guardamos um pequeno indicador técnico para que este aviso não volte a aparecer. Se recusar, nada é guardado (o que já estiver guardado é apagado) e este aviso reaparece da próxima vez.", timeoutNote: "Se não escolher, este aviso desaparece em 10 segundos \u2014 isso conta como recusa, e o seu progresso não será guardado.", yes: "Sim, guardar localmente", no: "Não guardar", privacyLink: "Política de privacidade" },
+  hr: { title: "Lokalna pohrana na ovom uređaju", body: "Zettacard pamti tvoj napredak u učenju (npr. profile, napredak razmaknutog ponavljanja, pitanja označena zvjezdicom/viđena, završene ispite) te tvoj jezik i temu, samo na ovom uređaju \u2014 ne kao kolačić, nego kao preglednikovu \"lokalnu pohranu\". Ako pristaneš, spremamo jednu malu tehničku oznaku kako se ova obavijest ne bi ponovno prikazala. Ako odbiješ, ništa se ne sprema (sve već pohranjeno se briše), a ova će se obavijest sljedeći put ponovno pojaviti.", timeoutNote: "Ako ne odabereš, ova obavijest nestat će za 10 sekundi \u2014 to se broji kao odbijanje, a tvoj napredak neće biti spremljen.", yes: "Da, spremi lokalno", no: "Ne, nemoj spremati", privacyLink: "Pravila privatnosti" },
+  el: { title: "Τοπική αποθήκευση σε αυτή τη συσκευή", body: "Το Zettacard θυμάται την πρόοδο μάθησής σας (π.χ. προφίλ, πρόοδο επανάληψης με διαστήματα, σημειωμένες/εμφανισμένες ερωτήσεις, ολοκληρωμένες εξετάσεις) καθώς και τη γλώσσα και το θέμα εμφάνισής σας, μόνο σε αυτή τη συσκευή — όχι ως cookie, αλλά ως \"τοπική αποθήκευση\" του προγράμματος περιήγησης. Αν συμφωνήσετε, αποθηκεύουμε μία μικρή τεχνική σημαία ώστε αυτή η ειδοποίηση να μην εμφανιστεί ξανά. Αν αρνηθείτε, δεν αποθηκεύεται τίποτα (οτιδήποτε έχει ήδη αποθηκευτεί διαγράφεται) και αυτή η ειδοποίηση θα εμφανιστεί ξανά την επόμενη φορά.", timeoutNote: "Αν δεν επιλέξετε, αυτή η ειδοποίηση θα εξαφανιστεί σε 10 δευτερόλεπτα — αυτό μετράει ως άρνηση, και η πρόοδός σας δεν θα αποθηκευτεί.", yes: "Ναι, αποθήκευση τοπικά", no: "Όχι, να μην αποθηκευτεί", privacyLink: "Πολιτική απορρήτου" },
+  fa: { title: "ذخیره‌سازی محلی روی این دستگاه", body: "زتاکارت پیشرفت یادگیری شما (مانند پروفایل‌ها، پیشرفت تکرار زمان‌بندی‌شده، سؤالات ستاره‌دار/دیده‌شده، آزمون‌های تکمیل‌شده) به‌همراه زبان و پوستهٔ شما را فقط روی همین دستگاه ذخیره می‌کند \u2014 نه به‌صورت کوکی، بلکه به‌صورت \"حافظهٔ محلی\" مرورگر. اگر موافقت کنید، یک نشانگر فنی کوچک ذخیره می‌کنیم تا این اعلان دوباره نمایش داده نشود. اگر رد کنید، هیچ‌چیز ذخیره نمی‌شود (هر آنچه از قبل ذخیره شده پاک می‌شود) و این اعلان دفعهٔ بعد دوباره نمایش داده خواهد شد.", timeoutNote: "اگر انتخابی نکنید، این اعلان پس از 10 ثانیه ناپدید می‌شود \u2014 این به‌منزلهٔ رد کردن است و پیشرفت شما ذخیره نخواهد شد.", yes: "بله، به‌صورت محلی ذخیره شود", no: "نه، ذخیره نشود", privacyLink: "سیاست حریم خصوصی" },
+  uk: { title: "\u041b\u043e\u043a\u0430\u043b\u044c\u043d\u0435 \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u043d\u043d\u044f \u043d\u0430 \u0446\u044c\u043e\u043c\u0443 \u043f\u0440\u0438\u0441\u0442\u0440\u043e\u0457", body: "Zettacard \u0437\u0430\u043f\u0430\u043c'\u044f\u0442\u043e\u0432\u0443\u0454 \u0432\u0430\u0448 \u043f\u0440\u043e\u0433\u0440\u0435\u0441 \u043d\u0430\u0432\u0447\u0430\u043d\u043d\u044f (\u043f\u0440\u043e\u0444\u0456\u043b\u0456, \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0456 \u043f\u0438\u0442\u0430\u043d\u043d\u044f, \u043f\u043e\u0437\u043d\u0430\u0447\u0435\u043d\u0456/\u043f\u0435\u0440\u0435\u0433\u043b\u044f\u043d\u0443\u0442\u0456 \u043f\u0438\u0442\u0430\u043d\u043d\u044f, \u0437\u0430\u0432\u0435\u0440\u0448\u0435\u043d\u0456 \u0456\u0441\u043f\u0438\u0442\u0438), \u0430 \u0442\u0430\u043a\u043e\u0436 \u043c\u043e\u0432\u0443 \u0442\u0430 \u0442\u0435\u043c\u0443 \u0432\u0438\u043a\u043b\u044e\u0447\u043d\u043e \u043d\u0430 \u0446\u044c\u043e\u043c\u0443 \u043f\u0440\u0438\u0441\u0442\u0440\u043e\u0457 \u2014 \u043d\u0435 \u044f\u043a \u0444\u0430\u0439\u043b \u0446\u0443\u043a\u0456, \u0430 \u044f\u043a \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u043d\u0435 \"localStorage\". \u042f\u043a\u0449\u043e \u0432\u0438 \u043f\u043e\u0433\u043e\u0434\u0436\u0443\u0454\u0442\u0435\u0441\u044f, \u043c\u0438 \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u0454\u043c\u043e \u043e\u0434\u043d\u0443 \u0442\u0435\u0445\u043d\u0456\u0447\u043d\u0443 \u043f\u043e\u0437\u043d\u0430\u0447\u043a\u0443, \u0449\u043e\u0431 \u0446\u0435 \u043f\u043e\u0432\u0456\u0434\u043e\u043c\u043b\u0435\u043d\u043d\u044f \u0431\u0456\u043b\u044c\u0448\u0435 \u043d\u0435 \u043f\u043e\u043a\u0430\u0437\u0443\u0432\u0430\u043b\u043e\u0441\u044f. \u042f\u043a\u0449\u043e \u0432\u0456\u0434\u043c\u043e\u0432\u0438\u0442\u0435, \u043d\u0456\u0447\u043e\u0433\u043e \u043d\u0435 \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u0454\u0442\u044c\u0441\u044f (\u043d\u0430\u044f\u0432\u043d\u0456 \u0434\u0430\u043d\u0456 \u0431\u0443\u0434\u0435 \u0432\u0438\u0434\u0430\u043b\u0435\u043d\u043e), \u0456 \u0446\u0435 \u043f\u043e\u0432\u0456\u0434\u043e\u043c\u043b\u0435\u043d\u043d\u044f \u0437'\u044f\u0432\u0438\u0442\u044c\u0441\u044f \u0437\u043d\u043e\u0432\u0443 \u043f\u0440\u0438 \u043d\u0430\u0441\u0442\u0443\u043f\u043d\u043e\u043c\u0443 \u0432\u0456\u0437\u0432\u0456\u0434\u0443\u0432\u0430\u043d\u043d\u0456.", timeoutNote: "\u042f\u043a\u0449\u043e \u0432\u0438 \u043d\u0435 \u043e\u0431\u0435\u0440\u0435\u0442\u0435, \u0446\u0435 \u043f\u043e\u0432\u0456\u0434\u043e\u043c\u043b\u0435\u043d\u043d\u044f \u0437\u043d\u0438\u043a\u043d\u0435 \u0447\u0435\u0440\u0435\u0437 10 \u0441\u0435\u043a\u0443\u043d\u0434 \u2014 \u0446\u0435 \u0432\u0432\u0430\u0436\u0430\u0454\u0442\u044c\u0441\u044f \u0432\u0456\u0434\u043c\u043e\u0432\u043e\u044e, \u0432\u0430\u0448 \u043f\u0440\u043e\u0433\u0440\u0435\u0441 \u043d\u0435 \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u0442\u0438\u043c\u0435\u0442\u044c\u0441\u044f.", yes: "\u0422\u0430\u043a, \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u0442\u0438 \u043b\u043e\u043a\u0430\u043b\u044c\u043d\u043e", no: "\u041d\u0456, \u043d\u0435 \u0437\u0431\u0435\u0440\u0456\u0433\u0430\u0442\u0438", privacyLink: "\u041f\u043e\u043b\u0456\u0442\u0438\u043a\u0430 \u043a\u043e\u043d\u0444\u0456\u0434\u0435\u043d\u0446\u0456\u0439\u043d\u043e\u0441\u0442\u0456" },
+  pl: { title: "Lokalne przechowywanie danych na tym urz\u0105dzeniu", body: "Zettacard zapami\u0119tuje Tw\u00f3j post\u0119p w nauce (profile, system powt\u00f3rek, oznaczone/widziane pytania, uko\u0144czone egzaminy) oraz j\u0119zyk i motyw wy\u0142\u0105cznie lokalnie na tym urz\u0105dzeniu \u2014 nie jako plik cookie, lecz jako \"localStorage\" przegl\u0105darki. Je\u015bli wyrazisz zgod\u0119, zapiszemy jedn\u0105 technicznz\u0105 flag\u0119, aby ten komunikat si\u0119 nie powtarza\u0142. Je\u015bli odm\u00f3wisz, nic nie zostanie zapisane (istniej\u0105ce dane zostan\u0105 usuni\u0119te), a komunikat pojawi si\u0119 ponownie przy nast\u0119pnej wizycie.", timeoutNote: "Je\u015bli nie wybierzesz, ten komunikat zniknie po 10 sekundach \u2014 to liczy si\u0119 jako odmowa, a Tw\u00f3j post\u0119p nie zostanie zapisany.", yes: "Tak, zapisuj lokalnie", no: "Nie, nie zapisuj", privacyLink: "Polityka prywatno\u015bci" },
+  ar: { title: "\u0627\u0644\u062a\u062e\u0632\u064a\u0646 \u0627\u0644\u0645\u062d\u0644\u064a \u0639\u0644\u0649 \u0647\u0630\u0627 \u0627\u0644\u062c\u0647\u0627\u0632", body: "\u064a\u062d\u0641\u0638 Zettacard \u062a\u0642\u062f\u0645\u0643 \u0627\u0644\u062f\u0631\u0627\u0633\u064a (\u0627\u0644\u0645\u0644\u0641\u0627\u062a\u060c \u0646\u0638\u0627\u0645 \u0627\u0644\u0645\u0631\u0627\u062c\u0639\u0629 \u0627\u0644\u0645\u062a\u0628\u0627\u0639\u062f\u0629\u060c \u0627\u0644\u0623\u0633\u0626\u0644\u0629 \u0627\u0644\u0645\u0648\u0633\u0648\u0645\u0629/\u0627\u0644\u0645\u0634\u0627\u0647\u062f\u0629\u060c \u0627\u0644\u0627\u0645\u062a\u062d\u0627\u0646\u0627\u062a \u0627\u0644\u0645\u0643\u062a\u0645\u0644\u0629) \u0628\u0627\u0644\u0625\u0636\u0627\u0641\u0629 \u0625\u0644\u0649 \u0627\u0644\u0644\u063a\u0629 \u0648\u0627\u0644\u0645\u0638\u0647\u0631\u060c \u0641\u0642\u0637 \u0639\u0644\u0649 \u0647\u0630\u0627 \u0627\u0644\u062c\u0647\u0627\u0632 \u2014 \u0644\u064a\u0633 \u0639\u0644\u0649 \u0634\u0643\u0644 \u0645\u0644\u0641 \u062a\u0639\u0631\u064a\u0641 \u0627\u0631\u062a\u0628\u0627\u0637\u060c \u0628\u0644 \u0643\u0640 \"localStorage\" \u0627\u0644\u062e\u0627\u0635 \u0628\u0627\u0644\u0645\u062a\u0635\u0641\u062d. \u0625\u0630\u0627 \u0648\u0627\u0641\u0642\u062a\u060c \u0633\u0646\u062d\u0641\u0638 \u0639\u0644\u0627\u0645\u0629 \u062a\u0642\u0646\u064a\u0629 \u0648\u0627\u062d\u062f\u0629 \u0644\u0643\u064a \u0644\u0627 \u064a\u0638\u0647\u0631 \u0647\u0630\u0627 \u0627\u0644\u0625\u0634\u0639\u0627\u0631 \u0645\u062c\u062f\u062f\u064b\u0627. \u0625\u0630\u0627 \u0631\u0641\u0636\u062a\u060c \u0644\u0646 \u064a\u062a\u0645 \u062d\u0641\u0638 \u0623\u064a \u0634\u064a\u0621 (\u0648\u0633\u064a\u062a\u0645 \u0645\u0633\u062d \u0623\u064a \u0628\u064a\u0627\u0646\u0627\u062a \u0645\u062e\u0632\u0646\u0629 \u0628\u0627\u0644\u0641\u0639\u0644)\u060c \u0648\u0633\u064a\u0638\u0647\u0631 \u0627\u0644\u0625\u0634\u0639\u0627\u0631 \u0645\u062c\u062f\u062f\u064b\u0627 \u0641\u064a \u0627\u0644\u0632\u064a\u0627\u0631\u0629 \u0627\u0644\u062a\u0627\u0644\u064a\u0629.", timeoutNote: "\u0625\u0630\u0627 \u0644\u0645 \u062a\u062e\u062a\u0631\u060c \u0633\u064a\u062e\u062a\u0641\u064a \u0647\u0630\u0627 \u0627\u0644\u0625\u0634\u0639\u0627\u0631 \u062e\u0644\u0627\u0644 10 \u062b\u0648\u0627\u0646\u064d \u2014 \u0648\u0647\u0630\u0627 \u064a\u064f\u062d\u0633\u0628 \u0631\u0641\u0636\u064b\u0627\u060c \u0648\u0644\u0646 \u064a\u062a\u0645 \u062d\u0641\u0638 \u062a\u0642\u062f\u0645\u0643.", yes: "\u0646\u0639\u0645\u060c \u0627\u062d\u0641\u0638 \u0645\u062d\u0644\u064a\u064b\u0627", no: "\u0644\u0627\u060c \u0644\u0627 \u062a\u062d\u0641\u0638", privacyLink: "\u0633\u064a\u0627\u0633\u0629 \u0627\u0644\u062e\u0635\u0648\u0635\u064a\u0629" },
+  zh: { title: "\u672c\u8bbe\u5907\u4e0a\u7684\u672c\u5730\u5b58\u50a8", body: "Zettacard \u4ec5\u5728\u672c\u8bbe\u5907\u4e0a\u8bb0\u5f55\u60a8\u7684\u5b66\u4e60\u8fdb\u5ea6\uff08\u6863\u6848\u3001\u95f4\u9694\u91cd\u590d\u8fdb\u5ea6\u3001\u6807\u8bb0/\u5df2\u770b\u8fc7\u7684\u9898\u76ee\u3001\u5df2\u5b8c\u6210\u7684\u8003\u8bd5\uff09\u4ee5\u53ca\u8bed\u8a00\u548c\u4e3b\u9898\u2014\u2014\u4e0d\u662f cookie\uff0c\u800c\u662f\u6d4f\u89c8\u5668\u7684\u201clocalStorage\u201d\u3002\u5982\u679c\u60a8\u540c\u610f\uff0c\u6211\u4eec\u4f1a\u4fdd\u5b58\u4e00\u4e2a\u5c0f\u5c0f\u7684\u6280\u672f\u6807\u8bb0\uff0c\u4ee5\u4fbf\u6b64\u63d0\u793a\u4e0d\u518d\u51fa\u73b0\u3002\u5982\u679c\u60a8\u62d2\u7edd\uff0c\u5219\u4e0d\u4f1a\u4fdd\u5b58\u4efb\u4f55\u5185\u5bb9\uff08\u5df2\u5b58\u50a8\u7684\u5185\u5bb9\u4e5f\u4f1a\u88ab\u6e05\u9664\uff09\uff0c\u4e0b\u6b21\u8bbf\u95ee\u65f6\u6b64\u63d0\u793a\u5c06\u518d\u6b21\u51fa\u73b0\u3002", timeoutNote: "\u5982\u679c\u60a8\u4e0d\u9009\u62e9\uff0c\u6b64\u63d0\u793a\u5c06\u5728 10 \u79d2\u540e\u6d88\u5931\u2014\u2014\u8fd9\u89c6\u4e3a\u62d2\u7edd\uff0c\u60a8\u7684\u8fdb\u5ea6\u5c06\u4e0d\u4f1a\u88ab\u4fdd\u5b58\u3002", yes: "\u540c\u610f\uff0c\u672c\u5730\u4fdd\u5b58", no: "\u4e0d\u540c\u610f", privacyLink: "\u9690\u79c1\u653f\u7b56" },
+  hi: { title: "\u0907\u0938 \u0921\u093f\u0935\u093e\u0907\u0938 \u092a\u0930 \u0938\u094d\u0925\u093e\u0928\u0940\u092f \u0938\u094d\u091f\u094b\u0930\u0947\u091c", body: "Zettacard \u0906\u092a\u0915\u0940 \u0938\u0940\u0916\u0928\u0947 \u0915\u0940 \u092a\u094d\u0930\u0917\u0924\u093f (\u092a\u094d\u0930\u094b\u092b\u093c\u093e\u0907\u0932, \u0938\u094d\u092a\u0947\u0938\u094d\u0921 \u0930\u093f\u092a\u093f\u091f\u0940\u0936\u0928 \u092a\u094d\u0930\u0917\u0924\u093f, \u0938\u094d\u091f\u093e\u0930\u094d\u0921/\u0926\u0947\u0916\u0947 \u0917\u090f \u092a\u094d\u0930\u0936\u094d\u0928, \u092a\u0942\u0930\u094d\u0923 \u092a\u0930\u0940\u0915\u094d\u0937\u093e\u090f\u0902) \u0914\u0930 \u092d\u093e\u0937\u093e \u0935 \u0925\u0940\u092e \u0915\u094b \u0915\u0947\u0935\u0932 \u0907\u0938\u0940 \u0921\u093f\u0935\u093e\u0907\u0938 \u092a\u0930 \u092f\u093e\u0926 \u0930\u0916\u0924\u093e \u0939\u0948 \u2014 \u0915\u0941\u0915\u0940 \u0915\u0947 \u0930\u0942\u092a \u092e\u0947\u0902 \u0928\u0939\u0940\u0902, \u092c\u0932\u094d\u0915\u093f \u092c\u094d\u0930\u093e\u0909\u091c\u093c\u0930 \u0915\u0947 \"localStorage\" \u0915\u0947 \u0930\u0942\u092a \u092e\u0947\u0902\u0964 \u0938\u0939\u092e\u0924 \u0926\u0947\u0928\u0947 \u092a\u0930 \u0939\u092e \u090f\u0915 \u0924\u0915\u0928\u0940\u0915\u0940 \u092b\u094d\u0932\u0948\u0917 \u0938\u0939\u0947\u091c\u0924\u0947 \u0939\u0948\u0902 \u0924\u093e\u0915\u093f \u092f\u0939 \u0938\u0942\u091a\u0928\u093e \u092b\u093f\u0930 \u0938\u0947 \u0928 \u0926\u093f\u0916\u0947\u0964 \u092f\u0926\u093f \u0906\u092a \u092e\u0928\u093e \u0915\u0930\u0924\u0947 \u0939\u0948\u0902, \u0924\u094b \u0915\u0941\u091b \u092d\u0940 \u0938\u0939\u0947\u091c\u093e \u0928\u0939\u0940\u0902 \u091c\u093e\u090f\u0917\u093e (\u092e\u094c\u091c\u0942\u0926\u093e \u0921\u0947\u091f\u093e \u092d\u0940 \u0939\u091f\u093e \u0926\u093f\u092f\u093e \u091c\u093e\u090f\u0917\u093e), \u0914\u0930 \u0905\u0917\u0932\u0940 \u092c\u093e\u0930 \u092f\u0939 \u0938\u0942\u091a\u0928\u093e \u092b\u093f\u0930 \u0926\u093f\u0916\u0947\u0917\u0940\u0964", timeoutNote: "\u092f\u0926\u093f \u0906\u092a \u091a\u0941\u0928\u0924\u0947 \u0928\u0939\u0940\u0902 \u0939\u0948\u0902, \u0924\u094b \u092f\u0939 \u0938\u0942\u091a\u0928\u093e 10 \u0938\u0947\u0915\u0902\u0921 \u092e\u0947\u0902 \u0917\u093e\u092f\u092c \u0939\u094b \u091c\u093e\u090f\u0917\u0940 \u2014 \u092f\u0939 \u0905\u0938\u094d\u0935\u0940\u0915\u0943\u0924\u093f \u092e\u093e\u0928\u093e \u091c\u093e\u090f\u0917\u093e, \u0914\u0930 \u0906\u092a\u0915\u0940 \u092a\u094d\u0930\u0917\u0924\u093f \u0938\u0939\u0947\u091c\u0940 \u0928\u0939\u0940\u0902 \u091c\u093e\u090f\u0917\u0940\u0964", yes: "\u0939\u093e\u0902, \u0938\u094d\u0925\u093e\u0928\u0940\u092f \u0930\u0942\u092a \u0938\u0947 \u0938\u0939\u0947\u091c\u0947\u0902", no: "\u0928\u0939\u0940\u0902, \u0928\u0939\u0940\u0902 \u0938\u0939\u0947\u091c\u0947\u0902", privacyLink: "\u0917\u094b\u092a\u0928\u0940\u092f\u0924\u093e \u0928\u0940\u0924\u093f" },
+  tr: { title: "Bu cihazda yerel depolama", body: "Zettacard, \u00f6\u011frenme ilerlemenizi (profiller, aral\u0131kl\u0131 tekrar ilerlemesi, y\u0131ld\u0131zlanan/g\u00f6r\u00fclen sorular, tamamlanan s\u0131navlar) ve dil/tema ayar\u0131n\u0131z\u0131 yaln\u0131zca bu cihazda hat\u0131rlar \u2014 \u00e7erez olarak de\u011fil, taray\u0131c\u0131n\u0131n \"yerel depolamas\u0131\" (localStorage) olarak. Kabul ederseniz, bu bildirimin tekrar g\u00f6r\u00fcnmemesi i\u00e7in tek bir k\u00fc\u00e7\u00fck teknik bayrak kaydederiz. Reddederseniz hi\u00e7bir \u015fey kaydedilmez (mevcut veriler de silinir) ve bu bildirim bir sonraki ziyarette tekrar g\u00f6r\u00fcn\u00fcr.", timeoutNote: "Se\u00e7im yapmazsan\u0131z bu bildirim 10 saniye i\u00e7inde kaybolur \u2014 bu, reddetme say\u0131l\u0131r ve ilerlemeniz kaydedilmez.", yes: "Evet, yerel olarak kaydet", no: "Hay\u0131r, kaydetme", privacyLink: "Gizlilik politikas\u0131" },
+  fr: { title: "Stockage local sur cet appareil", body: "Zettacard m\u00e9morise votre progression d'apprentissage (profils, progression de r\u00e9p\u00e9tition espac\u00e9e, questions marqu\u00e9es/vues, examens r\u00e9ussis) ainsi que votre langue et votre th\u00e8me, uniquement sur cet appareil \u2014 pas via un cookie, mais via le \u00ab\u00a0stockage local\u00a0\u00bb (localStorage) du navigateur. Si vous acceptez, nous enregistrons un unique indicateur technique pour que cet avis ne r\u00e9appara\u00eesse plus. Si vous refusez, rien n'est enregistr\u00e9 (les donn\u00e9es existantes sont effac\u00e9es) et cet avis r\u00e9appara\u00eetra lors de votre prochaine visite.", timeoutNote: "Si vous ne choisissez pas, cet avis dispara\u00eetra dans 10 secondes \u2014 cela compte comme un refus, et votre progression ne sera pas enregistr\u00e9e.", yes: "Oui, enregistrer localement", no: "Non, ne pas enregistrer", privacyLink: "Politique de confidentialit\u00e9" },
+  ru: { title: "\u041b\u043e\u043a\u0430\u043b\u044c\u043d\u043e\u0435 \u0445\u0440\u0430\u043d\u0435\u043d\u0438\u0435 \u043d\u0430 \u044d\u0442\u043e\u043c \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u0435", body: "Zettacard \u0437\u0430\u043f\u043e\u043c\u0438\u043d\u0430\u0435\u0442 \u0432\u0430\u0448 \u043f\u0440\u043e\u0433\u0440\u0435\u0441\u0441 \u043e\u0431\u0443\u0447\u0435\u043d\u0438\u044f (\u043f\u0440\u043e\u0444\u0438\u043b\u0438, \u043f\u0440\u043e\u0433\u0440\u0435\u0441\u0441 \u0438\u043d\u0442\u0435\u0440\u0432\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u043f\u043e\u0432\u0442\u043e\u0440\u0435\u043d\u0438\u044f, \u043e\u0442\u043c\u0435\u0447\u0435\u043d\u043d\u044b\u0435/\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u043d\u043d\u044b\u0435 \u0432\u043e\u043f\u0440\u043e\u0441\u044b, \u0437\u0430\u0432\u0435\u0440\u0448\u0451\u043d\u043d\u044b\u0435 \u044d\u043a\u0437\u0430\u043c\u0435\u043d\u044b) \u0430 \u0442\u0430\u043a\u0436\u0435 \u044f\u0437\u044b\u043a \u0438 \u0442\u0435\u043c\u0443 \u0442\u043e\u043b\u044c\u043a\u043e \u043d\u0430 \u044d\u0442\u043e\u043c \u0443\u0441\u0442\u0440\u043e\u0439\u0441\u0442\u0432\u0435 \u2014 \u043d\u0435 \u0432 \u0432\u0438\u0434\u0435 cookie, \u0430 \u0432 \u0432\u0438\u0434\u0435 \"localStorage\" \u0431\u0440\u0430\u0443\u0437\u0435\u0440\u0430. \u0415\u0441\u043b\u0438 \u0432\u044b \u0441\u043e\u0433\u043b\u0430\u0441\u0438\u0442\u0435\u0441\u044c, \u043c\u044b \u0441\u043e\u0445\u0440\u0430\u043d\u0438\u043c \u043e\u0434\u0438\u043d \u0442\u0435\u0445\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0444\u043b\u0430\u0433, \u0447\u0442\u043e\u0431\u044b \u044d\u0442\u043e \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435 \u0431\u043e\u043b\u044c\u0448\u0435 \u043d\u0435 \u043f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u043b\u043e\u0441\u044c. \u0415\u0441\u043b\u0438 \u0432\u044b \u043e\u0442\u043a\u0430\u0436\u0435\u0442\u0435\u0441\u044c, \u043d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u0441\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u0441\u044f (\u0443\u0436\u0435 \u0441\u043e\u0445\u0440\u0430\u043d\u0451\u043d\u043d\u044b\u0435 \u0434\u0430\u043d\u043d\u044b\u0435 \u0431\u0443\u0434\u0443\u0442 \u0443\u0434\u0430\u043b\u0435\u043d\u044b), \u0438 \u044d\u0442\u043e \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435 \u043f\u043e\u044f\u0432\u0438\u0442\u0441\u044f \u0441\u043d\u043e\u0432\u0430 \u043f\u0440\u0438 \u0441\u043b\u0435\u0434\u0443\u044e\u0449\u0435\u043c \u043f\u043e\u0441\u0435\u0449\u0435\u043d\u0438\u0438.", timeoutNote: "\u0415\u0441\u043b\u0438 \u0432\u044b \u043d\u0435 \u0432\u044b\u0431\u0435\u0440\u0435\u0442\u0435, \u044d\u0442\u043e \u0443\u0432\u0435\u0434\u043e\u043c\u043b\u0435\u043d\u0438\u0435 \u0438\u0441\u0447\u0435\u0437\u043d\u0435\u0442 \u0447\u0435\u0440\u0435\u0437 10 \u0441\u0435\u043a\u0443\u043d\u0434 \u2014 \u044d\u0442\u043e \u0431\u0443\u0434\u0435\u0442 \u0441\u0447\u0438\u0442\u0430\u0442\u044c\u0441\u044f \u043e\u0442\u043a\u0430\u0437\u043e\u043c, \u0438 \u0432\u0430\u0448 \u043f\u0440\u043e\u0433\u0440\u0435\u0441\u0441 \u043d\u0435 \u0441\u043e\u0445\u0440\u0430\u043d\u0438\u0442\u0441\u044f.", yes: "\u0414\u0430, \u0441\u043e\u0445\u0440\u0430\u043d\u044f\u0442\u044c \u043b\u043e\u043a\u0430\u043b\u044c\u043d\u043e", no: "\u041d\u0435\u0442, \u043d\u0435 \u0441\u043e\u0445\u0440\u0430\u043d\u044f\u0442\u044c", privacyLink: "\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430 \u043a\u043e\u043d\u0444\u0438\u0434\u0435\u043d\u0446\u0438\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438" },
+  es: { title: "Almacenamiento local en este dispositivo", body: "Zettacard recuerda tu progreso de aprendizaje (perfiles, progreso de repetici\u00f3n espaciada, preguntas marcadas/vistas, ex\u00e1menes completados) as\u00ed como tu idioma y tema, \u00fanicamente en este dispositivo \u2014 no como una cookie, sino como \"almacenamiento local\" (localStorage) del navegador. Si aceptas, guardamos un peque\u00f1o indicador t\u00e9cnico para que este aviso no vuelva a aparecer. Si rechazas, no se guarda nada (los datos existentes se borran) y este aviso reaparecer\u00e1 en tu pr\u00f3xima visita.", timeoutNote: "Si no eliges, este aviso desaparecer\u00e1 en 10 segundos \u2014 esto cuenta como rechazo, y tu progreso no se guardar\u00e1.", yes: "S\u00ed, guardar localmente", no: "No, no guardar", privacyLink: "Pol\u00edtica de privacidad" },
+  it: { title: "Archiviazione locale su questo dispositivo", body: "Zettacard ricorda i tuoi progressi di apprendimento (profili, progresso della ripetizione dilazionata, domande contrassegnate/viste, esami completati) oltre a lingua e tema, esclusivamente su questo dispositivo \u2014 non come cookie, ma come \"archiviazione locale\" (localStorage) del browser. Se accetti, salviamo un solo piccolo flag tecnico affinch\u00e9 questo avviso non ricompaia. Se rifiuti, non viene salvato nulla (i dati esistenti vengono cancellati) e questo avviso ricomparir\u00e0 alla prossima visita.", timeoutNote: "Se non scegli, questo avviso scomparir\u00e0 tra 10 secondi \u2014 ci\u00f2 conta come rifiuto e i tuoi progressi non verranno salvati.", yes: "S\u00ec, salva localmente", no: "No, non salvare", privacyLink: "Informativa sulla privacy" },
+};
+
+function storageConsentStrings(lang) {
+  return STORAGE_CONSENT_STRINGS[lang] || STORAGE_CONSENT_STRINGS.en;
+}
+
+// Shows the DN-89 notice and resolves once a decision exists - either an
+// explicit click (Yes/No) or the 10s auto-dismiss, which counts as a
+// decline (silence isn't consent, PO's explicit call - see the comment on
+// STORAGE_CONSENT_KEY above). Resolves IMMEDIATELY, without showing
+// anything, if a decision was already recorded on a prior visit. Called
+// from init() before migrateOrInitProfiles()/anything else touches
+// storage - see that function for why this ordering is what makes this a
+// real gate rather than a decorative overlay on top of an already-running
+// app.
+// Pulled out of ensureStorageConsentDecision() on 2026-09-06 so setLang() can
+// call it again. The notice is the first thing a user sees and it awaits their
+// answer, and the globe is now reachable while it is up - so the language can
+// change underneath an open consent prompt. Before this it did not re-render:
+// someone who used the globe to escape a script they could not read was still
+// being asked for a privacy decision in that script, which defeats the point.
+function renderStorageConsentStrings() {
+  if (!el("#storage-consent-notice")) return;
+  const S = storageConsentStrings(state.lang);
+  el("#storage-consent-title").textContent = S.title;
+  el("#storage-consent-body").textContent = S.body;
+  el("#storage-consent-timeout-note").textContent = S.timeoutNote;
+  el("#storage-consent-yes").textContent = S.yes;
+  el("#storage-consent-no").textContent = S.no;
+  el("#storage-consent-privacy-link").textContent = S.privacyLink;
+}
+
+function ensureStorageConsentDecision() {
+  return new Promise((resolve) => {
+    if (getStorageConsent() !== null) {
+      resolve();
+      return;
+    }
+
+    // detectBrowserLang() only reads navigator.languages - no storage
+    // touched, so this is safe to do before a consent decision exists.
+    // state.lang's real value (saved preference vs. browser fallback) is
+    // resolved properly later in loadActiveProfileState(); this is only a
+    // best-effort label language for the notice, shown before that
+    // machinery is allowed to run.
+    state.lang = detectBrowserLang() || "de";
+    const notice = el("#storage-consent-notice");
+    renderStorageConsentStrings();
+    notice.hidden = false;
+
+    let settled = false;
+    const finish = (value) => {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      setStorageConsent(value);
+      notice.hidden = true;
+      resolve();
+    };
+
+    el("#storage-consent-yes").onclick = () => finish("granted");
+    el("#storage-consent-no").onclick = () => finish("declined");
+    // 10s auto-dismiss = declined, per the PO's explicit design decision -
+    // an ignored notice must not silently leave the question open forever,
+    // and the safe default when nobody actively answers is "no."
+    const timer = setTimeout(() => finish("declined"), 10000);
+  });
+}
+
 const MENU_STRINGS = {
-  de: { title: "Menü", close: "← Zurück" },
-  en: { title: "Menu", close: "← Back" },
-  uk: { title: "Меню", close: "← Назад" },
-  pl: { title: "Menu", close: "← Wstecz" },
-  ar: { title: "القائمة", close: "← رجوع" },
-  zh: { title: "菜单", close: "← 返回" },
-  hi: { title: "मेनू", close: "← वापस" },
-  tr: { title: "Menü", close: "← Geri" },
-  fr: { title: "Menu", close: "← Retour" },
-  ru: { title: "Меню", close: "← Назад" },
-  es: { title: "Menú", close: "← Atrás" },
-  it: { title: "Menu", close: "← Indietro" },
+  // themeDark/themeLight (2026-09-02): label text for the #theme-toggle
+  // row now that it lives in #app-menu-list as a full row instead of a
+  // bare header icon (see renderThemeToggle()) - paired with the icon the
+  // same way it already worked (🌙 shown while light, meaning "tap to go
+  // dark"), so the key names match the DESTINATION the tap leads to, not
+  // the current theme.
+  de: { title: "Menü", close: "← Zurück", themeDark: "Dunkler Modus", themeLight: "Heller Modus" },
+  en: { title: "Menu", close: "← Back", themeDark: "Dark mode", themeLight: "Light mode" },
+  bar: { title: "Menü", close: "← Zruck", themeDark: "Dunkler Modus", themeLight: "Heller Modus" },
+  ro: { title: "Meniu", close: "← Înapoi", themeDark: "Mod întunecat", themeLight: "Mod luminos" },
+  pt: { title: "Menu", close: "← Voltar", themeDark: "Modo escuro", themeLight: "Modo claro" },
+  hr: { title: "Izbornik", close: "← Natrag", themeDark: "Tamni način", themeLight: "Svijetli način" },
+  el: { title: "Μενού", close: "← Πίσω", themeDark: "Σκοτεινή λειτουργία", themeLight: "Φωτεινή λειτουργία" },
+  fa: { title: "منو", close: "← بازگشت", themeDark: "حالت تاریک", themeLight: "حالت روشن" },
+  uk: { title: "Меню", close: "← Назад", themeDark: "Темний режим", themeLight: "Світлий режим" },
+  pl: { title: "Menu", close: "← Wstecz", themeDark: "Tryb ciemny", themeLight: "Tryb jasny" },
+  ar: { title: "القائمة", close: "← رجوع", themeDark: "الوضع الداكن", themeLight: "الوضع الفاتح" },
+  zh: { title: "菜单", close: "← 返回", themeDark: "深色模式", themeLight: "浅色模式" },
+  hi: { title: "मेनू", close: "← वापस", themeDark: "डार्क मोड", themeLight: "लाइट मोड" },
+  tr: { title: "Menü", close: "← Geri", themeDark: "Koyu mod", themeLight: "Açık mod" },
+  fr: { title: "Menu", close: "← Retour", themeDark: "Mode sombre", themeLight: "Mode clair" },
+  ru: { title: "Меню", close: "← Назад", themeDark: "Тёмная тема", themeLight: "Светлая тема" },
+  es: { title: "Menú", close: "← Atrás", themeDark: "Modo oscuro", themeLight: "Modo claro" },
+  it: { title: "Menu", close: "← Indietro", themeDark: "Modalità scura", themeLight: "Modalità chiara" },
 };
 
 function menuStrings(lang) {
@@ -7300,6 +8742,96 @@ function openAppMenu() {
 function closeAppMenu() {
   el("#app-menu").hidden = true;
   setInertBehindDialog(false);
+}
+
+// Locale sheet (2026-09-06) - see #lang-sheet's comment in app.html for why
+// the language picker left the ☰ menu. Same open/close choreography as
+// openAppMenu()/closeAppMenu() above, deliberately copied rather than
+// generalised, so the existing pushState/popstate/inert guards apply
+// unchanged.
+function renderLangSheet() {
+  const list = el("#lang-sheet-list");
+  if (!list) return;
+  list.textContent = "";
+  for (const loc of availableLocales()) {
+    const row = document.createElement("button");
+    row.type = "button";
+    row.className = "lang-sheet-row";
+    row.dataset.lang = loc.code;
+    // Per-row dir from the registry, so an RTL endonym ("فارسی") renders
+    // correctly inside this sheet whatever direction the document is in -
+    // and so it keeps rendering correctly when a NEW RTL locale is added to
+    // index.json, with no code change here. That is the whole reason this
+    // is data-driven.
+    row.setAttribute("dir", loc.dir === "rtl" ? "rtl" : "ltr");
+    row.lang = loc.code;
+    const current = loc.code === state.lang;
+    row.setAttribute("aria-current", current ? "true" : "false");
+
+    const flag = langFlagFor(loc.code);
+    if (flag) {
+      const flagEl = document.createElement("span");
+      flagEl.setAttribute("aria-hidden", "true");
+      flagEl.textContent = flag;
+      row.appendChild(flagEl);
+    }
+    const name = document.createElement("span");
+    name.className = "lang-sheet-row-name";
+    // The endonym, NOT a name translated into the current UI language - a
+    // picker that says "Persisch" is useless to precisely the person who
+    // needs this sheet, because they cannot read the language it is in.
+    name.textContent = loc.native_name || loc.english_name || loc.code;
+    row.appendChild(name);
+    const check = document.createElement("span");
+    check.className = "lang-sheet-row-check";
+    check.setAttribute("aria-hidden", "true");
+    check.textContent = current ? "✓" : "";
+    row.appendChild(check);
+
+    row.addEventListener("click", () => {
+      history.back();          // symmetric with the close button / back gesture
+      setLang(loc.code);       // async; render() inside it repaints the header
+    });
+    list.appendChild(row);
+  }
+}
+
+// The sheet's own title and close-button text. Split out of render() on
+// 2026-09-06 and called from openLangSheet() as well, because render() only
+// runs once a module's data has loaded - so on the paths where it has not
+// (data/modules.json unreachable, offline first run, the module picker
+// still up) the sheet used to open with a bare globe for a title and a
+// completely EMPTY close button. Harmless for a settings screen; not
+// harmless for the one control that exists to rescue someone who cannot
+// read the current script, who would then find no visible way out of it.
+function renderLangSheetChrome() {
+  const title = el("#lang-sheet-title");
+  if (!title) return;
+  title.textContent = `🌐 ${LANG_PICKER_LABEL[state.lang] || "Language"}`;
+  el("#lang-sheet-close-btn").textContent = menuStrings(state.lang).close;
+}
+
+function openLangSheet() {
+  renderLangSheetChrome();
+  renderLangSheet();
+  el("#lang-sheet").hidden = false;
+  history.pushState({ view: "lang-sheet" }, "");
+  setInertBehindDialog(true);
+  el("#lang-sheet-title").focus();
+}
+
+function closeLangSheet() {
+  el("#lang-sheet").hidden = true;
+  setInertBehindDialog(false);
+}
+
+// The globe and its sheet are wired SEPARATELY from every other control, and
+// earlier - see wireLangControl()'s comment and init(). Splitting it out is
+// the point: everything below this line may safely wait for consent and for
+// module data; the language control may not.
+function wireLangControl() {
+  el("#lang-btn").addEventListener("click", openLangSheet);
+  el("#lang-sheet-close-btn").addEventListener("click", () => history.back());
 }
 
 function wireStaticControls() {
@@ -7361,6 +8893,7 @@ function wireStaticControls() {
     if (el("#course-view") && !el("#course-view").hidden) closeCourseView();
     if (el("#kubectl-drill-view") && !el("#kubectl-drill-view").hidden) kdCloseView();
     if (el("#app-menu") && !el("#app-menu").hidden) closeAppMenu();
+    if (el("#lang-sheet") && !el("#lang-sheet").hidden) closeLangSheet();
     if (!el("#profile-view").hidden) closeProfileSwitcher();
     if (!el("#module-picker").hidden) {
       // On first-ever visit the module picker is mandatory (no content is
@@ -7456,7 +8989,7 @@ async function loadActiveProfileState() {
   state.scopeCode = null;
 
   try {
-    const savedLang = localStorage.getItem(profileKey("lang"));
+    const savedLang = storageGet(profileKey("lang"));
     if (savedLang && UI_STRINGS[savedLang]) {
       state.lang = savedLang;
     } else {
@@ -7470,12 +9003,12 @@ async function loadActiveProfileState() {
   } catch (e) { /* storage unavailable, defaults are fine */ }
 
   document.documentElement.setAttribute("lang", state.lang);
-  document.documentElement.setAttribute("dir", RTL_LANGS.has(state.lang) ? "rtl" : "ltr");
+  applyDocDirection(state.lang);
 
   let savedExamType = null, savedScopeCode = null;
   try {
-    savedExamType = localStorage.getItem(profileKey("exam-type"));
-    savedScopeCode = localStorage.getItem(profileKey("scope-code"));
+    savedExamType = storageGet(profileKey("exam-type"));
+    savedScopeCode = storageGet(profileKey("scope-code"));
   } catch (e) { /* non-fatal */ }
 
   // DN-57: honor a one-time module deep-link from the landing page's
@@ -7522,9 +9055,9 @@ async function loadActiveProfileState() {
   // keys per module, and only restoring them once savedExamType is known.
   try {
     if (savedExamType) {
-      const savedFilter = localStorage.getItem(profileKey(`filter-${savedExamType}`));
+      const savedFilter = storageGet(profileKey(`filter-${savedExamType}`));
       state.topicFilter = savedFilter || "all";
-      const savedRoleFilter = localStorage.getItem(profileKey(`role-filter-${savedExamType}`));
+      const savedRoleFilter = storageGet(profileKey(`role-filter-${savedExamType}`));
       state.roleFilter = ROLE_FILTER_CODES.includes(savedRoleFilter) ? savedRoleFilter : "all";
     }
   } catch (e) { /* storage unavailable, defaults are fine */ }
@@ -7552,11 +9085,35 @@ async function loadActiveProfileState() {
 }
 
 async function init() {
+  // The locale registry and the globe are set up BEFORE the storage-consent
+  // gate, and that ordering is load-bearing.
+  //
+  // `ensureStorageConsentDecision()` awaits a human answering a privacy
+  // notice, and the first-run module picker follows it. Both are rendered in
+  // whatever locale detectLang() guessed. Wiring the globe after them meant a
+  // user who had guessed wrong - or landed in Persian or Arabic on purpose
+  // and changed their mind - had to answer a privacy prompt and pick a module
+  // in a script they could not read before the one control that could rescue
+  // them responded to a tap. The button was visible and correctly sized the
+  // whole time, which is why nothing static caught it; only a browser
+  // hit-test plus an actual click did.
+  //
+  // So: registry, direction, globe. Then consent. Then everything else.
+  // The registry fetch is one small local file and its failure is already
+  // non-fatal, so awaiting it here costs nothing and lets a right-to-left
+  // locale lay out correctly on the very first paint instead of flipping.
+  await loadLocaleRegistry();
+  document.documentElement.setAttribute("lang", state.lang);
+  applyDocDirection(state.lang);
+  renderLangSheetChrome();
+  wireLangControl();
+
+  await ensureStorageConsentDecision();
   consumeFeatureFlagDeepLinks();
   migrateOrInitProfiles();
 
   document.documentElement.setAttribute("lang", state.lang);
-  document.documentElement.setAttribute("dir", RTL_LANGS.has(state.lang) ? "rtl" : "ltr");
+  applyDocDirection(state.lang);
   wireStaticControls();
   renderThemeToggle();
 

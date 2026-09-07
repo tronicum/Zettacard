@@ -1,0 +1,1998 @@
+:root {
+  /* DN-95 (2026-09-05): single source of truth for the minimum comfortable
+     touch target. The codebase already used a bare `44px` min-height in
+     several places (language select, .filters buttons, etc.); a Playwright
+     audit at 375x667 and 390x844 found the controls below had been missed
+     and were sitting at 30-31px tall. 44px is Apple's HIG figure and WCAG
+     2.2 SC 2.5.5 (AAA); SC 2.5.8 (AA) only requires 24px, so this is the
+     project's own stricter bar rather than a legal minimum.
+     Deliberately NOT applied to .role-filters button, which is a secondary
+     filter row intentionally kept denser at 40px. */
+  --tap-min: 44px;
+  --bg: #0b1220;
+  --card: #141c2e;
+  --card-hover: #1b2540;
+  --border: #23304d;
+  --text: #eef1f8;
+  --text-dim: #9aa5bd;
+  /* #4c8dff (the old value) only hits 3.2:1 contrast with white text -
+     darkened per the accessibility audit so every solid-fill + white-text
+     use (reveal button, active language toggle) clears WCAG 1.4.3 (4.5:1). */
+  --accent: #3968d8;
+  --accent-dim: #2c4a86;
+  --amber: #e2a63d;
+  --amber-bg: #3a2c10;
+  --green: #3fbf76;
+  --correct-bg: #103a26;
+  --red: #e2593d;
+  /* Paired with --red the same way --correct-bg is paired with --green -
+     used by the spaced-repetition "I didn't know it" self-assessment button
+     (DN-16) so its fill+text combo has the same contrast-checked shape as
+     the existing correct/wrong visual language, not an ad-hoc new color. */
+  --wrong-bg: #3a1c16;
+  --header-bg: rgba(11, 18, 32, 0.92);
+  --badge-topic-text: #cfe0ff;
+  --badge-neutral-bg: #24304a;
+  --focus-ring: #7ab0ff;
+  --radius: 12px;
+  font-size: 16px;
+}
+
+/* Light theme - toggled via [data-theme="light"] on <html>. Colors re-tuned
+   (not just inverted) so contrast and the amber/green distinction both hold
+   up on a white background too - see UX review re: color-only signalling. */
+[data-theme="light"] {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --card-hover: #eef2fb;
+  --border: #d7deec;
+  --text: #1a2233;
+  --text-dim: #5b6478;
+  --accent: #2f6fed;
+  --accent-dim: #dce8ff;
+  /* #92610a (the old value) hit only 4.14:1 against --badge-neutral-bg for
+     the bold ~13.6px exam-timer low-time text - just under the 4.5:1
+     threshold for text below the "large/bold" 14px cutoff. Darkened
+     slightly per the 2026-08-05 UX review, same reasoning as --green
+     below. */
+  --amber: #8a5b09;
+  --amber-bg: #fdf1da;
+  /* #17874f (the old value) hits only 4.08:1 against --correct-bg for the
+     bold ~12.5px correct-mark text, just under the 4.5:1 threshold for text
+     that size/weight - darkened per the accessibility audit. */
+  --green: #0f6b3d;
+  --correct-bg: #e5f7ed;
+  --red: #b8402a;
+  --wrong-bg: #fbe8e3;
+  --header-bg: rgba(245, 247, 251, 0.92);
+  --badge-topic-text: #1e3a8a;
+  --badge-neutral-bg: #dde3ee;
+  --focus-ring: #1e4fd6;
+}
+
+* { box-sizing: border-box; }
+
+/* Explicit focus style - the app previously relied entirely on each
+   browser's unstyled default outline. Verified in Chromium this happened to
+   look fine (its "auto" outline paints as an inverted-color ring), but nothing
+   pinned that down, and this app is mostly used on mobile Safari, whose
+   default focus ring behaves differently and wasn't verifiable in this
+   environment. Defined once so it's consistent and guaranteed everywhere. */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+html,
+body {
+  /* Belt-and-braces backstop from the 2026-08-11 mobile header fix so a
+     future unwrapped flex row (like the 2026-09-02 regression this was
+     re-added for) can't drag the whole page sideways again, even if its
+     own wrap rule is missed. */
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  max-width: 100vw;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--header-bg);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  /* DN-23: safe-area-inset padding for notched phones (the viewport meta
+     already has viewport-fit=cover in app.html, so these env() values
+     resolve to real insets rather than 0 on devices that have one - a
+     no-op elsewhere). Additive via calc() so the existing spacing is a
+     floor, not replaced. Top/left/right here since header sits at the
+     very top of the layout; main below gets the bottom inset. */
+  padding: calc(14px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 10px calc(16px + env(safe-area-inset-left));
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* 2026-09-02: restores the 2026-08-11 fix's class + wrap rule for the
+   header's right-hand control cluster (menu / change-exam / exam / theme
+   / language) - it had regressed back to a plain unwrapped inline
+   `style="display:flex; gap:8px;"` (see the comment in app.html above
+   this row), which on a narrow phone pushed the language picker ~195px
+   past the right edge of the screen instead of wrapping onto its own
+   line, exactly like the original bug this class was created to fix. */
+.header-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  row-gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+h1 {
+  font-size: 1.15rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* Replaced the old two-button DE/EN toggle with a <select> once the app grew
+   to 7 languages - a button row stops being usable (or even fitting on a
+   phone screen) well before 7 options, a native select scales to any count
+   and comes with built-in keyboard/screen-reader support for free.
+   Option labels are each language's own endonym ("Українська," "العربية,"
+   not "UK"/"AR" 2-letter codes) - a UX review found the codes were only
+   decodable by someone already fluent in Latin-script abbreviations, which
+   defeats the point for the very languages (Arabic/Chinese/Hindi) added to
+   reach readers who may not be. A flags-only picker was considered and
+   rejected: flags represent countries, not languages (Arabic has no single
+   flag; English/Chinese are spoken across many), so it trades a literacy
+   problem for an accuracy problem. The 🌐 icon is a decorative, non-
+   language-specific hint that this control is a language switcher, not a
+   substitute for the endonym text. */
+.lang-select-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 999px;
+  padding-inline-start: 12px;
+  flex-shrink: 0;
+}
+
+.lang-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.lang-select {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  padding: 12px 14px 12px 2px;
+  min-height: 44px;
+  max-width: 120px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* 2026-09-02: this used to be overflow-x:auto (a horizontal scroller), the
+   same "chip carousel" pattern apps like Twitter/YouTube use for category
+   filters. On a portrait phone that reads as a bug, not a pattern - a
+   sideways-scrolling strip on a page that only scrolls vertically, with no
+   visual hint more chips exist off to the right. Wrapping instead costs
+   vertical space when there are many topics, but nothing is ever reachable
+   only by a horizontal gesture. */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 2px;
+}
+
+.filters button {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text-dim);
+  padding: 12px 14px;
+  min-height: 44px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.filters button.active {
+  border-color: var(--accent);
+  /* was hardcoded "white" - broke in light theme where --accent-dim is a
+     pale background (~1.2:1 contrast). Reuses the same theme-aware token
+     the topic badge already uses for text-on-accent-dim. */
+  color: var(--badge-topic-text);
+  background: var(--accent-dim);
+}
+
+/* DN-44: role filter row - same button look as .filters above (deliberately
+   not a new visual language), just a slightly smaller/dimmer variant so it
+   reads as a secondary, additive filter under the topic row rather than a
+   second identical-weight control. */
+.role-filters {
+  margin-top: -2px;
+}
+
+.role-filters button {
+  font-size: 0.78rem;
+  padding: 10px 12px;
+  min-height: 40px;
+}
+
+/* REAL BUG, found 2026-08-08 from a user report ("driving test still shows
+   IT/compliance role filter"): #role-filters is `class="filters role-filters"`
+   and starts `hidden` in app.html, with renderRoleFilter() (app.js) toggling
+   the `hidden` property based on whether the current module is a compliance
+   module. But `.filters` above sets `display: flex`, and a plain author-
+   stylesheet rule always beats the browser's default `[hidden] { display:
+   none }` UA rule regardless of specificity (origin/importance is checked
+   BEFORE specificity in the cascade) - so the role-filter row was actually
+   showing on EVERY module, including Fuehrerschein, the whole time DN-44's
+   role filter has existed. This is the exact same class of bug already
+   fixed twice elsewhere in this file (.image-note[hidden]/.image-illustration
+   [hidden] above, .exam-modal[hidden]/.exam-view[hidden] below) - just never
+   applied here too. Fixed the same way: an explicit [hidden] override. */
+.role-filters[hidden] {
+  display: none;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px;
+  /* DN-23: safe-area-inset-bottom so content isn't flush against a phone's
+     home-indicator gesture area; left/right too for landscape notches. */
+  padding-left: calc(16px + env(safe-area-inset-left));
+  padding-right: calc(16px + env(safe-area-inset-right));
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.q-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: background 0.12s ease;
+}
+
+.q-card:hover, .q-card:focus-visible {
+  background: var(--card-hover);
+}
+
+.q-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.badge.topic { background: var(--accent-dim); color: var(--badge-topic-text); }
+.badge.points { background: var(--badge-neutral-bg); color: var(--text-dim); }
+.badge.high-stakes { background: var(--amber-bg); color: var(--amber); }
+/* DN-4 multi-select hint badge - reuses the already contrast-verified
+   --correct-bg/--green pairing (see .option.correct above) rather than
+   introducing a new, unaudited color token. */
+.badge.multi-select { background: var(--correct-bg); color: var(--green); }
+/* DN-44: renewal-due note on a certificate card - same amber/warning token
+   pair as .badge.high-stakes above (deliberately not a new color), just a
+   distinct class name since the semantic meaning differs (a completion
+   record's renewal status, not a question's safety-criticality). */
+.badge.renewal-due { background: var(--amber-bg); color: var(--amber); }
+/* DN-14: small star indicator on a list row that's been manually bookmarked
+   - reuses the amber token pair (already contrast-verified for
+   .badge.high-stakes/.badge.renewal-due above) rather than a new, unaudited
+   color, just a distinct class name since the semantic meaning differs
+   (a manual bookmark, not a safety-criticality or renewal flag). */
+.badge.star-badge { background: var(--amber-bg); color: var(--amber); }
+/* DN-23 (tap-affordance hint): pre-reveal-only badge telling the user the
+   option rows below are actually tappable (the "try it yourself" flashcard
+   self-answer, see renderDetail() in app.js) - added because a plain
+   cursor:pointer (see .option[role="button"] etc. below) is invisible on
+   touch devices, which are this app's primary audience. Reuses the same
+   already-contrast-verified --accent-dim/accent pairing as filter chips
+   rather than a new color. */
+.badge.try-it-hint { background: var(--accent-dim); color: var(--accent); }
+
+.q-card-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.q-card-id {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  /* logical property (not margin-left) so this still pushes to the trailing
+     edge of the row under dir="rtl" (Arabic), not just physical left. */
+  margin-inline-start: auto;
+}
+
+.empty {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 40px 0;
+  font-size: 0.9rem;
+}
+
+/* Detail view */
+.detail {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  overflow-y: auto;
+  z-index: 20;
+}
+
+.detail-header {
+  position: sticky;
+  top: 0;
+  background: var(--header-bg);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  /* DN-23: same safe-area treatment as header - this is a fixed, full-
+     screen (.detail is inset:0) view's own top bar, so it needs its own
+     top inset rather than inheriting the page header's. */
+  padding: calc(14px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) 14px calc(16px + env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-btn {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 12px 16px;
+  min-height: 44px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.detail-body {
+  max-width: 680px;
+  margin: 0 auto;
+  /* DN-23: safe-area-inset-bottom/left/right - this is the scrollable body
+     inside the fixed, edge-to-edge .detail/.exam-view overlays, shared by
+     the flashcard detail view and Simulation/Training exam screens alike. */
+  padding: 20px calc(16px + env(safe-area-inset-right)) calc(64px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left));
+}
+
+.detail-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.detail-question {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 0 0 18px;
+}
+
+.image-note {
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  margin-bottom: 18px;
+}
+
+/* [hidden] and a same-specificity class rule can tie in the cascade -
+   this makes sure hidden always wins regardless of what class is present. */
+.image-note[hidden], .image-illustration[hidden] {
+  display: none;
+}
+
+.image-illustration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  margin-bottom: 18px;
+}
+
+.image-illustration .q-illustration {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  display: block;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  /* Same bug class as .exam-mode-btn's 2026-08-05 fix (see its comment
+     below): no explicit color was ever declared here, so answer/flashcard
+     option text fell back to the browser's default text color instead of
+     the themed one - unreadable against this dark --card background.
+     Found 2026-08-12 from a user report of unreadable button text
+     "within a course" (i.e. the option rows, not the module picker, which
+     already had its own color declared). */
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Flashcard options are only clickable ("try it yourself") before reveal -
+   renderDetail() only sets role="button"/"checkbox" on the pre-reveal
+   elements, so this selector naturally stops applying once revealed. */
+.option[role="button"], .option[role="checkbox"] {
+  cursor: pointer;
+}
+
+/* DN-23: explicit tap feedback for touch users, since cursor:pointer above
+   gives no feedback at all on a touch device (no hover state to reveal it).
+   Kept subtle (background shift only, no layout move) so it doesn't fight
+   with the .picked/.correct/.your-wrong-pick state colors that can apply
+   at the same time. */
+.option[role="button"]:active, .option[role="checkbox"]:active {
+  background: var(--accent-dim);
+}
+
+.option .key {
+  font-weight: 700;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  width: 1.2em;
+}
+
+.option.correct {
+  border-color: var(--green);
+  background: var(--correct-bg);
+}
+
+.option.correct .key { color: var(--green); }
+
+/* Correct answer is never signalled by color alone - this text+checkmark
+   is the primary signal; color is a secondary reinforcement only. */
+.correct-mark {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* "Try it yourself" flashcard self-answer (requested after users found the
+   reveal-only flow disconnected from the review-mode know/don't-know
+   buttons). .picked is the pre-reveal "you tapped this one" state - a
+   lighter version of exam mode's .exam-selected so it doesn't get
+   confused with the post-reveal green/red verdict. .your-wrong-pick is the
+   post-reveal "this is what you picked, and it wasn't right" state -
+   paired with the already-shown-elsewhere-in-this-file --red/--wrong-bg
+   tokens (see the review-know/dontknow buttons) so a wrong self-answer and
+   a wrong review self-assessment read as the same kind of feedback. */
+.options .option.picked {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  cursor: pointer;
+}
+
+.option.your-wrong-pick {
+  border-color: var(--red);
+  background: var(--wrong-bg);
+}
+
+.option.your-wrong-pick .key { color: var(--red); }
+
+.wrong-pick-mark {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--red);
+}
+
+/* DN-14: manual star/bookmark toggle, sits directly above the reveal
+   button - a secondary, outline-style action (not the primary accent-filled
+   look .reveal-btn uses below) since starring is optional bookkeeping, not
+   the main flow of a question. Toggled state (aria-pressed) gets the same
+   accent-dim treatment already used for .filters button.active/.review-btn.
+   has-due, so "starred" reads consistently with every other toggle in the
+   app rather than inventing a new visual language. */
+.star-btn {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 10px 14px;
+  min-height: 44px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.star-btn[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--badge-topic-text);
+}
+
+.reveal-btn {
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 18px;
+}
+
+.reveal-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.explanation {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+.explanation strong { color: var(--text); }
+
+.legal-cite {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 14px;
+}
+
+.progress-bar {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin: 4px 0 14px;
+}
+
+.install-hint {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  text-align: center;
+  padding: 8px 16px 0;
+}
+
+/* Exam mode (DN-29) ------------------------------------------------- */
+
+.exam-start-btn {
+  border: 1px solid var(--accent);
+  background: var(--accent-dim);
+  /* Was color: var(--accent) - accent-on-accent-dim is only 1.7:1 in dark
+     mode and 3.7:1 in light mode, both well under WCAG AA's 4.5:1 for
+     normal text (2026-08-05 UX review - reported as "dark blue on blue,
+     hard to read"). --badge-topic-text is this codebase's existing token
+     for readable text-on-accent-dim (already used by .badge.topic and
+     .filters button.active) - reusing it clears 6.5:1/8.4:1. */
+  color: var(--badge-topic-text);
+  border-radius: 8px;
+  padding: 7px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  min-height: var(--tap-min);
+  /* min-height on a plain button leaves the label top-aligned in the taller
+     box; inline-flex centring keeps it visually identical to before. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.exam-start-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.module-switch-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  min-height: var(--tap-min);
+  cursor: pointer;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 2026-09-02: a long module/class name (e.g. "Motorcycle - Class A1 (up to
+   125cc)") hit the 160px cap above and got chopped mid-word ("Motorcycle -
+   Clas..."), unreadable. .header-controls already wraps (see the 2026-09-02
+   overflow fix above), so instead of truncating, let this button wrap onto
+   its own row whenever it doesn't fit next to the icon controls - no fixed
+   px breakpoint (a hardcoded number like 480px is wrong for whatever the
+   window/device actually is; this reacts to the real available space via
+   flex-wrap instead of guessing a screen width). */
+.header-controls > .module-switch-btn {
+  order: 3;
+  flex: 1 1 100%;
+  max-width: none;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  text-align: left;
+}
+
+/* Spaced repetition / Leitner review mode (DN-16) ------------------- */
+
+/* Same base look as .module-switch-btn (it sits right next to it in the
+   header), but never hidden even at 0 due - a learner should be able to see
+   "nothing due right now" rather than wonder if the feature exists at all. */
+.review-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.review-btn.has-due {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--badge-topic-text);
+}
+
+/* "Prepare for offline" (DN-46) - button reuses .module-switch-btn's look
+   via the shared class; this just lays out the small status text next to
+   it, dimmed like the other header hint text rather than a new color. */
+.offline-prep-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.offline-prep-status {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* App menu (2026-08-16) - the header's secondary controls (About/Learn/
+   Course/Signs/offline-prep/certificates/review/profile-switch), now
+   reachable via the ☰ button instead of a header row that overflowed on
+   narrow phones. #app-menu-list's children are the SAME .module-switch-btn/
+   .review-btn elements the old header row used - this just overrides their
+   compact-pill sizing (max-width/ellipsis/nowrap, meant for a cramped
+   header) into full-width, left-aligned list rows, same visual weight as
+   .exam-mode-btn elsewhere in this file. */
+#app-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  max-height: 60vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 60dvh;
+  overflow-y: auto;
+  margin-bottom: 4px;
+}
+
+#app-menu-list > .module-switch-btn,
+#app-menu-list > .review-btn,
+#app-menu-list > .offline-prep-wrap,
+#app-menu-list > .theme-toggle,
+#app-menu-list > .lang-select-wrap {
+  width: 100%;
+  max-width: none;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+/* 2026-09-02: .theme-toggle's base rule (further down this file) is a
+   compact 44x44 circular icon button meant for the header - here it's a
+   full list row with a text label (see renderThemeToggle() in app.js),
+   so it needs the same left-aligned/auto-height treatment as every other
+   #app-menu-list row instead of a centered fixed-size circle. */
+#app-menu-list > .theme-toggle {
+  height: auto;
+  justify-content: flex-start;
+  gap: 8px;
+  background: transparent;
+}
+
+/* .lang-select-wrap's base rule is a compact pill sized for the header;
+   here it gets the same card-row treatment as its siblings, and the
+   select inside is allowed to grow instead of clipping at 120px, since a
+   full-width row has plenty of room to show the whole language name. */
+#app-menu-list > .lang-select-wrap {
+  border-radius: 10px;
+}
+
+#app-menu-list > .lang-select-wrap > .lang-select {
+  flex: 1;
+  max-width: none;
+}
+
+#app-menu-list > .offline-prep-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  border: 1px solid var(--border);
+}
+
+#app-menu-list > .offline-prep-wrap > .module-switch-btn {
+  border: none;
+  padding: 0;
+  width: auto;
+  /* 2026-09-02: this selector never reset the base `.module-switch-btn`
+     rule's compact-pill sizing (max-width:160px; overflow:hidden;
+     text-overflow:ellipsis; white-space:nowrap) the way the sibling
+     selector list two rules up does for every OTHER row in this menu
+     (#app-menu-list > .module-switch-btn/.review-btn/.offline-prep-wrap)
+     - this button is one level deeper (wrapped in .offline-prep-wrap) so
+     it never matched that reset. Result: every other menu row wraps at
+     full width, but this one alone stayed clipped to 160px with an
+     ellipsis ("Make available offl...") - the visibly "off" row a user
+     would notice in an otherwise uniform list. */
+  max-width: none;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+#app-menu-list > .offline-prep-wrap > .offline-prep-status {
+  max-width: none;
+  white-space: normal;
+}
+
+.review-actions {
+  margin: 14px 0 18px;
+}
+
+.review-actions-caption {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.review-actions-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.review-know-btn,
+.review-dontknow-btn {
+  flex: 1;
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* A subtle "this matches what you just did" hint on whichever button lines
+   up with the user's own pre-reveal self-answer attempt (if they made one) -
+   still requires an explicit tap, never auto-submitted, but gives someone
+   who DID try the card something more concrete than a bare feelings-based
+   choice to anchor on. */
+.review-know-btn.suggested,
+.review-dontknow-btn.suggested {
+  box-shadow: 0 0 0 2px var(--focus-ring) inset;
+}
+
+/* Same "never color alone" principle as .correct-mark/.selected-mark - the
+   button TEXT ("I knew it" / "I didn't know it") is the primary signal,
+   the green/red fill is only a reinforcement. */
+.review-know-btn {
+  border: 1px solid var(--green);
+  background: var(--correct-bg);
+  color: var(--green);
+}
+
+.review-dontknow-btn {
+  border: 1px solid var(--red);
+  background: var(--wrong-bg);
+  color: var(--red);
+}
+
+.exam-modal,
+.exam-view {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: var(--bg);
+  overflow-y: auto;
+}
+
+/* [hidden] and a class rule have equal CSS specificity, so source order
+   would otherwise let this class win and show the modal/view even while
+   the [hidden] attribute is set - same pattern already noted for
+   .image-note/.image-illustration above. Force it explicitly. */
+.exam-modal[hidden],
+.exam-view[hidden] {
+  display: none;
+}
+
+.exam-modal {
+  display: flex;
+  /* Bug found 2026-08-13 from a live user report ("normal driving licence
+     is unpickable") after the module list grew past one screen's worth of
+     items: plain `align-items: center` on a flex container with
+     `overflow-y: auto` is a well-known trap - when the centered child
+     (.exam-modal-card, here holding the scrollable #module-picker-body
+     list) is taller than the viewport, flexbox centers it by pushing the
+     overflow equally above AND below the container. The part pushed above
+     y=0 has no scroll position that reaches it (scrollTop can't go
+     negative), so top-of-list items - confirmed via live DOM inspection to
+     be "Driving licence", the very first module - render fully off-screen
+     and are permanently unclickable/unreadable, while later items that
+     still fit in view work fine. `safe center` keeps the centering when
+     content fits, but falls back to start-alignment (scrollable from the
+     top) once content overflows, so nothing is ever trapped off-screen. */
+  align-items: safe center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* 2026-09-02: #app-menu (the hamburger menu) shares .exam-modal with the
+   module-picker above, so it inherited that same vertical centering. The
+   module-picker needs it (a long module list). The ☰ menu's list is short,
+   so centering it leaves large empty margins above and below on a tall
+   phone screen and reads as "floating" rather than an anchored menu.
+   flex-start keeps the same safe-scroll behavior (nothing can be pushed
+   off-screen, per the note above) while anchoring short content to the top
+   instead of centering it in empty space. */
+#app-menu,
+/* DN-95 (2026-09-05): the same reasoning extended to the other SCREEN-like
+   dialogs. A Playwright audit at 375x667 / 390x844 measured 210-309px of
+   empty space both above and below these short cards - on a phone the whole
+   interaction sat in a narrow band floating in the middle of the display.
+   These are full-screen views rather than decisions, so they anchor to the
+   top like the menu does.
+   Deliberately NOT extended to #module-picker (its module list is long and
+   genuinely needs `safe center`, per the note above) nor to the short
+   decision dialogs (#module-intro and the exam-mode chooser), where a
+   centred card is the right affordance for "pick one and move on".
+   `safe` flex-start keeps the anti-trapping behaviour described above. */
+#certificates-view,
+#profile-view,
+#sign-reference-view,
+#primers-view,
+#primer-reader,
+#course-view,
+#course-reader {
+  align-items: safe flex-start;
+}
+
+.exam-modal-card {
+  max-width: 440px;
+  width: 100%;
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+}
+
+.exam-modal-card h2 {
+  margin: 0 0 8px;
+  font-size: 1.15rem;
+}
+
+.exam-modal-card p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: 0 0 18px;
+}
+
+.exam-mode-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--border);
+  background: var(--badge-neutral-bg, transparent);
+  /* Real bug found via a user screenshot (2026-08-05): this rule never set
+     an explicit color, so text fell back to the browser's default <button>
+     text color (near-black) instead of inheriting the page's theme text
+     color - nearly unreadable against this dark custom background
+     (11.6:1/12.3:1 once fixed vs. effectively unreadable before, since a
+     UA-default button color isn't a themed value at all). This is the
+     class used for module-picker module/scope options and the exam-mode
+     (training/simulation) picker, so it was a wide-reaching miss by the
+     earlier CSS-custom-property-only contrast audit, which only checked
+     declared var-to-var pairings and had no way to catch an absent color
+     declaration.
+  */
+  color: var(--text);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.exam-mode-btn:hover,
+.exam-mode-btn:focus-visible {
+  border-color: var(--accent);
+}
+
+.exam-mode-btn strong {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 0.95rem;
+}
+
+/* Module intro wizard (DN-43) */
+.intro-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 4px 0 18px;
+}
+
+.intro-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--border);
+}
+
+.intro-dots .dot.active {
+  background: var(--accent);
+}
+
+.intro-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.intro-nav .back-btn {
+  flex: 0 0 auto;
+}
+
+.intro-nav .intro-next-btn {
+  flex: 1 1 auto;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.intro-nav .intro-next-btn strong {
+  margin-bottom: 0;
+}
+
+#module-intro-back[disabled] {
+  visibility: hidden;
+}
+
+/* Kickstart-learning-journey topic primers (DN-52 Phase 1). The primer
+   body text is genuinely a short paragraph or two (unlike the module-intro
+   wizard's one-liners, or Sign Reference's short descriptions), so the
+   inherited `.exam-modal-card p { text-align:center; color:var(--text-dim);
+   font-size:.85rem }` reads poorly here - override to left-aligned, full
+   text color, and a slightly larger/looser line-height for readability. */
+#primer-reader-body,
+#course-reader-body {
+  text-align: left;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  max-height: 50vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 50dvh;
+  overflow-y: auto;
+}
+
+/* 2026-08-17: course bodies may now contain real line breaks. Every course
+   authored before this (datenschutz/arbeitssicherheit/ki_act/it_sicherheit/
+   hinweisgeberschutz/kyc_aml/kartellrecht/dora/nis2/cka) is a single flowing
+   paragraph with zero newline characters, so this rule is a no-op for all of
+   them - verified by scanning every app/data/<m>/course_locales/*.json for
+   "\n" and for runs of spaces before adding it. The aevo module's
+   practical-part guidance lessons DO need it: they carry structured content
+   (a "FOUR WEEKS BEFORE / TWO WEEKS BEFORE / ON THE EXAM DAY" checklist and
+   numbered step sequences) that renders as an unreadable run-on blob when
+   newlines collapse. Scoped to #course-reader-body only, deliberately NOT to
+   the shared #primer-reader-body selector above, since primers were not
+   audited for this and don't need it. renderCourseBodyHtml() escapes the text
+   before inserting it, so no markup can ride in on the newlines. */
+#course-reader-body {
+  white-space: pre-wrap;
+}
+
+#course-reader-body a {
+  color: var(--accent);
+}
+
+#primers-list,
+#course-list {
+  text-align: left;
+  max-height: 55vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 55dvh;
+  overflow-y: auto;
+}
+
+/* v1 course layer (modular-course-architecture-v1, 2026-08-15) - exam-prep
+   presentation for hasCourse modules (currently CKA; DORA/NIS2/AI-Act/etc.
+   share the same data shape). Reuses .sign-ref-category for the per-week
+   grouping headers and .exam-mode-btn for lesson rows, same as every other
+   list-of-choices dialog in this file - only what's genuinely new gets new
+   rules here. */
+.course-lesson-meta {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.course-section-title {
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+/* section_kind "media" (2026-08-17) - the generic course media section:
+   youtube (click-to-load facade) | video_mp4 (external URL) | image |
+   slideshow. Built by renderCourseMedia() in app.js; schema in
+   docs/course-media-sections.md. Sizing/colors reuse the same tokens and the
+   same card-ish framing as .image-illustration above (the question-image
+   treatment) rather than introducing a second visual language, and every
+   frame is width-constrained + aspect-ratio'd so a 16:9 video and a tall
+   diagram both behave inside the modal card. */
+.course-media {
+  margin: 0 0 18px;
+  text-align: left;
+}
+
+.course-media-frame {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 16:9 for the two video types; images keep their own aspect ratio so a
+   portrait diagram or a square sign isn't letterboxed. Set as an explicit
+   class by app.js rather than with :has(), so an older engine without :has()
+   support still gets a sized frame instead of a collapsed one. */
+.course-media-frame--16x9 {
+  aspect-ratio: 16 / 9;
+}
+
+.course-media-iframe,
+.course-media-video {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* The facade: a real <button> (keyboard-focusable, carries the localized
+   "Play video" aria-label) wrapping the cookieless i.ytimg.com thumbnail. */
+.course-media-facade {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+  display: block;
+}
+
+.course-media-thumb {
+  width: 100%;
+  height: 100%;
+  /* hqdefault.jpg is 480x360 (4:3): a 16:9 video sits letterboxed inside it
+     with a black bar top and bottom. object-fit:cover in the 16:9 frame
+     crops exactly those bars away, which is why no extra scaling is applied
+     (an earlier scale(1.35) here cut into the video's own title card -
+     caught on the fixture screenshot). */
+  object-fit: cover;
+  display: block;
+}
+
+.course-media-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+.course-media-facade:hover .course-media-play,
+.course-media-facade:focus-visible .course-media-play {
+  transform: scale(1.12);
+}
+
+.course-media-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  max-height: 46vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 46dvh;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Pre-click privacy note for the YouTube facade - removed from the DOM once
+   the iframe exists, since it only describes the pre-click state. */
+.course-media-notice {
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  margin: 8px 0 0;
+  text-align: left;
+}
+
+.course-media-offline {
+  margin: 0;
+}
+
+.course-media-figcaption {
+  margin-top: 8px;
+}
+
+.course-media-caption {
+  font-size: 0.82rem;
+  color: var(--text);
+  margin: 8px 0 0;
+  text-align: left;
+}
+
+.course-media-credits {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin: 6px 0 0;
+  text-align: left;
+}
+
+.course-media-credits a {
+  color: var(--accent);
+}
+
+.course-media-slideshow:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+.course-media-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+
+.course-media-navbtn {
+  min-width: 40px;
+  padding: 4px 12px;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.course-media-navbtn[disabled] {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.course-media-pos {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+
+#course-reader-related {
+  margin: 4px 0 18px;
+  text-align: left;
+}
+
+#course-reader-related .explanation {
+  margin-bottom: 10px;
+}
+
+#course-reader-related .explanation a {
+  color: var(--accent);
+}
+
+/* Local profile switcher */
+#profile-list {
+  text-align: left;
+  max-height: 45vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 45dvh;
+  overflow-y: auto;
+}
+
+.profile-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-row.active {
+  border-color: var(--accent);
+}
+
+.profile-add-row {
+  display: flex;
+  gap: 8px;
+  margin: 4px 0 14px;
+}
+
+.profile-add-input {
+  flex: 1 1 auto;
+  border: 1px solid var(--border);
+  background: var(--surface, var(--bg));
+  color: var(--text);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+}
+
+.profile-add-row .profile-add-btn {
+  flex: 0 0 auto;
+  width: auto;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Completion tracking & certificates (DN-14 / DN-44 prep) */
+#certificates-list {
+  text-align: left;
+  max-height: 55vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 55dvh;
+  overflow-y: auto;
+}
+
+#certificates-list .empty {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.cert-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+  background: var(--badge-neutral-bg, transparent);
+}
+
+/* Badge display (2026-08-07): visually distinguishes a real, cryptographically
+   signed credential from the honest self-issued/unverified fallback - see
+   renderBadgeRow() in app.js. Gold-toned emblem + "verified" badge pill for a
+   real signature; a plain grey/neutral emblem + "self-issued" pill otherwise.
+   Kept as a color+icon+text combination (not color alone) for colorblind
+   users, matching this project's existing selection-mark convention. */
+.cert-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.cert-badge-emblem {
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.cert-badge-emblem.verified {
+  background: linear-gradient(135deg, #f6d365, #d9a441);
+  box-shadow: 0 0 0 2px rgba(217, 164, 65, 0.35);
+}
+
+.cert-badge-emblem.self-issued {
+  background: var(--badge-neutral-bg, rgba(128, 128, 128, 0.15));
+  filter: grayscale(1);
+  opacity: 0.75;
+}
+
+.cert-badge-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.badge.verified { background: var(--green-bg, rgba(46, 160, 67, 0.15)); color: var(--green, #2ea043); }
+.badge.self-issued { background: var(--badge-neutral-bg, rgba(128, 128, 128, 0.15)); color: var(--text-dim); }
+
+.cert-badge-hint {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+.cert-card-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.cert-card-date {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+}
+
+/* DN-44: only populated for compliance-module completions that are overdue
+   or due soon for renewal - empty and takes no visible space otherwise. */
+.cert-card-renewal:not(:empty) {
+  margin: -4px 0 10px;
+}
+
+.cert-card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cert-card-actions .back-btn {
+  flex: 1 1 auto;
+  min-width: 140px;
+  font-size: 0.8rem;
+  padding: 8px 10px;
+}
+
+/* DN-51: standalone signed-JWT download button, for real badge-wallet
+   (Credly/Open Badges Passport) file-upload import - see
+   renderJwtDownloadBtn() in app.js. Only populated once a record is
+   genuinely signed; empty (no visible space) otherwise. */
+.cert-jwt-row:not(:empty) {
+  margin-top: 8px;
+}
+
+.cert-jwt-row .cert-dl-jwt {
+  width: 100%;
+  font-size: 0.8rem;
+  padding: 8px 10px;
+}
+
+/* DN-49: permanent verification link row (0€ MVP). Only ever populated for
+   compliance-module records that already carry a real signature - see
+   renderVerifyLinkRow() in app.js. Empty (no visible space) otherwise. */
+.cert-verify-row:not(:empty) {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+
+.cert-verify-title {
+  font-weight: 700;
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.cert-verify-intro {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+
+.cert-verify-form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cert-verify-name-input {
+  flex: 1 1 140px;
+  min-width: 120px;
+  font-size: 0.85rem;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg, transparent);
+  color: inherit;
+}
+
+.cert-verify-form .cert-verify-create-btn {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  padding: 8px 12px;
+}
+
+.cert-verify-link-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cert-verify-link {
+  font-size: 0.8rem;
+  word-break: break-all;
+  color: var(--accent, inherit);
+}
+
+.cert-verify-link-row .cert-verify-copy-btn {
+  flex: 0 0 auto;
+  font-size: 0.8rem;
+  padding: 6px 10px;
+}
+
+.cert-verify-error {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--red, #d9534f);
+}
+
+/* Sign Reference (Fuehrerschein-only browsable sign study list) */
+#sign-reference-list {
+  text-align: left;
+  max-height: 60vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 60dvh;
+  overflow-y: auto;
+}
+
+#sign-reference-list .empty {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.sign-ref-category {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  margin: 18px 0 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sign-ref-category:first-child {
+  margin-top: 0;
+}
+
+.sign-ref-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: var(--badge-neutral-bg, transparent);
+}
+
+.sign-ref-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+}
+
+.sign-ref-text {
+  min-width: 0;
+}
+
+.sign-ref-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.sign-ref-desc {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.exam-timer {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: var(--badge-neutral-bg, transparent);
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.exam-timer.low-time {
+  color: var(--amber);
+  border-color: var(--amber);
+}
+
+/* DN-14: "Frage schieben" (skip-and-revisit) second-pass banner - reuses the
+   same amber warning token as .exam-timer.low-time/.badge.high-stakes above
+   (deliberately not a new color) so it reads as "pay attention, this is a
+   different mode" without introducing yet another accent. */
+.exam-skip-banner {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.options .option.exam-selected {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+/* DN-4: multi-select options get a small square checkbox indicator before
+   the A/B/C/D key, so the "pick any number of these" affordance reads as a
+   genuinely different interaction than the single-select radio-style cards
+   above - not just relying on the shared .exam-selected border/bg tint,
+   which stays as a secondary reinforcement only. */
+.option-checkbox .key {
+  position: relative;
+  padding-inline-start: 22px;
+}
+
+.option-checkbox .key::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.15em;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--text-dim);
+  border-radius: 3px;
+  background: transparent;
+}
+
+.option-checkbox.exam-selected .key::before {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+
+/* A checkmark that appears/disappears (not just a color/background shift)
+   so "this is your selected answer" isn't signalled by color alone -
+   2026-08-05 UX review, same principle as .correct-mark above. */
+.selected-mark {
+  font-weight: 700;
+  color: var(--badge-topic-text);
+  margin-inline-start: auto;
+  flex-shrink: 0;
+}
+
+.exam-results-pass {
+  color: var(--green);
+}
+
+.exam-results-fail {
+  color: var(--amber);
+}
+
+.exam-results-summary-box {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px;
+  margin: 12px 0 20px;
+}
+
+.exam-review-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.exam-review-item .q-card-text {
+  margin-bottom: 8px;
+}
+
+.exam-review-item .your-answer {
+  color: var(--amber);
+}
+
+.exam-review-item .right-answer {
+  color: var(--green);
+}
+
+/* --- kubectl command-recall drill (2026-09-02) --------------------------
+   A custom lightweight terminal-look widget - NOT xterm.js (see
+   docs/kubectl-drill-prototype/README.md's Decision 1). Reuses this app's
+   existing theme tokens (--card/--bg/--border/--text/--accent/--amber/
+   --green/--red, both light and dark) rather than the prototype's own
+   hardcoded dark-only hex palette, so it follows the user's theme choice
+   like every other view in the app - the prototype's README explicitly
+   flagged this as something "the real integration should route through
+   this app's existing theme system rather than hardcoding colors again". */
+
+.kd-card {
+  max-width: 560px;
+  text-align: left;
+}
+
+.kd-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.kd-header h2 {
+  margin: 0;
+  text-align: left;
+}
+
+/* Reuses the already contrast-verified --amber/--amber-bg warning pair
+   (.badge.high-stakes etc. above) rather than a new color - this badge is
+   the explicit "not a real cluster" disclaimer and must read as a genuine
+   notice, not a decorative pill. Shown unconditionally, before any task
+   content, on every open of this view. */
+.badge.kd-sim-badge {
+  background: var(--amber-bg);
+  color: var(--amber);
+  border: 1px solid var(--amber);
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.kd-progress-label {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin: 4px 0 0;
+  text-align: left;
+}
+
+.kd-task-meta {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  margin: 2px 0 10px;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.kd-task-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.kd-terminal {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  /* Kubectl syntax is ASCII shell text and must never be bidi-reordered,
+     even when the surrounding UI (labels, buttons) is RTL (ar). */
+  direction: ltr;
+}
+
+.kd-terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+.kd-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.kd-dot-red { background: var(--red); }
+.kd-dot-yellow { background: var(--amber); }
+.kd-dot-green { background: var(--green); }
+
+.kd-terminal-title {
+  margin-left: 6px;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.kd-terminal-log {
+  padding: 10px 12px 2px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  max-height: 40vh;
+  /* DN-95: dvh accounts for the mobile URL bar showing/hiding; the vh
+     line above stays as the fallback for browsers without dvh. */
+  max-height: 40dvh;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  text-align: left;
+}
+
+.kd-line { margin-bottom: 2px; }
+.kd-tasknote { color: var(--text-dim); }
+.kd-echo { color: var(--text); }
+.kd-success { color: var(--green); font-weight: 600; }
+.kd-explanation { color: var(--text-dim); }
+.kd-nudge { color: var(--red); }
+.kd-hint { color: var(--amber); }
+.kd-reveal { color: var(--accent); }
+.kd-reveal-note { color: var(--text-dim); }
+.kd-alldone { color: var(--green); font-weight: 700; }
+
+.kd-terminal-input-row {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px 12px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.85rem;
+}
+
+.kd-terminal-prompt {
+  color: var(--green);
+  white-space: nowrap;
+  margin-right: 6px;
+  user-select: none;
+}
+
+.kd-terminal-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font: inherit;
+  caret-color: var(--accent);
+}
+.kd-terminal-input::placeholder { color: var(--text-dim); }
+.kd-terminal-input:disabled { opacity: 0.5; }
+
+.kd-nav {
+  margin-top: 4px;
+}
+
+/* Highlights the primary nav button once a task is solved (label swaps from
+   "Skip" to "Next task" in kdUpdateNav()) - reuses the existing --green/
+   --correct-bg pairing (.badge.multi-select above) so a solved task's call
+   to action stands out without a new color. */
+.kd-nav .kd-next-solved {
+  background: var(--correct-bg);
+  color: var(--green);
+  border-color: var(--green);
+}
+
+/* DN-89: storage-consent notice - a floating, non-modal card (unlike
+   .exam-modal above, this deliberately does NOT cover/dim the whole
+   screen - the app underneath stays visible and interactive; only the
+   PERSISTING of state is gated, not reading the app itself). Positioned
+   as a bottom sheet on narrow screens and a corner card on wide ones,
+   similar in spirit to a standard cookie-notice pattern but honestly
+   labeled as local-storage rather than cookies (see app.js's comment on
+   STORAGE_CONSENT_STRINGS for why). */
+.storage-consent-notice {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+.storage-consent-notice[hidden] {
+  display: none;
+}
+
+.storage-consent-card {
+  max-width: 480px;
+  width: 100%;
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+.storage-consent-card h2 {
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+.storage-consent-card p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.storage-consent-timeout-note {
+  font-size: 0.78rem !important;
+}
+
+.storage-consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.storage-consent-btn {
+  flex: 1 1 auto;
+  min-width: 140px;
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 8px;
+  /* DN-95 (2026-09-05): measured at 38px tall on both iPhone SE and 14.
+     This is the DN-89 storage-consent gate - the very first thing every
+     visitor touches, before they have seen anything else - so it is the
+     worst place in the app to have an undersized target. */
+  min-height: var(--tap-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.storage-consent-yes {
+  border: none;
+  background: var(--accent, #2c4a86);
+  color: #fff;
+}
+
+.storage-consent-no {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+}
+
+.storage-consent-privacy-link {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  text-decoration: underline;
+  /* DN-95: measured 80x15. Padding rather than min-height keeps the
+     underline hugging the text (a 44px-tall underlined link looks broken)
+     while giving the tap area real vertical room. */
+  padding: 15px 8px;
+  margin: -15px -8px;
+}
