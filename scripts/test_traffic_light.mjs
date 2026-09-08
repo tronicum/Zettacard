@@ -82,8 +82,10 @@ const CASES = [
   // [total, learned, seen, due] -> expected
   [[40, 0, 0, 0], "grey",   "untouched topic"],
   [[40, 0, 3, 0], "red",    "seen a few, learned none"],
-  [[40, 20, 30, 0], "yellow", "half learned"],
+  [[40, 20, 30, 0], "red",    "half learned is below the 0.8 gate"],
+  [[40, 33, 40, 0], "yellow", "82% learned - yellow, not yet green"],
   [[40, 36, 40, 0], "green",  "90% learned, nothing due"],
+  [[40, 35, 40, 0], "yellow", "87% is short of the 0.9 green gate"],
   [[40, 36, 40, 5], "yellow", "90% learned but overdue - not green"],
   [[40, 4, 40, 9], "red",     "overdue and barely learned"],
   [[0, 0, 0, 0],   "grey",    "empty topic never claims progress"],

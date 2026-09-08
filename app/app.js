@@ -3483,16 +3483,36 @@ function hubTopicRows() {
 //  - "learned" is box >= 2, the same definition the hub's progress line
 //    already uses. One shared definition, so the light and the number under
 //    it can never disagree.
-const TOPIC_STATE_GREEN_MIN = 0.8;
-const TOPIC_STATE_YELLOW_MIN = 0.4;
+// Gates, per module, simple on purpose. The PO's call 2026-09-08: keep it to
+// two numbers per module, around 80/90, rather than the graded or scaled
+// schemes certification bodies use. AWS scales 100-1000 across exam forms
+// because one exam has many question sets - a real problem here too, since
+// every run draws from a pool - but scaling is machinery a learner cannot
+// read, and the light exists to be read at a glance.
+//
+// green 0.9 / yellow 0.8 is deliberately strict, and the trade-off is worth
+// seeing: red then covers everything below 80%, which is most of the journey.
+// That is honest for a `licence` module - the real Fuehrerschein run allows
+// about 10 error points in 30 questions, so "nearly ready" really is around
+// 90% - and probably too harsh for browsing a `compare` module. Override per
+// module below when that shows up; do not add a third gate.
+const TOPIC_STATE_GATES_DEFAULT = { green: 0.9, yellow: 0.8 };
+const TOPIC_STATE_GATES_BY_TYPE = {
+  // e.g. compare modules could sit at { green: 0.8, yellow: 0.5 }
+};
+
+function topicStateGates(examType) {
+  return TOPIC_STATE_GATES_BY_TYPE[examType] || TOPIC_STATE_GATES_DEFAULT;
+}
 
 /**
  * The traffic light for one topic. Pure: takes counts, returns a state, so
  * it can be tested against synthetic input without driving the UI.
  */
-function topicTrafficState({ total, learned, seen, due, highStakes, highStakesLearned }) {
+function topicTrafficState({ total, learned, seen, due, highStakes, highStakesLearned }, gates) {
+  const g = gates || topicStateGates(state.examType);
   if (!total || !seen) return "grey";
-  if (due > 0) return learned / total >= TOPIC_STATE_YELLOW_MIN ? "yellow" : "red";
+  if (due > 0) return learned / total >= g.yellow ? "yellow" : "red";
   // A topic cannot honestly be green while its safety-critical cards are
   // unlearned. The real exam is failed by two wrong high_stakes questions
   // regardless of the total score - finishExam() applies exactly that rule -
@@ -3500,8 +3520,8 @@ function topicTrafficState({ total, learned, seen, due, highStakes, highStakesLe
   // run will contradict. Caught in review of roadmap 3.2, which counted only
   // learned/total.
   const highStakesReady = !highStakes || highStakesLearned >= highStakes;
-  if (learned / total >= TOPIC_STATE_GREEN_MIN && highStakesReady) return "green";
-  if (learned / total >= TOPIC_STATE_YELLOW_MIN) return "yellow";
+  if (learned / total >= g.green && highStakesReady) return "green";
+  if (learned / total >= g.yellow) return "yellow";
   return "red";
 }
 
@@ -4652,6 +4672,24 @@ function recordCompletion(examType, scopeCode, results) {
     errorPoints: results.errorPoints,
     wrongHighStakes: results.wrongHighStakes,
     totalQuestions: state.exam.questions.length,
+    // ADR-app-0003 § 3: a record must say WHAT IT MEASURED, not only that it
+    // was passed. Without the rule it was judged by, "passed" is unreadable
+    // to anyone but us - and the rule differs per module by design (a
+    // Fuehrerschein run is 30 questions with 10 error points allowed; a
+    // kyc_aml run is 6 with 4).
+    //
+    // Deliberately no percentage and no grade. A 6-question draw has a
+    // granularity of one question in six, so "83%" would be false precision
+    // dressed as rigour - and error points are weighted (2-5 per question),
+    // so a share of questions is not a share of the score either. The
+    // conditions are reported and the reader can judge.
+    measuredBy: {
+      questionsDrawn: state.exam.questions.length,
+      maxErrorPoints: maxErrorPoints(examType),
+      maxWrongHighStakes: 1,   // two safety-critical misses fail, per finishExam()
+      timed: state.exam.mode === "simulation",
+      kind: mod ? mod.kind : null,
+    },
   };
   const all = getCompletions();
   all.push(record);
