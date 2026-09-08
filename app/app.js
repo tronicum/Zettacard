@@ -3322,8 +3322,70 @@ const MODULE_HUB_STRINGS = {
   },
 };
 
+// --- Roadmap 3.7: UI strings from the KB --------------------------------
+//
+// The *_STRINGS dictionaries in this file are content, not code, and are
+// mastered in zettacard-kb/content/_ui. They arrive as app/data/ui/<locale>.json
+// (one file per locale, so a learner downloads their own language and not
+// eighteen), keyed "DICT.key", with the placeholder order in _args.json.
+//
+// The literals below stay as the FALLBACK, and that is the whole safety
+// property of doing this one dictionary at a time: if the bundle is missing,
+// still loading, or short a key, the app renders exactly what it rendered
+// before. A half-converted dictionary that silently blanks a label would be
+// worse than an unconverted one.
+let uiStringsBundle = null;
+let uiStringsArgs = null;
+
+async function loadUiStrings(lang) {
+  try {
+    const [bundle, args] = await Promise.all([
+      fetch(`data/ui/${lang}.json`).then((r) => (r.ok ? r.json() : null)),
+      uiStringsArgs
+        ? Promise.resolve(uiStringsArgs)
+        : fetch("data/ui/_args.json").then((r) => (r.ok ? r.json() : null)).then((d) => (d && d.args) || {}),
+    ]);
+    uiStringsBundle = bundle;
+    uiStringsArgs = args || {};
+  } catch (e) {
+    // Non-fatal by design: every caller falls back to its literal.
+    uiStringsBundle = null;
+  }
+}
+
+/** "{n} von {total} gelernt" + ["n","total"] -> (n, total) => "..." */
+function uiTemplateFn(text, argNames) {
+  return (...values) =>
+    text.replace(/\{(\w+)\}/g, (whole, name) => {
+      const i = argNames.indexOf(name);
+      return i === -1 ? whole : String(values[i]);
+    });
+}
+
+/**
+ * One dictionary, KB values over the literal ones.
+ *
+ * Merged rather than replaced: a key the KB does not carry yet keeps its
+ * literal, so adding a string to app.js does not have to wait for a
+ * re-ingest, and a locale the KB has not translated yet is not blank.
+ */
+function kbStrings(dictName, literalTable, lang) {
+  const literal = literalTable[lang] || literalTable.en;
+  if (!uiStringsBundle) return literal;
+  const merged = Object.assign(Object.create(null), literal);
+  const prefix = dictName + ".";
+  for (const key in uiStringsBundle) {
+    if (key.lastIndexOf(prefix, 0) !== 0) continue;
+    const short = key.slice(prefix.length);
+    const text = uiStringsBundle[key];
+    const args = (uiStringsArgs && uiStringsArgs[key]) || [];
+    merged[short] = args.length ? uiTemplateFn(text, args) : text;
+  }
+  return merged;
+}
+
 function hubStrings(lang) {
-  return MODULE_HUB_STRINGS[lang] || MODULE_HUB_STRINGS.en;
+  return kbStrings("MODULE_HUB_STRINGS", MODULE_HUB_STRINGS, lang);
 }
 
 // A card counts as "learned" once it has been promoted past the two short
@@ -9738,6 +9800,7 @@ function renderDetail() {
 
 async function setLang(lang) {
   state.lang = lang;
+  await loadUiStrings(lang);
   document.documentElement.setAttribute("lang", lang); // keeps AT pronunciation correct (WCAG 3.1.1)
   applyDocDirection(lang);
   // The consent notice may be open and awaiting an answer - the globe works
@@ -10346,7 +10409,12 @@ async function init() {
   // The registry fetch is one small local file and its failure is already
   // non-fatal, so awaiting it here costs nothing and lets a right-to-left
   // locale lay out correctly on the very first paint instead of flipping.
-  await loadLocaleRegistry();
+  // Same reasoning as the registry, one line down: the consent notice and the
+  // first-run picker are rendered before anything else, so the KB's UI strings
+  // have to be in hand before them or the very first screens fall back to the
+  // literals while every later screen does not - the kind of inconsistency
+  // nobody reports because it only shows on a cold start.
+  await Promise.all([loadLocaleRegistry(), loadUiStrings(state.lang)]);
   document.documentElement.setAttribute("lang", state.lang);
   applyDocDirection(state.lang);
   renderLangSheetChrome();

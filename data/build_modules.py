@@ -478,6 +478,53 @@ def derive_topic_lessons(exam_type, questions, course, locales):
     return made
 
 
+# --- Roadmap 3.7: UI strings, mastered in the KB -------------------------
+#
+# The app's *_STRINGS dictionaries are content - a {locale: string} map,
+# translated and reviewable like everything else - and they lived in app.js
+# only because that was convenient. They are mastered in
+# zettacard-kb/content/_ui now and arrive here as data/ui_strings.json.
+#
+# Fanned out one file per locale, so a learner downloads their own language
+# and not eighteen. Same key-is-the-entity-id convention the question and
+# course locale bundles already use, so app.js resolves them the same way.
+#
+# A string missing in a locale is simply absent from that locale's file; the
+# app falls back (its own literal today, English once the literals go). It is
+# deliberately NOT padded with German, because a German string sitting in the
+# Ukrainian bundle is indistinguishable at runtime from a real translation.
+def split_ui_strings():
+    src_path = os.path.join(HERE, "ui_strings.json")
+    if not os.path.exists(src_path):
+        return 0
+    src = json.load(open(src_path, encoding="utf-8"))
+    out_dir = os.path.join(APP_DATA, "ui")
+    os.makedirs(out_dir, exist_ok=True)
+
+    per_locale = {loc: {} for loc in src["locales"]}
+    args_by_key = {}
+    for key, entry in src["strings"].items():
+        if entry.get("args"):
+            args_by_key[key] = entry["args"]
+        for loc, text in (entry.get("text") or {}).items():
+            if loc in per_locale:
+                per_locale[loc][key] = text
+
+    for loc, block in per_locale.items():
+        json.dump(block, open(os.path.join(out_dir, f"{loc}.json"), "w", encoding="utf-8"),
+                  ensure_ascii=False, indent=1, sort_keys=True)
+    # The placeholder order is a property of the key, not of a language, so it
+    # is written once rather than repeated in all 18 bundles.
+    json.dump({"args": args_by_key},
+              open(os.path.join(out_dir, "_args.json"), "w", encoding="utf-8"),
+              ensure_ascii=False, indent=1, sort_keys=True)
+
+    short = sum(1 for e in src["strings"].values() if len(e.get("text") or {}) < len(src["locales"]))
+    print(f"  ui strings: {len(src['strings'])} keys, {len(per_locale)} locales"
+          + (f", {short} not in every locale" if short else ""))
+    return len(src["strings"])
+
+
 def split_course(exam_type, locales):
     """2026-08-15: optional v1 "course" sidecar layer, see
     claude/modular-course-architecture-v1-2026-08-15.md (Opus design doc,
@@ -786,6 +833,8 @@ def main():
     # above has already removed whatever was there.
     fs_locales = ["de", "en", "uk", "pl", "ar", "zh", "hi", "tr", "fr", "ru", "es", "it",
                   "bar", "fa", "ro", "el", "hr", "pt"]
+    split_ui_strings()
+
     fs_count, fs_missing = split_module(
         os.path.join(HERE, "pilot_questions.json"), "fuehrerschein", fs_locales)
     print(f"fuehrerschein: {fs_count} questions, locale gaps: {fs_missing}")
