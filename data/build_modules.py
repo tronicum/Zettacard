@@ -23,6 +23,7 @@ Output layout (all under app/data/, replacing the old single app/data.json):
 
 Run from the data/ directory: `python3 build_modules.py`
 """
+import hashlib
 import json
 import os
 import re
@@ -92,6 +93,8 @@ FUN_TRANSLATION_MODULES = (
 # A module with no split_module() call here therefore gets no coverage block at
 # all, and app.js says nothing about its languages rather than guessing.
 COVERAGE = {}
+# exam_type -> {"exam": <digest>, "material": <digest>} (ADR-app-0003 § 3)
+VERSIONS = {}
 
 BUILT_MODULES = (
     "fuehrerschein", "angelschein", "angelschein_bayern", "angelschein_nrw",
@@ -107,6 +110,62 @@ BUILT_MODULES = (
 # (roadmap 3.4) without a second hand-maintained module->filename map that
 # could silently disagree with the calls in main().
 MASTER_SOURCE_BY_MODULE = {}
+
+
+# --- ADR-app-0003 § 3: exam version vs material version -------------------
+#
+# The PO's rule: the exam must be versioned and the test must match that
+# version; questions can improve or change; if a change would alter the
+# answers, the exam is adjusted; if not, the material may improve and
+# diversify against the same exam.
+#
+# So two digests, and the split is the whole point. A single digest over the
+# module would move on a typo fix, a new locale or a better explanation, and
+# every record would then cite a version nobody else ever had.
+#
+# EXAM_SURFACE is deliberately NOT the KB's source_hash. That recipe includes
+# the German explanation, which is right for translation staleness - a
+# translator translates the explanation too - and wrong here, because
+# rewriting an explanation cannot change which option is correct. Including it
+# would bump the exam every time the teaching improved, which is the exact
+# behaviour this split exists to prevent.
+EXAM_SURFACE_FIELDS = ("correct", "points", "high_stakes")
+
+
+def _canonical(value):
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+
+def module_versions(questions, canonical_locale="de"):
+    """(exam_version, material_version) for one module's questions.
+
+    exam: what could change the right answer - the id set of the draw, each
+    question's key/points/high_stakes, and its canonical-locale question and
+    option text, because rewording the German can change what is correct.
+
+    material: everything else - explanations, every translation, and anything
+    else carried per question.
+    """
+    exam_parts, material_parts = [], []
+    for q in sorted(questions, key=lambda x: str(x.get("id"))):
+        qid = str(q.get("id"))
+        de = (q.get("text") or {}).get(canonical_locale) or {}
+        exam_parts.append(_canonical({
+            "id": qid,
+            "question": de.get("question", ""),
+            "options": de.get("options", {}),
+            **{f: q.get(f) for f in EXAM_SURFACE_FIELDS},
+        }))
+        material_parts.append(_canonical({
+            "id": qid,
+            "explanation": q.get("explanation"),
+            # every locale except the canonical one; the canonical text is
+            # already accounted for on the exam side
+            "text": {l: v for l, v in (q.get("text") or {}).items() if l != canonical_locale},
+        }))
+    exam = hashlib.sha256("\n".join(exam_parts).encode("utf-8")).hexdigest()
+    material = hashlib.sha256("\n".join(material_parts).encode("utf-8")).hexdigest()
+    return exam[:12], material[:12]
 
 
 def split_module(src_path, exam_type, locales, out_meta_extra=None,
@@ -181,6 +240,8 @@ def split_module(src_path, exam_type, locales, out_meta_extra=None,
     # missing_locale_count, so the number is literally "how many entries are
     # in the file that just got written" - if the two ever disagree the file
     # is what the app fetches, and the manifest must describe the file.
+    exam_version, material_version = module_versions(questions)
+    VERSIONS[exam_type] = {"exam": exam_version, "material": material_version}
     COVERAGE[exam_type] = {
         "total": len(core_questions),
         "locales": {loc: len(per_locale[loc]) for loc in locales},
@@ -767,6 +828,11 @@ def write_modules_json():
 
     for exam_type, cov in COVERAGE.items():
         by_type[exam_type]["coverage"] = cov
+    # ADR-app-0003 § 3. Published so a completion record can name the exam it
+    # was taken against, and so the app can tell an old record from a current
+    # one without asking anyone to keep a number by hand.
+    for exam_type, ver in VERSIONS.items():
+        by_type[exam_type]["versions"] = ver
 
     json.dump(manifest, open(os.path.join(APP_DATA, "modules.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)

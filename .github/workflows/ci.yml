@@ -64,6 +64,12 @@ jobs:
       # script at deploy time - so if a rebuild does not reproduce what is
       # committed, the site Netlify publishes is not the site anyone
       # reviewed. That is silent by nature; this makes it loud.
+      # The exam/material version split (ADR-app-0003 s 3) is only worth
+      # something if the invariant actually holds - a split nobody verifies is
+      # two hex strings drifting apart in silence.
+      - name: Module version invariants
+        run: python3 scripts/test_module_versions.py
+
       - name: Generated output is reproducible
         run: |
           python3 data/build_modules.py > /dev/null

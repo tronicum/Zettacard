@@ -3497,12 +3497,23 @@ function hubTopicRows() {
 // 90% - and probably too harsh for browsing a `compare` module. Override per
 // module below when that shows up; do not add a third gate.
 const TOPIC_STATE_GATES_DEFAULT = { green: 0.9, yellow: 0.8 };
-const TOPIC_STATE_GATES_BY_TYPE = {
-  // e.g. compare modules could sit at { green: 0.8, yellow: 0.5 }
+
+// Looser where nothing is at stake. A `compare` module exists so someone can
+// see how the rules work in California; there is no exam to be ready for, so
+// holding it to a state-exam bar makes a curious reader look permanently
+// unprepared for something they were never preparing for. Same reasoning
+// ADR-app-0003 uses to give `compare` no badge at all: the light should
+// measure against what the module is FOR.
+//
+// By `kind`, not by module id - the distinction is already in the manifest and
+// a per-module list would drift the moment a module is added.
+const TOPIC_STATE_GATES_BY_KIND = {
+  compare: { green: 0.8, yellow: 0.5 },
 };
 
 function topicStateGates(examType) {
-  return TOPIC_STATE_GATES_BY_TYPE[examType] || TOPIC_STATE_GATES_DEFAULT;
+  const mod = moduleManifestFor(examType);
+  return (mod && TOPIC_STATE_GATES_BY_KIND[mod.kind]) || TOPIC_STATE_GATES_DEFAULT;
 }
 
 /**
@@ -4683,6 +4694,14 @@ function recordCompletion(examType, scopeCode, results) {
     // dressed as rigour - and error points are weighted (2-5 per question),
     // so a share of questions is not a share of the score either. The
     // conditions are reported and the reader can judge.
+    // ADR-app-0003 § 3: the record names the EXAM VERSION it was taken
+    // against. Without it, "passed" is unfalsifiable - if the questions can
+    // change underneath, the claim silently drifts from what was actually
+    // demonstrated. The material version rides along as information, not
+    // evidence: a learner who studied better translations than the ones that
+    // existed when someone else passed has not passed a different exam.
+    examVersion: mod && mod.versions ? mod.versions.exam : null,
+    materialVersion: mod && mod.versions ? mod.versions.material : null,
     measuredBy: {
       questionsDrawn: state.exam.questions.length,
       maxErrorPoints: maxErrorPoints(examType),
