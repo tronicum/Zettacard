@@ -11,7 +11,7 @@ word "done" has somewhere to point:
 
 | | What it means |
 |---|---|
-| **0.5 — today** | The app works and is deployed to staging. Phase 3 is in: hub, traffic light, 15 topics, derived lessons in 18 locales. The content pipeline runs KB → app end to end. Five test suites and CI. Known-not-solid: the hub's primary button dismisses rather than resumes, the landing page's module cards are not links, `examLanguages` is decided and unbuilt, and no content cell is `approved`. |
+| **0.5 — today** | The app works and is deployed to staging. Phase 3 is in: hub, traffic light, 15 topics, derived lessons in 18 locales. The content pipeline runs KB → app end to end. Five test suites and CI. Known-not-solid: `examLanguages` is decided and unbuilt, the hub is an overlay rather than the app's root, and no content cell is `approved`. (Two items left this list on 2026-09-08: the hub's primary button now resumes, and the landing page's 22 module cards are links.) |
 | **1.0 — rock solid** | Zettacard itself, done properly. Not new surface area: the navigation spine settled and implemented, every known-broken item above closed, the journeys suite genuinely green, production linked, and a learner able to go landing page → module → study → readiness check without meeting a dead end or an untranslated screen. |
 | **1.2 — the LMS story** | SCORM 1.2 for compliance modules, plus the packaging and proof the existing GIFT/Moodle XML exporters still lack (a top-level command, CI, and one verified import into a real Moodle). Explicitly long-term. |
 
@@ -246,7 +246,8 @@ progress data, no profile name, no answer history. `kb_id`, `locale`,
 > split), the certificate honesty fixes, CI on GitHub Actions, and
 > `claude/navigation-and-module-path-concept.md` — which argues the hub should
 > become the app's ROOT rather than another overlay. That is the next
-> structural decision, and it is waiting on the PO.
+> structural decision, and it is waiting on the PO. The rest of that document
+> is now **Phase 4** below.
 
 
 **Goal: the presentation layer catches up with the catalogue. No new content.**
@@ -325,6 +326,76 @@ surfaces and the first a learner meets. Translating those is KB work.
 Flashcards as a top-level destination (it is Practice without commitment; keep
 the card as a component). Hand-written `intro.steps` in the manifest (7 of 29
 modules have them; everything on them is derivable).
+
+---
+
+## Phase 4 — The learning path
+
+Phase 3 fixed the module: a learner who is already inside one now has a hub, a
+traffic light, lessons and a resume button. Phase 4 is about the journey
+*between* those things — arriving, choosing, and being able to study in a
+language you actually read. It is fable's
+`claude/navigation-and-module-path-concept.md` reduced to work items, in that
+document's own priority order.
+
+The spine is **Option A**: the course is the path, the topic row opens the
+lesson, and the card list is an escape rather than the destination. That was
+chosen over B/C/D because the primary audience — someone who reads German
+slowly — is helped by one button, not by a menu of study styles.
+
+### 4.1 The A spine — **PARTLY DONE** (009edb9, 9b3141d, ebda9f7)
+
+**Done.** Topic rows open the topic's lesson, with a quiet "Nur Karten"
+escape on every row (borrowed from Option B), and `hubNextAction` agrees with
+them. The landing page's 22 module cards are real links, `?exam=` alone
+resolves through the manifest, a deep link beats a saved selection, and the
+hero CTA names the module it resumes.
+
+**Left.** Hub as the app's ROOT rather than another overlay, with hash routes
+so a lesson and a topic are addressable — this is the structural decision
+fable flags and the one that makes back-navigation predictable. Per-`kind`
+next-action defaults (`licence`/`cert` guided, `compliance` test-first,
+`compare` cards) — `kind` exists for exactly this and is not yet read here.
+One run per module plus a time-limit toggle, replacing the current several.
+
+### 4.2 `examLanguages` and a sticky target language — **NOT STARTED**
+
+ADR-app-0002 § 5 decided this and nothing implements it. fable ranks it
+**above** the navigation rework: it is the primary audience's actual problem.
+A Greek or Arabic speaker studying for the Führerschein sits an exam that
+exists only in German and English; the app currently neither says so nor
+remembers what they chose. Wanted: `examLanguages` on the manifest, the § 5
+sheet asked once at the first simulation, the answer remembered, and the
+exam-start sheet still able to change it. The per-card "DE" gloss and "Auf
+Deutsch üben" come after 4.1 and 4.2 both exist.
+
+### 4.3 The Ziel row and the high-stakes gate — **NOT STARTED**
+
+A two-option row under the kind chip on `licence`/`cert` modules, defaulting
+to "echte Prüfung": are you preparing for the real exam, or learning out of
+interest? It drives the high-stakes gate in the traffic light and the next
+action. It must never change the run size or the pass bar — a record has to
+mean the same thing whatever the learner said about themselves (ADR-app-0003).
+
+Explicitly **not** doing: a level selector, an expected-level selector, or a
+"wie möchtest du lernen" screen. Level is measured, not declared, and an
+abstract question asked before any content is the wrong thing to show the
+audience least able to answer it.
+
+### 4.4 First-time captions and the landing strip — **NOT STARTED**
+
+Four captions that explain the hub by doing, and a five-step strip on the
+landing page that explains by telling — which is where telling belongs.
+
+### 4.5 The device pass — **NOT STARTED**
+
+fable lists 13 things to check on a real 390px phone before calling this
+done. The riskiest is #1: cold start in Greek or Ukrainian, ≤ 4 taps from the
+landing page to a lesson section on screen, and the derived lesson has to be
+*readable*. If it is not, A falls back to the topic row opening the
+Übungsquiz, with the lesson behind an "Erklärung" link until the KB review
+loop moves the quality. Everything in 4.1–4.4 is written on the assumption
+that #1 passes, and nothing has tested it on hardware.
 
 ---
 
