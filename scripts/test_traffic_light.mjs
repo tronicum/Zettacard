@@ -88,12 +88,30 @@ const CASES = [
   [[40, 4, 40, 9], "red",     "overdue and barely learned"],
   [[0, 0, 0, 0],   "grey",    "empty topic never claims progress"],
 ];
+
+// The high-stakes gate: the real run is failed by two wrong safety-critical
+// questions whatever the total score, so a topic with unlearned high_stakes
+// cards must not read as ready.
+const HS_CASES = [
+  [{ total: 40, learned: 36, seen: 40, due: 0, highStakes: 6, highStakesLearned: 6 }, "green",
+   "90% learned, all safety-critical learned"],
+  [{ total: 40, learned: 36, seen: 40, due: 0, highStakes: 6, highStakesLearned: 4 }, "yellow",
+   "90% learned but two safety-critical unlearned - not green"],
+  [{ total: 40, learned: 36, seen: 40, due: 0, highStakes: 0, highStakesLearned: 0 }, "green",
+   "topic with no safety-critical cards is unaffected"],
+];
 const got = await page.evaluate((cases) =>
   cases.map(([[total, learned, seen, due]]) => topicTrafficState({ total, learned, seen, due })),
   CASES);
 CASES.forEach(([, expected, name], i) => {
   if (got[i] === expected) ok(`${name} -> ${expected}`);
   else fail(`${name}: expected ${expected}, got ${got[i]}`);
+});
+
+const hsGot = await page.evaluate((cases) => cases.map(([counts]) => topicTrafficState(counts)), HS_CASES);
+HS_CASES.forEach(([, expected, name], i) => {
+  if (hsGot[i] === expected) ok(`${name} -> ${expected}`);
+  else fail(`${name}: expected ${expected}, got ${hsGot[i]}`);
 });
 
 // ---- 2. the next action, against synthetic rows --------------------------

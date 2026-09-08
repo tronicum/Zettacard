@@ -3425,15 +3425,19 @@ function hubTopicRows() {
   for (const q of state.questions || []) {
     const code = q.topic_code;
     if (!byCode.has(code)) {
-      byCode.set(code, { code, label: getTopicLabel(code, q.topic), total: 0, learned: 0, seen: 0, due: 0 });
+      byCode.set(code, { code, label: getTopicLabel(code, q.topic), total: 0, learned: 0,
+                        seen: 0, due: 0, highStakes: 0, highStakesLearned: 0 });
       order.push(code);
     }
     const row = byCode.get(code);
     row.total += 1;
+    if (q.high_stakes) row.highStakes += 1;
     const entry = srs[q.id];
     if (!entry) continue;
     row.seen += 1;
-    if ((entry.box || 0) >= HUB_LEARNED_MIN_BOX) row.learned += 1;
+    const learned = (entry.box || 0) >= HUB_LEARNED_MIN_BOX;
+    if (learned) row.learned += 1;
+    if (learned && q.high_stakes) row.highStakesLearned += 1;
     if (entry.dueAt <= now) row.due += 1;
   }
   // Rendered in the module's own topic order (TOPIC_LABELS' key order),
@@ -3486,10 +3490,17 @@ const TOPIC_STATE_YELLOW_MIN = 0.4;
  * The traffic light for one topic. Pure: takes counts, returns a state, so
  * it can be tested against synthetic input without driving the UI.
  */
-function topicTrafficState({ total, learned, seen, due }) {
+function topicTrafficState({ total, learned, seen, due, highStakes, highStakesLearned }) {
   if (!total || !seen) return "grey";
   if (due > 0) return learned / total >= TOPIC_STATE_YELLOW_MIN ? "yellow" : "red";
-  if (learned / total >= TOPIC_STATE_GREEN_MIN) return "green";
+  // A topic cannot honestly be green while its safety-critical cards are
+  // unlearned. The real exam is failed by two wrong high_stakes questions
+  // regardless of the total score - finishExam() applies exactly that rule -
+  // so "ready" that ignores them is a light telling the learner something the
+  // run will contradict. Caught in review of roadmap 3.2, which counted only
+  // learned/total.
+  const highStakesReady = !highStakes || highStakesLearned >= highStakes;
+  if (learned / total >= TOPIC_STATE_GREEN_MIN && highStakesReady) return "green";
   if (learned / total >= TOPIC_STATE_YELLOW_MIN) return "yellow";
   return "red";
 }
@@ -4623,6 +4634,13 @@ async function signPersonalizedCredential(record, emails) {
 
 function recordCompletion(examType, scopeCode, results) {
   const mod = moduleManifestFor(examType);
+  // ADR-app-0002 § 4: `compare` modules get NO badge - "a playful outcome
+  // instead". They exist so someone who has finished Fuehrerschein can see
+  // what the rules are in California; there is no exam anywhere that a
+  // California run could attest readiness for, so a credential naming one
+  // would assert something that does not exist. This check was missing, and
+  // passing a compare simulation issued a certificate like any other module.
+  if (mod && mod.kind === "compare") return null;
   const scopeOpt = mod?.options.find((o) => o.code === scopeCode);
   const record = {
     id: `${examType}-${scopeCode}-${Date.now()}`,
@@ -4835,7 +4853,20 @@ function credentialJsonDoc(record) {
       achievement: {
         id: `${location.origin || ""}/achievements/${record.examType}-${record.scopeCode}`,
         type: "Achievement",
-        name: `${record.moduleLabel} - ${record.scopeLabel}`,
+        // The visible name has to carry what this IS, because the places it
+      // gets shown do not show anything else. A LinkedIn Licenses &
+      // Certifications entry renders name + issuer + date, so
+      // "Fuehrerschein - Klasse B" issued by "Zettacard" reads to any human
+      // as: this person holds that licence. The honest description below is
+      // one level down in the JSON and nobody sees it.
+      //
+      // ADR-app-0002 § 4 is explicit that this is a Lernnachweis - a
+      // self-assessment of readiness, verified by nobody - and NOT a
+      // credential. `unverified: true` in the payload does not fix a name
+      // that misrepresents on its face. So the name leads with the issuer
+      // and the nature of the claim, and the qualification is the SUBJECT of
+      // the assessment rather than the thing being awarded.
+      name: `Zettacard self-assessment - exam simulation passed: ${record.moduleLabel} (${record.scopeLabel})`,
         description: `Passed an Exam Simulation for ${record.moduleLabel} (${record.scopeLabel}) in the Zettacard app.`,
         criteria: { narrative: `${record.totalQuestions}-question simulated exam, ${record.errorPoints} error points, ${record.wrongHighStakes} wrong safety-critical answer(s).` },
       },
@@ -8841,6 +8872,9 @@ function finishExam(timedOut) {
   // cannot widen "what can be certified". A failed run reaching
   // recordCompletion() would have required editing this line.
   if (results.passed && state.exam.mode === "simulation") {
+    // null for a `compare` module - see recordCompletion(). Every reader of
+    // certRecord already guards on it being falsy, because it is absent for
+    // a failed or training run too.
     state.exam.certRecord = recordCompletion(state.examType, state.scopeCode, results);
   }
   // Phase 3.1 (2026-09-07): every finished run is now logged, pass or fail,
