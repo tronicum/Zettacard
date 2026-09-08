@@ -78,6 +78,52 @@ const none = await page.evaluate(() => {
 if (none.topics && /3.*7/.test(none.learned)) ok("no bundle -> literals, app unchanged");
 else fail("the no-bundle fallback path is broken");
 
+// A dictionary the KB carries in all 18 locales must actually COME from the
+// KB in a non-German locale - otherwise "converted" only means "still falling
+// back", and the conversion would look done while changing nothing.
+const converted = await page.evaluate(async () => {
+  await loadUiStrings("uk");
+  const out = {};
+  const key = (d, k) => (uiStringsBundle || {})[`${d}.${k}`];
+  out.certBtnFromKb = key("CERT_STRINGS", "btn");
+  out.certBtnRendered = certStrings("uk").btn;
+  out.menuFromKb = key("MENU_STRINGS", "title");
+  out.menuRendered = menuStrings("uk").title;
+  return out;
+});
+if (converted.certBtnFromKb && converted.certBtnRendered === converted.certBtnFromKb)
+  ok(`converted dictionary reads from the KB in uk: "${converted.certBtnRendered}"`);
+else fail(`certStrings("uk") did not come from the KB: rendered ${JSON.stringify(converted.certBtnRendered)}, bundle has ${JSON.stringify(converted.certBtnFromKb)}`);
+if (converted.menuRendered) ok(`menuStrings("uk").title: "${converted.menuRendered}"`);
+else fail("menuStrings went blank in uk");
+
+// Every converted accessor must return an object with content, in a locale
+// the KB does not fully cover - the blank-label failure mode, checked across
+// all of them rather than one.
+const sweep = await page.evaluate(async () => {
+  await loadUiStrings("fa");
+  const accessors = {
+    practiceQuizStrings, lessonCompletionStrings, roleFilterStrings, starStrings,
+    profileStrings, moduleGroupStrings, introStrings, certStrings, srsStrings,
+    signRefStrings, primerStrings, courseStrings, kdStrings, storageConsentStrings,
+    menuStrings, hubStrings,
+  };
+  const bad = [];
+  for (const [name, fn] of Object.entries(accessors)) {
+    const d = fn("fa");
+    if (!d || typeof d !== "object") { bad.push(`${name}: not an object`); continue; }
+    const empties = Object.keys(d).filter((k) => {
+      const v = d[k];
+      return typeof v === "string" && v.trim() === "";
+    });
+    if (empties.length) bad.push(`${name}: empty ${empties.slice(0, 3).join(",")}`);
+    if (Object.keys(d).length === 0) bad.push(`${name}: no keys`);
+  }
+  return bad;
+});
+if (sweep.length === 0) ok("all 16 converted accessors return populated dictionaries in fa");
+else sweep.slice(0, 5).forEach((b) => fail(b));
+
 if (errors.length) errors.slice(0, 3).forEach((e) => fail("page error: " + e.slice(0, 140)));
 await browser.close();
 console.log(fails ? `\nFAILURES: ${fails}` : "\nall ui-strings checks passed");

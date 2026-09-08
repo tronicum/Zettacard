@@ -944,7 +944,7 @@ const PRACTICE_QUIZ_STRINGS = {
   },
 };
 function practiceQuizStrings(lang) {
-  return PRACTICE_QUIZ_STRINGS[lang] || PRACTICE_QUIZ_STRINGS.en;
+  return kbStrings("PRACTICE_QUIZ_STRINGS", PRACTICE_QUIZ_STRINGS, lang);
 }
 
 // Phase 3.1 (2026-09-07), lesson completion copy - shown on the practice
@@ -982,7 +982,7 @@ const LESSON_COMPLETION_STRINGS = {
   },
 };
 function lessonCompletionStrings(lang) {
-  return LESSON_COMPLETION_STRINGS[lang] || LESSON_COMPLETION_STRINGS.en;
+  return kbStrings("LESSON_COMPLETION_STRINGS", LESSON_COMPLETION_STRINGS, lang);
 }
 
 // Locale registry (2026-09-06) ------------------------------------------
@@ -1777,7 +1777,7 @@ const ROLE_FILTER_STRINGS = {
   it: { label: "Ruolo", all: "Tutti i ruoli", all_staff: "Tutto il personale", hr: "Risorse umane", it: "IT", management: "Direzione" },
 };
 function roleFilterStrings(lang) {
-  return ROLE_FILTER_STRINGS[lang] || ROLE_FILTER_STRINGS.en;
+  return kbStrings("ROLE_FILTER_STRINGS", ROLE_FILTER_STRINGS, lang);
 }
 
 // DN-14: manual star/bookmark strings - standalone rather than folded into
@@ -1807,7 +1807,7 @@ const STAR_STRINGS = {
   it: { star: "☆ Contrassegna", starred: "⭐ Contrassegnata", starAria: "Contrassegna questa domanda", starredAria: "Rimuovi contrassegno", filterChip: "⭐ Solo contrassegnate", filterAria: "Mostra solo le domande contrassegnate", emptyStarred: "Nessuna domanda contrassegnata in questa categoria ancora." },
 };
 function starStrings(lang) {
-  return STAR_STRINGS[lang] || STAR_STRINGS.en;
+  return kbStrings("STAR_STRINGS", STAR_STRINGS, lang);
 }
 
 // A question matches a role filter if either the filter is "all" (no
@@ -2174,7 +2174,7 @@ const PROFILE_STRINGS = {
   it: { switchAria: "Cambia profilo", title: "Profili su questo dispositivo", close: "← Indietro", addPlaceholder: "Nome del profilo", addConfirm: "+ Aggiungi profilo" },
 };
 function profileStrings(lang) {
-  return PROFILE_STRINGS[lang] || PROFILE_STRINGS.en;
+  return kbStrings("PROFILE_STRINGS", PROFILE_STRINGS, lang);
 }
 
 function openProfileSwitcher() {
@@ -2923,7 +2923,7 @@ function buildModuleRow(mod, group, G) {
 }
 
 function moduleGroupStrings(lang) {
-  return MODULE_GROUP_STRINGS[lang] || MODULE_GROUP_STRINGS.en;
+  return kbStrings("MODULE_GROUP_STRINGS", MODULE_GROUP_STRINGS, lang);
 }
 
 // Same standalone-table convention as MODULE_PICKER_STRINGS above (this text
@@ -3143,7 +3143,7 @@ const MODULE_INTRO_STRINGS = {
   it: { next: "Avanti", back: "← Indietro", skip: "Salta", start: "Iniziamo", stepOf: (i, n) => `${i} / ${n}`, aboutBtn: "Informazioni su questo modulo" },
 };
 function introStrings(lang) {
-  return MODULE_INTRO_STRINGS[lang] || MODULE_INTRO_STRINGS.en;
+  return kbStrings("MODULE_INTRO_STRINGS", MODULE_INTRO_STRINGS, lang);
 }
 
 function hasSeenIntro(examType) {
@@ -4428,7 +4428,7 @@ const CERT_STRINGS = {
   },
 };
 function certStrings(lang) {
-  return CERT_STRINGS[lang] || CERT_STRINGS.en;
+  return kbStrings("CERT_STRINGS", CERT_STRINGS, lang);
 }
 
 // DN-65: independent certificate-document language, separate from the
@@ -5609,7 +5609,7 @@ const SRS_STRINGS = {
   it: { reviewBtn: (n) => `📅 Ripasso (${n})`, reviewAria: "Domande da ripassare", know: "Lo sapevo", dontKnow: "Non lo sapevo", caption: "Come è andata con questa carta?" },
 };
 function srsStrings(lang) {
-  return SRS_STRINGS[lang] || SRS_STRINGS.en;
+  return kbStrings("SRS_STRINGS", SRS_STRINGS, lang);
 }
 
 // Opens the same #detail-view flashcard UI the regular question list uses,
@@ -5764,7 +5764,7 @@ const SIGN_REF_STRINGS = {
 };
 
 function signRefStrings(lang) {
-  return SIGN_REF_STRINGS[lang] || SIGN_REF_STRINGS.en;
+  return kbStrings("SIGN_REF_STRINGS", SIGN_REF_STRINGS, lang);
 }
 
 // StVO category headings, in the fixed study-reference order used by
@@ -6045,7 +6045,7 @@ const PRIMER_STRINGS = {
 };
 
 function primerStrings(lang) {
-  return PRIMER_STRINGS[lang] || PRIMER_STRINGS.en;
+  return kbStrings("PRIMER_STRINGS", PRIMER_STRINGS, lang);
 }
 
 // Fixed display order: sign shapes/categories first (a prerequisite lens
@@ -6849,7 +6849,7 @@ const COURSE_STRINGS = {
 };
 
 function courseStrings(lang) {
-  return COURSE_STRINGS[lang] || COURSE_STRINGS.en;
+  return kbStrings("COURSE_STRINGS", COURSE_STRINGS, lang);
 }
 
 function openCourseView() {
@@ -7728,7 +7728,7 @@ const KUBECTL_DRILL_STRINGS = {
 };
 
 function kdStrings(lang) {
-  return KUBECTL_DRILL_STRINGS[lang] || KUBECTL_DRILL_STRINGS.en;
+  return kbStrings("KUBECTL_DRILL_STRINGS", KUBECTL_DRILL_STRINGS, lang);
 }
 
 // ---- view ----------------------------------------------------------------
@@ -9935,7 +9935,7 @@ const STORAGE_CONSENT_STRINGS = {
 };
 
 function storageConsentStrings(lang) {
-  return STORAGE_CONSENT_STRINGS[lang] || STORAGE_CONSENT_STRINGS.en;
+  return kbStrings("STORAGE_CONSENT_STRINGS", STORAGE_CONSENT_STRINGS, lang);
 }
 
 // Shows the DN-89 notice and resolves once a decision exists - either an
@@ -10029,7 +10029,7 @@ const MENU_STRINGS = {
 };
 
 function menuStrings(lang) {
-  return MENU_STRINGS[lang] || MENU_STRINGS.en;
+  return kbStrings("MENU_STRINGS", MENU_STRINGS, lang);
 }
 
 function openAppMenu() {
@@ -10376,6 +10376,20 @@ async function loadActiveProfileState() {
     try {
       await loadModuleData(savedExamType, savedScopeCode);
       render();
+      // ADR-app-0002 § 1: "cold launch lands on the hub of the last-used
+      // module." Roadmap 3.5 wired the hub to the PICKER path only, so a
+      // returning visitor - and anyone arriving on a landing-page
+      // ?exam=&scope= deep link, which restores through this same branch -
+      // dropped straight into a raw question list instead. Reported from
+      // staging as "start now - for what?", which is exactly the complaint
+      // the hub exists to answer: it is the screen that says where you are
+      // and what to do next.
+      //
+      // Not shown when a study session is already on screen: an exam or a
+      // detail view restored from history would be interrupted by it.
+      if (el("#exam-view").hidden && el("#module-picker").hidden && state.detailIndex === null) {
+        openModuleHub();
+      }
     } catch (err) {
       // Saved selection no longer resolves (e.g. content files moved) -
       // fall through to the picker rather than showing a dead app.
