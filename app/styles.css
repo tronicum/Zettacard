@@ -373,8 +373,15 @@ h1 {
   display: none;
 }
 
+/* The one content column. `main` had 720px hardcoded and the header had
+   nothing at all, which is the whole of the desktop bug below - so the
+   number lives here now and both read it. */
+:root {
+  --content-column: 720px;
+}
+
 main {
-  max-width: 720px;
+  max-width: var(--content-column);
   margin: 0 auto;
   padding: 16px;
   /* DN-23: safe-area-inset-bottom so content isn't flush against a phone's
@@ -2294,6 +2301,51 @@ main {
    full width - only the row that reaches the top-right corner pays for it. */
 .header-controls {
   padding-inline-end: 74px;
+}
+
+/* Desktop and landscape: keep the header in the same column as the content.
+   ------------------------------------------------------------------------
+   Reported from a desktop window: "a fix for mobile phone sized views leads
+   to desktop sized (landscape) view to be forced into a more horizontal
+   setup." Correct diagnosis, and the mobile fixes are not the mistake - the
+   missing half is.
+
+   `main` has always been a 720px centred column. `header` never was: it is
+   sticky and full-bleed so its background and border span the window, which
+   is right, but its CONTENTS inherited that width. At 390px nothing shows,
+   because 390px IS the column. At 1440px the title sits against the far left
+   edge, the buttons against the far right, and `.filters` - which wraps, as
+   it must on a phone - spreads 17 topic chips across the whole window in two
+   long rows, while the question cards below sit in a 720px column in the
+   middle. Two different layouts stacked on one page.
+
+   So the header stays full-bleed and its rows get the column. No DOM change,
+   no phone-side change: at 390px `max-width: 720px` is inert. */
+.title-row,
+header > .filters {
+  /* minus 32px because `header` already supplies the 16px side padding that
+     `main` applies INSIDE its own 720px box. Capping these rows at the full
+     column instead leaves the title starting 16px to the left of the question
+     cards below it - aligned enough to look intentional, wrong enough to see.
+     Asserted against #list (main's content box), not against main itself. */
+  max-width: calc(var(--content-column) - 32px);
+  margin-inline: auto;
+  width: 100%;
+}
+
+/* The 74px above reserves room for the floating globe, which is fixed to the
+   VIEWPORT's top-right, not to the header. Once the header row is a centred
+   column there is a gutter between the two and the reserve is just dead space
+   inside the row, pulling the buttons away from the column's right edge.
+
+   900px is where they stop colliding: the column plus its 16px padding is
+   752px wide, so its right edge sits at viewport/2 + 376, and the globe needs
+   the last ~74px - they clear each other from 900px up. Asserted in
+   test_desktop_layout.mjs rather than left to this arithmetic. */
+@media (min-width: 900px) {
+  .header-controls {
+    padding-inline-end: 0;
+  }
 }
 
 /* The "just the cards" escape on a topic row (navigation concept, Option A
