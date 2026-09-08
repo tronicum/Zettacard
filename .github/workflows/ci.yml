@@ -114,6 +114,9 @@ jobs:
       - name: The hub resumes (ADR-app-0002 § 1)
         run: npm run test:resume
 
+      - name: The learning path (topic row opens the lesson)
+        run: npm run test:path
+
       # NOT blocking, and deliberately so. This suite currently reports
       # "HEADER, MAIN left inert" after nearly every step, which is CORRECT
       # behaviour being asserted at the wrong moment: it calls

@@ -2295,3 +2295,26 @@ main {
 .header-controls {
   padding-inline-end: 74px;
 }
+
+/* The "just the cards" escape on a topic row (navigation concept, Option A
+   borrowing from B). Deliberately quiet and deliberately present: the lesson
+   is the default path because it explains before it asks, but a learner who
+   would rather drill must never be blocked from the cards - and must not have
+   to discover that they can. */
+.hub-topic-cards {
+  display: block;
+  width: 100%;
+  text-align: end;
+  padding: 0.2rem 0.15rem 0.45rem;
+  margin-top: -0.25rem;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 0.82rem;
+  color: inherit;
+  opacity: 0.65;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.hub-topic-cards:hover { opacity: 0.95; }

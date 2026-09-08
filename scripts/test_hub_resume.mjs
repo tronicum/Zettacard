@@ -11,6 +11,7 @@
 // happened: the same topic, the same card, and still true after a reload.
 //
 // Usage: node scripts/serve-app.mjs 8802 & node scripts/test_hub_resume.mjs
+import { chromium } from "playwright";
 import { existsSync } from "node:fs";
 const SITE = process.argv[2] || "http://localhost:8802";
 let f=0; const ok=m=>console.log("  ok: "+m); const fail=m=>{console.error("  FAIL: "+m);f++;};

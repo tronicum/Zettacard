@@ -3285,6 +3285,7 @@ const MODULE_HUB_STRINGS = {
     nextReview: (n) => `${n} faellige Karten wiederholen`,
     nextLearn: (topic) => `Weiter mit ${topic}`,
     nextSimulate: "Alles sitzt - Pruefungssimulation starten",
+    cardsLink: "Nur Karten",
     stateAria: (label, stateWord) => `${label}: ${stateWord}`,
   },
   en: {
@@ -3318,6 +3319,7 @@ const MODULE_HUB_STRINGS = {
     nextReview: (n) => `Review ${n} cards that are due`,
     nextLearn: (topic) => `Carry on with ${topic}`,
     nextSimulate: "All solid - start the readiness check",
+    cardsLink: "Just the cards",
     stateAria: (label, stateWord) => `${label}: ${stateWord}`,
   },
 };
@@ -3572,6 +3574,32 @@ function openDetailAt(index) {
   if (q) q.focus();
 }
 
+/**
+ * The lesson that teaches a topic, or null.
+ *
+ * Roadmap 3.4 gave every topic one - authored where an author wrote it,
+ * derived from the topic's own worked examples otherwise - so on
+ * fuehrerschein this returns a lesson for all 15. Reads the cached course
+ * core only; the hub must render without awaiting a fetch, and a topic whose
+ * lesson is not loaded yet simply falls back to its cards.
+ */
+function lessonIdForTopic(topicCode) {
+  const core = courseCoreCache[state.examType];
+  const course = core && core.courses && core.courses[0];
+  if (!course) return null;
+  const authored = [];
+  const derived = [];
+  for (const l of course.lessons || []) {
+    const codes = (l.select || {}).topic_codes || [];
+    if (!codes.includes(topicCode)) continue;
+    (l.derived_topic_code ? derived : authored).push(l.lesson_id);
+  }
+  // An authored lesson wins over a derived one, same precedence
+  // derive_topic_lessons() applies when it declines to generate for a topic
+  // that already has one.
+  return authored[0] || derived[0] || null;
+}
+
 function loadResumePoint(examType) {
   try {
     const raw = JSON.parse(storageGet(profileKey(`resume-${examType}`)) || "null");
@@ -3612,6 +3640,16 @@ function openModuleHub() {
   el("#module-hub").hidden = false;
   history.pushState({ view: "module-hub" }, "");
   renderModuleHub();
+  // The hub renders synchronously, and lessonIdForTopic() reads only the
+  // cache - so without this every topic row silently degrades to its card
+  // list on the first visit to a module, which is the whole change undone by
+  // a race. Fetch, then re-render if the hub is still up. Failure is fine:
+  // the rows fall back to cards, which is what they did before.
+  if (!courseCoreCache[state.examType]) {
+    loadCourseCore(state.examType)
+      .then(() => { if (!el("#module-hub").hidden) renderModuleHub(); })
+      .catch(() => { /* no course for this module - cards it is */ });
+  }
   setInertBehindDialog(true);
   el("#module-hub-title").focus();
 }
@@ -3680,12 +3718,37 @@ function renderModuleHub() {
       `<strong><span class="topic-light" data-state="${row.state}" aria-hidden="true"></span>${row.label}</strong>` +
       `<span class="module-row-note">${H.learnedOf(row.learned, row.total)} \u00b7 ${stateWord}</span>`;
     btn.setAttribute("aria-label", H.stateAria(row.label, stateWord));
+    // Roadmap 3.4 + the navigation concept (Option A): a topic row opens the
+    // topic's LESSON, not its card list. Explain, then try - which is the
+    // order the data already encodes and the only one whose first screen is
+    // an explanation in the learner's own language. The card list stays one
+    // tap away for the learner who would rather just drill.
+    const lessonId = lessonIdForTopic(row.code);
     btn.addEventListener("click", () => {
       state.topicFilter = row.code;
+      if (lessonId) {
+        closeModuleHub();
+        openCourseLesson(lessonId);
+        return;
+      }
       history.back();
       render();
     });
     topics.appendChild(btn);
+
+    if (lessonId) {
+      const cards = document.createElement("button");
+      cards.className = "hub-topic-cards";
+      cards.dataset.topicCards = row.code;
+      cards.textContent = H.cardsLink;
+      cards.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        state.topicFilter = row.code;
+        history.back();
+        render();
+      });
+      topics.appendChild(cards);
+    }
   }
 
   // 5. The runs, as buttons. ADR-app-0002 § 4: never behind a mode
@@ -3770,7 +3833,13 @@ function wireModuleHubControls() {
     if (!next) return;
     if (next.kind === "simulate") { closeModuleHub(); startExam("simulation"); return; }
     if (next.kind === "review") { closeModuleHub(); openReviewSession(); return; }
+    // Same destination as the topic row it names: the lesson. Pointing "next"
+    // at a raw card list was the gap the navigation concept identified - the
+    // suggestion and the didactic sequence were two systems that did not know
+    // each other existed.
     state.topicFilter = next.topic.code;
+    const lessonId = lessonIdForTopic(next.topic.code);
+    if (lessonId) { closeModuleHub(); openCourseLesson(lessonId); return; }
     history.back();
     render();
   });
