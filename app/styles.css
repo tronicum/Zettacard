@@ -2264,3 +2264,19 @@ main {
   text-underline-offset: 0.2em;
 }
 .module-hub-next:hover { opacity: 0.75; }
+
+/* The float sits at z-index 60, above every modal (40), and that is
+   deliberate: it exists so the language stays reachable when a dialog has
+   made the header inert - the 2026-09-05 bug where a non-German learner
+   could not reach the language control at all.
+
+   But #app-menu and #lang-sheet BOTH already carry a language control of
+   their own, so over those two the float is not a lifeline, it is a second
+   globe sitting on top of the first (reported 2026-09-08 with a screenshot:
+   "🌐 BAR" overlapping "🌐 🥨 Boaris"). Hide it for exactly those two, by
+   sibling selector rather than by JS, so there is no open/close state that
+   can strand it hidden. Every other modal still gets it. */
+#app-menu:not([hidden]) ~ .lang-btn-float,
+#lang-sheet:not([hidden]) ~ .lang-btn-float {
+  display: none !important;
+}
