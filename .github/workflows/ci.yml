@@ -111,6 +111,9 @@ jobs:
       - name: UI strings from the KB (roadmap 3.7)
         run: npm run test:ui
 
+      - name: The hub resumes (ADR-app-0002 § 1)
+        run: npm run test:resume
+
       # NOT blocking, and deliberately so. This suite currently reports
       # "HEADER, MAIN left inert" after nearly every step, which is CORRECT
       # behaviour being asserted at the wrong moment: it calls

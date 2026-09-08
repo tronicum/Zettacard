@@ -3555,6 +3555,36 @@ function hubNextAction(rows, due) {
   return { kind: "simulate" };
 }
 
+// Open a card by index in the CURRENT filtered list. Extracted from the card
+// click handler's own `open()` so the hub's resume can reach the same code
+// path rather than a parallel one that drifts from it - the focus move and
+// the inert flag are as load-bearing here as they are on a tap.
+function openDetailAt(index) {
+  state.listScrollY = window.scrollY;
+  state.lastOpenedIndex = index;
+  state.detailIndex = index;
+  state.revealed = false;
+  state.detailPick = null;
+  history.pushState({ view: "detail" }, "");
+  render();
+  setInertBehindDialog(true);
+  const q = el("#detail-question");
+  if (q) q.focus();
+}
+
+function loadResumePoint(examType) {
+  try {
+    const raw = JSON.parse(storageGet(profileKey(`resume-${examType}`)) || "null");
+    return raw && typeof raw === "object" ? raw : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function topicExistsInModule(code) {
+  return (state.questions || []).some((q) => q.topic_code === code);
+}
+
 function hubKindChip(mod, H) {
   if (!mod) return "";
   const byKind = {
@@ -3604,7 +3634,12 @@ function renderModuleHub() {
   // 2. The primary action. "Weiterlernen" is a resume, so it only claims to
   // be one when there is something to resume.
   const primary = el("#module-hub-primary");
-  primary.innerHTML = `<strong>${p.learned > 0 || p.due > 0 ? H.continueLearning : H.startLearning}</strong>`;
+  // "Weiterlernen" only when there is genuinely something to resume. Saying
+  // "continue" to someone with no saved position is a small lie that the very
+  // next tap exposes.
+  const resumePoint = loadResumePoint(state.examType);
+  const canResume = !!(resumePoint && resumePoint.questionId) || p.learned > 0 || p.due > 0;
+  primary.innerHTML = `<strong>${canResume ? H.continueLearning : H.startLearning}</strong>`;
 
   // 3. Progress.
   const prog = el("#module-hub-progress");
@@ -3693,9 +3728,30 @@ function renderModuleHub() {
 
 function wireModuleHubControls() {
   el("#module-hub-primary").addEventListener("click", () => {
-    state.topicFilter = "all";
+    // Resume the last topic AND position, which is what "Weiterlernen" says
+    // and what ADR-app-0002 § 1 requires. Until now this set the filter to
+    // "all" and called history.back() - it DISMISSED the hub to reveal an
+    // unfiltered card list, which meant the largest button on the app's main
+    // screen was a close button wearing a verb.
+    const resume = loadResumePoint(state.examType);
+    state.topicFilter = resume && resume.topicCode && topicExistsInModule(resume.topicCode)
+      ? resume.topicCode
+      : "all";
+
+    // The reopen has to wait for the hub's own popstate to land. history.back()
+    // is asynchronous: opening the card synchronously here would work, and then
+    // the queued popstate would run closeDetail() on it a moment later and the
+    // learner would be staring at the list. Same one-shot-listener pattern
+    // courseLessonHandoff() uses, and for the same reason.
+    window.addEventListener("popstate", function onHubResume() {
+      render();
+      if (!resume || !resume.questionId) return;
+      // Degrade rather than fail: a question since removed from the module, or
+      // one the restored filter excludes, lands the learner on the topic list.
+      const idx = filteredQuestions().findIndex((q) => q.id === resume.questionId);
+      if (idx >= 0) openDetailAt(idx);
+    }, { once: true });
     history.back();
-    render();
   });
   el("#module-hub-sim").addEventListener("click", () => {
     closeModuleHub();
@@ -9739,6 +9795,19 @@ function renderDetail() {
   // cheap, idempotent call rather than something that needs its own guard
   // here.
   markSeen(q.id);
+
+  // ADR-app-0002 § 1: "Weiterlernen, resuming the last topic and position."
+  // Recorded here rather than on close, because a learner who shuts the tab
+  // mid-card never reaches closeDetail() - and that is exactly the person the
+  // resume is for. Cheap: one small write per card shown, on the same
+  // per-module key scheme as the topic filter. Review mode is excluded; a
+  // review queue is built fresh each time and is not a place to return to.
+  if (!state.reviewMode) {
+    try {
+      storageSet(profileKey(`resume-${state.examType}`),
+                 JSON.stringify({ questionId: q.id, topicCode: q.topic_code }));
+    } catch (e) { /* non-fatal - resume just falls back to the list */ }
+  }
 
   const SS = starStrings(state.lang);
   const starBtn = el("#star-btn");

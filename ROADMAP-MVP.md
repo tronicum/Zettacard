@@ -4,6 +4,28 @@
 **Owner:** PO
 **Related:** `docs/adr/ADR-app-0002` (module hub, the three languages, what a badge means), `zettacard-kb/docs/adr/ADR-0005` (interchange formats), `TODO.md` item 10 (deploy workflow)
 
+## Where we are, and what the numbers mean
+
+**PO's call, 2026-09-08: we are roughly at 0.5.** The ladder from here, so the
+word "done" has somewhere to point:
+
+| | What it means |
+|---|---|
+| **0.5 — today** | The app works and is deployed to staging. Phase 3 is in: hub, traffic light, 15 topics, derived lessons in 18 locales. The content pipeline runs KB → app end to end. Five test suites and CI. Known-not-solid: the hub's primary button dismisses rather than resumes, the landing page's module cards are not links, `examLanguages` is decided and unbuilt, and no content cell is `approved`. |
+| **1.0 — rock solid** | Zettacard itself, done properly. Not new surface area: the navigation spine settled and implemented, every known-broken item above closed, the journeys suite genuinely green, production linked, and a learner able to go landing page → module → study → readiness check without meeting a dead end or an untranslated screen. |
+| **1.2 — the LMS story** | SCORM 1.2 for compliance modules, plus the packaging and proof the existing GIFT/Moodle XML exporters still lack (a top-level command, CI, and one verified import into a real Moodle). Explicitly long-term. |
+
+**Why SCORM is not 1.0.** It is a few days of work and mostly not hard — the
+manifest is comparable to `moodle_xml.py`, the runtime shim is ~100 lines, and
+unusually for a content vendor we already own the player, since the app is a
+build-step-free static PWA that can BE the SCO. What holds it back is not
+effort. A SCORM completion lands directly in an employer's compliance record,
+which is a stronger claim than GIFT makes — GIFT hands over a question bank
+with its review status printed in the header, SCORM hands over evidence that
+someone completed something. Shipping that while every cell is outside
+`approved`/`auto_approved` would be the one dishonest thing in an otherwise
+careful product. Data first, then the claim.
+
 ## The shape of this plan
 
 Four phases, strictly ordered, with one rule running through them:
