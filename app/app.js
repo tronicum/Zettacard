@@ -6870,14 +6870,14 @@ async function renderCourseView() {
       const unit = unitsById.get(lesson.unit_ref);
       const heading = document.createElement("h3");
       heading.className = "sign-ref-category";
-      heading.textContent = (unit && courseText(bundle, unit.unit_id, "title")) || lesson.unit_ref;
+      heading.textContent = courseUnitHeading(unit, bundle) || lesson.unit_ref;
       list.appendChild(heading);
     }
     const btn = document.createElement("button");
     btn.className = "exam-mode-btn";
     const kindKey = COURSE_LESSON_KIND_KEY[lesson.lesson_kind];
     const kindLabel = kindKey ? S[kindKey] : lesson.lesson_kind;
-    const title = courseText(bundle, lesson.lesson_id, "title") || lesson.lesson_id;
+    const title = courseText(bundle, lesson.lesson_id, "title") || derivedLessonTitle(lesson) || lesson.lesson_id;
     // Three states, not two. A lesson with no `select` (the "guidance"
     // kind) has no quiz to be judged by and so can never be completed -
     // rendering it as "not done" would be a permanently unachievable
@@ -6898,6 +6898,25 @@ async function renderCourseView() {
   });
 
   el("#course-title").focus();
+}
+
+// --- Roadmap 3.4: titling a derived lesson ------------------------------
+//
+// A lesson built by derive_topic_lessons() carries no title object. Its title
+// IS the topic's label, which already exists in every locale TOPIC_LABELS
+// covers - inventing an 18-language title per topic to say the topic's own
+// name would be new strings for something the app can already say. Same for
+// the unit that holds them: its heading is the word the hub already uses.
+function derivedLessonTitle(lesson) {
+  const code = lesson && lesson.derived_topic_code;
+  return code ? getTopicLabel(code, code) : null;
+}
+
+function courseUnitHeading(unit, bundle) {
+  const authored = unit && courseText(bundle, unit.unit_id, "title");
+  if (authored) return authored;
+  if (unit && unit.derived_unit) return hubStrings(state.lang).topics;
+  return unit ? unit.unit_id : "";
 }
 
 async function openCourseLesson(lessonId) {
@@ -6929,7 +6948,7 @@ async function renderCourseLesson() {
   if (!section) return;
 
   const bundle = await loadCourseLocaleWithFallback(state.examType, state.lang);
-  const lessonTitle = courseText(bundle, lesson.lesson_id, "title") || lesson.lesson_id;
+  const lessonTitle = courseText(bundle, lesson.lesson_id, "title") || derivedLessonTitle(lesson) || lesson.lesson_id;
   const sectionTitle = courseText(bundle, section.section_id, "title");
   const body = courseText(bundle, section.section_id, "body") || "";
 

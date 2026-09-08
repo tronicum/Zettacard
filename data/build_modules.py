@@ -102,6 +102,13 @@ BUILT_MODULES = (
 ) + FUN_TRANSLATION_MODULES
 
 
+# Which master file each module was built from, recorded by split_module() as
+# it runs so split_course() can find the questions a derived lesson is made of
+# (roadmap 3.4) without a second hand-maintained module->filename map that
+# could silently disagree with the calls in main().
+MASTER_SOURCE_BY_MODULE = {}
+
+
 def split_module(src_path, exam_type, locales, out_meta_extra=None,
                  core_key_order="canonical"):
     """core_key_order controls the key order of the per-question objects
@@ -124,6 +131,7 @@ def split_module(src_path, exam_type, locales, out_meta_extra=None,
     """
     src = json.load(open(src_path, encoding="utf-8"))
     questions = src["questions"]
+    MASTER_SOURCE_BY_MODULE[exam_type] = src_path
     module_dir = os.path.join(APP_DATA, exam_type)
     locales_dir = os.path.join(module_dir, "locales")
     os.makedirs(locales_dir, exist_ok=True)
@@ -310,6 +318,166 @@ def _norm_media_facts(media, where):
 
 
 
+# --- Roadmap 3.4: derived topic lessons ---------------------------------
+#
+# The problem, in the roadmap's own words: course prose exists in de/en only,
+# while questions exist in 18 locales, so a prose-first lesson serves nobody
+# who needs it most. Fuehrerschein shipped three authored lessons covering ONE
+# of its topics; a learner whose German is poor - the primary audience - had
+# nothing to read in their own language at all.
+#
+# So these lessons are DERIVED, from material that is already translated: each
+# one is a handful of solved worked examples taken from the topic's own
+# questions. Question text, the correct option and the explanation all exist
+# per locale in the master file, so a derived lesson is available in every
+# locale the questions are, for free, the day a translation lands. Nothing
+# here is authored and nothing here is content - every string comes from a
+# question the KB already masters (see zettacard-kb; this is the presentation
+# layer re-using content, not a second copy of it).
+#
+# Authored lessons always win: a topic that already has one is skipped, so
+# fs-l1's hand-written right-of-way primer is untouched and `vorfahrt` gets no
+# derived lesson.
+DERIVED_EXAMPLES_PER_LESSON = 4
+DERIVED_QUIZ_COUNT = 8
+DERIVED_COMPLETION_RULE = "quiz_pass:0.7"
+# Roughly a minute per worked example plus the quiz. Honest enough for a
+# "14 min" style hint; not worth deriving anything cleverer.
+DERIVED_MINUTES_PER_EXAMPLE = 2
+
+
+def _topics_already_taught(course):
+    """Topic codes an AUTHORED lesson already selects."""
+    covered = set()
+    for lesson in course.get("lessons", []):
+        for code in ((lesson.get("select") or {}).get("topic_codes") or []):
+            covered.add(code)
+    return covered
+
+
+def _worked_example_body(q, loc, correct_label):
+    """One worked example, in one locale, from the question itself.
+
+    Question, then the answer marked as such, then the explanation. Returns
+    None when this locale has no text for the question, so a partially
+    translated module simply yields a shorter lesson in that locale rather
+    than one padded with German.
+    """
+    text = (q.get("text") or {}).get(loc)
+    if not text or not text.get("question"):
+        return None
+    parts = [text["question"].strip()]
+    options = text.get("options") or {}
+    answers = [options[k] for k in (q.get("correct") or []) if k in options]
+    if answers:
+        parts.append(f"{correct_label}: " + " / ".join(a.strip() for a in answers))
+    explanation = (q.get("explanation") or {}).get(loc)
+    if explanation:
+        parts.append(explanation.strip())
+    return "\n\n".join(parts)
+
+
+# "Correct answer" as a label, per locale. The one place this file needs a
+# string of its own, because no question carries one. Kept to the locales the
+# questions actually ship in; a locale missing here falls back to English,
+# which is still better than a bare answer with no marker.
+CORRECT_ANSWER_LABEL = {
+    "de": "Richtige Antwort", "en": "Correct answer", "uk": "Правильна відповідь",
+    "pl": "Prawidłowa odpowiedź", "ar": "الإجابة الصحيحة", "zh": "正确答案",
+    "hi": "सही उत्तर", "tr": "Doğru cevap", "fr": "Bonne réponse",
+    "ru": "Правильный ответ", "es": "Respuesta correcta", "it": "Risposta corretta",
+    "ro": "Răspuns corect", "bar": "Richtige Antwort", "fa": "پاسخ درست",
+    "el": "Σωστή απάντηση", "hr": "Točan odgovor", "pt": "Resposta correta",
+}
+
+
+def derive_topic_lessons(exam_type, questions, course, locales):
+    """Append one derived lesson per topic that has no authored lesson."""
+    covered = _topics_already_taught(course)
+
+    order, by_topic = [], {}
+    for q in questions:
+        code = q.get("topic_code")
+        if not code or code in covered:
+            continue
+        if code not in by_topic:
+            by_topic[code] = []
+            order.append(code)
+        by_topic[code].append(q)
+    if not order:
+        return 0
+
+    prefix = f"{exam_type}-derived"
+    unit = {
+        "unit_id": f"{prefix}-u",
+        "unit_kind": "module",
+        "order": len(course.get("units", [])),
+        # No title object: app.js renders a derived unit's heading from its own
+        # UI strings (see `derived_unit` in renderCourseView). Inventing a unit
+        # title in 18 languages to say "Topics" would be 18 strings to
+        # translate for a word the app already has.
+        "derived_unit": True,
+    }
+    course.setdefault("units", []).append(unit)
+
+    lessons = course.setdefault("lessons", [])
+    made = 0
+    for topic_index, code in enumerate(order):
+        pool = by_topic[code]
+        # Safety-critical questions first, then stable by id, so a rebuild
+        # produces the same lesson and a review diff stays readable.
+        pool = sorted(pool, key=lambda q: (not q.get("high_stakes"), str(q.get("id"))))
+        examples = pool[:DERIVED_EXAMPLES_PER_LESSON]
+        if not examples:
+            continue
+
+        lesson_id = f"{prefix}-{code}"
+        sections = []
+        for n, q in enumerate(examples):
+            body = {}
+            for loc in locales:
+                text = _worked_example_body(q, loc, CORRECT_ANSWER_LABEL.get(loc, CORRECT_ANSWER_LABEL["en"]))
+                if text:
+                    body[loc] = text
+            if not body:
+                continue
+            section = {
+                "section_id": f"{lesson_id}-s{n + 1}",
+                "order": len(sections),
+                "section_kind": "prose",
+                "license_ref": "CC-BY-NC-SA-4.0",
+                # Not "draft": this is not a draft awaiting review, it is a
+                # mechanical re-presentation of questions that already carry
+                # their own review state. Saying "draft" would put a review
+                # queue in front of text that is already reviewed elsewhere.
+                "review_status": "derived",
+                "generator": f"derived:build_modules/{exam_type}",
+                "body": body,
+            }
+            if q.get("legal_basis"):
+                section["legal_basis"] = q["legal_basis"]
+            sections.append(section)
+        if not sections:
+            continue
+
+        lessons.append({
+            "lesson_id": lesson_id,
+            "unit_ref": unit["unit_id"],
+            "order": 1000 + topic_index,  # after every authored lesson
+            "lesson_kind": "primer",
+            "estimated_minutes": len(sections) * DERIVED_MINUTES_PER_EXAMPLE,
+            "completion_rule": DERIVED_COMPLETION_RULE,
+            "select": {"topic_codes": [code], "count": DERIVED_QUIZ_COUNT},
+            "sections": sections,
+            # app.js titles a derived lesson with the topic's own label
+            # (getTopicLabel), so the 18-locale title problem is solved by the
+            # labels that already exist rather than by new strings.
+            "derived_topic_code": code,
+        })
+        made += 1
+    return made
+
+
 def split_course(exam_type, locales):
     """2026-08-15: optional v1 "course" sidecar layer, see
     claude/modular-course-architecture-v1-2026-08-15.md (Opus design doc,
@@ -334,6 +502,18 @@ def split_course(exam_type, locales):
         return False
 
     src = json.load(open(src_path, encoding="utf-8"))
+    # Roadmap 3.4: top the authored course up with one derived lesson per
+    # otherwise-untaught topic, BEFORE the locale fan-out below, so derived
+    # text goes through exactly the same pull()/course_locales path as
+    # authored text and app.js needs no second way to read it.
+    derived = 0
+    master = MASTER_SOURCE_BY_MODULE.get(exam_type)
+    if master and os.path.exists(master):
+        questions = json.load(open(master, encoding="utf-8"))["questions"]
+        for course in src.get("courses", []):
+            derived += derive_topic_lessons(exam_type, questions, course, locales)
+    if derived:
+        print(f"  {exam_type}: {derived} derived topic lessons")
     module_dir = os.path.join(APP_DATA, exam_type)
     locales_dir = os.path.join(module_dir, "course_locales")
     os.makedirs(locales_dir, exist_ok=True)
@@ -618,7 +798,11 @@ def main():
     # DE/EN only, per the established pattern that a course/question bank may
     # launch DE+EN while UI strings must carry all 12 locales - the question
     # bank itself stays on its full 12 and is untouched by this.
-    if split_course("fuehrerschein", ["de", "en"]):
+    # fs_locales, not ["de", "en"]: the authored prose is de/en and stays that
+    # way (pull() simply finds no text for the rest), but the DERIVED lessons
+    # added by derive_topic_lessons() are built from question text that exists
+    # in all 18 - and fanning them out is the entire point of roadmap 3.4.
+    if split_course("fuehrerschein", fs_locales):
         print("fuehrerschein: course layer built (de, en)")
 
     # DN-48: full 12-locale coverage (2026-08-05) - angelschein/motorrad/lkw
