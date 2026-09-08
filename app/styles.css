@@ -2280,3 +2280,18 @@ main {
 #lang-sheet:not([hidden]) ~ .lang-btn-float {
   display: none !important;
 }
+
+/* The floating globe is position:fixed at the top-right (z-index 60). The
+   header is position:sticky but TALLER than the viewport, so it does not
+   simply pin - its lower rows scroll up through the float's band (y 10-54)
+   and pass underneath it. Reported from staging: the "Prüfung" button
+   disappearing behind the globe.
+
+   So the fix is horizontal, not vertical: keep header controls out of the
+   float's column entirely, and they can scroll past it without ever being
+   covered. 59px button + 12px inset, rounded up. Applied to the controls row
+   rather than to <header>, so the title, subtitle and filter chips keep the
+   full width - only the row that reaches the top-right corner pays for it. */
+.header-controls {
+  padding-inline-end: 74px;
+}
