@@ -3,1553 +3,1553 @@
   "modules": [
     {
       "exam_type": "fuehrerschein",
-      "kind": "licence",
-      "label": {
-        "de": "Führerschein",
-        "en": "Driving licence",
-        "uk": "Посвідчення водія",
-        "pl": "Prawo jazdy",
-        "ar": "رخصة القيادة",
-        "zh": "驾驶执照",
-        "hi": "ड्राइविंग लाइसेंस",
-        "tr": "Sürücü belgesi",
-        "fr": "Permis de conduire",
-        "ru": "Водительские права",
-        "es": "Permiso de conducir",
-        "it": "Patente di guida"
-      },
-      "scopeKind": "class",
-      "options": [
-        {
-          "code": "B",
-          "label": {
-            "de": "Klasse B (Pkw)",
-            "en": "Class B (car)",
-            "uk": "Категорія B (легковий)",
-            "pl": "Kategoria B (samochód)",
-            "ar": "الفئة B (سيارة)",
-            "zh": "B 类（小汽车）",
-            "hi": "क्लास B (कार)",
-            "tr": "B Sınıfı (otomobil)",
-            "fr": "Catégorie B (voiture)",
-            "ru": "Категория B (легковой)",
-            "es": "Clase B (coche)",
-            "it": "Classe B (auto)"
-          }
-        },
-        {
-          "code": "BE",
-          "extends": "B",
-          "_comment": "extends: BE is a trailer add-on to B, not an independent test - a BE student needs all of B's content PLUS BE-specific facts, so this class stacks onto B the same way Angelschein's region_scope stacks onto ALL (DN-42). See questionMatchesScope() in app.js.",
-          "label": {
-            "de": "Klasse BE (Pkw mit Anhänger)",
-            "en": "Class BE (car with trailer)",
-            "uk": "Категорія BE (легковий з причепом)",
-            "pl": "Kategoria BE (samochód z przyczepą)",
-            "ar": "الفئة BE (سيارة مع مقطورة)",
-            "zh": "BE 类（带挂车的小汽车）",
-            "hi": "क्लास BE (ट्रेलर सहित कार)",
-            "tr": "BE Sınıfı (römorklu otomobil)",
-            "fr": "Catégorie BE (voiture avec remorque)",
-            "ru": "Категория BE (легковой с прицепом)",
-            "es": "Clase BE (coche con remolque)",
-            "it": "Classe BE (auto con rimorchio)"
-          }
-        }
-      ],
+      "hasCourse": true,
       "intro": {
         "_comment": "DN-43: shown once per device before a user's first study session in this module, and reopenable any time via the header info button. DE/EN only for now (like alt text) - falls back to EN for other UI languages, same pattern as MODULE_PICKER_STRINGS.",
         "steps": [
           {
             "de": {
-              "title": "Willkommen beim Führerschein-Modul",
-              "body": "Hier bereitest du dich auf die theoretische Prüfung für die Klasse B (Pkw) vor - mit 500 Original-Fragen, die sich eng an die echten Prüfungsthemen anlehnen."
+              "body": "Hier bereitest du dich auf die theoretische Prüfung für die Klasse B (Pkw) vor - mit 500 Original-Fragen, die sich eng an die echten Prüfungsthemen anlehnen.",
+              "title": "Willkommen beim Führerschein-Modul"
             },
             "en": {
-              "title": "Welcome to the Driving Licence module",
-              "body": "This module prepares you for the Class B (car) theory exam - 500 original questions closely modeled on the real exam's actual subject areas."
+              "body": "This module prepares you for the Class B (car) theory exam - 500 original questions closely modeled on the real exam's actual subject areas.",
+              "title": "Welcome to the Driving Licence module"
             }
           },
           {
             "de": {
-              "title": "Was wird abgefragt?",
-              "body": "10 Themenbereiche: Vorfahrt, Verkehrszeichen, Gefahrenlehre, Umwelt und Technik, Ladungssicherung, Erste Hilfe, Alkohol/Drogen und mehr - jede Frage ist einem echten Grundstoff-Thema zugeordnet."
+              "body": "10 Themenbereiche: Vorfahrt, Verkehrszeichen, Gefahrenlehre, Umwelt und Technik, Ladungssicherung, Erste Hilfe, Alkohol/Drogen und mehr - jede Frage ist einem echten Grundstoff-Thema zugeordnet.",
+              "title": "Was wird abgefragt?"
             },
             "en": {
-              "title": "What's covered",
-              "body": "10 topic areas: right of way, traffic signs, hazard perception, environment and technology, load securing, first aid, alcohol/drugs, and more - every question is tagged to a real exam subject area."
+              "body": "10 topic areas: right of way, traffic signs, hazard perception, environment and technology, load securing, first aid, alcohol/drugs, and more - every question is tagged to a real exam subject area.",
+              "title": "What's covered"
             }
           },
           {
             "de": {
-              "title": "Frei üben, ohne Zeitdruck",
-              "body": "In der Karteikarten-Ansicht kannst du nach Thema filtern, Fragen in beliebiger Reihenfolge durchgehen und dir Antwort und Begründung jederzeit anzeigen lassen."
+              "body": "In der Karteikarten-Ansicht kannst du nach Thema filtern, Fragen in beliebiger Reihenfolge durchgehen und dir Antwort und Begründung jederzeit anzeigen lassen.",
+              "title": "Frei üben, ohne Zeitdruck"
             },
             "en": {
-              "title": "Practice freely, no time pressure",
-              "body": "In flashcard view you can filter by topic, go through questions in any order, and reveal the answer plus explanation whenever you're ready."
+              "body": "In flashcard view you can filter by topic, go through questions in any order, and reveal the answer plus explanation whenever you're ready.",
+              "title": "Practice freely, no time pressure"
             }
           },
           {
             "de": {
-              "title": "Prüfungssimulation",
-              "body": "Der Prüfungsmodus zieht 30 Fragen realistisch nach Themenverteilung, mit 45 Minuten Zeitlimit in der Simulation - genau wie bei der echten Prüfung."
+              "body": "Der Prüfungsmodus zieht 30 Fragen realistisch nach Themenverteilung, mit 45 Minuten Zeitlimit in der Simulation - genau wie bei der echten Prüfung.",
+              "title": "Prüfungssimulation"
             },
             "en": {
-              "title": "Exam simulation",
-              "body": "Exam mode draws 30 questions with a realistic topic distribution, with a 45-minute time limit in Simulation mode - just like the real exam."
+              "body": "Exam mode draws 30 questions with a realistic topic distribution, with a 45-minute time limit in Simulation mode - just like the real exam.",
+              "title": "Exam simulation"
             }
           },
           {
             "de": {
-              "title": "So wird bewertet",
-              "body": "Bestanden ist, wer höchstens 10 Fehlerpunkte sammelt und nicht 2 oder mehr besonders gefahrenrelevante Fragen falsch beantwortet - dieselbe Regel wie bei der echten Prüfung."
+              "body": "Bestanden ist, wer höchstens 10 Fehlerpunkte sammelt und nicht 2 oder mehr besonders gefahrenrelevante Fragen falsch beantwortet - dieselbe Regel wie bei der echten Prüfung.",
+              "title": "So wird bewertet"
             },
             "en": {
-              "title": "How scoring works",
-              "body": "You pass with at most 10 error points, and no more than 1 wrong answer on questions flagged as especially safety-critical - the same rule the real exam uses."
+              "body": "You pass with at most 10 error points, and no more than 1 wrong answer on questions flagged as especially safety-critical - the same rule the real exam uses.",
+              "title": "How scoring works"
             }
           },
           {
             "de": {
-              "title": "In deiner Sprache",
-              "body": "Alle 500 Fragen gibt es in 12 Sprachen. Du kannst die Sprache jederzeit oben wechseln, auch mitten in einer Frage."
+              "body": "Alle 500 Fragen gibt es in 12 Sprachen. Du kannst die Sprache jederzeit oben wechseln, auch mitten in einer Frage.",
+              "title": "In deiner Sprache"
             },
             "en": {
-              "title": "In your language",
-              "body": "All 500 questions are available in 12 languages. Switch languages any time from the header, even in the middle of a question."
+              "body": "All 500 questions are available in 12 languages. Switch languages any time from the header, even in the middle of a question.",
+              "title": "In your language"
             }
           },
           {
             "de": {
-              "title": "Auch offline",
-              "body": "Die App lässt sich installieren und funktioniert komplett offline - ideal zum Lernen unterwegs, ganz ohne Datenverbrauch."
+              "body": "Die App lässt sich installieren und funktioniert komplett offline - ideal zum Lernen unterwegs, ganz ohne Datenverbrauch.",
+              "title": "Auch offline"
             },
             "en": {
-              "title": "Works offline too",
-              "body": "The app can be installed and works fully offline - great for studying on the go without using any mobile data."
+              "body": "The app can be installed and works fully offline - great for studying on the go without using any mobile data.",
+              "title": "Works offline too"
             }
           }
         ]
       },
-      "hasCourse": true
+      "kind": "licence",
+      "label": {
+        "ar": "رخصة القيادة",
+        "de": "Führerschein",
+        "en": "Driving licence",
+        "es": "Permiso de conducir",
+        "fr": "Permis de conduire",
+        "hi": "ड्राइविंग लाइसेंस",
+        "it": "Patente di guida",
+        "pl": "Prawo jazdy",
+        "ru": "Водительские права",
+        "tr": "Sürücü belgesi",
+        "uk": "Посвідчення водія",
+        "zh": "驾驶执照"
+      },
+      "options": [
+        {
+          "code": "B",
+          "label": {
+            "ar": "الفئة B (سيارة)",
+            "de": "Klasse B (Pkw)",
+            "en": "Class B (car)",
+            "es": "Clase B (coche)",
+            "fr": "Catégorie B (voiture)",
+            "hi": "क्लास B (कार)",
+            "it": "Classe B (auto)",
+            "pl": "Kategoria B (samochód)",
+            "ru": "Категория B (легковой)",
+            "tr": "B Sınıfı (otomobil)",
+            "uk": "Категорія B (легковий)",
+            "zh": "B 类（小汽车）"
+          }
+        },
+        {
+          "_comment": "extends: BE is a trailer add-on to B, not an independent test - a BE student needs all of B's content PLUS BE-specific facts, so this class stacks onto B the same way Angelschein's region_scope stacks onto ALL (DN-42). See questionMatchesScope() in app.js.",
+          "code": "BE",
+          "extends": "B",
+          "label": {
+            "ar": "الفئة BE (سيارة مع مقطورة)",
+            "de": "Klasse BE (Pkw mit Anhänger)",
+            "en": "Class BE (car with trailer)",
+            "es": "Clase BE (coche con remolque)",
+            "fr": "Catégorie BE (voiture avec remorque)",
+            "hi": "क्लास BE (ट्रेलर सहित कार)",
+            "it": "Classe BE (auto con rimorchio)",
+            "pl": "Kategoria BE (samochód z przyczepą)",
+            "ru": "Категория BE (легковой с прицепом)",
+            "tr": "BE Sınıfı (römorklu otomobil)",
+            "uk": "Категорія BE (легковий з причепом)",
+            "zh": "BE 类（带挂车的小汽车）"
+          }
+        }
+      ],
+      "scopeKind": "class"
     },
     {
       "exam_type": "motorrad",
       "kind": "licence",
       "label": {
+        "ar": "دراجة نارية",
         "de": "Motorrad",
         "en": "Motorcycle",
-        "uk": "Мотоцикл",
-        "pl": "Motocykl",
-        "ar": "دراجة نارية",
-        "zh": "摩托车",
-        "hi": "मोटरसाइकिल",
-        "tr": "Motosiklet",
-        "fr": "Moto",
-        "ru": "Мотоцикл",
         "es": "Motocicleta",
-        "it": "Motociclo"
+        "fr": "Moto",
+        "hi": "मोटरसाइकिल",
+        "it": "Motociclo",
+        "pl": "Motocykl",
+        "ru": "Мотоцикл",
+        "tr": "Motosiklet",
+        "uk": "Мотоцикл",
+        "zh": "摩托车"
       },
-      "scopeKind": "class",
       "options": [
         {
           "code": "A1",
           "label": {
+            "ar": "الفئة A1 (حتى 125 سم³)",
             "de": "Klasse A1 (bis 125 cm³)",
             "en": "Class A1 (up to 125cc)",
-            "uk": "Категорія A1 (до 125 см³)",
-            "pl": "Kategoria A1 (do 125 cm³)",
-            "ar": "الفئة A1 (حتى 125 سم³)",
-            "zh": "A1 类（125cc 以下）",
-            "hi": "क्लास A1 (125cc तक)",
-            "tr": "A1 Sınıfı (125cc'ye kadar)",
-            "fr": "Catégorie A1 (jusqu'à 125 cm³)",
-            "ru": "Категория A1 (до 125 см³)",
             "es": "Clase A1 (hasta 125cc)",
-            "it": "Classe A1 (fino a 125cc)"
+            "fr": "Catégorie A1 (jusqu'à 125 cm³)",
+            "hi": "क्लास A1 (125cc तक)",
+            "it": "Classe A1 (fino a 125cc)",
+            "pl": "Kategoria A1 (do 125 cm³)",
+            "ru": "Категория A1 (до 125 см³)",
+            "tr": "A1 Sınıfı (125cc'ye kadar)",
+            "uk": "Категорія A1 (до 125 см³)",
+            "zh": "A1 类（125cc 以下）"
           }
         },
         {
           "code": "A2",
           "label": {
+            "ar": "الفئة A2 (حتى 35 كيلوواط)",
             "de": "Klasse A2 (bis 35 kW)",
             "en": "Class A2 (up to 35kW)",
-            "uk": "Категорія A2 (до 35 кВт)",
-            "pl": "Kategoria A2 (do 35 kW)",
-            "ar": "الفئة A2 (حتى 35 كيلوواط)",
-            "zh": "A2 类（35kW 以下）",
-            "hi": "क्लास A2 (35kW तक)",
-            "tr": "A2 Sınıfı (35kW'a kadar)",
-            "fr": "Catégorie A2 (jusqu'à 35 kW)",
-            "ru": "Категория A2 (до 35 кВт)",
             "es": "Clase A2 (hasta 35kW)",
-            "it": "Classe A2 (fino a 35kW)"
+            "fr": "Catégorie A2 (jusqu'à 35 kW)",
+            "hi": "क्लास A2 (35kW तक)",
+            "it": "Classe A2 (fino a 35kW)",
+            "pl": "Kategoria A2 (do 35 kW)",
+            "ru": "Категория A2 (до 35 кВт)",
+            "tr": "A2 Sınıfı (35kW'a kadar)",
+            "uk": "Категорія A2 (до 35 кВт)",
+            "zh": "A2 类（35kW 以下）"
           }
         },
         {
           "code": "A",
           "label": {
+            "ar": "الفئة A (غير مقيدة)",
             "de": "Klasse A (unbeschränkt)",
             "en": "Class A (unrestricted)",
-            "uk": "Категорія A (без обмежень)",
-            "pl": "Kategoria A (bez ograniczeń)",
-            "ar": "الفئة A (غير مقيدة)",
-            "zh": "A 类（无限制）",
-            "hi": "क्लास A (असीमित)",
-            "tr": "A Sınıfı (sınırsız)",
-            "fr": "Catégorie A (illimitée)",
-            "ru": "Категория A (без ограничений)",
             "es": "Clase A (sin restricciones)",
-            "it": "Classe A (illimitata)"
+            "fr": "Catégorie A (illimitée)",
+            "hi": "क्लास A (असीमित)",
+            "it": "Classe A (illimitata)",
+            "pl": "Kategoria A (bez ograniczeń)",
+            "ru": "Категория A (без ограничений)",
+            "tr": "A Sınıfı (sınırsız)",
+            "uk": "Категорія A (без обмежень)",
+            "zh": "A 类（无限制）"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
       "exam_type": "lkw",
       "kind": "licence",
       "label": {
+        "ar": "شاحنة",
         "de": "LKW",
         "en": "Truck",
-        "uk": "Вантажівка",
-        "pl": "Ciężarówka",
-        "ar": "شاحنة",
-        "zh": "卡车",
-        "hi": "ट्रक",
-        "tr": "Kamyon",
-        "fr": "Poids lourd",
-        "ru": "Грузовик",
         "es": "Camión",
-        "it": "Camion"
+        "fr": "Poids lourd",
+        "hi": "ट्रक",
+        "it": "Camion",
+        "pl": "Ciężarówka",
+        "ru": "Грузовик",
+        "tr": "Kamyon",
+        "uk": "Вантажівка",
+        "zh": "卡车"
       },
-      "scopeKind": "class",
       "options": [
         {
           "code": "C1",
           "label": {
+            "ar": "الفئة C1 (3.5–7.5 طن)",
             "de": "Klasse C1 (3,5–7,5 t)",
             "en": "Class C1 (3.5–7.5t)",
-            "uk": "Категорія C1 (3,5–7,5 т)",
-            "pl": "Kategoria C1 (3,5–7,5 t)",
-            "ar": "الفئة C1 (3.5–7.5 طن)",
-            "zh": "C1 类（3.5–7.5吨）",
-            "hi": "क्लास C1 (3.5–7.5 टन)",
-            "tr": "C1 Sınıfı (3,5–7,5 t)",
-            "fr": "Catégorie C1 (3,5–7,5 t)",
-            "ru": "Категория C1 (3,5–7,5 т)",
             "es": "Clase C1 (3,5–7,5 t)",
-            "it": "Classe C1 (3,5–7,5 t)"
+            "fr": "Catégorie C1 (3,5–7,5 t)",
+            "hi": "क्लास C1 (3.5–7.5 टन)",
+            "it": "Classe C1 (3,5–7,5 t)",
+            "pl": "Kategoria C1 (3,5–7,5 t)",
+            "ru": "Категория C1 (3,5–7,5 т)",
+            "tr": "C1 Sınıfı (3,5–7,5 t)",
+            "uk": "Категорія C1 (3,5–7,5 т)",
+            "zh": "C1 类（3.5–7.5吨）"
           }
         },
         {
           "code": "C",
           "label": {
+            "ar": "الفئة C (أكثر من 3.5 طن)",
             "de": "Klasse C (über 3,5 t)",
             "en": "Class C (over 3.5t)",
-            "uk": "Категорія C (понад 3,5 т)",
-            "pl": "Kategoria C (powyżej 3,5 t)",
-            "ar": "الفئة C (أكثر من 3.5 طن)",
-            "zh": "C 类（超过3.5吨）",
-            "hi": "क्लास C (3.5 टन से अधिक)",
-            "tr": "C Sınıfı (3,5 t üzeri)",
-            "fr": "Catégorie C (plus de 3,5 t)",
-            "ru": "Категория C (свыше 3,5 т)",
             "es": "Clase C (más de 3,5 t)",
-            "it": "Classe C (oltre 3,5 t)"
+            "fr": "Catégorie C (plus de 3,5 t)",
+            "hi": "क्लास C (3.5 टन से अधिक)",
+            "it": "Classe C (oltre 3,5 t)",
+            "pl": "Kategoria C (powyżej 3,5 t)",
+            "ru": "Категория C (свыше 3,5 т)",
+            "tr": "C Sınıfı (3,5 t üzeri)",
+            "uk": "Категорія C (понад 3,5 т)",
+            "zh": "C 类（超过3.5吨）"
           }
         },
         {
           "code": "CE",
           "label": {
+            "ar": "الفئة CE (مع مقطورة)",
             "de": "Klasse CE (mit Anhänger)",
             "en": "Class CE (with trailer)",
-            "uk": "Категорія CE (з причепом)",
-            "pl": "Kategoria CE (z przyczepą)",
-            "ar": "الفئة CE (مع مقطورة)",
-            "zh": "CE 类（带挂车）",
-            "hi": "क्लास CE (ट्रेलर सहित)",
-            "tr": "CE Sınıfı (römorklu)",
-            "fr": "Catégorie CE (avec remorque)",
-            "ru": "Категория CE (с прицепом)",
             "es": "Clase CE (con remolque)",
-            "it": "Classe CE (con rimorchio)"
+            "fr": "Catégorie CE (avec remorque)",
+            "hi": "क्लास CE (ट्रेलर सहित)",
+            "it": "Classe CE (con rimorchio)",
+            "pl": "Kategoria CE (z przyczepą)",
+            "ru": "Категория CE (с прицепом)",
+            "tr": "CE Sınıfı (römorklu)",
+            "uk": "Категорія CE (з причепом)",
+            "zh": "CE 类（带挂车）"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
       "exam_type": "angelschein",
       "kind": "licence",
       "label": {
+        "ar": "رخصة الصيد",
         "de": "Angelschein",
         "en": "Fishing licence",
-        "uk": "Посвідчення рибалки",
-        "pl": "Karta wędkarska",
-        "ar": "رخصة الصيد",
-        "zh": "钓鱼证",
-        "hi": "मछली पकड़ने का लाइसेंस",
-        "tr": "Balıkçılık belgesi",
-        "fr": "Permis de pêche",
-        "ru": "Удостоверение рыболова",
         "es": "Licencia de pesca",
-        "it": "Licenza di pesca"
+        "fr": "Permis de pêche",
+        "hi": "मछली पकड़ने का लाइसेंस",
+        "it": "Licenza di pesca",
+        "pl": "Karta wędkarska",
+        "ru": "Удостоверение рыболова",
+        "tr": "Balıkçılık belgesi",
+        "uk": "Посвідчення рибалки",
+        "zh": "钓鱼证"
       },
-      "scopeKind": "region",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "عام (أساسيات على مستوى البلاد)",
             "de": "Allgemein (bundesweite Grundlagen)",
             "en": "General (nationwide basics)",
-            "uk": "Загальне (загальнонаціональні основи)",
-            "pl": "Ogólne (ogólnokrajowe podstawy)",
-            "ar": "عام (أساسيات على مستوى البلاد)",
-            "zh": "通用（全国基础知识）",
-            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
-            "tr": "Genel (ülke geneli temel bilgiler)",
-            "fr": "Général (bases nationales)",
-            "ru": "Общее (общенациональные основы)",
             "es": "General (fundamentos nacionales)",
-            "it": "Generale (basi nazionali)"
+            "fr": "Général (bases nationales)",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "it": "Generale (basi nazionali)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ru": "Общее (общенациональные основы)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "zh": "通用（全国基础知识）"
           }
         },
         {
           "code": "NRW",
           "label": {
+            "ar": "شمال الراين وستفاليا (إضافة إقليمية)",
             "de": "Nordrhein-Westfalen (regionale Ergänzung)",
             "en": "North Rhine-Westphalia (regional addition)",
-            "uk": "Північний Рейн-Вестфалія (регіональне доповнення)",
-            "pl": "Nadrenia Północna-Westfalia (dodatek regionalny)",
-            "ar": "شمال الراين وستفاليا (إضافة إقليمية)",
-            "zh": "北莱茵-威斯特法伦州（地区补充）",
-            "hi": "नॉर्थ राइन-वेस्टफेलिया (क्षेत्रीय अतिरिक्त)",
-            "tr": "Kuzey Ren-Vestfalya (bölgesel ek)",
-            "fr": "Rhénanie-du-Nord-Westphalie (complément régional)",
-            "ru": "Северный Рейн-Вестфалия (региональное дополнение)",
             "es": "Renania del Norte-Westfalia (complemento regional)",
-            "it": "Renania Settentrionale-Vestfalia (integrazione regionale)"
+            "fr": "Rhénanie-du-Nord-Westphalie (complément régional)",
+            "hi": "नॉर्थ राइन-वेस्टफेलिया (क्षेत्रीय अतिरिक्त)",
+            "it": "Renania Settentrionale-Vestfalia (integrazione regionale)",
+            "pl": "Nadrenia Północna-Westfalia (dodatek regionalny)",
+            "ru": "Северный Рейн-Вестфалия (региональное дополнение)",
+            "tr": "Kuzey Ren-Vestfalya (bölgesel ek)",
+            "uk": "Північний Рейн-Вестфалія (регіональне доповнення)",
+            "zh": "北莱茵-威斯特法伦州（地区补充）"
           }
         }
-      ]
+      ],
+      "scopeKind": "region"
     },
     {
+      "_comment": "DN-44: first of 4 fully separate workplace-compliance modules (PO decision - not one module with topic options). scopeKind 'class' with a single 'ALL' option is a placeholder scope, since there's no class/region dimension for compliance training yet - kept so the existing module architecture (build_modules.py, questionMatchesScope) needs zero special-casing.",
       "exam_type": "datenschutz",
+      "hasCourse": true,
       "kind": "compliance",
       "label": {
+        "ar": "حماية البيانات",
         "de": "Datenschutz",
         "en": "Data protection",
-        "uk": "Захист даних",
-        "pl": "Ochrona danych",
-        "ar": "حماية البيانات",
-        "zh": "数据保护",
-        "hi": "डेटा सुरक्षा",
-        "tr": "Veri koruma",
-        "fr": "Protection des données",
-        "ru": "Защита данных",
         "es": "Protección de datos",
-        "it": "Protezione dei dati"
+        "fr": "Protection des données",
+        "hi": "डेटा सुरक्षा",
+        "it": "Protezione dei dati",
+        "pl": "Ochrona danych",
+        "ru": "Защита данных",
+        "tr": "Veri koruma",
+        "uk": "Захист даних",
+        "zh": "数据保护"
       },
-      "_comment": "DN-44: first of 4 fully separate workplace-compliance modules (PO decision - not one module with topic options). scopeKind 'class' with a single 'ALL' option is a placeholder scope, since there's no class/region dimension for compliance training yet - kept so the existing module architecture (build_modules.py, questionMatchesScope) needs zero special-casing.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
       ],
-      "hasCourse": true
+      "scopeKind": "class"
     },
     {
+      "_comment": "2026-08-17: 11th compliance module - the revised Swiss Federal Act on Data Protection (revidiertes Datenschutzgesetz, revDSG/nDSG, SR 235.1, in force 1 September 2023) plus its implementing ordinance (Datenschutzverordnung, DSV, SR 235.11). Built from the Fedlex primary text only (DSG Stand 1.9.2023, DSV Stand 15.9.2024) - see data/gen_fadp_ch.py's docstring for the full source list and the Tier A/Tier B discipline. PO scope decision 2026-08-16: a NEW STANDALONE module, Swiss law only, cross-linked with but deliberately NOT merged into the existing 'datenschutz' (EU GDPR / German BDSG) module - the two regimes are related but legally distinct. 40-question DE/EN pilot, same launch pattern and same scopeKind/options placeholder as every other compliance module. Ships free, like every module in this app today - pricing across the whole compliance line remains intentionally deferred (same standing position recorded on kyc_aml/kartellrecht/lksg). AI-drafted, NOT legally reviewed - see the pilot's legal_review_status.",
       "exam_type": "fadp_ch",
       "kind": "compliance",
       "label": {
+        "ar": "حماية البيانات السويسرية (revFADP)",
         "de": "Schweizer Datenschutz (revDSG)",
         "en": "Swiss data protection (revFADP)",
-        "uk": "Захист даних у Швейцарії (revFADP)",
-        "pl": "Szwajcarska ochrona danych (revFADP)",
-        "ar": "حماية البيانات السويسرية (revFADP)",
-        "zh": "瑞士数据保护法 (revFADP)",
-        "hi": "स्विस डेटा सुरक्षा (revFADP)",
-        "tr": "İsviçre veri koruma mevzuatı (revFADP)",
-        "fr": "Protection des données en Suisse (nLPD)",
-        "ru": "Защита данных в Швейцарии (revFADP)",
         "es": "Protección de datos en Suiza (revFADP)",
-        "it": "Protezione dei dati in Svizzera (revFADP)"
+        "fr": "Protection des données en Suisse (nLPD)",
+        "hi": "स्विस डेटा सुरक्षा (revFADP)",
+        "it": "Protezione dei dati in Svizzera (revFADP)",
+        "pl": "Szwajcarska ochrona danych (revFADP)",
+        "ru": "Защита данных в Швейцарии (revFADP)",
+        "tr": "İsviçre veri koruma mevzuatı (revFADP)",
+        "uk": "Захист даних у Швейцарії (revFADP)",
+        "zh": "瑞士数据保护法 (revFADP)"
       },
-      "_comment": "2026-08-17: 11th compliance module - the revised Swiss Federal Act on Data Protection (revidiertes Datenschutzgesetz, revDSG/nDSG, SR 235.1, in force 1 September 2023) plus its implementing ordinance (Datenschutzverordnung, DSV, SR 235.11). Built from the Fedlex primary text only (DSG Stand 1.9.2023, DSV Stand 15.9.2024) - see data/gen_fadp_ch.py's docstring for the full source list and the Tier A/Tier B discipline. PO scope decision 2026-08-16: a NEW STANDALONE module, Swiss law only, cross-linked with but deliberately NOT merged into the existing 'datenschutz' (EU GDPR / German BDSG) module - the two regimes are related but legally distinct. 40-question DE/EN pilot, same launch pattern and same scopeKind/options placeholder as every other compliance module. Ships free, like every module in this app today - pricing across the whole compliance line remains intentionally deferred (same standing position recorded on kyc_aml/kartellrecht/lksg). AI-drafted, NOT legally reviewed - see the pilot's legal_review_status.",
-      "scopeKind": "class",
+      "legal_review_status": "NOT legally reviewed",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
       ],
-      "legal_review_status": "NOT legally reviewed"
+      "scopeKind": "class"
     },
     {
+      "_comment": "DN-44: second of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
       "exam_type": "arbeitssicherheit",
+      "hasCourse": true,
       "kind": "compliance",
       "label": {
+        "ar": "السلامة المهنية",
         "de": "Arbeitssicherheit",
         "en": "Occupational safety",
-        "uk": "Охорона праці",
-        "pl": "Bezpieczeństwo pracy",
-        "ar": "السلامة المهنية",
-        "zh": "职业安全",
-        "hi": "व्यावसायिक सुरक्षा",
-        "tr": "İş güvenliği",
-        "fr": "Sécurité au travail",
-        "ru": "Охрана труда",
         "es": "Seguridad laboral",
-        "it": "Sicurezza sul lavoro"
+        "fr": "Sécurité au travail",
+        "hi": "व्यावसायिक सुरक्षा",
+        "it": "Sicurezza sul lavoro",
+        "pl": "Bezpieczeństwo pracy",
+        "ru": "Охрана труда",
+        "tr": "İş güvenliği",
+        "uk": "Охорона праці",
+        "zh": "职业安全"
       },
-      "_comment": "DN-44: second of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
       ],
-      "hasCourse": true
+      "scopeKind": "class"
     },
     {
+      "_comment": "DN-44: third of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
       "exam_type": "ki_act",
+      "hasCourse": true,
       "kind": "compliance",
       "label": {
+        "ar": "قانون الذكاء الاصطناعي",
         "de": "KI-Verordnung",
         "en": "AI Act",
-        "uk": "Закон про ШІ",
-        "pl": "Akt o sztucznej inteligencji",
-        "ar": "قانون الذكاء الاصطناعي",
-        "zh": "人工智能法案",
-        "hi": "एआई अधिनियम",
-        "tr": "Yapay Zeka Yasası",
-        "fr": "Règlement sur l'IA",
-        "ru": "Закон об ИИ",
         "es": "Ley de IA",
-        "it": "Legge sull'IA"
+        "fr": "Règlement sur l'IA",
+        "hi": "एआई अधिनियम",
+        "it": "Legge sull'IA",
+        "pl": "Akt o sztucznej inteligencji",
+        "ru": "Закон об ИИ",
+        "tr": "Yapay Zeka Yasası",
+        "uk": "Закон про ШІ",
+        "zh": "人工智能法案"
       },
-      "_comment": "DN-44: third of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
       ],
-      "hasCourse": true
+      "scopeKind": "class"
     },
     {
+      "_comment": "DN-44: fourth of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
       "exam_type": "it_sicherheit",
+      "hasCourse": true,
       "kind": "compliance",
       "label": {
+        "ar": "أمن تقنية المعلومات",
         "de": "IT-Sicherheit",
         "en": "IT security",
-        "uk": "ІТ-безпека",
-        "pl": "Bezpieczeństwo IT",
-        "ar": "أمن تقنية المعلومات",
-        "zh": "IT安全",
-        "hi": "आईटी सुरक्षा",
-        "tr": "BT güvenliği",
-        "fr": "Sécurité informatique",
-        "ru": "ИТ-безопасность",
         "es": "Seguridad informática",
-        "it": "Sicurezza IT"
+        "fr": "Sécurité informatique",
+        "hi": "आईटी सुरक्षा",
+        "it": "Sicurezza IT",
+        "pl": "Bezpieczeństwo IT",
+        "ru": "ИТ-безопасность",
+        "tr": "BT güvenliği",
+        "uk": "ІТ-безпека",
+        "zh": "IT安全"
       },
-      "_comment": "DN-44: fourth of 4 fully separate workplace-compliance modules. Same 'ALL'-only placeholder scope as datenschutz.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
       ],
-      "hasCourse": true
+      "scopeKind": "class"
     },
     {
+      "_comment": "DN-50: 5th workplace-compliance module (Hinweisgeberschutzgesetz/HinSchG, in force since 2 July 2023). Started as a 20-question DE/EN-only pilot, scaled 2026-08-08 to 40 questions in all 12 locales (see data/hinweisgeberschutz_pilot.json meta) - scopeKind/options placeholder pattern copied verbatim from datenschutz (DN-44) for the same reason: no class/region dimension for compliance training yet.",
       "exam_type": "hinweisgeberschutz",
+      "hasCourse": true,
       "kind": "compliance",
       "label": {
+        "ar": "حماية المبلغين عن المخالفات",
         "de": "Hinweisgeberschutz",
         "en": "Whistleblower protection",
-        "uk": "Захист викривачів",
-        "pl": "Ochrona sygnalistów",
-        "ar": "حماية المبلغين عن المخالفات",
-        "zh": "举报人保护",
-        "hi": "व्हिसलब्लोअर सुरक्षा",
-        "tr": "Bilgi verenlerin korunması",
-        "fr": "Protection des lanceurs d'alerte",
-        "ru": "Защита осведомителей",
         "es": "Protección de denunciantes",
-        "it": "Tutela dei whistleblower"
+        "fr": "Protection des lanceurs d'alerte",
+        "hi": "व्हिसलब्लोअर सुरक्षा",
+        "it": "Tutela dei whistleblower",
+        "pl": "Ochrona sygnalistów",
+        "ru": "Защита осведомителей",
+        "tr": "Bilgi verenlerin korunması",
+        "uk": "Захист викривачів",
+        "zh": "举报人保护"
       },
-      "_comment": "DN-50: 5th workplace-compliance module (Hinweisgeberschutzgesetz/HinSchG, in force since 2 July 2023). Started as a 20-question DE/EN-only pilot, scaled 2026-08-08 to 40 questions in all 12 locales (see data/hinweisgeberschutz_pilot.json meta) - scopeKind/options placeholder pattern copied verbatim from datenschutz (DN-44) for the same reason: no class/region dimension for compliance training yet.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
       ],
-      "hasCourse": true
+      "scopeKind": "class"
     },
     {
+      "_comment": "DN-53: 6th compliance module, first enterprise/premium-focused one - KYC/AML per the Geldwaeschegesetz (GwG), whose Sec. 6(2) No. 6 GwG imposes an explicit initial-and-ongoing staff training mandate (unlike the other compliance modules, which rest on softer/discretionary bases). Started as a 20-question DE/EN-only pilot (data/kyc_aml_pilot.json), same launch pattern as hinweisgeberschutz before it. Ships free for now - pricing intentionally deferred pending real enterprise/bank demand (see docs/antitrust-kyc-enterprise-scoping.md). scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
       "exam_type": "kyc_aml",
+      "hasCourse": true,
       "kind": "compliance",
       "label": {
+        "ar": "مكافحة غسل الأموال (KYC/AML)",
         "de": "Geldwäscheprävention (KYC/AML)",
         "en": "Anti-money laundering (KYC/AML)",
-        "uk": "Запобігання відмиванню коштів (KYC/AML)",
-        "pl": "Przeciwdziałanie praniu pieniędzy (KYC/AML)",
-        "ar": "مكافحة غسل الأموال (KYC/AML)",
-        "zh": "反洗钱合规 (KYC/AML)",
-        "hi": "मनी लॉन्ड्रिंग रोकथाम (KYC/AML)",
-        "tr": "Kara para aklamayla mücadele (KYC/AML)",
-        "fr": "Lutte contre le blanchiment d'argent (KYC/AML)",
-        "ru": "Противодействие отмыванию денег (KYC/AML)",
         "es": "Prevención del blanqueo de capitales (KYC/AML)",
-        "it": "Prevenzione del riciclaggio (KYC/AML)"
+        "fr": "Lutte contre le blanchiment d'argent (KYC/AML)",
+        "hi": "मनी लॉन्ड्रिंग रोकथाम (KYC/AML)",
+        "it": "Prevenzione del riciclaggio (KYC/AML)",
+        "pl": "Przeciwdziałanie praniu pieniędzy (KYC/AML)",
+        "ru": "Противодействие отмыванию денег (KYC/AML)",
+        "tr": "Kara para aklamayla mücadele (KYC/AML)",
+        "uk": "Запобігання відмиванню коштів (KYC/AML)",
+        "zh": "反洗钱合规 (KYC/AML)"
       },
-      "_comment": "DN-53: 6th compliance module, first enterprise/premium-focused one - KYC/AML per the Geldwaeschegesetz (GwG), whose Sec. 6(2) No. 6 GwG imposes an explicit initial-and-ongoing staff training mandate (unlike the other compliance modules, which rest on softer/discretionary bases). Started as a 20-question DE/EN-only pilot (data/kyc_aml_pilot.json), same launch pattern as hinweisgeberschutz before it. Ships free for now - pricing intentionally deferred pending real enterprise/bank demand (see docs/antitrust-kyc-enterprise-scoping.md). scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
       ],
-      "hasCourse": true
+      "scopeKind": "class"
     },
     {
+      "_comment": "DN-53 (second module): 7th compliance module, second enterprise/premium-focused one - Kartellrecht (German/EU antitrust and competition law: GWB Sec. 1/18/19, Art. 101/102 TFEU). Build order per the user's own explicit choice (KYC/AML first, antitrust second). Started as a 20-question DE/EN-only pilot (data/kartellrecht_pilot.json), same launch pattern as kyc_aml before it. Ships free for now - pricing intentionally deferred, same as kyc_aml. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
       "exam_type": "kartellrecht",
+      "hasCourse": true,
       "kind": "compliance",
       "label": {
+        "ar": "قانون مكافحة الاحتكار والمنافسة",
         "de": "Kartellrecht (Wettbewerbsrecht)",
         "en": "Antitrust & competition law",
-        "uk": "Антимонопольне право",
-        "pl": "Prawo antymonopolowe i konkurencji",
-        "ar": "قانون مكافحة الاحتكار والمنافسة",
-        "zh": "反垄断与竞争法",
-        "hi": "एंटीट्रस्ट और प्रतिस्पर्धा कानून",
-        "tr": "Rekabet hukuku",
-        "fr": "Droit de la concurrence",
-        "ru": "Антимонопольное право",
         "es": "Derecho de la competencia",
-        "it": "Diritto della concorrenza"
+        "fr": "Droit de la concurrence",
+        "hi": "एंटीट्रस्ट और प्रतिस्पर्धा कानून",
+        "it": "Diritto della concorrenza",
+        "pl": "Prawo antymonopolowe i konkurencji",
+        "ru": "Антимонопольное право",
+        "tr": "Rekabet hukuku",
+        "uk": "Антимонопольне право",
+        "zh": "反垄断与竞争法"
       },
-      "_comment": "DN-53 (second module): 7th compliance module, second enterprise/premium-focused one - Kartellrecht (German/EU antitrust and competition law: GWB Sec. 1/18/19, Art. 101/102 TFEU). Build order per the user's own explicit choice (KYC/AML first, antitrust second). Started as a 20-question DE/EN-only pilot (data/kartellrecht_pilot.json), same launch pattern as kyc_aml before it. Ships free for now - pricing intentionally deferred, same as kyc_aml. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
       ],
-      "hasCourse": true
+      "scopeKind": "class"
     },
     {
+      "_comment": "DN-64: 8th compliance module, third enterprise/premium-focused one - LkSG (Lieferkettensorgfaltspflichtengesetz, German supply-chain human-rights/environmental due-diligence law; BAFA is the supervisory authority). Started directly as a 30-question DE/EN-only pilot (data/lksg_pilot.json), same launch pattern as kyc_aml/kartellrecht. Ships free for now - pricing intentionally deferred, same as kyc_aml/kartellrecht. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
       "exam_type": "lksg",
       "kind": "compliance",
       "label": {
+        "ar": "قانون العناية الواجبة في سلسلة التوريد (LkSG)",
         "de": "Lieferkettengesetz (LkSG)",
         "en": "Supply Chain Due Diligence Act (LkSG)",
-        "uk": "Закон про належну обачність у ланцюгах постачання (LkSG)",
-        "pl": "Ustawa o należytej staranności w łańcuchu dostaw (LkSG)",
-        "ar": "قانون العناية الواجبة في سلسلة التوريد (LkSG)",
-        "zh": "供应链尽职调查法 (LkSG)",
-        "hi": "आपूर्ति श्रृंखला सम्यक तत्परता अधिनियम (LkSG)",
-        "tr": "Tedarik Zinciri Özen Yükümlülüğü Yasası (LkSG)",
-        "fr": "Loi sur le devoir de vigilance dans la chaîne d'approvisionnement (LkSG)",
-        "ru": "Закон о должной осмотрительности в цепочке поставок (LkSG)",
         "es": "Ley de diligencia debida en la cadena de suministro (LkSG)",
-        "it": "Legge sulla due diligence nella catena di fornitura (LkSG)"
+        "fr": "Loi sur le devoir de vigilance dans la chaîne d'approvisionnement (LkSG)",
+        "hi": "आपूर्ति श्रृंखला सम्यक तत्परता अधिनियम (LkSG)",
+        "it": "Legge sulla due diligence nella catena di fornitura (LkSG)",
+        "pl": "Ustawa o należytej staranności w łańcuchu dostaw (LkSG)",
+        "ru": "Закон о должной осмотрительности в цепочке поставок (LkSG)",
+        "tr": "Tedarik Zinciri Özen Yükümlülüğü Yasası (LkSG)",
+        "uk": "Закон про належну обачність у ланцюгах постачання (LkSG)",
+        "zh": "供应链尽职调查法 (LkSG)"
       },
-      "_comment": "DN-64: 8th compliance module, third enterprise/premium-focused one - LkSG (Lieferkettensorgfaltspflichtengesetz, German supply-chain human-rights/environmental due-diligence law; BAFA is the supervisory authority). Started directly as a 30-question DE/EN-only pilot (data/lksg_pilot.json), same launch pattern as kyc_aml/kartellrecht. Ships free for now - pricing intentionally deferred, same as kyc_aml/kartellrecht. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
+      "_comment": "2026-08 content expansion: personal-license module (not workplace compliance), same 'ALL'-only class-scope pattern as lkw/angelschein since there's no class/region dimension for this license. 50-question pool (5 topics x10: vorfahrt, bezeichnung, schallzeichen, betonnung, seemannschaft), sourced from the official WSV/BMDV Fragenkatalog Binnen (Stand 01.08.2023) plus BinSchStrO statute text - see data/sportboot_binnen_pilot.json meta for full sourcing and legal_review_status.",
       "exam_type": "sportboot_binnen",
       "kind": "licence",
       "label": {
+        "ar": "رخصة قوارب الرياضة (المياه الداخلية)",
         "de": "Sportbootführerschein Binnen",
         "en": "Inland powerboat licence",
-        "uk": "Посвідчення на маломірне судно (внутрішні води)",
-        "pl": "Patent motorowodny (wody śródlądowe)",
-        "ar": "رخصة قوارب الرياضة (المياه الداخلية)",
-        "zh": "内陆motorboot驾照",
-        "hi": "अंतर्देशीय स्पोर्टबोट लाइसेंस",
-        "tr": "İç sular sportif tekne ehliyeti",
-        "fr": "Permis bateau eaux intérieures",
-        "ru": "Права на маломерное судно (внутренние воды)",
         "es": "Licencia de embarcación de aguas interiores",
-        "it": "Patente nautica acque interne"
+        "fr": "Permis bateau eaux intérieures",
+        "hi": "अंतर्देशीय स्पोर्टबोट लाइसेंस",
+        "it": "Patente nautica acque interne",
+        "pl": "Patent motorowodny (wody śródlądowe)",
+        "ru": "Права на маломерное судно (внутренние воды)",
+        "tr": "İç sular sportif tekne ehliyeti",
+        "uk": "Посвідчення на маломірне судно (внутрішні води)",
+        "zh": "内陆motorboot驾照"
       },
-      "_comment": "2026-08 content expansion: personal-license module (not workplace compliance), same 'ALL'-only class-scope pattern as lkw/angelschein since there's no class/region dimension for this license. 50-question pool (5 topics x10: vorfahrt, bezeichnung, schallzeichen, betonnung, seemannschaft), sourced from the official WSV/BMDV Fragenkatalog Binnen (Stand 01.08.2023) plus BinSchStrO statute text - see data/sportboot_binnen_pilot.json meta for full sourcing and legal_review_status.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "عام (أساسيات على مستوى البلاد)",
             "de": "Allgemein (bundesweite Grundlagen)",
             "en": "General (nationwide basics)",
-            "uk": "Загальне (загальнонаціональні основи)",
-            "pl": "Ogólne (ogólnokrajowe podstawy)",
-            "ar": "عام (أساسيات على مستوى البلاد)",
-            "zh": "通用（全国基础知识）",
-            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
-            "tr": "Genel (ülke geneli temel bilgiler)",
-            "fr": "Général (bases nationales)",
-            "ru": "Общее (общенациональные основы)",
             "es": "General (fundamentos nacionales)",
-            "it": "Generale (basi nazionali)"
+            "fr": "Général (bases nationales)",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "it": "Generale (basi nazionali)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ru": "Общее (общенациональные основы)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "zh": "通用（全国基础知识）"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
+      "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as sportboot_binnen. 30-question pool (4 sea-specific topics: betonnung, seefunk_vorfahrt, gezeiten, seewetter), sourced from the official WSV Fragenkatalog See (Stand 01.08.2023) plus KVR/COLREG and SeeSchStrO - see data/sportboot_see_pilot.json meta for full sourcing and legal_review_status.",
       "exam_type": "sportboot_see",
       "kind": "licence",
       "label": {
+        "ar": "رخصة قوارب الرياضة (بحرية)",
         "de": "Sportbootführerschein See",
         "en": "Coastal powerboat licence",
-        "uk": "Посвідчення на маломірне судно (морське)",
-        "pl": "Patent motorowodny (morski)",
-        "ar": "رخصة قوارب الرياضة (بحرية)",
-        "zh": "沿海motorboot驾照",
-        "hi": "समुद्री स्पोर्टबोट लाइसेंस",
-        "tr": "Deniz sportif tekne ehliyeti",
-        "fr": "Permis bateau mer côtière",
-        "ru": "Права на маломерное судно (морское)",
         "es": "Licencia de embarcación marítima",
-        "it": "Patente nautica marittima"
+        "fr": "Permis bateau mer côtière",
+        "hi": "समुद्री स्पोर्टबोट लाइसेंस",
+        "it": "Patente nautica marittima",
+        "pl": "Patent motorowodny (morski)",
+        "ru": "Права на маломерное судно (морское)",
+        "tr": "Deniz sportif tekne ehliyeti",
+        "uk": "Посвідчення на маломірне судно (морське)",
+        "zh": "沿海motorboot驾照"
       },
-      "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as sportboot_binnen. 30-question pool (4 sea-specific topics: betonnung, seefunk_vorfahrt, gezeiten, seewetter), sourced from the official WSV Fragenkatalog See (Stand 01.08.2023) plus KVR/COLREG and SeeSchStrO - see data/sportboot_see_pilot.json meta for full sourcing and legal_review_status.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "عام (أساسيات على مستوى البلاد)",
             "de": "Allgemein (bundesweite Grundlagen)",
             "en": "General (nationwide basics)",
-            "uk": "Загальне (загальнонаціональні основи)",
-            "pl": "Ogólne (ogólnokrajowe podstawy)",
-            "ar": "عام (أساسيات على مستوى البلاد)",
-            "zh": "通用（全国基础知识）",
-            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
-            "tr": "Genel (ülke geneli temel bilgiler)",
-            "fr": "Général (bases nationales)",
-            "ru": "Общее (общенациональные основы)",
             "es": "General (fundamentos nacionales)",
-            "it": "Generale (basi nazionali)"
+            "fr": "Général (bases nationales)",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "it": "Generale (basi nazionali)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ru": "Общее (общенациональные основы)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "zh": "通用（全国基础知识）"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
+      "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as sportboot_binnen/sportboot_see. 50-question pool (4 topics: grundlagen, munition_ballistik, aufbewahrung_transport, handhabung_sicherheit), sourced from the official Bundesverwaltungsamt (BVA) Sachkunde-Fragenkatalog (Stand 16.12.2024) plus WaffG/AWaffV/StGB §32 statute text - see data/waffensachkunde_pilot.json meta for full sourcing and legal_review_status. Not legal advice; does not replace an accredited Sachkundepruefung course.",
       "exam_type": "waffensachkunde",
       "kind": "licence",
       "label": {
+        "ar": "الخبرة بالأسلحة (§7 WaffG)",
         "de": "Waffensachkunde (§7 WaffG)",
         "en": "Firearms expertise (§7 WaffG)",
-        "uk": "Зброярська кваліфікація (§7 WaffG)",
-        "pl": "Znajomość broni (§7 WaffG)",
-        "ar": "الخبرة بالأسلحة (§7 WaffG)",
-        "zh": "枪械专业知识 (§7 WaffG)",
-        "hi": "आग्नेयास्त्र विशेषज्ञता (§7 WaffG)",
-        "tr": "Silah bilgisi (§7 WaffG)",
-        "fr": "Expertise en armes à feu (§7 WaffG)",
-        "ru": "Оружейная экспертиза (§7 WaffG)",
         "es": "Pericia en armas de fuego (§7 WaffG)",
-        "it": "Perizia in armi da fuoco (§7 WaffG)"
+        "fr": "Expertise en armes à feu (§7 WaffG)",
+        "hi": "आग्नेयास्त्र विशेषज्ञता (§7 WaffG)",
+        "it": "Perizia in armi da fuoco (§7 WaffG)",
+        "pl": "Znajomość broni (§7 WaffG)",
+        "ru": "Оружейная экспертиза (§7 WaffG)",
+        "tr": "Silah bilgisi (§7 WaffG)",
+        "uk": "Зброярська кваліфікація (§7 WaffG)",
+        "zh": "枪械专业知识 (§7 WaffG)"
       },
-      "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as sportboot_binnen/sportboot_see. 50-question pool (4 topics: grundlagen, munition_ballistik, aufbewahrung_transport, handhabung_sicherheit), sourced from the official Bundesverwaltungsamt (BVA) Sachkunde-Fragenkatalog (Stand 16.12.2024) plus WaffG/AWaffV/StGB §32 statute text - see data/waffensachkunde_pilot.json meta for full sourcing and legal_review_status. Not legal advice; does not replace an accredited Sachkundepruefung course.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "عام (أساسيات على مستوى البلاد)",
             "de": "Allgemein (bundesweite Grundlagen)",
             "en": "General (nationwide basics)",
-            "uk": "Загальне (загальнонаціональні основи)",
-            "pl": "Ogólne (ogólnokrajowe podstawy)",
-            "ar": "عام (أساسيات على مستوى البلاد)",
-            "zh": "通用（全国基础知识）",
-            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
-            "tr": "Genel (ülke geneli temel bilgiler)",
-            "fr": "Général (bases nationales)",
-            "ru": "Общее (общенациональные основы)",
             "es": "General (fundamentos nacionales)",
-            "it": "Generale (basi nazionali)"
+            "fr": "Général (bases nationales)",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "it": "Generale (basi nazionali)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ru": "Общее (общенациональные основы)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "zh": "通用（全国基础知识）"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
+      "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as the other 3 new modules this round. 40-question pool (3 topics: technik, betrieb, vorschriften), sourced from the BNetzA Fragenkataloge (2006 editions, structural/topical reference only) plus AFuV statute text - see data/amateurfunk_e_pilot.json meta for full sourcing and legal_review_status. Klasse E only; a Klasse A follow-up module is planned separately.",
       "exam_type": "amateurfunk_e",
       "kind": "licence",
       "label": {
+        "ar": "رخصة الراديو الهاوي فئة E",
         "de": "Amateurfunkzeugnis Klasse E",
         "en": "Amateur radio licence Class E",
-        "uk": "Аматорська радіоліцензія класу E",
-        "pl": "Licencja radioamatorska klasy E",
-        "ar": "رخصة الراديو الهاوي فئة E",
-        "zh": "业余无线电执照 E 级",
-        "hi": "शौकिया रेडियो लाइसेंस क्लास E",
-        "tr": "Amatör telsiz ruhsatı E sınıfı",
-        "fr": "Licence radioamateur classe E",
-        "ru": "Радиолюбительская лицензия класса E",
         "es": "Licencia de radioaficionado clase E",
-        "it": "Licenza radioamatoriale classe E"
+        "fr": "Licence radioamateur classe E",
+        "hi": "शौकिया रेडियो लाइसेंस क्लास E",
+        "it": "Licenza radioamatoriale classe E",
+        "pl": "Licencja radioamatorska klasy E",
+        "ru": "Радиолюбительская лицензия класса E",
+        "tr": "Amatör telsiz ruhsatı E sınıfı",
+        "uk": "Аматорська радіоліцензія класу E",
+        "zh": "业余无线电执照 E 级"
       },
-      "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as the other 3 new modules this round. 40-question pool (3 topics: technik, betrieb, vorschriften), sourced from the BNetzA Fragenkataloge (2006 editions, structural/topical reference only) plus AFuV statute text - see data/amateurfunk_e_pilot.json meta for full sourcing and legal_review_status. Klasse E only; a Klasse A follow-up module is planned separately.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "عام (أساسيات على مستوى البلاد)",
             "de": "Allgemein (bundesweite Grundlagen)",
             "en": "General (nationwide basics)",
-            "uk": "Загальне (загальнонаціональні основи)",
-            "pl": "Ogólne (ogólnokrajowe podstawy)",
-            "ar": "عام (أساسيات على مستوى البلاد)",
-            "zh": "通用（全国基础知识）",
-            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
-            "tr": "Genel (ülke geneli temel bilgiler)",
-            "fr": "Général (bases nationales)",
-            "ru": "Общее (общенациональные основы)",
             "es": "General (fundamentos nacionales)",
-            "it": "Generale (basi nazionali)"
+            "fr": "Général (bases nationales)",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "it": "Generale (basi nazionali)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ru": "Общее (общенациональные основы)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "zh": "通用（全国基础知识）"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
+      "_comment": "2026-08 content expansion (round 2): Bavaria-specific Angelschein/Fischerpruefung module, a standalone exam_type (not a region option on the existing generic 'angelschein' module) since Bavaria's BayFiG/AVBayFiG regime is its own self-contained statute set, same 'ALL'-only class-scope pattern as sportboot_binnen/sportboot_see/waffensachkunde/amateurfunk_e. 48-question pool (5 topics: schonzeiten_bayern12, fanggeraete_bayern9, fischereischein_bayern10, fischkunde_bayern9, gewaesserschutz_bayern8), sourced from BayFiG/AVBayFiG statute text on gesetze-bayern.de. 3 fact-check findings (legal_basis citation errors) independently re-verified and fixed against gesetze-bayern.de primary text before this round - see BACKLOG.md and data/angelschein_bayern_pilot.json meta for full sourcing and legal_review_status.",
       "exam_type": "angelschein_bayern",
       "kind": "licence",
       "label": {
+        "ar": "رخصة الصيد (بافاريا)",
         "de": "Angelschein Bayern",
         "en": "Fishing licence Bavaria",
-        "uk": "Посвідчення рибалки (Баварія)",
-        "pl": "Karta wędkarska (Bawaria)",
-        "ar": "رخصة الصيد (بافاريا)",
-        "zh": "钓鱼证（巴伐利亚州）",
-        "hi": "मछली पकड़ने का लाइसेंस (बवेरिया)",
-        "tr": "Balıkçılık belgesi (Bavyera)",
-        "fr": "Permis de pêche (Bavière)",
-        "ru": "Удостоверение рыболова (Бавария)",
         "es": "Licencia de pesca (Baviera)",
-        "it": "Licenza di pesca (Baviera)"
+        "fr": "Permis de pêche (Bavière)",
+        "hi": "मछली पकड़ने का लाइसेंस (बवेरिया)",
+        "it": "Licenza di pesca (Baviera)",
+        "pl": "Karta wędkarska (Bawaria)",
+        "ru": "Удостоверение рыболова (Бавария)",
+        "tr": "Balıkçılık belgesi (Bavyera)",
+        "uk": "Посвідчення рибалки (Баварія)",
+        "zh": "钓鱼证（巴伐利亚州）"
       },
-      "_comment": "2026-08 content expansion (round 2): Bavaria-specific Angelschein/Fischerpruefung module, a standalone exam_type (not a region option on the existing generic 'angelschein' module) since Bavaria's BayFiG/AVBayFiG regime is its own self-contained statute set, same 'ALL'-only class-scope pattern as sportboot_binnen/sportboot_see/waffensachkunde/amateurfunk_e. 48-question pool (5 topics: schonzeiten_bayern12, fanggeraete_bayern9, fischereischein_bayern10, fischkunde_bayern9, gewaesserschutz_bayern8), sourced from BayFiG/AVBayFiG statute text on gesetze-bayern.de. 3 fact-check findings (legal_basis citation errors) independently re-verified and fixed against gesetze-bayern.de primary text before this round - see BACKLOG.md and data/angelschein_bayern_pilot.json meta for full sourcing and legal_review_status.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "عام (أساسيات على مستوى البلاد)",
             "de": "Allgemein (bundesweite Grundlagen)",
             "en": "General (nationwide basics)",
-            "uk": "Загальне (загальнонаціональні основи)",
-            "pl": "Ogólne (ogólnokrajowe podstawy)",
-            "ar": "عام (أساسيات على مستوى البلاد)",
-            "zh": "通用（全国基础知识）",
-            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
-            "tr": "Genel (ülke geneli temel bilgiler)",
-            "fr": "Général (bases nationales)",
-            "ru": "Общее (общенациональные основы)",
             "es": "General (fundamentos nacionales)",
-            "it": "Generale (basi nazionali)"
+            "fr": "Général (bases nationales)",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "it": "Generale (basi nazionali)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ru": "Общее (общенациональные основы)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "zh": "通用（全国基础知识）"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
+      "_comment": "2026-08 content expansion (round 2): NRW-specific Angelschein/Fischerpruefung module, a standalone exam_type (not a region option on the existing generic 'angelschein' module, which already has a lighter 'NRW' region-scope addon) since this module is a full self-contained LFischG-NRW-grounded pool, same 'ALL'-only class-scope pattern as the other new modules this round. 56-question pool (5 topics: schonzeiten12, geraete10, fischereischein14, fischkunde12, gewaesserschutz8), sourced from LFischG NRW statute text on recht.nrw.de. 3 fact-check findings independently re-verified and fixed before this round (Groppe/Grundel fish-ID error, Handangel-count legal_basis error, Aal-Schonzeit geographic-scope omission) - see BACKLOG.md and data/angelschein_nrw_pilot.json meta for full sourcing, the NRW 2025/2026 LFischG/LFischVO Neufassung caveat, and legal_review_status.",
       "exam_type": "angelschein_nrw",
       "kind": "licence",
       "label": {
+        "ar": "رخصة الصيد (شمال الراين وستفاليا)",
         "de": "Angelschein Nordrhein-Westfalen",
         "en": "Fishing licence North Rhine-Westphalia",
-        "uk": "Посвідчення рибалки (Північний Рейн-Вестфалія)",
-        "pl": "Karta wędkarska (Nadrenia Północna-Westfalia)",
-        "ar": "رخصة الصيد (شمال الراين وستفاليا)",
-        "zh": "钓鱼证（北莱茵-威斯特法伦州）",
-        "hi": "मछली पकड़ने का लाइसेंस (नॉर्थ राइन-वेस्टफेलिया)",
-        "tr": "Balıkçılık belgesi (Kuzey Ren-Vestfalya)",
-        "fr": "Permis de pêche (Rhénanie-du-Nord-Westphalie)",
-        "ru": "Удостоверение рыболова (Северный Рейн-Вестфалия)",
         "es": "Licencia de pesca (Renania del Norte-Westfalia)",
-        "it": "Licenza di pesca (Renania Settentrionale-Vestfalia)"
+        "fr": "Permis de pêche (Rhénanie-du-Nord-Westphalie)",
+        "hi": "मछली पकड़ने का लाइसेंस (नॉर्थ राइन-वेस्टफेलिया)",
+        "it": "Licenza di pesca (Renania Settentrionale-Vestfalia)",
+        "pl": "Karta wędkarska (Nadrenia Północna-Westfalia)",
+        "ru": "Удостоверение рыболова (Северный Рейн-Вестфалия)",
+        "tr": "Balıkçılık belgesi (Kuzey Ren-Vestfalya)",
+        "uk": "Посвідчення рибалки (Північний Рейн-Вестфалія)",
+        "zh": "钓鱼证（北莱茵-威斯特法伦州）"
       },
-      "_comment": "2026-08 content expansion (round 2): NRW-specific Angelschein/Fischerpruefung module, a standalone exam_type (not a region option on the existing generic 'angelschein' module, which already has a lighter 'NRW' region-scope addon) since this module is a full self-contained LFischG-NRW-grounded pool, same 'ALL'-only class-scope pattern as the other new modules this round. 56-question pool (5 topics: schonzeiten12, geraete10, fischereischein14, fischkunde12, gewaesserschutz8), sourced from LFischG NRW statute text on recht.nrw.de. 3 fact-check findings independently re-verified and fixed before this round (Groppe/Grundel fish-ID error, Handangel-count legal_basis error, Aal-Schonzeit geographic-scope omission) - see BACKLOG.md and data/angelschein_nrw_pilot.json meta for full sourcing, the NRW 2025/2026 LFischG/LFischVO Neufassung caveat, and legal_review_status.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "عام (أساسيات على مستوى البلاد)",
             "de": "Allgemein (bundesweite Grundlagen)",
             "en": "General (nationwide basics)",
-            "uk": "Загальне (загальнонаціональні основи)",
-            "pl": "Ogólne (ogólnokrajowe podstawy)",
-            "ar": "عام (أساسيات على مستوى البلاد)",
-            "zh": "通用（全国基础知识）",
-            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
-            "tr": "Genel (ülke geneli temel bilgiler)",
-            "fr": "Général (bases nationales)",
-            "ru": "Общее (общенациональные основы)",
             "es": "General (fundamentos nacionales)",
-            "it": "Generale (basi nazionali)"
+            "fr": "Général (bases nationales)",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "it": "Generale (basi nazionali)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ru": "Общее (общенациональные основы)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "zh": "通用（全国基础知识）"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
+      "_comment": "2026-08 content expansion (round 2): the Klasse A follow-up module flagged as 'planned separately' in the amateurfunk_e entry above. Same 'ALL'-only class-scope pattern. 45-question pool, TECHNICAL-ONLY (topics: antennentechnik8, leitungstheorie8, ausbreitung8, leistung8, modulation_digital7, emv_hochleistung6) - Klasse A shares its Betrieb/Vorschriften exam pools ENTIRELY with Klasse E per §4 Abs. 4 AFuV (upgrading E->A only adds a technical exam), so this module deliberately contains ZERO Betrieb/Vorschriften questions rather than duplicating amateurfunk_e's. OPEN PRODUCT DECISION (not yet resolved, flagged in BACKLOG.md and data/amateurfunk_a_pilot.json meta.design_flag_betrieb_vorschriften): before this module can offer a realistic full 3-section Klasse A exam simulation, product needs to decide whether the exam composer draws Betrieb/Vorschriften questions live from the amateurfunk_e pool at draw time (preferred, avoids drift) or physically duplicates them into this module. Until resolved, this module's exam only covers the technical delta. 5 fact-check findings (AFuV/BEMFV legal_basis citation errors) independently re-verified against freirecht.de and the BNetzA Klasse A Fragenkatalog PDF and fixed before this round - see BACKLOG.md and data/amateurfunk_a_pilot.json meta for full sourcing and legal_review_status.",
       "exam_type": "amateurfunk_a",
       "kind": "licence",
       "label": {
+        "ar": "الراديو الهاوي فئة A",
         "de": "Amateurfunk Klasse A",
         "en": "Amateur radio Class A",
-        "uk": "Аматорське радіо класу A",
-        "pl": "Radioamatorstwo klasy A",
-        "ar": "الراديو الهاوي فئة A",
-        "zh": "业余无线电 A 级",
-        "hi": "शौकिया रेडियो क्लास A",
-        "tr": "Amatör telsiz A sınıfı",
-        "fr": "Radioamateur classe A",
-        "ru": "Радиолюбительство класса A",
         "es": "Radioaficionado clase A",
-        "it": "Radioamatore classe A"
+        "fr": "Radioamateur classe A",
+        "hi": "शौकिया रेडियो क्लास A",
+        "it": "Radioamatore classe A",
+        "pl": "Radioamatorstwo klasy A",
+        "ru": "Радиолюбительство класса A",
+        "tr": "Amatör telsiz A sınıfı",
+        "uk": "Аматорське радіо класу A",
+        "zh": "业余无线电 A 级"
       },
-      "_comment": "2026-08 content expansion (round 2): the Klasse A follow-up module flagged as 'planned separately' in the amateurfunk_e entry above. Same 'ALL'-only class-scope pattern. 45-question pool, TECHNICAL-ONLY (topics: antennentechnik8, leitungstheorie8, ausbreitung8, leistung8, modulation_digital7, emv_hochleistung6) - Klasse A shares its Betrieb/Vorschriften exam pools ENTIRELY with Klasse E per §4 Abs. 4 AFuV (upgrading E->A only adds a technical exam), so this module deliberately contains ZERO Betrieb/Vorschriften questions rather than duplicating amateurfunk_e's. OPEN PRODUCT DECISION (not yet resolved, flagged in BACKLOG.md and data/amateurfunk_a_pilot.json meta.design_flag_betrieb_vorschriften): before this module can offer a realistic full 3-section Klasse A exam simulation, product needs to decide whether the exam composer draws Betrieb/Vorschriften questions live from the amateurfunk_e pool at draw time (preferred, avoids drift) or physically duplicates them into this module. Until resolved, this module's exam only covers the technical delta. 5 fact-check findings (AFuV/BEMFV legal_basis citation errors) independently re-verified against freirecht.de and the BNetzA Klasse A Fragenkatalog PDF and fixed before this round - see BACKLOG.md and data/amateurfunk_a_pilot.json meta for full sourcing and legal_review_status.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "عام (أساسيات على مستوى البلاد)",
             "de": "Allgemein (bundesweite Grundlagen)",
             "en": "General (nationwide basics)",
-            "uk": "Загальне (загальнонаціональні основи)",
-            "pl": "Ogólne (ogólnokrajowe podstawy)",
-            "ar": "عام (أساسيات على مستوى البلاد)",
-            "zh": "通用（全国基础知识）",
-            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
-            "tr": "Genel (ülke geneli temel bilgiler)",
-            "fr": "Général (bases nationales)",
-            "ru": "Общее (общенациональные основы)",
             "es": "General (fundamentos nacionales)",
-            "it": "Generale (basi nazionali)"
+            "fr": "Général (bases nationales)",
+            "hi": "सामान्य (राष्ट्रव्यापी बुनियादी बातें)",
+            "it": "Generale (basi nazionali)",
+            "pl": "Ogólne (ogólnokrajowe podstawy)",
+            "ru": "Общее (общенациональные основы)",
+            "tr": "Genel (ülke geneli temel bilgiler)",
+            "uk": "Загальне (загальнонаціональні основи)",
+            "zh": "通用（全国基础知识）"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
       "exam_type": "fuehrerschein_bus",
       "kind": "licence",
       "label": {
+        "ar": "رخصة قيادة الحافلات",
         "de": "Führerschein Bus",
         "en": "Bus driving licence",
-        "uk": "Посвідчення водія автобуса",
-        "pl": "Prawo jazdy autobusowe",
-        "ar": "رخصة قيادة الحافلات",
-        "zh": "客车驾驶执照",
-        "hi": "बस ड्राइविंग लाइसेंस",
-        "tr": "Otobüs sürücü belgesi",
-        "fr": "Permis de conduire autobus",
-        "ru": "Водительские права на автобус",
         "es": "Permiso de conducir autobús",
-        "it": "Patente di guida per autobus"
+        "fr": "Permis de conduire autobus",
+        "hi": "बस ड्राइविंग लाइसेंस",
+        "it": "Patente di guida per autobus",
+        "pl": "Prawo jazdy autobusowe",
+        "ru": "Водительские права на автобус",
+        "tr": "Otobüs sürücü belgesi",
+        "uk": "Посвідчення водія автобуса",
+        "zh": "客车驾驶执照"
       },
-      "scopeKind": "class",
       "options": [
         {
           "code": "D1",
           "label": {
+            "ar": "الفئة D1 (حافلة صغيرة، حتى 16 راكبًا)",
             "de": "Klasse D1 (Kleinbus, bis 16 Fahrgäste)",
             "en": "Class D1 (minibus, up to 16 passengers)",
-            "uk": "Категорія D1 (мікроавтобус, до 16 пасажирів)",
-            "pl": "Kategoria D1 (mikrobus, do 16 pasażerów)",
-            "ar": "الفئة D1 (حافلة صغيرة، حتى 16 راكبًا)",
-            "zh": "D1 类（小型客车，最多16名乘客）",
-            "hi": "क्लास D1 (मिनीबस, 16 यात्रियों तक)",
-            "tr": "D1 Sınıfı (minibüs, 16 yolcuya kadar)",
-            "fr": "Catégorie D1 (minibus, jusqu'à 16 passagers)",
-            "ru": "Категория D1 (микроавтобус, до 16 пассажиров)",
             "es": "Clase D1 (microbús, hasta 16 pasajeros)",
-            "it": "Classe D1 (minibus, fino a 16 passeggeri)"
+            "fr": "Catégorie D1 (minibus, jusqu'à 16 passagers)",
+            "hi": "क्लास D1 (मिनीबस, 16 यात्रियों तक)",
+            "it": "Classe D1 (minibus, fino a 16 passeggeri)",
+            "pl": "Kategoria D1 (mikrobus, do 16 pasażerów)",
+            "ru": "Категория D1 (микроавтобус, до 16 пассажиров)",
+            "tr": "D1 Sınıfı (minibüs, 16 yolcuya kadar)",
+            "uk": "Категорія D1 (мікроавтобус, до 16 пасажирів)",
+            "zh": "D1 类（小型客车，最多16名乘客）"
           }
         },
         {
           "code": "D1E",
           "label": {
+            "ar": "الفئة D1E (حافلة صغيرة مع مقطورة)",
             "de": "Klasse D1E (Kleinbus mit Anhänger)",
             "en": "Class D1E (minibus with trailer)",
-            "uk": "Категорія D1E (мікроавтобус з причепом)",
-            "pl": "Kategoria D1E (mikrobus z przyczepą)",
-            "ar": "الفئة D1E (حافلة صغيرة مع مقطورة)",
-            "zh": "D1E 类（带挂车的小型客车）",
-            "hi": "क्लास D1E (ट्रेलर सहित मिनीबस)",
-            "tr": "D1E Sınıfı (römorklu minibüs)",
-            "fr": "Catégorie D1E (minibus avec remorque)",
-            "ru": "Категория D1E (микроавтобус с прицепом)",
             "es": "Clase D1E (microbús con remolque)",
-            "it": "Classe D1E (minibus con rimorchio)"
+            "fr": "Catégorie D1E (minibus avec remorque)",
+            "hi": "क्लास D1E (ट्रेलर सहित मिनीबस)",
+            "it": "Classe D1E (minibus con rimorchio)",
+            "pl": "Kategoria D1E (mikrobus z przyczepą)",
+            "ru": "Категория D1E (микроавтобус с прицепом)",
+            "tr": "D1E Sınıfı (römorklu minibüs)",
+            "uk": "Категорія D1E (мікроавтобус з причепом)",
+            "zh": "D1E 类（带挂车的小型客车）"
           }
         },
         {
           "code": "D",
           "label": {
+            "ar": "الفئة D (حافلة، أكثر من 16 راكبًا)",
             "de": "Klasse D (Linien-/Reisebus, über 16 Fahrgäste)",
             "en": "Class D (bus/coach, more than 16 passengers)",
-            "uk": "Категорія D (автобус, понад 16 пасажирів)",
-            "pl": "Kategoria D (autobus, powyżej 16 pasażerów)",
-            "ar": "الفئة D (حافلة، أكثر من 16 راكبًا)",
-            "zh": "D 类（客车/大巴，超过16名乘客）",
-            "hi": "क्लास D (बस, 16 से अधिक यात्री)",
-            "tr": "D Sınıfı (otobüs, 16 yolcu üzeri)",
-            "fr": "Catégorie D (autobus/autocar, plus de 16 passagers)",
-            "ru": "Категория D (автобус, более 16 пассажиров)",
             "es": "Clase D (autobús, más de 16 pasajeros)",
-            "it": "Classe D (autobus/pullman, oltre 16 passeggeri)"
+            "fr": "Catégorie D (autobus/autocar, plus de 16 passagers)",
+            "hi": "क्लास D (बस, 16 से अधिक यात्री)",
+            "it": "Classe D (autobus/pullman, oltre 16 passeggeri)",
+            "pl": "Kategoria D (autobus, powyżej 16 pasażerów)",
+            "ru": "Категория D (автобус, более 16 пассажиров)",
+            "tr": "D Sınıfı (otobüs, 16 yolcu üzeri)",
+            "uk": "Категорія D (автобус, понад 16 пасажирів)",
+            "zh": "D 类（客车/大巴，超过16名乘客）"
           }
         },
         {
           "code": "DE",
           "label": {
+            "ar": "الفئة DE (حافلة مع مقطورة)",
             "de": "Klasse DE (Bus mit Anhänger)",
             "en": "Class DE (bus with trailer)",
-            "uk": "Категорія DE (автобус з причепом)",
-            "pl": "Kategoria DE (autobus z przyczepą)",
-            "ar": "الفئة DE (حافلة مع مقطورة)",
-            "zh": "DE 类（带挂车的客车）",
-            "hi": "क्लास DE (ट्रेलर सहित बस)",
-            "tr": "DE Sınıfı (römorklu otobüs)",
-            "fr": "Catégorie DE (autobus avec remorque)",
-            "ru": "Категория DE (автобус с прицепом)",
             "es": "Clase DE (autobús con remolque)",
-            "it": "Classe DE (autobus con rimorchio)"
+            "fr": "Catégorie DE (autobus avec remorque)",
+            "hi": "क्लास DE (ट्रेलर सहित बस)",
+            "it": "Classe DE (autobus con rimorchio)",
+            "pl": "Kategoria DE (autobus z przyczepą)",
+            "ru": "Категория DE (автобус с прицепом)",
+            "tr": "DE Sınıfı (römorklu otobüs)",
+            "uk": "Категорія DE (автобус з причепом)",
+            "zh": "DE 类（带挂车的客车）"
           }
         }
-      ]
+      ],
+      "scopeKind": "class"
     },
     {
+      "_comment": "DN-70: 9th compliance module, first cybersecurity/operational-resilience-focused one - DORA (Regulation (EU) 2022/2554, Digital Operational Resilience Act). Directly applicable EU Regulation (no national transposition), in force since 17 Jan 2025, covering ~20 types of financial entities. Art. 13(6) DORA mandates ICT security awareness/resilience training as a compulsory part of staff training for ALL employees and senior management - the strongest explicit all-staff training mandate found in this project's research so far. Started as a 20-question DE/EN-only pilot (data/dora_pilot.json), same launch pattern as kyc_aml/kartellrecht/lksg. AI-drafted, NOT legally reviewed yet - see claude/dora-pilot-pre-review-dossier-2026-08-13.md for the citation ledger and confidence tiers per question. Ships free for now, same MVP posture as the rest of the catalog. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
       "exam_type": "dora",
+      "hasCourse": true,
       "kind": "compliance",
       "label": {
+        "ar": "قانون المرونة التشغيلية الرقمية (DORA)",
         "de": "DORA (Digitale operationale Resilienz)",
         "en": "Digital Operational Resilience Act (DORA)",
-        "uk": "Закон про цифрову операційну стійкість (DORA)",
-        "pl": "Ustawa o cyfrowej odporności operacyjnej (DORA)",
-        "ar": "قانون المرونة التشغيلية الرقمية (DORA)",
-        "zh": "数字运营弹性法案 (DORA)",
-        "hi": "डिजिटल परिचालन लचीलापन अधिनियम (DORA)",
-        "tr": "Dijital Operasyonel Dayanıklılık Yasası (DORA)",
-        "fr": "Règlement sur la résilience opérationnelle numérique (DORA)",
-        "ru": "Закон о цифровой операционной устойчивости (DORA)",
         "es": "Reglamento de Resiliencia Operativa Digital (DORA)",
-        "it": "Regolamento sulla resilienza operativa digitale (DORA)"
+        "fr": "Règlement sur la résilience opérationnelle numérique (DORA)",
+        "hi": "डिजिटल परिचालन लचीलापन अधिनियम (DORA)",
+        "it": "Regolamento sulla resilienza operativa digitale (DORA)",
+        "pl": "Ustawa o cyfrowej odporności operacyjnej (DORA)",
+        "ru": "Закон о цифровой операционной устойчивости (DORA)",
+        "tr": "Dijital Operasyonel Dayanıklılık Yasası (DORA)",
+        "uk": "Закон про цифрову операційну стійкість (DORA)",
+        "zh": "数字运营弹性法案 (DORA)"
       },
-      "_comment": "DN-70: 9th compliance module, first cybersecurity/operational-resilience-focused one - DORA (Regulation (EU) 2022/2554, Digital Operational Resilience Act). Directly applicable EU Regulation (no national transposition), in force since 17 Jan 2025, covering ~20 types of financial entities. Art. 13(6) DORA mandates ICT security awareness/resilience training as a compulsory part of staff training for ALL employees and senior management - the strongest explicit all-staff training mandate found in this project's research so far. Started as a 20-question DE/EN-only pilot (data/dora_pilot.json), same launch pattern as kyc_aml/kartellrecht/lksg. AI-drafted, NOT legally reviewed yet - see claude/dora-pilot-pre-review-dossier-2026-08-13.md for the citation ledger and confidence tiers per question. Ships free for now, same MVP posture as the rest of the catalog. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
       ],
-      "hasCourse": true
+      "scopeKind": "class"
     },
     {
+      "_comment": "DN-71: 10th compliance module, second cybersecurity-focused one - NIS2 (Directive (EU) 2022/2555) as transposed into the revised German BSIG ('NIS2UmsuCG'), binding since 6 Dec 2025 with no transition period, covering an estimated ~29,500 companies across 11+ sectors (energy, transport, banking, health, digital infrastructure, manufacturing, etc.). Unlike DORA, NIS2 Art. 20(2) only mandates training for management-body members personally; Art. 21(2)(g) separately requires every in-scope entity to maintain cybersecurity training as one of ten mandatory risk-management measures. Started as a 20-question DE/EN-only pilot (data/nis2_pilot.json), same launch pattern as the other enterprise compliance modules. AI-drafted, NOT legally reviewed yet - the German BSIG-specific citations (§33, §38) rest on secondary legal-analysis sources rather than a direct read of the enacted statute text; see claude/nis2-pilot-pre-review-dossier-2026-08-13.md for the full citation ledger. Ships free for now, same MVP posture as the rest of the catalog.",
       "exam_type": "nis2",
+      "hasCourse": true,
       "kind": "compliance",
       "label": {
+        "ar": "NIS2 (توجيه الأمن السيبراني)",
         "de": "NIS2 (Cybersicherheit kritischer Einrichtungen)",
         "en": "NIS2 (Cybersecurity Directive)",
-        "uk": "NIS2 (Директива про кібербезпеку)",
-        "pl": "NIS2 (Dyrektywa o cyberbezpieczeństwie)",
-        "ar": "NIS2 (توجيه الأمن السيبراني)",
-        "zh": "NIS2（网络安全指令）",
-        "hi": "NIS2 (साइबर सुरक्षा निर्देश)",
-        "tr": "NIS2 (Siber Güvenlik Direktifi)",
-        "fr": "NIS2 (directive sur la cybersécurité)",
-        "ru": "NIS2 (Директива о кибербезопасности)",
         "es": "NIS2 (Directiva de ciberseguridad)",
-        "it": "NIS2 (Direttiva sulla cybersicurezza)"
+        "fr": "NIS2 (directive sur la cybersécurité)",
+        "hi": "NIS2 (साइबर सुरक्षा निर्देश)",
+        "it": "NIS2 (Direttiva sulla cybersicurezza)",
+        "pl": "NIS2 (Dyrektywa o cyberbezpieczeństwie)",
+        "ru": "NIS2 (Директива о кибербезопасности)",
+        "tr": "NIS2 (Siber Güvenlik Direktifi)",
+        "uk": "NIS2 (Директива про кібербезпеку)",
+        "zh": "NIS2（网络安全指令）"
       },
-      "_comment": "DN-71: 10th compliance module, second cybersecurity-focused one - NIS2 (Directive (EU) 2022/2555) as transposed into the revised German BSIG ('NIS2UmsuCG'), binding since 6 Dec 2025 with no transition period, covering an estimated ~29,500 companies across 11+ sectors (energy, transport, banking, health, digital infrastructure, manufacturing, etc.). Unlike DORA, NIS2 Art. 20(2) only mandates training for management-body members personally; Art. 21(2)(g) separately requires every in-scope entity to maintain cybersecurity training as one of ten mandatory risk-management measures. Started as a 20-question DE/EN-only pilot (data/nis2_pilot.json), same launch pattern as the other enterprise compliance modules. AI-drafted, NOT legally reviewed yet - the German BSIG-specific citations (§33, §38) rest on secondary legal-analysis sources rather than a direct read of the enacted statute text; see claude/nis2-pilot-pre-review-dossier-2026-08-13.md for the full citation ledger. Ships free for now, same MVP posture as the rest of the catalog.",
-      "scopeKind": "class",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "التدريب الأساسي",
             "de": "Grundlagenschulung",
             "en": "Baseline training",
-            "uk": "Базове навчання",
-            "pl": "Szkolenie podstawowe",
-            "ar": "التدريب الأساسي",
-            "zh": "基础培训",
-            "hi": "आधारभूत प्रशिक्षण",
-            "tr": "Temel eğitim",
-            "fr": "Formation de base",
-            "ru": "Базовое обучение",
             "es": "Formación básica",
-            "it": "Formazione di base"
+            "fr": "Formation de base",
+            "hi": "आधारभूत प्रशिक्षण",
+            "it": "Formazione di base",
+            "pl": "Szkolenie podstawowe",
+            "ru": "Базовое обучение",
+            "tr": "Temel eğitim",
+            "uk": "Базове навчання",
+            "zh": "基础培训"
           }
         }
       ],
-      "hasCourse": true
+      "scopeKind": "class"
     },
     {
-      "exam_type": "cka",
-      "kind": "cert",
-      "label": {
-        "de": "CKA (Kubernetes-Grundlagen)",
-        "en": "CKA (Kubernetes fundamentals)",
-        "uk": "CKA (основи Kubernetes)",
-        "pl": "CKA (podstawy Kubernetes)",
-        "ar": "CKA (أساسيات Kubernetes)",
-        "zh": "CKA（Kubernetes 基础）",
-        "hi": "CKA (Kubernetes की मूल बातें)",
-        "tr": "CKA (Kubernetes temelleri)",
-        "fr": "CKA (fondamentaux Kubernetes)",
-        "ru": "CKA (основы Kubernetes)",
-        "es": "CKA (fundamentos de Kubernetes)",
-        "it": "CKA (fondamenti di Kubernetes)"
-      },
       "_comment": "2026-08-15: first module from the zettacard-kb kb->JSON->staging pipeline MVP (see claude/cka-amateurfunk-kb-pipeline-mvp-2026-08-15.md and claude/cka-i18n-minimal-schema-and-translation-plan-2026-08-15.md). 131-question concept-check pilot for CKA (Certified Kubernetes Administrator) fundamentals, sourced from CNCF's curriculum (cncf/curriculum, CC-BY 4.0+), original phrasing, licensed CC-BY-NC-SA-4.0 like Zettacard's other modules. AI-authored, NOT legally reviewed (not law-based content, so no counsel-review track applies the way it does for the compliance modules). IMPORTANT: the real CKA exam is 100% performance-based (live kubectl tasks against a real cluster) and is NEVER multiple-choice -- this module is honestly framed as a concept-check quiz, not an exam simulator, per explicit PO direction. First module with EN as canonical/source locale (every other module is DE-canonical) and first with a deliberately minimal 4-locale set (en/de/ja/zh) rather than the full 12 -- translations two-stage subagent translate+verify, 131/131 passed on all three non-English locales. course_ref: 'cka' on each question is a placeholder for a future hands-on course/lesson layer, not yet built. Ships free, alpha/MVP posture.",
-      "scopeKind": "class",
-      "options": [
-        {
-          "code": "ALL",
-          "label": {
-            "de": "Grundlagen (Concept-Check)",
-            "en": "Fundamentals (concept-check)",
-            "uk": "Основи (перевірка знань)",
-            "pl": "Podstawy (sprawdzian pojęć)",
-            "ar": "الأساسيات (فحص المفاهيم)",
-            "zh": "基础（概念自查）",
-            "hi": "बुनियादी बातें (कॉन्सेप्ट-चेक)",
-            "tr": "Temel bilgiler (kavram kontrolü)",
-            "fr": "Fondamentaux (contrôle de concepts)",
-            "ru": "Основы (проверка концепций)",
-            "es": "Fundamentos (repaso de conceptos)",
-            "it": "Fondamenti (verifica dei concetti)"
-          }
-        }
-      ],
+      "exam_type": "cka",
+      "feature_flag": "cka",
+      "hasCourse": true,
       "intro": {
         "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages.",
         "steps": [
           {
             "de": {
-              "title": "Willkommen beim CKA-Modul",
-              "body": "Dieses Modul testet dein Grundlagenwissen zu Kubernetes fuer die CKA-Zertifizierung (Certified Kubernetes Administrator). Wichtig: Die echte CKA-Pruefung ist eine reine Praxispruefung (echtes kubectl an einem echten Cluster) und NIEMALS Multiple-Choice - dieses Modul ist ein Konzept-Check zum Lernen der Grundlagen, kein Pruefungssimulator."
+              "body": "Dieses Modul testet dein Grundlagenwissen zu Kubernetes für die CKA-Zertifizierung (Certified Kubernetes Administrator). Wichtig: Die echte CKA-Prüfung ist eine reine Praxispruefung (echtes kubectl an einem echten Cluster) und NIEMALS Multiple-Choice - dieses Modul ist ein Konzept-Check zum Lernen der Grundlagen, kein Pruefungssimulator.",
+              "title": "Willkommen beim CKA-Modul"
             },
             "en": {
-              "title": "Welcome to the CKA module",
-              "body": "This module tests your Kubernetes fundamentals for the CKA (Certified Kubernetes Administrator) certification. Important: the real CKA exam is 100% hands-on (real kubectl against a real cluster) and NEVER multiple-choice - this module is a concept-check for learning the fundamentals, not an exam simulator."
+              "body": "This module tests your Kubernetes fundamentals for the CKA (Certified Kubernetes Administrator) certification. Important: the real CKA exam is 100% hands-on (real kubectl against a real cluster) and NEVER multiple-choice - this module is a concept-check for learning the fundamentals, not an exam simulator.",
+              "title": "Welcome to the CKA module"
             }
           },
           {
             "de": {
-              "title": "Was wird abgefragt?",
-              "body": "7 Themenbereiche: Core Concepts, Workloads, Konfiguration & Scheduling, Networking, Storage, Troubleshooting und Security/Administration - orientiert am offiziellen CNCF-Curriculum."
+              "body": "7 Themenbereiche: Core Concepts, Workloads, Konfiguration & Scheduling, Networking, Storage, Troubleshooting und Security/Administration - orientiert am offiziellen CNCF-Curriculum.",
+              "title": "Was wird abgefragt?"
             },
             "en": {
-              "title": "What's covered",
-              "body": "7 topic areas: core concepts, workloads, configuration & scheduling, networking, storage, troubleshooting, and security/administration - aligned to the official CNCF curriculum."
+              "body": "7 topic areas: core concepts, workloads, configuration & scheduling, networking, storage, troubleshooting, and security/administration - aligned to the official CNCF curriculum.",
+              "title": "What's covered"
             }
           },
           {
             "de": {
-              "title": "Markenhinweis",
-              "body": "CKA, Certified Kubernetes Administrator und Kubernetes sind Marken der Linux Foundation. Zettacard ist ein unabhaengiges Lernangebot und nicht mit der Linux Foundation oder der CNCF verbunden. Details: Markenhinweise-Link im Footer der Startseite."
+              "body": "CKA, Certified Kubernetes Administrator und Kubernetes sind Marken der Linux Foundation. Zettacard ist ein unabhaengiges Lernangebot und nicht mit der Linux Foundation oder der CNCF verbunden. Details: Markenhinweise-Link im Footer der Startseite.",
+              "title": "Markenhinweis"
             },
             "en": {
-              "title": "Trademark notice",
-              "body": "CKA, Certified Kubernetes Administrator, and Kubernetes are trademarks of The Linux Foundation. Zettacard is an independent learning product and is not affiliated with The Linux Foundation or the CNCF. Details: see the Trademark Notice link in the site footer."
+              "body": "CKA, Certified Kubernetes Administrator, and Kubernetes are trademarks of The Linux Foundation. Zettacard is an independent learning product and is not affiliated with The Linux Foundation or the CNCF. Details: see the Trademark Notice link in the site footer.",
+              "title": "Trademark notice"
             }
           }
         ]
       },
-      "feature_flag": "cka",
-      "hasCourse": true
-    },
-    {
-      "exam_type": "aevo",
       "kind": "cert",
       "label": {
+        "ar": "CKA (أساسيات Kubernetes)",
+        "de": "CKA (Kubernetes-Grundlagen)",
+        "en": "CKA (Kubernetes fundamentals)",
+        "es": "CKA (fundamentos de Kubernetes)",
+        "fr": "CKA (fondamentaux Kubernetes)",
+        "hi": "CKA (Kubernetes की मूल बातें)",
+        "it": "CKA (fondamenti di Kubernetes)",
+        "pl": "CKA (podstawy Kubernetes)",
+        "ru": "CKA (основы Kubernetes)",
+        "tr": "CKA (Kubernetes temelleri)",
+        "uk": "CKA (основи Kubernetes)",
+        "zh": "CKA（Kubernetes 基础）"
+      },
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "ar": "الأساسيات (فحص المفاهيم)",
+            "de": "Grundlagen (Concept-Check)",
+            "en": "Fundamentals (concept-check)",
+            "es": "Fundamentos (repaso de conceptos)",
+            "fr": "Fondamentaux (contrôle de concepts)",
+            "hi": "बुनियादी बातें (कॉन्सेप्ट-चेक)",
+            "it": "Fondamenti (verifica dei concetti)",
+            "pl": "Podstawy (sprawdzian pojęć)",
+            "ru": "Основы (проверка концепций)",
+            "tr": "Temel bilgiler (kavram kontrolü)",
+            "uk": "Основи (перевірка знань)",
+            "zh": "基础（概念自查）"
+          }
+        }
+      ],
+      "scopeKind": "class"
+    },
+    {
+      "_comment": "2026-08-17: the German Ausbildereignungspruefung under the Ausbilder-Eignungsverordnung (AusbEignV 2009 vom 21.1.2009, BGBl. I S. 88), grounded in BBiG §§ 27-30. Same regulation and same BIBB Rahmenplan whether the administering chamber is an IHK or an HWK - only the certifying chamber differs. This module is PRACTICE-EXAM framed, not a light concept check: unlike CKA (whose real exam is 100 % hands-on, making a concept check the honest choice there), the AEVO's written part genuinely is a 180-minute closed-form multiple-choice exam with 80 fallbezogene Aufgaben across all four Handlungsfelder (§ 4 Abs. 2 AEVO plus the chambers' Merkblaetter). 76-question DE/EN pilot; four topics mapping 1:1 onto the four Handlungsfelder of § 2 AEVO, weighted per the current Rahmenplan (Empfehlung des BIBB-Hauptausschusses vom 20.6.2023, BAnz AT 14.07.2023 S2) at 15/20/50/15 % rather than evenly - see data/gen_aevo.py's META.topic_weighting_note for the caveat that this is a Lehrgangsdauer recommendation, not a published exam question-count distribution. hasCourse: the course layer carries the PRACTICAL exam part (§ 4 Abs. 3 AEVO - presentation or live delivery of a training situation plus a Fachgespraech) as written, NON-QUIZZED guidance, because a performance task cannot honestly be tested as MCQ. Ships free, like every module in this app today - pricing remains intentionally deferred. AI-drafted, NOT legally reviewed, and explicitly unofficial: there is no official public AEVO question catalogue, so this pool cannot claim to cover the real exam - see the pilot's legal_review_status.",
+      "exam_type": "aevo",
+      "hasCourse": true,
+      "kind": "cert",
+      "label": {
+        "ar": "تأهيل المدرب المهني (AEVO)",
         "de": "Ausbildereignung (AEVO)",
         "en": "Trainer aptitude (AEVO)",
-        "uk": "Кваліфікація інструктора (AEVO)",
-        "pl": "Uprawnienia instruktora (AEVO)",
-        "ar": "تأهيل المدرب المهني (AEVO)",
-        "zh": "培训师资格 (AEVO)",
-        "hi": "प्रशिक्षक अर्हता (AEVO)",
-        "tr": "Eğitici yeterliliği (AEVO)",
-        "fr": "Aptitude de formateur (AEVO)",
-        "ru": "Квалификация инструктора (AEVO)",
         "es": "Aptitud de formador (AEVO)",
-        "it": "Idoneità di formatore (AEVO)"
+        "fr": "Aptitude de formateur (AEVO)",
+        "hi": "प्रशिक्षक अर्हता (AEVO)",
+        "it": "Idoneità di formatore (AEVO)",
+        "pl": "Uprawnienia instruktora (AEVO)",
+        "ru": "Квалификация инструктора (AEVO)",
+        "tr": "Eğitici yeterliliği (AEVO)",
+        "uk": "Кваліфікація інструктора (AEVO)",
+        "zh": "培训师资格 (AEVO)"
       },
-      "_comment": "2026-08-17: the German Ausbildereignungspruefung under the Ausbilder-Eignungsverordnung (AusbEignV 2009 vom 21.1.2009, BGBl. I S. 88), grounded in BBiG §§ 27-30. Same regulation and same BIBB Rahmenplan whether the administering chamber is an IHK or an HWK - only the certifying chamber differs. This module is PRACTICE-EXAM framed, not a light concept check: unlike CKA (whose real exam is 100 % hands-on, making a concept check the honest choice there), the AEVO's written part genuinely is a 180-minute closed-form multiple-choice exam with 80 fallbezogene Aufgaben across all four Handlungsfelder (§ 4 Abs. 2 AEVO plus the chambers' Merkblaetter). 76-question DE/EN pilot; four topics mapping 1:1 onto the four Handlungsfelder of § 2 AEVO, weighted per the current Rahmenplan (Empfehlung des BIBB-Hauptausschusses vom 20.6.2023, BAnz AT 14.07.2023 S2) at 15/20/50/15 % rather than evenly - see data/gen_aevo.py's META.topic_weighting_note for the caveat that this is a Lehrgangsdauer recommendation, not a published exam question-count distribution. hasCourse: the course layer carries the PRACTICAL exam part (§ 4 Abs. 3 AEVO - presentation or live delivery of a training situation plus a Fachgespraech) as written, NON-QUIZZED guidance, because a performance task cannot honestly be tested as MCQ. Ships free, like every module in this app today - pricing remains intentionally deferred. AI-drafted, NOT legally reviewed, and explicitly unofficial: there is no official public AEVO question catalogue, so this pool cannot claim to cover the real exam - see the pilot's legal_review_status.",
-      "scopeKind": "class",
+      "legal_review_status": "NOT legally reviewed",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "الجزء الكتابي من الامتحان",
             "de": "Schriftlicher Prüfungsteil",
             "en": "Written exam part",
-            "uk": "Письмова частина екзамену",
-            "pl": "Część pisemna egzaminu",
-            "ar": "الجزء الكتابي من الامتحان",
-            "zh": "笔试部分",
-            "hi": "लिखित परीक्षा भाग",
-            "tr": "Yazılı sınav bölümü",
-            "fr": "Épreuve écrite",
-            "ru": "Письменная часть экзамена",
             "es": "Parte escrita del examen",
-            "it": "Parte scritta dell'esame"
+            "fr": "Épreuve écrite",
+            "hi": "लिखित परीक्षा भाग",
+            "it": "Parte scritta dell'esame",
+            "pl": "Część pisemna egzaminu",
+            "ru": "Письменная часть экзамена",
+            "tr": "Yazılı sınav bölümü",
+            "uk": "Письмова частина екзамену",
+            "zh": "笔试部分"
           }
         }
       ],
-      "legal_review_status": "NOT legally reviewed",
-      "hasCourse": true
+      "scopeKind": "class"
     },
     {
+      "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from California Vehicle Code (CVC) — the statute itself, all 50 questions: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/california_us/, exported to data/california_us_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
       "exam_type": "california_us",
+      "intro": {
+        "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages. Step 1 is the mandatory identification banner required by data-rules.md § 3b, quoted verbatim from the KB module.json's `identification` block so there is exactly one wording of it.",
+        "steps": [
+          {
+            "de": {
+              "body": "Dieses Modul behandelt die Verkehrsregeln von Kalifornien (USA). Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von Kalifornien (USA), und es verleiht keinerlei Berechtigung.",
+              "title": "Was dieses Modul ist – und was nicht"
+            },
+            "en": {
+              "body": "This module covers the road rules of California (USA). It is a study aid in German and English. It is not a German licence, it is not an official examination of California (USA), and it confers nothing.",
+              "title": "What this module is — and is not"
+            }
+          },
+          {
+            "de": {
+              "body": "50 Fragen aus 7 Themenbereichen: Alkohol, Vorrang, Geschwindigkeit, Verkehrszeichen, Abbiegen, Überholen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung.",
+              "title": "Was abgefragt wird"
+            },
+            "en": {
+              "body": "50 questions across 7 topic areas: alcohol, right of way, speed, signs, turning, overtaking and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam.",
+              "title": "What's covered"
+            }
+          },
+          {
+            "de": {
+              "body": "Die Fragen sind eigenständig aus dem California Vehicle Code (CVC), dem Gesetzestext selbst verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes.",
+              "title": "Woher die Fragen stammen"
+            },
+            "en": {
+              "body": "The questions were written independently from the California Vehicle Code (CVC) — the statute itself, not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information.",
+              "title": "Where the questions come from"
+            }
+          }
+        ]
+      },
       "kind": "compare",
       "label": {
+        "ar": "قواعد المرور في كاليفورنيا (وحدة ترفيهية)",
         "de": "Verkehrsregeln Kalifornien (Fun-Modul)",
         "en": "Road rules of California (fun module)",
-        "uk": "Правила дорожнього руху Каліфорнії (фан-модуль)",
-        "pl": "Przepisy drogowe Kalifornii (moduł dla zabawy)",
-        "ar": "قواعد المرور في كاليفورنيا (وحدة ترفيهية)",
-        "zh": "加利福尼亚交通规则（趣味模块）",
-        "hi": "कैलिफ़ोर्निया के यातायात नियम (मज़ेदार मॉड्यूल)",
-        "tr": "Kaliforniya trafik kuralları (eğlence modülü)",
-        "fr": "Code de la route de Californie (module ludique)",
-        "ru": "Правила дорожного движения Калифорнии (развлекательный модуль)",
         "es": "Normas de tráfico de California (módulo lúdico)",
-        "it": "Codice della strada della California (modulo ludico)"
+        "fr": "Code de la route de Californie (module ludique)",
+        "hi": "कैलिफ़ोर्निया के यातायात नियम (मज़ेदार मॉड्यूल)",
+        "it": "Codice della strada della California (modulo ludico)",
+        "pl": "Przepisy drogowe Kalifornii (moduł dla zabawy)",
+        "ru": "Правила дорожного движения Калифорнии (развлекательный модуль)",
+        "tr": "Kaliforniya trafik kuralları (eğlence modülü)",
+        "uk": "Правила дорожнього руху Каліфорнії (фан-модуль)",
+        "zh": "加利福尼亚交通规则（趣味模块）"
       },
-      "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from California Vehicle Code (CVC) — the statute itself, all 50 questions: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/california_us/, exported to data/california_us_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
-      "scopeKind": "class",
+      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "جميع الموضوعات",
             "de": "Alle Themen",
             "en": "All topics",
-            "uk": "Усі теми",
-            "pl": "Wszystkie tematy",
-            "ar": "جميع الموضوعات",
-            "zh": "全部主题",
-            "hi": "सभी विषय",
-            "tr": "Tüm konular",
-            "fr": "Tous les thèmes",
-            "ru": "Все темы",
             "es": "Todos los temas",
-            "it": "Tutti gli argomenti"
+            "fr": "Tous les thèmes",
+            "hi": "सभी विषय",
+            "it": "Tutti gli argomenti",
+            "pl": "Wszystkie tematy",
+            "ru": "Все темы",
+            "tr": "Tüm konular",
+            "uk": "Усі теми",
+            "zh": "全部主题"
           }
         }
       ],
-      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
+      "scopeKind": "class"
+    },
+    {
+      "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from Road Traffic Act 1988, Road Traffic Regulation Act 1984, TSRGD 2016 and further statutory instruments — the legislation itself, NOT the Highway Code: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/uk_gb/, exported to data/uk_gb_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
+      "exam_type": "uk_gb",
       "intro": {
         "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages. Step 1 is the mandatory identification banner required by data-rules.md § 3b, quoted verbatim from the KB module.json's `identification` block so there is exactly one wording of it.",
         "steps": [
           {
             "de": {
-              "title": "Was dieses Modul ist – und was nicht",
-              "body": "Dieses Modul behandelt die Verkehrsregeln von Kalifornien (USA). Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von Kalifornien (USA), und es verleiht keinerlei Berechtigung."
+              "body": "Dieses Modul behandelt die Verkehrsregeln von dem Vereinigten Königreich. Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von dem Vereinigten Königreich, und es verleiht keinerlei Berechtigung.",
+              "title": "Was dieses Modul ist – und was nicht"
             },
             "en": {
-              "title": "What this module is — and is not",
-              "body": "This module covers the road rules of California (USA). It is a study aid in German and English. It is not a German licence, it is not an official examination of California (USA), and it confers nothing."
+              "body": "This module covers the road rules of the United Kingdom. It is a study aid in German and English. It is not a German licence, it is not an official examination of the United Kingdom, and it confers nothing.",
+              "title": "What this module is — and is not"
             }
           },
           {
             "de": {
-              "title": "Was abgefragt wird",
-              "body": "50 Fragen aus 7 Themenbereichen: Alkohol, Vorrang, Geschwindigkeit, Verkehrszeichen, Abbiegen, Überholen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung."
+              "body": "50 Fragen aus 6 Themenbereichen: Dokumente und Zulassung, Vorrang, Geschwindigkeit, Verkehrszeichen, Überholen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung.",
+              "title": "Was abgefragt wird"
             },
             "en": {
-              "title": "What's covered",
-              "body": "50 questions across 7 topic areas: alcohol, right of way, speed, signs, turning, overtaking and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam."
+              "body": "50 questions across 6 topic areas: documents and licensing, right of way, speed, signs, overtaking and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam.",
+              "title": "What's covered"
             }
           },
           {
             "de": {
-              "title": "Woher die Fragen stammen",
-              "body": "Die Fragen sind eigenständig aus dem California Vehicle Code (CVC), dem Gesetzestext selbst verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes."
+              "body": "Die Fragen sind eigenständig aus den Gesetzen und Verordnungen selbst (Road Traffic Act 1988, Road Traffic Regulation Act 1984, TSRGD 2016 und weitere Statutory Instruments) verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes.",
+              "title": "Woher die Fragen stammen"
             },
             "en": {
-              "title": "Where the questions come from",
-              "body": "The questions were written independently from the California Vehicle Code (CVC) — the statute itself, not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information."
+              "body": "The questions were written independently from the legislation itself (Road Traffic Act 1988, Road Traffic Regulation Act 1984, TSRGD 2016 and further statutory instruments), not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information.",
+              "title": "Where the questions come from"
             }
           }
         ]
-      }
-    },
-    {
-      "exam_type": "uk_gb",
+      },
       "kind": "compare",
       "label": {
+        "ar": "قواعد المرور في المملكة المتحدة (وحدة ترفيهية)",
         "de": "Verkehrsregeln Vereinigtes Königreich (Fun-Modul)",
         "en": "Road rules of the United Kingdom (fun module)",
-        "uk": "Правила дорожнього руху Великої Британії (фан-модуль)",
-        "pl": "Przepisy drogowe Wielkiej Brytanii (moduł dla zabawy)",
-        "ar": "قواعد المرور في المملكة المتحدة (وحدة ترفيهية)",
-        "zh": "英国交通规则（趣味模块）",
-        "hi": "यूनाइटेड किंगडम के यातायात नियम (मज़ेदार मॉड्यूल)",
-        "tr": "Birleşik Krallık trafik kuralları (eğlence modülü)",
-        "fr": "Code de la route du Royaume-Uni (module ludique)",
-        "ru": "Правила дорожного движения Великобритании (развлекательный модуль)",
         "es": "Normas de tráfico del Reino Unido (módulo lúdico)",
-        "it": "Codice della strada del Regno Unito (modulo ludico)"
+        "fr": "Code de la route du Royaume-Uni (module ludique)",
+        "hi": "यूनाइटेड किंगडम के यातायात नियम (मज़ेदार मॉड्यूल)",
+        "it": "Codice della strada del Regno Unito (modulo ludico)",
+        "pl": "Przepisy drogowe Wielkiej Brytanii (moduł dla zabawy)",
+        "ru": "Правила дорожного движения Великобритании (развлекательный модуль)",
+        "tr": "Birleşik Krallık trafik kuralları (eğlence modülü)",
+        "uk": "Правила дорожнього руху Великої Британії (фан-модуль)",
+        "zh": "英国交通规则（趣味模块）"
       },
-      "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from Road Traffic Act 1988, Road Traffic Regulation Act 1984, TSRGD 2016 and further statutory instruments — the legislation itself, NOT the Highway Code: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/uk_gb/, exported to data/uk_gb_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
-      "scopeKind": "class",
+      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "جميع الموضوعات",
             "de": "Alle Themen",
             "en": "All topics",
-            "uk": "Усі теми",
-            "pl": "Wszystkie tematy",
-            "ar": "جميع الموضوعات",
-            "zh": "全部主题",
-            "hi": "सभी विषय",
-            "tr": "Tüm konular",
-            "fr": "Tous les thèmes",
-            "ru": "Все темы",
             "es": "Todos los temas",
-            "it": "Tutti gli argomenti"
+            "fr": "Tous les thèmes",
+            "hi": "सभी विषय",
+            "it": "Tutti gli argomenti",
+            "pl": "Wszystkie tematy",
+            "ru": "Все темы",
+            "tr": "Tüm konular",
+            "uk": "Усі теми",
+            "zh": "全部主题"
           }
         }
       ],
-      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
+      "scopeKind": "class"
+    },
+    {
+      "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from StVO 1960, FSG, KFG and IG-L — the statutes themselves: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/austria_at/, exported to data/austria_at_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
+      "exam_type": "austria_at",
       "intro": {
         "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages. Step 1 is the mandatory identification banner required by data-rules.md § 3b, quoted verbatim from the KB module.json's `identification` block so there is exactly one wording of it.",
         "steps": [
           {
             "de": {
-              "title": "Was dieses Modul ist – und was nicht",
-              "body": "Dieses Modul behandelt die Verkehrsregeln von dem Vereinigten Königreich. Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von dem Vereinigten Königreich, und es verleiht keinerlei Berechtigung."
+              "body": "Dieses Modul behandelt die Verkehrsregeln von Österreich. Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von Österreich, und es verleiht keinerlei Berechtigung.",
+              "title": "Was dieses Modul ist – und was nicht"
             },
             "en": {
-              "title": "What this module is — and is not",
-              "body": "This module covers the road rules of the United Kingdom. It is a study aid in German and English. It is not a German licence, it is not an official examination of the United Kingdom, and it confers nothing."
+              "body": "This module covers the road rules of Austria. It is a study aid in German and English. It is not a German licence, it is not an official examination of Austria, and it confers nothing.",
+              "title": "What this module is — and is not"
             }
           },
           {
             "de": {
-              "title": "Was abgefragt wird",
-              "body": "50 Fragen aus 6 Themenbereichen: Dokumente und Zulassung, Vorrang, Geschwindigkeit, Verkehrszeichen, Überholen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung."
+              "body": "50 Fragen aus 6 Themenbereichen: Alkohol, Dokumente, Vorrang, Geschwindigkeit, Verkehrszeichen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung.",
+              "title": "Was abgefragt wird"
             },
             "en": {
-              "title": "What's covered",
-              "body": "50 questions across 6 topic areas: documents and licensing, right of way, speed, signs, overtaking and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam."
+              "body": "50 questions across 6 topic areas: alcohol, documents, right of way, speed, signs and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam.",
+              "title": "What's covered"
             }
           },
           {
             "de": {
-              "title": "Woher die Fragen stammen",
-              "body": "Die Fragen sind eigenständig aus den Gesetzen und Verordnungen selbst (Road Traffic Act 1988, Road Traffic Regulation Act 1984, TSRGD 2016 und weitere Statutory Instruments) verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes."
+              "body": "Die Fragen sind eigenständig aus den Gesetzen selbst (StVO 1960, FSG, KFG, IG-L) verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes.",
+              "title": "Woher die Fragen stammen"
             },
             "en": {
-              "title": "Where the questions come from",
-              "body": "The questions were written independently from the legislation itself (Road Traffic Act 1988, Road Traffic Regulation Act 1984, TSRGD 2016 and further statutory instruments), not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information."
+              "body": "The questions were written independently from the statutes themselves (StVO 1960, FSG, KFG, IG-L), not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information.",
+              "title": "Where the questions come from"
             }
           }
         ]
-      }
-    },
-    {
-      "exam_type": "austria_at",
+      },
       "kind": "compare",
       "label": {
+        "ar": "قواعد المرور في النمسا (وحدة ترفيهية)",
         "de": "Verkehrsregeln Österreich (Fun-Modul)",
         "en": "Road rules of Austria (fun module)",
-        "uk": "Правила дорожнього руху Австрії (фан-модуль)",
-        "pl": "Przepisy drogowe Austrii (moduł dla zabawy)",
-        "ar": "قواعد المرور في النمسا (وحدة ترفيهية)",
-        "zh": "奥地利交通规则（趣味模块）",
-        "hi": "ऑस्ट्रिया के यातायात नियम (मज़ेदार मॉड्यूल)",
-        "tr": "Avusturya trafik kuralları (eğlence modülü)",
-        "fr": "Code de la route autrichien (module ludique)",
-        "ru": "Правила дорожного движения Австрии (развлекательный модуль)",
         "es": "Normas de tráfico de Austria (módulo lúdico)",
-        "it": "Codice della strada austriaco (modulo ludico)"
+        "fr": "Code de la route autrichien (module ludique)",
+        "hi": "ऑस्ट्रिया के यातायात नियम (मज़ेदार मॉड्यूल)",
+        "it": "Codice della strada austriaco (modulo ludico)",
+        "pl": "Przepisy drogowe Austrii (moduł dla zabawy)",
+        "ru": "Правила дорожного движения Австрии (развлекательный модуль)",
+        "tr": "Avusturya trafik kuralları (eğlence modülü)",
+        "uk": "Правила дорожнього руху Австрії (фан-модуль)",
+        "zh": "奥地利交通规则（趣味模块）"
       },
-      "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from StVO 1960, FSG, KFG and IG-L — the statutes themselves: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/austria_at/, exported to data/austria_at_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
-      "scopeKind": "class",
+      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
       "options": [
         {
           "code": "ALL",
           "label": {
+            "ar": "جميع الموضوعات",
             "de": "Alle Themen",
             "en": "All topics",
-            "uk": "Усі теми",
-            "pl": "Wszystkie tematy",
-            "ar": "جميع الموضوعات",
-            "zh": "全部主题",
-            "hi": "सभी विषय",
-            "tr": "Tüm konular",
-            "fr": "Tous les thèmes",
-            "ru": "Все темы",
             "es": "Todos los temas",
-            "it": "Tutti gli argomenti"
+            "fr": "Tous les thèmes",
+            "hi": "सभी विषय",
+            "it": "Tutti gli argomenti",
+            "pl": "Wszystkie tematy",
+            "ru": "Все темы",
+            "tr": "Tüm konular",
+            "uk": "Усі теми",
+            "zh": "全部主题"
           }
         }
       ],
-      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
-      "intro": {
-        "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages. Step 1 is the mandatory identification banner required by data-rules.md § 3b, quoted verbatim from the KB module.json's `identification` block so there is exactly one wording of it.",
-        "steps": [
-          {
-            "de": {
-              "title": "Was dieses Modul ist – und was nicht",
-              "body": "Dieses Modul behandelt die Verkehrsregeln von Österreich. Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von Österreich, und es verleiht keinerlei Berechtigung."
-            },
-            "en": {
-              "title": "What this module is — and is not",
-              "body": "This module covers the road rules of Austria. It is a study aid in German and English. It is not a German licence, it is not an official examination of Austria, and it confers nothing."
-            }
-          },
-          {
-            "de": {
-              "title": "Was abgefragt wird",
-              "body": "50 Fragen aus 6 Themenbereichen: Alkohol, Dokumente, Vorrang, Geschwindigkeit, Verkehrszeichen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung."
-            },
-            "en": {
-              "title": "What's covered",
-              "body": "50 questions across 6 topic areas: alcohol, documents, right of way, speed, signs and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam."
-            }
-          },
-          {
-            "de": {
-              "title": "Woher die Fragen stammen",
-              "body": "Die Fragen sind eigenständig aus den Gesetzen selbst (StVO 1960, FSG, KFG, IG-L) verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes."
-            },
-            "en": {
-              "title": "Where the questions come from",
-              "body": "The questions were written independently from the statutes themselves (StVO 1960, FSG, KFG, IG-L), not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information."
-            }
-          }
-        ]
-      }
+      "scopeKind": "class"
     },
     {
-      "exam_type": "switzerland_ch",
-      "kind": "compare",
-      "label": {
-        "de": "Verkehrsregeln Schweiz (Fun-Modul)",
-        "en": "Road rules of Switzerland (fun module)",
-        "uk": "Правила дорожнього руху Швейцарії (фан-модуль)",
-        "pl": "Przepisy drogowe Szwajcarii (moduł dla zabawy)",
-        "ar": "قواعد المرور في سويسرا (وحدة ترفيهية)",
-        "zh": "瑞士交通规则（趣味模块）",
-        "hi": "स्विट्ज़रलैंड के यातायात नियम (मज़ेदार मॉड्यूल)",
-        "tr": "İsviçre trafik kuralları (eğlence modülü)",
-        "fr": "Code de la route suisse (module ludique)",
-        "ru": "Правила дорожного движения Швейцарии (развлекательный модуль)",
-        "es": "Normas de tráfico de Suiza (módulo lúdico)",
-        "it": "Codice della strada svizzero (modulo ludico)"
-      },
       "_comment": "2026-09-06: module_kind fun_translation (see data-rules.md § 3b in zettacard-kb). Another country's road rules, carried as a curiosity and comparison object next to the German Fuehrerschein module - NOT German exam preparation and NOT that jurisdiction's official exam. 50 questions, DE/EN only (fun_translation modules sit outside the 15-locale set and must never be counted as locale-coverage gaps). Questions were authored from SVG, VRV, SSV, VZV, VTS, SKV, NSAG and OBV — the enactments themselves: the primary law, never from a driver handbook - a handbook is a compiled authored work and translating one would be a derivative of the whole thing (§ 3b again; a handbook may be read for topic COVERAGE, never for text). Source: zettacard-kb content/switzerland_ch/, exported to data/switzerland_ch_fun.json (the _fun.json filename, not _pilot.json, is deliberate: a fun module must not be mistakable for a German exam master). Citations are all `unverified` - no source has been fetched into a lockfile yet - and nothing here has been reviewed by a lawyer, let alone one admitted in this jurisdiction. The mandatory § 3b identification banner is in the module's KB module.json, in the master's meta.identification, in core.json's meta via build_modules.py's out_meta_extra, and as this entry's first intro step - one wording, four carriers, so it cannot go missing.",
-      "scopeKind": "class",
-      "options": [
-        {
-          "code": "ALL",
-          "label": {
-            "de": "Alle Themen",
-            "en": "All topics",
-            "uk": "Усі теми",
-            "pl": "Wszystkie tematy",
-            "ar": "جميع الموضوعات",
-            "zh": "全部主题",
-            "hi": "सभी विषय",
-            "tr": "Tüm konular",
-            "fr": "Tous les thèmes",
-            "ru": "Все темы",
-            "es": "Todos los temas",
-            "it": "Tutti gli argomenti"
-          }
-        }
-      ],
-      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
+      "exam_type": "switzerland_ch",
       "intro": {
         "_comment": "DE/EN only, matching the app-wide intro-string convention - falls back to EN for other UI languages. Step 1 is the mandatory identification banner required by data-rules.md § 3b, quoted verbatim from the KB module.json's `identification` block so there is exactly one wording of it.",
         "steps": [
           {
             "de": {
-              "title": "Was dieses Modul ist – und was nicht",
-              "body": "Dieses Modul behandelt die Verkehrsregeln von der Schweiz. Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von der Schweiz, und es verleiht keinerlei Berechtigung."
+              "body": "Dieses Modul behandelt die Verkehrsregeln von der Schweiz. Es ist eine Lernhilfe auf Deutsch und Englisch. Es ist kein deutscher Führerschein, keine offizielle Prüfung von der Schweiz, und es verleiht keinerlei Berechtigung.",
+              "title": "Was dieses Modul ist – und was nicht"
             },
             "en": {
-              "title": "What this module is — and is not",
-              "body": "This module covers the road rules of Switzerland. It is a study aid in German and English. It is not a German licence, it is not an official examination of Switzerland, and it confers nothing."
+              "body": "This module covers the road rules of Switzerland. It is a study aid in German and English. It is not a German licence, it is not an official examination of Switzerland, and it confers nothing.",
+              "title": "What this module is — and is not"
             }
           },
           {
             "de": {
-              "title": "Was abgefragt wird",
-              "body": "50 Fragen aus 5 Themenbereichen: Alkohol, Vorrang, Geschwindigkeit, Verkehrszeichen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung."
+              "body": "50 Fragen aus 5 Themenbereichen: Alkohol, Vorrang, Geschwindigkeit, Verkehrszeichen und schwächere Verkehrsteilnehmende. Jede Erklärung stellt die Regel dieses Landes der deutschen Regelung gegenüber – der Sinn des Moduls ist der Vergleich, nicht das Bestehen einer Prüfung.",
+              "title": "Was abgefragt wird"
             },
             "en": {
-              "title": "What's covered",
-              "body": "50 questions across 5 topic areas: alcohol, right of way, speed, signs and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam."
+              "body": "50 questions across 5 topic areas: alcohol, right of way, speed, signs and vulnerable road users. Every explanation contrasts this jurisdiction's rule with the German one — comparison is the point of the module, not passing an exam.",
+              "title": "What's covered"
             }
           },
           {
             "de": {
-              "title": "Woher die Fragen stammen",
-              "body": "Die Fragen sind eigenständig aus den Erlassen selbst (SVG, VRV, SSV, VZV, VTS und weitere) verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes."
+              "body": "Die Fragen sind eigenständig aus den Erlassen selbst (SVG, VRV, SSV, VZV, VTS und weitere) verfasst, nicht aus einem Fahrschul- oder Handbuchtext. Sie sind maschinell erstellt, juristisch nicht geprüft, und die Fundstellen sind noch nicht gegen eine amtliche Quelle verifiziert. Verlasse dich für eine Fahrt im Ausland auf die amtlichen Informationen des jeweiligen Landes.",
+              "title": "Woher die Fragen stammen"
             },
             "en": {
-              "title": "Where the questions come from",
-              "body": "The questions were written independently from the enactments themselves (SVG, VRV, SSV, VZV, VTS and others), not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information."
+              "body": "The questions were written independently from the enactments themselves (SVG, VRV, SSV, VZV, VTS and others), not from a driving-school or handbook text. They are machine-authored, not legally reviewed, and the citations have not yet been verified against an official source. For actually driving there, rely on that country's official information.",
+              "title": "Where the questions come from"
             }
           }
         ]
-      }
+      },
+      "kind": "compare",
+      "label": {
+        "ar": "قواعد المرور في سويسرا (وحدة ترفيهية)",
+        "de": "Verkehrsregeln Schweiz (Fun-Modul)",
+        "en": "Road rules of Switzerland (fun module)",
+        "es": "Normas de tráfico de Suiza (módulo lúdico)",
+        "fr": "Code de la route suisse (module ludique)",
+        "hi": "स्विट्ज़रलैंड के यातायात नियम (मज़ेदार मॉड्यूल)",
+        "it": "Codice della strada svizzero (modulo ludico)",
+        "pl": "Przepisy drogowe Szwajcarii (moduł dla zabawy)",
+        "ru": "Правила дорожного движения Швейцарии (развлекательный модуль)",
+        "tr": "İsviçre trafik kuralları (eğlence modülü)",
+        "uk": "Правила дорожнього руху Швейцарії (фан-модуль)",
+        "zh": "瑞士交通规则（趣味模块）"
+      },
+      "legal_review_status": "NOT reviewed by a qualified lawyer, and not reviewed by anyone admitted in this jurisdiction. Machine-authored from primary law, citations unverified.",
+      "options": [
+        {
+          "code": "ALL",
+          "label": {
+            "ar": "جميع الموضوعات",
+            "de": "Alle Themen",
+            "en": "All topics",
+            "es": "Todos los temas",
+            "fr": "Tous les thèmes",
+            "hi": "सभी विषय",
+            "it": "Tutti gli argomenti",
+            "pl": "Wszystkie tematy",
+            "ru": "Все темы",
+            "tr": "Tüm konular",
+            "uk": "Усі теми",
+            "zh": "全部主题"
+          }
+        }
+      ],
+      "scopeKind": "class"
     }
   ]
 }
