@@ -117,6 +117,9 @@ jobs:
       - name: The learning path (topic row opens the lesson)
         run: npm run test:path
 
+      - name: Landing-page module links resolve
+        run: npm run test:links
+
       # NOT blocking, and deliberately so. This suite currently reports
       # "HEADER, MAIN left inert" after nearly every step, which is CORRECT
       # behaviour being asserted at the wrong moment: it calls

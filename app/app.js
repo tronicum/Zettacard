@@ -10559,15 +10559,43 @@ async function loadActiveProfileState() {
   // only overrides the FIRST load of this page view, not every later
   // profile switch in the same session (loadActiveProfileState() re-runs
   // on those too, and shouldn't keep forcing the same module then).
+  //
+  // 2026-09-08: `?exam=` alone now works too. The landing page's 22 module
+  // cards were inert <div>s - the PO's "the modules are not linked anymore"
+  // - and the reason they had never been linked is that a link without a
+  // scope did nothing here: the branch below required BOTH params, so
+  // `?exam=motorrad` was stripped from the URL and then ignored, dropping
+  // the visitor back on whatever module they last used. Silently landing on
+  // the wrong module is worse than not linking at all, which is presumably
+  // why nobody linked them.
+  //
+  // A landing page cannot know a module's scopes (it has no manifest), so
+  // the scope decision belongs here, where the manifest is: one scope means
+  // there is nothing to ask, several means ask - the same two-branch rule
+  // the in-app module rows already use.
+  let linkPendingModule = null;
   try {
     const linkParams = new URLSearchParams(location.search);
     const linkExamType = linkParams.get("exam");
     const linkScopeCode = linkParams.get("scope");
     if (linkExamType) {
       history.replaceState(null, "", location.pathname + location.hash);
-      if (linkScopeCode && moduleManifestFor(linkExamType)?.options.some((o) => o.code === linkScopeCode)) {
+      const linkMod = moduleManifestFor(linkExamType);
+      if (linkScopeCode && linkMod?.options.some((o) => o.code === linkScopeCode)) {
         savedExamType = linkExamType;
         savedScopeCode = linkScopeCode;
+      } else if (!linkScopeCode && linkMod) {
+        if (linkMod.options.length === 1) {
+          savedExamType = linkExamType;
+          savedScopeCode = linkMod.options[0].code;
+        } else {
+          // Several scopes: fall through to the picker, but opened AT this
+          // module's scope step rather than at the full module list. The
+          // visitor already chose "Motorrad" on the landing page; asking
+          // them to find it again in a list of 29 would be the deep link
+          // losing the one thing it knew.
+          linkPendingModule = linkMod;
+        }
       }
     }
   } catch (e) { /* URL/history API unavailable - deep link just won't apply */ }
@@ -10598,7 +10626,12 @@ async function loadActiveProfileState() {
     }
   } catch (e) { /* storage unavailable, defaults are fine */ }
 
-  const savedModuleValid = savedExamType && savedScopeCode
+  // linkPendingModule wins over the saved selection on purpose. This is the
+  // DN-57 bug in its multi-scope form: a returning visitor who taps
+  // "Motorrad" on the landing page has stated an intent for THIS visit, and
+  // restoring last month's Fuehrerschein over it would make the card look
+  // broken rather than merely unlinked.
+  const savedModuleValid = !linkPendingModule && savedExamType && savedScopeCode
     && moduleManifestFor(savedExamType)?.options.some((o) => o.code === savedScopeCode);
 
   if (savedModuleValid) {
@@ -10631,6 +10664,11 @@ async function loadActiveProfileState() {
     // exam-mode picker (a full-screen dialog, not a silent default).
     render();
     openModulePicker();
+    if (linkPendingModule) {
+      state.pendingModule = linkPendingModule;
+      state.modulePickerStep = "scope";
+      renderModulePicker();
+    }
   }
 }
 

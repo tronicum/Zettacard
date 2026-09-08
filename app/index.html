@@ -239,6 +239,11 @@
       padding: 14px 16px;
       font-size: 0.9rem;
     }
+    /* .module-card is an <a> - inherit the surrounding text treatment so
+       linking them did not also restyle them, and give the affordance the
+       divs never had. */
+    a.module-card { display: block; color: inherit; text-decoration: none; transition: border-color 0.15s, transform 0.15s; }
+    a.module-card:hover, a.module-card:focus-visible { border-color: var(--accent); transform: translateY(-1px); }
     .module-card strong { display: block; margin-bottom: 2px; }
     .module-card span { color: var(--text-dim); font-size: 0.8rem; }
 
@@ -812,8 +817,20 @@
           gridEl.className = "module-grid";
           group.mods.forEach(function (mod) {
             var name = (MODULE_LABELS[mod] && (MODULE_LABELS[mod][lang] || MODULE_LABELS[mod].en)) || mod;
-            var card = document.createElement("div");
+            // 2026-09-08: these were <div>s. 22 module cards, every one of
+            // them inert - the PO's "the modules are not linked anymore",
+            // reported from staging alongside "jetzt starten? for what?".
+            // Only the three enterprise cards below ever carried an href.
+            //
+            // No scope in the link on purpose: this page has no manifest and
+            // so cannot know that fuehrerschein has five classes and
+            // datenschutz has one. app.js does, and now resolves `?exam=`
+            // alone - one scope goes straight in, several open that module's
+            // scope step. Guessing a scope here would put the same knowledge
+            // in two places and let it go stale in the copy that has no tests.
+            var card = document.createElement("a");
             card.className = "module-card";
+            card.href = "./app.html?exam=" + encodeURIComponent(mod);
             var strong = document.createElement("strong");
             strong.textContent = name;
             card.appendChild(strong);
