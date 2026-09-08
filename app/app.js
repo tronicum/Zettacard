@@ -947,6 +947,44 @@ function practiceQuizStrings(lang) {
   return PRACTICE_QUIZ_STRINGS[lang] || PRACTICE_QUIZ_STRINGS.en;
 }
 
+// Phase 3.1 (2026-09-07), lesson completion copy - shown on the practice
+// results screen when the run came from a course lesson, and in the course
+// lesson list. Its own table rather than extra keys on PRACTICE_QUIZ_
+// STRINGS/COURSE_STRINGS for the same reason PRACTICE_QUIZ_STRINGS itself
+// is separate: this copy is about a lesson's outcome, not about the quiz
+// tier's deliberate no-stakes framing, and mixing them would make the
+// no-stakes wording easy to reuse in the one place it is untrue.
+//
+// DE+EN only for this round, the same disclosed gap PRACTICE_QUIZ_STRINGS
+// shipped with, and lessonCompletionStrings() falls back to English for
+// every other locale in the registry - so a learner in any of the other 16
+// UI languages sees real English copy, never an empty node or "undefined".
+const LESSON_COMPLETION_STRINGS = {
+  de: {
+    lessonComplete: "Lektion abgeschlossen",
+    lessonCompleteNote: "Diese Lektion ist jetzt in der Kursübersicht als abgeschlossen markiert. Das ist ein Lernfortschritt auf diesem Gerät — kein Prüfungsversuch und kein Zertifikat.",
+    lessonMissed: (pct) => `Noch nicht abgeschlossen — für diese Lektion sind ${pct} % richtige Antworten nötig.`,
+    lessonRuleUnknown: "Diese Lektion kann nicht automatisch abgeschlossen werden: ihre Abschlussregel kennt diese App-Version nicht.",
+    lessonScore: (score, total) => `Ergebnis: ${score} von ${total} richtig.`,
+    lessonRetryHint: "Du kannst die Lektion jederzeit erneut üben — es zählt der beste Versuch, frühere Versuche kosten nichts.",
+    listDone: (score, total) => `✓ abgeschlossen · ${score}/${total}`,
+    listInfoOnly: "Zum Lesen",
+  },
+  en: {
+    lessonComplete: "Lesson complete",
+    lessonCompleteNote: "This lesson is now marked complete in the course overview. That is learning progress on this device — not an exam attempt, and not a certificate.",
+    lessonMissed: (pct) => `Not complete yet — this lesson needs ${pct}% correct.`,
+    lessonRuleUnknown: "This lesson can't be completed automatically: this version of the app doesn't recognise its completion rule.",
+    lessonScore: (score, total) => `Result: ${score} of ${total} correct.`,
+    lessonRetryHint: "You can practise this lesson again at any time — the best attempt counts, earlier ones cost you nothing.",
+    listDone: (score, total) => `✓ completed · ${score}/${total}`,
+    listInfoOnly: "Reading only",
+  },
+};
+function lessonCompletionStrings(lang) {
+  return LESSON_COMPLETION_STRINGS[lang] || LESSON_COMPLETION_STRINGS.en;
+}
+
 // Locale registry (2026-09-06) ------------------------------------------
 //
 // This replaces `const RTL_LANGS = new Set(["ar", "fa"])`. That set was a
@@ -1352,7 +1390,22 @@ const ROAD_RULE_FAMILY_LABELS = {
 const TOPIC_LABELS = {
   fuehrerschein: {
     vorfahrt: { de: "Vorfahrt und Kreuzungen", en: "Right of way & intersections", uk: "Проїзд перехресть", pl: "Pierwszeństwo i skrzyżowania", ar: "الأولوية والتقاطعات", zh: "路权与交叉路口", hi: "प्राथमिकता और चौराहे", tr: "Geçiş hakkı ve kavşaklar", fr: "Priorité et intersections", ru: "Приоритет проезда и перекрёстки", es: "Prioridad de paso e intersecciones", it: "Precedenza e incroci" },
-    verkehrszeichen: { de: "Verkehrszeichen", en: "Traffic signs", uk: "Дорожні знаки", pl: "Znaki drogowe", ar: "إشارات المرور", zh: "交通标志", hi: "यातायात संकेत", tr: "Trafik işaretleri", fr: "Panneaux de signalisation", ru: "Дорожные знаки", es: "Señales de tráfico", it: "Segnaletica stradale" },
+    // Roadmap 3.3: `verkehrszeichen` was 138 of 531 questions - 26% of the
+    // module in one topic, where every other topic holds ~40. It is split
+    // by the sign's own shape (data/build_modules.py assigns these codes
+    // from assets/sign_categories.py, the same grouping the sign reference
+    // screen uses), which brings the largest topic down to 48.
+    //
+    // No labels are written here. They ARE the sign reference's category
+    // labels - `signCategory` tells getTopicLabel() to resolve them from
+    // SIGN_CATEGORY_LABELS at call time, so the chip and the sign-reference
+    // heading can never drift apart, and there is one set of strings to
+    // translate rather than two. Order is the StVO's own.
+    zeichen_gefahr: { signCategory: "gefahrzeichen" },
+    zeichen_verbot: { signCategory: "verbotszeichen" },
+    zeichen_gebot: { signCategory: "gebotszeichen" },
+    zeichen_richt: { signCategory: "richtzeichen" },
+    zeichen_sonstige: { signCategory: "sonstige" },
     gefahr: { de: "Gefahrenlehre", en: "Hazard perception", uk: "Розпізнавання небезпек", pl: "Nauka o zagrożeniach", ar: "إدراك المخاطر", zh: "危险识别", hi: "खतरा पहचान", tr: "Tehlike algısı", fr: "Perception des dangers", ru: "Распознавание опасностей", es: "Percepción de riesgos", it: "Percezione del pericolo" },
     umwelt: { de: "Umwelt und Technik", en: "Environment & technology", uk: "Довкілля та техніка", pl: "Środowisko i technika", ar: "البيئة والتقنية", zh: "环境与技术", hi: "पर्यावरण और तकनीक", tr: "Çevre ve teknik", fr: "Environnement et technique", ru: "Экология и техника", es: "Medio ambiente y técnica", it: "Ambiente e tecnica" },
     verhalten: { de: "Allgemeines Verhalten", en: "General road behavior", uk: "Загальна поведінка на дорозі", pl: "Ogólne zachowanie na drodze", ar: "السلوك العام على الطريق", zh: "一般道路行为", hi: "सामान्य सड़क व्यवहार", tr: "Genel trafik davranışı", fr: "Comportement général", ru: "Общее поведение на дороге", es: "Comportamiento general", it: "Comportamento generale" },
@@ -1635,7 +1688,56 @@ function getTopicLabel(topicCode, fallbackTopic) {
   const forModule = TOPIC_LABELS[state.examType] || {};
   const entry = forModule[topicCode];
   if (!entry) return fallbackTopic;
+  // A topic that IS a sign-reference category borrows that category's label
+  // rather than carrying a second copy of it (see the zeichen_* entries).
+  if (entry.signCategory) return signCategoryLabel(entry.signCategory, state.lang);
   return entry[state.lang] || entry.en || entry.de || fallbackTopic;
+}
+
+// Topic codes that are an UMBRELLA over several real ones. `verkehrszeichen`
+// stopped being a question topic in roadmap 3.3, but it is still the topic a
+// primer hands off from ("practise this topic now" on any of the seven sign
+// primers, which teach how to read signs in general rather than one shape),
+// so it has to keep working as a filter. Filtering by an umbrella matches
+// every child; nothing else needs to know these exist.
+// An umbrella carries `members` and its own `label`. It needs the label
+// because it is NOT in TOPIC_LABELS - being there is what makes something a
+// filter chip (renderFilters() builds the row from that object's keys), and
+// a "Verkehrszeichen" chip beside its own five children would both duplicate
+// them and double-count. But it is still shown, as the heading over the
+// seven sign primers, so a label-less umbrella would render the raw code
+// there - which is exactly how anhaenger_be shipped once (see its comment
+// in TOPIC_LABELS). These are the strings 3.3 moved off `verkehrszeichen`,
+// verbatim; nothing new was written.
+const TOPIC_GROUPS = {
+  fuehrerschein: {
+    verkehrszeichen: {
+      members: ["zeichen_gefahr", "zeichen_verbot", "zeichen_gebot", "zeichen_richt", "zeichen_sonstige"],
+      label: { de: "Verkehrszeichen", en: "Traffic signs", uk: "Дорожні знаки", pl: "Znaki drogowe", ar: "إشارات المرور", zh: "交通标志", hi: "यातायात संकेत", tr: "Trafik işaretleri", fr: "Panneaux de signalisation", ru: "Дорожные знаки", es: "Señales de tráfico", it: "Segnaletica stradale" },
+    },
+  },
+};
+
+function topicGroup(topicCode, examType) {
+  return (TOPIC_GROUPS[examType || state.examType] || {})[topicCode] || null;
+}
+
+function topicFilterMatches(question, topicCode) {
+  if (question.topic_code === topicCode) return true;
+  const group = topicGroup(topicCode);
+  return !!group && group.members.includes(question.topic_code);
+}
+
+/** A topic label for a real topic OR an umbrella, in `lang`. */
+function topicOrGroupLabel(topicCode, lang, examType) {
+  const entry = (TOPIC_LABELS[examType] || {})[topicCode];
+  if (entry) {
+    if (entry.signCategory) return signCategoryLabel(entry.signCategory, lang);
+    return entry[lang] || entry.en || entry.de || topicCode;
+  }
+  const group = topicGroup(topicCode, examType);
+  if (group) return group.label[lang] || group.label.en || group.label.de || topicCode;
+  return null;
 }
 
 // --- Role filter (DN-44) -------------------------------------------------
@@ -2195,32 +2297,81 @@ async function fetchJson(path) {
 // only) - try the active UI language, then English, then German, so a
 // French-language user picking Angelschein still gets real text instead of
 // an empty question. Mirrors pickAlt()'s fallback philosophy below.
-async function fetchLocaleTextWithFallback(examType, lang) {
-  const candidates = [...new Set([lang, "en", "de"])];
+//
+// ADR-app-0002 § 5 changed two things about this, both because the manifest
+// now carries real per-locale counts (see moduleCoverage()):
+//
+//  1. A locale file that EXISTS but is EMPTY no longer wins the chain. It
+//     used to: build_modules.py writes an empty `{}` for every locale a
+//     module is built with but has no translated text for, so kyc_aml/fr.json
+//     and datenschutz/fa.json are both a two-byte `{}` sitting on disk. The
+//     fetch succeeded, the chain stopped there, and every question rendered
+//     blank - the fallback to English never ran, because nothing 404'd. This
+//     is the same class of silent lie the whole phase is about, just one
+//     layer down: the app believed a file's existence over its contents.
+//  2. It can return MORE THAN ONE bundle. Per-question translation coverage
+//     is becoming fractional (Greek is mid-round at 118/531), and a module
+//     that is 118/531 in Greek must render those 118 in Greek and the rest in
+//     something readable, not 413 blanks. The first bundle that covers the
+//     whole module ends the chain, so an all-or-nothing module (every module
+//     today) still loads exactly one file, as before.
+async function fetchLocaleTextBundles(examType, lang) {
+  const mod = moduleManifestFor(examType);
+  const cov = moduleCoverage(mod);
+  let candidates = [...new Set([lang, "en", "de"])];
+  if (cov) {
+    // Skip locales the build says hold nothing, so we don't spend a request
+    // to discover an empty file. Never skip everything: if coverage somehow
+    // rules out all three, fall back to trying them all (the fetch result is
+    // still checked for emptiness below).
+    const withContent = candidates.filter((c) => (cov.locales[c] || 0) > 0);
+    if (withContent.length) candidates = withContent;
+  }
+
+  const bundles = [];
   let lastErr;
   for (const candidate of candidates) {
     try {
-      return { lang: candidate, text: await fetchJson(`data/${examType}/locales/${candidate}.json`) };
+      const text = await fetchJson(`data/${examType}/locales/${candidate}.json`);
+      if (!text || !Object.keys(text).length) continue; // exists, holds nothing
+      bundles.push({ lang: candidate, text });
+      const have = cov ? (cov.locales[candidate] || 0) : 0;
+      if (!cov || have >= cov.total) break; // complete - no filler needed
     } catch (err) {
       lastErr = err;
     }
   }
-  throw lastErr;
+  if (!bundles.length) throw lastErr || new Error(`${examType}: no locale file with any content`);
+  return bundles;
 }
 
 async function loadModuleData(examType, scopeCode) {
   const core = await fetchJson(`data/${examType}/core.json`);
-  const { lang: resolvedLang, text: localeText } = await fetchLocaleTextWithFallback(examType, state.lang);
+  const bundles = await fetchLocaleTextBundles(examType, state.lang);
+  const resolvedLang = bundles[0].lang;
   const scopeField = scopeFieldFor(examType);
   const manifest = moduleManifestFor(examType);
   const scopeKind = manifest?.scopeKind;
   const scopeOpt = manifest?.options.find((o) => o.code === scopeCode);
   const extendsCode = scopeOpt?.extends || null;
 
+  // ADR-app-0002 § 5: how many of the questions actually on screen came from
+  // the user's OWN language, as opposed to a fallback bundle. Counted here,
+  // over the scope-filtered set, because that is the set the notice in
+  // renderList() speaks about - a module-level number would be true of the
+  // module and false of the card in front of the learner.
+  let ownLangCount = 0;
   const merged = core.questions
     .filter((q) => questionMatchesScope(q, scopeField, scopeKind, scopeCode, extendsCode))
     .map((q) => {
-      const t = localeText[q.id];
+      let t = null;
+      for (const b of bundles) {
+        if (b.text[q.id]) {
+          t = b.text[q.id];
+          if (b.lang === state.lang) ownLangCount += 1;
+          break;
+        }
+      }
       return {
         ...q,
         // Reassembled into the same {text:{lang:{...}}, explanation:{lang:...}}
@@ -2257,6 +2408,20 @@ async function loadModuleData(examType, scopeCode) {
   } else {
     state.contentLangFallback = null;
   }
+  // Every locale file this module is currently reading from, primary first -
+  // offlineAssetUrls() needs all of them, not just the primary, or a
+  // partially-translated module would go offline with holes in it.
+  state.contentLangs = bundles.map((b) => b.lang);
+  // ADR-app-0002 § 5: what renderList()'s one-line notice reads. `shown` is
+  // the loaded (scope-filtered) question count, `own` how many of those are
+  // in state.lang, `fallbackLang` the language the remainder appears in.
+  state.contentCoverage = {
+    shown: merged.length,
+    own: ownLangCount,
+    fallbackLang: bundles.find((b) => b.lang !== state.lang)?.lang || resolvedLang,
+  };
+
+  markModuleStarted(examType);
 
   try {
     storageSet(profileKey("exam-type"), examType);
@@ -2284,14 +2449,23 @@ async function loadModuleData(examType, scopeCode) {
 // Every URL needed for the CURRENTLY loaded module, in the CURRENTLY
 // resolved content language, to work fully offline: core data, the locale
 // file actually in use (which may differ from state.lang after a fallback -
-// see fetchLocaleTextWithFallback()/state.contentLangFallback), and every
+// see fetchLocaleTextBundles()/state.contentLangFallback), and every
 // unique sign SVG referenced by the loaded questions.
 function offlineAssetUrls() {
   if (!state.examType) return [];
-  const lang = state.contentLangFallback || state.lang;
+  // ADR-app-0002 § 5: may be more than one locale file now (a partially
+  // translated module reads its own language plus a filler) - state.contentLangs
+  // is what actually got loaded. The single-language expression it replaces is
+  // kept as the fallback for the window before a module has loaded.
+  const langs = state.contentLangs && state.contentLangs.length
+    ? state.contentLangs
+    : [state.contentLangFallback || state.lang];
+  // The primer/course sidecars below run their own independent fallback
+  // chains and take a single language, so they keep using the primary one.
+  const lang = langs[0];
   const urls = [
     `data/${state.examType}/core.json`,
-    `data/${state.examType}/locales/${lang}.json`,
+    ...langs.map((l) => `data/${state.examType}/locales/${l}.json`),
   ];
   const signUrls = new Set();
   state.questions.forEach((q) => {
@@ -2496,21 +2670,32 @@ function renderModulePicker() {
     // modules_manifest.json) to gate its picker visibility - modules with
     // none are always shown, unchanged from prior behavior. CKA is the
     // first user of this (alpha, staging-only by default).
-    M.filter((mod) => !mod.feature_flag || isFeatureEnabled(mod.feature_flag)).forEach((mod) => {
-      const btn = document.createElement("button");
-      btn.className = "exam-mode-btn";
-      const label = mod.label[state.lang] || mod.label.en;
-      btn.innerHTML = `<strong>${label}</strong>`;
-      btn.addEventListener("click", () => {
-        state.pendingModule = mod;
-        if (mod.options.length === 1) {
-          selectModuleAndScope(mod.exam_type, mod.options[0].code);
-        } else {
-          state.modulePickerStep = "scope";
-          renderModulePicker();
-        }
-      });
-      container.appendChild(btn);
+    const visible = M.filter((mod) => !mod.feature_flag || isFeatureEnabled(mod.feature_flag));
+
+    // ADR-app-0002 § 2. This used to be one flat forEach over the manifest,
+    // rendering every module in manifest order with nothing but its name.
+    // That was right for the handful of modules the picker was written for;
+    // at 29 rows in file order it stopped being a choice and became a wall.
+    // Grouping is derived entirely from each module's `kind` (plus the
+    // driving-licence set below) - see MODULE_GROUPS.
+    const G = moduleGroupStrings(state.lang);
+    const started = loadStartedModules()
+      .map((t) => visible.find((mod) => mod.exam_type === t))
+      .filter(Boolean);
+
+    MODULE_GROUPS.forEach((group) => {
+      const mods = group.id === "mine" ? started : visible.filter(group.match);
+      // "Meine Module" is the only group that can be empty, and it is empty
+      // for exactly one person: someone who has never started anything. For
+      // everyone else it is one or two rows and it is the real answer to a
+      // 29-row list, so it is worth the duplication of showing those rows
+      // again in their own kind group below.
+      if (!mods.length) return;
+      const heading = document.createElement("div");
+      heading.className = "sign-ref-category";
+      heading.textContent = G[group.key];
+      container.appendChild(heading);
+      mods.forEach((mod) => container.appendChild(buildModuleRow(mod, group, G)));
     });
   } else {
     const mod = state.pendingModule;
@@ -2518,6 +2703,10 @@ function renderModulePicker() {
     mod.options.forEach((opt) => {
       const btn = document.createElement("button");
       btn.className = "exam-mode-btn";
+      // Same reasoning as buildModuleRow()'s data-exam-type: a scope row
+      // needs an identity a test or a bug report can name without going
+      // through a label that changes with the UI language.
+      btn.dataset.scopeCode = opt.code;
       btn.innerHTML = `<strong>${opt.label[state.lang] || opt.label.en}</strong>`;
       btn.addEventListener("click", () => selectModuleAndScope(mod.exam_type, opt.code));
       container.appendChild(btn);
@@ -2547,14 +2736,14 @@ async function selectModuleAndScope(examType, scopeCode) {
   history.replaceState({ view: "list" }, "");
   render();
 
-  // DN-43: if this module has an intro wizard and this device hasn't seen
-  // it yet for this exam_type, show it now (first real study session in
-  // the module) rather than dropping the user straight into a raw question
-  // list with no orientation.
-  const mod = state.pendingModule;
-  if (mod && mod.intro && !hasSeenIntro(examType)) {
-    openModuleIntro(mod);
-  }
+  // ADR-app-0002 s 1: opening a module lands on its HUB, every time - not
+  // on the intro wizard once and a raw question list forever after. The
+  // hub carries the primary action, so this is not a screen between the
+  // learner and their work; it is where they choose what the work is.
+  // (DN-43's once-per-device intro wizard is superseded. Its manifest copy
+  // is not wasted - renderModuleHub() shows it under "About this module".
+  // Roadmap 3.8 removes intro.steps from the manifest entirely.)
+  openModuleHub();
 }
 
 // Minimal standalone strings (not folded into UI_STRINGS/EXAM_STRINGS since
@@ -2579,6 +2768,349 @@ const MODULE_PICKER_STRINGS = {
   ru: { chooseModule: "К какому экзамену вы готовитесь?", back: "← Назад", changeExam: "Сменить экзамен", cancel: "Отмена" },
   es: { chooseModule: "¿Para qué examen estás estudiando?", back: "← Atrás", changeExam: "Cambiar de examen", cancel: "Cancelar" },
   it: { chooseModule: "Per quale esame stai studiando?", back: "← Indietro", changeExam: "Cambia esame", cancel: "Annulla" },
+};
+
+// --- ADR-app-0002 §§ 2/5: module kinds, picker groups, locale coverage ---
+//
+// Everything below derives from ONE hand-written word per module - `kind` in
+// modules_manifest.json (licence | compliance | cert | compare, see that
+// file's _comment for why it is deliberately not the KB's module_kind) - plus
+// the per-locale question counts build_modules.py writes into the emitted
+// app/data/modules.json. No per-module copy is written here, and none should
+// be added: 29 rows of hand-written presentation text is 29 things to
+// translate 18 times and 29 things to keep true.
+//
+// The one thing `kind` alone cannot express is the split between groups 2 and
+// 3: "Führerschein" is fuehrerschein/motorrad/lkw/fuehrerschein_bus, and every
+// other `licence` module is "Weitere staatliche Prüfungen". They are the same
+// KIND of thing - a real state exam exists for all of them - so a fifth kind
+// would be dishonest about that; what differs is audience size, and the
+// driving set goes first because it is the largest by a wide margin and
+// because a learner whose German is poor has to find it without reading. This
+// is a single set of four ids in one place, not a per-module string, and it
+// changes only when a new driving class ships.
+const DRIVING_LICENCE_MODULES = new Set([
+  "fuehrerschein", "motorrad", "lkw", "fuehrerschein_bus",
+]);
+
+// Render order IS this array's order. `mine` is special-cased in
+// renderModulePicker() (its membership comes from this profile's history, not
+// from `kind`); every other group is a pure predicate over `kind`.
+//
+// `compare` is last and muted, and each of its rows carries a "kein Nachweis"
+// marker. It deliberately stays in this same list rather than moving to a
+// screen of its own: a second screen is a second navigation to build and
+// translate, and it would hide these modules from the exact person who came
+// looking for "what are the rules in California" - who is not confused, but
+// who must not be able to mistake the row for something that certifies them.
+const MODULE_GROUPS = [
+  { id: "mine", key: "myModules" },
+  { id: "driving", key: "groupDriving", match: (m) => m.kind === "licence" && DRIVING_LICENCE_MODULES.has(m.exam_type) },
+  { id: "state", key: "groupOtherState", match: (m) => m.kind === "licence" && !DRIVING_LICENCE_MODULES.has(m.exam_type) },
+  { id: "compliance", key: "groupCompliance", match: (m) => m.kind === "compliance" },
+  { id: "cert", key: "groupCert", match: (m) => m.kind === "cert" },
+  { id: "compare", key: "groupCompare", match: (m) => m.kind === "compare", muted: true },
+];
+
+// Which modules this profile has actually opened, most recent first. Written
+// by loadModuleData(); seeded from the saved active module so a returning
+// user who predates this key still gets a "Meine Module" group on their next
+// visit instead of an empty one. Kept short on purpose - this is the "you
+// were doing this" shortcut, not a history view.
+const STARTED_MODULES_MAX = 6;
+
+function loadStartedModules() {
+  let list = [];
+  try {
+    const raw = JSON.parse(storageGet(profileKey("started-modules")) || "[]");
+    if (Array.isArray(raw)) list = raw.filter((t) => typeof t === "string");
+  } catch (e) { /* storage unavailable or corrupt - no shortcut group, not fatal */ }
+  if (!list.length) {
+    try {
+      const current = storageGet(profileKey("exam-type"));
+      if (current) list = [current];
+    } catch (e) { /* non-fatal */ }
+  }
+  // A module that has since been removed from the manifest must not leave a
+  // dead row behind.
+  return list.filter((t) => moduleManifestFor(t));
+}
+
+function markModuleStarted(examType) {
+  const list = [examType, ...loadStartedModules().filter((t) => t !== examType)]
+    .slice(0, STARTED_MODULES_MAX);
+  try { storageSet(profileKey("started-modules"), JSON.stringify(list)); } catch (e) { /* non-fatal */ }
+}
+
+// The `coverage` block build_modules.py folds into app/data/modules.json:
+// {total, locales: {lang: questionsTranslated}}. Absent for the four manifest
+// modules that have no built content at all (lksg, waffensachkunde,
+// amateurfunk_a/_e) - those say nothing about language rather than guessing.
+function moduleCoverage(mod) {
+  const cov = mod && mod.coverage;
+  if (!cov || !cov.locales || !cov.total) return null;
+  return cov;
+}
+
+// The endonym, from the locale registry (index.json) - the same name the
+// language sheet shows. Deliberately NOT a hand-written 18x18 table of
+// language names in every other language: that is 324 strings to maintain in
+// order to say something the endonym already says to everyone.
+function localeDisplayName(code) {
+  const entry = localeEntry(code);
+  return (entry && (entry.native_name || entry.english_name)) || String(code).toUpperCase();
+}
+
+function joinLangNames(codes, G) {
+  const names = codes.map(localeDisplayName);
+  if (names.length <= 1) return names.join("");
+  if (names.length === 2) return `${names[0]} ${G.and} ${names[1]}`;
+  // A compliance module carries 14 locales; naming all of them turns a row
+  // into a paragraph. Three plus a count says the same useful thing.
+  if (names.length > 4) return `${names.slice(0, 3).join(", ")} +${names.length - 3}`;
+  return `${names.slice(0, -1).join(", ")} ${G.and} ${names[names.length - 1]}`;
+}
+
+// What, if anything, this row should say about the CURRENT UI language.
+// Returns null when the module has the language in full - a checkmark on all
+// 29 rows is noise, and the absence of a warning is the quiet "yes".
+//
+// The partial case is expressed as a FRACTION rather than a module-level
+// badge ("18 Sprachen") on purpose: per-question translation coverage is
+// becoming fractional, and a badge counting a module's languages would be
+// true of the module and false of the card on screen the moment it is.
+function coverageNoteFor(mod, lang, G) {
+  const cov = moduleCoverage(mod);
+  if (!cov) return null;
+  const have = cov.locales[lang] || 0;
+  if (have >= cov.total) return null;
+  if (have > 0) return G.partial(localeDisplayName(lang), have, cov.total);
+  const present = Object.keys(cov.locales).filter((l) => cov.locales[l] > 0);
+  return present.length ? G.onlyIn(joinLangNames(present, G)) : null;
+}
+
+function buildModuleRow(mod, group, G) {
+  const btn = document.createElement("button");
+  btn.className = "exam-mode-btn" + (group.muted ? " module-row-muted" : "");
+  // The row's own identity, so a test (or a bug report) can name a row
+  // without going through a label that changes with the UI language.
+  btn.dataset.examType = mod.exam_type;
+  const label = document.createElement("strong");
+  label.textContent = mod.label[state.lang] || mod.label.en;
+  btn.appendChild(label);
+
+  const notes = [];
+  if (mod.kind === "compare") notes.push(G.noCertificate);
+  const coverageNote = coverageNoteFor(mod, state.lang, G);
+  if (coverageNote) notes.push(coverageNote);
+  if (notes.length) {
+    const note = document.createElement("span");
+    note.className = "module-row-note";
+    note.textContent = notes.join(" · ");
+    btn.appendChild(note);
+  }
+
+  btn.addEventListener("click", () => {
+    state.pendingModule = mod;
+    if (mod.options.length === 1) {
+      selectModuleAndScope(mod.exam_type, mod.options[0].code);
+    } else {
+      state.modulePickerStep = "scope";
+      renderModulePicker();
+    }
+  });
+  return btn;
+}
+
+function moduleGroupStrings(lang) {
+  return MODULE_GROUP_STRINGS[lang] || MODULE_GROUP_STRINGS.en;
+}
+
+// Same standalone-table convention as MODULE_PICKER_STRINGS above (this text
+// is shown before any module's content locale exists), and the same 18-locale
+// coverage - a message whose entire purpose is to tell a Greek speaker that
+// the questions are not in Greek cannot itself be in English.
+const MODULE_GROUP_STRINGS = {
+  de: {
+    myModules: "Meine Module", groupDriving: "Führerschein",
+    groupOtherState: "Weitere staatliche Prüfungen", groupCompliance: "Pflichtschulungen",
+    groupCert: "Berufliche Zertifikate", groupCompare: "Andere Länder — zum Vergleich",
+    noCertificate: "kein Nachweis", and: "und",
+    onlyIn: (names) => `Nur auf ${names}`,
+    partial: (name, have, total) => `${name}: ${have} von ${total}`,
+    contentNotice: (name) => `Die Fragen in diesem Modul erscheinen auf ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} von ${total} Fragen gibt es auf ${name}, die übrigen erscheinen auf ${other}.`,
+  },
+  en: {
+    myModules: "My modules", groupDriving: "Driving licence",
+    groupOtherState: "Other state exams", groupCompliance: "Mandatory training",
+    groupCert: "Professional certificates", groupCompare: "Other countries — for comparison",
+    noCertificate: "no certificate", and: "and",
+    onlyIn: (names) => `Only in ${names}`,
+    partial: (name, have, total) => `${name}: ${have} of ${total}`,
+    contentNotice: (name) => `Questions in this module are shown in ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} of ${total} questions are available in ${name}; the rest are shown in ${other}.`,
+  },
+  bar: {
+    myModules: "Meine Moduln", groupDriving: "Führerschein",
+    groupOtherState: "Andane staatliche Prüfunga", groupCompliance: "Pflichtschulunga",
+    groupCert: "Berufliche Zertifikat", groupCompare: "Andane Länder — zum Vergleich",
+    noCertificate: "koa Nachweis", and: "und",
+    onlyIn: (names) => `Bloß auf ${names}`,
+    partial: (name, have, total) => `${name}: ${have} vo ${total}`,
+    contentNotice: (name) => `D'Fragn in dem Modul kemman auf ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} vo ${total} Fragn gibt's auf ${name}, de andan kemman auf ${other}.`,
+  },
+  ro: {
+    myModules: "Modulele mele", groupDriving: "Permis de conducere",
+    groupOtherState: "Alte examene de stat", groupCompliance: "Instruiri obligatorii",
+    groupCert: "Certificate profesionale", groupCompare: "Alte țări — pentru comparație",
+    noCertificate: "nu conferă niciun atestat", and: "și",
+    onlyIn: (names) => `Doar în ${names}`,
+    partial: (name, have, total) => `${name}: ${have} din ${total}`,
+    contentNotice: (name) => `Întrebările din acest modul sunt afișate în ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} din ${total} întrebări există în ${name}; restul sunt afișate în ${other}.`,
+  },
+  pt: {
+    myModules: "Os meus módulos", groupDriving: "Carta de condução",
+    groupOtherState: "Outros exames estatais", groupCompliance: "Formações obrigatórias",
+    groupCert: "Certificados profissionais", groupCompare: "Outros países — para comparação",
+    noCertificate: "não confere certificado", and: "e",
+    onlyIn: (names) => `Apenas em ${names}`,
+    partial: (name, have, total) => `${name}: ${have} de ${total}`,
+    contentNotice: (name) => `As perguntas deste módulo são apresentadas em ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} de ${total} perguntas existem em ${name}; as restantes são apresentadas em ${other}.`,
+  },
+  hr: {
+    myModules: "Moji moduli", groupDriving: "Vozačka dozvola",
+    groupOtherState: "Ostali državni ispiti", groupCompliance: "Obvezne edukacije",
+    groupCert: "Stručni certifikati", groupCompare: "Druge zemlje — za usporedbu",
+    noCertificate: "ne daje potvrdu", and: "i",
+    onlyIn: (names) => `Samo na ${names}`,
+    partial: (name, have, total) => `${name}: ${have} od ${total}`,
+    contentNotice: (name) => `Pitanja u ovom modulu prikazana su na ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} od ${total} pitanja postoji na ${name}; ostala su prikazana na ${other}.`,
+  },
+  el: {
+    myModules: "Οι ενότητές μου", groupDriving: "Άδεια οδήγησης",
+    groupOtherState: "Άλλες κρατικές εξετάσεις", groupCompliance: "Υποχρεωτικές εκπαιδεύσεις",
+    groupCert: "Επαγγελματικά πιστοποιητικά", groupCompare: "Άλλες χώρες — για σύγκριση",
+    noCertificate: "χωρίς πιστοποίηση", and: "και",
+    onlyIn: (names) => `Μόνο στα ${names}`,
+    partial: (name, have, total) => `${name}: ${have} από ${total}`,
+    contentNotice: (name) => `Οι ερωτήσεις αυτής της ενότητας εμφανίζονται στα ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} από ${total} ερωτήσεις υπάρχουν στα ${name}· οι υπόλοιπες εμφανίζονται στα ${other}.`,
+  },
+  fa: {
+    myModules: "ماژول‌های من", groupDriving: "گواهی‌نامهٔ رانندگی",
+    groupOtherState: "آزمون‌های دولتی دیگر", groupCompliance: "آموزش‌های اجباری",
+    groupCert: "گواهی‌نامه‌های حرفه‌ای", groupCompare: "کشورهای دیگر — برای مقایسه",
+    noCertificate: "بدون گواهی", and: "و",
+    onlyIn: (names) => `فقط به ${names}`,
+    partial: (name, have, total) => `${name}: ${have} از ${total}`,
+    contentNotice: (name) => `پرسش‌های این ماژول به ${name} نمایش داده می‌شوند.`,
+    partialNotice: (name, have, total, other) => `${have} از ${total} پرسش به ${name} موجود است؛ بقیه به ${other} نمایش داده می‌شوند.`,
+  },
+  uk: {
+    myModules: "Мої модулі", groupDriving: "Посвідчення водія",
+    groupOtherState: "Інші державні іспити", groupCompliance: "Обовʼязкові навчання",
+    groupCert: "Професійні сертифікати", groupCompare: "Інші країни — для порівняння",
+    noCertificate: "без документа", and: "та",
+    onlyIn: (names) => `Лише ${names}`,
+    partial: (name, have, total) => `${name}: ${have} з ${total}`,
+    contentNotice: (name) => `Питання цього модуля показані мовою ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} з ${total} питань є мовою ${name}; решта показані мовою ${other}.`,
+  },
+  pl: {
+    myModules: "Moje moduły", groupDriving: "Prawo jazdy",
+    groupOtherState: "Inne egzaminy państwowe", groupCompliance: "Szkolenia obowiązkowe",
+    groupCert: "Certyfikaty zawodowe", groupCompare: "Inne kraje — dla porównania",
+    noCertificate: "brak zaświadczenia", and: "i",
+    onlyIn: (names) => `Tylko w: ${names}`,
+    partial: (name, have, total) => `${name}: ${have} z ${total}`,
+    contentNotice: (name) => `Pytania w tym module są w języku: ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} z ${total} pytań jest w języku ${name}; pozostałe w języku ${other}.`,
+  },
+  ar: {
+    myModules: "وحداتي", groupDriving: "رخصة القيادة",
+    groupOtherState: "امتحانات حكومية أخرى", groupCompliance: "تدريبات إلزامية",
+    groupCert: "شهادات مهنية", groupCompare: "دول أخرى — للمقارنة",
+    noCertificate: "لا يمنح شهادة", and: "و",
+    onlyIn: (names) => `متوفّر فقط بـ ${names}`,
+    partial: (name, have, total) => `${name}: ${have} من ${total}`,
+    contentNotice: (name) => `أسئلة هذه الوحدة معروضة بـ ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} من ${total} سؤالاً متوفّرة بـ ${name}، والباقي معروض بـ ${other}.`,
+  },
+  zh: {
+    myModules: "我的模块", groupDriving: "驾驶执照",
+    groupOtherState: "其他国家考试", groupCompliance: "强制培训",
+    groupCert: "职业证书", groupCompare: "其他国家 — 供比较",
+    noCertificate: "不授予任何证明", and: "、",
+    onlyIn: (names) => `仅提供 ${names}`,
+    partial: (name, have, total) => `${name}：${total} 题中的 ${have} 题`,
+    contentNotice: (name) => `本模块的题目以${name}显示。`,
+    partialNotice: (name, have, total, other) => `${total} 题中有 ${have} 题有${name}版本，其余以${other}显示。`,
+  },
+  hi: {
+    myModules: "मेरे मॉड्यूल", groupDriving: "ड्राइविंग लाइसेंस",
+    groupOtherState: "अन्य सरकारी परीक्षाएँ", groupCompliance: "अनिवार्य प्रशिक्षण",
+    groupCert: "व्यावसायिक प्रमाणपत्र", groupCompare: "अन्य देश — तुलना के लिए",
+    noCertificate: "कोई प्रमाण नहीं", and: "और",
+    onlyIn: (names) => `केवल ${names} में`,
+    partial: (name, have, total) => `${name}: ${total} में से ${have}`,
+    contentNotice: (name) => `इस मॉड्यूल के प्रश्न ${name} में दिखाए जाते हैं।`,
+    partialNotice: (name, have, total, other) => `${total} में से ${have} प्रश्न ${name} में उपलब्ध हैं; बाकी ${other} में दिखाए जाते हैं।`,
+  },
+  tr: {
+    myModules: "Modüllerim", groupDriving: "Sürücü belgesi",
+    groupOtherState: "Diğer devlet sınavları", groupCompliance: "Zorunlu eğitimler",
+    groupCert: "Mesleki sertifikalar", groupCompare: "Diğer ülkeler — karşılaştırma için",
+    noCertificate: "belge vermez", and: "ve",
+    onlyIn: (names) => `Yalnızca ${names} dilinde`,
+    partial: (name, have, total) => `${name}: ${total} sorudan ${have} tanesi`,
+    contentNotice: (name) => `Bu modüldeki sorular ${name} dilinde gösterilir.`,
+    partialNotice: (name, have, total, other) => `${total} sorudan ${have} tanesi ${name} dilinde; kalanlar ${other} dilinde gösterilir.`,
+  },
+  fr: {
+    myModules: "Mes modules", groupDriving: "Permis de conduire",
+    groupOtherState: "Autres examens d'État", groupCompliance: "Formations obligatoires",
+    groupCert: "Certificats professionnels", groupCompare: "Autres pays — à titre de comparaison",
+    noCertificate: "aucune attestation", and: "et",
+    onlyIn: (names) => `Uniquement en ${names}`,
+    partial: (name, have, total) => `${name} : ${have} sur ${total}`,
+    contentNotice: (name) => `Les questions de ce module sont affichées en ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} questions sur ${total} existent en ${name} ; les autres sont affichées en ${other}.`,
+  },
+  ru: {
+    myModules: "Мои модули", groupDriving: "Водительские права",
+    groupOtherState: "Другие государственные экзамены", groupCompliance: "Обязательное обучение",
+    groupCert: "Профессиональные сертификаты", groupCompare: "Другие страны — для сравнения",
+    noCertificate: "без документа", and: "и",
+    onlyIn: (names) => `Только на ${names}`,
+    partial: (name, have, total) => `${name}: ${have} из ${total}`,
+    contentNotice: (name) => `Вопросы этого модуля показаны на языке ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} из ${total} вопросов есть на ${name}; остальные показаны на ${other}.`,
+  },
+  es: {
+    myModules: "Mis módulos", groupDriving: "Permiso de conducir",
+    groupOtherState: "Otros exámenes oficiales", groupCompliance: "Formaciones obligatorias",
+    groupCert: "Certificados profesionales", groupCompare: "Otros países — para comparar",
+    noCertificate: "no acredita nada", and: "y",
+    onlyIn: (names) => `Solo en ${names}`,
+    partial: (name, have, total) => `${name}: ${have} de ${total}`,
+    contentNotice: (name) => `Las preguntas de este módulo se muestran en ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} de ${total} preguntas existen en ${name}; el resto se muestra en ${other}.`,
+  },
+  it: {
+    myModules: "I miei moduli", groupDriving: "Patente di guida",
+    groupOtherState: "Altri esami di Stato", groupCompliance: "Formazioni obbligatorie",
+    groupCert: "Certificati professionali", groupCompare: "Altri paesi — per confronto",
+    noCertificate: "nessun attestato", and: "e",
+    onlyIn: (names) => `Solo in ${names}`,
+    partial: (name, have, total) => `${name}: ${have} su ${total}`,
+    contentNotice: (name) => `Le domande di questo modulo sono mostrate in ${name}.`,
+    partialNotice: (name, have, total, other) => `${have} domande su ${total} esistono in ${name}; le altre sono mostrate in ${other}.`,
+  },
 };
 
 // --- Module intro wizard (DN-43) ----------------------------------------
@@ -2692,10 +3224,397 @@ function wireModuleIntroControls() {
     }
   });
   el("#module-intro-skip").addEventListener("click", () => history.back());
-  el("#module-info-btn").addEventListener("click", () => {
-    const mod = moduleManifestFor(state.examType);
-    if (mod && mod.intro) openModuleIntro(mod);
+  el("#module-info-btn").addEventListener("click", () => openModuleHub());
+}
+
+// --- ADR-app-0002 § 1: the module hub -----------------------------------
+//
+// Replaces the module INTRO as the thing a learner lands on. The ADR's own
+// framing, and the reason this is a hub and not a nicer intro:
+//
+//   An intro explains the module. It is read once, and then costs a tap
+//   forever. A hub is where the user decides what to do next. It carries
+//   state and the primary action, so the tap is one they were going to
+//   make anyway.
+//
+// Everything on it is DERIVED - from `kind` in the manifest, the SRS boxes,
+// the exam attempt log and the lesson completions. No per-module copy is
+// written here and none should be added: 29 modules of hand-written hub
+// text is 29 things to translate 18 times and 29 things to keep true. The
+// hub for a module nobody has opened is the same code as the hub for one
+// with 400 answered cards; only the numbers differ.
+//
+// Strings: de and en only, deliberately. ADR-app-0002 § 3 fixes this
+// vocabulary in German and English (Lernen / Uebungsquiz /
+// Pruefungssimulation / Lernnachweis, and EN "readiness check" /
+// "self-assessment") and explicitly says the pairs are NOT translations of
+// each other. Coining the other 16 unreviewed would be inventing
+// terminology in languages nobody here can check, for terms whose whole
+// point is that they are precise. hubStrings() falls back to en, and
+// roadmap 3.7 retires these dictionaries into the KB where the translation
+// pipeline can see them. Flagged for the PO rather than guessed.
+const MODULE_HUB_STRINGS = {
+  de: {
+    continueLearning: "Weiterlernen",
+    startLearning: "Lernen starten",
+    learnedOf: (n, total) => `${n} von ${total} gelernt`,
+    dueToday: (n) => `Heute faellig: ${n}`,
+    noneDue: "Heute nichts faellig",
+    lastSimPassed: "Letzte Pruefungssimulation: bestanden",
+    lastSimFailed: "Letzte Pruefungssimulation: nicht bestanden",
+    noSimYet: "Noch keine Pruefungssimulation",
+    topics: "Themen",
+    runs: "Pruefen",
+    simulation: "Pruefungssimulation",
+    training: "Ueben ohne Zeitlimit",
+    practiceQuiz: "Uebungsquiz",
+    learn: "Lernen",
+    about: "Ueber dieses Modul",
+    questionCount: (n) => `${n} Fragen`,
+    close: "Schliessen",
+    kindLicence: "Staatliche Pruefung",
+    kindCompliance: "Pflichtschulung",
+    kindCert: "Berufliches Zertifikat",
+    kindCompare: "Zum Vergleich",
+    noCertificate: "kein Nachweis",
+    stateGrey: "noch nicht begonnen",
+    stateRed: "am Anfang",
+    stateYellow: "auf dem Weg",
+    stateGreen: "sitzt",
+    nextTitle: "Als Naechstes",
+    nextReview: (n) => `${n} faellige Karten wiederholen`,
+    nextLearn: (topic) => `Weiter mit ${topic}`,
+    nextSimulate: "Alles sitzt - Pruefungssimulation starten",
+    stateAria: (label, stateWord) => `${label}: ${stateWord}`,
+  },
+  en: {
+    continueLearning: "Continue learning",
+    startLearning: "Start learning",
+    learnedOf: (n, total) => `${n} of ${total} learned`,
+    dueToday: (n) => `Due today: ${n}`,
+    noneDue: "Nothing due today",
+    lastSimPassed: "Last readiness check: passed",
+    lastSimFailed: "Last readiness check: not passed",
+    noSimYet: "No readiness check yet",
+    topics: "Topics",
+    runs: "Check",
+    simulation: "Readiness check",
+    training: "Practice without a time limit",
+    practiceQuiz: "Practice quiz",
+    learn: "Learn",
+    about: "About this module",
+    questionCount: (n) => `${n} questions`,
+    close: "Close",
+    kindLicence: "State exam",
+    kindCompliance: "Mandatory training",
+    kindCert: "Professional certificate",
+    kindCompare: "For comparison",
+    noCertificate: "no certificate",
+    stateGrey: "not started",
+    stateRed: "just started",
+    stateYellow: "getting there",
+    stateGreen: "solid",
+    nextTitle: "Next",
+    nextReview: (n) => `Review ${n} cards that are due`,
+    nextLearn: (topic) => `Carry on with ${topic}`,
+    nextSimulate: "All solid - start the readiness check",
+    stateAria: (label, stateWord) => `${label}: ${stateWord}`,
+  },
+};
+
+function hubStrings(lang) {
+  return MODULE_HUB_STRINGS[lang] || MODULE_HUB_STRINGS.en;
+}
+
+// A card counts as "learned" once it has been promoted past the two short
+// boxes - box >= 2 is the first interval measured in days rather than
+// minutes. Deliberately not "has been seen": a card answered once and never
+// again is not learned, and a progress number that says otherwise is the
+// kind of number that makes the rest of the screen untrustworthy.
+const HUB_LEARNED_MIN_BOX = 2;
+
+function moduleProgressSummary() {
+  const srs = loadSrsData();
+  const qs = state.questions || [];
+  let learned = 0;
+  for (const q of qs) {
+    const entry = srs[q.id];
+    if (entry && (entry.box || 0) >= HUB_LEARNED_MIN_BOX) learned += 1;
+  }
+  const due = dueQuestionsForActiveScope().length;
+  // Simulation only. A training run is explicitly low-stakes and saying
+  // "last run: not passed" about one would misreport what the learner did.
+  const sims = getExamAttempts().filter(
+    (a) => a.examType === state.examType && a.mode === "simulation"
+  );
+  const lastSim = sims.length ? sims[sims.length - 1] : null;
+  return { learned, total: qs.length, due, lastSim };
+}
+
+// Per-topic counts for the same question set the list view is scoped to,
+// in the order the topics first appear in the data (which is the order the
+// module author put them in - not alphabetical, which would scatter a
+// deliberately ordered syllabus).
+function hubTopicRows() {
+  const srs = loadSrsData();
+  const order = [];
+  const byCode = new Map();
+  const now = Date.now();
+  for (const q of state.questions || []) {
+    const code = q.topic_code;
+    if (!byCode.has(code)) {
+      byCode.set(code, { code, label: getTopicLabel(code, q.topic), total: 0, learned: 0, seen: 0, due: 0 });
+      order.push(code);
+    }
+    const row = byCode.get(code);
+    row.total += 1;
+    const entry = srs[q.id];
+    if (!entry) continue;
+    row.seen += 1;
+    if ((entry.box || 0) >= HUB_LEARNED_MIN_BOX) row.learned += 1;
+    if (entry.dueAt <= now) row.due += 1;
+  }
+  // Rendered in the module's own topic order (TOPIC_LABELS' key order),
+  // falling back to the order topics appear in the data for a module with no
+  // labels yet. Not alphabetical, which would scatter a deliberately
+  // ordered syllabus, and not "worst first", which would fight it.
+  const authored = Object.keys(TOPIC_LABELS[state.examType] || {});
+  const ordered = authored.filter((c) => byCode.has(c));
+  for (const c of order) if (!ordered.includes(c)) ordered.push(c);
+  return ordered.map((c) => {
+    const row = byCode.get(c);
+    row.state = topicTrafficState(row);
+    return row;
   });
+}
+
+// --- Roadmap 3.2: the traffic light and "what next" ---------------------
+//
+// Four states per topic, derived from the Leitner boxes that already exist -
+// fed by exam answers, practice runs and flashcard self-assessment alike, so
+// this reads every way the learner studies rather than one of them.
+//
+// `grundstoff` is deliberately NOT an input. The roadmap is explicit: it is
+// true for all 531 Fuehrerschein questions and discriminates in only 8 of 25
+// modules, so a signal built on it would be constant where it matters most.
+//
+// THRESHOLDS ARE NOT SETTLED BY THE ROADMAP OR ADR-app-0002. It fixes the
+// four colours, the source and "one derived next action", and stops there.
+// The numbers below are a defensible first cut, isolated here so they are
+// one edit to tune, not a rule spread through the rendering code:
+//
+//   grey    nothing in this topic has ever been answered
+//   green   >= 80% of the topic learned AND nothing overdue
+//   yellow  >= 40% learned
+//   red     started, but below that
+//
+// The two judgements in there, both of which want the PO's eye:
+//  - green REQUIRES nothing overdue. A topic you learned in March and have
+//    not seen since is not green, because the light is meant to answer "am I
+//    ready", not "was I ever ready". This is the one rule that can move a
+//    topic backwards without the learner getting anything wrong, which is
+//    honest but will surprise someone.
+//  - "learned" is box >= 2, the same definition the hub's progress line
+//    already uses. One shared definition, so the light and the number under
+//    it can never disagree.
+const TOPIC_STATE_GREEN_MIN = 0.8;
+const TOPIC_STATE_YELLOW_MIN = 0.4;
+
+/**
+ * The traffic light for one topic. Pure: takes counts, returns a state, so
+ * it can be tested against synthetic input without driving the UI.
+ */
+function topicTrafficState({ total, learned, seen, due }) {
+  if (!total || !seen) return "grey";
+  if (due > 0) return learned / total >= TOPIC_STATE_YELLOW_MIN ? "yellow" : "red";
+  if (learned / total >= TOPIC_STATE_GREEN_MIN) return "green";
+  if (learned / total >= TOPIC_STATE_YELLOW_MIN) return "yellow";
+  return "red";
+}
+
+/**
+ * The ONE next action, derived. Priority, and the reasoning for it:
+ *  1. Anything overdue -> review it. That is what a Leitner box is for; new
+ *     material on top of lapsed material is how a learner ends up with
+ *     neither.
+ *  2. Otherwise the first topic that is not green, in the module's own topic
+ *     order - which is the hand-authored ordering the roadmap asks for, and
+ *     already exists as the key order of TOPIC_LABELS. First, not weakest:
+ *     a syllabus is ordered for a reason, and jumping a learner to whichever
+ *     topic scores worst fights that order.
+ *  3. Everything green -> the run. There is nothing left to learn first.
+ */
+function hubNextAction(rows, due) {
+  if (due > 0) return { kind: "review", due };
+  const next = rows.find((r) => r.state !== "green");
+  if (next) return { kind: "learn", topic: next };
+  return { kind: "simulate" };
+}
+
+function hubKindChip(mod, H) {
+  if (!mod) return "";
+  const byKind = {
+    licence: H.kindLicence,
+    compliance: H.kindCompliance,
+    cert: H.kindCert,
+    compare: H.kindCompare,
+  };
+  const parts = [byKind[mod.kind]].filter(Boolean);
+  // The scope is the second half of "Staatliche Pruefung - Klasse B". Only
+  // when the module actually has more than one scope; repeating the module
+  // name back at the user is not information.
+  const opts = (mod.options || []);
+  if (opts.length > 1) {
+    const active = opts.find((o) => o.code === state.scopeCode);
+    if (active) parts.push(active.label && (active.label[state.lang] || active.label.en) || active.code);
+  }
+  if (mod.kind === "compare") parts.push(H.noCertificate);
+  return parts.join(" \u00b7 ");
+}
+
+function openModuleHub() {
+  const mod = moduleManifestFor(state.examType);
+  if (!mod) return;
+  el("#module-hub").hidden = false;
+  history.pushState({ view: "module-hub" }, "");
+  renderModuleHub();
+  setInertBehindDialog(true);
+  el("#module-hub-title").focus();
+}
+
+function closeModuleHub() {
+  el("#module-hub").hidden = true;
+  setInertBehindDialog(false);
+}
+
+function renderModuleHub() {
+  const mod = moduleManifestFor(state.examType);
+  if (!mod) return;
+  const H = hubStrings(state.lang);
+  const G = moduleGroupStrings(state.lang);
+  const p = moduleProgressSummary();
+
+  el("#module-hub-title").textContent = mod.label[state.lang] || mod.label.en;
+  el("#module-hub-chip").textContent = hubKindChip(mod, H);
+
+  // 2. The primary action. "Weiterlernen" is a resume, so it only claims to
+  // be one when there is something to resume.
+  const primary = el("#module-hub-primary");
+  primary.innerHTML = `<strong>${p.learned > 0 || p.due > 0 ? H.continueLearning : H.startLearning}</strong>`;
+
+  // 3. Progress.
+  const prog = el("#module-hub-progress");
+  const bits = [H.learnedOf(p.learned, p.total), p.due ? H.dueToday(p.due) : H.noneDue];
+  if (p.lastSim) bits.push(p.lastSim.passed ? H.lastSimPassed : H.lastSimFailed);
+  else bits.push(H.noSimYet);
+  prog.textContent = bits.join(" \u00b7 ");
+
+  // 3b. The one derived next action (roadmap 3.2). A line under the primary
+  // button, not a second button: the ADR allows one primary action on the
+  // hub, and two competing "do this next" controls is exactly the ambiguity
+  // a hub exists to remove.
+  const rows = hubTopicRows();
+  const next = hubNextAction(rows, p.due);
+  const nextBtn = el("#module-hub-next");
+  el("#module-hub-next-title").textContent = H.nextTitle;
+  nextBtn.dataset.nextKind = next.kind;
+  if (next.kind === "review") nextBtn.textContent = H.nextReview(next.due);
+  else if (next.kind === "learn") nextBtn.textContent = H.nextLearn(next.topic.label);
+  else nextBtn.textContent = H.nextSimulate;
+  state.hubNext = next;
+
+  // 4. Topics, each a filtered entry into the list the app already has.
+  el("#module-hub-topics-title").textContent = H.topics;
+  const topics = el("#module-hub-topics");
+  topics.innerHTML = "";
+  for (const row of rows) {
+    const btn = document.createElement("button");
+    btn.className = "exam-mode-btn hub-topic-btn";
+    btn.dataset.topicCode = row.code;
+    // The light is a dot AND a word. Colour alone would carry the whole
+    // signal for a screen reader, and for the ~8% of men with a red/green
+    // deficiency, on a screen whose entire job is telling you where you
+    // stand.
+    const stateWord = { grey: H.stateGrey, red: H.stateRed, yellow: H.stateYellow, green: H.stateGreen }[row.state];
+    btn.dataset.topicState = row.state;
+    btn.innerHTML =
+      `<strong><span class="topic-light" data-state="${row.state}" aria-hidden="true"></span>${row.label}</strong>` +
+      `<span class="module-row-note">${H.learnedOf(row.learned, row.total)} \u00b7 ${stateWord}</span>`;
+    btn.setAttribute("aria-label", H.stateAria(row.label, stateWord));
+    btn.addEventListener("click", () => {
+      state.topicFilter = row.code;
+      history.back();
+      render();
+    });
+    topics.appendChild(btn);
+  }
+
+  // 5. The runs, as buttons. ADR-app-0002 § 4: never behind a mode
+  // selector. (The further consolidation that ADR describes - one run with
+  // a "mit Zeitlimit" toggle instead of two buttons - changes startExam()'s
+  // contract and its other call sites, so it is left for that change.)
+  el("#module-hub-runs-title").textContent = H.runs;
+  el("#module-hub-sim").innerHTML = `<strong>${H.simulation}</strong>`;
+  el("#module-hub-training").innerHTML = `<strong>${H.training}</strong>`;
+  el("#module-hub-practice").innerHTML = `<strong>${H.practiceQuiz}</strong>`;
+
+  // 6. Coverage, only when this learner's language is not fully covered.
+  // Same fraction the picker row shows - never a module-level badge.
+  const cov = el("#module-hub-coverage");
+  const note = coverageNoteFor(mod, state.lang, G);
+  cov.textContent = note || "";
+  cov.hidden = !note;
+
+  // 7. "Ueber dieses Modul", collapsed. The licence line and the question
+  // count live here and nowhere above it.
+  el("#module-hub-about-summary").textContent = H.about;
+  const about = el("#module-hub-about-body");
+  about.innerHTML = "";
+  const count = document.createElement("p");
+  count.textContent = H.questionCount(p.total);
+  about.appendChild(count);
+  // The intro copy the manifest already carries is the honest source for
+  // "what is this module" - reused here as prose instead of being deleted
+  // with the wizard, and shown below the fold where scope text belongs.
+  const steps = (mod.intro && mod.intro.steps) || [];
+  for (const step of steps) {
+    const c = step[state.lang] || step.en || step.de;
+    if (!c) continue;
+    const para = document.createElement("p");
+    para.innerHTML = `<strong>${c.title}</strong><br>${c.body}`;
+    about.appendChild(para);
+  }
+  el("#module-hub-close").textContent = H.close;
+}
+
+function wireModuleHubControls() {
+  el("#module-hub-primary").addEventListener("click", () => {
+    state.topicFilter = "all";
+    history.back();
+    render();
+  });
+  el("#module-hub-sim").addEventListener("click", () => {
+    closeModuleHub();
+    startExam("simulation");
+  });
+  el("#module-hub-training").addEventListener("click", () => {
+    closeModuleHub();
+    startExam("training");
+  });
+  el("#module-hub-practice").addEventListener("click", () => {
+    closeModuleHub();
+    openPracticePicker();
+  });
+  el("#module-hub-next").addEventListener("click", () => {
+    const next = state.hubNext;
+    if (!next) return;
+    if (next.kind === "simulate") { closeModuleHub(); startExam("simulation"); return; }
+    if (next.kind === "review") { closeModuleHub(); openReviewSession(); return; }
+    state.topicFilter = next.topic.code;
+    history.back();
+    render();
+  });
+  el("#module-hub-close").addEventListener("click", () => history.back());
 }
 
 // --- Completion tracking & certificates (DN-14 / DN-44 prep) -----------
@@ -3666,6 +4585,59 @@ function recordCompletion(examType, scopeCode, results) {
   // an exam simulation depend on network access.
   trySignCompletion(record);
   return record;
+}
+
+// --- Phase 3.1 (2026-09-07): exam attempt log ---------------------------
+// A lightweight history of every FINISHED exam run - pass or fail,
+// simulation or training. Separate from the completions list above on
+// purpose, and the separation is the safety property, not a filing
+// preference:
+//
+//   * getCompletions()/profileKey("completions") is the certificate
+//     substrate. Everything that can produce, sign, verify, email or
+//     export a certificate reads that list and only that list. Adding a
+//     `passed: false` field to a record in it would have put a failed run
+//     inside the one collection every certificate path enumerates, and
+//     correctness would then depend on every one of those call sites
+//     remembering to filter - a certificate for a failed run would be one
+//     missed filter away.
+//   * This log lives under its own key, has a different (much smaller)
+//     shape with no id/moduleLabel/signature fields, and is never signed,
+//     never passed to trySignCompletion()/certificateHtmlDoc()/
+//     credentialJsonDoc(), and never read by them. A failed run cannot
+//     become a certificate because nothing here is reachable from the
+//     certificate code at all.
+//
+// Capped at EXAM_ATTEMPT_LOG_MAX newest-last entries so a heavily-used
+// device cannot grow this without bound (each entry is ~120 bytes, so the
+// cap is a few tens of KB worst case, well inside a localStorage quota).
+const EXAM_ATTEMPT_LOG_MAX = 200;
+
+function getExamAttempts() {
+  try {
+    const raw = JSON.parse(storageGet(profileKey("exam-attempts")) || "[]");
+    return Array.isArray(raw) ? raw : [];
+  } catch (e) {
+    return [];
+  }
+}
+
+function recordExamAttempt(examType, scopeCode, mode, results) {
+  const attempt = {
+    examType,
+    scopeCode,
+    mode,
+    passed: !!results.passed,
+    errorPoints: results.errorPoints,
+    total: state.exam ? state.exam.questions.length : 0,
+    at: new Date().toISOString(),
+  };
+  try {
+    const all = getExamAttempts();
+    all.push(attempt);
+    storageSet(profileKey("exam-attempts"), JSON.stringify(all.slice(-EXAM_ATTEMPT_LOG_MAX)));
+  } catch (e) { /* non-fatal - storage may be full/unavailable */ }
+  return attempt;
 }
 
 // DN-56: generates an inline, self-contained SVG QR code for a verify URL
@@ -5021,9 +5993,10 @@ const PRIMER_TOPIC_ORDER = ["shape_category", ...Object.keys(TOPIC_LABELS.fuehre
 
 function primerTopicLabel(topicCode, lang) {
   if (topicCode === "shape_category") return primerStrings(lang).shapeCategoryLabel;
-  const entry = TOPIC_LABELS.fuehrerschein[topicCode];
-  if (!entry) return topicCode;
-  return entry[lang] || entry.en || entry.de || topicCode;
+  // Umbrella-aware: the seven sign primers are filed under `verkehrszeichen`,
+  // which stopped being a question topic in roadmap 3.3 but is still what
+  // they teach and still what their "practise this topic now" hands off to.
+  return topicOrGroupLabel(topicCode, lang, "fuehrerschein") || topicCode;
 }
 
 // Fetched once and cached per (core, locale) - core structural data (id/
@@ -5226,7 +6199,7 @@ function wirePrimerControls() {
 // the data already carries practice_ref text for exactly that future use.
 
 // Fetched once per (examType) / (examType, lang) - same cache shape and
-// fallback chain (state.lang -> en -> de) as fetchLocaleTextWithFallback()/
+// fallback chain (state.lang -> en -> de) as fetchLocaleTextBundles()/
 // loadPrimerChunks() above, so a UI language without its own course
 // translation still shows real content instead of an empty lesson.
 const courseCoreCache = {};
@@ -5883,6 +6856,13 @@ async function renderCourseView() {
     return;
   }
 
+  // Phase 3.1 (2026-09-07): progress markers. Read once for the whole list
+  // rather than per lesson - it's one localStorage read either way, and
+  // under a declined-storage consent it's simply an empty object, so the
+  // list renders exactly as it did before this existed.
+  const LC = lessonCompletionStrings(state.lang);
+  const done = getLessonCompletions(state.examType);
+
   let lastUnitRef = null;
   lessons.forEach((lesson) => {
     if (lesson.unit_ref !== lastUnitRef) {
@@ -5890,20 +6870,53 @@ async function renderCourseView() {
       const unit = unitsById.get(lesson.unit_ref);
       const heading = document.createElement("h3");
       heading.className = "sign-ref-category";
-      heading.textContent = (unit && courseText(bundle, unit.unit_id, "title")) || lesson.unit_ref;
+      heading.textContent = courseUnitHeading(unit, bundle) || lesson.unit_ref;
       list.appendChild(heading);
     }
     const btn = document.createElement("button");
     btn.className = "exam-mode-btn";
     const kindKey = COURSE_LESSON_KIND_KEY[lesson.lesson_kind];
     const kindLabel = kindKey ? S[kindKey] : lesson.lesson_kind;
-    const title = courseText(bundle, lesson.lesson_id, "title") || lesson.lesson_id;
-    btn.innerHTML = `<strong>${title}</strong><span class="course-lesson-meta">${kindLabel} · ${S.minutes(lesson.estimated_minutes || 0)}</span>`;
+    const title = courseText(bundle, lesson.lesson_id, "title") || derivedLessonTitle(lesson) || lesson.lesson_id;
+    // Three states, not two. A lesson with no `select` (the "guidance"
+    // kind) has no quiz to be judged by and so can never be completed -
+    // rendering it as "not done" would be a permanently unachievable
+    // checkbox, so it reads as informational instead.
+    const rec = done[lesson.lesson_id];
+    const hasSelect = !!(lesson.select && Array.isArray(lesson.select.topic_codes) && lesson.select.topic_codes.length > 0);
+    let statusLabel = "";
+    if (rec && Number.isFinite(rec.score) && Number.isFinite(rec.total)) {
+      statusLabel = ` · <span class="course-lesson-done">${LC.listDone(rec.score, rec.total)}</span>`;
+      btn.dataset.lessonDone = "true";
+    } else if (!hasSelect) {
+      statusLabel = ` · ${LC.listInfoOnly}`;
+    }
+    btn.dataset.lessonId = lesson.lesson_id;
+    btn.innerHTML = `<strong>${title}</strong><span class="course-lesson-meta">${kindLabel} · ${S.minutes(lesson.estimated_minutes || 0)}${statusLabel}</span>`;
     btn.addEventListener("click", () => openCourseLesson(lesson.lesson_id));
     list.appendChild(btn);
   });
 
   el("#course-title").focus();
+}
+
+// --- Roadmap 3.4: titling a derived lesson ------------------------------
+//
+// A lesson built by derive_topic_lessons() carries no title object. Its title
+// IS the topic's label, which already exists in every locale TOPIC_LABELS
+// covers - inventing an 18-language title per topic to say the topic's own
+// name would be new strings for something the app can already say. Same for
+// the unit that holds them: its heading is the word the hub already uses.
+function derivedLessonTitle(lesson) {
+  const code = lesson && lesson.derived_topic_code;
+  return code ? getTopicLabel(code, code) : null;
+}
+
+function courseUnitHeading(unit, bundle) {
+  const authored = unit && courseText(bundle, unit.unit_id, "title");
+  if (authored) return authored;
+  if (unit && unit.derived_unit) return hubStrings(state.lang).topics;
+  return unit ? unit.unit_id : "";
 }
 
 async function openCourseLesson(lessonId) {
@@ -5935,7 +6948,7 @@ async function renderCourseLesson() {
   if (!section) return;
 
   const bundle = await loadCourseLocaleWithFallback(state.examType, state.lang);
-  const lessonTitle = courseText(bundle, lesson.lesson_id, "title") || lesson.lesson_id;
+  const lessonTitle = courseText(bundle, lesson.lesson_id, "title") || derivedLessonTitle(lesson) || lesson.lesson_id;
   const sectionTitle = courseText(bundle, section.section_id, "title");
   const body = courseText(bundle, section.section_id, "body") || "";
 
@@ -6002,10 +7015,18 @@ async function renderCourseLesson() {
 }
 
 // On a lesson's final section, "next" hands off into a practice-quiz run
-// scoped to that lesson's select.topic_codes[0] (every primer/checkpoint
-// lesson in the current content carries exactly one topic_code - see
-// modular-course-architecture-v1's `select` shape) - the actual exam-prep
-// payoff this whole view exists for.
+// scoped to that lesson's `select` block - the actual exam-prep payoff
+// this whole view exists for.
+//
+// Until Phase 3.1 (2026-09-07) this passed only select.topic_codes[0] and
+// let the quiz use its own global question count. The comment here used to
+// justify that by observing that every primer/checkpoint lesson in the
+// content of the day carried exactly one topic_code - true at the time,
+// but an observation about a data snapshot, not a rule the schema makes,
+// and select.count was already being ignored regardless of how many topic
+// codes there were. The whole `select` is now carried through (all topic
+// codes, the declared count), along with the lesson's identity and its
+// completion_rule, so finishPracticeQuiz() can actually judge the run.
 //
 // Deliberately sequenced via a one-time popstate listener rather than
 // calling startPracticeQuiz() immediately after history.go(-2): go()'s
@@ -6019,22 +7040,41 @@ async function renderCourseLesson() {
 // the quiz avoids that race entirely, deterministically.
 function courseLessonHandoff() {
   const lesson = state.courseLesson;
-  const topicCode = lesson && lesson.select && lesson.select.topic_codes && lesson.select.topic_codes[0];
+  const ctx = lessonPracticeContext(lesson);
   const readerWasOpen = !el("#course-reader").hidden;
   const listWasOpen = !el("#course-view").hidden;
   closeCourseLesson();
   if (listWasOpen) closeCourseView();
   const steps = (readerWasOpen ? 1 : 0) + (listWasOpen ? 1 : 0);
   if (!steps) {
-    if (topicCode) startPracticeQuiz(topicCode);
+    if (ctx) startPracticeQuiz(ctx.topicCodes, ctx);
     return;
   }
-  if (topicCode) {
+  if (ctx) {
     window.addEventListener("popstate", function onCourseHandoffBack() {
-      startPracticeQuiz(topicCode);
+      startPracticeQuiz(ctx.topicCodes, ctx);
     }, { once: true });
   }
   history.go(-steps);
+}
+
+// The lesson's `select` block plus the identity a finished run needs to
+// judge and persist itself. Returns null for a lesson with no usable
+// select (the "guidance" kind) - same condition renderCourseLesson()'s
+// canPractice already uses to show "Done" instead of "Practice now".
+function lessonPracticeContext(lesson) {
+  const codes = lesson && lesson.select && Array.isArray(lesson.select.topic_codes)
+    ? lesson.select.topic_codes.filter((c) => typeof c === "string" && c)
+    : [];
+  if (codes.length === 0) return null;
+  const rawCount = lesson.select.count;
+  return {
+    lessonId: lesson.lesson_id,
+    examType: state.examType,
+    completionRule: lesson.completion_rule,
+    topicCodes: codes,
+    count: Number.isFinite(rawCount) && rawCount > 0 ? Math.floor(rawCount) : undefined,
+  };
 }
 
 function wireCourseControls() {
@@ -7294,15 +8334,103 @@ const PRACTICE_QUIZ_QUESTION_COUNT = 12;
 // full draw, then takes a shuffled subset of it - so a mixed practice quiz
 // still feels like a fair miniature exam rather than a differently-weighted
 // one. Undersized topic pools (e.g. a compliance module's smaller topics)
-// simply yield fewer than PRACTICE_QUIZ_QUESTION_COUNT questions, the same
-// graceful degradation drawExamQuestions() already has for its own topic
-// draw.
-function drawPracticeQuestions(scopeTopic) {
-  if (scopeTopic && scopeTopic !== "mixed") {
-    const pool = state.questions.filter((q) => q.topic_code === scopeTopic);
-    return shuffle(pool).slice(0, PRACTICE_QUIZ_QUESTION_COUNT);
+// simply yield fewer than the requested count, the same graceful
+// degradation drawExamQuestions() already has for its own topic draw.
+//
+// Phase 3.1 (2026-09-07) widened the two parameters, both because the
+// course layer's declared `select` block needs them and neither could be
+// honoured before:
+//   - `scope` may now be an ARRAY of topic codes, not just one string. The
+//     old single-string form was written when the only caller was the
+//     standalone practice picker (which offers exactly one topic or
+//     "mixed"); courseLessonHandoff() then reused it and had to throw away
+//     every topic_code after the first. Both forms are still accepted -
+//     the picker path passes a string and is unchanged.
+//   - `count` may now be given explicitly (a lesson's select.count). It
+//     defaults to PRACTICE_QUIZ_QUESTION_COUNT, which stays the right
+//     number for a picker-started run that has no lesson behind it.
+function drawPracticeQuestions(scope, count) {
+  const n = Number.isFinite(count) && count > 0 ? Math.floor(count) : PRACTICE_QUIZ_QUESTION_COUNT;
+  const codes = Array.isArray(scope) ? scope.filter((c) => typeof c === "string" && c) : (scope && scope !== "mixed" ? [scope] : []);
+  if (codes.length > 0) {
+    const wanted = new Set(codes);
+    const pool = state.questions.filter((q) => wanted.has(q.topic_code));
+    return shuffle(pool).slice(0, n);
   }
-  return shuffle(drawExamQuestions()).slice(0, PRACTICE_QUIZ_QUESTION_COUNT);
+  return shuffle(drawExamQuestions()).slice(0, n);
+}
+
+// --- Phase 3.1 (2026-09-07): lesson completion ---------------------------
+// `completion_rule` has been in every primer/checkpoint/scenario lesson
+// since modular-course-architecture-v1 (2026-08-15) and was never read by
+// anything - the course layer's comments described the teaching loop, the
+// code only ever implemented its first half (read a lesson, start a quiz)
+// and then dropped the learner back into a run that could not be judged.
+// This is the missing half.
+//
+// Parsing is deliberately STRICT and closed, not lenient. Only the one
+// shape the content actually uses is understood:
+//     quiz_pass:<fraction>   (0 < fraction <= 1; the data has 0.7 and 0.8)
+// Anything else - "read" (the guidance lessons' rule, which has no quiz to
+// judge), a future rule form this build predates, a typo, a non-string -
+// returns null, and null means "this run CANNOT be auto-completed". It
+// must never mean "passed": a rule nobody can parse is exactly the case
+// where silently marking a lesson complete would hand a learner a false
+// signal about their own readiness, which is the one thing this feature
+// exists to give them honestly.
+const COMPLETION_RULE_QUIZ_PASS_RE = /^quiz_pass:(\d+(?:\.\d+)?)$/;
+
+function parseCompletionRule(rule) {
+  if (typeof rule !== "string") return null;
+  const m = COMPLETION_RULE_QUIZ_PASS_RE.exec(rule.trim());
+  if (!m) return null;
+  const threshold = Number(m[1]);
+  if (!Number.isFinite(threshold) || threshold <= 0 || threshold > 1) return null;
+  return { kind: "quiz_pass", threshold };
+}
+
+// Per-profile, per-module map of lesson_id -> completion record. Namespaced
+// by examType the same way "intro-seen-<examType>" already is, so two
+// modules cannot collide on a lesson_id and switching modules doesn't drag
+// another course's progress along. Goes through storageGet/storageSet, so a
+// visitor who declined storage simply keeps nothing - they can still read
+// every lesson and take every quiz, they just never see a checkmark.
+function lessonCompletionsKey(examType) {
+  return profileKey(`lesson-completions-${examType}`);
+}
+
+function getLessonCompletions(examType) {
+  try {
+    const raw = JSON.parse(storageGet(lessonCompletionsKey(examType)) || "{}");
+    return raw && typeof raw === "object" && !Array.isArray(raw) ? raw : {};
+  } catch (e) {
+    return {};
+  }
+}
+
+function recordLessonCompletion(examType, lessonId, entry) {
+  try {
+    const all = getLessonCompletions(examType);
+    all[lessonId] = entry;
+    storageSet(lessonCompletionsKey(examType), JSON.stringify(all));
+  } catch (e) { /* non-fatal - storage may be full/unavailable */ }
+}
+
+// Judges a finished practice run against the lesson it came from. Returns
+// a plain verdict object the results screen and the storage write both
+// read; `completed: false` with `unparsed: true` is the "rule exists but
+// this build cannot evaluate it" case described above.
+function evaluateLessonCompletion(lessonCtx, score, total) {
+  const parsed = parseCompletionRule(lessonCtx && lessonCtx.completionRule);
+  if (!parsed) return { completed: false, unparsed: true, threshold: null, score, total };
+  const fraction = total > 0 ? score / total : 0;
+  return {
+    completed: fraction >= parsed.threshold,
+    unparsed: false,
+    threshold: parsed.threshold,
+    score,
+    total,
+  };
 }
 
 function openExamPicker() {
@@ -7643,9 +8771,23 @@ function finishExam(timedOut) {
   history.replaceState({ view: "exam-results" }, "");
   const results = computeExamResults();
   feedExamResultsIntoSrs(state.exam);
+  // UNCHANGED, and deliberately so: this is the ONLY path to a completion
+  // record, and therefore the only path to a certificate. Both conditions
+  // (passed AND simulation) still guard it, in the same expression, and
+  // recordExamAttempt() below is a separate write to a separate key that
+  // no certificate code reads - so widening "what gets stored about a run"
+  // cannot widen "what can be certified". A failed run reaching
+  // recordCompletion() would have required editing this line.
   if (results.passed && state.exam.mode === "simulation") {
     state.exam.certRecord = recordCompletion(state.examType, state.scopeCode, results);
   }
+  // Phase 3.1 (2026-09-07): every finished run is now logged, pass or fail,
+  // simulation or training. Before this, only a passed simulation left any
+  // trace at all, which made the one question these runs exist to answer -
+  // "is my score improving between attempts?" - unanswerable from stored
+  // data. The attempt log is deliberately a THIN, separate record rather
+  // than a widened completion record: see recordExamAttempt().
+  recordExamAttempt(state.examType, state.scopeCode, state.exam.mode, results);
   renderExamResults();
   el("#exam-results-title").focus ? null : null; // no-op, kept for symmetry with detail focus pattern
 }
@@ -7840,11 +8982,17 @@ function renderPracticePicker() {
   el("#practice-picker-cancel").textContent = PQ.cancel;
 }
 
-function startPracticeQuiz(scopeTopic) {
+// `scopeTopic` is "mixed", a topic_code, or (Phase 3.1) an array of topic
+// codes. `lessonCtx` is set only when the run was handed off from a course
+// lesson (see lessonPracticeContext()) - a picker-started run passes
+// nothing and behaves exactly as before, with no lesson to complete.
+function startPracticeQuiz(scopeTopic, lessonCtx) {
   el("#practice-picker").hidden = true;
-  const questions = drawPracticeQuestions(scopeTopic);
+  const questions = drawPracticeQuestions(scopeTopic, lessonCtx && lessonCtx.count);
   state.practiceQuiz = {
-    scopeTopic, // "mixed" or a topic_code, only used for display/debugging
+    scopeTopic, // "mixed", a topic_code, or an array of them - display/debugging only
+    lesson: lessonCtx || null,
+    lessonVerdict: null, // set by finishPracticeQuiz() when lesson is set
     questions,
     answers: {}, // qId -> given (string for single_choice, array for multi_choice) - same shape state.exam.answers uses
     checked: {}, // qId -> true once this question's answer has been revealed
@@ -7996,29 +9144,77 @@ function practiceNext() {
 // never touches state.exam - a practice-quiz run must be structurally
 // incapable of producing a certificate, not just "not currently wired" to
 // one.
+//
+// Phase 3.1 (2026-09-07) adds lesson completion here, and it is worth
+// being explicit that this does NOT weaken the paragraph above: a lesson
+// completion is a local progress marker on a course lesson, written to its
+// own per-module map by recordLessonCompletion(). It is not a completion
+// record, it never reaches getCompletions()/the certificate list, and
+// nothing signs it. "No certificate from a practice quiz" still holds.
 function finishPracticeQuiz() {
   const pq = state.practiceQuiz;
   pq.finished = true;
   feedExamResultsIntoSrs(pq);
+  if (pq.lesson) {
+    const score = practiceScore(pq);
+    const verdict = evaluateLessonCompletion(pq.lesson, score, pq.questions.length);
+    pq.lessonVerdict = verdict;
+    if (verdict.completed) {
+      recordLessonCompletion(pq.lesson.examType || state.examType, pq.lesson.lessonId, {
+        lessonId: pq.lesson.lessonId,
+        score: verdict.score,
+        total: verdict.total,
+        rule: pq.lesson.completionRule,
+        at: new Date().toISOString(),
+      });
+    }
+  }
   el("#practice-view").hidden = true;
   el("#practice-results").hidden = false;
   history.replaceState({ view: "practice-results" }, "");
   renderPracticeResults();
 }
 
-function renderPracticeResults() {
-  const PQ = practiceQuizStrings(state.lang);
-  const pq = state.practiceQuiz;
-  const score = pq.questions.reduce(
+function practiceScore(pq) {
+  return pq.questions.reduce(
     (n, q) => n + (isExamAnswerCorrect(q, pq.answers[q.id]) ? 1 : 0),
     0
   );
+}
+
+function renderPracticeResults() {
+  const PQ = practiceQuizStrings(state.lang);
+  const LC = lessonCompletionStrings(state.lang);
+  const pq = state.practiceQuiz;
+  const score = practiceScore(pq);
   el("#practice-results-title").textContent = PQ.resultsTitle(score, pq.questions.length);
-  el("#practice-results-summary").innerHTML = `
-    <div class="exam-results-summary-box">${PQ.noStakesNote}</div>
-    <p>${PQ.resultsNote}</p>
-    <p>${PQ.retryHint}</p>
-  `;
+
+  // The standing copy here ("no stakes, doesn't count, no certificate") is
+  // still exactly right for a picker-started run - that is the whole point
+  // of this tier. It is WRONG for a run handed off from a course lesson,
+  // which does have a declared completion_rule and therefore a real (if
+  // local, non-certificate) outcome the learner needs to see. So the two
+  // cases branch rather than the lesson case being bolted onto the
+  // no-stakes wording.
+  const verdict = pq.lesson ? pq.lessonVerdict : null;
+  if (verdict) {
+    const box = verdict.completed
+      ? `<div class="exam-results-summary-box" data-lesson-outcome="complete">✓ ${LC.lessonComplete}</div>`
+      : verdict.unparsed
+        ? `<div class="exam-results-summary-box" data-lesson-outcome="unknown-rule">${LC.lessonRuleUnknown}</div>`
+        : `<div class="exam-results-summary-box" data-lesson-outcome="missed">${LC.lessonMissed(Math.round(verdict.threshold * 100))}</div>`;
+    el("#practice-results-summary").innerHTML = `
+      ${box}
+      <p>${LC.lessonScore(verdict.score, verdict.total)}</p>
+      <p>${verdict.completed ? LC.lessonCompleteNote : LC.lessonRetryHint}</p>
+    `;
+  } else {
+    el("#practice-results-summary").innerHTML = `
+      <div class="exam-results-summary-box">${PQ.noStakesNote}</div>
+      <p>${PQ.resultsNote}</p>
+      <p>${PQ.retryHint}</p>
+    `;
+  }
   el("#practice-results-close-btn").textContent = PQ.close;
 }
 
@@ -8042,7 +9238,7 @@ function filteredQuestions() {
   // doesn't apply while cycling through the due queue, see openReviewSession().
   if (state.reviewMode) return state.reviewQueue;
   let qs = state.questions;
-  if (state.topicFilter !== "all") qs = qs.filter((q) => q.topic_code === state.topicFilter);
+  if (state.topicFilter !== "all") qs = qs.filter((q) => topicFilterMatches(q, state.topicFilter));
   // Role filter (DN-44) is additive to the topic filter above, and only
   // ever meaningfully narrows anything for the compliance modules that
   // carry a "roles" field (every other module's questions have none, so
@@ -8083,12 +9279,17 @@ function render() {
     moduleBtn.textContent = MP.changeExam;
   }
 
-  // DN-43: the "About this module" info button only makes sense once a
-  // module is active and that module actually has an intro wizard defined.
+  // The header button that returns to the module HUB. It is shown whenever
+  // a module is active - every module has a hub, because the hub is derived
+  // rather than authored. (It used to be gated on `moduleMod.intro`, since
+  // it reopened DN-43's intro wizard, which only 7 of 29 modules had. Under
+  // ADR-app-0002 that gate would hide the way back to the hub for the other
+  // 22, which is the one navigation the ADR says Back must always have.)
   const infoBtn = el("#module-info-btn");
-  infoBtn.hidden = !(moduleMod && moduleMod.intro);
-  infoBtn.title = introStrings(state.lang).aboutBtn;
-  infoBtn.setAttribute("aria-label", introStrings(state.lang).aboutBtn);
+  const H = hubStrings(state.lang);
+  infoBtn.hidden = !moduleMod;
+  infoBtn.title = H.about;
+  infoBtn.setAttribute("aria-label", H.about);
 
   // Sign Reference only makes sense for Fuehrerschein (that's the only
   // module whose questions carry StVO sign image_refs so far) - hidden for
@@ -8219,6 +9420,9 @@ function renderFilters() {
   topics.forEach((code) => {
     const btn = document.createElement("button");
     btn.textContent = code === "all" ? S.filterAll : getTopicLabel(code, code);
+    // Stable identity for tests and bug reports, same reasoning as
+    // data-exam-type on module rows: the visible label is translated.
+    btn.dataset.topic = code;
     btn.className = state.topicFilter === code ? "active" : "";
     btn.setAttribute("aria-pressed", String(state.topicFilter === code));
     btn.addEventListener("click", () => {
@@ -8285,6 +9489,28 @@ function renderRoleFilter() {
   });
 }
 
+// ADR-app-0002 § 5: one line, above the first question, naming the language
+// the questions are actually in when it is not the one the user chose.
+//
+// The state this reads (state.contentLangFallback) has existed since the
+// module split, and loadModuleData()'s own comment already said it was "what
+// a future 'showing English because X isn't translated yet' UI notice should
+// read". Until now nothing read it: the app silently swapped the language and
+// said nothing, which is the actual defect - not the missing translation,
+// which is a content fact a learner can accept, but the app pretending it
+// hadn't happened.
+function renderContentLangNotice(list) {
+  const c = state.contentCoverage;
+  if (!c || !c.shown || c.own >= c.shown) return; // fully in the chosen language
+  const G = moduleGroupStrings(state.lang);
+  const div = document.createElement("div");
+  div.className = "content-lang-notice";
+  div.textContent = c.own === 0
+    ? G.contentNotice(localeDisplayName(c.fallbackLang))
+    : G.partialNotice(localeDisplayName(state.lang), c.own, c.shown, localeDisplayName(c.fallbackLang));
+  list.appendChild(div);
+}
+
 function renderList() {
   const S = UI_STRINGS[state.lang];
   const SS = starStrings(state.lang);
@@ -8301,6 +9527,8 @@ function renderList() {
     list.innerHTML = `<div class="empty">${state.starredOnlyFilter ? SS.emptyStarred : S.empty}</div>`;
     return;
   }
+
+  renderContentLangNotice(list);
 
   const starred = loadStarredData(); // one read for the whole list, not per-card
   qs.forEach((q, i) => {
@@ -8531,6 +9759,15 @@ async function setLang(lang) {
     }
   }
   render();
+  // render() repaints the app behind the dialogs but has never touched the
+  // module picker, which was harmless while a picker row was just a module
+  // name: the globe is reachable while the picker is up (deliberately - it is
+  // the rescue control for someone stranded in a script they cannot read), so
+  // switching language there left the old language's labels on screen until
+  // the picker was closed and reopened. It stops being harmless now that a row
+  // also carries a statement ABOUT the selected language: a Greek speaker who
+  // switches to Greek must not be told in German which languages a module has.
+  if (!el("#module-picker").hidden) renderModulePicker();
 }
 
 function setTheme(theme) {
@@ -8842,6 +10079,7 @@ function wireStaticControls() {
   el("#menu-btn").addEventListener("click", openAppMenu);
   el("#app-menu-close-btn").addEventListener("click", () => history.back());
   wireModuleIntroControls();
+  wireModuleHubControls();
   el("#certificates-btn").addEventListener("click", openCertificates);
   el("#certificates-close-btn").addEventListener("click", () => history.back());
   el("#review-btn").addEventListener("click", openReviewSession);
@@ -8885,6 +10123,7 @@ function wireStaticControls() {
     if (el("#practice-picker") && !el("#practice-picker").hidden) closePracticePicker();
     if ((el("#practice-view") && !el("#practice-view").hidden) || (el("#practice-results") && !el("#practice-results").hidden)) exitPracticeQuiz();
     if (!el("#module-intro").hidden) closeModuleIntro();
+    if (el("#module-hub") && !el("#module-hub").hidden) closeModuleHub();
     if (!el("#certificates-view").hidden) closeCertificates();
     if (!el("#sign-reference-view").hidden) closeSignReferenceView();
     if (!el("#primer-reader").hidden) closePrimerReader();
@@ -8987,6 +10226,11 @@ async function loadActiveProfileState() {
   state.roleFilter = "all";
   state.examType = null;
   state.scopeCode = null;
+  // Cleared with the module they describe: a profile switch must not leave
+  // the previous profile's module telling this one which language its
+  // questions are in (ADR-app-0002 § 5).
+  state.contentLangs = null;
+  state.contentCoverage = null;
 
   try {
     const savedLang = storageGet(profileKey("lang"));

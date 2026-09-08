@@ -38,6 +38,12 @@
           "order": 2,
           "unit_kind": "module",
           "title_key": "aevo-u2"
+        },
+        {
+          "unit_id": "aevo-derived-u",
+          "unit_kind": "module",
+          "order": 2,
+          "derived_unit": true
         }
       ],
       "lessons": [
@@ -214,6 +220,120 @@
             }
           ],
           "title_key": "aevo-l3"
+        },
+        {
+          "lesson_id": "aevo-derived-ausbildung_durchfuehren",
+          "unit_ref": "aevo-derived-u",
+          "order": 1000,
+          "lesson_kind": "primer",
+          "estimated_minutes": 8,
+          "completion_rule": "quiz_pass:0.7",
+          "select": {
+            "topic_codes": [
+              "ausbildung_durchfuehren"
+            ],
+            "count": 8
+          },
+          "sections": [
+            {
+              "section_id": "aevo-derived-ausbildung_durchfuehren-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/aevo",
+              "legal_basis": "§ 22 Abs. 1 BBiG",
+              "body_key": "aevo-derived-ausbildung_durchfuehren-s1"
+            },
+            {
+              "section_id": "aevo-derived-ausbildung_durchfuehren-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/aevo",
+              "legal_basis": "§ 22 Abs. 2 bis 4 BBiG",
+              "body_key": "aevo-derived-ausbildung_durchfuehren-s2"
+            },
+            {
+              "section_id": "aevo-derived-ausbildung_durchfuehren-s3",
+              "order": 2,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/aevo",
+              "legal_basis": "§ 14 Abs. 1 Nr. 3 BBiG",
+              "body_key": "aevo-derived-ausbildung_durchfuehren-s3"
+            },
+            {
+              "section_id": "aevo-derived-ausbildung_durchfuehren-s4",
+              "order": 3,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/aevo",
+              "legal_basis": "§ 8 Abs. 1 und § 11 Abs. 1 JArbSchG",
+              "body_key": "aevo-derived-ausbildung_durchfuehren-s4"
+            }
+          ],
+          "derived_topic_code": "ausbildung_durchfuehren"
+        },
+        {
+          "lesson_id": "aevo-derived-ausbildung_abschliessen",
+          "unit_ref": "aevo-derived-u",
+          "order": 1001,
+          "lesson_kind": "primer",
+          "estimated_minutes": 8,
+          "completion_rule": "quiz_pass:0.7",
+          "select": {
+            "topic_codes": [
+              "ausbildung_abschliessen"
+            ],
+            "count": 8
+          },
+          "sections": [
+            {
+              "section_id": "aevo-derived-ausbildung_abschliessen-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/aevo",
+              "legal_basis": "§ 43 Abs. 1 BBiG",
+              "body_key": "aevo-derived-ausbildung_abschliessen-s1"
+            },
+            {
+              "section_id": "aevo-derived-ausbildung_abschliessen-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/aevo",
+              "legal_basis": "§ 24 BBiG",
+              "body_key": "aevo-derived-ausbildung_abschliessen-s2"
+            },
+            {
+              "section_id": "aevo-derived-ausbildung_abschliessen-s3",
+              "order": 2,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/aevo",
+              "legal_basis": "§ 48 BBiG",
+              "body_key": "aevo-derived-ausbildung_abschliessen-s3"
+            },
+            {
+              "section_id": "aevo-derived-ausbildung_abschliessen-s4",
+              "order": 3,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/aevo",
+              "legal_basis": "§ 37 Abs. 1 und 4 BBiG",
+              "body_key": "aevo-derived-ausbildung_abschliessen-s4"
+            }
+          ],
+          "derived_topic_code": "ausbildung_abschliessen"
         }
       ],
       "title_key": "aevo-all",

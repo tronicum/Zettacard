@@ -1118,6 +1118,59 @@ main {
   font-size: 0.95rem;
 }
 
+/* ADR-app-0002 §§ 2/5 - module picker grouping and honest language coverage.
+   The group HEADINGS reuse .sign-ref-category (the same list-of-choices
+   heading the course dialog already borrows), so this adds only what is
+   genuinely new: the secondary line on a row, and the muted treatment for the
+   comparison group. */
+
+/* Second line under a module name: "kein Nachweis", "Nur auf Deutsch und
+   English", "Ελληνικά: 118 von 531". Dim and small on purpose - a module the
+   user CAN read says nothing at all here, so anything that does appear is
+   information they need, not decoration to scan past. */
+.module-row-note {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+/* The `compare` group (California/UK/Austria/Switzerland): these confer
+   nothing anywhere, so their rows must not look like the 25 above them that
+   lead to a real exam or a real record. Muted rather than hidden - the person
+   who came to read another country's rules should still find them - and the
+   dashed border carries the distinction independently of the opacity, so it
+   survives a high-contrast or forced-colors rendering where opacity alone
+   would not. The "kein Nachweis" marker in .module-row-note is the part that
+   does not rely on seeing anything at all. */
+.exam-mode-btn.module-row-muted {
+  border-style: dashed;
+  /* Unfilled, unlike every row above it. The dashed border alone was not
+     enough at --border's (deliberately low) contrast - checked in a browser
+     at 390px, where the four rows still read as part of the same stack. */
+  background: transparent;
+  opacity: 0.78;
+}
+
+.exam-mode-btn.module-row-muted:hover,
+.exam-mode-btn.module-row-muted:focus-visible {
+  opacity: 1;
+}
+
+/* One line above the first question when the questions are not in the
+   language the user picked. Neutral, not amber: nothing is wrong and nothing
+   needs fixing by the learner - they are being told which language they are
+   about to read, once, instead of finding out by reading it. */
+.content-lang-notice {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
 /* Module intro wizard (DN-43) */
 .intro-dots {
   display: flex;
@@ -2107,3 +2160,107 @@ main {
 /* Never over an exam run: no language change mid-Prüfung, same as the real
    Theorieprüfung. Set by renderExamQuestion()/finishExam(). */
 .lang-btn-float[hidden] { display: none !important; }
+
+/* Phase 3.1 (2026-09-07): completed-lesson marker in the course list.
+   Deliberately just the existing "correct/pass" accent on the meta line -
+   no progress bar, no separate badge chrome - so a completed lesson reads
+   as done at a glance without turning the list into a dashboard. */
+.course-lesson-done {
+  color: var(--green);
+  font-weight: 600;
+}
+
+/* --- ADR-app-0002 § 1: the module hub -------------------------------- */
+/* Sized for the 390px column the ADR specifies. The card scrolls rather
+   than the page behind it, so the primary action stays reachable on a
+   module with 25 topics without the hub becoming a second long list. */
+.module-hub-card {
+  max-height: 88vh;
+  overflow-y: auto;
+  text-align: start;
+}
+.module-hub-chip {
+  margin: 0.15rem 0 0.9rem;
+  font-size: 0.82rem;
+  opacity: 0.75;
+}
+/* The one button the ADR calls the primary action. It is the only filled
+   control above the fold; the runs below are peers of each other, not of
+   this. */
+.module-hub-primary {
+  font-size: 1.05rem;
+}
+.module-hub-progress {
+  margin: 0.7rem 0 0.2rem;
+  font-size: 0.9rem;
+}
+.module-hub-coverage {
+  display: block;
+  margin: 0.15rem 0 0.6rem;
+}
+.module-hub-section {
+  margin: 1.15rem 0 0.45rem;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+}
+.module-hub-topics {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.hub-topic-btn .module-row-note {
+  display: block;
+}
+/* Scope, question count and the licence line live below the fold, per the
+   ADR's list of what does NOT go on the hub. */
+.module-hub-about {
+  margin-top: 1.15rem;
+  font-size: 0.9rem;
+}
+.module-hub-about > summary {
+  cursor: pointer;
+  padding: 0.4rem 0;
+  opacity: 0.8;
+}
+.module-hub-about p {
+  margin: 0.5rem 0;
+}
+
+/* --- Roadmap 3.2: the traffic light and "what next" ------------------- */
+/* The dot never carries the signal alone - every row also states its
+   status in words (see renderModuleHub). This is the glanceable half. */
+.topic-light {
+  display: inline-block;
+  width: 0.62em;
+  height: 0.62em;
+  border-radius: 50%;
+  margin-inline-end: 0.5em;
+  vertical-align: baseline;
+  /* A ring, so the states stay distinguishable against both themes and for
+     anyone who cannot separate the fills. */
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+.topic-light[data-state="grey"]   { background: #9aa0a6; }
+.topic-light[data-state="red"]    { background: #d93025; }
+.topic-light[data-state="yellow"] { background: #f9ab00; }
+.topic-light[data-state="green"]  { background: #1e8e3e; }
+
+/* The single derived next action. Deliberately not styled as a second
+   primary button: the hub has one primary action, and two controls
+   competing for "do this next" is the ambiguity a hub exists to remove. */
+.module-hub-next {
+  display: block;
+  width: 100%;
+  text-align: start;
+  padding: 0.55rem 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.module-hub-next:hover { opacity: 0.75; }
