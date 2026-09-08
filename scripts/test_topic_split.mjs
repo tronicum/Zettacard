@@ -23,8 +23,15 @@ const fail = (m) => { console.error("  FAIL: " + m); failures++; };
 const ok = (m) => console.log("  ok: " + m);
 
 const EXPECTED = {
-  zeichen_richt: 48, zeichen_verbot: 29, zeichen_gefahr: 26,
-  zeichen_sonstige: 24, zeichen_gebot: 11,
+  // Derived by zettacard-kb/src/assign_sign_topics.py from that repo's
+  // sign_categories.json, then exported here. If these numbers change,
+  // the KB's sign table changed - update them together, and check the
+  // move was intended rather than a question falling into the catch-all.
+  zeichen_richt: 51,
+  zeichen_verbot: 30,
+  zeichen_gefahr: 26,
+  zeichen_sonstige: 19,
+  zeichen_gebot: 11,
 };
 const UMBRELLA_TOTAL = Object.values(EXPECTED).reduce((a, b) => a + b, 0);
 

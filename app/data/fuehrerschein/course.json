@@ -418,7 +418,7 @@
               "license_ref": "CC-BY-NC-SA-4.0",
               "review_status": "derived",
               "generator": "derived:build_modules/fuehrerschein",
-              "legal_basis": "§18 StVO, Zeichen 330.1",
+              "legal_basis": "§42 StVO, Anlage 3, Zeichen 430",
               "body_key": "fuehrerschein-derived-zeichen_sonstige-s3"
             },
             {
@@ -428,7 +428,7 @@
               "license_ref": "CC-BY-NC-SA-4.0",
               "review_status": "derived",
               "generator": "derived:build_modules/fuehrerschein",
-              "legal_basis": "§42 StVO, Anlage 3, Zeichen 430",
+              "legal_basis": "§42 StVO, Anlage 3, Zeichen 453",
               "body_key": "fuehrerschein-derived-zeichen_sonstige-s4"
             }
           ],
@@ -512,7 +512,7 @@
               "license_ref": "CC-BY-NC-SA-4.0",
               "review_status": "derived",
               "generator": "derived:build_modules/fuehrerschein",
-              "legal_basis": "§42 StVO, Anlage 3, Zeichen 317",
+              "legal_basis": "§18 StVO, Zeichen 330.1",
               "body_key": "fuehrerschein-derived-zeichen_richt-s1"
             },
             {
@@ -522,7 +522,7 @@
               "license_ref": "CC-BY-NC-SA-4.0",
               "review_status": "derived",
               "generator": "derived:build_modules/fuehrerschein",
-              "legal_basis": "§42 StVO, Anlage 3, Zeichen 325.1",
+              "legal_basis": "§42 StVO, Anlage 3, Zeichen 317",
               "body_key": "fuehrerschein-derived-zeichen_richt-s2"
             },
             {
@@ -532,7 +532,7 @@
               "license_ref": "CC-BY-NC-SA-4.0",
               "review_status": "derived",
               "generator": "derived:build_modules/fuehrerschein",
-              "legal_basis": "§42 StVO, Anlage 3, Zeichen 325.2",
+              "legal_basis": "§42 StVO, Anlage 3, Zeichen 325.1",
               "body_key": "fuehrerschein-derived-zeichen_richt-s3"
             },
             {
@@ -542,7 +542,7 @@
               "license_ref": "CC-BY-NC-SA-4.0",
               "review_status": "derived",
               "generator": "derived:build_modules/fuehrerschein",
-              "legal_basis": "§42 StVO, Anlage 3, Zeichen 327",
+              "legal_basis": "§42 StVO, Anlage 3, Zeichen 325.2",
               "body_key": "fuehrerschein-derived-zeichen_richt-s4"
             }
           ],
@@ -720,66 +720,9 @@
           "derived_topic_code": "verhalten"
         },
         {
-          "lesson_id": "fuehrerschein-derived-autobahn",
-          "unit_ref": "fuehrerschein-derived-u",
-          "order": 1008,
-          "lesson_kind": "primer",
-          "estimated_minutes": 8,
-          "completion_rule": "quiz_pass:0.7",
-          "select": {
-            "topic_codes": [
-              "autobahn"
-            ],
-            "count": 8
-          },
-          "sections": [
-            {
-              "section_id": "fuehrerschein-derived-autobahn-s1",
-              "order": 0,
-              "section_kind": "prose",
-              "license_ref": "CC-BY-NC-SA-4.0",
-              "review_status": "derived",
-              "generator": "derived:build_modules/fuehrerschein",
-              "legal_basis": "§18 Abs. 2 StVO",
-              "body_key": "fuehrerschein-derived-autobahn-s1"
-            },
-            {
-              "section_id": "fuehrerschein-derived-autobahn-s2",
-              "order": 1,
-              "section_kind": "prose",
-              "license_ref": "CC-BY-NC-SA-4.0",
-              "review_status": "derived",
-              "generator": "derived:build_modules/fuehrerschein",
-              "legal_basis": "§11 Abs. 2 StVO",
-              "body_key": "fuehrerschein-derived-autobahn-s2"
-            },
-            {
-              "section_id": "fuehrerschein-derived-autobahn-s3",
-              "order": 2,
-              "section_kind": "prose",
-              "license_ref": "CC-BY-NC-SA-4.0",
-              "review_status": "derived",
-              "generator": "derived:build_modules/fuehrerschein",
-              "legal_basis": "§5 Abs. 3 StVO",
-              "body_key": "fuehrerschein-derived-autobahn-s3"
-            },
-            {
-              "section_id": "fuehrerschein-derived-autobahn-s4",
-              "order": 3,
-              "section_kind": "prose",
-              "license_ref": "CC-BY-NC-SA-4.0",
-              "review_status": "derived",
-              "generator": "derived:build_modules/fuehrerschein",
-              "legal_basis": "§5 Abs. 4 StVO",
-              "body_key": "fuehrerschein-derived-autobahn-s4"
-            }
-          ],
-          "derived_topic_code": "autobahn"
-        },
-        {
           "lesson_id": "fuehrerschein-derived-parken",
           "unit_ref": "fuehrerschein-derived-u",
-          "order": 1009,
+          "order": 1008,
           "lesson_kind": "primer",
           "estimated_minutes": 8,
           "completion_rule": "quiz_pass:0.7",
@@ -832,6 +775,63 @@
             }
           ],
           "derived_topic_code": "parken"
+        },
+        {
+          "lesson_id": "fuehrerschein-derived-autobahn",
+          "unit_ref": "fuehrerschein-derived-u",
+          "order": 1009,
+          "lesson_kind": "primer",
+          "estimated_minutes": 8,
+          "completion_rule": "quiz_pass:0.7",
+          "select": {
+            "topic_codes": [
+              "autobahn"
+            ],
+            "count": 8
+          },
+          "sections": [
+            {
+              "section_id": "fuehrerschein-derived-autobahn-s1",
+              "order": 0,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/fuehrerschein",
+              "legal_basis": "§18 Abs. 2 StVO",
+              "body_key": "fuehrerschein-derived-autobahn-s1"
+            },
+            {
+              "section_id": "fuehrerschein-derived-autobahn-s2",
+              "order": 1,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/fuehrerschein",
+              "legal_basis": "§11 Abs. 2 StVO",
+              "body_key": "fuehrerschein-derived-autobahn-s2"
+            },
+            {
+              "section_id": "fuehrerschein-derived-autobahn-s3",
+              "order": 2,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/fuehrerschein",
+              "legal_basis": "§5 Abs. 3 StVO",
+              "body_key": "fuehrerschein-derived-autobahn-s3"
+            },
+            {
+              "section_id": "fuehrerschein-derived-autobahn-s4",
+              "order": 3,
+              "section_kind": "prose",
+              "license_ref": "CC-BY-NC-SA-4.0",
+              "review_status": "derived",
+              "generator": "derived:build_modules/fuehrerschein",
+              "legal_basis": "§5 Abs. 4 StVO",
+              "body_key": "fuehrerschein-derived-autobahn-s4"
+            }
+          ],
+          "derived_topic_code": "autobahn"
         },
         {
           "lesson_id": "fuehrerschein-derived-ladung",
