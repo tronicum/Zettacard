@@ -17,6 +17,42 @@ than deleting it, so the origin of an idea stays traceable.
 
 ## Open sparks
 
+### Language learning out of the translations we already have (2026-09-08)
+
+**PO, as a spark and explicitly not a feature request:** with all the
+translations we could even make simple language-learning modules. If a
+translation were *verified* as valid — maybe via a GitHub issues feedback form,
+or a thumbs up/down — you could learn a language by comparing the same answer in
+several languages at once.
+
+What it connects to, for whoever picks it up:
+
+- The content is already there. Every question carries up to 18 locale cells of
+  the same fact, and Leitner state is keyed by question id and is
+  language-independent, so a parallel view costs no authoring and no new
+  progress model.
+- It is the same machinery as the "explain in Ukrainian, test in German" path
+  (see `claude/navigation-and-module-path-concept.md`, rev. 3, D′.4) — one
+  question, two locale cells side by side. That path is for people whose exam
+  is in German; this spark points the same view at a different goal.
+- **The blocker is the honest one, and it is the whole idea:** it needs
+  translations *verified*, and today they are not. 22 stale and 8658 untracked
+  entries in the translation ledger; most non-canonical cells are machine drafts
+  with a review status that says so (ADR-app-0001 Layer 1). Teaching someone a
+  language from an unreviewed translation teaches them the mistake. So the
+  feedback loop the PO names is not a nice-to-have bolted on afterwards — it is
+  the feature, and the language module is what you get *once it works*.
+- Two things to think about before building the loop: user-submitted
+  corrections are contributions, so licensing and attribution need a line
+  (LICENSE.md is CC BY-NC-SA 4.0); and a thumbs-down on a translation is a
+  signal about a *cell*, which the KB can already address — `hashes.per_locale`
+  identifies exactly the thing being voted on.
+- Worth noting what it would NOT be: a `licence`/`cert` module, because there is
+  no external language exam Zettacard would be predicting. Under ADR-app-0003 it
+  is either `compliance`-class (a course Zettacard writes and vouches for) or —
+  more likely at first — `compare`-class, for interest, with no record at all.
+
+
 ### Udemy-style video course bundled with Zettacard — PO records the videos himself
 **2026-08-23.** PO's framing, lightly paraphrased, mid-conversation during the CKA lab-fanout round:
 a real video course (YouTube-hosted or offline MP4, fitting `section_kind: "media"` infra already
