@@ -218,12 +218,21 @@ progress data, no profile name, no answer history. `kb_id`, `locale`,
 
 ## Phase 3 — UX only
 
+> **Where this stands, 2026-09-08.** 3.1–3.6 done and live on staging; 3.7
+> partly done; 3.8 not started. What came out of doing them and is not in the
+> original plan: ADR-app-0003 (what a record claims; the exam/material version
+> split), the certificate honesty fixes, CI on GitHub Actions, and
+> `claude/navigation-and-module-path-concept.md` — which argues the hub should
+> become the app's ROOT rather than another overlay. That is the next
+> structural decision, and it is waiting on the PO.
+
+
 **Goal: the presentation layer catches up with the catalogue. No new content.**
 
 Everything here is decided in ADR-app-0002 and grounded in fable's read of the
 data. Ordered by dependency, not ambition.
 
-### 3.1 Honour the lesson→question link *(first, and it unblocks the rest)*
+### 3.1 Honour the lesson→question link — **DONE** (ba8ab01, 2026-09-07)
 
 `completion_rule: "quiz_pass:0.7"` is declared in the data and **never
 evaluated**. `select.count` is ignored. The handoff uses `topic_codes[0]` only.
@@ -235,7 +244,7 @@ only `if (results.passed && mode === "simulation")`, so trial-to-trial
 improvement — the thing the PO says the runs are *for* — is unanswerable from
 the stored data.
 
-### 3.2 The traffic light and "what next"
+### 3.2 The traffic light and "what next" — **DONE** (374c4da; gates revised 49aeff0)
 
 Per topic, from the Leitner boxes that already exist (0–4 with `dueAt`, fed by
 exam, practice and flashcard self-assessment): grey / red / yellow / green.
@@ -245,13 +254,13 @@ ten strings.
 Note: `grundstoff` is **not** usable as a signal. It is `true` for all 531
 Führerschein questions and discriminates in only 8 of 25 modules.
 
-### 3.3 Split `verkehrszeichen`
+### 3.3 Split `verkehrszeichen` — **DONE** (kb 13fa1d7 -> app cf78baf)
 
 138 of 531 Führerschein questions — 26% of the module in one topic. Under any
 per-topic scheme it is the topic that never goes green. Split along the sign
 reference's existing shape/category grouping. Data change, no new authoring.
 
-### 3.4 Derived lessons
+### 3.4 Derived lessons — **DONE** (24cbd6e)
 
 A lesson per topic built from rule sentence + media sections + solved worked
 examples. **This is the one that reaches the primary audience:** course prose
@@ -259,13 +268,13 @@ exists in `de`/`en` only, while questions exist in 18 locales, so a
 prose-first lesson serves nobody who needs it most. It also fixes Führerschein's
 1-of-11 topic coverage for free.
 
-### 3.5 The module hub
+### 3.5 The module hub — **DONE** (83eda89; cold-launch fix 93ebb7b)
 
 Name, kind chip, "Weiterlernen" as primary action, progress, topics, the run,
 coverage notice, "Über dieses Modul" collapsed. A hub, not an intro — it carries
 state and the primary button, so the tap is one the learner was making anyway.
 
-### 3.6 `kind`, picker grouping, coverage
+### 3.6 `kind`, picker grouping, coverage — **DONE** (ba8ab01, 2026-09-07)
 
 Add `kind` ∈ `licence` | `compliance` | `cert` | `compare` to the manifest — 29
 one-word values, hand-written once, from which grouping, run labels, badge
@@ -274,14 +283,22 @@ semantics and chips all derive. Group the picker. Collapse variants
 as a **fraction**, never a module-level badge, plus a per-card marker when a
 card is served in a fallback language.
 
-### 3.7 Vocabulary, in the KB
+### 3.7 Vocabulary, in the KB — **PARTLY DONE** (296d23d, a0f8040)
 
 Modul / Thema / Lernen / Übungsquiz / Prüfungssimulation / Lernnachweis, and
 their English counterparts including *readiness check* and *self-assessment*.
 Done in `zettacard-kb/content/_ui`, re-exported, and the `app.js` `UI_STRINGS`
 dictionaries retired — which closes the fork the PO accepted as temporary.
 
-### 3.8 Deletions
+**Status 2026-09-08.** The route exists and 16 of 19 dictionaries read through
+it: `zettacard-kb/content/_ui` -> `data/ui_strings.json` ->
+`app/data/ui/<locale>.json` -> the app, with the literals kept as fallback.
+Left: `UI_STRINGS`, `EXAM_STRINGS` and `MODULE_PICKER_STRINGS` have no accessor
+and are read directly at 17 call sites; and **39 of 281 strings exist in de/en
+only** — the hub, the traffic light and lesson completion, which are the newest
+surfaces and the first a learner meets. Translating those is KB work.
+
+### 3.8 Deletions — **NOT STARTED**
 
 Flashcards as a top-level destination (it is Practice without commitment; keep
 the card as a component). Hand-written `intro.steps` in the manifest (7 of 29

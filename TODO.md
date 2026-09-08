@@ -1,13 +1,66 @@
-# TODO — boating-licence integration arc
+# TODO — current arc
 
-Working list for the yachting/boating-licence integration effort (started
-2026-08-14, researching `HugoFara/boating-licence`). Ordered roughly by
-dependency, not strict priority — some can happen in parallel. See
-`BACKLOG.md`'s "Done" section for what's already shipped and the full
-detail behind each finished item; this file is just the forward-looking
-list so a future session doesn't have to reconstruct it from chat history.
+**Re-scoped 2026-09-08 by the PO.** The previous arc was the boating-licence
+integration; it is now secondary (their data can be transformed into our format
+whenever we want it — they already have data, and that is a conversion job, not
+a discovery one). The arc that replaced it, in the PO's own order:
 
-1. **Fix this session's repo access** — `git push` to `tronicum/Zettacard`
+> the app works, our data is clean, and — long run — our master data is
+> exportable to Moodle or a corporate LMS.
+
+**One of those is already done, and it changes the order.** The LMS export
+works today: `zettacard-kb/src/export/{gift,moodle_xml,pack}.py`, built under
+ADR-0005, verified 2026-09-08 on `kyc_aml` — 450 cells per format across 15
+locales, each with a sidecar carrying what the target format has no slot for,
+plus LICENSE.txt. The GIFT header states the licence, says the module is not
+reviewed by a licensed lawyer, flags the AMLR 2027 threshold change, and
+declares itself lossy with a pointer to the sidecar.
+
+So the long-run item is not the blocker. **The data is**, exactly as ranked —
+and the exporter says so itself on every run:
+
+    30 not in ['approved', 'auto_approved'], exported with the status
+    labelled — ADR-0003
+
+Every cell we can ship is unreviewed. The export is honest about it, which is
+why it can ship at all; but "our data is clean" is the thing standing between
+that and a corporate LMS customer.
+
+## The arc, in dependency order
+
+1. **The app works.** Phase 3 is done and on staging (roadmap 3.1–3.6, 3.7
+   partly). The open structural decision is
+   `claude/navigation-and-module-path-concept.md` rev. 3 — whether the hub
+   becomes the app's root with the course as its spine. Waiting on the PO.
+   Ranked above it by that document: `examLanguages` and a sticky target
+   language, because "explain in Ukrainian, test in German" is the primary
+   audience's real problem and the machinery already exists.
+
+2. **The data is clean.** The measurable gap, not a vague one:
+   - 22 stale and 8658 untracked entries in the translation ledger.
+   - 39 of 281 UI strings exist in de/en only — the hub, the traffic light and
+     lesson completion, the first surfaces a learner meets.
+   - No module has a cell in `approved`/`auto_approved`. ADR-0003 makes
+     verification a label rather than a gate, which is right, but the label
+     currently always says the same thing.
+   - The review loop the PO sketched (a feedback form, or thumbs up/down on a
+     translation) is in `IDEAS.md` — and it is what would move this number.
+
+3. **Export to Moodle / corporate LMS.** Built. What is left is packaging and
+   proof, not implementation: no top-level command wires the three exporters
+   together, nothing runs them in CI, and no one has imported the output into a
+   real Moodle to confirm it lands. SCORM is named in ADR-0005 as the format a
+   compliance customer will actually ask for and is not built.
+
+## Deferred — the boating-licence integration arc
+
+Kept for the trail. Secondary as of 2026-09-08: their data can be transformed
+into our format when we want it.
+
+1. ~~**Fix this session's repo access**~~ — **still true, worked around.**
+   Pushing from a Cowork session remains impossible; everything is committed
+   locally and pushed by the PO by hand. Bug report:
+   `docs/bug-08ec8f0a-github-push.md`. Original text: — `git push` to `tronicum/Zettacard`
    is blocked by the git proxy ("not in this session's authorized
    repository set"), even though the folder is connected via the device
    bridge. Needs a setting change on the account/session-source side, not
@@ -15,7 +68,9 @@ list so a future session doesn't have to reconstruct it from chat history.
    another session. Blocks: real `git push` for everything below, instead
    of the current bundle-delivered-as-a-file-attachment workaround.
 
-2. **Push zettacard-kb to an actual GitHub repo.** Currently it only
+2. ~~**Push zettacard-kb to an actual GitHub repo.**~~ — **DONE** 2026-09-08.
+   Pushed to `tronicum/zettacard-kb` (private), with a `restore-2026-09-08`
+   tag. Original text: Currently it only
    exists as a local repo in whatever session built it, delivered to the
    user as a git bundle (`zettacard-kb-init.bundle`). Needs a real empty
    GitHub repo (user has a local folder for it: `zettacard-kb`) and #1
