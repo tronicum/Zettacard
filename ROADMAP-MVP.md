@@ -394,12 +394,17 @@ them. The landing page's 22 module cards are real links, `?exam=` alone
 resolves through the manifest, a deep link beats a saved selection, and the
 hero CTA names the module it resumes.
 
+Per-`kind` next-action defaults are in (`1c567fd`): `licence`/`cert` guided,
+`compliance` test-first with the Kurzcheck as the *primary* button on a first
+visit, `compare` straight to the cards. The hub reads `kind`, which
+ADR-app-0002 § 0 put in the manifest for exactly this and which nothing had
+used.
+
 **Left.** Hub as the app's ROOT rather than another overlay, with hash routes
 so a lesson and a topic are addressable — this is the structural decision
-fable flags and the one that makes back-navigation predictable. Per-`kind`
-next-action defaults (`licence`/`cert` guided, `compliance` test-first,
-`compare` cards) — `kind` exists for exactly this and is not yet read here.
-One run per module plus a time-limit toggle, replacing the current several.
+fable flags and the one that makes back-navigation predictable. **Waiting on
+the PO.** One run per module plus a time-limit toggle, replacing the current
+three (Simulation / Training / Übungsquiz).
 
 ### 4.2 `examLanguages` and a sticky target language — **PARTLY DONE** (5b29ad3)
 
