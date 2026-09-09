@@ -139,6 +139,9 @@ jobs:
       - name: No machine-detectable accessibility violations
         run: npm run test:a11y
 
+      - name: Cold start reaches content in 4 taps (fable's check #1)
+        run: npm run test:coldstart
+
       # NOT blocking, and deliberately so. This suite currently reports
       # "HEADER, MAIN left inert" after nearly every step, which is CORRECT
       # behaviour being asserted at the wrong moment: it calls

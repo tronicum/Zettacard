@@ -3663,8 +3663,40 @@ function lessonIdForTopic(topicCode) {
   }
   // An authored lesson wins over a derived one, same precedence
   // derive_topic_lessons() applies when it declines to generate for a topic
-  // that already has one.
-  return authored[0] || derived[0] || null;
+  // that already has one - but ONLY if it exists in the language the learner
+  // is reading.
+  //
+  // Found by fable's cold-start check #1, in Greek: `fs-l1` is authored and
+  // exists in de/en only, while el.json carries 56 derived lessons with real
+  // Greek text. Preferring the authored one opened the reader with "fs-l1" as
+  // its title - a raw internal id - and an empty body. Four taps from the
+  // landing page, in the language the learner chose, the app showed them a
+  // database key.
+  //
+  // The bundle is already in hand: openModuleHub() prefetches it, and the
+  // hub renders synchronously.
+  const bundle = courseLocaleCache[`${state.examType}:${state.lang}`];
+  // A DERIVED lesson has no title row of its own - derivedLessonTitle() builds
+  // it at runtime from the topic label - so testing for a title finds none and
+  // rejects every derived lesson in every locale. Its sections are the real
+  // evidence: `<lesson-id>-s1`, `-s2`, ... are what carry the body text, and
+  // they are emitted per locale. (Caught by test_learning_path, which went
+  // from 14 lessons to 1.)
+  const sectionKeys = bundle ? Object.keys(bundle) : [];
+  const hasText = (id) => !bundle
+    || !!courseText(bundle, id, "title")
+    || sectionKeys.some((k) => k.startsWith(`${id}-s`));
+  // No "|| authored[0]" fallback on purpose. If nothing has text in this
+  // language there is no lesson here, and saying so is better than opening a
+  // reader titled with a database key.
+  //
+  // This is not a rare edge. `vorfahrt` has two authored lessons and NO
+  // derived one - derive_topic_lessons() declines to generate for a topic
+  // that already has an authored lesson - and those two exist in de/en only.
+  // So for that topic, in 16 of the 18 locales, there is no lesson at all.
+  // The blocking is the real problem and belongs in the build; this function
+  // can only refuse to lie about it.
+  return authored.find(hasText) || derived.find(hasText) || null;
 }
 
 function loadResumePoint(examType) {
@@ -3712,8 +3744,19 @@ function openModuleHub() {
   // list on the first visit to a module, which is the whole change undone by
   // a race. Fetch, then re-render if the hub is still up. Failure is fine:
   // the rows fall back to cards, which is what they did before.
-  if (!courseCoreCache[state.examType]) {
-    loadCourseCore(state.examType)
+  //
+  // Both halves, and the second one was missing. The core alone tells you a
+  // lesson EXISTS; only the locale bundle tells you whether it exists in the
+  // language the learner reads. Without it lessonIdForTopic() cannot apply
+  // that test and falls back to "authored wins", which in Greek meant opening
+  // an authored de/en lesson as an empty reader titled "fs-l1". Invisible in
+  // German, where every authored lesson has text, which is why every test
+  // passed.
+  if (!courseCoreCache[state.examType] || !courseLocaleCache[`${state.examType}:${state.lang}`]) {
+    Promise.all([
+      loadCourseCore(state.examType),
+      loadCourseLocaleWithFallback(state.examType, state.lang).catch(() => null),
+    ])
       .then(() => { if (!el("#module-hub").hidden) renderModuleHub(); })
       .catch(() => { /* no course for this module - cards it is */ });
   }
@@ -3757,7 +3800,19 @@ function renderModuleHub() {
     next.kind === "check" && !canResume ? H.startCheck
       : canResume ? H.continueLearning : H.startLearning
   }</strong>`;
-  primary.dataset.primaryKind = next.kind === "check" && !canResume ? "check" : "resume";
+  // "resume" only when there is something to resume. Otherwise the primary
+  // defers to the next action, which is the whole point of Option A: the
+  // biggest button and the suggestion under it must agree.
+  //
+  // They did not. On a genuine cold start - the case fable's check #1
+  // measures - "Lernen starten" fell through to the resume path, found no
+  // saved position, set the topic filter to "all" and dismissed the hub. Four
+  // taps from the landing page a first-time learner was staring at 505
+  // unsorted cards, which is exactly the failure the learning path exists to
+  // remove. The resume button had been fixed for people who HAD a position;
+  // nobody checked the one who does not, and the tests all started from a
+  // profile that did.
+  primary.dataset.primaryKind = canResume ? "resume" : "next";
 
   // 3. Progress.
   const prog = el("#module-hub-progress");
@@ -3873,11 +3928,11 @@ function renderModuleHub() {
 
 function wireModuleHubControls() {
   el("#module-hub-primary").addEventListener("click", (ev) => {
-    // A compliance module's first visit: the primary IS the Kurzcheck, so it
-    // does what it says rather than resuming a session that never happened.
-    if (ev.currentTarget.dataset.primaryKind === "check") {
-      closeModuleHub();
-      startPracticeQuiz("mixed");
+    // Nothing to resume: do what the next action says - the lesson for a
+    // licence module, the Kurzcheck for a compliance one - rather than
+    // resuming a session that never happened.
+    if (ev.currentTarget.dataset.primaryKind === "next") {
+      runHubNext();
       return;
     }
     // Resume the last topic AND position, which is what "Weiterlernen" says
@@ -3917,7 +3972,14 @@ function wireModuleHubControls() {
     closeModuleHub();
     openPracticePicker();
   });
-  el("#module-hub-next").addEventListener("click", () => {
+  el("#module-hub-next").addEventListener("click", () => runHubNext());
+  el("#module-hub-close").addEventListener("click", () => history.back());
+}
+
+// The hub's one derived next action, as a function rather than a click
+// handler, because the PRIMARY button needs it too on a first visit - see
+// below.
+function runHubNext() {
     const next = state.hubNext;
     if (!next) return;
     if (next.kind === "simulate") { closeModuleHub(); startExam("simulation"); return; }
@@ -3943,10 +4005,12 @@ function wireModuleHubControls() {
     // each other existed.
     const lessonId = lessonIdForTopic(next.topic.code);
     if (lessonId) { closeModuleHub(); openCourseLesson(lessonId); return; }
-    history.back();
-    render();
-  });
-  el("#module-hub-close").addEventListener("click", () => history.back());
+    // No lesson in this language. fable's own fallback: the Übungsquiz, not a
+    // bare card list - a question with its answer revealed still explains
+    // something, and the questions ARE translated even where the lessons are
+    // not.
+    closeModuleHub();
+    startPracticeQuiz(next.topic.code);
 }
 
 // --- Completion tracking & certificates (DN-14 / DN-44 prep) -----------

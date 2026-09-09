@@ -50,8 +50,13 @@ let s = await snap(page);
 s.nextKind === "check" && s.next.length > 3
   ? ok(`compliance first visit suggests the Kurzcheck: "${s.next}"`)
   : fail(`nextKind=${s.nextKind}, label ${JSON.stringify(s.next)}`);
-s.primaryKind === "check" ? ok(`...and it is the biggest button: "${s.primary}"`)
-                          : fail(`primary is "${s.primary}" (${s.primaryKind}) — the policy would be advisory`);
+// Assert the LABEL, not the internal marker. `primaryKind` generalised from
+// "check" to "next" when the primary learned to defer to the next action on
+// any first visit, not only a compliance one - the behaviour asserted below
+// (tapping it runs a mixed quiz) is what actually matters.
+/Kurzcheck|quick check/i.test(s.primary)
+  ? ok(`...and it is the biggest button: "${s.primary}"`)
+  : fail(`primary is "${s.primary}" — the policy would be advisory`);
 
 // tapping it starts a mixed practice run, not a lesson and not a card list
 await page.click("#module-hub-primary");
@@ -100,7 +105,9 @@ s = await snap(page);
 s.nextKind === "learn" && s.next.length > 3
   ? ok(`licence still leads with explanation: "${s.next}"`)
   : fail(`nextKind=${s.nextKind}, label ${JSON.stringify(s.next)}`);
-s.primaryKind === "resume" ? ok("licence keeps its resume primary") : fail(`primary is ${s.primaryKind}`);
+!/Kurzcheck|quick check/i.test(s.primary)
+  ? ok(`licence keeps a learning primary: "${s.primary}"`)
+  : fail(`licence module offered a Kurzcheck: "${s.primary}"`);
 await ctx.close();
 
 // 4. the policy is read from `kind`, not hardcoded per module

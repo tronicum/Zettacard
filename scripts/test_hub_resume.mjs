@@ -27,8 +27,14 @@ await page.waitForTimeout(1600);
 let label = (await page.locator("#module-hub-primary").innerText()).trim();
 /start|starten/i.test(label) ? ok(`first visit says start: "${label}"`) : fail(`first visit says "${label}"`);
 
-// study: pick a topic, open a specific card
-await page.locator("#module-hub-primary").click(); await page.waitForTimeout(700);
+// study: pick a topic, open a specific card.
+// Close the hub with its own close button, NOT with the primary. This step
+// used to tap the primary, which worked only because the primary was broken -
+// on a first visit it dismissed the hub to reveal the card list. Now it opens
+// the next action (a lesson, or the Übungsquiz where no lesson exists in this
+// locale), so the filter chips sit behind a modal and the tap times out. The
+// test was leaning on the defect it sits next to.
+await page.locator("#module-hub-close").click(); await page.waitForTimeout(700);
 const chip = page.locator('#filters [data-topic="zeichen_verbot"]');
 await chip.click(); await page.waitForTimeout(500);
 await page.locator("#list .q-card").nth(2).click(); await page.waitForTimeout(500);
