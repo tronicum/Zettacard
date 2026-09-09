@@ -329,6 +329,49 @@ modules have them; everything on them is derivable).
 
 ---
 
+## Phase 3.9 — The master-data contract (ADR-0007)
+
+Not planned; found by running the KB exporter once and watching it rewrite 38
+files. `zettacard-kb/docs/adr/ADR-0007-mastership-and-the-export-contract.md`
+is the decision, proposed and awaiting PO approval.
+
+**Done** (kb `b484f96`): the exporter proves ownership before writing
+(`_generated`, `--adopt`), the authored metadata has a master in the KB
+(`export_meta`, no key shared with `rights`), exports are deterministic
+(`generated` out of all 38 payloads into one `data/_export.json`), and
+losslessness is a test (`--check-roundtrip`, 37 files losing metadata -> 0).
+
+**The first real export is a PO decision, not a mechanical one.** It is
+lossless — zero keys, zero questions — but it carries three corrections that
+should be announced rather than discovered:
+
+- 16 compliance modules move CC BY-NC-SA -> CC BY-NC-ND. This is the
+  2026-09-06 PO decision finally reaching the exported files; they have been
+  publishing the superseded licence since.
+- 7 modules lose a stale `module_kind` of `exam_prep` for `compliance`.
+- `angelschein`, `angelschein_bayern` and `angelschein_nrw` gain `bar`, `fa`
+  and `ro` — roughly 170 question cells, none human-reviewed. Publishable and
+  labelled under ADR-0003, but a visible jump in the coverage report.
+
+**Left, in the ADR's order:**
+
+- Delete `build_modules.py`'s hard-coded `fs_locales` / `ang_state_locales` /
+  `compliance_locales`. They are a *fourth* place a locale set is declared,
+  and `split_module` `rmtree`s `locales/` first — so exporting the three new
+  locales would not actually deliver them. This blocks the locale step above.
+- Ingest the four built-only modules (`lksg`, `waffensachkunde`,
+  `amateurfunk_a`, `amateurfunk_e`). They are in the manifest and exist only
+  under `app/data/` with no master in either repo — `rmtree` plus a manifest
+  entry is exactly the shape that loses them. ADR-0001 Follow-up 1, still open.
+- Ingest the 12 `*_course.json` into the KB. Phase 4 makes the course the
+  spine of the learning path; a lost course is a lost path.
+- `meta_version` as a third digest beside `exam_version` / `material_version`,
+  so a record can say which licence terms it was studied under. Today a
+  licence moving SA -> ND bumps nothing.
+- `--check-roundtrip` in CI in both repos.
+
+---
+
 ## Phase 4 — The learning path
 
 Phase 3 fixed the module: a learner who is already inside one now has a hub, a
