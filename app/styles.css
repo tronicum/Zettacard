@@ -373,6 +373,15 @@ h1 {
   display: none;
 }
 
+/* ADR-app-0002 § 5: the per-card marker naming the language a simulation is
+   actually running in. Same badge family as topic/points - deliberately not
+   a warning colour: switching to a real exam language is correct behaviour,
+   not an error, and colouring it red would read as a fault. */
+.badge.exam-lang {
+  background: var(--amber-bg);
+  color: var(--amber);
+}
+
 /* The one content column. `main` had 720px hardcoded and the header had
    nothing at all, which is the whole of the desktop bug below - so the
    number lives here now and both read it. */

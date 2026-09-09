@@ -8739,8 +8739,186 @@ function renderExamPicker() {
   el("#exam-picker-cancel").textContent = X.cancel;
 }
 
-function startExam(mode) {
+// ADR-app-0002 § 5 — the third language.
+// ---------------------------------------------------------------------------
+// The app has always had two: the UI's 18 locales and a module's study
+// locales. There is a third, and it is the one that decides whether a
+// Prüfungssimulation is telling the truth: the languages the REAL exam may be
+// sat in. A Greek speaker studies the Führerschein in Greek and sits the
+// Theorieprüfung in German or English - Greek is not on the list, and running
+// a "simulation" in Greek quietly rehearses a situation that cannot happen.
+//
+// The manifest's `examLanguages` is null on every module where nobody has
+// established the answer, and null means UNESTABLISHED, not unrestricted: the
+// app then asks nothing and claims nothing, exactly as before. Only the four
+// driving-family modules have it today.
+function examLanguagesFor(examType) {
+  const mod = moduleManifestFor(examType);
+  const l = mod && mod.examLanguages;
+  return Array.isArray(l) && l.length ? l : null;
+}
+
+// Which of a module's exam languages we can actually SERVE. An exam language
+// we have no questions in is not an option we may offer - offering it and
+// then falling back to German would be the same lie one level down.
+function servableExamLanguages(examType) {
+  const langs = examLanguagesFor(examType);
+  if (!langs) return null;
+  const cov = moduleCoverage(moduleManifestFor(examType));
+  if (!cov) return langs;
+  const servable = langs.filter((l) => (cov.locales[l] || 0) > 0);
+  return servable.length ? servable : ["de"];
+}
+
+function examLangKey(examType) {
+  return profileKey(`exam-lang-${examType}`);
+}
+
+// The learner's answer, remembered. Re-validated on every read rather than
+// trusted: a stored language stops being an exam language the moment the
+// module's list changes, and a stale one would be worse than never asking.
+function storedExamLang(examType) {
+  const servable = servableExamLanguages(examType);
+  if (!servable) return null;
+  let stored = null;
+  try { stored = storageGet(examLangKey(examType)); } catch (e) { /* no storage */ }
+  return stored && servable.includes(stored) ? stored : null;
+}
+
+function setExamLang(examType, lang) {
+  try { storageSet(examLangKey(examType), lang); } catch (e) { /* non-fatal */ }
+}
+
+// The language THIS simulation will run in. Null means "no question arises" -
+// either the module has no established exam languages, or the learner is
+// already studying in one.
+function examLangNeeded(examType) {
+  const servable = servableExamLanguages(examType);
+  if (!servable) return null;
+  if (servable.includes(state.lang)) return null;
+  return servable;
+}
+
+// The § 5 sheet. Asked ONCE per module, at the first Prüfungssimulation, not
+// on a settings screen - this is a question the learner can only answer
+// meaningfully at the moment it has consequences, and asking it earlier means
+// asking a beginner an abstract question about an exam they have not met.
+//
+// Reuses the .exam-modal shell like every other dialog here, so it inherits
+// the existing pushState/popstate/inert choreography rather than inventing a
+// second kind of modal.
+function askExamLanguage(examType, servable) {
+  return new Promise((resolve) => {
+    const S = examLangStrings();
+    const view = el("#exam-lang-sheet");
+    const list = el("#exam-lang-list");
+    el("#exam-lang-title").textContent = S.title;
+    el("#exam-lang-desc").textContent =
+      S.desc(localeDisplayName(state.lang), joinLangNames(servable, S));
+    list.innerHTML = "";
+    let done = false;
+    const finish = (val) => {
+      if (done) return;
+      done = true;
+      view.hidden = true;
+      setInertBehindDialog(false);
+      resolve(val);
+    };
+    servable.forEach((code) => {
+      const btn = document.createElement("button");
+      btn.className = "exam-mode-btn";
+      btn.dataset.lang = code;
+      btn.textContent = localeDisplayName(code);
+      btn.addEventListener("click", () => finish(code));
+      list.appendChild(btn);
+    });
+    const cancel = el("#exam-lang-cancel");
+    cancel.textContent = S.cancel;
+    cancel.onclick = () => finish(null);
+    view.hidden = false;
+    setInertBehindDialog(true);
+    el("#exam-lang-title").focus();
+  });
+}
+
+// Fetch the exam language's own question text and swap it into the drawn set.
+// Returns false rather than silently continuing in the study language: a
+// simulation that says "auf Deutsch" and then runs in Greek is the failure
+// this whole feature exists to remove.
+async function loadExamLanguageInto(exam, examType, lang) {
+  let bundle;
+  try {
+    bundle = await fetchJson(`data/${examType}/locales/${lang}.json`);
+  } catch (e) {
+    return false;
+  }
+  if (!bundle || !Object.keys(bundle).length) return false;
+  let missing = 0;
+  exam.questions = exam.questions.map((q) => {
+    const t = bundle[q.id];
+    if (!t) { missing += 1; return q; }
+    return {
+      ...q,
+      text: { ...q.text, [state.lang]: { question: t.question, options: t.options } },
+      explanation: { ...q.explanation, [state.lang]: t.explanation },
+    };
+  });
+  // A partially translated exam language is worse than a clearly-labelled
+  // fallback, because the learner cannot tell which cards are which mid-run.
+  return missing === 0;
+}
+
+function alertUnavailableExamLanguage(lang) {
+  const S = examLangStrings();
+  el("#exam-picker").hidden = false;
+  el("#exam-picker-desc").textContent = S.unavailable(localeDisplayName(lang));
+}
+
+function examLangStrings() {
+  return kbStrings("EXAM_LANG_STRINGS", EXAM_LANG_STRINGS, state.lang);
+}
+
+// de/en literals; the KB route (content/_ui) is what fills the other 16, same
+// as every other dictionary here.
+const EXAM_LANG_STRINGS = {
+  de: {
+    title: "In welcher Sprache möchtest du die Prüfung simulieren?",
+    desc: (studyLang, examLangs) =>
+      `Die echte Prüfung gibt es nicht auf ${studyLang}. Sie wird in ${examLangs} abgelegt. ` +
+      `Zum Lernen bleibt ${studyLang} unverändert.`,
+    cancel: "Abbrechen",
+    unavailable: (l) => `Die Fragen auf ${l} sind gerade nicht vollständig verfügbar. Bitte eine andere Sprache wählen.`,
+    and: "oder",
+    runningIn: (l) => `Simulation auf ${l}`,
+    change: "Sprache ändern",
+  },
+  en: {
+    title: "Which language should the exam simulation run in?",
+    desc: (studyLang, examLangs) =>
+      `The real exam is not offered in ${studyLang}. It is sat in ${examLangs}. ` +
+      `Studying stays in ${studyLang}.`,
+    cancel: "Cancel",
+    unavailable: (l) => `The questions in ${l} are not completely available right now. Please pick another language.`,
+    and: "or",
+    runningIn: (l) => `Simulation in ${l}`,
+    change: "Change language",
+  },
+};
+
+async function startExam(mode) {
   el("#exam-picker").hidden = true;
+  // ADR-app-0002 § 5. Only the simulation is bound to a real exam language;
+  // Training is study, and study happens in whatever language the learner
+  // reads best.
+  let examLang = null;
+  if (mode === "simulation") {
+    const needed = examLangNeeded(state.examType);
+    if (needed) {
+      examLang = storedExamLang(state.examType) || await askExamLanguage(state.examType, needed);
+      if (!examLang) return;   // dismissed - no run, rather than a run in the wrong language
+      setExamLang(state.examType, examLang);
+    }
+  }
   state.exam = {
     mode, // "training" | "simulation"
     questions: drawExamQuestions(),
@@ -8768,7 +8946,24 @@ function startExam(mode) {
     // every tick) so an in-progress exam keeps its original time limit even
     // if state.examType somehow changed mid-run.
     timeLimitMs: examTimeLimitMs(state.examType),
+    // Null unless the run had to switch language. Read by finishExam() so the
+    // record says which language the simulation was actually sat in.
+    lang: examLang,
   };
+  if (examLang) {
+    // Swap the drawn questions for copies carrying the exam language's text.
+    // Copies, not a mutation: state.questions is the study list and is still
+    // on screen behind this dialog. Keyed under state.lang because every
+    // render function indexes with q.text[state.lang] - the same convention
+    // fetchLocaleTextBundles() already uses for its own fallbacks, so nothing
+    // downstream needs to know a swap happened.
+    const ok = await loadExamLanguageInto(state.exam, state.examType, examLang);
+    if (!ok) {
+      state.exam = null;
+      alertUnavailableExamLanguage(examLang);
+      return;
+    }
+  }
   history.replaceState({ view: "exam" }, "");
   el("#exam-view").hidden = false;
   setInertBehindDialog(true);
@@ -8843,11 +9038,17 @@ function renderExamQuestion() {
   el("#exam-progress").textContent = ex.reviewPass
     ? X.skipProgress(idx + 1, list.length)
     : X.progress(idx + 1, list.length);
+  // ADR-app-0002 § 5: when the run had to switch language, say so on every
+  // card. A learner who studies in Greek and suddenly meets German questions
+  // must never be left to work out why - and the label is per-card rather
+  // than a one-time notice because a run is long and a notice is forgotten.
+  const runLang = state.exam && state.exam.lang;
   el("#exam-meta").innerHTML = `
     <span class="badge topic">${topicLabel}</span>
     <span class="badge points">${S.points(q.points)}</span>
     ${q.high_stakes ? `<span class="badge high-stakes">${S.highStakes}</span>` : ""}
     ${isMultiSelect ? `<span class="badge multi-select">${S.multiSelectHint}</span>` : ""}
+    ${runLang ? `<span class="badge exam-lang" id="exam-lang-badge">${escapeHtml(examLangStrings().runningIn(localeDisplayName(runLang)))}</span>` : ""}
   `;
   el("#exam-question").textContent = t.question;
 
@@ -10439,7 +10640,7 @@ function wireStaticControls() {
   el("#exam-start-btn").addEventListener("click", openExamPicker);
   el("#exam-picker-cancel").addEventListener("click", () => history.back());
   el("#exam-pick-training").addEventListener("click", () => startExam("training"));
-  el("#exam-pick-simulation").addEventListener("click", () => startExam("simulation"));
+  el("#exam-pick-simulation").addEventListener("click", () => { startExam("simulation"); });
   el("#exam-exit-btn").addEventListener("click", exitExam);
   el("#exam-next-btn").addEventListener("click", examNext);
   el("#exam-skip-btn").addEventListener("click", examSkip);

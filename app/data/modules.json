@@ -133,6 +133,18 @@
         }
       ],
       "scopeKind": "class",
+      "examLanguages": [
+        "de",
+        "ar",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "pl",
+        "ro",
+        "ru",
+        "tr"
+      ],
       "coverage": {
         "total": 531,
         "locales": {
@@ -232,6 +244,17 @@
         }
       ],
       "scopeKind": "class",
+      "examLanguages": [
+        "de",
+        "ar",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "pl",
+        "ru",
+        "tr"
+      ],
       "coverage": {
         "total": 138,
         "locales": {
@@ -325,6 +348,17 @@
         }
       ],
       "scopeKind": "class",
+      "examLanguages": [
+        "de",
+        "ar",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "pl",
+        "ru",
+        "tr"
+      ],
       "coverage": {
         "total": 90,
         "locales": {
@@ -401,6 +435,7 @@
         }
       ],
       "scopeKind": "region",
+      "examLanguages": null,
       "coverage": {
         "total": 96,
         "locales": {
@@ -999,6 +1034,7 @@
         }
       ],
       "scopeKind": "class",
+      "examLanguages": null,
       "coverage": {
         "total": 300,
         "locales": {
@@ -1049,6 +1085,7 @@
         }
       ],
       "scopeKind": "class",
+      "examLanguages": null,
       "coverage": {
         "total": 215,
         "locales": {
@@ -1098,7 +1135,8 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": null
     },
     {
       "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as the other 3 new modules this round. 40-question pool (3 topics: technik, betrieb, vorschriften), sourced from the BNetzA Fragenkataloge (2006 editions, structural/topical reference only) plus AFuV statute text - see data/amateurfunk_e_pilot.json meta for full sourcing and legal_review_status. Klasse E only; a Klasse A follow-up module is planned separately.",
@@ -1137,7 +1175,8 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": null
     },
     {
       "_comment": "2026-08 content expansion (round 2): Bavaria-specific Angelschein/Fischerpruefung module, a standalone exam_type (not a region option on the existing generic 'angelschein' module) since Bavaria's BayFiG/AVBayFiG regime is its own self-contained statute set, same 'ALL'-only class-scope pattern as sportboot_binnen/sportboot_see/waffensachkunde/amateurfunk_e. 48-question pool (5 topics: schonzeiten_bayern12, fanggeraete_bayern9, fischereischein_bayern10, fischkunde_bayern9, gewaesserschutz_bayern8), sourced from BayFiG/AVBayFiG statute text on gesetze-bayern.de. 3 fact-check findings (legal_basis citation errors) independently re-verified and fixed against gesetze-bayern.de primary text before this round - see BACKLOG.md and data/angelschein_bayern_pilot.json meta for full sourcing and legal_review_status.",
@@ -1177,6 +1216,7 @@
         }
       ],
       "scopeKind": "class",
+      "examLanguages": null,
       "coverage": {
         "total": 48,
         "locales": {
@@ -1237,6 +1277,7 @@
         }
       ],
       "scopeKind": "class",
+      "examLanguages": null,
       "coverage": {
         "total": 56,
         "locales": {
@@ -1296,7 +1337,8 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": null
     },
     {
       "exam_type": "fuehrerschein_bus",
@@ -1386,6 +1428,17 @@
         }
       ],
       "scopeKind": "class",
+      "examLanguages": [
+        "de",
+        "ar",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "pl",
+        "ru",
+        "tr"
+      ],
       "coverage": {
         "total": 48,
         "locales": {
@@ -1995,5 +2048,6 @@
         "material": "b0afd6d0c939"
       }
     }
-  ]
+  ],
+  "_comment_examLanguages": "ADR-app-0002 § 5 / ADR-0007 D5. The languages the REAL exam may be sat in - NOT the languages we have content in, and NOT the UI's 18. A Greek speaker studies in Greek and sits the Theorieprüfung in German or English. Values are not authored here: they are the KB's content.locale_tiers entries tagged official_exam_language, plus the canonical de, copied from zettacard-kb/content/<module>/module.json. null means UNESTABLISHED, not unrestricted - only the four driving-family modules have tiers in the KB. The other eight licence modules (Angelschein, Sportboot, Waffensachkunde, Amateurfunk) very likely have German-only exams, but nobody has checked, and writing [\"de\"] on a guess would make the app assert a fact about a state examination that we made up. The app asks nothing and claims nothing where this is null."
 }

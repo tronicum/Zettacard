@@ -591,6 +591,24 @@
     </div>
   </div>
 
+  <!-- ADR-app-0002 § 5: the exam-language sheet. Shown at the FIRST
+       Prüfungssimulation of a module whose real exam cannot be sat in the
+       learner's study language, and never again for that module unless they
+       change it from the exam picker. Deliberately not a settings screen: it
+       is a question that only makes sense at the moment it has a consequence,
+       and asking a beginner about exam languages before they have met the
+       exam is the kind of abstract question fable's concept doc argues
+       against. Rows are built at runtime from the module's own
+       examLanguages ∩ what we actually have questions in. -->
+  <div class="exam-modal" id="exam-lang-sheet" hidden role="dialog" aria-modal="true" aria-labelledby="exam-lang-title">
+    <div class="exam-modal-card">
+      <h2 id="exam-lang-title" tabindex="-1"></h2>
+      <p id="exam-lang-desc"></p>
+      <div id="exam-lang-list"></div>
+      <button class="back-btn" id="exam-lang-cancel"></button>
+    </div>
+  </div>
+
   <!-- Exam mode picker: choice between untimed training and the timed,
        strictly-scored simulation, per the real exam's own two-tier framing
        (DN-29, activated with explicit PO sign-off - see AGENTS.md history:

@@ -132,7 +132,19 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": [
+        "de",
+        "ar",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "pl",
+        "ro",
+        "ru",
+        "tr"
+      ]
     },
     {
       "exam_type": "motorrad",
@@ -204,7 +216,18 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": [
+        "de",
+        "ar",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "pl",
+        "ru",
+        "tr"
+      ]
     },
     {
       "exam_type": "lkw",
@@ -276,7 +299,18 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": [
+        "de",
+        "ar",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "pl",
+        "ru",
+        "tr"
+      ]
     },
     {
       "exam_type": "angelschein",
@@ -331,7 +365,8 @@
           }
         }
       ],
-      "scopeKind": "region"
+      "scopeKind": "region",
+      "examLanguages": null
     },
     {
       "_comment": "DN-44: first of 4 fully separate workplace-compliance modules (PO decision - not one module with topic options). scopeKind 'class' with a single 'ALL' option is a placeholder scope, since there's no class/region dimension for compliance training yet - kept so the existing module architecture (build_modules.py, questionMatchesScope) needs zero special-casing.",
@@ -729,7 +764,8 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": null
     },
     {
       "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as sportboot_binnen. 30-question pool (4 sea-specific topics: betonnung, seefunk_vorfahrt, gezeiten, seewetter), sourced from the official WSV Fragenkatalog See (Stand 01.08.2023) plus KVR/COLREG and SeeSchStrO - see data/sportboot_see_pilot.json meta for full sourcing and legal_review_status.",
@@ -768,7 +804,8 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": null
     },
     {
       "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as sportboot_binnen/sportboot_see. 50-question pool (4 topics: grundlagen, munition_ballistik, aufbewahrung_transport, handhabung_sicherheit), sourced from the official Bundesverwaltungsamt (BVA) Sachkunde-Fragenkatalog (Stand 16.12.2024) plus WaffG/AWaffV/StGB §32 statute text - see data/waffensachkunde_pilot.json meta for full sourcing and legal_review_status. Not legal advice; does not replace an accredited Sachkundepruefung course.",
@@ -807,7 +844,8 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": null
     },
     {
       "_comment": "2026-08 content expansion: personal-license module, same 'ALL'-only class-scope pattern as the other 3 new modules this round. 40-question pool (3 topics: technik, betrieb, vorschriften), sourced from the BNetzA Fragenkataloge (2006 editions, structural/topical reference only) plus AFuV statute text - see data/amateurfunk_e_pilot.json meta for full sourcing and legal_review_status. Klasse E only; a Klasse A follow-up module is planned separately.",
@@ -846,7 +884,8 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": null
     },
     {
       "_comment": "2026-08 content expansion (round 2): Bavaria-specific Angelschein/Fischerpruefung module, a standalone exam_type (not a region option on the existing generic 'angelschein' module) since Bavaria's BayFiG/AVBayFiG regime is its own self-contained statute set, same 'ALL'-only class-scope pattern as sportboot_binnen/sportboot_see/waffensachkunde/amateurfunk_e. 48-question pool (5 topics: schonzeiten_bayern12, fanggeraete_bayern9, fischereischein_bayern10, fischkunde_bayern9, gewaesserschutz_bayern8), sourced from BayFiG/AVBayFiG statute text on gesetze-bayern.de. 3 fact-check findings (legal_basis citation errors) independently re-verified and fixed against gesetze-bayern.de primary text before this round - see BACKLOG.md and data/angelschein_bayern_pilot.json meta for full sourcing and legal_review_status.",
@@ -885,7 +924,8 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": null
     },
     {
       "_comment": "2026-08 content expansion (round 2): NRW-specific Angelschein/Fischerpruefung module, a standalone exam_type (not a region option on the existing generic 'angelschein' module, which already has a lighter 'NRW' region-scope addon) since this module is a full self-contained LFischG-NRW-grounded pool, same 'ALL'-only class-scope pattern as the other new modules this round. 56-question pool (5 topics: schonzeiten12, geraete10, fischereischein14, fischkunde12, gewaesserschutz8), sourced from LFischG NRW statute text on recht.nrw.de. 3 fact-check findings independently re-verified and fixed before this round (Groppe/Grundel fish-ID error, Handangel-count legal_basis error, Aal-Schonzeit geographic-scope omission) - see BACKLOG.md and data/angelschein_nrw_pilot.json meta for full sourcing, the NRW 2025/2026 LFischG/LFischVO Neufassung caveat, and legal_review_status.",
@@ -924,7 +964,8 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": null
     },
     {
       "_comment": "2026-08 content expansion (round 2): the Klasse A follow-up module flagged as 'planned separately' in the amateurfunk_e entry above. Same 'ALL'-only class-scope pattern. 45-question pool, TECHNICAL-ONLY (topics: antennentechnik8, leitungstheorie8, ausbreitung8, leistung8, modulation_digital7, emv_hochleistung6) - Klasse A shares its Betrieb/Vorschriften exam pools ENTIRELY with Klasse E per §4 Abs. 4 AFuV (upgrading E->A only adds a technical exam), so this module deliberately contains ZERO Betrieb/Vorschriften questions rather than duplicating amateurfunk_e's. OPEN PRODUCT DECISION (not yet resolved, flagged in BACKLOG.md and data/amateurfunk_a_pilot.json meta.design_flag_betrieb_vorschriften): before this module can offer a realistic full 3-section Klasse A exam simulation, product needs to decide whether the exam composer draws Betrieb/Vorschriften questions live from the amateurfunk_e pool at draw time (preferred, avoids drift) or physically duplicates them into this module. Until resolved, this module's exam only covers the technical delta. 5 fact-check findings (AFuV/BEMFV legal_basis citation errors) independently re-verified against freirecht.de and the BNetzA Klasse A Fragenkatalog PDF and fixed before this round - see BACKLOG.md and data/amateurfunk_a_pilot.json meta for full sourcing and legal_review_status.",
@@ -963,7 +1004,8 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": null
     },
     {
       "exam_type": "fuehrerschein_bus",
@@ -1052,7 +1094,18 @@
           }
         }
       ],
-      "scopeKind": "class"
+      "scopeKind": "class",
+      "examLanguages": [
+        "de",
+        "ar",
+        "en",
+        "es",
+        "fr",
+        "it",
+        "pl",
+        "ru",
+        "tr"
+      ]
     },
     {
       "_comment": "DN-70: 9th compliance module, first cybersecurity/operational-resilience-focused one - DORA (Regulation (EU) 2022/2554, Digital Operational Resilience Act). Directly applicable EU Regulation (no national transposition), in force since 17 Jan 2025, covering ~20 types of financial entities. Art. 13(6) DORA mandates ICT security awareness/resilience training as a compulsory part of staff training for ALL employees and senior management - the strongest explicit all-staff training mandate found in this project's research so far. Started as a 20-question DE/EN-only pilot (data/dora_pilot.json), same launch pattern as kyc_aml/kartellrecht/lksg. AI-drafted, NOT legally reviewed yet - see claude/dora-pilot-pre-review-dossier-2026-08-13.md for the citation ledger and confidence tiers per question. Ships free for now, same MVP posture as the rest of the catalog. scopeKind/options placeholder pattern copied verbatim from the other compliance modules.",
@@ -1551,5 +1604,6 @@
       ],
       "scopeKind": "class"
     }
-  ]
+  ],
+  "_comment_examLanguages": "ADR-app-0002 § 5 / ADR-0007 D5. The languages the REAL exam may be sat in - NOT the languages we have content in, and NOT the UI's 18. A Greek speaker studies in Greek and sits the Theorieprüfung in German or English. Values are not authored here: they are the KB's content.locale_tiers entries tagged official_exam_language, plus the canonical de, copied from zettacard-kb/content/<module>/module.json. null means UNESTABLISHED, not unrestricted - only the four driving-family modules have tiers in the KB. The other eight licence modules (Angelschein, Sportboot, Waffensachkunde, Amateurfunk) very likely have German-only exams, but nobody has checked, and writing [\"de\"] on a guess would make the app assert a fact about a state examination that we made up. The app asks nothing and claims nothing where this is null."
 }

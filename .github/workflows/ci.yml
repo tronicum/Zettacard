@@ -126,6 +126,9 @@ jobs:
       - name: German is spelled with umlauts
         run: npm run check:orthography
 
+      - name: The simulation runs in a real exam language (ADR-app-0002 § 5)
+        run: npm run test:examlang
+
       # NOT blocking, and deliberately so. This suite currently reports
       # "HEADER, MAIN left inert" after nearly every step, which is CORRECT
       # behaviour being asserted at the wrong moment: it calls

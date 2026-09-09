@@ -825,6 +825,28 @@ def write_modules_json():
             raise AssertionError(
                 f"{m['exam_type']}: kind is {kind!r}; must be one of "
                 "licence/compliance/cert/compare (see the manifest's _comment).")
+        # ADR-app-0002 § 5. examLanguages says which languages a REAL state
+        # exam may be sat in, so it is only meaningful where a real exam
+        # exists elsewhere - that is exactly what kind "licence" means. On any
+        # other kind it would be a claim about an examination that does not
+        # exist. null is allowed and means "not established" (see the
+        # manifest's _comment_examLanguages); an empty list is not, because it
+        # reads as "sittable in no language".
+        exl = m.get("examLanguages")
+        if kind != "licence" and exl is not None:
+            raise AssertionError(
+                f"{m['exam_type']}: examLanguages is only meaningful on kind "
+                f"'licence'; this module is {kind!r}.")
+        if exl is not None:
+            if not isinstance(exl, list) or not exl:
+                raise AssertionError(
+                    f"{m['exam_type']}: examLanguages must be a non-empty list "
+                    "or null (null = not established).")
+            if "de" not in exl:
+                raise AssertionError(
+                    f"{m['exam_type']}: examLanguages omits 'de'. Every exam "
+                    "these modules prepare for can be sat in German; a list "
+                    "without it is a copying mistake, not a fact.")
 
     for exam_type, cov in COVERAGE.items():
         by_type[exam_type]["coverage"] = cov
