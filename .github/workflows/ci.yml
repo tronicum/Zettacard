@@ -126,6 +126,12 @@ jobs:
       - name: German is spelled with umlauts
         run: npm run check:orthography
 
+      # DEF-0003/0004/0005. Not a truth check - it cannot know where the
+      # questions came from, and for four modules nobody does yet. It only
+      # stops the claim reappearing while that is open.
+      - name: No unestablished origin claims in learner-facing copy
+        run: npm run check:claims
+
       - name: The simulation runs in a real exam language (ADR-app-0002 § 5)
         run: npm run test:examlang
 
