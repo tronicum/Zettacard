@@ -102,6 +102,30 @@ Branch model:
 |---|---|---|
 | `main` | `zettacard` | www.zettacard.de |
 | `staging` | `zettacard-staging` | zettacard-staging.netlify.app |
+
+**What is actually true, checked 2026-09-09.** The table above is the target,
+not the state. There is **no `staging` branch** — it has never existed — and
+the two projects behave differently:
+
+- `zettacard-staging` reports its branch URL as `main--zettacard-staging`,
+  i.e. it IS linked to the repo and builds `main`. Everything pushed to `main`
+  lands there.
+- `zettacard` (www.zettacard.de) reports a deploy-ID URL
+  (`6a9dca8c…--zettacard`), not a branch URL — the shape Netlify shows when a
+  site is not building from Git. Its served `app.js` contains no
+  `module-hub-primary`, no `hubNextAction`, no `lessonIdForTopic` and no
+  `topicTrafficState`, so **production predates the entire module hub** (older
+  than 2026-09-07) and is a hand-uploaded artefact. That is precisely the
+  hazard this section exists to remove.
+
+Caveat: the Netlify read tools available here do not expose build settings, so
+the "not linked" conclusion is inferred from the deploy-ID URL plus the stale
+content, not read directly. One line in the Netlify UI under Build & deploy
+settles it.
+
+Consequence worth stating before anyone links it: production will not receive
+an increment. It jumps over Phase 3 entire — hub, traffic light, derived
+lessons, the certificate honesty fixes — plus everything since, in one deploy.
 | pull requests | deploy previews on staging | per-PR URL |
 
 Nothing reaches `main` except via a PR that has a green preview.
