@@ -11,7 +11,8 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.62.1",
-    "playwright": "^1.47.0"
+    "playwright": "^1.47.0",
+    "axe-core": "^4.10.2"
   },
   "scripts": {
     "dev": "scripts/dev-serve.sh",
@@ -45,6 +46,7 @@
     "test:desktop": "node scripts/test_desktop_layout.mjs",
     "check:orthography": "python3 scripts/check_orthography.py",
     "test:examlang": "node scripts/test_exam_language.mjs",
-    "test:kind": "node scripts/test_kind_policy.mjs"
+    "test:kind": "node scripts/test_kind_policy.mjs",
+    "test:a11y": "node scripts/test_accessibility.mjs"
   }
 }

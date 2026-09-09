@@ -469,7 +469,11 @@
              a strong bot signal the function checks server-side. Not a
              replacement for real spam defenses, just a cheap first filter
              that stops the most naive submission bots. -->
-        <input type="text" id="contact-hp" name="hp_website" class="contact-hp" tabindex="-1" autocomplete="off">
+        <!-- Spam honeypot. aria-hidden because it must never be announced:
+             it is not a field any human should fill, and a screen-reader user
+             who hears it and answers it gets their message silently dropped.
+             Bots do not read the accessibility tree, so the trap still works. -->
+        <input type="text" id="contact-hp" name="hp_website" class="contact-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit" id="contact-send-btn"></button>
         <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
       </form>
@@ -907,7 +911,13 @@
         document.getElementById("contact-message").setAttribute("placeholder", cs.messagePlaceholder);
         document.getElementById("contact-send-btn").textContent = cs.sendBtn;
 
-        document.getElementById("lang-select").value = lang;
+        var langSel = document.getElementById("lang-select");
+        // The select had no accessible name at all - axe flags it critical.
+        // A screen reader announced it as an unlabelled combo box, which on a
+        // page whose whole point is 12 languages is the one control a user in
+        // the wrong language most needs to find.
+        langSel.setAttribute("aria-label", s.langLabel);
+        langSel.value = lang;
       }
 
       var startLang = detectLang();

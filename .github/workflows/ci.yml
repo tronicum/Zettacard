@@ -132,6 +132,13 @@ jobs:
       - name: The next action defaults per module kind (roadmap 4.1)
         run: npm run test:kind
 
+      # Blocking, with a caveat that belongs in the job name as much as in the
+      # file: automated tooling catches a minority of WCAG failures. Green here
+      # means no KNOWN machine-detectable violation, not that the app is usable
+      # with a screen reader. That still needs a person.
+      - name: No machine-detectable accessibility violations
+        run: npm run test:a11y
+
       # NOT blocking, and deliberately so. This suite currently reports
       # "HEADER, MAIN left inert" after nearly every step, which is CORRECT
       # behaviour being asserted at the wrong moment: it calls

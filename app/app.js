@@ -9118,6 +9118,29 @@ function examActiveIndex() {
   return ex.reviewPass ? ex.reviewIndex : ex.index;
 }
 
+// WCAG 3.1.2 "Language of Parts". The page declares one language on <html>;
+// any run of text in a DIFFERENT language has to say so on its own element,
+// or a screen reader reads it with the wrong voice. For a Greek learner
+// meeting German exam text that is not an accent - it is unintelligible.
+//
+// This became reachable the moment the simulation could run in a real exam
+// language (ADR-app-0002 § 5): the exam is deliberately German inside a
+// lang="el" page, which is exactly the case 3.1.2 exists for. The same
+// applies to a card served from a fallback bundle.
+//
+// `dir` rides along because the two travel together - German inside an Arabic
+// page needs LTR, and inheriting RTL would reorder the punctuation.
+function markTextLanguage(node, lang) {
+  if (!node) return;
+  if (!lang || lang === state.lang) {
+    node.removeAttribute("lang");
+    node.removeAttribute("dir");
+    return;
+  }
+  node.setAttribute("lang", lang);
+  node.setAttribute("dir", langDir(lang) || "ltr");
+}
+
 function renderExamQuestion() {
   const S = UI_STRINGS[state.lang];
   const X = EXAM_STRINGS[state.lang];
@@ -9154,6 +9177,9 @@ function renderExamQuestion() {
     ${runLang ? `<span class="badge exam-lang" id="exam-lang-badge">${escapeHtml(examLangStrings().runningIn(localeDisplayName(runLang)))}</span>` : ""}
   `;
   el("#exam-question").textContent = t.question;
+  // The run's language, not the UI's, is what this text is actually in.
+  markTextLanguage(el("#exam-question"), runLang);
+  markTextLanguage(el("#exam-options"), runLang);
 
   const img = resolveImage(q, false); // never reveal the answer-variant image mid-exam
   const imgEl = el("#exam-image-note");

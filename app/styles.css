@@ -50,6 +50,9 @@
   --text-dim: #5b6478;
   --accent: #2f6fed;
   --accent-dim: #dce8ff;
+  /* For accent-coloured TEXT on --accent-dim. --accent itself only reaches
+     3.69:1 there. */
+  --accent-strong: #2559bd;
   /* #92610a (the old value) hit only 4.14:1 against --badge-neutral-bg for
      the bold ~13.6px exam-timer low-time text - just under the 4.5:1
      threshold for text below the "large/bold" 14px cutoff. Darkened
@@ -460,7 +463,11 @@ main {
    touch devices, which are this app's primary audience. Reuses the same
    already-contrast-verified --accent-dim/accent pairing as filter chips
    rather than a new color. */
-.badge.try-it-hint { background: var(--accent-dim); color: var(--accent); }
+/* --accent on --accent-dim measured 3.69:1, and 11.2px bold is NOT "large
+   text" under WCAG 1.4.3 (that starts at 18.66px bold), so it needs the full
+   4.5:1. --accent-strong is the same hue darkened to 5.25:1 and exists for
+   exactly this pairing - accent-coloured text on an accent-tinted fill. */
+.badge.try-it-hint { background: var(--accent-dim); color: var(--accent-strong, var(--accent)); }
 
 .q-card-text {
   font-size: 0.95rem;
@@ -2198,7 +2205,13 @@ main {
 .module-hub-chip {
   margin: 0.15rem 0 0.9rem;
   font-size: 0.82rem;
-  opacity: 0.75;
+  /* `opacity: 0.75` used to sit here and it measured 3.27:1 - below the 4.5:1
+     WCAG 1.4.3 threshold for 13.6px text. The token was never the problem:
+     --text-dim is ~6:1 on this background. Opacity blends whatever colour you
+     picked toward the background AFTER the palette was checked, which is how a
+     carefully-chosen contrast value gets quietly undone. Say "dim" with the
+     colour, not by fading it. */
+  color: var(--text-dim);
 }
 /* The one button the ADR calls the primary action. It is the only filled
    control above the fold; the runs below are peers of each other, not of
