@@ -401,16 +401,25 @@ next-action defaults (`licence`/`cert` guided, `compliance` test-first,
 `compare` cards) — `kind` exists for exactly this and is not yet read here.
 One run per module plus a time-limit toggle, replacing the current several.
 
-### 4.2 `examLanguages` and a sticky target language — **NOT STARTED**
+### 4.2 `examLanguages` and a sticky target language — **PARTLY DONE** (5b29ad3)
 
-ADR-app-0002 § 5 decided this and nothing implements it. fable ranks it
-**above** the navigation rework: it is the primary audience's actual problem.
-A Greek or Arabic speaker studying for the Führerschein sits an exam that
-exists only in German and English; the app currently neither says so nor
-remembers what they chose. Wanted: `examLanguages` on the manifest, the § 5
-sheet asked once at the first simulation, the answer remembered, and the
-exam-start sheet still able to change it. The per-card "DE" gloss and "Auf
-Deutsch üben" come after 4.1 and 4.2 both exist.
+**Done.** `examLanguages` is published on the 12 `licence` modules, with the
+values taken from the KB's `locale_tiers` rather than authored — null on the
+eight where nobody has established them, and null means *unestablished*, not
+*German only*. The § 5 sheet is asked once at the first simulation of a module
+whose exam cannot be sat in the study language, the answer is remembered per
+module and profile, the run really is served in that language (its own locale
+bundle, refused rather than faked if incomplete), and every card in such a run
+carries a badge naming it. Training is untouched.
+
+**Left.** A way to change the choice after it is made — today it is only
+re-asked if the module's language list changes. The per-card "DE" gloss in
+Lernen and "Auf Deutsch üben" as a next action still wait on 4.1.
+
+**Worth a decision:** eight licence modules have no established exam
+languages. Establishing them is research (what languages does the NRW
+Fischerprüfung actually offer?), not code, and until it happens those learners
+get no warning at all.
 
 ### 4.3 The Ziel row and the high-stakes gate — **NOT STARTED**
 
