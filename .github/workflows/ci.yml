@@ -129,6 +129,9 @@ jobs:
       - name: The simulation runs in a real exam language (ADR-app-0002 § 5)
         run: npm run test:examlang
 
+      - name: The next action defaults per module kind (roadmap 4.1)
+        run: npm run test:kind
+
       # NOT blocking, and deliberately so. This suite currently reports
       # "HEADER, MAIN left inert" after nearly every step, which is CORRECT
       # behaviour being asserted at the wrong moment: it calls

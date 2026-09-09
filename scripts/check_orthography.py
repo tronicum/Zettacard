@@ -76,9 +76,16 @@ src = open(os.path.join(ROOT, "app", "app.js"), encoding="utf-8").read()
 for i, line in enumerate(src.split("\n"), 1):
     st = line.lstrip()
     if st.startswith("//") or st.startswith("*") or st.startswith("/*"): continue
-    for m in re.finditer(r'"([^"\\]{4,})"', line):
-        for h in RX["bar"].finditer(m.group(1)):
-            hits.append((f"app/app.js:{i}", h.group(1), m.group(1)[:80]))
+    # Double-quoted AND backtick template literals. Only the first was checked
+    # at first, and the gap was not hypothetical: `dueToday: (n) => \`Heute
+    # faellig: ${n}\`` sat two lines from strings this had just cleaned, was
+    # missed by the guard AND by the fixer, and came back through the KB the
+    # next time the UI strings were re-extracted. A German string does not
+    # stop being one because it interpolates a number.
+    for m in re.finditer(r'"([^"\\]{4,})"|`([^`\\]{4,})`', line):
+        body = m.group(1) or m.group(2)
+        for h in RX["bar"].finditer(body):
+            hits.append((f"app/app.js:{i}", h.group(1), body[:80]))
 
 if hits:
     print(f"{len(hits)} ASCII-transliterated German spelling(s):\n")

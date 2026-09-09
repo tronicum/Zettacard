@@ -3258,7 +3258,7 @@ const MODULE_HUB_STRINGS = {
     continueLearning: "Weiterlernen",
     startLearning: "Lernen starten",
     learnedOf: (n, total) => `${n} von ${total} gelernt`,
-    dueToday: (n) => `Heute faellig: ${n}`,
+    dueToday: (n) => `Heute fällig: ${n}`,
     noneDue: "Heute nichts fällig",
     lastSimPassed: "Letzte Prüfungssimulation: bestanden",
     lastSimFailed: "Letzte Prüfungssimulation: nicht bestanden",
@@ -3282,9 +3282,18 @@ const MODULE_HUB_STRINGS = {
     stateYellow: "auf dem Weg",
     stateGreen: "sitzt",
     nextTitle: "Als Nächstes",
-    nextReview: (n) => `${n} faellige Karten wiederholen`,
+    nextReview: (n) => `${n} fällige Karten wiederholen`,
     nextLearn: (topic) => `Weiter mit ${topic}`,
     nextSimulate: "Alles sitzt - Prüfungssimulation starten",
+    // Roadmap 4.1, per-kind next action. "Kurzcheck" rather than "Test":
+    // a compliance learner is usually a professional being asked to prove
+    // something, and the word for the first thing they meet should promise
+    // brevity, not assessment.
+    startCheck: "Mit dem Kurzcheck starten",
+    nextCheck: "Kurzcheck: wo stehst du?",
+    nextQuiz: (topic) => `${topic} üben`,
+    nextCards: (topic) => `Karten zu ${topic} ansehen`,
+    nextCardsAll: "Karten ansehen",
     cardsLink: "Nur Karten",
     stateAria: (label, stateWord) => `${label}: ${stateWord}`,
   },
@@ -3319,6 +3328,11 @@ const MODULE_HUB_STRINGS = {
     nextReview: (n) => `Review ${n} cards that are due`,
     nextLearn: (topic) => `Carry on with ${topic}`,
     nextSimulate: "All solid - start the readiness check",
+    startCheck: "Start with a quick check",
+    nextCheck: "Quick check: where do you stand?",
+    nextQuiz: (topic) => `Practise ${topic}`,
+    nextCards: (topic) => `Browse ${topic} cards`,
+    nextCardsAll: "Browse the cards",
     cardsLink: "Just the cards",
     stateAria: (label, stateWord) => `${label}: ${stateWord}`,
   },
@@ -3550,10 +3564,63 @@ function topicTrafficState({ total, learned, seen, due, highStakes, highStakesLe
  *     topic scores worst fights that order.
  *  3. Everything green -> the run. There is nothing left to learn first.
  */
-function hubNextAction(rows, due) {
+// The next action defaults per module `kind` (roadmap 4.1, fable's Option A
+// with the borrow from C). No question is asked, because `kind` already
+// carries this distinction - ADR-app-0002 § 0 put it in the manifest for
+// exactly this purpose, and until now the hub never read it.
+//
+// Why the three differ:
+//
+//   licence / cert  GUIDED. A real exam exists elsewhere and the learner
+//                   usually has not met the material. Explanation first, then
+//                   practice, then the simulation once every topic is green.
+//   compliance      TEST-FIRST. No official exam exists anywhere; our record
+//                   IS the proof (ADR-app-0002 § 0). The learner is typically
+//                   a professional who already knows most of it and is here to
+//                   demonstrate that, so opening with lesson one insults them
+//                   and wastes the hour. A short Kurzcheck sets every light,
+//                   after which the weakest topic is a measured fact rather
+//                   than a guess.
+//   compare         CARDS. These modules confer nothing and have no
+//                   simulation to earn (recordCompletion() refuses them). A
+//                   "next" that pointed at a lesson or an exam would be
+//                   promising a destination that does not exist.
+const HUB_NEXT_POLICY = {
+  licence: "guided",
+  cert: "guided",
+  compliance: "check_first",
+  compare: "cards",
+};
+
+function hubNextPolicy(examType) {
+  const mod = moduleManifestFor(examType);
+  return HUB_NEXT_POLICY[mod && mod.kind] || "guided";
+}
+
+function hubNextAction(rows, due, examType) {
+  // A due card is a due card in every policy: spaced repetition is about
+  // forgetting, and forgetting does not care what kind of module it is.
   if (due > 0) return { kind: "review", due };
-  const next = rows.find((r) => r.state !== "green");
-  if (next) return { kind: "learn", topic: next };
+
+  const policy = hubNextPolicy(examType === undefined ? state.examType : examType);
+  const weakest = rows.find((r) => r.state !== "green");
+
+  if (policy === "cards") {
+    return weakest ? { kind: "cards", topic: weakest } : { kind: "cards", topic: rows[0] || null };
+  }
+
+  if (policy === "check_first") {
+    // "Nothing measured yet" is `rows.every(grey)`, not `learned === 0`.
+    // A learner who browsed a few cards has moved the counter without
+    // answering anything, and the lights are what the weakest-topic claim
+    // rests on - so the Kurzcheck stays the next action until at least one
+    // topic has actually been measured.
+    const measured = rows.some((r) => r.state !== "grey");
+    if (!measured) return { kind: "check" };
+    return weakest ? { kind: "quiz", topic: weakest } : { kind: "simulate" };
+  }
+
+  if (weakest) return { kind: "learn", topic: weakest };
   return { kind: "simulate" };
 }
 
@@ -3677,7 +3744,20 @@ function renderModuleHub() {
   // next tap exposes.
   const resumePoint = loadResumePoint(state.examType);
   const canResume = !!(resumePoint && resumePoint.questionId) || p.learned > 0 || p.due > 0;
-  primary.innerHTML = `<strong>${canResume ? H.continueLearning : H.startLearning}</strong>`;
+  // Computed here rather than in step 3b below, because on a compliance
+  // module's first visit it decides what the PRIMARY button says. Everything
+  // else about it belongs to 3b.
+  const rows = hubTopicRows();
+  const next = hubNextAction(rows, p.due, state.examType);
+  // Test-first means the biggest button is the check. Leaving "Lernen
+  // starten" on top and putting the Kurzcheck in the small line below would
+  // make the policy advisory - a compliance learner would tap the button that
+  // looks like the way in, land in lesson one, and never see the check.
+  primary.innerHTML = `<strong>${
+    next.kind === "check" && !canResume ? H.startCheck
+      : canResume ? H.continueLearning : H.startLearning
+  }</strong>`;
+  primary.dataset.primaryKind = next.kind === "check" && !canResume ? "check" : "resume";
 
   // 3. Progress.
   const prog = el("#module-hub-progress");
@@ -3690,14 +3770,16 @@ function renderModuleHub() {
   // button, not a second button: the ADR allows one primary action on the
   // hub, and two competing "do this next" controls is exactly the ambiguity
   // a hub exists to remove.
-  const rows = hubTopicRows();
-  const next = hubNextAction(rows, p.due);
   const nextBtn = el("#module-hub-next");
   el("#module-hub-next-title").textContent = H.nextTitle;
   nextBtn.dataset.nextKind = next.kind;
   if (next.kind === "review") nextBtn.textContent = H.nextReview(next.due);
   else if (next.kind === "learn") nextBtn.textContent = H.nextLearn(next.topic.label);
-  else nextBtn.textContent = H.nextSimulate;
+  else if (next.kind === "check") nextBtn.textContent = H.nextCheck;
+  else if (next.kind === "quiz") nextBtn.textContent = H.nextQuiz(next.topic.label);
+  else if (next.kind === "cards") {
+    nextBtn.textContent = next.topic ? H.nextCards(next.topic.label) : H.nextCardsAll;
+  } else nextBtn.textContent = H.nextSimulate;
   state.hubNext = next;
 
   // 4. Topics, each a filtered entry into the list the app already has.
@@ -3790,7 +3872,14 @@ function renderModuleHub() {
 }
 
 function wireModuleHubControls() {
-  el("#module-hub-primary").addEventListener("click", () => {
+  el("#module-hub-primary").addEventListener("click", (ev) => {
+    // A compliance module's first visit: the primary IS the Kurzcheck, so it
+    // does what it says rather than resuming a session that never happened.
+    if (ev.currentTarget.dataset.primaryKind === "check") {
+      closeModuleHub();
+      startPracticeQuiz("mixed");
+      return;
+    }
     // Resume the last topic AND position, which is what "Weiterlernen" says
     // and what ADR-app-0002 § 1 requires. Until now this set the filter to
     // "all" and called history.back() - it DISMISSED the hub to reveal an
@@ -3833,11 +3922,25 @@ function wireModuleHubControls() {
     if (!next) return;
     if (next.kind === "simulate") { closeModuleHub(); startExam("simulation"); return; }
     if (next.kind === "review") { closeModuleHub(); openReviewSession(); return; }
+    // The Kurzcheck: one mixed run whose only job is to turn every grey light
+    // into a measured one. Started directly rather than through the practice
+    // picker - a learner told "start with a short check" and then handed a
+    // menu of topics has been asked the question the check exists to answer.
+    if (next.kind === "check") { closeModuleHub(); startPracticeQuiz("mixed"); return; }
+
+    if (!next.topic) { history.back(); render(); return; }
+    state.topicFilter = next.topic.code;
+    // A compliance learner past the Kurzcheck goes to the weakest topic's
+    // quiz, not its lesson: the check has just shown they know the material,
+    // so the gap is practice, not explanation.
+    if (next.kind === "quiz") { closeModuleHub(); startPracticeQuiz(next.topic.code); return; }
+    // `cards` is the compare modules' destination, and the escape hatch's:
+    // the filtered list, which is where history.back() + render() lands.
+    if (next.kind === "cards") { history.back(); render(); return; }
     // Same destination as the topic row it names: the lesson. Pointing "next"
     // at a raw card list was the gap the navigation concept identified - the
     // suggestion and the didactic sequence were two systems that did not know
     // each other existed.
-    state.topicFilter = next.topic.code;
     const lessonId = lessonIdForTopic(next.topic.code);
     if (lessonId) { closeModuleHub(); openCourseLesson(lessonId); return; }
     history.back();
